@@ -22,7 +22,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://docs.microsoft.com/en-us/samples/browse/?service=data-share/
+    href: https://docs.microsoft.com/samples/browse/?service=data-share/
   - name: Azure Powershell
     href: samples-powershell.md
 - name: How-to guides

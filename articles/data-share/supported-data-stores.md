@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: joanpo
 ---
-# Supported data stores in Azure Data Share 
+# Supported data stores
 
 Azure Data Share provides open and flexible data sharing, including the ability to share from and to different data stores. Data providers can share data from one type of data store, and their data consumers can choose which data store to receive data into. 
 
@@ -22,6 +22,8 @@ The below table details the supported data sources for Azure Data Share.
 | Azure SQL Database |Public Preview | |
 | Azure SQL Data Warehouse |Public Preview | |
 | Azure Data Explorer | |[Limited preview](https://aka.ms/azuredatasharepreviewsignup) |
+
+# Data store support matrix
 
 Azure Data Share offers data consumers flexibility when deciding on a data store to accept data in to. For example, data being shared from Azure SQL Database can be received into Azure Data Lake Store Gen2, Azure SQL Database or Azure SQL Data Warehouse. Customers can choose which format to receive data in when configuring a received data share. 
 
