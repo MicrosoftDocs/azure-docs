@@ -73,7 +73,7 @@
      - name: Bot protection
        href: ./ag/bot-protection.md
      - name: Associate a policy with an existing Application Gateway
-       href: ./ag/waf-policy-with-existing-gateway.md
+       href: ./ag/associate-waf-policy-existing-gateway.md
      - name: Diagnostic logs
        href: ./ag/web-application-firewall-logs.md
      - name: Troubleshoot WAF
