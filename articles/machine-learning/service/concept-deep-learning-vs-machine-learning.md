@@ -114,3 +114,5 @@ The following articles show you how to use deep learning technology in [Azure Ma
 - [Classify images by using a Pytorch model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 - [Classify handwritten digits by using a Chainer model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+
+Also, use the [Machine Learning Algorithm Cheat Sheet](../algorithm-cheat-sheet.md) to choose algorithms for your model.
