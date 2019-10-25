@@ -64,6 +64,8 @@ CREATE DATABASE mydbname
 
 We need to create credential before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
 
+For more information on how to manage storage access control check this [link](development-storage-files-storage-access-control.md).
+
 > Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
 
 **Code snippet on how to create credentials for CSV, JSON and Parquet containers**, run:
