@@ -63,7 +63,7 @@ Assigning an Azure Active Directory user the TenantCreator application role allo
 
 To assign the TenantCreator application role:
 
-1. Go to the [Azure portal](https://portal.azure.com) to manage the web app. Search for and select **Enterprise applications**. If you're working with multiple Azure Active Directory tenants, it's a best practice to open a private browser session and copy and paste the URLs into the address bar.
+1. Go to the [Azure portal](https://portal.azure.com) to manage the TenantCreator application role. Search for and select **Enterprise applications**. If you're working with multiple Azure Active Directory tenants, it's a best practice to open a private browser session and copy and paste the URLs into the address bar.
 
    ![Screenshot of searching for Enterprise applications in the Azure portal](media/azure-portal-enterprise-applications.png)
 2. Within **Enterprise applications**, search for **Windows Virtual Desktop**. You'll see the two applications that you provided consent for in the previous section. Of these two apps, select **Windows Virtual Desktop**.
@@ -89,7 +89,7 @@ Before you continue on to create your Windows Virtual Desktop tenant, you need t
 - Your Azure subscription ID
 
 To find your Azure Active Directory tenant ID (or **Directory ID**):
-1. In the same Azure portal session, search for **Azure Active Directory** in the search bar and select the entry that appears under the **Services** category.
+1. In the same [Azure portal](https://portal.azure.com) session, search for and select **Azure Active Directory**.
 
    ![A screenshot of the search results for "Azure Active Directory" in the Azure portal. The search result under "Services" is highlighted.](media/tenant-search-azure-active-directory.png)
 2. Scroll down until you find **Properties**, and then select it.
@@ -98,7 +98,7 @@ To find your Azure Active Directory tenant ID (or **Directory ID**):
    ![A screenshot of the Azure Active Directory properties. The mouse is hovering over the clipboard icon for "Directory ID" to copy and paste.](media/tenant-directory-id.png)
 
 To find your Azure subscription ID:
-1. In the same Azure portal session, search for **Subscriptions** in the search bar and select the entry that appears under the **Services** category.
+1. In the same [Azure portal](https://portal.azure.com) session, search for and select **Subscriptions**.
    
    ![A screenshot of the search results for "Azure Active Directory" in the Azure portal. The search result under "Services" is highlighted.](media/tenant-search-subscription.png)
 2. Select the Azure subscription you want to use to receive Windows Virtual Desktop service notifications.
