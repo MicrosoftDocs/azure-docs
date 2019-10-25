@@ -20,7 +20,8 @@ ms.collection: M365-identity-device-management
 If you forgot your password, never got one from your company support, or have been locked out of your account, you can use your security info and your mobile device to reset your password.
 
 >[!NOTE]
->If you know your password and just want to change it, you can go to the [Change your password](#how-to-change-your-password) steps in this article.<br><br>
+>If you know your password and just want to change it, you can go to the [Change your password](#how-to-change-your-password) steps in this article.
+>
 >If you're trying to get back into a personal account like Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
 
 ## How to reset or unlock your password for a work or school account
@@ -47,14 +48,16 @@ If you can't access your Azure Active Directory (Azure AD) account, it could be 
     ![Get back into your account, verification step #1](media/security-info/security-info-back-into-acct2.png)
 
     >[!NOTE]
-    >Depending on how your administrator has set up your organization, some of these verification options might not be available. You must have previously set up your mobile device for verification using at least one of these methods.<br><br>Additionally, your new password might need to meet certain strength requirements. Strong passwords typically have 8 to 16 characters, including upper and lowercase characters, at least one number, and at least one special character.
+    >Depending on how your administrator has set up your organization, some of these verification options might not be available. You must have previously set up your mobile device for verification using at least one of these methods.
+    >
+    >Additionally, your new password might need to meet certain strength requirements. Strong passwords typically have 8 to 16 characters, including upper and lowercase characters, at least one number, and at least one special character.
 
 - **Reset your password using an email address.** Sends an email to the email address you previously set up in two-step verification or security info. If your administrator has turned on the security info experience, you can find more info about setting up an email address in the [Set up security info to use email (preview)](security-info-setup-email.md) article. If you're not yet using security info, you can find more info about setting up an email address in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article. 
 
     1. Select **Email my alternate email**, and then select **Email**.
 
     2. Type the verification code from the email into the box, and then select **Next**.
-    
+
     3. Type and confirm your new password, and then select **Finish**.
 
 - **Reset your password using a text message.** Sends a text message to the phone number you previously set up in security info. If your administrator has turned on the security info experience, you can find more info about setting up text messaging in the [Set up security info to use text messaging (preview)](security-info-setup-text-msg.md) article. If you're not yet using security info, you can find more info about setting up text messaging in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
@@ -96,7 +99,7 @@ If you can't access your Azure Active Directory (Azure AD) account, it could be 
   3. Type and confirm your new password, and then select **Finish**.
 
   4. After you get the message saying that your password has been reset, you can sign in to your account using your new password.
-        
+
      If you still can't access your account, you should contact your organization's administrator for more help.
 
 After resetting your password, you might get a confirmation email that comes from an account like, "Microsoft on behalf of \<*your_organization*>." If you get a similar email, but you didn't recently reset your password, you must contact your organization's administrator immediately.
@@ -117,17 +120,15 @@ Use this method if you typically access your apps through the Office portal:
 
 4. Type your old password, create and confirm your new password, and then select **Submit**.
 
-### To change your password from the Azure Access Panel
+### To change your password from the My Account portal
 
-Use this method if you typically access your apps from the Azure Access Panel (MyApps):
+Use this method if you typically access your apps from the My Account portal:
 
-1. Sign in to the [Azure Access Panel](https://myapps.microsoft.com/), using your existing password.
+1. Sign in to your work or school account, using your existing password, and then go to your https://myprofile.microsoft.com/ page.
 
-2. Select your profile on the upper-right side, and then select **Profile**.
+2. Select the **Change password** link from the **Password** block.
 
-3. Select **Change password**.
-
-4. Type your old password, create and confirm your new password, and then select **Submit**.
+3. Type your old password, create and confirm your new password, and then select **Submit**.
 
 ### To change your password at Windows sign-in
 
