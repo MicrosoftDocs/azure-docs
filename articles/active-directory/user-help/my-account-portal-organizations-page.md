@@ -26,7 +26,7 @@ There are two types of organizations shown on the **Organizations** page:
 - **Other organizations.** The other organizations are any group that you've signed in to previously using your work or school account. You can leave any of these organizations at any time.
 
     >[!NOTE]
-    > If you don't have an assigned Home organization, you'll just see a single heading that says Organizations with with a single list of your organizations.
+    > If you don't have an assigned Home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.
 
 ## View your organizations
 
