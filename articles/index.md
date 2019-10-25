@@ -3962,7 +3962,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure FarmBeats</h3>
-                                                    <p>Collection of Azure services and capabilities, rapidly builds intelligent data-driven solutions in agriculture.</p>
+                                                    <p>Rapidly builds digital agriculture solutions in the cloud.</p>
                                                 </div>
                                             </div>
                                         </div>
