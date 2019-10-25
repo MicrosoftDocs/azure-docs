@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 This article helps you troubleshoot a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication.
 
-## <a name="status"></a>Status Log
+## <a name="status"></a>View Status Log
 
 View the status log for error messages.
 
@@ -24,7 +24,9 @@ View the status log for error messages.
 2. Check the logs for errors that may indicate the problem.
 3. Error messages are displayed in red.
 
-## <a name="clear"></a>Clear sign in information
+## <a name="clear"></a>Clear sign-in information
+
+Clear the sign-in information.
 
 ![sign in](./media/troubleshoot-ad-vpn-client/2.png)
 
@@ -33,7 +35,9 @@ View the status log for error messages.
 3. Try to connect.
 4. If the connection still fails, continue to the next section.
 
-## <a name="diagnostics"></a>Run diagnostics on the VPN client
+## <a name="diagnostics"></a>Run diagnostics
+
+Run diagnostics on the VPN client.
 
 ![diagnostics](./media/troubleshoot-ad-vpn-client/3.png)
 
@@ -47,7 +51,9 @@ View the status log for error messages.
 3. If any of the tests fail, contact your network administrator to resolve the issue.
 4. The next section shows you how to collect the logs, if needed.
 
-## <a name="logfiles"></a>Collect Azure VPN client log files
+## <a name="logfiles"></a>Collect client log files
+
+Collect the VPN client log files.
 
 1. Click the “…” next to the profile that you want to run diagnostics on. Select **Diagnose -> Show Logs Directory**.
 
