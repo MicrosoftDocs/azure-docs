@@ -1,0 +1,101 @@
+### YamlMime:Landing
+
+title: Azure Security fundamentals documentation
+summary: Learn how to secure your cloud solutions on Azure with our best practices and guidance.
+
+metadata:
+  title: Azure Security fundamentals documentation
+  description: Learn how to secure your cloud solutions on Azure.
+  services: security
+  ms.service: security
+  ms.subservice: fundamentals
+  ms.topic: landing-page
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 10/25/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Security
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Introduction to Azure security
+            url: overview.md
+          - text: Security technical capabilities
+            url: technical-capabilities.md
+      - linkListType: concept
+        links:
+          - text: How Microsoft secures the Azure infrastructure
+            url: infrastructure.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Shared responsibility in the cloud
+            url: shared-responsibility.md
+          - text: Security services and technologies
+            url: services-technologies.md
+          - text: Built-in security controls
+            url: security-controls.md
+
+  # Card
+  - title: Secure your cloud solutions
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Network security
+            url: network-best-practices.md
+          - text: IaaS workloads
+            url: iaas.md
+          - text: Identity management
+            url: identity-management-best-practices.md
+          - text: Database security
+            url: database-best-practices.md
+          - text: PaaS deployments
+            url: paas-deployments.md
+          - text: Data security and encryption
+            url: data-encryption-best-practices.md
+          - text: Operational
+            url: operational-best-practices.md
+
+  # Card
+  - title: Protect your Azure resources
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Security Center
+            url: ../../security-center/security-center-intro.md
+      - linkListType: concept
+        links:
+          - text: Data security and encryption
+            url: encryption-overview.md
+          - text: Network security
+            url: network-overview.md
+          - text: Virtual machines security
+            url: virtual-machines-overview.md
+          - text: Management and monitoring
+            url: management-monitoring-overview.md
+          - text: Advanced threat detection
+            url: threat-detection.md
+
+  # Card
+  - title: Build your skills
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Implement network security
+            url: https://docs.microsoft.com/learn/paths/implement-network-security
+          - text: Manage identity and access
+            url: https://docs.microsoft.com/learn/paths/manage-identity-and-access
+          - text: Implement resource management security
+            url: https://docs.microsoft.com/learn/paths/implement-resource-mgmt-security
+          - text: Implement virtual machine host security
+            url: https://docs.microsoft.com/learn/paths/implement-host-security

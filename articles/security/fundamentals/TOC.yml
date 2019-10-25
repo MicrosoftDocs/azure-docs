@@ -1,5 +1,5 @@
 - name: Fundamentals Documentation
-  href: index.md
+  href: index.yml
 - name: Architecture and design
   href: overview.md
   expanded: false
