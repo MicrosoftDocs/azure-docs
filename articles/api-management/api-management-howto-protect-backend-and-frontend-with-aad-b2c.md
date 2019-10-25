@@ -35,6 +35,8 @@ To follow the steps in this article, you must have:
 * An empty Azure Function app (running the V2 .Net Core runtime, on a Windows Consumption Plan) to host the called API
 * An Azure AD B2C tenant, linked to a subscription 
 
+Although in practice you would use resources in the same region in production workloads, for this how-to article the region of deployment is not important.
+
 ## Overview
 Here is an illustration of the components in use and the flow between them once this process is complete.
 ![Components in use and flow](../api-management/media/api-management-howto-protect-backend-and-frontend-with-aad-b2c/image_arch.png "Components in use and flow")
@@ -57,7 +59,7 @@ Here is a quick overview of the steps:
 ## Create the Azure AD B2C configuration.
 Open the Azure AD B2C blade in the portal and do the following steps.
 1. Select the **Applications** tab 
-2. Click the 'Add' button and create three applications with sensible names 
+2. Click the 'Add' button and create three applications for the following purposes
    * The Frontend Client.
    * The Backend Function API.
    * [Optional] The API Management developer portal (unless you're running Azure API Management in the consumption tier, more on this scenario later).
@@ -84,7 +86,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 3. Choose the 'Sign up and sign in' user flow type
 3. Give the policy a name and record it for later.
 4. Then Under 'Identity providers', then check 'User ID sign up' and click OK. 
-5. Under 'User Attributes and claims', click 'Show More...' then choose the claim options that you want your users to enter and have returned in the token. Choose at least 'Display Name' and 'Email Address', and click 'OK', then click 'Create'.
+5. Under 'User Attributes and claims', click 'Show More...' then choose the claim options that you want your users to enter and have returned in the token. Check at least 'Display Name' and 'Email Address' to collect and return, and click 'OK', then click 'Create'.
 7. Select the policy that you created in the list, then click the 'Run user flow' button.
 8. This will open the run user flow blade, select the frontend application, then record the address of the b2clogin.com domain that's shown under the dropdown for 'Select domain'.
 9. Click on the link at the top to open the 'well-known openid configuration endpoint', and record the authorization_endpoint and token_endpoint values as well of the value of the link itself as the well known openid configuration endpoint.
@@ -97,7 +99,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 > If you want to you can click the 'Run user flow' button here (to go through the Signup or Signin process) and get a feel for what it will do in practice, but the redirection step at the end will fail as the app has not yet been deployed.
 
 ## Build the function API.
-1. Go to the Function Apps blade of the Azure portal, open your empty function app, then create a new In-Portal 'Webhook + API' function.
+1. Go to the Function Apps blade of the Azure portal, open your empty function app, then create a new In-Portal 'Webhook + API' function via the QuickStart.
 2. Paste the sample code from below into Run.csx over the existing code that appears.
 
 ```csharp
@@ -152,13 +154,13 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 ## Configure and secure the function API.
 1. Two extra areas in the function app need to be configured (Auth and Network Restrictions).
-2. Firstly Let's configure Authentication / Authorization, so click on the name of the function app (next to the <Z> icon) to show the overview page.
+2. Firstly Let's configure Authentication / Authorization, so click on the name of the function app (next to the &lt;Z&gt; functions icon) to show the overview page.
 3. Next Select the 'Platform features' tab and select 'Authentication / Authorization'.
 4. Turn on the App Service Authentication feature.
 5. Under 'Authentication Providers' choose ‘Azure Active Directory’, and choose ‘Advanced’ from the Management Mode switch.
 6. Paste the backend API's application ID (from Azure AD B2C into the ‘Client ID’ box)
 7. Paste the Well-known open-id configuration endpoint from the Signup or Signin policy into the Issuer URL box (we recorded this configuration earlier).
-8. Add the three application IDs that you recorded earlier for the Azure AD B2C applications into the Allowed Token Audiences.
+8. Add the three (or two if using API Management consumption model) application IDs that you recorded earlier for the Azure AD B2C applications into the Allowed Token Audiences, this tells EasyAuth which AUD claim values are allowed in the tokens receieved.
 9. Select OK, then click Save.
 
    > [!NOTE]
@@ -182,20 +184,20 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 2. Select the APIs Blade from the API Management section of your instance.
 3. From the 'Add a New API' pane, choose 'Function App', then select 'Full' from the top of the popup.
 4. Click Browse, choose the function app you're hosting the API inside, and click select.
-5. Give the api a sensible set of names and descriptions and add it to the ‘unlimited’ Product.
+5. Give the API a name and description for API Management's internal use and add it to the ‘unlimited’ Product.
 6. Make sure you record the base URL for later use and then click create.
 
 ## Configure Oauth2 for API Management.
-1. Switch back to your standard Azure AD B2C tenant in the Azure portal and open the *API Management blade*, then open *your instance*.
+1. Switch back to your standard Azure AD tenant in the Azure portal so we can configure items in your subscription again and open the *API Management blade*, then open *your instance*.
 2. Next, Select the Oauth 2.0 blade from the Security Tab, and click 'Add'
-3. Give sensible values for *Display Name* and *Description*
+3. Givevalues for *Display Name* and *Description* for the added Oauth Endpoint (these values will show up in the next step as an Oauth2 endpoint).
 4. You can enter any value in the Client registration page URL, as this value won't be used.
-5. Check the *Implicit Auth* Grant type
+5. Check the *Implicit Auth* Grant type and optionally uncheck the Authorization code grant type.
 6. Move to the *Authorization* and *Token* endpoint fields, and enter the values you captured from the well-known configuration xml document earlier.
 7. Scroll down and populate an *Additional body parameter* called 'resource' with the 
 Function API client ID from the Azure AD B2C App registration
-8. Select 'Client credentials', set the Client ID to the Developer console app's app ID.
-9. Set the Client Secret to the key you recorded earlier. 
+8. Select 'Client credentials', set the Client ID to the Developer console app's app ID - skip this step if using the consumption API Management model.
+9. Set the Client Secret to the key you recorded earlier - skip this step if using the consumption API Management model.
 10. Lastly, now record the redirect_uri of the auth code grant from API Management for later use.
 
 ## Set up Oauth2 for your API.
