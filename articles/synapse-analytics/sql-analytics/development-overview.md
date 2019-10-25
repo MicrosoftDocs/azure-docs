@@ -12,11 +12,11 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# Design decisions and coding techniques for SQL Data Warehouse
-Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for SQL Data Warehouse.
+# Design decisions and coding techniques for SQL Analytics
+Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for SQL Analytics.
 
 ## Key design decisions
-The following articles highlight concepts and design decisions for developing a distributed data warehouse using SQL Data Warehouse:
+The following articles highlight concepts and design decisions for developing a distributed data warehouse using SQL Analytics pool:
 
 * [connections][connections]
 * [concurrency][concurrency]
@@ -29,7 +29,7 @@ The following articles highlight concepts and design decisions for developing a 
 * [statistics][statistics]
 
 ## Development recommendations and coding techniques
-These articles highlight specific coding techniques, tips, and recommendations for developing your SQL Data Warehouse:
+These articles highlight specific coding techniques, tips, and recommendations for developing:
 
 * [stored procedures][stored procedures]
 * [labels][labels]
