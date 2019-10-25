@@ -84,9 +84,10 @@ To assign the TenantCreator application role:
 7. On the **Windows Virtual Desktop - Users and groups** page, verify that you see a new entry with the **TenantCreator** role assigned to the user who will create the Windows Virtual Desktop tenant.
 
    ![A screenshot of the users and groups assigned to manage the "Windows Virtual Desktop" enterprise application. The screenshot now includes a second entry of a user assigned to the "TenantCreator" role.](media/tenant-tenant-creator-added.png)
+
 Before you continue on to create your Windows Virtual Desktop tenant, you need two pieces of information:
-- Your Azure Active Directory tenant ID (or **Directory ID**)
-- Your Azure subscription ID
+    - Your Azure Active Directory tenant ID (or **Directory ID**)
+    - Your Azure subscription ID
 
 To find your Azure Active Directory tenant ID (or **Directory ID**):
 1. In the same [Azure portal](https://portal.azure.com) session, search for and select **Azure Active Directory**.
