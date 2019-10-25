@@ -89,6 +89,8 @@
       href: cache-administration.md#schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
+    - name: Deprecate use of TLS 1.0 and 1.1
+      href: cache-deprecate-tls-10-11.md
   - name: Monitor
     items:
     - name: Monitor in Azure portal
@@ -98,13 +100,13 @@
   - name: Diagnose and troubleshoot
     items:
     - name: Troubleshoot Redis server
-      href: cache-how-to-troubleshoot-server.md
+      href: cache-troubleshoot-server.md
     - name: Troubleshoot Redis client
-      href: cache-how-to-troubleshoot-client.md
+      href: cache-troubleshoot-client.md
     - name: Troubleshoot timeouts
-      href: cache-how-to-troubleshoot-timeouts.md
+      href: cache-troubleshoot-timeouts.md
     - name: Troubleshoot data loss
-      href: cache-how-to-troubleshoot-data-loss.md
+      href: cache-troubleshoot-data-loss.md
   - name: Scale
     items:
     - name: Update to a different size and tier

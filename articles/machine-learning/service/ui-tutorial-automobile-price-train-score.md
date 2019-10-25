@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ---
 
 # Tutorial: Predict automobile price with the designer (preview)
@@ -37,15 +37,15 @@ In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you learn
 
 ## Create a new pipeline
 
-Azure Machine Learning pipelines organize multiple, dependent data processing steps into a single resource. Pipelines help you organize, manage, and reuse complex machine learning workflows across projects and users. To create an Azure Machine Learning pipeline, you need an Azure Machine Learning workspace. In this section, you learn how to create both these resources.
+Azure Machine Learning pipelines organize multiple, dependent machine learning and data processing steps into a single resource. Pipelines help you organize, manage, and reuse complex machine learning workflows across projects and users. To create an Azure Machine Learning pipeline, you need an Azure Machine Learning workspace. In this section, you learn how to create both these resources.
 
 ### Create a new workspace
 
-If you have an Azure Machine Learning workspace with an **Enterprise SKU**, [skip to the next section](#create-a-pipeline).
+If you have an Azure Machine Learning workspace with an **Enterprise edition**, [skip to the next section](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
-### Create a pipeline
+### Create the pipeline
 
 1. Sign into [ml.azure.com](https://ml.azure.com) and select the workspace you want to work with.
 
@@ -53,7 +53,7 @@ If you have an Azure Machine Learning workspace with an **Enterprise SKU**, [ski
 
     ![Screenshot of the visual workspace showing how to access the designer](./media/ui-tutorial-automobile-price-train-score/launch-visual-interface.png)
 
-1. Select **Blank Pipeline**.
+1. Select **Easy-to-use prebuilt modules**.
 
 1. Select the default pipeline name **"Pipeline-Created-on ..."** at the top of the canvas, and rename it to something meaningful. For example, **"Automobile price prediction"**. The name doesn't need to be unique.
 
@@ -66,32 +66,6 @@ There are several sample datasets included in the designer for you to experiment
 1. Select the dataset, **Automobile price data (Raw)**, and drag it onto the canvas.
 
    ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
-
-1. Select which columns of data to work with. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
-
-1. Click and drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
-
-1. Connect the dataset you added earlier to the **Select Columns in Dataset** module by clicking and dragging. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
-
-    > [!TIP]
-    > You create a flow of data through your pipeline when you connect the output port of one module to an input port of another.
-    >
-
-    ![Connect modules](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
-
-1. Select the **Select Columns in Dataset** module.
-
-1. In the **Properties** pane to the right of the canvas, select **Edit column**.
-
-    In the **Select Columns** dialog, select **All columns** and include **All features**.
-
-1. On the lower right, select **Save** to close the column selector.
-
-### Run the pipeline
-
-At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Outputs** tab doesn't appear, you first need to run the pipeline.
-
-[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
 ### Visualize the data
 
@@ -111,30 +85,23 @@ You can visualize the data to understand the dataset you will be using.
 
 ## Prepare data
 
-Datasets typically require some preprocessing before analysis. You might have noticed some missing values when visualizing the dataset. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values.
+Datasets typically require some preprocessing before analysis. You might have noticed some missing values when visualizing the dataset. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove columns with many missing values and remove any individual rows that have missing values.
 
-1. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
+### Remove a column
+
+When you train a model, you have to do something about the data that's missing. In this dataset, the **normalized-losses** column is missing many values, so you'll exclude that column from the model altogether.
+
+1. Select which columns of data to work with. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
 
 1. Click and drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
 
 1. Connect the dataset you added earlier to the **Select Columns in Dataset** module by clicking and dragging. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
 
+    > [!TIP]
+    > You create a flow of data through your pipeline when you connect the output port of one module to an input port of another.
+    >
+
     ![Connect modules](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
-
-1. Select the **Select Columns in Dataset** module.
-
-1. In the **Properties** pane to the right of the canvas, select **Edit column**.
-
-    In the **Select Columns** dialog, select **All columns** and include **All features**.
-
-1. On the lower right, select **Save** to close the column selector.
-
-> [!TIP]
-> Cleaning the missing values from input data is a prerequisite for using most of the modules in the designer.
-
-### Remove column
-
-When you train a model, you have to do something about the data that is missing. In this dataset, the **normalized-losses** column has a large number of missing values, so you'll exclude that column from the model altogether.
 
 1. Select the **Select Columns in Dataset** module.
 
@@ -159,6 +126,9 @@ When you train a model, you have to do something about the data that is missing.
 ### Clean missing data
 
 Your dataset still has missing values after removing the **normalized-losses** column. You can remove the remaining missing data using the **Clean Missing Data** module.
+
+> [!TIP]
+> Cleaning the missing values from input data is a prerequisite for using most of the modules in the designer.
 
 1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
 
@@ -283,7 +253,7 @@ In part one of this tutorial, you completed these steps:
 * Trained the model
 * Scored and evaluated the model
 
-In part two, you'll learn how to deploy your model as a pipeline endpoint.
+In part two, you'll learn how to deploy your model as a real-time endpoint.
 
 > [!div class="nextstepaction"]
 > [Continue to deploying models](ui-tutorial-automobile-price-deploy.md)

@@ -96,7 +96,6 @@ After training is complete:
 
 + To use the model for scoring, add the **Score Model** module to a pipeline.
 
-
 ## Next steps
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 

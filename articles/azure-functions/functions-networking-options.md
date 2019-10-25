@@ -1,9 +1,8 @@
 ---
 title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
@@ -59,25 +58,25 @@ Virtual network integration allows your function app to access resources inside 
 
 You can use virtual network integration to enable access from apps to databases and web services running in your virtual network. With virtual network integration, you don't need to expose a public endpoint for applications on your VM. You can use the private, non-internet routable addresses instead.
 
-There are two forms to the virtual network Integration feature
+There are two forms of virtual network integration:
 
-1. Regional virtual network integration enables integration with virtual networks in the same region. This form of the feature requires a subnet in a virtual network in the same region. This feature is still in preview but is supported for Windows app production workloads with some caveats noted below.
-2. Gateway required virtual network integration enables integration with virtual networks in remote regions, or with Classic virtual networks. This version of the feature requires deployment of a Virtual Network Gateway into your VNet. This is the point-to-site VPN-based feature and is only supported with Windows apps.
++ **Regional virtual network integration (preview)**: enables integration with virtual networks in the same region. This type of integration requires a subnet in a virtual network in the same region. This feature is still in preview, but it's supported for function apps running on Windows, with the caveats noted below.
++ **Gateway required virtual network integration**: enables integration with virtual networks in remote regions, or with Classic virtual networks. This type of integration requires deployment of a Virtual Network Gateway into your VNet. This is a point-to-site VPN-based feature, which is only supported for function apps running on Windows.
 
-An app can only use one form of the VNet Integration feature at a time. The question then is which feature should you use. You can use either for many things. The clear differentiators though are:
+An app can only use one type of the VNet Integration feature at a time. While both are useful for many scenarios, the following table indicates where each should be used:
 
 | Problem  | Solution | 
 |----------|----------|
-| Want to reach an RFC 1918 address (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) in the same region | regional VNet Integration |
-| Want to reach resources in a Classic VNet or a VNet in another region | gateway required VNet Integration |
-| Want to reach RFC 1918 endpoints across ExpressRoute | regional VNet Integration |
-| Want to reach resources across service endpoints | regional VNet Integration |
+| Want to reach an RFC 1918 address (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) in the same region | regional VNet integration |
+| Want to reach resources in a Classic VNet or a VNet in another region | gateway required VNet integration |
+| Want to reach RFC 1918 endpoints across ExpressRoute | regional VNet integration |
+| Want to reach resources across service endpoints | regional VNet integration |
 
 Neither feature will enable you to reach non-RFC 1918 addresses across ExpressRoute. To do that you need to use an ASE for now.
 
-Using the regional VNet Integration does not connect your VNet to on-premises or configure service endpoints. That is separate networking configuration. The regional VNet Integration simply enables your app to make calls across those connection types.
+Using the regional VNet integration does not connect your VNet to on-premises or configure service endpoints. That is separate networking configuration. The regional VNet integration simply enables your app to make calls across those connection types.
 
-Regardless of the version used, VNet Integration gives your function app access to resources in your virtual network but doesn't grant private site access to your function app from the virtual network. Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. VNet Integration is only for making outbound calls from your app into your VNet. 
+Regardless of the version used, VNet integration gives your function app access to resources in your virtual network but doesn't grant private site access to your function app from the virtual network. Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. VNet Integration is only for making outbound calls from your app into your VNet. 
 
 The VNet Integration feature:
 

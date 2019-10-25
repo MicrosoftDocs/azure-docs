@@ -32,7 +32,8 @@ When you convert a dataset to CSV, the file is saved in your Azure ML workspace.
 
 ## How to configure Convert to CSV
 
-1.  Add the [Convert to CSV](./convert-to-csv.md) module to your pipeline. You can find this module in the **Data Format Conversions** group in the interface. 
+
+1.  Add the [Convert to CSV](./convert-to-csv.md) module to your pipeline. You can find this module in the **Data Format Conversions** group in the designer. 
 
 2. Connect it to any module that outputs a dataset.   
   

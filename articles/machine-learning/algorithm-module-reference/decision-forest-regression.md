@@ -18,7 +18,7 @@ This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a regression model based on an ensemble of decision trees.
 
-After you have configured the model, you must train the model using a labeled dataset and the [Train Model](./train-model.md) module.  The trained model can then be used to make predictions. 
+After you have configured the model, you must train the model using a labeled dataset and the [Train Model](./train-model.md) module. The trained model can then be used to make predictions. 
 
 ## How it works
 
@@ -38,11 +38,11 @@ For more information about the theoretical framework for this algorithm and its 
 
 ## How to configure Decision Forest Regression Model
 
-1. Add the **Decision Forest Regression** module to the pipeline. You can find the module in the interface under **Machine Learning**, **Initialize Model**, and **Regression**.
+1. Add the **Decision Forest Regression** module to the pipeline. You can find the module in the designer under **Machine Learning**, **Initialize Model**, and **Regression**.
 
 2. Open the module properties, and for **Resampling method**, choose the method used to create the individual trees.  You can choose from **Bagging** or **Replicate**.
 
-    - **Bagging**: Bagging is also called *bootstrap aggregating*. Each tree in a regression decision forest outputs a Gaussian distribution by way of prediction. The aggregation is to find a Gaussian whose first two moments match the moments of the mixture of Gaussians given by combining all Gaussians returned by individual trees.
+    - **Bagging**: Bagging is also called *bootstrap aggregating*. Each tree in a regression decision forest outputs a Gaussian distribution by way of prediction. The aggregation is to find a Gaussian whose first two moments match the moments of the mixture of Gaussian distributions given by combining all distributions returned by individual trees.
 
          For more information, see the Wikipedia entry for [Bootstrap aggregating](https://wikipedia.org/wiki/Bootstrap_aggregating).
 

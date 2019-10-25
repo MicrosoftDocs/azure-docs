@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Deploy a machine learning model with the designer'
 titleSuffix: Azure Machine Learning
-description: Learn how to build a predictive analytics solution in Azure Machine Learning designer. Train, score, and deploy a machine learning model using drag and drop modules.
+description: Learn how to build a predictive analytics solution in Azure Machine Learning designer (preview). Train, score, and deploy a machine learning model using drag and drop modules.
 
 author: peterclu
 ms.author: peterlu
@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ---
 
 # Tutorial: Deploy a machine learning model with the designer (preview)
@@ -37,7 +37,7 @@ In order to deploy your pipeline, you must:
 
 1. At the top of the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**
 
-    When you select **Create Predictive Pipeline**, several things happen:
+    When you select **Create inference pipeline**, several things happen:
     
     * The trained model is stored as a **Dataset** module in the module palette. You can find it under **My Datasets**.
     * Modules, like **Train Model** and **Split Data**, that were used for training are removed.
@@ -45,12 +45,12 @@ In order to deploy your pipeline, you must:
     * **Web Service Input** and **Web Service Output** modules are added. These modules identify where user data will enter the model, and where data is returned.
 
     > [!Note]
-    > The **training pipeline** is saved under the new tab at the top of the pipeline canvas. It can also be found as a published pipeline in the visual interface.
+    > The **training pipeline** is saved under the new tab at the top of the pipeline canvas. It can also be found as a published pipeline in the designer.
     >
 
     Your pipeline should now look like this:  
 
-   ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
+   ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
 
 1. Select **Run** and use the same compute target and experiment you used in part 1.
 
@@ -94,7 +94,7 @@ After your AKS service has finished provisioning, return to the real-time infere
 
 1. Select **Deploy**.
 
-    [!Screenshot showing how to setup a new real-time endpoint](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Screenshot showing how to set up a new real-time endpoint](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
 
     A success notification above the canvas will appear when deployment completes, it may take a few minutes.
 
@@ -104,7 +104,7 @@ You can test your real-time endpoint by navigating to the **Endpoints** page in 
 
 1. On the **Endpoints** page, select the endpoint you deployed.
 
-    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/ui-tutorial-automobile-price-deploy/web-services.png)
+    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
 
 1. Select **Test**.
 

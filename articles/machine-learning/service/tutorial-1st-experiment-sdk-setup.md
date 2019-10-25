@@ -48,17 +48,21 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Select your subscription and the workspace you created.
 
-1. Select **Notebooks and Files** on the left.
+1. Select **Notebooks** on the left.
 
-1. Open the **samples** folder.
+1. Open the **Samples** folder.
+
+1. Open the **Python** folder.
+
+1. Open the folder with a version number on it.  This number represents the current release for the Python SDK.
 
 1. Select the **"..."** at the right of the **tutorials** folder and then select **Clone**.
 
     ![Clone folder](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
-1. There is a folder displayed for each user who accesses the workspace.  Select your folder to clone the **tutorial**  folder there.
+1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **tutorials**  folder there.
 
-## <a name="open">Select a VM to run the notebook
+## <a name="open">Open the cloned notebook
 
 1. Under **User Files** open your folder and then open the cloned **tutorials** folder.
 

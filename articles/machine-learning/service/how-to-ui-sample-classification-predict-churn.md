@@ -15,7 +15,7 @@ ms.date: 09/23/2019
 # Sample 5 - Classification: Predict churn, appetency, and up-selling 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a complex machine learning experiment without writing a single line of code using the designer (preview).
+Learn how to build a complex machine learning pipeline without writing a single line of code using the designer (preview).
 
 This pipeline trains three, **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems: churn, appetency, and up-selling. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the designer to combine data sets and train a model using the obscured values.
 
@@ -29,7 +29,7 @@ Here's the completed graph for this pipeline:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 5 pipeline.
+4. Select the Sample 5 pipeline.
 
     ![Open the pipeline](media/how-to-ui-sample-classification-predict-churn/open-sample5.png)
 

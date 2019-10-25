@@ -55,7 +55,7 @@ When it processes the training data, the K-means algorithm begins with an initia
   
     -   **Single Parameter**: If you know the exact parameters you want to use in the clustering model, you can provide a specific set of values as arguments.  
   
-3.  For **Number of Centroids**, type the number of clusters you want the algorithm to begin with.  
+3.  For **Number of centroids**, type the number of clusters you want the algorithm to begin with.  
   
      The model isn't guaranteed to produce exactly this number of clusters. The algorithm starts with this number of data points and iterates to find the optimal configuration.  
   

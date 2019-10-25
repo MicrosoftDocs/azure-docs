@@ -25,7 +25,7 @@ Here's the final pipeline graph for this sample:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 6 pipeline:
+4. Select the Sample 6 pipeline:
 
     ![Open the pipeline](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
 

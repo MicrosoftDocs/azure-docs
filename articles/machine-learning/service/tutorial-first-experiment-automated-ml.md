@@ -58,36 +58,19 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. In the left pane, select **Automated ML** under the **Author** section.
 
-   Since this is your first automated ML experiment, you'll see the Getting started screen.
+   Since this is your first automated ML experiment, you'll see an empty list and links to documentation.
 
    ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
 
-1. Select **Create experiment**. 
+1. Select **New automated ML run**. 
 
-1. Enter this experiment name: `my-1st-automl-experiment`
-
-1. Select **Create a new compute** and configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud-based compute. 
-
-   Field | Description | Value for tutorial
-   ----|---|---
-   Compute name |A unique name that identifies your compute context.|automl-compute
-   Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute.|Standard_DS12_V2
-   Min / Max nodes (in Advanced Settings)| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
-
-   >[!NOTE]
-   >For this tutorial, you'll use the default storage account and container created with your new compute. They automatically populate in the form.
-    
-1. Select **Create** to get the compute target. 
-
-   **This takes a couple minutes to complete.** 
-
-1. After creation, select your new compute target from the drop-down list and select **Next**.
-
-1. Select **Upload from local file** to begin creating a new dataset. 
+1. Create a new dataset by selecting **From local files** from the  **+Create dataset** drop-down. 
 
     1. Select **Browse**.
     
     1. Choose the **bankmarketing_train.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+
+    1. Select **Tabular** as your dataset type. 
 
     1. Give your dataset a unique name and provide an optional description. 
 
@@ -110,30 +93,51 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
         ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
     1. On the **Confirm details** form, verify the information matches what was previously  populated on the **Basic info** and **Settings and preview** forms.
-
-    1. Create a profile for this dataset using **aml-compute** from the dropdown. This creates a profile of your dataset using the compute resource you created for this experiment. 
-
     1. Select **Create** to complete the creation of your dataset.
+    1. Select your dataset once it appears in the list.
+    1. Review the **Data preview**  to ensure you didn't include **day_of_week** then, select **OK**.
 
-1. Select **Classification** as the prediction task.
+    1. Select  **Next**.
 
-1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
+1. Populate the **Configure Run** form as follows:
+    1. Enter this experiment name: `my-1st-automl-experiment`
 
-1. Expand **Advanced Settings** and populate the fields as follows. These settings are to better control the training job. Otherwise, defaults are applied based on experiment selection and data.
+    1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
+    1. Select **Create a new compute** and configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, we use a cloud-based compute. 
 
-   >[!NOTE]
-   > In this tutorial, you won't set a metric score or max cores per iterations threshold. Nor will you block algorithms from being tested.
+        Field | Description | Value for tutorial
+        ----|---|---
+        Compute name |A unique name that identifies your compute context.|automl-compute
+        Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute.|Standard_DS12_V2
+        Min / Max nodes (in Advanced Settings)| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
+  
+        1. Select **Create** to get the compute target. 
+
+            **This takes a couple minutes to complete.** 
+
+        1. After creation, select your new compute target from the drop-down list.
+
+    1. Select **Next**.
+
+1. On the **Task type and settings** form, select **Classification** as the machine learning task type.
+
+    1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job. Otherwise, defaults are applied based on experiment selection and data.
+
+        >[!NOTE]
+        > In this tutorial, you won't set a metric score or max cores per iterations threshold. Nor will you block algorithms from being tested.
    
-   Advanced&nbsp;settings|Description|Value&nbsp;for&nbsp;tutorial
-   ------|---------|---
-   Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
-   Exit criteria| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time: 5 <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58; 10
-   Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
-   Validation type | Choose a cross-validation type.|K-fold cross-validation
-   Number of validations | Number of tests. | 2 cross-validations 
-   Concurrency| The number of max concurrent iterations.|5
-   
-1. Select **Start** to run the experiment. The **Run details**  screen opens with the **Run status** as the experiment preparation begins.
+        Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
+        ------|---------|---
+        Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
+        Automatic featurization| Enables preprocessing. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
+        Blocked algorithms | Algorithms you want to exclude from the training job| None
+        Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 1 <br> Metric&nbsp;score&nbsp;threshold: None
+        Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 2
+        Concurrency| The maximum number of parallel iterations executed and cores used per iteration| Max&nbsp;concurrent&nbsp;iterations: 5<br> Max&nbsp;cores&nbsp;per&nbsp;iteration: None
+        
+        Select **OK**.
+
+1. Select **Create** to run the experiment. The **Run Detail**  screen opens with the **Run status** as the experiment preparation begins.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
@@ -146,7 +150,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 Navigate to the **Models** tab to see the algorithms (models) tested. By default, the models are ordered by metric score as they complete. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
-While you wait for all of the experiment models to finish, select the **Name** of a completed model to explore its performance details. 
+While you wait for all of the experiment models to finish, select the **Algorithm name** of a completed model to explore its performance details. 
 
 The following navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
 
@@ -177,7 +181,9 @@ In this experiment context, **VotingEnsemble** is considered the best model, bas
 
     In the **Recommended model** pane, a deployment success message appears under **Deploy status** when deployment completes. Select **Refresh** periodically to check the deployment status.
     
-Now you have an operational web service to generate predictions.
+Now you have an operational web service to generate predictions. 
+
+Proceed to the [**Next Steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learning support.
 
 ## Clean up resources
 
@@ -202,12 +208,12 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 In this automated machine learning tutorial, you used Azure Machine Learning studio to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](how-to-consume-web-service.md)
+> [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
 + Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
 + Learn more about [automated machine learning](concept-automated-ml.md).
-+ For more information on classification metrics and charts see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
 
 >[!NOTE]
 > This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
