@@ -39,7 +39,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 1. Provide the name, image, container create options of the container:
 
    * **Name**: eventgridmodule
-   * **Image URI**: `msint.azurecr.io/azure-event-grid/iotedge:latest`
+   * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Container Create Options**:
 
     ```json
