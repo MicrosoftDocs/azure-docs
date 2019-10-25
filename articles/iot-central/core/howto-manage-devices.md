@@ -37,7 +37,7 @@ To view an individual device:
 
 To add a device to your Azure IoT Central application:
 
-1. Choose **Device Explorer** on the left navigation menu.
+1. Choose **Device Explorer** on the left pane.
 
 1. Choose the device template from which you want to create a device.
 
@@ -54,7 +54,7 @@ To connect large number of devices to your application, you can bulk import devi
 
 To bulk-register devices in your application:
 
-1. Choose **Device Explorer** on the left navigation menu.
+1. Choose **Device Explorer** on the left pane.
 
 1. On the left panel, choose the device template for which you want to bulk create the devices.
 
@@ -79,7 +79,7 @@ If the device import operation fails, you see an error message on the device gri
 
 If you register devices by starting the import under **Unassociated devices**, then the devices are created without any device template association. Devices must be associated with a template to explore the data and other details about the device. Follow these steps to associate devices with a template:
 
-1. Choose **Device Explorer** on the left navigation menu.
+1. Choose **Device Explorer** on the left pane.
 
 1. On the left panel, choose **Unassociated devices**:
 
@@ -104,7 +104,7 @@ To connect a real device to IoT Central, you need its connection string. You can
 
 To bulk export devices from your application:
 
-1. Choose **Device Explorer** on the left navigation menu.
+1. Choose **Device Explorer** on the left pane.
 
 1. On the left panel, choose the device template from which you want to export the devices.
 
@@ -135,7 +135,7 @@ See [Device connectivity in Azure IoT Central](concepts-connectivity.md), for mo
 
 To delete either a real or simulated device from your Azure IoT Central application:
 
-1. Choose **Device Explorer** on the navigation menu.
+1. Choose **Device Explorer** on the left pane.
 
 1. Choose the device template of the device you want to delete.
 
@@ -147,7 +147,7 @@ To delete either a real or simulated device from your Azure IoT Central applicat
 
 Settings control the behavior of a device. In other words, they enable you to provide inputs to your device. You can view and update device settings on the **Device Details** page.
 
-1. Choose **Device Explorer** on the navigation menu.
+1. Choose **Device Explorer** on the left pane.
 
 1. Choose the device template of the device whose settings you want to change.
 
@@ -161,7 +161,7 @@ Settings control the behavior of a device. In other words, they enable you to pr
 
 Properties are the device metadata associated with the device, such as city and serial number. You can view and update properties on the **Device Details** page.
 
-1. Choose **Device Explorer** on navigation menu.
+1. Choose **Device Explorer** on the left pane.
 
 1. Choose the device template of the device whose properties you want to change.
 

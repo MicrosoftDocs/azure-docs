@@ -30,13 +30,13 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 - Troubleshoot and remediate issues with your devices.
 - Provision new devices.
 
-## Use the left navigation menu
+## Use the left pane
 
-Use the left navigation menu to access the different areas of the application. You can expand or collapse the navigation bar by selecting **<** or **>**:
+Use the left pane to access the different areas of the application. You can expand or collapse the navigation bar by selecting **<** or **>**:
 
 :::row:::
   :::column span="":::
-      ![Left navigation menu](media/overview-iot-central-tour/navigationbar.png)
+      ![left pane](media/overview-iot-central-tour/navigationbar.png)
   :::column-end:::
   :::column span="2":::
      **Dashboard** displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.

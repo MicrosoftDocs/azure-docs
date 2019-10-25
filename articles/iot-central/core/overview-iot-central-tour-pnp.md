@@ -54,7 +54,7 @@ You can launch your IoT Central application by going to the URL that you or your
 
 ## Navigate your application
 
-Once you're inside your IoT application, use the left navigation menu to access the different areas. You can expand or collapse the navigation bar by selecting the three-lined icon on top of the navigation bar:
+Once you're inside your IoT application, use the left pane to access the different areas. You can expand or collapse the navigation bar by selecting the three-lined icon on top of the navigation bar:
 
 > [!NOTE]
 > The items you see on the navigation bar will depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json). 
@@ -62,7 +62,7 @@ Once you're inside your IoT application, use the left navigation menu to access 
 :::row:::
   :::column span="":::
       > [!div class="mx-imgBorder"]
-      > ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar-pnp.png)
+      > ![left pane](media/overview-iot-central-tour-pnp/navigationbar-pnp.png)
   :::column-end:::
   :::column span="2":::
      **Dashboard** displays your application dashboard. As a *solution builder*, you can customize the global dashboard for your operators. Depending on their user role, operators can also create their own personal dashboards.

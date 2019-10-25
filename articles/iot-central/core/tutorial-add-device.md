@@ -41,7 +41,7 @@ Install [Node.js](https://nodejs.org/) version 8.0.0 or later on your developmen
 
 To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type.md) tutorial.
 
-1. To add a new device as an operator choose **Devices** in the left navigation menu:
+1. To add a new device as an operator choose **Devices** in the left pane:
 
    ![Device explorer page showing connected air conditioner](media/tutorial-add-device/explorer.png)
 

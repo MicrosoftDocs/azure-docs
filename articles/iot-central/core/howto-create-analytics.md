@@ -14,7 +14,7 @@ manager: peterpr
 
 *This article applies to operators, builders, and administrators.*
 
-Azure IoT Central provides rich analytics capabilities to make sense of large amounts of data from your devices. To get started, visit **Analytics** on the left navigation menu.
+Azure IoT Central provides rich analytics capabilities to make sense of large amounts of data from your devices. To get started, visit **Analytics** on the left pane.
 
 ## Querying your data
 

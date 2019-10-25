@@ -39,7 +39,7 @@ Before you begin, you should complete the two previous tutorials:
 
 As a builder, you can define what information displays on a device dashboard. In the [Define a new device type in your application](tutorial-define-device-type.md) tutorial, you added a line-chart and other information to the **Connected Air Conditioner** dashboard.
 
-1. To edit the **Connected Air Conditioner** device template, choose **Device Templates** on the left navigation menu:
+1. To edit the **Connected Air Conditioner** device template, choose **Device Templates** on the left pane:
 
     ![Device Templates page](media/tutorial-customize-operator/devicetemplates.png)
 
