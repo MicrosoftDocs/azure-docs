@@ -22,7 +22,7 @@ Only an Azure AD Admin user can create/enable users for Azure AD-based authentic
 2. In the Azure portal, select the instance of Azure Database for PostgreSQL that you want to enable for Azure AD.
 3. Under Settings, select Active Directory Admin:
 
-![set azure ad administrator][1]
+![set azure ad administrator][2]
 
 4. Select a valid Azure AD user in the customer tenant to be Azure AD administrator.
 
