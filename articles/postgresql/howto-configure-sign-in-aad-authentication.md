@@ -5,28 +5,31 @@ author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/04/2019
 ---
 
 # Use Azure Active Directory for authenticating with PostgreSQL
 
-We'll walk through the steps how to configure Azure Active Directory access with Azure Database for PostgreSQL, and how to connect using an Azure AD token.
+This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for PostgreSQL, and how to connect using an Azure AD token.
 
-> [!NOTE]
-> Azure AD authentication for Azure Database for PostgreSQL is in public preview.
+> [!IMPORTANT]
+> Azure AD authentication for Azure Database for PostgreSQL is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Setting the Azure AD Admin user
 
 Only an Azure AD Admin user can create/enable users for Azure AD-based authentication. To create and Azure AD Admin user, please follow the following steps
 
-2. In the Azure portal, select the instance of Azure Database for PostgreSQL that you want to enable for Azure AD.
-3. Under Settings, select Active Directory Admin:
+1. In the Azure portal, select the instance of Azure Database for PostgreSQL that you want to enable for Azure AD.
+2. Under Settings, select Active Directory Admin:
 
 ![set azure ad administrator][2]
 
-4. Select a valid Azure AD user in the customer tenant to be Azure AD administrator.
+3. Select a valid Azure AD user in the customer tenant to be Azure AD administrator.
 
-**Important:** When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions. The Azure AD Admin user in Azure Database for PostgreSQL will have the role `azure_ad_admin`.
+> [!IMPORTANT]
+> When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions. The Azure AD Admin user in Azure Database for PostgreSQL will have the role `azure_ad_admin`.
 
 Only one Azure AD admin can be created per PostgreSQL server and selection of another one will overwrite the existing Azure AD admin configured for the server. You can specify an Azure AD group instead of an individual user to have multiple administrators. Note that you will then sign in with the group name for administration purposes.
 
