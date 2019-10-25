@@ -1,5 +1,5 @@
 ---
-title: Review access of access packages using Azure AD access reviews (Preview) - Azure Active Directory
+title: Self-review of access to access packages using Azure AD access reviews (Preview) - Azure Active Directory
 description: Learn how to review user access of entitlement management access packages in Azure Active Directory access reviews (Preview).
 services: active-directory
 documentationCenter: ''
@@ -12,33 +12,56 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/10/2019
+ms.date: 10/23/2019
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As an administrator, I want to review the active assignments of my users to ensure everyone has the appropriate access.
+#Customer intent: As a user, I want to complete an access review of my active assignments myself.
 
 ---
-# Review access of access packages using Azure AD access reviews (Preview) 
+# Self-review of access to access packages using Azure AD access reviews (Preview) 
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure AD Entitlement Management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how a designated reviewer performs an access review for users assigned to an access package. 
+Azure AD Entitlement Management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how a user performs a self-review of their assigned access package(s).
 
 ## Open the access review
 
-Use the following steps to find and open the access review:
+To perform an access review, you must first open the access review. Use the following procedure to find and open the access review:
 
-1. Look for an email from Microsoft that asks you to review access. Here is an example email to review access: 
-![Access Review Email](./media/entitlement-management-access-reviews-review-access/review-access-email.png)
+1. You may receive an email from Microsoft that asks you to review access. Locate the email to open the access review. Here is an example email to review access: 
 
-1. Click the Review access link to open the access review 
+1. Click the **Review access** link.
 
-1. If you don’t have the email, you can find your pending access reviews by navigating directly to https://myaccess.microsoft.com  
+1. You can also go to https://myaccess.microsoft.com to find your pending access reviews if you do not receive an email.
+
+1. Click on **Access reviews** on the left navigation bar to see a list of pending access reviews assigned to you.
+
+1.	Click on the review that you’d like to begin.
+
+## Perform the access review
+
+Once you have opened the access review, you can see your access. Use the following procedure to perform the access review:
+
+1.	Decide whether you still need access to the access package. For example, the project you are working on isn't complete, so you still need access to continue working on the project.
+
+1.	Click **Yes** to keep your access or click **No** to remove your access.
+    >[!NOTE]
+    >If you stated that you no longer need access, you aren't removed from the access package immediately. You will be removed from the access package when the review ends or if an administrator stops the review.
+
+1.	If you clicked **Yes**, you may need to include a justification statement in the **Reason** box
+
+1.	Click **Submit**
+
+You can return to the review if you change your mind and decide to change your response before the end of the review.
 
 ## Next Steps
+
+Advance to the following article to learn  how to review the access of other users' access package assignments:
+
+- [Review access to access packages](entitlement-management-access-reviews-review-access.md) 

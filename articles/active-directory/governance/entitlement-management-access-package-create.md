@@ -66,9 +66,9 @@ Here are the high-level steps to create a new access package.
 
 1. In the left menu, click **Access packages**.
 
-1. Click **New access package**.
+    ![Entitlement management in the Azure portal](./media/entitlement-management-shared/elm-access-packages.png)
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-shared/access-packages-list.png)
+1. Click **New access package**.
 
 ## Basics
 
@@ -98,11 +98,11 @@ On the **Resource roles** tab, you select the resources to include in the access
 
     ![Access package - Resource roles](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    If you are creating the access package in the General catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a Global administrator, a User administrator, or Catalog creator.
+    If you are creating the access package in the General catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a Global administrator, a User administrator or Catalog creator.
 
     If you are creating the access package in an existing catalog, you can select any resource that is already in the catalog without owning it.
 
-    If you are a Global administrator, a User administrator, or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. If you only want to select resources that are currently in the selected catalog, check the **Only see** check box at the top of the Select pane.
+    If you are a Global administrator, a User administrator or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. If you only want to select resources that are currently in the selected catalog, check the **Only see** check box at the top of the Select pan.
 
 1. Once you have selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.
 
@@ -116,13 +116,11 @@ On the **Requests** tab, you create the first policy to specify who can request 
 
 ![Access package - Requests tab](./media/entitlement-management-access-package-create/requests.png)
 
-Depending on who you want to be able to request this access package, perform the steps in one of the following sections.
+Perform the steps in one of the following sections.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
-
-[!INCLUDE [Entitlement management access reviews policy](../../../includes/active-directory-entitlement-management-access-reviews-policy.md)]
 
 ## Review + create
 
