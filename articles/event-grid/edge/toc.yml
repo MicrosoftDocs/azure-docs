@@ -17,7 +17,7 @@
   - name: Forward events to Azure IoT Hub
     href: forward-events-iothub.md
   - name: React to Blob Storage events locally
-    href: deploy-blob-storage-module-portal.md    
+    href: react-blob-storage-events-locally.md    
 - name: Concepts
   items:
   - name: Event Grid concepts
