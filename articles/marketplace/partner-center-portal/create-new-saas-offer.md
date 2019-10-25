@@ -173,7 +173,8 @@ Select **Save** after completing these fields.
 Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description. 
 
 ### Industry
-Select up to two (2) industries used for grouping your offer into the appropriate marketplace search areas. If your offer is not specific to an industry, do not select one. Please call out how your offer supports the selected industries in the offer description. 
+
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### App version
 This is an optional field used in the AppSource marketplace to identify the version number of your offer. 
@@ -431,7 +432,7 @@ Select the frequency that customers must pay the price listed. At least one Mont
 - **Price**: USD per month or USD per year
 
 Prices set in local currency (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates available during setup. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. You are responsible for validating this pricing and own these settings.
-**You must first save your pricing changes to enable export of pricing data.*
+*\*You must first save your pricing changes to enable export of pricing data.*
 
 Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published:
 

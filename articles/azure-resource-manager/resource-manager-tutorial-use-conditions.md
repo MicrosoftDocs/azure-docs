@@ -1,6 +1,6 @@
 ﻿---
 title: Use condition in Azure Resource Manager templates | Microsoft Docs
-description: Learn how to deploy Azure resources based on conditions.
+description: Learn how to deploy Azure resources based on conditions. Shows how to either deploy a new resource or use an existing resource.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian

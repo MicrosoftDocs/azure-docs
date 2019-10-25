@@ -115,8 +115,14 @@ You can initiate an account failover from the Azure portal, PowerShell, Azure CL
 
 Account failover is available in preview for all customers using GRS or RA-GRS with Azure Resource Manager deployments. General-purpose v1, General-purpose v2, and Blob storage account types are supported. account failover is currently available in these regions:
 
-- US West 2
+- Asia East
+- Asia Southeast
+- Australia East
+- Australia Southeast
+- US Central
+- US East 2
 - US West Central
+- US West 2
 
 The preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
 

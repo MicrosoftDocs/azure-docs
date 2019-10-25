@@ -66,6 +66,10 @@ ms.author: ramkris
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the bulk executor library work with .NET Core applications.
 
+### <a name="1.8.4"/>1.8.4
+
+* Fixed handling of identifiers when calling BulkImport with a list of POCO objects with numeric values.
+
 ### <a name="1.8.3"/>1.8.3
 
 * Fixed TotalElapsedTime in the response of BulkDelete to correctly measure the total time including any retries.

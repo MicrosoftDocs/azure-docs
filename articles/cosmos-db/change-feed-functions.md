@@ -1,11 +1,11 @@
 ---
 title: How to use Azure Cosmos DB change feed with Azure Functions
 description: Use Azure Cosmos DB change feed with Azure Functions 
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
 ---
 

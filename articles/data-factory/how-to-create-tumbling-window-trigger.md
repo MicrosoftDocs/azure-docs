@@ -44,10 +44,10 @@ A tumbling window has the following trigger type properties:
             "startTime": "<<datetime>>",
             "endTime: <<datetime – optional>>,
             "delay": <<timespan – optional>>,
-            “maxConcurrency”: <<int>> (required, max allowed: 50),
+            "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
-                “intervalInSeconds”: <<int>>,
+                "intervalInSeconds": <<int>>,
             },
 			"dependsOn": [
 				{

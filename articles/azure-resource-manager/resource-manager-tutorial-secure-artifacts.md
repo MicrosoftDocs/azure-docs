@@ -1,5 +1,5 @@
 ﻿---
-title: Secure artifacts in Azure Resource Manager template deployments | Microsoft Docs
+title: Secure artifacts - Azure Resource Manager templates
 description: Learn how to secure the artifacts used in your Azure Resource Manager templates.
 services: azure-resource-manager
 documentationcenter: ''

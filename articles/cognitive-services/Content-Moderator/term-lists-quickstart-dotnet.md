@@ -3,14 +3,14 @@ title: "Check text against a custom term list in C# - Content Moderator"
 titleSuffix: Azure Cognitive Services
 description: How to moderate text with custom term lists using the Content Moderator SDK for C#.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
+ms.author: pafarley
 #As a C# developer of content-providing software, I want to analyze text content for terms that are particular to my product, so that I can categorize and handle it accordingly.
 ---
 
@@ -274,7 +274,7 @@ You screen text using a term list with **ContentModeratorClient.TextModeration.S
 - A MIME type, which can be "text/html", "text/xml", "text/markdown", or "text/plain".
 - The text to screen.
 - A boolean value. Set this field to **true** to autocorrect the text before screening it.
-- A boolean value. Set this field to **true** to detect Personal Identifiable Information (PII) in the text.
+- A boolean value. Set this field to **true** to detect personal data in the text.
 - The term list ID.
 
 For more information, see the [API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).

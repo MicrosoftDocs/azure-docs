@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory Mapping Data Flow Alter Row Transformation
-description: How to update database target using Azure Data Factory Mapping Data Flow Alter Row Transformation
+title: Azure Data Factory mapping data flow Alter Row Transformation
+description: How to update database target using Azure Data Factory mapping data flow Alter Row Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -9,6 +9,8 @@ ms.date: 03/12/2019
 ---
 
 # Azure Data Factory Alter Row Transformation
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Use the Alter Row transformation to set insert, delete, update, and upsert policies on rows. You can add one-to-many conditions as expressions. These conditions should be specified in order of priority, as each row will be marked with the policy corresponding to the first-matching expression. Each of those conditions can result in a row (or rows) being inserted, updated, deleted, or upserted. Alter Row can produce both DDL & DML actions against your database.
 
