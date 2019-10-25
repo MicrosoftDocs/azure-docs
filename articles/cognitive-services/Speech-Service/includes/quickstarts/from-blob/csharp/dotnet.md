@@ -32,6 +32,20 @@ The first step is to make sure that you have your project open in Visual Studio.
 
 ## Add a reference to NewtonSoftJSon
 
+1. In the Solution Explorer, right-click the **helloworld** project, and then select **Manage NuGet Packages** to show the NuGet Package Manager.
+
+1. In the upper-right corner, find the **Package Source** drop-down box, and make sure that **`nuget.org`** is selected.
+
+1. In the upper-left corner, select **Browse**.
+
+1. In the search box, type *newtonsoft.json* and select **Enter**.
+
+1. From the search results, select the **Newtonsoft.Json** package, and then select **Install** to install the latest stable version.
+
+1. Accept all agreements and licenses to start the installation.
+
+   After the package is installed, a confirmation appears in the **Package Manager Console** window.
+
 ## Start with some boilerplate code
 
 Let's add some code that works as a skeleton for our project.
