@@ -93,5 +93,9 @@ Before you get started, make sure to:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore C++ samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]
+
+## See also
+
+- [Create a Custom Voice](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

@@ -91,10 +91,9 @@ See the [sample repository](https://aka.ms/csspeech/samples) in the quickstart/c
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]
 
 ## See also
 
-- [Customize voice fonts](~/articles/cognitive-services/Speech-Service/how-to-customize-voice-font.md)
-- [Record voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Create a Custom Voice](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
