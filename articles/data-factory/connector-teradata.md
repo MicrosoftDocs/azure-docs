@@ -71,10 +71,10 @@ The Teradata linked service supports the following properties:
 
 More connection properties you can set in connection string per your case:
 
-| Property | Description | Allowed values |
+| Property | Description | Default value |
 |:--- |:--- |:--- |
-| CharacterSet | The character set to use for the session. E.g., `CharacterSet=UTF16`.<br><br/>This value can be a user-defined character set, or one of the following pre-defined character sets: ASCII, UTF8, UTF16, ATIN1252_0A, ATIN9_0A, ATIN1_0A Shift-JIS(Windows, DOS compatible, KANJISJIS_0S),  EUC(Unix compatible,KANJIEC_0U), IBM Mainframe(KANJIEBCDIC5035_0I), KANJI932_1S0, BIG5(TCHBIG5_1R0), GB(SCHGB2312_1T0), SCHINESE936_6R0, TCHINESE950_8R0, NetworkKorean(HANGUlKSC5601_2R4), HANGU, 949_7R0, ARABIC1256_6A0, CYRI, IC1251_2A0, HEBREW1255_5A0, ATIN1250_1A0, ATIN1254_7A0, ATIN1258_8A0, THAI874_4A0. | See description. Default value is `ASCII`. |
-| ArraySize |The number of bytes the connector can fetch in a single network round trip. E.g., `ArraySize=‭10485760‬`.<br/><br/>Larger values increase throughput by reducing the number of times to fetch data across the network. Smaller values increase response time, as there is less of a delay waiting for the server to transmit data. | An integer from 1 to 4,294,967,296 (4 GB). The value 1 does not define the number of bytes, but indicates allocating space for exactly one row of data. |
+| CharacterSet | The character set to use for the session. E.g., `CharacterSet=UTF16`.<br><br/>This value can be a user-defined character set, or one of the following pre-defined character sets: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)<br/>- EUC (Unix compatible, KANJIEC_0U)<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | Default value is `ASCII`. |
+| MaxRespSize |The maximum size of the response buffer for SQL requests, in kilobytes (KBs). E.g., `MaxRespSize=‭10485760‬`.<br/><br/>For Teradata Database version 16.00 or later, the maximum value is 7361536. For connections that use earlier versions, the maximum value is 1048576. | Default value is `65536`. |
 
 **Example using basic authentication**
 
