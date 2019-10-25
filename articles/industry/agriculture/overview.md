@@ -3,9 +3,8 @@ title: About Azure FarmBeats
 description: Provides an overview of Azure FarmBeats
 author: uhabiba04
 ms.topic: overview
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.author: v-umha
-ms.service: backup
 ---
 
 

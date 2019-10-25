@@ -3,9 +3,8 @@ title: Get sensor data from the partners
 description: Describes how to get sensor data from partners
 author: uhabiba04
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.author: v-umha
-ms.service: backup
 ---
 
 # Get sensor data from sensor partners
