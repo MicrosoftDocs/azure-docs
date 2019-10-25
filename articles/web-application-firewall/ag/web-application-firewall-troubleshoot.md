@@ -327,6 +327,8 @@ For v1 Web Application Firewalls, the following metrics are now available in the
      All rules that were matched **and** the request was blocked
 3. Web Application Firewall Total Rule Distribution
      All rules that were matched during evaluation
+     
+To enable metrics, select the **Metrics** tab in the portal, and select one of the three metrics.
 
 ## Next steps
 
