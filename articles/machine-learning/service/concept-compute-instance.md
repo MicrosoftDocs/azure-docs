@@ -17,8 +17,7 @@ ms.date: 10/08/2019
 An Azure Machine Learning compute instance is a fully managed cloud-based workstation for data scientists. Compute instance makes it  easy to get started with Azure Machine Learning development. Compute instance provides management and enterprise readiness capabilities for IT administrators.  Use a compute instance as your fully configured and managed development environment in the cloud.
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a location of **North Central US**.
-> Use this region to create a compute instance. 
+> Compute instances are available only for workspaces with a region of **North Central US**.> Use this region to create a compute instance. 
 
 
 ## Why use a compute instance?
@@ -148,11 +147,13 @@ The dedicated cores per region quota, which applies to compute instance creation
 Compute instances can be used as a training compute target similar to Azure Machine Learning compute training clusters. Provision a multi-GPU VM to run distributed training jobs using TensorFlow/PyTorch estimators. You can also create a run configuration and use it to run your experiment on compute instance. 
 You can use compute instance as a local deployment target for testing/debugging scenarios. 
 
-## Notebook VM status
+## <a name="notebookvm"></a>What happened to Notebook VM?
 
-In regions where compute instances are not available yet, you can continue to use Notebook VMs with full functionality and create new Notebook VMs.
+Compute instances are replacing the Notebook VM.  In regions where compute instances are not available yet, you can continue to use Notebook VMs with full functionality and create new Notebook VMs.
 
-In regions where compute instances are available, new Notebook VMs cannot be created. However, you can still access and use Notebook VMs you have created, with full functionality. Compute instances can be created in same workspace as the existing Notebook VMs. Any notebook files stored in the workspace file share and data in workspace data stores will be accessible from compute instance. However, any custom packages previously installed on Notebook VM will need to be re-installed on the compute instance. Quota limitations will apply to compute instance creation. 
+Any notebook files stored in the workspace file share and data in workspace data stores will be accessible from a compute instance. However, any custom packages previously installed on a Notebook VM will need to be re-installed on the compute instance. Quota limitations will apply to compute instance creation. 
+
+In regions where compute instances are available, new Notebook VMs cannot be created. However, you can still access and use Notebook VMs you have created, with full functionality. Compute instances can be created in same workspace as the existing Notebook VMs. 
 
 
 ## Next steps
