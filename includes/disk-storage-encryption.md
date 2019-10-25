@@ -28,11 +28,9 @@ By default, managed disks use platform-managed encryption keys. As of June 10th,
 
 ## Customer-managed keys (public preview)
 
-You can choose to manage encryption at the level of each managed disk, with your own keys. Azure managed disks handles the encryption and decryption in a fully transparent fashion using [envelope encryption](../articles/storage/common/storage-client-side-encryption.md#encryption-via-the-envelope-technique). It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. Customer-managed keys offer greater flexibility to create, disable, and revoke access controls. Server-side encryption with customer-managed keys is integrated with Azure Key Vault that provides highly available and scalable secure storage for RSA cryptographic keys backed by Hardware Security Modules (HSMs). You can either import [your RSA keys](../articles/key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. You can also audit the encryption keys used via Azure Key Vault monitoring to protect your data.
+You can choose to manage encryption at the level of each managed disk, with your own keys. Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. You can either import [your RSA keys](../articles/key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. Azure managed disks handles the encryption and decryption in a fully transparent fashion using [envelope encryption](../articles/storage/common/storage-client-side-encryption.md#encryption-via-the-envelope-technique). It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. You have to grant access in your Key Vault in order to use your keys for encrypting and decrypting the DEK. This allows you full control of your data and keys. You can disable your keys or revoke access to managed disks at any time. You can also audit the encryption key usage with Azure Key Vault monitoring to ensure that only managed disks or other trusted Azure services are accessing your keys.
 
-![Interaction of disk set and customer-managed keys](media/disk-storage-encryption/how-sse-customer-managed-keys-works-for-managed-disks.png)
-
-This diagram shows how managed disks uses Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
+The following diagram shows how managed disks uses Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
 ![Managed disks customer-managed keys workflow](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
@@ -72,7 +70,9 @@ The preview also has the following restrictions:
 
 ### Setting up your Azure Key Vault
 
-1.	Create an instance of Azure Key Vault and encryption key
+1.	Create an instance of Azure Key Vault and encryption key.
+
+    When creating the Key Vault instance you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection Ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
     ```powershell
     $keyVault = New-AzKeyVault -Name myKeyVaultName ` 
@@ -86,7 +86,7 @@ The preview also has the following restrictions:
     -Destination Software `  
     ```
 
-1.	Create an instance of a new resource type called a DiskEncryptionSet, which represents a customer-managed key. 
+1.	Create an instance of a DiskEncryptionSet. 
     
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName myRGName ` 
@@ -97,7 +97,7 @@ The preview also has the following restrictions:
       -region "WestCentralUS"
     ```
 
-1.	Grant DataEncryptionSet resource access to the key vault
+1.	Grant the DiskEncryptionSet resource access to the key vault.
 
     ```powershell
     $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
@@ -114,6 +114,46 @@ The preview also has the following restrictions:
         -ResourceType "Microsoft.KeyVault/vaults" ` 
         -ResourceGroupName myRGName `  
     ```
+
+### Create a VM using a marketplace image, encrypting the OS and data disks with customer-managed keys via an ARM template
+
+```
+$password=ConvertTo-SecureString -String "myVMPassword" `
+  -AsPlainText -Force
+New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
+  -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateVMWithDisksEncryptedWithCMK.json" `
+  -virtualMachineName "myVMName" `
+  -adminPassword $password `
+  -vmSize "Standard_DS3_V2" `
+  -diskEncryptionSetId "/subscriptions/mySubscriptionId/resourceGroups/myRGName/providers/Microsoft.Compute/diskEncryptionSets/myDiskEncryptionSet1" `
+  -region "CentralUSEUAP" 
+```
+
+### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
+
+```PowerShell
+$vmName = "yourVMName"
+$rgName = "yourRGName"
+$diskName = "yourDiskName"
+$diskSKU = "Premium_LRS"
+$diskSizeinGiB = "30"
+$diskEncryptionSetId = "/subscriptions/<subscriptionID>/resourceGroups/yourRGName/providers/Microsoft.Compute/diskEncryptionSets/<yourDiskEncryptionSetName>"
+$region = "CentralUSEUAP"
+$diskLUN = 1
+
+New-AzResourceGroupDeployment -ResourceGroupName $rgName `
+  -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateEmptyDataDiskEncryptedWithSSECMK.json" `
+  -diskName $diskName `
+  -diskSkuName $diskSKU `
+  -dataDiskSizeInGb $diskSizeinGiB `
+  -diskEncryptionSetId $diskEncryptionSetId `
+  -region $region 
+
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$disk = Get-AzDisk -DiskName $diskName -ResourceGroupName $rgName
+$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun 1
+```
+
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../articles/active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
