@@ -44,6 +44,10 @@ The path to the output data in the blob follows this syntax:
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
+>[!Note]
+> In versions of the SDK prior to `0.1.0a16` the `designation` argument was named `identifier`. If your code was
+> developed with an earlier version, you will need to update accordingly.
+
 ## Prerequisites
 
 - If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
