@@ -14,8 +14,7 @@ ms.reviewer: igorstan
 
 # Tutorial: Load data to Azure SQL Analytics (formerly SQL DW)
 
-This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to [SQL Analytics](sql-data-warehouse-overview-what-is
-) tables. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
+This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) tables. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal

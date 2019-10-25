@@ -18,7 +18,7 @@ This article summarizes the new features and improvements in the recent releases
 
 ## Check your SQL Analytics version
 
-As new features are rolled out to all regions, check the version deployed to your instance and the latest Azure Synapse Analytics release notes for feature availability. To check your [SQL Analytics](sql-data-warehouse-overview-what-is) version, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION;` to return the current version.
+As new features are rolled out to all regions, check the version deployed to your instance and the latest Azure Synapse Analytics release notes for feature availability. To check your [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) version, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION;` to return the current version.
 
 Example output:
 

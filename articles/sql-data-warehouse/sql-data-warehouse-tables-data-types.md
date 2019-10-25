@@ -43,8 +43,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="unsupported-data-types"></a>Workarounds for unsupported data types
 
-The following list shows the data types that [SQL Analytics](sql-data-warehouse-overview-what-is
-) does not support and gives alternatives that you can use instead of the unsupported data types.
+The following list shows the data types that [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) does not support and gives alternatives that you can use instead of the unsupported data types.
 
 | Unsupported data type | Workaround |
 | --- | --- |

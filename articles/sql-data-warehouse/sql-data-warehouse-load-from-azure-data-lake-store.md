@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ---
 
 # Load data from Azure Data Lake Storage to Azure Synapse Analytics (formerly SQL DW)
-Use PolyBase external tables to load data from Azure Data Lake Storage into [SQL Analytics](sql-data-warehouse-overview-what-is) tables. Although you can run ad hoc queries on data stored in Data Lake Storage, we recommend importing the data into SQL Analytics tables for best performance.
+Use PolyBase external tables to load data from Azure Data Lake Storage into [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) tables. Although you can run ad hoc queries on data stored in Data Lake Storage, we recommend importing the data into SQL Analytics tables for best performance.
 
 > [!div class="checklist"]
 > * Create database objects required to load from Data Lake Storage.
