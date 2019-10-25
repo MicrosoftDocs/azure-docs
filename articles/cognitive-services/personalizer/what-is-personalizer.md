@@ -15,13 +15,12 @@ ms.author: diberry
 
 # What is Personalizer?
 
-Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
+Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their collective real-time behavior.
 
 * Provide information about your users and content and receive the top action to show your users. 
 * No need to clean and label data before using Personalizer.
 * Provide feedback to Personalizer when it is convenient to you. 
 * View real-time analytics. 
-* Use Personalizer as part of a larger data science effort to validate existing experiments.
 
 ## How does Personalizer work?
 
