@@ -69,7 +69,7 @@ Azure Firewall Manager Preview has the following known issues:
 |Third-party filtering limitations|V2I traffic filtering with third-party providers is not supported with Azure Firewall B2V and V2V.|It is possible to have two secured virtual hubs side by side, where one hub is for V2I with a third-party providers and the other is with Azure Firewall for B2V and V2V.<br> Currently investigating.|
 |Traffic splitting not currently supported|Office 365 and Azure Public PaaS traffic splitting is not currently supported. As such, selecting a third-party provider for V2I or B2I also sends all Azure Public PaaS and Office 365 traffic via the partner service.|Currently investigating traffic splitting at the hub.
 |One hub per region|You can't have more than one hub per region|Create multiple virtual WANs in a region.|
-|Base policies must be in same region as local policy|Create all your local policies in the same region as the base policy. You can still apply a policy that was created in one region on a secured hub from another region|Currently investigating.|
+|Base policies must be in same region as local policy|Create all your local policies in the same region as the base policy. You can still apply a policy that was created in one region on a secured hub from another region.|Currently investigating.|
 
 ## Next steps
 

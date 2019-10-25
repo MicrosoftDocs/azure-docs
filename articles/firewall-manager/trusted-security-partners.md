@@ -76,4 +76,4 @@ For more information about how to configure Office 365 breakout policies in Azur
 
 ## Next steps
 
-Deploy a trusted security offering in a secured hub, using Azure Firewall Manager.
+[Deploy a trusted security offering in a secured hub, using Azure Firewall Manager](deploy-trusted-security-partner.md).
