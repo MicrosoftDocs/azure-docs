@@ -1,6 +1,6 @@
 ---
-title: Deploy ONNX model to SQL Database Edge Preview | Microsoft Docs
-description: Learn how to deploy Azure SQL Database Edge using the Azure portal
+title: Deploy and make predictions with ONNX in SQL Database Edge Preview
+description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Database Edge Preview, and then run native PREDICT on data using the uploaded ONNX model.
 keywords: deploy sql database edge
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -12,9 +12,9 @@ ms.reviewer: davidph
 ms.date: 11/04/2019
 ---
 
-# Deploy an ONNX model on Azure SQL Database Edge Preview
+# Deploy and make predictions with an ONNX model in SQL Database Edge Preview
 
-In this quickstart, you'll learn how to deploy an ONNX model to Azure SQL Database Edge Preview.
+In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to Azure SQL Database Edge Preview, and then run native PREDICT on data using the uploaded ONNX model.
 
 This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
