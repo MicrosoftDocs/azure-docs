@@ -401,7 +401,8 @@
         "articles/governance/policy/**/*.yml": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/governance/resource-graph/**/*.yml": "Azure Resource Graph",
-        "articles/lighthouse/**/*.md": "Azure Lighthouse"
+        "articles/lighthouse/**/*.md": "Azure Lighthouse",
+        "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture"
       },
       "manager": {
         "articles/sql-database/**/*.md": "jroth"
