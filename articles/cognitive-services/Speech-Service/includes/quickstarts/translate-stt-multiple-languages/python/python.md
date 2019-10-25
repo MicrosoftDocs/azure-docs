@@ -80,20 +80,20 @@ Before you get started, make sure to:
 
 ## Build and run your app
 
-Run the sample from the console or in your IDE:
+1. Run the sample from the console or in your IDE:
 
-    ````
-    python quickstart.py
-    ````
+   ```
+   python quickstart.py
+   ```
 
 1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to French and German). The Speech Services then sends the text back to the application for display.
 
-    ````
-    Say something...
-    RECOGNIZED 'en-US': What's the weather in Seattle?
-    TRANSLATED into 'de': Wie ist das Wetter in Seattle?
-    TRANSLATED into 'fr': Quel temps fait-il à Seattle ?
-    ````
+   ```
+   Say something...
+   RECOGNIZED 'en-US': What's the weather in Seattle?
+   TRANSLATED into 'de': Wie ist das Wetter in Seattle?
+   TRANSLATED into 'fr': Quel temps fait-il à Seattle ?
+   ```
 
 ## Next steps
 
