@@ -24,7 +24,7 @@ For this article, you can create the same logic app from this [quickstart](../lo
 
 ![Example logic app workflow definition](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
-Before you start, make sure you have these items:
+Before you start, make sure that you have these items:
 
 * If you don't have an Azure account and subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
@@ -81,7 +81,7 @@ Before you start, make sure you have these items:
 1. Select your Azure account. After you sign in, you can close your browser, and return to Visual Studio Code.
 
    In the Azure pane, the **Logic Apps** and **Integration Accounts** sections now show the Azure subscriptions that are associated with your account. However, if you don't see the subscriptions that you expect, or if the sections show too many subscriptions, follow these steps:
-   
+
    1. Move your pointer over the **Logic Apps** label. When the toolbar appears, select **Select Subscriptions** (filter icon).
 
       ![Find or filter Azure subscriptions](./media/quickstart-create-logic-apps-visual-studio-code/find-or-filter-subscriptions.png)
@@ -135,8 +135,6 @@ Before you start, make sure you have these items:
    > such as Outlook.com or Gmail, replace the `Send_an_email_action` action with a similar action available from an 
    > [email connector that's supported by Azure Logic Apps](../connectors/apis-list.md).
 
-
-
 1. When you're done, save your logic app's workflow definition. (File menu > Save, or press Ctrl+S)
 
 1. When you're prompted to upload your logic app to your Azure subscription, select **Upload**.
@@ -189,7 +187,10 @@ In Visual Studio Code, when you edit a published logic app, your changes *overwr
 
 For a logic app that's already published in Azure, you can open and edit that logic app's workflow definition from inside Visual Studio Code.
 
-> [!IMPORTANT] Before you edit an actively running logic app in production, avoid the risk in breaking that logic app and minimize disruption by [disabling your logic app first](#disable-enable-logic-app).
+> [!IMPORTANT] 
+> Before you edit an actively running logic app in production, 
+> avoid the risk in breaking that logic app and minimize disruption by 
+> [disabling your logic app first](#disable-enable-logic-app).
 
 1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#sign-in-azure).
 
@@ -216,4 +217,4 @@ For a logic app that's already published in Azure, you can open and edit that lo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> * [Create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+> [Create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
