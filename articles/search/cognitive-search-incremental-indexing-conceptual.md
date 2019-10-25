@@ -64,7 +64,7 @@ Incremental indexing gives you granular control over all aspects of the enrichme
 
 To ensure that the indexer only does enrichments you explicitly require, updates to the skillset can optionally set the `disableCacheReprocessingChangeDetection` querystring parameter to `true`. When set, this parameter will ensure that only updates to the skillset are committed and the change isn't evaluated for effects on the existing corpus.
 
-The following example illustrates querystring usage. It’s part of the request, with &-separated key value pairs. 
+The following example illustrates querystring usage. It's part of the request, with &-separated key value pairs. 
 
 ```http
 PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2019-05-06-Preview&disableCacheReprocessingChangeDetection=true
