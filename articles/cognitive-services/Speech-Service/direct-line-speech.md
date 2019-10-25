@@ -28,7 +28,7 @@ The first steps for creating a voice assistant using Direct Line Speech are to [
 
 For a complete, step-by-step guide on creating a simple voice assistant using Direct Line Speech, please see [the tutorial for speech-enabling your bot with the Speech SDK and the Direct Line Speech channel](tutorial-voice-enable-your-bot-speech-sdk.md).
 
-We also offer Quickstarts designed to have you running code in less than 10 minutes. This table includes a list of voice assistant Quickstarts organized by language.
+We also offer Quickstarts designed to have you running code in less than 10 minutes. This table includes a list of voice assistant quickstarts organized by language.
 
 | Quickstart | Platform | API reference |
 |------------|----------|---------------|

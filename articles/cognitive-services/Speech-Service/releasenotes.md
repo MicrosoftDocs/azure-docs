@@ -81,7 +81,7 @@ This is a bug fix release and only affecting the native/managed SDK. It is not a
 **Bug fixes**
 
 * Fix FromSubscription when used with Conversation Transcription.
-* Fix bug in keyword spotting for voice assistant.
+* Fix bug in keyword spotting for voice assistants.
 
 
 ## Speech SDK 1.5.0: 2019-May release

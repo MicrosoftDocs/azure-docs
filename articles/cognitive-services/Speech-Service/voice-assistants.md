@@ -26,8 +26,8 @@ Applications connect to the voice assistant service with the Speech Software Dev
 
 | Category | Features |
 |----------|----------|
-|[Custom keyword](speech-devices-sdk-create-kws.md) | Users can start conversations with assistants with a custom keyword like “Hey Contoso.” An app does this with a custom keyword engine in the Speech SDK, which can be configured with a custom keyword [that you can generate here](speech-devices-sdk-create-kws.md). voice assistants can use service-side keyword verification to improve the accuracy of the keyword activation (versus the device alone).
-|[Speech to text](speech-to-text.md) | voice assistants convert real-time audio into recognized text using [Speech-to-text](speech-to-text.md) from Azure Speech Services. This text is available, as it's transcribed, to both your assistant implementation and your client application.
+|[Custom keyword](speech-devices-sdk-create-kws.md) | Users can start conversations with assistants with a custom keyword like “Hey Contoso.” An app does this with a custom keyword engine in the Speech SDK, which can be configured with a custom keyword [that you can generate here](speech-devices-sdk-create-kws.md). Voice assistants can use service-side keyword verification to improve the accuracy of the keyword activation (versus the device alone).
+|[Speech to text](speech-to-text.md) | Voice assistants convert real-time audio into recognized text using [Speech-to-text](speech-to-text.md) from Azure Speech Services. This text is available, as it's transcribed, to both your assistant implementation and your client application.
 |[Text to speech](text-to-speech.md) | Textual responses from your assistant are synthesized using [Text-to-speech](text-to-speech.md) from Azure Speech Services. This synthesis is then made available to your client application as an audio stream. Microsoft offers the ability to build your own custom, high-quality Neural TTS voice that gives a voice to your brand. To learn more, [contact us](mailto:mstts@microsoft.com).
 
 ## Comparing assistant solutions
@@ -45,7 +45,7 @@ Once you've created a voice assistant with one of these solutions, connect your 
 
 ## Getting started with voice assistants
 
-We offer Quickstarts designed to have you running code in less than 10 minutes. This table includes a list of voice assistant Quickstarts, organized by language.
+We offer quickstarts designed to have you running code in less than 10 minutes. This table includes a list of voice assistant quickstarts, organized by language.
 
 | Quickstart | Platform | API reference |
 |------------|----------|---------------|
@@ -66,7 +66,7 @@ A tutorial on how to [voice-enable your assistant using the Speech SDK and Direc
 
 ## Customization
 
-voice assistants built using Azure Speech Services can use the full range of customization options available for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), and [custom keyword selection](speech-devices-sdk-create-kws.md).
+Voice assistants built using Azure Speech Services can use the full range of customization options available for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), and [custom keyword selection](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](supported-languages.md)).
