@@ -152,7 +152,7 @@ The water consumption monitor device template comes with pre-defined views. Expl
 If you made any changes make sure to **Publish** the device template. 
 
 ### Create a new device template 
-1.Select **+ New** to create a new device template and follow the creation process. 
+- Select **+ New** to create a new device template and follow the creation process. 
 You will be able to create a custom device template from scratch or you can choose a device template from the Azure Device Catalog. 
 
 ## Explore simulated devices
@@ -167,7 +167,7 @@ In IoT Central, you can create simulated devices to test your device template an
 
     ![Device 1](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitor-device1.png)
 
-3.  In the *Device Commands** you can see the three device commands *Open Valve*, *Close Valve*, and *Set Valve position* which are capabilities defined in the *Smart Valve* device template. 
+3.  In the **Device Commands** you can see the three device commands *Open Valve*, *Close Valve*, and *Set Valve position* that are capabilities defined in the *Smart Valve* device template. 
 4. Explore the **Device Properties** tab and **Device Dashboard** tab. 
 
 > [!NOTE]
@@ -198,11 +198,11 @@ Now let's create an email action.
 To add an action to the rule:
 
 1. Select **+ Email**. 
-2. Enter *High pH alert* as the friendly **Display name** for the action.
-* Enter the email address associated with your IoT Central account in **To**. 
-3. Optionally, enter a note to include in text of the email.
-4. Select **Done** to complete the action.
-6. Select **Save** to save and activate the new rule. 
+1. Enter *High pH alert* as the friendly **Display name** for the action.
+    * Enter the email address associated with your IoT Central account in **To**. 
+1. Optionally, enter a note to include in text of the email.
+1. Select **Done** to complete the action.
+1. Select **Save** to save and activate the new rule. 
 
 Within a few minutes, you should receive email when the configured **condition** is met.
 
@@ -210,7 +210,7 @@ Within a few minutes, you should receive email when the configured **condition**
 > The application will send email each time a condition is met. **Disable** the rule to stop receiving email from the automated rule. 
   
 To create a new rule: 
-1. Select **+New** on the **Rules** from the left navigation pane.
+- Select **+New** on the **Rules** from the left navigation pane.
 
 ## Configure Jobs
 
