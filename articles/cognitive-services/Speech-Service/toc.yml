@@ -26,11 +26,11 @@
     - name: Change speech recognition source language
       href: how-to-specify-source-language.md
     - name: Improve accuracy with Custom Speech
-      href: how-to-custom-speech.md
+      href: https://aka.ms/speech/custom-sr-overview
     - name: Improve accuracy with Phrase Lists
       href: how-to-phrase-lists.md
     - name: Improve accuracy with Tenant Models
-      href: tutorial-tenant-model.md
+      href: https://aka.ms/speech/tlm-overview
     - name: Select a specific microphone input device
       href: how-to-select-audio-input-devices.md
     - name: Use automatic source language detection
@@ -40,7 +40,7 @@
     - name: Use continuous recognition
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Use speech recognition with Docker containers
-      href: speech-container-howto.md
+      href: https://aka.ms/speech/sr-containers
   - name: Reference
     items:
     - name: Speech SDK APIs
@@ -85,11 +85,11 @@
     - name: Improve output with SSML
       href: speech-synthesis-markup.md
     - name: Improve output with Custom Voices
-      href: how-to-custom-voice.md
+      href: https://aka.ms/speech/custom-tts-overview
     - name: Synthesize speech with Long Audio API
       href: long-audio-api.md
     - name: Use speech synthesis with Docker containers
-      href: speech-container-howto.md
+      href: https://aka.ms/speech/tts-containers
   - name: Reference
     items:
     - name: Speech SDK
