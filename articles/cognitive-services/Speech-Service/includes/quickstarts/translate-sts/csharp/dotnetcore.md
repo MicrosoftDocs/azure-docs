@@ -25,90 +25,90 @@ Before you get started, make sure to:
 
 1. Open `Program.cs`, and replace all the code in it with the following.
 
-````C#
-using System;
-using System.Threading.Tasks;
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Translation;
+   ```Csharp
+   using System;
+   using System.Threading.Tasks;
+   using Microsoft.CognitiveServices.Speech;
+   using Microsoft.CognitiveServices.Speech.Translation;
 
-namespace helloworld
-{
-    class Program
-    {
-        public static async Task TranslateSpeechToSpeech()
-        {
-            // Creates an instance of a speech translation config with specified subscription key and service region.
-            // Replace with your own subscription key and service region (e.g., "westus").
-            var config = SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+   namespace helloworld
+   {
+       class Program
+       {
+           public static async Task TranslateSpeechToSpeech()
+           {
+               // Creates an instance of a speech translation config with specified subscription key and service region.
+               // Replace with your own subscription key and service region (e.g., "westus").
+               var config = SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-            // Sets source and target languages.
-            // Replace with the languages of your choice, from list found here: https://aka.ms/speech/sttt-languages
-            string fromLanguage = "en-US";
-            string toLanguage = "de";
-            config.SpeechRecognitionLanguage = fromLanguage;
-            config.AddTargetLanguage(toLanguage);
+               // Sets source and target languages.
+               // Replace with the languages of your choice, from list found here: https://aka.ms/speech/sttt-languages
+               string fromLanguage = "en-US";
+               string toLanguage = "de";
+               config.SpeechRecognitionLanguage = fromLanguage;
+               config.AddTargetLanguage(toLanguage);
 
-            // Sets the synthesis output voice name.
-            // Replace with the languages of your choice, from list found here: https://aka.ms/speech/tts-languages
-            config.VoiceName = "de-DE-Hedda";
+               // Sets the synthesis output voice name.
+               // Replace with the languages of your choice, from list found here: https://aka.ms/speech/tts-languages
+               config.VoiceName = "de-DE-Hedda";
 
-            // Creates a translation recognizer using the default microphone audio input device.
-            using (var recognizer = new TranslationRecognizer(config))
-            {
-                // Prepare to handle the synthesized audio data.
-                recognizer.Synthesizing += (s, e) =>
-                {
-                    var audio = e.Result.GetAudio();
-                    Console.WriteLine(audio.Length != 0
-                        ? $"AUDIO SYNTHESIZED: {audio.Length} byte(s)"
-                        : $"AUDIO SYNTHESIZED: {audio.Length} byte(s) (COMPLETE)");
-                };
+               // Creates a translation recognizer using the default microphone audio input device.
+               using (var recognizer = new TranslationRecognizer(config))
+               {
+                   // Prepare to handle the synthesized audio data.
+                   recognizer.Synthesizing += (s, e) =>
+                   {
+                       var audio = e.Result.GetAudio();
+                       Console.WriteLine(audio.Length != 0
+                           ? $"AUDIO SYNTHESIZED: {audio.Length} byte(s)"
+                           : $"AUDIO SYNTHESIZED: {audio.Length} byte(s) (COMPLETE)");
+                   };
 
-                // Starts translation, and returns after a single utterance is recognized. The end of a
-                // single utterance is determined by listening for silence at the end or until a maximum of 15
-                // seconds of audio is processed. The task returns the recognized text as well as the translation.
-                // Note: Since RecognizeOnceAsync() returns only a single utterance, it is suitable only for single
-                // shot recognition like command or query.
-                // For long-running multi-utterance recognition, use StartContinuousRecognitionAsync() instead.
-                Console.WriteLine("Say something...");
-                var result = await recognizer.RecognizeOnceAsync();
+                   // Starts translation, and returns after a single utterance is recognized. The end of a
+                   // single utterance is determined by listening for silence at the end or until a maximum of 15
+                   // seconds of audio is processed. The task returns the recognized text as well as the translation.
+                   // Note: Since RecognizeOnceAsync() returns only a single utterance, it is suitable only for single
+                   // shot recognition like command or query.
+                   // For long-running multi-utterance recognition, use StartContinuousRecognitionAsync() instead.
+                   Console.WriteLine("Say something...");
+                   var result = await recognizer.RecognizeOnceAsync();
 
-                // Checks result.
-                if (result.Reason == ResultReason.TranslatedSpeech)
-                {
-                    Console.WriteLine($"RECOGNIZED '{fromLanguage}': {result.Text}");
-                    Console.WriteLine($"TRANSLATED into '{toLanguage}': {result.Translations[toLanguage]}");
-                }
-                else if (result.Reason == ResultReason.RecognizedSpeech)
-                {
-                    Console.WriteLine($"RECOGNIZED '{fromLanguage}': {result.Text} (text could not be translated)");
-                }
-                else if (result.Reason == ResultReason.NoMatch)
-                {
-                    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
-                }
-                else if (result.Reason == ResultReason.Canceled)
-                {
-                    var cancellation = CancellationDetails.FromResult(result);
-                    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+                   // Checks result.
+                   if (result.Reason == ResultReason.TranslatedSpeech)
+                   {
+                       Console.WriteLine($"RECOGNIZED '{fromLanguage}': {result.Text}");
+                       Console.WriteLine($"TRANSLATED into '{toLanguage}': {result.Translations[toLanguage]}");
+                   }
+                   else if (result.Reason == ResultReason.RecognizedSpeech)
+                   {
+                       Console.WriteLine($"RECOGNIZED '{fromLanguage}': {result.Text} (text could not be translated)");
+                   }
+                   else if (result.Reason == ResultReason.NoMatch)
+                   {
+                       Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                   }
+                   else if (result.Reason == ResultReason.Canceled)
+                   {
+                       var cancellation = CancellationDetails.FromResult(result);
+                       Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
 
-                    if (cancellation.Reason == CancellationReason.Error)
-                    {
-                        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
-                        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
-                    }
-                }
-            }
-        }
+                       if (cancellation.Reason == CancellationReason.Error)
+                       {
+                           Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+                           Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+                           Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                       }
+                   }
+               }
+           }
 
-        static void Main(string[] args)
-        {
-            TranslateSpeechToSpeech().Wait();
-        }
-    }
-}
-````
+           static void Main(string[] args)
+           {
+               TranslateSpeechToSpeech().Wait();
+           }
+       }
+   }
+   ```
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
