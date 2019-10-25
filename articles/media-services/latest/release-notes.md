@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 10/07/2019
 ms.author: juliako
 ---
 
@@ -30,6 +30,48 @@ To stay up-to-date with the most recent developments, this article provides you 
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
+
+## September 2019
+
+###  Media Services v3  
+
+#### Live linear encoding of live events
+
+Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear encoding of live events.
+
+###  Media Services v2  
+
+#### Deprecation of media processors
+
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. The [Azure Media Indexer](../previous/media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer 2 Preview](../previous/media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
+
+For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
+
+## August 2019
+
+###  Media Services v3  
+
+#### South Africa regional pair is open for Media Services 
+
+Media Services is now available in South Africa North and South Africa West regions.
+
+For more information, see [Clouds and regions in which Media Services v3 exists](azure-clouds-regions.md).
+
+###  Media Services v2  
+
+#### Deprecation of media processors
+
+We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors, which are being retired on Nov 30, 2019.
+
+For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+ 
+## July 2019
+
+### Content protection
+
+When streaming content protected with token restriction, end users need to obtain a token that is sent as part of the key delivery request. The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
+
+This feature is currently available in US Central and US West Central.
 
 ## June 2019
 
@@ -252,4 +294,5 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-[Overview](media-services-overview.md)
+- [Overview](media-services-overview.md)
+- [Media Services v2 release notes](../previous/media-services-release-notes.md)

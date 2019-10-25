@@ -1,24 +1,25 @@
 ---
 title: Monitor a live ASP.NET web app with Azure Application Insights  | Microsoft Docs
 description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises or in VMs.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/24/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 08/26/2019
+
 ---
-# Instrument web apps at runtime with Application Insights Status Monitor
+
+# Instrument web apps at runtime with Application Insights Codeless Attach
+
+> [!IMPORTANT]
+> Status Monitor is no longer recommended for use. It has been replaced by the Azure Monitor Application Insights Agent (formerly named Status Monitor v2). See our documentation for [on-premises server deployments](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) or [Azure virtual machine and virtual machine scale set deployments](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. You need a [Microsoft Azure](https://azure.com) subscription.
 
 Status Monitor is used to instrument a .NET application hosted in IIS either on-premises or in a VM.
 
+- If your app is deployed into Azure VM or Azure virtual machine scale set, follow [these instructions](azure-vm-vmss-apps.md).
 - If your app is deployed into Azure app services, follow [these instructions](azure-web-apps.md).
 - If your app is deployed in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel.
 - (There are also separate articles about instrumenting [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
@@ -32,7 +33,7 @@ You have a choice of two routes to apply Application Insights to your .NET web a
 * **Run time:** Instrument your web app on the server, as described below, without rebuilding and redeploying the code.
 
 > [!NOTE]
-> If you use build time instrumentation, run time instrumention will not work even if it is turned on.
+> If you use build time instrumentation, run time instrumentation will not work even if it is turned on.
 
 Here's a summary of what you get by each route:
 
@@ -306,6 +307,7 @@ For applications already instrumented at compile time:
 
 ## <a name="download"></a>Download Status Monitor
 
+- Use the new [PowerShell Module](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
 - Download and run the [Status Monitor installer](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Or run [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) and search in it for Application Insights Status Monitor.
 

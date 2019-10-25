@@ -1,10 +1,9 @@
 ---
 title: Azure Files performance troubleshooting guide
 description: Known performance issues with Azure file shares and associated workarounds.
-services: storage
 author: gunjanj
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
@@ -19,7 +18,7 @@ This article lists some common problems related to Azure file shares. It provide
 
 ### Cause 1: Share experiencing throttling
 
-The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information on provision and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
+The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information about provisioning and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
@@ -82,6 +81,7 @@ One potential cause of this is a lack fo SMB multi-channel support. Currently, A
 
 - Obtaining a VM with a bigger core may help improve throughput.
 - Running the client application from multiple VMs will increase throughput.
+
 - Use REST APIs where possible.
 
 ## Throughput on Linux clients is significantly lower when compared to Windows clients.
@@ -92,8 +92,9 @@ This is a known issue with the implementation of SMB client on Linux.
 
 ### Workaround
 
-- Spread the load across multiple VMs
+- Spread the load across multiple VMs.
 - On the same VM, use multiple mount points with **nosharesock** option, and spread the load across these mount points.
+- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every fsync call. For Azure Files, this option does not interfere with data consistentcy, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
 
 ## High latencies for metadata heavy workloads involving extensive open/close operations.
 
@@ -104,7 +105,7 @@ Lack of support for directory leases.
 ### Workaround
 
 - If possible, avoid excessive opening/closing handle on the same directory within a short period of time.
-- For Linux VMs, increase the directory entry cache timeout by specifying **actimeo=<sec>** as a mount option. By default, it is one second, so a larger value like three or five might help.
+- For Linux VMs, increase the directory entry cache timeout by specifying **actimeo=\<sec>** as a mount option. By default, it is one second, so a larger value like three or five might help.
 - For Linux VMs, upgrade the kernel to 4.20 or higher.
 
 ## Low IOPS on CentOS/RHEL

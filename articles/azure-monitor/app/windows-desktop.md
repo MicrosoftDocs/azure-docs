@@ -1,18 +1,15 @@
 ---
 title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with Application Insights.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/15/2018
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 08/09/2019
+
 ---
+
 # Monitoring usage and performance in Classic Windows Desktop apps
 
 Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](../../azure-monitor/app/ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](../../azure-monitor/learn/mobile-center-quickstart.md).
@@ -35,6 +32,7 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
 
 ## <a name="telemetry"></a>Example code
 ```csharp
+using Microsoft.ApplicationInsights;
 
     public partial class Form1 : Form
     {
@@ -46,7 +44,6 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
             tc.InstrumentationKey = "key copied from portal";
 
             // Set session data:
-            tc.Context.User.Id = Environment.UserName;
             tc.Context.Session.Id = Guid.NewGuid().ToString();
             tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
 
@@ -55,9 +52,10 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
             ...
         }
 
-        protected override void OnClosing(CancelEventArgs e)
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            stop = true;
+            e.Cancel = true;
+
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps

@@ -1,6 +1,6 @@
 ---
 title: What is the Computer Vision API? - Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. 
 services: cognitive-services 
 author: PatrickFarley
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 07/03/2019 
+ms.date: 10/01/2019 
 ms.author: pafarley
 ms.custom: seodec18
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 # What is Computer Vision?
 
-Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information. To analyze an image, you can either upload an image or specify an image URL. The images processing algorithms can analyze content in several different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult or racy content or find all of the human faces in an image.
+Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information. To analyze an image, you can either upload an image or specify an image URL. The images processing algorithms can analyze content in several different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult content, or it can find all of the human faces in an image.
 
 You can use Computer Vision in your application by using either a native SDK or invoking the REST API directly. This page broadly covers what you can do with Computer Vision.
 
@@ -49,7 +49,7 @@ You can also use the [optical character recognition (OCR)](concept-recognizing-t
 
 ## Moderate content in images
 
-You can use Computer Vision to [detect adult and racy content](concept-detecting-adult-content.md) in an image and return a confidence score for both. You can set the filter for adult and racy content detection on a sliding scale to accommodate your preferences.
+You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
 
 ## Use containers
 
@@ -62,7 +62,7 @@ Computer Vision can analyze images that meet the following requirements:
 - The image must be presented in JPEG, PNG, GIF, or BMP format
 - The file size of the image must be less than 4 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels
-  - For OCR, the dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels
+  - For the Read API, the dimensions of the image must be between 50 x 50 and 10000 x 10000 pixels.
 
 ## Data privacy and security
 
@@ -72,6 +72,6 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Computer Vision by following a quickstart guide:
 
-- [Quickstart: Analyze an image](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Quickstart: Extract handwritten text](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Quickstart: Generate a thumbnail](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Quickstart: Computer Vision .NET SDK](quickstarts-sdk/csharp-sdk.md)
+- [Quickstart: Computer Vision Python SDK](quickstarts-sdk/python-sdk.md)
+- [Quickstart: Computer Vision Java SDK](quickstarts-sdk/java-sdk.md)

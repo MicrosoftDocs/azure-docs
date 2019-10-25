@@ -3,7 +3,7 @@ title: Remove a node type in Azure Service Fabric | Microsoft Docs
 description: Learn how to remove a node type from a Service Fabric cluster running in Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: vturecek
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo 
+ms.author: atsenthi 
 
 ---
 

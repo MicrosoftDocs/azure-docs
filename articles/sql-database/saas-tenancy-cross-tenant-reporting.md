@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Cross-tenant reporting using distributed queries

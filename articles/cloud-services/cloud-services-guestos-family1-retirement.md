@@ -5,14 +5,8 @@ services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: ''
-
-ms.assetid: 37b422e9-0713-4a81-a942-f553ef478064
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
 

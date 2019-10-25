@@ -37,7 +37,7 @@ The **TrustFrameworkPolicy** element contains the following attributes:
 | Attribute | Required | Description |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Yes | The schema version that is to be used to execute the policy. The value must be `0.3.0.0` |
-| TenantObjectId | No | The unique object identifier of the Azure Active Directory (Azure AD) B2C tenant. |
+| TenantObjectId | No | The unique object identifier of the Azure Active Directory B2C (Azure AD B2C) tenant. |
 | TenantId | Yes | The unique identifier of the tenant to which this policy belongs. |
 | PolicyId | Yes | The unique identifier for the policy. This identifier must be prefixed by *B2C_1A_* |
 | PublicPolicyUri | Yes | The URI for the policy, which is combination of the tenant ID and the policy ID. |
@@ -134,7 +134,7 @@ B2C_1A_TrustFrameWorkBase or B2C_1A_TrustFrameworkExtensionPolicy:
 
 A user journey defines the business logic of what a user goes through. Each user journey is a set of orchestration steps that performs a series of actions, in sequence in terms of authentication and information collection.
 
-The **SocialAndLocalAccounts** policy file in the [starter pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for other scenarios, such as changing an email address or linking and unlinking a social account.
+The **SocialAndLocalAccounts** policy file in the [starter pack](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for other scenarios, such as changing an email address or linking and unlinking a social account.
 
 The orchestration steps may call a [Technical Profile](technicalprofiles.md). A technical profile provides a framework with a built-in mechanism to communicate with different types of parties. For example, a technical profile can perform these actions among others:
 

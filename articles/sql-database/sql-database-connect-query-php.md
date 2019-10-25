@@ -9,7 +9,6 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 02/12/2019
 ---
 # Quickstart: Use PHP to query an Azure SQL database

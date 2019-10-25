@@ -45,7 +45,7 @@ Azure AD supports the following authentication methods:
 
 For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option.
  
-For detailed information on choosing an authentication method, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/azure-ad-choose-authn.md)
+For detailed information on choosing an authentication method, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/fundamentals/choose-ad-authn.md)
 
 ### Password hash synchronization
 With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new password hashes are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password hash synchronization together with password write-back to enable self-service password reset in Azure AD.

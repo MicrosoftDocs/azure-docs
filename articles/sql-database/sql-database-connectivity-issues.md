@@ -9,9 +9,9 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: dalechen
+manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/14/2019
 ---
 # Working with SQL Database connection issues and transient errors
@@ -449,6 +449,6 @@ public bool IsTransient(Exception ex)
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php

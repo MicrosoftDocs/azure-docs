@@ -3,7 +3,7 @@ title: Show information about a coordinate with Azure Maps | Microsoft Docs
 description: How to display information about an address on the map when a user selects a coordinate
 author: jingjing-z
 ms.author: jinzh
-ms.date: 3/7/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -22,9 +22,9 @@ There are two ways to make a reverse address search. One way is to query the [Az
 <iframe height='500' scrolling='no' title='Get information from a coordinate (Service Module)' src='//codepen.io/azuremaps/embed/ejEYMZ/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ejEYMZ/'>Get information from a coordinate (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a map object and sets the authentication mechanism to utilize the subscription-key. You can see [create a map](./map-create.md) for instructions.
+In the code above, the first block of code constructs a map object and sets the authentication mechanism to utilize the access token. You can see [create a map](./map-create.md) for instructions.
 
-The second block of code creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. Then the `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instance. The `searchURL` represents a URL to Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) operations.
+The second block of code creates a `TokenCredential` to authenticate HTTP requests to Azure Maps with the access token. It then passes the `TokenCredential` to `atlas.service.MapsURL.newPipeline()` and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instance. The `searchURL` represents a URL to Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) operations.
 
 The third block of code updates the style of mouse cursor to a pointer and creates a [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) object. You can see [add a popup on the map](./map-add-popup.md) for instructions.
 
@@ -41,7 +41,7 @@ Click on the map to make a reverse geocode request for that location using fetch
 <iframe height='500' scrolling='no' title='Get information from a coordinate' src='//codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ddXzoB/'>Get information from a coordinate</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a map object and sets the authentication mechanism to utilize the subscription-key. You can see [create a map](./map-create.md) for instructions.
+In the code above, the first block of code constructs a map object and sets the authentication mechanism to utilize the access token. You can see [create a map](./map-create.md) for instructions.
 
 The second block of code updates the style of mouse cursor to a pointer and [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) object. You can see [add a popup on the map](./map-add-popup.md) for instructions.
 

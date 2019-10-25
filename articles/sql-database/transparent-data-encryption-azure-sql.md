@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
-ms.date: 04/19/2019
+ms.date: 08/27/2019
 ---
 # Transparent data encryption for SQL Database and Data Warehouse
 
 Transparent data encryption (TDE) helps protect Azure SQL Database, Azure SQL Managed Instance, and Azure Data Warehouse against the threat of malicious offline activity by encrypting data at rest. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed Azure SQL databases. TDE cannot be used to encrypt the logical **master** database in SQL Database.  The **master** database contains objects that are needed to perform the TDE operations on the user databases.
 
-TDE needs to be manually enabled for Azure SQL Managed Instance, older databases of Azure SQL Database, or Azure SQL Data Warehouse.  
+TDE needs to be manually enabled for older databases of Azure SQL Database, Azure SQL Managed Instance, or Azure SQL Data Warehouse.
+Managed Instance databases created through restore inherit encryption status from the source database.
 
 Transparent data encryption encrypts the storage of an entire database by using a symmetric key called the database encryption key. This database encryption key is protected by the transparent data encryption protector. The protector is either a service-managed certificate (service-managed transparent data encryption) or an asymmetric key stored in Azure Key Vault (Bring Your Own Key). You set the transparent data encryption protector at the server level for Azure SQL Database and Data Warehouse, and instance level for Azure SQL Managed Instance. The term *server* refers both to server and instance throughout this document, unless stated differently.
 
@@ -32,7 +32,7 @@ In Azure, the default setting for transparent data encryption is that the databa
 Microsoft also seamlessly moves and manages the keys as needed for geo-replication and restores.
 
 > [!IMPORTANT]
-> All newly created SQL databases are encrypted by default by using service-managed transparent data encryption. Azure SQL Managed Instance databases, existing SQL databases created before May 2017 and SQL databases created through restore, geo-replication, and database copy are not encrypted by default.
+> All newly created SQL databases and Managed Instance databases are encrypted by default by using service-managed transparent data encryption. Existing SQL databases created before May 2017 and SQL databases created through restore, geo-replication, and database copy are not encrypted by default. Existing Managed Instance databases created before February 2019 are not encrypted by default. Managed Instance databases created through restore inherit encryption status from the source.
 
 ## Customer-managed transparent data encryption - Bring Your Own Key
 
@@ -63,7 +63,10 @@ For example, if the BACPAC file is exported from an on-premises SQL Server insta
 
 The one exception is when you export to and from a SQL database. Transparent data encryption is enabled in the new database, but the BACPAC file itself still isn't encrypted.
 
-## Manage transparent data encryption in the Azure portal
+
+## Manage transparent data encryption
+# [Portal](#tab/azure-portal)
+Manage transparent data encryption in the Azure portal.
 
 To configure transparent data encryption through the Azure portal, you must be connected as the Azure Owner, Contributor, or SQL Security Manager.
 
@@ -75,7 +78,8 @@ You set the transparent data encryption master key, also known as the transparen
 
 ![Transparent data encryption with Bring Your Own Key support](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
-## Manage transparent data encryption by using PowerShell
+# [PowerShell](#tab/azure-powershell)
+Manage transparent data encryption by using PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -102,7 +106,8 @@ Use the following cmdlets for Azure SQL Database and Data Warehouse:
 > [!IMPORTANT]
 > For Azure SQL Managed Instance, use the T-SQL [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) command to turn transparent data encryption on and off on a database level, and check [sample PowerShell script](transparent-data-encryption-byok-azure-sql-configure.md) to manage transparent data encryption on an instance level.
 
-## Manage transparent data encryption by using Transact-SQL
+# [Transact-SQL](#tab/azure-TransactSQL)
+Manage transparent data encryption by using Transact-SQL.
 
 Connect to the database by using a login that is an administrator or member of the **dbmanager** role in the master database.
 
@@ -115,7 +120,8 @@ Connect to the database by using a login that is an administrator or member of t
 
 You can't switch the transparent data encryption protector to a key from Key Vault by using Transact-SQL. Use PowerShell or the Azure portal.
 
-## Manage transparent data encryption by using the REST API
+# [REST API](#tab/azure-RESTAPI)
+Manage transparent data encryption by using the REST API.
 
 To configure transparent data encryption through the REST API, you must be connected as the Azure Owner, Contributor, or SQL Security Manager.
 Use the following set of commands for Azure SQL Database and Data Warehouse:

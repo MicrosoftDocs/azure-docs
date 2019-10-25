@@ -11,7 +11,6 @@ ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm

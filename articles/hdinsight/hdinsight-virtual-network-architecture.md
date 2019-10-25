@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ---
+
 # Azure HDInsight virtual network architecture
 
 This article explains the resources that are present when you deploy an HDInsight cluster into a custom Azure Virtual Network. This information will help you to connect on-premises resources to your HDInsight cluster in Azure. For more information on Azure Virtual Networks, see [What is Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
@@ -30,7 +31,7 @@ Azure HDInsight clusters have different types of virtual machines, or nodes. Eac
 
 The following diagram shows the placement of HDInsight nodes and network resources in Azure.
 
-![Diagram of HDInsight entities created in Azure custom VNET](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![Diagram of HDInsight entities created in Azure custom VNET](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
 The default resources present when HDInsight is deployed into an Azure Virtual Network include the cluster node types mentioned in the previous table, as well as network devices that support communication between the virtual network and outside networks.
 

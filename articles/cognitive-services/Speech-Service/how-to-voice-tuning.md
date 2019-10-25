@@ -1,5 +1,5 @@
 ---
-title: Fine-tune text-to-speech output - Speech Services
+title: Fine-tune text-to-speech output - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Enable logging in the Speech SDK.
 services: cognitive-services

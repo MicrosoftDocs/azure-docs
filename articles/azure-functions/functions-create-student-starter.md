@@ -9,7 +9,6 @@ manager: ggailey777
 
 ms.assetid: 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche

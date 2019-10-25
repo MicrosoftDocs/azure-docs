@@ -29,11 +29,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For most people, data appears in the tabular format:
 
-![HDInsight HBase tabular data](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
+![HDInsight Apache HBase tabular data](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
 
 In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtable/)), the same data looks like:
 
-![HDInsight HBase BigTable data](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
+![HDInsight Apache HBase BigTable data](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
 
 You can use SSH to connect to HBase clusters, and then use Apache HBase Shell to create HBase tables, insert data, and query data.
 

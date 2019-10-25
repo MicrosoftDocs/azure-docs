@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: This guide provides step-by-step instructions to enable diagnostic logging for an Azure Cognitive Service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
@@ -30,7 +30,7 @@ To enable diagnostic logging, you'll need somewhere to store your log data. This
 Let's start by enabling diagnostic logging using the Azure portal.
 
 > [!NOTE]
-> To enable this feature using PowerShell or the Azure CLI, use the instructions provided in [Collect and consume log data from your Azure resources](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
+> To enable this feature using PowerShell or the Azure CLI, use the instructions provided in [Collect and consume log data from your Azure resources](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 1. Navigate to the Azure portal. Then locate and select a Cognitive Services resource. For example, your subscription to Bing Web Search.   
 2. Next, from the left-hand navigation menu, locate **Monitoring** and select **Diagnostic settings**. This screen contains all previously created diagnostic settings for this resource.

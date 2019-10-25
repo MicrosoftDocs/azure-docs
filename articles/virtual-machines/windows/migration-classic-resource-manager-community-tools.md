@@ -12,7 +12,7 @@ ms.assetid: 228b697b-3950-49f5-84bb-283bb56621b1
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing

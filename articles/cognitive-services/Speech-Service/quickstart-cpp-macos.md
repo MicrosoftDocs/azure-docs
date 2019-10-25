@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, C++ (macOS) - Speech Services'
+title: 'Quickstart: Recognize speech, C++ (macOS) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in C++ on macOS by using the Speech SDK
 services: cognitive-services
@@ -25,8 +25,6 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 ## Install Speech SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-The current version of the Cognitive Services Speech SDK is `1.6.0`.
 
 The Speech SDK for macOS can be downloaded as a zipped framework bundle from https://aka.ms/csspeech/macosbinary.
 

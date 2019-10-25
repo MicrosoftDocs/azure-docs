@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: alkohli
 ---
 
@@ -34,7 +34,7 @@ The following table has a brief description of the commands available for `dkrdb
 
 |command  |Description |
 |---------|---------|
-|`image`     | Manage images       |
+|`image`     | Manage images. To remove unused images, use: `dkrdbe image prune -a -f`       |
 |`images`     | List images         |
 |`inspect`     | Return low-level information on Docker objects         |
 |`login`     | Sign in to a Docker registry         |

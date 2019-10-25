@@ -31,7 +31,7 @@ You can federate your on-premises environment with Azure AD and use this federat
 
 ## Next Steps
 
-- [What is hybrid identity?](whatis-phs.md)
+- [What is hybrid identity?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity)
 - [What is Azure AD Connect and Connect Health?](whatis-azure-ad-connect.md)
 - [What is password hash synchronization?](whatis-phs.md)
 - [What is federation?](whatis-fed.md)

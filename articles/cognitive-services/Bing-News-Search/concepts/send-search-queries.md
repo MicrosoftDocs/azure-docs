@@ -1,6 +1,6 @@
 ---
 title: "Sending queries to the Bing News Search API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn about sending search requests to the Bing News Search API.
 services: cognitive-services
 author: aahill

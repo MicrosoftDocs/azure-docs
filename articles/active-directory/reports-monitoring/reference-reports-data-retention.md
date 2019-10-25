@@ -3,7 +3,7 @@ title: How long does Azure AD store reporting data? | Microsoft Docs
 description: Learn how long Azure stores the various types of reporting data. 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management

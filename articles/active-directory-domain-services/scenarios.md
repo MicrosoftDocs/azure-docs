@@ -1,87 +1,111 @@
 ---
-title: 'Azure Active Directory Domain Services: Deployment scenarios | Microsoft Docs'
-description: Deployment scenarios for Azure AD Domain Services
+title: Common deployment scenarios for Azure AD Domain Services | Microsoft Docs
+description: Learn about some of the common scenarios and use-cases for Azure Active Directory Domain Services to provide value and meet business needs.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/21/2017
+ms.date: 08/22/2019
 ms.author: iainfou
 
 ---
-# Deployment scenarios and use-cases
-In this section, we look at a few scenarios and use-cases that benefit from Azure Active Directory (AD) Domain Services.
+# Common use-cases and scenarios for Azure Active Directory Domain Services
 
-## Secure, easy administration of Azure virtual machines
-You can use Azure Active Directory Domain Services to manage your Azure virtual machines in a streamlined manner. Azure virtual machines can be joined to the managed domain, thus enabling you to use your corporate AD credentials to log in. This approach helps avoid credential management hassles such as maintaining local administrator accounts on each of your Azure virtual machines.
+Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, and Kerberos / NTLM authentication. Azure AD DS integrates with your existing Azure AD tenant, which makes it possible for users to sign in using their existing credentials. You use these domain services without the need to deploy, manage, and patch domain controllers in the cloud, which provides a smoother lift-and-shift of on-premises resources to Azure.
 
-Server virtual machines that are joined to the managed domain can also be managed and secured using Group Policy. You can apply required security baselines to your Azure virtual machines and lock them down in accordance with corporate security guidelines. For example, you can use group policy management capabilities to restrict the types of applications that can be launched on these virtual machines.
+This article outlines some common business scenarios where Azure AD DS provides value and meets those needs.
+
+## Secure administration of Azure virtual machines
+
+To let you use a single set of AD credentials, Azure virtual machines (VMs) can be joined to an Azure AD DS managed domain. This approach reduces credential management issues such as maintaining local administrator accounts on each VM or separate accounts and passwords between environments.
+
+VMs that are joined to an Azure AD DS managed domain can also be managed and secured using Group Policy. Required security baselines can be applied to VMs to lock them down in accordance with corporate security guidelines. For example, you can use group policy management capabilities to restrict the types of applications that can be launched on the VM.
 
 ![Streamlined administration of Azure virtual machines](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-As servers and other infrastructure reaches end-of-life, Contoso is moving many applications currently hosted on premises to the cloud. Their current IT standard mandates that servers hosting corporate applications must be domain-joined and managed using Group Policy. Contoso's IT administrator prefers to domain join virtual machines deployed in Azure, to make administration easier. As a result, administrators and users can log in using their corporate credentials. At the same time, machines can be configured to comply with required security baselines using Group Policy. Contoso would prefer not to have to deploy, monitor, and manage domain controllers in Azure to secure Azure virtual machines. Therefore, Azure AD Domain Services is a great fit for this use-case.
+Let's look at a common example scenario. As servers and other infrastructure reaches end-of-life, Contoso wants to move applications currently hosted on premises to the cloud. Their current IT standard mandates that servers hosting corporate applications must be domain-joined and managed using group policy. Contoso's IT administrator would prefer to domain join VMs deployed in Azure to make administration easier as users can then sign in using their corporate credentials. When domain-joined, VMs can also be configured to comply with required security baselines using Group Policy. Contoso would prefer not to deploy, monitor, and manage their own domain controllers in Azure.
 
-**Deployment notes**
+Azure AD DS is a great fit for this use-case. An Azure AD DS managed domain lets you domain-join VMs, use a single set of credentials, and apply group policy. As a managed domain, you don't have to configure and maintain the domain controllers yourself.
 
-Consider the following important points for this deployment scenario:
+### Deployment notes
 
-* Managed domains provided by Azure AD Domain Services provide a single flat OU (Organizational Unit) structure by default. All domain-joined machines reside in a single flat
-  OU. You may however choose to create custom OUs.
-* Azure AD Domain Services supports simple Group Policy in the form of a built-in GPO each for the users and computers containers. You can create custom GPOs and target them to custom OUs.
-* Azure AD Domain Services supports the base AD computer object schema. You cannot extend the computer object's schema.
+The following deployment considerations apply to this example use case:
 
-## Lift-and-shift an on-premises application that uses LDAP bind authentication to Azure Infrastructure Services
+* Azure AD DS managed domains use a single, flat Organizational Unit (OU) structure by default. All domain-joined VMs are in a single OU. If desired, you can create custom OUs.
+* Azure AD DS uses a built-in GPO each for the users and computers containers. For additional control, you can create custom GPOs and target them to custom OUs.
+* Azure AD DS supports the base AD computer object schema. You can't extend the computer object's schema.
+
+## Lift-and-shift on-premises applications that use LDAP bind authentication
+
+As a sample scenario, Contoso has an on-premises application that was purchased from an ISV many years ago. The application is currently in maintenance mode by the ISV and requesting changes to the application is prohibitively expensive. This application has a web-based frontend that collects user credentials using a web form and then authenticates users by performing an LDAP bind to the on-premises AD DS environment.
+
 ![LDAP bind](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
-Contoso has an on-premises application that was purchased from an ISV many years ago. The application is currently in maintenance mode by the ISV and requesting changes to the application is prohibitively expensive for Contoso. This application has a web-based frontend that collects user credentials using a web form and then authenticates users by performing an LDAP bind to the corporate Active Directory. Contoso would like to migrate this application to Azure Infrastructure Services. It is desirable that the application works as is, without requiring any changes. Additionally, users should be able to authenticate using their existing corporate credentials and without having to retrain users to do things differently. In other words, end users should be oblivious of where the application is running and the migration should be transparent to them.
+Contoso would like to migrate this application to Azure. The application should continue to works as-is, with no changes needed. Additionally, users should be able to authenticate using their existing corporate credentials and without additional training. It should be transparent to end users where the application is running.
 
-**Deployment notes**
+For this scenario, Azure AD DS lets applications perform LDAP binds as part of the authentication process. Legacy on-premises applications can lift-and-shift into Azure and continue to seamlessly authenticate users without any change in configuration or user experience.
 
-Consider the following important points for this deployment scenario:
+### Deployment notes
 
-* Ensure that the application does not need to modify/write to the directory. LDAP write access to managed domains provided by Azure AD Domain Services is not supported.
-* You cannot change passwords directly against the managed domain. End users can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are automatically synchronized and available in the managed domain.
+The following deployment considerations apply to this example use case:
 
-## Lift-and-shift an on-premises application that uses LDAP read to access the directory to Azure Infrastructure Services
-Contoso has an on-premises line-of-business (LOB) application that was developed almost a decade ago. This application is directory aware and was designed to work with Windows Server AD. The application uses LDAP (Lightweight Directory Access Protocol) to read information/attributes about users from Active Directory. The application does not modify attributes or otherwise write to the directory. Contoso would like to migrate this application to Azure Infrastructure Services and retire the aging on-premises hardware currently hosting this application. The application cannot be rewritten to use modern directory APIs such as the REST-based Azure AD Graph API. Therefore, a lift-and-shift option is desired whereby the application can be migrated to run in the cloud, without modifying code or rewriting the application.
+* Make sure that the application doesn't need to modify/write to the directory. LDAP write access to an Azure AD DS managed domain isn't supported.
+* You can't change passwords directly against an Azure AD DS managed domain. End users can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are then automatically synchronized and available in the Azure AD DS managed domain.
 
-**Deployment notes**
+## Lift-and-shift on-premises applications that use LDAP read to access the directory
 
-Consider the following important points for this deployment scenario:
+Like the previous example scenario, let's assume Contoso has an on-premises line-of-business (LOB) application that was developed almost a decade ago. This application is directory aware and was designed to use Lightweight Directory Access Protocol (LDAP) to read information/attributes about users from AD DS. The application doesn't modify attributes or otherwise write to the directory.
 
-* Ensure that the application does not need to modify/write to the directory. LDAP write access to managed domains provided by Azure AD Domain Services is not supported.
-* Ensure that the application does not need a custom/extended Active Directory schema. Schema extensions are not supported in Azure AD Domain Services.
+Contoso wants to migrate this application to Azure and retire the aging on-premises hardware currently hosting this application. The application can't be rewritten to use modern directory APIs such as the REST-based Azure AD Graph API. A lift-and-shift option is desired where the application can be migrated to run in the cloud, without modifying code or rewriting the application.
 
-## Migrate an on-premises service or daemon application to Azure Infrastructure Services
-Some applications consist of multiple tiers, where one of the tiers needs to perform authenticated calls to a backend tier such as a database tier. Active Directory service accounts are commonly used for these use-cases. You can lift-and-shift such applications to Azure Infrastructure Services and use Azure AD Domain Services for the identity needs of these applications. You can choose to use the same service account that is synchronized from your on-premises directory to Azure AD. Alternately, you can first create a custom OU and then create a separate service account in that OU, to deploy such applications.
+To help with this scenario, Azure AD DS lets applications perform LDAP reads against the managed domain to get the attribute information it needs. The application doesn't need to be rewritten, so a lift-and-shift into Azure lets users continue to use the app without realizing there's a change in where it runs.
+
+### Deployment notes
+
+The following deployment considerations apply to this example use case:
+
+* Make sure that the application doesn't need to modify/write to the directory. LDAP write access to an Azure AD DS managed domain isn't supported.
+* Make sure that the application doesn't need a custom/extended Active Directory schema. Schema extensions aren't supported in Azure AD DS.
+
+## Migrate an on-premises service or daemon application to Azure
+
+Some applications include multiple tiers, where one of the tiers needs to perform authenticated calls to a backend tier, such as a database. AD service accounts are commonly used in these scenarios. When you lift-and-shift applications into Azure, Azure AD DS lets you continue to use service accounts in the same way. You can choose to use the same service account that is synchronized from your on-premises directory to Azure AD or create a custom OU and then create a separate service account in that OU. With either approach, applications continue to function the same way to make authenticated calls to other tiers and services.
 
 ![Service account using WIA](./media/active-directory-domain-services-scenarios/wia-service-account.png)
 
-Contoso has a custom-built software vault application that includes a web front end, a SQL server, and a backend FTP server. Windows-integrated authentication of service accounts is used to authenticate the web front end to the FTP server. The web front end is set up to run as a service account. The backend server is configured to authorize access from the service account for the web front end. Contoso prefers not to have to deploy a domain controller virtual machine in the cloud to move this application to Azure Infrastructure Services. Contoso's IT administrator can deploy the servers hosting the web front end, SQL server, and the FTP server to Azure virtual machines. These machines are then joined to an Azure AD Domain Services managed domain. Then, they can use the same service account in their on-premises directory for the app’s authentication purposes. This service account is synchronized to the Azure AD Domain Services managed domain and is available for use.
+In this example scenario, Contoso has a custom-built software vault application that includes a web front end, a SQL server, and a backend FTP server. Windows-integrated authentication using service accounts authenticates the web front end to the FTP server. The web front end is set up to run as a service account. The backend server is configured to authorize access from the service account for the web front end. Contoso doesn't want to deploy and manage their own domain controller VMs in the cloud to move this application to Azure.
 
-**Deployment notes**
+For this scenario, the servers hosting the web front end, SQL server, and the FTP server can be migrated to Azure VMs and joined to an Azure AD DS managed domain. The VMs can then use the same service account in their on-premises directory for the app’s authentication purposes, which is synchronized through Azure AD using Azure AD Connect.
 
-Consider the following important points for this deployment scenario:
+### Deployment notes
 
-* Ensure that the application uses username/password for authentication. Certificate/Smartcard based authentication is not supported by Azure AD Domain Services.
-* You cannot change passwords directly against the managed domain. End users can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are automatically synchronized and available in the managed domain.
+The following deployment considerations apply to this example use case:
 
-## Windows Server Remote desktop services deployments in Azure
-You can use Azure AD Domain Services to provide managed AD domain services to your remote desktop servers deployed in Azure.
+* Make sure that the applications use a username + password for authentication. Certificate or smartcard-based authentication isn't supported by Azure AD DS.
+* You can't change passwords directly against an Azure AD DS managed domain. End users can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are then automatically synchronized and available in the Azure AD DS managed domain.
 
-For more information about this deployment scenario, see how to [integrate Azure AD Domain Services with your RDS deployment](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
+## Windows Server remote desktop services deployments in Azure
 
+You can use Azure AD DS to provide managed domain services to remote desktop servers deployed in Azure. For more information about this deployment scenario, see [how to integrate Azure AD Domain Services with your RDS deployment][windows-rds].
 
-## Domain-joined HDInsight clusters (Preview)
-You can set up an Azure HDInsight cluster that is joined to an Azure AD Domain Services managed domain with Apache Ranger enabled. Create and apply Hive policies through Apache Ranger, and allow users (for example, data scientists) to connect to Hive using ODBC-based tools, for example Excel, Tableau etc. Microsoft is working on adding other workloads, such as HBase, Spark, and Storm, to Domain-joined HDInsight soon.
+## Domain-joined HDInsight clusters (preview)
 
-For more information about this deployment scenario, see how to [configure domain-joined HDInsight clusters](../hdinsight/domain-joined/apache-domain-joined-configure.md)
+You can set up an Azure HDInsight cluster that is joined to an Azure AD DS managed domain with Apache Ranger enabled. This feature is currently in preview. You can create and apply Hive policies through Apache Ranger, and allow users, such as data scientists, to connect to Hive using ODBC-based tools like Excel or Tableau. We continue to work to add other workloads, such as HBase, Spark, and Storm to domain-joined HDInsight.
+
+For more information about this deployment scenario, see [how to configure domain-joined HDInsight clusters][hdinsight]
+
+## Next steps
+
+To get started, [Create and configure an Azure Active Directory Domain Services instance][tutorial-create-instance]
+
+<!-- INTERNAL LINKS -->
+[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md
+[tutorial-create-instance]: tutorial-create-instance.md
+
+<!-- EXTERNAL LINKS -->
+[windows-rds]: /windows-server/remote/remote-desktop-services/rds-azure-adds

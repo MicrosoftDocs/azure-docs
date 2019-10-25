@@ -5,7 +5,7 @@ services: terraform
 author: tomarchermsft
 ms.service: azure
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 09/20/2019
 ms.author: tarcher
 ---
 
@@ -23,7 +23,7 @@ Terraform includes the concept of a state backend, which is remote storage for T
 
 Before using Azure Storage as a backend, a storage account must be created. The storage account can be created with the Azure portal, PowerShell, the Azure CLI, or Terraform itself. Use the following sample to configure the storage account with the Azure CLI.
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 RESOURCE_GROUP_NAME=tstate
@@ -62,13 +62,13 @@ Each of these values can be specified in the Terraform configuration file or on 
 
 Create an environment variable named `ARM_ACCESS_KEY` with the value of the Azure Storage access key.
 
-```console
+```bash
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
 To further protect the Azure Storage account access key, store it in Azure Key Vault. The environment variable can then be set using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation][azure-key-vault].
 
-```console
+```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
@@ -76,7 +76,7 @@ To configure Terraform to use the backend, include a *backend* configuration wit
 
 The following example configures a Terraform backend and creates an Azure resource group. Replace the values with values from your environment.
 
-```json
+```hcl
 terraform {
   backend "azurerm" {
     storage_account_name  = "tstate09762"

@@ -3,9 +3,8 @@ title: Azure Security Center Quickstart - Onboard your Windows computers to Secu
 description: This quickstart shows you how to provision the Microsoft Monitoring Agent on a Windows computer.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,7 +14,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Quickstart: Onboard Windows computers to Azure Security Center

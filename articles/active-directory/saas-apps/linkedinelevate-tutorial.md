@@ -117,11 +117,11 @@ To configure Azure AD single sign-on with LinkedIn Elevate, perform the followin
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>`
 
-6. LinkedIn Elevate application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. LinkedIn Elevate application expects nameidentifier to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
+6. LinkedIn Elevate application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. LinkedIn Elevate application expects nameidentifier to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
-7. In addition to above, LinkedIn Elevate application expects few more attributes to be passed back in SAML response. In the User Claims section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+7. In addition to above, LinkedIn Elevate application expects few more attributes to be passed back in SAML response. In the User Claims section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
 	| Name | Source Attribute|
 	| -------| -------------|

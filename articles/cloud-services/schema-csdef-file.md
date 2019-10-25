@@ -3,16 +3,11 @@ title: "Azure Cloud Services Definition Schema (.csdef File) | Microsoft Docs"
 ms.custom: ""
 ms.date: "04/14/2015"
 services: cloud-services
-ms.reviewer: ""
 ms.service: "cloud-services"
-ms.suite: ""
-ms.tgt_pltfrm: ""
 ms.topic: "reference"
-ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
 caps.latest.revision: 42
-author: "jpconnock"
-ms.author: "jeconnoc"
-manager: "timlt"
+author: "georgewallace"
+ms.author: "gwallace"
 ---
 # Azure Cloud Services Definition Schema (.csdef File)
 The service definition file defines the service model for an application. The file contains the definitions for the roles that are available to a cloud service, specifies the service endpoints, and establishes configuration settings for the service. Configuration setting values are set in the service configuration file, as described by the [Cloud Service (classic) Configuration Schema](/previous-versions/azure/reference/ee758710(v=azure.100)).

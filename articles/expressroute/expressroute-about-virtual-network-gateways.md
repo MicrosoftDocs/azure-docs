@@ -6,15 +6,13 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: mialdrid
 ms.custom: seodec18
 
 ---
 # ExpressRoute virtual network gateway and FastPath
 To connect your Azure virtual network and your on-premises network via ExpressRoute, you must create a virtual network gateway first. A virtual network gateway serves two purposes: exchange IP routes between the networks and route network traffic. This article explains gateway types, gateway SKUs and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Gateway types
 
@@ -41,6 +39,26 @@ The following table shows the gateway types and the estimated performances. This
 >
 >
 
+## <a name="gwsub"></a>Gateway subnet
+
+Before you create an ExpressRoute gateway, you must create a gateway subnet. The gateway subnet contains the IP addresses that the virtual network gateway VMs and services use. When you create your virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the required ExpressRoute gateway settings. Never deploy anything else (for example, additional VMs) to the gateway subnet. The gateway subnet must be named 'GatewaySubnet' to work properly. Naming the gateway subnet 'GatewaySubnet' lets Azure know that this is the subnet to deploy the virtual network gateway VMs and services to.
+
+>[!NOTE]
+>[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
+>
+
+When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
+
+When you are planning your gateway subnet size, refer to the documentation for the configuration that you are planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.) if you have the available address space to do so. This will accommodate most configurations.
+
+The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
+
+```azurepowershell-interactive
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+```
+
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+
 ### <a name="zrgw"></a>Zone-redundant gateway SKUs
 
 You can also deploy ExpressRoute gateways in Azure Availability Zones. This physically and logically separates them into different Availability Zones, protecting your on-premises network connectivity to Azure from zone-level failures.
@@ -58,12 +76,14 @@ The new gateway SKUs also support other deployment options to best match your ne
 ## <a name="fastpath"></a>FastPath
 ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway. 
 
-FastPath is available on [ExpressRoute Direct](expressroute-erdirect-about.md) only. In other words, you can enable this feature only if you [connect your virtual network](expressroute-howto-linkvnet-arm.md) to an ExpressRoute circuit created on an ExpressRoute Direct port. FastPath still requires a virtual network gateway to be created to exchange routes between virtual network and on-premises network. The virtual network gateway must be either Ultra Performance or ErGw3AZ.
+FastPath is available on all ExpressRoute circuits. It still requires a virtual network gateway to be created to exchange routes between virtual network and on-premises network. The virtual network gateway must be either Ultra Performance or ErGw3AZ.
 
 FastPath doesn't support the following features:
 * UDR on Gateway subnet: if you apply a UDR to the Gateway subnet of your virtual network the network traffic from your on-premises network will continue to be sent to the virtual network gateway.
 * VNet Peering: if you have other virtual networks peered with the one that is connected to ExpressRoute the network traffic from your on-premises network to the other virtual networks (i.e. the so-called "Spoke" VNets) will continue to be sent to the virtual network gateway. The workaround is to connect all the virtual networks to the ExpressRoute circuit directly.
-
+* Basic Load Balancer: if you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview).
+* Private Link: if you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network the connection will go through the virtual network gateway.
+ 
 ## <a name="resources"></a>REST APIs and PowerShell cmdlets
 For additional technical resources and specific syntax requirements when using REST APIs and PowerShell cmdlets for virtual network gateway configurations, see the following pages:
 

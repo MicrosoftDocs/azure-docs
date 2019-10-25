@@ -3,7 +3,7 @@ title: Mobile app that calls web APIs (move to production) - Microsoft identity 
 description: Learn how to build a mobile app that calls web APIs (move to production)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.reviwer: brandwe
+ms.reviwer: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
@@ -44,3 +44,5 @@ To diagnose issues in your app, it helps to collect data. For information about 
 ## Next steps
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+
+Try out additional samples available from [Samples | Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps)

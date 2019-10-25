@@ -5,7 +5,7 @@ author: raynew
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 9/09/2019
 ms.author: raynew
 ---
 

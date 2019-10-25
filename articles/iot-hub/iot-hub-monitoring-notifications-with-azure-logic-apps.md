@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/19/2019
+ms.date: 07/18/2019
 ms.author: robinsh
 #I think this is out of date. I changed 'click' to select. --RobinShahan
 ---
@@ -26,7 +26,25 @@ You learn how to create a logic app that connects your IoT hub and your mailbox 
 
 The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to `true`; otherwise, it sets the property to `false`.
 
-In this topic, you set up routing on your IoT hub to send messages in which `temperatureAlert = true` to a Service Bus endpoint, and you set up a logic app that triggers on the messages arriving at the Service Bus endpoint and sends you an email notification.
+Messages arriving at your IoT hub look similar to the following, with the telemetry data contained in the body and the `temperatureAlert` property contained in the application properties (system properties are not shown):
+
+```json
+{
+  "body": {
+    "messageId": 18,
+    "deviceId": "Raspberry Pi Web Client",
+    "temperature": 27.796111770668457,
+    "humidity": 66.77637926438427
+  },
+  "applicationProperties": {
+    "temperatureAlert": "false"
+  }
+}
+```
+
+To learn more about IoT Hub message format, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
+
+In this topic, you set up routing on your IoT hub to send messages in which the `temperatureAlert` property is `true` to a Service Bus endpoint. You then set up a logic app that triggers on the messages arriving at the Service Bus endpoint and sends you an email notification.
 
 ## What you do
 

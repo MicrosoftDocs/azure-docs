@@ -4,7 +4,7 @@ description: Use the IoT extension for Azure CLI to deploy modules to an IoT Edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/09/2019
+ms.date: 08/16/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
@@ -68,7 +68,7 @@ Here's a basic deployment manifest with one module as an example:
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -92,7 +92,7 @@ Here's a basic deployment manifest with one module as an example:
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }

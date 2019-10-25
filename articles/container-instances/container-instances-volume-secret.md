@@ -3,6 +3,7 @@ title: Mount a secret volume in Azure Container Instances
 description: Learn how to mount a secret volume to store sensitive information for access by your container instances
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article

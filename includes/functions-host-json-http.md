@@ -5,16 +5,7 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ---
-```json
-{
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 200,
-        "maxConcurrentRequests": 100,
-        "dynamicThrottlesEnabled": true
-    }
-}
-```
+
 
 |Property  |Default | Description |
 |---------|---------|---------| 

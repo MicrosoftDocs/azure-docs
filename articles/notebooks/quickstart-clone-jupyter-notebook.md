@@ -4,13 +4,11 @@ description: Quickly clone a Jupyter notebook from a GitHub repository and run i
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
-
+manager: barbkess
 ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb

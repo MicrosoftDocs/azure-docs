@@ -27,7 +27,7 @@ The following table lists array element and character limits for each operation 
 | Translate | 5,000	| 100	| 5,000 |
 | Transliterate | 5,000	| 10	| 5,000 |
 | Detect | 10,000 |	100 |	50,000 |
-| BreakSentence | 10,000	| 100 |	5,0000 |
+| BreakSentence | 10,000	| 100 |	50,000 |
 | Dictionary Lookup| 100 |	10	| 1,000 |
 | Dictionary Examples | 100 for text and 100 for translation (200 total)| 10|	2,000 |
 
@@ -49,7 +49,7 @@ If you reach or surpass these limits, or send too large of a portion of the quot
 
 Limits for [multi-service subscriptions](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) are the same as the S1 tier.
 
-These limits are restricted to Microsoft's standard translation models. Custom translation models that use Custom Translator are limited to 1,800 character per second.
+These limits are restricted to Microsoft's standard translation models. Custom translation models that use Custom Translator are limited to 1,800 characters per second.
 
 ## Latency
 

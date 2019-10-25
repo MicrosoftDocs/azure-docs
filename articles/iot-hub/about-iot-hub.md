@@ -3,12 +3,11 @@ title: Introduction to Azure IoT Hub | Microsoft Docs
 description: Learn about Azure IoT Hub. This IoT service is built for scalable data ingestion, device management, and security.
 author: nberdy
 ms.author: nberdy
-ms.date: 07/04/2018
+ms.date: 08/08/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-manager: briz
 ---
 
 # What is Azure IoT Hub?
@@ -21,7 +20,7 @@ IoT Hub's capabilities help you build scalable, full-featured IoT solutions such
 
 ## Scale your solution
 
-IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. IoT Hub offers several tiers of service to best fit your scalability needs. Learn more by checking out the [pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. For more information about scaling your IoT Hub, see [IoT Hub Scaling](iot-hub-scaling.md?branch=release-iotbasic). To learn more about the multiple  tiers of service offered by IoT Hub and how to best fit your scalability needs, check out the [pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Secure your communications
 
@@ -45,7 +44,7 @@ IoT Hub gives you a secure communication channel for your devices to send data.
 
 Built-in message routing functionality gives you flexibility to set up automatic rules-based message fan-out:
 
-* Use message routing to control where your hub sends device telemetry.
+* Use [message routing](iot-hub-devguide-messages-d2c.md) to control where your hub sends device telemetry.
 
 * There is no additional cost to route messages to multiple endpoints.
 
@@ -105,7 +104,7 @@ If your solution cannot use one of the supported protocols, you can extend IoT H
 
 ## Quotas and limits
 
-Each Azure subscription has default quota limits in place to prevent service abuse, and these limits could impact the scope of your IoT solution. The current limit on a per-subscription basis is 50 IoT hubs per subscription. You can request quota increases by contacting support. For more details on quota limits:
+Each Azure subscription has default quota limits in place to prevent service abuse, and these limits could impact the scope of your IoT solution. The current limit on a per-subscription basis is 50 IoT hubs per subscription. You can request quota increases by contacting support. For more information, see [IoT Hub Quotas and Throttling](iot-hub-devguide-quotas-throttling.md). For more details on quota limits, see one of the following articles:
 
 * [Azure subscription service limits](../azure-subscription-service-limits.md)
 

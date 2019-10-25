@@ -5,7 +5,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 07/29/2019
 ms.author: dacurwin
 ---
 
@@ -83,7 +83,7 @@ This warning can appear even though you've configured a backup policy, when the 
 The size of the cache folder determines the amount of data that you are backing up.
 - The cache folder volumes should have free space that equals at least 5-10% of the total size of backup data.
 - If the volume has less than 5% free space, either increase the volume size, or move the cache folder to a volume with enough space.
-- If you backup Windows System State, you would need an additional 30-35 GB of free space in the volume containing the cache folder.
+- If you backup Windows System State, you will need an additional 30-35 GB of free space in the volume containing the cache folder.
 
 ### How to check if scratch folder is valid and accessible?
 
@@ -101,19 +101,22 @@ The size of the cache folder determines the amount of data that you are backing 
 
     ```PS C:\> Net stop obengine```
 
-2. Don't move the files. Instead, copy the cache space folder to a different drive that has sufficient space.
-3. Update the following registry entries with the path of the new cache folder.<br/>
+2. If you have configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
+3. Don't move the files. Instead, copy the cache space folder to a different drive that has sufficient space.
+4. Update the following registry entries with the path of the new cache folder.<br/>
 
     | Registry path | Registry Key | Value |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*New cache folder location* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New cache folder location* |
 
-4. Restart the Backup engine at an elevated command prompt:
+5. Restart the Backup engine at an elevated command prompt:
+
+    ```PS C:\> Net stop obengine```
 
     ```PS C:\> Net start obengine```
 
-5. After the backup finishes successfully using the new location, you can remove the original cache folder.
+6. Run an ad-hoc backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
 
 
 ### Where should the cache folder be located?

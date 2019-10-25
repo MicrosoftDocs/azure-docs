@@ -11,7 +11,6 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/28/2019
 ---
 # Quickstart: Use the Azure portal's SQL query editor to connect and query data

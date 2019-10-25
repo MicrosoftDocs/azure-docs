@@ -4,7 +4,7 @@ title: Get started with the Azure AD reporting API | Microsoft Docs
 description: How to get started with the Azure Active Directory reporting API
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -46,7 +46,7 @@ For detailed instructions, see the [prerequisites to access the Azure Active Dir
 
 The Microsoft Graph API endpoint for audit logs is `https://graph.microsoft.com/beta/auditLogs/directoryAudits` and the Microsoft Graph API endpoint for sign-ins is `https://graph.microsoft.com/beta/auditLogs/signIns`. For more information, see the [audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) and [sign-in API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
-In addition, you can use the [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/graph-get-started.md). 
+In addition, you can use the [Identity Protection risk detections API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/graph-get-started.md). 
 
 > [!NOTE]
 >  The **https:\/\/graph.windows.net\/\<tenant-name\>\/reports\/** endpoint is deprecated. Use the new API endpoints described above to programmatically access the activity and security reports.

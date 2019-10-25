@@ -75,7 +75,7 @@ You don't need to grant access permissions to the subscription level for users t
 
 Before you attempt to create any resource, make sure that the resource provider is registered in the subscription. If the resource provider is not registered, you'll need to make sure that the user creating the new resource has enough rights to register the required resource provider on the subscription level. If you haven't done this as well, then you'll see the following error:
 
-*The subscription <Subscription name> doesn’t have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
+*The subscription \<Subscription name> doesn’t have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
 
 
 To get a list of registered resource providers in the current subscription, run the following command:

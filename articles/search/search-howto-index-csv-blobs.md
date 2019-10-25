@@ -4,7 +4,7 @@ description: Crawl CSV blobs in Azure Blob storage for full text search using an
 
 ms.date: 05/02/2019
 author: mgottein 
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 
 services: search

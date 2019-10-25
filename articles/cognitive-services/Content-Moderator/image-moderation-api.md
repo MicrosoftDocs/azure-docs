@@ -1,16 +1,16 @@
 ---
 title: Image Moderation - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use Content Moderator’s machine-assisted image moderation and human-in-the-loop Review tool to moderate images for adult and racy content.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
+ms.author: pafarley
 
 ---
 

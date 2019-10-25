@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 07/18/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure OutSystems Azure AD
 
-To configure single sign-on on **OutSystems** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [OutSystems support team](mailto:support@outsystems.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on OutSystems side, you need to download the [IdP forge](https://www.outsystems.com/forge/component-overview/599/idp) component, configure it as mentioned in the [instructions](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Configure_your_application_to_use_IdP_connector). After installing the component and do the necessary code changes, configure Azure AD by downloading Federation Metadata XML from Azure portal and upload on OutSystems IdP component, according to the following [instructions](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Azure_AD_.2F_ADFS).
 
 ### Create an Azure AD test user
 
@@ -135,7 +135,7 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 ### Create OutSystems Azure AD test user
 
-In this section, a user called Britta Simon is created in OutSystems. OutSystems supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in OutSystems, a new one is created after authentication.
+In this section, a user called B.Simon is created in OutSystems. OutSystems supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in OutSystems, a new one is created after authentication.
 
 ### Test SSO
 

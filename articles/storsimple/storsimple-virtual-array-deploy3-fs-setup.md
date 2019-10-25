@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
@@ -21,6 +21,9 @@ ms.custom: H1Hack27Feb2017
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## Introduction
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
 
 The setup and configuration process can take around 10 minutes to complete. The information in this article applies only to the deployment of the StorSimple Virtual Array. For the deployment of StorSimple 8000 series devices, go to:

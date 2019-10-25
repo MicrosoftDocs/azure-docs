@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 4/05/2018
+ms.date: 09/20/2019
 ---
 
 # Use Terraform to provision infrastructure with Azure deployment slots
@@ -69,7 +69,7 @@ This article illustrates an example use of deployment slots by walking you throu
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 
@@ -80,8 +80,8 @@ This article illustrates an example use of deployment slots by walking you throu
 
     resource "azurerm_app_service_plan" "slotDemo" {
         name                = "slotAppServicePlan"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
         sku {
             tier = "Standard"
             size = "S1"
@@ -90,17 +90,17 @@ This article illustrates an example use of deployment slots by walking you throu
 
     resource "azurerm_app_service" "slotDemo" {
         name                = "slotAppService"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
     }
 
     resource "azurerm_app_service_slot" "slotDemo" {
         name                = "slotAppServiceSlotOne"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
-        app_service_name    = "${azurerm_app_service.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
+        app_service_name    = azurerm_app_service.slotDemo.name
     }
     ```
 
@@ -261,7 +261,7 @@ To test swapping the two deployment slots, perform the following steps:
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Run the Speech Devices SDK on Linux - Speech Services"
+title: "Quickstart: Run the Speech Devices SDK on Linux - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with a Linux Speech Devices SDK.
 services: cognitive-services

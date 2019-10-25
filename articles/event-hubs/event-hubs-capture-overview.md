@@ -24,9 +24,6 @@ Azure Event Hubs enables you to automatically capture the streaming data in Even
 
 Event Hubs Capture enables you to process real-time and batch-based pipelines on the same stream. This means you can build solutions that grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Capture makes working with streaming data easier.
 
-> [!NOTE]
-> Currently, the Event Hubs Capture feature supports only Gen 1 of Azure Data Lake Store, not Gen 2. 
-
 ## How Event Hubs Capture works
 
 Event Hubs is a time-retention durable buffer for telemetry ingress, similar to a distributed log. The key to scaling in Event Hubs is the [partitioned consumer model](event-hubs-scalability.md#partitions). Each partition is an independent segment of data and is consumed independently. Over time this data ages off, based on the configurable retention period. As a result, a given event hub never gets "too full."
@@ -103,7 +100,7 @@ A full end-to-end sample is available in the Streaming at Scale repository:
 [Avro Tools][Avro Tools] are available as a jar package. After you download the jar file, you can see the schema of a specific Avro file by running the following command:
 
 ```shell
-java -jar avro-tools-1.8.2.jar getschema <name of capture file>
+java -jar avro-tools-1.9.1.jar getschema <name of capture file>
 ```
 
 This command returns
@@ -156,7 +153,7 @@ You can learn more about Event Hubs by visiting the following links:
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: https://www-us.apache.org/dist/avro/avro-1.9.0/java/avro-tools-1.9.0.jar
+[Avro Tools]: https://www.apache.org/dist/avro/stable/java/avro-tools-1.9.1.jar
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

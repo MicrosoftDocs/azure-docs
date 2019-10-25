@@ -1,6 +1,6 @@
 ---
 title: Search a custom view - Bing Custom Search
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Describes how to search a custom view of the web.
 services: cognitive-services
 author: aahill

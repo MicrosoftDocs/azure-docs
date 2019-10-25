@@ -34,7 +34,7 @@ For a business process in which multiple messages are sent in the course of hand
 The *MessageId* can always be some GUID, but anchoring the identifier to the business process yields predictable repeatability, which is desired for leveraging the duplicate detection feature effectively.
 
 > [!NOTE]
-> If the duplicate detection is enabled and sesion ID or partition key are not set, the message ID is used as the partition key. If the message ID is also not set, .NET and AMQP libraries automatically generate a message ID for the message. For more information, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
+> If the duplicate detection is enabled and session ID or partition key are not set, the message ID is used as the partition key. If the message ID is also not set, .NET and AMQP libraries automatically generate a message ID for the message. For more information, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
 
 ## Enable duplicate detection
 

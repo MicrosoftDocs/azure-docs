@@ -89,7 +89,7 @@ It may take several minutes for the application gateway to be created. After the
 
 ### Add the redirection configuration
 
-Add the redirection configuration that sends traffic from *www.consoto.org* to the listener for *www.contoso.com* to the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
+Add the redirection configuration that sends traffic from *www\.consoto.org* to the listener for *www\.contoso.com* to the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 08/01/2019
 ms.author: jingwang
 
 ---
@@ -24,6 +24,12 @@ ms.author: jingwang
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 ## Supported capabilities
+
+This Salesforce connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 
 You can copy data from Salesforce to any supported sink data store. You also can copy data from any supported source data store to Salesforce. For a list of data stores that are supported as sources or sinks by the Copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -152,12 +158,13 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
     "name": "SalesforceDataset",
     "properties": {
         "type": "SalesforceObject",
+        "typeProperties": {
+            "objectApiName": "MyTable__c"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Salesforce linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "objectApiName": "MyTable__c"
         }
     }
 }
@@ -331,6 +338,11 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 | Text Area (Rich) |String |
 | Text (Encrypted) |String |
 | URL |String |
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

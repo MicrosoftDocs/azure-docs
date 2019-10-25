@@ -130,7 +130,7 @@ When you delete a namespace from a subscription, wait for 4 hours before recreat
 For a list of possible Service Bus exceptions, see [Exceptions overview][Exceptions overview].
 
 ### What is a Shared Access Signature and which languages support generating a signature?
-Shared Access Signatures are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node.js, PHP, Java, and C\#, see the [Shared Access Signatures][Shared Access Signatures] article.
+Shared Access Signatures are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node.js, PHP, Java, Python, and C#, see the [Shared Access Signatures][Shared Access Signatures] article.
 
 ## Subscription and namespace management
 ### How do I migrate a namespace to another Azure subscription?

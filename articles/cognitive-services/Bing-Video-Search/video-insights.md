@@ -1,6 +1,6 @@
 ---
 title: Get video insights using the Bing Video Search API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to use the Bing Video Search API to get more information about videos, such as related videos.
 services: cognitive-services
 author: swhite-msft

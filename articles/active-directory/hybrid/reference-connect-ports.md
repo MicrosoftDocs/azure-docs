@@ -35,6 +35,8 @@ This table describes the ports and protocols that are required for communication
 | SMB | 445 (TCP/UDP) |Used by Seamless SSO to create a computer account in the AD forest. |
 | LDAP/SSL |636 (TCP/UDP) |Used for data import from AD. The data transfer is signed and encrypted. Only used if you are using SSL. |
 | RPC |49152- 65535 (Random high RPC Port)(TCP/UDP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests, and during Password synchronization. See [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), and [KB224196](https://support.microsoft.com/kb/224196) for more information. |
+|WinRM  | 5985 (TCP/UDP) |Only used if you are installing AD FS with gMSA by Azure AD Connect Wizard|
+|AD DS Web Services | 9389 (TCP/UDP) |Only used if you are installing AD FS with gMSA by Azure AD Connect Wizard |
 
 ## Table 2 - Azure AD Connect and Azure AD
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Azure AD.
@@ -97,8 +99,10 @@ This table describes the following outbound ports and protocols that are require
 
 | Protocol | Ports | Description |
 | --- | --- | --- |
-| HTTPS |443(TCP/UDP) |Outbound |
-| Azure Service Bus |5671 (TCP/UDP) |Outbound |
+| HTTPS |443(TCP) |Outbound |
+| Azure Service Bus |5671 (TCP) |Outbound |
+
+Azure Service Bus port 5671 is no longer required for the latest version of agent. The latest Azure AD Connect Health agent version only required port 443.
 
 ### 7b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](how-to-connect-health-agent-install.md#requirements).

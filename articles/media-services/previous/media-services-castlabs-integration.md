@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: Mingfeiy;willzhan;Juliako
+ms.author: Juliako
+ms.reviewer: willzhan
 
 ---
 # Using castLabs to deliver Widevine licenses to Azure Media Services 

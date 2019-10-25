@@ -8,7 +8,7 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
@@ -31,21 +31,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 When you create a SQL Server virtual machine, you can select one of several pre-configured images from the virtual machine gallery. The following steps demonstrate how to select one of the SQL Server 2017 images.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using your account.
+1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information by selecting **Show details**. 
+1. Type `2017` in the SQL Server image search box on the **SQL virtual machines** tile, and then select **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** from the drop-down. 
 
-1. On the Azure portal, click **Create a resource**. The portal opens the **New** window.
 
-1. In the **New** window, click **Compute** and then click **See all**.
-
-1. In the search field, type **SQL Server 2017**, and press ENTER.
-
-1. In the filter drop-downs, select _Windows Server 2016_ for the **Operating System** and select _Microsoft_ as the **Publisher**. 
-
-     ![New Compute window](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
-
-1. Review the available SQL Server images. Each image identifies a SQL Server version and an operating system.
-
-1. Select the image named **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016**.
+   ![Select SQL VM image](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
 
    > [!TIP]
    > The Developer edition is used in this walkthrough because it is a full-featured, free edition of SQL Server for development testing. You pay only for the cost of running the VM. However, you are free to choose any of the images to use in this walkthrough. For a description of available images, see the [SQL Server Windows Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -55,21 +46,9 @@ When you create a SQL Server virtual machine, you can select one of several pre-
    >
    > For more information on these options, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-1. Under **Select a deployment model**, verify that **Resource Manager** is selected. Resource Manager is the recommended deployment model for new virtual machines. 
 
 1. Select **Create**.
 
-
-## <a id="configure"></a> Configuration options
-
-There are multiple tabs for configuring a SQL Server virtual machine. For the purpose of this guide, we will focus on the following: 
-
-| Step | Description |
-| --- | --- |
-| **Basics** |[Configure basic settings](#1-configure-basic-settings) |
-| **Optional Features** |[Configure optional features](#2-configure-optional-features) |
-| **SQL Server settings** |[Configure SQL server settings](#3-configure-sql-server-settings) |
-| **Review + create** | [Review the summary](#4-review--create) |
 
 ## 1. Configure basic settings
 
@@ -116,7 +95,7 @@ On the **Disks** tab, configure your disk options.
 * Under **Advanced**, select **Yes** under use **Managed Disks**.
 
    > [!NOTE]
-   > Microsoft recommends Managed Disks for SQL Server. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For more information, see [Azure Managed Disks Overview][../managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use managed disks for VMs in availability set](../manage-availability.md.
+   > Microsoft recommends Managed Disks for SQL Server. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For more information, see [Azure Managed Disks Overview](../managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use managed disks for VMs in availability set](../manage-availability.md).
 
 ![SQL VM Disk settings](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   
@@ -127,7 +106,7 @@ On the **Networking** tab, configure your networking options.
 
 * Create a new **virtual network**, or use an existing vNet for your SQL Server VM. Designate a **Subnet** as well. 
 
-* Under **NIC security group**, select either a basic security group, or the advanced security group. Choosing the basic option allows you to select inbound ports for the SQL Server VM (the same values that were configured on the **Basic** tab). Selecting the advanced option allows you to choose an existing network security group, or create a new one. 
+* Under **NIC network security group**, select either a basic security group, or the advanced security group. Choosing the basic option allows you to select inbound ports for the SQL Server VM (the same values that were configured on the **Basic** tab). Selecting the advanced option allows you to choose an existing network security group, or create a new one. 
 
 * You can make other changes to network settings, or keep the default values.
 
@@ -137,7 +116,7 @@ On the **Networking** tab, configure your networking options.
 
 On the **Monitoring** tab, configure monitoring and autoshutdown. 
 
-* Azure enables **Boot Monitoring** by default with the same storage account designated for the VM. You can change these settings here, as well as enabling **OS guest diagnostics**. 
+* Azure enables **Boot diagnostics** by default with the same storage account designated for the VM. You can change these settings here, as well as enabling **OS guest diagnostics**. 
 * You can enable **System assigned managed identity** and **autoshutdown** on this tab as well. 
 
 ![SQL VM management settings](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
@@ -146,8 +125,6 @@ On the **Monitoring** tab, configure monitoring and autoshutdown.
 ## 3. Configure SQL Server settings
 
 On the **SQL Server settings** tab, configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include the following:
-
-
 
 | Setting |
 | --- |
@@ -213,24 +190,19 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 
 ### Storage configuration
 
-On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to specify the storage requirements.
+On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to open the Performance Optimized Storage Configuration page and specify the storage requirements.
 
-
-> [!NOTE]
-> If you manually configured your VM to use standard storage, this option is not available. Automatic storage optimization is available only for Premium Storage.
-
-> [!TIP]
-> The number of stops and the upper limits of each slider is dependent on the size of VM you selected. A larger and more powerful VM is able to scale up more.
-
-You can specify requirements as input/output operations per second (IOPs), throughput in MB/s, and total storage size. Configure these values by using the sliding scales. You can change these storage settings based on workload. The portal automatically calculates the number of disks to attach and configure based on these requirements.
+![SQL VM Storage configuration](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Under **Storage optimized for**, select one of the following options:
 
 * **General** is the default setting and supports most workloads.
-* **Transactional** processing optimizes the storage for traditional database OLTP workloads.
+* **Transactional processing** optimizes the storage for traditional database OLTP workloads.
 * **Data warehousing** optimizes the storage for analytic and reporting workloads.
 
-![SQL VM Storage configuration](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+![SQL VM Storage configuration](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](virtual-machines-windows-sql-server-storage-configuration.md). 
 
 ### SQL Server License
 If you're a Software Assurance customer, you can utilize the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to bring your own SQL Server license and save on resources. 

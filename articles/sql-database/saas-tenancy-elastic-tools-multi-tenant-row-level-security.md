@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Multi-tenant applications with elastic database tools and row-level security

@@ -1,6 +1,6 @@
 ---
 title: Bing Custom Search endpoint
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Summary of the Bing Custom Search API endpoint.
 services: cognitive-services
 author: aahill

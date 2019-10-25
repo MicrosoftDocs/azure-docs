@@ -149,7 +149,9 @@
     href: cdn-verizon-http-headers.md
     items:
       - name: X-EC-Debug headers
-        href: cdn-http-debug-headers.md       
+        href: cdn-http-debug-headers.md
+  - name: Microsoft-specific HTTP headers
+    href: cdn-msft-http-debug-headers.md             
   - name: Azure PowerShell
     href: /powershell/module/az.cdn
   - name: .NET

@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ROBOTS: NOINDEX
 ---
 # Train Clustering Model
 
@@ -25,7 +24,7 @@ The module takes an untrained clustering model that you have already configured 
   
 ## How to use Train Clustering Model  
   
-1.  Add the **Train Clustering Model** module to your experiment in Studio. You can find the module under **Machine Learning Modules**, in the **Train** category.  
+1.  Add the **Train Clustering Model** module to your pipeline in Studio. You can find the module under **Machine Learning Modules**, in the **Train** category.  
   
 2. Add the [K-Means Clustering](k-means-clustering.md) module, or another custom module that creates a compatible clustering model, and set the parameters of the clustering model.  
     
@@ -39,7 +38,7 @@ The module takes an untrained clustering model that you have already configured 
 
     If you deselect this option, only the cluster assignments are output. 
 
-7. Run the experiment, or click the **Train Clustering Model** module and select **Run Selected**.  
+7. Run the pipeline, or click the **Train Clustering Model** module and select **Run Selected**.  
   
 ### Results
 

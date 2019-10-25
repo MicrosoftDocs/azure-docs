@@ -34,7 +34,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 This tutorial demonstrates how to develop a module in **C#** using **Visual Studio 2019**, and how to deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C# IoT Edge module for Linux devices](tutorial-csharp-module.md) instead. 
 
-Use the following table to understand your options for developing and deploying C modules to Windows devices: 
+Use the following table to understand your options for developing and deploying C# modules to Windows devices: 
 
 | C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
@@ -49,7 +49,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A [Windows device running Azure IoT Edge](quickstart.md).
 * A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension.
-* [Docker CE](https://docs.docker.com/install/) configured to run Windows containers.
+* [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) configured to run Windows containers.
 
 > [!TIP]
 > If you are using Visual Studio 2017 (version 15.7 or higher), plrease download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
@@ -82,7 +82,7 @@ The Azure IoT Edge Tools provides project templates for all supported IoT Edge m
 
    ![Configure your project for target device, module type, and container registry](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
-5. Select **OK** to apply your changes. 
+5. Select **Add** to create the project. 
 
 ### Add your registry credentials
 
@@ -229,14 +229,16 @@ The default module code receives messages on an input queue and passes them alon
             {
                 Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
                     $"exceeds threshold {temperatureThreshold}");
-                var filteredMessage = new Message(messageBytes);
-                foreach (KeyValuePair<string, string> prop in message.Properties)
+                using(var filteredMessage = new Message(messageBytes))
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    foreach (KeyValuePair<string, string> prop in message.Properties)
+                    {
+                        filteredMessage.Properties.Add(prop.Key, prop.Value);
+                    }
 
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                await moduleClient.SendEventAsync("output1", filteredMessage);
+                    filteredMessage.Properties.Add("MessageType", "Alert");
+                    await moduleClient.SendEventAsync("output1", filteredMessage);
+                }
             }
 
             // Indicate that the message treatment is completed.
@@ -266,7 +268,7 @@ The default module code receives messages on an input queue and passes them alon
 
 8. Save the Program.cs file.
 
-9. Open the **deployment.template.json** file in your IoT Edge solution. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them.
+9. Open the **deployment.template.json** file in your IoT Edge solution. This file tells the IoT Edge agent which modules to deploy, in this case **SimulatedTemperatureSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them.
 
 10. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
 

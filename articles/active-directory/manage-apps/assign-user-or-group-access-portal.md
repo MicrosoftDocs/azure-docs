@@ -4,12 +4,11 @@ description: How to select an enterprise app to assign a user or group to it in 
 services: active-directory
 author: msmimart
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
@@ -17,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Assign a user or group to an enterprise app in Azure Active Directory
 
-To assign a user or group to an enterprise app, you must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory. For Microsoft Applications (such as Office 365 apps), use PowerShell to assign users to an enterprise app.
+To assign a user or group to an enterprise app, you should have assigned any of these admin roles: global administrator, application administrator, cloud application administrator or be assigned as the owner of the enterprise app.  For Microsoft Applications (such as Office 365 apps), use PowerShell to assign users to an enterprise app.
 
 > [!NOTE]
 > For licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
@@ -50,9 +49,11 @@ To assign a user or group to an enterprise app, you must have the appropriate pe
 
 The **User assignment required?** option:
 
+- If this option is set to yes, then users must first be assigned to this application before being able to access it.
+- If this option is set to no, then any users who navigate to the application deep-link URL or application URL directly will be granted access
 - Doesn't affect whether or not an application appears on the application access panel. To show the application on the access panel, you need to assign an appropriate user or group to the application.
-- Only functions with the cloud applications that are configured for SAML single sign-on, and on-premises applications configured with Application Proxy. See [Single sign-on for applications](what-is-single-sign-on.md).
-- Requires that users consent to an application. An admin can grant consent for all users.  See [Configure the way end-users consent to an application](configure-user-consent.md).
+- Only functions with the cloud applications that are configured for SAML single sign-on, Application Proxy applications that use Azure Active Directory Pre-Authentication or applications built directly on the Azure AD application platform that use OAuth 2.0 / OpenID Connect Authentication after a user or admin has consented to that application. See [Single sign-on for applications](what-is-single-sign-on.md). See [Configure the way end-users consent to an application](configure-user-consent.md).
+- This option has no effect when an application is configured for any of the other Single Sign-on modes.
 
 ## Assign a user to an app - PowerShell
 

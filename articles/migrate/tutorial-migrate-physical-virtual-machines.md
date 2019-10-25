@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -99,7 +99,7 @@ The tenant/global admin can grant permissions as follows
 
 #### Assign Application Developer role 
 
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Assign permissions to create Key Vault
 
@@ -209,7 +209,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
 4. Copy the installer file to the machine you want to migrate.
 5. Make sure that you have the passphrase that was generated when you deployed the appliance.
     - Store the file in a temporary text file on the machine.
-    - You can obtain the passphrase on the replication appliance. From the command line, run **C:\ProgramData\ASR\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
+    - You can obtain the passphrase on the replication appliance. From the command line, run **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
     - Don't regenerate the passphrase. This will break connectivity and you will have to reregister the replication appliance.
 
 
@@ -250,6 +250,11 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 
 ## Replicate machines
+
+Now, select machines for migration. 
+
+> [!NOTE]
+> You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10.
 
 1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 

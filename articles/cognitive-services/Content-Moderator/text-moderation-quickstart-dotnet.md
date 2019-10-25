@@ -1,16 +1,16 @@
 ---
 title: "Quickstart: Analyze text content in C# - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: How to analyze text content for various objectionable materials using the Content Moderator SDK for .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/03/2019
-ms.author: sajagtap
+ms.date: 10/24/2019
+ms.author: pafarley
 
 #As a C# developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
@@ -22,7 +22,7 @@ This article provides information and code samples to help you get started using
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
-- A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
+- A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `CONTENT_MODERATOR_SUBSCRIPTION_KEY` and `CONTENT_MODERATOR_ENDPOINT`, respectively.
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
 
 > [!NOTE]
@@ -32,10 +32,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **TextModeration**. 
 1. If there are other projects in your solution, select this one as the single startup project.
-1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**; then find and install the following packages:
-    - `Microsoft.Azure.CognitiveServices.ContentModerator`
-    - `Microsoft.Rest.ClientRuntime`
-    - `Newtonsoft.Json`
+1. Get the required NuGet package. Right-click your project in Solution Explorer and select **Manage NuGet Packages**. Then find and install the **`Microsoft.Azure.CognitiveServices.ContentModerator` package**. Alternatively, you can run the following command from the solution directory:
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator
+```
 
 ## Add text moderation code
 
@@ -45,19 +46,19 @@ Next, you'll copy and paste the code from this guide into your project to implem
 
 Add the following `using` statements to the top of your *Program.cs* file.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=1-8)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?name=snippet_using)]
 
 ### Create the Content Moderator client
 
-Add the following code to your *Program.cs* file to create a Content Moderator client provider for your subscription. Add the code alongside the **Program** class, in the same namespace. You'll need to update the **AzureRegion** and **CMSubscriptionKey** fields with the values of your region identifier and subscription key.
+Add the following code to your *Program.cs* file to create a Content Moderator client provider for your subscription. Add the class alongside the **Program** class, in the same namespace. You'll need to update the **AzureBaseURL** and **CMSubscriptionKey** fields with the values of your endpoint URL and subscription key. You can find these in the **Quick start** tab of your resource in the Azure portal.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=54-77)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?name=snippet_client)]
 
 ### Set up input and output targets
 
 Add the following static fields to the **Program** class in _Program.cs_. These fields specify the files for input text content and output JSON content.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?name=snippet_fields)]
 
 You will need to create the *TextFile.txt* input file and update its path (paths are relative to the execution directory). Open _TextFile.txt_ and add the text to moderate. This quickstart uses the following sample text:
 
@@ -77,14 +78,14 @@ Add the following code to the **Main** method. The **ScreenText** method is the 
 
 If you want to learn more about what these operations do, follow the link in the [Next steps](#next-steps) section.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=23-48)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?name=snippet_main)]
 
 ## Run the program
 
 The program will write JSON string data to the _TextModerationOutput.txt_ file. The sample text used in this quickstart gives the following output:
 
 ```json
-Autocorrect typos, check for matching terms, PII, and classify.
+Autocorrect typos, check for matching terms, check for personal data, and classify.
 {
 "OriginalText": "\"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).\"",
 "NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",

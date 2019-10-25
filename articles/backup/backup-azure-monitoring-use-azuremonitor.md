@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: Monitor Azure Backup with Azure Monitor'
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Log Analytics; Azure Backup; Alerts; Diagnostic Settings; Action groups
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 ---
 
@@ -24,15 +24,15 @@ Azure Backup provides [built-in monitoring and alerting capabilities](backup-azu
 ## Using Log Analytics workspace
 
 > [!NOTE]
-> Data from Azure VM backups, the Azure Backup agent, System Center Data Protection Manager, SQL backups in Azure VMs, and Azure Files share backups is pumped to the Log Analytics workspace through diagnostic settings. 
+> Data from Azure VM backups, the Azure Backup agent, System Center Data Protection Manager, SQL backups in Azure VMs, and Azure Files share backups is pumped to the Log Analytics workspace through diagnostic settings. Support for Microsoft Azure Backup Server (MABS) will be added soon
 
-To monitor at scale, you need the capabilities of two Azure services. *Diagnostic settings* send data from multiple Azure Resource Manager resources to another resource. *Log Analytics* generates custom alerts where you can use action groups to define other notification channels. 
+To monitor/report at scale, you need the capabilities of two Azure services. *Diagnostic settings* send data from multiple Azure Resource Manager resources to another resource. *Log Analytics* generates custom alerts where you can use action groups to define other notification channels.
 
 The following sections detail how to use Log Analytics to monitor Azure Backup at scale.
 
 ### Configure diagnostic settings
 
-Azure Resource Manager resources, such as the Recovery Services vault, record information about scheduled operations and user-triggered operations as diagnostic data. 
+Azure Resource Manager resources, such as the Recovery Services vault, record information about scheduled operations and user-triggered operations as diagnostic data.
 
 In the monitoring section, select **Diagnostic settings** and specify the target for the Recovery Services vault's diagnostic data.
 
@@ -45,54 +45,37 @@ You can target a Log Analytics workspace from another subscription. To monitor v
 
 ### Deploy a solution to the Log Analytics workspace
 
-After the data is inside the Log Analytics workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) to Log Analytics to visualize the data. To properly identify the workspace, make sure you give it the same resource group, workspace name, and workspace location. Then install this template on the workspace.
+> [!IMPORTANT]
+> We have released an updated, multi-view [template](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) for LA-based Monitoring and Reporting in Azure Backup. Please note that users who were using the [earlier solution](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) will continue to see it in their workspaces even after deploying the new solution. However, the old solution may provide inaccurate results due to some minor schema changes. Users are hence required to deploy the new template.
 
-> [!NOTE]
-> If you don't have alerts, backup jobs, or restore jobs in your Log Analytics workspace, you might see a "BadArgumentError" error code in the portal. Ignore this error and continue using the solution. After the relevant data type starts flowing into the workspace, the visualizations will reflect the same, and you won't see the error anymore.
+After the data is inside the Log Analytics workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) to Log Analytics to visualize the data. To properly identify the workspace, make sure you give it the same resource group, workspace name, and workspace location. Then install this template on the workspace.
 
 ### View Azure Backup data by using Log Analytics
 
-After the template is deployed, the solution for monitoring Azure Backup will show up in the workspace summary region. To go to the summary, follow one of these paths:
+After the template is deployed, the solution for monitoring and reporting in Azure Backup will show up in the workspace summary region. To go to the summary, follow one of these paths:
 
 - **Azure Monitor**: In the **Insights** section, select **More** and then choose the relevant workspace.
 - **Log Analytics workspaces**: Select the relevant workspace, and then under **General**, select **Workspace summary**.
 
-![The Log Analytics monitoring tile](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
+![The Log Analytics monitoring and reporting tiles](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
 
-When you select the monitoring tile, the designer template opens a series of graphs about basic monitoring data from Azure Backup. Here are some of the graphs you'll see:
+When you select any of the overview tiles, you can view further information. Here are some of the reports you'll see:
 
-* All backup jobs
+- Non Log Backup Jobs
 
-   ![Log Analytics graphs for backup jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
+   ![Log Analytics graphs for backup jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-* Restore jobs
+- Alerts from Azure Resources Backup
 
-   ![Log Analytics graph for restore jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
+   ![Log Analytics graph for restore jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
-* Built-in Azure Backup alerts for Azure resources
-
-   ![Log Analytics graph for built-in Azure Backup alerts for Azure resources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
-
-* Built-in Azure Backup alerts for on-premises resources
-
-   ![Log Analytics graph for built-in Azure Backup alerts for on-premises resources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
-
-* Active data sources
-
-   ![Log Analytics graph for active backed-up entities](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
-
-* Recovery Services vault cloud storage
-
-   ![Log Analytics graph for Recovery Services vault cloud storage](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
+Similarly, by clicking on the other tiles, you will be able to see reports on Restore Jobs, Cloud Storage, Backup Items, Alerts from On-Premises Resources Backup, and Log Backup Jobs.
 
 These graphs are provided with the template. You can edit the graphs or add more graphs if you need to.
 
-> [!IMPORTANT]
-> When you deploy the template, you're essentially creating a read-only lock. To edit and save the template, you need to remove the lock. You can remove a lock in the **Settings** section of the Log Analytics workspace,on the **Locks** pane.
-
 ### Create alerts by using Log Analytics
 
-In Azure Monitor, you can create your own alerts in a Log Analytics workspace. In the workspace, you use *Azure action groups* to select your preferred notification mechanism. 
+In Azure Monitor, you can create your own alerts in a Log Analytics workspace. In the workspace, you use *Azure action groups* to select your preferred notification mechanism.
 
 > [!IMPORTANT]
 > For information on the cost of creating this query, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
@@ -127,7 +110,7 @@ For more information, see [Create, view, and manage log alerts by using Azure Mo
 
 The default graphs give you Kusto queries for basic scenarios on which you can build alerts. You can also modify the queries to get the data you want to be alerted on. Paste the following sample Kusto queries in the **Logs** page and then create alerts on the queries:
 
-* All successful backup jobs
+- All successful backup jobs
 
     ````Kusto
     AzureDiagnostics
@@ -136,8 +119,8 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Completed"
     ````
-    
-* All failed backup jobs
+
+- All failed backup jobs
 
     ````Kusto
     AzureDiagnostics
@@ -146,8 +129,8 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Failed"
     ````
-    
-* All successful Azure VM backup jobs
+
+- All successful Azure VM backup jobs
 
     ````Kusto
     AzureDiagnostics
@@ -170,7 +153,7 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     | project-away Resource
     ````
 
-* All successful SQL log backup jobs
+- All successful SQL log backup jobs
 
     ````Kusto
     AzureDiagnostics
@@ -193,7 +176,7 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     | project-away Resource
     ````
 
-* All successful Azure Backup agent jobs
+- All successful Azure Backup agent jobs
 
     ````Kusto
     AzureDiagnostics
@@ -224,7 +207,7 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 - Across all solutions, ad hoc backup jobs and restore jobs are pushed as soon as they *finish*.
 - For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they *finish*.
 - For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
-- Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on is pushed at least *once per day.*
+- Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on, is pushed at least *once per day.*
 - A change in the backup configuration (such as changing policy or editing policy) triggers a push of all related backup information.
 
 ## Using the Recovery Services vault's activity logs
@@ -235,7 +218,7 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 You can also use activity logs to get notification for events such as backup success. To begin, follow these steps:
 
 1. Sign in into the Azure portal.
-1. Open the relevant Recovery Services vault. 
+1. Open the relevant Recovery Services vault.
 1. In the vault's properties, open the **Activity log** section.
 
 To identify the appropriate log and create an alert:
@@ -245,12 +228,12 @@ To identify the appropriate log and create an alert:
    ![Filtering to find activity logs for Azure VM backups](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
 1. Select the operation name to see the relevant details.
-1. Select **New alert rule** to open the **Create rule** page. 
+1. Select **New alert rule** to open the **Create rule** page.
 1. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
    ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Here the resource is the Recovery Services vault itself. You must repeat the same steps for all of the vaults in which you want to be notified through activity logs. The condition won't have a threshold, period, or frequency because this alert is based on events. As soon as the relevant activity log is generated, the alert is raised.
+Here the resource is the Recovery Services vault itself. Repeat the same steps for all of the vaults in which you want to be notified through activity logs. The condition won't have a threshold, period, or frequency because this alert is based on events. As soon as the relevant activity log is generated, the alert is raised.
 
 ## Using Log Analytics to monitor at scale
 
@@ -259,7 +242,7 @@ You can view all alerts created from activity logs and Log Analytics workspaces 
 Although you can get notifications through activity logs, we highly recommend using Log Analytics rather than activity logs for monitoring at scale. Here's why:
 
 - **Limited scenarios**: Notifications through activity logs apply only to Azure VM backups. The notifications must be set up for every Recovery Services vault.
-- **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [diagnostic logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
+- **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [resource logs](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
 - **Problems with the activity log channel**: In Recovery Services vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Government, Azure Germany, and Azure China 21Vianet. If users of these cloud services create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects Recovery Services activity logs into a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), these logs don't appear.
 
 Use a Log Analytics workspace for monitoring and alerting at scale for all your workloads that are protected by Azure Backup.

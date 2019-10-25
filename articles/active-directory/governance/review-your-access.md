@@ -2,8 +2,8 @@
 title: Review access for yourself to groups or applications in access reviews - Azure Active Directory | Microsoft Docs
 description: Learn how to review your own access to groups or applications in Azure Active Directory access reviews.
 services: active-directory
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/21/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -22,12 +22,6 @@ ms.collection: M365-identity-device-management
 Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups or applications in Azure AD and other Microsoft Online Services with a feature called Azure AD access reviews.
 
 This article describes how to review your own access to a group or an application.
-
-## Prerequisites
-
-- Azure AD Premium P2
-
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## Open the access review
 

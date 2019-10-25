@@ -17,11 +17,11 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides examples for using the string collection claims transformations of the Identity Experience Framework  schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the string collection claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## AddItemToStringCollection
 
-Adds a string claim to a new stringCollection claim. 
+Adds a string claim to a new stringCollection claim.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -29,7 +29,7 @@ Adds a string claim to a new stringCollection claim.
 | InputClaim | collection | stringCollection | [Optional] If specified, the claims transformation copies the items from this collection, and adds the item to the end of the output collection claim. |
 | OutputClaim | collection | stringCollection | The ClaimTypes that are produced after this ClaimsTransformation has been invoked. |
 
-Use this claims transformation to add a string to a new or existing stringCollection. It's commonly used in a **AAD-UserWriteUsingAlternativeSecurityId** technical profile. Before a new social account is created, **CreateOtherMailsFromEmail** claims transformation reads the ClaimType and adds the value to the **otherMails** ClaimType. 
+Use this claims transformation to add a string to a new or existing stringCollection. It's commonly used in a **AAD-UserWriteUsingAlternativeSecurityId** technical profile. Before a new social account is created, **CreateOtherMailsFromEmail** claims transformation reads the ClaimType and adds the value to the **otherMails** ClaimType.
 
 The following claims transformation adds the **email** ClaimType to **otherMails** ClaimType.
 
@@ -50,12 +50,12 @@ The following claims transformation adds the **email** ClaimType to **otherMails
 - Input claims:
   - **collection**: ["someone@outlook.com"]
   - **item**: "admin@contoso.com"
-- Output claims: 
+- Output claims:
   - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## AddParameterToStringCollection
 
-Adds a string parameter to a new stringCollection claim. 
+Adds a string parameter to a new stringCollection claim.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -63,7 +63,7 @@ Adds a string parameter to a new stringCollection claim.
 | InputParameter | item | string | The value to be added to the output claim. |
 | OutputClaim | collection | stringCollection | The ClaimTypes that will be produced after this ClaimsTransformation has been invoked. |
 
-Use this claims transformation to add a string value to a new or existing stringCollection. The following example adds a constant email address (admin@contoso.com) to the **otherMails** claim. 
+Use this claims transformation to add a string value to a new or existing stringCollection. The following example adds a constant email address (admin@contoso.com) to the **otherMails** claim.
 
 ```XML
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
@@ -83,21 +83,21 @@ Use this claims transformation to add a string value to a new or existing string
 
 - Input claims:
   - **collection**: ["someone@outlook.com"]
-- Input parameters 
+- Input parameters
   - **item**: "admin@contoso.com"
 - Output claims:
   - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## GetSingleItemFromStringCollection
 
-Gets the first item from the provided string collection. 
+Gets the first item from the provided string collection.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | The ClaimTypes that are used by the claims transformation to get the item. |
 | OutputClaim | extractedItem | string | The ClaimTypes that are produced after this ClaimsTransformation has been invoked. The first item in the collection. |
 
-The following example reads the **otherMails** claim and return the first item into the **email** claim. 
+The following example reads the **otherMails** claim and return the first item into the **email** claim.
 
 ```XML
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
@@ -114,6 +114,6 @@ The following example reads the **otherMails** claim and return the first item i
 
 - Input claims:
   - **collection**: ["someone@outlook.com", "someone@contoso.com"]
-- Output claims: 
+- Output claims:
   - **extractedItem**: "someone@outlook.com"
 

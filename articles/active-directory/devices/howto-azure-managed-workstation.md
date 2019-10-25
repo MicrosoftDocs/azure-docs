@@ -168,7 +168,7 @@ In Intune in the Azure portal:
    * Description - **Deployment of secure workstations**.
    * Set **Convert all targeted devices to Autopilot** to **Yes**. This setting makes sure that all devices in the list get registered with the Autopilot deployment service. Allow 48 hours for the registration to be processed.
 1. Select **Next**.
-   * For **Deployment mode**, choose **Self-Deploying (Preview)**. Devices with this profile are associated with the user who enrolls the device. User credentials are required to enroll the device.
+   * For **Deployment mode**, choose **Self-Deploying (Preview)**. Devices with this profile are associated with the user who enrolls the device. User credentials are required to enroll the device. It's essential to note that deploying a device in the **Self-Deploying** mode will allow you to deploy laptops in a shared model. No user assignment will happen until the device is assigned to a user for the first time. As a result, any user policies such as BitLocker will not be enabled until a user assignment is completed. For more details about how to log on to a secured device, see [selected profiles](https://docs.microsoft.com/intune/device-profile-assign).
    * The **Join to Azure AD as** box should show **Azure AD joined** and be grayed out.
    * Select your Langugage (Region), User account type **standard**. 
 1. Select **Next**.
@@ -177,6 +177,8 @@ In Intune in the Azure portal:
 1. Choose **Assignments** > **Assign to** > **Selected Groups**. In **Select groups to include**, choose **Secure Workstation Users**.
 1. Select **Next**.
 1. Select **Create** to create the profile. The Autopilot deployment profile is now available to assign to devices.
+
+Device enrollment in Autopilot provides a different user experience based on device type and role. In our deployment example, we illustrate a model where the secured devices are bulk deployed and can be shared, but when used for the first time, the device is assigned to a user. For more information, see [Intune Autopilot device enrollment](https://docs.microsoft.com/intune/device-enrollment).
 
 ### Configure Windows Update
 
@@ -243,7 +245,7 @@ After the script successfully executes, you can make updates to profiles and pol
 * Here's where you can find the Intune device configuration profiles created by the scripts: **Azure portal** > **Microsoft Intune** > **Device configuration** > **Profiles**.
 * Here's where you can find the Intune device compliance policies created by the scripts: **Azure portal** > **Microsoft Intune** > **Device Compliance** > **Policies**.
 
-To review changes made by the scripts, you can export the profiles. This way you can determine  additional hardening that may be required as outlined in the SECCON documentation.
+To review changes made by the scripts, you can export the profiles. This way you can determine  additional hardening that may be required as outlined in the [SECCON documentation](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
 Run the Intune data export script `DeviceConfiguration_Export.ps1` from the [DeviceConfiguration GiuHub repository](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) to export all current Intune profiles.
 

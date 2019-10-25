@@ -3,9 +3,9 @@ title: 'Azure Notification Hubs: Frequently Asked Questions (FAQs) | Microsoft D
 description: FAQs on designing/implementing solutions on Notification Hubs
 services: notification-hubs
 documentationcenter: mobile
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
 
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
@@ -15,7 +15,9 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/11/2019
 ---
 
 # Push notifications with Azure Notification Hubs: Frequently asked questions

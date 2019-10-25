@@ -1,6 +1,6 @@
 ---
 title: What is Azure Content Moderator?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to use Content Moderator to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
 author: PatrickFarley

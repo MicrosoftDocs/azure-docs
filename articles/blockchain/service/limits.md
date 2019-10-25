@@ -29,7 +29,7 @@ Changing the pricing tier between Basic and Standard after member creation is no
 
 ## Storage capacity
 
-The maximum amount of storage that can be used per node for ledger data and logs is 1 terabyte.
+The maximum amount of storage that can be used per node for ledger data and logs is 1.8 terabytes.
 
 Decreasing ledger and log storage size is not supported.
 

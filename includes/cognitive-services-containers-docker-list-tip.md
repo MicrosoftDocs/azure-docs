@@ -12,6 +12,6 @@ ms.topic: include
 >  ```
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >
->  IMAGE ID            REPOSITORY              TAG
->  <image-id>       <repository-path/name>         <tag-name>
+>  IMAGE ID         REPOSITORY                TAG
+>  <image-id>       <repository-path/name>    <tag-name>
 >  ```

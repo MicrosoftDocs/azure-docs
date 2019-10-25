@@ -4,7 +4,7 @@ description: include file
 services: batch
 documentationcenter: 
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/10/2019
+ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file 
 ---
@@ -24,9 +24,9 @@ ms.custom: include file
 
 * The pool using the VNet can have a maximum of 4096 nodes.
 
-* The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs. 
+* The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs. 
 
-* Your Azure Storage endpoint needs to be resolved by any custom DNS servers that serve your VNet. Specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net` should be resolvable. 
+* Your Azure Storage endpoint needs to be resolved by any custom DNS servers that serve your VNet. Specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net` should be resolvable. 
 
 Additional VNet requirements differ, depending on whether the Batch pool is in the Virtual Machine configuration or the Cloud Services configuration. For new pool deployments into a VNet, the Virtual Machine configuration is recommended.
 
@@ -78,10 +78,10 @@ You do not need to specify NSGs at the subnet level because Batch configures its
 **Subnet ID** - When specifying the subnet using the Batch APIs, use the *resource identifier* of the subnet. The subnet identifier is of the form:
 
   ```
-  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicVirtualNetwork /virtualNetworks/{network}/subnets/{subnet}
+  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}
   ```
 
-**Permissions** - The `MicrosoftAzureBatch` service principal must have the `Classic Virtual Machine Contributor` Role-Based Access Control (RBAC) role for the specified VNet.
+**Permissions** - The `Microsoft Azure Batch` service principal must have the `Classic Virtual Machine Contributor` Role-Based Access Control (RBAC) role for the specified VNet.
 
 #### Network security groups
 

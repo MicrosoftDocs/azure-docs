@@ -75,7 +75,7 @@ Selected administrators can be exempted from these policies, across all group wo
 
 ## Configure naming policy in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global Administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
     ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy.png)

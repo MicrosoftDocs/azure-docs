@@ -6,8 +6,9 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ---
@@ -40,7 +41,7 @@ and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-fi
 
 ## Check permissions and get connection string
 
-For your logic app to access your Event Hub, 
+To make sure that your logic app can access your Event Hub, 
 check your permissions and get the connection 
 string for your Event Hubs namespace.
 
@@ -134,7 +135,7 @@ for the tasks you want to perform with the trigger results.
 
    For example, to filter events based on a specific value, 
    such as a category, you can add a condition so that the 
-   **Send event - Event Hubs** action sends only events that 
+   **Send event** action sends only the events that 
    meet your condition. 
 
 > [!NOTE]
@@ -215,7 +216,7 @@ provide these details:
    ![Create Event Hub connection](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
    To manually enter the connection string, 
-   choose **Manually enter connection information**. 
+   select **Manually enter connection information**. 
    Learn [how to find your connection string](#permissions-connection-string).
 
 2. Select the Event Hubs policy to use, 

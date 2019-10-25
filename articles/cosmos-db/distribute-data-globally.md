@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ---
 # Global data distribution with Azure Cosmos DB - overview
 
@@ -48,3 +48,8 @@ Read more about global distribution in the following articles:
 * [Configure clients for multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+* [Programmable consistency models in Cosmos DB](consistency-levels.md)
+* [Choose the right consistency level for your application](consistency-levels-choosing.md)
+* [Consistency levels across Azure Cosmos DB APIs](consistency-levels-across-apis.md)
+* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
+* [How to implement custom synchronization to optimize for higher availability and performance](how-to-custom-synchronization.md)

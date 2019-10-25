@@ -61,9 +61,18 @@ az vm create \
    -l westus
 ```
 
+You can see the VM in the proximity placement group using [az ppg show](/cli/azure/ppg#az-ppg-show).
+
+```azurecli-interactive
+az ppg show --name myppg --resource-group myppggroup --query "virtualMachines"
+```
+
+## Availability Sets
+You can also create an  availability set in your proximity placement group. Use the same `--ppg` parameter with [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create) to create an availability set and all of the VMs in the availability set will also be created in the same proximity placement group.
+
 ## Scale sets
 
-You can also create a scale-set in your proximity placement group. Use the same `--ppg` parameter with [az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) to create a scale set and all of the instances will be created in the same proximity placement group.
+You can also create a scale set in your proximity placement group. Use the same `--ppg` parameter with [az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) to create a scale set and all of the instances will be created in the same proximity placement group.
 
 ## Next steps
 

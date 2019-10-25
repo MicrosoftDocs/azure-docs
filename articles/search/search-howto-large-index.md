@@ -3,48 +3,49 @@ title: Index large data set using built-in indexers - Azure Search
 description: Learn strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 
 ms.service: search
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 09/19/2019
 ms.author: heidist
-ms.custom: seodec2018
 
 ---
 # How to index large data sets in Azure Search
 
-As data volumes grow or processing needs change, you might find that default indexing strategies are no longer practical. For Azure Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
+As data volumes grow or processing needs change, you might find that simple or default indexing strategies are no longer practical. For Azure Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
 
-The same techniques for large data also apply to long-running processes. In particular, the steps outlined in [parallel indexing](#parallel-indexing) are helpful for computationally intensive indexing, such as image analysis or natural language processing in [cognitive search pipelines](cognitive-search-concept-intro.md).
+The same techniques also apply to long-running processes. In particular, the steps outlined in [parallel indexing](#parallel-indexing) are helpful for computationally intensive indexing, such as image analysis or natural language processing in [cognitive search pipelines](cognitive-search-concept-intro.md).
 
-## Batch indexing
+The following sections explore three techniques for indexing large amounts of data.
 
-One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. Assuming the [Add or Update Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), you would package 1000 documents in the body of the request.
+## Option 1: Pass multiple documents
 
-Batch indexing is implemented for individual requests using REST or .NET, or through indexers. A few indexers operate under different limits. Specifically, Azure Blob indexing sets batch size at 10 documents in recognition of the larger average document size. For indexers based on the [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), you can set the `BatchSize` argument to customize this setting to better match the characteristics of your data. 
+One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you are using the [Add Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) or the [Index method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
+
+Batch indexing is implemented for individual requests using REST or .NET, or through indexers. A few indexers operate under different limits. Specifically, Azure Blob indexing sets batch size at 10 documents in recognition of the larger average document size. For indexers based on the [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer), you can set the `BatchSize` argument to customize this setting to better match the characteristics of your data. 
 
 > [!NOTE]
-> To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly searchable and shouldn't be stored in the index. To integrate non-queryable data into search results, you should define a non-searchable field that stores a URL reference to the resource.
+> To keep document size down, avoid adding non-queryable data to an index. Images and other binary data are not directly searchable and shouldn't be stored in the index. To integrate non-queryable data into search results, you should define a non-searchable field that stores a URL reference to the resource.
 
-## Add resources
+## Option 2: Add resources
 
 Services that are provisioned at one of the [Standard pricing tiers](search-sku-tier.md) often have underutilized capacity for both storage and workloads (queries or indexing), which makes [increasing the partition and replica counts](search-capacity-planning.md) an obvious solution for accommodating larger data sets. For best results, you need both resources: partitions for storage, and replicas for the data ingestion work.
 
-Increasing replicas and partitions are billable events that increase your cost, but unless you are continuously indexing under maximum load, you can add scale for the duration of the indexing process, and then adjust resource levels downward after indexing is finished.
+Increasing replicas and partitions are billable events that increase your cost, but unless you are continuously indexing under maximum load, you can add scale for the duration of the indexing process, and then adjust resource levels back downward after indexing is finished.
 
-## Use indexers
+## Option 3: Use indexers
 
-[Indexers](search-indexer-overview.md) are used to crawl external data sources for searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
+[Indexers](search-indexer-overview.md) are used to crawl supported Azure data sources for searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
 
 + Schedulers allow you to parcel out indexing at regular intervals so that you can spread it out over time.
 + Scheduled indexing can resume at the last known stopping point. If a data source is not fully crawled within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
-+ Partitioning data into smaller individual data sources enables parallel processing. You can break a large data set into smaller data sets, and then create multiple data source definitions that can be indexed in parallel.
++ Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob storage, and then create corresponding, multiple [data source objects](https://docs.microsoft.com/rest/api/searchservice/create-data-source) in Azure Search that can be indexed in parallel.
 
 > [!NOTE]
 > Indexers are data-source-specific, so using an indexer approach is only viable for selected data sources on Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob storage](search-howto-indexing-azure-blob-storage.md), [Table storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
-## Scheduled indexing
+### Scheduled indexing
 
 Indexer scheduling is an important mechanism for processing large data sets, as well as slow-running processes like image analysis in a cognitive search pipeline. Indexer processing operates within a 24-hour window. If processing fails to finish within 24 hours, the behaviors of indexer scheduling can work to your advantage. 
 
@@ -54,7 +55,7 @@ In practical terms, for index loads spanning several days, you can put the index
 
 <a name="parallel-indexing"></a>
 
-## Parallel indexing
+### Parallel indexing
 
 A parallel indexing strategy is based on indexing multiple data sources in unison, where each data source definition specifies a subset of the data. 
 

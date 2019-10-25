@@ -16,6 +16,7 @@ This article shows you how you can create a customized Linux image using the Azu
 - Shell (inline) - runs specific commands. In this example, the inline commands include creating a directory and updating the OS.
 - File - copies a [file from GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) into a directory on the VM.
 
+You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
@@ -108,7 +109,7 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-You can modify this example .json as needed. For example, you can increase the value of `buildTimeoutInMinutes` to allow for longer running builds. You can edit the file in Cloud Shell using `vi`.
+You can modify this example .json as needed. For example, you can increase the value of `buildTimeoutInMinutes` to allow for longer running builds. You can edit the file in Cloud Shell using  a text editor like `vi`.
 
 ```azurecli-interactive
 vi helloImageTemplateLinux.json

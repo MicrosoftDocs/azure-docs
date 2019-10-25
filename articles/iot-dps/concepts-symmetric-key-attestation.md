@@ -70,7 +70,7 @@ This exact example is used in the [How to provision legacy devices using symmetr
 
 Once a registration ID has been defined for the device, the symmetric key for the enrollment group is used to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash of the registration ID to produce a derived device key. The hashing of the registration ID can be performed with the following C# code:
 
-```C#
+```csharp
 using System; 
 using System.Security.Cryptography; 
 using System.Text;  
@@ -87,7 +87,7 @@ public static class Utils
 } 
 ```
 
-```C#
+```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 

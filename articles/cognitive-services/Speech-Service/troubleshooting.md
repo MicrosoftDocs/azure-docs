@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot the Speech SDK - Speech Services
+title: Troubleshoot the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
 description: This article provides information to help you solve issues you might encounter when you use the Speech SDK.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ---
 # Troubleshoot the Speech SDK
 

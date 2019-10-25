@@ -3,10 +3,11 @@ title: Deploy container instances into an Azure virtual network
 description: Learn how to deploy container groups to a new or existing Azure virtual network.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 07/11/2019
 ms.author: danlep
 ---
 
@@ -24,6 +25,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
 
 ## Virtual network deployment limitations
 
@@ -259,9 +261,13 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### Delete network resources
 
+
+> [!NOTE]
+> If you recieve an error while attempting to remove the Network Profile allow 2-3 days for the platform to automatically mitigate the issue and attempt the deletion again. If you still have issues removing the Network Profile [open a support reqest.](https://azure.microsoft.com/support/create-ticket/)
+
 The initial preview of this feature requires several additional commands to delete the network resources you created earlier. If you used the example commands in previous sections of this article to create your virtual network and subnet, then you can use the following script to delete those network resources.
 
-Before executing the script, set the `RES_GROUP` variable to the name of the resource group containing the virtual network and subnet that should be deleted. Update the names of the virtual network and subnet if you did not use the `aci-vnet` and `aci-subnet` names suggested earlier. The script is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment and accessors accordingly.
+Before executing the script, set the `RES_GROUP` variable to the name of the resource group containing the virtual network and subnet that should be deleted. Update the name of the virtual network if you did not use the `aci-vnet` name suggested earlier. The script is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment and accessors accordingly.
 
 > [!WARNING]
 > This script deletes resources! It deletes the virtual network and all subnets it contains. Be sure that you no longer need *any* of the resources in the virtual network, including any subnets it contains, prior to running this script. Once deleted, **these resources are unrecoverable**.

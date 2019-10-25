@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Search for images - Bing Image Search SDK for Java"
-description: Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Java application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 titleSuffix: Azure Cognitive Services
+description: Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Java application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---

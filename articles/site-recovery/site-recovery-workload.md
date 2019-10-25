@@ -1,17 +1,17 @@
 ---
-title: What workloads can you protect with Azure Site Recovery? | Microsoft Docs
+title: About disaster recovery for on-premises apps with Azure Site Recovery 
 description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service. 
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 10/10/2019
 ms.author: raynew
 
 ---
-# What workloads can you protect with Azure Site Recovery?
+# About disaster recovery for on-premises apps
 
-This article describes workloads and applications you can protect for disaster recovery with the [Azure Site Recovery](site-recovery-overview.md) service.
+This article describes on-premises workloads and apps you can protect for disaster recovery with the [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 
@@ -36,7 +36,7 @@ Site Recovery contributes to application-level protection and recovery as follow
 * A rich automation library that provides production-ready, application-specific scripts that can be downloaded and integrated with recovery plans.
 
 ## Workload summary
-Site Recovery can replicate any app running on a supported machine. In addition, we've partnered with product teams to carry out additional app-specific testing.
+Site Recovery can replicate any app running on a supported machine. In addition, we've partnered with product teams to carry out additional testing for the apps specified in the table.
 
 | **Workload** |**Replicate Azure VMs to Azure** |**Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure** |
 | --- | --- | --- | --- | --- |---|

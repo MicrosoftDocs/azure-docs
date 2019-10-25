@@ -11,8 +11,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2019
-ms.author: ypitsch,kumud
-
+ms.author: kumud
+ms.reviewer: ypitsch
 ---
 
 # Microsoft global network

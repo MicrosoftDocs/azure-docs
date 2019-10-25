@@ -14,7 +14,7 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ---

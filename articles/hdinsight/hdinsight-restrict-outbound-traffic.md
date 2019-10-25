@@ -17,7 +17,7 @@ This article provides the steps for you to secure outbound traffic from your HDI
 
 Azure HDInsight clusters are normally deployed in your own virtual network. The cluster has dependencies on services outside of that virtual network that require network access to function properly.
 
-There are several dependencies that require inbound traffic. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published [here](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip). You can also create Network Security Group (NSG) rules with this information to secure inbound traffic to the clusters.
+There are several dependencies that require inbound traffic. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published [here](hdinsight-management-ip-addresses.md). You can also create Network Security Group (NSG) rules with this information to secure inbound traffic to the clusters.
 
 The HDInsight outbound traffic dependencies are almost entirely defined with FQDNs, which don't have static IP addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) can't be used to lock down the outbound traffic from a cluster. The addresses change often enough that one can't set up rules based on the current name resolution and use that to set up NSG rules.
 
@@ -57,7 +57,8 @@ On the **Add application rule collection** screen, complete the following steps:
    | **Name** | **Source Address** | **Protocol:Port** | **Target FQDNS** | **Notes** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
-   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | If your cluster is backed by WASB, then add a rule for WASB. To use ONLY https connections make sure ["secure transfer required"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) is enabled on the storage account. |
+   | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |
+   | Rule_4 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | If your cluster is backed by WASB, then add a rule for WASB. To use ONLY https connections make sure ["secure transfer required"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) is enabled on the storage account. |
 
 1. Click **Add**.
 
@@ -87,13 +88,13 @@ Create the network rules to correctly configure your HDInsight cluster.
 
 1. Click **Add** to complete creation of your network rule collection.
 
-   ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![Title: Enter application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### Create and configure a route table
 
 Create a route table with the following entries:
 
-1. Six addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) with a next hop of **Internet**:
+1. Six addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-management-ip-addresses.md) with a next hop of **Internet**:
     1. Four IP addresses for all clusters in all regions
     1. Two IP addresses that are specific for the region where the cluster is created
 1. One Virtual Appliance route for IP address 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
@@ -132,7 +133,7 @@ Routes must be created for the application traffic to avoid asymmetric routing i
 
 If your applications have other dependencies, they need to be added to your Azure Firewall. Create Application rules to allow HTTP/HTTPS traffic and Network rules for everything else.
 
-## Logging
+## Logging and scale
 
 Azure Firewall can send logs to a few different storage systems. For instructions on configuring logging for your firewall, follow the steps in [Tutorial: Monitor Azure Firewall logs and metrics](../firewall/tutorial-diagnostics.md).
 
@@ -144,8 +145,12 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
+To learn about the scale limits of Azure Firewall and request increases, see [this](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) document or refer to the [FAQs](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq). 
+
 ## Access to the cluster
-After having the firewall setup successfully, you can use the internal endpoint (`https://<clustername>-int.azurehdinsight.net`) to access the Ambari from within the VNET. To use the public endpoint (`https://<clustername>.azurehdinsight.net`) or ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules setup to avoid the assymetric routing issue explained [here](https://docs.microsoft.com/azure/firewall/integrate-lb).
+After having the firewall setup successfully, you can use the internal endpoint (`https://<clustername>-int.azurehdinsight.net`) to access the Ambari from inside the VNET. 
+
+To use the public endpoint (`https://<clustername>.azurehdinsight.net`) or ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules to avoid the assymetric routing issue explained [here](https://docs.microsoft.com/azure/firewall/integrate-lb). Specifically in this case, you need to allow the client IP address in the Inbound NSG rules and also add it to the user defined route table with the next hop set as `internet`. If this is not setup correctly you will see a timeout error.
 
 ## Configure another network virtual appliance
 
@@ -173,7 +178,7 @@ The previous instructions help you configure Azure Firewall for restricting outb
 | **Endpoint** | **Details** |
 |---|---|
 | \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| IPs published [here](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) | These are HDInsight service |
+| IPs published [here](hdinsight-management-ip-addresses.md) | These are HDInsight service |
 | AAD-DS private IPs for ESP clusters |
 | \*:16800 for KMS Windows Activation |
 | \*12000 for Log Analytics |

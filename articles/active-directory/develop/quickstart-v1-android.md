@@ -1,6 +1,6 @@
 ---
 title: Sign in users and call the Microsoft Graph API from an Android app | Microsoft Docs
-description: Learn how to sign-in users and call the Microsoft Graph API from my Android app.
+description: Learn how to sign in users and call the Microsoft Graph API from my Android app.
 services: active-directory
 documentationcenter: android
 author: rwike77
@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 If you're developing an Android application, Microsoft makes it simple and straightforward to sign in Azure Active Directory (Azure AD) users. Azure AD enables your application to access user data through the Microsoft Graph or your own protected web API.
 
 The Azure AD Authentication Library (ADAL) Android library gives your app the ability to begin using the
-[Microsoft Azure Cloud](https://cloud.microsoft.com) and [Microsoft Graph API](https://developer.microsoft.com/graph) by supporting [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/services/active-directory/) using industry standard OAuth 2.0 and OpenID Connect.
+[Microsoft Azure Cloud](https://azure.microsoft.com/free/cloud-services/) and [Microsoft Graph API](https://developer.microsoft.com/graph) by supporting [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/services/active-directory/) using industry standard OAuth 2.0 and OpenID Connect.
 
 In this quickstart, you'll learn how to:
 

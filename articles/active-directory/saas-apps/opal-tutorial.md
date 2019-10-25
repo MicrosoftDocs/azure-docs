@@ -110,7 +110,7 @@ To configure Azure AD single sign-on with Opal, perform the following steps:
 	> [!NOTE]
 	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Opal Client support team](mailto:support@workwithopal.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Opal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+5. Opal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -210,7 +210,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Opal test user
 
-In this section, you create a user called Britta Simon in Opal. Work with [Opal support team](mailto:support@workwithopal.com) to add the users in the Opal platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Opal. Work with [Opal support team](mailto:support@workwithopal.com) to add the users in the Opal platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 

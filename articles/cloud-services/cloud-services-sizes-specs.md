@@ -3,18 +3,11 @@ title: Virtual machine sizes for Azure Cloud services | Microsoft Docs
 description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: jpconnock
-editor: ''
-
-ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
 ms.date: 07/18/2017
-ms.author: jeconnoc
+ms.author: gwallace
 
 ---
 # Sizes for Cloud Services
@@ -64,7 +57,6 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
-| [F](#f-series) |210 - 250*|
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
@@ -162,17 +154,6 @@ For information and considerations about using these sizes, see [High performanc
 | Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremely high |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremely high |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremely high |
-
-## F-series
-
-
-| Size            | CPU cores | Memory: GiB   | Temporary Storage (SSD): GiB       | Max NICs / Network bandwidth |
-|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_F1     | 1         | 2             | 16                   | 2 / 750  |
-| Standard_F2     | 2         | 4             | 32                   | 2 / 1500 |
-| Standard_F4     | 4         | 8             | 64                   | 4 / 3000 |
-| Standard_F8     | 8         | 16            | 128                  | 8 / 6000 |
-| Standard_F16    | 16        | 32            | 256                  | 8 / 12000|
 
 
 ## G-series

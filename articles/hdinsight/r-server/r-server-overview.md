@@ -86,7 +86,7 @@ To score in HDInsight, write an R function that calls your model to make predict
 
 ### Score in Azure Machine Learning (AML)
 
-To score using Azure Machine Learning, use the open-source Azure Machine Learning R package known as [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) to publish your model as an Azure web service. For convenience, this package is pre-installed on the edge node. Next, use the facilities in Azure Machine Learning to create a user interface for the web service, and then call the web service as needed for scoring.
+To score using Azure Machine Learning, use the open-source Azure Machine Learning R package known as [AzureML](https://cran.r-project.org/src/contrib/Archive/AzureML/) to publish your model as an Azure web service. For convenience, this package is pre-installed on the edge node. Next, use the facilities in Azure Machine Learning to create a user interface for the web service, and then call the web service as needed for scoring.
 
 If you choose this option, you must convert any ScaleR model objects to equivalent open-source model objects for use with the web service. Use ScaleR coercion functions, such as `as.randomForest()` for ensemble-based models, for this conversion.
 

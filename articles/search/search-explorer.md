@@ -1,27 +1,24 @@
 ---
-title: Search explorer tool for querying data in Azure portal - Azure Search
-description: Use Azure portal tools like Search explorer to query indexes in Azure Search. Enter search terms or fully-qualified search strings with advanced syntax.
-manager: cgronlun
+title: Use Search explorer tool for querying data in Azure portal - Azure Search
+description: Search explorer is built into the Azure portal, useful for exploring content and validating queries in Azure Search. Enter strings for term or phrase search, or fully qualified search expressions with advanced syntax.
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
-# Search explorer for querying data in Azure Search 
+# Use Search explorer in the Azure portal for querying documents in Azure Search 
 
-This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can use Search explorer to submit simple or full Lucene query strings to any existing index in your service. 
+This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can start Search explorer from the command bar to submit simple or full Lucene query expressions to any existing index in your service. 
 
    ![Search explorer command in portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
 
-
-For help getting started, see [Start Search explorer](#start-search-explorer).
-
 ## Basic search strings
 
-The following examples assume the built-in realestate sample index. For help creating this index, see [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md).
+The following examples assume the built-in real estate sample index. You can create this index using the Import data wizard in the portal, choosing **Samples** as the data source.
 
 ### Example 1 - empty search
 
@@ -79,7 +76,7 @@ Add **$select** to limit results to the explicitly named fields for more readabl
 Azure Search returns the top 50 matches based on the search rank. To get the next set of matching documents, append **$top=100,&$skip=50** to increase the result set to 100 documents (default is 50, maximum is 1000), skipping the first 50 documents. Recall that you need to provide search criteria, such as a query term or expression, to get ranked results. Notice that search scores decrease the deeper you reach into search results.
 
    ```Input
-   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
    ```
 
    **Results**
@@ -88,13 +85,25 @@ Azure Search returns the top 50 matches based on the search rank. To get the nex
 
 ## Filter expressions (greater than, less than, equal to)
 
-Use the **$filter** parameter when you want to specify precise criteria rather than free text search. This example searches for bedrooms greater than 3: `search=seattle condo&$filter=beds gt 3&$count=true`
+Use the **$filter** parameter when you want to specify precise criteria rather than free text search. This example searches for bedrooms greater than 3:
+
+   ```Input
+   search=seattle condo&$filter=beds gt 3&$count=true
+   ```
+   
+   **Results**
 
    ![Filter expression](./media/search-explorer/search-explorer-example-filter.png "Filter by criteria")
 
 ## Order-by expressions
 
-Add **$orderby** to sort results by another field besides search score. An example expression you can use to test this out is `search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc`
+Add **$orderby** to sort results by another field besides search score. An example expression you can use to test this out is:
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
+   ```
+   
+   **Results**
 
    ![Orderby expression](./media/search-explorer/search-explorer-example-ordery.png "Change the sort order")
 

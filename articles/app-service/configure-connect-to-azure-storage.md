@@ -8,7 +8,7 @@ ms.service: app-service
 ms.workload: web
 ms.topic: article
 ms.date: 7/01/2019
-ms.author: msangapu-msft
+ms.author: msangapu
 ---
 # Configure Azure Files in a Windows Container on App Service
 

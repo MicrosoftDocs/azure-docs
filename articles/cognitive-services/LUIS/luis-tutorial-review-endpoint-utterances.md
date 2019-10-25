@@ -1,5 +1,5 @@
 ---
-title: Reviewing endpoint utterances
+title: "Tutorial: Reviewing endpoint utterances - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity. 
 services: cognitive-services
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 09/05/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances. 
 
@@ -71,35 +71,28 @@ Use the following steps:
     
     [![Screenshot of Review endpoint utterances with Entities view toggle highlighted](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
+
+    This utterance, `I'm looking for a job with Natural Language Processing`, is not in the correct intent. 
+
+    The reason the utterance was mispredicted is that the **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. The intent with more utterances will have a higher prediction. It is important that the quantity and quality of the utterances across intents is balanced.
+
+1.  To align this utterance, select the correct intent and mark the Job entity within it. Add the changed utterance to the app by selecting the green checkbox. 
+
     |Utterance|Correct intent|Missing entities|
     |:--|:--|:--|
-    |I'm looking for a job with Natural Language Processing|GetJobInfo|Job - "Natural Language Process"|
+    |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Job - "Natural Language Process"|
 
-    This utterance is not in the correct intent and has a score less than 50%. The **ApplyForJob** intent has 21 utterances compared to the seven utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That is left as an exercise for you to complete on your own. Each intent, except for the **None** intent, should have roughly the same number of example utterances. The **None** intent should have 10% of the total utterances in the app. 
+    To change `natural language processing` from a keyPhrase entity to a Job entity, select the phrase, then select **Job** from the list. If you want to select only part of the keyPhrase's text for a different entity, you need to remove the keyPhrase as an entity, label with a different entity, then reapply the keyPhrase entity to the app. 
 
-1. For the intent `I'm looking for a job with Natual Language Processing`, select the correct intent, **GetJobInformation** in the **Aligned intent** column. 
+    Adding the utterance moves the utterance from the **Review endpoint utterances** to the **GetJobInformation** intent. The endpoint utterance is now an example utterance for that intent. 
 
-    [![Screenshot of Review endpoint utterances aligning utterance to intent](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+    Along with aligning this utterance correctly, more utterances should be added to the **GetJobInformation** intent. That is left as an exercise for you to complete on your own. Each intent, except for the **None** intent, should have roughly the same number of example utterances. The **None** intent should have 10% of the total utterances in the app. 
 
-1. In the same utterance, the entity for `Natural Language Processing` is keyPhrase. This should be a **Job** entity instead. Select `Natural Language Processing` then select the **Job** entity from the list.
+    Review the remaining utterances in this intent, labeling utterances and correcting the **Aligned intent**, if these are incorrect.
 
-    [![Screenshot of Review endpoint utterances labeling entity in utterance](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+    The **Review endpoint utterances** list should no longer have those utterances. If more utterances appear, continue to work through the list, correcting intents and labeling any missing entities, until the list is empty. 
 
-1. On the same line, select the circled checkmark in the **Add to aligned intent** column. 
-
-    [![Screenshot of finalizing utterance alignment in intent](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
-
-    This action moves the utterance from the **Review endpoint utterances** to the **GetJobInformation** intent. The endpoint utterance is now an example utterance for that intent. 
-
-1. Review the remaining utterances in this intent, labeling utterances and correcting the **Aligned intent**, if these are incorrect.
-
-1. When all the utterances are correct, select the checkbox on each row, then select **Add selected** to align the utterances correctly. 
-
-    [![Screenshot of finalizing remaining utterances to aligned intent](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
-
-1. The list should no longer have those utterances. If more utterances appear, continue to work through the list, correcting intents and labeling any missing entities, until the list is empty. 
-
-1. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each intent is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table.
+    Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each intent is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table.
 
     Continue until all intents and entities in the filter list have an empty list. This is a very small app. The review process takes only a few minutes. 
 

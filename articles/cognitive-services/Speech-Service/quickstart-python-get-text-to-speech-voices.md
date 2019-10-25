@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: List text-to-speech voices, Python - Speech Services"
+title: "Quickstart: List text-to-speech voices, Python - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Python. The list is returned as JSON, and voice availability varies by region.
 services: cognitive-services

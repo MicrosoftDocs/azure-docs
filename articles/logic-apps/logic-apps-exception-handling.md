@@ -1,18 +1,14 @@
 ---
-# required metadata
-title: Error and exception handling - Azure Logic Apps | Microsoft Docs
+title: Error and exception handling - Azure Logic Apps
 description: Learn about patterns for error and exception handling in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: dereklee
 ms.author: deli
-manager: jeconnoc
+ms.reviewer: klam, estfan, LADocs
 ms.date: 01/31/2018
 ms.topic: article
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ---
 
 # Handle errors and exceptions in Azure Logic Apps
@@ -272,29 +268,17 @@ you can create a single action to catch failures.
 
 For limits on scopes, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md).
 
+<a name="get-results-from-failures"></a>
+
 ### Get context and results for failures
 
-Although catching failures from a scope is useful, 
-you might also want context to help you understand 
-exactly which actions failed plus any errors or status codes that were returned. 
-The `@result()` expression provides context about the result of all actions in a scope.
+Although catching failures from a scope is useful, you might also want context to help you understand exactly which actions failed plus any errors or status codes that were returned.
 
-The `@result()` expression accepts a single parameter (the scope's name) 
-and returns an array of all the action results from within that scope. 
-These action objects include the same attributes as the **\@actions()** object, 
-such as the action's start time, end time, status, inputs, correlation IDs, and outputs. 
-To send context for any actions that failed within a scope, 
-you can easily pair an **\@result()** function with a **runAfter** property.
+The [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) function provides context about the results from all the actions in a scope. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains all the action results from within that scope. These action objects include the same attributes as the `@actions()` object, such as the action's start time, end time, status, inputs, correlation IDs, and outputs. To send context for any actions that failed within a scope, you can easily pair a `@result()` expression with the `runAfter` property.
 
-To run an action for each action in a scope that has a **Failed** result, 
-and to filter the array of results down to the failed actions, 
-you can pair **\@result()** with a **[Filter Array](../connectors/connectors-native-query.md)** action 
-and a [**For each**](../logic-apps/logic-apps-control-flow-loops.md) loop. 
-You can take the filtered result array and perform an action for each failure using the **For each** loop. 
+To run an action for each action in a scope that has a **Failed** result, and to filter the array of results down to the failed actions, you can pair a `@result()` expression with a [**Filter Array**](../connectors/connectors-native-query.md) action and a [**For each**](../logic-apps/logic-apps-control-flow-loops.md) loop. You can take the filtered result array and perform an action for each failure using the **For each** loop.
 
-Here's an example, followed by a detailed explanation, 
-that sends an HTTP POST request with the response body 
-for any actions that failed within the scope "My_Scope":
+Here's an example, followed by a detailed explanation, that sends an HTTP POST request with the response body for any actions that failed within the scope "My_Scope":
 
 ```json
 "Filter_array": {

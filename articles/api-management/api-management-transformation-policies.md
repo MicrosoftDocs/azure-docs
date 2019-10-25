@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
@@ -82,7 +81,7 @@ This topic provides a reference for the following API Management policies. For i
 
 -   **Policy sections:** inbound, outbound, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="ConvertXMLtoJSON"></a> Convert XML to JSON
  The `xml-to-json` policy converts a request or response body from XML to JSON. This policy can be used to modernize APIs based on XML-only backend web services.
@@ -126,7 +125,7 @@ This topic provides a reference for the following API Management policies. For i
 
 -   **Policy sections:** inbound, outbound, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="Findandreplacestringinbody"></a> Find and replace string in body
  The `find-and-replace` policy finds a request or response substring and replaces it with a different substring.
@@ -161,7 +160,7 @@ This topic provides a reference for the following API Management policies. For i
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="MaskURLSContent"></a> Mask URLs in content
  The `redirect-content-urls` policy re-writes (masks) links in the response body so that they point to the equivalent link via the gateway. Use in the outbound section to re-write response body links to make them point to the gateway. Use in the inbound section for an opposite effect.
@@ -192,7 +191,7 @@ This topic provides a reference for the following API Management policies. For i
 
 -   **Policy sections:** inbound, outbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetBackendService"></a> Set backend service
  Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to the one specified in the policy.
@@ -277,16 +276,16 @@ In this example the policy routes the request to a service fabric backend, using
 
 -   **Policy sections:** inbound, backend
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetBody"></a> Set body
  Use the `set-body` policy to set the message body for incoming and outgoing requests. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
 
 > [!IMPORTANT]
 >  Note that by default when you access the message body using `context.Request.Body` or `context.Response.Body`, the original message body is lost and must be set by returning the body back in the expression. To preserve the body content, set the `preserveContent` parameter to `true` when accessing the message. If `preserveContent` is set to `true` and a different body is returned by the expression, the returned body is used.
-> 
+>
 >  Please note the following considerations when using the `set-body` policy.
-> 
+>
 > - If you are using the `set-body` policy to return a new or updated body you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
 >   -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
 >   -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
@@ -447,7 +446,7 @@ OriginalUrl.
 
 -   **Policy sections:** inbound, outbound, backend
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetHTTPheader"></a> Set HTTP header
  The `set-header` policy assigns a value to an existing response and/or request header or adds a new response and/or request header.
@@ -518,7 +517,7 @@ OriginalUrl.
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetQueryStringParameter"></a> Set query string parameter
  The `set-query-parameter` policy adds, replaces value of, or deletes request query string parameter. Can be used to pass query parameters expected by the backend service which are optional or never present in the request.
@@ -578,7 +577,7 @@ OriginalUrl.
 
 -   **Policy sections:** inbound, backend
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="RewriteURL"></a> Rewrite URL
  The `rewrite-uri` policy converts a request URL from its public form to the form expected by the web service, as shown in the following example.
@@ -656,7 +655,7 @@ OriginalUrl.
 
 -   **Policy sections:** inbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="XSLTransform"></a> Transform XML using an XSLT
  The `Transform XML using an XSLT` policy applies an XSL transformation to XML in the request or response body.
@@ -720,7 +719,7 @@ OriginalUrl.
 
 -   **Policy sections:** inbound, outbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## Next steps
 

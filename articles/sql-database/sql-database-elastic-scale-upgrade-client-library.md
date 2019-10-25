@@ -10,12 +10,11 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 01/03/2019
 ---
 # Upgrade an app to use the latest elastic database client library
 
-New versions of the [Elastic Database client library](sql-database-elastic-database-client-library.md) are available through NuGetand the NuGetPackage Manager interface in Visual Studio. Upgrades contain bug fixes and support for new capabilities of the client library.
+New versions of the [Elastic Database client library](sql-database-elastic-database-client-library.md) are available through NuGet and the NuGet Package Manager interface in Visual Studio. Upgrades contain bug fixes and support for new capabilities of the client library.
 
 **For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 

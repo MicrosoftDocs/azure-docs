@@ -1,5 +1,6 @@
 ---
-title: Learn how to provide optional claims to your Azure AD application | Microsoft Docs
+title: Learn how to provide optional claims to your Azure AD app 
+titleSuffix: Microsoft identity platform
 description: A guide for adding custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory. 
 documentationcenter: na
 author: rwike77
@@ -10,7 +11,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/03/2019

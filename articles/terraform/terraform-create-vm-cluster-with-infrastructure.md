@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/13/2017
+ms.date: 09/20/2019
 ---
 
 # Create a VM cluster with Terraform and HCL
@@ -41,7 +41,7 @@ In this section, you generate an Azure service principal, and two Terraform conf
 
 5. Copy the following code into your variable declaration file:
 
-   ```tf
+   ```hcl
    variable subscription_id {}
    variable tenant_id {}
    variable client_id {}
@@ -59,7 +59,7 @@ In this section, you generate an Azure service principal, and two Terraform conf
 
 7. Copy the following code into your variables file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `appId` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
 
-   ```tf
+   ```hcl
    subscription_id = "<azure-subscription-id>"
    tenant_id = "<tenant-returned-from-creating-a-service-principal>"
    client_id = "<appId-returned-from-creating-a-service-principal>"
@@ -74,7 +74,7 @@ In this section, you create a file that contains resource definitions for your i
 
 2. Copy following sample resource definitions into the newly created `main.tf` file: 
 
-   ```tf
+   ```hcl
    resource "azurerm_resource_group" "test" {
     name     = "acctestrg"
     location = "West US 2"
@@ -98,7 +98,7 @@ In this section, you create a file that contains resource definitions for your i
     name                         = "publicIPForLB"
     location                     = "${azurerm_resource_group.test.location}"
     resource_group_name          = "${azurerm_resource_group.test.name}"
-    public_ip_address_allocation = "static"
+    allocation_method            = "Static"
    }
 
    resource "azurerm_lb" "test" {
@@ -222,7 +222,7 @@ The [terraform init command](https://www.terraform.io/docs/commands/init.html) i
 
 To initialize Terraform, run the following command:
 
-  ```cmd
+  ```bash
   terraform init
   ```
 
@@ -240,13 +240,13 @@ When processing the `terraform plan` command, Terraform performs a refresh and d
 
 If you do not need to save your execution plan, run the following command:
 
-  ```cmd
+  ```bash
   terraform plan
   ```
 
 If you need to save your execution plan, run the following command (replacing the &lt;path> placeholder with the desired output path):
 
-  ```cmd
+  ```bash
   terraform plan -out=<path>
   ```
 
@@ -258,13 +258,13 @@ The final step of this tutorial is to use the [terraform apply command](https://
 
 If you want to apply the latest execution plan, run the following command:
 
-  ```cmd
+  ```bash
   terraform apply
   ```
 
 If you want to apply a previously saved execution plan, run the following command (replacing the &lt;path> placeholder with the path that contains the saved execution plan):
 
-  ```cmd
+  ```bash
   terraform apply <path>
   ```
 

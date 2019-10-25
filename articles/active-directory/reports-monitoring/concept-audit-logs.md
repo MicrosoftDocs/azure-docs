@@ -4,7 +4,7 @@ title: Audit activity reports in the Azure Active Directory portal | Microsoft D
 description: Introduction to the audit activity reports in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -15,8 +15,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
+ms.date: 07/17/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -45,7 +45,7 @@ This article gives you an overview of the audit report.
 
 The Azure AD audit logs provide records of system activities for compliance. To access the audit report, select **Audit logs** in the **Activity** section of **Azure Active Directory**. Note that audit logs may have a latency of upto an hour, so it may take that long for audit activity data to show up in the portal after you have completed the task.
 
-![Audit logs](./media/concept-audit-logs/61.png "Audit logs")
+
 
 An audit log has a default list view that shows:
 
@@ -85,7 +85,7 @@ You can filter the audit data on the following fields:
 
 ![Audit logs](./media/concept-audit-logs/filter.png "Audit logs")
 
-The **Service** filter allows you to select from a dropdown of the following services:
+The **Service** filter allows you to select from a drop-down list of the following services:
 
 - All
 - Access Reviews
@@ -100,7 +100,7 @@ The **Service** filter allows you to select from a dropdown of the following ser
 - Invited Users
 - PIM
 - Self-service Group Management
-- Self-service Passord Management
+- Self-service Password Management
 - Terms of Use
 
 The **Category** filter enables you to select one of the following filters:
@@ -124,7 +124,7 @@ The **Category** filter enables you to select one of the following filters:
 
 The **Activity** filter is based on the category and activity resource type selection you make. You can select a specific activity you want to see or choose all. 
 
-You can get the list of all Audit Activities using the Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, where $tenantdomain = your domain name or refer to the article [audit report events](reference-audit-activities.md).
+You can get the list of all Audit Activities using the Graph API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 The **Status** filter allows you to filter based on the status of an audit operation. The status can be one of the following:
 
@@ -146,7 +146,7 @@ Possible values are:
 
 When you select a custom timeframe, you can configure a start time and an end time.
 
-You can also choose to download the filtered data, upto 250,000 records, by selecting the **Download** button. You may choose to download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
+You can also choose to download the filtered data, up to 250,000 records, by selecting the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
 
 ![Audit logs](./media/concept-audit-logs/download.png "Audit logs")
 
@@ -177,11 +177,11 @@ With user and group-based audit reports, you can get answers to questions such a
 
 - What licenses have been assigned to a group or a user?
 
-If you just want to review auditing data that is related to users, you can find a filtered view under **Audit logs** in the **Activity** section of the **Users** tab. This entry point has **UserManagement** as preselected category.
+If you want to review only auditing data that is related to users, you can find a filtered view under **Audit logs** in the **Activity** section of the **Users** tab. This entry point has **UserManagement** as preselected category.
 
 ![Audit logs](./media/concept-audit-logs/users.png "Audit logs")
 
-If you just want to review auditing data that is related to groups, you can find a filtered view under **Audit logs** in the **Activity** section of the **Groups** tab. This entry point has **GroupManagement** as preselected category.
+If you want to review only auditing data that is related to groups, you can find a filtered view under **Audit logs** in the **Activity** section of the **Groups** tab. This entry point has **GroupManagement** as preselected category.
 
 ![Audit logs](./media/concept-audit-logs/groups.png "Audit logs")
 
@@ -203,7 +203,7 @@ If you want to review audit data related to your applications, you can find a fi
 
 You can view Office 365 activity logs from the [Microsoft 365 admin center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Microsoft 365 admin center provides a full view of the Office 365 activity logs. 
 
-You can also access the Office 365 activity logs programmatically using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+You can also access the Office 365 activity logs programmatically by using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## Next steps
 

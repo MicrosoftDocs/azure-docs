@@ -2,7 +2,7 @@
 title: Quickstart to access and create a new tenant - Azure Active Directory | Microsoft Docs
 description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization. 
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
