@@ -73,12 +73,17 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + **azureml-contrib-reinforcementlearning**
     	+ Added initial experimental support for Reinforcement Learning runs on AML 
     + **azureml-contrib-dataset**
-    	+ Enabeled functionalities for labeled dataset
+    	+ Enabled functionalities for labeled dataset
 		```Python
-		# create a labeled dataset by passing in your JSON lines file
-		dataset = Dataset._Labeled.from_json_lines(datastore.path('path/to/file.jsonl'))
+		import azureml.core
+		from azureml.core import Workspace, Datastore, Dataset
+		import azureml.contrib.dataset
+		from azureml.contrib.dataset import FileHandlingOption, LabeledDatasetTask
 		
-		# Download or mount the files in the `image_url` column    	
+		# create a labeled dataset by passing in your JSON lines file
+		dataset = Dataset._Labeled.from_json_lines(datastore.path('path/to/file.jsonl'), LabeledDatasetTask.IMAGE_CLASSIFICATION)
+		
+		# download or mount the files in the `image_url` column
 		dataset.download()
 		dataset.mount()
 		
@@ -86,6 +91,9 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
 		from azureml.data.dataset_type_definitions import FileHandlingOption
 		dataset.to_pandas_dataframe(FileHandlingOption.DOWNLOAD) 
 		dataset.to_pandas_dataframe(FileHandlingOption.MOUNT)
+		
+		# get a Torchvision dataset
+		dataset.to_torchvision()
 		```
 
 + **Bug fixes and improvements**
@@ -134,8 +142,6 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Support weekly and monthly monitor scheduling, in addition to daily for dataset monitors.
     + Support backfill of data monitor metrics to analyze historical data for dataset monitors. 
     + Various bug fixes 
-  + **azureml-dataprep**
-    + Fixed the issue where `dataset.mount() as cm` would result in `cm` being `None`".
   + **azureml-pipeline-core**
     + azureml-dataprep is no longer needed to submit an Azure Machine Learning Pipeline run from the pipeline `yaml` file.
   + **azureml-train-automl**
