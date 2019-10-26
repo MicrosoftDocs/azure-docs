@@ -64,7 +64,7 @@ Browse to `localhost:1337` in your favorite browser to see the sample web app. P
 
 ## Example: Build Java image with Heroku builder
 
-The following example builds a container image from the Java app in the [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) repo, using the `heroku/buildpacks:18` builder. The `--pull` parameter specifies that the command pulls the latest builder image. 
+The following example builds a container image from the Java app in the [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) repo, using the `heroku/buildpacks:18` builder. The `--pull` parameter specifies that the command shold pull the latest builder image. 
 
 ```azurecli
 az acr pack build \
