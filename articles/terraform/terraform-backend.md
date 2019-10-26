@@ -10,7 +10,7 @@ ms.date: 10/25/2019
 
 # Tutorial: Store Terraform state in Azure Storage
 
-Terraform state is used to reconcile deployed resources with Terraform configurations. Using state, Terraform knows what Azure resources to add, update, or delete. By default, Terraform state is stored locally when running the `terraform apply` command. This configuration isn't ideal for the following reasons:
+Terraform state is used to reconcile deployed resources with Terraform configurations. State allows Terraform to knows what Azure resources to add, update, or delete. By default, Terraform state is stored locally when running the `terraform apply` command. This configuration isn't ideal for the following reasons:
 
 - Local state doesn't work well in a team or collaborative environment
 - Terraform state can include sensitive information
@@ -50,7 +50,7 @@ Take note of the storage account name, container name, and storage access key. T
 
 ## Configure state backend
 
-The Terraform state backend is configured when running the `terraform init` command. In order to configure the state backend, the following data is required.
+The Terraform state backend is configured when running the `terraform init` command. the following data is needed to configure the state backend:
 
 - storage_account_name - The name of the Azure Storage account.
 - container_name - The name of the blob container.
@@ -99,7 +99,9 @@ You can now find the state file in the Azure Storage Blob.
 
 ## State locking
 
-When using an Azure Storage Blob for state storage, the blob is automatically locked before any operation that writes state. This configuration prevents multiple concurrent state operations, which can cause corruption. For more information, see [State Locking][terraform-state-lock] on the Terraform documentation.
+When using an Azure Blob Storage to store state, the blob is automatically locked before any operation that writes state. This configuration prevents multiple concurrent state operations, which can cause corruption. 
+
+For more information, see [State Locking][terraform-state-lock] on the Terraform documentation.
 
 The lock can be seen when examining the blob through the Azure portal or other Azure management tooling.
 
