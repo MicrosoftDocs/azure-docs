@@ -12,7 +12,7 @@ ms.date: 10/25/2019
 
 In this tutorial, you see how to create a small compute cluster using [HCL](https://www.terraform.io/docs/configuration/syntax.html). 
 
-You will learn how to do the following tasks:
+You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Set up Azure authentication.
@@ -264,10 +264,7 @@ However, your variables file need not follow either of the two preceding convent
 terraform plan -var-file <my-variables-file.tf>
 ```
 
-Terraform does the following steps when processing the `terraform plan` command:
-- Validates the configuration
-- Performs a refresh
-- Determines what actions are necessary to run the configuration
+Terraform determines the actions necessary to achieve the state specified in the configuration file.
 
 ![Creating a Terraform execution plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
