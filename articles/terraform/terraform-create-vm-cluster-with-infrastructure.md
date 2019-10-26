@@ -10,7 +10,7 @@ ms.date: 10/25/2019
 
 # Tutorial: Create a VM cluster with Terraform and HCL
 
-In this tutorial, you see how to create a small compute cluster using [HCL](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The example configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
+In this tutorial, you see how to create a small compute cluster using [HCL](https://www.terraform.io/docs/configuration/syntax.html). The example configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
 
 In this tutorial, you:
 
@@ -229,11 +229,14 @@ To initialize Terraform, run the following command:
 
 The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. To generate an execution plan, Terraform aggregates all the `.tf` files in the current directory. 
 
-The [-out parameter](https://www.terraform.io/docs/commands/plan.html#out-path) saves the execution plan to a file. This feature addresses issues that can occur in a multi-dev environment. One such issue would if a second user modifies the configuration between the time it's created and the time it's used.
+The [-out parameter](https://www.terraform.io/docs/commands/plan.html#out-path) saves the execution plan to an output file. This feature addresses concurrency issues common in multi-dev environments. One such problem solved by the output file is the following:
 
-If the name of your Terraform variables file is not `terraform.tfvars` and it doesn't follow the `*.auto.tfvars` pattern, you need to specify the file name using the [terraform plan command's -var-file parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) when running the `terraform plan` command.
+1. Dev 1 creates the configuration file.
+1. Dev 2 modifies the configuration file.
+1. Dev 1 applies (runs) the configuration file.
+1. Dev 1 gets unexpected results not knowing that Dev 2 modified the configuration.
 
-When processing the `terraform plan` command, Terraform performs a refresh and determines what actions are necessary to achieve the desired state specified in your configuration files.
+Dev 1 specifying an output file prevents Dev 2 from affecting Dev 1. 
 
 If you do not need to save your execution plan, run the following command:
 
@@ -247,6 +250,23 @@ If you need to save your execution plan, run the following command (replacing th
   terraform plan -out=<path>
   ```
 
+Another useful parameter is [-var-file](https://www.terraform.io/docs/commands/plan.html#var-file-foo).
+
+By default Terraform tried to find your variables file as follows:
+- File named `terraform.tfvars`
+- File named with using the following pattern: `*.auto.tfvars`
+
+However, your variables file need not follow either of the two preceding conventions. In that case, specify your variables file name with the `-var-file` parameter. The following example illustrates this point:
+
+```hcl
+terraform plan -var-file <my-variables-file.tf>
+```
+
+Terraform does the following when processing the `terraform plan` command:
+- Validates the configuration
+- Performs a refresh
+- Determines what actions are necessary to run the configuration
+
 ![Creating a Terraform execution plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 ## 5. Apply the Terraform execution plan
@@ -259,7 +279,7 @@ If you want to apply the latest execution plan, run the following command:
   terraform apply
   ```
 
-If you want to apply a previously saved execution plan, run the following command (replacing the &lt;path> placeholder with the path that contains the saved execution plan):
+If you want to apply a previously saved execution plan, run the following command. Replace the placeholders with the appropriate values for your environment:
 
   ```bash
   terraform apply <path>
