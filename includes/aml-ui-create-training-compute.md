@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 10/09/2019
 ---
 
-A pipeline runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
+A pipeline runs on a compute target which is a compute resource that is attached to your workspace. Once you create a compute target, you can reuse it for future runs.
 
 1. Select **Run** at the top of the canvas to run the pipeline.
 
@@ -31,6 +31,9 @@ A pipeline runs on a compute target, a compute resource that is attached to your
 1. Select **Run**.
 
 1. In the **Set up pipeline run** dialog, select **+ New experiment** for the **Experiment**
+
+    > [!NOTE]
+    > Experiments group similar pipeline runs together. If you run a pipeline multiple times, you can select the same experiment for successive runs.
 
     * Enter a descriptive **Experiment Name**
 

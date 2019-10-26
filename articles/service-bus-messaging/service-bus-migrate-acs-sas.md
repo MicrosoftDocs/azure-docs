@@ -1,10 +1,9 @@
 ---
-title: Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization | Microsoft Docs
-description: Migrate applications from Access Control Service to SAS
+title: Migrate from Azure AD Access Control Service to SAS
+description: Learn about migrating from Azure Active Directory Access Control Service to Shared Access Signature authorization.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.service: service-bus-messaging
@@ -12,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 10/22/2018
 ms.author: aschhab
 
 ---

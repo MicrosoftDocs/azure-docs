@@ -7,7 +7,7 @@ manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 10/22/2019
 ms.author: azfuncdf
 ---
 
@@ -19,11 +19,11 @@ It is inevitable that functions will be added, removed, and changed over the lif
 
 There are several examples of breaking changes to be aware of. This article discusses the most common ones. The main theme behind all of them is that both new and existing function orchestrations are impacted by changes to function code.
 
-### Changing activity function signatures
+### Changing activity or entity function signatures
 
-A signature change refers to a change in the name, input, or output of a function. If this kind of change is made to an activity function, it could break the orchestrator function that depends on it. If you update the orchestrator function to accommodate this change, you could break existing in-flight instances.
+A signature change refers to a change in the name, input, or output of a function. If this kind of change is made to an activity or entity function, it could break any orchestrator function that depends on it. If you update the orchestrator function to accommodate this change, you could break existing in-flight instances.
 
-As an example, suppose we have the following function.
+As an example, suppose we have the following orchestrator function.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -80,7 +80,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-This change adds a new function call to **SendNotification** between **Foo** and **Bar**. There are no signature changes. The problem arises when an existing instance resumes from the call to **Bar**. During replay, if the original call to **Foo** returned `true`, then the orchestrator replay will call into **SendNotification** which is not in its execution history. As a result, the Durable Task Framework fails with a `NonDeterministicOrchestrationException` because it encountered a call to **SendNotification** when it expected to see a call to **Bar**.
+This change adds a new function call to **SendNotification** between **Foo** and **Bar**. There are no signature changes. The problem arises when an existing instance resumes from the call to **Bar**. During replay, if the original call to **Foo** returned `true`, then the orchestrator replay will call into **SendNotification** which is not in its execution history. As a result, the Durable Task Framework fails with a `NonDeterministicOrchestrationException` because it encountered a call to **SendNotification** when it expected to see a call to **Bar**. The same type of problem can occur when adding any calls to "durable" APIs, including `CreateTimer`, `WaitForExternalEvent`, etc.
 
 ## Mitigation strategies
 
@@ -107,9 +107,9 @@ Another option is to stop all in-flight instances. This can be done by clearing 
 
 The most fail-proof way to ensure that breaking changes are deployed safely is by deploying them side-by-side with your older versions. This can be done using any of the following techniques:
 
-* Deploy all the updates as entirely new functions (new names).
+* Deploy all the updates as entirely new functions, leaving existing functions as-is. This can be tricky because the callers of the new function versions must be updated as well following the same guidelines.
 * Deploy all the updates as a new function app with a different storage account.
-* Deploy a new copy of the function app but with an updated `TaskHub` name. This is the recommended technique.
+* Deploy a new copy of the function app with the same storage account but with an updated `taskHub` name. This is the recommended technique.
 
 ### How to change task hub name
 
@@ -120,18 +120,28 @@ The task hub can be configured in the *host.json* file as follows:
 ```json
 {
     "durableTask": {
-        "HubName": "MyTaskHubV2"
+        "hubName": "MyTaskHubV2"
     }
 }
 ```
 
 #### Functions 2.x
 
-The default value is `DurableFunctionsHub`.
+```json
+{
+    "extensions": {
+        "durableTask": {
+            "hubName": "MyTaskHubV2"
+        }
+    }
+}
+```
 
-All Azure Storage entities are named based on the `HubName` configuration value. By giving the task hub a new name, you ensure that separate queues and history table are created for the new version of your application.
+The default value for Durable Functions v1.x is `DurableFunctionsHub`. Starting in Durable Functions v2.0, the default task hub name is the same as the function app name in Azure, or `TestHubName` if running outside of Azure.
 
-We recommend that you deploy the new version of the function app to a new [Deployment Slot](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Deployment slots allow you to run multiple copies of your function app side-by-side with only one of them as the active *production* slot. When you are ready to expose the new orchestration logic to your existing infrastructure, it can be as simple as swapping the new version into the production slot.
+All Azure Storage entities are named based on the `hubName` configuration value. By giving the task hub a new name, you ensure that separate queues and history table are created for the new version of your application. The function app, however, will stop processing events for orchestrations or entities created under the previous task hub name.
+
+We recommend that you deploy the new version of the function app to a new [Deployment Slot](../functions-deployment-slots.md). Deployment slots allow you to run multiple copies of your function app side-by-side with only one of them as the active *production* slot. When you are ready to expose the new orchestration logic to your existing infrastructure, it can be as simple as swapping the new version into the production slot.
 
 > [!NOTE]
 > This strategy works best when you use HTTP and webhook triggers for orchestrator functions. For non-HTTP triggers, such as queues or Event Hubs, the trigger definition should [derive from an app setting](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) that gets updated as part of the swap operation.

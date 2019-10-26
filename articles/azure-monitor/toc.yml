@@ -36,7 +36,7 @@
       href: log-query/get-started-portal.md
     - name: Log queries
       href: log-query/get-started-queries.md
-    - name: Visualize log data
+    - name: Dashboard with log data
       href: learn/tutorial-logs-dashboards.md
     - name: Alert on log data
       href: learn/tutorial-response.md
@@ -50,7 +50,7 @@
       href: learn/tutorial-alert.md
     - name: Understand application users
       href: learn/tutorial-users.md
-    - name: Create custom dashboards
+    - name: Dashboard with application data
       href: learn/tutorial-app-dashboards.md
   - name: Archive platform metric and log data 
     href: learn/tutorial-archive-data.md
@@ -639,6 +639,8 @@
           href: insights/vminsights-workbooks.md
         - name: Analyze data with log queries
           href: insights/vminsights-log-search.md
+        - name: Upgrade Dependency agent
+          href: insights/vminsights-dependency-agent-maintenance.md
         - name: Disable monitoring
           href: insights/vminsights-optout.md
       - name: Capacity and performance solution
@@ -887,7 +889,11 @@
     - name: Workbooks
       href: app/usage-workbooks.md
     - name: Dashboards
-      href: app/app-insights-dashboards.md
+      items:
+      - name: Dashboard using log data
+        href: learn/tutorial-logs-dashboards.md
+      - name: Dashboard using application data
+        href: learn/tutorial-app-dashboards.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Alerting
@@ -1096,10 +1102,8 @@
       href: platform/metrics-supported.md
     - name: Supported metrics for newer alerts
       href: platform/alerts-metric-near-real-time.md
-  - name: Diagnostic Logs
-    items:
-    - name: Diagnostic logs services, categories, and schemas
-      href: platform/diagnostic-logs-schema.md
+  - name: Resource log services, categories, and schemas
+    href: platform/diagnostic-logs-schema.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure CLI - Application Insights (Preview)
@@ -1108,9 +1112,11 @@
     href: app/azure-functions-supported-features.md 
   - name: Azure PowerShell
     items:
+    - name: Alerts, Metrics, Activity Log, Autoscale
+      href: /powershell/module/az.monitor
     - name: Application Insights
       href: /powershell/module/az.applicationinsights
-    - name: Logs
+    - name: Log Analytics
       href: /powershell/module/az.operationalinsights
   - name: REST API
     items:

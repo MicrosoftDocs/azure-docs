@@ -17,6 +17,11 @@
   - name: Run your first query - PowerShell
     displayName: module, docker, Az.ResourceGraph
     href: first-query-powershell.md
+- name: Tutorials
+  items:
+  - name: Create and share a query in Azure portal
+    displayName: query, portal
+    href: ./tutorials/create-share-query.md
 - name: Samples
   items:
   - name: Starter queries
