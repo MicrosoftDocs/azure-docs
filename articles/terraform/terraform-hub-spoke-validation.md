@@ -31,7 +31,7 @@ This tutorial covers the following tasks:
 
 ## Verify your configuration
 
-After completing the [prerequisites](#prerequisites), verify that the appropriate config files are present.
+After completing the [prerequisites](#prerequisites), verify the appropriate config files are present.
 
 1. Browse to the [Azure portal](https://portal.azure.com).
 

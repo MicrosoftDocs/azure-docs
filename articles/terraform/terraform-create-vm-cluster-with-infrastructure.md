@@ -10,16 +10,18 @@ ms.date: 10/25/2019
 
 # Tutorial: Create a VM cluster with Terraform and HCL
 
-In this tutorial, you see how to create a small compute cluster using [HCL](https://www.terraform.io/docs/configuration/syntax.html). The example configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
+In this tutorial, you see how to create a small compute cluster using [HCL](https://www.terraform.io/docs/configuration/syntax.html). 
 
-In this tutorial, you:
+You will learn how to do the following tasks:
 
 > [!div class="checklist"]
-> * Set up Azure authentication
-> * Create a Terraform configuration file
-> * Initialize Terraform
-> * Create a Terraform execution plan
-> * Apply the Terraform execution plan
+> * Set up Azure authentication.
+> * Create a Terraform configuration file.
+> * Use a Terraform configuration file to create a load balancer.
+> * Use a Terraform configuration file to deploy two Linux VMs in an availability set.
+> * Initialize Terraform.
+> * Create a Terraform execution plan.
+> * Apply the Terraform execution plan to create the Azure resources.
 
 ## 1. Set up Azure authentication
 
@@ -52,7 +54,7 @@ In this section, you generate an Azure service principal, and two Terraform conf
    }
    ```
 
-6. Create a new file that contains the values for your Terraform variables. It is common to name your Terraform variable file `terraform.tfvars` as Terraform automatically loads any file named `terraform.tfvars` (or following a pattern of `*.auto.tfvars`) if present in the current directory. 
+6. Create a new file that contains the values for your Terraform variables. It's common to name your Terraform variable file `terraform.tfvars` as Terraform automatically loads any file named `terraform.tfvars` (or following a pattern of `*.auto.tfvars`) if present in the current directory. 
 
 7. Copy the following code into your variables file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `appId` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
 
@@ -212,7 +214,7 @@ In this section, you create a file that contains resource definitions for your i
 
 ## 3. Initialize Terraform 
 
-The [terraform init command](https://www.terraform.io/docs/commands/init.html) is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous sections. It is a good practice to always run the `terraform init` command after writing a new Terraform configuration. 
+The [terraform init command](https://www.terraform.io/docs/commands/init.html) is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous sections. It's a good practice to always run the `terraform init` command after writing a new Terraform configuration. 
 
 > [!TIP]
 > The `terraform init` command is idempotent meaning that it can be called repeatedly while producing the same result. Therefore, if you're working in a collaborative environment, and you think the configuration files might have been changed, it's always a good idea to call the `terraform init` command before executing or applying a plan.
@@ -229,7 +231,7 @@ To initialize Terraform, run the following command:
 
 The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. To generate an execution plan, Terraform aggregates all the `.tf` files in the current directory. 
 
-The [-out parameter](https://www.terraform.io/docs/commands/plan.html#out-path) saves the execution plan to an output file. This feature addresses concurrency issues common in multi-dev environments. One such problem solved by the output file is the following:
+The [-out parameter](https://www.terraform.io/docs/commands/plan.html#out-path) saves the execution plan to an output file. This feature addresses concurrency issues common in multi-dev environments. One such problem solved by the output file is the following scenario:
 
 1. Dev 1 creates the configuration file.
 1. Dev 2 modifies the configuration file.
@@ -238,13 +240,13 @@ The [-out parameter](https://www.terraform.io/docs/commands/plan.html#out-path) 
 
 Dev 1 specifying an output file prevents Dev 2 from affecting Dev 1. 
 
-If you do not need to save your execution plan, run the following command:
+If you don't need to save your execution plan, run the following command:
 
   ```bash
   terraform plan
   ```
 
-If you need to save your execution plan, run the following command (replacing the &lt;path> placeholder with the desired output path):
+If you need to save your execution plan, run the following command. Replace the placeholders with appropriate values for your environment.
 
   ```bash
   terraform plan -out=<path>
@@ -262,7 +264,7 @@ However, your variables file need not follow either of the two preceding convent
 terraform plan -var-file <my-variables-file.tf>
 ```
 
-Terraform does the following when processing the `terraform plan` command:
+Terraform does the following steps when processing the `terraform plan` command:
 - Validates the configuration
 - Performs a refresh
 - Determines what actions are necessary to run the configuration
@@ -279,7 +281,7 @@ If you want to apply the latest execution plan, run the following command:
   terraform apply
   ```
 
-If you want to apply a previously saved execution plan, run the following command. Replace the placeholders with the appropriate values for your environment:
+If you want to apply a previously saved execution plan, run the following command. Replace the placeholders with appropriate values for your environment:
 
   ```bash
   terraform apply <path>

@@ -291,7 +291,7 @@ In this section, you see how to do the following tasks:
 
     ![Storage account access keys](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 
-1. In Cloud Shell, create a container in your Azure storage account. Replace the placeholders with the appropriate values for your environment.
+1. In Cloud Shell, create a container in your Azure storage account. Replace the placeholders with appropriate values for your environment.
 
     ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
@@ -301,7 +301,7 @@ In this section, you see how to do the following tasks:
 
 In this section, you see how to use the `terraform init` command to create the resources defined the configuration files you created in the previous sections.
 
-1. In Cloud Shell, initialize Terraform. Replace the placeholders with the appropriate values for your environment.
+1. In Cloud Shell, initialize Terraform. Replace the placeholders with appropriate values for your environment.
 
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
@@ -311,7 +311,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform init" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Export your service principal credentials. Replace the placeholders with the appropriate values from your service principal.
+1. Export your service principal credentials. Replace the placeholders with appropriate values from your service principal.
 
     ```bash
     export TF_VAR_client_id=<service-principal-appid>

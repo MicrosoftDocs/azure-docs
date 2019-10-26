@@ -545,7 +545,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     ![Storage account access keys](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 
-1. In Cloud Shell, create a container in your Azure storage account (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account).
+1. In Cloud Shell, create a container in your Azure storage account (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with appropriate values for your Azure storage account).
 
     ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
@@ -554,7 +554,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 ## Create the Kubernetes cluster
 In this section, you see how to use the `terraform init` command to create the resources defined the configuration files you created in the previous sections.
 
-1. In Cloud Shell, initialize Terraform (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account).
+1. In Cloud Shell, initialize Terraform (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with  appropriate values for your Azure storage account).
 
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
@@ -709,7 +709,7 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
 
-1. Edit the `helm-config.yaml` and enter the appropriate values for `appgw` and `armAuth` sections.
+1. Edit the `helm-config.yaml` and enter appropriate values for `appgw` and `armAuth` sections.
 
     ```bash
     nano helm-config.yaml
