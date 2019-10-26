@@ -50,7 +50,7 @@ This tutorial covers the following tasks:
 
 ## Declare the hub network appliance
 
-Create the Terraform configuration file that declares On-Premises Virtual network.
+Create the Terraform configuration file that declares an on-premises virtual network.
 
 1. In Cloud Shell, create a new file named `hub-nva.tf`.
 
