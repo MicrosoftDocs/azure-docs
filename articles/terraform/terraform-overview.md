@@ -26,10 +26,9 @@ Terraform's template-based configuration files enable you to define, provision, 
 
 As a resource topology becomes complex, understanding the meaning and impact of infrastructure changes can be difficult.
 
-Terraform provides a command-line interface (CLI) that allows users to validate and preview infrastructure changes before they are deployed. Previewing infrastructure changes in a safe manner has several benefits:
+The Terraform CLI enables users to validate and preview infrastructure changes before application. Previewing infrastructure changes in a safe manner has several benefits:
 - Team members can collaborate more effectively by quickly understanding proposed changes and their impact.
 - Unintended changes can be caught early in the development process
-
 
 ## Deploy infrastructure to multiple clouds
 
