@@ -203,8 +203,6 @@ At this point, you've deployed the production slot. To deploy the staging slot, 
 
 In the previous sections, you set up two slots--**slotAppService** and **slotAppServiceSlotOne**--to deploy from different branches in GitHub. Let's preview the web apps to validate that they were successfully deployed.
 
-Do the following steps two (2) times. In step 3, you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time.
-
 1. On the main menu of the Azure portal, select **Resource groups**.
 
 1. Select **slotDemoResourceGroup**.
@@ -215,12 +213,7 @@ Do the following steps two (2) times. In step 3, you select **slotAppService** t
 
     ![Select the URL on the overview tab to render the app](./media/terraform-slot-walkthru/resource-url.png)
 
-> [!NOTE]
-> It can take several minutes for Azure to build and deploy the site from GitHub.
->
->
-
-1. Depending on the app, you see the following results:
+1. Depending on the selected app, you see the following results:
     - **slotAppService** web app - Blue page with a page title of **Slot Demo App 1**. 
     - **slotAppServiceSlotOne** web app - Green page with a page title of **Slot Demo App 2**.
 
