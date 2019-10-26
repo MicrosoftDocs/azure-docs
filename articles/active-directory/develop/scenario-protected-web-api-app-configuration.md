@@ -1,5 +1,6 @@
 ---
-title: Protected web API - app code configuration | Azure
+title: Protected web API - app code configuration 
+titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
 documentationcenter: dev-center-name

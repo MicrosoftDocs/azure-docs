@@ -1,16 +1,15 @@
 ---
 title: Monitor application performance hosted on Azure VM and Azure virtual machine scale sets | Microsoft Docs
 description: Application performance monitoring for Azure VM and Azure virtual machine scale sets. Chart load and response time, dependency information, and set alerts on performance.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 08/26/2019
 
 ---
+
 # Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets
 
 Enabling monitoring on your .NET based web applications running on [Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/) and [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.

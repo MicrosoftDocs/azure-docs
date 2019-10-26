@@ -119,6 +119,7 @@ To better understand entitlement management and its documentation, you should re
 | resource type | The type of resource, which includes groups, applications, and SharePoint Online sites. |
 | resource role | A collection of permissions associated with a resource. |
 | resource directory | A directory that has one or more resources to share. |
+| connected organization | An external Azure AD directory or domain that you have a relationship with. |
 | assigned users | An assignment of an access package to a user, so that the user has all the resource roles of that access package. |
 | enable | The process of making an access package available for users to request. |
 
