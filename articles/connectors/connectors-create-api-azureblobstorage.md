@@ -37,39 +37,50 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
 ## Storage accounts with firewalls
 
-On an Azure storage account, you can add network security by restricting access with a [firewall and firewall rules](../storage/common/storage-network-security.md). However, this setup poses a challenge for Azure services that need access to the storage account. Local communication in the datacenter abstracts the internal IP addresses, so you can't set up firewall rules with IP restrictions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
+You can add network security to an Azure storage account by restricting access with a [firewall and firewall rules](../storage/common/storage-network-security.md). However, this setup creates a challenge for Azure and other Microsoft services that need access to the storage account. Local communication in the datacenter abstracts the internal IP addresses, so you can't set up firewall rules with IP restrictions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
-Logic apps can't directly access storage accounts that have firewall rules and are in the same region. However, if you permit access for the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts in a different region except when you use the Azure Table Storage connector or Azure Queue Storage connector. To access your Table Storage or Queue Storage, you can still use the HTTP trigger and actions.
+Here are options that permit access to the storage account from Azure Logic Apps and other Azure services or Microsoft services:
 
-Here are other options that permit access to the storage account from Microsoft and Azure services:
-
-* Put the storage account in an Azure virtual network that you manage, and then [add that virtual network to the trusted virtual networks list](#access-trusted-virtual-network).
-
-* [Add an exception for trusted services](#access-trusted-service) to access the storage account.
-
-* Access the storage account by using [Azure API Management](#access-api-management).
-
-<a name="access-trusted-virtual-network"></a>
-
-### Access to storage accounts through a trusted virtual network
-
-For a logic app to access a storage account through a trusted virtual network, you need to deploy the logic app to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in a virtual network. You can then add the subnets in that ISE to the trusted list. Azure Storage connectors, such as the Blob Storage connector, can directly access the storage container. This setup is the same experience as using the service endpoints from an ISE.
+* [Access to storage accounts as a trusted service](#access-trusted-service)
+* [Access to storage accounts in other regions](#access-other-regions)
+* [Access to storage accounts through a trusted virtual network](#access-trusted-virtual-network)
+* [Access to storage accounts through Azure API Management](#access-api-management)
 
 <a name="access-trusted-service"></a>
 
-### Access to storage accounts as a trusted service
+### Access storage accounts as a trusted service
 
-Some services support using managed identities to access a storage account. When you [enable managed identity support on your logic app](../logic-apps/create-managed-service-identity.md), you can then [use the managed identity in an HTTP action](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) to authenticate access at runtime. Connectors don't yet support creating connections that use managed identities.
+For trusted Microsoft services to access storage account through firewalls, add an exception that gives those services access to your storage account. This solution enables Azure services that support [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md) to access storage accounts through firewalls as trusted services. On logic apps that run in the global, multi-tenant Azure, [enable managed identity support](../logic-apps/create-managed-service-identity.md). You can then [use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) with the HTTP action or another action that supports managed identities for authenticating access to your storage account. Connectors don't yet support creating connections that use managed identities.
 
-Also, for logic apps in the global multi-tenant Azure service to access a storage account through a firewall, in your storage account's **Firewalls and virtual networks** settings, select the **Allow trusted Microsoft services to access this storage account** setting.
+1. On your storage account, under **Settings**, select **Firewalls and virtual networks**. Under **Allow access from**, select the **Selected networks** option so that the related settings appear.
 
-![Allow trusted services](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
+1. Under **Exceptions**, select **Allow trusted Microsoft services to access this storage account**.
+
+   ![Allow trusted services](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
+
+1. On your logic app, [turn on managed identity support](../logic-apps/create-managed-service-identity.md). 
+
+1. Use the HTTP action or another action that supports managed identities [Use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) action for authenticating access to the storage account.
+
+<a name="access-other-regions"></a>
+
+### Access to storage accounts in other regions
+
+Logic apps can't directly access storage accounts that have firewall rules and are in the same region. However, if you permit access for the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts in a different region except when you use the Azure Table Storage connector or Azure Queue Storage connector. To access your Table Storage or Queue Storage, you can still use the built-in HTTP trigger and actions.
+
+<a name="access-trusted-virtual-network"></a>
+
+### Access storage accounts through a trusted virtual network
+
+You can put the storage account in an Azure virtual network that you manage, and then add that virtual network to the trusted virtual networks list.
+
+For a logic app to access a storage account through a [trusted virtual network](../virtual-network/virtual-networks-overview.md), you need to deploy the logic app to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in a virtual network. You can then add the subnets in that ISE to the trusted list. Azure Storage connectors, such as the Blob Storage connector, can directly access the storage container. This setup is the same experience as using the service endpoints from an ISE.
 
 <a name="access-api-management"></a>
 
-### Access to storage accounts through API Management
+### Access storage accounts through Azure API Management
 
-If you use a dedicated tier for Azure API Management, you can front the Storage API by using API Management and permitting the latter's IP addresses through the firewall. Basically, add the Azure virtual network that's used by API Management to the storage account's firewall setting. You can then use either the API Management action or the HTTP action to call the Azure Storage APIs. However, if you choose this option, you have to handle the authentication process yourself. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
+If you use a dedicated tier for [API Management](../api-management/api-management-key-concepts.md), you can front the Storage API by using API Management and permitting the latter's IP addresses through the firewall. Basically, add the Azure virtual network that's used by API Management to the storage account's firewall setting. You can then use either the API Management action or the HTTP action to call the Azure Storage APIs. However, if you choose this option, you have to handle the authentication process yourself. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
 
 ## Prerequisites
 
