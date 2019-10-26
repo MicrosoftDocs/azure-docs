@@ -71,6 +71,7 @@ The following examples show you to register an Azure Blob Container or an Azure 
                                                           account_key='your storage account key',
                                                           create_if_not_exists=True)
     ```
+    If your storage account is in a VNET, only Azure blob datastore creation is supported. Set the parameter, `grant_workspace_access` to `True` to grant your workspace access to your storage account.
 
 + For an **Azure File Share Datastore**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
