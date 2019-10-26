@@ -22,7 +22,7 @@ Terraform's template-based configuration files enable you to define, provision, 
 - Deploys the same template multiple times to create identical development, test, and production environments.
 - Reduces the cost of development and test environments by creating them on-demand.
 
-## Understand infrastructure changes before they are applied 
+## Understand infrastructure changes before being applied
 
 As a resource topology becomes complex, understanding the meaning and impact of infrastructure changes can be difficult.
 
@@ -33,7 +33,7 @@ Terraform provides a command-line interface (CLI) that allows users to validate 
 
 ## Deploy infrastructure to multiple clouds
 
-Terraform is adept for scenarios where a common (or similar) infrastructure is deployed across multiple cloud providers. It enables developers to use the same tools to manage each of your infrastructure definitions.
+Terraform is adept at deploying an infrastructure across multiple cloud providers. It enables developers to use consistent tooling to manage each infrastructure definitions.
 
 ## Next steps
 
