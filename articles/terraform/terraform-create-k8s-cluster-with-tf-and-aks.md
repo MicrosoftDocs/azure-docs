@@ -305,7 +305,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. In a multi-person environment, [Azure storage](/azure/storage/) is used to track state.
 
-In this section, you see how to do the following:
+In this section, you see how to do the following tasks:
 - Retrieve storage account information (account name and account key)
 - Create a storage container into which Terraform state information will be stored.
 
@@ -343,11 +343,11 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform init" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Export your service principal credentials. Replace the &lt;your-client-id> and &lt;your-client-secret> placeholders with the **appId** and **password** values associated with your service principal, respectively.
+1. Export your service principal credentials. Replace the placeholders with the appropriate values from your service principal.
 
     ```bash
-    export TF_VAR_client_id=<your-client-id>
-    export TF_VAR_client_secret=<your-client-secret>
+    export TF_VAR_client_id=<service-principal-appid>
+    export TF_VAR_client_secret=<service-principal-password>
     ```
 
 1. Run the `terraform plan` command to create the Terraform plan that defines the infrastructure elements. 
