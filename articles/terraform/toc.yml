@@ -11,7 +11,7 @@
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
     - name: Create a Terraform configuration
-      href: terrafom-quickstart.md
+      href: terraform-create-configuration.md
     - name: Create a Linux VM
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
