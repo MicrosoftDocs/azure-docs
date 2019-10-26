@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create a VM cluster with Terraform and HCL
-description: Use Terraform and HashiCorp Configuration Language (HCL) to create a Linux virtual machine cluster with a load balancer in Azure
+description: Use Terraform and HCL to create a Linux virtual machine cluster with a load balancer in Azure
 ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
@@ -10,7 +10,7 @@ ms.date: 10/25/2019
 
 # Tutorial: Create a VM cluster with Terraform and HCL
 
-This tutorial demonstrates creating a small compute cluster using the [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
+In this tutorial, you see how to create a small compute cluster using [HCL](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The example configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
 
 In this tutorial, you:
 
@@ -229,7 +229,7 @@ To initialize Terraform, run the following command:
 
 The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. To generate an execution plan, Terraform aggregates all the `.tf` files in the current directory. 
 
-If you are working in a collaborative environment where the configuration might change between the time you create the execution plan and the time you apply the execution plan, you should use the [terraform plan command's -out parameter](https://www.terraform.io/docs/commands/plan.html#out-path) to save the execution plan to a file. Otherwise, if you are working in a single-person environment, you can omit the `-out` parameter.
+The [-out parameter](https://www.terraform.io/docs/commands/plan.html#out-path) saves the execution plan to a file. This feature addresses issues that can occur in a multi-dev environment. One such issue would if a second user modifies the configuration between the time it's created and the time it's used.
 
 If the name of your Terraform variables file is not `terraform.tfvars` and it doesn't follow the `*.auto.tfvars` pattern, you need to specify the file name using the [terraform plan command's -var-file parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) when running the `terraform plan` command.
 
