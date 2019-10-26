@@ -16,14 +16,14 @@ ms.author: aahi
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
-## Sentiment Analysis v3 public preview - September 2019
+## Sentiment Analysis v3 public preview - October 2019
 
 The next version of Sentiment Analysis is now available for public preview, and provides significant improvements in the accuracy and detail of the API's text categorization and scoring. It additionally provides:
 
 * Automatic labeling for different sentiments in text.
 * Sentiment analysis and output on a document and sentence level. 
 
-It supports English, French, Italian, Japanese, Simplified-Chinese, and Traditional-Chinese and is available in the following regions: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`, and `West US 2`.
+It supports English (`en`), Japanese (`ja`), Chinese Simplified (`zh-Hans`),  Chinese Traditional (`zh-Hant`), French (`fr`), Italian (`it`), Spanish (`es`), Dutch (`nl`), Portuguese (`pt`), and German (`de`), and is available in the following regions: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`, and `West US 2`.
 
 > [!div class="nextstepaction"]
 > [Learn more about Sentiment Analysis v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
