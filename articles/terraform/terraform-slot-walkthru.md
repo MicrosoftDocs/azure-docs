@@ -12,7 +12,7 @@ ms.date: 10/25/2019
 
 You can use [Azure deployment slots](/azure/app-service/deploy-staging-slots) to swap between different versions of your app. That ability helps you minimize the impact of broken deployments. 
 
-This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a production slot. The second app is hosted in a staging slot. (The names "production" and "staging" are arbitrary and can be anything you want that represents your scenario.) After you configure your deployment slots, you can use Terraform to swap between the two slots as needed.
+This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a production slot. The second app is hosted in a staging slot. (The names "production" and "staging" are arbitrary. They can be whatever is appropriate for your scenario.) After you configure your deployment slots, you use Terraform to swap between the two slots as needed.
 
 ## Prerequisites
 
@@ -191,7 +191,7 @@ After you fork the test project repo, configure the deployment slots via the fol
 
 1. On the **Deployment option** tab, select **OK**.
 
-At this point, you have deployed the production slot. To deploy the staging slot, perform all of the previous steps in this section with only the following modifications:
+At this point, you've deployed the production slot. To deploy the staging slot, perform the previous steps with the following modifications:
 
 - In step 3, select the **slotAppServiceSlotOne** resource.
 
@@ -203,7 +203,7 @@ At this point, you have deployed the production slot. To deploy the staging slot
 
 In the previous sections, you set up two slots--**slotAppService** and **slotAppServiceSlotOne**--to deploy from different branches in GitHub. Let's preview the web apps to validate that they were successfully deployed.
 
-Perform the following steps 2 times. In step 3, you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time.
+Do the following steps two times. In step 3, you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time.
 
 1. On the main menu of the Azure portal, select **Resource groups**.
 
@@ -220,9 +220,11 @@ Perform the following steps 2 times. In step 3, you select **slotAppService** th
 >
 >
 
-For the **slotAppService** web app, you see a blue page with a page title of **Slot Demo App 1**. For the **slotAppServiceSlotOne** web app, you see a green page with a page title of **Slot Demo App 2**.
+1. Depending on the app, you see the following results:
+    - **slotAppService** web app - Blue page with a page title of **Slot Demo App 1**. 
+    - **slotAppServiceSlotOne** web app - Green page with a page title of **Slot Demo App 2**.
 
-![Preview the apps to test that they were deployed correctly](./media/terraform-slot-walkthru/app-preview.png)
+    ![Preview the apps to test that they were deployed correctly](./media/terraform-slot-walkthru/app-preview.png)
 
 ## Swap the two deployment slots
 
@@ -280,7 +282,7 @@ To test swapping the two deployment slots, perform the following steps:
     terraform apply
     ```
 
-1. After Terraform has finished swapping the slots, return to the browser that is rendering the **slotAppService** web app and refresh the page. 
+1. After Terraform has swapped the slots, return to the browser. Refresh the page. 
 
 The web app in your **slotAppServiceSlotOne** staging slot has been swapped with the production slot and is now rendered in green. 
 
