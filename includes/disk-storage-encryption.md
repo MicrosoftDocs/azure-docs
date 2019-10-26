@@ -115,7 +115,7 @@ The preview also has the following restrictions:
         -ResourceGroupName myRGName `  
     ```
 
-### Create a VM using a marketplace image, encrypting the OS and data disks with customer-managed keys via an Resource Manager template
+### Create a VM using a marketplace image, encrypting the OS and data disks with customer-managed keys via a Resource Manager template
 
 ```
 $password=ConvertTo-SecureString -String "myVMPassword" `
