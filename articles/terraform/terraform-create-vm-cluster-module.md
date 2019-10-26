@@ -96,5 +96,5 @@ Run `terraform apply` to provision the VMs on Azure.
 
 ## Next steps
 
-- Browse the list of [Azure Terraform modules](https://registry.terraform.io/modules/Azure)
-- Create a [virtual machine scale set with Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+> [!div class="nextstepaction"] 
+> Browse the list of [Azure Terraform modules](https://registry.terraform.io/modules/Azure)

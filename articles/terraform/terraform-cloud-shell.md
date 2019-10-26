@@ -43,5 +43,5 @@ The Azure CLI is available in the Cloud Shell and is a great tool for testing co
 
 ## Next steps
 
-[Create a small VM cluster using the Module Registry](terraform-create-vm-cluster-module.md)
-[Create a small VM cluster using custom HCL](terraform-create-vm-cluster-with-infrastructure.md)
+> [!div class="nextstepaction"]
+> [Create a small VM cluster using the Module Registry](terraform-create-vm-cluster-module.md)

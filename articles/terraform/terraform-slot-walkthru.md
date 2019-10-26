@@ -293,3 +293,8 @@ terraform apply
 ```
 
 After the app is swapped, you see the original configuration.
+
+## Next steps
+
+> [!div class="nextstepaction"] 
+> [Terraform on Azure](/azure/ansible/)

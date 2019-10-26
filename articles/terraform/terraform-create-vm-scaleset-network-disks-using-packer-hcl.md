@@ -449,12 +449,5 @@ Type `yes` when asked to confirm for the deletion of the resources. The destruct
 
 ## Next steps
 
-In this tutorial, you deployed a virtual machine scale set and a jumpbox on Azure using Terraform. You learned how to:
-
-> [!div class="checklist"]
-> * Initialize Terraform deployment
-> * Use variables and outputs for Terraform deployment 
-> * Create and deploy a network infrastructure
-> * Create a custom virtual machine image using Packer
-> * Create and deploy a virtual machine scale set using the custom image
-> * Create and deploy a jumpbox 
+> [!div class="nextstepaction"] 
+> [Terraform on Azure](/azure/ansible/)

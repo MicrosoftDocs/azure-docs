@@ -518,7 +518,5 @@ The destruction process can take several minutes to complete.
 
 ## Next steps
 
-[Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)
-[Terraform Azure provider documentation](https://aka.ms/terraform)
-[Terraform Azure provider source](https://aka.ms/tfgit)
-[Terraform Azure modules](https://aka.ms/tfmodules)
+> [!div class="nextstepaction"] 
+> [Terraform on Azure](/azure/ansible/)

@@ -393,5 +393,5 @@ see [Monitor Azure Kubernetes Service health](https://docs.microsoft.com/azure/a
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
+> [!div class="nextstepaction"] 
+> [Terraform on Azure](/azure/ansible/)

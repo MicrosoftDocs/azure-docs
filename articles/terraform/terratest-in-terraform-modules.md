@@ -513,5 +513,5 @@ Instead of executing `az login` before tests, you can complete Azure authenticat
 
 ## Next steps
 
-* For more information about Terratest, see the [Terratest GitHub page](https://github.com/gruntwork-io/terratest).
-* For information about mage, see the [mage GitHub page](https://github.com/magefile/mage) and the [mage website](https://magefile.org/).
+> [!div class="nextstepaction"] 
+> [Terratest GitHub page](https://github.com/gruntwork-io/terratest).
