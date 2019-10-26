@@ -53,7 +53,7 @@ Follow these steps to assign a user to the catalog creator role.
 
 ## Allow delegated roles to access the Azure portal
 
-To allow delegated roles, such as catalog creators and access package managers, to access the Azure portal to manage access packages, you should check the **Restrict access to Azure AD administration portal** setting.
+To allow delegated roles, such as catalog creators and access package managers, to access the Azure portal to manage access packages, you should check the administration portal setting.
 
 **Prerequisite role:** Global administrator or User administrator
 
