@@ -16,9 +16,9 @@ ms.author: victorh
 
 *Trusted security partners (preview)* in Azure Firewall Manager allows you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
 
-With a quick configuration, you can secure a hub with a supported security partner, and centrally route and filter Internet traffic from your Virtual Networks (VNets) or branch locations. This is done using automated route management, without setting up and managing User Defined Routes (UDRs).
+With a quick configuration, you can secure a hub with a supported security partner, and route and filter Internet traffic from your Virtual Networks (VNets) or branch locations within a region. This is done using automated route management, without setting up and managing User Defined Routes (UDRs).
 
-You can deploy secured hubs configured with a security partner of your choice in multiple Azure regions to get optimal connectivity and security for your users anywhere across the globe in those regions. With the ability to use the security partner’s offering for Internet/SaaS application traffic, and Azure Firewall for private traffic in the secured hubs, you can now start building your security edge on Azure that is close to your globally distributed users and applications.
+You can deploy secured hubs configured with the security partner of your choice in multiple Azure regions to get connectivity and security for your users anywhere across the globe in those regions. With the ability to use the security partner’s offering for Internet/SaaS application traffic, and Azure Firewall for private traffic in the secured hubs, you can now start building your security edge on Azure that is close to your globally distributed users and applications.
 
 For this preview, the supported security partners are ZScaler and iboss.
 
@@ -52,7 +52,9 @@ The following scenario isn't supported:
 
 ## Best practices for Internet traffic filtering in secured virtual hubs
 
-Internet traffic typically includes web traffic. But it also includes traffic destined to SaaS applications like Office 365 (O365) and Azure public PaaS services like Azure Storage, Azure Sql, and so on. 
+Internet traffic typically includes web traffic. But it also includes traffic destined to SaaS applications like Office 365 (O365) and Azure public PaaS services like Azure Storage, Azure Sql, and so on. The following are best practice recommendations for handling traffic to these services:
+
+### Handling Azure PaaS traffic
  
 - Use Azure Firewall for protection if your traffic consists mostly of Azure PaaS, and the resource access for your applications can be filtered using IP addresses, FQDNs, Service tags, or FQDN tags.
 
@@ -64,16 +66,13 @@ Internet traffic typically includes web traffic. But it also includes traffic de
 
 In globally distributed branch location scenarios, you should redirect Office 365 traffic directly at the branch before sending the remaining Internet traffic your Azure secured hub.
 
-Office 365 runs on the Microsoft global network, with front-ends located close to the user’s location. Breaking out Office 365 locally ensures that you get the most optimal connectivity to Office 365 services across the globe.
+For Office 365, network latency and performance are critical for successful user experience. To achieve these goals around optimal performance and user experience, customers must implement Office 365 direct and local escape before considering routing the rest of Internet traffic through Azure.
 
-To learn more about Office 365 connectivity principles, see [Office 365 Network Connectivity Principles](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles).
+[Office 365 network connectivity principles](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) call for key Office 365 network connections to be routed locally from the user branch or mobile device and directly over the Internet into nearest Microsoft network point of presence.
 
-For guidance about securing your Office 365 access, see [Assess bypassing proxies, traffic inspection devices and duplicate security technologies](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#assess-bypassing-proxies-traffic-inspection-devices-and-duplicate-security-technologies).
+Furthermore Office 365 connections are strongly encrypted for privacy and use efficient, proprietary protocols for performance reasons. This makes it impractical and impactful to subject those connections to traditional network level security solutions. For these reasons we strongly recommend that customers send Office 365 traffic directly from branches, before sending rest of the traffic through Azure. Microsoft has partnered with several SD-WAN solution providers, who integrate with Azure and Office 365 and make it easy for customers to enable Office 365 direct and local Internet breakout. For details  see [How do I set my O365 policies via Virtual WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview#how-do-i-set-my-o365-policies-via-virtual-wan)
 
-If you're an existing SD-WAN customer using Azure Virtual WAN, you can leverage Office 365 breakout policy APIs for on-boarded SD-WAN partners to configure direct breakout for Office 365 traffic.
-
-For more information about how to configure Office 365 breakout policies in Azure, see [How do I set my O365 policies via Virtual WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview#how-do-i-set-my-o365-policies-via-virtual-wan).
 
 ## Next steps
 
-Deploy a trusted security offering in a secured hub, using Azure Firewall Manager.
+[Deploy a trusted security offering in a secured hub, using Azure Firewall Manager](deploy-trusted-security-partner.md).

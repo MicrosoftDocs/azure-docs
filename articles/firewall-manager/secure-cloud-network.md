@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 10/27/2019
 ms.author: victorh
 ---
 
@@ -70,7 +70,7 @@ Create your secured virtual hub using Firewall Manager.
 6. For **Location**, select **East US**.
 7. For **Hub address space**, type **10.1.0.0/16**.
 8. For the new vWAN name, type **vwan-01**.
-9. Clear the **Include VPN gateway to enable Trusted Security Partners** check box.
+9. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
 10. Select **Next:Azure Firewall**.
 11. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: Trusted Security Partner**.
 12. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
@@ -96,22 +96,23 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 2. Select your subscription, and then select the **FW-Manager** resource group.
 3. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **East US**.
 4. Select **Next:Rules**.
-5. One the **Rules** tab, select **Add a rule collection**.
+5. On the **Rules** tab, select **Add a rule collection**.
 6. On the **Add a rule collection** page, type **RC-01** for the **Name**.
-7. For **Rule type**, select **Application**.
+7. For **Rule collection type**, select **Application**.
 8. For **Priority**, type **100**.
-9. Ensure **Rule Action** is **Allow**.
+9. Ensure **Rule collection action** is **Allow**.
 10. For the rule **Name** type **Allow-msft**.
-11. For **Source IP address**, type **\***.
+11. For **Source address**, type **\***.
 12. For **Protocol**, type **http,https**.
 13. Ensure **Destination type is **FQDN**.
 14. For **Destination**, type **\*.microsoft.com**.
 15. Select **Add**.
 16. Select **Next: Secured virtual hubs**.
-17. On the **Secured virtual hubs** tab, select **Convert existing hubs**.
-18. Select **Hub-01**, and then select **Add**.
+17. On the **Secured virtual hubs** tab, select **Hub-01**.
 19. Select **Review + create**.
 20. Select **Create**.
+
+This can take about five minutes or more to complete.
 
 ## Route traffic to your hub
 
@@ -120,8 +121,8 @@ Now you must ensure that network traffic gets routed to through your firewall.
 1. From Firewall Manager, select **Secured virtual hubs**.
 2. Select **Hub-01**.
 3. Under **Settings**, select **Route settings**.
-4. Under **Internet traffic**, **Traffic from Virtual Networks**, select **Azure Firewall**.
-5. Under **Azure private traffic**, **Traffic to Virtual Networks**, select **Azure Firewall**.
+4. Under **Internet traffic**, **Traffic from Virtual Networks**, select **Send via Azure Firewall**.
+5. Under **Azure private traffic**, **Traffic to Virtual Networks**, select **Send via Azure Firewall**.
 6. Select **Edit IP address prefix(es)**.
 7. Select **Add an IP address prefix**.
 8. Type **10.0.1.0/24** as the address of the Workload subnet and select **Save**.
@@ -136,7 +137,7 @@ To test your firewall rules, you'll need to deploy a couple servers. You'll depl
 ### Deploy the servers
 
 1. On the Azure portal, select **Create a resource**.
-2. Select **Windows Server 2016 Datacenter** in the Popular list.
+2. Select **Windows Server 2016 Datacenter** in the **Popular** list.
 3. Enter these values for the virtual machine:
 
    |Setting  |Value  |
@@ -166,6 +167,27 @@ Use the information in the following table to configure another virtual machine 
 |Public IP|**None**|
 |Public inbound ports|**None**|
 
+### Add a route table and default route
+
+To allow an Internet connection to Jump-Srv, you must create a route table and a default gateway route to the Internet from the **Jump-SN** subnet.
+
+1. On the Azure portal, select **Create a resource**.
+2. Type **route table** in the search box, and then select **Route table**.
+3. Select **Create**.
+4. Type **RT-01** for **Name**.
+5. Select your subscription, **FW-Manager** for the resource group and **(US) East US** for the region.
+6. Select **Create**.
+7. When the deployment completes, select the **RT-01** route table.
+8. Select **Routes** and then select **Add**.
+9. Type **jump-to-inet** for the **Route name**.
+10. Type **0.0.0.0/0** for the **Address prefix**.
+11. Select **Internet** for the **Next hop type**.
+12. Select **OK**.
+13. When the deployment completes, select **Subnets**, then select **Associate**.
+14. Select **Spoke-01** for **Virtual network**.
+15. Select **Jump-SN** for **Subnet**.
+16. Select **OK**.
+
 ### Test the rules
 
 Now, test the firewall rules to confirm that it works as expected.
@@ -185,9 +207,10 @@ Now, test the firewall rules to confirm that it works as expected.
 So now you've verified that the firewall rules are working:
 
 * You can browse to the one allowed FQDN, but not to any others.
-* You can resolve DNS names using the configured external DNS server.
+
 
 
 ## Next steps
 
-
+> [!div class="nextstepaction"]
+> [Learn about trusted security partners](trusted-security-partners.md)
