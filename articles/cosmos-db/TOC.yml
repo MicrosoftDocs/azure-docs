@@ -125,6 +125,8 @@
       - name: Provision throughput on containers and databases
         displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
         href: set-throughput.md
+      - name: Provision throughput - autopilot mode
+        href: provision-throughput-autopilot.md
     - name: SQL query reference      
       items:
       - name: Getting started
