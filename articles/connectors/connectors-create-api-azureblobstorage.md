@@ -59,7 +59,7 @@ For a logic app to access a storage account through a trusted virtual network, y
 
 ### Access to storage accounts as a trusted service
 
-Some services support using managed identities to access a storage account. When you [enable managed identity support on your logic app](create-managed-service-identity.md), you can then [use the managed identity in an HTTP action](create-managed-service-identity.md#authenticate-access-with-managed-identity) to authenticate access at runtime. Connectors don't yet support creating connections that use managed identities.
+Some services support using managed identities to access a storage account. When you [enable managed identity support on your logic app](../logic-apps/create-managed-service-identity.md), you can then [use the managed identity in an HTTP action](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) to authenticate access at runtime. Connectors don't yet support creating connections that use managed identities.
 
 Also, for logic apps in the global multi-tenant Azure service to access a storage account through a firewall, in your storage account's **Firewalls and virtual networks** settings, select the **Allow trusted Microsoft services to access this storage account** setting.
 
