@@ -2,7 +2,7 @@
 title: 'Create a Custom Endpoint  | Microsoft Docs'
 description: In this article, learn how to configure a custom endpoint to measure with your Internet Analyzer resource. 
 services: internet-analyzer
-author: megan-beatty; mattcalder; diego-perez-botero
+author: mattcalder
 
 ms.service: internet-analyzer
 ms.topic: quickstart

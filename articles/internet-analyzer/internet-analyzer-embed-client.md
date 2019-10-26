@@ -2,7 +2,7 @@
 title: 'Embed Internet Analyzer Client  | Microsoft Docs'
 description: In this article, learn how to embed the Internet Analyzer JavaScript client in your application. 
 services: internet-analyzer
-author: megan-beatty; mattcalder; diego-perez-botero
+author: mattcalder
 
 ms.service: internet-analyzer
 ms.topic: quickstart
