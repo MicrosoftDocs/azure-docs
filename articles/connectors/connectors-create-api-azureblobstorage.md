@@ -21,6 +21,8 @@ Suppose that you have a tool that gets updated on an Azure website. which acts a
 
 If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, see the [Azure Blob Storage connector reference](/connectors/azureblobconnector/).
 
+<a name="blob-storage-limits"></a>
+
 ## Limits
 
 * By default, Azure Blob Storage actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB but up to 1024 MB, Azure Blob Storage actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get blob content** action implicitly uses chunking.
@@ -30,6 +32,8 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
   * Use an Azure Blob Storage trigger that returns file properties, such as **When a blob is added or modified (properties only)**.
 
   * Follow the trigger with the Azure Blob Storage **Get blob content** action, which reads the complete file and implicitly uses chunking.
+
+<a name="storage-firewalls"></a>
 
 ## Storage accounts with firewalls
 
