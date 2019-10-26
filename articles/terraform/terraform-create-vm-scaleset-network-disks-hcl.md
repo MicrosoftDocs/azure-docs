@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create an Azure virtual machine scale set using Terraform
-description: Tutorial about using Terraform to configure and version an Azure virtual machine scale set complete with a virtual network and managed attached disks
+description: Learn to use Terraform to configure and version an Azure virtual machine scale set.
 ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
@@ -10,7 +10,7 @@ ms.date: 10/25/2019
 
 # Tutorial: Create an Azure virtual machine scale set using Terraform
 
-[Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to create and manage a group of identical, load balanced virtual machines where the number of virtual machine instances can automatically increase, or decrease in response to demand or a defined schedule.
+[Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to configure multiple identical virtual machines. The number of virtual machine instances can automatically adjust to demand or a defined schedule.
 
 In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/overview) to perform the following tasks:
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/ov
 
 - **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Create an SSH key pair**: If you don't already have an SSH key pair, follow the instructions in the article, [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Create an SSH key pair**: For more information, refer to [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## Create the directory structure
 
@@ -188,11 +188,11 @@ Using the Azure Cloud Shell from the directory where you created the configurati
    terraform apply
    ```
 
-   Terraform prompts you for a "location" value as the **location** variable is defined in `variables.tf`, but it's never set. You can enter any valid location - such as "West US" followed by selecting Enter. (Use parentheses around any value with spaces.)
+   Terraform prompts you for a `location` value as the `location` variable is defined in `variables.tf`, but it's never set. You can enter any valid location - such as "West US" followed by selecting Enter. (Use parentheses around any value with spaces.)
 
-1. Terraform prints the output as defined in the `output.tf` file. As shown in the following screenshot, the FQDN takes the form &lt;id>.&lt;location>.cloudapp.azure.com. The id value is a computed value and location is the value you provide when running Terraform.
+1. Terraform prints the output as defined in the `output.tf` file. As shown in the following screenshot, the FQDN takes the following form: `<ID>.<location>.cloudapp.azure.com`. The ID is a computed value and location is the value provide when running Terraform.
 
-   ![Virtual machine scale set fully-qualified domain name for Public IP address](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
+   ![Virtual machine scale set fully qualified domain name for Public IP address](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
 1. In the Azure portal menu, select **Resource groups** from the main menu.
 
@@ -517,7 +517,6 @@ terraform destroy
 The destruction process can take several minutes to complete.
 
 ## Next steps
-In this article, you learned how to use Terraform to create an Azure virtual machine scale set. Here are some additional resources to help you learn more about Terraform on Azure:
 
 [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)
 [Terraform Azure provider documentation](https://aka.ms/terraform)
