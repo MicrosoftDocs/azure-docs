@@ -83,6 +83,14 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
     * Multi-factor Authentication Server (legacy)
     * Traffic Manager
 
+### Why I see 'Advertised public prefixes' status as 'Validation needed', while configuring Microsoft peering?
+
+Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see the message 'Validation needed'.
+
+If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket as shown below.
+
+![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
+
 ### Is Dynamics 365 supported on ExpressRoute?
 
 Dynamics 365 and Common Data Service (CDS) environments are hosted on Azure and therefore customers benefit from the underlying ExpressRoute support for Azure resources. You can connect to its service endpoints if your router filter includes the Azure regions your Dynamics 365/CDS environments are hosted in.
