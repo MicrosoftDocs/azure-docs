@@ -56,13 +56,11 @@ This article illustrates an example use of deployment slots by walking you throu
     cd deploy
     ```
 
-1. By using the [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), create a file named `deploy.tf`. This file will contain the [Terraform configuration](https://www.terraform.io/docs/configuration/index.html).
+1. In Cloud Shell, create a file named `deploy.tf`.
 
     ```bash
-    vi deploy.tf
+    code deploy.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -101,13 +99,7 @@ This article illustrates an example use of deployment slots by walking you throu
     }
     ```
 
-1. Select the Esc key to exit insert mode.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Now that you've created the file, verify its contents.
 
@@ -248,13 +240,11 @@ To test swapping the two deployment slots, perform the following steps:
     cd clouddrive/swap
     ```
 
-1. By using the vi editor, create a file named `swap.tf`.
+1. In Cloud Shell, create a file named `swap.tf`.
 
     ```bash
-    vi swap.tf
+    code swap.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -270,13 +260,7 @@ To test swapping the two deployment slots, perform the following steps:
     }
     ```
 
-1. Select the Esc key to exit insert mode.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Initialize Terraform.
 

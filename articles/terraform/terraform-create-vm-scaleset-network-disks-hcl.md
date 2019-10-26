@@ -66,10 +66,8 @@ Within the Azure Cloud Shell, perform the following steps:
 1. Create a file named `variables.tf`.
 
     ```bash
-    vi variables.tf
+    code variables.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -93,13 +91,7 @@ Within the Azure Cloud Shell, perform the following steps:
    }
    ```
 
-1. Exit insert mode by selecting the Esc key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 ## Create the output definitions file
 In this section, you create the file that describes the output after deployment.
@@ -109,10 +101,8 @@ Within the Azure Cloud Shell, perform the following steps:
 1. Create a file named `output.tf`.
 
     ```bash
-    vi output.tf
+    code output.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor to expose the fully qualified domain name (FQDN) for the virtual machines.
    :
@@ -123,13 +113,7 @@ Within the Azure Cloud Shell, perform the following steps:
     }
    ```
 
-1. Exit insert mode by selecting the Esc key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 ## Define the network infrastructure in a template
 In this section, you create the following network infrastructure in a new Azure resource group:
@@ -143,10 +127,8 @@ Within the Azure Cloud Shell, perform the following steps:
 1. Create a file named `vmss.tf` to describe the virtual machine scale set infrastructure.
 
     ```bash
-    vi vmss.tf
+    code vmss.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code to the end of the file to expose the fully qualified domain name (FQDN) for the virtual machines.
 
@@ -189,13 +171,7 @@ Within the Azure Cloud Shell, perform the following steps:
    }
    ```
 
-1. Exit insert mode by selecting the Esc key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-   ```bash
-   :wq
-   ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 ## Provision the network infrastructure
 Using the Azure Cloud Shell from the directory where you created the configuration files (.tf) perform the following steps:
@@ -238,7 +214,7 @@ In Cloud Shell, perform the following steps:
 1. Open the `vmss.tf` configuration file.
 
    ```bash
-   vi vmss.tf
+   code vmss.tf
    ```
 
 1. Go to the end of the file and enter append mode by selecting the A key.
@@ -344,8 +320,6 @@ In Cloud Shell, perform the following steps:
    }
    ```
 
-1. Exit insert mode by selecting the Esc key.
-
 1. Save the file and exit the vi editor by entering the following command:
 
     ```bash
@@ -355,10 +329,8 @@ In Cloud Shell, perform the following steps:
 1. Create a file named `web.conf` to serve as the cloud-init configuration for the virtual machines that are part of the scale set.
 
     ```bash
-    vi web.conf
+    code web.conf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -367,8 +339,6 @@ In Cloud Shell, perform the following steps:
    packages:
     - nginx
    ```
-
-1. Exit insert mode by selecting the Esc key.
 
 1. Save the file and exit the vi editor by entering the following command:
 
@@ -379,7 +349,7 @@ In Cloud Shell, perform the following steps:
 1. Open the `variables.tf` configuration file.
 
     ```bash
-    vi variables.tf
+    code variables.tf
     ```
 
 1. Go to the end of the file and enter append mode by selecting the A key.
@@ -402,13 +372,7 @@ In Cloud Shell, perform the following steps:
     }
     ```
 
-1. Exit insert mode by selecting the Esc key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-     ```bash
-     :wq
-     ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Create a Terraform plan to visualize the virtual machine scale set deployment. (You need to specify a password of your choosing, as well as the location for your resources.)
 
@@ -444,7 +408,7 @@ An SSH *jumpbox* is a single server that you "jump" through in order to access o
 1. Open the `vmss.tf` configuration file.
 
    ```bash
-   vi vmss.tf
+   code vmss.tf
    ```
 
 1. Go to the end of the file and enter append mode by selecting the A key.
@@ -514,7 +478,7 @@ An SSH *jumpbox* is a single server that you "jump" through in order to access o
 1. Open the `output.tf` configuration file.
 
    ```bash
-   vi output.tf
+   code output.tf
    ```
 
 1. Go to the end of the file and enter append mode by selecting the A key.
@@ -527,13 +491,7 @@ An SSH *jumpbox* is a single server that you "jump" through in order to access o
    }
    ```
 
-1. Exit insert mode by selecting the Esc key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Deploy the jumpbox.
 
