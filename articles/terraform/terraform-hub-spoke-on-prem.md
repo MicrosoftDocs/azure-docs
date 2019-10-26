@@ -10,9 +10,9 @@ ms.date: 10/25/2019
 
 # Tutorial: Create on-premises virtual network in Azure using Terraform
 
-In this tutorial, you implement an on-premises network using an Azure virtual network (VNet). An Azure VNet could be replaced by your own private virtual network. To do so, map appropriate IP addresses in the subnets.
+This tutorial shows how to implement an on-premises network using an Azure virtual network (VNet). An Azure VNet could be replaced by your own private virtual network. To do so, map the appropriate IP addresses in the subnets.
 
-This tutorial covers the following tasks:
+The following tasks are explained:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to implement an on-premises VNet in hub-spoke topology
