@@ -191,7 +191,7 @@ After you fork the test project repo, configure the deployment slots via the fol
 
 1. On the **Deployment option** tab, select **OK**.
 
-At this point, you've deployed the production slot. To deploy the staging slot, perform the previous steps with the following modifications:
+At this point, you've deployed the production slot. To deploy the staging slot, do the previous steps with the following modifications:
 
 - In step 3, select the **slotAppServiceSlotOne** resource.
 
@@ -203,7 +203,7 @@ At this point, you've deployed the production slot. To deploy the staging slot, 
 
 In the previous sections, you set up two slots--**slotAppService** and **slotAppServiceSlotOne**--to deploy from different branches in GitHub. Let's preview the web apps to validate that they were successfully deployed.
 
-Do the following steps two times. In step 3, you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time.
+Do the following steps 2 times. In step 3, you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time.
 
 1. On the main menu of the Azure portal, select **Resource groups**.
 
@@ -228,7 +228,7 @@ Do the following steps two times. In step 3, you select **slotAppService** the f
 
 ## Swap the two deployment slots
 
-To test swapping the two deployment slots, perform the following steps:
+To test swapping the two deployment slots, do the following steps:
  
 1. Switch to the browser tab that's running **slotAppService** (the app with the blue page). 
 
