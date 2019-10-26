@@ -12,10 +12,10 @@ ms.author: hamusa
 
 This article describes the dependency visualization feature in Azure Migrate: Server Assessment.
 
-Dependency mapping helps you to visualize dependencies across machines that you want to assess and migrate. You typically use dependency mapping when you want to assess machines with higher levels of confidence.
+Dependency visualization helps you to understand dependencies across machines that you want to assess and migrate. You typically use dependency mapping when you want to assess machines with higher levels of confidence.
 
-- In Azure Migrate: Server Assessment, you gather machines together into groups for assessment. Groups usually consist of machines that you want to migrate together, and dependency mapping helps you to cross-check machine dependencies, so that you can group machines accurately.
-- Using mapping, you can discover interdependent systems that need to migrate together. You can also identify whether a running system is still serving users, or is a candidate for decommissioning instead of migration.
+- In Azure Migrate: Server Assessment, you gather machines together into groups for assessment. Groups usually consist of machines that you want to migrate together, and dependency visualization helps you to cross-check machine dependencies, so that you can group machines accurately.
+- Using visualization, you can discover interdependent systems that need to migrate together. You can identify whether running systems are still in use, or whether systems can be decommissioned instead of migrated.
 - Visualizing dependencies helps ensure that nothing is left behind, and avoid surprise outages during migration.
 - This feature is especially useful if you're not completely aware of machines that are part of apps, and thus should be migrated together to Azure.
 
