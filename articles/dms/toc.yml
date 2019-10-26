@@ -58,8 +58,10 @@
     href: resource-scenario-status.md
   - name: Overview of prerequisites
     href: pre-reqs.md
-  - name: Network topologies for Azure SQL DB managed instance migrations
+  - name: Network topologies for Azure SQL DB MI migrations
     href: resource-network-topologies.md
+  - name: Custom roles for online migrations from SQL Server to Azure SQL DB MI
+    href: resource-custom-roles-sql-db-managed-instance.md
   - name: Troubleshooting and known issues
     items:
     - name: Troubleshoot source database connectivity issues
