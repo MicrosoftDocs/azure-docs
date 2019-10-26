@@ -15,7 +15,7 @@ ms.date: 11/01/2019
 ms.author: apimpm
 ---
 
-> [!IMPORTANT]
+> [!NOTE]
 > Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
 
 # Self-hosted API Management gateway overview
@@ -58,18 +58,22 @@ The self-hosted gateway requires outbound TCP/IP connectivity to Azure on port 4
 -   Sending request logs and metrics to Azure Monitor, if configured to do so
 -   Sending events to Application Insights, if set to do so
 
-Disconnected operation TBD.
+When connectivity to Azure is lost, self-hosted gateway will be unable to receive configuration updates, report its status, or upload telemetry.
 
-## Shared responsibility for availability
+The self-hosted gateway is designed to "fail static" and can survive the temporary loss of connectivity to Azure. It can be deployed with or without local configuration backup turned on. In the latter case, self-hosted gateways will save a backup copy of configuration after each update on a persistent volume attached to the container or pod.
 
-TBD.
+When configuration backup is turned off and connectivity to Azure is interrupted:
+
+-   Self-hosted gateways that are running will continue to function using an in-memory copy of the configuration
+-   Stopped self-hosted gateways will not be able to start
+
+When configuration backup is turned on and connectivity to Azure is interrupted:
+
+-   Self-hosted gateways that are running will continue to function using an in-memory copy of the configuration
+-   Stopped self-hosted gateways will start using a backup copy of the configuration
 
 ## Next steps
 
-See the following related topics:
-
--   [Transform APIs](transform-api.md)
--   [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
--   [Policy samples](policy-samples.md)
-
-*   To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)
+-   [Read a whitepaper for additional background on this topic](https://aka.ms/hybrid-and-multi-cloud-api-management)
+-   [Deploy self-hosted gateway to Docker](api-management-howto-deploy-self-hosted-gateway-to-docker.md)
+-   [Deploy self-hosted gateway to Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)
