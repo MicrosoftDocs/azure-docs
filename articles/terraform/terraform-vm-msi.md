@@ -1,17 +1,14 @@
 ---
-title: Use an Azure Marketplace image to create a Terraform Linux virtual machine with a managed identity
-description: Use Marketplace image to create Terraform Linux virtual machine with a managed identity and Remote State Management to easily deploy resources to Azure.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, MSI, virtual machine, remote state, azure
+title: Tutorial - Create a Linux VM with a managed identity from the Azure Marketplace image using Terraform
+description: Create Terraform Linux VM with a managed identity and Remote State Management using Azure Marketplace image 
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/25/2019
 ---
 
-# Use an Azure Marketplace image to create a Terraform Linux virtual machine with managed identities for Azure resources
+# Tutorial: Create a Linux VM with a managed identity from the Azure Marketplace image using Terraform
 
 This article shows you how to use a [Terraform Marketplace image](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) to create an Ubuntu Linux VM (16.04 LTS) with the latest [Terraform](https://www.terraform.io/intro/index.html) version installed and configured using [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). This image also configures a remote back end to enable [remote state](https://www.terraform.io/docs/state/remote.html) management using Terraform. 
 

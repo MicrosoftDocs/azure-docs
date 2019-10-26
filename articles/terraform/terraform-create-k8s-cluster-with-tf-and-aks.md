@@ -1,17 +1,14 @@
 ---
-title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) and Terraform
+title: Tutorial - Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Terraform
 description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform
-services: terraform
-ms.service: azure
-keywords: terraform, devops, virtual machine, azure, kubernetes
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 10/25/2019
 ---
 
-# Create a Kubernetes cluster with Azure Kubernetes Service and Terraform
+# Tutorial: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
 
 In this tutorial, you learn how to perform the following tasks in creating a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using [Terraform](https://terraform.io) and AKS:
@@ -102,8 +99,8 @@ Create the Terraform configuration file that declares the resources for the Kube
 
     ```hcl
     resource "azurerm_resource_group" "k8s" {
-        name     = "${var.resource_group_name}"
-        location = "${var.location}"
+        name     = var.resource_group_name
+        location = var.location
     }
     
     resource "random_id" "log_analytics_workspace_name_suffix" {
@@ -113,17 +110,17 @@ Create the Terraform configuration file that declares the resources for the Kube
     resource "azurerm_log_analytics_workspace" "test" {
         # The WorkSpace name has to be unique across the whole of azure, not just the current subscription/tenant.
         name                = "${var.log_analytics_workspace_name}-${random_id.log_analytics_workspace_name_suffix.dec}"
-        location            = "${var.log_analytics_workspace_location}"
-        resource_group_name = "${azurerm_resource_group.k8s.name}"
-        sku                 = "${var.log_analytics_workspace_sku}"
+        location            = var.log_analytics_workspace_location
+        resource_group_name = azurerm_resource_group.k8s.name
+        sku                 = var.log_analytics_workspace_sku
     }
 
     resource "azurerm_log_analytics_solution" "test" {
         solution_name         = "ContainerInsights"
-        location              = "${azurerm_log_analytics_workspace.test.location}"
-        resource_group_name   = "${azurerm_resource_group.k8s.name}"
-        workspace_resource_id = "${azurerm_log_analytics_workspace.test.id}"
-        workspace_name        = "${azurerm_log_analytics_workspace.test.name}"
+        location              = azurerm_log_analytics_workspace.test.location
+        resource_group_name   = azurerm_resource_group.k8s.name
+        workspace_resource_id = azurerm_log_analytics_workspace.test.id
+        workspace_name        = azurerm_log_analytics_workspace.test.name
 
         plan {
             publisher = "Microsoft"
@@ -132,36 +129,36 @@ Create the Terraform configuration file that declares the resources for the Kube
     }
 
     resource "azurerm_kubernetes_cluster" "k8s" {
-        name                = "${var.cluster_name}"
-        location            = "${azurerm_resource_group.k8s.location}"
-        resource_group_name = "${azurerm_resource_group.k8s.name}"
-        dns_prefix          = "${var.dns_prefix}"
+        name                = var.cluster_name
+        location            = azurerm_resource_group.k8s.location
+        resource_group_name = azurerm_resource_group.k8s.name
+        dns_prefix          = var.dns_prefix
 
         linux_profile {
             admin_username = "ubuntu"
 
             ssh_key {
-                key_data = "${file("${var.ssh_public_key}")}"
+                key_data = file(var.ssh_public_key)
             }
         }
 
         agent_pool_profile {
             name            = "agentpool"
-            count           = "${var.agent_count}"
+            count           = var.agent_count
             vm_size         = "Standard_DS1_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
 
         service_principal {
-            client_id     = "${var.client_id}"
-            client_secret = "${var.client_secret}"
+            client_id     = var.client_id
+            client_secret = var.client_secret
         }
 
         addon_profile {
             oms_agent {
             enabled                    = true
-            log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+            log_analytics_workspace_id = azurerm_log_analytics_workspace.test.id
             }
         }
 
@@ -263,31 +260,31 @@ Create the Terraform configuration file that declares the resources for the Kube
 
     ```hcl
     output "client_key" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.client_key
     }
 
     output "client_certificate" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_certificate}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.client_certificate
     }
 
     output "cluster_ca_certificate" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate
     }
 
     output "cluster_username" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.username}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.username
     }
 
     output "cluster_password" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.password}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.password
     }
 
     output "kube_config" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config_raw}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config_raw
     }
 
     output "host" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.host}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.host
     }
     ```
 

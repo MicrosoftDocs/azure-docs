@@ -1,17 +1,14 @@
 ---
-title: Validate a hub and spoke network with Terraform in Azure
+title: Tutorial - Validate a hub and spoke network in Azure using Terraform
 description: Tutorial to validate hub and spoke network topology with all virtual networks connected to one another. 
-services: terraform
-ms.service: azure
-keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure,  vnet peering, 
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/25/2019
 ---
 
-# Tutorial: Validate a hub and spoke network with Terraform in Azure
+# Tutorial: Validate a hub and spoke network in Azure using Terraform
 
 In this article, you execute the terraform files created in the previous article in this series. The result is a validation of the connectivity between the demo virtual networks.
 

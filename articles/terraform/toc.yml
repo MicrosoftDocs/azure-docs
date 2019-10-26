@@ -10,13 +10,17 @@
     - name: Install and configure Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
-    - name: Create a multi-service application
+    - name: Create a Terraform configuration
       href: terrafom-quickstart.md
     - name: Create a Linux VM
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
 - name: Tutorials
   items:
+    - name: Setup and Configuration
+      items:
+        - name: Store Terraform state in Azure Storage
+          href: terraform-backend.md
     - name: App Service
       items:
         - name: Terraform and Azure provider deployment slots
@@ -67,10 +71,6 @@
   items:
     - name: Configuration templates
       href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
-- name: How-to guides
-  items:
-    - name: Store state in Azure Storage
-      href: terraform-backend.md
 - name: Reference
   items:
     - name: Azure module registry

@@ -1,17 +1,14 @@
 ---
-title: Configure Azure Cloud Shell for Terraform
+title: Tutorial - Configure Azure Cloud Shell for Terraform
 description: Use Terraform with Azure Cloud Shell to simplify authentication and template configuration.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, scale set, virtual machine, network, storage, modules
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/25/2019
 ---
 
-# Terraform Cloud Shell development 
+# Tutorial: Configure Azure Cloud Shell for Terraform
 
 Terraform works great from a Bash command line such as macOS Terminal or Bash on Windows or Linux. Running your Terraform configurations in the Bash experience of the [Azure Cloud Shell](/azure/cloud-shell/overview) has some unique advantages to speed up your development cycle.
 

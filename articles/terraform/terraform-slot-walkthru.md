@@ -1,17 +1,14 @@
 ---
-title: Terraform with Azure provider deployment slots
+title: Tutorial - Provision infrastructure with Azure deployment slots using Terraform
 description: Tutorial about using Terraform with Azure provider deployment slots
-services: terraform
-ms.service: azure
-keywords: terraform, devops, virtual machine, Azure, deployment slots
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/25/2019
 ---
 
-# Use Terraform to provision infrastructure with Azure deployment slots
+# Tutorial: Provision infrastructure with Azure deployment slots using Terraform
 
 You can use [Azure deployment slots](/azure/app-service/deploy-staging-slots) to swap between different versions of your app. That ability helps you minimize the impact of broken deployments. 
 

@@ -1,17 +1,16 @@
 ---
-title: Introduction to Terraform on Azure.
+title: Quickstart - Create a Terraform configuration for Azure
 description: Get started with Terraform on Azure by deploying an Azure Cosmos DB and Azure Container Instances.
-services: terraform
-author: neilpeterson
-ms.service: azure
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: quickstart
-ms.date: 09/20/2019
-ms.author: nepeters
+ms.date: 10/25/2019
 ---
 
-# Create a Terraform configuration for Azure
+# Quickstart: Create a Terraform configuration for Azure
 
-In this example, you gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB instance, an Azure Container Instance, and an application that works across these two resources. This document assumes that all work is completed in Azure Cloud Shell, which has Terraform tooling pre-installed. If you would like to work through the example on your own system, Terraform can be installed using the instructions found [here](../virtual-machines/linux/terraform-install-configure.md).
+In this quickstart, you gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB instance, an Azure Container Instance, and an application that works across these two resources. This document assumes that all work is completed in Azure Cloud Shell, which has Terraform tooling pre-installed. If you would like to work through the example on your own system, Terraform can be installed using the instructions found [here](../virtual-machines/linux/terraform-install-configure.md).
 
 ## Create first configuration
 

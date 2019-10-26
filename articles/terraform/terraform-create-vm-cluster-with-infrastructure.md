@@ -1,17 +1,14 @@
 ---
-title: Create a VM cluster with Terraform and HCL
+title: Tutorial - Create a VM cluster with Terraform and HCL
 description: Use Terraform and HashiCorp Configuration Language (HCL) to create a Linux virtual machine cluster with a load balancer in Azure
-services: terraform
-ms.service: azure
-keywords: terraform, devops, virtual machine, network, modules
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/25/2019
 ---
 
-# Create a VM cluster with Terraform and HCL
+# Tutorial: Create a VM cluster with Terraform and HCL
 
 This tutorial demonstrates creating a small compute cluster using the [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
 
@@ -48,10 +45,10 @@ In this section, you generate an Azure service principal, and two Terraform conf
    variable client_secret {}
   
    provider "azurerm" {
-      subscription_id = "${var.subscription_id}"
-      tenant_id = "${var.tenant_id}"
-      client_id = "${var.client_id}"
-      client_secret = "${var.client_secret}"
+      subscription_id = var.subscription_id
+      tenant_id = var.tenant_id
+      client_id = var.client_id
+      client_secret = var.client_secret
    }
    ```
 
@@ -83,60 +80,60 @@ In this section, you create a file that contains resource definitions for your i
    resource "azurerm_virtual_network" "test" {
     name                = "acctvn"
     address_space       = ["10.0.0.0/16"]
-    location            = "${azurerm_resource_group.test.location}"
-    resource_group_name = "${azurerm_resource_group.test.name}"
+    location            = azurerm_resource_group.test.location
+    resource_group_name = azurerm_resource_group.test.name
    }
 
    resource "azurerm_subnet" "test" {
     name                 = "acctsub"
-    resource_group_name  = "${azurerm_resource_group.test.name}"
-    virtual_network_name = "${azurerm_virtual_network.test.name}"
+    resource_group_name  = azurerm_resource_group.test.name
+    virtual_network_name = azurerm_virtual_network.test.name
     address_prefix       = "10.0.2.0/24"
    }
 
    resource "azurerm_public_ip" "test" {
     name                         = "publicIPForLB"
-    location                     = "${azurerm_resource_group.test.location}"
-    resource_group_name          = "${azurerm_resource_group.test.name}"
+    location                     = azurerm_resource_group.test.location
+    resource_group_name          = azurerm_resource_group.test.name
     allocation_method            = "Static"
    }
 
    resource "azurerm_lb" "test" {
     name                = "loadBalancer"
-    location            = "${azurerm_resource_group.test.location}"
-    resource_group_name = "${azurerm_resource_group.test.name}"
+    location            = azurerm_resource_group.test.location
+    resource_group_name = azurerm_resource_group.test.name
 
     frontend_ip_configuration {
       name                 = "publicIPAddress"
-      public_ip_address_id = "${azurerm_public_ip.test.id}"
+      public_ip_address_id = azurerm_public_ip.test.id
     }
    }
 
    resource "azurerm_lb_backend_address_pool" "test" {
-    resource_group_name = "${azurerm_resource_group.test.name}"
-    loadbalancer_id     = "${azurerm_lb.test.id}"
+    resource_group_name = azurerm_resource_group.test.name
+    loadbalancer_id     = azurerm_lb.test.id
     name                = "BackEndAddressPool"
    }
 
    resource "azurerm_network_interface" "test" {
     count               = 2
     name                = "acctni${count.index}"
-    location            = "${azurerm_resource_group.test.location}"
-    resource_group_name = "${azurerm_resource_group.test.name}"
+    location            = azurerm_resource_group.test.location
+    resource_group_name = azurerm_resource_group.test.name
 
     ip_configuration {
       name                          = "testConfiguration"
-      subnet_id                     = "${azurerm_subnet.test.id}"
+      subnet_id                     = azurerm_subnet.test.id
       private_ip_address_allocation = "dynamic"
-      load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.test.id}"]
+      load_balancer_backend_address_pools_ids = [azurerm_lb_backend_address_pool.test.id]
     }
    }
 
    resource "azurerm_managed_disk" "test" {
     count                = 2
     name                 = "datadisk_existing_${count.index}"
-    location             = "${azurerm_resource_group.test.location}"
-    resource_group_name  = "${azurerm_resource_group.test.name}"
+    location             = azurerm_resource_group.test.location
+    resource_group_name  = azurerm_resource_group.test.name
     storage_account_type = "Standard_LRS"
     create_option        = "Empty"
     disk_size_gb         = "1023"
@@ -144,8 +141,8 @@ In this section, you create a file that contains resource definitions for your i
 
    resource "azurerm_availability_set" "avset" {
     name                         = "avset"
-    location                     = "${azurerm_resource_group.test.location}"
-    resource_group_name          = "${azurerm_resource_group.test.name}"
+    location                     = azurerm_resource_group.test.location
+    resource_group_name          = azurerm_resource_group.test.name
     platform_fault_domain_count  = 2
     platform_update_domain_count = 2
     managed                      = true
@@ -154,10 +151,10 @@ In this section, you create a file that contains resource definitions for your i
    resource "azurerm_virtual_machine" "test" {
     count                 = 2
     name                  = "acctvm${count.index}"
-    location              = "${azurerm_resource_group.test.location}"
-    availability_set_id   = "${azurerm_availability_set.avset.id}"
-    resource_group_name   = "${azurerm_resource_group.test.name}"
-    network_interface_ids = ["${element(azurerm_network_interface.test.*.id, count.index)}"]
+    location              = azurerm_resource_group.test.location
+    availability_set_id   = azurerm_availability_set.avset.id
+    resource_group_name   = azurerm_resource_group.test.name
+    network_interface_ids = [element(azurerm_network_interface.test.*.id, count.index)]
     vm_size               = "Standard_DS1_v2"
 
     # Uncomment this line to delete the OS disk automatically when deleting the VM
@@ -190,11 +187,11 @@ In this section, you create a file that contains resource definitions for your i
     }
 
     storage_data_disk {
-      name            = "${element(azurerm_managed_disk.test.*.name, count.index)}"
-      managed_disk_id = "${element(azurerm_managed_disk.test.*.id, count.index)}"
+      name            = element(azurerm_managed_disk.test.*.name, count.index)
+      managed_disk_id = element(azurerm_managed_disk.test.*.id, count.index)
       create_option   = "Attach"
       lun             = 1
-      disk_size_gb    = "${element(azurerm_managed_disk.test.*.disk_size_gb, count.index)}"
+      disk_size_gb    = element(azurerm_managed_disk.test.*.disk_size_gb, count.index)
     }
 
     os_profile {
