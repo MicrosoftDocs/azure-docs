@@ -12,11 +12,11 @@ ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
-# Peering Service (Preview) connectivity partners
+# Peering Service (Preview) Partners
 
-Microsoft has partnered with Internet Service Providers (ISP), Internet Exchange Providers (IXP) and, Software Defined Cloud Interconnect (SDCI) providers, worldwide, to provide highly reliable and performant public connectivity with optimal routing to/from for the customers.
+Microsoft has partnered with Internet Service Providers (ISP), Internet Exchange Providers (IXP) and, Software Defined Cloud Interconnect (SDCI) providers, worldwide, to provide highly reliable, and performant public connectivity with optimal routing from the customer to the Microsoft network.
 
-This article provides information on the connectivity providers that are partnered with Microsoft to offer Peering Service connection.
+This article provides information on the connectivity providers that are partnered with Microsoft to offer Peering Service connection to the customers.
 
 > [!IMPORTANT]
 > "Peering Service” is currently in public preview.
@@ -25,25 +25,38 @@ This article provides information on the connectivity providers that are partner
 
 ## Peering Service Partners list
 
-The table in this article provides information on the *Peering Service* connectivity partners [Preview] and their associated market.
+The table in this article provides information on the Peering Service connectivity partners [Preview] and their associated market.
 
 | **Partners** | **Market**|
 |-----------|---------|
-| BBIX |Japan |
+| [BBIX](https://www.bbix.net/service/mpr) |Japan |
 | CCL |Oceania |
-| Colt|Europe|
+| [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe|
 | DE-CIX|Europe |
-| Intercloud|Europe  |
-| KDDI |Japan  |
-| Kordia |Oceania  |
+| IIJ | Japan |
+| [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
+| [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
 | Liquid Telecom | Africa  |
-| NTT | Asia |
+| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Asia |
 | PCCW |Asia |
+| Singtel |Asia |
 | TATA | Asia  |
+
+> [!Note]
+>For more information about enlisting to Peering Service Partner program, reach out to peeringservice@microsoft.com.
+>
 
 ## Next steps
 
-For more information about Peering Service, see the [Peering Service FAQ](faq.md).
+To learn about Peering Service, see [Peering Service Overview](about.md).
 
-For more information on how to onboard Peering Service, see the [Onboarding Peering Service](onboarding-model.md).
+To learn about Peering Service FAQs, see [Peering Service FAQ](faq.md).
+
+To learn about Partners onboarding and Peering configuration, see [Peering configuration](https://peering-docs.azurewebsites.net/azure/peering/peering-service-overview).
+
+To learn about Peering Service connection, see [Peering Service connection](connection.md).
+
+To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
+
+To learn about onboarding Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
 

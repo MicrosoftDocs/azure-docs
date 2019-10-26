@@ -35,22 +35,22 @@ Action plans for the above listed models are described as below:
 
 ## Onboarding Peering Service connection
 
-To onboard *Peering Service* connection, do the following:
+To onboard Peering Service connection, do the following:
 
-- Work with Internet Service provider or Internet Exchange Partner to obtain *Peering Service* to connect your network with Microsoft network.
+Work with Internet Service provider or Internet Exchange Partner to obtain Peering Service to connect your network with Microsoft network.
 
-- Ensure the connectivity providers are partnered with Microsoft.
+Ensure the connectivity providers are partnered with Microsoft.
 
 ## Onboarding Peering Service connection telemetry
 
- Customers can opt for its telemetry such as route analytics to monitor networking latency and performance when accessing Microsoft network. This can be achieved by registering connection into the Azure portal.
+Customers can opt for its telemetry such as BGP route analytics to monitor networking latency and performance when accessing the Microsoft network. This can be achieved by registering the connection into the Azure portal.
 
-To onboard Peering Service connection telemetry, customer must register service connection into the Azure portal. Refer [Register Peering Service - Azure portal](azure-portal.md) to learn the procedure.
+To onboard Peering Service connection telemetry, customer must register the Peering Service connection into the Azure portal. Refer to the [Register Peering Service - Azure portal](azure-portal.md) to learn the procedure.
 
 Following that, you can measure telemetry by referring [here](measure-connection-telemetry.md).
 
 ## Next steps
 
-To learn step by step process on how to register Peering Service, see [Register Peering Service - Azure portal](azure-portal.md).
+To learn step by step process on how to register Peering Service connection, see [Register Peering Service - Azure portal](azure-portal.md).
 
-To learn on how to measure connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+To learn about measure connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).

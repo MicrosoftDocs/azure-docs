@@ -24,9 +24,9 @@
         href: powershell.md
       - name: Azure CLI
         href: cli.md
-  - name: Measure Connection telemetry 
+  - name: Measure connection telemetry 
     href: measure-connection-telemetry.md
-- name: Reference
+- name: References
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.network
@@ -46,5 +46,5 @@
     href: https://azure.microsoft.com/pricing/details/peering-service
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: FAQ
+  - name: FAQs
     href: faq.md

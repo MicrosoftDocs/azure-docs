@@ -14,9 +14,9 @@ ms.author: v-meravi
 
 # Measure Peering Service (Preview) connection telemetry
 
-Peering Service connection telemetry is the insights collected for *Peering Service* connection. Customers can opt to obtain monitoring reports by defining the connection telemetry metrics. In this article you will learn how to view the latency report for specific *Peering Service* connection.  
+ Connection telemetry provides insights collected for the connectivity between the customer's location and the Microsoft network. In this article you will learn how to view the latency report for specific Peering Service connection.  
 
-To measure Peering Service connection telemetry, you must register Peering Service connection into the Azure portal. To learn how to register connection, refer [register the Peering Service connection - Azure portal](azure-portal.md).
+To measure Peering Service connection telemetry, you must register Peering Service connection into the Azure portal. To learn how to register connection, refer to the [Register Peering Service connection - Azure portal](azure-portal.md).
 
 > [!IMPORTANT]
 > "Peering Service” is currently in public preview.
@@ -25,7 +25,7 @@ To measure Peering Service connection telemetry, you must register Peering Servi
 
 ## View Latency Report
 
-To view latency report for specific Peering Service connection, do the following:
+To view the latency report for specific Peering Service connection, do the following:
 
 1. Click on **ALL resources** from the left pane and click on the Peering Service connection. Following that, click on the **Open** below the **Prefixes** as depicted below:  
 
@@ -37,7 +37,7 @@ To view latency report for specific Peering Service connection, do the following
    > [!div class="mx-imgBorder"]
    > ![Register Peering Service](./media/peering-service-measure/peering-service-latency-report.png)
 
-3. By default, the report is updated for every 1 hour that is displayed in this page. However, to view the report for different timelines choose the appropriate option from the **Show data for last**.  
+3. By default, the report is updated for every 1 hour that is displayed on this page. However, to view the report for different timelines choose the appropriate option from the **Show data for last**.  
 
 4. **Prefix Events** - To view events for a specific prefix, click on the prefix name and click on the **Prefix Events** on the left pane. The events that are captured will be displayed as depicted below:
 
@@ -59,6 +59,6 @@ To view latency report for specific Peering Service connection, do the following
 
 ## Next steps
 
-To learn about connection, see [Peering Service connection](connection.md).
+To learn about Peering Service connection, see [Peering Service connection](connection.md).
 
-To learn about connection telemetry, see [Peering Service connection](connection-telemetry.md).
+To learn about Peering Service connection telemetry, see [Peering Service connection](connection-telemetry.md).
