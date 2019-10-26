@@ -156,9 +156,7 @@ Application Gateway WAF provides detailed reporting on each threat that it detec
 
 ## Application Gateway WAF SKU pricing
 
-The Application Gateway WAF is available under a new a SKU. This SKU is available only in the Azure Resource Manager provisioning model, not in the classic deployment model. Additionally, the WAF SKU comes only in medium and large Application Gateway instance sizes. All the limits for Application Gateway also apply to the WAF SKU.
-
-Pricing is based on an hourly gateway instance charge and a data-processing charge. [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) for the WAF SKU differs from standard SKU charges. Data-processing charges are the same. There are no per-rule or rule-group charges. You can protect multiple web applications behind the same web application firewall. You aren't charged for supporting multiple applications.
+The pricing models are different for the WAF_v1 and WAF_v2 SKUs. Please see the [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) page to learn more. 
 
 ## Next steps
 
