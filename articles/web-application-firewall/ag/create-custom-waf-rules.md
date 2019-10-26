@@ -120,7 +120,56 @@ And the corresponding JSON:
   }
 ```
 
-## Example 2
+### Example 2
+
+You want to allow traffic from the US using the GeoMatch operator:
+
+```azurepowershell
+$variable = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RemoteAddr `
+
+$condition = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable `
+   -Operator GeoMatch `
+   -MatchValue "US" `
+   -Transform Lowercase `
+   -NegationCondition $False
+
+$rule = New-AzApplicationGatewayFirewallCustomRule `
+   -Name "allowUS" `
+   -Priority 2 `
+   -RuleType MatchRule `
+   -MatchCondition $condition `
+   -Action Block
+```
+
+And the corresponding JSON:
+
+```json
+  {
+    "customRules": [
+      {
+        "name": "allowUS",
+        "ruleType": "MatchRule",
+        "priority": 2,
+        "action": "Block",
+        "matchConditions": [
+          {
+            "matchVariable": "RequestHeaders",
+            "operator": "User-Agent",
+            "matchValues": [
+              "evilbot"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+```
+
+
+
+## Example 3
 
 You want to block all requests from IP addresses in the range 198.168.5.0/24.
 
@@ -173,7 +222,7 @@ Here's the corresponding JSON:
 Corresponding CRS rule:
   `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
-## Example 3
+## Example 4
 
 For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
 
@@ -245,7 +294,7 @@ Here's the corresponding JSON:
   } 
 ```
 
-## Example 4
+## Example 5
 
 For this example, you want to block if the request is either outside of the IP address range *192.168.5.0/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses **or**, the two conditions are in separate rules as seen in the following example. *myrule1* and *myrule2* both need to match to block the traffic.
 
@@ -332,7 +381,7 @@ And the corresponding JSON:
   }
 ```
 
-## Example 5
+## Example 6
 
 You want to block custom SQLI. Since the logic used here is **or**, and all the values are in the *RequestUri*, all of the *MatchValues* can be in a comma-separated list.
 
