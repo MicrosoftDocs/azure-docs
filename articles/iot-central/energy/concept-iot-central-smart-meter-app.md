@@ -35,5 +35,4 @@ The IoT Central platform provides two extensibility options: Continuous Data Exp
 ## Next steps
 
 * Now that you've learned about the architecture, [create smart meter app for free](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* To learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
-
+* To learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/)
