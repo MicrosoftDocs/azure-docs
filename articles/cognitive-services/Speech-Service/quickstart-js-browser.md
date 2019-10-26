@@ -14,8 +14,6 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech in JavaScript in a browser using the Speech SDK
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
 In this article, you'll learn how to create a website using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
 The application is based on the [Speech SDK for JavaScript](https://aka.ms/csspeech/jsbrowserpackage)).
 
@@ -63,15 +61,15 @@ Create a new file in the folder, named `index.html` and open this file with a te
 
 1. Add the following UI code to your file, below the first comment:
 
-   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index.html#uidiv)]
 
 1. Add a reference to the Speech SDK
 
-   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index.html#speechsdkref)]
 
 1. Wire up handlers for the recognition button, recognition result, and subscription-related fields defined by the UI code:
 
-   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index.html#quickstartcode)]
 
 ## Create the token source (optional)
 
@@ -80,11 +78,11 @@ That way, your subscription key will never leave your server while allowing user
 
 1. Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language. Enter the following code:
 
-   [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
+   [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/token.php)]
 
 1. Edit the `index.html` file and add the following code to your file:
 
-   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index.html#authorizationfunction)]
 
 > [!NOTE]
 > Authorization tokens only have a limited lifetime.

@@ -1451,6 +1451,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/faq-voice-first-virtual-assistants.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/faq-voice-assistants",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/voice-first-virtual-assistants.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/voice-assistants",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/immersive-reader/ios-picture-immersive-reader-tutorial.md",
       "redirect_url": "/azure/cognitive-services/immersive-reader/tutorial-ios-picture-immersive-reader",
       "redirect_document_id": true

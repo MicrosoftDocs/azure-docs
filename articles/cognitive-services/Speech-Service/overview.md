@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 07/05/2019
+ms.date: 11/05/2019
 ms.author: erhopf
 ---
 
@@ -30,7 +30,7 @@ These features make up the Azure Speech Services. Use the links in this table to
 | [Text-to-Speech](text-to-speech.md) | Text-to-speech | Text-to-speech converts input text into human-like synthesized speech using [Speech Synthesis Markup Language (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml). Choose from standard voices and neural voices (see [Language support](language-support.md)). | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Create Custom Voices](#customize-your-speech-experience) | Create custom voice fonts unique to your brand or product. | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multi-language translation of speech to your applications, tools, and devices. Use this service for speech-to-speech and speech-to-text translation. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
-| [Voice-first Virtual Assistants](voice-first-virtual-assistants.md) | Voice-first virtual assistants | Custom virtual assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The Bot Framework's Direct Line Speech channel enhances these capabilities by providing a coordinated, orchestrated entry point to a compatible bot that enables voice in, voice out interaction with low latency and high reliability. | [Yes](voice-first-virtual-assistants.md) | No |
+| [Voice assistants](voice-assistants.md) | Voice assistants | Voice assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. | [Yes](voice-assistants.md) | No |
 
 ## News and updates
 
@@ -43,7 +43,7 @@ Learn what's new with the Azure Speech Services.
   * Added a new speaking style, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), for the `en-US-JessaNeural` voice. 
 * June 2019
   * Released Speech SDK 1.6.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
-* May 2019 - Documentation is now available for [Conversation Transcription](conversation-transcription-service.md), [Call Center Transcription](call-center-transcription.md), and [Voice-first Virtual Assistants](voice-first-virtual-assistants.md).
+* May 2019 - Documentation is now available for [Conversation Transcription](conversation-transcription-service.md), [Call Center Transcription](call-center-transcription.md), and [voice assistants](voice-assistants.md).
 * May 2019
   * Released Speech SDK 1.5.1. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
   * Released Speech SDK 1.5.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
@@ -54,10 +54,9 @@ We offer quickstarts in most popular programming languages, each designed to hav
 
 | Speech-to-text (SDK) | Text-to-Speech (SDK) | Translation (SDK) |
 |----------------------|----------------------|-------------------|
-| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) |
-| [JavaScript (Browser)](quickstart-js-browser.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) |
-| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) |
-| [Java (Windows, Linux)](quickstart-java-jre.md) | | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) |
+| [Recognize speech from an audio file](quickstarts/speech-to-text-from-file.md) | [Synthesize speech into an audio file](quickstarts/text-to-speech-audio-file.md) | [Translate speech to text](quickstarts/translate-speech-to-text.md) |
+| [Recognize speech with a microphone](quickstarts/speech-to-text-from-microphone.md) | [Synthesize speech to a speaker](quickstarts/text-to-speech.md) | [Translate speech to multiple target languages](quickstarts/translate-speech-to-text-multiple-languages.md) |
+| [Recognize speech stored in blob storage](quickstarts/from-blob.md) | [Async synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Translate speech-to-speech](quickstarts/translate-speech-to-speech.md) |
 
 > [!NOTE]
 > Speech-to-text and text-to-speech also have REST endpoints and associated quickstarts.
@@ -75,7 +74,7 @@ Sample code is available on GitHub for each of the Azure Speech Services. These 
 * [Speech-to-text, text-to-speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
-* [Voice-first virtual assistant samples (SDK)](https://aka.ms/csspeech/samples)
+* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples)
 
 ## Customize your speech experience
 
