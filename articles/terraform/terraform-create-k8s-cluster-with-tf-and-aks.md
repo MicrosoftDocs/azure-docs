@@ -12,7 +12,7 @@ ms.date: 10/25/2019
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS allows you to deploy and manage containerized applications without container orchestration expertise. AKS also enables you to do many common maintenance operations without taking your app offline. These operations include provisioning, upgrading, and scaling resources on demand.
 
-In this tutorial, you learn how to perform the following tasks:
+In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to define a Kubernetes cluster
@@ -62,10 +62,8 @@ Create the Terraform configuration file that declares the Azure provider.
 1. In Cloud Shell, create a file named `main.tf`.
 
     ```bash
-    vi main.tf
+    code main.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -79,13 +77,7 @@ Create the Terraform configuration file that declares the Azure provider.
     }
     ```
 
-1. Exit insert mode by selecting the **Esc** key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 ## Define a Kubernetes cluster
 
@@ -94,10 +86,8 @@ Create the Terraform configuration file that declares the resources for the Kube
 1. In Cloud Shell, create a file named `k8s.tf`.
 
     ```bash
-    vi k8s.tf
+    code k8s.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -172,29 +162,21 @@ Create the Terraform configuration file that declares the resources for the Kube
     }
     ```
 
-    The preceding code sets the name of the cluster, location, and the resource_group_name. In addition, the dns_prefix value - that forms part of the fully qualified domain name (FQDN) used to access the cluster - is set.
+    The preceding code sets the name of the cluster, location, and the resource_group_name. In addition, the `dns_prefix` value is set. This value forms part of the fully qualified domain name (FQDN). The FQDN is used to access the cluster.
 
-    The **linux_profile** record allows you to configure the settings that enable signing into the worker nodes using SSH.
+    The `linux_profile` record allows you to configure the settings that enable signing into the worker nodes using SSH.
 
-    With AKS, you pay only for the worker nodes. The **agent_pool_profile** record configures the details for these worker nodes. The **agent_pool_profile record** includes the number of worker nodes to create and the type of worker nodes. If you need to scale up or scale down the cluster in the future, you modify the **count** value in this record.
+    With AKS, you pay only for the worker nodes. The `agent_pool_profile` record configures the details for these worker nodes. The `agent_pool_profile record` includes the number of worker nodes to create and the type of worker nodes. If you need to scale up or scale down the cluster in the future, you modify the `count` value in this record.
 
-1. Exit insert mode by selecting the **Esc** key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 ## Declare the variables
 
 1. In Cloud Shell, create a file named `variables.tf`.
 
     ```bash
-    vi variables.tf
+    code variables.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -241,13 +223,7 @@ Create the Terraform configuration file that declares the resources for the Kube
    }
     ```
 
-1. Exit insert mode by selecting the **Esc** key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 ## Create a Terraform output file
 
@@ -256,10 +232,8 @@ Create the Terraform configuration file that declares the resources for the Kube
 1. In Cloud Shell, create a file named `output.tf`.
 
     ```bash
-    vi output.tf
+    code output.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -293,13 +267,7 @@ Create the Terraform configuration file that declares the resources for the Kube
     }
     ```
 
-1. Exit insert mode by selecting the **Esc** key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 ## Set up Azure storage to store Terraform state
 
@@ -313,7 +281,7 @@ In this section, you see how to do the following tasks:
 
 1. Select **Storage accounts**.
 
-1. On the **Storage accounts** tab, select the name of the storage account into which Terraform is to store state. For example, you can use the storage account created when you opened Cloud Shell the first time.  The storage account name created by Cloud Shell typically starts with `cs` followed by a random string of numbers and letters. **Remember the name of the storage account you select, as it is needed later.**
+1. On the **Storage accounts** tab, select the name of the storage account into which Terraform is to store state. For example, you can use the storage account created when you opened Cloud Shell the first time.  The storage account name created by Cloud Shell typically starts with `cs` followed by a random string of numbers and letters. Take note of the storage account you select. This value is needed later.
 
 1. On the storage account tab, select **Access keys**.
 
@@ -376,7 +344,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
 ## Recover from a Cloud Shell timeout
 
-If the Cloud Shell session times out, you can perform the following steps to recover:
+If the Cloud Shell session times out, you can do the following steps to recover:
 
 1. Start a Cloud Shell session.
 
