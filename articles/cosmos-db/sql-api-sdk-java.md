@@ -39,6 +39,30 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ## Release notes
 
+### <a name="2.4.4"/>2.4.4
+* Optimized partition key range cache refreshes.
+
+### <a name="2.4.2"/>2.4.2
+* Optimized collection cache refreshes.
+
+### <a name="2.4.1"/>2.4.1
+* Added support to retrieve inner exception message from request diagnostic string.
+
+### <a name="2.4.0"/>2.4.0
+* Introduced version api on PartitionKeyDefinition.
+
+### <a name="2.3.0"/>2.3.0
+* Added separate timeout support for direct mode.
+
+### <a name="2.2.3"/>2.2.3
+* Consuming null error message from service and producing document client exception.
+
+### <a name="2.2.2"/>2.2.2
+* Socket connection improvement, adding SoKeepAlive default true.
+
+### <a name="2.2.0"/>2.2.0
+* Added request diagnostics string support.
+
 ### <a name="2.1.3"/>2.1.3
 * Fixed bug in PartitionKey for Hash V2.
 
