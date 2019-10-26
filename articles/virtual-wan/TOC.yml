@@ -28,6 +28,8 @@
   items:
   - name: Upgrade a virtual WAN SKU
     href: upgrade-virtual-wan.md
+  - name: Migrate to virtual WAN
+    href: migrate-from-hub-spoke-topology.md
   - name: Create a VPN connection over ExpressRoute private peering
     href: vpn-over-expressroute.md
   - name: Connect a virtual network gateway to Virtual WAN
