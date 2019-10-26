@@ -40,12 +40,12 @@ ms.author: maquaran
 
 ### <a name="2.2.8"/>2.2.8
 * Stability and diagnosability improvements:
-  * Added support for detecting reading change feed taking long time. When it takes longer than value configured with ChangeFeedProcessorOptions.ChangeFeedTimeout the following happens:
+  * Added support for detecting reading change feed taking long time. When it takes longer than the value specified by ChangeFeedProcessorOptions.ChangeFeedTimeout the following happens:
     * Reading change feed on problem partition is aborted.
     * The Change Feed Processor instance drops ownership of the problem lease. The lease will be picked up during next lease acquire by same or different Change Feed Processor instance and reading change feed will start over.
     * An issue is reported to health monitor. Default trace monitor sends all reported issues to trace log.
   * Added new public property: ChangeFeedProcessorOptions.ChangeFeedTimeout. Default value is 10 mins.
-  * Added new public enum value: Monitoring.MonitoredOperation.ReadChangeFeed. This can be used with HealthMonitoringRecord and indicates to health issues related to reading change feed.
+  * Added new public enum value: Monitoring.MonitoredOperation.ReadChangeFeed. When HealthMonitoringRecord.Operation value is Monitoring.MonitoredOperation.ReadChangeFeed, that and indicates to health issues related to reading change feed.
 
 ### <a name="2.2.7"/>2.2.7
 * Improved load balancing strategy for scenario when getting all leases takes longer than lease expiration interval, e.g. due to network issues:
