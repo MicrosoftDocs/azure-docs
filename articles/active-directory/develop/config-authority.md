@@ -1,5 +1,6 @@
 ---
-title: Configure MSAL for iOS and macOS to use different identity providers | Microsoft identity platform
+title: Configure MSAL for iOS and macOS to use different identity providers 
+titleSuffix: Microsoft identity platform
 description: Learn how to use different authorities such as B2C, sovereign clouds, and guest users, with MSAL for iOS and macOS.
 services: active-directory
 documentationcenter: ''

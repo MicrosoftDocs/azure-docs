@@ -41,7 +41,7 @@ The Blueprints module for PowerShell is **Az.Blueprint**.
    > If **Az.Accounts** is already installed, it may be necessary to use `-AllowClobber` to force
    > the installation.
 
-1. Validate that the module has been imported and is the correct version (0.2.5):
+1. Validate that the module has been imported and is the correct version (0.2.6):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module
