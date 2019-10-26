@@ -162,7 +162,7 @@ Create the Terraform configuration file that declares the resources for the Kube
     }
     ```
 
-    The preceding code sets the name of the cluster, location, and the resource_group_name. In addition, the `dns_prefix` value is set. This value forms part of the fully qualified domain name (FQDN). The FQDN is used to access the cluster.
+    The preceding code sets the name of the cluster, location, and the resource group name. The prefix for the fully qualified domain name (FQDN) is also set. The FQDN is used to access the cluster.
 
     The `linux_profile` record allows you to configure the settings that enable signing into the worker nodes using SSH.
 
