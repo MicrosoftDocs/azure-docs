@@ -57,7 +57,7 @@ Reservations are available today for 100 TiB or 1 PiB blocks, with higher discou
 
 You can purchase Azure Storage reserved capacity through the [Azure portal](https://portal.azure.com). Pay for the reservation up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase Azure reservations with up front or monthly payments](/azure/billing/billing-monthly-payments-reservations).
 
-For help with identifying the reservation terms that are right for your scenario, see [Understand the Azure Storage reserved capacity discount](../billing/billing-understand-storage-charges.md).
+For help with identifying the reservation terms that are right for your scenario, see [Understand the Azure Storage reserved capacity discount](../../billing/billing-understand-storage-charges.md).
 
 Follow these steps to purchase reserved capacity:
 
@@ -83,6 +83,8 @@ Follow these steps to purchase reserved capacity:
 
 1. In the **Purchase reservations** pane, review the total cost of the reservation. You can also provide a name for the reservation.
 
+    ![Screenshot showing how to purchase a reservation](media/storage-blob-reserved-capacity/purchase-reservations.png)
+
 After you purchase a reservation, it is automatically applied to any existing Azure Storage block blob or Azure Data Lake Storage Gen2 resources that match its terms. If you haven't created any Azure Storage resources yet, the reservation will apply whenever you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
 
 If the purchase is made in the middle of the month, the reserved amount is pro-rated for that month (???to check with Yash here - i don't see this in any of the other service docs???).
@@ -91,4 +93,5 @@ When a reservation expires, Azure Storage capacity is billed at the pay-as-you g
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+
