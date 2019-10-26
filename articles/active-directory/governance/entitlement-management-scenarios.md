@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-There are several ways that you can configure entitlement management for your organization. However, if you're just getting started, it's helpful to understand the common scenarios for administrators, approvers, and requestors.
+There are several ways that you can configure entitlement management for your organization. However, if you're just getting started, it's helpful to understand the common scenarios for administrators, catalog owners, access package managers, approvers, and requestors.
 
 ## Overview
 
@@ -37,7 +37,7 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **1.** [Watch video: What is Azure AD entitlement management](https://www.youtube.com/embed/_Lss6bFrnQ8) | Any role |
+> | **1.** [Watch video: What is Azure AD entitlement management?](https://www.youtube.com/embed/_Lss6bFrnQ8) | Any role |
 > | **2.** [Watch video: How to deploy Azure AD entitlement management](https://www.youtube.com/embed/zaaKvaaYwI4) | Any role |
 > | **3.** [Follow tutorial to create your first access package](entitlement-management-access-package-first.md) | Administrator |
 
@@ -71,7 +71,7 @@ There are several ways that you can configure entitlement management for your or
 > |  |  |
 > | --- | --- |
 > | **1.** [Create a new access package](entitlement-management-access-package-create.md#start-new-access-package) | Access package manager |
-> | **2.** [Add group and Teams, application, and SharePoint site roles to access package](entitlement-management-access-package-create.md#resource-roles) | Access package manager |
+> | **2.** [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-create.md#resource-roles) | Access package manager |
 > | **3.** [Add a request policy to allow users in your directory to request access](entitlement-management-access-package-create.md#for-users-in-your-directory) | Access package manager |
 > | **4.** [Specify expiration settings](entitlement-management-access-package-create.md#lifecycle) | Access package manager |
 
@@ -119,7 +119,7 @@ There are several ways that you can configure entitlement management for your or
 > | **2.** [Review lifecycle settings for external users](entitlement-management-external-users.md#manage-the-lifecycle-of-external-users) | Administrator |
 > | **3.** [Add a connection to the external organization](entitlement-management-organization.md) | Administrator |
 > | **4.** [Create a new access package](entitlement-management-access-package-create.md#start-new-access-package) | Access package manager |
-> | **5.** [Add group and Teams, application, and SharePoint site roles to access package](entitlement-management-access-package-resources.md#add-resource-roles) | Access package manager |
+> | **5.** [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-resources.md#add-resource-roles) | Access package manager |
 > | **6.** [Add a request policy to allow users not in your directory to request access](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory) | Access package manager |
 > | **7.** [Specify expiration settings](entitlement-management-access-package-create.md#lifecycle) | Access package manager |
 > | **8.** [Copy the link to request the access package](entitlement-management-access-package-settings.md) | Access package manager |
@@ -167,7 +167,7 @@ There are several ways that you can configure entitlement management for your or
 > | --- | --- |
 > | **1.** [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z) | Access package manager |
 > | **2.** Open the access package | Access package manager |
-> | **3.** [Add or remove group and Teams, application, and SharePoint site roles](entitlement-management-access-package-resources.md#add-resource-roles) | Access package manager |
+> | **3.** [Add or remove groups, Teams, applications, or SharePoint sites](entitlement-management-access-package-resources.md#add-resource-roles) | Access package manager |
 
 ### Update the duration for a project
 
@@ -204,9 +204,8 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **1.** [Add a new policy to the access package](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings) | Access package manager |
-> | **2.** [For Users who can request access, select None (administrator direct assignments only)](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only) | Access package manager |
-> | **3.** [Directly assign specific users to the access package](entitlement-management-access-package-assignments.md#directly-assign-a-user) | Access package manager |
+> | **1.** [If users need different lifecycle settings, add a new policy to the access package](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings) | Access package manager |
+> | **2.** [Directly assign specific users to the access package](entitlement-management-access-package-assignments.md#directly-assign-a-user) | Access package manager |
 
 ## Assignments and reports
 
@@ -245,5 +244,5 @@ There are several ways that you can configure entitlement management for your or
 
 ## Next steps
 
-- [Tutorial: Create your first access package](entitlement-management-access-package-first.md)
 - [Delegation and roles](entitlement-management-delegate.md)
+- [Request process and email notifications](entitlement-management-process.md)
