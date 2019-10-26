@@ -266,6 +266,9 @@
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md
+  - name: Design Policy as Code workflows
+    displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
+    href: ./concepts/policy-as-code.md
   - name: Azure Policy for Kubernetes
     items:
     - name: Policy for AKS
