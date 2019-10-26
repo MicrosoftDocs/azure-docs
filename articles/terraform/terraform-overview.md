@@ -26,14 +26,14 @@ Terraform's template-based configuration files enable you to define, provision, 
 
 As a resource topology becomes complex, understanding the meaning and impact of infrastructure changes can be difficult.
 
-Terraform provides a command-line interface (CLI) that allows users to validate and preview infrastructure changes before they are deployed. Previewing infrastructure changes in a safe, productive manner has several benefits:
+Terraform provides a command-line interface (CLI) that allows users to validate and preview infrastructure changes before they are deployed. Previewing infrastructure changes in a safe manner has several benefits:
 - Team members can collaborate more effectively by quickly understanding proposed changes and their impact.
 - Unintended changes can be caught early in the development process
 
 
 ## Deploy infrastructure to multiple clouds
 
-Terraform is a popular tool choice for multi-cloud scenarios, where similar infrastructure is deployed to Azure and additional cloud providers or on-premises datacenters. It enables developers to use the same tools and configuration files to manage infrastructure on multiple cloud providers.
+Terraform is adept for scenarios where a common (or similar) infrastructure is deployed across multiple cloud providers. It enables developers to use the same tools to manage each of your infrastructure definitions.
 
 ## Next steps
 
