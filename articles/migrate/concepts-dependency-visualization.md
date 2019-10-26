@@ -19,6 +19,7 @@ Dependency mapping helps you to visualize dependencies across machines that you 
 - Visualizing dependencies helps ensure that nothing is left behind, and avoid surprise outages during migration.
 - This feature is especially useful if you're not completely aware of machines that are part of apps, and thus should be migrated together to Azure.
 
+
 > [!NOTE]
 > The dependency visualization functionality is not available in Azure Government.
 

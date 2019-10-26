@@ -59,8 +59,8 @@ Supported operating systems for agentless dependency visualization are as follow
 
 **Type** | **Supported operating systems**
 --- | --- 
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 (64-bit) <br/> Microsoft Windows Server 2008 (32-bit)
-**Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/>Ubuntu Linux 12.04, 14.04, 16.04 <br/>   
+**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64-bit) 
+**Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14.04, 16.04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
 ## Create a user account for discovery
@@ -72,7 +72,7 @@ Set up a user account that has the required permissions so that Server Assessmen
 
 ## Add the user account to the appliance
 
-You need to add the user account you created to the appliance that's set up to discover the VMs.
+You need to add the user account to the appliance.
 
 Add the account as follows:
 
@@ -99,14 +99,16 @@ Choose the machines on which you want to enable dependency discovery.
 
     ![Start dependency discovery](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
+You will be able to visualize dependencies 6 hours after starting dependency discovery.
+
 ## Visualize dependencies
 
 1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
 2. Search for the machine for which you want to view the dependency map.
 3. Click **View dependencies** in the **Dependencies** column.
-4. To change the time period for which you want to view the map, use the **Time duration** dropdown.
+4. Change the time period for which you want to view the map using the **Time duration** dropdown.
 5. Expand the **Client** group to list the machines that have a dependency on the selected machine. 
-6. Expand the **Server port** group to list the machines that have a dependency from the selected machine. 
+6. Expand the **Port** group to list the machines that have a dependency from the selected machine. 
 7. To navigate to the map view of any of the dependent machines, click on the machine name, and then click **Load server map**
 
     ![Expand Server port group and load server map](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)
@@ -130,8 +132,6 @@ Choose the machines on which you want to stop dependency discovery.
 3. In the **Stop dependency discovery** page, choose the **appliance** that is discovering the VMs on which you look to stop dependency discovery.
 4. From the machine list, select the machines.
 5. Click **Stop dependency discovery**
-
-
 
 
 ## Next steps
