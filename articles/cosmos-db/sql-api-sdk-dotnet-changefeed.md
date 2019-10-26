@@ -45,7 +45,7 @@ ms.author: maquaran
     * The Change Feed Processor instance drops ownership of the problem lease. The lease will be picked up during next lease acquire by same or different Change Feed Processor instance and reading change feed will start over.
     * An issue is reported to health monitor. Default trace monitor sends all reported issues to trace log.
   * Added new public property: ChangeFeedProcessorOptions.ChangeFeedTimeout. Default value is 10 mins.
-  * Added new public enum value: Monitoring.MonitoredOperation.ReadChangeFeed. When HealthMonitoringRecord.Operation value is Monitoring.MonitoredOperation.ReadChangeFeed, that and indicates to health issues related to reading change feed.
+  * Added new public enum value: Monitoring.MonitoredOperation.ReadChangeFeed. When the value of HealthMonitoringRecord.Operation is Monitoring.MonitoredOperation.ReadChangeFeed, that and indicates to health issues related to reading change feed.
 
 ### <a name="2.2.7"/>2.2.7
 * Improved load balancing strategy for scenario when getting all leases takes longer than lease expiration interval, e.g. due to network issues:
