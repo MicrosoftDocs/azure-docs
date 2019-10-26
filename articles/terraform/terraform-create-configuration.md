@@ -174,7 +174,5 @@ terraform destroy -auto-approve
 
 ## Next steps
 
-In this example, you created, deployed, and destroyed a Terraform configuration. For more information on using Terraform in Azure, see the Azure Terraform provider documentation.
-
 > [!div class="nextstepaction"]
 > [Install and configure Terraform to provision Azure resources](../virtual-machines/linux/terraform-install-configure.md).

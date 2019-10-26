@@ -9,9 +9,10 @@ ms.date: 10/25/2019
 ---
 
 # Tutorial: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
-[Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
 
-In this tutorial, you learn how to perform the following tasks in creating a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using [Terraform](https://terraform.io) and AKS:
+[Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS allows you to deploy and manage containerized applications without container orchestration expertise. AKS also enables you to do many common maintenance operations without taking your app offline. These operations include provisioning, upgrading, and scaling resources on demand.
+
+In this tutorial, you learn how to perform the following tasks:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to define a Kubernetes cluster
@@ -27,6 +28,7 @@ In this tutorial, you learn how to perform the following tasks in creating a [Ku
 - **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, password, and tenant.
 
 ## Create the directory structure
+
 The first step is to create the directory that holds your Terraform configuration files for the exercise.
 
 1. Browse to the [Azure portal](https://portal.azure.com).
@@ -54,6 +56,7 @@ The first step is to create the directory that holds your Terraform configuratio
     ```
 
 ## Declare the Azure provider
+
 Create the Terraform configuration file that declares the Azure provider.
 
 1. In Cloud Shell, create a file named `main.tf`.
@@ -85,6 +88,7 @@ Create the Terraform configuration file that declares the Azure provider.
     ```
 
 ## Define a Kubernetes cluster
+
 Create the Terraform configuration file that declares the resources for the Kubernetes cluster.
 
 1. In Cloud Shell, create a file named `k8s.tf`.
@@ -246,6 +250,7 @@ Create the Terraform configuration file that declares the resources for the Kube
     ```
 
 ## Create a Terraform output file
+
 [Terraform outputs](https://www.terraform.io/docs/configuration/outputs.html) allow you to define values that will be highlighted to the user when Terraform applies a plan, and can be queried using the `terraform output` command. In this section, you create an output file that allows access to the cluster with [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 1. In Cloud Shell, create a file named `output.tf`.
@@ -297,7 +302,12 @@ Create the Terraform configuration file that declares the resources for the Kube
     ```
 
 ## Set up Azure storage to store Terraform state
-Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server utilizing [Azure storage](/azure/storage/). In this section, you retrieve the necessary storage account information (account name and account key), and create a storage container into which the Terraform state information will be stored.
+
+Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. In a multi-person environment, [Azure storage](/azure/storage/) is used to track state.
+
+In this section, you see how to do the following:
+- Retrieve storage account information (account name and account key)
+- Create a storage container into which Terraform state information will be stored.
 
 1. In the Azure portal, select **All services** in the left menu.
 
@@ -313,16 +323,17 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     ![Storage account access keys](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 
-1. In Cloud Shell, create a container in your Azure storage account (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account).
+1. In Cloud Shell, create a container in your Azure storage account. Replace the placeholders with the appropriate values for your environment.
 
     ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
 ## Create the Kubernetes cluster
+
 In this section, you see how to use the `terraform init` command to create the resources defined the configuration files you created in the previous sections.
 
-1. In Cloud Shell, initialize Terraform (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account).
+1. In Cloud Shell, initialize Terraform. Replace the placeholders with the appropriate values for your environment.
 
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
@@ -364,6 +375,7 @@ In this section, you see how to use the `terraform init` command to create the r
     ![Cloud Shell prompt](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
 ## Recover from a Cloud Shell timeout
+
 If the Cloud Shell session times out, you can perform the following steps to recover:
 
 1. Start a Cloud Shell session.
@@ -381,6 +393,7 @@ If the Cloud Shell session times out, you can perform the following steps to rec
     ```
     
 ## Test the Kubernetes cluster
+
 The Kubernetes tools can be used to verify the newly created cluster.
 
 1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
@@ -406,13 +419,11 @@ The Kubernetes tools can be used to verify the newly created cluster.
     ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
 ## Monitor health and logs
+
 When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring,
 see [Monitor Azure Kubernetes Service health](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## Next steps
-In this article, you learned how to use Terraform and AKS to create a Kubernetes cluster. Here are some additional resources to help you learn more about Terraform on Azure: 
 
- [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure provider documentation](https://aka.ms/terraform)  
- [Terraform Azure provider source](https://aka.ms/tfgit)  
- [Terraform Azure modules](https://aka.ms/tfmodules)
+> [!div class="nextstepaction"]
+> [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
