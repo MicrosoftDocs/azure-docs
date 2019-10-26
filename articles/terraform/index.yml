@@ -61,7 +61,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a Terraform VM with MSI enabled
-            url: terraform-vm-msi.md
+            url: terraform-vm-managed-identities-for-azure-resources.md
           - text: Create a VM cluster with Terraform modules
             url: terraform-create-vm-cluster-module.md
           - text: Create a VM cluster with Terraform and HCL

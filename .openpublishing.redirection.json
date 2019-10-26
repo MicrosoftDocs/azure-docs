@@ -42876,7 +42876,12 @@
     {
       "source_path": "articles/terraform/terrafom-quickstart.md",
       "redirect_url": "/azure/terraform/terraform-create-configuration",
-      "redirect_document_id": false
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/terraform/terrafom-msi.md",
+      "redirect_url": "/azure/terraform/terraform-vm-managed-identities-for-azure-resources",
+      "redirect_document_id": true
     }
   ]
 }

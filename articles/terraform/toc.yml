@@ -33,8 +33,8 @@
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infrastructure
       items:
-        - name: Create a Terraform VM with MSI enabled
-          href: terraform-vm-msi.md
+        - name: Create a Terraform VM with managed identities for Azure resources enabled
+          href: terraform-vm-managed-identities-for-azure-resources
         - name: Create a VM cluster with Terraform modules
           href: terraform-create-vm-cluster-module.md
         - name: Create a VM cluster with Terraform and HCL

@@ -16,14 +16,14 @@ The Terraform Marketplace image makes it easy to get started using Terraform on 
 
 There are no software charges for this Terraform VM image. You pay only the Azure hardware usage fees based on the provisioned VM's size. 
 
-For more information about the compute fees, see the [Linux virtual machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+For more information about the compute fees, see the [Linux VM pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 ## Prerequisites
-Before you can create a Linux Terraform virtual machine, you must have an Azure subscription. If you don't already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).  
+Before you can create a Linux Terraform VM, you must have an Azure subscription. If you don't already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).  
 
-## Create your Terraform virtual machine 
+## Create your Terraform VM 
 
-Here are the steps to create an instance of a Linux Terraform virtual machine: 
+Here are the steps to create an instance of a Linux Terraform VM: 
 
 1. In the Azure portal, go to the [Create a Resource](https://ms.portal.azure.com/#create/hub) listing.
 
@@ -31,9 +31,9 @@ Here are the steps to create an instance of a Linux Terraform virtual machine:
 
 3. On the Terraform details tab on the lower right, select the **Create** button.
 
-    ![Create a Terraform virtual machine](media/terraformmsi.png)
+    ![Create a Terraform VM](./media/terraform-vm-managed-identities-for-azure-resources/create-a-terraform-vm.png)
 
-4. The following sections provide inputs for each of the steps in the wizard to create the Terraform Linux virtual machine. The following section lists the inputs that are needed to configure each of these steps.
+4. The following sections provide inputs for each of the steps in the wizard to create the Terraform Linux VM. The following section lists the inputs that are needed to configure each of these steps.
 
 ## Details on the Create Terraform tab
 
@@ -41,7 +41,7 @@ Enter the following details on the **Create Terraform** tab:
 
 1. **Basics**
     
-   * **Name**: The name of your Terraform virtual machine.
+   * **Name**: The name of your Terraform VM.
    * **User Name**: The first account sign-in ID.
    * **Password**: The first account password. (You can use an SSH public key instead of a password.)
    * **Subscription**: The subscription on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
@@ -50,7 +50,7 @@ Enter the following details on the **Create Terraform** tab:
 
 2. **Additional settings**
 
-   * **Size**: Size of the virtual machine. 
+   * **Size**: Size of the VM. 
    * **VM disk type**: SSD or HDD.
 
 3. **Summary Terraform**
@@ -64,7 +64,7 @@ Enter the following details on the **Create Terraform** tab:
 The Terraform VM image performs the following steps:
 
 * Creates a VM with system-assigned identity that's based on the Ubuntu 16.04 LTS image.
-* Installs the MSI extension on the VM to allow OAuth tokens to be issued for Azure resources.
+* Installs the managed identities for Azure resources extension on the VM to allow OAuth tokens to be issued for Azure resources.
 * Assigns RBAC permissions to the managed identity, granting owner rights for the resource group.
 * Creates a Terraform template folder (tfTemplate).
 * Pre-configures a Terraform remote state with the Azure back end.
@@ -77,7 +77,7 @@ After you create the VM, do the following steps:
 
 1. Grant contributor permissions for the entire subscription to managed identities for Azure resources on the VM. 
 
-    Contributor permission helps MSI on VM to use Terraform to create resources outside the VM resource group. Do this action by running the following script: `. ~/tfEnv.sh`
+    Contributor permission helps managed identities for Azure resources on VM to use Terraform to create resources outside the VM resource group. Do this action by running the following script: `. ~/tfEnv.sh`
 
 1. The script in the previous step uses the [Azure CLI interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#sign-in-interactively) mechanism to authenticate with Azure. This process assigns the VM Managed Identity contributor-permission for the entire subscription. 
 
