@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 10/21/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -30,12 +30,13 @@ ms.collection: M365-identity-device-management
 
 This article describes some items you should check to help you troubleshoot Azure Active Directory (Azure AD) entitlement management.
 
-## Checklist for entitlement management administration
+## Administration
 
-* If you get an access denied message when configuring entitlement management, and you are a Global administrator, ensure that your directory has an [Azure AD Premium P2 (or EMS E5) license](entitlement-management-overview.md#license-requirements).  
+* If you get an access denied message when configuring entitlement management, and you are a Global administrator, ensure that your directory has an [Azure AD Premium P2 (or EMS E5) license](entitlement-management-overview.md#license-requirements).
+
 * If you get an access denied message when creating or viewing access packages, and you are a member of a Catalog creator group, you must [create a catalog](entitlement-management-catalog-create.md) prior to creating your first access package.
 
-## Checklist for adding a resource
+## Resources
 
 * For an application to be a resource in an access package, it must have at least one resource role that can be assigned. The roles are defined by the application itself and are managed in Azure AD. Note that the Azure portal may also show service principals for services that cannot be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they cannot be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
 
@@ -45,19 +46,23 @@ This article describes some items you should check to help you troubleshoot Azur
 
 * If there are users that have already been assigned to a resource that you want to manage with an access package, be sure that the users are assigned to the access package with an appropriate policy. For example, you might want to include a group in an access package that already has users in the group. If those users in the group require continued access, they must have an appropriate policy for the access packages so that they don't lose their access to the group. You can assign the access package by either asking the users to request the access package containing that resource, or by directly assigning them to the access package. For more information, see [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md).
 
-## Checklist for removing a resource
-
 * When you remove a member of a team, they are removed from the Office 365 Group as well. Removal from the team's chat functionality might be delayed. For more information, see [Group membership](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
-## Checklist for providing external users access
+* Ensure your directory is not configured for multi-geo. Entitlement management currently does not support multi-geo locations for SharePoint Online. SharePoint Online sites must be in the default geo-location to be governed with entitlement management. For more information, see [Multi-Geo Capabilities in OneDrive and SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+
+## External users
+
+* When an external user wants to request access to an access package, be sure that they are using the **My Access portal link** for the access package. For more information, see [Share link to request an access package](entitlement-management-access-package-settings.md). If an external user just visits **myaccess.microsoft.com** and does not use the full My Access portal link, then they will see the access packages available to them in their own organization and not in your organization.
 
 * If there is a B2B [allow list](../b2b/allow-deny-list.md), then users whose directories are not allowed will not be able to request access.
 
 * Ensure that there are no [Conditional Access policies](../conditional-access/require-managed-devices.md) that would prevent external users from requesting access or being able to use the applications in the access packages.
 
-## Checklist for request issues
+* If a new external user, that has not previously signed in your directory, receives an access package including a SharePoint Online site, their access package will show as not fully delivered until their account is provisioned in SharePoint Online.
 
-* When a user wants to request access to an access package, be sure that they are using the **My Access portal link** for the access package. For more information, see [Share link to request an access package](entitlement-management-access-package-settings.md).  If an external user visits **myaccess.microsoft.com**, then they will see the access packages available to them in their own organization.
+## Requests
+
+* When a user wants to request access to an access package, be sure that they are using the **My Access portal link** for the access package. For more information, see [Share link to request an access package](entitlement-management-access-package-settings.md).
 
 * If you open the My Access portal with your browser set to in-private or incognito mode, this might conflict with the sign-in behavior. We recommend that you do not use in-private or incognito mode for your browser when you visit the My Access portal.
 
@@ -66,8 +71,6 @@ This article describes some items you should check to help you troubleshoot Azur
 * If a user is blocked from signing in to the resource directory, they will not be able to request access in the My Access portal. Before the user can request access, you must remove the sign-in block from the user's profile. To remove the sign-in block, in the Azure portal, click **Azure Active Directory**, click **Users**, click the user, and then click **Profile**. Edit the **Settings** section and change **Block sign in** to **No**. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  You can also check if the user was blocked due to an [Identity Protection policy](../identity-protection/howto-unblock-user.md).
 
 * In the My Access portal, if a user is both a requestor and an approver, they will not see their request for an access package on the **Approvals** page. This behavior is intentional - a user cannot approve their own request. Ensure that the access package they are requesting has additional approvers configured on the policy. For more information, see [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md).
-
-* If a new external user, that has not previously signed in your directory, receives an access package including a SharePoint Online site, their access package will show as not fully delivered until their account is provisioned in SharePoint Online.
 
 ## Next steps
 
