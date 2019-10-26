@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 10/27/2019
 ms.author: victorh
 ---
 
@@ -206,8 +206,8 @@ Now, test the firewall rules to confirm that it works as expected.
 
 So now you've verified that the firewall rules are working:
 
-* You can brows[What are trusted security partners (preview)?](trusted-security-partners.md)e to the one allowed FQDN, but not to any others.
-* You can resolve DNS names using the configured external DNS server.
+* You can browse to the one allowed FQDN, but not to any others.
+
 
 
 ## Next steps
