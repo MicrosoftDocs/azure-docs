@@ -42868,10 +42868,6 @@
       "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/industry/index.md",
-      "redirect_url": "/azure/industry-marketing/index",
-      "redirect_document_id": false
-    }
+    
   ]
 }
