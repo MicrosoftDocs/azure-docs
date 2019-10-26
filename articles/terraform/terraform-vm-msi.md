@@ -14,7 +14,9 @@ This article shows you how to use a [Terraform Marketplace image](https://azurem
 
 The Terraform Marketplace image makes it easy to get started using Terraform on Azure, without having to install and configure Terraform manually. 
 
-There are no software charges for this Terraform VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that's provisioned. For more information about the compute fees, see the [Linux virtual machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+There are no software charges for this Terraform VM image. You pay only the Azure hardware usage fees based on the provisioned VM's size. 
+
+For more information about the compute fees, see the [Linux virtual machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 ## Prerequisites
 Before you can create a Linux Terraform virtual machine, you must have an Azure subscription. If you don't already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).  
@@ -67,23 +69,21 @@ The Terraform VM image performs the following steps:
 * Creates a Terraform template folder (tfTemplate).
 * Pre-configures a Terraform remote state with the Azure back end.
 
-## Access and configure a Linux Terraform virtual machine
+## Access and configure a Linux Terraform VM
 
-After you create the VM, you can sign in to it by using SSH. Use the account credentials that you created in the "Basics" section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](https://www.putty.org/).
+After you create the VM, do the following steps:
 
-After you use SSH to connect to the virtual machine, you need to give contributor permissions for the entire subscription to managed identities for Azure resources on the virtual machine. 
+1. Sign in to the VM using SSH. Use the account credentials that you created in the previous section. On Windows, you can download an SSH client tool like [Putty](https://www.putty.org/).
 
-Contributor permission helps MSI on VM to use Terraform to create resources outside the VM resource group. You can easily achieve this action by running a script once. Use the following command:
+1. Grant contributor permissions for the entire subscription to managed identities for Azure resources on the VM. 
 
-`. ~/tfEnv.sh`
+    Contributor permission helps MSI on VM to use Terraform to create resources outside the VM resource group. Do this action by running the following script: `. ~/tfEnv.sh`
 
-The previous script uses the [AZ CLI v 2.0 interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#sign-in-interactively) mechanism to authenticate with Azure and assign the virtual machine Managed Identity contributor permission on the entire subscription. 
+1. The script in the previous step uses the [Azure CLI interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#sign-in-interactively) mechanism to authenticate with Azure. This process assigns the VM Managed Identity contributor-permission for the entire subscription. 
 
- The VM has a Terraform remote state back end. To enable it on your Terraform deployment, copy the remoteState.tf file from tfTemplate directory to the root of the Terraform scripts.  
+    The VM has a Terraform remote state back end. This needs to be enabled it on your Terraform deployment. Copy the `remoteState.tf` file from the `tfTemplate` directory to the root of the Terraform scripts: `cp  ~/tfTemplate/remoteState.tf .`
 
- `cp  ~/tfTemplate/remoteState.tf .`
-
- For more information about Remote State Management, see [this page about the Terraform remote state](https://www.terraform.io/docs/state/remote.html). The storage access key is exposed in this file and needs to be excluded before committing Terraform configuration files into source control.
+    For more information about Remote State Management, see [Terraform remote state](https://www.terraform.io/docs/state/remote.html). The storage access key is exposed in this file. Therefore, it needs to be excluded before committing Terraform configuration files into source control.
 
 ## Next steps
 
