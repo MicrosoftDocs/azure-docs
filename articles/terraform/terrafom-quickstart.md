@@ -42,8 +42,8 @@ resource "random_integer" "ri" {
 
 resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
   name                = "tfex-cosmos-db-${random_integer.ri.result}"
-  location            = "${azurerm_resource_group.vote-resource-group.location}"
-  resource_group_name = "${azurerm_resource_group.vote-resource-group.name}"
+  location            = azurerm_resource_group.vote-resource-group.location
+  resource_group_name = azurerm_resource_group.vote-resource-group.name
   offer_type          = "Standard"
   kind                = "GlobalDocumentDB"
 
@@ -96,8 +96,8 @@ The configuration also includes an output block, which returns the fully qualifi
 ```hcl
 resource "azurerm_container_group" "vote-aci" {
   name                = "vote-aci"
-  location            = "${azurerm_resource_group.vote-resource-group.location}"
-  resource_group_name = "${azurerm_resource_group.vote-resource-group.name}"
+  location            = azurerm_resource_group.vote-resource-group.location
+  resource_group_name = azurerm_resource_group.vote-resource-group.name
   ip_address_type     = "public"
   dns_name_label      = "vote-aci"
   os_type             = "linux"
@@ -113,8 +113,8 @@ resource "azurerm_container_group" "vote-aci" {
     }
 
     secure_environment_variables = {
-      "COSMOS_DB_ENDPOINT"  = "${azurerm_cosmosdb_account.vote-cosmos-db.endpoint}"
-      "COSMOS_DB_MASTERKEY" = "${azurerm_cosmosdb_account.vote-cosmos-db.primary_master_key}"
+      "COSMOS_DB_ENDPOINT"  = azurerm_cosmosdb_account.vote-cosmos-db.endpoint
+      "COSMOS_DB_MASTERKEY" = azurerm_cosmosdb_account.vote-cosmos-db.primary_master_key
       "TITLE"               = "Azure Voting App"
       "VOTE1VALUE"          = "Cats"
       "VOTE2VALUE"          = "Dogs"
@@ -123,7 +123,7 @@ resource "azurerm_container_group" "vote-aci" {
 }
 
 output "dns" {
-  value = "${azurerm_container_group.vote-aci.fqdn}"
+  value = azurerm_container_group.vote-aci.fqdn
 }
 ```
 
