@@ -89,9 +89,9 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
   
 
 
-## Cassandra Query Language limits
+## Cassandra API limits
 
-Azure Cosmos DB Cassandra API does not have any limits on the size of data stored in a table. Hundreds of terabytes or Petabytes of data can be stored while ensuring partition key limits are honored. Similarly every entity or row equivalent does not have any limits on the number of columns however the total size of the entity should not exceed 2 MB.
+Azure Cosmos DB Cassandra API does not have any limits on the size of data stored in a table. Hundreds of terabytes or Petabytes of data can be stored while ensuring partition key limits are honored. Similarly every entity or row equivalent does not have any limits on the number of columns however the total size of the entity should not exceed 2 MB.The data per partition key cannot exceed 10 GB as in all other APIs.
 
 ## Tools 
 
@@ -125,7 +125,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 Azure Cosmos DB supports the following database commands on Cassandra API accounts.
 
-* CREATE KEYSPACE (The replication settings for this command are ignored, the system uses underlying [Azure Cosmos DB’s replication model](global-dist-under-the-hood.md). If you need cross region presence of data, you can enable it at the account level with PowerShell, CLI or portal, to learn more, see [how to add or remove regions for you account](how-to-manage-database-account.md#addremove-regions-from-your-database-account) article.
+* CREATE KEYSPACE (The replication settings for this command are ignored)
 * CREATE TABLE 
 * ALTER TABLE 
 * USE 
@@ -152,24 +152,32 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## Consistency mapping 
 
-Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here[(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
+Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
 
 ## Permission and role management
 
-Azure Cosmos DB supports role-based access control (RBAC) for provisioning, rotating keys, viewing metrics and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not support roles for CRUD activities. 
+Azure Cosmos DB supports role-based access control (RBAC) for provisioning, rotating keys, viewing metrics and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not support roles for CRUD activities.
 
 ## Keyspace and Table options
 
-The options of region name, class, replication_factor, datacenter  in create keyspace command are ignored at present. The system uses underlying Azure Cosmos DB’s [global distribution](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) if you add required regions. If you need cross region presence of data, you can enable it at the account level with PowerShell, CLI or portal, to learn more, see this doc: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-manage-database-account#addremove-regions-from-your-database-account. Durable_writes can't be disabled - as Cosmos DB ensures every write is durable. In every region Cosmos DB replicates data across the replicaset made up of 4 replicas and this replicaset [configuration](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) can't be modified. 
-All Table creation options are ignored,  except gc_grace_seconds which should be zero.
-Keyspace and table have extra option - cosmosdb_provisioned_throughput with minimum value of 400. Keyspace throughput allows sharing throughput across multiple tables and useful for scenarios when all tables are not utilizing the throughput. Alter Table allows changing the provisioned throughput across the regions. 
+The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB’s [global distribution](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI or portal, to learn more, see the [how to add regions](how-to-manage-database-account.md#addremove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of 4 replicas and this replica set [configuration](global-dist-under-the-hood.md) can't be modified.
+ 
+All the options are ignored when creating the table, except gc_grace_seconds which should be set to zero.
+The Keyspace and table have an extra option named "cosmosdb_provisioned_throughput" with a minimum value of 400 RU/s. The Keyspace throughput allows sharing throughput across multiple tables and it is useful for scenarios when all tables are not utilizing the provisioned throughput. Alter Table command allows changing the provisioned throughput across the regions. 
+
+```
 CREATE  KEYSPACE  sampleks WITH REPLICATION = {  'class' : 'SimpleStrategy'}   AND cosmosdb_provisioned_throughput=2000;  
+
 CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=2000; 
+
 ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
+
+```
+
 
 ## Usage of Cassandra retry connection policy
 
-Azure Cosmos DB is resource governed system. This implies you can do certain number of operations in a given second constrained by provisioned throughput based on request units consumed by operations. If application exceeds that limit in a given second - request rate limiting exceptions will be thrown. The Cosmos Db Cassandra API, translates these exceptions to overloaded errors on the Cassandra native protocol. To ensure your application can intercept and do the retry for rate limitation a [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) and [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) helper are provided. If you use other SDKs to access Cassandra API of Cosmos DB please create connection policy for retrying on getting these exceptions. 
+Azure Cosmos DB is a resource governed system. This means you can do a certain number of operations in a given second based on the request units consumed by the operations. If an application exceeds that limit in a given second,  requests are rate-limited and exceptions will be thrown. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. To ensure that your application can intercept and retry requests in case rate limitation, the [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) and the [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) extensions are provided. If you use other SDKs to access Cassandra API in Azure Cosmos DB, create a connection policy to retry on these exceptions.
 
 ## Next steps
 

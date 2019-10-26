@@ -27,12 +27,10 @@ Azure Spring Cloud enhances the application diagnostics experience for the devel
 
 ### What service plans does Azure Spring Cloud offer?
 
-Azure Spring Cloud is free during the preview period.
+Azure Spring Cloud offers one service plan during the preview period.  A Spring Cloud deployment contains 16 vCPU cores and 32GB of memory.  The upper bound for each microservice instance within a deployment is 4 vCPU cores with 8GB of memory.
 
 Resource | Amount
 ------- | -------
-vCPU | 4
-Memory | 8 GBytes
 App instances per Spring application | 20
 Total app instances per Azure Spring Cloud service instance | 50*
 Azure Spring Cloud service instances per region per subscription | 2*

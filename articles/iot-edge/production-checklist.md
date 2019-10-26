@@ -88,7 +88,7 @@ An example of this process is provided in [Configure an IoT Edge device to commu
 
 The IoT Edge hub and agent modules use local storage to maintain state and enable messaging between modules, devices, and the cloud. For better reliability and performance, configure the system modules to use storage on the host filesystem.
 
-For more information, see [Host storage for system modules](offline-capabilities.md#host-storage-for-system-modules).
+For more information, see [Host storage for system modules](how-to-access-host-storage-from-module.md).
 
 ### Reduce memory space used by IoT Edge hub
 

@@ -1,6 +1,6 @@
 ---
-title: Create and manage workflows in Visual Studio Code - Azure Logic Apps
-description: Quickstart - Create and manage logic app JSON definitions in Visual Studio Code (VS Code)
+title: Automate workflows with Visual Studio Code - Azure Logic Apps
+description: Create or edit logic app underlying JSON definitions with Visual Studio Code (VS Code)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -14,9 +14,9 @@ ms.custom: mvc
 ms.date: 10/05/2018
 ---
 
-# Quickstart: Create and manage logic app definitions by using Visual Studio Code
+# Quickstart: Create and manage logic app workflow definitions with Visual Studio Code
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio Code, you can create and manage logic apps that help you automate tasks, workflows, and processes for integrating apps, data, systems, and services across organizations and enterprises. This quickstart shows how you can create and edit logic app workflow definitions by working with the workflow definition schema in JavaScript Object Notation (JSON) through a code-based experience. You can also work on existing logic apps that are already deployed to Azure.
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio Code, you can create and manage logic apps that help you automate tasks, workflows, and processes for integrating apps, data, systems, and services across organizations and enterprises. This quickstart shows how you can create and edit the underlying workflow definitions, which use JavaScript Object Notation (JSON), for logic apps through a code-based experience. You can also work on existing logic apps that are already deployed to Azure.
 
 Although you can perform these same tasks in the [Azure portal](https://portal.azure.com) and in Visual Studio, you can get started faster in Visual Studio Code when you're already familiar with logic app definitions and want to work directly in code. For example, you can disable, enable, delete, and refresh already created logic apps. Also, you can work on logic apps and integration accounts from any development platform where Visual Studio Code runs, such as Linux, Windows, and Mac.
 
@@ -28,7 +28,7 @@ Before you start, make sure you have these items:
 
 * If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* Basic knowledge about [logic app workflow definitions](../logic-apps/logic-apps-workflow-definition-language.md) and their structure, which uses JavaScript Object Notation (JSON)
+* Basic knowledge about [logic app workflow definitions](../logic-apps/logic-apps-workflow-definition-language.md) and their structure as described with JSON
 
   If you're new to Logic Apps, try this [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), which creates your first logic apps in the Azure portal and focuses more on the basic concepts.
 

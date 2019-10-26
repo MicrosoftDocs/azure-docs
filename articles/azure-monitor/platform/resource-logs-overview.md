@@ -1,14 +1,15 @@
 ---
 title: Overview of Azure resource logs| Microsoft Docs
 description: Understand the supported services and event schema for Azure resource logs.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: reference
-ms.date: 09/20/2019
-ms.author: robb
+ms.service:  azure-monitor
 ms.subservice: logs
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 09/20/2019
+
 ---
+
 # Azure Resource logs overview
 Azure Resource logs are [platform logs](platform-logs-overview.md) emitted by Azure resources that describe their internal operation. All resource logs share a common top-level schema with the flexibility for each service to emit unique properties for their own events.
 

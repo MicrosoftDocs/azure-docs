@@ -1,6 +1,6 @@
 ---
-title:  Set up a sink transformation in the Mapping Data Flow feature of Azure Data Factory 
-description: Learn how to set up a sink transformation in the Mapping Data Flow.
+title:  Set up a sink transformation in the mapping data flow feature of Azure Data Factory 
+description: Learn how to set up a sink transformation in the mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -56,6 +56,10 @@ When turn-off auto-mapping, you will have the option to add either column-based 
 When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view the names of the generated fields during debug and using the data preview pane.
 
 Details on pattern matching are at [Column Pattern documentation](concepts-data-flow-column-pattern.md).
+
+You can also enter regular expression patterns when using rule based matching by expanding the row and entering a regular expression next to "Name Matches:".
+
+![Regex Mapping](media/data-flow/scdt1g4.png "Regex mapping")
 
 ## File name options
 

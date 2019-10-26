@@ -68,7 +68,7 @@ Checking all file systems.
 
 This problem may occur if the file system was not shut down cleanly or storage related issues. The issues include hardware or software errors, issues with drivers or programs, write errors, etc. It is always important to have a backup of critical data. The tools that describe in this article may help recover file systems, but it is data loss can still occur.
 
-Linux has several file system checkers available. The most common for the distributions in Azure are: [FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific), and [Xfs_repair](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
+Linux has several file system checkers available. The most common for the distributions in Azure are: [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific), and [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
 
 ## Resolution
 
