@@ -57,7 +57,8 @@ After you deploy the app, you'll see the simulated solar panel data within 1-2 m
 
 ## Next steps
 To get started building an energy solution:
-* Deploy the application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), 
+* Create application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), 
 [solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Learn more about IoT Central: [IoT Central overview](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
-
+* Learn about [smart meter monitoring app concepts](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+* Learn about [solar panel monitoring app concepts](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+* Learn about [IoT Central platform](https://docs.microsoft.com/azure/iot-central/)

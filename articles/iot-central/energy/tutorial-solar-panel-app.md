@@ -99,7 +99,7 @@ If you decide to not continue using this application, delete your application wi
 
 
 ## Next steps
-
-* To learn about solar panel app architecture refer to the concept article. 
+* Learn about solar panel app architecture refer to [the concept article](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
 * Create solar panel application templates for free: [solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
+* Learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/)
 
