@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -35,8 +35,8 @@ The libraries supporting the authorization code flow for web Apps are:
 | MSAL library | Description |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supported platforms are .NET Framework and .NET Core platforms (not UWP, Xamarin.iOS, and Xamarin.Android as those platforms are used to build public client applications) |
-| ![MSAL.Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Development in progress - in public preview |
-| ![MSAL.Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Development in progress - in public preview |
+| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Development in progress - in public preview |
+| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Development in progress - in public preview |
 
 Select the tab corresponding to the platform you're interested in:
 
@@ -367,14 +367,14 @@ public partial class Startup
         }
       });
   }
-  
+
   private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification context)
   {
       // Upon successful sign in, get the access token & cache it using MSAL
       IConfidentialClientApplication clientApp = MsalAppBuilder.BuildConfidentialClientApplication(new ClaimsPrincipal(context.AuthenticationTicket.Identity));
       AuthenticationResult result = await clientApp.AcquireTokenByAuthorizationCode(new[] { "Mail.Read" }, context.Code).ExecuteAsync();
   }
-  
+
   private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)
   {
       notification.HandleResponse();
@@ -531,10 +531,10 @@ public static class MsalAppBuilder
             .WithRedirectUri(AuthenticationConfig.RedirectUri)
             .WithAuthority(new Uri(AuthenticationConfig.Authority))
             .Build();
-  
+
       // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache with our implementation
       MSALPerUserMemoryTokenCache userTokenCache = new MSALPerUserMemoryTokenCache(clientapp.UserTokenCache, currentUser ?? ClaimsPrincipal.Current);
-  
+
       return clientapp;
   }
 ```
@@ -557,7 +557,7 @@ IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, 
   }
 
   SilentParameters parameters = SilentParameters.builder(
-          Collections.singleton("User.ReadBasic.All"),
+          Collections.singleton("User.Read"),
           result.account()).build();
 
   CompletableFuture<IAuthenticationResult> future = app.acquireTokenSilently(parameters);
