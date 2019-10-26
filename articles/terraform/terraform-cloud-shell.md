@@ -10,9 +10,7 @@ ms.date: 10/25/2019
 
 # Tutorial: Configure Azure Cloud Shell for Terraform
 
-Terraform works great from a Bash command line such as macOS Terminal or Bash on Windows or Linux. Running your Terraform configurations in the Bash experience of the [Azure Cloud Shell](/azure/cloud-shell/overview) has some unique advantages to speed up your development cycle.
-
-This concepts article covers Cloud Shell features that help you write Terraform scripts that deploy to Azure.
+Terraform works well from a Bash command line in macOS, Windows, or Linux. Running your Terraform configurations in the Bash experience of the [Azure Cloud Shell](/azure/cloud-shell/overview) has some unique advantages. This tutorial shows how to write Terraform scripts that deploy to Azure using Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
