@@ -1,5 +1,5 @@
 ---
-title: Develop .NET Standard functions for Azure Stream Analytics Edge jobs (Preview)
+title: Develop .NET Standard functions for Azure Stream Analytics Edge jobs
 description: Learn how to develop .NET user-defined functions for Azure Stream Analytics jobs using CodeBehind, an existing package, or a local project.
 services: stream-analytics
 author: mamccrea
