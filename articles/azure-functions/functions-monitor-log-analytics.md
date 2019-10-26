@@ -23,7 +23,7 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
 ## Setting up
 
-From the Monitoring section, select **Diagnostic settings** and the click **Add**
+From the Monitoring section, select **Diagnostic settings** and then click **Add**.
 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
@@ -33,7 +33,7 @@ In the setting page, choose **Send to Log Analytics**, and under **LOG** choose 
 
 ## User generated logs
 
-To generate custom logs, you can use the specific logging statement depending on your language, here are sample code snippets
+To generate custom logs, you can use the specific logging statement depending on your language, here are sample code snippets:
 
 **JavaScript**
 
@@ -67,7 +67,7 @@ To generate custom logs, you can use the specific logging statement depending on
 
 ## Querying the logs
 
-To query the generated logs, go to the log analytics workspace and click **Logs**
+To query the generated logs, go to the log analytics workspace and click **Logs**.
 
 ![Query window in LA workspace](media/functions-monitor-log-analytics/querying.png)
 
