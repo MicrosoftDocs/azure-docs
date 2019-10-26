@@ -399,7 +399,7 @@ Add the code-behind source as follows:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP virtual assistant application in C# - quickstart](media/sdk/qs-virtual-assistant-uwp-helloworld-window.png)
+   ![Sample UWP virtual assistant application in C# - quickstart](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
 1. Select **Enable Microphone**. If the access permission request pops up, select **Yes**.
 
