@@ -1,5 +1,5 @@
 ---
-title: 'How To: Add Validations to Custom Command parameters (Preview)'
+title: 'How To: Add validations to Custom Command parameters (Preview)'
 titleSuffix: Azure Cognitive Services
 description: In this article, add validations to Custom Command parameters
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 10/09/2019
 ms.author: donkim
 ---
 
-# How To: Add Validations to Custom Command parameters (Preview)
+# How To: Add validations to Custom Command parameters (Preview)
 
 In this article, you'll learn how to add validations to parameters and prompt for correction.
 
@@ -54,11 +54,11 @@ To demonstrate validations, let's create a new Command allowing the user to set 
 
 1. Add a Completion rule to confirm result
 
-| Setting    | Suggested value                                         | Description                                        |
-| ---------- | ------------------------------------------------------- | -------------------------------------------------- |
-| Rule Name  | Confirmation Message                                    | A name describing the purpose of the rule          |
-| Conditions | Required Parameter - Temperature                        | Conditions that determine when the rule can run    |
-| Actions    | SpeechResponse - "Ok, setting to {Temperature} degrees" | The action to take when the rule condition is true |
+   | Setting    | Suggested value                                         | Description                                        |
+   | ---------- | ------------------------------------------------------- | -------------------------------------------------- |
+   | Rule Name  | Confirmation Message                                    | A name describing the purpose of the rule          |
+   | Conditions | Required Parameter - Temperature                        | Conditions that determine when the rule can run    |
+   | Actions    | SpeechResponse - "Ok, setting to {Temperature} degrees" | The action to take when the rule condition is true |
 
 > [!TIP]
 > This example uses a speech response to confirm the result. For examples on completing the Command with a client action see:
@@ -75,6 +75,3 @@ Select the Test panel and try a few interactions.
 - Output: "Sorry, I can only set between 60 and 80 degrees"
 - Input: make it 72 degrees instead
 - Output: "Ok, setting to 72 degrees"
-
-## Next steps
-

@@ -31,8 +31,8 @@ The application will recognize an utterance like "turn on the tv" and respond wi
   1. Select Authoring in the create options
   1. After the resource is deployed, go to the resource and copy the key from the Quickstart or Keys section
 
-> [!div class="mx-imgBorder"]
-> ![Create authoring resource](media/custom-speech-commands/resources-LUIS-authoring.png)
+      > [!div class="mx-imgBorder"]
+      > ![Create authoring resource](media/custom-speech-commands/resources-lu-authoring.png)
 
 ## Go to the Speech Studio for Custom Commands
 

@@ -26,8 +26,8 @@ In this article, we will extend this application with parameters so that it can 
 1. Create a new parameter to represent whether the user wants to turn the device on or off
    - Select the `+` icon next to the Parameters section
 
-> [!div class="mx-imgBorder"]
-> ![Create parameter](media/custom-speech-commands/create-on-off-parameter.png)
+   > [!div class="mx-imgBorder"]
+   > ![Create parameter](media/custom-speech-commands/create-on-off-parameter.png)
 
    | Setting            | Suggested value | Description                                                                                               |
    | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
@@ -56,9 +56,9 @@ In this article, we will extend this application with parameters so that it can 
 
 With parameters, it's helpful to add sample sentences that cover all possible combinations. For example:
 
-- Full parameter information - `"turn {OnOff} the {SubjectDevice}"`
-- Partial parameter information - `"turn it {OnOff}"`
-- No parameter information - `"turn something"`
+1. Full parameter information - `"turn {OnOff} the {SubjectDevice}"`
+1. Partial parameter information - `"turn it {OnOff}"`
+1. No parameter information - `"turn something"`
 
 Sample sentences with different amounts of information allow the Custom Commands application to resolve both one-shot resolutions and multi-turn resolutions with partial information.
 

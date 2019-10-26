@@ -133,5 +133,5 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [How To: Add Validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
+> [How To: Add validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
 
