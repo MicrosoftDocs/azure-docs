@@ -10,7 +10,12 @@ ms.date: 10/25/2019
 
 # Quickstart: Create a Terraform configuration for Azure
 
-In this quickstart, you gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB instance, an Azure Container Instance, and an application that works across these two resources. This document assumes that all work is completed in Azure Cloud Shell, which has Terraform tooling pre-installed. 
+In this quickstart, you create Azure resources using Terraform. The steps in this article walk you through creating the following resources:
+
+> [!div class="checklist"]
+> * Azure Cosmos DB instance
+> * Azure Container Instance
+> * App  that works across these two resources
 
 ## Create first configuration
 
@@ -67,19 +72,19 @@ resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
 
 In this section, you use several Terraform commands to run the configuration.
 
-1. The [terraform init](https://www.terraform.io/docs/commands/init.html) command initializes the working directory. Run the following commnad in Cloud Shell:
+1. The [terraform init](https://www.terraform.io/docs/commands/init.html) command initializes the working directory. Run the following command in Cloud Shell:
 
 ```bash
 terraform init
 ```
 
-1. The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command can be used to validate the configuration syntax. The `-out` parameter directs the results to a file. The output file can be used later to apply the configuration. Run the following commnad in Cloud Shell:
+1. The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command can be used to validate the configuration syntax. The `-out` parameter directs the results to a file. The output file can be used later to apply the configuration. Run the following command in Cloud Shell:
 
 ```bash
 terraform plan --out plan.out
 ```
 
-1. The [terraform apply](https://www.terraform.io/docs/commands/apply.html) command is used to apply the configuration. The output file from the previous step is specified. This command causes the Azure resources to be created. Run the following commnad in Cloud Shell:
+1. The [terraform apply](https://www.terraform.io/docs/commands/apply.html) command is used to apply the configuration. The output file from the previous step is specified. This command causes the Azure resources to be created. Run the following command in Cloud Shell:
 
 ```bash
 terraform apply plan.out
@@ -153,7 +158,7 @@ terraform apply plan.out
 
 ## Test application
 
-To test the application, navigate to the FQDN of the container instance. You should see results similar to the following:
+To test the application, navigate to the FQDN of the container instance. You should see results similar to the following output:
 
 ![Azure vote application](media/terraform-quickstart/azure-vote.jpg)
 
