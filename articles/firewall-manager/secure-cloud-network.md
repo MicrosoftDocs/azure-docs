@@ -212,4 +212,5 @@ So now you've verified that the firewall rules are working:
 
 ## Next steps
 
-Learn about trusted security partners - [What are trusted security partners (preview)?](trusted-security-partners.md)
+> [!div class="nextstepaction"]
+> [Learn about trusted security partners](trusted-security-partners.md)
