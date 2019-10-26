@@ -74,5 +74,5 @@ This article describes some items you should check to help you troubleshoot Azur
 
 ## Next steps
 
-- [View reports of how users got access in entitlement management](entitlement-management-reports.md)
 - [Govern access for external users](entitlement-management-external-users.md)
+- [View reports of how users got access in entitlement management](entitlement-management-reports.md)
