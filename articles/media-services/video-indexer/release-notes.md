@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 10/27/2019
 ms.author: juliako
 ---
 
@@ -23,6 +23,12 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## October 2019
+ 
+* Search for animated characters in the gallery
+
+    When indexing animated characters, the user will be able to search for them in the account’s video galley.
 
 ## September 2019
  
