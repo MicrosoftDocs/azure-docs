@@ -37,8 +37,6 @@
       href: architecture-smart-inventory-management-pnp.md 
     - name: Store analytics architecture
       href: store-analytics-architecture.md 
-    - name: Connectivity
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
       
 - name: How-to guides
   items:
@@ -77,8 +75,7 @@
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Create custom analytics with Databricks
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-        - name: Create custom analytics with Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+
     - name: Administration
       items:
         - name: Change application settings
