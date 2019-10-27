@@ -5,7 +5,7 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: overview
-ms.date: 10/25/2019
+ms.date: 10/26/2019
 ---
 
 # Terraform with Azure

@@ -5,7 +5,7 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 10/26/2019
 ---
 
 # Tutorial: Create on-premises virtual network in Azure using Terraform
