@@ -20,7 +20,7 @@ ms.author: juliako
 
 Over time, there have been steady improvements and enhancements to Media Service components. As a result, some legacy components have been retired. You can find the instructions on how to migrate your application from the legacy component to a current component in the following articles.
 
-## Legacy components and migration guidance
+## Retirement plans of legacy components and migration guidance
 
 We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. These processors are being retired on November 30, 2019.
 
