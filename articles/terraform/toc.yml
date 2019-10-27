@@ -17,10 +17,12 @@
       maintainContext: true
 - name: Tutorials
   items:
-    - name: Setup and Configuration
+    - name: Setup and configuration
       items:
         - name: Store Terraform state in Azure Storage
           href: terraform-backend.md
+        - name: Configure Azure Cloud Shell for Terraform
+          href: terraform-cloud-shell.md
     - name: App Service
       items:
         - name: Terraform and Azure provider deployment slots

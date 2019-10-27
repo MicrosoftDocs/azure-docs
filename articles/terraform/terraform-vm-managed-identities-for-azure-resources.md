@@ -27,13 +27,11 @@ Here are the steps to create an instance of a Linux Terraform VM:
 
 1. In the Azure portal, go to the [Create a Resource](https://ms.portal.azure.com/#create/hub) listing.
 
-2. In the **Search the Marketplace** search bar, search for **Terraform**. Select the **Terraform** template. 
+1. In the **Search the Marketplace** search bar, search for **Terraform**. 
 
-3. On the Terraform details tab on the lower right, select the **Create** button.
+1. Select the **Create**. 
 
-    ![Create a Terraform VM](./media/terraform-vm-managed-identities-for-azure-resources/create-a-terraform-vm.png)
-
-4. The following sections provide inputs for each of the steps in the wizard to create the Terraform Linux VM. The following section lists the inputs that are needed to configure each of these steps.
+1. The following sections provide inputs for each of the steps in the wizard to create the Terraform Linux VM. The following section lists the inputs that are needed to configure each of these steps.
 
 ## Details on the Create Terraform tab
 

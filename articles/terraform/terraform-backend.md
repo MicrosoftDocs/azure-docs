@@ -119,7 +119,5 @@ For more information on Azure Storage encryption, see [Azure Storage Service Enc
 
 ## Next steps
 
-## Next steps
-
 > [!div class="nextstepaction"] 
 > [Terraform on Azure](/azure/ansible/)

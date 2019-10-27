@@ -24,11 +24,11 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Before you begin
-> * [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
-> * [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys) if you don't already have one
-> * [Install Packer](https://www.packer.io/docs/install/index.html) If you don't already have Packer installed on your local machine
+## Prerequisites
 
+- **Terraform**: [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **SSH key pair**: [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Packer**:  [Install Packer](https://www.packer.io/docs/install/index.html).
 
 ## Create the file structure
 
