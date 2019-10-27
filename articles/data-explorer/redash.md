@@ -30,6 +30,8 @@ You need the following to complete this article:
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
+## \\Add info from Grafana
+
 ## Create queries in Redash 
 
 1. Sign in to [Redash](https://www.redash.io/). Select **Get Started** to create an account.
