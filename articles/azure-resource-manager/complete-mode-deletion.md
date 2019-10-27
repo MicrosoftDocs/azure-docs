@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager complete mode deletion by resource type
+title: Azure Resource Manager complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -159,7 +159,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.StorSimple](#microsoftstorsimple)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft.Subscription](#microsoftsubscription)
-> - [Microsoft.Synapse](#microsoftsynapse)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
@@ -1938,16 +1937,6 @@ Jump to a resource provider namespace:
 > | rename | No |
 > | SubscriptionDefinitions | No |
 > | SubscriptionOperations | No |
-
-## Microsoft.Synapse
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | workspaces | Yes |
-> | workspaces/bigDataPools | Yes |
-> | workspaces/operationStatuses | No |
-> | workspaces/sqlPools | Yes |
 
 ## Microsoft.TimeSeriesInsights
 

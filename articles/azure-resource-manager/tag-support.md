@@ -156,7 +156,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.StorSimple](#microsoftstorsimple)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft.Subscription](#microsoftsubscription)
-> - [Microsoft.Synapse](#microsoftsynapse)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
@@ -1949,16 +1948,6 @@ Jump to a resource provider namespace:
 > | rename | No | No |
 > | SubscriptionDefinitions | No | No |
 > | SubscriptionOperations | No | No |
-
-## Microsoft.Synapse
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | workspaces | Yes | Yes |
-> | workspaces/bigDataPools | Yes | Yes |
-> | workspaces/operationStatuses | No | No |
-> | workspaces/sqlPools | Yes | Yes |
 
 ## Microsoft.TimeSeriesInsights
 
