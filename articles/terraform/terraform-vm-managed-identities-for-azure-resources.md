@@ -10,7 +10,7 @@ ms.date: 10/26/2019
 
 # Tutorial: Create a Linux VM with a managed identity from the Azure Marketplace image using Terraform
 
-This article shows you how to use a [Terraform Marketplace image](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) to create an Ubuntu Linux VM (16.04 LTS) with the latest [Terraform](https://www.terraform.io/intro/index.html) version installed and configured using [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). This image also configures a remote back end to enable [remote state](https://www.terraform.io/docs/state/remote.html) management using Terraform. 
+This article shows you how to use a [Terraform Marketplace image](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) to create an Ubuntu Linux VM (16.04 LTS) with the latest [Terraform](https://www.terraform.io/intro/index.html) version installed and configured using [managed identities for Azure resources](/azure/active-directory/managed-service-identity/overview). This image also configures a remote back end to enable [remote state](https://www.terraform.io/docs/state/remote.html) management using Terraform. 
 
 The Terraform Marketplace image makes it easy to get started using Terraform on Azure, without having to install and configure Terraform manually. 
 

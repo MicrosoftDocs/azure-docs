@@ -389,7 +389,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
 ## Monitor health and logs
 
 When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring,
-see [Monitor Azure Kubernetes Service health](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+see [Monitor Azure Kubernetes Service health](/azure/azure-monitor/insights/container-insights-overview).
 
 ## Next steps
 

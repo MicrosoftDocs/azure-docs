@@ -25,8 +25,8 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin
-> * [Install Terraform and configure access to Azure](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure)
-> * [Create an SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) if you don't already have one
+> * [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
+> * [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys) if you don't already have one
 > * [Install Packer](https://www.packer.io/docs/install/index.html) If you don't already have Packer installed on your local machine
 
 
@@ -155,7 +155,7 @@ The resource group contains the following resources:
 
 
 ## Create an Azure image using Packer
-Create a custom Linux image using the steps outlined in the tutorial, [How to use Packer to create Linux virtual machine images in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/build-image-with-packer).
+Create a custom Linux image using the steps outlined in the tutorial, [How to use Packer to create Linux virtual machine images in Azure](/azure/virtual-machines/linux/build-image-with-packer).
  
 Follow the tutorial to create a deprovisioned Ubuntu image with NGINX installed.
 
