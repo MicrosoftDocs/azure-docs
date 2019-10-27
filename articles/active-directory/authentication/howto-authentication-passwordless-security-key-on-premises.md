@@ -19,7 +19,10 @@ ms.collection: M365-identity-device-management
 
 This document focuses on enabling passwordless authentication to on-premises resources for environments with both **Azure AD joined** and **hybrid Azure AD joined** Windows 10 devices. This functionality provides seamless single sign-on (SSO) to on-premises resources using Microsoft-compatible security keys.
 
-For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password.
+|     |
+| --- |
+| FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 ## SSO to on-premises resources using FIDO2 keys
 
@@ -33,7 +36,7 @@ An Azure AD Kerberos Server object will be created in your on-premises Active Di
 1. Azure AD checks the directory for a Kerberos server key matching the user's on-premises AD domain.
    1. Azure AD generates a Kerberos TGT for the user's on-premises AD domain. The TGT only includes the user's SID. No authorization data is included in the TGT.
 1. The TGT is returned to the client along with their Azure AD Primary Refresh Token (PRT).
-1. The client machine contacts an on-premises AD domain controller and trades the partial TGT for a fully formed TGT. 
+1. The client machine contacts an on-premises AD domain controller and trades the partial TGT for a fully formed TGT.
 1. The client machine now has an Azure AD PRT and a full Active Directory TGT and can access both cloud and on-premises resources.
 
 ## Requirements
@@ -45,13 +48,15 @@ Organizations must meet the following software requirements.
 - Azure AD joined devices must be running Windows 10 version 1809 or higher
 - Hybrid Azure AD joined devices must be running Windows 10 Insider Build 18945 or newer
 - Upgrade to the latest version of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect)
-- Hybrid environments require fully patched Windows Server 2016/2019 Domain Controllers.
+- Fully patched Windows Server 2016/2019 Domain Controllers to handle the on-premises authentication request load.
 
-## Known limitations
+### Supported scenarios
 
 - The scenario supports single sign-on (SSO) to both:
    - Cloud resources like Office 365 and other SAML enabled applications.
    - On-premises resources, and Windows-Integrated authentication to web sites, including web sites and SharePoint sites that require IIS Authentication, and/or resources that use NTLM authentication.
+
+### Unsupported scenarios
 
 The following scenarios are not supported:
 
@@ -66,7 +71,7 @@ The following scenarios are not supported:
 Administrators will use PowerShell tools from their Azure AD Connect server to create an Azure AD Kerberos Server object in their on-premises directory.
 
 1. Upgrade to the latest version of Azure AD Connect. The instructions assume you have already configured Azure AD Connect to support your hybrid environment.
-1.	On the Azure AD Connect Server, open an elevated PowerShell prompt, and navigate to C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\
+1. On the Azure AD Connect Server, open an elevated PowerShell prompt, and navigate to C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\
 1. Run the following PowerShell commands to create a new Azure AD Kerberos server object in both your on-premises Active Directory domain and Azure Active Directory tenant.
 
 > [!NOTE]
@@ -141,9 +146,19 @@ For example, your organization has an Active Directory forest with two domains, 
 
 You will need to run the steps in [Create Kerberos server object](#create-kerberos-server-object) in each domain and forest in your organization.
 
-## Known issues
+## Known behavior
 
-Logon with FIDO will be blocked if your password has expired. expectation for user to reset password over lock screen before being able to log in using FIDO
+Logon with FIDO will be blocked if your password has expired. The expectation is for user to reset their password before being able to log in using FIDO.
+
+## Troubleshooting and feedback
+
+If you would like to share feedback or encounter issues while previewing this feature, please share via the Windows Feedback Hub app.
+
+1. Launch **Feedback Hub** and make sure you're signed in.
+1. Submit feedback under the following categorization:
+   1. Category: Security and Privacy
+   1. Subcategory: FIDO
+1. To capture logs, use **Recreate my Problem**.
 
 ## Frequently asked questions
 
@@ -161,15 +176,7 @@ We are working on this capability for GA of this feature.
 
 ### Where can I go to find compliant Security Keys?
 
-The following vendors provide security keys that work with our services. Please work with these vendors to get the correct set of keys for validation.
-
-- Yubico
-- Feitian
-- HID
-- Ensurity
-- eWBM
-
-Check out this page to get a list of vendors that provide compatible keys
+[FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 
 ### Can I use a phone as a Windows Hello security key?
 
@@ -177,7 +184,7 @@ We are investigating support for phones for future releases.
 
 ### What do I do if I lose my Security Key?
 
-You can remove keys from the Azure portal, by navigating to the security info page and removing the security key 
+You can remove keys from the Azure portal, by navigating to the security info page and removing the security key.
 
 ### What do I do if Windows Hello Face is too quick and preventing me from trying FIDO?
 
@@ -185,14 +192,14 @@ Windows Hello Face is the intended best experience for a device where a user has
 
 ### I’m not able to use FIDO immediately after I create a hybrid Azure AD joined machine
 
-If clean installing a hybrid Azure AD joined machine, post domain join and restart you must sign in with a password and wait for policy to sync before being able to use FIDO to sign in
+If clean installing a hybrid Azure AD joined machine, post domain join and restart you must sign in with a password and wait for policy to sync before being able to use FIDO to sign in.
 
 - Check your current status by typing dsregcmd /status into a command window and check that both AzureAdJoined and DomainJoined are showing YES.
 - This delay is a known limitation for domain joined devices and not FIDO specific.
 
 ### I’m unable to get SSO to my NTLM network resource after signing in with FIDO and get a credential prompt
 
-There are known limitations based on how many servers have the new build and which will respond in time to service your resource request. To check if you can see a server that is running the feature, check the output of `nltest /dsgetdc:contoso /keylist /kdc`
+There are known limitations based on how many servers have the new build and which will respond in time to service your resource request. To check if you can see a server that is running the feature, check the output of `nltest /dsgetdc:contoso /keylist /kdc`.
 
 ## Next steps
 
