@@ -12,10 +12,12 @@ ms.date: 10/25/2019
 
 [Terraform](https://docs.microsoft.com/azure/terraform/) provides a way to easily create infrastructure on Azure. [Yeoman](https://yeoman.io/) greatly eases the job of the module developer in creating Terraform modules while providing an excellent *best practices* framework.
 
-In this article, you learn how to use the Yeoman module generator to create a base Terraform template. You will then learn how to test your new Terraform template using two different methods:
-
-- Run your Terraform module using a Docker file that you create in this article.
-- Run your Terraform module natively in Azure Cloud Shell.
+In this article, you learn the following:
+> [!div class="checklist"]
+> * Create a base Terraform template using the Yeoman module generator.
+> * Test the Terraform template using two different methods.
+> * Run the Terraform module using a Docker file.
+> * Run the Terraform module natively in Azure Cloud Shell.
 
 ## Prerequisites
 
@@ -63,13 +65,13 @@ To verify that Yeoman is installed, run the following command:
 yo --version
 ```
 
-### Create an empty folder to hold the Yeoman-generated module
+### Create a directory for the Yeoman-generated module
 
 The Yeoman template generates files in the current directory. For this reason, you need to create a directory.
 
 This empty directory is required to be put under $GOPATH/src. For more information about this path, see the article [Setting GOPATH](https://github.com/golang/go/wiki/SettingGOPATH).
 
-1. Navigate to the parent directory that you want to contain the new, empty directory we are about to create.
+1. Navigate to the parent directory from which to create a new directory.
 
 1. Run the following command replacing the placeholder. For this example, a directory name of `GeneratorDocSample` is used.
 
@@ -227,12 +229,9 @@ In this section, you will use the Yeoman generator to create and test a module i
 
 1. Start an Azure Cloud Shell session via either the [Azure portal](https://portal.azure.com/), [shell.azure.com](https://shell.azure.com), or the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
-1. **The Welcome to Azure Cloud Shell** page opens. Select **Bash (Linux)**. (Power Shell is not supported.)
+1. **The Welcome to Azure Cloud Shell** page opens. Select **Bash (Linux)**.
 
     ![Welcome to Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
-
-    >[!NOTE]
-    >In this example, Bash (Linux) was selected.
 
 1. If you have not already set up an Azure storage account, the following screen appears. Select **Create storage**.
 
@@ -242,21 +241,25 @@ In this section, you will use the Yeoman generator to create and test a module i
 
     ![Your cloud drive has been created](media/terraform-vscode-module-generator/ymg-your-cloud-drive-has-been-created-in.png)
 
-### Prepare a folder to hold your Terraform module
+### Prepare a directory to hold your Terraform module
 
 1. At this point, Cloud Shell will have already configured GOPATH in your environment variables for you. To see the path, enter `go env`.
 
-1. Create the $GOPATH folder, if one does not already exist: Enter `mkdir ~/go`.
+1. Create the $GOPATH directory, if one does not already exist: Enter `mkdir ~/go`.
 
-1. Create a folder within the $GOPATH folder: Enter `mkdir ~/go/src`. This folder will be used to hold and organize different project folders you may create, such as the `<your-module-name>` folder we will create in the next step.
+1. Create a directory within the $GOPATH directory. This directory is used to hold the different project directories created in this example. 
 
-1. Create a folder to hold your Terraform module replacing the placeholder. For this example, a directory name of `my-module-name` is used.
+    ```bash
+    mkdir ~/go/src
+    ```
+
+1. Create a directory to hold your Terraform module replacing the placeholder. For this example, a directory name of `my-module-name` is used.
 
     ```bash
     mkdir ~/go/src/<your-module-name>
     ```
 
-1. Navigate to your module folder: 
+1. Navigate to your module directory: 
 
     ```bash
     cd ~/go/src/<your-module-name>
@@ -276,7 +279,7 @@ In this section, you will use the Yeoman generator to create and test a module i
     bundle install
     ```
 
-1. Run the following commnad to build the module:
+1. Run the following command to build the module:
 
     ```bash
     rake build
@@ -290,7 +293,7 @@ In this section, you will use the Yeoman generator to create and test a module i
     rake e2e
     ```
 
-    ![Example of the test pass](media/terraform-vscode-module-generator/ymg-pass.png)
+    ![Test pass results](media/terraform-vscode-module-generator/ymg-pass.png)
 
 ## Next steps
 
