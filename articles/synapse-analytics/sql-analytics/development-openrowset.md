@@ -79,7 +79,7 @@ In this example, if unstructured_data_path='https://mystorageaccount.dfs.core.wi
 WITH clause allows you to specify columns which you want to read from files. 
 
 - In case of CSV data files, to read all the columns, simply provide column names and their data types. In case you want a subset of columns, use ordinal number to pick the columns from originating data files by ordinal (i.e. columns will be binded by ordinal). WITH clause is mandatory for CSV files.
-- In case of Parquet data files, provide column names which match the column names in the originating data files (i.e. columns will be binded by name). If WITH clause is ommited, all columns from Parquet files will be returned.
+- In case of Parquet data files, provide column names which match the column names in the originating data files (i.e. columns will be binded by name). If WITH clause is omitted, all columns from Parquet files will be returned.
 
 column_name
 Name for the output column. If provided, this name overrides the column name in the source file.
@@ -100,8 +100,7 @@ WITH (
 ```
 
 ESCAPE_CHAR = 'char'
-Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself or any of the delimiter values, the escape character is dropped when reading the value.
-The ESCAPE_CHAR parameter will be applied regarding of whether FIELDQUOTE is enabled or not. It however will not be used to escape the quoting character. The quoting character will get escaped with double-quotes in alignment with the Excel CSV behavior.
+Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself or any of the delimiter values, the escape character is dropped when reading the value. The ESCAPE_CHAR parameter will be applied regarding of whether FIELDQUOTE is enabled or not. It however will not be used to escape the quoting character. The quoting character will get escaped with double-quotes in alignment with the Excel CSV behavior.
 
 FIELDTERMINATOR ='field_terminator'
 Specifies the field terminator to be used. The default field terminator is “**,**” (comma character).
