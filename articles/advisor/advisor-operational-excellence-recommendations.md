@@ -1,5 +1,5 @@
 ---
-title: Improve operational excellency for your Azure subcriptions with Azure Advisor | Microsoft Docs
+title: Improve operational excellency for your Azure subscriptions with Azure Advisor | Microsoft Docs
 description: Use Advisor to optimize and get mature in operational excellence for your Azure subscriptions.
 services: advisor
 documentationcenter: NA
@@ -39,3 +39,13 @@ Azure Policy is a service in Azure that you use to create, assign, and manage po
 3. Specify allowed virtual machine SKUs for deployments: This policy enables you to specify a set of virtual machine SKUs that your organization can deploy.
 4. Enforce 'Audit VMs that do not use managed disks' using Azure policy
 5. Use 'Inherit a tag from resource groups' using Azure policy: The policy adds or replaces the specified tag and value from the parent resource group when any resource is created or updated. Existing resources can be remediated by triggering a remediation task.
+
+## Next steps
+
+To learn more about Advisor recommendations, see:
+* [Introduction to Advisor](advisor-overview.md)
+* [Get Started](advisor-get-started.md)
+* [Advisor Cost recommendations](advisor-cost-recommendations.md)
+* [Advisor Performance recommendations](advisor-performance-recommendations.md)
+* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor Security recommendations](advisor-security-recommendations.md)
