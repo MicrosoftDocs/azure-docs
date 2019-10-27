@@ -126,12 +126,12 @@ This empty directory is required to be put under $GOPATH/src. For more informati
 
 The following files were created by the Yeoman module generator. For more information about these files and their usage, see [Terratest in Terraform Modules.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster).
 
-- `main.tf` - Defines a module called *random-shuffle*. The input is a *string_list*. The output is the count of the permutations.
+- `main.tf` - Defines a module called `random-shuffle`. The input is a `string_list`. The output is the count of the permutations.
 - `variables.tf` - Defines the input and output variables used by the module.
-- `outputs.tf` - Defines what the module outputs. Here, it is the value returned by **random_shuffle**, which is a built-in, Terraform module.
+- `outputs.tf` - Defines what the module outputs. Here, it's the value returned by `random_shuffle`, which is a built-in, Terraform module.
 - `Rakefile` - Defines the build steps. These steps include:
     - `build` - Validates the formatting of the main.tf file.
-    - `unit` -  The generated module skeleton does not include code for a unit test. If you want to specify a unit test scenario, you would you add that code here.
+    - `unit` -  The generated module skeleton doesn't include code for a unit test. If you want to specify a unit test scenario, you would you add that code here.
     - `e2e` - Runs an end-to-end test of the module.
 - `test`
     - Test cases are written in Go.
@@ -144,7 +144,7 @@ The following files were created by the Yeoman module generator. For more inform
 This section shows how to test a Terraform module using a Docker file.
 
 >[!NOTE]
->In our example, we are running the module as a local module, and not actually touching Azure.
+>This example runs the module locally; not on Azure.
 
 ### Confirm Docker is installed and running
 
@@ -166,22 +166,15 @@ To confirm that Docker is actually running, enter `docker info`.
 
     The message **Successfully built** will be displayed.
 
-    ![Successfully built](media/terraform-vscode-module-generator/ymg-successfully-built.png)
+    ![Message indicating a successful build](media/terraform-vscode-module-generator/ymg-successfully-built.png)
 
-1. From the command prompt, enter `docker image ls`.
+1. From the command prompt, enter `docker image ls` to see your created module `terra-mod-example` listed.
 
-    You will see your newly created module *terra-mod-example* listed.
+    ![List containing the new module](media/terraform-vscode-module-generator/ymg-repository-results.png)
 
-    ![Repository results](media/terraform-vscode-module-generator/ymg-repository-results.png)
+1. Enter `docker run -it terra-mod-example /bin/sh`. After running the `docker run` command, you're in the Docker environment. At that point, you can discover the file by using the `ls` command.
 
-    >[!NOTE]
-    >The module's name, *terra-mod-example*, was specified in the command you entered in step 1, above.
-
-1. Enter `docker run -it terra-mod-example /bin/sh`.
-
-    You are now running in Docker and can list the file by entering `ls`.
-
-    ![List Docker file](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
+    ![File list in Docker](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
 
 ### Build the module
 
@@ -190,8 +183,6 @@ To confirm that Docker is actually running, enter `docker info`.
     ```bash
     bundle install
     ```
-
-    Wait for the **Bundle complete** message, then continue with the next step.
 
 1. Run the following command:
 
@@ -219,9 +210,9 @@ To confirm that Docker is actually running, enter `docker info`.
 
 In this section, you will use the Yeoman generator to create and test a module in Cloud Shell. Using Cloud Shell instead of using a Docker file greatly simplifies the process. Using Cloud Shell, the following products are all pre-installed:
 
-- You do not need to install Node.js
-- You do not need to install Yeoman
-- You do not need to install Terraform
+- Node.js
+- Yeoman
+- Terraform
 
 ### Start a Cloud Shell session
 
@@ -243,7 +234,7 @@ In this section, you will use the Yeoman generator to create and test a module i
 
 1. At this point, Cloud Shell will have already configured GOPATH in your environment variables for you. To see the path, enter `go env`.
 
-1. Create the $GOPATH directory, if one does not already exist: Enter `mkdir ~/go`.
+1. Create the $GOPATH directory, if one doesn't already exist: Enter `mkdir ~/go`.
 
 1. Create a directory within the $GOPATH directory. This directory is used to hold the different project directories created in this example. 
 
