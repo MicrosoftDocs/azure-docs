@@ -28,7 +28,7 @@ A Service Principal as a special limited management identity that is granted onl
 
 ### Steps to create the Service Principal
 
-In this example, we will use [Azure PowerShell](/powershell/azure/install-az-ps) to create a Service Principal Name (SPN). Alternatively, you can follow the steps listed under [Create a Service Principal using the Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md) for this task.
+In this example, we will use [Azure PowerShell](/powershell/azure/install-az-ps) to create a Service Principal Name (SPN). Alternatively, you can follow the steps listed under [Create a Service Principal using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) for this task.
 
 The `Azure Connected Machine Onboarding` role contains only the permissions required for onboarding. You can define the permission of a SPN to allow its scope to cover a resource group or a subscription.
 
@@ -150,8 +150,8 @@ Parameters:
 * `tenant-id` : The Tenant GUID. You can find it in Azure portal by selecting **Azure Active directory** -> **properties** -> **Directory ID**.
 * `subscription-id` : The GUID of the subscription, in Azure, where you want to connect your machine.
 * `resource-group` : The resource group where you want your machine connected.
-* `location` : See [Azure regions and locations](https://azure.microsoft.com/en-us/global-infrastructure/regions/). This location can be the same, or different, as the resource group's location. For public preview, the service is supported in **WestUS2** and **West Europe**.
-* `resource-name` :  (*Optional*) Used for the Azure resource representation of your on-premise machine. If you do not specify this value, the machine hostname will be used.
+* `location` : See [Azure regions and locations](https://azure.microsoft.com/global-infrastructure/regions/). This location can be the same, or different, as the resource group's location. For public preview, the service is supported in **WestUS2** and **West Europe**.
+* `resource-name` :  (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname will be used.
 
 You can find more information on the 'azcmagent' tool in [Azcmagent Reference](azcmagent-reference.md).
 <!-- Isn't this still needed to view machines? -->
