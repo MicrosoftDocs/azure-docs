@@ -83,7 +83,6 @@ Additionally, each instance in the transcription section will include the langua
 * Custom language models are not available when using multi-language detection.
 * Adding keywords is not supported.
 * When exporting closed caption files the language indication will not appear.
-* The "update transcript" API is not supported.
 * The update transcript API does not support multiple languages files.
 
 ## Next steps
