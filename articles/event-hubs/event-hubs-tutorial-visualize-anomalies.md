@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Visualize data anomalies in real-time events - Azure Event Hubs
+title: Visualize data anomalies in real-time events - Azure Event Hubs | Microsoft Docs
 # event-hubs-tutorial-visualize-anomalies.md
 description: Tutorial - Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs
 services: event-hubs
@@ -9,8 +9,8 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 10/23/2019
-#Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an event hub.
+ms.date: 02/26/2019
+#Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an event hub. 
 ---
 
 # Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs
