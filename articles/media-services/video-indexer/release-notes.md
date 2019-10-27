@@ -28,7 +28,7 @@ To stay up-to-date with the most recent developments, this article provides you 
  
 * Search for animated characters in the gallery
 
-    When indexing animated characters, the user will be able to search for them in the account’s video galley. For more information, see [Animated characters recognition](animated-characters-recognition.md).
+    When indexing animated characters, you can now search for them in the account’s video galley. For more information, see [Animated characters recognition](animated-characters-recognition.md).
 
 ## September 2019
  
