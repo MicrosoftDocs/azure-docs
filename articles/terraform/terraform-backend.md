@@ -71,9 +71,13 @@ To further protect the Azure Storage account access key, store it in Azure Key V
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
-To configure Terraform to use the backend, include a *backend* configuration with a type of *azurerm* inside of the Terraform configuration. Add the *storage_account_name*, *container_name*, and *key* values to the configuration block.
+To configure Terraform to use the backend, the following steps need to be done:
+- Include a `backend` configuration block with a type of `azurerm`.
+- Add a `storage_account_name` value to the configuration block.
+- Add a `container_name` value to the configuration block.
+- Add a `key` value to the configuration block.
 
-The following example configures a Terraform backend and creates an Azure resource group. Replace the values with values from your environment.
+The following example configures a Terraform backend and creates an Azure resource group.
 
 ```hcl
 terraform {
@@ -99,7 +103,7 @@ You can now find the state file in the Azure Storage Blob.
 
 ## State locking
 
-Azure Storage blobs are automatically locked before any operation that writes state. This pattern prevents multiple concurrent state operations, which can cause corruption. 
+Azure Storage blobs are automatically locked before any operation that writes state. This pattern prevents concurrent state operations, which can cause corruption. 
 
 For more information, see [State Locking][https://www.terraform.io/docs/state/locking.html] on the Terraform documentation.
 
