@@ -10,7 +10,7 @@ ms.date: 10/25/2019
 
 # Tutorial: Create a Terraform base template in Azure using Yeoman
 
-[Terraform](https://docs.microsoft.com/azure/terraform/) provides a way to easily create infrastructure on Azure. [Yeoman](https://yeoman.io/) greatly eases the job of the module developer in creating Terraform modules while providing an excellent *best practices* framework.
+In this tutorial, you'll learn how to use the combination of [Terraform](https://docs.microsoft.com/azure/terraform/) and [Yeoman](https://yeoman.io/). Terraform is a tool for creating infrastructure on Azure. Yeoman makes it easy to create Terraform modules.
 
 In this article, you learn how to do the following tasks:
 > [!div class="checklist"]
@@ -136,7 +136,7 @@ The following files were created by the Yeoman module generator. For more inform
 - `test`
     - Test cases are written in Go.
     - All codes in test are end-to-end tests.
-    - End-to-end tests try to use Terraform to provision all of the items defined under `fixture` and then compare the output in the `template_output.go` code with the pre-defined expected values.
+    - End-to-end tests attempt to provision all of the items defined under `fixture`. The results in the `template_output.go` file are compared with the pre-defined expected values.
     - `Gopkg.lock` and `Gopkg.toml`: Defines the dependencies. 
 
 ## Test your new Terraform module using a Docker file
@@ -208,7 +208,7 @@ To confirm that Docker is actually running, enter `docker info`.
 
 ## Use Yeoman generator to create and test a module in Cloud Shell
 
-In this section, you will use the Yeoman generator to create and test a module in Cloud Shell. Using Cloud Shell instead of using a Docker file greatly simplifies the process. Using Cloud Shell, the following products are all pre-installed:
+In this section, the Yeoman generator is used to create and test a module in Cloud Shell. Using Cloud Shell instead of using a Docker file greatly simplifies the process. Using Cloud Shell, the following products are all pre-installed:
 
 - Node.js
 - Yeoman
