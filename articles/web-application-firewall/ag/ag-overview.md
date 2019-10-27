@@ -59,20 +59,30 @@ This section describes the core benefits that WAF on Application Gateway provide
 - Configurable request size limits with lower and upper bounds.
 - Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
 
+## WAF Policy
+
+To enable a Web Application Firewall on an Application Gateway, you must create a WAF Policy. This Policy is where all of the managed rules, custom rules, exclusions, and other customizations such as file upload limit exist. 
+
 ### Core rule sets
 
 Application Gateway supports three rule sets: CRS 3.1, CRS 3.0, and CRS 2.2.9. These rules protect your web applications from malicious activity.
 
 For more information, see [Web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
+### Custom rules
+
+Application Gateway also support custom rules. With custom rules, you can create your own rules, which are evaluated for each request that passes through WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. If a set of conditions are met, an action is taken to allow or block. 
+
+For more information, see [Custom Rules for Application Gateway.](https://docs.microsoft.com/azure/application-gateway/custom-waf-rules-overview)
+
 ### Bot Mitigation (preview)
 
-A managed Bot protection rule set can be enabled for your WAF to block or log requests from known malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. Intelligent Security Graph powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
+A managed Bot protection rule set can be enabled for your WAF to block or log requests from known malicious IP addresses, alongside the managed ruleset. The IP addresses are sourced from the Microsoft Threat Intelligence feed. Intelligent Security Graph powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
 
 > [!NOTE]
 > Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-If Bot Protection is enabled, incoming requests that match Malicious Bots client IPs are logged in the Firewall log, see more information below. You may access WAF logs from storage account, event hub, or log analytics.
+If Bot Protection is enabled, incoming requests that match Malicious Bots client IPs are logged in the Firewall log, see more information below. You may access WAF logs from storage account, event hub, or log analytics. 
 
 ### WAF modes
 
@@ -133,21 +143,29 @@ Application Gateway WAF provides detailed reporting on each threat that it detec
   "time": "2017-03-20T15:52:09.1494499Z",
   "category": "ApplicationGatewayFirewallLog",
   "properties": {
-    "instanceId": "ApplicationGatewayRole_IN_0",
-    "clientIp": "104.210.252.3",
-    "clientPort": "4835",
-    "requestUri": "/?a=%3Cscript%3Ealert(%22Hello%22);%3C/script%3E",
-    "ruleSetType": "OWASP",
-    "ruleSetVersion": "3.0",
-    "ruleId": "941320",
-    "message": "Possible XSS Attack Detected - HTML Tag Handler",
-    "action": "Blocked",
-    "site": "Global",
-    "details": {
-      "message": "Warning. Pattern match \"<(a|abbr|acronym|address|applet|area|audioscope|b|base|basefront|bdo|bgsound|big|blackface|blink|blockquote|body|bq|br|button|caption|center|cite|code|col|colgroup|comment|dd|del|dfn|dir|div|dl|dt|em|embed|fieldset|fn|font|form|frame|frameset|h1|head|h ...\" at ARGS:a.",
-      "data": "Matched Data: <script> found within ARGS:a: <script>alert(\\x22hello\\x22);</script>",
-      "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
-      "line": "865"
+    {
+      "instanceId": "ApplicationGatewayRole_IN_0",
+      "clientIp": "52.161.109.145",
+      "clientPort": "0",
+      "requestUri": "/",
+      "ruleSetType": "OWASP",
+      "ruleSetVersion": "3.0",
+      "ruleId": "920350",
+      "ruleGroup": "920-PROTOCOL-ENFORCEMENT",
+      "message": "Host header is a numeric IP address",
+      "action": "Matched",
+      "site": "Global",
+      "details": {
+        "message": "Warning. Pattern match \"^[\\\\d.:]+$\" at REQUEST_HEADERS:Host ....",
+        "data": "127.0.0.1",
+        "file": "rules/REQUEST-920-PROTOCOL-ENFORCEMENT.conf",
+        "line": "791"
+      },
+      "hostname": "127.0.0.1",
+      "transactionId": "16861477007022634343"
+      "policyId": "/subscriptions/1496a758-b2ff-43ef-b738-8e9eb5161a86/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/globalWafPolicy",
+      "policyScope": "Global",
+      "policyScopeName": " Global "
     }
   }
 } 
