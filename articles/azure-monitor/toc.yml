@@ -119,10 +119,6 @@
       href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
-  - name: Monitoring scenarios
-    items:
-    - name: Monitor Azure service
-      href: insights/monitor-azure-resource.md
   - name: Manage Azure Monitor
     items:
     - name: Design a workspace deployment
@@ -472,6 +468,10 @@
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md        
+  - name: Monitoring scenarios
+    items:
+    - name: Monitor Azure service
+      href: insights/monitor-azure-resource.md
   - name: Monitor resources
     items:
     - name: Containers
@@ -754,16 +754,6 @@
       href: platform/data-collector-api.md
     - name: Log Analytics Data Collector API Pipeline example
       href: platform/create-pipeline-datacollector-api.md
-  - name: System Center
-    items:
-    - name: Connect Operations Manager
-      href: platform/om-agents.md
-    - name: Assess Operations Manager
-      href: insights/scom-assessment.md
-    - name: Connect Configuration Manager
-      href: platform/collect-sccm.md
-  - name: Stream data to Event Hubs
-    href: platform/resource-logs-stream-event-hubs.md
   - name: Analyze data
     items:
     - name: Metrics
@@ -1060,6 +1050,16 @@
         href: insights/solutions-resources-views.md
       - name: Best practices
         href: insights/solutions-best-practices.md
+  - name: System Center integration
+    items:
+    - name: Connect Operations Manager
+      href: platform/om-agents.md
+    - name: Assess Operations Manager
+      href: insights/scom-assessment.md
+    - name: Connect Configuration Manager
+      href: platform/collect-sccm.md
+  - name: Stream data to Event Hubs
+    href: platform/resource-logs-stream-event-hubs.md
 - name: Reference
   items:
   - name: Service limits
