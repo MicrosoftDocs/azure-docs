@@ -59,9 +59,9 @@ Enter the following details on the **Create Terraform** tab:
 
 4. **Buy**
 
-   * To start the provisioning process, select **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size that you chose in the size step.
+   * To start the provisioning process, select **Buy**. A link is provided to the terms of the transaction. The VM doesn't have any additional charges beyond the compute for the server size that you chose in the size step.
 
-The Terraform VM image performs the following steps:
+The Terraform VM image does the following steps:
 
 * Creates a VM with system-assigned identity that's based on the Ubuntu 16.04 LTS image.
 * Installs the managed identities for Azure resources extension on the VM to allow OAuth tokens to be issued for Azure resources.
@@ -91,7 +91,7 @@ After you create the VM, do the following steps:
     cp  ~/tfTemplate/remoteState.tf .
     ```
 
-    For more information about Remote State Management, see [Terraform remote state](https://www.terraform.io/docs/state/remote.html). The storage access key is exposed in this file. Therefore, it needs to be excluded before committing Terraform configuration files into source control.
+    For more information about Remote State Management, see [Terraform remote state](https://www.terraform.io/docs/state/remote.html). The storage access key is exposed in this file. Exclude it before committing Terraform configuration files into source control.
 
 ## Next steps
 
