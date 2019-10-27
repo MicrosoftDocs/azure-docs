@@ -183,7 +183,7 @@ The following are sample test cases for passwordless authentication with securit
 | The user can sign in with FIDO2 device (1809) | User can select Security Key from sign in window, and successfully sign in. |
 | The user can register FIDO2 device (1903) | User can register FIDO2 device at Settings > Accounts > sign in options > Security Key |
 | The user can reset FIDO2 device (1903) | User can reset FIDO2 device at Settings > Accounts > sign in options > Security Key |
-| The user can sign in with FIDO2 device (1809) | User can select Security Key from sign in window, and successfully sign in. |
+| The user can sign in with FIDO2 device (1903) | User can select Security Key from sign in window, and successfully sign in. |
 
 **Passwordless FIDO sign in to Azure AD web apps**
 
