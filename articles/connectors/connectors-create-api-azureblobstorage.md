@@ -50,7 +50,7 @@ Here are options that permit access to the storage account from Azure Logic Apps
 
 ### Access storage accounts as a trusted service
 
-For trusted Microsoft services to access storage account through firewalls, add an exception that gives those services access to your storage account. This solution enables Azure services that support [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md) to access storage accounts through firewalls as trusted services. On logic apps that run in the global, multi-tenant Azure, [enable managed identity support](../logic-apps/create-managed-service-identity.md). You can then [use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) with the HTTP action or another action that supports managed identities for authenticating access to your storage account. Connectors don't yet support creating connections that use managed identities.
+For trusted Microsoft services to access storage account through firewalls, add an exception that gives those services access to your storage account. This solution lets Azure services that support [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md) to access storage accounts through firewalls as trusted services. On logic apps that run in the global, multi-tenant Azure, [enable managed identity support](../logic-apps/create-managed-service-identity.md). You can then [use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) with the HTTP action or another action that supports managed identities for authenticating access to your storage account. Connectors don't yet support creating connections that use managed identities.
 
 1. On your storage account, under **Settings**, select **Firewalls and virtual networks**. Under **Allow access from**, select the **Selected networks** option so that the related settings appear.
 
@@ -58,9 +58,9 @@ For trusted Microsoft services to access storage account through firewalls, add 
 
    ![Allow trusted services](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 
-1. On your logic app, [turn on managed identity support](../logic-apps/create-managed-service-identity.md). 
+1. On your logic app, [enable managed identity support](../logic-apps/create-managed-service-identity.md).
 
-1. Use the HTTP action or another action that supports managed identities [Use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) action for authenticating access to the storage account.
+1. In your logic app, [use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) in an HTTP action or another action that supports managed identities for authenticating access to the storage account.
 
 <a name="access-other-regions"></a>
 
