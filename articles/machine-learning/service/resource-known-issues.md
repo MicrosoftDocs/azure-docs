@@ -138,6 +138,12 @@ If you see a `FailToSendFeather` error when reading data on Azure Databricks clu
 * Add `azure-dataprep` version 1.1.8 or above.
 * Add `pyarrow` version 0.11 or above.
 
+## Azure Machine Learning Datasets
+
+### Failed to read parquet files on Azure Data Lake Storage Gen2
+
+Reading parquet files from Azure Data Lake Storage Gen2 datastores does not work if you have `azureml-dataprep==1.1.25` installed. It will fail with `Cannot seek once reading started.`. If you see this error, you can either install `azureml-dataprep<=1.1.24` or install `azureml-dataprep>=1.1.26`.
+
 ## Azure portal
 
 If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
