@@ -42894,7 +42894,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/terraform/terrafom-msi.md",
+      "source_path": "articles/terraform/terraform-vm-msi.md",
       "redirect_url": "/azure/terraform/terraform-vm-managed-identities-for-azure-resources",
       "redirect_document_id": true
     }
