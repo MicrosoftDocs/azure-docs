@@ -16,7 +16,7 @@ Terraform state is used to reconcile deployed resources with Terraform configura
 - Terraform state can include sensitive information
 - Storing state locally increases the chance of inadvertent deletion
 
-Terraform includes the concept of a state backend, which is remote storage for Terraform state. When using a state backend, the state file is stored in a data store such as Azure Storage. This document details how to configure and use Azure Storage as a Terraform state backend.
+Terraform supports the persisting of state in remote storage. One such supported backend is Azure Storage. This document shows how to configure and use Azure Storage for this purpose.
 
 ## Configure storage account
 
@@ -99,7 +99,7 @@ You can now find the state file in the Azure Storage Blob.
 
 ## State locking
 
-When using an Azure Blob Storage to store state, the blob is automatically locked before any operation that writes state. This configuration prevents multiple concurrent state operations, which can cause corruption. 
+Azure Storage blobs are automatically locked before any operation that writes state. This pattern prevents multiple concurrent state operations, which can cause corruption. 
 
 For more information, see [State Locking][https://www.terraform.io/docs/state/locking.html] on the Terraform documentation.
 
