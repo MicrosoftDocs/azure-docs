@@ -56,8 +56,7 @@ Format of the input files containing data to be queried. Valid values are:
 - ‘PARQUET’ - Binary file in Parquet format 
 
 unstructured_data_path 
-Provides path to data in form of `'<prefix>://<storage_account_path>/<storage_path>'` or
-Provides the connectivity protocol and path to the external data source.
+Provides path to data in form of `'<prefix>://<storage_account_path>/<storage_path>'`.
 
 | External Data Source       | Prefix | Storage account path                                |
 | -------------------------- | ------ | --------------------------------------------------- |
