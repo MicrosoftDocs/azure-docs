@@ -47,8 +47,10 @@ landingContent:
         links:
           - text: Create and manage policies
             url: ./tutorials/create-and-manage.md
-          - text: Use VSCode extension
+          - text: Use VS Code extension
             url: ./how-to/extension-for-vscode.md
+          - text: Design Policy as Code workflows
+            url: ./concepts/policy-as-code.md
       - linkListType: deploy
         links:
           - text: Index of policy samples
