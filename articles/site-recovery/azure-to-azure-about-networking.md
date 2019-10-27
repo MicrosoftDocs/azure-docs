@@ -43,7 +43,7 @@ If you are using a URL-based firewall proxy to control outbound connectivity, al
 
 **URL** | **Details**  
 --- | ---
-*.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can whitelist the specific storage account URLs (Ex: cache1.blob.core.windows.net and cache2.blob.core.windows.net) instead of *.blob.core.windows.net
+*.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can allow access to the specific storage account URLs (Ex: cache1.blob.core.windows.net and cache2.blob.core.windows.net) instead of *.blob.core.windows.net
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding 'Site Recovery IP' if your firewall proxy supports IPs.
 *.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM. You can use the corresponding 'Site Recovery Monitoring IP' if your firewall proxy supports IPs.
@@ -57,7 +57,7 @@ If you are using an IP-based firewall proxy, or NSG rules to control outbound co
     - Allow these addresses so that data can be written to the cache storage account, from the VM.
 - Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
     - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
-- Site Recovery service endpoint IP addresses - available in an [XML file](https://aka.ms/site-recovery-public-ips) and depend on your target location. It is recommended to whitelist the tag **AzureSiteRecovery** for Site Recovery service access.
+- Site Recovery service endpoint IP addresses - available in an [XML file](https://aka.ms/site-recovery-public-ips) and depend on your target location. It is recommended to allow access to the tag **"AzureSiteRecovery"** for Site Recovery service access.
 - We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
 
 
@@ -123,7 +123,7 @@ This example shows how to configure NSG rules for a VM to replicate.
 - The example presumes that the VM source location is "East US" and the target location is "Central US".
 
 > [!NOTE]
-> It is recommended to use **AzureSiteRecovery tag** instead of IP addresses to whitelist access to **Site Recovery service**.
+> It is recommended to use **AzureSiteRecovery tag** instead of IP addresses to allow access to **Site Recovery service**.
 
 ### NSG rules - East US
 

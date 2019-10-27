@@ -47,8 +47,8 @@ This tutorial shows you how to run a disaster recovery drill for an Azure VM, fr
 3. Select the target Azure virtual network to which Azure VMs in the secondary region will be
    connected, after the failover occurs.
 
-> [!NOTE]
-> Dropdown to select Azure virtual network will not be visible if the test failover settings are pre-configured for the replicated item.
+    > [!NOTE]
+    > Dropdown to select Azure virtual network will not be visible if the test failover settings are pre-configured for the replicated item.
 
 4. To start the failover, click **OK**. To track progress, click the VM to open its properties. Or,
    you can click the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site
