@@ -12,10 +12,10 @@ ms.author: hamusa
 
 This article describes the dependency visualization feature in Azure Migrate: Server Assessment.
 
-Dependency mapping helps you to visualize dependencies across machines that you want to assess and migrate. You typically use dependency mapping when you want to assess machines with higher levels of confidence.
+Dependency visualization helps you to understand dependencies across machines that you want to assess and migrate. You typically use dependency mapping when you want to assess machines with higher levels of confidence.
 
-- In Azure Migrate: Server Assessment, you gather machines together into groups for assessment. Groups usually consist of machines that you want to migrate together, and dependency mapping helps you to cross-check machine dependencies, so that you can group machines accurately.
-- Using mapping, you can discover interdependent systems that need to migrate together. You can also identify whether a running system is still serving users, or is a candidate for decommissioning instead of migration.
+- In Azure Migrate: Server Assessment, you gather machines together into groups for assessment. Groups usually consist of machines that you want to migrate together, and dependency visualization helps you to cross-check machine dependencies, so that you can group machines accurately.
+- Using visualization, you can discover interdependent systems that need to migrate together. You can identify whether running systems are still in use, or whether systems can be decommissioned instead of migrated.
 - Visualizing dependencies helps ensure that nothing is left behind, and avoid surprise outages during migration.
 - This feature is especially useful if you're not completely aware of machines that are part of apps, and thus should be migrated together to Azure.
 
@@ -23,15 +23,33 @@ Dependency mapping helps you to visualize dependencies across machines that you 
 > [!NOTE]
 > The dependency visualization functionality is not available in Azure Government.
 
+## Agent-based and agentless
 
-## What do I need to deploy dependency visualization?
+There are two options for deploying dependency visualization:
+
+- **Agentless dependency visualization**: This option is currently in preview. It doesn't require you to install any agents on machines. 
+    - It works by capturing the TCP connection data from machines for which it's enabled. [Learn more](how-to-create-group-machine-dependencies-agentless.md).
+After dependency discovery is started, the appliance gathers data from machines at a polling interval of five minutes.
+    - The following data is collected:
+        - TCP connections
+        - Names of processes that have active connections
+        - Names of installed applications that run the above processes
+        - No. of connections detected at every polling interval
+- **Agent-based dependency visualization**: To use agent-based dependency visualization, you need to download and install the following agents on each on-premises machine that you want to analyze.  
+    - [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) about how to install the MMA agent.
+    - The [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) about how to install the dependency agent.
+    - In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
+
+## Agent-based requirements
+
+### What do I need to deploy dependency visualization?
 
 Before you deploy dependency visualization you should have an Azure Migrate project in place, with the Azure Migrate: Server Assessment tool added to the project. You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises machines.
 
 [Learn more](how-to-assess.md) about adding the tool, and deploying an appliance for [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
 
 
-## How does it work?
+### How does it work?
 
 Azure Migrate uses the [Service Map](../operations-management-suite/operations-management-suite-service-map.md) solution in [Azure Monitor logs](../log-analytics/log-analytics-overview.md) for dependency visualization.
 
@@ -44,25 +62,8 @@ Azure Migrate uses the [Service Map](../operations-management-suite/operations-m
     ![Navigate Log Analytics workspace](./media/concepts-dependency-visualization/oms-workspace.png)
 
 
-## Agent-based and agentless
 
-There are two options for deploying dependency visualization:
-
-- **Agentless dependency visualization**: This option is currently in preview. It doesn't require you to install any agents on machines. 
-    - It works by capturing the TCP connection data from machines for which it's enabled.
-After dependency discovery is started, the appliance gathers data from machines at a polling interval of five minutes.
-    - The following data is collected:
-        - TCP connections
-        - Names of processes that have active connections
-        - Names of installed applications that run the above processes
-        - No. of connections detected at every polling interval
-- **Agent-based dependency visualization**: To use agent-based dependency visualization, you need to download and install the following agents on each on-premises machine that you want to analyze.  
-    - [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) about how to install the MMA agent.
-    - The [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) about how to install the dependency agent.
-    - In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
-
-
-## Do I need to pay for it?
+### Do I need to pay for it?
 
 Dependency visualization requires Service Map and an associated Log Analytics workspace. 
 
@@ -78,7 +79,7 @@ Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricin
 
 
 
-## How do I manage the workspace?
+### How do I manage the workspace?
 
 - When you register agents to the workspace, you use the ID and key provided by the Azure Migrate project.
 - You can use the Log Analytics workspace outside Azure Migrate.
@@ -90,8 +91,3 @@ Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricin
 - [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) about the FAQs on dependency visualization.
 
 
-
-
-You can use the dependency visualization functionality in Server Assessment to create groups. This article provides information about this feature.
-
-Learn more about the preview support of agentless dependency visualization [here](how-to-create-group-machine-dependencies-agentless.md).
