@@ -12,7 +12,7 @@ ms.date: 10/25/2019
 
 [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to configure multiple identical virtual machines. The number of virtual machine instances can automatically adjust to demand or a defined schedule.
 
-In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/overview) to perform the following tasks:
+In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/overview) to do the following tasks:
 
 > [!div class="checklist"]
 > * Set up a Terraform deployment
@@ -30,7 +30,7 @@ In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/ov
 
 - **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Create an SSH key pair**: For more information, refer to [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Create an SSH key pair**: For more information, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## Create the directory structure
 
@@ -61,7 +61,7 @@ In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/ov
 ## Create the variables definitions file
 In this section, you define the variables that customize the resources created by Terraform.
 
-Within the Azure Cloud Shell, perform the following steps:
+Within the Azure Cloud Shell, do the following steps:
 
 1. Create a file named `variables.tf`.
 
@@ -96,7 +96,7 @@ Within the Azure Cloud Shell, perform the following steps:
 ## Create the output definitions file
 In this section, you create the file that describes the output after deployment.
 
-Within the Azure Cloud Shell, perform the following steps:
+Within the Azure Cloud Shell, do the following steps:
 
 1. Create a file named `output.tf`.
 
@@ -122,7 +122,7 @@ In this section, you create the following network infrastructure in a new Azure 
   - One subnet with the address space of 10.0.2.0/24
   - Two public IP addresses. One used by the virtual machine scale set load balancer, the other used to connect to the SSH jumpbox.
 
-Within the Azure Cloud Shell, perform the following steps:
+Within the Azure Cloud Shell, do the following steps:
 
 1. Create a file named `vmss.tf` to describe the virtual machine scale set infrastructure.
 
@@ -174,7 +174,7 @@ Within the Azure Cloud Shell, perform the following steps:
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 ## Provision the network infrastructure
-Using the Azure Cloud Shell from the directory where you created the configuration files (.tf) perform the following steps:
+Using the Azure Cloud Shell from the directory where you created the configuration files (.tf) do the following steps:
 
 1. Initialize Terraform.
 
@@ -209,7 +209,7 @@ In this section, you learn how to add the following resources to the template:
 - A virtual machine scale set sitting behind the load balancer that runs on the VNET deployed earlier in this article
 - [Nginx](https://nginx.org/) on the nodes of the virtual machine scale using [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
 
-In Cloud Shell, perform the following steps:
+In Cloud Shell, do the following steps:
 
 1. Open the `vmss.tf` configuration file.
 
@@ -399,7 +399,7 @@ In Cloud Shell, perform the following steps:
     ![Results of browsing to FQDN](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
 ## Add an SSH jumpbox
-An SSH *jumpbox* is a single server that you "jump" through in order to access other servers on the network. In this step, you configure the following resources:
+An SSH *jumpbox* is a single server that you "jump" through to access other servers on the network. In this step, you configure the following resources:
 
 - A network interface (or jumpbox) connected to the same subnet as the virtual machine scale set.
 
