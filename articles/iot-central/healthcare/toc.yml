@@ -16,7 +16,8 @@
 
     - name: Connectivity
       href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-      
+    - name: What are application templates?
+      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: How-to guides
   items:
     - name: Create a health data triage dashboard  
