@@ -10,7 +10,7 @@ ms.date: 10/25/2019
 
 # Tutorial: Create an Azure virtual machine scale set using Terraform
 
-[Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to configure multiple identical virtual machines. The number of virtual machine instances can automatically adjust to demand or a defined schedule.
+[Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to configure identical VMs. The number of VM instances can adjust based on demand or a schedule. For more information, see [Automatically scale a virtual machine scale set in the Azure portal](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-portal).
 
 In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/overview) to do the following tasks:
 
