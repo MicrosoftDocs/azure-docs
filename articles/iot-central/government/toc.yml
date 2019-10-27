@@ -25,7 +25,7 @@
 - name: How-to guides
   items:
     - name: Connect your app with Dynamics 365 Field Services
-      href: how-to-configure-connected-field-services.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+      href: how-to-configure-connected-field-services.md
  
     - name: Connect devices
       items:
