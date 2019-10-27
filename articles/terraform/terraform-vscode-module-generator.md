@@ -39,66 +39,78 @@ To use Terraform in the Cloud Shell, you need to [install Node.js](https://nodej
 
 ### Install Yeoman
 
-From a command prompt, enter `npm install -g yo`
+Run the following command:
+
+```bash
+npm install -g yo
+```
 
 ![Install Yeoman](media/terraform-vscode-module-generator/ymg-npm-install-yo.png)
 
 ### Install the Yeoman template for Terraform module
 
-From a command prompt, enter `npm install -g generator-az-terra-module`.
+Run the following command:
+
+```bash
+npm install -g generator-az-terra-module
+```
 
 ![Install generator-az-terra-module](media/terraform-vscode-module-generator/ymg-pm-install-generator-module.png)
 
->[!NOTE]
->To verify that Yeoman is installed, from a terminal window, enter `yo --version`.
+To verify that Yeoman is installed, run the following command:
+
+```bash
+yo --version
+```
 
 ### Create an empty folder to hold the Yeoman-generated module
 
-The Yeoman template generates files in the **current directory**. For this reason, you need to create a directory.
+The Yeoman template generates files in the current directory. For this reason, you need to create a directory.
 
->[!Note]
->This empty directory is required to be put under $GOPATH/src. You will find instructions [here](https://github.com/golang/go/wiki/SettingGOPATH) to accomplish this.
-
-From a command prompt:
+This empty directory is required to be put under $GOPATH/src. For more information about this path, see the article [Setting GOPATH](https://github.com/golang/go/wiki/SettingGOPATH).
 
 1. Navigate to the parent directory that you want to contain the new, empty directory we are about to create.
-1. Enter `mkdir <new-directory-name>`.
 
-    > [!NOTE]
-    > Replace `<new-directory-name>` with the name of your new directory. In this example, we named the new directory `GeneratorDocSample`.
+1. Run the following command replacing the placeholder. For this example, a directory name of `GeneratorDocSample` is used.
+
+    ```bash
+    mkdir <new-directory-name>
+    ```
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
-1. Navigate into the new directory by typing `cd <new directory's name>`, and then pressing **enter**.
+1. Navigate to the new directory:
+
+    ```bash
+    cd <new-directory-name>
+    ```
 
     ![Navigate to your new directory](media/terraform-vscode-module-generator/ymg-cd-GeneratorDocSample.png)
 
-    >[!NOTE]
-    >To make sure this directory is empty, enter `ls`. There should be no files listed in the resulting output of this command.
-
 ## Create a base module template
 
-From a command prompt:
+1. Run the following command:
 
-1. Enter `yo az-terra-module`.
+    ```bash
+    yo az-terra-module
+    ```
 
 1. Follow the on-screen instructions to provide the following information:
 
-    - *Terraform module project Name*
+    - **Terraform module project Name** - A value of `doc-sample-module` is used for the example.
 
         ![Project name](media/terraform-vscode-module-generator/ymg-project-name.png)       
 
-        >[!NOTE]
-        >In this example, we entered `doc-sample-module`.
 
-    - *Would you like to include the Docker image file?*
+    - **Would you like to include the Docker image file?** - Enter `y`. If you select `n`, the generated module code will support running only in native mode.
 
         ![Include Docker image file?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
-        >[!NOTE]
-        >Enter `y`. If you select **n**, the generated module code will support running only in native mode.
+1. List the directory contents to view the resulting files that are created:
 
-3. Enter `ls` to view the resulting files that are created.
+    ```bash
+    ls
+    ```
 
     ![List created files](media/terraform-vscode-module-generator/ymg-ls-GeneratorDocSample-files.png)
 
@@ -110,39 +122,26 @@ From a command prompt:
 
     ![Visual Studio Code](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
 
-Let's take a look at some of the files that were created by the Yeoman module generator.
+In this article, we will be using the main.tf, variables.tf, and outputs.tf files as created by the Yeoman module generator. However, when creating your own modules, you would be editing these files to accommodate the functionality of your Terraform module. For a more in-depth discussion of these files and their usage, see [Terratest in Terraform Modules.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster)
 
->[!Note]
->In this article we will be using the main.tf, variables.tf, and outputs.tf files as created by the Yeoman module generator. However, when creating your own modules, you would be editing these files to accommodate the functionality of your Terraform module. For a more in-depth discussion of these files and their usage, see [Terratest in Terraform Modules.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster)
+The following files were created by the Yeoman module generator:
 
-### main.tf
-
-Defines a module called *random-shuffle*. The input is a *string_list*. The output is the count of the permutations.
-
-### variables.tf
-
-Defines the input and output variables used by the module.
-
-### outputs.tf
-
-Defines what the module outputs. Here, it is the value returned by **random_shuffle**, which is a built-in, Terraform module.
-
-### Rakefile
-
-Defines the build steps. These steps include:
-
-- **build**: Validates the formatting of the main.tf file.
-- **unit**: The generated module skeleton does not include code for a unit test. If you want to specify a unit test scenario, you would you add that code here.
-- **e2e**: Runs an end-to-end test of the module.
-
-### test
-
-- Test cases are written in Go.
-- All codes in test are end-to-end tests.
-- End-to-end tests try to use Terraform to provision all of the items defined under **fixture** and then compare the output in the **template_output.go** code with the pre-defined expected values.
-- **Gopkg.lock** and **Gopkg.toml**: Define your dependencies. 
+- `main.tf` - Defines a module called *random-shuffle*. The input is a *string_list*. The output is the count of the permutations.
+- `variables.tf` - Defines the input and output variables used by the module.
+- `outputs.tf` - Defines what the module outputs. Here, it is the value returned by **random_shuffle**, which is a built-in, Terraform module.
+- `Rakefile` - Defines the build steps. These steps include:
+    - `build` - Validates the formatting of the main.tf file.
+    - `unit` -  The generated module skeleton does not include code for a unit test. If you want to specify a unit test scenario, you would you add that code here.
+    - `e2e` - Runs an end-to-end test of the module.
+- `test`
+    - Test cases are written in Go.
+    - All codes in test are end-to-end tests.
+    - End-to-end tests try to use Terraform to provision all of the items defined under `fixture` and then compare the output in the `template_output.go` code with the pre-defined expected values.
+    - `Gopkg.lock` and `Gopkg.toml`: Defines the dependencies. 
 
 ## Test your new Terraform module using a Docker file
+
+This section shows how to test a Terraform module using a Docker file.
 
 >[!NOTE]
 >In our example, we are running the module as a local module, and not actually touching Azure.
@@ -186,35 +185,43 @@ To confirm that Docker is actually running, enter `docker info`.
 
 ### Build the module
 
-1. Enter `bundle install`.
+1. Run the following command:
+
+    ```bash
+    bundle install
+    ```
 
     Wait for the **Bundle complete** message, then continue with the next step.
 
-1. Enter `rake build`.
+1. Run the following command:
+
+    ```bash
+    rake build
+    ```
 
     ![Rake build](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
 ### Run the end-to-end test
 
-1. Enter `rake e2e`.
+1. Run the following command:
+
+    ```bash
+    rake e2e
+    ```
 
 1. After a few moments, the **PASS** message will appear.
 
     ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
-1. Enter `exit` to complete the end-to-end test and exit the Docker environment.
+1. Enter `exit` to complete the test and exit the Docker environment.
 
 ## Use Yeoman generator to create and test a module in Cloud Shell
 
-In the previous section, you learned how to test a Terraform module using a Docker file. In this section, you will use the Yeoman generator to create and test a module in Cloud Shell.
-
-Using Cloud Shell instead of using a Docker file greatly simplifies the process. Using Cloud Shell:
+In this section, you will use the Yeoman generator to create and test a module in Cloud Shell. Using Cloud Shell instead of using a Docker file greatly simplifies the process. Using Cloud Shell, the following products are all pre-installed:
 
 - You do not need to install Node.js
 - You do not need to install Yeoman
 - You do not need to install Terraform
-
-All of these items are pre-installed in Cloud Shell.
 
 ### Start a Cloud Shell session
 
@@ -243,33 +250,47 @@ All of these items are pre-installed in Cloud Shell.
 
 1. Create a folder within the $GOPATH folder: Enter `mkdir ~/go/src`. This folder will be used to hold and organize different project folders you may create, such as the `<your-module-name>` folder we will create in the next step.
 
-1. Create a folder to hold your Terraform module: Enter `mkdir ~/go/src/<your-module-name>`.
+1. Create a folder to hold your Terraform module replacing the placeholder. For this example, a directory name of `my-module-name` is used.
 
-    >[!NOTE]
-    >In this example, we chose `my-module-name` for the folder name.
+    ```bash
+    mkdir ~/go/src/<your-module-name>
+    ```
 
-1. Navigate to your module folder: Enter `cd ~/go/src/<your-module-name>`
+1. Navigate to your module folder: 
+
+    ```bash
+    cd ~/go/src/<your-module-name>
+    ```
 
 ### Create and test your Terraform module
 
-1. Enter `yo az-terra-module` and follow the instructions in the wizard.
+1. Run the following command and follow the instructions. When asked if you want to create the Docker files, you enter `N`.
 
-    >[!NOTE]
-    >When asked if you want to create the Docker files, you may enter `N`.
+    ```bash
+    yo az-terra-module
+    ```
 
-1. Enter `bundle install` to install the dependencies.
+1. Run the following command to install the dependencies:
 
-    Wait for the **Bundle complete** message, then continue with the next step.
+    ```bash
+    bundle install
+    ```
 
-1. Enter `rake build` to build your module.
+1. Run the following commnad to build the module:
+
+    ```bash
+    rake build
+    ```
 
     ![Rake build](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
-1. Enter `rake e2e` to run the end-to-end test.
+1. Run the following command to run the text:
 
-1. After a few moments, the **PASS** message will appear.
+    ```bash
+    rake e2e
+    ```
 
-    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
+    ![Example of the test pass](media/terraform-vscode-module-generator/ymg-pass.png)
 
 ## Next steps
 
