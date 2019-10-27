@@ -136,7 +136,7 @@ In this exercise, you create and execute a basic Terraform configuration file th
 
     ![Do you want to open Cloud Shell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-1. The first time you launch Cloud Shell from a new folder, you are prompted to create a web application. Select **Open**.
+1. The first time you launch Cloud Shell from a new folder, you're prompted to create a web application. Select **Open**.
 
     ![First launch of Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
@@ -296,7 +296,7 @@ After a few moments, you see a listing in the Terminal pane similar to this exam
 
 After a few moments, you see a listing in the Terminal pane similar to this example:
 
-![End-to-end test results](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
+![Test results](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
 
 ## Next steps
 > [!div class="nextstepaction"]
