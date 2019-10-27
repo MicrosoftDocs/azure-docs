@@ -77,11 +77,19 @@ After you create the VM, do the following steps:
 
 1. Grant contributor permissions for the entire subscription to managed identities for Azure resources on the VM. 
 
-    Contributor permission helps managed identities for Azure resources on VM to use Terraform to create resources outside the VM resource group. Do this action by running the following script: `. ~/tfEnv.sh`
+    Contributor permission helps managed identities for Azure resources on VM to use Terraform to create resources outside the VM resource group. Do this action by running the following script: 
+    
+    ```bash
+    . ~/tfEnv.sh
+    ```
 
-1. The script in the previous step uses the [Azure CLI interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#sign-in-interactively) mechanism to authenticate with Azure. This process assigns the VM Managed Identity contributor-permission for the entire subscription. 
+    This script uses the [Azure CLI interactive log-in](/cli/azure/authenticate-azure-cli?view=azure-cli-latest#sign-in-interactively) mechanism to authenticate with Azure. This process assigns the [Managed Identity Contributor permission](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) for the entire subscription. 
 
-    The VM has a Terraform remote state back end. This needs to be enabled it on your Terraform deployment. Copy the `remoteState.tf` file from the `tfTemplate` directory to the root of the Terraform scripts: `cp  ~/tfTemplate/remoteState.tf .`
+1. The VM has a Terraform remote state back end. To enable it on your Terraform deployment, you must copy the `remoteState.tf` file to the root of the Terraform scripts.
+
+    ```bash
+    cp  ~/tfTemplate/remoteState.tf .
+    ```
 
     For more information about Remote State Management, see [Terraform remote state](https://www.terraform.io/docs/state/remote.html). The storage access key is exposed in this file. Therefore, it needs to be excluded before committing Terraform configuration files into source control.
 
