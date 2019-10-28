@@ -72,6 +72,23 @@ This article describes some items you should check to help you troubleshoot Azur
 
 * In the My Access portal, if a user is both a requestor and an approver, they will not see their request for an access package on the **Approvals** page. This behavior is intentional - a user cannot approve their own request. Ensure that the access package they are requesting has additional approvers configured on the policy. For more information, see [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md).
 
+## Multiple policies
+
+* Entitlement management follows least privilege best practices. When a user requests access to an access package that has multiple policies that apply, entitlement management includes logic to help ensure stricter or more specific policies are prioritized over generic policies. If a policy is generic, entitlement management might not display the policy to the requestor or might automatically select a stricter policy.
+
+* For example, consider an access package with two policies for internal employees in which both policies apply to the requestor. The first policy is for specific users that include the requestor. The second policy is for all users in a directory that the requestor is a member of. In this scenario, the first policy is automatically selected for the requestor because it is more strict. The requestor is not given the option to select the second policy.
+
+* When multiple policies apply, the policy that is automatically selected or the policies that are displayed to the requestor is based on the following priority logic:
+
+    | Policy priority | Scope |
+    | --- | --- |
+    | P1 | Specific users, guest users, or groups in your directory OR specific users in a connected organization |
+    | P2 | All users and groups in your directory |
+    | P3 | All users, guest users, and groups in your directory OR all users in already connected organizations |
+    | P4 | All users in already connected organizations or future connected organizations |
+    
+    If any policy is in a higher priority category, the lower priority categories are ignored. For an example of how multiple policies with same priority are displayed to the requestor, see [Select a policy](entitlement-management-request-access.md#select-a-policy).
+
 ## Next steps
 
 - [Govern access for external users](entitlement-management-external-users.md)
