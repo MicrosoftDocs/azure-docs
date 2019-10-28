@@ -287,11 +287,13 @@ This command:
 
 The *Custom Speech-to-text* container relies on a custom speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech). The custom speech **Model ID** and **Language** are required to run the container. These values can be found on the **Training** page of the custom speech portal. From the custom speech portal, navigate to the **Training** page and select the model.
 <br><br>
-:::image type="content" source="media/custom-speech/custom-speech-model-training.png" alt-text="Custom speech training page":::
+
+![Custom speech training page](media/custom-speech/custom-speech-model-training.png)
 
 Obtain the **Model ID**. Then use the [Speech-to-text language support](language-support.md#speech-to-text) table to cross reference the model **Language** and obtain the **Locale**. Use the cross-referenced **Locale** as the `Locale` argument. For example, `English (United States)` would map to `en-US`, then `en-US` would be used as the argument to the `Locale` parameter of the `docker run` command.
 <br><br>
-:::image type="content" source="media/custom-speech/custom-speech-model-details.png" alt-text="Custom speech model details":::
+
+![Custom speech model details](media/custom-speech/custom-speech-model-details.png)
 
 The following table represents the various `docker run` parameters and their corresponding descriptions:
 
@@ -349,11 +351,13 @@ This command:
 
 The *Custom Text-to-speech* container relies on a custom voice model. The custom model has to have been [trained](how-to-custom-voice-create-voice.md) using the [custom voice portal](https://aka.ms/custom-voice-portal). The custom voice **Model ID** and **Language** are required to run the container. These values can be found on the **Training** page of the custom voice portal. From the custom voice portal, navigate to the **Training** page and select the model.
 <br><br>
-:::image type="content" source="media/custom-voice/custom-voice-model-training.png" alt-text="Custom voice training page":::
+
+![Custom voice training page](media/custom-voice/custom-voice-model-training.png)
 
 Obtain the **Model ID**. Then use the [Text-to-speech language support](language-support.md#text-to-speech) table to cross reference the model **Language** and obtain the **Locale**. Use the cross-referenced **Locale** as the locale. For example, `English (United States)` would map to `en-US`, then `en-US` would be used as the argument to the `Locale` parameter of the docker run command.
 <br><br>
-:::image type="content" source="media/custom-voice/custom-voice-model-details.png" alt-text="Custom voice model details":::
+
+![Custom voice model details](media/custom-voice/custom-voice-model-details.png)
 
 The following table represents the various `docker run` parameters and their corresponding descriptions:
 
