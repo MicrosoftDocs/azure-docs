@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 11/01/2019
 ms.author: magoedte
 ms.subservice: 
 ---
@@ -33,7 +33,8 @@ The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data
   - Number of VMs monitored
   - Type of data collected from each monitored VM 
   
-In addition to the Pay-As-You-Go model, we have introduced **Capacity Reservations** for Log Analytics which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
+In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation** tiers which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The Capacity Reservation tiers have a 31-day commitment period. During the commitment period, you can change to a higher level Capacity Reservation tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower Capacity Reservationtier until after the commitment period is finished. 
+[Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
 
 Note that Some solutions, such as [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/) 
 and [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), have their own pricing model. 
@@ -44,7 +45,7 @@ If you're not yet using Azure Monitor Logs, you can use the [Azure Monitor prici
 
 ## Understand your usage and estimate costs
 
-If you're using Azure Monitor Logs now, it's easy to understand what the costs are likely be based on recent usage patterns. To do this, use  **Log Analytics Usage and Estimated Costs** to review and analyze data usage. The shows how much data is collected by each solution, how much data is being retained and an estimate of your costs based on the amount of data ingested and any additional retention beyond the included amount.
+If you're using Azure Monitor Logs now, it's easy to understand what the costs are likely be based on recent usage patterns. To do this, use  **Log Analytics Usage and Estimated Costs** to review and analyze data usage. This shows how much data is collected by each solution, how much data is being retained and an estimate of your costs based on the amount of data ingested and any additional retention beyond the included amount.
 
 ![Usage and estimated costs](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
 
@@ -181,14 +182,15 @@ More details of pricing tier limitations are available [here](https://docs.micro
 
 ## Changing pricing tier
 
-If your Log Analytics workspace has access to legacy pricing tiers, to change between legacy pricing tiers:
+To change the Log Analytics pricing tier of your workspace, 
 
-1. In the Azure portal, from the Log Analytics subscriptions pane, select a workspace.
+1. In the Azure portal, open open **Usage and estimated costs** from your workspace where you'll see a list of ach of the pricing tiers available to this workspace.
 
-2. From the workspace pane, under **General**, select **Pricing tier**.  
+2. Review the estimated costs for for each of the pricing tiers. This estimate is based on the last 31 days of usage, so this cost estimate relies on the last 31 days being representative of your typical usage. 
 
-3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
-    ![Selected pricing plan](media/manage-cost-storage/workspace-pricing-tier-info.png)
+    ![Pricing tiers](media/manage-cost-storage/pricing-tier-estimated-costs.png)
+
+3. After reviewing the estimated costs based on the last 30 days of usage, if you decide to change the pricing tier, click **Select**.  
 
 You can also [set the pricing tier via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `sku` parameter (`pricingTier` in the ARM template). 
 
