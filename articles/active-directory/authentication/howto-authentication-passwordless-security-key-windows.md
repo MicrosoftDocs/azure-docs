@@ -152,7 +152,7 @@ If you would like to share feedback or encounter issues while previewing this fe
 
 ## Next steps
 
-[Enable access to on-premises resources for Azure AD and hybrid Azure AD joined devices](howto-authentication-passwordless-on-premises.md)
+[Enable access to on-premises resources for Azure AD and hybrid Azure AD joined devices](howto-authentication-passwordless-security-key-on-premises.md)
 
 [Learn more about device registration](../devices/overview.md)
 

@@ -138,7 +138,7 @@
       - name: Passwordless Windows 10
         href: howto-authentication-passwordless-security-key-windows.md
       - name: Passwordless on-premises
-        href: howto-authentication-passwordless-security-key-on-premsies.md
+        href: howto-authentication-passwordless-security-key-on-premises.md
       - name: Security key on-premises integration
         href: howto-authentication-passwordless-on-premises.md
       - name: Passwordless phone sign-in
