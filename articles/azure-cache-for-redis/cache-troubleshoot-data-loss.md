@@ -98,7 +98,7 @@ If you find that most of or all keys have disappeared from your cache, you can c
 |---|---|
 | [Key flushing](#key-flushing) | Keys have been manually purged |
 | [Incorrect database selection](#incorrect-database-selection) | Redis is set to use a non-default database |
-| [Redis instance failure](#redis-instance-failure) | Keys are removed by explicit delete commands |
+| [Redis instance failure](#redis-instance-failure) | Redis server is unavailable |
 
 ### Key flushing
 
