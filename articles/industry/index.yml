@@ -29,9 +29,9 @@ highlightedContent:
 productDirectory:
   title: Industry Solutions Areas
   items:
-    - title: Agriculture
+    - title: Azure FarmBeats
       imageSrc: ../media/index/industry-agriculture-farmbeats.svg
-      summary: Collection of Azure services and capabilities, rapidly builds intelligent data-driven solutions in agriculture.
+      summary: Rapidly builds digital agriculture solutions in the cloud.
       url: ./agriculture/overview.md
     - title: Financial Services
       imageSrc: ../media/index/industry-financial.png
