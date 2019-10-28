@@ -36184,6 +36184,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/concepts-connectivity-pnp.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-get-connected-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/concepts-stay-connected.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-stay-connected-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/overview-iot-central-transform.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-transform-pnp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/core/howto-create-event-rules-pnp.md",
       "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
       "redirect_document_id": false

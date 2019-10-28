@@ -10,7 +10,7 @@ services: iot-central
 manager: philmea
 ---
 
-# Device connectivity in Azure IoT Central (preview features)
+# Get connected (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
@@ -69,7 +69,7 @@ The following steps describe how to connect devices to IoT Central using X.509 c
 
     - Navigate to **Administration > Device Connection > Certificates (X.509)** and add X.509 root or intermediate certificate you're using to generate the leaf device certificates.
 
-      ![Connection settings](media/concepts-connectivity-pnp/connection-settings.png)
+      ![Connection settings](media/overview-iot-central-get-connected-pnp/connection-settings.png)
 
       If you have a security breach or your primary certificate is set to expire, use the secondary certificate to reduce downtime. You can continue to provision devices using the secondary certificate while you update the primary certificate.
 
