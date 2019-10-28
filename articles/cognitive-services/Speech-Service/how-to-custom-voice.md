@@ -8,17 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 ---
+
 
 # Get started with Custom Voice
 
 [Custom Voice](https://aka.ms/customvoice) is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom text-to-speech experience.
-
-> [!NOTE]
-> The Custom Neural Voice service is a gated service. Customers gain access to the technology only after their applications are reviewed and they have committed to using it in alignment with our ethics principles. Read more about our gating process and how to apply [here](concepts-gating-overview.md).
-
 
 ## What's in Custom Voice?
 
@@ -36,9 +33,16 @@ The diagram below highlights the steps to create a custom voice model using the 
 
 4.	[Deploy your model](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) - Create a custom endpoint for your text-to-speech voice model, and use it for speech synthesis in your products, tools, and applications.
 
+## Custom Neural voices
+
+The neural voice customization capability is currently in public preview, limited to selected customers. Fill out this [application form](https://go.microsoft.com/fwlink/?linkid=2108737) to get started.
+
+> [!NOTE]
+> As part of Microsoft's commitment to designing responsible AI, our intent is to protect the rights of individuals and society, and foster transparent human-computer interactions. For this reason, Custom Neural Voice is not generally available to all customers. You may gain access to the technology only after your applications are reviewed and you have committed to using it in alignment with our ethics principles. Learn more about our [application gating process](https://aka.ms/custom-neural-gating-overview).
+
 ## Set up your Azure account
 
-A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create a Speech Services subscription in Azure. If you do not have an Azure account, you can sign up for a new one.
+A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create a Speech Services subscription in Azure. If you do not have an Azure account, you can sign up for a new one.  
 
 Once you've created an Azure account and a Speech Services subscription, you'll need to sign in to the Custom Voice portal and connect your subscription.
 
