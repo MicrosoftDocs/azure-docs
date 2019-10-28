@@ -75,7 +75,7 @@ if args.voices:
 Let's test what you've done so far. Run this command, replacing `<your_key>` with your Speech subscription key, and `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 
 ```console
-python voice_synthesis_client.py --voices -key <your_key> -region <Region>`
+python voice_synthesis_client.py --voices -key <your_key> -region <Region>
 ```
 
 You should get an output that looks like this:
