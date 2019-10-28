@@ -10,7 +10,7 @@ ms.author: zhshang
 ---
 # Quickstart: Create a chat room with ASP.NET and SignalR Service
 
-Azure SignalR Service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), which is **not** 100% compatible with ASP.NET SignalR. Azure SignalR Service re-implemented ASP.NET SignalR data protocol based on the latest ASP.NET Core technologies. When using Azure SignalR Service for ASP.NET SignalR, some ASP.NET SignalR features are no longer supported, for example, Azure SignalR does not replay messages when the client reconnects. Also, the Forever Frame transport and JSONP are not support. Some code changes and proper version of dependent libraries are needed to make ASP.NET SignalR application work with SignalR Service. 
+Azure SignalR Service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), which is **not** 100% compatible with ASP.NET SignalR. Azure SignalR Service re-implemented ASP.NET SignalR data protocol based on the latest ASP.NET Core technologies. When using Azure SignalR Service for ASP.NET SignalR, some ASP.NET SignalR features are no longer supported, for example, Azure SignalR does not replay messages when the client reconnects. Also, the Forever Frame transport and JSONP are not supported. Some code changes and proper version of dependent libraries are needed to make ASP.NET SignalR application work with SignalR Service. 
 
 Refer to the [version differences doc](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) for a complete list of feature comparison between ASP.NET SignalR and ASP.NET Core SignalR.
 

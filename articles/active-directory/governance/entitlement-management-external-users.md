@@ -49,11 +49,13 @@ The following diagram and steps provide an overview of how external users are gr
 
 ![Diagram showing the lifecycle of external users](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
+1. You [add a connected organization](entitlement-management-organization.md) for the Azure AD directory or domain you want to collaborate with.
+
 1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#for-users-not-in-your-directory).
 
 1. You send a [My Access portal link](entitlement-management-access-package-settings.md) to your contact at the external organization that they can share with their users to request the access package.
 
-1. An external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package.
+1. An external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package. How the user signs in depends on the authentication type of the directory or domain defined in the connected organization.
 
 1. An approver [approves the request](entitlement-management-request-approve.md) (or the request is auto-approved).
 
@@ -115,6 +117,6 @@ You can also change this setting after you have created the catalog.
 
 ## Next steps
 
+- [Add a connected organization](entitlement-management-organization.md)
 - [For users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Create and manage a catalog of resources](entitlement-management-catalog-create.md)
-- [Delegation and roles](entitlement-management-delegate.md)
