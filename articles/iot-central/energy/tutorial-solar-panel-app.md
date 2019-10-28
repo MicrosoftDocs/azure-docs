@@ -91,7 +91,7 @@ Click on the **Device templates** tab to see the solar panel device model. The m
 ## Clean up resources
 If you decide to not continue using this application, delete your application with the following these steps:
 
-1. From the left-hand menu, open Administration tab
+1. From the left pane, open Administration tab
 2. Select Application settings and click Delete button at the bottom of the page. 
 
     > [!div class="mx-imgBorder"]
