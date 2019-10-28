@@ -50,7 +50,7 @@ If you're not using Cloud Shell, you'll need to use the Azure CLI locally to acc
 
 ### Set environment variables
 
-Next, create some environment variables for the names and location of the resources you'll create. Use the following command, replacing the `<value>` placeholders with values of your choosing. The `$RANDOM` variable appends a random number to help avoid naming conflicts where resource names must be unique. For the `LOCATION` variable, use one of the values produced by the `az functionapp list-consumption-locations` command.
+Next, create some environment variables for the names and location of the resources you'll create. Use the following commands, replacing the `<value>` placeholders with values of your choosing. The `$RANDOM` variable appends a random number to help avoid naming conflicts where resource names must be unique. For the `LOCATION` variable, use one of the values produced by the `az functionapp list-consumption-locations` command.
 
 ```azurecli-interactive
 RESOURCE_GROUP=<value>
@@ -63,7 +63,7 @@ FUNCTION_APP="<value>-$RANDOM"
 LOCATION=<value>
 ```
 
-The rest of this tutorial uses these variables so you won't need to replace any more placeholders. However, if you start a new Azure CLI session before you complete the tutorial, be sure to set these variables again.
+The rest of this tutorial uses these variables. If you start a new Azure CLI session before you complete the tutorial, be sure to set these variables again.
 
 ### Create a resource group
 
@@ -414,7 +414,7 @@ az group delete --name $RESOURCE_GROUP
 
 ## Next steps
 
-In this tutorial, you learned how to create an Azure Function that handles events from an Event Hub and updates a Cosmos DB. Next, learn how to use Azure Pipelines CI/CD for automated deployment:
+In this tutorial, you learned how to create an Azure Function that handles Event Hub events and updates a Cosmos DB. Next, learn how to use Azure Pipelines CI/CD for automated deployment:
 
 > [!div class="nextstepaction"]
 > [Build and deploy Java to Azure Functions](/azure/devops/pipelines/ecosystems/java-function)
