@@ -28,7 +28,7 @@ In part one of the tutorial you learn how to:
 > * Train a machine learning model
 > * Evaluate a machine learning model
 
-In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you learn how to deploy your predictive model as an Azure web service to predict the price of any car based on technical specifications you send it. 
+In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you learn how to deploy your predictive model as an real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
 
 > [!Note]
 >A completed version of this tutorial is available as a sample pipeline.
