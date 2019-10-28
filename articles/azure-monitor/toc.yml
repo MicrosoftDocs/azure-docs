@@ -152,7 +152,7 @@
         href: app/pricing.md
       - name: Log data usage and costs
         href: platform/manage-cost-storage.md
-  - name: Monitor applications (Application Insights)
+  - name: Application Insights
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
@@ -507,7 +507,9 @@
       - name: Change to blob storage format
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
-      href: platform/stream-monitoring-data-event-hubs.md   
+      href: platform/stream-monitoring-data-event-hubs.md 
+    - name: Stream data to Event Hubs
+      href: platform/resource-logs-stream-event-hubs.md
     - name: Key Vault Analytics
       href: insights/azure-key-vault.md
     - name: Service Fabric Analytics
@@ -1054,8 +1056,6 @@
       href: insights/scom-assessment.md
     - name: Connect Configuration Manager
       href: platform/collect-sccm.md
-  - name: Stream data to Event Hubs
-    href: platform/resource-logs-stream-event-hubs.md
 - name: Reference
   items:
   - name: Service limits
