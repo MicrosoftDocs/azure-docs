@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services dynamic packaging overview | Microsoft Docs
-description: The article gives an overview of dynamic packaging in Azure Media Services.
+title: Dynamic packaging in Azure Media Services | Microsoft Docs
+description: An overview of dynamic packaging in Azure Media Services.
 author: Juliako
 manager: femila
 editor: ''
@@ -17,15 +17,15 @@ ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
 
-# Dynamic packaging
+# Dynamic packaging in Azure Media Services
 
-Microsoft Azure Media Services can be used to encode many media source file formats, and deliver them via different streaming protocols, with or without content protection, to reach all major devices (for example, iOS and Android devices). These clients understand different protocols, for example iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH. 
+Microsoft Azure Media Services can be used to encode many media source file formats. It delivers them via different streaming protocols, with or without content protection, to reach all major devices (like iOS and Android devices). These clients understand different protocols. For example, iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH.
 
-In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols mentioned in the following section. Dynamic Packaging is a feature that comes standard on all Streaming Endpoints (Standard or Premium). 
+In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app. It uses one of the common streaming media protocols mentioned in the following section. Dynamic Packaging is a feature that comes standard on all Streaming Endpoints (Standard or Premium).
 
 ## <a id="delivery-protocols"/>To prepare your source files for delivery
 
-To take advantage of Dynamic Packaging, you need to [encode](encoding-concept.md) your mezzanine (source) file into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. You need to have an [Asset](assets-concept.md) with the encoded MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. From this set of MP4 files, you can use Dynamic Packaging to deliver video via the following streaming media protocols:
+To take advantage of Dynamic Packaging, you need to [encode](encoding-concept.md) your mezzanine (source) file into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. You need to have an [Asset](assets-concept.md) with the encoded MP4 and streaming configuration files needed by Media Services Dynamic Packaging. From this set of MP4 files, you can use Dynamic Packaging to deliver video via the following streaming media protocols:
 
 |Protocol|Example|
 |---|---|
@@ -41,16 +41,16 @@ If you plan to protect your content by using Media Services dynamic encryption, 
 > [!TIP]
 > One way to get the MP4 and streaming configuration files is to [encode your mezzanine file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
 
-To make videos in the encoded asset available to clients for playback, you have to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, MPEG DASH, or Smooth Streaming), you receive the stream in the protocol you have chosen.
+To make videos in the encoded asset available to clients for playback, you have to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, MPEG DASH, or Smooth Streaming), you receive the stream in the protocol you've chosen.
 
-As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
+As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
 
 ## On-demand streaming workflow
 
 The following is a common Media Services streaming workflow where Dynamic Packaging is used along with the Standard Encoder in Azure Media Services.
 
-1. Upload an input file such as a QuickTime/MOV or MXF file (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md). This is also referred to as the mezzanine or source file.
-1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set. 
+1. Upload an input file such as a QuickTime/MOV or MXF file. This is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
+1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set.
 1. Publish the output asset that contains the adaptive bitrate MP4 set. You publish by creating a streaming locator.
 1. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
 
@@ -62,9 +62,9 @@ The following diagram shows the on-demand streaming with Dynamic Packaging workf
 
 The following articles show examples of [how to encode a video with Media Services](encoding-concept.md):
 
-* [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md)
-* [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md)
-* [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md)
+* [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md).
+* [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).
+* [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md).
 
 See the list of Media Encoder Standard [formats and codecs](media-encoder-standard-formats.md).
 
