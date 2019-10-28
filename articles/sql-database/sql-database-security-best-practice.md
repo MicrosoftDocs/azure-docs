@@ -6,7 +6,7 @@ ms.subservice: security
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 10/28/2019
 ms.reviewer: ""
 ---
 
@@ -372,39 +372,38 @@ Separation of Duties is not limited to the data in database, but includes applic
 
 ## Data protection
 
-### Encrypt data in transit, applications, and your database
+Data protection is a set of capabilities for safeguarding important information from compromise by encryption or obfuscation.
+
+### Encrypt data in transit
 
 > [!NOTE]
-> Mentioned in: OSA Practice #6, ISO Control Family: Cryptography 
+> Mentioned in: OSA Practice #6, ISO Control Family: Cryptography
 
-**How to implement**:
-
-- Refer to the [Network Security](#network-security) section. 
-
-**Best practices**:
-
-- Refer to the [Network Security](#network-security) section. 
+Protects your data while data moves between your client and server. Refer to [Network Security](#network-security).
 
 ### Encrypt data at rest
 
 > [!NOTE]
-> Mentioned in: OSA Practice #6, ISO Control Family: Cryptography 
+> Mentioned in: OSA Practice #6, ISO Control Family: Cryptography
+
+Encryption at rest is the cryptographic protection of data when it is persisted in database, log, and backup files.
 
 **How to implement**:
 
-- Use [Transparent Database Encryption (TDE)](transparent-data-encryption-azure-sql.md). 
+- [Transparent Database Encryption (TDE)](transparent-data-encryption-azure-sql.md) service managed keys are enabled by default for any databases created after 2017 in Azure SQL Database.
+- In managed instance, if the database is created as a result of restore operation from an on-premises server, the TDE setting of the original database will be honored. If the original database does not have TDE enabled, we recommend that TDE be manually turned on for the managed instance.
 
 **Best practices**:
 
-- Turn on TDE in all databases unless data is non-sensitive and there are no compliance requirements. TDE is enabled by default for all databases created after 2017, but needs to be manually turned on for Azure SQL managed instance and for older databases in Azure SQL Database. 
-
 - Don't store data that require encryption-at-rest in the master database. The master database can't be encrypted with TDE.
 
-- Use customer-managed keys in Azure Key Vault (AKV) if you need increased transparency and granular control over the TDE protection. AKV allows the ability to revoke permissions at any time to render the database inaccessible. You can centrally manage TDE protectors along with other keys, or rotate the TDE protector at your own schedule using AKV. 
+- Use customer-managed keys in Azure Key Vault (AKV) if you need increased transparency and granular control over the TDE protection. AKV allows the ability to revoke permissions at any time to render the database inaccessible. You can centrally manage TDE protectors along with other keys, or rotate the TDE protector at your own schedule using AKV.
 
 - If you're using customer-managed keys in Azure Key Vault, follow the articles, [Guidelines for configuring TDE with Azure Key Vault](transparent-data-encryption-byok-azure-sql.md#guidelines-for-configuring-azure-key-vault) and [How to configure Geo-DR with Azure Key Vault](transparent-data-encryption-byok-azure-sql.md#how-to-configure-geo-dr-with-azure-key-vault).
 
 ### Protect sensitive data in use from high-privileged, unauthorized users
+
+Data in use is the data stored in memory of the database system during the execution of SQL queries. If your database stores sensitive data, your organization may be required to ensure that high-privileged users, such as Microsoft operators or DBAs in your organization, are prevented from exfiltrating the data from the memory of the SQL Server process and are not able to view the plaintext data when querying the database.
 
 **How to implement**:
 
@@ -412,7 +411,7 @@ Separation of Duties is not limited to the data in database, but includes applic
 
 **Best practices**:
 
-- Use Always Encrypted to ensure sensitive data isn't exposed in plaintext in Azure SQL Database, even in memory/in use. This protects the data from Database Administrators (DBAs) and cloud admins (or bad actors who can impersonate high-privileged but unauthorized users) and gives you more control over who can access your data. 
+- Use Always Encrypted to ensure sensitive data isn't exposed in plaintext in Azure SQL Database, even in memory/in use. This protects the data from Database Administrators (DBAs) and cloud admins (or bad actors who can impersonate high-privileged but unauthorized users) and gives you more control over who can access your data.
 
 - Always Encrypted isn't a substitute to encrypt data at rest (TDE) or in transit (SSL/TLS), and shouldn't be used for non-sensitive data in order to minimize performance and functionality impact. Using Always Encrypted in conjunction with TDE and TLS is recommended for comprehensive protection of data at-rest, in-transit, and in-use. 
 
@@ -428,13 +427,17 @@ Separation of Duties is not limited to the data in database, but includes applic
 
 - Use deterministic encryption if computations (equality) on data need to be supported. Otherwise, use randomized encryption. Avoid using deterministic encryption for low-entropy data sets, or data sets with publicly known distribution. 
 
-- In general, Always Encrypted is designed as a solution for protecting data inside the database system from admins (or bad actors impersonating admins) of the database system. It isn't designed as a solution for protecting data inside applications from (low-privilege) application users or for achieving the isolation in multi-tenant applications. 
+- In general, Always Encrypted is designed as a solution for protecting data inside the database system from admins (or bad actors impersonating admins) of the database system. It isn't designed as a solution for protecting data inside applications from (low-privilege) application users or for achieving the isolation in multi-tenant applications.
+
+- If you are concerned about 3rd party access your data legally without your consent, ensure that all application and tools that have access to the keys and data in plaintext run outside of Microsoft Azure Cloud. Without access to the keys, the 3rd party will have no way of decrypting the data unless they bypass the encryption.
 
 - Always Encrypted doesn't easily support granting temporary access to the keys (and the protected data). For example, if you need to share the keys with a DBA, to allow the DBA to perform some cleansing operations on sensitive and encrypted data, the only way to reliability revoke the access to the data from the DBA will be to rotate both the CEKs and the CMKs protecting the data, which is the expensive operation. 
 
 - To access the plaintext values in encrypted columns, a user needs to have access to the CMK, protecting the columns, which is configured in the key store holding the CMK. In addition, the user needs to have the VIEW ANY COLUMN MASTER KEY DEFINITION and VIEW ANY COLUMN ENCRYPTION KEY DEFINITION database permissions.
 
-### Control access of application users to sensitive data through encryption 
+### Control access of application users to sensitive data through encryption
+
+Encryption can be used as a way to ensure that only application users who have access to cryptographic keys, can view, update, and protect the data.
 
 **How to implement**:
 
