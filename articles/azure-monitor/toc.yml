@@ -472,6 +472,8 @@
     href: insights/monitor-azure-resource.md
   - name: Monitor Azure platform
     items:
+    - name: Monitor resource groups
+      href: insights/resource-group-insights.md
     - name: Platform logs overview
       href: platform/platform-logs-overview.md 
     - name: Resource logs
@@ -508,14 +510,6 @@
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
-    - name: Stream data to Event Hubs
-      href: platform/resource-logs-stream-event-hubs.md
-    - name: Key Vault Analytics
-      href: insights/azure-key-vault.md
-    - name: Service Fabric Analytics
-      href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
-    - name: Monitor resource groups
-      href: insights/resource-group-insights.md
   - name: Monitor VMs and Compute
     items: 
     - name: Agents
@@ -738,6 +732,8 @@
         href: insights/ad-assessment.md
       - name: AD Replication Status
         href: insights/ad-replication-status.md
+      - name: Key Vault Analytics
+        href: insights/azure-key-vault.md
       - name: Office 365
         href: insights/solution-office-365.md
       - name: Surface Hub
