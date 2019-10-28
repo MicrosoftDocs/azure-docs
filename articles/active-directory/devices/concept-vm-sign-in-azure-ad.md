@@ -1,17 +1,17 @@
 ---
-title: 
-description:  
+title: Windows VM Azure AD
+description: Windows VM Azure AD
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 
+ms.date: 10/27/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: ravenn
+ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
