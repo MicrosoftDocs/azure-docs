@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform ASP.NET web server quickstart | Azure
-description: Learn how to implement Microsoft Sign-in on an ASP.NET web app using OpenID Connect.
+title: Microsoft identity platform OIDC Node.js web app quickstart | Azure
+description: Learn how to implement authentication in a Node.js web application using OpenId Connect.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
