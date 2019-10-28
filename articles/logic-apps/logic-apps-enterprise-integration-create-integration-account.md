@@ -1,19 +1,17 @@
 ---
-title: Create and manage integration accounts for B2B solutions - Azure Logic Apps
-description: Create, link, move, and delete integration accounts for enterprise integration and B2B solutions by using Azure Logic Apps
+title: Create or manage B2B integration accounts - Azure Logic Apps
+description: Create, link, and manage integration accounts for enterprise integration with Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: carmonm
-ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
 ---
 
-# Create and manage integration accounts for B2B solutions by using Azure Logic Apps
+# Create and manage integration accounts for B2B enterprise integrations in Azure Logic Apps
 
 Before you can build [enterprise integration and B2B solutions](../logic-apps/logic-apps-enterprise-integration-overview.md) by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you need to create an integration account, which is a separate Azure resource that provides a secure, scalable, and manageable container for the integration artifacts that you define and use with your logic app workflows.
 

@@ -133,17 +133,17 @@ On the VM that you plan to upload to Azure, run the following commands from an [
 Make sure that each of the following Windows services is set to the Windows default values. These services are the minimum that must be set up to ensure VM connectivity. To reset the startup settings, run the following commands:
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Automatic
-Set-Service -Name dhcp -StartupType Automatic
-Set-Service -Name dnscache -StartupType Automatic
-Set-Service -Name IKEEXT -StartupType Automatic
-Set-Service -Name iphlpsvc -StartupType Automatic
-Set-Service -Name netlogon -StartupType Manual
-Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Automatic
-Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Automatic
-Set-Service -Name RemoteRegistry -StartupType Automatic
+Get-Service -Name bfe | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name dhcp | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name dnscache | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name IKEEXT | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name iphlpsvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name netlogon | Where-Object { $_.StartType -ne 'Manual' } | Set-Service -StartupType 'Manual'
+Get-Service -Name netman | Where-Object { $_.StartType -ne 'Manual' } | Set-Service -StartupType 'Manual'
+Get-Service -Name nsi | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name TermService | Where-Object { $_.StartType -ne 'Manual' } | Set-Service -StartupType 'Manual'
+Get-Service -Name MpsSvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 ```
 
 ## Update remote-desktop registry settings
@@ -443,7 +443,7 @@ The following settings don't affect VHD uploading. However, we strongly recommen
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   If a data disk is attached to the VM, the temporal drive volume's letter is typically *D*. This designation could be different, depending on your settings and the number of available drives.
-  * We recommend disabling script blockers that might be provided by anti-virus software. They might interfer and block the Windows Provisioning Agent scripts executed when you deploy a new VM from your image.
+  * We recommend disabling script blockers that might be provided by anti-virus software. They might interfere and block the Windows Provisioning Agent scripts executed when you deploy a new VM from your image.
   
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)

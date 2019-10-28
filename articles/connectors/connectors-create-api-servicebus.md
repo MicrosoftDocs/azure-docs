@@ -1,6 +1,6 @@
 ---
-title: Send and receive messages with Azure Service Bus - Azure Logic Apps
-description: Set up enterprise cloud messaging by using Azure Service Bus and Azure Logic Apps
+title: Exchange messages with Azure Service Bus - Azure Logic Apps
+description: Send and receive messages by using Azure Service Bus in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,11 +9,10 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 tags: connectors
 ---
 
-# Exchange messages in the cloud by using Azure Logic Apps with Azure Service Bus
+# Exchange messages in the cloud by using Azure Logic Apps and Azure Service Bus
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) connector, you can create automated tasks and workflows that transfer data, such as sales and purchase orders, journals, and inventory movements across applications for your organization. The connector not only monitors, sends, and manages messages, but also performs actions with queues, sessions, topics, subscriptions, and so on, for example:
 

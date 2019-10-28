@@ -34,6 +34,8 @@ landingContent:
             url: geo-ai-dsvm-overview.md
           - text: Tools Included on the DSVM
             url: tools-included.md
+          - text: Release Notes
+            url: release-notes.md
       - linkListType: get-started
         links:
           - text: Create a Windows DSVM

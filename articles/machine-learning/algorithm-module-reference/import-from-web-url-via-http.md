@@ -1,7 +1,7 @@
 ---
 title:  "Import from Web URL via HTTP: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Import from Web URL via HTTP module in Azure Machine Learning service to read data from a public Web page for use in a machine learning experiment.
+description: Learn how to use the Import from Web URL via HTTP module in Azure Machine Learning service to read data from a public Web page for use in a machine learning pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.date: 05/02/2019
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-Use this module to read data from a public Web page for use in a machine learning experiment.
+Use this module to read data from a public Web page for use in a machine learning pipeline.
 
 The following restrictions apply to data published on a web page:
 
@@ -26,7 +26,7 @@ There are two ways to get data: use the wizard to set up the data source, or con
 
 ## Use the Data Import Wizard
 
-1. Add the **Import Data** module to your experiment. You can find the module in the interface, in the **Data Input and Output** category.
+1. Add the **Import Data** module to your pipeline. You can find the module in the interface, in the **Data Input and Output** category.
 
 2. Click **Launch Import Data Wizard** and select Web URL via HTTP.
 
@@ -40,7 +40,7 @@ To edit an existing data connection, start the wizard again. The wizard loads al
 
 The following steps describe how to manually configure the import source.
 
-1. Add the [Import Data](import-data.md) module to your experiment. You can find the module in the interface, in the **Data Input and Output** category.
+1. Add the [Import Data](import-data.md) module to your pipeline. You can find the module in the interface, in the **Data Input and Output** category.
 
 2. For **Data source**, select **Web URL via HTTP**.
 
@@ -58,13 +58,13 @@ The following steps describe how to manually configure the import source.
 
 5. If the data is in CSV or TSV format, use the **File has header row** option to indicate whether or not the source data includes a header row. The header row is used to assign column names.
 
-6. Select the **Use cached results** options if you don't expect the data to change much, or if you want to avoid reloading the data each time you run the experiment.
+6. Select the **Use cached results** options if you don't expect the data to change much, or if you want to avoid reloading the data each time you run the pipeline.
 
-    When this option  is selected, the experiment loads the data the first time the module is run, and thereafter uses a cached version of the dataset.
+    When this option  is selected, the pipeline loads the data the first time the module is run, and thereafter uses a cached version of the dataset.
 
-    If you want to reload the dataset on each iteration of the experiment dataset, deselect the **Use cached results** option. Results are also reloaded if there are any changes to the parameters of [Import Data](import-data.md).
+    If you want to reload the dataset on each iteration of the pipeline dataset, deselect the **Use cached results** option. Results are also reloaded if there are any changes to the parameters of [Import Data](import-data.md).
 
-7. Run the experiment.
+7. Run the pipeline.
 
 ## Results
 

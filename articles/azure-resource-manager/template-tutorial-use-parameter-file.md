@@ -47,9 +47,9 @@ This file is your parameter file for the production environment. Notice that it 
 
 ## Deploy the template
 
-Use either Azure CLI or Azure PowerShell to deploy a template.
+Use either Azure CLI or Azure PowerShell to deploy the template.
 
-As final test of your template, let's create two new resource groups. One for the dev environment and on for the production environment.
+As a final test of your template, let's create two new resource groups. One for the dev environment and one for the production environment.
 
 First, we'll deploy to the dev environment.
 
@@ -79,7 +79,7 @@ az group deployment create \
   --name devenvironment \
   --resource-group myResourceGroupDev \
   --template-file $templateFile \
-  --parameters @azuredeploy.parameters.dev.json
+  --parameters azuredeploy.parameters.dev.json
 ```
 
 ---
@@ -110,14 +110,14 @@ az group deployment create \
   --name prodenvironment \
   --resource-group myResourceGroupProd \
   --template-file $templateFile \
-  --parameters @azuredeploy.parameters.prod.json
+  --parameters azuredeploy.parameters.prod.json
 ```
 
 ---
 
-## Verify deployment
+## Verify the deployment
 
-You can verify the deployment by exploring the resource group from the Azure portal.
+You can verify the deployment by exploring the resource groups from the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. From the left menu, select **Resource groups**.

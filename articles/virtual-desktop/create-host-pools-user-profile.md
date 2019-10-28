@@ -15,6 +15,9 @@ The Windows Virtual Desktop service offers FSLogix profile containers as the rec
 
 This article will tell you how to set up a FSLogix profile container share for a host pool using a virtual machine-based file share. For more FSLogix documentation, see the [FSLogix site](https://docs.fslogix.com/).
 
+>[!NOTE]
+>If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
+
 ## Create a new virtual machine that will act as a file share
 
 When creating the virtual machine, be sure to place it on either the same virtual network as the host pool virtual machines or on a virtual network that has connectivity to the host pool virtual machines. You can create a virtual machine in multiple ways:
@@ -63,4 +66,4 @@ To configure the virtual machines with the FSLogix software, do the following on
 | VHDLocations        | Multi-String Value | "Network path for file share"     |
 
 >[!IMPORTANT]
->To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md).

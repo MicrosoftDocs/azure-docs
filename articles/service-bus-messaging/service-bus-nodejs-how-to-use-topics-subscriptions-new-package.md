@@ -106,7 +106,7 @@ Interacting with a Service Bus subscription starts with instantiating the [Servi
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
       const subscriptionClient = sbClient.createSubscriptionClient(topicName, subscriptionName);
-      const receiver = subscriptionClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      const receiver = subscriptionClient.createReceiver(ReceiveMode.receiveAndDelete);
       
       try {
         const messages = await receiver.receiveMessages(10);

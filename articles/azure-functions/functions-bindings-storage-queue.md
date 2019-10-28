@@ -236,7 +236,7 @@ def main(msg: func.QueueMessage):
 
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a queue trigger:
 
-* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
+* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs)
 
   The attribute's constructor takes the name of the queue to monitor, as shown in the following example:
 

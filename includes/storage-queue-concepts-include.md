@@ -4,6 +4,7 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
+ms.custom: seo-python-october2019
 ---
 ## What is queue storage?
 
@@ -13,7 +14,7 @@ Azure Queue storage is a service for storing large numbers of messages that can 
 
 The Azure Queue service contains the following components:
 
-![Queue1](./media/storage-queue-concepts-include/queue1.png)
+![Azure Queue service components](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
 * **URL format:** Queues are addressable using the following URL format:   
     http://`<storage account>`.queue.core.windows.net/`<queue>` 

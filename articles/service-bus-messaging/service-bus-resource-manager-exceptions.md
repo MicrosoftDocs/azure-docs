@@ -54,9 +54,9 @@ Just like in HTTP, "Error code 429" indicates "too many requests". It implies th
 | 429 | 50004 | SubCode=50004. The request was terminated because the namespace *your namespace* is being throttled. | This error condition is hit when the number of incoming requests exceed the limitation of the resource. | Wait for a few seconds and try again. <br/> <br/> Learn more about the [quotas](service-bus-quotas.md) and [Azure Resource Manager request limits](../azure-resource-manager/resource-manager-request-limits.md)|
 | 429 | 40901 | SubCode=40901. Another conflicting operation is in progress. | Another conflicting operation is in progress on the same resource/entity | Wait for the current in-progress operation to complete before trying again. |
 | 429 | 40900 | SubCode=40900. Conflict. You're requesting an operation that isn't allowed in the resource's current state. | This condition may be hit when multiple requests are made to perform the operations on the same entity (queue, topic, subscription, or rule) at the same time. | Wait for a few seconds and try again |
+| 429 | 40901 | Request on entity *'entity name'* conflicted with another request | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
+| 429 | 40901 | Another update request is in progress for the entity *'entity name'*. | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
 | 429 | none | Resource Conflict Occurred. Another conflicting operation may be in progress. If this is a retry for failed operation, background cleanup is still pending. Try again later. | This condition may be hit when there is a pending operation against the same entity. | Wait for the previous operation to complete before trying again. |
-| 429 | none | Request on entity *'entity name'* conflicted with another request | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
-| 429 | none | Another update request is in progress for the entity *'entity name'*. | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
 
 
 ## Error code: Not Found

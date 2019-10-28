@@ -44,7 +44,7 @@ For example, let’s say the existing NSG rule is to allow traffic from 140.20.3
 
 2. From the **Unhealthy resources** tab, select a VM to view it’s alerts and the recommended hardening rules to apply.
 
-    ![hardening alerts](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![hardening alerts](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
 
 ## Review and apply Adaptive Network Hardening recommended rules

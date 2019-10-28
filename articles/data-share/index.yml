@@ -11,8 +11,8 @@ metadata:
   ms.subservice: subservice
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.
-  ms.author: hrasheed #Required; microsoft alias of author; optional team alias.
+  author: joannapea #Required; your GitHub user alias, with correct capitalization.
+  ms.author: joanpo #Required; microsoft alias of author; optional team alias.
   ms.date: 09/13/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
