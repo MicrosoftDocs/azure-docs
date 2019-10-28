@@ -1,6 +1,6 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
 - name: Speech service documentation
-  href: https://aka.ms/speech/hub
+  href: index.md
 - name: Overview
   expanded: false
   items:
@@ -88,10 +88,6 @@
       href: long-audio-api.md
     - name: Use speech synthesis with Docker containers
       href: speech-container-howto.md
-  - name: Tutorials
-    items:
-    - name: Translate, analyze, and synthesize speech
-      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
   - name: Reference
     items:
     - name: Speech SDK
@@ -123,7 +119,7 @@
       href: quickstarts/intent-recognition.md
   - name: How-to guides
     items:
-    - name: Recognize speech intents with LUIS
+    - name: Recognize speech intents with LUIS, C#
       href: how-to-recognize-intents-from-speech-csharp.md
   - name: Reference
     items:
@@ -162,6 +158,10 @@
       href: quickstarts/translate-speech-to-text-multiple-languages.md
     - name: Translate speech-to-speech
       href: quickstarts/translate-speech-to-speech.md
+  - name: Tutorials
+    items:
+    - name: Build a Flask app to translate and synthesize text, REST
+      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
   - name: Reference
     items:
     - name: Speech SDK
@@ -236,6 +236,18 @@
       href: quickstart-voice-assistant-java-jre.md
     - name: 'Java (Android)'
       href: quickstart-voice-assistant-java-android.md
+    - name: 'Create a Custom Command (Preview)'
+      href: quickstart-custom-speech-commands-create-new.md
+    - name: 'Create a Custom Command with parameters (Preview)'
+      href: quickstart-custom-speech-commands-create-parameters.md
+    - name: 'Use Custom Commands with the Speech SDK (Preview)'
+      href: quickstart-custom-speech-commands-speech-sdk.md
+  - name: How-to guides
+    items:
+    - name: 'Fulfill Custom Commands with the Speech SDK'
+      href: how-to-custom-speech-commands-fulfill-sdk.md
+    - name: 'Add parameter validation to Custom Commands'
+      href: how-to-custom-speech-commands-validations.md
   - name: Tutorials
     items:
     - name: Voice enable your bot with Speech SDK
@@ -263,7 +275,7 @@
         href: how-to-custom-speech-train-model.md
       - name: Deploy a custom model
         href: how-to-custom-speech-deploy-model.md
-      - name: "Create human-labeled transcriptions"
+      - name: "Guide Create human-labeled transcriptions"
         href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: 'Tenant Models'
       items:
@@ -297,12 +309,8 @@
         href: record-custom-voice-samples.md
     - name: Audio Content Creation
       items:
-      - name: "Get started with Audio Content Creation"
+      - name: "How-to: Audio Content Creation"
         href: how-to-audio-content-creation.md
-    - name: Custom neural voices
-      items:
-      - name: Placeholder
-        href: https://example.com
   - name: Custom keyword spotting
     href: speech-devices-sdk-create-kws.md
 - name: Speech Service
