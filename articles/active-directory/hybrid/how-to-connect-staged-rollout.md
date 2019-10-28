@@ -142,7 +142,7 @@ Use the following steps to rollout a specific feature (Pass-through Authenticati
 
 1.  Login to the Azure AD Portal using the below URL to access the Preview UX.
 
-> <http://aka.ms/stagedrolloutux>
+> <https://aka.ms/stagedrolloutux>
 
 2.  Click on Enable staged rollout for managed user sign-in ( preview )
 
