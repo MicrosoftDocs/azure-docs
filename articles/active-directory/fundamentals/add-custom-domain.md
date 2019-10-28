@@ -26,25 +26,17 @@ Before you can add a custom domain name, create your domain name with a domain r
 
 ## Create your directory in Azure AD
 
-After you get your domain name, you can create your first Azure AD directory.
+After you get your domain name, you can create your first Azure AD directory. Create your new directory by following the steps in [Create a new tenant for your organization](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) for your directory, using an account with the **Owner** role for the subscription.
+>[!IMPORTANT]
+>The person who creates the tenant is automatically the Global administrator for that tenant. The Global administrator can add additional administrators to the tenant.
 
-1. On the Azure portal menu, select **Azure Active Directory** or search for and select *Azure Active Directory* from any page.
+For more information about subscription roles, see [Azure RBAC roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Azure portal screen, showing the Azure AD option](media/add-custom-domain/active-directory-options-in-the-azure-portal.png)
-
-    For more information about subscription roles, see [Azure RBAC roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
-
-    >[!TIP]
-    > If you plan to federate your on-premises Windows Server AD with Azure AD, then you need to select **I plan to configure this domain for single sign-on with my local Active Directory** when you run the Azure AD Connect tool to synchronize your directories.
-    >
-    > You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. To see what that setup looks like, see [Verify the Azure AD domain selected for federation](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can [download it here](https://go.microsoft.com/fwlink/?LinkId=615771).
-
-1. Create your new directory by following the steps in [Create a new tenant for your organization](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
-
-    >[!IMPORTANT]
-    >The person who creates the tenant is automatically the Global administrator for that tenant. The Global administrator can add additional administrators to the tenant.
+>[!TIP]
+> If you plan to federate your on-premises Windows Server AD with Azure AD, then you need to select **I plan to configure this domain for single sign-on with my local Active Directory** when you run the Azure AD Connect tool to synchronize your directories.
+>
+> You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. To see what that setup looks like, see [Verify the Azure AD domain selected for federation](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can [download it here](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## Add your custom domain name to Azure AD
 
@@ -52,7 +44,7 @@ After you create your directory, you can add your custom domain name.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
-1. On the Azure portal menu, select **Azure Active Directory**, then select **Custom domain names** > **Add custom domain**.
+1. On the Azure portal menu, select **Azure Active Directory**, or search for and select *Azure Active Directory* from any page. Then select **Custom domain names** > **Add custom domain**.
 
     ![Custom domain names page, with Add custom domain shown](media/add-custom-domain/add-custom-domain.png)
 
