@@ -65,18 +65,18 @@ conceptualContent:
     # Card
     - title: Use Azure IoT Central to deploy a fully managed IoT solution
       links:
-        - url: ../iot-central/overview-iot-central.md
+        - url: ../iot-central/core/overview-iot-central.md
           itemType: overview
           text: What is Azure IoT Central?
-        - url: ../iot-central/quick-deploy-iot-central.md
+        - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Create an IoT Central application
-        - url: ../iot-central/tutorial-define-device-type.md
+        - url: ../iot-central/core/tutorial-define-device-type.md
           itemType: tutorial
           text: Define the type for your device
       # footerLink
       footerLink:
-        url: ../iot-central/index.yml
+        url: ../iot-central/core/index.yml
         text: See more
     # Card
     - title: Use Azure IoT solution accelerators to customize a pre-built IoT solution
