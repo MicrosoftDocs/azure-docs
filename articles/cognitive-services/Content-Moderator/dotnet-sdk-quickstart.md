@@ -68,7 +68,7 @@ Build succeeded.
 
 From the project directory, open the *Program.cs* file in your preferred editor or IDE. Add the following `using` statements:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_using)]
 
 In the **Program** class, create variables for your resource's endpoint location and key as environment variables.
 
