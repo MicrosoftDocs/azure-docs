@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your Azure account.
 
-To open any code block in Cloud Shell, just select **Try it** from the upper right corner of that code block.
+To open any code block in Cloud Shell, just select **Try it** from the upper-right corner of that code block.
 
 You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy code blocks, paste them into the Cloud Shell tab, and select the Enter key to run the code.
 
@@ -75,7 +75,7 @@ For pricing information, see [Automation pricing for Update management](https://
 To enable Update Management for your VM:
 
 1. On the leftmost side of the window, select **Virtual machines**.
-1. Chose a VM from the list.
+1. Choose a VM from the list.
 1. In the **Operations** pane of the VM window, select **Update management**.
 1. The **Enable Update Management** window opens.
 
@@ -182,7 +182,7 @@ The available settings options for Windows are:
 * Windows Registry
 * Windows Files
 
-For detailed information on Change Tracking, see [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md)
+For detailed information on Change Tracking, see [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md).
 
 ### View inventory
 
