@@ -90,7 +90,7 @@ Create a C solution template that you can customize with your own code.
 
    ![Configure your project for target device, module type, and container registry](./media/tutorial-c-module-windows/add-application-and-module.png)
 
-5. Select **OK** to apply your changes. 
+5. Select **Add** to create the project. 
 
 ### Add your registry credentials
 

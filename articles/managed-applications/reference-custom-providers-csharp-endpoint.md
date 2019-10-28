@@ -1,6 +1,6 @@
 ---
 title: Custom provider C# RESTful endpoint reference - Azure
-description: This article is a basic reference for a custom provider C# RESTful endpoint.
+description: Provides basic reference for an Azure Custom Providers C# RESTful endpoint. The endpoint is provided through an Azure function app.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual

@@ -3,13 +3,12 @@ title: 'Overview: Azure Time Series Insights Preview | Microsoft Docs'
 description: Azure Time Series Insights Preview overview.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 09/23/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
 ---
 
@@ -40,7 +39,7 @@ As a result, only a fraction of the data gets used for operational and business 
 
 A typical IoT data flow is shown in the following image.
 
-  ![IoT data flow][1]
+  [![IoT data flow](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
 
 ## Azure Time Series Insights for industrial IoT
 
@@ -65,7 +64,7 @@ Together, operational insights and data exploration are offered with a simple pa
 
 This high-level data flow diagram shows the updates.
 
-  ![Key capabilities][2]
+  [![Key capabilities](media/v2-update-overview/overview-two.png)](media/v2-update-overview/overview-two.png#lightbox)
 
 With the introduction of these key industrial IoT capabilities, Time Series Insights provides the following key benefits.
 
@@ -89,7 +88,3 @@ Learn about use cases:
 
 > [!div class="nextstepaction"]
 > [Azure Time Series Insights Preview use cases](./time-series-insights-update-use-cases.md)
-
-<!-- Images -->
-[1]: media/v2-update-overview/overview-one.png
-[2]: media/v2-update-overview/overview-two.png

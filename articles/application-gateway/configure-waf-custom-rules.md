@@ -1,6 +1,6 @@
 ---
-title: Configure Web Application Firewall v2 custom rules using Azure PowerShell
-description: Learn how to configure WAF v2 custom rules using Azure PowerShell
+title: Configure web application firewall v2 custom rules by using Azure PowerShell
+description: Learn how to configure web application firewall v2 custom rules by using Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,32 +9,31 @@ ms.date: 6/18/2019
 ms.author: victorh
 ---
 
-# Configure Web Application Firewall v2  with a custom rule using Azure PowerShell
+# Configure web application firewall v2 custom rules by using Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Custom rules allow you to create your own rules evaluated for each request that passes through the Web Application Firewall (WAF) v2. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules have an action (to allow or block), a match condition, and an operator to allow full customization.
+With custom rules, you can create your own rules, which are evaluated for each request that passes through the web application firewall (WAF). These rules hold a higher priority than the rest of the rules in the managed rule sets. To allow full customization, the custom rules have an action (to allow or block), a match condition, and an operator.
 
-This article creates an Application Gateway WAF v2 that uses a custom rule. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
+This article creates an Azure Application Gateway WAF v2 that uses a custom rule. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
 
-To see more custom rule examples, see [Create and use custom web application firewall rules](create-custom-waf-rules.md)
+To view more custom rule examples, see [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
-If you want run the Azure PowerShell in this article in one continuous script that you can copy, paste, and run, see [Azure Application Gateway PowerShell samples](powershell-samples.md).
+To run the Azure PowerShell code in this article in one continuous script that you can copy, paste, and run, see [Azure Application Gateway PowerShell samples](powershell-samples.md).
 
 ## Prerequisites
+* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-### Azure PowerShell module
+* You need an Azure PowerShell module. If you choose to install and use Azure PowerShell locally, this script requires Azure PowerShell module version 2.1.0 or later. Do the following:
 
-If you choose to install and use Azure PowerShell locally, this script requires the Azure PowerShell module version 2.1.0 or later.
-
-1. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
-2. To create a connection with Azure, run `Connect-AzAccount`.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+  1. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+  2. To create a connection with Azure, run `Connect-AzAccount`.
 
 ## Example script
 
 ### Set up variables
+
+Run the following code:
 
 ```azurepowershell
 $rgname = "CustomRulesTest"
@@ -46,11 +45,15 @@ $appgwName = "WAFCustomRules"
 
 ### Create a resource group
 
+Run the following code:
+
 ```azurepowershell
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location
 ```
 
-### Create a VNet
+### Create a virtual network
+
+Run the following code:
 
 ```azurepowershell
 $sub1 = New-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -AddressPrefix "10.0.0.0/24"
@@ -61,14 +64,18 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### Create a Static Public VIP
+### Create a static public VIP
+
+Run the following code:
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### Create pool and frontend port
+### Create a pool and front-end port
+
+Run the following code:
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -83,7 +90,9 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name "pool1" `
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 80
 ```
 
-### Create a listener, http setting, rule, and autoscale
+### Create a listener, HTTP setting, rule, and autoscale
+
+Run the following code:
 
 ```azurepowershell
 $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol Http `
@@ -102,6 +111,8 @@ $sku = New-AzApplicationGatewaySku -Name WAF_v2 -Tier WAF_v2
 
 ### Create the custom rule and apply it to WAF policy
 
+Run the following code:
+
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestHeaders -Selector User-Agent
 
@@ -114,7 +125,9 @@ $wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafPolicy -ResourceGro
 $wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
-### Create the Application Gateway
+### Create an application gateway
+
+Run the following code:
 
 ```azurepowershell
 $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
@@ -129,4 +142,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
 
 ## Next steps
 
-[Learn more about Web Application Firewall](waf-overview.md)
+[Learn more about web application firewall](waf-overview.md)

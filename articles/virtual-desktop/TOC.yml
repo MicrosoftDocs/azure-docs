@@ -74,6 +74,8 @@
     href: host-pool-load-balancing.md
   - name: FSLogix profile containers and Azure files
     href: fslogix-containers-azure-files.md
+  - name: Storage options for FSLogix profile containers
+    href: store-fslogix-profile.md
   - name: Partner integrations
     href: partners.md
   - name: Windows 10 Enterprise multi-session FAQ

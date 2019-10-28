@@ -109,10 +109,10 @@ In this section, you will create a private storage account using a Private Endpo
     | Replication | Select **Read-access geo-redundant storage (RA-GRS)**. |
     |||
   
-3. Select **Next: Networking**.
-4. In **Create a storage account - Networking**, connectivity method, select **Private Endpoint**.
-5. In **Create a storage account - Networking**, select **Add Private Endpoint**. 
-6. In **Create Private Endpoint**, enter or select this information:
+3. Select **Next: Networking**.
+4. In **Create a storage account - Networking**, connectivity method, select **Private Endpoint**.
+5. In **Create a storage account - Networking**, select **Add Private Endpoint**. 
+6. In **Create Private Endpoint**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -121,19 +121,19 @@ In this section, you will create a private storage account using a Private Endpo
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     |Location|Select **WestCentralUS**.|
     |Name|Enter *myPrivateEndpoint*.  |
-    |Storage sub-resource|Leave the default **Blob**. |
+    |Storage sub-resource|Leave the default **Blob**. |
     | **NETWORKING** |  |
     | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
     | Subnet | Select *mySubnet*. |
     | **PRIVATE DNS INTEGRATION**|  |
     | Integrate with private DNS zone  | Leave the default **Yes**. |
-    | Private DNS zone  | Leave the default ** (New) privatelink.blob.core.windows.net**. |
+    | Private DNS zone  | Leave the default ** (New) privatelink.blob.core.windows.net**. |
     |||
-7. Select **OK**. 
-8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
-9. When you see the **Validation passed** message, select **Create**. 
+7. Select **OK**. 
+8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
+9. When you see the **Validation passed** message, select **Create**. 
 10. Browse to the storage account resource that you just created.
-11. Select **Access Keys** from the left content menu.
+11. Select **Access Keys** from the left content menu.
 12. Select **Copy** on the connection string for key1.
  
 ## Connect to a VM from the internet
@@ -181,14 +181,15 @@ In this section, you will connect privately to the storage account using the Pri
     Name:    mystorageaccount123123.privatelink.blob.core.windows.net
     Address:  10.0.0.5
     Aliases:  mystorageaccount.blob.core.windows.net
+    ```
 3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
 4. Select **Storage accounts** with the right-click.
-5. Select **Connect to an azure storage**.
-6. Select **Use a connection string**.
-7. Select **Next**.
+5. Select **Connect to an azure storage**.
+6. Select **Use a connection string**.
+7. Select **Next**.
 8. Enter the connection string by pasting the information previously copied.
-9. Select **Next**.
-10. Select **Connect**.
+9. Select **Next**.
+10. Select **Connect**.
 11. Browse the Blob containers from mystorageaccount 
 12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
 13. Close the remote desktop connection to *myVM*. 
@@ -201,9 +202,9 @@ Additional options to access the storage account:
 
 ## Clean up resources 
 When you're done using the Private Endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
+2. Select **Delete resource group**. 
+3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
 
 ## Next steps
 In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).

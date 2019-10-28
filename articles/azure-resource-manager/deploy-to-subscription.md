@@ -1,5 +1,5 @@
 ---
-title: Create resource groups and resources at subscription - Azure Resource Manager template
+title: Deploy subscription level - Azure Resource Manager template
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 author: tfitzmac
 ms.service: azure-resource-manager

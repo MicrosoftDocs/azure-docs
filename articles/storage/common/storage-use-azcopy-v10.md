@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
 ---
@@ -24,7 +24,8 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 First, download the AzCopy V10 executable file to any directory on your computer. AzCopy V10 is just an executable file, so there's nothing to install.
 
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
@@ -52,6 +53,8 @@ To see a list of commands, type `azcopy -h` and then press the ENTER key.
 To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
 
 ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
+To find detailed reference documentation for each command and command parameter, see [azcopy](storage-ref-azcopy.md)
 
 > [!NOTE] 
 > As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 
@@ -282,12 +285,20 @@ The URL appears in the output of this command. Your script can then download AzC
 
 | Operating system  | Command |
 |--------|-----------|
-| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
 ### Escape special characters in SAS tokens
 
 In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an addition `%` character next to existing `%` characters in the SAS token string.
+
+### Run scripts by using Jenkins
+
+If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to place the following command at the beginning of the script.
+
+```
+/usr/bin/keyctl new_session
+```
 
 ## Use AzCopy in Storage Explorer
 
