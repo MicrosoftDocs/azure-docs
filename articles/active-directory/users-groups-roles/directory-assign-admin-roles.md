@@ -9,7 +9,7 @@ search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 10/28/2019
 ms.author: curtand
 ms.reviewer: vincesm
