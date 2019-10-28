@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Avere cluster DNS configuration
@@ -75,6 +75,6 @@ Specify the DNS server that the vFXT cluster uses in the **Cluster** > **Adminis
 * DNS domain name
 * DNS search domains
 
-Read [DNS Settings](<http://library.averesystems.com/ops_guide/4_7/gui_admin_network.html#gui-dns>) in the Avere Cluster Configuration Guide for more details about using this page.
+Read [DNS Settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) in the Avere Cluster Configuration Guide for more details about using this page.
 
 

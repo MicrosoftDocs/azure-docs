@@ -1,20 +1,12 @@
 ---
-title: Create an Azure Key Vault certificate | Microsoft Docs
+title: Create an Azure Key Vault certificate | Azure Marketplace
 description: Explains how to register a VM from an Azure-deployed VHD.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Create certificates for Azure Key Vault
@@ -27,6 +19,9 @@ This article explains how to provision the self-signed certificates required to 
 
 You can use either a new or an existing Azure resource group for this work.  The former approach is used in the following explanation.
 
+
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## Create the certificate
 
@@ -126,7 +121,7 @@ Copy the contents of the [key vault deployment template](./cpp-key-vault-deploy-
         $id = $accountSelected.Id
                               
         Write-Host "User $id Selected"
-        $myobjectId=(Get-AzureRmADUser -Mail $id)[0].Id
+        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
       }
       catch
       {
@@ -177,9 +172,9 @@ Copy the contents of the [key vault deployment template](./cpp-key-vault-deploy-
      Write-Host "-----------------------------------" 
     
     # Create key vault and configure access
-    New-AzureRmResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
+    New-AzResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
     
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
+    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
         
 ```
 
@@ -201,7 +196,7 @@ You can now store the certificates, contained in the .pfx file, to the new key v
     "dataType" :"pfx",
     "password": "$certpassword"
     }
-    "@
+"@
             echo $certpassword
             $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
             $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)

@@ -4,7 +4,7 @@ description: 'This topic describes how to set up a channel that receives a multi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: cenkd;juliako
+ms.date: 03/18/2019
+ms.author: juliako
 
 ---
-# Live streaming with on-premises encoders that create multi-bitrate streams
+# Working with Channels that receive multi-bitrate live stream from on-premises encoders
 
 > [!NOTE]
 > Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
@@ -41,7 +41,7 @@ Starting with the Media Services 2.10 release, when you create a channel, you ca
 > [!NOTE]
 > This article discusses attributes of channels that are not enabled to perform live encoding. For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 >
->For information about recommended on-prem encoders, see [Recommended on-prem encoders](media-services-recommended-encoders.md).
+>For information about recommended on premises encoders, see [Recommended on premises encoders](media-services-recommended-encoders.md).
 
 The following diagram represents a live-streaming workflow that uses an on-premises live encoder to have multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) streams as output.
 
@@ -123,7 +123,7 @@ The following table shows how the segment duration is calculated:
 
 You can change the fragments-per-segment ratio by configuring the channel’s output and setting FragmentsPerSegment on ChannelOutputHls.
 
-You can also change the keyframe interval value by setting the KeyFrameInterval property on ChanneInput. If you explicitly set KeyFrameInterval, the HLS segment packaging ratio FragmentsPerSegment is calculated via the rules described previously.  
+You can also change the keyframe interval value by setting the KeyFrameInterval property on ChannelInput. If you explicitly set KeyFrameInterval, the HLS segment packaging ratio FragmentsPerSegment is calculated via the rules described previously.  
 
 If you explicitly set both KeyFrameInterval and FragmentsPerSegment, Media Services uses the values that you set.
 
@@ -142,7 +142,7 @@ Channels provide a preview endpoint (preview URL) that you use to preview and va
 
 You can get the preview URL when you create the channel. For you to get the URL, the channel does not have to be in the **Running** state. After the channel starts ingesting data, you can preview your stream.
 
-Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
+Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](https://playready.directtaps.net/smoothstreaming/) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
 
 #### Allowed IP addresses
 You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified, any IP address is allowed. An allowed IP address can be specified as one of the following:
@@ -181,7 +181,7 @@ Possible values for the current state of a channel include:
 The following table shows how channel states map to the billing mode.
 
 | Channel state | Portal UI indicators | Billed? |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Starting** |**Starting** |No (transient state) |
 | **Running** |**Ready** (no running programs)<p><p>or<p>**Streaming** (at least one running program) |Yes |
 | **Stopping** |**Stopping** |No (transient state) |
@@ -225,9 +225,9 @@ Here are other considerations related to working with channels and related compo
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related topics
-[Recommended on-prem encoders](media-services-recommended-encoders.md)
+[Recommended on premises encoders](media-services-recommended-encoders.md)
 
-[Azure Media Services fragmented MP4 lives ingest specification](media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services fragmented MP4 lives ingest specification](../media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services overview and common scenarios](media-services-overview.md)
 

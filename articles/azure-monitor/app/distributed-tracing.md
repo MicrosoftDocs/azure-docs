@@ -1,20 +1,19 @@
 ---
 title: Distributed Tracing in Azure Application Insights | Microsoft Docs
 description: Provides information about Microsoft's support for distributed tracing through our local forwarder and partnership in the OpenCensus project
-services: application-insights
-keywords:
+ms.service:  azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
-ms.reviewer: mbullwin
 ms.date: 09/17/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
+
+ms.reviewer: mbullwin
 ---
 
 # What is Distributed Tracing?
 
-The advent of modern cloud and [microservices](http://azure.com/microservices) architectures has given rise to simple, independently deployable services that can help reduce costs while increasing availability and throughput. But while these movements have made individual services easier to understand as a whole, they’ve made overall systems more difficult to reason about and debug.
+The advent of modern cloud and [microservices](https://azure.com/microservices) architectures has given rise to simple, independently deployable services that can help reduce costs while increasing availability and throughput. But while these movements have made individual services easier to understand as a whole, they’ve made overall systems more difficult to reason about and debug.
 
 In monolithic architectures, we’ve gotten used to debugging with call stacks. Call stacks are brilliant tools for showing the flow of execution (Method A called Method B, which called Method C), along with details and parameters about each of those calls. This is great for monoliths or services running on a single process, but how do we debug when the call is across a process boundary, not simply a reference on the local stack? 
 
@@ -54,4 +53,4 @@ The OpenCensus website maintains API reference documentation for [Python](https:
 
 * [OpenCensus Python usage guide](https://opencensus.io/api/python/trace/usage.html)
 * [Application map](./../../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./../../application-insights/app-insights-tutorial-performance.md)
+* [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)

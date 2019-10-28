@@ -1,9 +1,9 @@
 ---
-title: Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET) | Microsoft Docs
+title: Get started with Azure queue storage using Visual Studio (ASP.NET) 
 description: How to get started using Azure queue storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,6 +12,7 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)
 
@@ -55,8 +56,8 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;
-	```
-## Create a queue
+    ```
+   ## Create a queue
 
 The following steps illustrate how to create a queue:
 
@@ -131,7 +132,7 @@ The following steps illustrate how to create a queue:
 	<li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Run the application, and select **Create queue** to see results similar to the following screen shot:
+1. Run the application, and select **Create queue** to see results similar to the following screenshot:
   
 	![Create queue](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
@@ -210,7 +211,7 @@ Once you've [created a queue](#create-a-queue), you can add messages to that que
 	<h2>Add Message results</h2>
 	
 	The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
@@ -220,7 +221,7 @@ Once you've [created a queue](#create-a-queue), you can add messages to that que
 	<li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Run the application, and select **Add message** to see results similar to the following screen shot:
+1. Run the application, and select **Add message** to see results similar to the following screenshot:
   
 	![Add  message](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
@@ -296,7 +297,7 @@ This section illustrates how to peek at a queued message (read the first message
 	    <tr><th>Queue</th><th>Peeked Message</th></tr>
 	    <tr><td>@ViewBag.QueueName</td><td>@ViewBag.Message</td></tr>
 	</table>	
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
@@ -306,7 +307,7 @@ This section illustrates how to peek at a queued message (read the first message
 	<li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Run the application, and select **Peek message** to see results similar to the following screen shot:
+1. Run the application, and select **Peek message** to see results similar to the following screenshot:
   
 	![Peek message](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
@@ -387,7 +388,7 @@ In this section, you learn how to read and remove a message from a queue.
 	    <tr><th>Queue</th><th>Read (and Deleted) Message</th></tr>
 	    <tr><td>@ViewBag.QueueName</td><td>@ViewBag.Message</td></tr>
 	</table>
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
@@ -397,7 +398,7 @@ In this section, you learn how to read and remove a message from a queue.
 	<li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Run the application, and select **Read/Delete message** to see results similar to the following screen shot:
+1. Run the application, and select **Read/Delete message** to see results similar to the following screenshot:
   
 	![Read and delete message](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -474,7 +475,7 @@ This section illustrates how to get the queue length (number of messages).
 	<h2>Get Queue Length results</h2>
 	
 	The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
@@ -484,7 +485,7 @@ This section illustrates how to get the queue length (number of messages).
 	<li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Run the application, and select **Get queue length** to see results similar to the following screen shot:
+1. Run the application, and select **Get queue length** to see results similar to the following screenshot:
   
 	![Get queue length](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -554,7 +555,7 @@ This section illustrates how to delete a queue.
 	<h2>Delete Queue results</h2>
 	
 	@ViewBag.QueueName deleted.
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
@@ -564,7 +565,7 @@ This section illustrates how to delete a queue.
 	<li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Run the application, and select **Get queue length** to see results similar to the following screen shot:
+1. Run the application, and select **Get queue length** to see results similar to the following screenshot:
   
 	![Delete queue](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

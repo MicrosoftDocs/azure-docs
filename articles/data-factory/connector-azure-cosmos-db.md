@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 09/02/2019
 ms.author: jingwang
 
 ---
@@ -25,9 +25,14 @@ ms.author: jingwang
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB (SQL API). The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 >[!NOTE]
->This connector only support copy data to/from Cosmos DB SQL API. For MongoDB API, refer to [Cosmos DB MongoDB API connector](connector-azure-cosmos-db-mongodb-api.md). Other API types are not supported now.
+>This connector only support copy data to/from Cosmos DB SQL API. For MongoDB API, refer to [connector for Azure Cosmos DB's API for MongoDB](connector-azure-cosmos-db-mongodb-api.md). Other API types are not supported now.
 
 ## Supported capabilities
+
+This Azure Cosmos DB (SQL API) connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Azure Cosmos DB (SQL API) to any supported sink data store, or copy data from any supported source data store to Azure Cosmos DB (SQL API). For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -35,7 +40,7 @@ You can use the Azure Cosmos DB (SQL API) connector to:
 
 - Copy data from and to the Azure Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - Write to Azure Cosmos DB as **insert** or **upsert**.
-- Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see [Import or export JSON documents](#importexport-json-documents).
+- Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see Import or export JSON documents.
 
 Data Factory integrates with the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to provide the best performance when you write to Azure Cosmos DB.
 
@@ -55,7 +60,7 @@ The following properties are supported for the Azure Cosmos DB (SQL API) linked 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **CosmosDb**. | Yes |
-| connectionString |Specify information that's required to connect to the Azure Cosmos DB database.<br /><br />**Note**: You must specify database information in the connection string as shown in the examples that follow. Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| connectionString |Specify information that's required to connect to the Azure Cosmos DB database.<br />**Note**: You must specify database information in the connection string as shown in the examples that follow. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If this property isn't specified, the default Azure Integration Runtime is used. |No |
 
 **Example**
@@ -69,6 +74,35 @@ The following properties are supported for the Azure Cosmos DB (SQL API) linked 
             "connectionString": {
                 "type": "SecureString",
                 "value": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store account key in Azure Key Vault**
+
+```json
+{
+    "name": "CosmosDbSQLAPILinkedService",
+    "properties": {
+        "type": "CosmosDb",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "AccountEndpoint=<EndpointUrl>;Database=<Database>"
+            },
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -183,6 +217,7 @@ The following properties are supported in the Copy Activity **source** section:
 | writeBehavior |Describes how to write data to Azure Cosmos DB. Allowed values: **insert** and **upsert**.<br/><br/>The behavior of **upsert** is to replace the document if a document with the same ID already exists; otherwise, insert the document.<br /><br />**Note**: Data Factory automatically generates an ID for a document if an ID isn't specified either in the original document or by column mapping. This means that you must ensure that, for **upsert** to work as expected, your document has an ID. |No<br />(the default is **insert**) |
 | writeBatchSize | Data Factory uses the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data to Azure Cosmos DB. The **writeBatchSize** property controls the size of documents that ADF provide to the library. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large - see below tips. |No<br />(the default is **10,000**) |
 | nestingSeparator |A special character in the **source** column name that indicates that a nested document is needed. <br/><br/>For example, `Name.First` in the output dataset structure generates the following JSON structure in the Azure Cosmos DB document when the **nestedSeparator** is **.** (dot): `"Name": {"First": "[value maps to this column from source]"}`  |No<br />(the default is **.** (dot)) |
+| disableMetricsCollection | Data Factory collects metrics such as Cosmos DB RUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
 >[!TIP]
 >Cosmos DB limits single request's size to 2MB. The formula is Request Size = Single Document Size * Write Batch Size. If you hit error saying **"Request size is too large."**, **reduce the `writeBatchSize` value** in copy sink configuration.
@@ -218,6 +253,9 @@ The following properties are supported in the Copy Activity **source** section:
     }
 ]
 ```
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Import or export JSON documents
 

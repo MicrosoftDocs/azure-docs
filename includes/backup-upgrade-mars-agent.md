@@ -4,7 +4,7 @@ description: This information explains why you should upgrade the Azure Backup a
 services: backup
 cloud: 
 suite: 
-author: markgalioto
+author: dcurwin
 manager: carmonm
 
 ms.service: backup
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: <optional>
 ms.devlang: <optional>
 ms.topic: article
 ms.date: 8/29/2018
-ms.author: markgal
+ms.author: dacurwin
 ---
 
 ## Upgrade the MARS agent

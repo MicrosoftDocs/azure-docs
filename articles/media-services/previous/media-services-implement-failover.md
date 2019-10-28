@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Implement failover streaming with Azure Media Services
+# Implement failover streaming with Media Services 
 
 This walkthrough demonstrates how to copy content (blobs) from one asset into another in order to handle redundancy for on-demand streaming. This scenario is useful if you want to set up Azure Content Delivery Network to fail over between two datacenters, in case of an outage in one datacenter. This walkthrough uses the Azure Media Services SDK, the Azure Media Services REST API, and the Azure Storage SDK to demonstrate the following tasks:
 
@@ -174,7 +174,7 @@ In this section, you create the ability to handle redundancy.
 		        CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
 		
 		        // Check if the AssetFiles are now  associated with the asset.
-		        Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+		        Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
 		        foreach (var af in targetAsset.AssetFiles)
 		        {
 		            Console.WriteLine(af.Name);
@@ -405,8 +405,7 @@ In this section, you create the ability to handle redundancy.
         {
 
             var ismAssetFiles = asset.AssetFiles.ToList().
-                        Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase))
-                        .ToArray();
+                        Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase));
 
             if (ismAssetFiles.Count() != 1)
                 throw new ArgumentException("The asset should have only one, .ism file");
@@ -417,15 +416,12 @@ In this section, you create the ability to handle redundancy.
 
         public static IAssetFile GetPrimaryFile(IAsset asset)
         {
-            var theManifest =
-                    from f in asset.AssetFiles
-                    where f.Name.EndsWith(".ism")
-                    select f;
-
             // Cast the reference to a true IAssetFile type. 
-            IAssetFile manifestFile = theManifest.First();
+	    IAssetFile theManifest = asset.AssetFiles.ToList().
+                Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).
+                FirstOrDefault();	
 
-            return manifestFile;
+            return theManifest;
         }
 
         public static IAsset RefreshAsset(CloudMediaContext context, IAsset asset)

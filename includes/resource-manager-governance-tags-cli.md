@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-To add two tags to a resource group, use the [az group update](/cli/azure/group#az_group_update) command:
+To add two tags to a resource group, use the [az group update](/cli/azure/group) command:
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.Environment=Test tags.Dept=IT

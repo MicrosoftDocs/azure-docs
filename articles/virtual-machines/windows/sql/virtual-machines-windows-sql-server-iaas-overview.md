@@ -3,17 +3,18 @@ title: Overview of SQL Server on Azure Windows Virtual Machines | Microsoft Docs
 description: Learn how to run full editions of SQL Server on Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
-ms.devlang: na
-ms.topic: get-started-article
+
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2018
-ms.author: jroth
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # What is SQL Server on Azure Virtual Machines? (Windows)
 
@@ -76,12 +77,44 @@ To bring your own license, you can either convert an existing pay-per-usage SQL 
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard  BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
+It is possible to deploy an older image of SQL Server that is not available in the Azure portal using PowerShell. To view all available images using Powershell, use the following command:
+
+  ```powershell
+  Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
+  ```
+
+For more information about deploying SQL Server VMs using PowerShell, view [How to provision SQL Server virtual machines with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+
 
 ### Connect to the VM
 After creating your SQL Server VM, connect to it from applications or tools, such as SQL Server Management Studio (SSMS). For instructions, see [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-windows-sql-connect.md).
 
 ### Migrate your data
 If you have an existing database, you'll want to move that to the newly provisioned SQL VM. For a list of migration options and guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
+
+## Create and manage Azure SQL resources with the Azure portal
+
+The Azure portal provides a single page where you can manage [all of your Azure SQL resources](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) including your SQL virtual machines.
+
+To access the **Azure SQL resources** page, select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
+
+> [!NOTE]
+> **Azure SQL** provides a quick and easy way to access all of your SQL databases, elastic pools, database servers, SQL managed instances, and SQL virtual machines. Azure SQL is not a service or resource. 
+
+To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Add**. 
+
+![Azure SQL portal page](./media/quickstart-sql-vm-create-portal/azure-sql.png)
+
+After selecting **+ Add**, view additional information about the different options by selecting **Show details** on any tile.
+
+![databases tile details](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
+
+For details, see:
+
+- [Create a single database](../../../sql-database/sql-database-single-database-get-started.md)
+- [Create an elastic pool](../../../sql-database/sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
+- [Create a managed instance](../../../sql-database/sql-database-managed-instance-get-started.md)
+- [Create a SQL virtual machine](quickstart-sql-vm-create-portal.md)
 
 ## <a id="lifecycle"></a> SQL VM image refresh policy
 Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](virtual-machines-windows-sql-server-iaas-faq.md#images).

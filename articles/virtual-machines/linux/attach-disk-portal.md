@@ -4,7 +4,7 @@ description: Use the portal to attach new or existing data disk to a Linux VM.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -12,10 +12,11 @@ ms.assetid: 5e1c6212-976c-4962-a297-177942f90907
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
+ms.subservice: disks
 
 ---
 # Use the portal to attach a data disk to a Linux VM 
@@ -24,8 +25,7 @@ This article shows you how to attach both new and existing disks to a Linux virt
 Before you attach disks to your VM, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* To use Premium storage, you need a DS-series or GS-series virtual machine. You can use both Premium and Standard disks with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Disks attached to virtual machines are actually .vhd files stored in Azure. For details, see [About disks and VHDs for virtual machines](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Disks attached to virtual machines are actually .vhd files stored in Azure. For details, see our [Introduction to managed disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * After attaching the disk, you need to [connect to the Linux VM to mount the new disk](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
@@ -92,7 +92,15 @@ The output is similar to the following example:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Here, *sdc* is the disk that we want. Partition the disk with `fdisk`, make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
+Here, *sdc* is the disk that we want. 
+
+### Partition a new disk
+If you are using an existing disk that contains data, skip to mounting the disk. If you are attaching a new disk, you need to partition the disk.
+
+> [!NOTE]
+> It is recommended that you use the latest versions of fdisk or parted that are available for your distro.
+
+Partition the disk with `fdisk`. If the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, you can use `parted` to perform GPT partitioning. If disk size is under 2TiB, then you can use either MBR or GPT partitioning. Make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
@@ -172,8 +180,8 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
-
-Now, create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
+### Mount the disk
+Create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
 
 ```bash
 sudo mkdir /datadrive
@@ -213,7 +221,7 @@ In this example, use the UUID value for the */dev/sdc1* device that was created 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
-
+When done, save the */etc/fstab* file and reboot the system.
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
 > 

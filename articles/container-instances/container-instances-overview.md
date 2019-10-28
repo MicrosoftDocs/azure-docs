@@ -2,13 +2,13 @@
 title: What is Azure Container Instances?
 description: The Azure Container Instances service offers the fastest and simplest way to run isolated containers in Azure, without having to manage virtual machines and without having to adopt a higher-level orchestrator.
 services: container-instances
-author: seanmck
-manager: jeconnoc
+author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 11/30/2018
-ms.author: seanmck
+ms.date: 04/25/2019
+ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
@@ -44,9 +44,18 @@ To retrieve and persist state with Azure Container Instances, we offer direct [m
 
 Azure Container Instances can schedule both Windows and Linux containers with the same API. Simply specify the OS type when you create your [container groups](container-instances-container-groups.md).
 
-Some features are currently restricted to Linux containers. While we work to bring feature parity to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+Some features are currently restricted to Linux containers:
 
-Azure Container Instances supports Windows images based on Long-Term Servicing Channel (LTSC) versions. Windows Semi-Annual Channel (SAC) releases like 1709 and 1803 are unsupported.
+* Multiple containers per container group
+* Volume mounting ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secret](container-instances-volume-secret.md))
+* [Resource usage metrics](container-instances-monitor.md) with Azure Monitor
+* [Virtual network deployment](container-instances-vnet.md) (preview)
+* [GPU resources](container-instances-gpu.md) (preview)
+
+For Windows container deployments, use images based on common [Windows base images](container-instances-faq.md#what-windows-base-os-images-are-supported).
+
+> [!NOTE]
+> Use of Windows Server 2019-based images in Azure Container Instances is in preview.
 
 ## Co-scheduled groups
 

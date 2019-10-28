@@ -3,9 +3,9 @@ title: Managing Azure Automation data
 description: This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+ms.subservice: shared-capabilities
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
@@ -33,23 +33,23 @@ The following table summarizes the retention policy for different resources.
 
 The retention policy applies to all users and currently cannot be customized.
 
-However, if you need to retain data for a longer period of time, you can forward runbook job logs to Log Analytics.  For further information, review [forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+However, if you need to retain data for a longer period of time, you can forward runbook job logs to Azure Monitor logs.  For further information, review [forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).   
 
 ## Backing up Azure Automation
 When you delete an automation account in Microsoft Azure, all objects in the account are deleted including runbooks, modules, configurations, settings, jobs, and assets. The objects cannot be recovered after the account is deleted.  You can use the following information to backup the contents of your automation account before deleting it. 
 
 ### Runbooks
-You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell.  These script files can be imported into another automation account as discussed in [Creating or Importing a Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell.  These script files can be imported into another automation account as discussed in [Creating or Importing a Runbook](/previous-versions/azure/dn643637(v=azure.100)).
 
 ### Integration modules
 You cannot export integration modules from Azure Automation.  You must ensure that they are available outside of the automation account.
 
 ### Assets
-You cannot export [assets](https://msdn.microsoft.com/library/dn939988.aspx) from Azure Automation.  Using the Azure portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
+You cannot export [assets](/previous-versions/azure/dn939988(v=azure.100)) from Azure Automation.  Using the Azure portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
 
 You can use [Azure cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) to retrieve details of unencrypted assets and either save them for future reference or create equivalent assets in another automation account.
 
-You cannot retrieve the value for encrypted variables or the password field of credentials using cmdlets.  If you don't know these values, then you can retrieve them from a runbook using the [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) and [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx) activities.
+You cannot retrieve the value for encrypted variables or the password field of credentials using cmdlets.  If you don't know these values, then you can retrieve them from a runbook using the [Get-AutomationVariable](/previous-versions/azure/dn940012(v=azure.100)) and [Get-AutomationPSCredential](/previous-versions/azure/dn940015(v=azure.100)) activities.
 
 You cannot export certificates from Azure Automation.  You must ensure that any certificates are available outside of Azure.
 
@@ -71,4 +71,5 @@ The following table shows the available primary and secondary region pairings.
 | Japan East |Japan West |
 
 In the unlikely event that a primary region data is lost, Microsoft attempts to recover it. If the primary data cannot be recovered, then geo-failover is performed and the affected customers will be notified about this through their subscription.
+
 

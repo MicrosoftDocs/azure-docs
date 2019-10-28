@@ -3,10 +3,9 @@ title: Create an additional Azure subscription | Microsoft Docs
 description: Learn how to add a new Azure subscription in the Azure portal.
 services: 'billing'
 documentationcenter: ''
-author: jrosson
-manager: jrosson
+author: amberb
+manager: amberb
 editor: ''
-
 
 ms.service: billing
 ms.workload: na
@@ -14,18 +13,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
-# Create an additional subscription in the Azure portal
+# Create an additional Azure subscription
 
-You can create additional subscriptions for your account in Azure. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for billing and security, or to isolate data for compliance reasons.
+You can create an additional subscription for your [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) or [Microsoft Partner Agreement](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) billing account in the Azure portal. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons.
 
-If you want to create Azure subscriptions under your organization's Enterprise Agreement, you must have the Account Owner role for your organization.
+If you have a Microsoft Online Service Program (MOSP) billing account, you can create additional subscriptions in the [Azure sign up portal](https://account.azure.com/signup?offer=ms-azr-0003p).
 
-If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free).
+To learn more about billing accounts and identify the type of your billing account, see [View billing accounts in Azure portal](billing-view-all-accounts.md).
 
-## Create an additional Azure subscription
+## Permission required to create Azure subscriptions
+
+You need the following permissions to create subscriptions:
+
+|Billing account  |Permission  |
+|---------|---------|
+|Enterprise Agreement (EA) |  Account Owner role on the Enterprise Agreement enrollment. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).    |
+|Microsoft Customer Agreement (MCA) |  Owner or contributor role on the invoice section, billing profile or billing account. Or Azure subscription creator role on the invoice section.  For more information, see [Subscription billing roles and task](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
+|Microsoft Partner Agreement (MPA) |   Global Admin and Admin Agent role in the partner organization. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview)  |
+
+## Create a subscription in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Subscriptions**.
@@ -36,7 +45,37 @@ If you don't already have an Azure subscription, create a [free account](https:/
 
    ![Screenshot that shows the Add button in Subscriptions view](./media/billing-create-subscription/subscription-add.png)
 
-You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure Enterprise subscriptions](../azure-resource-manager/programmatically-create-subscription.md).
+1. If you have access to multiple billing accounts, select the billing account for which you want to create the subscription.
+
+1. Fill the form and click **Create**. The tables below list the fields on the form for each type of billing account.
+
+**Enterprise Agreement**
+
+|Field  |Definition  |
+|---------|---------|
+|Name     | The display name that helps you easily identify the subscription in the Azure portal.  |
+|Offer     | Select EA Dev/Test, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Enterprise. DevTest offer must be enabled for your enrollment account to create EA Dev/Test subscriptions.|
+
+**Microsoft Customer Agreement**
+
+|Field  |Definition  |
+|---------|---------|
+|Billing profile     | The charges for your subscription will be billed to the billing profile that you select. If you have access to only one billing profile, the selection will be greyed out.     |
+|Invoice section     | The charges for your subscription will appear on this section of the billing profile's invoice. If you have access to only one invoice section, the selection will be greyed out.  |
+|Plan     | Select Microsoft Azure Plan for DevTest, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Plan. If only one plan is enabled for the billing profile, the selection will be greyed out.  |
+|Name     | The display name that helps you easily identify the subscription in the Azure portal.  |
+
+**Microsoft Partner Agreement**
+
+|Field  |Definition  |
+|---------|---------|
+|Customer    | The subscription is created for the customer that you select. If you have only one customer, the selection will be greyed out.  |
+|Reseller    | The reseller that will provide services to the customer. This is an optional field, which is only applicable to Indirect providers in the CSP two-tier model. |
+|Name     | The display name that helps you easily identify the subscription in the Azure portal.  |
+
+## Create an additional Azure subscription programmatically
+
+You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure subscriptions](../azure-resource-manager/programmatically-create-subscription.md).
 
 ## Next steps
 
@@ -47,4 +86,4 @@ You can also create additional subscriptions programmatically. For more informat
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

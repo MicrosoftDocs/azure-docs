@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 05/20/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
@@ -18,7 +18,7 @@ You manage costs and produce showback reports in Cloudyn by allocating costs bas
 
 For example, you might want to get reimbursed for engineering costs. You need to be able to show your engineering team that you need a specific amount, based on resource costs. You can show them a report for all the consumed resources that are tagged *engineering*.
 
-In this article, tags and categories are sometimes synonymous. Categories are broad collections and can be many things. They might include business units, cost centers, web services, or anything that is tagged. Tags are name/value pairs that enable you to categorize resources and to view and mange consolidated billing information by applying the same tag to multiple resources and resource groups. In earlier versions of the Azure portal, a *tag name* was referred to as a *key*. Tags are created for and stored by a single Azure subscription. Tags in AWS consist of key/value pairs. Because both Azure and AWS have used the term *key*, Cloudyn uses that term. Category Manager uses keys (tag names) to merge tags.
+In this article, tags and categories are sometimes synonymous. Categories are broad collections and can be many things. They might include business units, cost centers, web services, or anything that is tagged. Tags are name/value pairs that enable you to categorize resources and to view and manage consolidated billing information by applying the same tag to multiple resources and resource groups. In earlier versions of the Azure portal, a *tag name* was referred to as a *key*. Tags are created for and stored by a single Azure subscription. Tags in AWS consist of key/value pairs. Because both Azure and AWS have used the term *key*, Cloudyn uses that term. Category Manager uses keys (tag names) to merge tags.
 
 In this tutorial, you learn how to:
 

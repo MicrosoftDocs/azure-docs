@@ -1,20 +1,19 @@
 ---
-title: Troubleshoot the Speech SDK - Speech Services
+title: Troubleshoot the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
-description: This article provides information to help you solve issues you might encounter when you use the Speech Service SDK.
+description: This article provides information to help you solve issues you might encounter when you use the Speech SDK.
 services: cognitive-services
-author: wolfma61
-manager: cgronlun
+author: jhakulin
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: wolfma
-ms.custom: seodec18
+ms.date: 07/23/2019
+ms.author: jhakulin
 ---
-# Troubleshoot the Speech Service SDK
+# Troubleshoot the Speech SDK
 
-This article provides information to help you solve issues you might encounter when you use the Speech Service SDK.
+This article provides information to help you solve issues you might encounter when you use the Speech SDK.
 
 ## Error: WebSocket Upgrade failed with an authentication error (403)
 
@@ -61,6 +60,8 @@ You can verify that you have a valid subscription key by running one of the foll
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
+If you entered a valid subscription key, the command returns an authorization token, otherwise an error is returned.
+
 ### Validate an authorization token
 
 If you use an authorization token for authentication, run one of the following commands to verify that the authorization token is still valid. Tokens are valid for 10 minutes.
@@ -95,6 +96,8 @@ If you use an authorization token for authentication, run one of the following c
     ```
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
+
+If you entered a valid authorization token, the command returns the transcription for your audio file, otherwise an error is returned.
 
 ---
 

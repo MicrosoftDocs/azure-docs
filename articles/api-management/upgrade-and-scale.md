@@ -44,14 +44,17 @@ To follow the steps from this article, you must:
 
 You can choose between four tiers: **Developer**, **Basic**,  **Standard** and **Premium**. The **Developer** tier should be used to evaluate the service; it should not be used for production. The **Developer** tier does not have SLA and you cannot scale this tier (add/remove units). 
 
-**Basic**, **Standard** and **Premium** are production tiers that have SLA and can be scaled. The **Basic** tier is the cheapest tier which has SLA and it can be scaled upto 2 units, **Standard** tier can be scaled to up to four units. You can add any number of units to the **Premium** tier.
+**Basic**, **Standard** and **Premium** are production tiers that have SLA and can be scaled. The **Basic** tier is the cheapest tier which has SLA and it can be scaled up to 2 units, **Standard** tier can be scaled to up to four units. You can add any number of units to the **Premium** tier.
 
 The **Premium** tier enables you to distribute a single Azure API Management instance across any number of desired Azure regions. When you initially create an Azure API Management service, the instance contains only one unit and resides in a single Azure region. The initial region is designated as the **primary** region. Additional regions can be easily added. When adding a region, you specify the number of units you want to allocate. For example, you can have one unit in the **primary** region and five units in some other region. You can tailor the number of units to the traffic you have in each region. For more information, see [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md).
 
 You can upgrade and downgrade to and from any tier. Note that upgrading or downgrading can remove some features - for example, VNETs or multi-region deployment, when downgrading to Standard or Basic from the Premium tier.
 
->[!NOTE]
->The upgrade or scale process can take from 15 to 45 minutes to apply. You get notification when it is done.
+> [!NOTE]
+> The upgrade or scale process can take from 15 to 45 minutes to apply. You get notified when it is done.
+
+> [!NOTE]
+> API Management service in the **Consumption** tier scales automatically based on the traffic.
 
 ## Use the Azure portal to upgrade and scale
 
@@ -63,6 +66,10 @@ You can upgrade and downgrade to and from any tier. Note that upgrading or downg
 4. Specify the number of **units** you want to add. You can either use the slider or type the number of units.  
     If you choose the **Premium** tier, you first need to select a region.
 5. Press **Save**.
+
+## Downtime during scaling up and down
+If you are scaling from or to the Developer tier, there will be downtime. Otherwise, there is no downtime. 
+
 
 ## Next steps
 

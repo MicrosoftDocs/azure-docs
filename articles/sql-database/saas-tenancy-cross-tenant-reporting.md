@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
-manager: craigg
-ms.date: 04/01/2018
+ms.date: 01/25/2019
 ---
 # Cross-tenant reporting using distributed queries
 
@@ -21,7 +20,7 @@ In this tutorial, you run distributed queries across the entire set of tenant da
 In this tutorial you learn:
 
 > [!div class="checklist"]
-
+> 
 > * How to deploy an reporting database
 > * How to run distributed queries across all tenant databases
 > * How global views in each database can enable efficient querying across tenants
@@ -55,7 +54,7 @@ To run queries against a more interesting data set, create ticket sales data by 
 
 1. In the *PowerShell ISE*, open the ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* script and set the following value:
    * **$DemoScenario** = 1, **Purchase tickets for events at all venues**.
-2. Press **F5** to run the script and generate ticket sales. While the script is running, continue the steps in this tutorial. The ticket data is queried in the *Run ad-hoc distributed queries* section, so wait for the ticket generator to complete.
+2. Press **F5** to run the script and generate ticket sales. While the script is running, continue the steps in this tutorial. The ticket data is queried in the *Run ad hoc distributed queries* section, so wait for the ticket generator to complete.
 
 ## Explore the global views
 
@@ -100,7 +99,7 @@ This exercise deploys the _adhocreporting_ database. This is the head database t
 
 1. in *PowerShell ISE*, open ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1*. 
 
-1. Set **$DemoScenario = 2**, _Deploy Ad-hoc reporting database_.
+1. Set **$DemoScenario = 2**, _Deploy Ad hoc reporting database_.
 
 1. Press **F5** to run the script and create the *adhocreporting* database.
 
@@ -122,7 +121,7 @@ This exercise adds schema (the external data source and external table definitio
 
     ![create external data source](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   The external tables that reference the global views described in the previous section, and defined with **DISTRIBUTION = SHARDED(VenueId)**. Because each *VenueId* maps to a single database, this improves performance for many scenarios as shown in the next section.
+   The external tables that reference the global views described in the previous section, and defined with **DISTRIBUTION = SHARDED(VenueId)**. Because each *VenueId* maps to an individual database, this improves performance for many scenarios as shown in the next section.
 
     ![create external tables](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -142,7 +141,7 @@ Now that the *adhocreporting* database is set up, go ahead and run some distribu
 
 When inspecting the execution plan, hover over the plan icons for details. 
 
-Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when the external data source is defined improves performance for many scenarios. As each *VenueId* maps to a single database, filtering is easily done remotely, returning only the data needed.
+Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when the external data source is defined improves performance for many scenarios. As each *VenueId* maps to an individual database, filtering is easily done remotely, returning only the data needed.
 
 1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* in SSMS.
 2. Ensure you are connected to the **adhocreporting** database.
@@ -175,7 +174,7 @@ Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when the 
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Run distributed queries across all tenant databases
 > * Deploy a reporting database and define the schema required to run distributed queries.
 

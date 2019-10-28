@@ -1,15 +1,15 @@
 ---
 title: "Quickstart: Create knowledge base - REST, Java - QnA Maker"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: This Java REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account..
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 10/01/2019
 ms.author: diberry
 ---
 
@@ -17,7 +17,16 @@ ms.author: diberry
 
 This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request.
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
+## Prerequisites
+
+* [Go 1.10.1](https://golang.org/dl/)
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
+
+The [sample code](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java) is available on the GitHub repo for QnA Maker with Java.
 
 ## Create a knowledge base file
 
@@ -30,7 +39,11 @@ At the top of `CreateKB.java`, add the following lines to add necessary dependen
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
 ## Add the required constants
-After the preceding required dependencies, add the required constants to the `CreateKB` class to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key. You do not need to add the final curly bracket to end the class; it is in the final code snippet at the end of this quickstart.
+After the preceding required dependencies, add the required constants to the `CreateKB` class to access QnA Maker. 
+
+You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource. 
+
+You do not need to add the final curly bracket to end the class; it is in the final code snippet at the end of this quickstart.
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=26-34 "Add the required constants")]
 
@@ -96,7 +109,7 @@ Repeat the call until success or failure:
 ```
 
 ## Add a main method
-The main method creates the KB, then polls for the status. The_create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. **The `while` loop retries the status if it is not completed.
+The main method creates the KB, then polls for the status. The operation ID is returned in the POST response header field **Location**, then used as part of the route in the GET request. The `while` loop retries the status if it is not completed.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 
@@ -110,7 +123,7 @@ The main method creates the KB, then polls for the status. The_create_ **Operati
 
 2. Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
-    ```base
+    ```bash
     java -cp ",;libs/*" CreateKB
     ```
 
@@ -121,4 +134,4 @@ Once your knowledge base is created, you can view it in your QnA Maker Portal, [
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)

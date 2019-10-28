@@ -1,15 +1,15 @@
 ---
-title: Good example utterances 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Good example utterances - LUIS
+titleSuffix: Azure Cognitive Services
 description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 # Understand what good utterances are for your LUIS app
@@ -33,7 +33,7 @@ When you first get started by [adding example utterances](luis-how-to-add-exampl
 
 ### Utterances aren't always well formed
 
-It may be a sentence, like "Book a ticket to Paris for me", or a fragment of a sentence, like "Booking" or "Paris flight."  Users often make spelling mistakes. When planning your app, consider whether or not you use [Bing Spell Check][(luis-tutorial-bing-spellcheck) to correct user input before passing it to LUIS. 
+It may be a sentence, like "Book a ticket to Paris for me", or a fragment of a sentence, like "Booking" or "Paris flight."  Users often make spelling mistakes. When planning your app, consider whether or not you use [Bing Spell Check](luis-tutorial-bing-spellcheck.md) to correct user input before passing it to LUIS. 
 
 If you do not spell check user utterances, you should train LUIS on utterances that include typos and misspellings.
 
@@ -66,15 +66,53 @@ In each iteration of the model, do not add a large quantity of utterances. Add u
 
 LUIS builds effective models with utterances that are carefully selected by the LUIS model author. Adding too many utterances isn't valuable because it introduces confusion.  
 
-It is better to start with a few utterances, then [review endpoint utterances](luis-how-to-review-endoint-utt.md) for correct intent prediction and entity extraction.
+It is better to start with a few utterances, then [review endpoint utterances](luis-how-to-review-endpoint-utterances.md) for correct intent prediction and entity extraction.
 
-## Punctuation marks
+## Utterance normalization
 
-LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#ignoring-words-and-punctuation) by using patterns. 
+Utterance normalization is the process of ignoring the effects of punctuation and diacritics during training and prediction.
 
-## Ignoring words and punctuation
+## Utterance normalization for diacritics and punctuation
 
-If you want to ignore specific words or punctuation in the example utterance, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax. 
+Utterance normalization is defined when you create or import the app because it is a setting in the app JSON file. The utterance normalization settings are turned off by default. 
+
+Diacritics are marks or signs within the text, such as: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+If your app turns normalization on, scores in the **Test** pane, batch tests, and endpoint queries will change for all utterances using diacritics or punctuation.
+
+Turn on utterance normalization for diacritics or punctuation to your LUIS JSON app file in the `settings` parameter.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+Normalizing **punctuation** means that before your models get trained and before your endpoint queries get predicted, punctuation will be removed from the utterances. 
+
+Normalizing **diacritics** replaces the characters with diacritics in utterances with regular characters. For example: `Je parle français` becomes `Je parle francais`. 
+
+Normalization doesn’t mean you will not see punctuation and diacritics in your example utterances or prediction responses, merely that they will be ignored during training and prediction.
+
+
+### Punctuation marks
+
+Punctuation is a separate token in LUIS. An utterance that contains a period at the end versus an utterance that does not contain a period at the end are two separate utterances and may get two different predictions. 
+
+If punctuation is not normalized, LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. 
+
+Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns](luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
+
+If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#utterance-normalization) by normalizing punctuation. 
+
+### Ignoring words and punctuation
+
+If you want to ignore specific words or punctuation in patterns, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax of square brackets, `[]`. 
 
 ## Training utterances
 
@@ -83,11 +121,11 @@ You can remove non-deterministic training by updating the [version settings](htt
 
 ## Testing utterances 
 
-Developers should start testing their LUIS application with real traffic by sending utterances to the [prediction endpoint](luis-how-to-manage-keys.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](luis-how-to-review-endoint-utt.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
+Developers should start testing their LUIS application with real traffic by sending utterances to the [prediction endpoint](luis-how-to-azure-subscription.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](luis-how-to-review-endpoint-utterances.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
 
 ## Review utterances
 
-After your model is trained, published, and receiving [endpoint](luis-glossary.md#endpoint) queries, [review the utterances](luis-how-to-review-endoint-utt.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
+After your model is trained, published, and receiving [endpoint](luis-glossary.md#endpoint) queries, [review the utterances](luis-how-to-review-endpoint-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
 
 ## Best practices
 

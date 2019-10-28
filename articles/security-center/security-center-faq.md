@@ -3,25 +3,23 @@ title: Azure Security Center frequently asked questions (FAQ) | Microsoft Docs
 description: This FAQ answers questions about Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2018
-ms.author: rkarlin
+ms.date: 03/19/2019
+ms.author: memildin
 
 ---
 # Azure Security Center frequently asked questions (FAQ)
 This FAQ answers questions about Azure Security Center, a service that helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Microsoft Azure resources.
 
 > [!NOTE]
-> Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md). The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+> Security Center uses the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md).
 >
 >
 
@@ -38,7 +36,10 @@ Security Center is offered in two tiers:
 
 The **Free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
 
-The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. You can start a Standard tierfree trial. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. You can start a Standard tier free trial. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+
+### How can I track who in my organization performed pricing tier changes in Azure Security Center
+Azure Subscriptions may have multiple administrators with permissions to change the pricing tier. To find out which user performed a pricing tier change, use the Azure Activity Log. For more information, see [here](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832).
 
 ## Permissions
 Azure Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
@@ -48,27 +49,29 @@ Security Center assesses the configuration of your resources to identify securit
 See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
 
 ## Data collection, agents, and workspaces
-Security Center collects data from your Azure virtual machines (VMs) and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
+Security Center collects data from your Azure virtual machines (VMs), Virtual machine scale sets, IaaS containers, and non-Azure computers (including on-premises) to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
 
-### Am I billed for Log Analytics on the workspaces created by Security Center?
-No. Workspaces created by Security Center, while configured for Log Analytics per node billing, do not incur Log Analytics charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
+### Am I billed for Azure Monitor logs on the workspaces created by Security Center?
+No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, do not incur Azure Monitor logs charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
 
-- **Free tier** – Security Center enables the 'SecurityCenterFree' solution on the default workspace. You are not billed for the Free tier.
+- **Free tier** – Security Center enables the 'SecurityCenterFree' solution on the default workspace. You won't be billed for the Free tier.
 - **Standard tier** – Security Center enables the 'Security' solution on the default workspace.
 
-For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/). The pricing page addresses changes to security data storage and prorated billing starting in June 2017.
+For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
-> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing.
+> The log analytics pricing tier of workspaces created by Security Center does not affect Security Center billing.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ### What qualifies a VM for automatic provisioning of the Microsoft Monitoring Agent installation?
 Windows or Linux IaaS VMs qualify if:
 
 - The Microsoft Monitoring Agent extension is not currently installed on the VM.
 - The VM is in running state.
-- The Windows or Linux VM Agent is installed.
+- The Windows or Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) is installed.
 - The VM is not used as an appliance such as web application firewall or next generation firewall.
 
 ### Can I delete the default workspaces created by Security Center?
@@ -109,21 +112,25 @@ To select an existing Log Analytics workspace:
 
    - Select **Cancel** to cancel the operation.
 
-### What if the Microsoft Monitoring Agent was already installed as an extension on the VM?
-Security Center does not override existing connections to user workspaces. Security Center stores security data from the VM in the workspace already connected. Security Center updates the extension version to include the Azure resource ID of the VM to support Security Center usage.
+### What if the Microsoft Monitoring Agent was already installed as an extension on the VM?<a name="mmaextensioninstalled"></a>
+When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Security Center does not override existing connections to user workspaces. Security Center will store security data from a VM in a workspace that is already connected, provided that the "Security" or "SecurityCenterFree" solution has been installed on it. Security Center may upgrade the extension version to the latest version in this process.
 
-### What if I had a Microsoft Monitoring Agent installed on the machine but not as an extension?
-If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Microsoft Monitoring Agent and security monitoring is limited.
+For more information, see [Automatic provisioning in cases of a pre-existing agent installation](security-center-enable-data-collection.md#preexisting).
 
-For more information, see the next section [What happens if a SCOM or OMS direct agent is already installed on my VM?](#scomomsinstalled)
 
-### What happens if a SCOM or OMS direct agent is already installed on my VM?<a name="scomomsinstalled"></a>
-Security Center cannot identify in advance that an agent is installed.  Security Center attempts to install the Microsoft Monitoring Agent extension and fails due to the existing installed agent.  This failure prevents overriding the agent’s connection settings to its workspace and avoids creating multi-homing.
+### What if I had a Microsoft Monitoring Agent is directly installed on the machine but not as an extension (Direct Agent)?<a name="directagentinstalled"></a>
+If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will install the Microsoft Monitoring Agent extension, and may upgrade the Microsoft Monitoring agent to the latest version.
+The agent installed will continue to report to its already configured workspace(s), and in addition will report to the workspace configured in Security Center (Multi-homing is supported on Windows machines).
+IF the configured workspace is a user workspace (not Security Center's default workspace), you will need to install the "Security/"SecurityCenterFree" solution on it for Security Center to start processing events from VMs and computers reporting to that workspace.
 
-> [!NOTE]
-> The agent version is updated to the latest OMS agent version.  This applies to SCOM users also.
->
->
+For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
+
+For existing machines on subscriptions onboarded to Security Center before March 17 2019, when an existing agent will be detected, the Microsoft Monitoring Agent extension will not be installed and the machine will not be affected. For these machines, see the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines
+
+ For more information, see the next section [What happens if a System Center Operations Manager or OMS direct agent is already installed on my VM?](#scomomsinstalled)
+
+### What happens if a System Center Operations Manager agent is already installed on my VM?<a name="scomomsinstalled"></a>
+Security center will install the Microsoft Monitoring Agent extension side by side to the existing System Center Operations Manager agent. The existing agent will continue to report to the System Center Operations Manager server normally. Note that the Operations Manager agent and Microsoft Monitoring Agent share common run-time libraries, which will be updated to the latest version during this process. Note - If version 2012 of the Operations Manager agent is installed, do not turn on automatic provisioning (manageability capabilities can be lost when the Operations Manager server is also version 2012).
 
 ### What is the impact of removing these extensions?
 If you remove the Microsoft Monitoring Extension, Security Center is not able to collect security data from the VM and some security recommendations and alerts are unavailable. Within 24 hours, Security Center determines that the VM is missing the extension and reinstalls the extension.
@@ -135,7 +142,7 @@ You can turn off automatic provisioning for your subscriptions in the security p
 
    ![Pricing tier][1]
 
-2. Next, turn off automatic provisioning by selecting **Off** on the **Security policy – Data collection** blade.
+2. Next, turn off automatic provisioning by selecting **Off** on the **Security policy – Data collection** page.
    ![Data collection][2]
 
 ### Should I opt out of the automatic agent installation and workspace creation?
@@ -147,22 +154,22 @@ You can turn off automatic provisioning for your subscriptions in the security p
 
 You may want to opt out of automatic provisioning if the following applies to you:
 
-- Automatic agent installation by Security Center applies to the entire subscription.  You cannot apply automatic installation to a subset of VMs. If there are critical VMs that cannot be installed with the Microsoft Monitoring Agent, then you should opt out of automatic provisioning.
-- Installation of the Microsoft Monitoring Agent extension updates the agent’s version. This applies to a direct agent and a SCOM agent. If the installed SCOM agent is version 2012 and is upgraded, manageability capabilities can be lost when the SCOM server is also version 2012. You should consider opting out of automatic provisioning if the installed SCOM agent is version 2012.
-- If you have a custom workspace external to the subscription (a centralized workspace) then you should opt out of automatic provisioning. You can manually install the Microsoft Monitoring Agent extension and connect it your workspace without Security Center overriding the connection.
+- Automatic agent installation by Security Center applies to the entire subscription. You cannot apply automatic installation to a subset of VMs. If there are critical VMs that cannot be installed with the Microsoft Monitoring Agent, then you should opt out of automatic provisioning.
+- Installation of the Microsoft Monitoring Agent (MMA) extension updates the agent’s version. This applies to a direct agent and a System Center Operations Manager agent (in the latter, the Operations Manager and MMA share common runtime libraries - which will be updated in the process). If the installed Operations Manager agent is version 2012 and is upgraded, manageability capabilities can be lost when the Operations Manager server is also version 2012. Consider opting out of automatic provisioning if the installed Operations Manager agent is version 2012.
+- If you have a custom workspace external to the subscription (a centralized workspace), then you should opt out of automatic provisioning. You can manually install the Microsoft Monitoring Agent extension and connect it your workspace without Security Center overriding the connection.
 - If you want to avoid creation of multiple workspaces per subscription and you have your own custom workspace within the subscription, then you have two options:
 
    1. You can opt out of automatic provisioning. After migration, set the default workspace settings as described in [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace)
    2. Or, you can allow the migration to complete, the Microsoft Monitoring Agent to be installed on the VMs, and the VMs connected to the created workspace. Then, select your own custom workspace by setting the default workspace setting with opting in to reconfiguring the already installed agents. For more information, see [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace)
 
 ### What are the implications of opting out of automatic provisioning?
-Once migration is complete, Security Center is not able to collect security data from the VM and some security recommendations and alerts are unavailable. If you opt out, you should install the Microsoft Monitoring Agent manually. See [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+When migration is complete, Security Center can't collect security data from the VM and some security recommendations and alerts are unavailable. If you opt out, install the Microsoft Monitoring Agent manually. See [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### What are the recommended steps when opting out of automatic provisioning?
 
-You should manually install the Microsoft Monitoring Agent extension so Security Center can collect security data from your VMs and provide recommendations and alerts. See [agent installation for Windows VM](../virtual-machines/extensions/oms-windows.md) or [agent installation for Linux VM](../virtual-machines/extensions/oms-linux.md) for guidance on installation.
+Manually install the Microsoft Monitoring Agent extension so Security Center can collect security data from your VMs and provide recommendations and alerts. See [agent installation for Windows VM](../virtual-machines/extensions/oms-windows.md) or [agent installation for Linux VM](../virtual-machines/extensions/oms-linux.md) for guidance on installation.
 
-You can connect the agent to any existing custom workspace or Security Center created workspace. If a custom workspace does not have the ‘Security’ or 'SecurityCenterFree' solutions enabled, then you will need to apply a solution. To apply, select the custom workspace or subscription and apply a pricing tier via the **Security policy – Pricing tier** blade.
+You can connect the agent to any existing custom workspace or Security Center created workspace. If a custom workspace does not have the ‘Security’ or 'SecurityCenterFree' solutions enabled, then you will need to apply a solution. To apply, select the custom workspace or subscription and apply a pricing tier via the **Security policy – Pricing tier** page.
 
    ![Pricing tier][1]
 
@@ -172,15 +179,15 @@ Security Center will enable the correct solution on the workspace based on the s
 You can manually remove the Microsoft Monitoring Agent. This is not recommended as it limits Security Center recommendations and alerts.
 
 > [!NOTE]
-> If data collection is enabled, Security Center will reinstall the agent after you remove it.  You need to disable data collection before manually removing the agent. See [How do I stop the automatic agent installation and workspace creation?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?) for instructions on disabling data collection.
+> If data collection is enabled, Security Center will reinstall the agent after you remove it.  You need to disable data collection before manually removing the agent. See How do I stop the automatic agent installation and workspace creation? for instructions on disabling data collection.
 >
 >
 
 To manually remove the agent:
 
 1.	In the portal, open **Log Analytics**.
-2.	On the Log Analytics blade, select a workspace:
-3.	Select each VM that you don’t want to monitor and select **Disconnect**.
+2.	On the Log Analytics page, select a workspace:
+3.	Select the VMs that you don’t want to monitor and select **Disconnect**.
 
    ![Remove the agent][3]
 
@@ -189,7 +196,7 @@ To manually remove the agent:
 >
 >
 ### How do I disable data collection?
-Automatic provisioning is off by default. You can disable automatic provisioning from resources at any time by turning off this setting in the security policy. Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities and endpoint protection.
+Automatic provisioning is off by default. You can disable automatic provisioning from resources at any time by turning off this setting in the security policy. Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection.
 
 To disable data collection, [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Select policy**. Select the subscription that you wish to disable automatic provisioning. When you select a subscription **Security policy - Data collection** opens. Under **Auto provisioning**, select **Off**.
 
@@ -197,15 +204,17 @@ To disable data collection, [Sign in to the Azure portal](https://portal.azure.c
 You can enable data collection for your Azure subscription in the Security policy. To enable data collection. [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Security policy**. Select the subscription that you wish to enable automatic provisioning. When you select a subscription **Security policy - Data collection** opens. Under **Auto provisioning**, select **On**.
 
 ### What happens when data collection is enabled?
-When automatic provisioning is enabled, Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended but manual agent installation is also available. [Learn how to install the Microsoft Monitoring Agent extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+When automatic provisioning is enabled, Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but manual agent installation is also available. [Learn how to install the Microsoft Monitoring Agent extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
-The agent enables the process creation event 4688 and the *CommandLine* field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center’s detection services. For information on the details recorded for each new process see [description fields in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). The agent also collects the 4688 events created on the VM and stores them in search.
+The agent enables the process creation event 4688 and the *CommandLine* field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center’s detection services. For more information on the details recorded for each new process, see [description fields in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). The agent also collects the 4688 events created on the VM and stores them in search.
 
-The agent also enables data collection for [Adaptive Application Controls](security-center-adaptive-application.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
+The agent also enables data collection for [Adaptive Application Controls](security-center-adaptive-application.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This policy will cause AppLocker to generate events, which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
 
 When Security Center detects suspicious activity on the VM, the customer is notified by email if [security contact information](security-center-provide-security-contact-details.md) has been provided. An alert is also visible in Security Center’s security alerts dashboard.
 
-
+### Will Security Center work using an OMS gateway?
+Yes. Azure Security Center leverages Azure Monitor to collect data from Azure VMs and servers, using the Microsoft Monitoring Agent.
+To collect the data, each VM and server must connect to the Internet using HTTPS. The connection can be direct, using a proxy, or through the [OMS Gateway](../azure-monitor/platform/gateway.md).
 
 ### Does the Monitoring Agent impact the performance of my servers?
 The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
@@ -213,19 +222,19 @@ The agent consumes a nominal amount of system resources and should have little i
 ### Where is my data stored?
 Data collected from this agent is stored in either an existing Log Analytics workspace associated with your subscription or a new workspace. For more information, see [Data Security](security-center-data-security.md).
 
-## Existing Log Analytics customers<a name="existingloganalyticscust"></a>
+## Existing Azure Monitor logs customers<a name="existingloganalyticscust"></a>
 
 ### Does Security Center override any existing connections between VMs and workspaces?
-If a VM already has the Microsoft Monitoring Agent installed as an Azure extension, Security Center does not override the existing workspace connection. Instead, Security Center uses the existing workspace.
+If a VM already has the Microsoft Monitoring Agent installed as an Azure extension, Security Center does not override the existing workspace connection. Instead, Security Center uses the existing workspace. The VM will be protected provided that  the "Security" or "SecurityCenterFree" solution has been installed on the workspace to which it is reporting. 
 
-A Security Center solution is installed on the workspace if not present already, and the solution is applied only to the relevant VMs. When you add a solution, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace. [Solution Targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) allows you to apply a scope to your solutions.
+A Security Center solution is installed on the workspace selected in the Data Collection screen if not present already, and the solution is applied only to the relevant VMs. When you add a solution, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace. [Solution Targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) allows you to apply a scope to your solutions.
 
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Microsoft Monitoring Agent and security monitoring is limited.
 
 ### Does Security Center install solutions on my existing Log Analytics workspaces? What are the billing implications?
 When Security Center identifies that a VM is already connected to a workspace you created, Security Center enables solutions on this workspace according to your pricing tier. The solutions are applied only to the relevant Azure VMs, via [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md), so the billing remains the same.
 
-- **Free tier** – Security Center installs the 'SecurityCenterFree' solution on the workspace. You are not billed for the Free tier.
+- **Free tier** – Security Center installs the 'SecurityCenterFree' solution on the workspace. You won't be billed for the Free tier.
 - **Standard tier** – Security Center installs the 'Security' solution on the workspace.
 
    ![Solutions on default workspace][4]
@@ -261,7 +270,7 @@ Azure Security Center analyzes the security state of your Azure resources. When 
 Only recommendations that are enabled in Security Policies are shown here.
 
 ### How can I see the current security state of my Azure resources?
-The **Security Center Overview** blade shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing if any potential security vulnerabilities have been identified. Clicking each tile displays a list of security issues identified by Security Center, along with an inventory of the resources in your subscription.
+The **Security Center Overview** page shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing if any potential security vulnerabilities have been identified. Clicking each tile displays a list of security issues identified by Security Center, along with an inventory of the resources in your subscription.
 
 ### What triggers a security alert?
 Azure Security Center automatically collects, analyzes, and fuses log data from your Azure resources, the network, and partner solutions like antimalware and firewalls. When threats are detected, a security alert is created. Examples include detection of:
@@ -270,6 +279,9 @@ Azure Security Center automatically collects, analyzes, and fuses log data from 
 * Advanced malware detected using Windows error reporting
 * Brute force attacks against virtual machines
 * Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
+
+### Why did secure scores values change? <a name="secure-score-faq"></a>
+As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall secure score values.  For more information about secure score, see [Secure score calculation](security-center-secure-score.md).
 
 ### What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?
 The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Azure Security Center or the Azure subscription owner if a security contact is not specified.
@@ -280,11 +292,14 @@ Security Center is an Azure service that continuously monitors the customer’s 
 Azure Security Center monitors the following Azure resources:
 
 * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
+* Virtual machine scale sets
 * Azure Virtual Networks
 * Azure SQL service
 * Azure Storage account
 * Azure Web Apps (in [App Service Environment](../app-service/environment/intro.md))
 * Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on App Service Environment
+
+In addition, non-Azure (including on-premises) computers can also be monitored by Azure Security Center (Both [Windows computers](./quick-onboard-windows-computer.md) and [Linux computers](./quick-onboard-linux-computer.md) are supported)
 
 ## Virtual Machines
 ### What types of virtual machines are supported?
@@ -299,13 +314,18 @@ Azure Security Center has visibility into antimalware installed through Azure ex
 This message appears when there is no scan data for a VM. It can take some time (less than an hour) for scan data to populate after Data Collection is enabled in Azure Security Center. After the initial population of scan data, you may receive this message because there is no scan data at all or there is no recent scan data. Scans do not populate for a VM in a stopped state. This message could also appear if scan data has not populated recently (in accordance with the retention policy for the Windows agent, which has a default value of 30 days).
 
 ### How often does Security Center scan for operating system vulnerabilities, system updates, and endpoint protection issues?
-The latency in Security Center scans for vulnerabilities, updates, and issues is:
+Below are the latency times for Security Center scans of vulnerabilities, updates, and issues:
 
 - Operating system security configurations – data is updated within 48 hours
 - System updates – data is updated within 24 hours
 - Endpoint Protection issues – data is updated within 8 hours
 
 Security Center typically scans for new data every hour, and refreshes the recommendations accordingly. 
+
+> [!NOTE]
+> Security Center uses the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md).
+>
+>
 
 ### Why do I get the message "VM Agent is Missing?"
 The VM Agent must be installed on VMs to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

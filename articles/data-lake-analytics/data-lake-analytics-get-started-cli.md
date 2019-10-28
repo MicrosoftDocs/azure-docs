@@ -1,8 +1,7 @@
 ---
-title: Get started with Azure Data Lake Analytics using Azure CLI
+title: Create & query Azure Data Lake Analytics - Azure CLI
 description: Learn how to use the Azure Command-line Interface to create an Azure Data Lake Analytics account and submit a U-SQL job.
 ms.service: data-lake-analytics
-services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
@@ -102,7 +101,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](../storage/common/storage-azure-cli.md).
 
 ## Submit Data Lake Analytics jobs
-The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language eence](https://go.microsoft.com/fwlink/?LinkId=691348).
+The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](https://docs.microsoft.com/u-sql/).
 
 **To create a Data Lake Analytics job script**
 

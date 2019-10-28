@@ -1,20 +1,16 @@
 ---
 title: Azure Automation resources in management solutions | Microsoft Docs
 description: Management solutions will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a solution.
-services: monitoring
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service: monitoring
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
 ms.author: bwren
+ms.date: 05/24/2017
+
 ms.custom: H1Hack27Feb2017
 ---
+
 # Adding Azure Automation resources to a management solution (Preview)
 > [!NOTE]
 > This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.   
@@ -23,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 [Management solutions]( solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
 
 > [!NOTE]
-> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure ]( solutions-creating.md) 
+> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure]( solutions-creating.md) 
 
 
 ## Prerequisites
@@ -391,7 +387,7 @@ The sample uses [standard solution parameters]( solutions-solution-file.md#param
 	    "scheduleStartTime": {
 	      "type": "string",
 	      "metadata": {
-	        "Description": "Start time for shedule."
+	        "Description": "Start time for schedule."
 	      }
 	    },
 	    "scheduleTimeZone": {

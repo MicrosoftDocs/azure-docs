@@ -1,22 +1,17 @@
 ---
 title: Azure Application Insights Data Model | Microsoft Docs
 description: Describes properties exported from continuous export in JSON, and used as filters.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/21/2016
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 01/08/2019
 
 ---
+
 # Application Insights Export Data Model
-This table lists the properties of telemetry sent from the [Application Insights](../../application-insights/app-insights-overview.md) SDKs to the portal.
+This table lists the properties of telemetry sent from the [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDKs to the portal.
 You'll see these properties in data output from [Continuous Export](export-telemetry.md).
 They also appear in property filters in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) and [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md).
 
@@ -126,9 +121,11 @@ All types of telemetry are accompanied by a context section. Not all of these fi
 | context.device.locale |string |en-GB, de-DE, ... |
 | context.device.network |string | |
 | context.device.oemName |string | |
+| context.device.os |string | |
 | context.device.osVersion |string |Host OS |
 | context.device.roleInstance |string |ID of server host |
 | context.device.roleName |string | |
+| context.device.screenResolution |string | |
 | context.device.type |string |PC, Browser, ... |
 | context.location |object |Derived from clientip. |
 | context.location.city |string |Derived from clientip, if known |
@@ -142,10 +139,13 @@ All types of telemetry are accompanied by a context section. Not all of these fi
 | context.session.id |string |Id of a group of operations from the same source. A period of 30 minutes without an operation signals the end of a session. |
 | context.session.isFirst |boolean | |
 | context.user.accountAcquisitionDate |string | |
+| context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
 | context.user.authAcquisitionDate |string |[Authenticated User](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
 | context.user.isAuthenticated |boolean | |
+| context.user.storeRegion |string | |
 | internal.data.documentVersion |string | |
 | internal.data.id |string | Unique id that is assigned when an item is ingested to Application Insights |
 
@@ -343,6 +343,6 @@ Instead of pre-aggregating metrics, you can use [sampling](../../azure-monitor/a
 Except where otherwise noted, durations are represented in tenths of a microsecond, so that 10000000.0 means 1 second.
 
 ## See also
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Continuous Export](export-telemetry.md)
 * [Code samples](export-telemetry.md#code-samples)

@@ -1,10 +1,11 @@
 ---
-title: Create a Standard Load Balancer with zone-redundant frontend using Azure portal
+title: Create a Load Balancer with zone-redundant frontend - Azure portal
 titlesuffix: Azure Load Balancer
 description: Learn how to create a public Standard Load Balancer with zone-redundant Public IP address frontend with the Azure portal
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,17 +13,17 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
-#  Create a public Standard Load Balancer with zone-redundant frontend using Azure portal
+#  Create a Standard Load Balancer with zone-redundant frontend using Azure portal
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address. A single frontend IP address on a Standard Load Balancer is zone-redundant by default.
+This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address. A single frontend IP address on a Standard Load Balancer is zone-redundant by default.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
- Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+>  Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## Log in to Azure 
 
@@ -30,7 +31,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Create a zone redundant load balancer
 
-1. From a browser navigate to the Azure portal: [http://portal.azure.com](http://portal.azure.com) and login with your Azure account.
+1. From a browser navigate to the Azure portal: [https://portal.azure.com](https://portal.azure.com) and login with your Azure account.
 2. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer.**
 3. In the **Create load balancer** page, under **Name** type **myLoadBalancer**.
 4. Under **Type**, select **Public**.

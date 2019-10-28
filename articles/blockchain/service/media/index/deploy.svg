@@ -1,0 +1,41 @@
+<svg id="ICONS-64x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #556a8a;
+      }
+
+      .cls-2, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #e5e5e5;
+      }
+
+      .cls-4 {
+        fill: #2bc7f4;
+      }
+
+      .cls-5 {
+        fill: none;
+      }
+
+      .cls-5, .cls-6 {
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <title>deploy</title>
+  <polygon class="cls-1" points="26 48 12 61 8 61 14 44 20.61 41 26 48"/>
+  <polygon class="cls-1" points="38 48 52 61 56 61 50 44 43.39 41 38 48"/>
+  <polygon class="cls-1" points="36 62 28 62 30 56 34 56 36 62"/>
+  <path class="cls-2" d="M32,3S18.79,20.1,19,33a38.74,38.74,0,0,0,7,22H38a38.74,38.74,0,0,0,7-22C45.21,20.1,32,3,32,3Z"/>
+  <path class="cls-3" d="M45,33.49a38.52,38.52,0,0,1-6.6,21.3l-.15.21h-6l-.15-.21a38.59,38.59,0,0,1-6.6-21.3c-.07-4.11,1.27-8.68,3.11-13A81.56,81.56,0,0,1,35.25,8.32,81.56,81.56,0,0,1,41.89,20.5C43.73,24.81,45.07,29.38,45,33.49Z"/>
+  <path class="cls-4" d="M41.39,20H22.61a87.76,87.76,0,0,1,9-15.61L32,3.83l.41.56A87.76,87.76,0,0,1,41.39,20Z"/>
+  <path class="cls-5" d="M32,3S18.79,20.1,19,33a38.74,38.74,0,0,0,7,22H38a38.74,38.74,0,0,0,7-22C45.21,20.1,32,3,32,3Z"/>
+  <circle class="cls-6" cx="32" cy="28" r="5"/>
+  <rect class="cls-1" x="27" y="55" width="10" height="2"/>
+</svg>

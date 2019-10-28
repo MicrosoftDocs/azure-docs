@@ -3,15 +3,15 @@ title: 'End-user authentication: Python with Azure Data Lake Storage Gen1 using 
 description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Azure Active Directory with Python
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # End-user authentication with Azure Data Lake Storage Gen1 using Python
@@ -43,8 +43,8 @@ Both these options are discussed in this article. For service-to-service authent
 To work with Data Lake Storage Gen1 using Python, you need to install three modules.
 
 * The `azure-mgmt-resource` module, which includes Azure modules for Active Directory, etc.
-* The `azure-mgmt-datalake-store` module, which includes the Azure Data Lake Storage Gen1 account management operations. For more information on this module, see [Azure Data Lake Storage Gen1 Management module reference](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* The `azure-datalake-store` module, which includes the Azure Data Lake Storage Gen1 filesystem operations. For more information on this module, see [azure-datalake-store Filesystem module reference](http://azure-datalake-store.readthedocs.io/en/latest/).
+* The `azure-mgmt-datalake-store` module, which includes the Azure Data Lake Storage Gen1 account management operations. For more information on this module, see [Azure Data Lake Storage Gen1 Management module reference](/python/api/azure-mgmt-datalake-store/).
+* The `azure-datalake-store` module, which includes the Azure Data Lake Storage Gen1 filesystem operations. For more information on this module, see [azure-datalake-store Filesystem module reference](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Use the following commands to install the modules.
 
@@ -109,7 +109,7 @@ Use this to authenticate with Azure AD for filesystem operations on a Data Lake 
 
 ## End-user authentication without multi-factor authentication
 
-This is deprecated. For more information, see [Azure Authentication using Python SDK](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python#mgmt-auth-token).
+This is deprecated. For more information, see [Azure Authentication using Python SDK](/azure/python/python-sdk-azure-authenticate).
    
 ## Next steps
 In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Storage Gen1 using Python. You can now look at the following articles that talk about how to use Python to work with Azure Data Lake Storage Gen1.

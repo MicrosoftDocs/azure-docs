@@ -4,7 +4,7 @@ description: Guidance for mitigating speculative execution side-channel vulnerab
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: spectre,meltdown,specter
@@ -12,9 +12,9 @@ keywords: spectre,meltdown,specter
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 08/08/2019
 ms.author: cynthn
 
 ---

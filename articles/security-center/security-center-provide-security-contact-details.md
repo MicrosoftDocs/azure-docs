@@ -3,35 +3,42 @@ title: Provide security contact details in Azure Security Center | Microsoft Doc
 description: This document shows you how to provide security contact details in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
-ms.author: rkarlin
+ms.date: 08/09/2019
+ms.author: memildin
 
 ---
 # Provide security contact details in Azure Security Center
 Azure Security Center will recommend that you provide security contact details for your Azure subscription if you haven’t already. This information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your customer data has been accessed by an unlawful or unauthorized party. MSRC performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties.
 
-An email notification is sent on the first daily occurrence of an alert and only for high severity alerts. Email preferences can only be configured for subscription policies. Resource groups within a subscription will inherit these settings.
+An email notification is sent on the first daily occurrence of an alert and only for high severity alerts. Email preferences can only be configured for subscription policies. Resource groups within a subscription will inherit these settings. 
+
+Alert email notifications are sent:
+- Only for high severity alerts
+- To a single email recipient per alert type per day  
+- No more than 3 email messages are sent to a single recipient in a single day
+- Each email message contains a single alert, not an aggregation of alerts
+ 
+For example, if an email message was already sent to alert you about an RDP attack, you will not receive another email message about an RDP attack on the same day, even if another alert is triggered. 
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
->
->
 
-## Implement the recommendation
-1. Under **Recommendations**, select **Provide security contact details**.
-   ![Provide security contact][1]
-2. Select the Azure subscription to provide contact information on.
-3. This opens **Email notifications**.
+## Set up email notifications for alerts <a name="email"></a>
+
+1. From the portal, select **Pricing & settings**.
+1. Click on the subscription.
+1. Click **Email notifications**.
+
+> [!NOTE]
+> If you are implementing a recommendation, then Under **Recommendations**, select **Provide security contact details**, select the Azure subscription to provide contact information on. This opens **Email notifications**.
 
    ![Provide security contact details][2]
 

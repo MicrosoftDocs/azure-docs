@@ -4,7 +4,7 @@ description: Learn how to implement backup and restore in your Azure Service Fab
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
@@ -121,7 +121,7 @@ For more information on Reliable Actors, read the following articles:
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 * [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

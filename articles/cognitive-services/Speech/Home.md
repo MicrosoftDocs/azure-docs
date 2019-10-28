@@ -3,13 +3,14 @@ title: Microsoft Bing Speech Service | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Use Microsoft Speech API to add speech-driven actions to your apps, including real-time interaction with users.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 # What is Bing Speech?

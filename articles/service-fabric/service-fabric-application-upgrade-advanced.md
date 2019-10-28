@@ -4,7 +4,7 @@ description: This article covers some advanced topics pertaining to upgrading a 
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
+ms.author: atsenthi
 
 ---
 # Service Fabric application upgrade: advanced topics
@@ -81,6 +81,44 @@ app1/
 ```
 
 In other words, create a complete application package normally, then remove any code/config/data package folders for which the version has not changed.
+
+## Upgrade application parameters independently of version
+
+Sometimes, it is desirable to change the parameters of a Service Fabric application without changing the manifest version. This can be done conveniently by using the **-ApplicationParameter** flag with the **Start-ServiceFabricApplicationUpgrade** Azure Service Fabric PowerShell cmdlet. Assume a Service Fabric application with the following properties:
+
+```PowerShell
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
+
+ApplicationName        : fabric:/Application1
+ApplicationTypeName    : Application1Type
+ApplicationTypeVersion : 1.0.0
+ApplicationStatus      : Ready
+HealthState            : Ok
+ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
+```
+
+Now, upgrade the application using the **Start-ServiceFabricApplicationUpgrade** cmdlet. This example shows an monitored upgrade, but an unmonitored upgrade can also be used. To see a full description of flags accepted by this cmdlet, see the [Azure Service Fabric PowerShell module reference](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
+
+```PowerShell
+PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
+
+PS C:\> Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/Application1 -ApplicationTypeVers
+ion 1.0.0 -ApplicationParameter $appParams -Monitored
+
+```
+
+After upgrading, confirm that the application has the updated parameters and the same version:
+
+```PowerShell
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
+
+ApplicationName        : fabric:/Application1
+ApplicationTypeName    : Application1Type
+ApplicationTypeVersion : 1.0.0
+ApplicationStatus      : Ready
+HealthState            : Ok
+ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAfter" }
+```
 
 ## Rolling back application upgrades
 

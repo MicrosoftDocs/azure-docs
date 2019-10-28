@@ -15,6 +15,8 @@ ms.author: junhan
 
 This article shows you how to use the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) to create an Azure IoT hub. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To complete this article, you need the following:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

@@ -1,15 +1,15 @@
 ---
 title: Control a device from Azure IoT Hub quickstart (.NET) | Microsoft Docs
 description: In this quickstart, you run two sample C# applications. One application is a back-end application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/20/2018
-ms.author: dobett
+ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
@@ -17,7 +17,7 @@ ms.author: dobett
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud and manage your devices from the cloud. In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub.
+IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud, and ingest high volumes of device telemetry to the cloud for storage or processing. In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub.
 
 The quickstart uses two pre-written .NET applications:
 
@@ -41,6 +41,12 @@ You can verify the current version of C# on your development machine using the f
 dotnet --version
 ```
 
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 If you haven't already done so, download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
@@ -55,26 +61,25 @@ If you completed the previous [Quickstart: Send telemetry from a device to an Io
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+1. Run the following command in Azure Cloud Shell to create the device identity.
 
-   **YourIoTHubName** : Replace this placeholder below with the name you chose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-   **MyDotnetDevice** : This is the name given for the registered device. Use MyDotnetDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyDotnetDevice**: This is the name of the device you're registering. It's recommended to use **MyDotnetDevice** as shown. If you choose a different name for your device, you also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
-      --hub-name YourIoTHubName --device-id MyDotnetDevice
+      --hub-name {YourIoTHubName} --device-id MyDotnetDevice
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
-   **YourIoTHubName** : Replace this placeholder below with the name you coose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      --hub-name YourIoTHubName \
-      --device-id MyDotnetDevice 
+      --hub-name {YourIoTHubName} \
+      --device-id MyDotnetDevice \
       --output table
     ```
 
@@ -89,24 +94,24 @@ A device must be registered with your IoT hub before it can connect. In this qui
 You also need your IoT hub _service connection string_ to enable the back-end application to connect to the hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
 ```
 
 Make a note of the service connection string, which looks like:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-You use this value later in the quickstart. The service connection string is different from the device connection string.  
+You use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
 
 ## Listen for direct method calls
 
-The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
+The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgment back to your hub after it executes the direct method.
 
 1. In a local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\simulated-device-2** folder.
 
 2. Open the **SimulatedDevice.cs** file in a text editor of your choice.
 
-    Replace the value of the `s_connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.cs** file.
+    Replace the value of the `s_connectionString` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.cs**.
 
 3. In the local terminal window, run the following commands to install the required packages for simulated device application:
 
@@ -126,13 +131,13 @@ The simulated device application connects to a device-specific endpoint on your 
 
 ## Call the direct method
 
-The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements. An IoT Hub back-end application typically runs in the cloud.
+The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgments. An IoT Hub back-end application typically runs in the cloud.
 
 1. In another local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\back-end-application** folder.
 
 2. Open the **BackEndApplication.cs** file in a text editor of your choice.
 
-    Replace the value of the `s_connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.cs** file.
+    Replace the value of the `s_connectionString` variable with the service connection string you made a note of earlier. Then save your changes to **BackEndApplication.cs**.
 
 3. In the local terminal window, run the following commands to install the required libraries for the back-end application:
 
@@ -146,7 +151,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
     dotnet run
     ```
 
-    The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgement:
+    The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
 
     ![Run the back-end application](./media/quickstart-control-device-dotnet/BackEndApplication.png)
 

@@ -49,6 +49,10 @@
               href: api-management-howto-policies.md
             - name: Policy reference index
               href: api-management-policies.md
+      - name: Security
+        items:
+            - name: Built-in security controls
+              href: api-management-security-controls.md
       - name: Subscriptions
         href: api-management-subscriptions.md
       - name: Manage using automation
@@ -57,6 +61,7 @@
         href: api-management-error-handling-policies.md
       - name: API import restrictions
         href: api-management-api-import-restrictions.md
+
 - name: How-to guides
   items:
       - name: Define APIs
@@ -119,6 +124,8 @@
               href: api-management-howto-manage-protocols-ciphers.md
       - name: Customize the developer experience
         items:
+            - name: Access and customize the new developer portal
+              href: api-management-howto-developer-portal.md
             - name: Modify page content and layout
               href: api-management-modify-content-layout.md
             - name: Customize system pages using templates
@@ -189,6 +196,8 @@
               href: api-management-howto-create-groups.md
             - name: Deploy to multiple Azure regions
               href: api-management-howto-deploy-multi-region.md
+            - name: Retrieve IP addresses
+              href: api-management-howto-ip-addresses.md
             - name: Log events to Azure Event Hubs
               href: api-management-howto-log-event-hubs.md
             - name: Log requests with Azure Application Insights
@@ -201,6 +210,8 @@
               href: api-management-configuration-repository-git.md
             - name: Use role-based access control
               href: api-management-role-based-access-control.md
+            - name: Migrate API Management instances
+              href: api-management-howto-migrate.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
             - name: Integrate with Service Fabric
@@ -212,32 +223,34 @@
 - name: Reference
   items:
       - name: Azure PowerShell
-        href: /powershell/azure/overview
+        href: /powershell/module/az.apimanagement/?view=azps-2.6.0
       - name: REST
         href: /rest/api/apimanagement/
       - name: REST (original)
         href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
+      - name: Resource Manager template
+        href: /azure/templates/microsoft.apimanagement/allversions
 - name: Resources
   items:
       - name: FAQ
         href: api-management-faq.md
+      - name: Pricing
+        href: https://aka.ms/apimpricing
       - name: Regional availability
         href: https://azure.microsoft.com/regions/services/
-      - name: API design guidance
-        href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
-      - name: API implementation guidance
-        href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+      - name: Roadmap
+        href: https://aka.ms/apimroadmap
+      - name: Feature requests
+        href: https://aka.ms/apimwish
+      - name: Videos
+        href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
       - name: MSDN forum
         href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
-      - name: Videos
-        href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
-      - name: Roadmap
-        href: https://aka.ms/apimroadmap
-      - name: Power BI solution template for API Management
-        href: https://aka.ms/apimpbi
-      - name: Blog
-        href: https://aka.ms/apimblog
-      - name: Feature requests
-        href: https://aka.ms/apimwish
+      - name: API design guidance
+        href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
+      - name: API implementation guidance
+        href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+      - name: Troubleshoot failed to update hostnames error
+        href: api-management-troubleshoot-cannot-add-custom-domain.md

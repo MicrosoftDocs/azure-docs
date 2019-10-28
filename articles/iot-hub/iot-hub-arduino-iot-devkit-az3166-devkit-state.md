@@ -78,7 +78,7 @@ With your MXChip IoT DevKit connected to your computer:
 
 ## Monitor DevKit State in Browser
 
-1. In a Web browser, open the `DevKitState\web\index.html` file--which was created during the [What you need](#whatyouneed) step.
+1. In a Web browser, open the `DevKitState\web\index.html` file--which was created during the What you need step.
 
 2. The following Web page appears:![Specify the function app name.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 

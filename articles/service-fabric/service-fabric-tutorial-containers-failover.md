@@ -4,7 +4,7 @@ description: In this tutorial, you learn how failover is handled in an Azure Ser
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, Microservices, Service Fabric, Azure
@@ -14,7 +14,7 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ---
@@ -58,8 +58,8 @@ To scale the web front-end, do the following steps:
 
 You can now choose to scale the number of instances of the web front-end.
 
-3. Change the number to **2** and click **Scale Service**.
-4. Click on the **fabric:/TestContainer/azurevotefront** node in the tree view and expand the partition node (represented by a GUID).
+1. Change the number to **2** and click **Scale Service**.
+1. Click on the **fabric:/TestContainer/azurevotefront** node in the tree view and expand the partition node (represented by a GUID).
 
 ![sfxscaledone][sfxscaledone]
 

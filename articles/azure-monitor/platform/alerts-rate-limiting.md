@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Rate limiting for Voice, SMS, emails, Azure App push notifications and webhook posts
@@ -15,11 +15,11 @@ Rate limiting is a suspension of notifications that occurs when too many are sen
 
 The rate limit thresholds are:
 
- - **SMS**: No more than 1 SMS every 5 minutes.
- - **Voice**: No more than 1 Voice call every 5 minutes.
- - **Email**: No more than 100 emails in an hour.
+- **SMS**: No more than 1 SMS every 5 minutes.
+- **Voice**: No more than 1 Voice call every 5 minutes.
+- **Email**: No more than 100 emails in an hour.
  
- Other actions are not rate limited.
+  Other actions are not rate limited.
 
 ## Rate limit rules
 - A particular phone number or email is rate limited when it receives more messages than the threshold allows.
@@ -30,3 +30,4 @@ The rate limit thresholds are:
 * Learn more about [SMS alert behavior](alerts-sms-behavior.md).
 * Get an [overview of activity log alerts](alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+

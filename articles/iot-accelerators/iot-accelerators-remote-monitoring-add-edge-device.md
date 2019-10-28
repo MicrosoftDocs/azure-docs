@@ -16,12 +16,12 @@ ms.topic: conceptual
 
 To add an [IoT Edge](../iot-edge/about-iot-edge.md) device to your solution accelerator, complete the following two steps:
 
-1. Add the Edge device on the **Devices** page in the Remote Monitoring solution accelerator web UI.
+1. Add the Edge device on the **Device Explorer** page in the Remote Monitoring solution accelerator web UI.
 1. Install the IoT Edge runtime on your Edge device.
 
 ## Add the IoT Edge device
 
-To add an IoT Edge device to the Remote Monitoring solution accelerator, navigate to the **Devices** page in the web UI and click **+ New device**.
+To add an IoT Edge device to the Remote Monitoring solution accelerator, navigate to the **Device Explorer** page in the web UI and click **+ New device**.
 
 In the **New device** panel, choose **IoT Edge device**. You can leave the default values for the other settings. Then click **Apply**:
 
@@ -31,15 +31,15 @@ In the **New device** panel, choose **IoT Edge device**. You can leave the defau
 
 It's also possible to register an IoT Edge device directly with the IoT Hub instance in your solution accelerator. You need to know the name of the IoT hub in your solution accelerator before you follow any of these how-to guides:
 
-- [Register a new Azure IoT Edge device from the Azure portal](../iot-edge/how-to-register-device-portal.md)
-- [Register a new Azure IoT Edge device with Azure CLI](../iot-edge/how-to-register-device-cli.md)
-- [Register a new Azure IoT Edge device from Visual Studio Code](../iot-edge/how-to-register-device-vscode.md)
+- [Register a new Azure IoT Edge device from the Azure portal](../iot-edge/how-to-register-device.md#register-in-the-azure-portal)
+- [Register a new Azure IoT Edge device with Azure CLI](../iot-edge/how-to-register-device.md#register-with-the-azure-cli)
+- [Register a new Azure IoT Edge device from Visual Studio Code](../iot-edge/how-to-register-device.md#register-with-visual-studio-code)
 
-When you register a device directly with the IoT hub in the Remote Monitoring solution accelerator, it's listed on the **Devices** page in the web UI.
+When you register a device directly with the IoT hub in the Remote Monitoring solution accelerator, it's listed on the **Device Explorer** page in the web UI.
 
 ## Install the IoT Edge runtime
 
-Before you can deploy modules to your Edge device, you must install the IoT Edge runtime on the physical device. The following how-to guides show you how to install the runtime on common device platforms:
+Before you can deploy modules to your Edge device, you must install the IoT Edge runtime on the real device. The following how-to guides show you how to install the runtime on common device platforms:
 
 - [Install the Azure IoT Edge runtime on Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
 - [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)

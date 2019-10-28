@@ -1,19 +1,20 @@
 ---
 
-title: Add an Azure Active Directory B2B collaboration user to a role | Microsoft Docs
+title: Add a B2B collaboration user to a role - Azure Active Directory | Microsoft Docs
 description: Add a guest user to a role in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/08/2018
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
-ms.reviewer: sasubram
-                   
+manager: celestedg
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"                 
+ms.collection: M365-identity-device-management
 ---
 
 # Grant permissions to users from partner organizations in your Azure Active Directory tenant
@@ -22,15 +23,15 @@ Azure Active Directory (Azure AD) B2B collaboration users are added as guest use
 
 ## Default role
 
-![default role](./media/add-guest-to-role/default-role.png)
+![Screenshot showing the default directory role](./media/add-guest-to-role/default-role.png)
 
 ## Global Administrator Role
 
-![global admin role](./media/add-guest-to-role/global-admin-role.png)
+![Screenshot showing the global administrator role](./media/add-guest-to-role/global-admin-role.png)
 
 ## Limited Administrator Role
 
-![limited admin role](./media/add-guest-to-role/limited-admin-role.png)
+![Screenshot showing the limited administrator role](./media/add-guest-to-role/limited-admin-role.png)
 
 ## Next steps
 

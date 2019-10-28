@@ -39,15 +39,15 @@ You can create a pipeline with a copy activity that pushes data from a source da
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
-Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store: 
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation. 
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data to Azure Search index, see [JSON example: Copy data from on-premises SQL Server to Azure Search index](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data to Azure Search index, see [JSON example: Copy data from on-premises SQL Server to Azure Search index](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to Azure Search Index:
 
@@ -112,11 +112,11 @@ The following table specifies whether an Azure Search data type is supported or 
 
 The following sample shows:
 
-1.	A linked service of type [AzureSearch](#linked-service-properties).
-2.	A linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSearchIndex](#dataset-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) and [AzureSearchIndexSink](#copy-activity-properties).
+1. A linked service of type [AzureSearch](#linked-service-properties).
+2. A linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureSearchIndex](#dataset-properties).
+4. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) and [AzureSearchIndexSink](#copy-activity-properties).
 
 The sample copies time-series data from an on-premises SQL Server database to an Azure Search index hourly. The JSON properties used in this sample are described in sections following the samples.
 
@@ -126,14 +126,14 @@ As a first step, setup the data management gateway on your on-premises machine. 
 
 ```JSON
 {
-	"name": "AzureSearchLinkedService",
-   	"properties": {
-		"type": "AzureSearch",
-   		"typeProperties": {
-			"url": "https://<service>.search.windows.net",
-        	"key": "<AdminKey>"
-		}
-   	}
+    "name": "AzureSearchLinkedService",
+    "properties": {
+        "type": "AzureSearch",
+        "typeProperties": {
+            "url": "https://<service>.search.windows.net",
+            "key": "<AdminKey>"
+        }
+    }
 }
 ```
 
@@ -189,18 +189,18 @@ The sample copies data to an Azure Search index named **products**. Data Factory
 
 ```JSON
 {
-	"name": "AzureSearchIndexDataset",
-	"properties": {
-		"type": "AzureSearchIndex",
-		"linkedServiceName": "AzureSearchLinkedService",
-     	"typeProperties" : {
-			"indexName": "products",
-		},
-		"availability": {
-			"frequency": "Minute",
-			"interval": 15
-		}
-   }
+    "name": "AzureSearchIndexDataset",
+    "properties": {
+        "type": "AzureSearchIndex",
+        "linkedServiceName": "AzureSearchLinkedService",
+        "typeProperties" : {
+            "indexName": "products",
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        }
+    }
 }
 ```
 
@@ -209,13 +209,13 @@ The sample copies data to an Azure Search index named **products**. Data Factory
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource** and **sink** type is set to **AzureSearchIndexSink**. The SQL query specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "SqlServertoAzureSearchIndex",
         "description": "copy activity",
@@ -239,7 +239,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
             "type": "AzureSearchIndexSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -250,8 +250,8 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -260,10 +260,10 @@ If you are copying data from a cloud data store into Azure Search, `executionLoc
 ```JSON
 "typeProperties": {
   "source": {
-	"type": "BlobSource"
+    "type": "BlobSource"
   },
   "sink": {
-	"type": "AzureSearchIndexSink"
+    "type": "AzureSearchIndexSink"
   },
   "executionLocation": "West US"
 }
@@ -276,10 +276,10 @@ If you are copying data from a cloud data store into Azure Search, `executionLoc
 ```JSON
 "typeProperties": {
   "source": {
-	"type": "BlobSource"
+    "type": "BlobSource"
   },
   "sink": {
-	"type": "AzureSearchIndexSink"
+    "type": "AzureSearchIndexSink"
   },
   "executionLocation": "West US"
 }
@@ -287,7 +287,7 @@ If you are copying data from a cloud data store into Azure Search, `executionLoc
 
 You can also map columns from source dataset to columns from sink dataset in the copy activity definition. For details, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
-## Performance and tuning  
+## Performance and tuning
 See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) and various ways to optimize it.
 
 ## Next steps

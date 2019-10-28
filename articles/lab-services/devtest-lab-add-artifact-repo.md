@@ -26,7 +26,7 @@ We offer a [GitHub repository of artifacts](https://github.com/Azure/azure-devte
 When you create a VM, you can save the Resource Manager template, customize it if you want, and then use it later to create more VMs. You must create your own private repository to store your custom Resource Manager templates.  
 
 * To learn how to create a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* To learn how to create a Azure DevOps Services project that has a Git repository, see [Connect to Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* To learn how to create an Azure DevOps Services project that has a Git repository, see [Connect to Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 The following figure is an example of how a repository that has artifacts might look in GitHub:  
 
@@ -61,7 +61,7 @@ To add a repository to your lab, first, get key information from your repository
    1. Enter a **Description** for the token.
    2. In the **Expires In** list, select **180 days**.
    3. In the **Accounts** list, select **All accessible accounts**.
-   4. Select the **All scopes** option.
+   4. Select the **Read Only** option.
    5. Select **Create Token**.
 9. The new token appears in the **Personal Access Tokens** list. Select **Copy Token**, and then save the token value for later use.
 10. Continue to the [Connect your lab to the repository](#connect-your-lab-to-the-repository) section.
@@ -74,18 +74,18 @@ To add a repository to your lab, first, get key information from your repository
 
     ![The Add repository button](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. On the second **Repositories** page, specify the following information:
-  1. **Name**. Enter a name for the repository.
-  2. **Git Clone Url**. Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Azure DevOps Services.
-  3. **Branch**. To get your definitions, enter the branch.
-  4. **Personal Access Token**. Enter the personal access token that you got earlier from either GitHub or Azure DevOps Services.
-  5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure you include the forward slash in the folder path.
+   1. **Name**. Enter a name for the repository.
+   2. **Git Clone Url**. Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Azure DevOps Services.
+   3. **Branch**. To get your definitions, enter the branch.
+   4. **Personal Access Token**. Enter the personal access token that you got earlier from either GitHub or Azure DevOps Services.
+   5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure you include the forward slash in the folder path.
 
-     ![Repositories area](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+      ![Repositories area](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Select **Save**.
 
 ### Related blog posts
 * [Troubleshoot failing artifacts in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

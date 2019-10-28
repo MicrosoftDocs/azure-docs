@@ -1,30 +1,27 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search REST API and Java"
+title: "Quickstart: Use Java to call the Bing Image Search REST API"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using Java, and receive JSON responses.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
-# Quickstart: Search for images using the Bing Image Search REST API and Java
+# Quickstart: Search for images with the Bing Image Search API, an Azure cognitive service 
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Java application sends a search query to the API and displays the raw results.
+Use this quickstart to send search requests to the Bing Image Search API in Azure Cognitive Services. This Java application sends a search query to the API, and displays the URL of the first image in the results. While this application is written in Java, the API is a RESTful web service compatible with most programming languages.
 
-While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
-
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) with additional error handling and annotations.
 
 ## Prerequisites
-* Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-* The [Java Development Kit(JDK) 7 or 8](https://aka.ms/azure-jdks)
+* The [Java Development Kit(JDK)](https://aka.ms/azure-jdks)
 
 * The [Gson library](https://github.com/google/gson)
 
@@ -56,7 +53,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Construct the search request and query
 
-1. Use the variables from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being appended to the request.
+1. Use the variables from the last step to format a search URL for the API request. The search term must be URL-encoded before being appended to the request.
 
     ```java
     // construct the search request URL (in the form of endpoint + query string)
@@ -101,9 +98,8 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     JsonObject first_result = (JsonObject)results.get(0);
     String resultURL = first_result.get("thumbnailUrl").getAsString();
     ```
-4. Remember to remove your subscription key from the application code.
 
-## JSON response
+## Example JSON response
 
 Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
@@ -147,7 +143,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -159,7 +155,8 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 ## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) for the Bing Search APIs. 
 * [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

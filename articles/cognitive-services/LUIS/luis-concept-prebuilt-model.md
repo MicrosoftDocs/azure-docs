@@ -1,15 +1,15 @@
 ---
-title: Prebuilt models
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Prebuilt models - LUIS
+titleSuffix: Azure Cognitive Services
 description: Prebuilt models provide domains, intents, utterances, and entities. You can start your app with a prebuilt domain or add a relevant domain to your app later. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -54,7 +54,7 @@ LUIS provides prebuilt intents and their utterances. Intents can be added withou
 LUIS includes a set of prebuilt entities for recognizing common types of information, like dates, times, numbers, measurements, and currency. Prebuilt entity support varies by the culture of your LUIS app. For a full list of the prebuilt entities that LUIS supports, including support by culture, see the [prebuilt entity reference](./luis-reference-prebuilt-entities.md).
 
 When a prebuilt entity is included in your application, its predictions are included in your published application. 
-The behavior of prebuilt entities is pre-trained and **cannot** be modified. Follow these steps to see how a prebuilt entity works:
+The behavior of prebuilt entities is pre-trained and **cannot** be modified. 
 
 > [!NOTE]
 > **builtin.datetime** is deprecated. It is replaced by [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.

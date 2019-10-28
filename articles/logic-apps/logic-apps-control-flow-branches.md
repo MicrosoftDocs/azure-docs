@@ -44,7 +44,7 @@ Your logic app waits for all branches to finish before continuing workflow.
 Parallel branches run only when their `runAfter` property 
 values match the finished parent step's status. 
 For example, both `branchAction1` and `branchAction2` are set to 
-run only when the `parentAction` completes with `Succeded` status.
+run only when the `parentAction` completes with `Succeeded` status.
 
 > [!NOTE]
 > Before you start, your logic app must already 

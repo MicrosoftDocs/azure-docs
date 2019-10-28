@@ -2,11 +2,10 @@
 title: Custom orchestration status in Durable Functions - Azure
 description: Learn how to configure and use custom orchestration status for Durable Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -340,4 +339,4 @@ Clients will get the following response:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about HTTP APIs in Durable Functions](durable-functions-http-api.md)
+> [Learn about durable timers](durable-functions-timers.md)

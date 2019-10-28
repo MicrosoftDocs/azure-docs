@@ -1,13 +1,13 @@
 ---
 title: Sentence pairing and alignment - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: During the training execution, sentences present in parallel documents are paired or aligned. Custom Translator learns translations one sentence at a time, by reading a sentence, the translation of this sentence. Then it aligns words and phrases in these two sentences to each other. 
-author: rajdeep-in
-manager: christw
+description: During the training execution, sentences present in parallel documents are paired or aligned. Custom Translator learns translations one sentence at a time, by reading a sentence, the translation of this sentence. Then it aligns words and phrases in these two sentences to each other.
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
-ms.author: v-rada
+ms.subservice: translator-text
+ms.date: 02/21/2019
+ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how sentence alignment works, so that I can have better understanding of underlying process of sentence extraction, pairing, filtering, aligning.
 ---
@@ -39,21 +39,21 @@ For best results, try to make sure that you have one sentence per line in your
 files. Don't have newline characters within a sentence as this will cause poor
 alignments.
 
-## Suggested minimum number of extracted and aligned sentences
+## Suggested minimum number of sentences
 
-For a training to succeed, the table below shows the minimum number of extracted
-sentences and aligned sentences required in each data set. The
-suggested minimum number of extracted sentences is much higher than the
-suggested minimum number of aligned sentences to take into account the fact that
-the sentence alignment may not be able to align all extracted sentences
-successfully.
+For a training to succeed, the table below shows the minimum number of sentences required in each document type. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. The general guideline is having more in-domain parallel sentences of human translation quality should produce higher quality models.
 
-| Data set   | Suggested minimum extracted sentence count | Suggested minimum aligned sentence count | Maximum aligned sentence count |
-|------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Training   | 10,000                                     | 2,000                                    | No upper limit                 |
-| Tuning     | 2,000                                      | 500                                      | 2,500                          |
-| Testing    | 2,000                                      | 500                                      | 2,500                          |
-| Dictionary | 0                                          | 0                                        | No upper limit                 |
+| Document type   | Suggested minimum sentence count | Maximum sentence count |
+|------------|--------------------------------------------|--------------------------------|
+| Training   | 10,000                                     | No upper limit                 |
+| Tuning     | 5,000                                      | 2,500                          |
+| Testing    | 5,000                                      | 2,500                          |
+| Dictionary | 0                                          | No upper limit                 |
+
+> [!NOTE]
+> - Training will not start and will fail if the 10,000 minimum sentence count for Training is not met. 
+> - Tuning and Testing are optional. If you do not provide them, the system will remove an appropriate percentage from Training to use for validation and testing. 
+> - You can train a model using only dictionary data. Please refer to [What is Dictionary](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
 
 ## Next steps
 

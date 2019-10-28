@@ -4,15 +4,16 @@ description: This document describes user privacy with Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # User privacy and Azure AD Connect Health 
@@ -57,17 +58,17 @@ See [how to remove a server from Azure AD Connect Health](how-to-connect-health-
 Azure AD Connect Health also provides the option to stop data collection of **all** registered services in the tenant. We recommend careful consideration and full acknowledgement of all global admins before taking the action. Once the process begins, Connect Health service will stop receiving, processing, and reporting any data of all your services. Existing data in Connect Health service will be retained for no more than 30 days.
 If you want to stop data collection of specific server, please follow steps at deletion of specific servers. To stop tenant-wise data collection, follow the following steps to stop data collection and delete all services of the tenant.
 
-1.	Click on **General Settings** under configuration in the main blade. 
-2.	Click on **Stop Data Collection** button on the top of the blade. The other options of tenant configuration settings will be disabled once the process starts.  
+1. Click on **General Settings** under configuration in the main blade. 
+2. Click on **Stop Data Collection** button on the top of the blade. The other options of tenant configuration settings will be disabled once the process starts.  
  
- ![Stop data collection](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![Stop data collection](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.	Ensure the list of onboarded services which are affected by stopping data collections. 
-4.	Enter the exact tenant name to enable the **Delete** action button
-5.	Click on **Delete** to trigger the deletion of all services. Connect Health will stop receiving, processing, reporting any data sent from your onboarded services. The entire process of can take up to 24 hours. Notice that this step is not reversible. 
-6.	After the process is completed, you will not see any registered services in Connect Health any more. 
+3. Ensure the list of onboarded services which are affected by stopping data collections. 
+4. Enter the exact tenant name to enable the **Delete** action button
+5. Click on **Delete** to trigger the deletion of all services. Connect Health will stop receiving, processing, reporting any data sent from your onboarded services. The entire process of can take up to 24 hours. Notice that this step is not reversible. 
+6. After the process is completed, you will not see any registered services in Connect Health any more. 
 
- ![After data collection stopped](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![After data collection stopped](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## Re-enable data collection and monitoring in Azure AD Connect Health
 To re-enable monitoring in Azure AD Connect Health for a previously deleted monitored service, you must uninstall and [reinstall the health agent](how-to-connect-health-agent-install.md) on all the servers.
@@ -80,14 +81,14 @@ Tenant-wise data collection can be resumed in Azure AD Connect Health. We recomm
 > The following steps will be available after 24 hours of disable action.
 > After enabling of data collection, the presented insight and monitoring data in Connect Health will not show any legacy data collected before. 
 
-1.	Click on **General Settings** under configuration in the main blade. 
-2.	Click on **Enable Data Collection** button on the top of the blade. 
+1. Click on **General Settings** under configuration in the main blade. 
+2. Click on **Enable Data Collection** button on the top of the blade. 
  
- ![Enable data collection](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![Enable data collection](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.	Enter the exact tenant name to activate the **Enable** button.
-4.	Click on **Enable** button to grant permission of data collection in Connect Health service. The change will be applied shortly. 
-5.	Follow the [installation process](how-to-connect-health-agent-install.md) to reinstall the agent in the servers to be monitored and the services will be present in the portal.  
+3. Enter the exact tenant name to activate the **Enable** button.
+4. Click on **Enable** button to grant permission of data collection in Connect Health service. The change will be applied shortly. 
+5. Follow the [installation process](how-to-connect-health-agent-install.md) to reinstall the agent in the servers to be monitored and the services will be present in the portal.  
 
 
 ## Next steps

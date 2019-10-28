@@ -4,12 +4,12 @@ description: Guide to check and troubleshoot a complex SAP HANA scale-out high-a
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
-manager: jeconnoc
+manager: gwallace
 editor: 
 
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -963,7 +963,7 @@ This example shows the location constraints caused by a cluster resource migrati
 ![Hawk list constraints](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See [hb_report to collect log files](#hbreport-to-collect-log-files): 
+You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See hb_report to collect log files: 
 
 ![Hawk upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 

@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
+ms.subservice: tables
 ---
 # Modeling relationships
 This article discusses the modeling process to help you design your Azure Table storage solutions.
@@ -95,7 +95,7 @@ Domain models may include one-to-one relationships between entities. If you need
 There are also implementation considerations that might lead you to implement one-to-one relationships in the Table service:  
 
 * Handling large entities (for more information, see [Large Entities Pattern](table-storage-design-patterns.md#large-entities-pattern)).  
-* Implementing access controls (for more information, see [Controlling access with Shared Access Signatures](#controlling-access-with-shared-access-signatures)).  
+* Implementing access controls (for more information, see Controlling access with Shared Access Signatures).  
 
 ## Join in the client
 Although there are ways to model relationships in the Table service, you should not forget that the two prime reasons for using the Table service are scalability and performance. If you find you are modeling many relationships that compromise the performance and scalability of your solution, you should ask yourself if it is necessary to build all the data relationships into your table design. You may be able to simplify the design and improve the scalability and performance of your solution if you let your client application perform any necessary joins.  
@@ -111,7 +111,7 @@ You can persist instances of the two concrete classes in the Table service using
 
 ![Person table](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-For more information about working with multiple entity types in the same table in client code, see the section [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types) later in this guide. This provides examples of how to recognize the entity type in client code.  
+For more information about working with multiple entity types in the same table in client code, see the section Working with heterogeneous entity types later in this guide. This provides examples of how to recognize the entity type in client code.  
 
 
 ## Next steps

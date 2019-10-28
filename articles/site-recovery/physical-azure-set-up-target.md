@@ -16,7 +16,7 @@ This article describes how to prepare your Azure environment to start replicatin
 ## Prerequisites
 
 The article assumes:
-- You have created a Recovery Services Vault to protect your physical servers. You can create a Recovery Services Vault from the [Azure portal](http://portal.azure.com "Azure portal").
+- You have created a Recovery Services Vault to protect your physical servers. You can create a Recovery Services Vault from the [Azure portal](https://portal.azure.com "Azure portal").
 - You have [setup your on-premises environment](physical-azure-disaster-recovery.md) to replicate physical servers to Azure.
 
 ## Prepare target

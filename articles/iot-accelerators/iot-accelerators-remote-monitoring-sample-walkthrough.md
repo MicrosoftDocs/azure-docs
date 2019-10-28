@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
 ---
 
@@ -42,11 +42,11 @@ Cloud architecture has evolved since Microsoft released the first solution accel
 
 The solution includes the following components in the device connectivity part of the logical architecture:
 
-### Physical devices
+### Real devices
 
-You can connect physical devices to the solution. You can implement the behavior of your simulated devices using the Azure IoT device SDKs.
+You can connect real devices to the solution. You can implement the behavior of your simulated devices using the Azure IoT device SDKs.
 
-You can provision physical devices from the dashboard in the solution portal.
+You can provision real devices from the dashboard in the solution portal.
 
 ### Device simulation microservice
 
@@ -61,7 +61,7 @@ You can provision simulated devices from the dashboard in the solution portal.
 
 ### IoT Hub
 
-The [IoT hub](../iot-hub/index.yml) ingests telemetry sent from both the physical and simulated devices into the cloud. The IoT hub makes the telemetry available to the services in the IoT solution backend for processing.
+The [IoT hub](../iot-hub/index.yml) ingests telemetry sent from both the real and simulated devices into the cloud. The IoT hub makes the telemetry available to the services in the IoT solution backend for processing.
 
 The IoT hub in the solution also:
 
@@ -101,7 +101,7 @@ The service provides a RESTful endpoint for CRUD operations on key-value pairs. 
 
 ### Azure Cosmos DB
 
-Solution accelerator deployments use [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) to store rules, alarms, configuration settings, and all other cold storage.
+Solution accelerator deployments use [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) to store rules, alerts, configuration settings, and all other cold storage.
 
 ### Azure Stream Analytics manager microservice
 

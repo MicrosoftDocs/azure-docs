@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure Managed Applications Documentation
 metadata:
-  title: Azure Managed Applications Documentation - Tutorials, API Reference
+  title: Azure Managed Applications Documentation
   description: Use Azure Managed Applications to publish cloud solutions that are easier for consumers to maintain.
   services: managed-applications
   author: tfitzmac
@@ -43,7 +43,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
+      html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
     - title: REST APIs
       html: <p><a href="/rest/api/resources/">REST</a></p>  
     - title: User interface

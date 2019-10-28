@@ -10,7 +10,6 @@ ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
@@ -51,7 +50,7 @@ If you want to create a self signed certificate quickly for testing, you can use
 
 	$fileName = "exportedcert.pfx"
 	Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-
+When creating a self signed cert, you will need to ensure the subject name has the format of CN={ASE_NAME_HERE}_InternalLoadBalancingASE.
 
 ## Application certificates 
 
@@ -81,7 +80,9 @@ To upload the certificate to your app in your ASE:
 
 	84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-The certificate will be available by all the apps in the same app service plan as the app, which configured that setting. If you need it to be available for apps in a different App Service plan, you will need to repeat the App Setting operation in an app in that App Service plan. To check that the certificate is set, go to the Kudu console and issue this command dir cert:\localmachine\root in the PowerShell debug console. 
+The certificate will be available by all the apps in the same app service plan as the app, which configured that setting. If you need it to be available for apps in a different App Service plan, you will need to repeat the App Setting operation in an app in that App Service plan. To check that the certificate is set, go to the Kudu console and issue the following command in the PowerShell debug console:
+
+    dir cert:\localmachine\root
 
 To perform testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
 

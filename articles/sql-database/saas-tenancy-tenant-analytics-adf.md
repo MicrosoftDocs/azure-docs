@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Run analytics queries against tenant databases using Azure SQL Data Warehouse | Microsoft Docs"
 description: "Cross-tenant analytics queries using data extracted from Azure SQL Database, SQL Data Warehouse, Azure Data Factory, or Power BI."
 services: sql-database
@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
-manager: craigg
-ms.date: 09/19/2018
+ms.date: 12/18/2018
 ---
 # Explore SaaS analytics with Azure SQL Database, SQL Data Warehouse, Data Factory, and Power BI
 
@@ -88,7 +87,7 @@ In this step, you deploy the additional resources used in the tutorial: a SQL Da
 
 Now review the Azure resources you deployed:
 #### Tenant databases and analytics store
-Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect to **tenants1-dpt-&lt;user&gt;** and **catalog-dpt-&lt;user&gt;** servers. Replace &lt;user&gt; with the value used when you deployed the app. Use Login = *developer* and Password = *P@ssword1*. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
+Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect to **tenants1-dpt-&lt;user&gt;** and **catalog-dpt-&lt;user&gt;** servers. Replace &lt;user&gt; with the value used when you deployed the app. Use Login = *developer* and Password = *P\@ssword1*. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
 
 ![Connect to SQL Database server from SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -107,7 +106,7 @@ In the Object Explorer:
 #### Blob storage
 1. In the [Azure Portal](https://ms.portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging\<user\>** has been added.
 
-  ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
+   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. Click **wingtipstaging\<user\>** storage account to explore the objects present.
 1. Click **Blobs** tile
@@ -191,7 +190,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P@ssword1*. Click **Connect**.  
+5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P\@ssword1*. Click **Connect**.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

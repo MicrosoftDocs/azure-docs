@@ -21,14 +21,14 @@ Yes. You can use Azure Key Vault to store keys/secrets for use with Azure Databr
 ## Can I use Azure Virtual Networks with Databricks?
 Yes. You can use an Azure Virtual Network (VNET) with Azure Databricks. For more information, see [Deploying Azure Databricks in your Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
 
-## How do I access Azure Data Lake Store from a notebook? 
+## How do I access Azure Data Lake Storage from a notebook? 
 
 Follow these steps:
 1. In Azure Active Directory (Azure AD), provision a service principal, and record its key.
-1. Assign the necessary permissions to the service principal in Data Lake Store.
-1. To access a file in Data Lake Store, use the service principal credentials in Notebook.
+1. Assign the necessary permissions to the service principal in Data Lake Storage.
+1. To access a file in Data Lake Storage, use the service principal credentials in Notebook.
 
-For more information, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
+For more information, see [Use Azure Data Lake Storage with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
 
 ## Fix common problems
 

@@ -1,23 +1,19 @@
 ---
 title: User retention analysis for web applications with Azure Application Insights | Microsoft docs
 description: How many users return to your app?
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/03/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
+ms.date: 05/03/2017
+
+ms.reviewer: mbullwin
 ---
 
 # User retention analysis for web applications with Application Insights
 
-The retention feature in [Azure Application Insights](../../application-insights/app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.
+The retention feature in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.
 
 ## Get started
 

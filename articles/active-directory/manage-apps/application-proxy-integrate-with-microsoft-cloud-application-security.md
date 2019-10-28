@@ -1,19 +1,20 @@
 ---
 title: Integrate on-premises apps with Cloud App Security - Azure Active Directory | Microsoft Docs
-description: Configure an on-premises application in Azure Active Directory to work with Microsoft Cloud App Security (MCAS). Use the MCAS Conditional Access App Control to monitor and control sessions in real-time based on conditional access policies. You can apply these policies to on-premises applications that use Application Proxy in Azure Active Directory (Azure AD).
-author: barbkess
-manager: mtillman
+description: Configure an on-premises application in Azure Active Directory to work with Microsoft Cloud App Security (MCAS). Use the MCAS Conditional Access App Control to monitor and control sessions in real-time based on Conditional Access policies. You can apply these policies to on-premises applications that use Application Proxy in Azure Active Directory (Azure AD).
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory
-Configure an on-premises application in Azure Active Directory (Azure AD) to use Microsoft Cloud App Security (MCAS) for real-time monitoring. MCAS uses Conditional Access App Control to monitor and control sessions in real-time based on conditional access policies. You can apply these policies to on-premises applications that use Application Proxy in Azure Active Directory (Azure AD).
+Configure an on-premises application in Azure Active Directory (Azure AD) to use Microsoft Cloud App Security (MCAS) for real-time monitoring. MCAS uses Conditional Access App Control to monitor and control sessions in real-time based on Conditional Access policies. You can apply these policies to on-premises applications that use Application Proxy in Azure Active Directory (Azure AD).
 
 Here are some examples of the types of policies you can create with MCAS:
 
@@ -22,7 +23,7 @@ Here are some examples of the types of policies you can create with MCAS:
 - Use client certificates or device compliance to block access to specific applications from unmanaged devices.
 - Restrict user sessions from non-corporate networks. You can give restricted access to users accessing an application from outside your corporate network. For example, this restricted access can block the user from downloading sensitive documents.
 
-For more information, see [Protect apps with Microsoft Cloud App Security Conditional Access App Control](/cloud-app-security/proxy-intro-aad.md).
+For more information, see [Protect apps with Microsoft Cloud App Security Conditional Access App Control](/cloud-app-security/proxy-intro-aad).
 
 ## Requirements
 
@@ -59,7 +60,7 @@ To configure your application with the Conditional Access Application Control, f
 
 ## Test Conditional Access App Control
 
-To test the deployment of Azure AD applications with Conditional Access Application Control, follow the instructions in [Test the deployment for Azure AD apps](/cloud-app-security/proxy-deployment-aad#test-the-deployment).
+To test the deployment of Azure AD applications with Conditional Access Application Control, follow the instructions in [Test the deployment for Azure AD apps](/cloud-app-security/proxy-deployment-aad).
 
 
 

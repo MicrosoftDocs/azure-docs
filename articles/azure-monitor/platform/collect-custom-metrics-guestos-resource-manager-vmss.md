@@ -4,12 +4,14 @@ description: Send guest OS metrics to the Azure Monitor metric store by using a 
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
-ms.date: 09/24/2018
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 By using the Azure Monitor [Windows Azure Diagnostics (WAD) extension](diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (guest OS) that runs as part of a virtual machine, cloud service, or Azure Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
 
@@ -19,10 +21,11 @@ If you're new to Resource Manager templates, learn about [template deployments](
 
 ## Prerequisites
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- You need to have [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- You need to have [Azure PowerShell](/powershell/azure) installed, or you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
+- Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions).
 
 ## Set up Azure Monitor as a data sink 
 The Azure Diagnostics extension uses a feature called **data sinks** to route metrics and logs to different locations. The following steps show how to use a Resource Manager template and PowerShell to deploy a VM by using the new Azure Monitor data sink. 
@@ -83,7 +86,7 @@ The following code from the MSI extension also adds the diagnostics extension an
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed identites for Azure resources   
+            // Managed identities for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 
@@ -230,17 +233,17 @@ Save and close both files.
 To deploy the Resource Manager template, use Azure PowerShell:  
 
 1. Launch PowerShell. 
-1. Sign in to Azure using `Login-AzureRmAccount`.
-1. Get your list of subscriptions by using `Get-AzureRmSubscription`.
+1. Sign in to Azure using `Login-AzAccount`.
+1. Get your list of subscriptions by using `Get-AzSubscription`.
 1. Set the subscription you'll create, or update the virtual machine: 
 
-   ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   ```powershell
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Create a new resource group for the VM being deployed. Run the following command: 
 
-   ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+   ```powershell
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -251,8 +254,8 @@ To deploy the Resource Manager template, use Azure PowerShell:
    > [!NOTE]  
    > If you want to update an existing scale set, add **-Mode Incremental** to the end of the command. 
  
-   ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   ```powershell
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. After your deployment succeeds, you should find the virtual machine scale set in the Azure portal. It should emit metrics to Azure Monitor. 
@@ -285,4 +288,5 @@ You can then also choose to use the dimensions on this metric to chart it for a 
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
+
 

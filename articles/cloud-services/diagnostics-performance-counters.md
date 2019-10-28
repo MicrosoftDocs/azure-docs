@@ -3,18 +3,11 @@ title: Collect on Performance Counters in Azure Cloud Services | Microsoft Docs
 description: Learn how to discover, use, and create performance counters in Cloud Services with Azure Diagnostics and Application Insights.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: 
-
-ms.assetid: 
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/02/18
-ms.author: jeconnoc
+ms.date: 02/02/2018
+ms.author: gwallace
 ---
 
 # Collect performance counters for your Azure Cloud Service
@@ -25,7 +18,7 @@ Performance counters provide a way for you to track how well your application an
 
 A performance counter is made up of two parts, a set name (also known as a category) and one or more counters. You can use PowerShell to get a list of available performance counters:
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Select-Object CounterSetName, Paths | Sort-Object CounterSetName
 
 CounterSetName                                  Paths
@@ -52,7 +45,7 @@ The `CounterSetName` property represents a set (or category), and is a good indi
 
 To get all of the counters for a set, use the `CounterSetName` value and expand the `Paths` collection. Each path item is a counter you can query. For example, to get the available counters related to the `Processor` set, expand the `Paths` collection:
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -ExpandProperty Paths
 
 \Processor(*)\% Processor Time
@@ -201,7 +194,7 @@ namespace WorkerRoleWithSBQueue1
         {
             // ... Other startup code here ...
 
-            // Define the cateogry and counter names.
+            // Define the category and counter names.
             string perfCounterCatName = "MyService";
             string perfCounterName = "Times Used";
 

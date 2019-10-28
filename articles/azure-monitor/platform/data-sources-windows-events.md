@@ -1,18 +1,13 @@
 ---
 title: Collect and analyze Windows Event logs in Azure Monitor | Microsoft Docs
 description: Describes how to configure the collection of Windows Event logs by Azure Monitor and details of the records they create.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
-ms.service: log-analytics
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
+ms.date: 11/28/2018
+
 ---
 
 # Windows event log data sources in Azure Monitor
@@ -29,11 +24,14 @@ As you type the name of an event log, Azure Monitor provides suggestions of comm
 
 ![Configure Windows events](media/data-sources-windows-events/configure.png)
 
+> [!NOTE]
+> Critical events from the Windows event log will have a severity of "Error" in Azure Monitor Logs.
+
 ## Data collection
 Azure Monitor collects each event that matches a selected severity from a monitored event log as the event is created.  The agent records its place in each event log that it collects from.  If the agent goes offline for a period of time, then it collects events from where it last left off, even if those events were created while the agent was offline.  There is a potential for these events to not be collected if the event log wraps with uncollected events being overwritten while the agent is offline.
 
 >[!NOTE]
->Azure Monitor does not collect audit events created by SQL Server from source *MSSQLSERVER* with event ID 18453 that contains keywords - *Classic* or *Audit Success* and keyword *0xa0000000000000*.
+>Azure Monitor does not collect audit events created by SQL Server from source *MSSQLSERVER* with event ID 18453 that contains keywords - *Classic* or *Audit Success* and keyword *0xa0000000000000*.
 >
 
 ## Windows event records properties
@@ -49,7 +47,7 @@ Windows event records have a type of **Event** and have the properties in the fo
 | EventLevelName |Severity of the event in text form. |
 | EventLog |Name of the event log that the event was collected from. |
 | ParameterXml |Event parameter values in XML format. |
-| ManagementGroupName |Name of the management group for System Center Operations Manager agents.  For other agents, this value is AOI-<workspace ID> |
+| ManagementGroupName |Name of the management group for System Center Operations Manager agents.  For other agents, this value is `AOI-<workspace ID>` |
 | RenderedDescription |Event description with parameter values |
 | Source |Source of the event. |
 | SourceSystem |Type of agent the event was collected from. <br> OpsManager – Windows agent, either direct connect or Operations Manager managed <br> Linux – All Linux agents  <br> AzureStorage – Azure Diagnostics |
@@ -68,6 +66,6 @@ The following table provides different examples of log queries that retrieve Win
 
 
 ## Next steps
-* Configure Azure Monitor to collect other [data sources](agent-data-sources.md) for analysis.
-* Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
+* Configure Log Analytics to collect other [data sources](agent-data-sources.md) for analysis.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
 * Configure [collection of performance counters](data-sources-performance-counters.md) from your Windows agents.

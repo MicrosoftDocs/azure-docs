@@ -1,42 +1,32 @@
 ---
-title: How to manage your Azure Maps account and keys | Microsoft Docs 
-description: You can use the Azure portal to manage your Azure Maps account and manage your access keys.
+title: Manage your Azure Maps account | Microsoft Docs 
+description: You can use the Azure portal to manage your Azure Maps account.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/12/2018
+ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ---
 
-# How to manage your Azure Maps account and keys
+# Manage your Azure Maps account
 
-You can manage your Azure Maps account and keys through the Azure portal. Once you have an account and a key, you can implement the APIs in your web site or mobile application.
+You can manage your Azure Maps account through the Azure portal. After you have an account, you can implement the APIs in your website or mobile application.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a new account
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+2. Select **Create a resource** in the upper-left corner of the Azure portal.
 
-3. Search for and select **Maps**, then click **Create**.
+3. Search for and select **Maps**. Then select **Create**.
 
 4. Enter the information for your new account.
 
 ![Enter account information in the portal](./media/how-to-manage-account-keys/new-account-portal.png)
-
-## Manage keys on the account page
-
-Once you create an account, you get two randomly generated keys. You use the keys to authenticate against the Maps APIs when you want to retrieve map data or create a new JavaScript map instance.
-
-You can find your keys in the Azure portal. Navigate to your account then select **Keys** from the menu.
-
-![Manage account keys in the portal](./media/how-to-manage-account-keys/account-keys-portal.png)
-
-From this page you can copy your keys or generate new ones.
 
 ## Delete an account
 
@@ -44,14 +34,18 @@ You can delete an account from the Azure portal. Navigate to the account overvie
 
 ![Delete your account in the portal](./media/how-to-manage-account-keys/account-delete-portal.png)
 
-You will then see a confirmation page. You can confirm the deletion of your account by typing its name.
+You then see a confirmation page. You can confirm the deletion of your account by typing its name.
 
 ## Next steps
 
-Learn how to manage Azure Maps account Pricing tier:
+Setup authentication with Azure Maps:
 > [!div class="nextstepaction"]
-> [Manage Pricing Tier](./how-to-manage-pricing-tier.md)
+> [Manage authentication](how-to-manage-authentication.md)
+
+Learn how to manage an Azure Maps account pricing tier:
+> [!div class="nextstepaction"]	
+> [Manage a pricing tier](how-to-manage-pricing-tier.md)
 
 Learn how to see the API usage metrics for your Azure Maps account:
-> [!div class="nextstepaction"]
-> [View usage metrics](./how-to-view-api-usage.md)
+> [!div class="nextstepaction"]	
+> [View usage metrics](how-to-view-api-usage.md)

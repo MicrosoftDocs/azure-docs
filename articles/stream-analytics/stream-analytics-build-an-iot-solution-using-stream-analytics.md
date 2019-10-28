@@ -31,8 +31,7 @@ You need the following prerequisites to complete this solution:
 ## Scenario introduction: "Hello, Toll!"
 A toll station is a common phenomenon. You encounter them on many expressways, bridges, and tunnels across the world. Each toll station has multiple toll booths. At manual booths, you stop to pay the toll to an attendant. At automated booths, a sensor on top of each booth scans an RFID card that's affixed to the windshield of your vehicle as you pass the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
 
-![Picture of cars at toll booths](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth
-.jpg)
+![Picture of cars at toll booths](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## Incoming data
 This solution works with two streams of data. Sensors installed in the entrance and exit of the toll stations produce the first stream. The second stream is a static lookup dataset that has vehicle registration data.
@@ -134,7 +133,8 @@ There are several resources that can easily be deployed in a resource group toge
 10. After a few moments, a notification appears to confirm the **Deployment succeeded**.
 
 ### Review the Azure Stream Analytics TollApp resources
-1. Log in to the Azure portal
+
+1. Sign in to the Azure portal
 
 2. Locate the Resource Group that you named in the previous section.
 
@@ -159,7 +159,7 @@ There are several resources that can easily be deployed in a resource group toge
 
    To paraphrase the intent of the query, let’s say that you need to count the number of vehicles that enter a toll booth. Because a highway toll booth has a continuous stream of vehicles entering, those are entrance events are analogous to a stream that never stops. To quantify the stream, you have to define a "period of time" to measure over. Let's refine the question further, to "How many vehicles enter a toll booth every three minutes?" This is commonly referred to as the tumbling count.
 
-   As you can see, Azure Stream Analytics uses a query language that's like SQL and adds a few extensions to specify time-related aspects of the query.  For more details, read about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) constructs used in the query.
+   As you can see, Azure Stream Analytics uses a query language that's like SQL and adds a few extensions to specify time-related aspects of the query.  For more details, read about [Time Management](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) and [Windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) constructs used in the query.
 
 3. Examine the Inputs of the TollApp sample job. Only the EntryStream input is used in the current query.
    - **EntryStream** input is an Event Hub connection that queues data representing each time a car enters a tollbooth on the highway. A web app that is part of the sample is creating the events, and that data is queued in this Event Hub. Note that this input is queried in the FROM clause of the streaming query.
@@ -167,7 +167,7 @@ There are several resources that can easily be deployed in a resource group toge
    - **Registration** input is an Azure Blob storage connection, pointing to a static registration.json file, used for lookups as needed. This reference data input is used in later variations of the query syntax.
 
 4. Examine the Outputs of the TollApp sample job.
-   - **Cosmos DB** output is a Cosmos database collection that receives the output sink events. Note that this output is used in INTO clause of the streaming query.
+   - **Cosmos DB** output is a Cosmos database container that receives the output sink events. Note that this output is used in INTO clause of the streaming query.
 
 ## Start the TollApp streaming job
 Follow these steps to start the streaming job:

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/202018
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -32,6 +32,11 @@ The difference among this HTTP connector, the [REST connector](connector-rest.md
 
 ## Supported capabilities
 
+This HTTP connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from an HTTP source to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 You can use this HTTP connector to:
@@ -42,6 +47,10 @@ You can use this HTTP connector to:
 
 > [!TIP]
 > To test an HTTP request for data retrieval before you configure the HTTP connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
+
+## Prerequisites
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
@@ -59,7 +68,7 @@ The following properties are supported for the HTTP linked service:
 | url | The base URL to the web server. | Yes |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect to an HTTP endpoint. If your HTTPS server uses a self-signed certificate, set this property to **false**. | No<br /> (the default is **true**) |
 | authenticationType | Specifies the authentication type. Allowed values are **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. <br><br> See the sections that follow this table for more properties and JSON samples for these authentication types. | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted Integration Runtime (if your data store is located in a private network). If not specified, this property uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 ### Using Basic, Digest, or Windows authentication
 
@@ -157,11 +166,50 @@ If you use **certThumbprint** for authentication and the certificate is installe
 
 ## Dataset properties
 
-This section provides a list of properties that the HTTP dataset supports. 
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). 
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-To copy data from HTTP, set the **type** property of the dataset to **HttpFile**. The following properties are supported:
+The following properties are supported for HTTP under `location` settings in format-based dataset:
+
+| Property    | Description                                                  | Required |
+| ----------- | ------------------------------------------------------------ | -------- |
+| type        | The type property under `location` in dataset must be set to **HttpServerLocation**. | Yes      |
+| relativeUrl | A relative URL to the resource that contains the data.       | No       |
+
+> [!NOTE]
+> The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
+
+**Example:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "HttpServerLocation",
+                "relativeUrl": "<relative url>"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### Legacy dataset model
+
+>[!NOTE]
+>The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above section going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -223,7 +271,64 @@ For a full list of sections and properties that are available for defining activ
 
 ### HTTP as source
 
-To copy data from HTTP, set **source type** in the copy activity to **HttpSource**. The following properties are supported in the copy activity **source** section:
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+
+The following properties are supported for HTTP under `storeSettings` settings in format-based copy source:
+
+| Property                 | Description                                                  | Required |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| type                     | The type property under `storeSettings` must be set to **HttpReadSetting**. | Yes      |
+| requestMethod            | The HTTP method. <br>Allowed values are **Get** (default) and **Post**. | No       |
+| addtionalHeaders         | Additional HTTP request headers.                             | No       |
+| requestBody              | The body for the HTTP request.                               | No       |
+| requestTimeout           | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**. | No       |
+| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromHTTP",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "HttpReadSetting",
+                    "requestMethod": "Post",
+                    "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
+                    "requestBody": "<body for POST HTTP request>"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### Legacy source model
+
+>[!NOTE]
+>The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -261,6 +366,10 @@ To copy data from HTTP, set **source type** in the copy activity to **HttpSource
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
 ## Next steps

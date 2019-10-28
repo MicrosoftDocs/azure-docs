@@ -1,18 +1,13 @@
 ---
 title: Automated script to create Service Manager Web app to connect with IT Service Management Connector in Azure | Microsoft Docs
 description: Create a Service Manager Web app using an automated script to connect with IT Service Management Connector in Azure, and centrally monitor and manage the ITSM work items.
-services: log-analytics
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 879e819f-d880-41c8-9775-a30907e42059
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/23/2018
+author: JYOTHIRMAISURI
 ms.author: v-jysur
+ms.date: 01/23/2018
+
 ---
 
 # Create Service Manager Web app using the automated script
@@ -32,6 +27,8 @@ The script will create the Web app using the name that you specified (along with
 
 Save these values, you will need these values when you create a connection with IT Service Management Connector.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
  Windows Management Framework 5.0 or above.
@@ -39,7 +36,7 @@ Save these values, you will need these values when you create a connection with 
 
 Use the following script:
 
-```
+```powershell
 ####################################
 # User Configuration Section Begins
 ####################################
@@ -89,19 +86,19 @@ if(!(Get-PackageProvider -Name NuGet))
    Write-Host "Installing NuGet Package Provider..."
    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Scope CurrentUser -Force -WarningAction SilentlyContinue
 }
-$module = Get-Module -ListAvailable -Name AzureRM
+$module = Get-Module -ListAvailable -Name Az
 
-if(!$module -or ($module[0].Version.Major -lt 4))
+if(!$module -or ($module[0].Version.Major -lt 1))
 {
-    Write-Host "Installing AzureRm Module..."  
+    Write-Host "Installing Az Module..."  
     try
     {
         # In case of Win 10 Anniversary update
-        Install-Module AzureRM -MinimumVersion 4.1.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue -AllowClobber
+        Install-Module Az -MinimumVersion 1.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue -AllowClobber
     }
     catch
     {
-        Install-Module AzureRM -MinimumVersion 4.1.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue
+        Install-Module Az -MinimumVersion 1.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue
     }
 
 }
@@ -114,25 +111,25 @@ Write-Host "Requirement check complete!!"
 
 $errorActionPreference = "Stop"
 
-$templateUri = "https://raw.githubusercontent.com/SystemCenterServiceManager/SMOMSConnector/master/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/SMOMSConnector/master/azuredeploy.json"
 
 if(!$siteNamePrefix)
 {
     $siteNamePrefix = "smoc"
 }
 
-Connect-AzureRmAccount
+Connect-AzAccount
 
-$context = Set-AzureRmContext -SubscriptionName $azureSubscriptionName -WarningAction SilentlyContinue
+$context = Set-AzContext -SubscriptionName $azureSubscriptionName -WarningAction SilentlyContinue
 
-$resourceProvider = Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+$resourceProvider = Get-AzResourceProvider -ProviderNamespace Microsoft.Web
 
 if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered")
 {
     try
     {
         Write-Host "Registering Microsoft.Web Resource Provider"
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+        Register-AzResourceProvider -ProviderNamespace Microsoft.Web
     }
     catch
     {
@@ -145,8 +142,8 @@ do
     $rand = Get-Random -Maximum 32000
 
     $siteName = $siteNamePrefix + $rand
-
-    $resource = Find-AzureRmResource -ResourceNameContains $siteName -ResourceType Microsoft.Web/sites
+    
+    $resource = Get-AzResource -Name $siteName -ResourceType Microsoft.Web/sites
 
 }while($resource)
 
@@ -167,16 +164,16 @@ if(!$tenant)
 }
 try
 {
-    Get-AzureRmResourceGroup -Name $resourceGroupName
+    Get-AzResourceGroup -Name $resourceGroupName
 }
 catch
 {
-    New-AzureRmResourceGroup -Location $location -Name $resourceGroupName
+    New-AzResourceGroup -Location $location -Name $resourceGroupName
 }
 
 Write-Output "Web App Deployment in progress...."
 
-New-AzureRmResourceGroupDeployment -TemplateUri $templateUri -siteName $siteName -ResourceGroupName $resourceGroupName
+New-AzResourceGroupDeployment -TemplateUri $templateUri -siteName $siteName -ResourceGroupName $resourceGroupName
 
 Write-Output "Web App Deployed successfully!!"
 
@@ -185,25 +182,25 @@ Write-Output "Web App Deployed successfully!!"
 
 Add-Type -AssemblyName System.Web
 
-$clientSecret = [System.Web.Security.Membership]::GeneratePassword(30,2).ToString()
+$secret = [System.Web.Security.Membership]::GeneratePassword(30,2).ToString()
+$clientSecret = $secret | ConvertTo-SecureString -AsPlainText -Force
 
-$clientSecret = $clientSecret | ConvertTo-SecureString -AsPlainText -Force
 
 try
 {
 
     Write-Host "Creating AzureAD application..."
 
-    $adApp = New-AzureRmADApplication -DisplayName $siteName -HomePage $azureSite -IdentifierUris $azureSite -Password $clientSecret
+    $adApp = New-AzADApplication -DisplayName $siteName -HomePage $azureSite -IdentifierUris $azureSite -Password $clientSecret
 
-    Write-Host "AzureAD application created succesfully!!"
+    Write-Host "AzureAD application created successfully!!"
 }
 catch
 {
     # Delete the deployed web app if Azure AD application fails
-    Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
+    Remove-AzResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
-    Write-Host "Failure occured in Azure AD application....Try again!!"
+    Write-Host "Failure occurred in Azure AD application....Try again!!"
 
     exit
 
@@ -211,7 +208,7 @@ catch
 
 $clientId = $adApp.ApplicationId
 
-$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $clientId
+$servicePrincipal = New-AzADServicePrincipal -ApplicationId $clientId
 
 # Web App Configuration
 #######################
@@ -219,7 +216,7 @@ try
 {
 
     Write-Host "Configuring deployed Web-App..."
-    $webApp = Get-AzureRMWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -Slot production -WarningAction SilentlyContinue
+    $webApp = Get-AzWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -Slot production -WarningAction SilentlyContinue
 
     $appSettingList = $webApp.SiteConfig.AppSettings
 
@@ -227,28 +224,30 @@ try
     ForEach ($item in $appSettingList) {
         $appSettings[$item.Name] = $item.Value
     }
+
     $appSettings['ida:Tenant'] = $tenant
     $appSettings['ida:Audience'] = $azureSite
     $appSettings['ida:ServerName'] = $serverName
     $appSettings['ida:Domain'] = $domain
     $appSettings['ida:Username'] = $userName
+	$appSettings['ida:WhitelistedClientId'] = $clientId
 
     $connStrings = @{}
     $kvp = @{"Type"="Custom"; "Value"=$password}
     $connStrings['ida:Password'] = $kvp
 
-    Set-AzureRMWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -AppSettings $appSettings -ConnectionStrings $connStrings -Slot production -WarningAction SilentlyContinue
+    Set-AzWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -AppSettings $appSettings -ConnectionStrings $connStrings -Slot production -WarningAction SilentlyContinue
 
 }
 catch
 {
     Write-Host "Web App configuration failed. Please ensure all values are provided in Service Manager Authentication Settings in User Configuration Section"
 
-    # Delete the AzureRm AD Application if confiuration fails
-    Remove-AzureRmADApplication -ObjectId $adApp.ObjectId -Force
+    # Delete the AzureRm AD Application if configuration fails
+    Remove-AzADApplication -ObjectId $adApp.ObjectId -Force
 
     # Delete the deployed web app if configuration fails
-    Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
+    Remove-AzResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
     exit
 }
@@ -262,14 +261,14 @@ if(!$serviceName)
     $serviceName = $siteName + "sbn"
 }
 
-$resourceProvider = Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Relay
+$resourceProvider = Get-AzResourceProvider -ProviderNamespace Microsoft.Relay
 
 if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered")
 {
     try
     {
         Write-Host "Registering Microsoft.Relay Resource Provider"
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Relay
+        Register-AzResourceProvider -ProviderNamespace Microsoft.Relay
     }
     catch
     {
@@ -277,7 +276,7 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     }   
 }
 
-$resource = Find-AzureRmResource -ResourceNameContains $serviceName -ResourceType Microsoft.Relay/namespaces
+$resource = Get-AzResource -Name $serviceName -ResourceType Microsoft.Relay/namespaces
 
 if(!$resource)
 {
@@ -292,7 +291,7 @@ if(!$resource)
     try
     {
         Write-Host "Creating Service Bus namespace..."
-        New-AzureRmResource -ResourceName $serviceName -Location $location -PropertyObject $properties -ResourceGroupName $resourceGroupName -ResourceType Microsoft.Relay/namespaces -ApiVersion 2016-07-01 -Force
+        New-AzResource -ResourceName $serviceName -Location $location -PropertyObject $properties -ResourceGroupName $resourceGroupName -ResourceType Microsoft.Relay/namespaces -ApiVersion 2016-07-01 -Force
     }
     catch
     {
@@ -307,13 +306,11 @@ Write-Host "App Details"
 Write-Host "============"
 Write-Host "App Name:"  $siteName
 Write-Host "Client Id:"  $clientId
-Write-Host "Client Secret:"  $clientSecret
+Write-Host "Client Secret:"  $secret
 Write-Host "URI:"  $azureSite
 if(!$err)
 {
     Write-Host "ServiceBus Namespace:"  $serviceName  
-}
-
-```
+}```
 ## Next steps
 [Configure the Hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

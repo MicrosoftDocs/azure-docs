@@ -2,11 +2,10 @@
 title: Handling external events in Durable Functions - Azure
 description: Learn how to handle external events in the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -186,10 +185,10 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-Internally, `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) enqueues a message that gets picked up by the waiting orchestrator function.
+Internally, `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) enqueues a message that gets picked up by the waiting orchestrator function. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check the queue for event messages.
 
-> [!WARNING]
-> If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> [!NOTE]
+> If there is no orchestration instance with the specified *instance ID*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29). 
 
 > [!WARNING]
 > When developing locally in JavaScript, you will need to set the environment variable `WEBSITE_HOSTNAME` to `localhost:<port>`, ex. `localhost:7071` to use methods on `DurableOrchestrationClient`. For more information about this requirement, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-js/issues/28).
@@ -197,10 +196,7 @@ Internally, `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) enqueues a mes
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to set up eternal orchestrations](durable-functions-eternal-orchestrations.md)
-
-> [!div class="nextstepaction"]
-> [Run a sample that waits for external events](durable-functions-phone-verification.md)
+> [Learn how to implement error handling](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
 > [Run a sample that waits for human interaction](durable-functions-phone-verification.md)

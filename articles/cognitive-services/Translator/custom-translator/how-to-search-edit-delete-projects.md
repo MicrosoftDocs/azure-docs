@@ -2,13 +2,13 @@
 title: How to search, edit, and delete project - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator provides various ways to manage your projects in efficient manner. You can create multiple projects, search based on your criteria, edit your projects. Deleting a project is also possible in Custom Translator.  
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
-ms.author: v-rada
-ms.topic: article
+ms.subservice: translator-text
+ms.date: 02/21/2019
+ms.author: swmachan
+ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to search, edit, delete projects, so that I can manage my projects effeciently.
 ---
 # Search, edit, and delete projects
@@ -35,7 +35,7 @@ The filter tool allows you to search projects by different filter conditions. It
 
 ## Edit a project
 
-Custom Translator gives ability to edit name and the description of a project. Other project metadata like category, source, target language are not available for edit. Below steps describe how to edit a project.
+Custom Translator gives you the ability to edit the name and description of a project. Other project metadata like the category, source language, and target language are not available for edit. The steps below describe how to edit a project.
 
 1.  Click on the pencil icon that appears when you hover over a project.
 

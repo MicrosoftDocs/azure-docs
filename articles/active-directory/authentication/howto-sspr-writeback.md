@@ -1,18 +1,19 @@
 ---
-title: How-to configure password writeback for Azure AD SSPR
+title: How-to configure password writeback for Azure AD SSPR - Azure Active Directory
 description: Use Azure AD and Azure AD Connect to writeback passwords to an on-premises directory
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # How-to: Configure password writeback
 
@@ -49,12 +50,13 @@ To use password writeback, you must have one of the following licenses assigned 
 * Microsoft 365 E3 or A3
 * Microsoft 365 E5 or A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.
 >
 
-## Active Directory permissions
+## Active Directory permissions and on-premises password complexity policies 
 
 The account specified in the Azure AD Connect utility must have the following items set if you want to be in scope for SSPR:
 
@@ -93,6 +95,8 @@ To set up the appropriate permissions for password writeback to occur, complete 
     * **Write lockoutTime**
     * **Write pwdLastSet**
 9. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
+
+Since the source of authority is on premises, the password complexity policies apply from the same connected data source. Make sure you've changed the existing group policies for "Minimum Password Length". The group policy shouldn't be set to 1, which means password should be at least a day old before it can be updated. You need make sure it's set to 0. These settings can be found in `gpmc.msc` under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies**. Run `gpupdate /force` to ensure that the change takes effect. 
 
 ## Next steps
 

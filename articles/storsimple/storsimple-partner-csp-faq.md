@@ -27,7 +27,7 @@ Questions and answers are arranged into the following categories:
 
  - [StorSimple and Cloud Solutions Provider Program (CSP) model](#storsimple-and-csp-model)
  - [Deploy and manage virtual array as a partner](#deploy-and-manage-storsimple-as-a-partner)
- - [Support for StorSimple partners for CSP](#support-for-storsimple-partners)
+ - Support for StorSimple partners for CSP
 
 ## StorSimple and CSP model
 
@@ -59,7 +59,7 @@ There are multiple solutions:
 - They can also discover new business models by delivering managed services.
 
 ### What are the incentives available for StorSimple CSP partners? Do I qualify for any CSP program incentives?
-For information on incentives, go to [CSP program incentives ](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+For information on incentives, go to [CSP program incentives](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
 
 ## Deploy and manage StorSimple as a partner
@@ -85,7 +85,7 @@ Yes. The partner sales executive and the customer account team for the end custo
 You can visit the StorSimple in CSP forum to get answers to some commonly asked questions. You would need to join the [Azure Advisors Yammer group](https://www.yammer.com/azureadvisors) first. Next search for and join the group - **StorSimple Partner Advisors**.
 
 ### How does the Support work for StorSimple for CSP? 
-The support model for StorSimple in CSP is the same as that of other Azure services in CSP. For more information, go to [Customer Support for CSP](https://msdn.microsoft.com/partner-center/customer-support). 
+The support model for StorSimple in CSP is the same as that of other Azure services in CSP. For more information, go to [Customer Support for CSP](/partner-center/csp-overview).
 
 For more information about StorSimple for CSP, go to:
 

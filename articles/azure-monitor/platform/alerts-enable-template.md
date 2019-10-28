@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Create a classic metric alert with a Resource Manager template
 This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to configure Azure metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
@@ -180,7 +180,7 @@ An alert on a Resource Manager template is most often useful when creating an al
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "newStorageAccountName": {
@@ -397,5 +397,6 @@ An alert on a Resource Manager template is most often useful when creating an al
 
 ## Next Steps
 * [Read more about Alerts](alerts-overview.md)
-* [Add Diagnostic Settings](../../azure-monitor/platform/diagnostic-logs-stream-template.md) to your Resource Manager template
+* [Add Diagnostic Settings](../../azure-monitor/platform/diagnostic-settings-template.md) to your Resource Manager template
 * For the JSON syntax and properties, see [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) template reference.
+

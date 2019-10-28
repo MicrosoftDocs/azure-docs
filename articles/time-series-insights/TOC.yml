@@ -1,5 +1,3 @@
-- name: Azure IoT fundamentals 
-  href: ../iot-fundamentals/index.yml
 - name: Azure Time Series Insights documentation
   href: index.yml
 - name: Overview
@@ -7,6 +5,7 @@
   - name: About Time Series Insights
     href: time-series-insights-update-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Azure Time Series Insights GA
     items:
@@ -18,17 +17,13 @@
       href: time-series-insights-update-quickstart.md  
 - name: Tutorials
   items:
-  - name: Explore the Time Series Insights JavaScript client library
-    href: tutorial-explore-js-client-lib.md
-  - name: Create a Time Series Insights single-page web app
-    href: tutorial-create-tsi-sample-spa.md
   - name: Azure Time Series Insights GA
     items:
     - name: Create a Time Series Insights environment
       href: tutorial-create-populate-tsi-environment.md
   - name: Azure Time Series Insights Preview
     items:
-    - name: Azure Time Series Insights Preview tutorial
+    - name: Set up a Preview environment
       href: time-series-insights-update-create-environment.md
 - name: Concepts
   items:
@@ -42,6 +37,16 @@
       href: time-series-insights-explorer.md
     - name: Understand data retention
       href: time-series-insights-concepts-retention.md
+    - name: Develop
+      items:
+      - name: Authenticate and authorize
+        href: time-series-insights-authentication-and-authorization.md
+      - name: Query data by using C#
+        href: time-series-insights-query-data-csharp.md
+      - name: Manage reference data in C#
+        href: time-series-insights-manage-reference-data-csharp.md
+      - name: Share a custom view
+        href: time-series-insights-parameterized-urls.md
   - name: Azure Time Series Insights Preview
     items:
     - name: Plan your environment
@@ -50,22 +55,18 @@
       href: time-series-insights-update-storage-ingress.md
     - name: Use cases
       href: time-series-insights-update-use-cases.md
-    - name: Data modeling
+    - name: Time Series Model
       href: time-series-insights-update-tsm.md
-    - name: Data querying
+    - name: Time Series Query
       href: time-series-insights-update-tsq.md
-    - name: Visualize data in the explorer update
+    - name: Visualize data in the explorer Preview
       href: time-series-insights-update-explorer.md
-  - name: Develop
-    items:
-    - name: Authenticate and authorize
-      href: time-series-insights-authentication-and-authorization.md
-    - name: Query data by using C#
-      href: time-series-insights-query-data-csharp.md
-    - name: Manage reference data in C#
-      href: time-series-insights-manage-reference-data-csharp.md
-    - name: Share a custom view
-      href: time-series-insights-parameterized-urls.md
+    - name: Develop
+      items:
+      - name: Authenticate and authorize
+        href: time-series-insights-authentication-and-authorization.md
+      - name: Query data by using C#
+        href: time-series-insights-update-query-data-csharp.md
 - name: How-to guides
   items:
   - name: Grant data access
@@ -110,7 +111,9 @@
   items:
   - name: Time Series Insights 
     items:
-    - name: Azure Time Series Insights GA
+    - name: Azure Time Series Insights 
+      href: /rest/api/time-series-insights/index
+    - name: Data Access GA
       href: /rest/api/time-series-insights/ga
       items:
       - name: Query
@@ -122,45 +125,12 @@
           href: /rest/api/time-series-insights/ga-query-syntax
       - name: Reference Data API
         href: /rest/api/time-series-insights/ga-reference-data-api
-    - name: Azure Time Series Insights Preview
+    - name: Data Access Concepts Preview
       href: /rest/api/time-series-insights/preview
-      items:
-      - name: Time Series Query
-        href: /rest/api/time-series-insights/preview-query
-      - name: Time Series Model
-        href: /rest/api/time-series-insights/preview-model
-      - name: Time Series Environment API
-        href: /rest/api/time-series-insights/preview-env
-      - name: Time Series Expression and syntax
-        href: /rest/api/time-series-insights/preview-tsx
-- name: Related
-  items:
-  - name: Solutions
+  - name: Client SDK
     items:
-    - name: IoT Suite preconfigured solutions
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform services
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: Maps
-      href: /azure/azure-maps
-    - name: Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
-  - name: Azure Stream Analytics
-    href: /azure/stream-analytics/
+    - name: JavaScript Client SDK
+      href: https://github.com/microsoft/tsiclient/blob/master/docs/API.md
 - name: Resources
   items:
   - name: Customer data requests

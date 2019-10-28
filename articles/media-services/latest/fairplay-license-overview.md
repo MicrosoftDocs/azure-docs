@@ -1,6 +1,6 @@
 ---
 title: Media Services and Apple FairPlay license support - Azure | Microsoft Docs
-description: This topic gives an overview of a Apple FairPlay license requirements and configuration.
+description: This topic gives an overview of an Apple FairPlay license requirements and configuration.
 author: juliako
 manager: femila
 editor: ''
@@ -22,7 +22,7 @@ ms.custom: seodec18
 
 Azure Media Services enables you to encrypt your HLS content with **Apple FairPlay** (AES-128 CBC). Media Services also provides a service for delivering FairPlay licenses. When a player tries to play your FairPlay-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license that is sent to the client and is used to decrypt and play the specified content.
 
-Media Services also provides APIs that you can use to configure your FairPlay licenses. This topic discusses FairPlay license requirements and demonstrates how you can configure a **FairPlay** license using Media Sercies APIs. 
+Media Services also provides APIs that you can use to configure your FairPlay licenses. This topic discusses FairPlay license requirements and demonstrates how you can configure a **FairPlay** license using Media Services APIs. 
 
 ## Requirements
 
@@ -32,7 +32,7 @@ The following are required when using Media Services to encrypt your HLS content
 * Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State that you already implemented Key Security Module (KSM) with Media Services, and that you are requesting the final FPS package. There are instructions in the final FPS package to generate certification and obtain the Application Secret Key (ASK). You use ASK to configure FairPlay.
 * The following things must be set on Media Services key/license delivery side:
 
-    * **App Cert (AC)**: This is a .pfx file that contains the private key. You create this file and encrypt it with a password. The .pfx file shoul be in Base64 format.
+    * **App Cert (AC)**: This is a .pfx file that contains the private key. You create this file and encrypt it with a password. The .pfx file should be in Base64 format.
 
         The following steps describe how to generate a .pfx certificate file for FairPlay:
 

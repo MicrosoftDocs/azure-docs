@@ -5,264 +5,239 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 
 ms.assetid: aca13814-cdbd-46b8-93dc-1578099c5ee4
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/09/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Agiloft
 
 In this tutorial, you learn how to integrate Agiloft with Azure Active Directory (Azure AD).
-
 Integrating Agiloft with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Agiloft.
-- You can enable your users to automatically get signed-on to Agiloft (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* You can control in Azure AD who has access to Agiloft.
+* You can enable your users to be automatically signed-in to Agiloft (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Agiloft, you need the following items:
 
-- An Azure AD subscription
-- An Agiloft single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Agiloft single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Agiloft from the gallery
-2. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* Agiloft supports **SP and IDP** initiated SSO
+* Agiloft supports **Just In Time** user provisioning
 
 ## Adding Agiloft from the gallery
+
 To configure the integration of Agiloft into Azure AD, you need to add Agiloft from the gallery to your list of managed SaaS apps.
 
 **To add Agiloft from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade][2]
-	
+	![The Enterprise applications blade](common/enterprise-applications.png)
+
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+	![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Agiloft**, select **Agiloft** from result panel then click **Add** button to add the application.
 
-	![Agiloft in the results list](./media/agiloft-tutorial/tutorial_agiloft_addfromgallery.png)
+	 ![Agiloft in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Agiloft based on a test user called "Britta Simon."
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Agiloft is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Agiloft needs to be established.
-
-In Agiloft, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with Agiloft based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Agiloft needs to be established.
 
 To configure and test Azure AD single sign-on with Agiloft, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create an Agiloft test user](#create-an-agiloft-test-user)** - to have a counterpart of Britta Simon in Agiloft that is linked to the Azure AD representation of user.
+2. **[Configure Agiloft Single Sign-On](#configure-agiloft-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+5. **[Create Agiloft test user](#create-agiloft-test-user)** - to have a counterpart of Britta Simon in Agiloft that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Agiloft application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Agiloft, perform the following steps:**
+To configure Azure AD single sign-on with Agiloft, perform the following steps:
 
-1. In the Azure portal, on the **Agiloft** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Agiloft** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/agiloft-tutorial/tutorial_agiloft_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-3. On the **Agiloft Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Agiloft Domain and URLs single sign-on information](./media/agiloft-tutorial/tutorial_agiloft_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: 
-	| |
+	![Edit Basic SAML Configuration](common/edit-urls.png)
+
+4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+
+    ![Agiloft Domain and URLs single sign-on information](common/idp-intiated.png)
+
+    a. In the **Identifier** text box, type a URL using the following pattern:
+
+    | |
 	|-|-|
 	| `https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>` |
 	| `https://<subdomain>.agiloft.com/project/<KB_NAME>` |
+    | |
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern:
-	| |
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+
+    | |
 	|-|-|
 	| `https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>` |
 	| `https://<subdomain>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>` |
+    | |
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Agiloft Domain and URLs single sign-on information](./media/agiloft-tutorial/tutorial_agiloft_url1.png)
+    ![Agiloft Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: 
-	| |
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+
+    | |
 	|-|-|
 	| `https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>` |
 	| `https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>` |
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Agiloft Client support team](https://www.agiloft.com/support-login.htm) to get these values. 
+    | |
 
-5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Agiloft Client support team](https://www.agiloft.com/support-login.htm) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	![The Certificate download link](./media/agiloft-tutorial/tutorial_agiloft_certificate.png) 
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-6. Click **Save** button.
+	![The Certificate download link](common/certificatebase64.png)
 
-	![Configure Single Sign-On Save button](./media/agiloft-tutorial/tutorial_general_400.png)
-	
-7. On the **Agiloft Configuration** section, click **Configure Agiloft** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **Set up Agiloft** section, copy the appropriate URL(s) as per your requirement.
 
-	![Agiloft Configuration](./media/agiloft-tutorial/tutorial_agiloft_configure.png) 
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-8. In a different web browser window, log in to your Agiloft company site as an administrator.
+	a. Login URL
 
-9. Click on **Setup** (on the Left Pane) and then **Access**.
+	b. Azure Ad Identifier
 
-	![Agiloft Configuration](./media/agiloft-tutorial/setup1.png) 
+	c. Logout URL
 
-10. Click on   the button **“Configure SAML 2.0 Single Sign-On“**. 
-	
-	![Agiloft Configuration](./media/agiloft-tutorial/setup2.png) 
+### Configure Agiloft Single Sign-On
 
-11. A wizard dialog appears. On the dialog, click on the TAB  **“Identity Provider Details”** and fill in the following fields:  
-	
-	![Agiloft Configuration](./media/agiloft-tutorial/setup4.png) 
+1. In a different web browser window, log in to your Agiloft company site as an administrator.
 
-	a. In **IdP Entity Id / Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
+2. Click on **Setup** (on the Left Pane) and then select **Access**.
 
-	b. In **IdP Login URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
+	![Agiloft Configuration](./media/agiloft-tutorial/setup1.png)
 
-	c. In **IdP Logout URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+3. Click on the button **Configure SAML 2.0 Single Sign-On**.
 
-	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **IdP Provided X.509 certificate contents** textbox.
+	![Agiloft Configuration](./media/agiloft-tutorial/setup2.png)
+
+4. A wizard dialog appears. On the dialog, click on the **Identity Provider Details** and fill in the following fields:  
+
+	![Agiloft Configuration](./media/agiloft-tutorial/setup4.png)
+
+	a. In **IdP Entity Id / Issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
+
+	b. In **IdP Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+
+	c. In **IdP Logout URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
+
+	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **IdP Provided X.509 certificate contents** textbox.
 
 	e. Click **Finish**.
-
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen.
 
-    ![The Azure Active Directory button](./media/agiloft-tutorial/create_aaduser_01.png)
+    ![New user Button](common/new-user.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the User properties, perform the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/agiloft-tutorial/create_aaduser_02.png)
+    ![The User dialog box](common/user-properties.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    ![The Add button](./media/agiloft-tutorial/create_aaduser_03.png)
-
-4. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/agiloft-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
- 
-### Create an Agiloft test user
-
-Application supports Just in time user provisioning and after authentication users will be created in the application automatically. There is no action for you in this section.
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Agiloft.
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Agiloft**.
 
-**To assign Britta Simon to Agiloft, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
+	![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Agiloft**.
 
-	![The Agiloft link in the Applications list](./media/agiloft-tutorial/tutorial_agiloft_app.png)  
+	![The Agiloft link in the Applications list](common/all-applications.png)
 
-3. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, select **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. Click **Select** button on **Users and groups** dialog.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. Click **Assign** button on **Add Assignment** dialog.
-	
+7. In the **Add Assignment** dialog click the **Assign** button.
+
+### Create Agiloft test user
+
+In this section, a user called Britta Simon is created in Agiloft. Agiloft supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Agiloft, a new one is created after authentication.
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Agiloft tile in the Access Panel, you should get automatically signed-on to your Agiloft application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the Agiloft tile in the Access Panel, you should be automatically signed in to the Agiloft for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/agiloft-tutorial/tutorial_general_01.png
-[2]: ./media/agiloft-tutorial/tutorial_general_02.png
-[3]: ./media/agiloft-tutorial/tutorial_general_03.png
-[4]: ./media/agiloft-tutorial/tutorial_general_04.png
-
-[100]: ./media/agiloft-tutorial/tutorial_general_100.png
-
-[200]: ./media/agiloft-tutorial/tutorial_general_200.png
-[201]: ./media/agiloft-tutorial/tutorial_general_201.png
-[202]: ./media/agiloft-tutorial/tutorial_general_202.png
-[203]: ./media/agiloft-tutorial/tutorial_general_203.png
-
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

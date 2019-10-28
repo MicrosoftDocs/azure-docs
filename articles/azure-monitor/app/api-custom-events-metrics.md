@@ -1,25 +1,18 @@
 ---
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/16/2018
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 03/27/2019
 
 ---
+
 # Application Insights API for custom events and metrics
 
-Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Azure Application Insights](../../application-insights/app-insights-overview.md) core telemetry API to send custom events and metrics, and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
-
-> [!NOTE]
-> `TrackMetric()` is no longer the preferred method of sending custom metrics for your .NET based applications. In [version 2.60-beta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) of the Application Insights .NET SDK a new method, [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) was introduced. As of the Application Insights .NET SDK [version 2.72](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) this functionality is now part of the stable release.
+Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) core telemetry API to send custom events and metrics, and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
 
 ## API summary
 
@@ -45,6 +38,7 @@ If you don't have a reference on Application Insights SDK yet:
 * Add the Application Insights SDK to your project:
 
   * [ASP.NET project](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core project](../../azure-monitor/app/asp-net-core.md)
   * [Java project](../../azure-monitor/app/java-get-started.md)
   * [Node.js project](../../azure-monitor/app/nodejs.md)
   * [JavaScript in each webpage](../../azure-monitor/app/javascript.md) 
@@ -61,6 +55,8 @@ If you don't have a reference on Application Insights SDK yet:
 ## Get a TelemetryClient instance
 
 Get an instance of `TelemetryClient` (except in JavaScript in webpages):
+
+For [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps and [Non HTTP/Worker for .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps, it is recommended to get an instance of `TelemetryClient` from the dependency injection container as explained in their respective documentation.
 
 *C#*
 
@@ -88,7 +84,7 @@ var telemetry = applicationInsights.defaultClient;
 
 TelemetryClient is thread-safe.
 
-For ASP.NET and Java projects, incoming HTTP Requests are automatically captured. You might want to create additional instances of TelemetryClient for other module of your app. For instance, you may have one TelemetryClient instance in your middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instance sends. 
+For ASP.NET and Java projects, incoming HTTP Requests are automatically captured. You might want to create additional instances of TelemetryClient for other module of your app. For instance, you may have one TelemetryClient instance in your middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instance sends.
 
 *C#*
 
@@ -117,7 +113,7 @@ For example, in a game app, send an event whenever a user wins the game:
 *JavaScript*
 
 ```javascript
-appInsights.trackEvent("WinGame");
+appInsights.trackEvent({name:"WinGame"});
 ```
 
 *C#*
@@ -148,7 +144,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 The telemetry is available in the `customEvents` table in [Application Insights Analytics](analytics.md). Each row represents a call to `trackEvent(..)` in your app.
 
-If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should use therefore use code such as `customEvents | summarize sum(itemCount)`.
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should therefore use code such as `customEvents | summarize sum(itemCount)`.
 
 ## GetMetric
 
@@ -157,13 +153,11 @@ If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCoun
 *C#*
 
 ```csharp
-#pragma warning disable CA1716  // Namespace naming
-
 namespace User.Namespace.Example01
 {
     using System;
     using Microsoft.ApplicationInsights;
-    using TraceSeveretyLevel = Microsoft.ApplicationInsights.DataContracts.SeverityLevel;
+    using Microsoft.ApplicationInsights.DataContracts;
 
     /// <summary>
     /// Most simple cases are one-liners.
@@ -204,7 +198,7 @@ namespace User.Namespace.Example01
             // You can control the maximum number of number data series per metric (and thus your resource usage and cost).
             // The default limits are no more than 1000 total data series per metric, and no more than 100 different values per dimension.
             // We discuss elsewhere how to change them.
-            // We use a common .Net pattern: TryXxx(..) to make sure that the limits are observed.
+            // We use a common .NET pattern: TryXxx(..) to make sure that the limits are observed.
             // If the limits are already reached, Metric.TrackValue(..) will return False and the value will not be tracked. Otherwise it will return True.
             // This is particularly useful if the data for a metric originates from user input, e.g. a file:
 
@@ -215,7 +209,7 @@ namespace User.Namespace.Example01
             if (!animalsSold.TrackValue(count, species))
 
             {
-                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", TraceSeveretyLevel.Error);
+                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", SeverityLevel.Error);
             }
 
             // You can inspect a metric object to reason about its current state. For example:
@@ -244,9 +238,9 @@ namespace User.Namespace.Example01
 ## TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is deprecated in the .NET SDK. Metrics should always be pre-aggregated across a time period before being sent. Use one of the GetMetric(..) overloads to get a metric object for accessing SDK pre-aggregation capabilities. If you are implementing your own pre-aggregation logic, you can 
-use the Track(ITelemetry metricTelemetry) method to send the resulting aggregates. If your application requires sending a separate telemetry item at every occasion without aggregation across time, you likely have a use case for event telemetry; see TelemetryClient.TrackEvent 
-(Microsoft.Applicationlnsights.DataContracts.EventTelemetry).
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is not the preferred method for sending metrics. Metrics should always be pre-aggregated across a time period before being sent. Use one of the GetMetric(..) overloads to get a metric object for accessing SDK pre-aggregation capabilities. If you are implementing your own pre-aggregation logic, you can 
+use the TrackMetric() method to send the resulting aggregates. If your application requires sending a separate telemetry item at every occasion without aggregation across time, you likely have a use case for event telemetry; see TelemetryClient.TrackEvent 
+(Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 Application Insights can chart metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. With metrics, the individual measurements are of less interest than the variations and trends, and so statistical charts are useful.
 
@@ -340,7 +334,7 @@ By default, the times reported as **Page view load time** are measured from when
 
 Instead, you can either:
 
-* Set an explicit duration in the [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) call: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
+* Set an explicit duration in the [trackPageView](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/API.md#trackpageview) call: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
 * Use the page view timing calls `startTrackPage` and `stopTrackPage`.
 
 *JavaScript*
@@ -397,7 +391,7 @@ However, the recommended way to send request telemetry is where the request acts
 
 ## Operation context
 
-You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](../../azure-monitor/app/diagnostic-search.md) and [Analytics](analytics.md), you can easily find any events associated with the request using its operation Id.
+You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](../../azure-monitor/app/diagnostic-search.md) and [Analytics](analytics.md), you can easily find any events associated with the request using its operation ID.
 
 See [Telemetry correlation in Application Insights](../../azure-monitor/app/correlation.md) for more details on correlation.
 
@@ -505,7 +499,7 @@ catch (ex)
 The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
 
 * ASP.NET: [Write code to catch exceptions](../../azure-monitor/app/asp-net-exceptions.md).
-* J2EE: [Exceptions are caught automatically](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* Java EE: [Exceptions are caught automatically](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
 
 ```javascript
@@ -570,6 +564,20 @@ telemetry.trackTrace({
 });
 ```
 
+*Client/Browser-side JavaScript*
+
+```javascript
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+```
+
+Log a diagnostic event such as entering or leaving a method.
+
+ Parameter | Description
+---|---
+`message` | Diagnostic data. Can be much longer than a name.
+`properties` | Map of string to string: Additional data used to [filter exceptions](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) in the portal. Defaults to empty.
+`severityLevel` | Supported values: [SeverityLevel.ts](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/shared/AppInsightsCommon/src/Interfaces/Contracts/Generated/SeverityLevel.ts)
+
 You can search on message content, but (unlike property values) you can't filter on it.
 
 The size limit on `message` is much higher than the limit on properties.
@@ -616,12 +624,16 @@ try
 {
     success = dependency.Call();
 }
+catch(Exception ex) 
+{
+    success = false;
+    telemetry.TrackException(ex);
+    throw new Exception("Operation went wrong", ex);
+}
 finally
 {
     timer.Stop();
-    telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-     // The call above has been made obsolete in the latest SDK. The updated call follows this format:
-     // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
+    telemetry.TrackDependency("DependencyType", "myDependency", "myCall", startTime, timer.Elapsed, success);
 }
 ```
 
@@ -691,7 +703,7 @@ dependencies
 
 ## Flushing data
 
-Normally, the SDK sends data at times chosen to minimize the impact on the user. However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
+Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever buffer is full (typically 500 items). However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
 
 *C#*
 
@@ -715,7 +727,7 @@ Thread.sleep(5000);
 telemetry.flush();
 ```
 
-Note that the function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+The function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 Ideally, flush() method should be used in the shutdown activity of the Application.
 
@@ -771,7 +783,7 @@ You can attach properties and measurements to your events (and also to metrics, 
 
 *Properties* are string values that you can use to filter your telemetry in the usage reports. For example, if your app provides several games, you can attach the name of the game to each event so that you can see which games are more popular.
 
-There's a limit of 8192 on the string length. (If you want to send large chunks of data, use the message parameter of [TrackTrace](#track-trace).)
+There's a limit of 8192 on the string length. (If you want to send large chunks of data, use the message parameter of TrackTrace.)
 
 *Metrics* are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores that your gamers achieve. The graphs can be segmented by the properties that are sent with the event, so that you can get separate or stacked graphs for different games.
 
@@ -929,7 +941,7 @@ long startTime = System.currentTimeMillis();
 
 long endTime = System.currentTimeMillis();
 Map<String, Double> metrics = new HashMap<>();
-metrics.put("ProcessingTime", endTime-startTime);
+metrics.put("ProcessingTime", (double)endTime-startTime);
 
 // Setup some properties
 Map<String, String> properties = new HashMap<>();
@@ -949,7 +961,7 @@ If you want to set default property values for some of the custom events that yo
 using Microsoft.ApplicationInsights.DataContracts;
 
 var gameTelemetry = new TelemetryClient();
-gameTelemetry.Context.Properties["Game"] = currentGame.Name;
+gameTelemetry.Context.GlobalProperties["Game"] = currentGame.Name;
 // Now all telemetry will automatically be sent with the context property:
 gameTelemetry.TrackEvent("WinGame");
 ```
@@ -958,7 +970,7 @@ gameTelemetry.TrackEvent("WinGame");
 
 ```vb
 Dim gameTelemetry = New TelemetryClient()
-gameTelemetry.Context.Properties("Game") = currentGame.Name
+gameTelemetry.Context.GlobalProperties("Game") = currentGame.Name
 ' Now all telemetry will automatically be sent with the context property:
 gameTelemetry.TrackEvent("WinGame")
 ```
@@ -989,7 +1001,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 Individual telemetry calls can override the default values in their property dictionaries.
 
-*For JavaScript web clients*, [use JavaScript telemetry initializers](#js-initializer).
+*For JavaScript web clients*, use JavaScript telemetry initializers.
 
 *To add properties to all telemetry*, including the data from standard collection modules, [implement `ITelemetryInitializer`](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 
@@ -999,7 +1011,7 @@ You can write code to process your telemetry before it's sent from the SDK. The 
 
 [Add properties](../../azure-monitor/app/api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer`. For example, you can add version numbers or values that are calculated from other properties.
 
-[Filtering](../../azure-monitor/app/api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcesor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
+[Filtering](../../azure-monitor/app/api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcessor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
 
 [Sampling](../../azure-monitor/app/api-filtering-sampling.md) is a packaged solution to reduce the volume of data that's sent from your app to the portal. It does so without affecting the displayed metrics. And it does so without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests, and page views.
 
@@ -1061,6 +1073,17 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 ```
 
+*Node.js*
+
+For Node.js, you can enable developer mode by enabling internal logging via `setInternalLogging` and setting `maxBatchSize` to 0, which causes your telemetry to be sent as soon as it is collected.
+
+```js
+applicationInsights.setup("ikey")
+  .setInternalLogging(true, true)
+  .start()
+applicationInsights.defaultClient.config.maxBatchSize = 0;
+```
+
 ## <a name="ikey"></a> Setting the instrumentation key for selected custom telemetry
 
 *C#*
@@ -1073,7 +1096,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
-To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](../../application-insights/app-insights-create-new-resource.md) and change their keys, depending on the environment.
+To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](../../azure-monitor/app/create-new-resource.md ) and change their keys, depending on the environment.
 
 Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
@@ -1112,6 +1135,15 @@ var appInsights = window.appInsights || function(config){ ...
 }) // ...
 ```
 
+```java
+    String instrumentationKey = "00000000-0000-0000-0000-000000000000";
+
+    if (instrumentationKey != null)
+    {
+        TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
+    }
+```
+
 ## TelemetryContext
 
 TelemetryClient has a Context property, which contains values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. For example:
@@ -1124,10 +1156,10 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 * **Component**: The app and its version.
 * **Device**: Data about the device where the app is running. (In web apps, this is the server or client device that the telemetry is sent from.)
-* **InstrumentationKey**: The Application Insights resource in Azure where the telemetry appear. It's usually picked up from ApplicationInsights.config.
+* **InstrumentationKey**: The Application Insights resource in Azure where the telemetry appears. It's usually picked up from ApplicationInsights.config.
 * **Location**: The geographic location of the device.
 * **Operation**: In web apps, the current HTTP request. In other app types, you can set this to group events together.
-  * **Id**: A generated value that correlates different events, so that when you inspect any event in Diagnostic Search, you can find related items.
+  * **ID**: A generated value that correlates different events, so that when you inspect any event in Diagnostic Search, you can find related items.
   * **Name**: An identifier, usually the URL of the HTTP request.
   * **SyntheticSource**: If not null or empty, a string that indicates that the source of the request has been identified as a robot or web test. By default, it is excluded from calculations in Metrics Explorer.
 * **Properties**: Properties that are sent with all telemetry data. It can be overridden in individual Track* calls.
@@ -1144,21 +1176,20 @@ To determine how long data is kept, see [Data retention and privacy](../../azure
 
 ## Reference docs
 
-* [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
-* [Java reference](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [ASP.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/insights?view=azure-dotnet)
+* [Java reference](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+
 
 ## SDK code
 
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server packages](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-* [All platforms](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
+
 
 ## Questions
 
@@ -1167,7 +1198,7 @@ To determine how long data is kept, see [Data retention and privacy](../../azure
     None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages in the debug console output and--if the messages get through--in Diagnostic Search.
 * *Is there a REST API to get data from the portal?*
 
-    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Analytics to Power BI](../../application-insights/app-insights-export-power-bi.md) and [continuous export](../../azure-monitor/app/export-telemetry.md).
+    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Analytics to Power BI](../../azure-monitor/app/export-power-bi.md ) and [continuous export](../../azure-monitor/app/export-telemetry.md).
 
 ## <a name="next"></a>Next steps
 

@@ -3,20 +3,21 @@ title: Single-page applications in Azure Active Directory
 description: Describes what single-page applications (SPAs) are and the basics on protocol flow, registration, and token expiration for this app type. 
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Single-page applications
@@ -63,4 +64,4 @@ After a successful authentication, Azure AD writes a cookie in the user's browse
 ## Next steps
 
 * Learn more about other [Application types and scenarios](app-types.md)
-* Learn about the Azure AD [authentication basics](authentication-scenarios.md)
+* Learn about the Azure AD [authentication basics](v1-authentication-scenarios.md)

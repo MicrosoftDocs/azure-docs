@@ -1,18 +1,19 @@
 ---
-title: Auditing and reporting an Azure Active Directory B2B collaboration user | Microsoft Docs
+title: Auditing and reporting a B2B collaboration user - Azure Active Directory | Microsoft Docs
 description: Guest user properties are configurable in Azure Active Directory B2B collaboration
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/14/2018
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
-ms.reviewer: sasubram
-
+manager: celestedg
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Auditing and reporting a B2B collaboration user
@@ -25,11 +26,11 @@ You can use access reviews to periodically verify whether guest users still need
 
 The Azure AD audit logs provide records of system and user activities, including activities initiated by guest users. To access audit logs, in **Azure Active Directory**, under **Monitoring**, select **Audit logs**. Here's an example of the invitation and redemption history of invitee Sam Oogle:
 
-![audit log](./media/auditing-and-reporting/audit-log.png)
+![Screenshot showing and example of audit log output](./media/auditing-and-reporting/audit-log.png)
 
 You can dive into each of these events to get the details. For example, let's look at the acceptance details.
 
-![activity details](./media/auditing-and-reporting/activity-details.png)
+![Screenshot showing and example of activity details output](./media/auditing-and-reporting/activity-details.png)
 
 You can also export these logs from Azure AD and use the reporting tool of your choice to get customized reports.
 

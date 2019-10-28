@@ -8,7 +8,6 @@ author: tfitzmac
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
@@ -109,12 +108,14 @@ The name for your web app must be globally unique. You can use a naming conventi
 
 ## Deploy web app certificate from Key Vault
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 If your template includes a [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) resource for SSL binding, and the certificate is stored in a Key Vault, you must make sure the App Service identity can access the certificate.
 
 In global Azure, the App Service service principal has the ID of **abfa0a7c-a6b6-4736-8310-5855508787cd**. To grant access to Key Vault for the App Service service principal, use:
 
 ```azurepowershell-interactive
-Set-AzureRmKeyVaultAccessPolicy `
+Set-AzKeyVaultAccessPolicy `
   -VaultName KEY_VAULT_NAME `
   -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
   -PermissionsToSecrets get `

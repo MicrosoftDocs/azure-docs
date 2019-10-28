@@ -4,7 +4,7 @@ description: This article walks through the experience of deploying a Service Fa
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
+ms.author: atsenthi
 
 ---
 # Service Fabric application upgrade tutorial using Visual Studio

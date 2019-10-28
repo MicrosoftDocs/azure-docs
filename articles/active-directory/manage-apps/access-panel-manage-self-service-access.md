@@ -3,19 +3,20 @@ title: How to use self-service application access | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: japere,asteen
+ms.collection: M365-identity-device-management
 ---
 
 # How to use self-service application access
@@ -44,25 +45,25 @@ Self-service application access is a great way to allow users to self-discover a
 
 To enable self-service application access to an application, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to enable Self-service access to from the list.
+6. Select the application you want to enable Self-service access to from the list.
 
-7.  Once the application loads, click **Self-service** from the application’s left hand navigation menu.
+7. Once the application loads, click **Self-service** from the application’s left hand navigation menu.
 
-8.  To enable Self-service application access for this application, turn the **Allow users to request access to this application?** toggle to **Yes.**
+8. To enable Self-service application access for this application, turn the **Allow users to request access to this application?** toggle to **Yes.**
 
-9.  Next, to select the group to which users who request access to this application should be added, click the selector next to the label **To which group should assigned users be added?** and select a group.
+9. Next, to select the group to which users who request access to this application should be added, click the selector next to the label **To which group should assigned users be added?** and select a group.
 
 10. **Optional:** If you wish to require a business approval before users are allowed access, set the **Require approval before granting access to this application?** toggle to **Yes**.
 
@@ -70,7 +71,7 @@ To enable self-service application access to an application, follow the steps be
 
 12. **Optional:** To specify the business approvers who are allowed to approve access to this application, click the selector next to the label **Who is allowed to approve access to this application?** to select up to 10 individual business approvers.
 
-   * Groups are not supported.
+    * Groups are not supported.
 
 13. **Optional:** **For applications which expose roles**, if you wish to assign self-service approved users to a role, click the selector next to the **To which role should users be assigned in this application?** to select the role to which these users should be assigned.
 

@@ -3,8 +3,8 @@ title: Connect virtual networks with virtual network peering - Azure CLI | Micro
 description: In this article, you learn how to connect virtual networks with virtual network peering, using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom:
 ---
 
@@ -37,13 +37,13 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Create virtual networks
 
-Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVirtualNetwork1* with the address prefix *10.0.0.0/16*.
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named *myVirtualNetwork1* with the address prefix *10.0.0.0/16*.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -67,7 +67,7 @@ az network vnet create \
 
 ## Peer virtual networks
 
-Peerings are established between virtual network IDs, so you must first get the ID of each virtual network with [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show) and store the ID in a variable.
+Peerings are established between virtual network IDs, so you must first get the ID of each virtual network with [az network vnet show](/cli/azure/network/vnet) and store the ID in a variable.
 
 ```azurecli-interactive
 # Get the id for myVirtualNetwork1.
@@ -84,14 +84,14 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-Create a peering from *myVirtualNetwork1* to *myVirtualNetwork2* with [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create). If the `--allow-vnet-access` parameter is not specified, a peering is established, but no communication can flow through it.
+Create a peering from *myVirtualNetwork1* to *myVirtualNetwork2* with [az network vnet peering create](/cli/azure/network/vnet/peering). If the `--allow-vnet-access` parameter is not specified, a peering is established, but no communication can flow through it.
 
 ```azurecli-interactive
 az network vnet peering create \
   --name myVirtualNetwork1-myVirtualNetwork2 \
   --resource-group myResourceGroup \
   --vnet-name myVirtualNetwork1 \
-  --remote-vnet-id $vNet2Id \
+  --remote-vnet $vNet2Id \
   --allow-vnet-access
 ```
 
@@ -102,11 +102,11 @@ az network vnet peering create \
   --name myVirtualNetwork2-myVirtualNetwork1 \
   --resource-group myResourceGroup \
   --vnet-name myVirtualNetwork2 \
-  --remote-vnet-id $vNet1Id \
+  --remote-vnet $vNet1Id \
   --allow-vnet-access
 ```
 
-In the output returned after the previous command executes, you see that the **peeringState** is *Connected*. Azure also changed the peering state of the *myVirtualNetwork1-myVirtualNetwork2* peering to *Connected*. Confirm that the peering state for the *myVirtualNetwork1-myVirtualNetwork2* peering changed to *Connected* with [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show).
+In the output returned after the previous command executes, you see that the **peeringState** is *Connected*. Azure also changed the peering state of the *myVirtualNetwork1-myVirtualNetwork2* peering to *Connected*. Confirm that the peering state for the *myVirtualNetwork1-myVirtualNetwork2* peering changed to *Connected* with [az network vnet peering show](/cli/azure/network/vnet/peering).
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -124,7 +124,7 @@ Create a VM in each virtual network so that you can communicate between them in 
 
 ### Create the first VM
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVm1* in the *myVirtualNetwork1* virtual network. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so you can continue to the next step.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVm1* in the *myVirtualNetwork1* virtual network. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so you can continue to the next step.
 
 ```azurecli-interactive
 az vm create \
@@ -188,7 +188,7 @@ Close the SSH session to the *myVm2* VM.
 
 ## Clean up resources
 
-When no longer needed, use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains.
+When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

@@ -6,7 +6,6 @@ author: cgillum
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
@@ -16,7 +15,7 @@ ms.author: azfuncdf
 
 A *task hub* in [Durable Functions](durable-functions-overview.md) is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
 
-Each function app has a separate task hub. If multiple function apps share a storage account, the storage account contains multiple task hubs. The following diagram illustrates one task hub per function app in shared and dedicated storage accounts.
+If multiple function apps share a storage account, each function app *must* be configured with a separate task hub name. A storage account can contain multiple task hubs. The following diagram illustrates one task hub per function app in shared and dedicated storage accounts.
 
 ![Diagram showing shared and dedicated storage accounts.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
@@ -41,7 +40,7 @@ Task hubs are identified by a name that is declared in the *host.json* file, as 
 ```json
 {
   "durableTask": {
-    "HubName": "MyTaskHub"
+    "hubName": "MyTaskHub"
   }
 }
 ```
@@ -53,7 +52,7 @@ Task hubs are identified by a name that is declared in the *host.json* file, as 
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "MyTaskHub"
+      "hubName": "MyTaskHub"
     }
   }
 }
@@ -66,7 +65,7 @@ Task hubs can also be configured using app settings, as shown in the following *
 ```json
 {
   "durableTask": {
-    "HubName": "%MyTaskHub%"
+    "hubName": "%MyTaskHub%"
   }
 }
 ```
@@ -78,7 +77,7 @@ Task hubs can also be configured using app settings, as shown in the following *
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "%MyTaskHub%"
+      "hubName": "%MyTaskHub%"
     }
   }
 }
@@ -96,6 +95,8 @@ The task hub name will be set to the value of the `MyTaskHub` app setting. The f
 ```
 
 Here is a precompiled C# example of how to write a function which uses an [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) to work with a task hub that is configured as an App Setting:
+
+### C#
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -115,8 +116,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-And below is the required configuration for JavaScript. The task hub property in the `function.json` file is set via App Setting:
+### JavaScript
 
+The task hub property in the `function.json` file is set via App Setting:
 ```json
 {
     "name": "input",
@@ -129,7 +131,7 @@ And below is the required configuration for JavaScript. The task hub property in
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default name is **DurableFunctionsHub**.
 
 > [!NOTE]
-> The name is what differentiates one task hub from another when there are multiple task hubs in a shared storage account. If you have multiple function apps sharing a shared storage account, you have to configure different names for each task hub in the *host.json* files.
+> The name is what differentiates one task hub from another when there are multiple task hubs in a shared storage account. If you have multiple function apps sharing a shared storage account, you must explicitly configure different names for each task hub in the *host.json* files. Otherwise the multiple function apps will compete with each other for messages, which could result in undefined behavior.
 
 ## Next steps
 

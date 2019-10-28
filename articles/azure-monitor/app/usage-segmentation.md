@@ -1,23 +1,19 @@
 ---
 title: User, session, and event analysis in Azure Application Insights | Microsoft docs
 description: Demographic analysis of users of your web app.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/24/2018
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 01/24/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Users, sessions, and events analysis in Application Insights
 
-Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Azure Application Insights](../../application-insights/app-insights-overview.md).
+Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ![Screenshot of Application Insights Users](./media/usage-segmentation/0001-users.png)
 

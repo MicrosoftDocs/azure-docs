@@ -17,6 +17,8 @@ The articles in this section were created to help you migrate your workloads fro
 
 The two regions in Germany are entirely separate from global Azure. The clouds in global Azure and in Germany have their own, separate Azure Active Directory (Azure AD) instances. Because of this, Azure Germany tenants are separate from global Azure tenants. This article describes the migration tools that are available when you migrate between *different* tenants.
 
+The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and O365 (or other Microsoft products), there are complexities in identity migration and you should first contact your Account Manager prior to using this migration guidance.
+
 ## Migration process
 
 The process that you use to migrate a workload from Azure Germany to global Azure typically is similar to the process that's used to migrate applications to the cloud. The steps in the migration process are:
@@ -73,7 +75,7 @@ These terms are used in the Azure Germany migration articles:
 
 **Source** describes where you are migrating resources from (for example, Azure Germany):
 
-- **Source tenant name**: The name of the tenant in Azure Germany (everything after **@** in the account name). Tenant names in Azure Germany all end in **microsoftazure.de**.
+- **Source tenant name**: The name of the tenant in Azure Germany (everything after **\@** in the account name). Tenant names in Azure Germany all end in **microsoftazure.de**.
 - **Source tenant ID**: The ID of the tenant in Azure Germany. The tenant ID appears in the Azure portal when you move the mouse over the account name in the upper-right corner.
 - **Source subscription ID**: The ID of the resource subscription in Azure Germany. You can have more than one subscription in the same tenant. Always make sure that you're using the correct subscription.
 - **Source region**: Either Germany Central (**germanycentral**) or Germany Northeast (**germanynortheast**), depending on where the resource you want to migrate is located.

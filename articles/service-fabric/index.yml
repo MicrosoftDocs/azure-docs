@@ -5,16 +5,13 @@ metadata:
   title: Azure Service Fabric Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
   services: service-fabric
-  author:   
-  manager: carolz
+  author:   georgewallace
+  manager: gwallace
   layout: LandingPage
-  ms.assetid: 
   ms.service: service-fabric
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/03/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable. Learn how to use Azure Service Fabric with our quickstarts, tutorials, and samples.  
 sections:
@@ -89,7 +86,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+      html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/az.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
     - title: Languages
       html: <p><a href="/java/api/overview/azure/servicefabric">Java API</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">Service model XML schema</a></p>
     - title: REST

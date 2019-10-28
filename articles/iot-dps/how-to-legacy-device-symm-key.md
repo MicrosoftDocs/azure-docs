@@ -3,15 +3,14 @@ title: How to use symmetric keys to provision legacy devices with the Azure IoT 
 description: How to use symmetric keys to provision legacy devices with your device provisioning service instance
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/31/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ---
 
 # How to provision legacy devices using symmetric keys
-
 
 A common problem with many legacy devices is that they often have an identity that is composed of a single piece of information. This identity information is usually a MAC address or a serial number. Legacy devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. The Device Provisioning Service for IoT hub includes symmetric key attestation. Symmetric key attestation can be used to identify a device based off information like the MAC address or a serial number.
 
@@ -23,6 +22,8 @@ This article also assumes that the device update takes place in a secure environ
 
 This article is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
 
+> [!NOTE]
+> The sample used in this article is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this article to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
 
 ## Overview
 
@@ -38,7 +39,7 @@ The device code demonstrated in this article will follow the same pattern as the
 ## Prerequisites
 
 * Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
-* Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 * Latest version of [Git](https://git-scm.com/download/) installed.
 
 
@@ -48,21 +49,7 @@ In this section, you will prepare a development environment used to build the [A
 
 The SDK includes the sample code for the simulated device. This simulated device will attempt provisioning during the device's boot sequence.
 
-1. Download the version 3.11.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
-
-    ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
-    True
-    ```
-    
-    The following hash values for version 3.11.4 were listed on the CMake site at the time of this writing:
-
-    ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
-    ```
+1. Download the [CMake build system](https://cmake.org/download/).
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
@@ -71,7 +58,7 @@ The SDK includes the sample code for the simulated device. This simulated device
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+    You should expect this operation to take several minutes to complete.
 
 
 3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
@@ -109,23 +96,23 @@ The SDK includes the sample code for the simulated device. This simulated device
 
 ## Create a symmetric key enrollment group
 
-1. Sign in to the [Azure portal](http://portal.azure.com), and open your Device Provisioning Service instance.
+1. Sign in to the [Azure portal](https://portal.azure.com), and open your Device Provisioning Service instance.
 
 2. Select the **Manage enrollments** tab, and then click the **Add enrollment group** button at the top of the page. 
 
 3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
 
-    - **Group name**: Enter **mylegacydevices**.
+   - **Group name**: Enter **mylegacydevices**.
 
-    - **Attestation Type**: Select **Symmetric Key**.
+   - **Attestation Type**: Select **Symmetric Key**.
 
-    - **Auto Generate Keys**: Check this box.
+   - **Auto Generate Keys**: Check this box.
 
-    - **Select how you want to assign devices to hubs**: Select **Static configuration** so you can assign to a specific hub.
+   - **Select how you want to assign devices to hubs**: Select **Static configuration** so you can assign to a specific hub.
 
-    - **Select the IoT hubs this group can be assigned to**: Select one of your hubs.
+   - **Select the IoT hubs this group can be assigned to**: Select one of your hubs.
 
-    ![Add enrollment group for symmetric key attestation](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Add enrollment group for symmetric key attestation](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. Once you saved your enrollment, the **Primary Key** and **Secondary Key** will be generated and added to the enrollment entry. Your symmetric key enrollment group appears as **mylegacydevices** under the *Group Name* column in the *Enrollment Groups* tab. 
 
@@ -182,7 +169,7 @@ Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
 Replace the value of **REG_ID** with your registration ID.
 
-```PowerShell
+```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
 $REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
 
@@ -193,7 +180,7 @@ $derivedkey = [Convert]::ToBase64String($sig)
 echo "`n$derivedkey`n"
 ```
 
-```PowerShell
+```powershell
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
@@ -288,9 +275,9 @@ Be aware that this leaves the derived device key included as part of the image, 
 
 ## Next steps
 
-* To learn more Reprovisioning, see [IoT Hub Device reprovisoning concepts](concepts-device-reprovision.md) 
+* To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
 * [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
-* To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned ](how-to-unprovision-devices.md) 
+* To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 
 

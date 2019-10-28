@@ -1,57 +1,47 @@
 ---
-title: Azure Log Analytics virtual machine extension for Linux | Microsoft Docs
+title: Azure Monitor virtual machine extension for Linux | Microsoft Docs
 description: Deploy the Log Analytics agent on Linux virtual machine using a virtual machine extension.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
-ms.author: roiyz
+ms.date: 08/06/2019
+ms.author: akjosh
 
 ---
-# Log Analytics virtual machine extension for Linux
+# Azure Monitor virtual machine extension for Linux
 
 ## Overview
 
-Log Analytics provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The Log Analytics Agent virtual machine extension for Linux is published and supported by Microsoft. The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. This document details the supported platforms, configurations, and deployment options for the Log Analytics virtual machine extension for Linux.
+Azure Monitor logs provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The Log Analytics Agent virtual machine extension for Linux is published and supported by Microsoft. The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. This document details the supported platforms, configurations, and deployment options for the Azure Monitor virtual machine extension for Linux.
 
 >[!NOTE]
 >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, the OMS Agent for Windows or Linux will be referred to as the Log Analytics agent for Windows and Log Analytics agent for Linux.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 
 ### Operating system
 
-The Log Analytics Agent extension can be run against these Linux distributions.
-
-| Distribution | Version |
-|---|---|
-| CentOS Linux | 6 (x86/x64) and 7 (x64) |
-| Amazon Linux | 2017.09 (x64) | 
-| Oracle Linux | 6 and 7 (x86/x64) |
-| Red Hat Enterprise Linux Server | 6 (x86/x64) and 7 (x64) |
-| Debian GNU/Linux | 8 and 9 (x86/x64) |
-| Ubuntu | 14.04 LTS (x86/x64), 16.04 LTS (x86/x64), and 18.04 LTS (x64) |
-| SUSE Linux Enterprise Server | 12 (x64) |
-
->[!NOTE]
->OpenSSL lower than version 1.x is not supported on any platform, and version 1.10 is only supported on x86_64 platforms (64-bit).  
->
+For details about the supported Linux distributions, refer to the [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) article.
 
 ### Agent and VM Extension version
-The following table provides a mapping of the version of the Log Analytics VM extension and Log Analytics agent bundle for each release. A link to the release notes for the Log Analytics agent bundle version is included. Release notes include details on bug fixes and new features available for a given agent release.  
+The following table provides a mapping of the version of the Azure Monitor VM extension and Log Analytics agent bundle for each release. A link to the release notes for the Log Analytics agent bundle version is included. Release notes include details on bug fixes and new features available for a given agent release.  
 
-| Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
+| Azure Monitor Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
+| 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
+| 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
+| 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
 | 1.7.9 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
@@ -121,9 +111,9 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to Log Analytics. A sample Resource Manager template that includes the Log Analytics Agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to Azure Monitor logs. A sample Resource Manager template that includes the Log Analytics Agent VM extension can be found on the [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
+The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/child-resource-name-type.md). 
 
 The following example assumes the VM extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 
@@ -177,7 +167,7 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ## Azure CLI deployment
 
-The Azure CLI can be used to deploy the Log Analytics Agent VM extension to an existing virtual machine. Replace the *workspaceId* and *workspaceKey* with those from your Log Analytics workspace. 
+The Azure CLI can be used to deploy the Log Analytics Agent VM extension to an existing virtual machine. Replace the *myWorkspaceKey* value below with your workspace key and the *myWorkspaceId* value with your workspace ID. These values can be found in your Log Analytics workspace in the Azure portal under *Advanced Settings*. 
 
 ```azurecli
 az vm extension set \
@@ -185,8 +175,8 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.7 --protected-settings '{"workspaceKey": "omskey"}' \
-  --settings '{"workspaceId": "omsid"}'
+  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 
 ## Troubleshoot and support
@@ -216,7 +206,7 @@ Extension execution output is logged to the following file:
 | 19 | OMI package installation failure | 
 | 20 | SCX package installation failure |
 | 51 | This extension is not supported on the VM's operation system | |
-| 55 | Cannot connect to the Log Analytics service or required packages missing or dpkg package manager is locked| Check that the system either has Internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID, and verify curl and tar utilities are installed. |
+| 55 | Cannot connect to the Azure Monitor service or required packages missing or dpkg package manager is locked| Check that the system either has Internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID, and verify curl and tar utilities are installed. |
 
 Additional troubleshooting information can be found on the [Log Analytics-Agent-for-Linux Troubleshooting Guide](../../azure-monitor/platform/vmext-troubleshoot.md).
 

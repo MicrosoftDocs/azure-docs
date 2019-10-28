@@ -1,25 +1,24 @@
 ---
-title: How to configure Azure SQL Database - Singleton | Microsoft Docs
-description: Learn how to configure and manage Azure SQL Database - Single Database.
+title: How to configure Azure SQL Database - single | Microsoft Docs
+description: Learn how to configure and manage Azure SQL Database - single database
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
-ms.date: 12/14/2018
+ms.date: 02/08/2019
 ---
-# How to use Single Database
+# How to use a single database in Azure SQL Database
 
-In this section you can find various guides, scripts, and explanations that can help you to manage and configure your Azure SQL Database - Single Database.
+In this section you can find various guides, scripts, and explanations that can help you to manage and configure your single database in Azure SQL Database
 
 ## Migrate
 
-- [Migrate to SQL Database](sql-database-cloud-migrate.md) – Learn about the recommended migration process and tools for migration to Managed Instance.
+- [Migrate to SQL Database](sql-database-single-database-migrate.md) – Learn about the recommended migration process and tools for migration to a managed instance.
 - Learn how to [manage SQL database after migration](sql-database-manage-after-migration.md).
 
 ## Configure features
@@ -60,7 +59,7 @@ In this section you can find various guides, scripts, and explanations that can 
 - Run [Multi-shard queries](sql-database-elastic-scale-multishard-querying.md).
 - [Move sharded data](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Configure security](sql-database-elastic-scale-split-merge-security-configuration.md) in database shards.
-- [Add a shard](sql-database-elastic-scale-add-a-shard.md) to the current set od database shards.
+- [Add a shard](sql-database-elastic-scale-add-a-shard.md) to the current set of database shards.
 - [Fix shard map problems](sql-database-elastic-database-recovery-manager.md).
 - [Migrate sharded DB](sql-database-elastic-convert-to-use-elastic-tools.md).
 - [Create counters](sql-database-elastic-database-perf-counters.md).
@@ -68,4 +67,4 @@ In this section you can find various guides, scripts, and explanations that can 
 - [Use Dapper framework](sql-database-elastic-scale-working-with-dapper.md) to query sharded data.
 
 ## Next steps
-- Learn more about [How-to guides in Managed Instance](sql-database-howto-managed-instance.md)
+- Learn more about [How-to guides for managed instance](sql-database-howto-managed-instance.md)

@@ -31,7 +31,7 @@ Depending on your scenario, you can also build and manage custom container solut
 ### What is the difference between Azure Container Service and ACS Engine? 
 Azure Container Service is an SLA-backed Azure service with features in the Azure portal, Azure command-line tools, and Azure APIs. The service enables you to quickly implement and manage clusters running standard container orchestration tools with a relatively small number of configuration choices. 
 
-[ACS Engine](http://github.com/Azure/acs-engine) is an open-source project that enables power users to customize the cluster configuration at every level. This ability to alter the configuration of both infrastructure and software means that we offer no SLA for ACS Engine. Support is handled through the open-source project on GitHub rather than through official Microsoft channels. 
+[ACS Engine](https://github.com/Azure/acs-engine) is an open-source project that enables power users to customize the cluster configuration at every level. This ability to alter the configuration of both infrastructure and software means that we offer no SLA for ACS Engine. Support is handled through the open-source project on GitHub rather than through official Microsoft channels. 
 
 For additional details please refer to our [support policy for containers](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
 
@@ -79,7 +79,7 @@ You can find commonly used URLs for your cluster in the Azure portal, the Azure 
 
 ### How do I upgrade the orchestrator after deployment?
 
-Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/).
+Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](http://docs.mesosphere.com/1.12/installing/production/upgrading).
  
 ### Where do I find the SSH connection string to my cluster?
 

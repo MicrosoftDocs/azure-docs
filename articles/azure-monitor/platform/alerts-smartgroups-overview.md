@@ -1,15 +1,14 @@
 ---
 title: Smart groups
 description: Smart Groups are aggregations of alerts that help you reduce alert noise
-author: anantr
-services: azure-monitor
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: alerts
 ms.topic: conceptual
+author: anantr
+ms.author: robb
 ms.date: 05/15/2018
-ms.author: anantr
-ms.component: alerts
----
 
+---
 
 # Smart groups
 A common challenge faced when dealing with alerts is sifting through the noise to find out what actually matters - smart groups are intended to be the solution to that problem.  
@@ -58,4 +57,5 @@ The name of a smart group is the name of its first alert. You can't create or re
 
 - [Manage smart groups](https://aka.ms/managing-smart-groups)
 - [Change your alert and smart group state](https://aka.ms/managing-alert-smart-group-states)
+
 

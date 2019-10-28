@@ -4,151 +4,149 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
+ms.reviewer: barbkess
 
 ms.assetid: f0db4fb0-7eec-48c2-9c7a-beab1ab49bc2
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/05/2017
+ms.topic: tutorial
+ms.date: 12/31/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Samanage
 
 In this tutorial, you learn how to integrate Samanage with Azure Active Directory (Azure AD).
-
 Integrating Samanage with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Samanage
-- You can enable your users to automatically get signed-on to Samanage (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* You can control in Azure AD who has access to Samanage.
+* You can enable your users to be automatically signed-in to Samanage (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Samanage, you need the following items:
 
-- An Azure AD subscription
-- A Samanage single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Samanage single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Samanage from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* Samanage supports **SP** initiated SSO
 
 ## Adding Samanage from the gallery
+
 To configure the integration of Samanage into Azure AD, you need to add Samanage from the gallery to your list of managed SaaS apps.
 
 **To add Samanage from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![Applications][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **Samanage**.
+	![The New application button](common/add-new-app.png)
 
-	![Creating an Azure AD test user](./media/samanage-tutorial/tutorial_samanage_search.png)
+4. In the search box, type **Samanage**, select **Samanage** from result panel then click **Add** button to add the application.
 
-1. In the results panel, select **Samanage**, and then click **Add** button to add the application.
+	 ![Samanage in the results list](common/search-new-app.png)
 
-	![Creating an Azure AD test user](./media/samanage-tutorial/tutorial_samanage_addfromgallery.png)
+## Configure and test Azure AD single sign-on
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Samanage based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Samanage is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Samanage needs to be established.
-
-In Samanage, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with Samanage based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Samanage needs to be established.
 
 To configure and test Azure AD single sign-on with Samanage, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Samanage test user](#creating-a-samanage-test-user)** - to have a counterpart of Britta Simon in Samanage that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Samanage Single Sign-On](#configure-samanage-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Samanage test user](#create-samanage-test-user)** - to have a counterpart of Britta Simon in Samanage that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Samanage application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Samanage, perform the following steps:**
+To configure Azure AD single sign-on with Samanage, perform the following steps:
 
-1. In the Azure portal, on the **Samanage** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Samanage** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/samanage-tutorial/tutorial_samanage_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **Samanage Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Configure Single Sign-On](./media/samanage-tutorial/tutorial_samanage_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Company Name>.samanage.com/saml_login/<Company Name>`
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<Company Name>.samanage.com`
+4. On the **Basic SAML Configuration** section, perform the following steps:
+
+    ![Samanage Domain and URLs single sign-on information](common/sp-identifier.png)
+
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<Company Name>.samanage.com/saml_login/<Company Name>`
+
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<Company Name>.samanage.com`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-on URL and Identifier, which is explained later in the tutorial. For more details contact [Samanage Client support team](https://www.samanage.com/support).    
- 
-1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+	> These values are not real. Update these values with the actual Sign-on URL and Identifier, which is explained later in the tutorial. For more details contact [Samanage Client support team](https://www.samanage.com/support). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	![Configure Single Sign-On](./media/samanage-tutorial/tutorial_samanage_certificate.png) 
+4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-1. Click **Save** button.
+	![The Certificate download link](common/certificatebase64.png)
 
-	![Configure Single Sign-On](./media/samanage-tutorial/tutorial_general_400.png)
+6. On the **Set up Samanage** section, copy the appropriate URL(s) as per your requirement.
 
-1. On the **Samanage Configuration** section, click **Configure Samanage** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Entity ID** from the **Quick Reference section.**
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![Configure Single Sign-On](./media/samanage-tutorial/tutorial_samanage_configure.png) 
+	a. Login URL
+
+	b. Azure Ad Identifier
+
+	c. Logout URL
+
+### Configure Samanage Single Sign-On
 
 1. In a different web browser window, log into your Samanage company site as an administrator.
 
-1. Click **Dashboard** and select **Setup** in left navigation pane.
+2. Click **Dashboard** and select **Setup** in left navigation pane.
    
     ![Dashboard](./media/samanage-tutorial/tutorial_samanage_001.png "Dashboard")
 
-1. Click **Single Sign-On**.
+3. Click **Single Sign-On**.
    
     ![Single Sign-On](./media/samanage-tutorial/tutorial_samanage_002.png "Single Sign-On")
 
-1. Navigate to **Login using SAML** section, perform the following steps:
+4. Navigate to **Login using SAML** section, perform the following steps:
    
     ![Login using SAML](./media/samanage-tutorial/tutorial_samanage_003.png "Login using SAML")
  
     a. Click **Enable Single Sign-On with SAML**.  
  
-    b. In the **Identity Provider URL** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.    
+    b. In the **Identity Provider URL** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.    
  
-    c. Confirm the **Login URL** matches the **Sign On URL** of **Samanage Domain and URLs** section in Azure portal.
+    c. Confirm the **Login URL** matches the **Sign On URL** of **Basic SAML Configuration** section in Azure portal.
  
-    d. In the **Logout URL** textbox, enter the value of **Sign-Out URL** which you have copied from Azure portal.
+    d. In the **Logout URL** textbox, enter the value of **Logout URL** which you have copied from Azure portal.
  
     e. In the **SAML Issuer** textbox, type the app id URI set in your identity provider.
  
@@ -158,41 +156,58 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     h. Click **Update**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
- 
-### Creating an Azure AD test user
+### Create an Azure AD test user 
+
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](./media/samanage-tutorial/create_aaduser_01.png) 
+    ![New user Button](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/samanage-tutorial/create_aaduser_02.png) 
+3. In the User properties, perform the following steps.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/samanage-tutorial/create_aaduser_03.png) 
+    ![The User dialog box](common/user-properties.png)
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/samanage-tutorial/create_aaduser_04.png) 
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
- 
-### Creating a Samanage test user
+
+### Assign the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Samanage.
+
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Samanage**.
+
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the applications list, select **Samanage**.
+
+	![The Samanage link in the Applications list](common/all-applications.png)
+
+3. In the menu on the left, select **Users and groups**.
+
+    ![The "Users and groups" link](common/users-groups-blade.png)
+
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+
+    ![The Add Assignment pane](common/add-assign-user.png)
+
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+
+7. In the **Add Assignment** dialog click the **Assign** button.
+
+### Create Samanage test user
 
 To enable Azure AD users to log in to Samanage, they must be provisioned into Samanage.  
 In the case of Samanage, provisioning is a manual task.
@@ -201,80 +216,36 @@ In the case of Samanage, provisioning is a manual task.
 
 1. Log into your Samanage company site as an administrator.
 
-1. Click **Dashboard** and select **Setup** in left navigation pan.
+2. Click **Dashboard** and select **Setup** in left navigation pan.
    
     ![Setup](./media/samanage-tutorial/tutorial_samanage_001.png "Setup")
 
-1. Click the **Users** tab
+3. Click the **Users** tab
    
     ![Users](./media/samanage-tutorial/tutorial_samanage_006.png "Users")
 
-1. Click **New User**.
+4. Click **New User**.
    
     ![New User](./media/samanage-tutorial/tutorial_samanage_007.png "New User")
 
-1. Type the **Name** and the **Email Address** of an Azure Active Directory account you want to provision and click **Create user**.
+5. Type the **Name** and the **Email Address** of an Azure Active Directory account you want to provision and click **Create user**.
    
     ![Create User](./media/samanage-tutorial/tutorial_samanage_008.png "Create User")
    
    >[!NOTE]
    >The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other Samanage user account creation tools or APIs provided by Samanage to provision Azure Active Directory user accounts.
 
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Samanage.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Samanage, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **Samanage**.
-
-	![Configure Single Sign-On](./media/samanage-tutorial/tutorial_samanage_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Samanage tile in the Access Panel, you should get automatically signed-on to your Samanage application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you click the Samanage tile in the Access Panel, you should be automatically signed in to the Samanage for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/samanage-tutorial/tutorial_general_01.png
-[2]: ./media/samanage-tutorial/tutorial_general_02.png
-[3]: ./media/samanage-tutorial/tutorial_general_03.png
-[4]: ./media/samanage-tutorial/tutorial_general_04.png
-
-[100]: ./media/samanage-tutorial/tutorial_general_100.png
-
-[200]: ./media/samanage-tutorial/tutorial_general_200.png
-[201]: ./media/samanage-tutorial/tutorial_general_201.png
-[202]: ./media/samanage-tutorial/tutorial_general_202.png
-[203]: ./media/samanage-tutorial/tutorial_general_203.png
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

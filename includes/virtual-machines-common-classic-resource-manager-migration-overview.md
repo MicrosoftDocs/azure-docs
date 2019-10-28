@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
-ms.author: jeconnoc
+ms.date: 04/25/2019
+ms.author: kasing
 ms.custom: include file
 
 ---
@@ -70,7 +70,20 @@ If your storage account does not have any associated disks or Virtual Machines d
 
 > [!NOTE]
 > The Resource Manager deployment model doesn't have the concept of Classic images and disks. When the storage account is migrated, Classic images and disks are not visible in the Resource Manager stack but the backing VHDs remain in the storage account.
->
+
+The following screenshots show how to upgrade a Classic storage account to an Azure Resource Manager storage account using Azure portal:
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to your storage account.
+3. In the **Settings** section, click **Migrate to ARM**.
+4. Click on **Validate** to determine migration feasibility.
+5. If validation passes, click on **Prepare** to create a migrated storage account.
+6. Type **yes** to confirm migration and click **Commit** to finish the migration.
+
+    ![Validate Storage Account](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    
+    ![Prepare Storage Account](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    
+    ![Finalize Storage Account Migration](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### Migration of unattached resources
 Storage Accounts with no associated disks or Virtual Machines data may be migrated independently.
@@ -98,7 +111,7 @@ The following configurations are not currently supported.
 
 | Service | Configuration | Recommendation |
 | --- | --- | --- |
-| Resource Manager |Role Based Access Control (RBAC) for classic resources |Because the URI of the resources is modified after migration, it is recommended that you plan the RBAC policy updates that need to happen after migration. |
+| Resource Manager |Role-Based Access Control (RBAC) for classic resources |Because the URI of the resources is modified after migration, it is recommended that you plan the RBAC policy updates that need to happen after migration. |
 | Compute |Multiple subnets associated with a VM |Update the subnet configuration to reference only one subnet. This may require you to remove a secondary NIC (that is referring to another subnet) from the VM and reattach it after migration has completed. |
 | Compute |Virtual machines that belong to a virtual network but don't have an explicit subnet assigned |You can optionally delete the VM. |
 | Compute |Virtual machines that have alerts, Autoscale policies |The migration goes through and these settings are dropped. It is highly recommended that you evaluate your environment before you do the migration. Alternatively, you can reconfigure the alert settings after migration is complete. |
@@ -114,5 +127,4 @@ The following configurations are not currently supported.
 | Azure HDInsight |Virtual networks that contain HDInsight services |This is currently not supported. |
 | Microsoft Dynamics Lifecycle Services |Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services |This is currently not supported. |
 | Azure AD Domain Services |Virtual networks that contain Azure AD Domain services |This is currently not supported. |
-| Azure RemoteApp |Virtual networks that contain Azure RemoteApp deployments |This is currently not supported. |
 | Azure API Management |Virtual networks that contain Azure API Management deployments |This is currently not supported. To migrate the IaaS VNET, change the VNET of the API Management deployment, which is a no downtime operation. |

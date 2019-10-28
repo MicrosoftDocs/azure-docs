@@ -3,8 +3,8 @@ title: Route network traffic - Azure CLI | Microsoft Docs
 description: In this article, learn how to route network traffic with a route table using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom:
 ---
 
@@ -40,7 +40,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a route table
 
-Before you can create a route table, create a resource group with [az group create](/cli/azure/group#az_group_create) for all resources created in this article. 
+Before you can create a route table, create a resource group with [az group create](/cli/azure/group) for all resources created in this article. 
 
 ```azurecli-interactive
 # Create a resource group.
@@ -74,7 +74,7 @@ az network route-table route create \
 
 ## Associate a route table to a subnet
 
-Before you can associate a route table to a subnet, you have to create a virtual network and subnet. Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Before you can associate a route table to a subnet, you have to create a virtual network and subnet. Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -85,7 +85,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Create two additional subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create).
+Create two additional subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 # Create a private subnet.
@@ -103,7 +103,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Associate the *myRouteTablePublic* route table to the *Public* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
+Associate the *myRouteTablePublic* route table to the *Public* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -117,7 +117,7 @@ az network vnet subnet update \
 
 An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.
 
-Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm#az_vm_create). When you create a VM, Azure creates and assigns a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
+Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
 
 ```azure-cli-interactive
 az vm create \
@@ -132,7 +132,7 @@ az vm create \
 
 The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM and returns output about the VM. 
 
-For a network interface to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic#az_network_nic_update).
+For a network interface to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
@@ -141,7 +141,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the VM's operating system with [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set):
+Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the VM's operating system with [az vm extension set](/cli/azure/vm/extension):
 
 ```azurecli-interactive
 az vm extension set \
@@ -157,7 +157,7 @@ The command may take up to a minute to execute.
 
 Create two VMs in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the NVA in a later step. 
 
-Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm#az_vm_create). The `--no-wait` parameter enables Azure to execute the command in the background so you can continue to the next command. To streamline this article, a password is used. Keys are typically used in production deployments. If you use keys, you must also configure SSH agent forwarding. For more information, see the documentation for your SSH client. Replace `<replace-with-your-password>` in the following command with a password of your choosing.
+Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm). The `--no-wait` parameter enables Azure to execute the command in the background so you can continue to the next command. To streamline this article, a password is used. Keys are typically used in production deployments. If you use keys, you must also configure SSH agent forwarding. For more information, see the documentation for your SSH client. Replace `<replace-with-your-password>` in the following command with a password of your choosing.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"
@@ -204,7 +204,7 @@ Take note of the **publicIpAddress**. This address is used to access the VM from
 
 ## Route traffic through an NVA
 
-Use the following command to create an SSH session with the *myVmPrivate* VM. Replace *<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
+Use the following command to create an SSH session with the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -264,7 +264,7 @@ Close the SSH sessions to both the *myVmPublic* and *myVmPrivate* VMs.
 
 ## Clean up resources
 
-When no longer needed, use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains.
+When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

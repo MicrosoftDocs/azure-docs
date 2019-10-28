@@ -27,9 +27,9 @@ If you are running Azure CLI locally instead of using Cloud Shell, you need to s
 
 At the command prompt, run the [login command](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
 
-    ```azurecli
-    az login
-    ```
+   ```azurecli
+   az login
+   ```
 
 Follow the instructions to authenticate using the code and sign in to your Azure account through a web browser.
 

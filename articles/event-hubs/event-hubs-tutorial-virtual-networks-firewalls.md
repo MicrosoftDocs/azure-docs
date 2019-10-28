@@ -1,14 +1,14 @@
 ---
 title: Tutorial - Enable Virtual Networks Integration and Firewalls on Event Hubs | Microsoft Docs
 description: In this tutorial, you learn how to integrate Event Hubs with Virtual Networks and Firewalls to enable secure access.
-services: event-hubs-messaging
+services: event-hubs
 author: axisc
 manager: darosa
 
 ms.author: aschhab
 ms.date: 11/28/2018
 ms.topic: tutorial
-ms.service: event-hubs-messaging
+ms.service: event-hubs
 ms.custom: mvc
 
 ---
@@ -27,9 +27,9 @@ In this tutorial, you learn how to :
 > * How to setup Firewall (IP Filtering) with your Event Hubs namespace.
 
 >[!WARNING]
-> Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
+> Implementing Virtual Networks integration can prevent other Azure services from interacting with Event Hubs.
 >
-> First party integrations are not supported when Virtual Networks are enabled, and will be made available soon.
+> First party integrations are not supported when Virtual Networks are enabled.
 > Common Azure scenarios that don't work with Virtual Networks -
 > * Azure Diagnostics and Logging
 > * Azure Stream Analytics

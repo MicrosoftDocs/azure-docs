@@ -24,6 +24,9 @@ ms.author: shvija
 
 For more information about Event Hubs receive patterns, see the [Event Hubs overview][Event Hubs overview].
 
+## Prerequisites
+Before you start with the quickstart, **create an Event Hubs namespace and an event hub**. Use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). 
+
 ## Create project and add code
 
 This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which comes with the Event Hubs spout already available.
@@ -245,7 +248,7 @@ You can learn more about Event Hubs by visiting the following links:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[HDInsight Storm with Event Hub example]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[HDInsight Storm with Event Hub example]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 
 <!-- Images -->
 

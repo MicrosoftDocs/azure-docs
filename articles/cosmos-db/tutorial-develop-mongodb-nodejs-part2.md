@@ -97,7 +97,7 @@ This tutorial also requires:
     * Serves everything that's in the dist folder, which will be the static content
     * Serves up the application, and serves index.html for any GET requests not found on the server (for deep links)
     * Starts the server with app.listen
-    * Uses an arow function to log that the port is alive
+    * Uses an arrow function to log that the port is alive
     
    ```node
    const express = require('express');

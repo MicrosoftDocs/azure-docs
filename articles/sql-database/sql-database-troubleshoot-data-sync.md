@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Troubleshoot Azure SQL Data Sync | Microsoft Docs"
 description: "Learn how to troubleshoot common issues with Azure SQL Data Sync."
 services: sql-database
@@ -9,9 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
-manager: craigg
-ms.date: 07/16/2018
+ms.reviewer: carlrab
+ms.date: 12/20/2018
 ---
 # Troubleshoot issues with SQL Data Sync
 
@@ -34,7 +33,7 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 - [I see a significant degradation in performance](#sync-perf)
 
-- [I see this message: "Cannot insert the value NULL into the column <column>. Column does not allow nulls." What does this mean, and how can I fix it?](#sync-nulls)
+- [I see this message: "Cannot insert the value NULL into the column \<column>. Column does not allow nulls." What does this mean, and how can I fix it?](#sync-nulls)
 
 - [How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?](#sync-circ)
 
@@ -99,7 +98,7 @@ Your performance degrades significantly, possibly to the point where you can't e
 
 - **Resolution**. The best fix is prevention. Ensure that you don't have circular references in your sync groups. Any row that is synced by one sync group can't be synced by another sync group.
 
-### <a name="sync-nulls"></a> I see this message: "Cannot insert the value NULL into the column <column>. Column does not allow nulls." What does this mean, and how can I fix it? 
+### <a name="sync-nulls"></a> I see this message: "Cannot insert the value NULL into the column \<column>. Column does not allow nulls." What does this mean, and how can I fix it? 
 This error message indicates that one of the two following issues has occurred:
 -  A table doesn't have a primary key. To fix this issue, add a primary key to all the tables that you're syncing.
 -  There's a WHERE clause in your CREATE INDEX statement. Data Sync doesn't handle this condition. To fix this issue, remove the WHERE clause or manually make the changes to all databases. 
@@ -244,7 +243,7 @@ For more information about SQL Data Sync, see:
         -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Best practices - [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Monitor - [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+-   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 -   Update the sync schema
     -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)
     -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)

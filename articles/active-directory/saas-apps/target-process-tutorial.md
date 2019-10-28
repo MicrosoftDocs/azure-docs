@@ -8,12 +8,13 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 03/07/2019
 ms.author: jeedes
 
 ---
@@ -73,10 +74,11 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with TargetProcess, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create TargetProcess test user](#create-targetprocess-test-user)** - to have a counterpart of Britta Simon in TargetProcess that is linked to the Azure AD representation of user.
+2. **[Configure TargetProcess Single Sign-On](#configure-targetprocess-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+5. **[Create TargetProcess test user](#create-targetprocess-test-user)** - to have a counterpart of Britta Simon in TargetProcess that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -100,12 +102,14 @@ To configure Azure AD single sign-on with TargetProcess, perform the following s
 
     ![TargetProcess Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.tpondemand.com/`
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<subdomain>.tpondemand.com/`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.tpondemand.com/`
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<subdomain>.tpondemand.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier.  Contact [TargetProcess Client support team](mailto:support@targetprocess.com) to get these values.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [TargetProcess Client support team](mailto:support@targetprocess.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -117,48 +121,47 @@ To configure Azure AD single sign-on with TargetProcess, perform the following s
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
-7. To automate the configuration within **TargetProcess**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+### Configure TargetProcess Single Sign-On
+
+1. To automate the configuration within **TargetProcess**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
 	![image](./media/target-process-tutorial/install_extension.png)
 
-8. After adding extension to the browser, click on **setup TargetProcess** will direct you to the TargetProcess application. From there, provide the admin credentials to sign into TargetProcess. The browser extension will automatically configure the application for you and automate steps 9-13.
+2. After adding extension to the browser, click on **setup TargetProcess** will direct you to the TargetProcess application. From there, provide the admin credentials to sign into TargetProcess. The browser extension will automatically configure the application for you and automate steps 3-7.
 
 	**If you want to configure the application manually perform the following steps:**
 
-9. Sign-on to your TargetProcess application as an administrator.
+3. Sign-on to your TargetProcess application as an administrator.
 
-10. In the menu on the top, click **Setup**.
+4. In the menu on the top, click **Setup**.
 
     ![Setup](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-11. Click **Settings**.
+5. Click **Settings** tab.
 
     ![Settings](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-12. Click **Single Sign-on**.
+6. Click **Single Sign-on** tab.
 
     ![click Single Sign-On](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-13. On the Single Sign-on settings dialog, perform the following steps:
+7. On the Single Sign-on settings dialog, perform the following steps:
 
     ![Configure Single Sign-On](./media/target-process-tutorial/tutorial_target_process_08.png)
 
 	a. Click **Enable Single Sign-on**.
 
-	b. In **Sign-on URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+	b. In **Sign-on URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
 	c. Open your downloaded certificate in notepad, copy the content, and then paste it into the **Certificate** textbox.
 
 	d. click **Enable JIT Provisioning**.
 
 	e. Click **Save**.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Create an Azure AD test user
 
@@ -178,7 +181,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -193,7 +196,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, type and select **TargetProcess**.
+2. In the applications list, select **TargetProcess**.
 
 	![The TargetProcess link in the Applications list](common/all-applications.png)
 
@@ -213,7 +216,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create TargetProcess test user
 
-The objective of this section is to create a user called Britta Simon in TargetProcess. TargetProcess supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access TargetProcess if it doesn't exist yet.
+In this section, a user called Britta Simon is created in TargetProcess. TargetProcess supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in TargetProcess, a new one is created after authentication.
 
 > [!Note]
 > If you need to create a user manually, contact [TargetProcess support team](mailto:support@targetprocess.com).
@@ -226,8 +229,8 @@ When you click the TargetProcess tile in the Access Panel, you should be automat
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,13 +1,13 @@
 ---
-title: Azure PowerShell script sample - Get a managed resource group and resize VMs | Microsoft Docs
-description: Azure PowerShell script sample - Get a managed resource group and resize VMs
+title: Get managed resource group & resize VMs - Azure PowerShell
+description: Provides Azure PowerShell sample script that gets a managed resource group for an Azure Managed Application. The script resizes VMs.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 
 ms.service: managed-applications
-ms.devlang: poweshell
+ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -23,6 +23,8 @@ This script retrieves resources from a managed resource group, and resizes the V
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/managed-applications/get-application/get-application.ps1 "Get application")]
 
 
@@ -32,9 +34,9 @@ This script uses the following commands to deploy the managed application. Each 
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmManagedApplication](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermmanagedapplication) | List managed applications. Provide resource group name to focus the results. |
-| [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresource) | List resources. Provide a resource group and resource type to focus the result. |
-| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) | Update a virtual machine's size. |
+| [Get-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/get-azmanagedapplication) | List managed applications. Provide resource group name to focus the results. |
+| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | List resources. Provide a resource group and resource type to focus the result. |
+| [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) | Update a virtual machine's size. |
 
 
 ## Next steps

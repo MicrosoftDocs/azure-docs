@@ -2,7 +2,7 @@
 title: 'Tutorial: Deploy your ASP.NET Core app to Azure Service Fabric by using Azure DevOps Projects'
 description: Azure DevOps Projects makes it easy to get started on Azure. With DevOps Projects, you can deploy your ASP.NET Core app to Azure Service Fabric in a few quick steps.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
@@ -35,7 +35,7 @@ In this tutorial, you will:
 
 * An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## Use DevOps Projects to create an ASP.NET Core app and deploy it to Service Fabricc
+## Use DevOps Projects to create an ASP.NET Core app and deploy it to Service Fabric
 
 DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources, such as a Service Fabric cluster, in the Azure subscription of your choice.
 
@@ -75,7 +75,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 DevOps Projects automatically configures a CI/CD pipeline in Azure Pipelines. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
 
-1. Go to the DevOps Projectss dashboard.
+1. Go to the DevOps Project dashboard.
 
 1. At the top of the DevOps Projects dashboard, select **Build pipelines**.  
 	A browser tab displays the build pipeline for your new project.

@@ -3,15 +3,15 @@ title: Tutorial - Use the Azure Batch client library for Node.js | Microsoft Doc
 description: Learn the basic concepts of Azure Batch and build a simple solution using Node.js.
 services: batch
 author: shwetams
-manager: jeconnoc
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: shwetams
+ms.author: shg
 ---
 
 # Get started with Batch SDK for Node.js
@@ -256,7 +256,7 @@ An Azure Batch job is a logical group of similar tasks. In our scenario, it is "
 These tasks would run in parallel and deployed across multiple nodes, orchestrated by the Azure Batch service.
 
 > [!Tip]
-> You can use the [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property to specify maximum number of tasks that can run concurrently on a single node.
+> You can use the [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property to specify maximum number of tasks that can run concurrently on a single node.
 >
 >
 
@@ -269,7 +269,7 @@ The [shell script](https://github.com/shwetams/azure-batchclient-sample-nodejs/b
 You can upload the script on an Azure Storage Account and generate a SAS URI to access the script. This process can also be automated using the Azure Storage Node.js SDK.
 
 > [!Tip]
-> A preparation task for a job runs only on the VM nodes where the specific task needs to run. If you want prerequisites to be installed on all nodes irrespective of the tasks that run on it, you can use the [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property while adding a pool. You can use the following preparation task definition for reference.
+> A preparation task for a job runs only on the VM nodes where the specific task needs to run. If you want prerequisites to be installed on all nodes irrespective of the tasks that run on it, you can use the [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property while adding a pool. You can use the following preparation task definition for reference.
 >
 >
 
@@ -345,7 +345,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 The code adds multiple tasks to the pool. And each of the tasks is executed on a node in the pool of VMs created. If the number of tasks exceeds the number of VMs in a pool or the maxTasksPerNode property, the tasks wait until a node is made available. This orchestration is handled by Azure Batch automatically.
 
-The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure Node SDK. Details are provided in the documentation [link](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
+The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure Node SDK. Details are provided in the documentation [link](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
 
 ## Next steps
 

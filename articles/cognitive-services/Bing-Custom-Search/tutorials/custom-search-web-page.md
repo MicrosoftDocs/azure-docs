@@ -1,15 +1,15 @@
-﻿---
+---
 title: "Tutorial: Create a custom search web page - Bing Custom Search"
-titlesuffix: Azure Cognitive Services
-description: Describes how to configure a custom search instance and integrate it into a web page.
+titleSuffix: Azure Cognitive Services
+description: Learn how to configure a custom Bing search instance and integrate it into a web page.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 07/26/2019
 ms.author: aahi
 ---
 
@@ -31,7 +31,7 @@ The tasks covered are:
 ## Prerequisites
 
 - To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
+- If you don’t already have Visual Studio 2017 or later installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance
 
@@ -45,11 +45,11 @@ To create a Bing Custom Search instance:
   
 4. After signing in, click **New custom search**. In the **Create a new custom search instance** window, enter a name that’s meaningful and describes the type of content the search returns. You can change the name at any time.  
   
-  ![Screenshot of the Create a new custom search instance box](../media/newCustomSrch.png)  
+   ![Screenshot of the Create a new custom search instance box](../media/newCustomSrch.png)  
   
 5. Click OK, specify a URL and whether to include subpages of the URL.  
   
-  ![Screenshot of URL definition page](../media/newCustomSrch1-a.png)  
+   ![Screenshot of URL definition page](../media/newCustomSrch1-a.png)  
 
 
 ## Add active entries
@@ -93,28 +93,28 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
   
 2. Select a layout.  
   
-  ![Screenshot of the Hosted UI select layout step](./media/custom-search-hosted-ui-select-layout.png)  
+   ![Screenshot of the Hosted UI select layout step](./media/custom-search-hosted-ui-select-layout.png)  
   
 3. Select a color theme.  
   
-  ![Screenshot of the Hosted UI select color theme](./media/custom-search-hosted-ui-select-color-theme.png)  
+   ![Screenshot of the Hosted UI select color theme](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  If you need to fine-tune the color theme to better integrate with your web app, click **Customize theme**. Not all color configurations apply to all layout themes. To change a color, enter the color's RGB HEX value (for example, #366eb8) in the corresponding text box. Or, click the color button and then click the shade that works for you. Always think about accessibility when selecting colors.
+   If you need to fine-tune the color theme to better integrate with your web app, click **Customize theme**. Not all color configurations apply to all layout themes. To change a color, enter the color's RGB HEX value (for example, #366eb8) in the corresponding text box. Or, click the color button and then click the shade that works for you. Always think about accessibility when selecting colors.
   
-  ![Screenshot of the Hosted UI customize color theme](./media/custom-search-hosted-ui-customize-color-theme.png)  
+   ![Screenshot of the Hosted UI customize color theme](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
   
 4. Specify additional configuration options.  
   
-  ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-additional-configurations.png)  
+   ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-  To get advanced configurations, click **Show advanced configurations**. This adds configurations such as *Link target* to Web search options, *Enable filters* to Image and Video options, and *Search box text placeholder* to Miscellaneous options.
+   To get advanced configurations, click **Show advanced configurations**. This adds configurations such as *Link target* to Web search options, *Enable filters* to Image and Video options, and *Search box text placeholder* to Miscellaneous options.
 
-  ![Screenshot of the Hosted UI advanced configurations step](./media/custom-search-hosted-ui-advanced-configurations.png)  
+   ![Screenshot of the Hosted UI advanced configurations step](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
 5. Select your subscription keys from the dropdown lists. Or, you can enter the subscription key manually. For information about getting keys, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
   
-  ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -136,66 +136,66 @@ The remainder of this tutorial illustrates **Option 1: Javascript snippet**.
   
 3. In the **New Project** window, select **Visual C# / Web / ASP.NET Core Web Application**, name your project, and then click **OK**.  
   
-  ![Screenshot of new project window](./media/custom-search-new-project.png)  
+   ![Screenshot of new project window](./media/custom-search-new-project.png)  
   
 4. In the **New ASP.NET Core Web Application** window, select **Web Application** and click **OK**.  
   
-  ![Screenshot of new project window](./media/custom-search-new-webapp.png)  
+   ![Screenshot of new project window](./media/custom-search-new-webapp.png)  
 
 ## Edit index.cshtml
 
 1. In the **Solution Explorer**, expand **Pages** and double-click **index.cshtml** to open the file.  
   
-  ![Screenshot of solution explorer with pages expanded and index.cshtml selected](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
+   ![Screenshot of solution explorer with pages expanded and index.cshtml selected](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
 2. In index.cshtml, delete everything starting from line 7 and below.  
   
-  ```razor
-  @page
-  @model IndexModel
-  @{
+   ```razor
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }    
-  ```  
+   }    
+   ```  
   
 3. Add a line break element and a div to act as a container.  
   
-  ```html
-  @page
-  @model IndexModel
-  @{
+   ```html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch"></div>
-  ```  
+   }
+   <br />
+   <div id="customSearch"></div>
+   ```  
   
 4. In the **Hosted UI** page, scroll down to the section titled **Consuming the UI**. Click the *Endpoints* to access the JavaScript snippet. You can also get to the snippet by clicking **Production** and then the **Hosted UI** tab.
   
-  <!-- Get new screenshot after prod gets new bits
-  ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
-  -->
+   <!-- Get new screenshot after prod gets new bits
+   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
+   -->
   
 5. Paste the script element into the container you added.  
   
-  ``` html
-  @page
-  @model IndexModel
-  @{
+   ``` html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch">
+   }
+   <br />
+   <div id="customSearch">
       <script type="text/javascript" 
           id="bcs_js_snippet"
           src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
       </script>
-  </div>
-  ```  
+   </div>
+   ```  
   
 6. In the **Solution Explorer**, right click on **wwwroot** and click **View in Browser**.  
   
-  ![Screenshot of solution explorer selecting View in Browser from the wwwroot context menu](./media/custom-search-webapp-view-in-browser.png)  
+   ![Screenshot of solution explorer selecting View in Browser from the wwwroot context menu](./media/custom-search-webapp-view-in-browser.png)  
 
 Your new custom search web page should look similar to this:
 

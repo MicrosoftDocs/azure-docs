@@ -1,15 +1,10 @@
 ---
 title: Best practices for Azure Resource Manager templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates. Offers suggestions to avoid common problems when using templates. 
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2018
+ms.date: 09/12/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager template best practices
@@ -20,8 +15,29 @@ For recommendations about how to govern your Azure subscriptions, see [Azure ent
 
 For recommendations about how to build templates that work in all Azure cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
 
+## Template limits
+
+Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
+
+You're also limited to:
+
+* 256 parameters
+* 256 variables
+* 800 resources (including copy count)
+* 64 output values
+* 24,576 characters in a template expression
+
+You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](resource-manager-objects-as-parameters.md).
+
+## Resource group
+
+When you deploy resources to a resource group, the resource group stores metadata about the resources. The metadata is stored in the location of the resource group.
+
+If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. To minimize risk, locate your resource group and resources in the same region.
+
 ## Parameters
-The information in this section can be helpful when you work with [parameters](resource-manager-templates-parameters.md).
+
+The information in this section can be helpful when you work with [parameters](template-parameters.md).
 
 ### General recommendations for parameters
 
@@ -76,7 +92,7 @@ The information in this section can be helpful when you work with [parameters](r
 
 * Use `allowedValues` sparingly. Use it only when you must make sure some values aren't included in the permitted options. If you use `allowedValues` too broadly, you might block valid deployments by not keeping your list up-to-date.
 
-* When a parameter name in your template matches a parameter in the PowerShell deployment command, Resource Manager resolves this naming conflict by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. During deployment, you're prompted to provide a value for **ResourceGroupNameFromTemplate**.
+* When a parameter name in your template matches a parameter in the PowerShell deployment command, Resource Manager resolves this naming conflict by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. During deployment, you're prompted to provide a value for **ResourceGroupNameFromTemplate**.
 
 ### Security recommendations for parameters
 
@@ -123,7 +139,9 @@ The information in this section can be helpful when you work with [parameters](r
 
 ## Variables
 
-The following information can be helpful when you work with [variables](resource-manager-templates-variables.md):
+The following information can be helpful when you work with [variables](template-variables.md):
+
+* Use camel case for variable names.
 
 * Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
 
@@ -147,7 +165,7 @@ When deciding what [dependencies](resource-group-define-dependencies.md) to set,
 
 * Set a child resource as dependent on its parent resource.
 
-* Resources with the [condition element](resource-manager-templates-resources.md#condition) set to false are automatically removed from the dependency order. Set the dependencies as if the resource is always deployed.
+* Resources with the [condition element](conditional-resource-deployment.md) set to false are automatically removed from the dependency order. Set the dependencies as if the resource is always deployed.
 
 * Let dependencies cascade without setting them explicitly. For example, your virtual machine depends on a virtual network interface, and the virtual network interface depends on a virtual network and public IP addresses. Therefore, the virtual machine is deployed after all three resources, but don't explicitly set the virtual machine as dependent on all three resources. This approach clarifies the dependency order and makes it easier to change the template later.
 
@@ -155,7 +173,7 @@ When deciding what [dependencies](resource-group-define-dependencies.md) to set,
 
 ## Resources
 
-The following information can be helpful when you work with [resources](resource-manager-templates-resources.md):
+The following information can be helpful when you work with [resources](resource-group-authoring-templates.md#resources):
 
 * To help other contributors understand the purpose of the resource, specify **comments** for each resource in the template:
    
@@ -164,7 +182,7 @@ The following information can be helpful when you work with [resources](resource
      {
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
+         "apiVersion": "2019-06-01",
          "location": "[resourceGroup().location]",
          "comments": "This storage account is used to store the VM disks.",
          ...
@@ -175,43 +193,32 @@ The following information can be helpful when you work with [resources](resource
 * If you use a *public endpoint* in your template (such as an Azure Blob storage public endpoint), *don't hard-code* the namespace. Use the **reference** function to dynamically retrieve the namespace. You can use this approach to deploy the template to different public namespace environments without manually changing the endpoint in the template. Set the API version to the same version that you're using for the storage account in your template:
    
    ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```
    
-   If the storage account is deployed in the same template that you're creating, you don't need to specify the provider namespace when you reference the resource. The following example shows the simplified syntax:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   If you have other values in your template that are configured to use a public namespace, change these values to reflect the same **reference** function. For example, you can set the **storageUri** property of the virtual machine diagnostics profile:
+   If the storage account is deployed in the same template that you're creating and the name of the storage account is not shared with another resource in the template, you don't need to specify the provider namespace or the apiVersion when you reference the resource. The following example shows the simplified syntax:
    
    ```json
    "diagnosticsProfile": {
        "bootDiagnostics": {
            "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+           "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
        }
    }
    ```
-   
+     
    You also can reference an existing storage account that is in a different resource group:
 
    ```json
-   "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```
@@ -269,7 +276,7 @@ The following information can be helpful when you work with [resources](resource
 
 ## Outputs
 
-If you use a template to create public IP addresses, include an [outputs section](resource-manager-templates-outputs.md) that returns details of the IP address and the fully qualified domain name (FQDN). You can use output values to easily retrieve details about public IP addresses and FQDNs after deployment.
+If you use a template to create public IP addresses, include an [outputs section](template-outputs.md) that returns details of the IP address and the fully qualified domain name (FQDN). You can use output values to easily retrieve details about public IP addresses and FQDNs after deployment.
 
 ```json
 "outputs": {

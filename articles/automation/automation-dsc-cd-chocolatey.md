@@ -3,7 +3,7 @@ title: Azure Automation State Configuration Continuous Deployment with Chocolate
 description: DevOps continuous deployment using Azure Automation State Configuration, DSC, and Chocolatey package manager.  Example with full JSON Resource Manager template and PowerShell source.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
@@ -40,7 +40,7 @@ intro. In a nutshell, Chocolatey allows you to install packages from a central r
 packages into a Windows system using the command line. You can create and manage your own
 repository, and Chocolatey can install packages from any number of repositories that you designate.
 
-Desired State Configuration (DSC) ([overview](/powershell/dsc/overview)) is a PowerShell tool that
+Desired State Configuration (DSC) ([overview](/powershell/scripting/dsc/overview/overview)) is a PowerShell tool that
 allows you to declare the configuration that you want for a machine. For example, you can say, "I
 want Chocolatey installed, I want IIS installed, I want port 80 opened, I want version 1.0.0 of my
 website installed." The DSC Local Configuration Manager (LCM) implements that configuration. A DSC
@@ -80,7 +80,7 @@ of VM extensions.
 Starting at the top, you write your code, build and test, then create an installation package.
 Chocolatey can handle various types of installation packages, such as MSI, MSU, ZIP. And you have
 the full power of PowerShell to do the actual installation if Chocolateys native capabilities
-aren't quite up to it. Put the package into someplace reachable – a package repository. This usage
+aren't quite up to it. Put the package into some place reachable – a package repository. This usage
 example uses a public folder in an Azure blob storage account, but it can be anywhere. Chocolatey
 works natively with NuGet servers and a few others for management of package metadata. [This
 article](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) describes the options. This
@@ -207,9 +207,8 @@ Configuration ISVBoxConfig
             Name         = 'Web-Server-TCP-In'
             DisplayName  = 'Web Server (TCP-In)'
             Description  = 'IIS allow incoming web site traffic.'
-            DisplayGroup = 'IIS Incoming Traffic'
-            State        = 'Enabled'
-            Access       = 'Allow'
+            Enabled       = 'True'
+            Action       = 'Allow'
             Protocol     = 'TCP'
             LocalPort    = '80'
             Ensure       = 'Present'

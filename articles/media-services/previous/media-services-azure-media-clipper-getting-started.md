@@ -7,9 +7,9 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 03/14/2019
 ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
+# Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
 # product-name-from-white-list
 
@@ -106,15 +106,15 @@ The parameters for the initialization method call are:
 - `height` {OPTIONAL, number} The total height of the widget (minimum height is 600 px without assets pane and 850 px with the assets pane).
 - `subclippingMode` (OPTIONAL, {'all', 'render', 'filter'}): The subclipping mode(s) allowed. The default value is all.
 - `filterAssetsTypes` (OPTIONAL, bool): filterAssetsTypes allow you to show/hide the filters dropdown from the assets pane. The default value is true.
-- `speedLevels` (OPTIONAL, array): speedLevels allows setting different speed levels for the video player, see [Azure Media Player documentation](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) for more info.
+- `speedLevels` (OPTIONAL, array): speedLevels allows setting different speed levels for the video player, see [Azure Media Player documentation](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) for more info.
 - `resetOnJobDone` (OPTIONAL, bool): resetOnJobDone allows Clipper to reset the subclipper to an initial state when a job is submitted successfully.
 - `autoplayVideo` (OPTIONAL, bool): autoplayVideo allows Clipper to autoplay the video on load. The default value is true.
 - `language` {OPTIONAL, string}: language sets the language of the widget. If not specified, the widget tries to localize the messages based on the browser language. If no language is detected in the browser, the widget defaults to English. For more information, see the [configure localization](media-services-azure-media-clipper-localization.md) section.
 - `languages` {OPTIONAL, JSON}: the languages parameter replaces the default dictionary of languages with a custom dictionary defined by the user. For more information, see the [configure localization](media-services-azure-media-clipper-localization.md) section.
-- `extraLanguages` (OPTIONAL, JSON): the extraLanaguages parameter adds new languages to the default dictionary. For more information, see the [configure localization](media-services-azure-media-clipper-localization.md) section.
+- `extraLanguages` (OPTIONAL, JSON): the extraLanguages parameter adds new languages to the default dictionary. For more information, see the [configure localization](media-services-azure-media-clipper-localization.md) section.
 
 ## TypeScript definition
-A [TypeScript](https://www.typescriptlang.org/) definition file for the Clipper can be found [here](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
+A [TypeScript](https://www.typescriptlang.org/) definition file for the Clipper can be found [here](https://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
 
 ## Azure Media Clipper API
 This section documents the API surface provided by the Clipper.

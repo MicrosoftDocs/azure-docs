@@ -3,10 +3,8 @@ title: Confidence score in Azure Security Center | Microsoft Docs
 description: " Learn how to work with the Azure Security Center confidence score. "
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: e88198f8-2e16-409d-a0b0-a62e68c2f999
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Alert confidence score 
@@ -41,7 +39,7 @@ To view the confidence score:
 To view the data that contributed to Security Center's confidence in an alert:
 - In the Security alert blade, under **Confidence**, view the observations that contributed to the confidence score and gain insights related to the alert. This provides you with more insight into the nature of the activities that caused the alert.
 
- ![Suspicious confidence score][2]
+  ![Suspicious confidence score][2]
 
 Use Security Center’s confidence score to prioritize alert triage in your environment. The confidence score saves you time and effort by automatically investigating alerts, applying industry best practices and intelligent algorithms, and acting as a virtual analyst to determine which threats are real and where you need to focus your attention.
 

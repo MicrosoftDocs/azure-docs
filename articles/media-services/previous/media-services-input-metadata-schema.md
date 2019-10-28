@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Input Metadata
+# Input Metadata 
 
 An encoding job is associated with an input asset (or assets) on which you want to perform some encoding tasks.  Upon completion of a task, an output asset is produced.  The output asset contains video, audio, thumbnails, manifest, etc. The output asset also contains a file with metadata about the input asset. The name of the metadata XML file has the following format: &lt;asset_id&gt;_metadata.xml (for example, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), where &lt;asset_id&gt; is the AssetId value of the input asset.  
 
@@ -155,8 +155,8 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 | --- | --- | --- |
 | **ProgramId**<br /><br /> Required |**xs:int** |Program Id |
 | **NumberOfPrograms**<br /><br /> Required |**xs:int** |Number of programs. |
-| **PmtPid**<br /><br /> Required |**xs:int** |Program Map Tables (PMTs) contain information about programs.  For more information, see [PMt](http://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
-| **PcrPid**<br /><br /> Required |**xs: int** |Used by decoder. For more information, see [PCR](http://en.wikipedia.org/wiki/MPEG_transport_stream#PCR) |
+| **PmtPid**<br /><br /> Required |**xs:int** |Program Map Tables (PMTs) contain information about programs.  For more information, see [PMt](https://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
+| **PcrPid**<br /><br /> Required |**xs: int** |Used by decoder. For more information, see [PCR](https://en.wikipedia.org/wiki/MPEG_transport_stream#PCR) |
 | **StartPTS** |**xs: long** |Starting presentation time stamp. |
 | **EndPTS** |**xs: long** |Ending presentation time stamp. |
 
@@ -175,7 +175,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 | **Lyrics**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track contains lyrics. |
 | **Karaoke**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this represents the karaoke track (background music, no vocals). |
 | **Forced**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this is the forced presentation. |
-| **HearingImpaired**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track is for the hearing impaired. |
+| **HearingImpaired**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track is for people who are hard of hearing. |
 | **VisualImpaired**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track is for the visually impaired. |
 | **CleanEffects**<br /><br /> Required |**xs: int** |Set this attribute to 1 to indicate this track has clean effects. |
 | **AttachedPic**<br /><br /> Required |**xs: int** |Set this attribute to 1 to indicate this track has pictures. |
@@ -210,7 +210,7 @@ Wrapper element holding multiple **Program** elements.
 
 ## <a name="code"></a> Schema Code
     <?xml version="1.0" encoding="utf-8"?>  
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
+    <xs:schema xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
                xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
                targetNamespace="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
                elementFormDefault="qualified">  
@@ -611,7 +611,7 @@ Wrapper element holding multiple **Program** elements.
 The following is an example of the Input metadata file.  
 
     <?xml version="1.0" encoding="utf-8"?>  
-    <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata">  
+    <AssetFiles xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata">  
       <AssetFile Name="bear.mp4" Size="1973733" Duration="PT12.678S" NumberOfStreams="2" FormatNames="mov,mp4,m4a,3gp,3g2,mj2" FormatVerboseName="QuickTime / MOV" StartTime="PT0S" OverallBitRate="1245">  
         <VideoTracks>  
           <VideoTrack Id="1" Codec="h264" CodecLongName="H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10" TimeBase="1/29970" NumberOfFrames="375" StartTime="PT0.034S" Duration="PT12.645S" FourCC="avc1" Profile="High" Level="4.1" PixelFormat="yuv420p" Width="512" Height="384" DisplayAspectRatioNumerator="4" DisplayAspectRatioDenominator="3" SampleAspectRatioNumerator="1" SampleAspectRatioDenominator="1" FrameRate="29.656" Bitrate="1043" HasBFrames="1">  

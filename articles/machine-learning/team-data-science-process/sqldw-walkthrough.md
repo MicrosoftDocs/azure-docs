@@ -6,14 +6,14 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # The Team Data Science Process in action: using SQL Data Warehouse
-In this tutorial, we walk you through building and deploying a machine learning model using SQL Data Warehouse (SQL DW) for a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip, and models for multiclass classification and regression are also discussed that predict the distribution for the tip amounts paid.
+In this tutorial, we walk you through building and deploying a machine learning model using SQL Data Warehouse (SQL DW) for a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip, and models for multiclass classification and regression are also discussed that predict the distribution for the tip amounts paid.
 
 The procedure follows the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how use either SQL DW or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
 
@@ -21,7 +21,7 @@ The procedure follows the [Team Data Science Process (TDSP)](https://docs.micros
 The NYC Taxi Trip data consists of about 20GB of compressed CSV files (~48GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff locations and times, anonymized hack (driver's) license number, and the medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
 1. The **trip_data.csv** file contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
-   
+
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
@@ -29,7 +29,7 @@ The NYC Taxi Trip data consists of about 20GB of compressed CSV files (~48GB unc
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 2. The **trip_fare.csv** file contains details of the fare paid for each trip, such as payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
-   
+
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
@@ -48,13 +48,13 @@ We formulate three prediction problems based on the *tip\_amount* to illustrate 
 
 1. **Binary classification**: To predict whether or not a tip was paid for a trip, i.e. a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
 2. **Multiclass classification**: To predict the range of tip paid for the trip. We divide the *tip\_amount* into five bins or classes:
-   
+
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. **Regression task**: To predict the amount of tip paid for a trip.  
+3. **Regression task**: To predict the amount of tip paid for a trip.
 
 ## <a name="setup"></a>Set up the Azure data science environment for advanced analytics
 To set up your Azure Data Science environment, follow these steps.
@@ -63,7 +63,7 @@ To set up your Azure Data Science environment, follow these steps.
 
 * When you provision your own Azure blob storage, choose a geo-location for your Azure blob storage in or as close as possible to **South Central US**, which is where the NYC Taxi data is stored. The data will be copied using AzCopy from the public blob storage container to a container in your own storage account. The closer your Azure blob storage is to South Central US, the faster this task (Step 4) will be completed.
 * To create your own Azure storage account, follow the steps outlined at [About Azure storage accounts](../../storage/common/storage-create-storage-account.md). Be sure to make notes on the values for following storage account credentials as they will be needed later in this walkthrough.
-  
+
   * **Storage Account Name**
   * **Storage Account Key**
   * **Container Name** (which you want the data to be stored in the Azure blob storage)
@@ -71,7 +71,7 @@ To set up your Azure Data Science environment, follow these steps.
 **Provision your Azure SQL DW instance.**
 Follow the documentation at [Create a SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) to provision a SQL Data Warehouse instance. Make sure that you make notations on the following SQL Data Warehouse credentials which will be used in later steps.
 
-* **Server Name**: <server Name>.database.windows.net
+* **Server Name**: \<server Name>.database.windows.net
 * **SQLDW (Database) Name**
 * **Username**
 * **Password**
@@ -82,8 +82,8 @@ Follow the documentation at [Create a SQL Data Warehouse](../../sql-data-warehou
 
 > [!NOTE]
 > Run the following SQL query on the database you created in your SQL Data Warehouse (instead of the query provided in step 3 of the connect topic,) to **create a master key**.
-> 
-> 
+>
+>
 
     BEGIN TRY
            --Try to create the master key
@@ -100,8 +100,8 @@ Open a Windows PowerShell command console. Run the following PowerShell commands
 
 > [!NOTE]
 > You might need to **Run as Administrator** when executing the following PowerShell script if your *DestDir* directory needs Administrator privilege to create or to write to it.
-> 
-> 
+>
+>
 
     $source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
     $ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -121,13 +121,13 @@ When the PowerShell script runs for the first time, you will be asked to input t
 
 > [!NOTE]
 > In order to avoid schema name conflicts with those that already exist in your Azure SQL DW, when reading parameters directly from the SQLDW.conf file, a 3-digit random number is added to the schema name from the SQLDW.conf file as the default schema name for each run. The PowerShell script may prompt you for a schema name: the name may be specified at user discretion.
-> 
-> 
+>
+>
 
 This **PowerShell script** file completes the following tasks:
 
 * **Downloads and installs AzCopy**, if AzCopy is not already installed
-  
+
         $AzCopy_path = SearchAzCopy
         if ($AzCopy_path -eq $null){
                Write-Host "AzCopy.exe is not found in C:\Program Files*. Now, start installing AzCopy..." -ForegroundColor "Yellow"
@@ -148,7 +148,7 @@ This **PowerShell script** file completes the following tasks:
                     $env_path = $env:Path
                 }
 * **Copies data to your private blob storage account** from the public blob with AzCopy
-  
+
         Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
         $start_time = Get-Date
         AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
@@ -158,17 +158,17 @@ This **PowerShell script** file completes the following tasks:
         Write-Host "AzCopy finished copying data. Please check your storage account to verify." -ForegroundColor "Yellow"
         Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
 * **Loads data using Polybase (by executing LoadDataToSQLDW.sql) to your Azure SQL DW** from your private blob storage account with the following commands.
-  
+
   * Create a schema
-    
+
           EXEC (''CREATE SCHEMA {schemaname};'');
   * Create a database scoped credential
-    
+
           CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
           WITH IDENTITY = ''asbkey'' ,
           Secret = ''{StorageAccountKey}''
   * Create an external data source for an Azure storage blob
-    
+
           CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
           WITH
           (
@@ -177,7 +177,7 @@ This **PowerShell script** file completes the following tasks:
               CREDENTIAL = {KeyAlias}
           )
           ;
-    
+
           CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
           WITH
           (
@@ -187,12 +187,12 @@ This **PowerShell script** file completes the following tasks:
           )
           ;
   * Create an external file format for a csv file. Data is uncompressed and fields are separated with the pipe character.
-    
+
           CREATE EXTERNAL FILE FORMAT {csv_file_format}
           WITH
-          (   
+          (
               FORMAT_TYPE = DELIMITEDTEXT,
-              FORMAT_OPTIONS  
+              FORMAT_OPTIONS
               (
                   FIELD_TERMINATOR ='','',
                   USE_TYPE_DEFAULT = TRUE
@@ -200,7 +200,7 @@ This **PowerShell script** file completes the following tasks:
           )
           ;
   * Create external fare and trip tables for NYC taxi dataset in Azure blob storage.
-    
+
           CREATE EXTERNAL TABLE {external_nyctaxi_fare}
           (
               medallion varchar(50) not null,
@@ -220,8 +220,8 @@ This **PowerShell script** file completes the following tasks:
               DATA_SOURCE = {nyctaxi_fare_storage},
               FILE_FORMAT = {csv_file_format},
               REJECT_TYPE = VALUE,
-              REJECT_VALUE = 12     
-          )  
+              REJECT_VALUE = 12
+          )
 
             CREATE EXTERNAL TABLE {external_nyctaxi_trip}
             (
@@ -245,14 +245,14 @@ This **PowerShell script** file completes the following tasks:
                 DATA_SOURCE = {nyctaxi_trip_storage},
                 FILE_FORMAT = {csv_file_format},
                 REJECT_TYPE = VALUE,
-                REJECT_VALUE = 12         
+                REJECT_VALUE = 12
             )
 
     - Load data from external tables in Azure blob storage to SQL Data Warehouse
 
             CREATE TABLE {schemaname}.{nyctaxi_fare}
             WITH
-            (   
+            (
                 CLUSTERED COLUMNSTORE INDEX,
                 DISTRIBUTION = HASH(medallion)
             )
@@ -263,7 +263,7 @@ This **PowerShell script** file completes the following tasks:
 
             CREATE TABLE {schemaname}.{nyctaxi_trip}
             WITH
-            (   
+            (
                 CLUSTERED COLUMNSTORE INDEX,
                 DISTRIBUTION = HASH(medallion)
             )
@@ -276,7 +276,7 @@ This **PowerShell script** file completes the following tasks:
 
             CREATE TABLE {schemaname}.{nyctaxi_sample}
             WITH
-            (   
+            (
                 CLUSTERED COLUMNSTORE INDEX,
                 DISTRIBUTION = HASH(medallion)
             )
@@ -304,16 +304,16 @@ This **PowerShell script** file completes the following tasks:
 The geographic location of your storage accounts affects load times.
 
 > [!NOTE]
-> Depending on the geographical location of your private blob storage account, the process of copying data from a public blob to your private storage account can take about 15 minutes, or even longer,and the process of loading data from your storage account to your Azure SQL DW could take 20 minutes or longer.  
-> 
-> 
+> Depending on the geographical location of your private blob storage account, the process of copying data from a public blob to your private storage account can take about 15 minutes, or even longer,and the process of loading data from your storage account to your Azure SQL DW could take 20 minutes or longer.
+>
+>
 
 You will have to decide what do if you have duplicate source and destination files.
 
 > [!NOTE]
 > If the .csv files to be copied from the public blob storage to your private blob storage account already exist in your private blob storage account, AzCopy will ask you whether you want to overwrite them. If you do not want to overwrite them, input **n** when prompted. If you want to overwrite **all** of them, input **a** when prompted. You can also input **y** to overwrite .csv files individually.
-> 
-> 
+>
+>
 
 ![Output from AzCopy][21]
 
@@ -321,8 +321,8 @@ You can use your own data. If your data is in your on-premises machine in your r
 
 > [!TIP]
 > If your data is already in your private Azure blob storage in your real life application, you can skip the AzCopy step in the PowerShell script and directly upload the data to Azure SQL DW. This will require additional edits of the script to tailor it to the format of your data.
-> 
-> 
+>
+>
 
 This Powershell script also plugs in the Azure SQL DW information into the data exploration example files SQLDW_Explorations.sql, SQLDW_Explorations.ipynb, and SQLDW_Explorations_Scripts.py so that these three files are ready to be tried out instantly after the PowerShell script completes.
 
@@ -337,8 +337,8 @@ Connect to your Azure SQL DW using Visual Studio with the SQL DW login name and 
 
 > [!NOTE]
 > To open a Parallel Data Warehouse (PDW) query editor, use the **New Query** command while your PDW is selected in the **SQL Object Explorer**. The standard SQL query editor is not supported by PDW.
-> 
-> 
+>
+>
 
 Here are the type of data exploration and feature generation tasks performed in this section:
 
@@ -551,7 +551,7 @@ The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, ge
     AND   t.pickup_datetime = f.pickup_datetime
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
-When you are ready to proceed to Azure Machine Learning, you may either:  
+When you are ready to proceed to Azure Machine Learning, you may either:
 
 1. Save the final SQL query to extract and sample the data and copy-paste the query directly into a [Import Data][import-data] module in Azure Machine Learning, or
 2. Persist the sampled and engineered data you plan to use for model building in a new SQL DW table and use the new table in the [Import Data][import-data] module in Azure Machine Learning. The PowerShell script in earlier step has done this for you. You can read directly from this table in the Import Data module.
@@ -565,25 +565,25 @@ The needed Azure SQL DW information in the sample IPython Notebook and the Pytho
 If you have already set up an AzureML workspace, you can directly upload the sample IPython Notebook to the AzureML IPython Notebook service and start running it. Here are the steps to upload to AzureML IPython Notebook service:
 
 1. Log in to your AzureML workspace, click "Studio" at the top, and click "NOTEBOOKS" on the left side of the web page.
-   
+
     ![Click Studio then NOTEBOOKS][22]
 2. Click "NEW" on the left bottom corner of the web page, and select "Python 2". Then, provide a name to the notebook and click the check mark to create the new blank IPython Notebook.
-   
+
     ![Click NEW then select Python 2][23]
 3. Click the "Jupyter" symbol on the left top corner of the new IPython Notebook.
-   
+
     ![Click Jupyter symbol][24]
 4. Drag and drop the sample IPython Notebook to the **tree** page of your AzureML IPython Notebook service, and click **Upload**. Then, the sample IPython Notebook will be uploaded to the AzureML IPython Notebook service.
-   
+
     ![Click Upload][25]
 
 In order to run the sample IPython Notebook or the Python script file, the following Python packages are needed. If you are using the AzureML IPython Notebook service, these packages have been pre-installed.
 
-    - pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 The recommended sequence when building advanced analytical solutions on AzureML with large data is the following:
 
@@ -625,7 +625,7 @@ Here is the connection string that creates the connection to the database.
 
     print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-* Total number of rows = 173179759  
+* Total number of rows = 173179759
 * Total number of columns = 14
 
 ### Report number of rows and columns in table <nyctaxi_fare>
@@ -643,7 +643,7 @@ Here is the connection string that creates the connection to the database.
 
     print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-* Total number of rows = 173179759  
+* Total number of rows = 173179759
 * Total number of columns = 11
 
 ### Read-in a small data sample from the SQL Data Warehouse Database
@@ -666,7 +666,7 @@ Here is the connection string that creates the connection to the database.
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Time to read the sample table is 14.096495 seconds.  
+Time to read the sample table is 14.096495 seconds.
 Number of rows and columns retrieved = (1000, 21).
 
 ### Descriptive statistics
@@ -804,9 +804,9 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 
 1. **Binary classification**: To predict whether or not a tip was paid for a trip.
 2. **Multiclass classification**: To predict the range of tip paid, according to the previously defined classes.
-3. **Regression task**: To predict the amount of tip paid for a trip.  
+3. **Regression task**: To predict the amount of tip paid for a trip.
 
-To begin the modeling exercise, log in to your **Azure Machine Learning** workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](../studio/create-workspace.md).
+To begin the modeling exercise, log in to your **Azure Machine Learning** workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning studio workspace](../studio/create-workspace.md).
 
 1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
@@ -815,7 +815,7 @@ To begin the modeling exercise, log in to your **Azure Machine Learning** worksp
 A typical training experiment consists of the following steps:
 
 1. Create a **+NEW** experiment.
-2. Get the data into Azure ML.
+2. Get the data into Azure Machine Learning studio.
 3. Pre-process, transform and manipulate the data as needed.
 4. Generate features as needed.
 5. Split the data into training/validation/testing datasets(or have separate datasets for each).
@@ -825,10 +825,10 @@ A typical training experiment consists of the following steps:
 9. Evaluate the model(s) to compute the relevant metrics for the learning problem.
 10. Fine tune the model(s) and select the best model to deploy.
 
-In this exercise, we have already explored and engineered the data in SQL Data Warehouse, and decided on the sample size to ingest in Azure ML. Here is the procedure to build one or more of the prediction models:
+In this exercise, we have already explored and engineered the data in SQL Data Warehouse, and decided on the sample size to ingest in Azure Machine Learning studio. Here is the procedure to build one or more of the prediction models:
 
-1. Get the data into Azure ML using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
-   
+1. Get the data into Azure Machine Learning studio using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
+
     ![Azure ML Import Data][17]
 2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
 3. Enter the database DNS name in the **Database server name** field. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
@@ -842,10 +842,10 @@ An example of a binary classification experiment reading data directly from the 
 
 > [!IMPORTANT]
 > In the modeling data extraction and sampling query examples provided in previous sections, **all labels for the three modeling exercises are included in the query**. An important (required) step in each of the modeling exercises is to **exclude** the unnecessary labels for the other two problems, and any other **target leaks**. For example, when using binary classification, use the label **tipped** and exclude the fields **tip\_class**, **tip\_amount**, and **total\_amount**. The latter are target leaks since they imply the tip paid.
-> 
+>
 > To exclude any unnecessary columns or target leaks, you may use the [Select Columns in Dataset][select-columns] module or the [Edit Metadata][edit-metadata]. For more information, see [Select Columns in Dataset][select-columns] and [Edit Metadata][edit-metadata] reference pages.
-> 
-> 
+>
+>
 
 ## <a name="mldeploy"></a>Deploy models in Azure Machine Learning
 When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure ML web services, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
@@ -878,9 +878,9 @@ To recap what we have done in this walkthrough tutorial, you have created an Azu
 This sample walkthrough and its accompanying scripts and IPython notebook(s) are shared by Microsoft under the MIT license. Please check the LICENSE.txt file in the directory of the sample code on GitHub for more details.
 
 ## References
-•    [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
-•    [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [NYC Taxi and Limousine Commission Research and Statistics](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+•    [Andrés Monroy NYC Taxi Trips Download Page](https://www.andresmh.com/nyctaxitrips/)
+•    [FOILing NYC’s Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
+•    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

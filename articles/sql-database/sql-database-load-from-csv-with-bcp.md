@@ -7,29 +7,33 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 04/01/2018
+ms.date: 01/25/2019
 ---
 # Load data from CSV into Azure SQL Database (flat files)
+
 You can use the bcp command-line utility to import data from a CSV file into Azure SQL Database.
 
 ## Before you begin
+
 ### Prerequisites
+
 To complete the steps in this article, you need:
 
-* An Azure SQL Database logical server and database
+* An Azure SQL Database server and database
 * The bcp command-line utility installed
 * The sqlcmd command-line utility installed
 
 You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][Microsoft Download Center].
 
 ### Data in ASCII or UTF-16 format
+
 If you are trying this tutorial with your own data, your data needs to use the ASCII or UTF-16 encoding since bcp does not support UTF-8. 
 
 ## 1. Create a destination table
+
 Define a table in SQL Database as the destination table. The columns in the table must correspond to the data in each row of your data file.
 
 To create a table, open a command prompt and use sqlcmd.exe to run the following command:
@@ -48,6 +52,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## 2. Create a source data file
+
 Open Notepad and copy the following lines of data into a new text file and then save this file to your local temp directory, C:\Temp\DimDate2.txt. This data is in ASCII format.
 
 ```
@@ -72,6 +77,7 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 ```
 
 ## 3. Load the data
+
 To load the data, open a command prompt and run the following command, replacing the values for Server Name, Database name, Username, and Password with your own information.
 
 ```bcp
@@ -102,7 +108,8 @@ The results should look like this:
 | 20151201 |4 |2 |
 
 ## Next steps
-To migrate a SQL Server database, see [SQL Server database migration](sql-database-cloud-migrate.md).
+
+To migrate a SQL Server database, see [SQL Server database migration](sql-database-single-database-migrate.md).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx

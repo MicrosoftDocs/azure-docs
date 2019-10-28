@@ -1,16 +1,13 @@
 ---
 title: Azure Management and Operations Management Suite (OMS) | Microsoft Docs
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools that were previously bundled as Operations Management Suite (OMS).
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.service: monitoring
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/07/2018
 ms.author: bwren
+ms.date: 09/07/2018
+
 ---
 
 # Azure Management - Monitoring
@@ -35,10 +32,10 @@ Monitoring is the act of collecting and analyzing data to determine the performa
 Configure refers to the initial deployment and configuration of applications and resources and their ongoing maintenance with patches and updates.  Automation of these tasks through script and policy allows you to eliminate redundancy, minimizing your time and effort and increasing your accuracy and efficiency.  [Azure Automation](../automation/automation-intro.md) provides the bulk of services for automating configuration tasks.  In addition to runbooks for automating processes, it provides configuration and update management, which assist you in managing configuration through policy and in identifying and deploying updates.
 
 ## Govern
-Governance provides mechanisms and processes to maintain control over your applications and resources in Azure.  It involves planning your initiatives and setting strategic priorities.  Governance in Azure is primarily implemented with two services.  [Azure Policy](../governance/policy/overview.md) allows you to create, assign and, manage policy definitions that enforce different rules and actions over your resources, so those resources stay compliant with your corporate standards and service level agreements. [Azure Cost Management by Cloudyn](../cost-management/overview.md) allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google.
+Governance provides mechanisms and processes to maintain control over your applications and resources in Azure.  It involves planning your initiatives and setting strategic priorities.  Governance in Azure is primarily implemented with two services.  [Azure Policy](../governance/policy/overview.md) allows you to create, assign and, manage policy definitions that enforce different rules and actions over your resources, so those resources stay compliant with your corporate standards and service level agreements. [Azure Cost Management](../cost-management/overview-cost-mgt.md) allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google.
 
 ## Secure
-Managing security of your applications,  resources, and data involves a combination of assessing threats, collecting and analyzing security data, and ensuring that your applications and resources are designed and configured in a secure fashion.  Security monitoring and threat analysis are provided by [Azure Security Center](../security-center/security-center-intro.md) which includes unified security management and advanced threat protection across hybrid cloud workloads.  You should also see [Introduction to Azure Security](../security/azure-security.md) for comprehensive information on security in Azure and guidance on securely configuring Azure resources.
+Managing security of your applications,  resources, and data involves a combination of assessing threats, collecting and analyzing security data, and ensuring that your applications and resources are designed and configured in a secure fashion.  Security monitoring and threat analysis are provided by [Azure Security Center](../security-center/security-center-intro.md) which includes unified security management and advanced threat protection across hybrid cloud workloads.  You should also see [Introduction to Azure Security](../security/fundamentals/overview.md) for comprehensive information on security in Azure and guidance on securely configuring Azure resources.
 
 
 ## Protect
@@ -47,13 +44,3 @@ Protection refers to ensuring that your applications and data are always availab
 ## Migrate 
 Migration refers to transitioning workloads currently running on-premises to the Azure cloud.  [Azure Migrate](../migrate/migrate-overview.md) is a service that helps you assess the migration suitability, including performance-based sizing and cost estimates, of on-premises virtual machines to Azure.  Azure Site Recovery can help you perform the actual migration of virtual machines [from on-premises](../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  [Azure Database Migration](../dms/dms-overview.md) will assist you in migrating multiple database sources to Azure Data platforms.
 
-
-## Operations Management Suite
-Previous technical documentation related to Azure management included Operations Management Suite (OMS), which is a bundling of the following Azure management services:
-
-- Azure Automation
-- Azure Backup
-- Log Analytics
-- Site Recovery
-
-We are moving away from describing this bundling in our technical documentation since complete management in Azure has expanded to include other services. None of the services that are part of OMS have changed, and each still has a critical role in managing your Azure applications and resources. Your focus should be on the management tasks that you need to perform and the different Azure services that work together for each task.

@@ -1,20 +1,18 @@
 ---
 title: PowerShell script to create an Application Insights resource | Microsoft Docs
 description: Automate creation of Application Insights resources.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/19/2016
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 11/19/2016
+
 ---
+
 # PowerShell script to create an Application Insights resource
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 When you want to monitor a new application - or a new version of an application - with [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), you set up a new resource in Microsoft Azure. This resource is where the telemetry data from your app is analyzed and displayed. 
 
@@ -30,12 +28,12 @@ For example, if you are developing a mobile device app, it's likely that, at any
 ## Script to create an Application Insights resource
 See the relevant cmdlet specs:
 
-* [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
-* [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
+* [New-AzResource](https://msdn.microsoft.com/library/mt652510.aspx)
+* [New-AzRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
 
 *PowerShell Script*  
 
-```PowerShell
+```powershell
 
 
 ###########################################
@@ -45,7 +43,7 @@ See the relevant cmdlet specs:
 # If running manually, uncomment before the first 
 # execution to login to the Azure Portal:
 
-# Connect-AzureRmAccount / Connect-AzureRmAccount
+# Connect-AzAccount / Connect-AzAccount
 
 # Set the name of the Application Insights Resource
 
@@ -69,7 +67,7 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 # Create the App Insights Resource
 
 
-$resource = New-AzureRmResource `
+$resource = New-AzResource `
   -ResourceName $appInsightsName `
   -ResourceGroupName $resourceGroupName `
   -Tag @{ applicationType = "web"; applicationName = $applicationTagName} `
@@ -80,7 +78,7 @@ $resource = New-AzureRmResource `
 
 # Give owner access to the team
 
-New-AzureRmRoleAssignment `
+New-AzRoleAssignment `
   -SignInName "myteam@fabrikam.com" `
   -RoleDefinitionName Owner `
   -Scope $resource.ResourceId 

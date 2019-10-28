@@ -10,15 +10,16 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
-manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/25/2019
 ---
 # Monitor In-Memory OLTP storage
+
 When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium and Business Critical service tier has a maximum In-Memory OLTP storage size. See [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md), [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Once this limit is exceeded, insert and update operations may start failing with error 41823 for single databases and error 41840 for elastic pools. At that point you need to either delete data to reclaim memory, or upgrade the service tier or compute size of your database.
 
 ## Determine whether data fits within the In-Memory OLTP storage cap
+
 Determine the storage caps of the different service tiers. See [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md), [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database. Take a few minutes to review that article on [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
@@ -34,10 +35,12 @@ You can monitor In-memory storage use as a percentage of the storage cap for you
 
 Or use the following query to show the In-memory storage utilization:
 
+```sql
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
-
+```
 
 ## Correct out-of-In-Memory OLTP storage situations - Errors 41823 and 41840
+
 Hitting the In-Memory OLTP storage cap in your database results in INSERT, UPDATE, ALTER and CREATE operations failing with error message 41823 (for single databases) or error 41840 (for elastic pools). Both errors cause the active transaction to abort.
 
 Error messages 41823 and 41840 indicate that the memory-optimized tables and table variables in the database or pool have reached the maximum In-Memory OLTP storage size.

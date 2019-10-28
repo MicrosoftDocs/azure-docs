@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -21,11 +21,11 @@ Skype for Business has various workloads that require differentiated QoS treatme
 > 
 > 
 
-The following table provides a list of DSCP markings used by Skype for Business. Refer to [Managing QoS for Skype for Business](https://technet.microsoft.com/library/gg405409.aspx) for more information.
+The following table provides a list of DSCP markings used by Microsoft Teams and Skype for Business. Refer to [Managing QoS for Skype for Business](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) for more information.
 
-| **Traffic Class** | **Treatment (DSCP Marking)** | **Skype for Business Workloads** |
+| **Traffic Class** | **Treatment (DSCP Marking)** | **Microsoft Teams and Skype for Business Workloads** |
 | --- | --- | --- |
-| **Voice** |EF (46) |Skype / Lync voice |
+| **Voice** |EF (46) |Skype / Microsoft Teams / Lync voice |
 | **Interactive** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |App sharing | 
 | **Default** |AF11 (10) |File transfer |

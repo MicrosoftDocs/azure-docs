@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 05/02/2018
+ms.date: 01/02/2019
 ms.author: babanisa
 ---
 
@@ -64,7 +64,7 @@ The Event Subscription name must be 3-64 characters in length and can only conta
     },
     "filter": {
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
-      "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+      "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "isSubjectCaseSensitive ": "true"
     }

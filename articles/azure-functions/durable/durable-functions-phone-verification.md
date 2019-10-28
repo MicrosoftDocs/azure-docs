@@ -2,11 +2,10 @@
 title: Human interaction and timeouts in Durable Functions - Azure
 description: Learn how to handle human interaction and timeouts in the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -49,7 +48,7 @@ The **E4_SmsPhoneVerification** function uses the standard *function.json* for o
 
 Here is the code that implements the function:
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
@@ -80,7 +79,7 @@ The **E4_SendSmsChallenge** function uses the Twilio binding to send the SMS mes
 
 And here is the code that generates the 4-digit challenge code and sends the SMS message:
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
@@ -113,7 +112,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 The orchestrator function receives the supplied phone number and immediately sends it an SMS message with a randomly generated 4-digit verification code &mdash; for example, *2168*. The function then waits 90 seconds for a response.
 
-To reply with the code, you can use [`RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances) inside another function or invoke the **sendEventUrl** HTTP POST webhook referenced in the 202 response above, replacing `{eventName}` with the name of the event, `SmsChallengeResponse`:
+To reply with the code, you can use [`RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript)](durable-functions-instance-management.md) inside another function or invoke the **sendEventUrl** HTTP POST webhook referenced in the 202 response above, replacing `{eventName}` with the name of the event, `SmsChallengeResponse`:
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}

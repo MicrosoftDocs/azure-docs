@@ -3,10 +3,10 @@ title: Deploy the remote monitoring solution locally (via Visual Studio IDE) - A
 description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine using Visual Studio for testing and development.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/25/2018
+ms.date: 01/17/2019
 ms.topic: conceptual
 ---
 
@@ -43,16 +43,9 @@ To complete the local deployment, you need the following tools installed on your
 
 In this section, you run the Remote Monitoring microservices. You run the web UI natively, the Device Simulation service in Docker, and the microservices in Visual Studio.
 
-### Run the web UI
-
-In this step, you start the web UI. Navigate to the **webui** folder in your local copy of the repository and run the following commands:
-
-```cmd
-npm install
-npm start
-```
-
 ### Run the device simulation service
+
+Open a new command prompt window to be sure that you have access to the environment variables set by the **start.cmd** script in the previous section.
 
 Run the following command to launch the Docker container for the device simulation service. The service simulates devices for the remote monitoring solution.
 
@@ -62,9 +55,9 @@ Run the following command to launch the Docker container for the device simulati
 
 ### Deploy all other microservices on local machine
 
-The following steps show you how to run the Remote Monitoring microservices in Visual Studio 2017:
+The following steps show you how to run the Remote Monitoring microservices in Visual Studio:
 
-1. Launch Visual Studio 2017
+1. Launch Visual Studio.
 1. Open the **remote-monitoring.sln** solution in the **services** folder in your local copy of the repository.
 1. In **Solution Explorer**, right-click the solution and the click **Properties**.
 1. Select **Common Properties > Startup Project**.
@@ -85,22 +78,33 @@ Each web service opens a command prompt and web browser window. At the command p
 Follow these steps to start the Stream Analytics job:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Navigate to the **Resource group** created for your solution. The name of the resource group is the name you chose for your solution when you ran the **start.cmd** script**.
-1. Click on the **Stream Analytics job** in the list of resources.
+1. Navigate to the **Resource group** created for your solution. The name of the resource group is the name you chose for your solution when you ran the **start.cmd** script.
+1. Click the **Stream Analytics job** in the list of resources.
 1. On the Stream Analytics job **overview** page, click the **Start** button. Then click **Start** to start the job now.
+
+### Run the web UI
+
+In this step, you start the web UI. Open a new command prompt window to be sure that you have access to the environment variables set by the **start.cmd** script. Navigate to the **webui** folder in your local copy of the repository and run the following commands:
+
+```cmd
+npm install
+npm start
+```
+
+When the start is complete, your browser displays the page **http:\//localhost:3000/dashboard**. The errors on this page are expected. To view the application without errors, complete the following step.
 
 ### Configure and run NGINX
 
 Set up a reverse proxy server to link the web application and microservices running on your local machine:
 
-* Copy the **nginx.conf** file from the **webui\scripts\localhost** folder to the **nginx\conf** install directory.
+* Copy the **nginx.conf** file from the **webui\scripts\localhost** folder in your local copy of the repository to the **nginx\conf** install directory.
 * Run **nginx**.
 
 For more information about running **nginx**, see [nginx for Windows](https://nginx.org/en/docs/windows.html).
 
 ### Connect to the dashboard
 
-To access the Remote Monitoring solution dashboard, navigate to [http://localhost:9000](http://localhost:9000) in your browser.
+To access the Remote Monitoring solution dashboard, navigate to http:\//localhost:9000 in your browser.
 
 ## Clean up
 

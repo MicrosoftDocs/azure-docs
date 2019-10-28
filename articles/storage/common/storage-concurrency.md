@@ -7,15 +7,15 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: jasontang501
-ms.component: common
+ms.author: tamram
+ms.subservice: common
 ---
 # Managing Concurrency in Microsoft Azure Storage
 ## Overview
 Modern Internet based applications usually have multiple users viewing and updating data simultaneously. This requires application developers to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data. There are three main data concurrency strategies that developers typically consider:  
 
 1. Optimistic concurrency – An application performing an update will as part of its update verify if the data has changed since the application last read that data. For example, if two users viewing a wiki page make an update to the same page then the wiki platform must ensure that the second update does not overwrite the first update – and that both users understand whether their update was successful or not. This strategy is most often used in web applications.
-2. Pessimistic concurrency – An application looking to perform an update will take a lock on an object preventing other users from updating the data until the lock is released. For example, in a master/slave data replication scenario where only the master will perform updates the master will typically hold an exclusive lock for an extended period of time on the data to ensure no one else can update it.
+2. Pessimistic concurrency – An application looking to perform an update will take a lock on an object preventing other users from updating the data until the lock is released. For example, in a master/subordinate data replication scenario where only the master will perform updates the master will typically hold an exclusive lock for an extended period of time on the data to ensure no one else can update it.
 3. Last writer wins – An approach that allows any update operations to proceed without verifying if any other application has updated the data since the application first read the data. This strategy (or lack of a formal strategy) is usually used where data is partitioned in such a way that there is no likelihood that multiple users will access the same data. It can also be useful where short-lived data streams are being processed.  
 
 This article provides an overview of how the Azure Storage platform simplifies development by providing first class support for all three of these concurrency strategies.  
@@ -187,7 +187,7 @@ For more information, see:
 
 * [Specifying Conditional Headers for Blob Service Operations](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease Blob ](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## Managing Concurrency in the Table Service
 The table service uses optimistic concurrency checks as the default behavior when you are working with entities, unlike the blob service where you must explicitly choose to perform optimistic concurrency checks. The other difference between the table and blob services is that you can only manage the concurrency behavior of entities whereas with the blob service you can manage the concurrency of both containers and blobs.  

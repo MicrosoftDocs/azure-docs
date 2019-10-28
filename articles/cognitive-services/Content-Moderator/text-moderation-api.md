@@ -1,18 +1,20 @@
 ---
 title: Text Moderation - Content Moderator
-description: Use text moderation for possible unwanted text, PII, and custom lists of terms.
+titleSuffix: Azure Cognitive Services
+description: Use text moderation for possible unwanted text, personal data, and custom lists of terms.
 services: cognitive-services
-author: sanjeev3
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/30/2018
-ms.author: sajagtap
+ms.date: 01/10/2019
+ms.author: pafarley
+
 ---
 
-# Text moderation
+# Learn text moderation concepts
 
 Use Content Moderator’s machine-assisted text moderation and [human review](Review-Tool-User-Guide/human-in-the-loop.md) capabilities to moderate text content.
 
@@ -22,7 +24,7 @@ The service response includes the following information:
 
 - Profanity: term-based matching with built-in list of profane terms in various languages
 - Classification: machine-assisted classification into three categories
-- Personally Identifiable Information (PII)
+- Personal data
 - Auto-corrected text
 - Original text
 - Language
@@ -71,9 +73,9 @@ The following extract in the JSON extract shows an example output:
 - `Score` is between 0 and 1. The higher the score, the higher the model is predicting that the category may be applicable. This feature relies on a statistical model rather than manually coded outcomes. We recommend testing with your own content to determine how each category aligns to your requirements.
 - `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers should assess whether to use this value or decide on custom thresholds based on their content policies.
 
-## Personally Identifiable Information (PII)
+## Personal data
 
-The PII feature detects the potential presence of this information:
+The personal data feature detects the potential presence of this information:
 
 - Email address
 - US Mailing address
@@ -84,51 +86,68 @@ The PII feature detects the potential presence of this information:
 
 The following example shows a sample response:
 
-	"PII": {
-    	"Email": [{
-      		"Detected": "abcdef@abcd.com",
-      		"SubType": "Regular",
-      		"Text": "abcdef@abcd.com",
-      		"Index": 32
-    		}],
-    	"IPA": [{
-      		"SubType": "IPV4",
-      		"Text": "255.255.255.255",
-      		"Index": 72
-    		}],
-    	"Phone": [{
-      		"CountryCode": "US",
-      		"Text": "6657789887",
-      		"Index": 56
-    		}, {
-      		"CountryCode": "US",
-      		"Text": "870 608 4000",
-      		"Index": 212
-    		}, {
-      		"CountryCode": "UK",
-      		"Text": "+44 870 608 4000",
-      		"Index": 208
-    		}, {
-      		"CountryCode": "UK",
-      		"Text": "0344 800 2400",
-      		"Index": 228
-    		}, {
-      		"CountryCode": "UK",
-      		"Text": "0800 820 3300",
-      		"Index": 245
-    		}],
-    	"Address": [{
-      		"Text": "1 Microsoft Way, Redmond, WA 98052",
-      		"Index": 89
-    		}],
-    	"SSN": [{
-      		"Text": "999999999",
-      		"Index": 56
-    		}, {
-      		"Text": "999-99-9999",
-      		"Index": 267
-    		}]
-		}
+```json
+"PII":{ 
+  "Email":[ 
+    { 
+      "Detected":"abcdef@abcd.com",
+      "SubType":"Regular",
+      "Text":"abcdef@abcd.com",
+      "Index":32
+    }
+  ],
+  "IPA":[ 
+    { 
+      "SubType":"IPV4",
+      "Text":"255.255.255.255",
+      "Index":72
+    }
+  ],
+  "Phone":[ 
+    { 
+      "CountryCode":"US",
+      "Text":"6657789887",
+      "Index":56
+    },
+    { 
+      "CountryCode":"US",
+      "Text":"870 608 4000",
+      "Index":212
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"+44 870 608 4000",
+      "Index":208
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0344 800 2400",
+      "Index":228
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0800 820 3300",
+      "Index":245
+    }
+  ],
+  "Address":[ 
+    { 
+      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Index":89
+    }
+  ],
+  "SSN":[ 
+    { 
+      "Text":"999999999",
+      "Index":56
+    },
+    { 
+      "Text":"999-99-9999",
+      "Index":267
+    }
+  ]
+}
+```
 
 ## Auto-correction
 

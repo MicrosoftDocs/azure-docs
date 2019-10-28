@@ -1,15 +1,15 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using Node.js | Microsoft Docs"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using Node.js
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 07/26/2019
 ms.author: aahi
 ---
 

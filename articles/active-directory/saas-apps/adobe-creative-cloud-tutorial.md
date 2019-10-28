@@ -4,18 +4,19 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: c199073f-02ce-45c2-b515-8285d4bbbca2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/15/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Adobe Creative Cloud
 
@@ -40,7 +41,7 @@ To configure Azure AD integration with Adobe Creative Cloud, you need the follow
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Adobe Creative Cloud supports **SP and IDP** initiated SSO
+* Adobe Creative Cloud supports **SP** initiated SSO
 
 ## Adding Adobe Creative Cloud from the gallery
 
@@ -62,7 +63,7 @@ To configure the integration of Adobe Creative Cloud into Azure AD, you need to 
 
 4. In the search box, type **Adobe Creative Cloud**, select **Adobe Creative Cloud** from result panel then click **Add** button to add the application.
 
-	 ![Adobe Creative Cloud in the results list](common/search-new-app.png)
+	![Adobe Creative Cloud in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,32 +97,25 @@ To configure Azure AD single sign-on with Adobe Creative Cloud, perform the foll
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure in **IDP** intiated mode perform the following steps:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Adobe Creative Cloud Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Adobe Creative Cloud Domain and URLs single sign-on information](common/sp-identifier.png)
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://www.okta.com/saml2/service-provider/<token>`
-
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<company name>.okta.com/auth/saml20/accauthlinktest`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL. Contact [Adobe Creative Cloud Client support team](https://www.adobe.com/au/creativecloud/business/teams/plans.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type the value as:
+    a. In the **Sign-on URL** text box, type the value as:
     `https://adobe.com`.
 
-    ![Adobe Creative Cloud Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+	b. In the **Identifier** text box, type a URL using the following pattern:
+    `https://www.okta.com/saml2/service-provider/<token>`
 
-6. Adobe Creative Cloud application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+	> [!NOTE]
+	> The Identifier value is not real. Update this value with the actual Identifier. Contact [Adobe Creative Cloud Client support team](https://www.adobe.com/au/creativecloud/business/teams/plans.html) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+5. Adobe Creative Cloud application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
- 
+6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+
 	| Name | Source Attribute|
 	|----- | --------- |
 	| FirstName | user.givenname |
@@ -149,11 +143,11 @@ To configure Azure AD single sign-on with Adobe Creative Cloud, perform the foll
 	> [!NOTE]
 	> Users need to have a valid Office 365 ExO license for email claim value to be populated in the SAML response.
 
-8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-9. On the **Set up Adobe Creative Cloud** section, copy the appropriate URL(s) as per your requirement.
+8. On the **Set up Adobe Creative Cloud** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -209,7 +203,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -253,9 +247,9 @@ In order to enable Azure AD users to log into Adobe Creative Cloud, they must be
 2. Add the user within Adobe’s console as Federated ID and assign them to a Product Profile. For detailed information on adding users, see [Add users in Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. At this point, type your email address/upn into the Adobe signin form, press tab, and you should be federated back to Azure AD:
-	* Web access: www.adobe.com > sign-in
-	* Within the desktop app utility > sign-in
-	* Within the application > help > sign-in
+   * Web access: www\.adobe.com > sign-in
+   * Within the desktop app utility > sign-in
+   * Within the application > help > sign-in
 
 ### Test single sign-on
 
@@ -265,11 +259,11 @@ When you click the Adobe Creative Cloud tile in the Access Panel, you should be 
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
   
 - [Set up a domain (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
   

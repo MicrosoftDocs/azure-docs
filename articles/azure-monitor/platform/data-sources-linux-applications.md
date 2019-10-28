@@ -1,25 +1,20 @@
 ---
 title: Collect Linux application performance in Azure Monitor | Microsoft Docs
-description: This article provides details for configuring the Log Analytics agent for Linux to collect performance counters for MySQL and Apache HTTP Server. 
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+description: This article provides details for configuring the Log Analytics agent for Linux to collect performance counters for MySQL and Apache HTTP Server.
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/04/2017
+author: MGoedtel
 ms.author: magoedte
+ms.date: 05/04/2017
+
 ---
 
 # Collect performance counters for Linux applications in Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-This article provides details for configuring the [Log Analytics agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications into Azure Monitor logs.  The applications included in this article are:  
+This article provides details for configuring the [Log Analytics agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications into Azure Monitor.  The applications included in this article are:  
 
-- [MySQL](#MySQL)
+- [MySQL](#mysql)
 - [Apache HTTP Server](#apache-http-server)
 
 ## MySQL
@@ -163,4 +158,4 @@ Once you configure the Log Analytics agent for Linux to send data to Azure Monit
 
 ## Next steps
 * [Collect performance counters](data-sources-performance-counters.md) from Linux agents.
-* Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 

@@ -1,21 +1,19 @@
 ---
 title: Azure Application Insights Telemetry Data Model - Request Telemetry | Microsoft Docs
 description: Application Insights data model for request telemetry
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/25/2017
-ms.reviewer: sergkanz
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 01/07/2019
+
+ms.reviewer: sergkanz
 ---
+
 # Request telemetry: Application Insights data model
 
-A request telemetry item (in [Application Insights](../../application-insights/app-insights-overview.md)) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
+A request telemetry item (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
 
 Request telemetry supports the standard extensibility model using custom `properties` and `measurements`.
 
@@ -23,7 +21,7 @@ Request telemetry supports the standard extensibility model using custom `proper
 
 Name of the request represents code path taken to process the request. Low cardinality value to allow better grouping of requests. For HTTP requests it represents the HTTP method and URL path template like `GET /values/{id}` without the actual `id` value.
 
-Application Insights web SDK sends request name "as is" with regards to letter case. Grouping on UI is case-sensitive so `GET /Home/Index` is counted separately from `GET /home/INDEX` even though often they result in the same controller and action execution. The reason for that is that urls in general are [case-sensitive](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). You may want to see if all `404` happened for the urls typed in uppercase. You can read more on request name collection by ASP.Net Web SDK in the [blog post](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights web SDK sends request name "as is" with regards to letter case. Grouping on UI is case-sensitive so `GET /Home/Index` is counted separately from `GET /home/INDEX` even though often they result in the same controller and action execution. The reason for that is that urls in general are [case-sensitive](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). You may want to see if all `404` happened for the urls typed in uppercase. You can read more on request name collection by ASP.NET Web SDK in the [blog post](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Max length: 1024 characters
 
@@ -57,9 +55,9 @@ Max length: 1024 characters
 
 ## Success
 
-Indication of successful or unsuccessful call. This field is required. When not set explicitly to `false` - request considered to be successful. Set this value to `false` if operation was interrupted by exception or returned error result code.
+Indication of successful or unsuccessful call. This field is required. When not set explicitly to `false` - a request is considered to be successful. Set this value to `false` if operation was interrupted by exception or returned error result code.
 
-For the web applications, Application Insights define request as failed when the response code is less the `400` or equal to `401`. However there are cases when this default mapping does not match the semantic of the application. Response code `404` may indicate "no records", which can be part of regular flow. It also may indicate a broken link. For the broken links, you can even implement more advanced logic. You can mark broken links as failures only when those links are located on the same site by analyzing url referrer. Or mark them as failures when accessed from the company's mobile application. Similarly `301` and `302` indicates failure when accessed from the client that doesn't support redirect.
+For the web applications, Application Insights define a request as successful when the response code is less than `400` or equal to `401`. However there are cases when this default mapping does not match the semantic of the application. Response code `404` may indicate "no records", which can be part of regular flow. It also may indicate a broken link. For the broken links, you can even implement more advanced logic. You can mark broken links as failures only when those links are located on the same site by analyzing url referrer. Or mark them as failures when accessed from the company's mobile application. Similarly `301` and `302` indicates failure when accessed from the client that doesn't support redirect.
 
 Partially accepted content `206` may indicate a failure of an overall request. For instance, Application Insights endpoint receives a batch of telemetry items as a single request. It returns `206` when some items in the batch were not processed successfully. Increasing rate of `206` indicates a problem that needs to be investigated. Similar logic applies to `207` Multi-Status where the success may be the worst of separate response codes.
 

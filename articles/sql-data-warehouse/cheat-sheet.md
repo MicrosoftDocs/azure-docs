@@ -1,19 +1,19 @@
-﻿---
+---
 title: Cheat sheet for Azure SQL Data Warehouse | Microsoft Docs
 description: Find links and best practices to quickly build your Azure SQL Data Warehouse solutions.
 services: sql-data-warehouse
-author: acomet
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
-ms.component: design
-ms.date: 04/17/2018
-ms.author: acomet
+ms.subservice: design
+ms.date: 08/23/2019
+ms.author: martinle
 ms.reviewer: igorstan
 ---
 
 # Cheat sheet for Azure SQL Data Warehouse
-This cheat sheet provides helpful tips and best practices for building your Azure SQL Data Warehouse solutions. Before you get started, learn more about each step in detail by reading [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), which explains what SQL Data Warehouse is and what it is not.
+This cheat sheet provides helpful tips and best practices for building your Azure SQL Data Warehouse solutions. Before you get started, learn more about each step in detail by reading [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns), which explains what SQL Data Warehouse is and what it is not.
 
 The following graphic shows the process of designing a data warehouse:
 
@@ -30,7 +30,7 @@ Knowing the types of operations in advance helps you optimize the design of your
 
 ## Data migration
 
-First, load your data into [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) or Azure Blob storage. Next, use PolyBase to load your data into SQL Data Warehouse in a staging table. Use the following configuration:
+First, load your data into [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) or Azure Blob storage. Next, use PolyBase to load your data into SQL Data Warehouse in a staging table. Use the following configuration:
 
 | Design | Recommendation |
 |:--- |:--- |
@@ -91,9 +91,11 @@ Learn more about [partitions].
 
 ## Incremental load
 
-If you're going to incrementally load your data, first make sure that you allocate larger resource classes to loading your data. We recommend using PolyBase and ADF V2 for automating your ELT pipelines into SQL Data Warehouse.
+If you're going to incrementally load your data, first make sure that you allocate larger resource classes to loading your data.  This is particularly important when loading into tables with clustered columnstore indexes.  See [resource classes](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) for further details.  
 
-For a large batch of updates in your historical data, first delete the concerned data. Then make a bulk insert of the new data. This two-step approach is more efficient.
+We recommend using PolyBase and ADF V2 for automating your ELT pipelines into SQL Data Warehouse.
+
+For a large batch of updates in your historical data, consider using a [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) to write the data you want to keep in a table rather than using INSERT, UPDATE, and DELETE.
 
 ## Maintain statistics
  Until auto-statistics are generally available, SQL Data Warehouse requires manual maintenance of statistics. It's important to update statistics as *significant* changes happen to your data. This helps optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics. 
@@ -124,7 +126,7 @@ Autoscale now at the time you want with Azure Functions:
 
 We recommend considering SQL Database and Azure Analysis Services in a hub-and-spoke architecture. This solution can provide workload isolation between different user groups while also using advanced security features from SQL Database and Azure Analysis Services. This is also a way to provide limitless concurrency to your users.
 
-Learn more about [typical architectures that take advantage of SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Learn more about [typical architectures that take advantage of SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
 Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 
@@ -150,10 +152,10 @@ Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 
 
 <!--Other Web references-->
-[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
-[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[data migration]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
+[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
+[data migration]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
-[Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
+[Azure Data Lake Storage]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
 [sys.dm_pdw_request_steps]:/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

@@ -95,13 +95,13 @@ To view the existing backups, perform the following steps in the Azure portal.
     ![Navigate to backup catalog](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Specify the following criteria to be used for filtering:
    
-    - **Time range** – can be **Past 1 hour**, **Past 24 hours**, **Past 7 days**, **Past 30 days**, **Past year**, and **Custom date**.
+   - **Time range** – can be **Past 1 hour**, **Past 24 hours**, **Past 7 days**, **Past 30 days**, **Past year**, and **Custom date**.
     
-    - **Devices** – select from the list of file servers or iSCSI servers registered with your StorSimple Device Manager service.
+   - **Devices** – select from the list of file servers or iSCSI servers registered with your StorSimple Device Manager service.
    
-    - **Initiated** – can be automatically **Scheduled** (by a backup policy) or **Manually** initiated (by you).
+   - **Initiated** – can be automatically **Scheduled** (by a backup policy) or **Manually** initiated (by you).
    
-    ![Filter backups](./media/storsimple-virtual-array-backup/viewbackups2.png)
+     ![Filter backups](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
 3. Click **Apply**. The filtered list of backups is displayed in the **Backup catalog** blade. Note only 100 backup elements can be displayed at a given time.
    

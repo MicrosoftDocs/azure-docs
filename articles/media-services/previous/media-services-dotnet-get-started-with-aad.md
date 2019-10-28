@@ -12,11 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
 # Use Azure AD authentication to access Azure Media Services API with .NET
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 Starting with windowsazure.mediaservices 4.0.0.4, Azure Media Services supports authentication based on Azure Active Directory (Azure AD). This topic shows you how to use Azure AD  authentication to access Azure Media Services API with Microsoft .NET.
 
@@ -76,7 +79,7 @@ To connect to the Azure Media Service API with the user authentication option, t
 
 The values for these parameters can be found in **AzureEnvironments.AzureCloudEnvironment**. The **AzureEnvironments.AzureCloudEnvironment** constant is a helper in the .NET SDK to get the right environment variable settings for a public Azure Data Center. 
 
-It contains pre-defined environment settings for accessing Media Services in the public data centers only. For sovereign or government cloud regions, you can use **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment**, or **AzureGermanCloudEnvironment** respectively.
+It contains pre-defined environment settings for accessing Media Services in the public data centers only. For sovereign or government cloud regions, you can use **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment**, or **AzureGermanCloudEnvironment** respectively.
 
 The following code example creates a token:
 	

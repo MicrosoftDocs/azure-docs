@@ -3,12 +3,12 @@ title: Azure VM startup is stuck at Windows Update| Microsoft Docs
 description: Learn how to troubleshoot the issue when an Azure VM startup is stuck at Windows update.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
-manager: cshepard
+author: genlin
+manager: dcscontentpm
 editor: v-jesits
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -23,7 +23,7 @@ This article helps resolve the issue when your Virtual Machine (VM) is stuck at 
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
 
- ## Symptom
+## Symptom
 
  A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) window, you see that the startup is stuck in the update process. The following are examples of messages that you may receive:
 
@@ -43,16 +43,16 @@ Depending on the number of updates that are getting installed or rolled backing,
 
 1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md). 
 2. [Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).
-3. Once the OS disk is attached on the recovery VM, open the **disk manager** and ensure it is **ONLINE**. Take note of the drive letter that is assigned to the attached OS disk holding the \windows folder. If the disk is encrypted, decrypt the disk before proceeding with next steps in this document.
+3. Once the OS disk is attached on the recovery VM, run **diskmgmt.msc** to open Disk Management, and ensure the attached disk is **ONLINE**. Take note of the drive letter that is assigned to the attached OS disk holding the \windows folder. If the disk is encrypted, decrypt the disk before proceeding with next steps in this document.
 
-3. Get the list of the update packages that are on the attached OS disk:
+4. Open an elevated command prompt instance (Run as administrator). Run the following command to get the list of the update packages that are on the attached OS disk:
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
     For example, if the attached OS disk is drive F, run the following command:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-4. Open the C:\temp\Patch_level.txt file, and then read it from the bottom up. Locate the update that's in **Install Pending** or **Uninstall Pending** state.  The following is a sample of the update status:
+5. Open the C:\temp\Patch_level.txt file, and then read it from the bottom up. Locate the update that's in **Install Pending** or **Uninstall Pending** state.  The following is a sample of the update status:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
@@ -60,7 +60,7 @@ Depending on the number of updates that are getting installed or rolled backing,
     Release Type : Security Update
     Install Time :
     ```
-5. Remove the update that caused the problem:
+6. Remove the update that caused the problem:
     
     ```
     dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
@@ -68,10 +68,10 @@ Depending on the number of updates that are getting installed or rolled backing,
     Example: 
 
     ```
-    dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
+    dism /Image:F:\ /Remove-Package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     ```
 
     > [!NOTE] 
     > Depending on the size of the package, the DISM tool will take a while to process the un-installation. Normally the process will be completed within 16 minutes.
 
-6. Detach the OS disk, and then [rebuild the VM by using the OS disk](troubleshoot-recovery-disks-portal-windows.md). 
+7. [Detach the OS disk and recreate the VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Then check whether the issue is resolved.

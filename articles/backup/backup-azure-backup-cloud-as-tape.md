@@ -1,14 +1,12 @@
 ---
 title: Use Azure Backup to replace your tape infrastructure
-description: Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure
-services: backup
-author: trinadhk
-manager: vijayts
+description: Learn how Azure Backup provides tape-like semantics that enable you to back up and restore data in Azure
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/10/2017
-ms.author: saurse
-ms.custom: H1Hack27Feb2017
+ms.date: 04/30/2017
+ms.author: dacurwin
 ---
 # Move your long-term storage from tape to the Azure cloud
 Azure Backup and System Center Data Protection Manager customers can:
@@ -53,8 +51,7 @@ The total number of “retention points” (points from which a customer can res
 The total number of recovery points is 56.
 
 > [!NOTE]
-> Azure backup doesn't have a restriction on number of recovery points.
->
+> Using Azure Backup you can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload that backs up to Azure.
 >
 
 ## Advanced configuration

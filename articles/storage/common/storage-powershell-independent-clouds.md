@@ -2,12 +2,13 @@
 title: Managing Storage in the Azure independent clouds Using Azure PowerShell | Microsoft Docs
 description: Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell
 services: storage
-author: roygara
+author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: rogarana
-ms.component: common
+ms.author: tamram
+ms.subservice: common
 ---
 
 # Managing Storage in the Azure independent clouds using PowerShell
@@ -32,7 +33,7 @@ The examples require Azure PowerShell module Az version 0.7 or later. In a Power
 
 ## Log in to Azure
 
-Run the [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) cmdlet to see the available Azure environments:
+Run the [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) cmdlet to see the available Azure environments:
    
 ```powershell
 Get-AzEnvironment
@@ -66,7 +67,7 @@ The endpoint suffix for each of these environments is different from the Azure P
 
 ### Get endpoint using Get-AzEnvironment 
 
-Retrieve the endpoint suffix using [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). The endpoint is the *StorageEndpointSuffix* property of the environment. The following code snippets show how to do this. All of these commands return something like "core.cloudapp.net" or "core.cloudapi.de", etc. Append this to the storage service to access that service. For example, "queue.core.cloudapi.de" will access the queue service in German Cloud.
+Retrieve the endpoint suffix using [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). The endpoint is the *StorageEndpointSuffix* property of the environment. The following code snippets show how to do this. All of these commands return something like "core.cloudapp.net" or "core.cloudapi.de", etc. Append this to the storage service to access that service. For example, "queue.core.cloudapi.de" will access the queue service in German Cloud.
 
 This code snippet retrieves all of the environments and the endpoint suffix for each one.
 

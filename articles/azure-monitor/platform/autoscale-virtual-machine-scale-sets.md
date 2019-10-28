@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ---
 
 # Advanced autoscale configuration using Resource Manager templates for VM Scale Sets
@@ -43,14 +43,14 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 4. Here is a hypothetical scaling scenario that we use for this walk-through.
 
-    * **Load based** - I'd like to scale out or in based on the load on my application hosted on my scale set.*
-    * **Message Queue size** - I use a Service Bus Queue for the incoming messages to my application. I use the queue's message count and CPU% and configure a default profile to trigger a scale action if either of message count or CPU hits the threshold.*
-    * **Time of week and day** - I want a weekly recurring 'time of the day' based profile called 'Weekday Morning Hours'. Based on historical data, I know it is better to have certain number of VM instances to handle my application's load during this time.*
-    * **Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application.*
-    * *The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles.*
+   * **Load based** - I'd like to scale out or in based on the load on my application hosted on my scale set.*
+   * **Message Queue size** - I use a Service Bus Queue for the incoming messages to my application. I use the queue's message count and CPU% and configure a default profile to trigger a scale action if either of message count or CPU hits the threshold.\*
+   * **Time of week and day** - I want a weekly recurring 'time of the day' based profile called 'Weekday Morning Hours'. Based on historical data, I know it is better to have certain number of VM instances to handle my application's load during this time.\*
+   * **Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application.\*
+   * *The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles.*
 
-    Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](autoscale-best-practices.md) article.
-    For a list of common metrics for autoscale, refer [Common metrics for Autoscale](autoscale-common-metrics.md)
+     Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](autoscale-best-practices.md) article.
+     For a list of common metrics for autoscale, refer [Common metrics for Autoscale](autoscale-common-metrics.md)
 
 5. Make sure you are on the **Read/Write** mode in Resource Explorer
 

@@ -3,9 +3,9 @@ title: Part-of-Speech Tagging - Linguistic Analysis API
 description: Learn how Part-of-Speech Tagging in the Linguistic Analysis API identifies the category or part of speech of each word of text.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun

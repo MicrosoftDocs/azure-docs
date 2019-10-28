@@ -1,46 +1,43 @@
 ---
-title: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure CLI | Microsoft Docs
+title: 'Quickstart: Set and retrieve a secret from Azure Key Vault'
 description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using Azure CLI
 services: key-vault
-author: barclayn
-manager: mbaldwin
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 05/10/2018
-ms.author: barclayn
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.date: 09/03/2019
+ms.author: mbaldwin
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. In this quickstart, you create a key vault. Once that you have completed that, you will store a secret.
+In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. Once that you have completed that, you will store a secret.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
-To log in to the Azure using the CLI you can type:
+To sign in to Azure using the CLI you can type:
 
 ```azurecli
 az login
 ```
 
-For more information on login options via the CLI take a look at [Log in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## Create a resource group
 
 A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *eastus* location.
 
 ```azurecli
-az group create --name 'ContosoResourceGroup' --location eastus
+az group create --name "ContosoResourceGroup" --location eastus
 ```
 
 ## Create a Key Vault
@@ -52,7 +49,7 @@ Next you will create a Key Vault in the resource group created in the previous s
 - The location **East US**.
 
 ```azurecli
-az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGroup' --location eastus
+az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location eastus
 ```
 
 The output of this cmdlet shows properties of the newly created Key Vault. Take note of the two properties listed below:
@@ -64,12 +61,12 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 ## Add a secret to Key Vault
 
-To add a secret to the vault, you just need to take a couple of additional steps. This password could be used by an application. The password will be called **ExamplePassword** and will store the value of **Pa$$w0rd** in it.
+To add a secret to the vault, you just need to take a couple of additional steps. This password could be used by an application. The password will be called **ExamplePassword** and will store the value of **hVFkk965BuUv** in it.
 
-Type the commands below to create a secret in Key Vault called **ExamplePassword** that will store the value **Pa$$w0rd** :
+Type the commands below to create a secret in Key Vault called **ExamplePassword** that will store the value **hVFkk965BuUv** :
 
 ```azurecli
-az keyvault secret set --vault-name 'Contoso-Vault2' --name 'ExamplePassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
 You can now reference this password that you added to Azure Key Vault by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/ExamplePassword** to get the current version. 
@@ -77,7 +74,7 @@ You can now reference this password that you added to Azure Key Vault by using i
 To view the value contained in the secret as plain text:
 
 ```azurecli
-az keyvault secret show --name 'ExamplePassword' --vault-name 'Contoso-Vault2'
+az keyvault secret show --name "ExamplePassword" --vault-name "Contoso-Vault2"
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.
@@ -85,7 +82,7 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 ## Clean up resources
 
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, and all related resources. You can delete the resources as follows:
+When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, and all related resources. You can delete the resources as follows:
 
 ```azurecli
 az group delete --name ContosoResourceGroup
@@ -93,7 +90,9 @@ az group delete --name ContosoResourceGroup
 
 ## Next steps
 
-In this quickstart, you have created a Key Vault and stored a secret in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
+In this quickstart you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-> [!div class="nextstepaction"]
-> To learn how to read a secret from Key Vault from a web application using managed identities for Azure resources, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md)
+- Read an [Overview of Azure Key Vault](key-vault-overview.md)
+- See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault?view=azure-cli-latest)
+- Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Review [Azure Key Vault best practices](key-vault-best-practices.md)

@@ -4,7 +4,7 @@ description: Learn how to open a port / create an endpoint to your Linux VM usin
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
@@ -22,13 +22,13 @@ ms.author: cynthn
 You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or VM network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic. Let's use a common example of web traffic on port 80. This article shows you how to open a port to a VM with the Azure CLI. 
 
 
-To create a Network Security Group and rules you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+To create a Network Security Group and rules you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
 
 In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.
 
 
 ## Quickly open a port for a VM
-If you need to quickly open a port for a VM in a dev/test scenario, you can use the [az vm open-port](/cli/azure/vm#az_vm_open_port) command. This command creates a Network Security Group, adds a rule, and applies it to a VM or subnet. The following example opens port *80* on the VM named *myVM* in the resource group named *myResourceGroup*.
+If you need to quickly open a port for a VM in a dev/test scenario, you can use the [az vm open-port](/cli/azure/vm) command. This command creates a Network Security Group, adds a rule, and applies it to a VM or subnet. The following example opens port *80* on the VM named *myVM* in the resource group named *myResourceGroup*.
 
 ```azure-cli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
@@ -38,7 +38,7 @@ For more control over the rules, such as defining a source IP address range, con
 
 
 ## Create a Network Security Group and rules
-Create the network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNetworkSecurityGroup* in the *eastus* location:
+Create the network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNetworkSecurityGroup* in the *eastus* location:
 
 ```azurecli
 az network nsg create \
@@ -47,7 +47,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Add a rule with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to allow HTTP traffic to your webserver (or adjust for your own scenario, such as SSH access or database connectivity). The following example creates a rule named *myNetworkSecurityGroupRule* to allow TCP traffic on port 80:
+Add a rule with [az network nsg rule create](/cli/azure/network/nsg/rule) to allow HTTP traffic to your webserver (or adjust for your own scenario, such as SSH access or database connectivity). The following example creates a rule named *myNetworkSecurityGroupRule* to allow TCP traffic on port 80:
 
 ```azurecli
 az network nsg rule create \
@@ -61,7 +61,7 @@ az network nsg rule create \
 
 
 ## Apply Network Security Group to VM
-Associate the Network Security Group with your VM's network interface (NIC) with [az network nic update](/cli/azure/network/nic#az_network_nic_update). The following example associates an existing NIC named *myNic* with the Network Security Group named *myNetworkSecurityGroup*:
+Associate the Network Security Group with your VM's network interface (NIC) with [az network nic update](/cli/azure/network/nic). The following example associates an existing NIC named *myNic* with the Network Security Group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \
@@ -70,7 +70,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Alternatively, you can associate your Network Security Group with a virtual network subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) rather than just to the network interface on a single VM. The following example associates an existing subnet named *mySubnet* in the *myVnet* virtual network with the Network Security Group named *myNetworkSecurityGroup*:
+Alternatively, you can associate your Network Security Group with a virtual network subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet) rather than just to the network interface on a single VM. The following example associates an existing subnet named *mySubnet* in the *myVnet* virtual network with the Network Security Group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network vnet subnet update \

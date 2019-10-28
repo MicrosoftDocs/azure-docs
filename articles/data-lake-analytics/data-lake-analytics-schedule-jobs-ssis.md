@@ -1,6 +1,6 @@
 ---
 title: Schedule Azure Data Lake Analytics U-SQL jobs using SSIS
-description: Learn how to use SQL Server Integration Services to schedule U-SQL jobs.
+description: Learn how to use SQL Server Integration Services to schedule U-SQL jobs with inline script or from U-SQL query files.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -34,9 +34,9 @@ You can get the U-SQL script from different places by using SSIS built-in functi
 
 ## Scenario 1-Use inline script call tvfs and stored procs
 
-In Azure Data Lake Analytics Task Editor, configure **SourceType** as **DiretInput**, and put the U-SQL statements into **USQLStatemnt**.
+In Azure Data Lake Analytics Task Editor, configure **SourceType** as **DirectInput**, and put the U-SQL statements into **USQLStatement**.
 
-For easy maintainence and code management, only put short U-SQL script as inline scripts, for example, you can call existing table valued functions and stored procedures in your U-SQL databases. 
+For easy maintenance and code management, only put short U-SQL script as inline scripts, for example, you can call existing table valued functions and stored procedures in your U-SQL databases. 
 
 ![Edit inline U-SQL script in SSIS task](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
 
@@ -87,16 +87,16 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
     
     To create this file connection:
 
-    1. Choose **<New Connection...>** in FileConnection setting.
-    2. Set **Usage type** to **Existing file**, and set the **File** to any existing file's file path.
+   1. Choose **\<New Connection...>** in FileConnection setting.
+   2. Set **Usage type** to **Existing file**, and set the **File** to any existing file's file path.
 
-        ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-    3. In **Connection Managers** view, right-click the file connection created just now, and choose **Properties**.
+   3. In **Connection Managers** view, right-click the file connection created just now, and choose **Properties**.
 
-    4. In the **Properties** window, expand **Expressions**, and set **ConnectionString** to the variable defined in Foreach Loop Container, for example, `@[User::FileName]`.
+   4. In the **Properties** window, expand **Expressions**, and set **ConnectionString** to the variable defined in Foreach Loop Container, for example, `@[User::FileName]`.
 
-        ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
+       ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
 3. Set **AzureDataLakeAnalyticsConnection** to the Azure Data Lake Analytics account that you want to submit jobs to. Learn more about [Azure Data Lake Analytics Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 
@@ -113,7 +113,7 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
 
 You can use U-SQL files in Azure Blob Storage by using **Azure Blob Download Task** in Azure Feature Pack. This approach enables you using the scripts on cloud.
 
-The steps are similar with [Scnario 2: Use U-SQL files in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Change the Azure Data Lake Store File System Task to Azure Blob Download Task. [Learn more about Azure Blob Download Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+The steps are similar with [Scenario 2: Use U-SQL files in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Change the Azure Data Lake Store File System Task to Azure Blob Download Task. [Learn more about Azure Blob Download Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 The control flow is like below.
 
@@ -165,4 +165,3 @@ In some cases, you may want to dynamically set the U-SQL variable value in the U
 - [Run SSIS packages in Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Azure Feature Pack for Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
 - [Schedule U-SQL jobs using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
-

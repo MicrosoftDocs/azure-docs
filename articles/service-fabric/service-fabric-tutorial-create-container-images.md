@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to create container images for a mu
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, Microservices, Service Fabric, Azure
@@ -14,7 +14,7 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ---
@@ -83,7 +83,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## Deploy Azure Container Registry
 
-First run the **az login** command to log in to your Azure account.
+First run the **az login** command to sign in to your Azure account.
 
 ```bash
 az login
@@ -111,9 +111,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 Throughout the rest of this tutorial, we use "acrName" as a placeholder for the container registry name that you chose. Please make note of this value.
 
-## Log in to your container registry
+## Sign in to your container registry
 
-Log in to your ACR instance before pushing images to it. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
+Sign in to your ACR instance before pushing images to it. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
 
 ```bash
 az acr login --name <acrName>
@@ -185,7 +185,7 @@ The docker push commands take a couple of minutes to complete.
 
 ## List images in registry
 
-To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) command. Update the command with the ACR instance name.
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository) command. Update the command with the ACR instance name.
 
 ```bash
 az acr repository list --name <acrName> --output table

@@ -2,10 +2,9 @@
 title: Add a service principal to Azure Analysis Services server admin role | Microsoft Docs
 description: Learn how to add an automation service principal to the server admin role
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -38,7 +37,7 @@ To complete this task, you must have [server administrator](analysis-services-se
 
 
 > [!NOTE]
-> For server operations using AzureRm cmdlets, service principal running scheduler must also belong to the **Owner** role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). 
+> For server operations using Azure PowerShell cmdlets, service principal running scheduler must also belong to the **Owner** role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). 
 
 ## Related information
 

@@ -61,7 +61,7 @@ After several minutes, the command completes, and shows you information about yo
 
 To connect to the Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
-If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
+If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes) command.
 
 The following Azure CLI example installs `kubectl` to your system. On Windows, run this command as an administrator.
 
@@ -72,7 +72,7 @@ az acs kubernetes install-cli
 
 ## Connect with kubectl
 
-To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. The following example
+To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) command. The following example
 downloads the cluster configuration for your Kubernetes cluster.
 
 ```azurecli-interactive 

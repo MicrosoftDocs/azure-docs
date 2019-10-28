@@ -9,33 +9,20 @@ ms.devlang:
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
-manager: craigg
-ms.date: 09/23/2018
+ms.reviewer: sstein, bonova, carlrab
+ms.date: 07/17/2019
 ---
 # Configuring a Custom DNS for Azure SQL Database Managed Instance
 
-An Azure SQL Database Managed Instance must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). There are a few scenarios (for example, db mail, linked servers to other SQL instances in your cloud or hybrid environment) that require private host names to be resolved from the Managed Instance. In this case, you need to configure a custom DNS inside Azure. Since Managed Instance uses the same DNS for its inner workings, the virtual network DNS configuration needs to be compatible with Managed Instance. 
+An Azure SQL Database Managed Instance must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). There are a few scenarios (for example, db mail, linked servers to other SQL instances in your cloud or hybrid environment) that require private host names to be resolved from the Managed Instance. In this case, you need to configure a custom DNS inside Azure. 
 
-   > [!IMPORTANT]
-   > Always use fully-qualified domain names (FQDN) for the mail servers, SQL Servers, and other services even if they are within your private DNS zone. For example use `smtp.contoso.com` for mail server because simple `smtp` will not be properly resolved.
+Because Managed Instance uses the same DNS for its inner workings, configure the custom DNS server so that it can resolve public domain names.
 
-To make a custom DNS configuration is compatible with the Managed Instance, you need to: 
-- Configure custom DNS server so it is able to resolve public domain names 
-- Put Azure Recursive Resolver DNS IP address 168.63.129.16 at the end of the virtual network DNS list 
- 
-## Setting up custom DNS servers configuration
+> [!IMPORTANT]
+> Always use a fully qualified domain name (FQDN) for the mail server, the SQL Server instance, and for other services, even if they're within your private DNS zone. For example, use `smtp.contoso.com` for your mail server because `smtp` won't resolve correctly. Creating a linked server or replication that references SQL VMs inside the same virtual network also requires an FQDN and a default DNS suffix. For example, `SQLVM.internal.cloudapp.net`. For more information, see [Name resolution that uses your own DNS server](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
 
-1. In the Azure portal, find custom DNS option for your VNet.
-
-   ![custom dns option](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
-
-2. Switch to Custom and enter your custom DNS server IP address as well as Azure's recursive resolvers IP address 168.63.129.16. 
-
-   ![custom dns option](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
-
-   > [!IMPORTANT]
-   > Not setting Azure’s recursive resolver in the DNS list can cause the Managed Instance to enter a faulty state when the custom DNS servers are unavailable for some reason. Recovering from that state may require you to create new instance in a VNet with the compliant networking policies, create instance level data, and restore your databases. Setting the Azure’s recursive resolver as the last entry in the DNS list ensures, even when all custom DNS servers fail, public names can still be resolved.
+> [!IMPORTANT]
+> Updating virtual network DNS servers won't affect Managed Instance immediately. Managed Instance DNS configuration is updated after the DHCP lease expires or after the platform upgarade, whichever occurs first. **Users are advised to set their virtual network DNS configuration before creating their first Managed Instance.**
 
 ## Next steps
 

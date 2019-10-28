@@ -3,14 +3,14 @@ title: SQL Server FCI - Azure Virtual Machines | Microsoft Docs
 description: "This article explains how to create SQL Server Failover Cluster Instance on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
 
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -50,7 +50,7 @@ On Azure Virtual Machines you can license SQL Server using pay as you go (PAYG) 
 
 With PAYG licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit In Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit In Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
 To compare PAYG and BYOL licensing for SQL Server on Azure Virtual Machines see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
@@ -67,16 +67,18 @@ There are a few things you need to know and a couple of things that you need in 
 ### What to know
 You should have an operational understanding of the following technologies:
 
-- [Windows cluster technologies](https://technet.microsoft.com/library/hh831579.aspx)
-- [SQL Server Failover Cluster Instances](https://msdn.microsoft.com/library/ms189134.aspx).
+- [Windows cluster technologies](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server Failover Cluster Instances](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Also, you should have a general understanding of the following technologies:
+One important difference is that on an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
+
+Additionally, you should have a general understanding of the following technologies:
 
 - [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-- [Azure resource groups](../../../azure-resource-manager/resource-group-portal.md)
+- [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> At this time, the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the extension from VMs that participate in the FCI. This extension supports features, such as Automated Backup and Patching and some portal features for SQL. These features will not work for SQL VMs after the agent is uninstalled.
+> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). Uninstall the full extension from the VMs that participate in the failover cluster and then register them with the SQL VM resource provider in `lightweight` mode. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
 
 ### What to have
 
@@ -95,7 +97,7 @@ With these prerequisites in place, you can proceed with building your failover c
 
 ## Step 1: Create virtual machines
 
-1. Log in to the [Azure portal](http://portal.azure.com) with your subscription.
+1. Log in to the [Azure portal](https://portal.azure.com) with your subscription.
 
 1. [Create an Azure availability set](../tutorial-availability-sets.md).
 
@@ -174,7 +176,7 @@ With these prerequisites in place, you can proceed with building your failover c
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened.
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
 
-1. Add storage to the virtual machine. For detailed information, see [add storage](../premium-storage.md).
+1. Add storage to the virtual machine. For detailed information, see [add storage](../disks-types.md).
 
    Both virtual machines need at least two data disks.
 
@@ -182,7 +184,7 @@ With these prerequisites in place, you can proceed with building your failover c
       >[!NOTE]
       >If you attach NTFS-formatted disks, you can only enable S2D with no disk eligibility check.  
 
-   Attach a minimum of two Premium Storage (SSD disks) to each VM. We recommend at least P30 (1 TB) disks.
+   Attach a minimum of two premium SSDs to each VM. We recommend at least P30 (1 TB) disks.
 
    Set host caching to **Read-only**.
 
@@ -216,7 +218,7 @@ The next step is to configure the failover cluster with S2D. In this step, you w
 
    To install the Failover Clustering feature with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
-   ```PowerShell
+   ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
@@ -247,7 +249,7 @@ The **Validate a Configuration Wizard** runs the validation tests.
 
 To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
-   ```PowerShell
+   ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
@@ -262,11 +264,22 @@ To create the failover cluster, you need:
 - A name for the failover cluster
 - An IP address for the failover cluster. You can use an IP address that is not used on the same Azure virtual network and subnet as the cluster nodes.
 
-The following PowerShell creates a failover cluster. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
+#### Windows Server 2008-2016
 
-```PowerShell
+The following PowerShell creates a failover cluster for **Windows Server 2008-2016**. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
+
+```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
+
+#### Windows Server 2019
+
+The following PowerShell creates a failover cluster for Windows Server 2019.  For more information, review the blog [Failover Cluster: Cluster network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).  Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
+
+```powershell
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
+```
+
 
 ### Create a cloud witness
 
@@ -288,7 +301,7 @@ The disks for S2D need to be empty and without partitions or other data. To clea
 
    The following PowerShell enables storage spaces direct.  
 
-   ```PowerShell
+   ```powershell
    Enable-ClusterS2D
    ```
 
@@ -298,7 +311,7 @@ The disks for S2D need to be empty and without partitions or other data. To clea
 
    One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates an 800 gigabyte (GB) CSV.
 
-   ```PowerShell
+   ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
@@ -359,14 +372,15 @@ To create the load balancer:
 
 1. Configure the load balancer with:
 
-   - **Name**: A name that identifies the load balancer.
-   - **Type**: The load balancer can be either public or private. A private load balancer can be accessed from within the same VNET. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the Internet, use a public load balancer.
-   - **Virtual Network**: The same network as the virtual machines.
-   - **Subnet**: The same subnet as the virtual machines.
-   - **Private IP address**: The same IP address that you assigned to the SQL Server FCI cluster network resource.
-   - **subscription**: Your Azure subscription.
+   - **Subscription**: Your Azure subscription.
    - **Resource Group**: Use the same resource group as your virtual machines.
-   - **Location**: Use the same Azure location as your virtual machines.
+   - **Name**: A name that identifies the load balancer.
+   - **Region**: Use the same Azure location as your virtual machines.
+   - **Type**: The load balancer can be either public or private. A private load balancer can be accessed from within the same VNET. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the Internet, use a public load balancer.
+   - **SKU**: The SKU for the your load balancer should be standard. 
+   - **Virtual Network**: The same network as the virtual machines.
+   - **IP address assignment**: The IP address assignment should be static. 
+   - **Private IP address**: The same IP address that you assigned to the SQL Server FCI cluster network resource.
    See the following picture:
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
@@ -393,7 +407,7 @@ To create the load balancer:
 
    - **Name**: A name for the health probe.
    - **Protocol**: TCP.
-   - **Port**: Set to an available TCP port. This port requires an open firewall port. Use the [same port](#ports) you set for the health probe at the firewall.
+   - **Port**: Set to the port you created in the firewall for the health probe in [this step](#ports). In this article, the example uses TCP port `59999`.
    - **Interval**: 5 Seconds.
    - **Unhealthy threshold**: 2 consecutive failures.
 
@@ -425,7 +439,7 @@ Set the cluster probe port parameter in PowerShell.
 
 To set the cluster probe port parameter, update variables in the following script with values from your environment. Remove the angle brackets `<>` from the script. 
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
    $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
    $ILBIP = "<n.n.n.n>" 
@@ -451,7 +465,7 @@ In the preceding script, set the values for your environment. The following list
 
 After you set the cluster probe you can see all of the cluster parameters in PowerShell. Run the following script:
 
-   ```PowerShell
+   ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 

@@ -48,6 +48,8 @@
       href: tutorial-linux-vm-access-nonaad.md
     - name: Access Azure Cosmos DB
       href: tutorial-linux-vm-access-cosmos-db.md
+    - name: Access Azure Container Registry
+      href: /azure/container-registry/container-registry-authentication-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Access Azure AD Graph API
       href: tutorial-linux-vm-access-azure-ad-graph.md
     - name: Access Azure Resource Manager with a user-assigned managed identity
@@ -76,6 +78,7 @@
       href: qs-configure-rest-vm.md
     - name: Azure SDKs
       href: qs-configure-sdk-windows-vm.md
+    
   - name: Configure managed identities on virtual machine scale sets
     items:
     - name: Portal
@@ -88,6 +91,7 @@
       href: qs-configure-template-windows-vmss.md
     - name: REST
       href: qs-configure-rest-vmss.md
+      
   - name: Use managed identities on VMs
     items:
     - name: Acquire an access token
@@ -96,6 +100,9 @@
       href: how-to-use-vm-sign-in.md
     - name: Use with Azure SDKs
       href: how-to-use-vm-sdk.md
+    - name: Stop using VM extension and start using Azure IMDS
+      href: howto-migrate-vm-extension.md
+      
   - name: Assign a managed identity access to another Azure resource
     items:
     - name: Portal
@@ -104,6 +111,7 @@
       href: howto-assign-access-cli.md
     - name: PowerShell
       href: howto-assign-access-powershell.md
+      
   - name: Manage user-assigned managed identities
     items:
     - name: Portal
@@ -124,12 +132,13 @@
       href: how-to-view-managed-identity-service-principal-cli.md
     - name: PowerShell
       href: how-to-view-managed-identity-service-principal-powershell.md
+             
 - name: Reference
   items:
   - name: CLI
     href: /cli/azure/identity
   - name: PowerShell
-    href: /powershell/module/azurerm.managedserviceidentity#managed_service_identity 
+    href: /powershell/module/az.managedserviceidentity#managed_service_identity 
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
   - name: Java
@@ -142,12 +151,13 @@
     href: /javascript/api/ms-rest-azure
   - name: Go 
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi
+    
 - name: Resources
   items:
   - name: FAQs and known issues
     href: known-issues.md
   - name: Azure services that support managed identities for Azure resources
-    href: services-support-msi.md
+    href: services-support-managed-identities.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-msi
   - name: AAD Developers forum

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Learn how to create an internal load balancer using a template in Resource Manager
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,7 +12,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Create an internal load balancer using a template
@@ -23,6 +23,7 @@ ms.author: kumud
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -39,10 +40,10 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Download the parameters file to your local disk.
 3. Edit the file and save it.
-4. Run the **New-AzureRmResourceGroupDeployment** cmdlet to create a resource group using the template.
+4. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
 
-    ```azurecli
-    New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
+    ```azurepowershell-interactive
+    New-AzResourceGroupDeployment -Name TestRG -Location westus `
         -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
         -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
     ```
@@ -54,7 +55,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
-    ```azurecli
+    ```azurecli-interactive
     azure config mode arm
     ```
 

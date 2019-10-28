@@ -3,19 +3,20 @@ title: Install the application access panel browser extension - Azure | Microsof
 description: Fix common errors encountered when you install the access panel browser extension.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/4/18
-ms.author: barbkess
+ms.date: 05/04/2018
+ms.author: mimart
 ms.reviewer: japere,asteen
+ms.collection: M365-identity-device-management
 ---
 
 # Install the access panel browser extension
@@ -32,7 +33,7 @@ At minimum, the access panel requires a browser that supports JavaScript and has
 
 For password-based SSO, you can use any of the following browsers:
 
-- **Edge**: on Windows 10 Anniversary Edition or later. 
+- **Microsoft Edge**: on Windows 10 Anniversary Edition or later. 
 - **Chrome**: on Windows 7 or later, and on MacOS X or later.
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
 
@@ -55,10 +56,11 @@ To install the access panel browser extension, do the following:
 
 7.  Sign in to the access panel, and check to see whether you can start your password-based SSO applications.
 
-You can also download the extension for Chrome and Edge directly from following sites:
+You can also download the extension for Chrome and Microsoft Edge directly from following sites:
 
 - [Chrome extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge extension](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Microsoft Edge extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## Use the My Apps Secure Sign-in Extension
 * If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
@@ -89,7 +91,7 @@ You can also download the extension for Chrome and Edge directly from following 
     4. You can now browse to the internal company URL even while remote
 
 > [!NOTE]
-> The preceding options are available only for Edge, Chrome, and Firefox.
+> The preceding options are available only for Microsoft Edge, Chrome, and Firefox.
 
 ## Set up a group policy for Internet Explorer
 
@@ -108,7 +110,7 @@ For step by step instructions about configuring the group policy and deploying i
 For access to a diagnostics tool and information about configuring the extension for Internet Explorer, see [Troubleshoot the access panel extension for Internet Explorer](manage-access-panel-browser-extension.md).
 
 > [!NOTE]
-> Internet Explorer is on limited support and no longer receives new software updates. Edge is the recommended browser.
+> Internet Explorer is on limited support and no longer receives new software updates. Microsoft Edge is the recommended browser.
 
 ## If the preceding steps do not resolve the issue
 

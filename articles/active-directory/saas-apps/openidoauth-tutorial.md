@@ -4,18 +4,19 @@ description: Steps to configure an OpenID/OAuth application from the Azure AD ap
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: daveba
+ms.reviewer: barbkess
 
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: tutorial
+ms.date: 05/30/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Configure an OpenID/OAuth application from the Azure AD app gallery
 
@@ -23,19 +24,19 @@ ms.author: jeedes
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**. 
 
-	![Azure Active Directory button](./media/openidoauth-tutorial/tutorial_general_01.png)
+	![The Azure Active Directory button](common/select-azuread.png))
 
 2. Go to **Enterprise applications** > **All applications**.
 
-	![Enterprise applications blade](./media/openidoauth-tutorial/tutorial_general_02.png)
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. Select **New application** on the top of the dialog box.
 
-	![New application button](./media/openidoauth-tutorial/tutorial_general_03.png)
+	![The New application button](common/add-new-app.png)
 
 4. In the search box, type the application name. Select the desired application from the result panel, and sign up to the application.
 
-    ![Adding application](./media/openidoauth-tutorial/addfromgallery.png)
+	![Openid in the results list](common/search-new-app.png)
 
     > [!NOTE]
     > For OpenID Connect and OAuth apps, the **Add** button is disabled by default. Here the tenant admin should select the sign-up button and provide the consent to the application. The application is then added to the customer tenant, where you can do the configurations. There's no need to add the application explicitly.
@@ -93,7 +94,25 @@ The Graph API also provides access to users and groups from Azure AD and other d
 
 The following steps show you how the consent experience works for the application developer and user:
 
-1. Assume you have a web client application that needs to request specific permissions to access a resource or API. The Azure portal is used to declare permission requests at configuration time. Like other configuration settings, they become part of the application's Azure AD registration:
+1. Assume you have a web client application that needs to request specific permissions to access a resource or API. The Azure portal is used to declare permission requests at configuration time. Like other configuration settings, they become part of the application's Azure AD registrations. For the Permission request path you need the follow the below steps:
+
+	a. Click on the **App registrations** from the left side of menu and open your application by typing the application name in search box.
+
+	![Graph API](./media/openidoauth-tutorial/application.png)
+
+	b. Click **View API Permissions**.
+
+	![Graph API](./media/openidoauth-tutorial/api-permission.png)
+
+	c. Click on **Add a permission**.
+
+	![Graph API](./media/openidoauth-tutorial/add-permission.png)
+
+	d. Click On **Microsoft Graph**.
+
+	![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
+
+	e. Select required options from **Delegated permissions** and **Application Permissions**.
 
     ![Graph API](./media/openidoauth-tutorial/graphapi.png)
 
@@ -113,12 +132,12 @@ A regular user can consent to some permissions. Other permissions require a tena
 
 ## Difference between admin consent and user consent
 
-As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog box from appearing for every user in the tenant. Users who have the administrator role can provide consent in the Azure portal. From the **Settings** page for your application, select **Required Permissions** > **Grant Permissions**.
+As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog box from appearing for every user in the tenant. Users who have the administrator role can provide consent in the Azure portal. From the **Settings** page for your application, select **Required Permissions** > **Grant admin consent**.
 
 ![Grant Permissions button](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Granting explicit consent by using the **Grant Permissions** button is now required for single-page applications (SPAs) that use ADAL.js. Otherwise, the application fails when the access token is requested.
+> Granting explicit consent by using the **Grant admin consent** button is now required for single-page applications (SPAs) that use ADAL.js. Otherwise, the application fails when the access token is requested.
 
 App-only permissions always require a tenant administrator’s consent. If your application requests an app-only permission and a user tries to sign in to the application, an error message appears. The message says the user isn’t able to consent.
 

@@ -1,16 +1,15 @@
 ---
 title: Connecting to a data source in Power BI Workspace Collections | Microsoft Docs
 description: Learn how to connect to a data source within Power BI Workspace Collections.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
+services: power-bi-workspace-collections
 ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # Connect to a data source
 
 With **Power BI Workspace Collections**, you can embed reports into your own app. When you embed a Power BI report into your app, the report connects to the underlying data by **importing** a copy of the data or by **connecting directly** to the data source using **DirectQuery**.
@@ -24,7 +23,7 @@ Here are the differences between using **Import** and **DirectQuery**.
 | --- | --- |
 | Tables, columns, *and data* are imported or copied into the report's dataset. To see changes that occurred to the underlying data, you must refresh, or import, a complete, current dataset again. |Only *tables and columns* are imported or copied into the report's dataset. You always view the most current data. |
 
-With Power BI Workspace COllections, you can use DirectQuery with cloud data sources but not on-premises data sources at this time.
+With Power BI Workspace Collections, you can use DirectQuery with cloud data sources but not on-premises data sources at this time.
 
 > [!NOTE]
 > The On-Premises Data Gateway is not supported with Power BI Workspace Collections at this time. This means you cannot use DirectQuery with on-premises data sources.
@@ -37,7 +36,7 @@ With Power BI Workspace COllections, you can use DirectQuery with cloud data sou
 
 **Import**
 
-You can import using all of the available data sources within Power BI Desktop. You will **not** be able to refresh that data within Power BI Workspace Collections. You have to upload changes to your PBIX file to Power BI Workspace Collections. This is due to no available gateway. 
+You can import using all of the available data sources within Power BI Desktop. You will **not** be able to refresh that data within Power BI Workspace Collections. You have to upload changes to your PBIX file to Power BI Workspace Collections. This is due to no available gateway.
 
 ## Benefits of using DirectQuery
 
@@ -66,5 +65,4 @@ To ensure queries sent to the underlying data source have acceptable performance
 * [Get started with Microsoft Power BI Workspace Collections](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
-
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

@@ -99,7 +99,7 @@ From the **Modules** page, select **Browse gallery** to open up the module galle
 1. Select **Browse gallery**.
 1. Search for **update and change tracking**, click the runbook and select **Import** on the **View Source** page. Select **OK** to import the runbook into the Automation account.
 
-  ![Import onboarding runbook](media/automation-onboard-solutions/import-from-gallery.png)
+   ![Import onboarding runbook](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. On the **Runbook** page, select **Edit**, then select **Publish**. On the **Publish Runbook** dialog, select **Yes** to publish the runbook.
 
@@ -124,6 +124,13 @@ You must have onboarded either change tracking or update solutions to an Azure V
 
 1. Select **OK** to start the runbook job.
 1. Monitor progress and any errors on the runbook job page.
+
+## Clean up resources
+
+To remove a VM from Update Management:
+
+* In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
+* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## Next steps
 

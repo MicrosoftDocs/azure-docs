@@ -3,19 +3,16 @@ title: System variables in Azure Data Factory | Microsoft Docs
 description: This article describes system variables supported by Azure Data Factory. You can use these variables in expressions when defining Data Factory entities.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.author: shlo
-
 ---
+
 # System variables supported by Azure Data Factory
 This article describes system variables supported by Azure Data Factory. You can use these variables in expressions when defining Data Factory entities.
 
@@ -37,11 +34,12 @@ These system variables can be referenced anywhere in the trigger JSON if the tri
 
 | Variable Name | Description |
 | --- | --- |
-| @trigger().scheduledTime |Time when the trigger was scheduled to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable would return `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` respectively.|
-| @trigger().startTime |Time when the trigger **actually** fired to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable might return something like this `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` respectively.|
+| @trigger().scheduledTime |Time when the trigger was scheduled to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable would return `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:30:00Z` respectively.|
+| @trigger().startTime |Time when the trigger **actually** fired to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable might return something like this `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:30:00.9935483Z` respectively. (Note: The timestamp is by default in ISO 8601 format)|
 
 ## Tumbling Window Trigger scope
 These system variables can be referenced anywhere in the trigger JSON if the trigger is of type: "TumblingWindowTrigger."
+(Note: The timestamp is by default in ISO 8601 format)
 
 | Variable Name | Description |
 | --- | --- |

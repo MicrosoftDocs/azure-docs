@@ -3,16 +3,16 @@ title: Getting started with Azure Automation State Configuration
 description: Explanation and examples of the most common tasks in Azure Automation State Configuration (DSC)
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ---
 # Getting started with Azure Automation State Configuration
 
-This article explains how to do the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, onboarding machines to manage, and viewing reports. For an overview of what Azure Automation State Configuration is, see [Azure Automation State Configuration Overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview).
+This article explains how to do the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, onboarding machines to manage, and viewing reports. For an overview of what Azure Automation State Configuration is, see [Azure Automation State Configuration Overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview).
 
 This article provides a step-by-step guide to using Azure Automation State Configuration. If you
 want a sample environment that is already set up without following the steps described in this
@@ -25,11 +25,11 @@ Automation State Configuration.
 To complete the examples in this article, the following are required:
 
 - An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
-- An Azure Resource Manager VM (not Classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- An Azure Resource Manager VM (not Classic) running a [supported operating system](automation-dsc-overview.md#operating-system-requirements). For instructions on creating a VM, see [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## Creating a DSC configuration
 
-You create a simple [DSC configuration](/powershell/dsc/configurations) that ensures either the
+You create a simple [DSC configuration](/powershell/scripting/dsc/configurations/configurations) that ensures either the
 presence or absence of the **Web-Server** Windows Feature (IIS), depending on how you assign nodes.
 
 1. Start [VSCode](https://code.visualstudio.com/docs) (or any text editor).
@@ -60,7 +60,7 @@ presence or absence of the **Web-Server** Windows Feature (IIS), depending on ho
     ```
 1. Save the file as `TestConfig.ps1`.
 
-This configuration calls one resource in each node block, the [WindowsFeature resource](/powershell/dsc/windowsfeatureresource), that ensures either the presence
+This configuration calls one resource in each node block, the [WindowsFeature resource](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource), that ensures either the presence
 or absence of the **Web-Server** feature.
 
 ## Importing a configuration into Azure Automation
@@ -98,7 +98,7 @@ compiled into one or more node configurations (MOF document), and placed on the 
 Server. For a more detailed description of compiling configurations in Azure Automation State
 Configuration, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md).
 For more information about compiling configurations, see
-[DSC Configurations](/powershell/dsc/configurations).
+[DSC Configurations](/powershell/scripting/dsc/configurations/configurations).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left, click **All resources** and then the name of your Automation account.
@@ -165,17 +165,16 @@ State Configuration](automation-dsc-onboarding.md).
 1. On the **Virtual machine** detail page, click **+ Connect**.
 
    > [!IMPORTANT]
-   > This must be an Azure Resource Manager VM running Windows Server 2008 R2 or later.
+   > This must be an Azure Resource Manager VM running a [supported operating system](automation-dsc-overview.md#operating-system-requirements).
 
-1. In the **Registration** page, select the name of the node configuration you want to apply to the VM in the **Node configuration name** box. Providing a name at this point is optional. You can change the assigned node configuration after onboarding the node.
+2. In the **Registration** page, select the name of the node configuration you want to apply to the VM in the **Node configuration name** box. Providing a name at this point is optional. You can change the assigned node configuration after onboarding the node.
    Check **Reboot Node if Needed**, then click **OK**.
 
    ![Screenshot of the Registration blade](./media/automation-dsc-getting-started/RegisterVM.png)
 
    The node configuration you specified are applied to the VM at intervals specified by the **Configuration Mode Frequency**,
    and the VM checks for updates to the node configuration at intervals specified by the **Refresh Frequency**. For more information about how these values are used, see
-   [Configuring the Local Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-1. In the **Add Azure VMs** blade, click **Create**.
+   [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 Azure starts the process of onboarding the VM. When it is complete, the VM shows up in the
 **Nodes** tab of the **State configuration (DSC)** page in the Automation account.
@@ -218,7 +217,7 @@ On the blade for an individual report, you can see the following status informat
 - The name, IP address, and configuration mode of the node.
 
 You can also click **View raw report** to see the actual data that the node sends to the server.
-For more information about using that data, see [Using a DSC report server](/powershell/dsc/reportserver).
+For more information about using that data, see [Using a DSC report server](/powershell/scripting/dsc/pull-server/reportserver).
 
 It can take some time after a node is onboarded before the first report is available. You might
 need to wait up to 30 minutes for the first report after you onboard a node.
@@ -257,6 +256,6 @@ If you no longer want a node to be managed by Azure Automation DSC, you can unre
 
 - [Azure Automation State Configuration overview](automation-dsc-overview.md)
 - [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md)
-- [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview)
+- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
 - [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation)
 - [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/)

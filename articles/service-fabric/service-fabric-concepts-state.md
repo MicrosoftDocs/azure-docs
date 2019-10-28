@@ -4,7 +4,7 @@ description: Learn how to define and manage service state in Service Fabric serv
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: f5e618a5-3ea3-4404-94af-122278f91652

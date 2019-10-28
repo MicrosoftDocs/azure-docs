@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
@@ -82,7 +81,7 @@ Developers must first subscribe to a product to get access to the API. When they
 4. Choose an API and click **Select**.
 
 > [!TIP]
-> You can create or update user's subscription to a *Product* with custom subscription keys [through REST API](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) or PowerShell command.
+> You can create or update user's subscription to a *Product* with custom subscription keys [through REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) or PowerShell command.
 
 ## Next steps
 

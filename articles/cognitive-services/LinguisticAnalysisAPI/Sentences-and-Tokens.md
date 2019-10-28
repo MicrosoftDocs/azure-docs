@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: Learn about sentence separation and tokenization in the Linguistic Analysis API.
 services: cognitive-services
 author: DavidLiCIG
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl

@@ -1,16 +1,16 @@
 ---
-title: Manage updates and patches for your Azure Windows VMs
+title: Manage updates and patches for your Azure VMs
 description: This article provides an overview of how to use Azure Automation Update Management to manage updates and patches for your Azure Windows VMs.
 services: automation
 author: zjalexander
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
 ---
-# Manage Windows updates by using Azure Automation
+# Manage updates and patches for your Azure VMs
 
 You can use the Update Management solution to manage updates and patches for your virtual machines. In this tutorial, you learn how to quickly assess the status of available updates, schedule installation of required updates, review deployment results, and create an alert to verify that updates apply successfully.
 
@@ -60,7 +60,7 @@ Under **Update Management**, set the location, Log Analytics workspace, and Auto
 
 ![Enable the Update Management solution window](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-Enabling the solution can take up to a few minutes. During this time, don't close the browser window. After the solution is enabled, information about missing updates on the VM flows to Log Analytics. It can take between 30 minutes and 6 hours for the data to be available for analysis.
+Enabling the solution can take up to a few minutes. During this time, don't close the browser window. After the solution is enabled, information about missing updates on the VM flows to Azure Monitor logs. It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
 ## View update assessment
 
@@ -89,7 +89,7 @@ Click **Add condition** to select the signal that is appropriate for your update
 |Signal Name|Dimensions|Description|
 |---|---|---|
 |**Total Update Deployment Runs**|- Update Deployment Name</br>- Status|This signal is used to alert on the overall status of an update deployment.|
-|**Total Update Deployment Machine Runs**|- Update Deployment Name</br>- Status</br>- Target Computer</br>- Update Deployment Run Id|This signal is used to alert on the status of an update deployment targeted at specific machines|
+|**Total Update Deployment Machine Runs**|- Update Deployment Name</br>- Status</br>- Target Computer</br>- Update Deployment Run ID|This signal is used to alert on the status of an update deployment targeted at specific machines|
 
 For the dimension values, select a valid value from the list. If the value you are looking for is not in the list, click the **\+** sign next to the dimension and type in the custom name. You can then select the value you want to look for. If you want to select all values from a dimension, click the **Select \*** button. If you do not choose a value for a dimension, that dimension will be ignored during evaluation.
 
@@ -129,9 +129,9 @@ Under **New update deployment**, specify the following information:
 
 * **Operating system**: Select the OS to target for the update deployment.
 
-* **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Dynamic Groups](automation-update-management.md#using-dynamic-groups)
+* **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Dynamic Groups](automation-update-management-groups.md)
 
-* **Machines to update**: Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../azure-monitor/platform/computer-groups.md)
+* **Machines to update**: Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
 * **Update classification**: Select the types of software that the update deployment included in the deployment. For this tutorial, leave all types selected.
 
@@ -142,23 +142,37 @@ Under **New update deployment**, specify the following information:
    |Windows     | Critical updates</br>Security updates</br>Update rollups</br>Feature packs</br>Service packs</br>Definition updates</br>Tools</br>Updates        |
    |Linux     | Critical and security updates</br>Other updates       |
 
-   For a description of the classification types, see [update classifications](automation-update-management.md#update-classifications).
+   For a description of the classification types, see [update classifications](automation-view-update-assessments.md#update-classifications).
 
-* **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For more information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior)
+* **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs.
+
+> [!NOTE]
+> It is important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, then no patches or packages are installed as they are all excluded. Excluded patches still show as missing from the machine. For Linux machines if a package is included but has a dependent package that was excluded, the package is not installed.
 
 * **Schedule settings**: The **Schedule Settings** pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
    You can also specify whether the deployment occurs once, or set up a recurring schedule. Under **Recurrence**, select **Once**. Leave the default as 1 day and select **OK**. This sets up a recurring schedule.
 
 * **Pre-scripts + Post-scripts**: Select the scripts to run before and after your deployment. To learn more, see [Manage Pre and Post scripts](pre-post-scripts.md).
-* **Maintenance window (minutes)**: Leave the default value. You can set the window of time that you want the update deployment to occur within. This setting helps ensure that changes are performed within your defined service windows.
 
-* **Reboot options**: This setting
-determines how reboots should be handled. Available options are:
+* **Maintenance window (minutes)**: Leave the default value. Maintenance windows control the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window.
+
+  * Maintenance windows control how many updates are attempted to be installed.
+  * Update Management does not stop installing new updates if the end of a maintenance window is approaching.
+  * Update Management does not terminate in-progress updates if when the maintenance window is exceeded.
+  * If the maintenance window is exceeded on Windows, it is often because of a service pack update taking a long time to install.
+
+  > [!NOTE]
+  > “By the way” info not critical to a taskTo avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For information about how to configure the package, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
+* **Reboot options**: This setting determines how reboots should be handled. Available options are:
   * Reboot if required (Default)
   * Always reboot
   * Never reboot
   * Only reboot - will not install updates
+
+> [!NOTE]
+> The Registry keys listed under [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause a reboot event if **Reboot Control** is set to **Never Reboot**.
 
 When you're finished configuring the schedule, select **Create**.
 
@@ -167,7 +181,9 @@ When you're finished configuring the schedule, select **Create**.
 You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule you created.
 
 > [!NOTE]
-> Update Management supports deploying first party updates and pre-downloading patches. This requires changes on the systems being patched, see [first party and pre-download support](automation-update-management.md#firstparty-predownload) to learn how to configure these settings on your systems.
+> Update Management supports deploying first party updates and pre-downloading patches. This requires changes on the systems being patched, see [first party and pre-download support](automation-configure-windows-update.md) to learn how to configure these settings on your systems.
+
+**Update Deployments** can also be created programmatically. To learn how to create an **Update Deployment** with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly **Update Deployment**. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## View results of an update deployment
 
@@ -210,3 +226,4 @@ Continue to the overview for the Update Management solution.
 
 > [!div class="nextstepaction"]
 > [Update Management solution](../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json)
+

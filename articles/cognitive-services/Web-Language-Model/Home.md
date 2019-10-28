@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Web Language Model API in Microsoft Cognitive Services provides state-of-the-art tools for natural language processing.
 services: cognitive-services
 author: piyushbehre
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: web-language-model
+ms.subservice: web-language-model
 ms.topic: overview
 ms.date: 08/12/2016
-ms.author: pibehre
+ms.author: piyush
 ROBOTS: NOINDEX
 ---
 # What is the Web Language Model API? (Preview)
@@ -38,7 +38,7 @@ The Web Language Model API supports four lookup operations:
 1. Subscribe to the service.
 2. Download the [SDK](https://www.github.com/microsoft/cognitive-weblm-windows).
 3. Run the SDK sample code.
-4. Refer to the [API Reference](http://web.archive.org/web/20170503191852/westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) for full details of the endpoints, including code snippets in a variety of languages.
+4. Refer to the [API Reference](https://web.archive.org/web/20170503191852/westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) for full details of the endpoints, including code snippets in a variety of languages.
 
 ## Underlying Technology
 

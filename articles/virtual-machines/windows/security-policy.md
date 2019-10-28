@@ -4,7 +4,7 @@ description: Learn about security and policies for Windows and virtual machines 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -12,8 +12,9 @@ ms.assetid:
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.date: 08/14/2017
+ms.date: 11/26/2018
 ms.author: cynthn
+ms.topic: conceptual
 ---
 
 # Secure and use policies on virtual machines in Azure

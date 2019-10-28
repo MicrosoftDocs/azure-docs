@@ -14,7 +14,7 @@ ms.date: 05/26/2017
 
 # Create custom APIs you can call from Azure Logic Apps
 
-Although Azure Logic Apps offers [100+ built-in connectors](../connectors/apis-list.md) 
+Although Azure Logic Apps offers [hundreds of connectors](../connectors/apis-list.md) 
 that you can use in logic app workflows, you might want to call APIs, 
 systems, and services that aren't available as connectors. 
 You can create your own APIs that provide actions and triggers to use in logic apps. 
@@ -26,10 +26,10 @@ that you can call from logic app workflows:
 * Expand the reach, discoverability, and use for your service.
 
 Basically, connectors are web APIs that use REST for pluggable interfaces, 
-[Swagger metadata format](http://swagger.io/specification/) for documentation, 
+[Swagger metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. Because connectors are REST APIs 
 that communicate through HTTP endpoints, you can use any language, 
-like .NET, Java, or Node.js, for building connectors. 
+like .NET, Java, Python, or Node.js, for building connectors. 
 You can also host your APIs on [Azure App Service](../app-service/overview.md), 
 a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
 and most scalable ways for API hosting. 
@@ -64,17 +64,17 @@ easy API hosting.
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > For API App samples built for logic apps, visit the 
-> [Azure Logic Apps GitHub repository](http://github.com/logicappsio) 
+> [Azure Logic Apps GitHub repository](https://github.com/logicappsio) 
 > or [blog](https://aka.ms/logicappsblog).
 
 ## How do custom APIs differ from custom connectors?
 
 Custom APIs and [custom connectors](../logic-apps/custom-connector-overview.md) 
 are web APIs that use REST for pluggable interfaces, 
-[Swagger metadata format](http://swagger.io/specification/) for documentation, 
+[Swagger metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. And because these APIs and connectors 
 are REST APIs that communicate through HTTP endpoints, you can use any language, 
-like .NET, Java, or Node.js, for building custom APIs and connectors.
+like .NET, Java, Python, or Node.js, for building custom APIs and connectors.
 
 Custom APIs let you call APIs that aren't connectors, 
 and provide endpoints that you can call with HTTP + Swagger, 
@@ -100,7 +100,7 @@ For more information about custom connectors, see
 ## Helpful tools
 
 A custom API works best with logic apps when the API also has a 
-[Swagger document](http://swagger.io/specification/) 
+[Swagger document](https://swagger.io/specification/) 
 that describes the API's operations and parameters.
 Many libraries, like [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), 
 can automatically generate the Swagger file for you. 
@@ -401,13 +401,13 @@ register your APIs as Logic App connectors, and nominate your connectors for the
 ## Get support
 
 * For specific help with custom APIs, 
-contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
+  contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
 * For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+  [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * To help improve Logic Apps, vote on or submit ideas at the 
-[Logic Apps user feedback site](https://aka.ms/logicapps-wish). 
+  [Logic Apps user feedback site](https://aka.ms/logicapps-wish). 
 
 ## Next steps
 

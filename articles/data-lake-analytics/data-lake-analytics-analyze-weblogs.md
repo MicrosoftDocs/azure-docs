@@ -1,6 +1,6 @@
 ---
 title: Analyze Website logs using Azure Data Lake Analytics
-description: Learn how to analyze website logs using Data Lake Analytics.
+description: Learn how to analyze website logs using Azure Data Lake Analytics to run U-SQL functions and queries.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -159,7 +159,7 @@ You can add addition user-defined operators to the application.  For more inform
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**.
 2. Double-click **Samples** to open the folder, and then double-click **Outputs**.
-3. Double-click **UnsuccessfulResponsees.log**.
+3. Double-click **UnsuccessfulResponses.log**.
 4. You can also double-click the output file inside the graph view of the job in order to navigate directly to the output.
 
 ## See also

@@ -22,7 +22,7 @@ ms.custom: seodec18
 
 # Tutorial: Build an ASP.NET app in Azure with SQL Database
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET app in App Service and connect it to [Azure SQL Database](../sql-database/sql-database-technical-overview.md). When you're finished, you have a ASP.NET app running in Azure and connected to SQL Database.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET app in App Service and connect it to [Azure SQL Database](../sql-database/sql-database-technical-overview.md). When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database.
 
 ![Published ASP.NET application in Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the **ASP.NET and web development** workload.
+Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
 
 If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
@@ -225,19 +225,19 @@ From the **Tools** menu, click **NuGet Package Manager** > **Package Manager Con
 
 In the Package Manager Console window, enable Code First Migrations:
 
-```PowerShell
+```powershell
 Enable-Migrations
 ```
 
 Add a migration:
 
-```PowerShell
+```powershell
 Add-Migration AddProperty
 ```
 
 Update the local database:
 
-```PowerShell
+```powershell
 Update-Database
 ```
 

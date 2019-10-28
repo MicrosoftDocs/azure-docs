@@ -4,13 +4,14 @@ titlesuffix: Azure Cognitive Services
 description: Script sample to quickly get started using the Project URL Previewwith Python.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 # Quickstart: URL Preview with Python
 
@@ -18,7 +19,7 @@ The following Python example creates a Url Preview for the SwiftKey Web site: ht
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 This example uses Python 3.6.
 
@@ -36,7 +37,7 @@ It is implemented in the following steps:
 
 The complete code for this demo follows:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -59,7 +60,7 @@ def get_preview ():
 
 result = get_preview ()
 print (json.dumps(json.loads(result), indent=4))
-````
+```
 ## Next steps
 - [C# quickstart](csharp.md)
 - [Java quickstart](java-quickstart.md)

@@ -3,8 +3,8 @@ title: Overview of Service Fabric and containers | Microsoft Docs
 description: An overview of Service Fabric and the use of containers to deploy microservice applications. This article provides an overview of how containers can be used and the available capabilities in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: twhitney, msfussell
+ms.author: atsenthi
 ---
 
 # Service Fabric and containers

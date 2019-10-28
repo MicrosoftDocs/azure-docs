@@ -13,7 +13,7 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
 
@@ -22,7 +22,7 @@ ms.author: manayar
 
 When you deploy an Azure virtual machine scale set through the portal, certain network properties are defaulted, for example an Azure Load Balancer with inbound NAT rules. This article describes how to use some of the more advanced networking features that you can configure with scale sets.
 
-You can configure all of the features covered in this article using Azure Resource Manager templates. Azure CLI and PowerShell examples are also included for selected features. Use Azure CLI 2.0.10 or later, and PowerShell 4.2.0 or later.
+You can configure all of the features covered in this article using Azure Resource Manager templates. Azure CLI and PowerShell examples are also included for selected features.
 
 ## Accelerated Networking
 Azure Accelerated Networking improves network performance by enabling single root I/O virtualization (SR-IOV) to a virtual machine. To learn more about using Accelerated networking, see Accelerated networking for [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) virtual machines. To use accelerated networking with scale sets, set enableAcceleratedNetworking to **true** in your scale set's networkInterfaceConfigurations settings. For example:
@@ -113,7 +113,7 @@ To set the domain name in an Azure template, add a **dnsSettings** property to t
     {
     "name": "nic1",
     "properties": {
-      "primary": "true",
+      "primary": true,
       "ipConfigurations": [
       {
         "name": "ip1",
@@ -165,14 +165,14 @@ Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quic
 ### Querying the public IP addresses of the virtual machines in a scale set
 To list the public IP addresses assigned to scale set virtual machines using the CLI, use the **az vmss list-instance-public-ips** command.
 
-To list scale set public IP addresses using PowerShell, use the _Get-AzureRmPublicIpAddress_ command. For example:
-```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+To list scale set public IP addresses using PowerShell, use the _Get-AzPublicIpAddress_ command. For example:
+```powershell
+Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 You can also query the public IP addresses by referencing the resource ID of the public IP address configuration directly. For example:
-```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+```powershell
+Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
 You can also display the public IP addresses assigned to the scale set virtual machines by querying the [Azure Resource Explorer](https://resources.azure.com) or the Azure REST API with version **2017-03-30** or higher.
@@ -247,7 +247,7 @@ The following example is a scale set network profile showing multiple NIC entrie
         {
         "name": "nic1",
         "properties": {
-            "primary": "true",
+            "primary": true,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -279,7 +279,7 @@ The following example is a scale set network profile showing multiple NIC entrie
         {
         "name": "nic2",
         "properties": {
-            "primary": "false",
+            "primary": false,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -326,7 +326,7 @@ For example:
         {
             "name": "nic1",
             "properties": {
-                "primary": "true",
+                "primary": true,
                 "ipConfigurations": [
                     {
                         "name": "ip1",

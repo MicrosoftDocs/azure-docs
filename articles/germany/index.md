@@ -3,15 +3,15 @@ layout: LandingPage
 title: 'Azure Germany documentation: Tutorials and API reference | Microsoft Docs'
 description: Learn about Azure Germany capabilities, design, and security that support key German and international compliance standards.
 services: germany
-author: czeumault
-manager: carolz
+author: juliako
+manager: femila
 ms.assetid: 
 ms.service: germany
 ms.devlang: na
 ms.topic: landing-page
 ms.tgt_pltfrm: na
-ms.date: 04/12/2017
-ms.author: carolz
+ms.date: 04/11/2019
+ms.author: juliako
 ---
 
 # Azure Germany documentation

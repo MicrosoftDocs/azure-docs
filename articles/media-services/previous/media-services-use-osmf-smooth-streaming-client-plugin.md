@@ -4,7 +4,7 @@ description: Learn how to use the Azure Media Services Smooth Streaming plugin f
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework
+# How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework  
 ## Overview
 The Microsoft Smooth Streaming plugin for Open Source Media Framework 2.0 (SS for OSMF) extends the default capabilities of OSMF and adds Microsoft Smooth Streaming content playback to new and existing OSMF players. The plugin also adds Smooth Streaming playback capabilities to Strobe Media Playback (SMP).
 

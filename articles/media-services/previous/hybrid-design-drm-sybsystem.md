@@ -4,7 +4,7 @@ description: This topic discusses hybrid design of DRM subsystem(s) using Azure 
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: willzhan;juliako
+ms.date: 03/14/2019
+ms.author: willzhan
+ms.reviewer: juliako
 
 ---
-# Hybrid design of DRM subsystem(s)
+# Hybrid design of DRM subsystems 
 
 This topic discusses hybrid design of DRM subsystem(s) using Azure Media Services.
 
@@ -98,7 +99,7 @@ Based on the explanations in the previous section, the following five hybrid sce
 |AMS|Third-party|Outside|No|No|Sample 4|
 |Third-party|Third-party|AMS|Yes|No|	
 
-In the samples, PlayReady protection works for both DASH and smooth streaming. The video URLs below are smooth streaming URLs. To get the corresponding DASH URLs, just append "(format=mpd-time-csf)". You could use the [azure media test player](https://aka.ms/amtest) to test in a browser. It allows you to configure which streaming protocol to use, under which tech. IE11 and MS Edge on Windows 10 support PlayReady through EME. For more information, see [details about the test tool](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+In the samples, PlayReady protection works for both DASH and smooth streaming. The video URLs below are smooth streaming URLs. To get the corresponding DASH URLs, just append "(format=mpd-time-csf)". You could use the [azure media test player](https://aka.ms/amtest) to test in a browser. It allows you to configure which streaming protocol to use, under which tech. IE11 and Microsoft Edge on Windows 10 support PlayReady through EME. For more information, see [details about the test tool](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
 ### Sample 1
 
@@ -109,7 +110,7 @@ In the samples, PlayReady protection works for both DASH and smooth streaming. T
 
 ### Sample 2
 
-* Source (base) URL: http://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* Source (base) URL: https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
 * PlayReady LA_URL (DASH & smooth): http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
 
 ### Sample 3

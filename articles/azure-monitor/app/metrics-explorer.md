@@ -1,20 +1,20 @@
 ---
 title: Exploring Metrics in Azure Application Insights | Microsoft Docs
 description: How to interpret charts on metric explorer, and how to customize metric explorer blades.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/08/2017
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 01/22/2019
+
 ---
+
 # Exploring Metrics in Application Insights
 Metrics in [Application Insights][start] are measured values and counts of events that are sent in telemetry from your application. They help you detect performance issues and watch trends in how your application is being used. There's a wide range of standard metrics, and you can also create your own custom metrics and events.
+
+> [!NOTE]
+> This article describes the classic metrics explorer experience which is currently deprecated and will eventually be retired. We recommend checking out the new experience which is described in [this article](../platform/metrics-charts.md).
 
 Metrics and event counts are displayed in charts of aggregated values such as sums, averages, or counts.
 
@@ -187,7 +187,7 @@ From a metric chart, you can click the Analytics icon to get directly to the equ
 
     If you want to set different filters on different charts, create them in different blades, save them as separate favorites. If you want, you can pin them to the dashboard so that you can see them alongside each other.
 * If you group a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing 'group by', or choose a different grouping property.
-* Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](../../azure-monitor/app/monitor-performance-live-website-now.md), and [Azure Cloud Services](../../application-insights/app-insights-overview.md). It isn't available for Azure websites.
+* Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](../../azure-monitor/app/monitor-performance-live-website-now.md), and [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). It isn't available for Azure websites.
 
 ## Video
 
@@ -200,5 +200,5 @@ From a metric chart, you can click the Analytics icon to get directly to the equ
 <!--Link references-->
 
 [alerts]: ../../azure-monitor/app/alerts.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md

@@ -1,20 +1,16 @@
 ---
 title: Build a management solution in Azure | Microsoft Docs
 description: Management solutions include packaged management scenarios in Azure that customers can add to their Log Analytics workspace.  This article provides details on how you can create management solutions to be used in your own environment or made available to your customers.
-services: monitoring
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: monitoring
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2017
 ms.author: bwren
+ms.date: 03/20/2017
+
 ms.custom: H1Hack27Feb2017
 ---
+
 # Design and build a management solution in Azure (Preview)
 > [!NOTE]
 > This is preliminary documentation for creating management solutions in Azure which are currently in preview. Any schema described below is subject to change.

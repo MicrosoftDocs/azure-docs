@@ -1,23 +1,23 @@
 ---
-title: Quickstart - Create a DNS zone and record using the Azure portal
+title: Quickstart - Create an Azure DNS zone and record using the Azure portal
 description: Use this step-by-step quickstart guide to learn how to create an Azure DNS zone and record using the Azure portal.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 12/4/2018
+ms.date: 3/11/2019
 ms.author: victorh
-#Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS so I can connect to my web server using a friendly name.
+#Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure portal so I can use Azure DNS for my name resolution.
 ---
 
-# Quickstart: Configure Azure DNS for name resolution by using the portal
+# Quickstart: Create an Azure DNS zone and record using the Azure portal
 
-You can configure Azure DNS to resolve host names in your public domain. For example, if you purchased the *contoso.com* domain name from a domain name registrar, you can configure Azure DNS to host the *contoso.com* domain and resolve *www.contoso.com* to the IP address of your web server or web app.
+You can configure Azure DNS to resolve host names in your public domain. For example, if you purchased the *contoso.xyz* domain name from a domain name registrar, you can configure Azure DNS to host the *contoso.xyz* domain and resolve *www.contoso.xyz* to the IP address of your web server or web app.
 
 In this quickstart, you will create a test domain, and then create an address record to resolve *www* to the IP address *10.10.10.10*.
 
 >[!IMPORTANT]
->All the names and IP addresses in this quickstart are examples that do not represent real-world scenarios. The quickstart also discusses real-world implications where applicable.
+>All the names and IP addresses in this quickstart are examples that do not represent real-world scenarios.
 
 <!---
 You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
@@ -34,16 +34,16 @@ A DNS zone contains the DNS entries for a domain. To start hosting your domain i
 **To create the DNS zone:**
 
 1. At upper left, select **Create a resource**, then **Networking**, and then **DNS zone**.
-   
+
 1. On the **Create DNS zone** page, type or select the following values:
-   
+
    - **Name**: Type *contoso.xyz* for this quickstart example. The DNS zone name can be any value that is not already configured on the Azure DNS servers. A real-world value would be a domain that you bought from a domain name registrar.
-   - **Resource group**: Select **Create new**, enter *dns-test*, and select **OK**. The resource group name must be unique within the Azure subscription. 
-   
+   - **Resource group**: Select **Create new**, enter *MyResourceGroup*, and select **OK**. The resource group name must be unique within the Azure subscription. 
+
 1. Select **Create**.
 
    ![DNS zone](./media/dns-getstarted-portal/openzone650.png)
-   
+
 It may take a few minutes to create the zone.
 
 ## Create a DNS record
@@ -52,7 +52,7 @@ You create DNS entries or records for your domain inside the DNS zone. Create a 
 
 **To create an 'A' record:**
 
-1. In the Azure portal, under **All resources**, open the **contoso.xyz** DNS zone in the **dns-test** resource group. You can enter *contoso.xyz* in the **Filter by name** box to find it more easily.
+1. In the Azure portal, under **All resources**, open the **contoso.xyz** DNS zone in the **MyResourceGroup** resource group. You can enter *contoso.xyz* in the **Filter by name** box to find it more easily.
 
 1. At the top of the **DNS zone** page, select **+ Record set**.
 
@@ -64,7 +64,7 @@ You create DNS entries or records for your domain inside the DNS zone. Create a 
    - **TTL unit**: Select **Hours**. This is the time unit for the **TTL** value. 
    - **IP address**: For this quickstart example, type *10.10.10.10*. This value is the IP address the record name resolves to. In a real-world scenario, you would enter the public IP address for your web server.
 
-Since this quickstart doesn't use a real domain, there's no need to configure the Azure DNS name servers at a domain name registrar. With a real domain, you'll want anyone on the internet to resolve the host name to connect to your web server or app. You'll visit your domain name registrar to replace the name server records with the Azure DNS name servers. For more information, see [Tutorial: Host your domain in Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+Since this quickstart is just for quick testing purposes, there's no need to configure the Azure DNS name servers at a domain name registrar. With a real production domain, you'll want anyone on the Internet to resolve the host name to connect to your web server or app. You'll visit your domain name registrar to replace the name server records with the Azure DNS name servers. For more information, see [Tutorial: Host your domain in Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## Test the name resolution
 
@@ -72,36 +72,33 @@ Now that you have a test DNS zone with a test 'A' record, you can test the name 
 
 **To test DNS name resolution:**
 
-1. In the Azure portal, under **All resources**, open the **contoso.xyz** DNS zone in the **dns-test** resource group. You can enter *contoso.xyz* in the **Filter by name** box to find it more easily.
+1. In the Azure portal, under **All resources**, open the **contoso.xyz** DNS zone in the **MyResourceGroup** resource group. You can enter *contoso.xyz* in the **Filter by name** box to find it more easily.
 
 1. Copy one of the name server names from the name server list on the **Overview** page. 
-   
+
    ![zone](./media/dns-getstarted-portal/viewzonens500.png)
-   
-   >[!NOTE]
-   >In a real-world scenario, you copy all four name server names, including trailing periods, and use them for the new Azure DNS name server names at your domain registrar. For more information, see [Delegate a domain to Azure DNS](dns-delegate-domain-azure-dns.md)
-   
+
 1. Open a command prompt, and run the following command:
 
    ```
-   nslookup <host name> <name server name>
+   nslookup www.contoso.xyz <name server name>
    ```
-   
+
    For example:
-   
+
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
    ```
-   
+
    You should see something like the following screen:
-   
+
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-The host name **www.contoso.xyz** resolves to **10.10.10.10**, just as you configured it. This result verifies that name resolution is working correctly. 
+The host name **www\.contoso.xyz** resolves to **10.10.10.10**, just as you configured it. This result verifies that name resolution is working correctly. 
 
 ## Clean up resources
 
-When you no longer need the resources you created in this quickstart, remove them by deleting the **dns-test** resource group. Open the **dns-test** resource group, and select **Delete resource group**.
+When you no longer need the resources you created in this quickstart, remove them by deleting the **MyResourceGroup** resource group. Open the **MyResourceGroup** resource group, and select **Delete resource group**.
 
 ## Next steps
 

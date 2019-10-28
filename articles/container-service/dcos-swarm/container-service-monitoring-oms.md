@@ -39,32 +39,32 @@ have deployed simple web container applications on the cluster.
 ### Pre-requisite
 - [Microsoft Azure Subscription](https://azure.microsoft.com/free/) - You can get a subscription for free.  
 - Log Analytics Workspace Setup - see "Step 3" below
-- [DC/OS CLI](https://dcos.io/docs/1.8/usage/cli/install/) installed.
+- [DC/OS CLI](https://docs.mesosphere.com/1.12/cli) installed.
 
 1. In the DC/OS dashboard, click on Universe and search
-for ‘OMS’ as shown below.
+   for ‘OMS’ as shown below.
 
    >[!NOTE]
    >OMS is now referred to as Log Analytics.
 
- ![](media/container-service-monitoring-oms/image2.png)
+   ![](media/container-service-monitoring-oms/image2.png)
 
 2. Click **Install**. You will see a pop-up with the version
-information and an **Install Package** or **Advanced Installation**
-button. When you click **Advanced Installation**, which leads you to the **OMS specific configuration
-properties** page.
+   information and an **Install Package** or **Advanced Installation**
+   button. When you click **Advanced Installation**, which leads you to the **OMS specific configuration
+   properties** page.
 
- ![](media/container-service-monitoring-oms/image3.png)
+   ![](media/container-service-monitoring-oms/image3.png)
 
- ![](media/container-service-monitoring-oms/image4.png)
+   ![](media/container-service-monitoring-oms/image4.png)
 
 3. Here, you will be asked to enter the `wsid` (the Log Analytics workspace ID)
-and `wskey` (the primary key for the workspace ID). To get both `wsid` and
-`wskey` you need to create an account at <https://mms.microsoft.com>.
-Follow the steps to create an account. Once you are done creating
-the account, you need to obtain your `wsid` and `wskey` by clicking **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
+   and `wskey` (the primary key for the workspace ID). To get both `wsid` and
+   `wskey` you need to create an account at <https://mms.microsoft.com>.
+   Follow the steps to create an account. Once you are done creating
+   the account, you need to obtain your `wsid` and `wskey` by clicking **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
 
- ![](media/container-service-monitoring-oms/image5.png)
+   ![](media/container-service-monitoring-oms/image5.png)
 
 4. Select the number of instances that you want and click the ‘Review and Install’ button. Typically, you will want to have the number of instances equal to the number of VM’s you have in your agent cluster. Log Analytics agent for Linux installs as individual containers on each VM that it wants to collect information for monitoring and logging information.
 

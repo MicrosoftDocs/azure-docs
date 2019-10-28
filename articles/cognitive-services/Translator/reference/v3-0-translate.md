@@ -3,14 +3,14 @@ title: Translator Text API Translate Method
 titleSuffix: Azure Cognitive Services
 description: Use the Translator Text API Translate method.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: swmachan
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
-ms.author: v-jansko
+ms.date: 10/16/2019
+ms.author: swmachan
 ---
 
 # Translator Text API 3.0: Translate
@@ -34,55 +34,55 @@ Request parameters passed on the query string are:
   <th>Description</th>
   <tr>
     <td>api-version</td>
-    <td>*Required parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
+    <td><em>Required parameter</em>.<br/>Version of the API requested by the client. Value must be <code>3.0</code>.</td>
   </tr>
   <tr>
     <td>from</td>
-    <td>*Optional parameter*.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](./v3-0-languages.md) using the `translation` scope. If the `from` parameter is not specified, automatic language detection is applied to determine the source language.</td>
+    <td><em>Optional parameter</em>.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up <a href="./v3-0-languages.md">supported languages</a> using the <code>translation</code> scope. If the <code>from</code> parameter is not specified, automatic language detection is applied to determine the source language. <br/><br/>You must use the <code>from</code> parameter rather than autodetection when using the <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamic dictionary</a> feature.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>*Required parameter*.<br/>Specifies the language of the output text. The target language must be one of the [supported languages](./v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.<br/>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian.</td>
+    <td><em>Required parameter</em>.<br/>Specifies the language of the output text. The target language must be one of the <a href="./v3-0-languages.md">supported languages</a> included in the <code>translation</code> scope. For example, use <code>to=de</code> to translate to German.<br/>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use <code>to=de&to=it</code> to translate to German and Italian.</td>
   </tr>
   <tr>
     <td>textType</td>
-    <td>*Optional parameter*.<br/>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`.</td>
+    <td><em>Optional parameter</em>.<br/>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: <code>plain</code> (default) or <code>html</code>.</td>
   </tr>
   <tr>
     <td>category</td>
-    <td>*Optional parameter*.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../customization.md). Default value is: `general`.</td>
+    <td><em>Optional parameter</em>.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with <a href="../customization.md">Custom Translator</a>. Add the Category ID from your Custom Translator <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">project details</a> to this parameter to use your deployed customized system. Default value is: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td>*Optional parameter*.<br/>Specifies how profanities should be treated in translations. Possible values are: `NoAction` (default), `Marked` or `Deleted`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity).</td>
+    <td><em>Optional parameter</em>.<br/>Specifies how profanities should be treated in translations. Possible values are: <code>NoAction</code> (default), <code>Marked</code> or <code>Deleted</code>. To understand ways to treat profanity, see <a href="#handle-profanity">Profanity handling</a>.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td>*Optional parameter*.<br/>Specifies how profanities should be marked in translations. Possible values are: `Asterisk` (default) or `Tag`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity).</td>
+    <td><em>Optional parameter</em>.<br/>Specifies how profanities should be marked in translations. Possible values are: <code>Asterisk</code> (default) or <code>Tag</code>. To understand ways to treat profanity, see <a href="#handle-profanity">Profanity handling</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>
-    <td>*Optional parameter*.<br/>Specifies whether to include alignment projection from source text to translated text. Possible values are: `true` or `false` (default). </td>
+    <td><em>Optional parameter</em>.<br/>Specifies whether to include alignment projection from source text to translated text. Possible values are: <code>true</code> or <code>false</code> (default). </td>
   </tr>
   <tr>
     <td>includeSentenceLength</td>
-    <td>*Optional parameter*.<br/>Specifies whether to include sentence boundaries for the input text and the translated text. Possible values are: `true` or `false` (default).</td>
+    <td><em>Optional parameter</em>.<br/>Specifies whether to include sentence boundaries for the input text and the translated text. Possible values are: <code>true</code> or <code>false</code> (default).</td>
   </tr>
   <tr>
     <td>suggestedFrom</td>
-    <td>*Optional parameter*.<br/>Specifies a fallback language if the language of the input text can't be identified. Language auto-detection is applied when the `from` parameter is omitted. If detection fails, the `suggestedFrom` language will be assumed.</td>
+    <td><em>Optional parameter</em>.<br/>Specifies a fallback language if the language of the input text can't be identified. Language auto-detection is applied when the <code>from</code> parameter is omitted. If detection fails, the <code>suggestedFrom</code> language will be assumed.</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Optional parameter*.<br/>Specifies the script of the input text.</td>
+    <td><em>Optional parameter</em>.<br/>Specifies the script of the input text.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Optional parameter*.<br/>Specifies the script of the translated text.</td>
+    <td><em>Optional parameter</em>.<br/>Specifies the script of the translated text.</td>
   </tr>
   <tr>
     <td>allowFallback</td>
-    <td>*Optional parameter*.<br/>Specifies that the service is allowed to fallback to a general system when a custom system does not exist. Possible values are: `true` (default) or `false`.<br/><br/>`allowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X->E and E->Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `allowFallback=true` specifies that the service is allowed to fallback to a general system when a custom system does not exist.
+    <td><em>Optional parameter</em>.<br/>Specifies that the service is allowed to fallback to a general system when a custom system does not exist. Possible values are: <code>true</code> (default) or <code>false</code>.<br/><br/><code>allowFallback=false</code> specifies that the translation should only use systems trained for the <code>category</code> specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X->E and E->Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. <code>allowFallback=true</code> specifies that the service is allowed to fallback to a general system when a custom system does not exist.
 </td>
   </tr>
 </table> 
@@ -93,20 +93,20 @@ Request headers include:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_One authorization_<br/>_header_</td>
-    <td>*Required request header*.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
+    <td>Authentication header(s)</td>
+    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Required request header*.<br/>Specifies the content type of the payload. Possible values are: `application/json`.</td>
+    <td><em>Required request header</em>.<br/>Specifies the content type of the payload.<br/> Accepted value is <code>application/json; charset=UTF-8</code>.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Required request header*.<br/>The length of the request body.</td>
+    <td><em>Required request header</em>.<br/>The length of the request body.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Optional*.<br/>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`.</td>
+    <td><em>Optional</em>.<br/>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named <code>ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -122,7 +122,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 
 The following limitations apply:
 
-* The array can have at most 25 elements.
+* The array can have at most 100 elements.
 * The entire text included in the request cannot exceed 5,000 characters including spaces.
 
 ## Response body
@@ -205,21 +205,23 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
   <tr>
     <td>408</td>
-    <td>The request could not be fulfilled because a resource is missing. Check the details error message. When using a custom `category`, this often indicates that the custom translation system is not yet available to serve requests. The request should be retried after a waiting period (e.g. 1 minute).</td>
+    <td>The request could not be fulfilled because a resource is missing. Check the details error message. When using a custom <code>category</code>, this often indicates that the custom translation system is not yet available to serve requests. The request should be retried after a waiting period (e.g. 1 minute).</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>The caller is sending too many requests.</td>
+    <td>The server rejected the request because the client has exceeded request limits.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>An unexpected error occurred. If the error persists, report it with: date and time of the failure, request identifier from response header `X-RequestId`, and client identifier from request header `X-ClientTraceId`.</td>
+    <td>An unexpected error occurred. If the error persists, report it with: date and time of the failure, request identifier from response header <code>X-RequestId</code>, and client identifier from request header <code>X-ClientTraceId</code>.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Server temporarily unavailable. Retry the request. If the error persists, report it with: date and time of the failure, request identifier from response header `X-RequestId`, and client identifier from request header `X-ClientTraceId`.</td>
+    <td>Server temporarily unavailable. Retry the request. If the error persists, report it with: date and time of the failure, request identifier from response header <code>X-RequestId</code>, and client identifier from request header <code>X-ClientTraceId</code>.</td>
   </tr>
 </table> 
+
+If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator Text API reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## Examples
 
@@ -227,13 +229,9 @@ The following are the possible HTTP status codes that a request returns.
 
 This example shows how to translate a single sentence from English to Simplified Chinese.
 
-# [curl](#tab/curl)
-
+```curl
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
-```
-
----
 
 The response body is:
 
@@ -253,13 +251,9 @@ The `translations` array includes one element, which provides the translation of
 
 This example shows how to translate a single sentence from English to Simplified Chinese. The request does not specify the input language. Auto-detection of the source language is used instead.
 
-# [curl](#tab/curl)
-
+```curl
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
-```
-
----
 
 The response body is:
 
@@ -279,13 +273,9 @@ The response is similar to the response from the previous example. Since languag
 
 Let's extend the previous example by adding transliteration. The following request asks for a Chinese translation written in Latin script.
 
-# [curl](#tab/curl)
-
+```curl
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
-```
-
----
 
 The response body is:
 
@@ -310,13 +300,9 @@ The translation result now includes a `transliteration` property, which gives th
 
 Translating multiple strings at once is simply a matter of specifying an array of strings in the request body.
 
-# [curl](#tab/curl)
-
+```curl
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
-```
-
----
 
 The response body is:
 
@@ -339,13 +325,9 @@ The response body is:
 
 This example shows how to translate the same input to several languages in one request.
 
-# [curl](#tab/curl)
-
+```curl
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
-```
-
----
 
 The response body is:
 
@@ -370,41 +352,36 @@ If you want to avoid getting profanity in the translation, regardless of the pre
   <th width="20%">ProfanityAction</th>
   <th>Action</th>
   <tr>
-    <td>`NoAction`</td>
+    <td><code>NoAction</code></td>
     <td>This is the default behavior. Profanity will pass from source to target.<br/><br/>
-    **Example Source (Japanese)**: 彼はジャッカスです。<br/>
-    **Example Translation (English)**: He is a jackass.
+    <strong>Example Source (Japanese)</strong>: 彼はジャッカスです。<br/>
+    <strong>Example Translation (English)</strong>: He is a jackass.
     </td>
   </tr>
   <tr>
-    <td>`Deleted`</td>
+    <td><code>Deleted</code></td>
     <td>Profane words will be removed from the output without replacement.<br/><br/>
-    **Example Source (Japanese)**: 彼はジャッカスです。<br/>
-    **Example Translation (English)**: He is a.
+    <strong>Example Source (Japanese)</strong>: 彼はジャッカスです。<br/>
+    <strong>Example Translation (English)</strong>: He is a.
     </td>
   </tr>
   <tr>
-    <td>`Marked`</td>
-    <td>Profane words are replaced by a marker in the output. The marker depends on the `ProfanityMarker` parameter.<br/><br/>
-    For `ProfanityMarker=Asterisk`, profane words are replaced with `***`:<br/>
-    **Example Source (Japanese)**: 彼はジャッカスです。<br/>
-    **Example Translation (English)**: He is a \*\*\*.<br/><br/>
-    For `ProfanityMarker=Tag`, profane words are surrounded by XML tags &lt;profanity&gt; and &lt;/profanity&gt;:<br/>
-    **Example Source (Japanese)**: 彼はジャッカスです。<br/>
-    **Example Translation (English)**: He is a &lt;profanity&gt;jackass&lt;/profanity&gt;.
+    <td><code>Marked</code></td>
+    <td>Profane words are replaced by a marker in the output. The marker depends on the <code>ProfanityMarker</code> parameter.<br/><br/>
+    For <code>ProfanityMarker=Asterisk</code>, profane words are replaced with <code>***</code>:<br/>
+    <strong>Example Source (Japanese)</strong>: 彼はジャッカスです。<br/>
+    <strong>Example Translation (English)</strong>: He is a \*\*\*.<br/><br/>
+    For <code>ProfanityMarker=Tag</code>, profane words are surrounded by XML tags &lt;profanity&gt; and &lt;/profanity&gt;:<br/>
+    <strong>Example Source (Japanese)</strong>: 彼はジャッカスです。<br/>
+    <strong>Example Translation (English)</strong>: He is a &lt;profanity&gt;jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 
 For example:
 
-# [curl](#tab/curl)
-
+```curl
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
-```
-
----
-
 This returns:
 
 ```
@@ -419,13 +396,9 @@ This returns:
 
 Compare with:
 
-# [curl](#tab/curl)
-
+```curl
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
-```
-
----
 
 That last request returns:
 
@@ -450,13 +423,9 @@ It's common to translate content which includes markup such as content from an H
 
 Here is a sample request to illustrate.
 
-# [curl](#tab/curl)
-
+```curl
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
-```
-
----
 
 The response is:
 
@@ -474,13 +443,9 @@ The response is:
 
 To receive alignment information, specify `includeAlignment=true` on the query string.
 
-# [curl](#tab/curl)
-
+```curl
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation.'}]"
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
-```
-
----
 
 The response is:
 
@@ -500,8 +465,10 @@ The response is:
 
 The alignment information starts with `0:2-0:1`, which means that the first three characters in the source text (`The`) map to the first two characters in the translated text (`La`).
 
+#### Limitations
 Note the following restrictions:
 
+* Alignment is not available for text in HTML format i.e., textType=html
 * Alignment is only returned for a subset of the language pairs:
   - from English to any other language;
   - from any other language to English except for Chinese Simplified, Chinese Traditional, and Latvian to English;
@@ -512,13 +479,9 @@ Note the following restrictions:
 
 To receive information about sentence length in the source text and translated text, specify `includeSentenceLength=true` on the query string.
 
-# [curl](#tab/curl)
-
+```curl
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
-```
-
----
 
 The response is:
 
@@ -549,7 +512,7 @@ The markup to supply uses the following syntax.
 For example, consider the English sentence "The word wordomatic is a dictionary entry." To preserve the word _wordomatic_ in the translation, send the request:
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 The result is:
@@ -565,9 +528,3 @@ The result is:
 ```
 
 This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you have or can afford to create training data that shows your work or phrase in context, you get much better results. [Learn more about Custom Translator](../customization.md).
- 
-
-
-
-
-

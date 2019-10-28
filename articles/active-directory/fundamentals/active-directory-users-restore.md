@@ -2,17 +2,18 @@
 title: Restore or permanently remove a recently deleted user - Azure Active Directory | Microsoft Docs
 description: How to view restorable users, restore a deleted user, or permanently delete a user with Azure Active Directory.
 services: active-directory
-author: eross-msft
-manager: mtillman
+author: msaburnley
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: lizross 
+ms.date: 04/01/2018
+ms.author: ajburnle 
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Restore or remove a recently deleted user using Azure Active Directory
@@ -26,19 +27,19 @@ You can view your restorable users, restore a deleted user, or permanently delet
 ## Required permissions
 You must have one of the following roles to restore and permanently delete users.
 
-- Company Administrator
+- Global administrator
 
 - Partner Tier1 Support
 
 - Partner Tier2 Support
 
-- User Account Administrator
+- User administrator
 
 ## View your restorable users
 You can see all the users that were deleted less than 30 days ago. These users can be restored.
 
 ### To view your restorable users
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the organization.
 
 2. Select **Azure Active Directory**, select **Users**, and then select **Deleted users**.
 
@@ -47,7 +48,11 @@ You can see all the users that were deleted less than 30 days ago. These users c
     ![Users - Deleted users page, with users that can still be restored](media/active-directory-users-restore/users-deleted-users-view-restorable.png)
 
 ## Restore a recently deleted user
-While a user's account is suspended, all the related directory information is preserved. When you restore a user, this directory information is also restored.
+
+When a user account is deleted from the organization, the account is in a suspended state and all the related organization information is preserved. When you restore a user, this organization information is also restored.
+
+> [!Note]
+> Once a user is restored, licenses that were assigned to the user at the time of deletion are also restored even if there are no seats available for those licenses. If you are then consuming more licenses more than you purchased, your organization could be temporarily out of compliance for license usage.
 
 ### To restore a user
 1. On the **Users - Deleted users** page, search for and select one of the available users. For example, _Mary Parker_.
@@ -56,11 +61,8 @@ While a user's account is suspended, all the related directory information is pr
 
     ![Users - Deleted users page, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
->[!NOTE]
->Previously when a user was removed from the on-premises synchronization scope, and deleted in the cloud, the DirSyncEnabled status of the account was erroneously set to "False". If afterwards, that user was manually restored from Azure AD Recycle Bin, it showed an incorrect state of “Cloud-Only” account. This has now been fixed and the value of the DirSyncEnabled status is always kept “True” when a user is removed from sync scope, then soft-deleted, and manually restored from Azure AD Recycle Bin.
-
 ## Permanently delete a user
-You can permanently delete a user from your directory without waiting the 30 days for automatic deletion. A permanently deleted user can't be restored by you, another administrator, nor by Microsoft customer support.
+You can permanently delete a user from your organization without waiting the 30 days for automatic deletion. A permanently deleted user can't be restored by you, another administrator, nor by Microsoft customer support.
 
 >[!Note]
 >If you permanently delete a user by mistake, you'll have to create a new user and manually enter all the previous information. For more information about creating a new user, see [Add or delete users](add-users-azure-active-directory.md).
@@ -82,6 +84,6 @@ After you've restored or deleted your users, you can perform the following basic
 
 - [Add or change profile information](active-directory-users-profile-azure-portal.md)
 
-- [Add guest users from another directory](../b2b/what-is-b2b.md) 
+- [Add guest users from another organization](../b2b/what-is-b2b.md)
 
-For more information about other available user management tasks, [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+For more information about other available user management tasks, [Azure AD user management documentation](../users-groups-roles/index.yml).

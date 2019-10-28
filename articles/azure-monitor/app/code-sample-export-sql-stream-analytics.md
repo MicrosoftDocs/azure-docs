@@ -1,19 +1,15 @@
 ---
 title: 'Export to SQL from Azure Application Insights | Microsoft Docs'
 description: Continuously export Application Insights data to SQL using Stream Analytics.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/11/2017
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 09/11/2017
 
 ---
+
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
 This article shows how to move your telemetry data from [Azure Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
@@ -174,8 +170,8 @@ To get the name and iKey of your Application Insights resource, open Essentials 
 
 > [!TIP]
 > Use the Sample function to check that you have set the input path correctly. If it fails: Check that there is data in the storage for the sample time range you chose. Edit the input definition and check you set the storage account, path prefix and date format correctly.
-> 
-> 
+
+ 
 ## Set query
 Open the query section:
 
@@ -244,7 +240,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 
 
 ## Related articles
-* [Export to PowerBI using Stream Analytics](../../application-insights/app-insights-export-power-bi.md)
+* [Export to PowerBI using Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 * [Detailed data model reference for the property types and values.](../../azure-monitor/app/export-data-model.md)
 * [Continuous Export in Application Insights](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -255,5 +251,5 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 [export]: ../../azure-monitor/app/export-telemetry.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [portal]: https://portal.azure.com/
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

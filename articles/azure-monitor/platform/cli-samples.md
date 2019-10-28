@@ -1,14 +1,15 @@
 ---
 title: Azure Monitor CLI quick start samples
 description: Sample CLI commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: ""
 ms.topic: conceptual
-ms.date: 05/16/2018
+author: rboucher
 ms.author: robb
-ms.component: ""
+ms.date: 05/16/2018
+
 ---
+
 # Azure Monitor CLI quick start samples
 This article shows you sample command-line interface (CLI) commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
 
@@ -202,3 +203,4 @@ az monitor autoscale create --name <settings name> --resource-group <group name>
     --count <# instances> \
     --resource <target resource ID>
 ```
+

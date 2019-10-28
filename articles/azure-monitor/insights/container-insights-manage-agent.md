@@ -1,20 +1,13 @@
 ---
 title: How to manage the Azure Monitor for containers agent | Microsoft Docs
-description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.  
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-
-ms.assetid: 
-ms.service: azure-monitor
-ms.devlang: na
+description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/06/2018
+author: mgoedtel
 ms.author: magoedte
+ms.date: 12/06/2018
+
 ---
 
 # How to manage the Azure Monitor for containers agent
@@ -26,13 +19,13 @@ Azure Monitor for containers uses a containerized version of the Log Analytics a
 If the agent upgrade fails, this article describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).   
 
 ### Upgrading agent on monitored Kubernetes cluster
-The process to upgrade the agent consists of two straight forward steps. The first step is to disable monitoring with Azure Monitor for containers using Azure CLI.  Follow the steps described in the [Disable monitoring](container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json#azure-cli) article. Using Azure CLI allows us to remove the agent from the nodes in the cluster without impacting the solution and the corresponding data that is stored in the workspace. 
+The process to upgrade the agent consists of two straight forward steps. The first step is to disable monitoring with Azure Monitor for containers using Azure CLI.  Follow the steps described in the [Disable monitoring](container-insights-optout.md?#azure-cli) article. Using Azure CLI allows us to remove the agent from the nodes in the cluster without impacting the solution and the corresponding data that is stored in the workspace. 
 
 >[!NOTE]
 >While you are performing this maintenance activity, the nodes in the cluster are not forwarding collected data, and performance views will not show data between the time you remove the agent and install the new version. 
 >
 
-To install the new version of the agent, follow the steps described in the [Onboard monitoring](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-using-azure-cli) article using Azure CLI, to complete this process.  
+To install the new version of the agent, follow the steps described in the [enable monitoring using Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli), to complete this process.  
 
 After you've re-enabled monitoring, it might take about 15 minutes before you can view  updated health metrics for the cluster. To verify the agent upgraded successfully, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`
 

@@ -4,19 +4,20 @@ description: Learn how to automatically provision and de-provision user accounts
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 08/12/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure ServiceNow for automatic user provisioning with Azure Active Directory
 
@@ -39,8 +40,7 @@ To configure Azure AD integration with ServiceNow, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-
+- If you don't have an Azure AD trial environment, you can get a [free account](https://azure.microsoft.com/free/).
 
 ## Assigning users to ServiceNow
 
@@ -53,6 +53,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 > [!IMPORTANT]
 >*   It is recommended that a single Azure AD user is assigned to ServiceNow to test the provisioning configuration. Additional users and/or groups may be assigned later.
 >*   When assigning a user to ServiceNow, you must select a valid user role. The "Default Access" role does not work for provisioning.
+>*   For more information on how to create and configure roles in Azure AD, please refer this [link](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)
 
 ## Enable automated user provisioning
 

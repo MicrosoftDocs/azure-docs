@@ -1,24 +1,22 @@
 ---
-title: Install and configure Terraform for use with Azure | Microsoft Docs
+title: Install and configure Terraform to provision Azure resources | Microsoft Docs
 description: Learn how to install and configure Terraform to create Azure resources
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
-manager: jeconnoc
+author: tomarchermsft
+manager: gwallace
 editor: na
 tags: azure-resource-manager
-
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
-ms.author: echuvyrov
+ms.date: 09/20/2019
+ms.author: tarcher
 ---
 
-# Install and configure Terraform to provision VMs and other infrastructure into Azure
+# Install and configure Terraform to provision Azure resources
  
 Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure.
 
@@ -34,7 +32,7 @@ To install Terraform, [download](https://www.terraform.io/downloads.html) the ap
 
 Verify your path configuration with the `terraform` command. A list of available Terraform options is shown, as in the following example output:
 
-```bash
+```console
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
@@ -43,10 +41,10 @@ Usage: terraform [--version] [--help] <command> [args]
 
 To enable Terraform to provision resources into Azure, create an [Azure AD service principal](/cli/azure/create-an-azure-service-principal-azure-cli). The service principal grants your Terraform scripts to provision resources in your Azure subscription.
 
-If you have multiple Azure subscriptions, first query your account with [az account show](/cli/azure/account#az-account-show) to get a list of subscription ID and tenant ID values:
+If you have multiple Azure subscriptions, first query your account with [az account list](/cli/azure/account#az-account-list) to get a list of subscription ID and tenant ID values:
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 To use a selected subscription, set the subscription for this session with [az account set](/cli/azure/account#az-account-set). Set the `SUBSCRIPTION_ID` environment variable to hold the value of the returned `id` field from the subscription you want to use:
@@ -55,7 +53,7 @@ To use a selected subscription, set the subscription for this session with [az a
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-Now you can create a service principal for use with Terraform. Use [az ad sp create-for-rbac]/cli/azure/ad/sp#az-ad-sp-create-for-rbac), and set the *scope* to your subscription as follows:
+Now you can create a service principal for use with Terraform. Use [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac), and set the *scope* to your subscription as follows:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
@@ -91,7 +89,7 @@ export ARM_ENVIRONMENT=public
 
 Create a file `test.tf` in an empty directory and paste in the following script.
 
-```tf
+```hcl
 provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
@@ -108,7 +106,7 @@ terraform init
 
 The output is similar to the following example:
 
-```bash
+```console
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
@@ -122,7 +120,7 @@ terraform apply
 
 The output is similar to the following example:
 
-```bash
+```console
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create

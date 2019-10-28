@@ -2,24 +2,24 @@
 title: About claim resolvers in Azure Active Directory B2C custom policies | Microsoft Docs
 description: Learn about how claims resolvers are used in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/08/2018
-ms.author: davidmu
-ms.component: B2C
+ms.date: 01/25/2019
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # About claim resolvers in Azure Active Directory B2C custom policies
 
-Claim resolvers in Azure Active Directory (Azure AD) B2C [custom policies](active-directory-b2c-overview-custom.md) provide context information about an authorization request, such as the policy name, request correlation ID, user interface language, and more.
+Claim resolvers in Azure Active Directory B2C (Azure AD B2C) [custom policies](active-directory-b2c-overview-custom.md) provide context information about an authorization request, such as the policy name, request correlation ID, user interface language, and more.
 
-To use a claim resolver in an input or output claim, you define a string **ClaimType**, under the [ClaimsSchema](claimsschema.md) element, and then you set the **DefaultValue** to the claim resolver in the input or output claim element. Azure AD B2C reads the value of the claim resolver and uses the value in the technical profile. 
+To use a claim resolver in an input or output claim, you define a string **ClaimType**, under the [ClaimsSchema](claimsschema.md) element, and then you set the **DefaultValue** to the claim resolver in the input or output claim element. Azure AD B2C reads the value of the claim resolver and uses the value in the technical profile.
 
-In the following example, a claim type named `correlationId` is defined with a **DataType** of `string`.  
+In the following example, a claim type named `correlationId` is defined with a **DataType** of `string`.
 
 ```XML
 <ClaimType Id="correlationId">
@@ -93,12 +93,17 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {OAUTH-KV:loyalty_number} | A query string parameter. | 1234 |
 | {OAUTH-KV:any custom query string} | A query string parameter. | N/A |
 
+### OAuth2
+
+| Claim | Description | Example |
+| ----- | ----------------------- | --------|
+| {oauth2:access_token} | The access token. | N/A |
 
 ## How to use claim resolvers
 
 ### RESTful technical profile
 
-In a [RESTful](restful-technical-profile.md) technical profile, you may want to send the user language, policy name, scope, and client ID. Based on these claims the REST API can run custom business logic, and if necessary raise a localized error message. 
+In a [RESTful](restful-technical-profile.md) technical profile, you may want to send the user language, policy name, scope, and client ID. Based on these claims the REST API can run custom business logic, and if necessary raise a localized error message.
 
 The following example shows a RESTful technical profile:
 
@@ -127,7 +132,7 @@ Using claim resolvers, you can prepopulate the sign-in name or direct sign-in to
 
 ### Dynamic UI customization
 
-Azue AD B2C enables you to pass query string parameters to your HTML content definition endpoints so that you can dynamically render the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
+Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints so that you can dynamically render the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
 
 The following example passes in the query string a parameter named **campaignId** with a value of `hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
 

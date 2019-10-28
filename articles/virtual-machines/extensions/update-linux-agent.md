@@ -3,8 +3,8 @@ title: Update the Azure Linux Agent from GitHub | Microsoft Docs
 description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -12,10 +12,9 @@ ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: roiyz
+ms.author: akjosh
 
 ---
 # How to update the Azure Linux Agent on a VM
@@ -311,7 +310,7 @@ zypper info python-azure-agent
 
 #### Check available updates
 
-In the output from the above, this will show you if the package is upto date.
+In the output from the above, this will show you if the package is up-to-date.
 
 #### Install the latest package version
 
@@ -363,8 +362,8 @@ For Oracle Linux 6 virtual machines:
 ```sh
 [ol6_addons]
 name=Add-Ons for Oracle Linux $releasever ($basearch)
-baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
-gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
+baseurl=https://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
+gpgkey=https://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
 gpgcheck=1
 enabled=1
 ```

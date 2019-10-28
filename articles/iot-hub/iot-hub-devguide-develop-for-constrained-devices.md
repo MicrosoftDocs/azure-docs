@@ -1,17 +1,20 @@
 ---
 title: Azure IoT Hub Develop for Constrained Devices using IoT Hub C SDK | Microsoft Docs
 description: Developer guide - guidance on how to develop using Azure IoT SDKs for constrained devices. 
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: yizhon
+ms.author: robinsh
 ---
 
 # Develop for constrained devices using Azure IoT C SDK
 
 Azure IoT Hub C SDK is written in ANSI C (C99), which makes it well-suited to operate a variety of platforms with small disk and memory footprint. The recommended RAM is at least 64 KB, but the exact memory footprint depends on the protocol used, the number of connections opened, as well as the platform targeted.
+> [!NOTE]
+> * Azure IoT C SDK regularly publishes resource consumption information to help with development.  Please visit our [GitHub repository](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) and review the latest benchmark.
+>
 
 C SDK is available in package form from apt-get, NuGet, and MBED. To target constrained devices, you may want to build the SDK locally for your target platform. This documentation demonstrates how to remove certain features to shrink the footprint of the C SDK using [cmake](https://cmake.org/). In addition, this documentation discusses the best practice programming models for working with constrained devices.
 

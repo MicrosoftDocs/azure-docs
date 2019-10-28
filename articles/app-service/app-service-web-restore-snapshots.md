@@ -13,7 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: aelnably;nicking
+ms.author: aelnably
+ms.reviewer: nicking
 ms.custom: seodec18
 
 ---
@@ -26,7 +27,7 @@ Snapshots are incremental shadow copies, and they offer several advantages over 
 - No configuration required.
 
 Restoring from snapshots is available to apps running in **Premium** tier or higher. For information about scaling
-up your app, see [Scale up an app in Azure](web-sites-scale.md).
+up your app, see [Scale up an app in Azure](manage-scale-up.md).
 
 ## Limitations
 
@@ -35,6 +36,7 @@ up your app, see [Scale up an app in Azure](web-sites-scale.md).
 - App Service stops the target app or target slot while doing the restore.
 - App Service keeps three months worth of snapshots for platform data recovery purposes.
 - You can only restore snapshots for the last 30 days.
+- App Services running on an App Service Environment do not support snapshots.
  
 
 ## Restore an app from a snapshot

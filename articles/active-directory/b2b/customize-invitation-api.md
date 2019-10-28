@@ -1,25 +1,26 @@
 ---
-title: Azure Active Directory B2B collaboration API and customization | Microsoft Docs
+title: B2B collaboration API and customization - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: reference
 ms.date: 04/11/2017
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisolMS
 
+ms.collection: M365-identity-device-management
 ---
-
 # Azure Active Directory B2B collaboration API and customization
 
 We've had many customers tell us that they want to customize the invitation process in a way that works best for their organizations. With our API, you can do just that. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## Capabilities of the invitation API
+
 The API offers the following capabilities:
 
 1. Invite an external user with *any* email address.
@@ -41,7 +42,7 @@ The API offers the following capabilities:
     "sendInvitationMessage": true
     ```
 
-  with a message to the recipient that you can customize
+   with a message to the recipient that you can customize
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
@@ -55,7 +56,7 @@ The API offers the following capabilities:
     "sendInvitationMessage": false
     ```
 
-  In this case, you get back a redemption URL from the API that you can embed in an email template, IM, or other distribution method of your choice.
+   In this case, you get back a redemption URL from the API that you can embed in an email template, IM, or other distribution method of your choice.
 
 6. Finally, if you are an admin, you can choose to invite the user as member.
 
@@ -65,21 +66,25 @@ The API offers the following capabilities:
 
 
 ## Authorization model
+
 The API can be run in the following authorization modes:
 
 ### App + User mode
+
 In this mode, whoever is using the API needs to have the permissions to be create B2B invitations.
 
 ### App only mode
+
 In app only context, the app needs the User.Invite.All scope for the invitation to succeed.
 
 For more information, refer to: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## PowerShell
+
 You can use PowerShell to add and invite external users to an organization easily. Create an invitation using the cmdlet:
 
-```
+```powershell
 New-AzureADMSInvitation
 ```
 
@@ -99,7 +104,8 @@ After you send an external user an invitation, you can use the **Get-AzureADUser
 
 You can use the **Filter** option to filter the results by **UserState**. The example below shows how to filter results to show only users who have a pending invitation. The example also shows the **Format-List** option, which lets you specify the properties to display. 
  
-```
+
+```powershell
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
@@ -116,4 +122,3 @@ Check out the invitation API reference in [https://developer.microsoft.com/graph
 - [The elements of the B2B collaboration invitation email](invitation-email-elements.md)
 - [B2B collaboration invitation redemption](redemption-experience.md)
 - [Add B2B collaboration users without an invitation](add-user-without-invite.md)
-

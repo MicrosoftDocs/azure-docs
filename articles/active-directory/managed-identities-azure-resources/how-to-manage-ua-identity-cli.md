@@ -3,23 +3,23 @@ title: How to manage a user-assigned managed identity using Azure CLI
 description: Step by step instructions on how to create, list and delete a user-assigned managed identity using the Azure CLI.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/16/2018
-ms.author: daveba
+ms.date: 10/15/2019
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Create, list or delete a user-assigned managed identity using the Azure CLI
 
-[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Managed identities for Azure resources provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 

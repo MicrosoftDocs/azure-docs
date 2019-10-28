@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
@@ -122,11 +122,11 @@ You create an S3 bucket to store detailed billing information.
 6. On the Review page, click **Create bucket**. Your bucket list is displayed.
 7. Click the bucket that you created and select the **Permissions** tab and then select **Bucket Policy**. The Bucket policy editor opens.
 8. Copy the following JSON example and paste it in the Bucket policy editor.
-  - Replace `<BillingBucketName>` with the name of your S3 bucket.
-  - Replace `<ReadOnlyUserOrRole>` with the Role or User ARN that you had previously copied.
+   - Replace `<BillingBucketName>` with the name of your S3 bucket.
+   - Replace `<ReadOnlyUserOrRole>` with the Role or User ARN that you had previously copied.
 
-  ```json
-  {
+   ```json
+   {
   	"Version": "2012-10-17",
   	"Id": "Policy1426774604000",
   	"Statement": [
@@ -164,8 +164,8 @@ You create an S3 bucket to store detailed billing information.
   			"Resource": "arn:aws:s3:::<BillingBucketName>/*"
   		}
   	]
-  }
-  ```
+   }
+   ```
 
 9. Click **Save**.  
     ![click Save in the Bucket policy editor](./media/connect-aws-account/bucket-policy-editor.png)

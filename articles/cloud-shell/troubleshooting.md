@@ -21,6 +21,8 @@ ms.author: damaerte
 
 Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## General troubleshooting
 
 ### Early timeouts in FireFox
@@ -30,7 +32,7 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 ### Disabling Cloud Shell in a locked down network environment
 
-- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain which can be denied, stopping any access to Cloud Shell's entrypoints including portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension, and docs.microsoft.com.
+- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain, which can be denied, stopping any access to Cloud Shell's entrypoints including portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension, and docs.microsoft.com.
 - **Resolution**: Restrict access to `ux.console.azure.com` via network settings to your environment. The Cloud Shell icon will still exist in portal.azure.com, but will not successfully connect to the service.
 
 ### Storage Dialog - Error: 403 RequestDisallowedByPolicy
@@ -48,7 +50,7 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 - **Resolution**: Check you have configured your network settings to enable sending https requests and websocket requests to domains at *.console.azure.com.
 
 ### Set your Cloud Shell connection to support using TLS 1.2
- - **Details**: To define the version of TLS for your connection to Cloud Shell, you must set browser specific settings.
+ - **Details**: To define the version of TLS for your connection to Cloud Shell, you must set browser-specific settings.
  - **Resolution**: Navigate to the security settings of your browser and select the checkbox next to "Use TLS 1.2".
 
 ## Bash troubleshooting
@@ -71,7 +73,7 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 - **Details**: Due to the default Windows Firewall settings for WinRM the user may see the following error:
  `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Resolution**:  Run `Enable-AzureRmVMPSRemoting` to enable all aspects of PowerShell remoting on the target machine.
+- **Resolution**:  Run `Enable-AzVMPSRemoting` to enable all aspects of PowerShell remoting on the target machine.
 
 ### `dir` does not update the result in Azure drive
 
@@ -106,10 +108,6 @@ Cloud Shell supports the latest versions of following browsers:
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### For a given user, only one shell can be active
-
-Users can only launch one type of shell at a time, either **Bash** or **PowerShell**. However, you may have multiple instances of Bash or PowerShell running at one time. Swapping between Bash or PowerShell causes Cloud Shell to restart, which terminates existing sessions.
-
 ### Usage limits
 
 Cloud Shell is intended for interactive use cases. As a result, any long-running non-interactive sessions are ended without warning.
@@ -137,10 +135,6 @@ The `SqlServer` module included in Cloud Shell has only prerelease support for P
 ### Default file location when created from Azure drive
 
 Using PowerShell cmdlets, users cannot create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to the `$HOME` by default.
-
-### Commands that create GUI pop-ups are not supported
-
-If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Connect-AzureRmAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### Tab completion can throw PSReadline exception
 
@@ -202,3 +196,5 @@ PowerShell:
   $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
   Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
+## Azure Government limitations
+Azure Cloud Shell in Azure Government is only accessible through the Azure portal.

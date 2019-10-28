@@ -1,19 +1,14 @@
 ---
 title: Send user context IDs to enable usage experiences in Azure Application Insights | Microsoft Docs
 description: Track how users move through your service by assigning each of them a unique, persistent ID string in Application Insights.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: csharp
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/03/2019
-ms.reviewer: abgreg;mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 01/03/2019
+
+ms.reviewer: abgreg;mbullwin
 ---
 
 # Send user context IDs to enable usage experiences in Azure Application Insights
@@ -37,7 +32,7 @@ custom event or page view.
 - Sessions: Include session ID.
 
 > [!NOTE]
-> This is an advanced article outlining the manual steps for tracking user activity with Application Insights. With many web applications **these steps may not be required**, as the default server-side SDKs in conjunction with the [Client/Browser-side JavaScript SDK](../../application-insights/app-insights-website-monitoring.md), are often sufficient to automatically track user activity. If you haven't configured [client-side monitoring](../../application-insights/app-insights-website-monitoring.md) in addition to the server-side SDK, do that first and test to see if the user behavior analytics tools are performing as expected.
+> This is an advanced article outlining the manual steps for tracking user activity with Application Insights. With many web applications **these steps may not be required**, as the default server-side SDKs in conjunction with the [Client/Browser-side JavaScript SDK](../../azure-monitor/app/website-monitoring.md ), are often sufficient to automatically track user activity. If you haven't configured [client-side monitoring](../../azure-monitor/app/website-monitoring.md ) in addition to the server-side SDK, do that first and test to see if the user behavior analytics tools are performing as expected.
 
 ## Choosing user IDs
 

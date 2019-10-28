@@ -3,18 +3,19 @@ title: How to view the service principal of a managed identity in the Azure port
 description: Step-by-step instructions for viewing the service principal of a managed identity in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/29/2018
-ms.author: daveba
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # View the service principal of a managed identity in the Azure portal
@@ -22,6 +23,9 @@ ms.author: daveba
 Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
 In this article, you learn how to view the service principal of a managed identity using the Azure portal.
+
+ > [!NOTE] 
+ > Service principals are Enterprise Applications. 
 
 ## Prerequisites
 

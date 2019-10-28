@@ -1,13 +1,13 @@
 ---
 title: 'Azure Digital Twins public preview service limits | Microsoft Docs'
 description: Understand Azure Digital Twins public preview service limits.
-author: dwalthermsft
-manager: deshner
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/03/2019
-ms.author: dwalthermsft
+ms.date: 10/22/2019
 ---
 
 # Public preview service limits
@@ -30,7 +30,7 @@ During the public preview, each Azure subscription can create or run only one Az
 
 In turn, each Azure Digital Twins instance can have:
 
-- Exactly one **IoTHub** resource.
+- Exactly one embedded **IoTHub** resource that's created automatically during service provisioning.
 - Exactly One **EventHub** endpoint for the event type **DeviceMessage**.
 - Up to three **EventHub**, **ServiceBus**, or **EventGrid** endpoints of the event type **SensorChange**, **SpaceChange**, **TopologyOperation**, or **UdfCustom**.
 
@@ -65,8 +65,9 @@ The following limits set the total number of all user-defined function calls mad
 
 The following limits cap the total number of all messages your devices can send to your Azure Digital Twins instance:
 
-- 100 messages per second
+- 100 messages per second across all devices
+-	25 messages per second per device
 
 ## Next steps
 
-To try out an Azure Digital Twins sample, go to [Quickstart to find available rooms](./quickstart-view-occupancy-dotnet.md).
+- To try out an Azure Digital Twins sample, go to [Quickstart to find available rooms](./quickstart-view-occupancy-dotnet.md).

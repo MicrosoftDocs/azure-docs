@@ -3,7 +3,7 @@ title: Deploy the remote monitoring solution locally - Docker - Azure | Microso
 description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine using Docker for testing and development.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
@@ -30,7 +30,7 @@ To complete the local deployment, you need the following tools installed on your
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Visual Studio](https://visualstudio.microsoft.com/)
+* [Visual Studio](https://visualstudio.microsoft.com/) - if you plan to make changes to the microservices.
 * [Node.js v8](https://nodejs.org/) - this software is a prerequisite for the PCS CLI that the scripts use to create Azure resources. Don't use Node.js v10.
 
 > [!NOTE]
@@ -49,6 +49,8 @@ set PCS
 The command shows all the environment variables set by the **start.cmd** script.
 
 Make sure that Docker is running on your local machine.
+> [!NOTE]
+> Docker must be running [Linux containers](https://docs.docker.com/docker-for-windows/) if it is running on Windows.
 
 The microservices running in the local Docker containers need to access the Azure cloud services. You can test the internet connectivity of your Docker environment using the following command to ping an internet address from inside a container:
 
@@ -61,6 +63,9 @@ To run the solution accelerator, navigate to the **services\\scripts\\local** fo
 ```cmd/sh
 docker-compose up
 ```
+
+> [!NOTE] 
+> Make sure you [share a local drive](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) with Docker before you run `docker-compose up`.
 
 The first time you run this command, Docker downloads the microservice images from Docker hub to build the containers locally. On following runs, Docker runs the containers immediately.
 
@@ -86,7 +91,7 @@ Follow these steps to start the Stream Analytics job:
 
 ### Connect to the dashboard
 
-To access the Remote Monitoring solution dashboard, navigate to [http://localhost:8080](http://localhost:8080) in your browser. You can now use the Web UI and the local microservices.
+To access the Remote Monitoring solution dashboard, navigate to `http://localhost:8080` in your browser. You can now use the Web UI and the local microservices.
 
 ## Clean up
 

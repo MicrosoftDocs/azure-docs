@@ -3,23 +3,28 @@ title: Understand the OAuth 2.0 authorization code flow in Azure AD
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/23/2018
-ms.author: celested
+ms.topic: conceptual
+ms.date: 08/30/2019
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow
+
+> [!NOTE]
+>  If you don't tell the server what resource you plan to call, then the server will not trigger the conditional access policies for that resource. So in order to have MFA trigger, you will need to include a resource in your URL. 
+>
 
 Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our [open-source libraries](active-directory-authentication-libraries.md).
 
@@ -140,7 +145,7 @@ grant_type=authorization_code
 | client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure portal. The Application Id is displayed in the settings of the app registration. |
 | grant_type |required |Must be `authorization_code` for the authorization code flow. |
 | code |required |The `authorization_code` that you acquired in the previous section |
-| redirect_uri |required |The same `redirect_uri` value that was used to acquire the `authorization_code`. |
+| redirect_uri |required | A `redirect_uri`registered on the client application. |
 | client_secret |required for web apps, not allowed for public clients |The application secret that you created in the Azure Portal for your app under **Keys**. It cannot be used in a native app (public client), because client_secrets cannot be reliably stored on devices. It is required for web apps and web APIs (all confidential clients), which have the ability to store the `client_secret` securely on the server side. The client_secret should be URL-encoded before being sent. |
 | resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure Portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. If in both the authorization request and the token request, the     resource` parameters must match. | 
 | code_verifier | optional | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
@@ -170,7 +175,7 @@ A successful response could look like this:
 
 | Parameter | Description |
 | --- | --- |
-| access_token |The requested [access token](access-tokens.md) as a signed JSON Web Token (JWT). The app can use this token to authenticate to the secured resource, such as a web API. |
+| access_token |The requested access token.  This is an opaque string - it depends on what the resource expects to receive, and is not intended for the client to look at. The app can use this token to authenticate to the secured resource, such as a web API. |
 | token_type |Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about Bearer tokens, see [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |How long the access token is valid (in seconds). |
 | expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
@@ -256,7 +261,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | authorization_uri |The URI (physical endpoint) of the authorization server. This value is also used as a lookup key to get more information about the server from a discovery endpoint. <p><p> The client must validate that the authorization server is trusted. When the resource is protected by Azure AD, it is sufficient to verify that the URL begins with https://login.microsoftonline.com or another hostname that Azure AD supports. A tenant-specific resource should always return a tenant-specific authorization URI. |
 | error |An error code value defined in Section 5.2 of the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). |
 | error_description |A more detailed description of the error. This message is not intended to be end-user friendly. |
-| resource_id |Returns the unique identifier of the resource. The client application can use this identifier as the value of the `resource` parameter when it requests a token for the resource. <p><p> It is important for the client application to verify this value, otherwise a malicious service might be able to induce an **elevation-of-privileges** attack <p><p> The recommended strategy for preventing an attack is to verify that the `resource_id` matches the base of the web API URL that being accessed. For example, if https://service.contoso.com/data is being accessed, the `resource_id` can be htttps://service.contoso.com/. The client application must reject a `resource_id` that does not begin with the base URL unless there is a reliable alternate way to verify the id. |
+| resource_id |Returns the unique identifier of the resource. The client application can use this identifier as the value of the `resource` parameter when it requests a token for the resource. <p><p> It is important for the client application to verify this value, otherwise a malicious service might be able to induce an **elevation-of-privileges** attack <p><p> The recommended strategy for preventing an attack is to verify that the `resource_id` matches the base of the web API URL that being accessed. For example, if https://service.contoso.com/data is being accessed, the `resource_id` can be https://service.contoso.com/. The client application must reject a `resource_id` that does not begin with the base URL unless there is a reliable alternate way to verify the id. |
 
 #### Bearer scheme error codes
 The RFC 6750 specification defines the following errors for resources that use the WWW-Authenticate header and Bearer scheme in the response.
@@ -341,3 +346,6 @@ A sample error response could look like this:
 | correlation_id |A unique identifier for the request that can help in diagnostics across components. |
 
 For a description of the error codes and the recommended client action, see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).
+
+## Next steps
+To learn more about the Azure AD v1.0 endpoint and how to add authentication and authorization to your web applications and web APIs, see [sample applications](sample-v1-code.md).

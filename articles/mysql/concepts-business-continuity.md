@@ -1,16 +1,16 @@
 ---
-title: Overview of business continuity with Azure Database for MySQL
-description: Overview of business continuity with Azure Database for MySQL.
+title: Understand business continuity in Azure Database for MySQL
+description: Learn about business continuity (point-in-time restore, data center outage, geo-restore) when using Azure Database for MySQL service.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 02/01/2019
 ---
 
-# Overview of business continuity with Azure Database for MySQL
+# Understand business continuity in Azure Database for MySQL
 
-This overview describes the capabilities that Azure Database for MySQL provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
+This article describes the capabilities that Azure Database for MySQL provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
 ## Features that you can use to provide business continuity
 
@@ -45,6 +45,6 @@ The other option is to use the Azure Database for MySQL's geo-restore feature th
 
 ## Next steps
 
-- To learn more about the automated backups, see [Backups in Azure Database for MySQL](concepts-backup.md).
-- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).
+- Learn more about the [automated backups in Azure Database for MySQL](concepts-backup.md).
+- Learn how to restore using [the Azure portal](howto-restore-server-portal.md) or [the Azure CLI](howto-restore-server-cli.md).
+- Learn about [read replicas in Azure Database for MySQL](concepts-read-replicas.md).

@@ -3,11 +3,11 @@ title: This quickstart shows how to use a symmetric key to provision a simulated
 description: In this quickstart you will use the C device SDK to create a simulated device that uses symmetric key with the Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/29/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
+manager: philmea
 ms.custom: mvc
 #Customer intent: As a new IoT developer, I want simulate a device using the C SDK so that I can learn how secure provisioning works with symmetric keys.
 ---
@@ -30,7 +30,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 ## Prerequisites
 
-* Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 * Latest version of [Git](https://git-scm.com/download/) installed.
 
 
@@ -42,21 +42,7 @@ In this section, you will prepare a development environment used to build the [A
 
 The SDK includes the sample code for a simulated device. This simulated device will attempt provisioning during the device's boot sequence.
 
-1. Download the version 3.11.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
-
-    ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
-    True
-    ```
-    
-    The following hash values for version 3.11.4 were listed on the CMake site at the time of this writing:
-
-    ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
-    ```
+1. Download the [CMake build system](https://cmake.org/download/).
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
@@ -65,7 +51,7 @@ The SDK includes the sample code for a simulated device. This simulated device w
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+    You should expect this operation to take several minutes to complete.
 
 
 3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
@@ -110,15 +96,15 @@ The SDK includes the sample code for a simulated device. This simulated device w
 
 3. On **Add enrollment**, enter the following information, and click the **Save** button.
 
-    - **Mechanism**: Select **Symmetric Key** as the identity attestation *Mechanism*.
+   - **Mechanism**: Select **Symmetric Key** as the identity attestation *Mechanism*.
 
-    - **Auto Generate Keys**: Check this box.
+   - **Auto Generate Keys**: Check this box.
 
-    - **Registration ID**: Enter a registration ID to identify the enrollment. Use only lowercase alphanumeric and dash ('-') characters. For example, `symm-key-device-007`.
+   - **Registration ID**: Enter a registration ID to identify the enrollment. Use only lowercase alphanumeric and dash ('-') characters. For example, `symm-key-device-007`.
 
-    - **IoT Hub Device ID:** Enter a device identifier. For example, **device-007**.
+   - **IoT Hub Device ID:** Enter a device identifier. For example, **device-007**.
 
-    ![Add individual enrollment for symmetric key attestation in the portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![Add individual enrollment for symmetric key attestation in the portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. Once you saved your enrollment, the **Primary Key** and **Secondary Key** will be generated and added to the enrollment entry. Your symmetric key device enrollment appears as **symm-key-device-007** under the *Registration ID* column in the *Individual Enrollments* tab. 
 

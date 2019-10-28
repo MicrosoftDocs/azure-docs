@@ -11,7 +11,6 @@ ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
@@ -73,15 +72,15 @@ The `on-error` policy section can be used at any scope. API publishers can confi
 
  When an error occurs and control jumps to the `on-error` policy section, the error is stored in  [context.LastError](api-management-policy-expressions.md#ContextVariables) property, which can be accessed by policies in the `on-error` section. LastError has the following properties.  
   
-| Name     | Type   | Description                                                                                               | Required |
-|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Source   | string | Names the element where the error occurred. Could be either policy or a  built-in pipeline step name.     | Yes      |
-| Reason   | string | Machine-friendly error code, which could be used in error handling.                                       | No       |
-| Message  | string | Human-readable error description.                                                                         | Yes      |
-| Scope    | string | Name of the scope where the error occurred and could be one of "global", "product", "api", or "operation" | No       |
-| Section  | string | Section name where error occurred. Possible values: "inbound", "backend", "outbound", or "on-error".       | No       |
-| Path     | string | Specifies nested policy, for example "choose[3]/when[2]".                                                        | No       |
-| PolicyId | string | Value of the `id` attribute, if specified by the customer, on the policy where error occurred             | No       |
+| Name       | Type   | Description                                                                                               | Required |
+|------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| `Source`   | string | Names the element where the error occurred. Could be either policy or a  built-in pipeline step name.     | Yes      |
+| `Reason`   | string | Machine-friendly error code, which could be used in error handling.                                       | No       |
+| `Message`  | string | Human-readable error description.                                                                         | Yes      |
+| `Scope`    | string | Name of the scope where the error occurred and could be one of "global", "product", "api", or "operation" | No       |
+| `Section`  | string | Section name where error occurred. Possible values: "inbound", "backend", "outbound", or "on-error".       | No       |
+| `Path`     | string | Specifies nested policy, for example "choose[3]/when[2]".                                                        | No       |
+| `PolicyId` | string | Value of the `id` attribute, if specified by the customer, on the policy where error occurred             | No       |
 
 > [!TIP]
 > You can access the status code through context.Response.StatusCode.  

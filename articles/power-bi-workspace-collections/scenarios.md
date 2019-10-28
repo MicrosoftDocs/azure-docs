@@ -1,16 +1,15 @@
 ---
 title: Common Microsoft Power BI Workspace Collection scenarios
 description: Common Microsoft Power BI Embedded scenarios
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 0bf9706c-11bd-432a-bab3-89c04bc4dd1f
+services: power-bi-workspace-collections
 ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # Common Power BI Workspace Collection scenarios
 
 Power BI Workspace Collections is focused on exposing the majority of existing Power BI API functionality as part of an Azure service for you to develop your applications with.  Additionally, you are able to programmatically provision, develop, and deploy the necessary resources and Power BI content. To learn more, see [Get started with Microsoft Power BI Workspace Collections](get-started.md).

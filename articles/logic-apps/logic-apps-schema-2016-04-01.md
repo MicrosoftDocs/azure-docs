@@ -42,7 +42,7 @@ or review this basic scope example:
             "Http": {
                "inputs": {
                    "method": "GET",
-                   "uri": "http://www.bing.com"
+                   "uri": "https://www.bing.com"
                },
                "runAfter": {},
                "type": "Http"
@@ -74,7 +74,7 @@ or review this basic example that shows a condition action:
          "Http_2": {
             "inputs": {
                 "method": "GET",
-                "uri": "http://www.bing.com"
+                "uri": "https://www.bing.com"
             },
             "runAfter": {},
             "type": "Http"
@@ -207,7 +207,7 @@ the Azure Diagnostic telemetry, emitted as part of a workflow. For example:
    "Http": {
       "inputs": {
          "method": "GET",
-         "uri": "http://www.bing.com"
+         "uri": "https://www.bing.com"
       },
       "runAfter": {},
       "type": "Http",
@@ -219,9 +219,10 @@ the Azure Diagnostic telemetry, emitted as part of a workflow. For example:
 }
 ```
 
-## Next Steps
+## Next steps
+
 * [Create workflow definitions for logic apps](../logic-apps/logic-apps-author-definitions.md)
-* [Create deployment templates for logic apps](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png

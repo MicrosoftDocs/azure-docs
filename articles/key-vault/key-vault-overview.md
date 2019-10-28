@@ -2,19 +2,15 @@
 title: Azure Key Vault Overview - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault is a cloud service that works as a secure secrets store.
 services: key-vault
-author: barclayn
-manager: mbaldwin
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/02/2019
-ms.author: barclayn
+ms.date: 01/07/2019
+ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 
 ---
@@ -43,7 +39,7 @@ Access to a key vault requires proper authentication and authorization before a 
 
 Authentication is done via Azure Active Directory. Authorization may be done via role-based access control (RBAC) or Key Vault access policy. RBAC is used when dealing with the management of the vaults and key vault access policy is used when attempting to access data stored in a vault.
 
-Azure Key Vaults may be either software- or hardware-HSM protected. For situations where you require added assurance you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. Microsoft uses Thales hardware security modules. You can use Thales tools to move a key from your HSM to Azure Key Vault.
+Azure Key Vaults may be either software- or hardware-HSM protected. For situations where you require added assurance you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. Microsoft uses nCipher hardware security modules. You can use nCipher tools to move a key from your HSM to Azure Key Vault.
 
 Finally, Azure Key Vault is designed so that Microsoft does not see or extract your data.
 
@@ -53,7 +49,7 @@ Once you have created a couple of Key Vaults, you will want to monitor how and w
 
 - Archive to a storage account.
 - Stream to an event hub.
-- Send the logs to Log Analytics.
+- Send the logs to Azure Monitor logs.
 
 You have control over your logs and you may secure them by restricting access and you may also delete logs that you no longer need.
 
@@ -67,12 +63,12 @@ When storing valuable data, you must take several steps. Security information mu
 - Providing standard Azure administration options via the portal, Azure CLI and PowerShell.
 - Automating certain tasks on certificates that you purchase from Public CAs, such as enrollment and renewal.
 
-In addition, Azure Key Vaults allow you to segregate application secrets. Applications may access only the vault that they are allowed to access, and they be limited to only perform specific operations. You can create an Azure Key Vault per application and restrict the secrets stored in a Key Vault to a specific application and team of developers.
+In addition, Azure Key Vaults allow you to segregate application secrets. Applications may access only the vault that they are allowed to access, and they can be limited to only perform specific operations. You can create an Azure Key Vault per application and restrict the secrets stored in a Key Vault to a specific application and team of developers.
 
 ### Integrate with other Azure services
 
 As a secure store in Azure, Key Vault has been used to simplify scenarios like:
--  [Azure Disk Encryption](../security/azure-security-disk-encryption.md)
+-  [Azure Disk Encryption](../security/fundamentals/encryption-overview.md)
 -  The [always encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) functionality in SQL server and Azure SQL Database
 - [Azure App Service]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). 
 

@@ -3,18 +3,12 @@ title: Node.js Getting Started Guide
 description: Learn how to create a simple Node.js web application and deploy it to an Azure cloud service.
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/17/2017
-ms.author: jeconnoc
+ms.author: gwallace
 
 ---
 # Build and deploy a Node.js application to an Azure Cloud Service
@@ -165,12 +159,12 @@ For more information, see the [Node.js Developer Center].
 
 <!-- URL List -->
 
-[Azure Websites, Cloud Services and Virtual Machines comparison]: ../app-service/overview-compare.md
+[Azure Websites, Cloud Services and Virtual Machines comparison]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [using a lightweight web app]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure Powershell]: /powershell/azureps-cmdlets-docs
-[Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Connect PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
-[nodejs.org]: http://nodejs.org/
+[Azure SDK for .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
+[Connect PowerShell]: /powershell/azureps-cmdlets-docs
+[nodejs.org]: https://nodejs.org/
 [Overview of Creating a Hosted Service for Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
 
