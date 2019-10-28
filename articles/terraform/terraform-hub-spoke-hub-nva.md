@@ -8,7 +8,7 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
+ms.date: 09/20/2019
 ---
 
 # Tutorial: Create a hub virtual network appliance with Terraform in Azure
@@ -63,7 +63,7 @@ Create the Terraform configuration file that declares On-Premises Virtual networ
 
 1. Paste the following code into the editor:
     
-    ```JSON
+    ```hcl
     locals {
       prefix-hub-nva         = "hub-nva"
       hub-nva-location       = "CentralUS"

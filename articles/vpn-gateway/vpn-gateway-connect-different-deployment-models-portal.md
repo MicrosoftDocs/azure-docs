@@ -6,8 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 10/17/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
 ---
 # Connect virtual networks from different deployment models using the portal
@@ -141,20 +140,13 @@ In this section, you create the virtual network gateway and the local network ga
 * Subnet name = Subnet-1 <br>
 * Address range = 192.168.1.0/24 <br>
 
-
 If you don't have a Resource Manager VNet and are running these steps as an exercise, create a virtual network with the steps in [Create a virtual network](../virtual-network/quick-create-portal.md), using the example values.
 
-### 2. Create a gateway subnet
+### <a name="creategw"></a>2. Create a virtual network gateway
 
-**Example value:** GatewaySubnet = 192.168.0.0/26
+In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
-Before creating a virtual network gateway, you first need to create the gateway subnet. Create a gateway subnet with CIDR count of /28 or larger (/27, /26, etc.). If you are creating this as part of an exercise, you can use the Example values.
-
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="creategw"></a>3. Create a virtual network gateway
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
 **Example values:**
 
@@ -164,11 +156,14 @@ Before creating a virtual network gateway, you first need to create the gateway 
 * SKU = VpnGw1 <br>
 * Location = East US <br>
 * Virtual network = RMVNet <br>
+* GatewaySubnet = 192.168.0.0/26 <br>
 * First IP configuration = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>4. Create a local network gateway
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
+### <a name="createlng"></a>3. Create a local network gateway
 
 **Example values:** Local network gateway = ClassicVNetLocal
 

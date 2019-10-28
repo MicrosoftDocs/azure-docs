@@ -9,6 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
 ---
+
 # Use MapReduce in Apache Hadoop on HDInsight
 
 Learn how to run MapReduce jobs on HDInsight clusters.

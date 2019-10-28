@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -36,13 +36,12 @@ In RBAC, to list access, you list the role assignments. To list role assignments
 
     | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
-    
-       
-     > [!NOTE]
-     > In the above example Microsoft.web is the resource provider is used which refers to App service instance. Similarly you can use any other resource provider and build the Scope URI. In order to understand more please refer to [Azure Resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) and supported [Azure RM resource provider operations](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+
+    In the previous example, microsoft.web is a resource provider that refers to an App Service instance. Similarly, you can use any other resource providers and specify the scope. For more information, see [Azure Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md) and supported [Azure Resource Manager resource provider operations](resource-provider-operations.md).  
      
 1. Replace *{filter}* with the condition that you want to apply to filter the role assignment list.
 
@@ -50,7 +49,7 @@ In RBAC, to list access, you list the role assignments. To list role assignments
     | --- | --- |
     | `$filter=atScope()` | Lists role assignments for only the specified scope, not including the role assignments at subscopes. |
     | `$filter=principalId%20eq%20'{objectId}'` | Lists role assignments for a specified user, group, or service principal. |
-    | `$filter=assignedTo('{objectId}')` | Lists role assignments for a specified user or service principal. If the user is a member of a group that has a role assignment, that role assignment is also listed. This filter is transitive for groups which means that if the user is a member of a group and that group is a member of another group that has a role assignment, that role assignment is also listed. This filter only accepts an object id for a user or a service principal. You cannot pass an object id for a group. |
+    | `$filter=assignedTo('{objectId}')` | Lists role assignments for a specified user or service principal. If the user is a member of a group that has a role assignment, that role assignment is also listed. This filter is transitive for groups which means that if the user is a member of a group and that group is a member of another group that has a role assignment, that role assignment is also listed. This filter only accepts an object ID for a user or a service principal. You cannot pass an object ID for a group. |
 
 ## Grant access
 
@@ -69,23 +68,31 @@ In RBAC, to grant access, you create a role assignment. To create a role assignm
     ```json
     {
       "properties": {
-        "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+        "roleDefinitionId": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
         "principalId": "{principalId}"
       }
     }
     ```
-    
+
 1. Within the URI, replace *{scope}* with the scope for the role assignment.
 
     | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. Replace *{roleAssignmentName}* with the GUID identifier of the role assignment.
 
-1. Within the request body, replace *{subscriptionId}* with your subscription identifier.
+1. Within the request body, replace *{scope}* with the scope for the role assignment.
+
+    | Scope | Type |
+    | --- | --- |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the role definition identifier.
 
@@ -107,9 +114,10 @@ In RBAC, to remove access, you remove a role assignment. To remove a role assign
 
     | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. Replace *{roleAssignmentName}* with the GUID identifier of the role assignment.
 

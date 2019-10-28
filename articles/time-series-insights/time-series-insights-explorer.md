@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
 ---
 
@@ -121,4 +121,5 @@ Now you've seen the various features and options that are available within the T
 ## Next steps
 
 - Learn how to [diagnose and solve problems](time-series-insights-diagnose-and-solve-problems.md) in your Time Series Insights environment.
+
 - Take the guided [Azure Time Series Insights quickstart](time-series-quickstart.md) tour.

@@ -1,7 +1,7 @@
 ---
 title: Use Azure's automated ML interface to train & deploy models
-titleSuffix: Azure Machine Learning service
-description: Create, manage and deploy automated machine learning experiments in Azure Machine Learning's new workspace landing page.
+titleSuffix: Azure Machine Learning
+description: Create, manage and deploy automated machine learning experiments in Azure Machine Learning's workspace landing page (preview).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,24 +17,23 @@ ms.date: 09/09/2019
 
 # Create, explore and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)
 
- In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure Machine Learning's new workspace landing page without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+ In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure Machine Learning's workspace landing page without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
 
  If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Get started
-
 
 1. Sign in to [the workspace landing page](https://ml.azure.com/workspaceportal/). 
 
 1. Select your subscription and workspace. 
 
-1. Navigate to the left pane. Select **Automated ML** under the **Authoring** section.
+1. Navigate to the left pane. Select **Automated ML** under the **Author** section.
 
 [![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
@@ -56,12 +55,12 @@ Otherwise, you'll see your **Automated machine learning** dashboard with an over
     ---|---
     Compute name| Enter a unique name that identifies your compute context.
     Virtual machine size| Select the virtual machine size for your compute.
-    Additional settings| *Min node*: Enter the minimum number of nodes for your compute. The minimum number of nodes for AML compute is 0. To enable data profiling, you must have 1 or more nodes. <br> *Max node*: Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
+    Min / Max nodes (in Advanced Settings)| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
     
     Select **Create**. Creation of a new compute can take a few minutes.
 
     >[!NOTE]
-    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See 7b for more details on data profiling).
+    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](#profile) for more details).
 
 1. Select a dataset from your storage container, or create one by uploading a file from your local computer to the container. Public preview only supports local file uploads and Azure blob storage accounts.
 
@@ -106,7 +105,7 @@ Otherwise, you'll see your **Automated machine learning** dashboard with an over
     Advanced settings|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#explore-model-metrics).
-    Exit criteria| When any of these criteria are met, the training job ends before full completion. <br> *Training job time (minutes)*: How long to allow the training job to run.  <br> *Max number of iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
+    Exit criteria| When any of these criteria are met, the training job is stopped. <br> *Training job time (minutes)*: How long to allow the training job to run.  <br> *Max number of iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Preprocessing| Select to enable or disable the preprocessing done by automated machine learning. Preprocessing includes automatic data cleansing, preparing, and transformation to generate synthetic features. [Learn more about preprocessing](#preprocess).
     Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](how-to-configure-auto-train.md).
     Concurrency| Select the multi-core limits you would like to use when using multi-core compute.
@@ -203,7 +202,7 @@ Automated ML helps you with deploying the model without writing code:
 
     ![Deploy complete](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
-Now you have an operational web service to generate predictions!
+Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI’s built in Azure Machine Learning support](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## Next steps
 

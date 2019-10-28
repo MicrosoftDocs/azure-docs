@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the Azure Blueprints service
 

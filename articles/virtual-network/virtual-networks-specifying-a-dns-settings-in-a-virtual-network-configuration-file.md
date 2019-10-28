@@ -4,7 +4,7 @@ description: How to change DNS server settings in a virtual network using a virt
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 tags: azure-service-management
 

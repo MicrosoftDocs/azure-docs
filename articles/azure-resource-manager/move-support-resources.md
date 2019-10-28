@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 09/06/2019
+ms.date: 10/24/2019
 ms.author: tomfitz
 ---
 
@@ -25,7 +25,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.Backup](#microsoftbackup)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.BatchAI](#microsoftbatchai)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -49,6 +48,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
+> - [Microsoft.CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
@@ -60,6 +60,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [Microsoft.DataShare](#microsoftdatashare)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
@@ -67,7 +68,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [microsoft.dns](#microsoftdns)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
@@ -124,7 +124,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
@@ -241,13 +240,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | registrations | Yes | Yes |
-
-## Microsoft.Backup
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | backupvault | No | No |
 
 ## Microsoft.Batch
 
@@ -459,6 +451,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | hubs | Yes | Yes |
 
+## Microsoft.CustomProviders
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | resourceproviders | Yes | Yes |
+
 ## Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
@@ -541,6 +540,13 @@ Jump to a resource provider namespace:
 > | services / projects | No | No |
 > | slots | No | No |
 
+## Microsoft.DataShare
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | accounts | No | No |
+
 ## Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
@@ -604,21 +610,6 @@ Jump to a resource provider namespace:
 > | labs / servicerunners | Yes | Yes |
 > | labs / virtualmachines | Yes | No |
 > | schedules | Yes | Yes |
-
-## microsoft.dns
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | dnszones | No | No |
-> | dnszones / a | No | No |
-> | dnszones / aaaa | No | No |
-> | dnszones / cname | No | No |
-> | dnszones / mx | No | No |
-> | dnszones / ptr | No | No |
-> | dnszones / srv | No | No |
-> | dnszones / txt | No | No |
-> | trafficmanagerprofiles | No | No |
 
 ## Microsoft.DocumentDB
 
@@ -1135,16 +1126,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | signalr | Yes | Yes |
 
-## Microsoft.SiteRecovery
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | siterecoveryvault | No | No |
-
-> [!IMPORTANT]
-> See [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
-
 ## Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
@@ -1298,9 +1279,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | dedicatedcloudnodes | Yes | Yes |
-> | dedicatedcloudservices | Yes | Yes |
-> | virtualmachines | Yes | Yes |
+> | dedicatedcloudnodes | No | No |
+> | dedicatedcloudservices | No | No |
+> | virtualmachines | No | No |
 
 ## Microsoft.Web
 

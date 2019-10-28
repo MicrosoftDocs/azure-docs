@@ -284,15 +284,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 | eb46b6b6.session.saml.last.assertionID | _9a4e4ddd-148f-45c4-b959-f4d148172e00 |
 | eb46b6b6.session.saml.last.assertionIssueInstant	| 2019-06-16T19:18:03.054Z |
 | eb46b6b6.session.saml.last.assertionIssuer | `https://sts.windows.net/<TENANT ID>`/ |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/displayname | user0 |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/objectidentifier | 90d5f0e5-8f46-4bfd-b40f-ec973d00fcb7 |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/tenantid | e6abffcf-4d23-4388-91c2-bfdfcbb1530c |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | user0@superdemo.live |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname | user0 |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name | user0@superdemo.live |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | 0 |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/displayname | user0 |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/objectidentifier | 90d5f0e5-8f46-4bfd-b40f-ec973d00fcb7 |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/tenantid | e6abffcf-4d23-4388-91c2-bfdfcbb1530c |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | user0@superdemo.live |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname | user0 |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/name | user0@superdemo.live |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | 0 |
 | eb46b6b6.session.saml.last.audience | `https://kerbapp.superdemo.live` |
 | eb46b6b6.session.saml.last.authNContextClassRef | urn:oasis:names:tc:SAML:2.0:ac:classes:Password |
 | eb46b6b6.session.saml.last.authNInstant | 2019-06-16T19:18:00.318Z |

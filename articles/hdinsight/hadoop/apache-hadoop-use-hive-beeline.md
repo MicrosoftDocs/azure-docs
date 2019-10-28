@@ -2,11 +2,11 @@
 title: Use Apache Beeline with Apache Hive - Azure HDInsight 
 description: Learn how to use the Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.author: hrasheed
+ms.date: 10/03/2019
 ---
 
 # Use the Apache Beeline client with Apache Hive
@@ -76,7 +76,7 @@ Apache Spark provides its own implementation of HiveServer2, which is sometimes 
 
 #### Through public or private endpoints
 
-The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it is `httpPath/sparkhive2`:
+The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it's `httpPath/sparkhive2`:
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
@@ -106,13 +106,11 @@ When connecting directly from the cluster head node, or from a resource inside t
 
 * A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Notice the [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your cluster's primary storage. For example,  `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2, or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI is `wasbs://` or `abfss://`, respectively. For more information, see [secure transfer](../../storage/common/storage-require-secure-transfer.md).
+* Notice the [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your cluster's primary storage. For example,  `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2, or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI is `wasbs://`. For more information, see [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
-
-* Option 1: An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Most of the steps in this document assume that you are using Beeline from an SSH session to the cluster.
+* Option 1: An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Most of the steps in this document assume that you're using Beeline from an SSH session to the cluster.
 
 * Option 2:  A local Beeline client.
-
 
 ## <a id="beeline"></a>Run a Hive query
 
@@ -132,7 +130,7 @@ This example is based on using the Beeline client from an SSH connection.
 
 3. Beeline commands begin with a `!` character, for example `!help` displays help. However the `!` can be omitted for some commands. For example, `help` also works.
 
-    There is a `!sql`, which is used to execute HiveQL statements. However, HiveQL is so commonly used that you can omit the preceding `!sql`. The following two statements are equivalent:
+    There's `!sql`, which is used to execute HiveQL statements. However, HiveQL is so commonly used that you can omit the preceding `!sql`. The following two statements are equivalent:
 
     ```hiveql
     !sql show tables;
@@ -188,7 +186,7 @@ This example is based on using the Beeline client from an SSH connection.
 
     These statements perform the following actions:
 
-    * `DROP TABLE` - If the table exists, it is deleted.
+    * `DROP TABLE` - If the table exists, it's deleted.
 
     * `CREATE EXTERNAL TABLE` - Creates an **external** table in Hive. External tables only store the table definition in Hive. The data is left in the original location.
 
@@ -198,7 +196,7 @@ This example is based on using the Beeline client from an SSH connection.
 
     * `SELECT` - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This query returns a value of **3** as there are three rows that contain this value.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` - Hive attempts to apply the schema to all files in the directory. In this case, the directory contains files that do not match the schema. To prevent garbage data in the results, this statement tells Hive that it should only return data from files ending in .log.
+    * `INPUT__FILE__NAME LIKE '%.log'` - Hive attempts to apply the schema to all files in the directory. In this case, the directory contains files that don't match the schema. To prevent garbage data in the results, this statement tells Hive that it should only return data from files ending in .log.
 
    > [!NOTE]  
    > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
@@ -250,7 +248,7 @@ This is a continuation from the prior example. Use the following steps to create
 
     These statements perform the following actions:
 
-   * **CREATE TABLE IF NOT EXISTS** - If the table does not already exist, it is created. Since the **EXTERNAL** keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed completely by Hive.
+   * **CREATE TABLE IF NOT EXISTS** - If the table doesn't already exist, it's created. Since the **EXTERNAL** keyword isn't used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed completely by Hive.
    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC format is a highly optimized and efficient format for storing Hive data.
    * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
 
@@ -285,9 +283,6 @@ This is a continuation from the prior example. Use the following steps to create
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
 
-
-
-
 ## <a id="summary"></a><a id="nextsteps"></a>Next steps
 
 For more general information on Hive in HDInsight, see the following document:
@@ -298,26 +293,3 @@ For more information on other ways you can work with Hadoop on HDInsight, see th
 
 * [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-
-
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-
-[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx

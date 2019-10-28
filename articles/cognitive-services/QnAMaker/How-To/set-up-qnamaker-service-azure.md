@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -81,6 +81,8 @@ You can view and reset your subscription keys from the Azure portal, where you c
 
 ## Find endpoint keys in the QnA Maker portal
 
+The endpoint is in the same region as the resource because the endpoint keys are used to make a call to the knowledge base.
+
 Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
 
 1. Sign in to the [QnA Maker portal](https://qnamaker.ai), go to your profile, and then select **Service settings**:
@@ -105,6 +107,8 @@ QnA Maker creates several Azure resources. To reduce management and benefit from
 |App Service|X|Not possible by design|
 |Application Insights|✔|Can be shared|
 |Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can’t be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
+
+Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
 
 ### Using a single Search service
 
@@ -196,6 +200,8 @@ You can check your current version at https://www.qnamaker.ai/UserSettings. If y
 The management service of QnA Maker is used only for the QnA Maker portal and for initial data processing. This service is available only in the West US region. No customer data is stored in this West US service.
 
 ## Next steps
+
+Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
 > [Create and publish a knowledge base](../Quickstarts/create-publish-knowledge-base.md)

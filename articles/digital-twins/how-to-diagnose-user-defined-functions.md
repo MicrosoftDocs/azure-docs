@@ -1,13 +1,13 @@
 ---
 title: 'How to debug UDFs in Azure Digital Twins | Microsoft Docs'
 description: Guideline about how to debug UDFs in Azure Digital Twins.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: v-adgera
+ms.date: 10/01/2019
 ms.custom: seodec18
 ---
 
@@ -30,7 +30,7 @@ Azure Digital Twins supports robust logging, monitoring, and analytics. Solution
 
 * For logging configuration specific to Azure Digital Twins, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
 * Consult the [Azure Monitor](../azure-monitor/overview.md) overview to learn about powerful log settings enabled through Azure Monitor.
-* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure Portal, Azure CLI, or PowerShell.
+* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/resource-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure Portal, Azure CLI, or PowerShell.
 
 Once configured, you'll be able to select all log categories, metrics, and use powerful Azure Monitor log analytics workspaces to support your debugging efforts.
 
@@ -50,6 +50,13 @@ AzureDiagnostics
 | Query value | Replace with |
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | The Correlation ID that was specified on the event data |
+
+To see all recent telemetry logs query:
+
+```Kusto
+AzureDiagnostics
+| order by CorrelationId desc
+```
 
 If you enable logging for your user-defined function, those logs appear in your log analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in log analytics:
 

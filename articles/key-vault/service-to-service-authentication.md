@@ -25,7 +25,7 @@ The `Microsoft.Azure.Services.AppAuthentication` library manages authentication 
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) or [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
-- The [App Authentication extension for Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354), available as a separate extension for Visual Studio 2017 Update 5 and bundled with the product in Update 6 and later. With Update 6 or later, you can verify the installation of the App Authentication extension by selecting Azure Development tools from within the Visual Studio installer.
+- The App Authentication extension for Visual Studio, available as a separate extension for Visual Studio 2017 Update 5 and bundled with the product in Update 6 and later. With Update 6 or later, you can verify the installation of the App Authentication extension by selecting Azure Development tools from within the Visual Studio installer.
 
 ## Using the library
 
@@ -84,7 +84,7 @@ To use Azure CLI:
 
 1. Sign in to the Azure portal: *az login* to sign in to Azure.
 
-1. Verify access by entering *az account get-access-token*. If you receive an error, check that the right version of Azure CLI is correctly installed.
+1. Verify access by entering *az account get-access-token --resource https://vault.azure.net*. If you receive an error, check that the right version of Azure CLI is correctly installed.
 
    If Azure CLI isn't installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` can't find the path for Azure CLI. Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
 
@@ -168,7 +168,11 @@ There are three primary methods of using a Service Principal to run your applica
 
 ### Use a shared secret credential to sign into Azure AD
 
-1. Create a service principal certificate with a password using [az ad sp create-for-rbac --password](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac).
+1. Create a service principal certificate with a password using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command with the --sdk-auth parameter.
+
+    ```azurecli
+    az ad sp create-for-rbac --sdk-auth
+    ```
 
 1. Set an environment variable named **AzureServicesAuthConnectionString** to the following value:
 

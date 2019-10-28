@@ -1,67 +1,118 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Databricks Documentation
+### YamlMime:Landing
+
+title: Azure Databricks documentation
+summary: Learn Azure Databricks, an Apache Spark-based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
+
 metadata:
-  title: Azure Databricks Documentation
-  description: Learn how to use Azure Databricks using the quickstart and other links provided here. Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
+  title: Azure Databricks documentation
+  description: Learn Azure Databricks, an Apache Spark-based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
   services: azure-databricks
-  author: mamccrea
-  
   ms.service: azure-databricks
   ms.topic: landing-page
-  ms.date: 05/07/2019
+  ms.collection: collection
+  author: mamccrea
   ms.author: mamccrea
-abstract:
-  description: Learn how to use Azure Databricks, an Apache Spark-based analytics platform with one-click setup, streamlined workflows, and interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Quickstarts and tutorials show you how to get started with Azure Databricks and integrate with other Azure services.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: media/index/video.png
-      width: 250  
-    title: Introduction to Azure Databricks (3:38)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
-    width: 250 
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to create an Azure Databricks workspace, a Spark cluster, and then to run jobs using:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/azure-databricks/media/index/portal.svg
-      text: Azure portal
-      href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
-    - image: 
-        src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
-      text: Resource Manager template
-      href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template  
-    - image: 
-        src: /azure/azure-databricks/media/index/virtualnetwork.svg
-      text: Virtual network
-      href: /azure/azure-databricks/quickstart-create-databricks-workspace-vnet-injection 
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to work with Azure Databricks:'
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/azure-databricks/vnet-injection-sql-server">Query SQL Server running in a Docker container</a>
-    - html: <a href="/azure/azure-databricks/service-endpoint-cosmosdb">Use a Cosmos DB service endpoint</a>   
-    - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Extract, transform, and load data</a>
-    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Stream data from Event Hubs</a>
-    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Sentiment analysis using Cognitive Services</a>    
-    - html: <a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">Stream data from HDInsight Kafka</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="/rest/api/databricks">REST API</a></p>
-    - title: Resource Manager
-      html: <p><a href="/azure/templates/microsoft.databricks/workspaces">Template</a></p>
+  ms.date: 09/11/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Databricks
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Databricks?
+            url: what-is-azure-databricks.md
+      - linkListType: concept
+        links:
+          - text: Frequently asked questions
+            url: frequently-asked-questions-databricks.md
+      - linkListType: reference
+        links:
+          - text: Release notes
+            url: https://docs.azuredatabricks.net/release-notes/index.html
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Databricks
+            url: https://docs.microsoft.com/learn/modules/intro-to-azure-databricks
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Databricks workspace using Azure portal
+            url: quickstart-create-databricks-workspace-portal.md
+          - text: Run an Apache Spark job on Databricks using the Azure Resource manager template
+            url: quickstart-create-databricks-workspace-resource-manager-template.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Apache Spark cluster
+            url: https://docs.azuredatabricks.net/user-guide/clusters/index.html
+          - text: Connect to data sources
+            url: databricks-connect-to-data-sources.md
+          - text: Use Databricks CLI from Azure Cloud Shell
+            url: databricks-cli-from-azure-cloud-shell.md
+      - linkListType: reference
+        links:
+          - text: Azure Resource Manager template
+            url: /azure/templates/microsoft.databricks/workspaces
+  - title: Architect Azure solutions
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Run a notebook from Azure Data Factory
+            url: ../data-factory/transform-data-using-databricks-notebook.md
+          - text: Do sentiment analysis using Cognitive Services
+            url: databricks-sentiment-analysis-cognitive-services.md
+          - text: Use the Cosmos DB service endpoint
+            url: service-endpoint-cosmosdb.md
+          - text: Access storage using Azure Key Vault
+            url: store-secrets-azure-key-vault.md
+          - text: Perform ETL operations with Azure Data Lake Storage Gen2 and SQL Data Warehouse
+            url: databricks-extract-load-sql-data-warehouse.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to Excel, R, and Python
+            url: connect-databricks-excel-python-r.md
+  - title: Use a virtual network
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Databricks workspace in a virtual network
+            url: quickstart-create-databricks-workspace-vnet-injection.md
+      - linkListType: deploy
+        links:
+          - text: Deploy Azure Databricks in your virtual network
+            url: vnet-injection.md
+      - linkListType: tutorial
+        links:
+          - text: Query a SQL Server Linux Docker container in a virtual network from an Azure Databricks notebook
+            url: vnet-injection-sql-server.md
+  - title: Stream data
+    linkLists:
+      - linkListType: learn
+        links: 
+          - text: Work with streaming data in Azure Databricks
+            url: https://docs.microsoft.com/learn/modules/streaming-in-azure-databricks/
+      - linkListType: tutorial
+        links:
+          - text: Stream data using Event Hubs
+            url: databricks-stream-from-eventhubs.md
+          - text: Stream data from HDInsight Kafka
+            url: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
+  - title: Guides for developers
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Deep learning with Azure Databricks
+            url: https://docs.microsoft.com/learn/modules/deep-learning-in-azure-databricks
+          - text: Perform text analytics
+            url: https://docs.microsoft.com/learn/modules/perform-text-analytics-with-azure-databricks
+      - linkListType: reference
+        links:
+          - text: Databricks REST API
+            url: /rest/api/databricks
+          - text: R developer's guide
+            url: ../machine-learning/r-developers-guide.md

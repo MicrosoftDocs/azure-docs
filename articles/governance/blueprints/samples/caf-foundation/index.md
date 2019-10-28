@@ -1,12 +1,11 @@
 ---
-title: Samples - CAF Foundation blueprint - Overview
+title: CAF Foundation blueprint sample - Overview
 description: Overview and architecture of the CAF Foundation blueprint sample.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ms.custom: fasttrack-new
 ---
 # Overview of the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
@@ -27,7 +26,7 @@ organization to confidently get started with Azure.
 This implementation incorporates several Azure services used to provide a secure, fully monitored,
 enterprise-ready foundation. This environment is composed of:
 
-- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
+- An [Azure Key Vault](../../../../key-vault/key-vault-overview.md) instance used to host secrets used
   for the VMs deployed in the shared services environment
 - Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions
   and services log to a central location from the moment you start your secure deployment in to [Storage Accounts](../../../../storage/common/storage-introduction.md)

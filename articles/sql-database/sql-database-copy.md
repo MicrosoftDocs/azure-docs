@@ -8,9 +8,9 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
-ms.author: sstein
+ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 08/29/2019
+ms.date: 09/04/2019
 ---
 # Copy a transactionally consistent copy of an Azure SQL database
 
@@ -66,8 +66,8 @@ To create a database copy, you will need to be in the following roles
 - SQL Server Contributor role or
 - Custom role on the source and target databases with following permission:
 
-   Microsoft.Sql/servers/databases/read
-   Microsoft.Sql/servers/databases/write
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
 
 To cancel a database copy, you will need to be in the following roles
 
@@ -75,8 +75,23 @@ To cancel a database copy, you will need to be in the following roles
 - SQL Server Contributor role or
 - Custom role on the source and target databases with following permission:
 
-   Microsoft.Sql/servers/databases/read
-   Microsoft.Sql/servers/databases/write
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
+   
+To manage database copy using Azure portal, you will also need the following permissions:
+
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resources/read   
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resources/write   
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/deployments/read   
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/deployments/write   
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/deployments/operationstatuses/read    
+
+If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional RBAC roles: 
+
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read   
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
+
+
 
 ## Copy a database by using Transact-SQL
 

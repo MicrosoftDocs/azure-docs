@@ -3,9 +3,8 @@ title: Compare baselines with File Integrity Monitoring in Azure Security Center
 description: Learn how to compare baselines with File Integrity Monitoring in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
 ms.service: security-center
 ms.devlang: na
@@ -13,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: "v-mohabe"
+ms.author: memildin
 ---
 
 # Compare baselines using File Integrity Monitoring (FIM)

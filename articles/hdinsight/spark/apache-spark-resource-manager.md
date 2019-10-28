@@ -9,8 +9,8 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-
 ---
+
 # Manage resources for Apache Spark cluster on Azure HDInsight 
 
 Learn how to access the interfaces like [Apache Ambari](https://ambari.apache.org/) UI, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, and the Spark History Server associated with your [Apache Spark](https://spark.apache.org/) cluster, and how to tune the cluster configuration for optimal performance.
@@ -47,17 +47,19 @@ The Spark History Server web UI looks like:
 ![HDInsight Spark History Server](./media/apache-spark-resource-manager/hdinsight-spark-history-server.png)
 
 ## Open the Yarn UI
+
 You can use the YARN UI to monitor applications that are currently running on the Spark cluster.
 
 1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. From **Quick Links**, click **Cluster Dashboard**, and then click **YARN**.
 
-    ![Launch YARN UI](./media/apache-spark-resource-manager/launch-yarn-ui.png)
+    ![Launch YARN UI](./media/apache-spark-resource-manager/hdi-launch-apache-yarn.png)
 
    > [!TIP]  
    > Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **YARN**, click **Quick Links**, click the active Resource Manager, and then click **Resource Manager UI**.
 
 ## Optimize clusters for Spark applications
+
 The three key parameters that can be used for Spark configuration depending on application requirements are `spark.executor.instances`, `spark.executor.cores`, and `spark.executor.memory`. An Executor is a process launched for a Spark application. It runs on the worker node and is responsible to carry out the tasks for the application. The default number of executors and the executor sizes for each cluster is calculated based on the number of worker nodes and the worker node size. This information is stored in `spark-defaults.conf` on the cluster head nodes.
 
 The three configuration parameters can be configured at the cluster level (for all applications that run on the cluster) or can be specified for each individual application as well.
@@ -72,7 +74,7 @@ The three configuration parameters can be configured at the cluster level (for a
 
 3. Click **Save** to save the configuration changes. At the top of the page, you are prompted to restart all the affected services. Click **Restart**.
 
-    ![Restart services](./media/apache-spark-resource-manager/restart-services.png)
+    ![Restart services](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
 
 ### Change the parameters for an application running in Jupyter notebook
 For applications running in the Jupyter notebook, you can use the `%%configure` magic to make the configuration changes. Ideally, you must make such changes at the beginning of the application, before you run your first code cell. Doing this ensures that the configuration is applied to the Livy session, when it gets created. If you want to change the configuration at a later stage in the application, you must use the `-f` parameter. However, by doing so all progress in the application is lost.
@@ -131,21 +133,21 @@ Because of Spark dynamic allocation, the only resources that are consumed by thr
 ## Restart the Jupyter service
 Launch the Ambari Web UI as shown in the beginning of the article. From the left navigation pane, click **Jupyter**, click **Service Actions**, and then click **Restart All**. This starts the Jupyter service on all the headnodes.
 
-![Restart Jupyter](./media/apache-spark-resource-manager/restart-jupyter.png "Restart Jupyter")
+![Restart Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Restart Jupyter")
 
 ## Monitor resources
 Launch the Yarn UI as shown in the beginning of the article. In Cluster Metrics table on top of the screen, check values of **Memory Used** and **Memory Total** columns. If the two values are close, there might not be enough resources to start the next application. The same applies to the **VCores Used** and **VCores Total** columns. Also, in the main view, if there is an application stayed in **ACCEPTED** state and not transitioning into **RUNNING** nor **FAILED** state, this could also be an indication that it is not getting enough resources to start.
 
-![Resource Limit](./media/apache-spark-resource-manager/resource-limit.png "Resource Limit")
+![Resource Limit](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "Resource Limit")
 
 ## Kill running applications
 1. In the Yarn UI, from the left panel, click **Running**. From the list of running applications, determine the application to be killed and click on the **ID**.
 
-    ![Kill App1](./media/apache-spark-resource-manager/kill-app1.png "Kill App1")
+    ![Kill App1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Kill App1")
 
 2. Click **Kill Application** on the top right corner, then click **OK**.
 
-    ![Kill App2](./media/apache-spark-resource-manager/kill-app2.png "Kill App2")
+    ![Kill App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill App2")
 
 ## See also
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)

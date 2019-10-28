@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/08/2019
+ms.date: 10/10/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
@@ -43,6 +43,7 @@ Media Services recommends using one of following live encoders that have RTMP as
 > When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio

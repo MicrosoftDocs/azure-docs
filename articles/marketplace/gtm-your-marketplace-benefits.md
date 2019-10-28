@@ -5,7 +5,7 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/10/2019
 ms.author: v-qiwe
 
 ---
@@ -56,7 +56,10 @@ Detailed descriptions for all these benefits can be found in the [Marketplace Re
 
 ## Marketplace Rewards for transact partners
 
-When you go live with your transactable offer in either Azure Marketplace or Microsoft AppSource, you are able to access additional benefits as you grow your billed sales transactions through the commercial marketplace. 
+When you go live with your transactable offer in either Azure Marketplace or Microsoft AppSource, you are able to access additional benefits as you grow your billed sales transactions or seats sold through the commercial marketplace. 
+
+>[!Note]
+>Seats sold threshold applies to Microsoft 365 apps only (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2020.
 
 These benefits are designed to support you in marketing, sales, and technical activities, and thereby helping you to get more visitors, receive more leads, and convert more business.
 
@@ -68,9 +71,11 @@ All partners who have a live offer get to work with a dedicated engagement manag
 
 ![Technical benefits](./media/marketplace-publishers-guide/technical-benefit.png)
 
+\* Seats sold threshold applies to Microsoft 365 apps only (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2020.
+
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
-In addition to the rewards benefits, business applications partners with Dynamics offers published to Microsoft AppSource have supplementary programming available to them through [ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). This includes technical, marketing, and sales support that is specialized for the needs of business applications partners.
+In addition to the rewards benefits, business applications partners with Dynamics offers published to Microsoft AppSource have supplementary programming available to them through [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). This includes technical, marketing, and sales support that is specialized for the needs of business applications partners.
 
 ## Marketplace Rewards requirements and restrictions
 
@@ -97,9 +102,9 @@ Transactions that are proven to be fraudulent will not count towards a publisher
 
 ## Next steps
 
-If you created your offer in Cloud Partner Portal, sign in to create or configure your offer.
+If you created your offer in [Cloud Partner Portal](https://cloudpartner.azure.com), sign in to create or configure your offer.
 
-If you created your offer in Partner Center, sign in to create or configure your offer.
+If you created your offer in [Partner Center](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview), sign in to create or configure your offer.
 
 Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

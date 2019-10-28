@@ -7,7 +7,7 @@ manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: azfuncdf
 ---
 
@@ -108,9 +108,6 @@ module.exports = async function(context, req) {
 
 By default, instance IDs are randomly generated GUIDs. But in this case, the instance ID is passed in route data from the URL. The code calls [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) or `getStatus` (JavaScript) to check if an instance having the specified ID is already running. If not, an instance is created with that ID.
 
-> [!WARNING]
-> When developing locally in JavaScript, you will need to set the environment variable `WEBSITE_HOSTNAME` to `localhost:<port>`, ex. `localhost:7071` to use methods on `DurableOrchestrationClient`. For more information about this requirement, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 > [!NOTE]
 > There is a potential race condition in this sample. If two instances of **HttpStartSingle** execute concurrently, both function calls will report success, but only one orchestration instance will actually start. Depending on your requirements, this may have undesirable side effects. For this reason, it is important to ensure that no two requests can execute this trigger function concurrently.
 
@@ -119,4 +116,4 @@ The implementation details of the orchestrator function do not actually matter. 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to call sub-orchestrations](durable-functions-sub-orchestrations.md)
+> [Learn about the native HTTP features of orchestrations](durable-functions-http-features.md)

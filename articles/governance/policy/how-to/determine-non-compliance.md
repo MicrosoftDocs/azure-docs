@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Determine causes of non-compliance
 
@@ -17,7 +16,7 @@ two ways to find this information:
 
 > [!div class="checklist"]
 > - [Compliance details](#compliance-details)
-> - [Change history (Preview)](#change-history-preview)
+> - [Change history (Preview)](#change-history)
 
 ## Compliance details
 
@@ -94,7 +93,7 @@ To view the compliance details, follow these steps:
 
 These details explain why a resource is currently non-compliant, but don't show when the change was
 made to the resource that caused it to become non-compliant. For that information, see [Change
-history (Preview)](#change-history-preview) below.
+history (Preview)](#change-history) below.
 
 ### Compliance reasons
 

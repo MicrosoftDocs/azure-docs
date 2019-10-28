@@ -79,7 +79,7 @@ landingContent:
         links:
           - text: Create an Apache Kafka enabled event hub
             url: event-hubs-create-kafka-enabled.md
-          - text: Mirror a Kafka broken in an event hub
+          - text: Mirror a Kafka broker in an event hub
             url: event-hubs-kafka-mirror-maker-tutorial.md                          
           - text: Connect Apache Spark to an event hub
             url: event-hubs-kafka-spark-tutorial.md

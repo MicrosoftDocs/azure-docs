@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for users from a Salesforce organization using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C. You enable sign-in by adding a [SAML technical profile](saml-technical-profile.md) to a custom policy.
+This article shows you how to enable sign-in for users from a Salesforce organization using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory B2C (Azure AD B2C). You enable sign-in by adding a [SAML technical profile](saml-technical-profile.md) to a custom policy.
 
 ## Prerequisites
 
@@ -84,7 +84,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 You need to store the certificate that you created in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. On the Overview page, select **Identity Experience Framework**.
 5. Select **Policy Keys** and then select **Add**.
@@ -123,7 +123,7 @@ You can define a Salesforce account as a claims provider by adding it to the **C
             <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SAMLSigningCert"/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userId"/>
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="userId"/>
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
@@ -192,15 +192,9 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 ## Create an Azure AD B2C application
 
-Communication with Azure AD B2c occurs through an application that you create in your tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
+Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Applications**, and then select **Add**.
-5. Enter a name for the application, for example *testapp1*.
-6. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
-7. Click **Create**.
+[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 ## Update and test the relying party file
 

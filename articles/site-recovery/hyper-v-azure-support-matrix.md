@@ -15,14 +15,16 @@ ms.author: raynew
 
 This article summarizes the supported components and settings for disaster recovery of on-premises Hyper-V VMs to Azure by using [Azure Site Recovery](site-recovery-overview.md).
 
+> [!WARNING]
+> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
+
 
 ## Supported scenarios
 
 **Scenario** | **Details**
 --- | ---
-Hyper-V with Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](hyper-v-vmm-disaster-recovery.md).
+Hyper-V with Virtual Machine Manager <br> **This scenario is in the path of deprecation.** <br>| You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](hyper-v-vmm-disaster-recovery.md).
 Hyper-V without Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.
-
 
 ## On-premises servers
 
@@ -128,8 +130,8 @@ Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
 Premium storage | Yes | Yes
 Import/export service | No | No
-Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No | No
-Modifying storage account | No. The target Azure storage account can't be modified after enabling replication. To modify, disable and then reenabled disaster recovery. | No
+Azure storage accounts with firewall enabled | Yes. For target storage and cache. | Yes. For target storage and cache.
+Modify storage account | No. The target Azure storage account can't be modified after enabling replication. To modify, disable and then reenable disaster recovery. | No
 
 
 ## Azure compute features

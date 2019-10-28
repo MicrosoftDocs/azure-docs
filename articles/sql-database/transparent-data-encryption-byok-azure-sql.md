@@ -59,7 +59,7 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
 
 ### Guidelines for configuring Azure Key Vault
 
-- Create a key vault with [soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) and purge protection enabled to protect from data loss in case of accidental key – or key vault – deletion.  You must use [PowerShell to enable the “soft-delete” property](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) on the key vault (this option is not available from the AKV Portal yet – but required by Azure SQL):  
+- Create a key vault with [soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) and purge protection enabled to protect from data loss in case of accidental key – or key vault – deletion. You must enable “soft-delete” property on the key vault via [CLI](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete) or [Powershell](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) (this option is not available from the AKV Portal yet – but required by Azure SQL):  
   - Soft deleted resources are retained for a set period of time, 90 days unless they are recovered or purged.
   - The **recover** and **purge** actions have their own permissions associated in a key vault access policy.
 - Set a resource lock on the key vault to control who can delete this critical resource and help to prevent accidental or unauthorized deletion.  [Learn more about resource locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
@@ -143,7 +143,7 @@ The following section will go over the setup and configuration steps in more det
 - Create two Azure Key Vaults in two different regions using [PowerShell to enable the “soft-delete” property](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) on the key vaults (this option is not available from the AKV Portal yet – but required by SQL).
 - Both Azure Key Vaults must be located in the two regions available in the same Azure Geo in order for backup and restore of keys to work.  If you need the two key vaults to be located in different geos to meet SQL Geo-DR requirements, follow the [BYOK Process](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) that allows keys to be imported from an on-premises HSM.
 - Create a new key in the first key vault:  
-  - RSA/RSA-HSA 2048 key
+  - RSA/RSA-HSM 2048 key
   - No expiration dates
   - Key is enabled and has permissions to perform get, wrap key, and unwrap key operations
 - Back up the primary key and restore the key to the second key vault.  See [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) and [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).

@@ -144,7 +144,7 @@ Policies affect the run-time behavior of an activity, giving configurability opt
     "properties": {
       "activities": [
         {
-          "name": "MyCopyBlobtoSqlActivity"
+          "name": "MyCopyBlobtoSqlActivity",
           "type": "Copy",
           "typeProperties": {
             ...

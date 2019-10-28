@@ -8,8 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/01/2018
-ms.author: rosh
+ms.date: 09/13/2019
+ms.author: aahi
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API using Java

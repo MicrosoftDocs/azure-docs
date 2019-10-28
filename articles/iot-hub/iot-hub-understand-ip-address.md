@@ -29,3 +29,6 @@ This IP address can change without notice. In a failover or disaster recovery sc
 
 Try to create firewall rules and filtering based on the IoT hub host name or domain. If you can only allow outbound traffic to specific addresses, poll your IoT hub IP address regularly and update your firewall rules.
 
+## Support for IPv6 
+
+IPv6 is currently not supported on IoT Hub.

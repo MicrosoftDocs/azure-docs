@@ -50,7 +50,7 @@ As an example, Contoso is a publisher with a SaaS service called Contoso Notific
     * Beyond the 50000 emails, pay $0.5 for every 100 emails
     * Beyond the 10000 texts, pay $0.01 for every text
 
-An Azure customer subscribing to CNS service will be able to send the included quantity of text and emails per month based on the plan selected.  When customers consume more than the included quantity, they do not have to change plans or do anything different.  Contoso will measure the overage beyond the included quantity and start emitting usage events to Microsoft for additional usage using the [Marketplace metering service API](./marketplace-metering-service-apis.md).  Microsoft in turn will charge the customer for the additional usage as specified by the publisher.
+An Azure customer subscribing to CNS service will be able to send the included quantity of text and emails per month based on the plan selected.  Contoso measures the usage up to the included quantity without sending any usage events to Microsoft.  When customers consume more than the included quantity, they do not have to change plans or do anything different.  Contoso will measure the overage beyond the included quantity and start emitting usage events to Microsoft for additional usage using the [Marketplace metering service API](./marketplace-metering-service-apis.md).  Microsoft in turn will charge the customer for the additional usage as specified by the publisher.
 
 ## Billing dimensions
 

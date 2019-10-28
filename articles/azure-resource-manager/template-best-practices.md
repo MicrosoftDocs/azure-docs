@@ -1,15 +1,10 @@
 ---
 title: Best practices for Azure Resource Manager templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates. Offers suggestions to avoid common problems when using templates. 
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/16/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager template best practices
@@ -41,7 +36,8 @@ When you deploy resources to a resource group, the resource group stores metadat
 If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. To minimize risk, locate your resource group and resources in the same region.
 
 ## Parameters
-The information in this section can be helpful when you work with [parameters](resource-group-authoring-templates.md#parameters).
+
+The information in this section can be helpful when you work with [parameters](template-parameters.md).
 
 ### General recommendations for parameters
 
@@ -143,7 +139,7 @@ The information in this section can be helpful when you work with [parameters](r
 
 ## Variables
 
-The following information can be helpful when you work with [variables](resource-group-authoring-templates.md#variables):
+The following information can be helpful when you work with [variables](template-variables.md):
 
 * Use camel case for variable names.
 
@@ -280,7 +276,7 @@ The following information can be helpful when you work with [resources](resource
 
 ## Outputs
 
-If you use a template to create public IP addresses, include an [outputs section](resource-group-authoring-templates.md#outputs) that returns details of the IP address and the fully qualified domain name (FQDN). You can use output values to easily retrieve details about public IP addresses and FQDNs after deployment.
+If you use a template to create public IP addresses, include an [outputs section](template-outputs.md) that returns details of the IP address and the fully qualified domain name (FQDN). You can use output values to easily retrieve details about public IP addresses and FQDNs after deployment.
 
 ```json
 "outputs": {

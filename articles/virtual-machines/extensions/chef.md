@@ -4,7 +4,7 @@ description: Deploy the Chef Client to a virtual machine using the Chef VM Exten
 services: virtual-machines-linux
 documentationcenter: ''
 
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: roiyz
+ms.author: akjosh
 ---
 
 # Chef VM Extension for Linux and Windows

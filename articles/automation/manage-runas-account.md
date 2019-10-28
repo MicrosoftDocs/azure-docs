@@ -38,7 +38,7 @@ There are two types of Run As Accounts:
 
 ## <a name="permissions"></a>Permissions to configure Run As accounts
 
-To create or update a Run As account, you must have specific privileges and permissions. A Global Administrator in Azure Active Directory and an Owner in a subscription can complete all the tasks. In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet and permissions needed:
+To create or update a Run As account, you must have specific privileges and permissions. An Application administrator in Azure Active Directory and an Owner in a subscription can complete all the tasks. In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet and permissions needed:
 
 |Task|Cmdlet  |Minimum Permissions  |Where you set the permissions|
 |---|---------|---------|---|

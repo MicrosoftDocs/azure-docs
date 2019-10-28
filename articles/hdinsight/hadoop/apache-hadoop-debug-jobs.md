@@ -94,19 +94,18 @@ You can now use Excel to filter and sort as necessary. You may want to include o
     For more information about constructing filters, see [Construct Filter Strings for the Table Designer](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 ## Logs Written to Azure Blob Storage
+
 The logs written to Azure Tables provide one level of insight into what is happening with an HDInsight cluster. However, these tables do not provide task-level logs, which can be helpful in drilling further into issues when they occur. To provide this next level of detail, HDInsight clusters are configured to write task logs to your Blob Storage account for any job that is submitted through Templeton. Practically, this means jobs submitted using the Microsoft Azure PowerShell cmdlets or the .NET Job Submission APIs, not jobs submitted through RDP/command-line access to the cluster. 
 
 To view the logs, see [Access Apache Hadoop YARN application logs on Linux-based HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-
-For more information about application logs, see [Simplifying user-logs management and access in Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
-
-
 ## View cluster health and job logs
+
 ### Access the Ambari UI
+
 From the Azure portal, click an HDInsight cluster name to open the cluster pane. From the cluster pane, click **Dashboard**.
 
-![Launch cluster dashboard](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
+![HDInsight launch cluster dashboard](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### Access the Yarn UI
@@ -116,7 +115,7 @@ You can use the YARN UI to do the following:
 
 * **Get cluster status**. From the left pane, expand **Cluster**, and click **About**. This present cluster status details like total allocated memory, cores used, state of the cluster resource manager, cluster version, and so on.
   
-    ![Launch cluster dashboard yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Launch cluster dashboard yarn")
+    ![HDInsight launch cluster dashboard yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight launch cluster dashboard yarn")
 * **Get node status**. From the left pane, expand **Cluster**, and click **Nodes**. This lists all the nodes in the cluster, HTTP address of each node, resources allocated to each node, etc.
 * **Monitor job status**. From the left pane, expand **Cluster**, and then click **Applications** to list all the jobs in the cluster. If you want to look at jobs in a specific state (such as new, submitted, running, etc.), click the appropriate link under **Applications**. You can further click the job name to find out more about the job such including the output, logs, etc.
 

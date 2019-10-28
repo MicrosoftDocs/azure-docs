@@ -59,6 +59,8 @@ The Consumption plan is the default hosting plan and offers the following benefi
 
 Function apps in the same region can be assigned to the same Consumption plan. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same consumption plan has no impact on resilience, scalability, or reliability of each app.
 
+To learn more about how to estimate costs when running in a Consumption plan, see [Understanding Consumption plan costs](functions-consumption-costs.md).
+
 ## <a name="premium-plan"></a>Premium plan (preview)
 
 When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events just like the Consumption plan.  Premium plan supports the following features:
@@ -72,11 +74,12 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 Information on how you can configure these options can be found in the [Azure Functions premium plan document](functions-premium-plan.md).
 
-Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds, execution time, and memory used across needed and reserved instances.  At least one instance must be warm at all times. This means that there is a fixed monthly cost per active plan, regardless of the number of executions.
+Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance must be warm at all times per plan. This means that there is a minimum monthly cost per active plan, regardless of the number of executions. Keep in mind that all function apps in a Premium plan share pre-warmed and active instances.
 
 Consider the Azure Functions premium plan in the following situations:
 
 * Your function apps run continuously, or nearly continuously.
+* You have a high number of small executions and have a high execution bill but low GB second bill in the consumption plan.
 * You need more CPU or memory options than what is provided by the Consumption plan.
 * Your code needs to run longer than the [maximum execution time allowed](#timeout) on the Consumption plan.
 * You require features that are only available on a Premium plan, such as VNET/VPN connectivity.
@@ -125,7 +128,9 @@ When the output from this command is `dynamic`, your function app is in the Cons
 
 ## Storage account requirements
 
-On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. This is because Functions rely on Azure Storage for operations such as managing triggers and logging function executions, but some storage accounts do not support queues and tables. These accounts, which include blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication, are filtered-out from your existing **Storage Account** selections when you create a function app.
+On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions, but some storage accounts do not support queues and tables. These accounts, which include blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication, are filtered-out from your existing **Storage Account** selections when you create a function app.
+
+The same storage account used by your function app can also be used by your triggers and bindings to store your application data. However, for storage-intensive operations, you should use a separate storage account.   
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 

@@ -27,6 +27,11 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 ## Supported capabilities
 
+This Azure Table storage connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from any supported source data store to Table storage. You also can copy data from Table storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Azure Table connector supports copying data by using account key and service shared access signature authentications.
@@ -336,6 +341,10 @@ When you move data to and from Azure Table, the following [mappings defined by A
 | Edm.Int32 |Int32 |A 32-bit integer. |
 | Edm.Int64 |Int64 |A 64-bit integer. |
 | Edm.String |String |A UTF-16-encoded value. String values can be up to 64 KB. |
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

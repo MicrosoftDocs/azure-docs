@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 09/18/2019
 ms.author: juliako
 
 ---
@@ -238,4 +238,5 @@ namespace ConsoleApp1
 
 ## See also
 
-[.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* For more code examples, see the [.NET SDK samples](https://github.com/Azure-Samples/media-services-v3-dotnet) repo.

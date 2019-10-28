@@ -44,7 +44,7 @@ Follow the mitigation steps below depending on the error you receive:
 
     2. Next, run the following command to regenerate its configuration: `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * If the missing file is `/boot/grub/menu.lst`, this error is for older OS versions (**RHEL 6.x**, **Centos 6.x** and **Ubuntu 14.04**) so the commands could defer. You will have to spin up an old server and test to ensure the correct commands are provided.
+   * If the missing file is `/boot/grub/menu.lst`, this error is for older OS versions (**RHEL 6.x**, **Centos 6.x** and **Ubuntu 14.04**) so the commands could differ. You will have to spin up an old server and test to ensure the correct commands are provided.
 
 ### Error - No such partition
 

@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 ## Create a Microsoft account application
 
-To use a Microsoft account as an [identity provider](active-directory-b2c-reference-oidc.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in the Azure AD tenant. The Azure AD tenant is not the same as your Azure AD B2C tenant. If you don't already have a Microsoft account, you can get one at [https://www.live.com/](https://www.live.com/).
+To use a Microsoft account as an [identity provider](active-directory-b2c-reference-oidc.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the Azure AD tenant. The Azure AD tenant is not the same as your Azure AD B2C tenant. If you don't already have a Microsoft account, you can get one at [https://www.live.com/](https://www.live.com/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.

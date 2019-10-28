@@ -4,6 +4,7 @@ description: Get answers to common questions about working with Apache Spark and
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh 
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
@@ -21,49 +22,49 @@ Spark configuration values can be tuned help avoid an Apache Spark application `
 
 1. Navigate to **Spark2** > **Configs**.
 
-    ![Select the Configs tab](./media/apache-troubleshoot-spark/update-config-2.png)
+    ![Select the Configs tab](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
 1. In the list of configurations, select and expand **Custom-spark2-defaults**.
 
 1. Look for the value setting that you need to adjust, such as **spark.executor.memory**. In this case, the value of **9728m** is too high.
 
-    ![Select custom-spark-defaults](./media/apache-troubleshoot-spark/update-config-4.png)
+    ![Select custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Set the value to the recommended setting. The value **2048m** is recommended for this setting.
 
 1. Save the value, and then save the configuration. Select **Save**.
 
-    ![Change value to 2048m](./media/apache-troubleshoot-spark/update-config-6a.png)
+    ![Change value to 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
     Write a note about the configuration changes, and then select **Save**.
 
-    ![Enter a note about the changes you made](./media/apache-troubleshoot-spark/update-config-6c.png)
+    ![Enter a note about the changes you made](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
     You are notified if any configurations need attention. Note the items, and then select **Proceed Anyway**.
 
-    ![Select Proceed Anyway](./media/apache-troubleshoot-spark/update-config-6b.png)
+    ![Select Proceed Anyway](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
 1. Whenever a configuration is saved, you are prompted to restart the service. Select **Restart**.
 
-    ![Select restart](./media/apache-troubleshoot-spark/update-config-7a.png)
+    ![Select restart](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
     Confirm the restart.
 
-    ![Select Confirm Restart All](./media/apache-troubleshoot-spark/update-config-7b.png)
+    ![Select Confirm Restart All](./media/apache-troubleshoot-spark/apache-spark-ambari-config7b.png)
 
     You can review the processes that are running.
 
-    ![Review running processes](./media/apache-troubleshoot-spark/update-config-7c.png)
+    ![Review running processes](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
 1. You can add configurations. In the list of configurations, select **Custom-spark2-defaults**, and then select **Add Property**.
 
-    ![Select add property](./media/apache-troubleshoot-spark/update-config-8.png)
+    ![Select add property](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Define a new property. You can define a single property by using a dialog box for specific settings such as the data type. Or, you can define multiple properties by using one definition per line.
 
     In this example, the **spark.driver.memory** property is defined with a value of **4g**.
 
-    ![Define new property](./media/apache-troubleshoot-spark/update-config-9.png)
+    ![Define new property](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
 1. Save the configuration, and then restart the service as described in steps 6 and 7.
 

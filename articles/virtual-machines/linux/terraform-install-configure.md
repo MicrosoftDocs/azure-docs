@@ -1,24 +1,22 @@
 ---
-title: Install and configure Terraform for use with Azure | Microsoft Docs
+title: Install and configure Terraform to provision Azure resources | Microsoft Docs
 description: Learn how to install and configure Terraform to create Azure resources
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
+author: tomarchermsft
 manager: gwallace
 editor: na
 tags: azure-resource-manager
-
 ms.assetid: 
 ms.service: virtual-machines-linux
-
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
-ms.author: gwallace
+ms.date: 09/20/2019
+ms.author: tarcher
 ---
 
-# Install and configure Terraform to provision VMs and other infrastructure into Azure
+# Install and configure Terraform to provision Azure resources
  
 Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure.
 
@@ -34,7 +32,7 @@ To install Terraform, [download](https://www.terraform.io/downloads.html) the ap
 
 Verify your path configuration with the `terraform` command. A list of available Terraform options is shown, as in the following example output:
 
-```bash
+```console
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
@@ -91,7 +89,7 @@ export ARM_ENVIRONMENT=public
 
 Create a file `test.tf` in an empty directory and paste in the following script.
 
-```tf
+```hcl
 provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
@@ -108,7 +106,7 @@ terraform init
 
 The output is similar to the following example:
 
-```bash
+```console
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
@@ -122,7 +120,7 @@ terraform apply
 
 The output is similar to the following example:
 
-```bash
+```console
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create

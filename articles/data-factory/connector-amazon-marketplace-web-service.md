@@ -1,5 +1,5 @@
 ---
-title: Copy data from Amazon Marketplace Web Service using Azure Data Factory (Preview) | Microsoft Docs
+title: Copy data from Amazon Marketplace Web Service using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Amazon Marketplace Web Service to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -16,14 +16,16 @@ ms.date: 08/01/2018
 ms.author: jingwang
 
 ---
-# Copy data from Amazon Marketplace Web Service using Azure Data Factory (Preview)
+# Copy data from Amazon Marketplace Web Service using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Amazon Marketplace Web Service. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!IMPORTANT]
-> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
-
 ## Supported capabilities
+
+This Amazon Marketplace Web Service connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Amazon Marketplace Web Service to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -150,6 +152,10 @@ To copy data from Amazon Marketplace Web Service, set the source type in the cop
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

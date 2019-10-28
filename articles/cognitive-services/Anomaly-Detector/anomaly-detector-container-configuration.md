@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
 ---
 
@@ -99,8 +99,10 @@ Replace value in brackets, `{}`, with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{API_KEY} | The endpoint key of the Anomaly Detector resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | The billing endpoint value including region.|`https://westus2.api.cognitive.microsoft.com`|
+| **{API_KEY}** | The endpoint key of the `Anomaly Detector` resource on the Azure `Anomaly Detector` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Anomaly Detector` Overview page.| See [gathering required parameters](anomaly-detector-container-howto.md#gathering-required-parameters) for explicit examples. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](anomaly-detector-container-howto.md#billing).

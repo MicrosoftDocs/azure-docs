@@ -196,10 +196,7 @@ Internally, `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) enqueues a mes
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to set up eternal orchestrations](durable-functions-eternal-orchestrations.md)
-
-> [!div class="nextstepaction"]
-> [Run a sample that waits for external events](durable-functions-phone-verification.md)
+> [Learn how to implement error handling](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
 > [Run a sample that waits for human interaction](durable-functions-phone-verification.md)

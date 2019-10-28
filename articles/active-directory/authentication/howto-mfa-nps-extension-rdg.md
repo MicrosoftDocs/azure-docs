@@ -175,7 +175,7 @@ To use the script, provide the extension with your Azure AD Admin credentials an
 
 In this section, you configure the Remote Desktop Gateway connection authorization policies and other RADIUS settings.
 
-The authentication flow requires that RADIUS messages be exchanged between the Remote Desktop Gateway and the NPS server where the NPS Server is installed. This means that you must configure RADIUS client settings on both Remote Desktop Gateway and the NPS server where the NPS extension is installed.
+The authentication flow requires that RADIUS messages be exchanged between the Remote Desktop Gateway and the NPS server where the NPS extension is installed. This means that you must configure RADIUS client settings on both Remote Desktop Gateway and the NPS server where the NPS extension is installed.
 
 ### Configure Remote Desktop Gateway connection authorization policies to use central store
 

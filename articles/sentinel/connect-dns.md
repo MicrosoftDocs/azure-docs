@@ -1,5 +1,5 @@
 ---
-title: Connect DNS data in Azure Sentinel Preview| Microsoft Docs
+title: Connect DNS data in Azure Sentinel| Microsoft Docs
 description: Learn how to connect DNS data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
 
 ---
 # Connect your domain name server
 
 > [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> The DNS data connector in Azure Sentinel is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can connect any Domain Name Server (DNS) running on Windows to Azure Sentinel. This is done by installing an agent on the DNS machine. Using DNS logs, you can gain security, performance, and operations-related insights into the DNS infrastructure of your organization by collecting, analyzing, and correlating analytic and audit logs and other related data from the DNS servers.
@@ -52,7 +52,7 @@ The solution collects DNS inventory and DNS event-related data from the DNS serv
 
 ## Connect your DNS appliance
 
-1. In the Azure Sentinel portal, select **Data connectors** and choose the **DNS** tile.
+1. In the Azure Sentinel portal, select **Data connectors** and choose the **DNS (Preview)** tile.
 1. If your DNS machines are in Azure:
     1. Click **Install agent on Azure Windows virtual machine**.
     1. In the **Virtual machines** list, select the DNS machine you want to stream into Azure Sentinel. Make sure this is a Windows VM.
@@ -73,4 +73,4 @@ In Log Analytics, search for the schema **DnsEvents** and make sure there are ev
 ## Next steps
 In this document, you learned how to connect DNS on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
