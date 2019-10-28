@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -210,8 +210,10 @@ This is the network rule that allows outbound access to two IP addresses at port
 7. For **Protocol**, select **UDP**.
 8. For **Source Addresses**, type **10.0.2.0/24**.
 9. For Destination address, type **209.244.0.3,209.244.0.4**
-10. For **Destination Ports**, type **53**.
-11. Select **Add**.
+
+   These are public DNS servers operated by CenturyLink.
+1. For **Destination Ports**, type **53**.
+2. Select **Add**.
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
