@@ -79,7 +79,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 1. Under the trigger or action where you want to add the SQL action, select **New step**.
 
-   ![Select "New step"](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+   ![Add new step to your logic app](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
    To add an action between existing steps, move your mouse over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
