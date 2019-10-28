@@ -32,7 +32,7 @@ After you get your domain name, you can create your first Azure AD directory.
 
 1. On the Azure portal menu, select **Azure Active Directory** or search for and select *Azure Active Directory* from any page.
 
-    ![Azure portal screen, showing the Azure AD option](media/add-custom-domain\active-directory-options-in-the-azure-portal.png)
+    ![Azure portal screen, showing the Azure AD option](media/add-custom-domain/active-directory-options-in-the-azure-portal.png)
 
     For more information about subscription roles, see [Azure RBAC roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
