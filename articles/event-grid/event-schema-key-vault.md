@@ -62,7 +62,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | ---------- | ----------- |---|
-| id | string | The id of the object that triggered this event. |
+| id | string | The ID of the object that triggered this event. |
 | vaultName | string | Key vault name of the object that triggered this event. |
 | objectType | string | The type of the object that triggered this event |
 | objectName | string | The name of the object that triggered this event |
@@ -78,8 +78,8 @@ An event has the following top-level data:
 * To learn more about Key Vault / Event Grid integration, see [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
 * To see a tutorial on Key Vault / Event Grid integration, see [How to: Route Key Vault Events to Automation Runbook (preview)](../key-vault/event-grid-tutorial.md).
 
-- [Azure Key Vault overview](key-vault-overview.md]
-- [Azure Event Grid overview](../event-grid/overview.md)
+- [Azure Key Vault overview](../key-vault/key-vault-overview.md)
+- [Azure Event Grid overview](overview.md)
 - [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
 - [How to: Route Key Vault Events to Automation Runbook (preview)](../key-vault/event-grid-tutorial.md).
 - [Azure Automation overview](../automation/index.yml)

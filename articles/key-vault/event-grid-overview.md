@@ -1,5 +1,5 @@
 ---
-title: Reacting to Azure Key Vault events | Microsoft Docs
+title: Monitoring Key Vault with Azure Event Grid
 description: Use Azure Event Grid to subscribe to Key Vault events
 services: media-services
 author: msmbaldwin
@@ -39,7 +39,7 @@ Applications that handle Key Vault events should follow a few recommended practi
 
 ## Next steps
 
-- [Azure Key Vault overview](key-vault-overview.md]
+- [Azure Key Vault overview](key-vault-overview.md)
 - [Azure Event Grid overview](../event-grid/overview.md)
 - [How to: Route Key Vault Events to Automation Runbook (preview)](event-grid-tutorial.md).
 - [Azure Event Grid event schema for Azure Key Vault (preview)](../event-grid/event-schema-key-vault.md)
