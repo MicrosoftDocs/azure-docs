@@ -303,7 +303,7 @@ The following limitations apply when using the Private Link with an Azure Cosmos
 
 * When using Private Links with Azure Cosmos account using Direct mode support, you can only use TCP protocol. HTTP protocol is not yet supported
 
-* When using Azure Cosmos DB’s API for MongoDB accounts, Private Link can be configured for new accounts that use 3.6 version. Private Link is not supported for 3.2 version of accounts. To use Private Link, you should migrate old accounts to new version.
+* When using Azure Cosmos DB’s API for MongoDB accounts, private endpoint is supported for accounts on server version 3.6 only (that is accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to new version.
 
 * When using Azure Cosmos DB’s API for MongoDB accounts that have Private Link, you can’t use tools such as Robo 3T, Studio 3T, Mongoose etc. The endpoint can have Private Link support only if the appName=<account name> parameter is specified. For example: replicaSet=globaldb&appName=mydbaccountname. Because these tools don’t pass the app name in the connection string to the service so you can’t use Private Link. However you can still access these accounts with SDK drivers with 3.6 version.
 
