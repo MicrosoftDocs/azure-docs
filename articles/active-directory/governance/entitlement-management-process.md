@@ -55,12 +55,12 @@ If you are an approver, you are sent email notifications when you need to approv
 The following diagrams shows when these email notifications are sent to either the approvers or the requestor. Reference the [email notifications table](entitlement-management-process.md###email-notifications-table) to find the corresponding number to the email notifications displayed in the diagrams.
 
 ### Primary approvers and alternate approvers
-The following diagram shows the experience primary approvers and alternate approvers have and the email notifications they receive during the request process:
+The following diagram shows the experience of primary approvers and alternate approvers, and the email notifications they receive during the request process:
 
 ![Primary and alternate approvers process flow](./media/entitlement-management-process/primary-approvers-and-alternate-with-escalation-flow.png)
 
 ### Requestors
-The following diagram shows the experience requestors have and the email notifications they receive during the request process:
+The following diagram shows the experience of requestors and the email notifications they receive during the request process:
 
 ![Requestor process flow](./media/entitlement-management-process/requestor-approval-and-expiration-request-flow.png)
 
