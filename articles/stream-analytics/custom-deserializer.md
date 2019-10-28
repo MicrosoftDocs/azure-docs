@@ -43,7 +43,7 @@ The container you create will be used to store assets related to your Stream Ana
 
 1. Open Visual Studio and select **File > New > Project**. Search for **Stream Analytics** and select **Azure Stream Analytics Custom Deserializer Project (.NET)**. Give the project a name, like **Protobuf Deserializer**.
 
-   ![Create Visual Studio dotnet standard class library project](.\media\custom-deserializer\create-dotnet-library-project.png)
+   ![Create Visual Studio dotnet standard class library project](./media/custom-deserializer/create-dotnet-library-project.png)
 
 2. In Solution Explorer, right-click your **Protobuf Deserializer** project and select **Manage NuGet Packages** from the menu. Then install the **Microsoft.Azure.StreamAnalytics** and **Google.Protobuf** NuGet packages.
 
