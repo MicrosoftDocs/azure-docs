@@ -41,7 +41,7 @@ The public preview is available to use globally; however, data storage is limite
 
 ## Configuration
 
-Completing the basic are a prerequisite to configuring a test and embedding the JavaScript client. Once you have created a profile, go to **Settings > Configuration** to configure you're first test.
+Completing the basic steps is a prerequisite to configuring a test and embedding the JavaScript client. Once you have created a profile, go to **Settings > Configuration** to configure your first test.
 
 1. Give your test a name in the **Test Name** box.
 2. Add a description for your test in the **Description** field.
