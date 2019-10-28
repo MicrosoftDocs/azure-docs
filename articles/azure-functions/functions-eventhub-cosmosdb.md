@@ -63,7 +63,7 @@ FUNCTION_APP="<value>-$RANDOM"
 LOCATION=<value>
 ```
 
-The rest of this tutorial uses these variables. If you start a new Azure CLI session before you complete the tutorial, be sure to set these variables again.
+The rest of this tutorial uses these variables. If you start a new Azure CLI session before you complete the tutorial, be sure to set these variables again using the same values.
 
 ### Create a resource group
 
