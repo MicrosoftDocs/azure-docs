@@ -19,7 +19,7 @@ ms.author: aahi
 
 ### Create a Text Analytics Azure resource 
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Text Analytics using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
+[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
 
 ### Create a new Ruby application
 
@@ -41,6 +41,8 @@ In your Ruby file, import the following packages.
 [!code-ruby[Import statements](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=includeStatement)]
 
 Create variables for your resource's Azure endpoint and key, named `TEXT_ANALYTICS_ENDPOINT` and `TEXT_ANALYTICS_SUBSCRIPTION_KEY`. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. 
+
+[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 [!code-ruby[endpoint and key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
 
