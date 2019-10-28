@@ -88,9 +88,9 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 
 1. In top left corner of the portal, select **All services**.
 
-1. In the **All services** filter field, type **machine learning service**.  
+1. In the **All services** filter field, type **machine learning**.  
 
-1. Select **Machine Learning service workspaces**.
+1. Select **Azure Machine Learning**.
 
    ![Search for Azure Machine Learning workspace](media/how-to-manage-workspace/all-services.png)
 

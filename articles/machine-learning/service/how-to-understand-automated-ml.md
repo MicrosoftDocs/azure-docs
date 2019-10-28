@@ -33,7 +33,7 @@ Learn more about:
 
 ## View the run
 
-After running an automated machine learning experiment, a history of the runs can be found in your machine learning service workspace. 
+After running an automated machine learning experiment, a history of the runs can be found in your machine learning workspace. 
 
 1. Go to your workspace.
 
