@@ -6,10 +6,10 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/28/2019
 ms.author: helohr
 ---
-# User connection latency in Windows Virtual Desktop
+# User connection latency
 
 Windows Virtual Desktop is globally available. Administrators can create virtual machines (VMs) in any Azure region they want. Connection latency will vary depending on the location of the users and the virtual machines. Windows Virtual Desktop services will continuously roll out to new geographies to improve latency. 
  
