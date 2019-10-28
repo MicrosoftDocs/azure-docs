@@ -26,7 +26,7 @@ You can use Azure PowerShell to [create a WAF Policy](create-waf-policy-ag.md), 
 
 2. (Optional) Create a Firewall Policy.
 
-   ```
+   ```azurepowershell-interactive
    New-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>'
    $policy = Get-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>`
    ```
@@ -35,7 +35,7 @@ You can use Azure PowerShell to [create a WAF Policy](create-waf-policy-ag.md), 
    
 4. Save the policy, and attach it to your Application Gateway. 
    
-   ```
+   ```azurepowershell-interactive
       #Save the policy itself
    Set-AzApplicationGatewayFirewallPolicy -InputObject $policy`
    
