@@ -14,7 +14,7 @@ ms.date: 10/27/2019
 
 Azure Monitor Cosmos DB Insights (preview) provides a view of the overall performance, failures, capacity, and operational health of all your Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
 
-## Introduction to Azure Monitor for Storage (preview)
+## Introduction (preview)
 
 Before diving into the experience, you should understand how it presents and visualizes information. 
 
@@ -109,19 +109,15 @@ To expand or collapse all drop-down views in the workbook, select the expand ico
 
 ![Expand workbook icon](./media/cosmosdb-insights-overview/expand.png)
 
-## Customize Azure Monitor for Storage (preview)
+## Customize Azure Monitor Cosmos DB Insights (preview)
 
 Since Azure Monitor Cosmos DB Insights are built on top of Azure Monitor workbook templates, you have the ability to **Customize** > **Edit** and **Save** a copy of your modified version into a custom workbook. 
 
-
 ![Customize bar](./media/cosmosdb-insights-overview/customize.png)
-
-
 
 Workbooks are saved within a resource group, either in the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the resource group. After you save the custom workbook, you need to go to the workbook gallery to launch it.
 
 ![Launch workbook gallery from command bar](./media/cosmosdb-insights-overview/gallery.png)
-
 
 ## Next steps
 
