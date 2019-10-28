@@ -657,7 +657,7 @@
       href: insights/service-map.md
     - name: Computer groups
       href: platform/computer-groups.md
-  - name: Monitor resources
+  - name: Monitor other resources
     items:
     - name: Containers
       items:
@@ -728,8 +728,6 @@
           href: insights/network-performance-monitor-pricing-faq.md
         - name: FAQ
           href: insights/network-performance-monitor-faq.md
-    - name: Other resources
-      items:
       - name: Assess AD Health
         href: insights/ad-assessment.md
       - name: AD Replication Status
@@ -738,12 +736,12 @@
         href: insights/solution-office-365.md
       - name: Surface Hub
         href: insights/surface-hubs.md
-  - name: Monitoring solutions
-    items:
-    - name: Overview
-      href: insights/solutions.md
-    - name: Target solutions
-      href: insights/solution-targeting.md
+    - name: Monitoring solutions
+      items:
+      - name: Overview
+        href: insights/solutions.md
+      - name: Target solutions
+        href: insights/solution-targeting.md
   - name: Collect custom data 
     items:
     - name: Custom metrics
