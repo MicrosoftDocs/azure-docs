@@ -158,13 +158,13 @@ If you would like to share feedback or encounter issues while previewing this fe
 1. Submit feedback under the following categorization:
    1. Category: Security and Privacy
    1. Subcategory: FIDO
-1. To capture logs, use **Recreate my Problem**.
+1. To capture logs, use the option: **Recreate my Problem**
 
 ## Frequently asked questions
 
 ### Does this work in my on-premises environment?
 
-This feature does NOT work for a pure on-premises environment.
+This feature does not work for a pure on-premises Active Directory Domain Services (AD DS) environment.
 
 ### My organization requires two factor authentication to access resources, what can I do to support this requirement?
 
@@ -172,29 +172,21 @@ Security keys come in a variety of form factors. Please contact the device manuf
 
 ### Can admins set up security keys?
 
-We are working on this capability for GA of this feature.
+We are working on this capability for general availability (GA) of this feature.
 
 ### Where can I go to find compliant Security Keys?
 
 [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 
-### Can I use a phone as a Windows Hello security key?
-
-We are investigating support for phones for future releases.
-
 ### What do I do if I lose my Security Key?
 
 You can remove keys from the Azure portal, by navigating to the security info page and removing the security key.
-
-### What do I do if Windows Hello Face is too quick and preventing me from trying FIDO?
-
-Windows Hello Face is the intended best experience for a device where a user has it enrolled. But you can turn off Hello Face sign in by removing your Face Enrollment in Settings Sign-In Options if it's preventing you from trying the FIDO logon scenario.
 
 ### I’m not able to use FIDO immediately after I create a hybrid Azure AD joined machine
 
 If clean installing a hybrid Azure AD joined machine, post domain join and restart you must sign in with a password and wait for policy to sync before being able to use FIDO to sign in.
 
-- Check your current status by typing dsregcmd /status into a command window and check that both AzureAdJoined and DomainJoined are showing YES.
+- Check your current status by typing `dsregcmd /status` into a command window and check that both `AzureAdJoined` and `DomainJoined` are showing `YES`.
 - This delay is a known limitation for domain joined devices and not FIDO specific.
 
 ### I’m unable to get SSO to my NTLM network resource after signing in with FIDO and get a credential prompt

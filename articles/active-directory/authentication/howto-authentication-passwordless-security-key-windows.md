@@ -64,7 +64,7 @@ Organizations may choose to use one or more of the following methods to enable t
 - [Enable with Group Policy (Hybrid Azure AD joined devices only)](#enable-with-group-policy)
 
 > [!IMPORTANT]
-> Organizations with **hybrid Azure AD joined devices** must also complete the steps in the article, [Enable FIDO2 authentication to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md) before Windows 10 FIDO2 security key authentication will work.
+> Organizations with **hybrid Azure AD joined devices** must **also** complete the steps in the article, [Enable FIDO2 authentication to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md) before Windows 10 FIDO2 security key authentication will work.
 >
 > Organizations with **Azure AD joined devices** must do this before their devices will be able to authenticate to on-premises resources with FIDO2 security keys.
 
@@ -148,7 +148,7 @@ If you would like to share feedback or encounter issues while previewing this fe
 1. Submit feedback under the following categorization:
    1. Category: Security and Privacy
    1. Subcategory: FIDO
-1. To capture logs, use **Recreate my Problem**.
+1. To capture logs, use the option: **Recreate my Problem**
 
 ## Next steps
 
