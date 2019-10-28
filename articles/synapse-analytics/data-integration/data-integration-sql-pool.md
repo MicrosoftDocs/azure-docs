@@ -58,7 +58,7 @@ next to the pipelines header and select **Pipeline**.
 
 ## Debug and publish pipeline
 
-Once you've finished configuring your pipeline, you can execute a debug run before you publish your artifactsto verify everything is correct.
+Once you've finished configuring your pipeline, you can execute a debug run before you publish your artifacts to verify everything is correct.
 
 1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 1. Once the pipeline can run successfully, in the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to the Synapse Analytics service.
