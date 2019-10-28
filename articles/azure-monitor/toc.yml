@@ -1112,9 +1112,11 @@
     href: app/azure-functions-supported-features.md 
   - name: Azure PowerShell
     items:
+    - name: Alerts, Metrics, Activity Log, Autoscale
+      href: /powershell/module/az.monitor
     - name: Application Insights
       href: /powershell/module/az.applicationinsights
-    - name: Logs
+    - name: Log Analytics
       href: /powershell/module/az.operationalinsights
   - name: REST API
     items:

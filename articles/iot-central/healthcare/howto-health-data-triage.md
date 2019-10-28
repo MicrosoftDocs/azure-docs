@@ -12,6 +12,8 @@ manager: eliotgra
 
 # Tutorial: Build a Power BI provider dashboard
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 When building your continuous patient monitoring solution, you may want to also create a dashboard for a hospital care team to visualize patient data. This tutorial will walk you through the steps to be able to create a Power BI real-time streaming dashboard from your IoT Central continuous patient monitoring application template.
 
 >[!div class="mx-imgBorder"]
