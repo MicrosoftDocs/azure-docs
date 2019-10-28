@@ -17,9 +17,9 @@ In normal cluster creation, as described in other articles such as [Set up clust
 
 The custom Ambari DB feature allows you to deploy a new cluster and setup Ambari in an external database that you manage. This feature has the following benefits:
 
-- **Customization** - you choose the size and processing capacity of the database. If you have large clusters processing intensive workloads, an Ambari database with lower specifications could become a bottleneck for management operations.
-- **Flexibility** - you can scale the database as needed to suit your requirements.
-- **Control** - you can manage backups and security for your database in a way that fits with your organizations requirements.
+- Customization - you choose the size and processing capacity of the database. If you have large clusters processing intensive workloads, an Ambari database with lower specifications could become a bottleneck for management operations.
+- Flexibility - you can scale the database as needed to suit your requirements.
+- Control - you can manage backups and security for your database in a way that fits with your organizations requirements.
 
 The remainder of this article discusses the following points:
 
@@ -45,7 +45,7 @@ When you host your Apache Ambari DB in an external database, remember the follow
 
 ## Deploy clusters with a custom Ambari DB
 
-To create an HDInsight cluster that uses your own external Ambari database, use the [custom Ambari + Hive Metastore DB Quickstart template)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-custom-ambari-db).
+To create an HDInsight cluster that uses your own external Ambari database, use the [custom Ambari DB Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-custom-ambari-db).
 
 Edit the parameters in the `azuredeploy.parameters.json` to specify information about your new cluster and the database that will hold Ambari.
 
