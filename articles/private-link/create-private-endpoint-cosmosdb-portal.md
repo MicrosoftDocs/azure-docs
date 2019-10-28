@@ -1,9 +1,9 @@
 ---
-title: Connect privately to an Azure Cosmos account using Azure Private Link.
-description: Learn how to securely access the Azure Cosmos account from ta VM by creating a Private Endpoint.
+title: Connect to an Azure Cosmos account with Azure Private Link
+description: Learn how to securely access the Azure Cosmos account from a VM by creating a Private Endpoint.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sngun
 
@@ -96,8 +96,7 @@ Create an [Azure Cosmos SQL API account](../cosmos-db/create-cosmosdb-resources-
 
 ## Create a Private Endpoint for your Azure Cosmos account
 
-Create a Private Link for you Azure Cosmos account  as described in the [Create a Private Link using the Azure portal
-](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) section of the linked article.
+Create a Private Link for your Azure Cosmos account  as described in the [Create a Private Link using the Azure portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) section of the linked article.
 
 ## Connect to a VM from the internet
 
@@ -129,7 +128,7 @@ Connect to the VM *myVm* from the internet as follows:
 In this section, you will connect privately to the Azure Cosmos account using the Private Endpoint. 
 
 > [!IMPORTANT]
-> The DNS configuration for the Azure Cosmos account needs a manual modification on the hosts file to include the FQDN of the specific account. In production scenarios you will configure the DNS server to use the private IP addresses. However for the tutorial purpose, you can use administrator permissions on the VM and modify the `c:\Windows\System32\Drivers\etc\hosts` file or `/etc/hosts` file on Linux to include the IP address and DNS mapping.
+> The DNS configuration for the Azure Cosmos account needs a manual modification on the hosts file to include the FQDN of the specific account. In production scenarios you will configure the DNS server to use the private IP addresses. However for the demo purpose, you can use administrator permissions on the VM and modify the `c:\Windows\System32\Drivers\etc\hosts` file or `/etc/hosts` file on Linux to include the IP address and DNS mapping.
 
 1. To include the IP address and DNS mapping, sign into your Virtual machine *myVM*, open the `c:\Windows\System32\Drivers\etc\hosts` file and include the DNS information from previous step in the following format:
 
@@ -174,7 +173,7 @@ When you're done using the Private Endpoint, Azure Cosmos account and the VM, de
 
 ## Next steps
 
-In this Quickstart, you created a VM on a virtual network and Azure Cosmos account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the Azure Cosmos account using Private Link.
+In this article, you created a VM on a virtual network and Azure Cosmos account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the Azure Cosmos account using Private Link.
 
 * To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
 
