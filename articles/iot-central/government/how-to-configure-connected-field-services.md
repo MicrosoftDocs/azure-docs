@@ -12,6 +12,8 @@ services: iot-central
 
 # Build end-to-end solution with Azure IoT Central and Dynamics 365 Field Service 
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 As a builder, you can enable integration of your Azure IoT Central application to other business systems. 
 
 
