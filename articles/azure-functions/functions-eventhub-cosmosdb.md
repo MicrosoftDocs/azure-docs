@@ -264,7 +264,8 @@ public class Function {
             String timerInfo,
         final ExecutionContext context) {
 
-        context.getLogger().info("Java Timer trigger function executed at: " + LocalDateTime.now());
+        context.getLogger().info("Java Timer trigger function executed at: "
+            + LocalDateTime.now());
         double temperature = Math.random() * 100;
         double pressure = Math.random() * 50;
         return new TelemetryItem(temperature, pressure);
@@ -348,7 +349,8 @@ public class TelemetryItem {
 
     @Override
     public String toString() {
-        return "TelemetryItem={id=" + id + ",temperature=" + temperature + ",pressure=" + pressure + "}";
+        return "TelemetryItem={id=" + id + ",temperature="
+            + temperature + ",pressure=" + pressure + "}";
     }
 
     public boolean isNormalPressure() {
