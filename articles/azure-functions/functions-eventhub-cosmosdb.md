@@ -16,7 +16,7 @@ This tutorial shows you how to create an Azure Function in Java that is triggere
 
 In this tutorial, you learn to:
 
-[!div class="checklist"]
+> [!div class="checklist"]
 > * Create an Event Hub namespace, hub, and authorization rule
 > * Create a Cosmos DB account, database, and collection
 > * Create an Azure Functions app and a storage account to host it
@@ -362,7 +362,7 @@ public class TelemetryItem {
 }
 ```
 
-## Run locally
+### Run locally
 
 You can now build and run the functions locally and see data appear in your Cosmos DB.
 
@@ -419,6 +419,6 @@ In this tutorial, you learned how to create Azure Functions that handle events f
 Next, learn how to store your app secrets in [Azure Key Vault](/azure/key-vault/key-vault-overview) or use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) for automated deployment:
 
 > [!div class="nextstepaction"]
-> [Build and deploy Java to Azure Functions](/azure/devops/pipelines/ecosystems/java-function)
-> [!div class="nextstepaction"]
 > [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
+> [!div class="nextstepaction"]
+> [Use Azure Pipelines CI/CD to build and deploy Java to Azure Functions](/azure/devops/pipelines/ecosystems/java-function)
