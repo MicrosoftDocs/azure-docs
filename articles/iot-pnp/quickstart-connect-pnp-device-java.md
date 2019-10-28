@@ -127,7 +127,7 @@ The device application starts sending data to IoT Hub.
 
 1. After you connect, you see the device overview page.
 
-1. To add your company repository, select **Settings**, then **+ New**, and then **Company repository**.
+1. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ New** and then **On the connected device** to add it.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
