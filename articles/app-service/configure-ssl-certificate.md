@@ -25,7 +25,7 @@ The following table lists the options you have for adding certificates in App Se
 
 |Option|Description|
 |-|-|
-| Create a free App Service Managed Certificate (Preview) | A private certificate that's easy to use if you just need to secure your `www` [custom domain in App Service](app-service-web-tutorial-custom-domain.md). |
+| Create a free App Service Managed Certificate (Preview) | A private certificate that's easy to use if you just need to secure your `www` [custom domain](app-service-web-tutorial-custom-domain.md) or any non-naked domain in App Service. |
 | Purchase an App Service certificate | A private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options. |
 | Import a certificate from Key Vault | Useful if you use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) to manage your [PKCS12 certificates](https://wikipedia.org/wiki/PKCS_12). See [Private certificate requirements](#private-certificate-requirements). |
 | Upload a private certificate | If you already have a private certificate from a third-party provider, you can upload it. See [Private certificate requirements](#private-certificate-requirements). |
@@ -36,7 +36,7 @@ The following table lists the options you have for adding certificates in App Se
 To follow this how-to guide:
 
 - [Create an App Service app](/azure/app-service/).
-- Free certificate only: [map a `www` DNS name to App Service with a CNAME record](app-service-web-tutorial-custom-domain.md#map-a-cname-record) (for example, `www.contoso.com`).
+- Free certificate only: map a subdomain (for example, `www.contoso.com`) to App Service with a [CNAME record](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
 
 ## Private certificate requirements
 
@@ -60,7 +60,7 @@ To secure a custom domain in an SSL binding, the certificate has additional requ
 
 The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
 
-- Supports only the [`www` DNS name that's mapped by a CNAME record](app-service-web-tutorial-custom-domain.md#map-a-cname-record) (for example, `www.contoso.com`).
+- Does not support naked domains.
 - Is not exportable.
 
 To create a free App Service Managed Certificate:
@@ -71,7 +71,7 @@ From the left navigation of your app, select **TLS/SSL settings** > **Private Ke
 
 ![Create free certificate in App Service](./media/configure-ssl-certificate/create-free-cert.png)
 
-Any `www.<root-domain>` custom domain that's properly mapped to your app with a CNAME record is listed in the dialog. Select the custom domain to create a free certificate for and select **Create**. You can create only one certificate for each supported custom domain.
+Any non-naked domain that's properly mapped to your app with a CNAME record is listed in the dialog. Select the custom domain to create a free certificate for and select **Create**. You can create only one certificate for each supported custom domain.
 
 When the operation completes, you see the certificate in the **Private Key Certificates** list.
 
