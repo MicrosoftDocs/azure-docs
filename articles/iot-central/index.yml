@@ -141,4 +141,4 @@ additionalContent:
         url: https://docs.microsoft.com/rest/api/azure/
       - title: IoT Central on Microsoft Learn
         summary: Explore the IoT Central in the a free sandbox environment.
-        url: https://aka.ms/iotcentralapimslearnjourney
+        url: https://docs.microsoft.com/learn/browse/?products=azure-iot-central

@@ -17,34 +17,38 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 
-#Customer intent: As an IT administrator, I want to learn about tracking configuration changes and perform software updates so that I can review changes made and install updates on Windows virtual machines.
+#Customer intent: As an IT administrator, I want to learn about tracking configuration changes and performing software updates, so I can review changes made and install updates on Windows virtual machines.
 ---
 
 # Tutorial: Monitor changes and update a Windows virtual machine in Azure
 
-Azure [Change Tracking](../../automation/change-tracking.md) allows you to easily identify changes and [Update Management](../../automation/automation-update-management.md) allows you to manage operating system updates for your Azure Windows VMs.
+With Azure [Change Tracking](../../automation/change-tracking.md) and [Update Management](../../automation/automation-update-management.md), you can easily identify changes in your Windows virtual machines in Azure and manage operating system updates for those VMs.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Manage Windows updates
-> * Monitor changes and inventory
+> * Manage Windows updates.
+> * Monitor changes and inventory.
 
-## Launch Azure Cloud Shell
+## Open Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your Azure account.
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+To open any code block in Cloud Shell, just select **Try it** from the upper-right corner of that code block.
 
-## Create virtual machine
+You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy code blocks, paste them into the Cloud Shell tab, and select the Enter key to run the code.
 
-To configure Azure monitoring and update management in this tutorial, you need a Windows VM in Azure. First, set an administrator username and password for the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+## Create a virtual machine
+
+To configure Azure monitoring and update management in this tutorial, you need a Windows VM in Azure.
+
+First, set an administrator username and password for the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Now create the VM with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVM* in the *EastUS* location. If they do not already exist, the resource group *myResourceGroupMonitorMonitor* and supporting network resources are created:
+Next, create the VM with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). The following example creates a VM named `myVM` in the `East US` location. If they don't already exist, the resource group `myResourceGroupMonitor` and supporting network resources are created:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -58,152 +62,158 @@ It takes a few minutes for the resources and VM to be created.
 
 ## Manage Windows updates
 
-Update Management allows you to manage updates and patches for your Azure Windows VMs.
-Directly from your VM, you can quickly assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to the VM.
+Update Management helps you manage updates and patches for your Azure Windows VMs. Directly from your VM, you can quickly:
+
+- Assess the status of available updates.
+- Schedule installation of required updates.
+- Review deployment results to verify updates were successfully applied to the VM.
 
 For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/).
 
-### Enable Update management
+### Enable Update Management
 
-Enable Update management for your VM:
+To enable Update Management for your VM:
 
-1. On the left-hand side of the screen, select **Virtual machines**.
-2. From the list, select a VM.
-3. On the VM screen, in the **Operations** section, click **Update management**. The **Enable Update Management** screen opens.
+1. On the leftmost side of the window, select **Virtual machines**.
+1. Choose a VM from the list.
+1. In the **Operations** pane of the VM window, select **Update management**.
+1. The **Enable Update Management** window opens.
 
-Validation is performed to determine if Update management is enabled for this VM.
-The validation includes checks for a Log Analytics workspace and linked Automation account, and if the solution is in the workspace.
+Validation is done to determine if Update Management is enabled for this VM. Validation includes checks for a Log Analytics workspace, for a linked Automation account, and for whether the solution is in the workspace.
 
-A [Log Analytics](../../log-analytics/log-analytics-overview.md) workspace is used to collect data that is generated by features and services such as Update management.
-The workspace provides a single location to review and analyze data from multiple sources.
-To perform additional actions on VMs that require updates, Azure Automation allows you to run runbooks against VMs, such as download and apply updates.
+You use a [Log Analytics](../../log-analytics/log-analytics-overview.md) workspace to collect data that is generated by features and services such as Update Management. The workspace provides a single location to review and analyze data from multiple sources.
 
-The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and Automation hybrid runbook worker.
-This agent is used to communicate with the VM and obtain information about the update status.
+To perform additional actions on VMs that require updates, you can use Azure Automation to run runbooks against VMs. Such actions include downloading or applying updates.
 
-Choose the Log Analytics workspace and automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
+The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and Automation Hybrid Runbook Worker. You use the agent to communicate with the VM and obtain information about the update status.
 
-If any of the following prerequisites were found to be missing during onboarding, they're automatically added:
+In the **Enable Update Management** window, choose the Log Analytics workspace and automation account, and then select **Enable**. The solution takes up to 15 minutes to become enabled.
+
+Any of the following prerequisites that are missing during onboarding are automatically added:
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md) workspace
 * [Automation](../../automation/automation-offering-get-started.md)
-* A [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) is enabled on the VM
+* A [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md), which is enabled on the VM
 
-The **Update Management** screen opens. Configure the location, Log Analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
+After the solution is enabled, the **Update management** window opens. Configure the location, Log Analytics workspace and Automation account to use, and then select **Enable**. If these options appear dimmed, another automation solution is enabled for the VM, and that solution's workspace and Automation account must be used.
 
-![Enable Update management solution](./media/tutorial-monitoring/manageupdates-update-enable.png)
+![Enable Update Management solution](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window. After the solution is enabled, information about missing updates on the VM flows to Azure Monitor logs. It can take between 30 minutes and 6 hours for the data to be available for analysis.
+The Update Management solution can take up to 15 minutes to become enabled. During this time, don't close the browser window. After the solution is enabled, information about missing updates on the VM flows to Azure Monitor logs. It can take from 30 minutes to 6 hours for the data to become available for analysis.
 
-### View update assessment
+### View an update assessment
 
-After **Update management** is enabled, the **Update management** screen appears. After the evaluation of updates is complete, you see a list of missing updates on the **Missing updates** tab.
+After Update Management is enabled, the **Update management** window appears. After the evaluation of updates is finished, you see a list of missing updates on the **Missing updates** tab.
 
  ![View update status](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
 ### Schedule an update deployment
 
-To install updates, schedule a deployment that follows your release schedule and service window. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
+To install updates, schedule a deployment that follows your release schedule and service window. You choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
-Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen. In the **New update deployment** screen, specify the following information:
+To schedule a new update deployment for the VM, select **Schedule update deployment** at the top of the **Update management** window. In the **New update deployment** window, specify the following information:
 
-To create a new update deployment, select **Schedule update deployment**. The **New update deployment** page opens. Enter values for the properties described in the following table and then click **Create**:
-
-| Property | Description |
+| Option | Description |
 | --- | --- |
-| Name |Unique name to identify the update deployment. |
-|Operating System| Linux or Windows|
-| Groups to update |For Azure machines, define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. </br></br>For Non-Azure machines, select an existing saved search to select a group of Non-Azure machines to include in the deployment. </br></br>To learn more, see [Dynamic Groups](../../automation/automation-update-management-groups.md)|
-| Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md) |
-|Update classifications|Select all the update classifications that you need|
-|Include/exclude updates|This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For more information on how inclusion is handled, see [Schedule an Update Deployment](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment) |
-|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
-| Pre-scripts + Post-scripts|Select the scripts to run before and after your deployment|
-| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes and no more than 6 hours |
-| Reboot control| Determines how reboots should be handled. Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
+| **Name** |Enter a unique name to identify the update deployment. |
+|**Operating system**| Select either **Linux** or **Windows**.|
+| **Groups to update** |For VMs hosted on Azure, define a query based on a combination of subscription, resource groups, locations, and tags. This query builds a dynamic group of Azure-hosted VMs to include in your deployment. </br></br>For VMs not hosted on Azure, select an existing saved search. With this search, you can select a group of these VMs to include in the deployment. </br></br> To learn more, see [Dynamic Groups](../../automation/automation-update-management-groups.md).|
+| **Machines to update** |Select **Saved search**, **Imported group**, or **Machines**.<br/><br/>If you select **Machines**, you can choose individual machines from the drop-down list. The readiness of each machine is shown in the **UPDATE AGENT READINESS** column of the table.</br></br> To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md) |
+|**Update classifications**|Choose all necessary update classifications.|
+|**Include/exclude updates**|Select this option to open the **Include/Exclude** pane. Updates to be included and those to be excluded are on separate tabs. For more information on how inclusion is handled, see [Schedule an Update Deployment](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment). |
+|**Schedule settings**|Choose the time to start, and select either **Once** or **Recurring**.|
+| **Pre-scripts + Post-scripts**|Choose the scripts to run before and after your deployment.|
+| **Maintenance window** | Enter the number of minutes set for updates. Valid values range from 30 to 360 minutes. |
+| **Reboot control**| Select how reboots are handled. Available selections are:<ul><li>**Reboot if required**</li><li>**Always reboot**</li><li>**Never reboot**</li><li>**Only reboot**</li></ul>**Reboot if required** is the default selection. If you select **Only reboot**, updates aren't installed.|
 
-Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+After you have finished configuring the schedule, click **Create** to return to the status dashboard. The **Scheduled** table shows the deployment schedule you created.
 
-After you have completed configuring the schedule, click **Create** button and you return to the status dashboard.
-Notice that the **Scheduled** table shows the deployment schedule you created.
+You can also create update deployments programmatically. To learn how to create an update deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There's also a sample runbook that you can use to create a weekly update deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ### View results of an update deployment
 
-After the scheduled deployment starts, you can see the status for that deployment on the **Update deployments** tab on the **Update management** screen.
-If it is currently running, it's status shows as **In progress**. After it completes, if successful, it changes to **Succeeded**.
-If there is a failure with one or more updates in the deployment, the status is **Partially failed**.
-Click the completed update deployment to see the dashboard for that update deployment.
+After the scheduled deployment starts, you can see the deployment status in the **Update deployments** tab of the **Update management** window.
+
+If the deployment is currently running, its status shows as "In progress." After successful completion, the status changes to "Succeeded." But if any updates in the deployment fail, the status is "Partially failed."
+
+Select the completed update deployment to see the dashboard for that deployment.
 
 ![Update Deployment status dashboard for specific deployment](./media/tutorial-monitoring/manageupdates-view-results.png)
 
-In **Update results** tile is a summary of the total number of updates and deployment results on the VM.
-In the table to the right is a detailed breakdown of each update and the installation results, which could be one of the following values:
+The **Update results** tile shows a summary of the total number of updates and deployment results on the VM. The table to the right shows a detailed breakdown of each update and the installation results. Each result has one of the following values:
 
-* **Not attempted** - the update was not installed because there was insufficient time available based on the maintenance window duration defined.
-* **Succeeded** - the update succeeded
-* **Failed** - the update failed
+* **Not attempted**: The update isn't installed. There wasn't enough time available based on the defined maintenance-window duration.
+* **Succeeded**: The update succeeded.
+* **Failed**: The update failed.
 
-Click **All logs** to see all log entries that the deployment created.
+Select **All logs** to see all log entries that the deployment created.
 
-Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target VM.
+Select the **Output** tile to see the job stream of the runbook responsible for managing the update deployment on the target VM.
 
-Click **Errors** to see detailed information about any errors from the deployment.
+Select **Errors** to see detailed information about any deployment errors.
 
 ## Monitor changes and inventory
 
-You can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
+You can collect and view an inventory of the software, files, Linux daemons, Windows services, and Windows registry keys on your computers. Tracking the configurations of your machines helps you pinpoint operational issues across your environment and better understand the state of your machines.
 
-### Enable Change and Inventory management
+### Enable change and inventory management
 
-Enable Change and Inventory management for your VM:
+To enable change and inventory management for your VM:
 
-1. On the left-hand side of the screen, select **Virtual machines**.
-2. From the list, select a VM.
-3. On the VM screen, in the **Operations** section, click **Inventory** or **Change tracking**. The **Enable Change Tracking and Inventory** screen opens.
+1. On the leftmost side of the window, select **Virtual machines**.
+1. Choose a VM from the list.
+1. Under **Operations** in the VM window, select either **Inventory** or **Change tracking**.
+1. The **Enable Change Tracking and Inventory** pane opens.
 
-Configure the location, Log Analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used. Even though the solutions are separate on the menu, they are the same solution. Enabling one enables both for your VM.
+Configure the location, Log Analytics workspace, and Automation account to use, and then select **Enable**. If the options appear dimmed, an automation solution is already enabled for the VM. In that case, the already enabled workspace and Automation account must be used.
+
+Even though the solutions appear separately in the menu, they're the same solution. Enabling one enables both for your VM.
 
 ![Enable Change and Inventory tracking](./media/tutorial-monitoring/manage-inventory-enable.png)
 
-After the solution has been enabled it may take some time while inventory is being collected on the VM before data appears.
+After the solution has been enabled, it might take some time for inventory to be collected on the VM before data appears.
 
 ### Track changes
 
-On your VM select **Change Tracking** under **OPERATIONS**. Click **Edit Settings**, the **Change Tracking** page is displayed. Select the type of setting you want to track and then click **+ Add** to configure the settings. The available options for Windows are:
+On your VM under **OPERATIONS**, select **Change Tracking** and then select **Edit Settings**. The **Change Tracking** pane opens. Select the type of setting you want to track and then select **+ Add** to configure the settings.
+
+The available settings options for Windows are:
 
 * Windows Registry
 * Windows Files
 
-For detailed information on Change Tracking see, [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md)
+For detailed information on Change Tracking, see [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md).
 
 ### View inventory
 
-On your VM select **Inventory** under **OPERATIONS**. On the **Software** tab, there is a table list the software that had been found. The high-level details for each software record are viewable in the table. These details include the software name, version, publisher, last refreshed time.
+On your VM select **Inventory** under **OPERATIONS**. On the **Software** tab, there's a table that shows the software that had been found. The high-level details for each software record appear in the table. These details include the software name, version, publisher, and last refreshed time.
 
 ![View inventory](./media/tutorial-monitoring/inventory-view-results.png)
 
-### Monitor Activity logs and changes
+### Monitor activity logs and changes
 
-From the **Change tracking** page on your VM, select **Manage Activity Log Connection**. This task opens the **Azure Activity log** page. Select **Connect** to connect Change tracking to the Azure activity log for your VM.
+From the **Change tracking** window on your VM, select **Manage Activity Log Connection** to open the **Azure Activity log** pane. Select **Connect** to connect Change Tracking to the Azure activity log for your VM.
 
-With this setting enabled, navigate to the **Overview** page for your VM and select **Stop** to stop your VM. When prompted, select **Yes** to stop the VM. When it is deallocated, select **Start** to restart your VM.
+After Change Tracking is enabled, go to the **Overview** pane for your VM and select **Stop** to stop your VM. When prompted, select **Yes** to stop the VM. After the VM is deallocated, select **Start** to restart your VM.
 
-Stopping and starting a VM logs an event in its activity log. Navigate back to the **Change tracking** page. Select the **Events** tab at the bottom of the page. After a while, the events shown in the chart and the table. Each event can be selected to view detailed information on the event.
+Stopping and restarting a VM logs an event in its activity log. Go back to the **Change tracking** pane and select the **Events** tab at the bottom of the pane. After a while, the events appear in the chart and the table. You can select each event to view detailed information for that event.
 
 ![View changes in the activity log](./media/tutorial-monitoring/manage-activitylog-view-results.png)
 
-The chart shows changes that have occurred over time. After you have added an Activity Log connection, the line graph at the top displays Azure Activity Log events. Each row of bar graphs represents a different trackable Change type. These types are Linux daemons, files, Windows Registry keys, software, and Windows services. The change tab shows the details for the changes shown in the visualization in descending order of time that the change occurred (most recent first).
+The previous chart shows changes that have occurred over time. After you add an Azure Activity Log connection, the line graph at the top displays Azure Activity Log events.
+
+Each row of bar graphs represents a different trackable change type. These types are Linux daemons, files, Windows registry keys, software, and Windows services. The **Change** tab shows the change details. Changes appear in the order of when each occurred, with the most recent change shown first.
 
 ## Next steps
 
 In this tutorial, you configured and reviewed Change Tracking and Update Management for your VM. You learned how to:
 
 > [!div class="checklist"]
-> * Create a resource group and VM
-> * Manage Windows updates
-> * Monitor changes and inventory
+> * Create a resource group and VM.
+> * Manage Windows updates.
+> * Monitor changes and inventory.
 
-Advance to the next tutorial to learn about monitoring your VM.
+Go to the next tutorial to learn about monitoring your VM.
 
 > [!div class="nextstepaction"]
 > [Monitor virtual machines](tutorial-monitor.md)
