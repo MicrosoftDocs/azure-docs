@@ -12,6 +12,8 @@ manager: abjork
 
 # Tutorial: Create a water consumption monitoring application in IoT Central
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial guides you to create an Azure IoT Central water consumption monitoring application from the IoT Central Water Consumption Monitoring application template. 
 
 The tutorial will learn how to: 
