@@ -1,23 +1,17 @@
 ---
 title: What is SQL Analytics on-demand #Required; update as needed page title displayed in search results. Include the brand.
-description: #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: julieMSFT #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 09/10/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: jrasnick #Required; update with your microsoft alias of author; optional team alias.
+description: SQL Analytics on-demand overview
+services: sql-data-warehouse
+author: filippopovic
+ms.service: sql-data-warehouse
+ms.topic: overview
+ms.subservice: design
+ms.date: 09/10/2019
+ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
-
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
-
-# What is Azure Synapse Analytics? 
+# What is SQL Analytics on-demand? 
 <!---Required: 
 For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
