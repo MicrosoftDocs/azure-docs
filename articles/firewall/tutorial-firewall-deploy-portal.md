@@ -53,7 +53,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 The resource group contains all the resources for the tutorial.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* in the **Home** page. Then select **Add**.
+2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Add**.
 3. For **Resource group name**, enter *Test-FW-RG*.
 4. For **Subscription**, select your subscription.
 5. For **Resource group location**, select a location. All subsequent resources that you create must be in the same location.
@@ -81,7 +81,7 @@ This VNet will contain three subnets.
 
 Next, create subnets for the jump server, and a subnet for the workload servers.
 
-1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* in the **Home** page. Then select **Test-FW-RG**.
+1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Test-FW-RG**.
 2. Select the **Test-FW-VN** virtual network.
 3. Select **Subnets** > **+Subnet**.
 4. For **Name**, type **Workload-SN**.
@@ -154,7 +154,7 @@ Deploy the firewall into the VNet.
 
 For the **Workload-SN** subnet, configure the outbound default route to go through the firewall.
 
-1. On the Azure portal menu, select **All services** or search for and select *All services* in the **Home** page.
+1. On the Azure portal menu, select **All services** or search for and select *All services* from any page.
 2. Under **Networking**, select **Route tables**.
 3. Select **Add**.
 4. For **Name**, type **Firewall-route**.
@@ -216,7 +216,7 @@ This is the network rule that allows outbound access to two IP addresses at port
 
 For testing purposes in this tutorial, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
 
-1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* in the **Home** page. Select the **Test-FW-RG** resource group.
+1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Select the **Test-FW-RG** resource group.
 2. Select the network interface for the **Srv-Work** virtual machine.
 3. Under **Settings**, select **DNS servers**.
 4. Under **DNS servers**, select **Custom**.
