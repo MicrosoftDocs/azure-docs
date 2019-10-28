@@ -147,7 +147,7 @@ Azure Spring Cloud supports basic password/token based authentication and SSH.
 
 #### Basic Authentication
 
-In the **Default repository** section, paste the repository's URI in the **Uri** section, then click the **Authentication**. Select **Basic** as your **Authentication type** and enter your username and password to grant access to Azure Spring Cloud. Click **OK** and **Apply** to finish setting up your Config Server.
+In the **Default repository** section, paste the repository's URI in the **Uri** section, then click the **Authentication**. Select **Basic** as your **Authentication type** and enter your username and password/token to grant access to Azure Spring Cloud. Click **OK** and **Apply** to finish setting up your Config Server.
 
 ![window screenshot](media/spring-cloud-tutorial-config-server/basic-auth.png)
 
