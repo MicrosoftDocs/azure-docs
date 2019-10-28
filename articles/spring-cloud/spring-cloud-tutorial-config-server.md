@@ -20,10 +20,9 @@ Spring Cloud Config provides server and client-side support for externalized con
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 * An already provisioned and running Azure Spring Cloud service.  Complete [this quickstart](spring-cloud-quickstart-launch-app-cli.md) to provision and launch an Azure Spring Cloud service.
 
-
 ## Restriction
 
-There are some restrictions when you use __Config Server__ with a git backend. Some properties will automatically be injected to your application environment to access __Config Server__ and __Service Discovery__. If you also configure those properties from your **Config Server** files, you may experience conflicts and unexpected behavior.  The properties include: 
+There are some restrictions when you use __Config Server__ with a git backend. Some properties will automatically be injected into your application environment to access __Config Server__ and __Service Discovery__. If you also configure those properties from your **Config Server** files, you may experience conflicts and unexpected behavior. The properties include: 
 
 ```yaml
 eureka.client.service-url.defaultZone
@@ -37,10 +36,9 @@ spring.application.name
 
 ## Create your Config Server files
 
-Azure Spring Cloud supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your Config Server files.  When you have your repository ready, make the configuration files with the instructions below and store them there.
+Azure Spring Cloud supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your Config Server files. When you have your repository ready, make the configuration files with the instructions below and store them there.
 
 Furthermore, some configurable properties are only available for some types. The following subsections list the properties for each repository type.
-
 
 ### Public repository
 
@@ -49,13 +47,13 @@ When using a public repository, your configurable properties will be more limite
 All configurable properties used to set up the public `Git` repository are listed below.
 
 > [!NOTE]
-> Only hyphen ("-") the separated words naming convention is supported for now. For example, you can use `default-label` but not `defaultLabel`.
+> Using a hyphen ("-") to separate words is the only naming convention that is currently supported. For example, you can use `default-label`, but not `defaultLabel`.
 
 | Property        | Required | Feature                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | `yes`    | The `uri` of `Git` repository used as the config server backend, should be started with `http://`, `https://`, `git@`, or `ssh://`. |
-| `default-label` | `no`     | The default label of `Git` repository, should be `branch name`, `tag name` or `commit-id` of repository. |
-| `search-paths`  | `no`     | An array of strings used to search subdirectories of `Git` repository. |
+| `uri`           | `yes`    | The `uri` of the `Git` repository used as the config server backend, should be started with `http://`, `https://`, `git@`, or `ssh://`. |
+| `default-label` | `no`     | The default label of the `Git` repository, should be the `branch name`, `tag name`, or `commit-id` of the repository. |
+| `search-paths`  | `no`     | An array of strings used to search subdirectories of the `Git` repository. |
 
 ------
 
@@ -64,17 +62,17 @@ All configurable properties used to set up the public `Git` repository are liste
 All configurable properties used to set up private `Git` repository with `Ssh` are listed below.
 
 > [!NOTE]
-> Only hyphen ("-") the separated words naming convention is supported for now. For example, you can use `default-label` but not `defaultLabel`.
+> Using a hyphen ("-") to separate words is the only naming convention that is currently supported. For example, you can use `default-label`, but not `defaultLabel`.
 
 | Property                   | Required | Feature                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
-| `uri`                      | `yes`    | The `uri` of `Git` repository used as the config server backend, should be started with `http://`, `https://`, `git@` or `ssh://`. |
-| `default-label`            | `no`     | The default label of `Git` repository, should be `branch name`, `tag name` or `commit-id` of repository. |
-| `search-paths`             | `no`     | An array of string used to search subdirectories of `Git` repository. |
-| `private-key`              | `no`     | The `Ssh` private key to access `Git` repository, __required__ when `uri` started with `git@` or `ssh://`. |
+| `uri`                      | `yes`    | The `uri` of the `Git` repository used as the config server backend, should be started with `http://`, `https://`, `git@`, or `ssh://`. |
+| `default-label`            | `no`     | The default label of the `Git` repository, should be the `branch name`, `tag name`, or `commit-id` of the repository. |
+| `search-paths`             | `no`     | An array of strings used to search subdirectories of the `Git` repository. |
+| `private-key`              | `no`     | The `Ssh` private key to access the `Git` repository, __required__ when `uri` starts with `git@` or `ssh://`. |
 | `host-key`                 | `no`     | The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`. |
-| `host-key-algorithm`       | `no`     | The host key algorithm, should be one of `ssh-dss`. `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384` and `ecdsa-sha2-nistp521`. Only required if `host-key` exists. |
-| `strict-host-key-checking` | `no`     | Indicates whether the config server will fail to start when leverage the provide `host-key`, should be `true` (default value) or `false`. |
+| `host-key-algorithm`       | `no`     | The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Only required if `host-key` exists. |
+| `strict-host-key-checking` | `no`     | Indicates whether the config server will fail to start when leveraging the private `host-key`. Should be `true` (default value) or `false`. |
 
 -----
 
@@ -83,40 +81,40 @@ All configurable properties used to set up private `Git` repository with `Ssh` a
 All configurable properties used to set up private Git repository with basic authentication are listed below.
 
 > [!NOTE]
-> Only hyphen ("-") the separated words naming convention is supported for now. For example, you can use `default-label` but not `defaultLabel`.
+> Using a hyphen ("-") to separate words is the only naming convention that is currently supported. For example, use `default-label` not `defaultLabel`.
 
 | Property        | Required | Feature                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | `yes`    | The `uri` of `Git` repository used as the config server backend, should be started with `http://`, `https://`, `git@` or `ssh://`. |
-| `default-label` | `no`     | The default label of `Git` repository, should be `branch name`, `tag name` or `commit-id` of repository. |
-| `search-paths`  | `no`     | An array of string used to search subdirectories of `Git` repository. |
-| `username`      | `no`     | The `username` used to access `Git` repository server, __required__ `Git` repository server support `Http Basic Authentication`. |
-| `password`      | `no`     | The password used to access `Git` repository server, __required__ `Git` repository server support `Http Basic Authentication`. |
+| `uri`           | `yes`    | The `uri` of the `Git` repository used as the config server backend, should be started with `http://`, `https://`, `git@`, or `ssh://`. |
+| `default-label` | `no`     | The default label of the `Git` repository, should be the `branch name`, `tag name`, or `commit-id` of the repository. |
+| `search-paths`  | `no`     | An array of strings used to search subdirectories of the `Git` repository. |
+| `username`      | `no`     | The `username` used to access the `Git` repository server, __required__ when the `Git` repository server supports `Http Basic Authentication`. |
+| `password`      | `no`     | The password used to access the `Git` repository server, __required__ when the `Git` repository server supports `Http Basic Authentication`. |
 
 > [!NOTE]
-> Some `Git` repository servers, like GitHub, support a "personal-token" or "access-token" as a password for `HTTP Basic Authentication`. You can use that kind of token as password here too, and the "personal-token" or "access-token" will not expire. But for Git repository servers like BitBucket and Azure DevOps, the token will expire in one or two hours, which make that option unviable for using with Azure Spring Cloud.
+> Some `Git` repository servers, like GitHub, support a "personal-token" or "access-token" as a password for `HTTP Basic Authentication`. You can use that kind of token as a password here too, and the "personal-token" or "access-token" will not expire. However, for Git repository servers like BitBucket and Azure DevOps, the token will expire in one or two hours, making that option not viable for use with Azure Spring Cloud.
 
 ### Git repositories with pattern
 
 All configurable properties used to set up Git repositories with pattern are listed below.
 
 > [!NOTE]
-> Only hyphen ("-") the separated words naming convention is supported for now. For example, you can use `default-label` but not `defaultLabel`.
+> Using a hyphen ("-") to separate words is the only naming convention that is currently supported. For example, use `default-label` not `defaultLabel`.
 
 | Property                           | Required         | Feature                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
-| `repos`                            | `no`             | A map consists of `Git` repositories settings with given name. |
-| `repos."uri"`                      | `yes` on `repos` | The `uri` of `Git` repository used as the config server backend, should be started with `http://`, `https://`, `git@` or `ssh://`. |
-| `repos."name"`                     | `yes` on `repos` | A name to identify of one `Git` Repository, __required__ only if `repos` exists. For example from above, `team-A`, `team-B`. |
-| `repos."pattern"`                  | `no`             | An array of string used to match application name, for each pattern take `{application}/{profile}` format with wildcards. |
-| `repos."default-label"`            | `no`             | The default label of `Git` repository, should be `branch name`, `tag name` or `commit-id` of repository. |
-| `repos."search-paths`"             | `no`             | An array of string used to search subdirectories of `Git` repository. |
-| `repos."username"`                 | `no`             | The `username` used to access `Git` repository server, __required__ `Git` repository server support `Http Basic Authentication`. |
-| `repos."password"`                 | `no`             | The password used to access `Git` repository server, __required__ `Git` repository server support `Http Basic Authentication`. |
-| `repos."private-key"`              | `no`             | The `Ssh` private key to access `Git` repository, __required__ when `uri` started with `git@` or `ssh://`. |
+| `repos`                            | `no`             | A map consisting of the settings for a `Git` repository with a given name. |
+| `repos."uri"`                      | `yes` on `repos` | The `uri` of the `Git` repository used as the config server backend, should be started with `http://`, `https://`, `git@`, or `ssh://`. |
+| `repos."name"`                     | `yes` on `repos` | A name to identify one `Git` repository, __required__ only if `repos` exists. For example from above, `team-A`, `team-B`. |
+| `repos."pattern"`                  | `no`             | An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards. |
+| `repos."default-label"`            | `no`             | The default label of the `Git` repository, should be the `branch name`, `tag name`, or `commit-id` of the repository. |
+| `repos."search-paths`"             | `no`             | An array of strings used to search subdirectories of the `Git` repository. |
+| `repos."username"`                 | `no`             | The `username` used to access the `Git` repository server, __required__ when the `Git` repository server supports `Http Basic Authentication`. |
+| `repos."password"`                 | `no`             | The password used to access the `Git` repository server, __required__ when the `Git` repository server supports `Http Basic Authentication`. |
+| `repos."private-key"`              | `no`             | The `Ssh` private key to access `Git` repository, __required__ when `uri` starts with `git@` or `ssh://`. |
 | `repos."host-key"`                 | `no`             | The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`. |
-| `repos."host-key-algorithm"`       | `no`             | The host key algorithm, should be one of `ssh-dss`. `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384` and `ecdsa-sha2-nistp521`. Only __required__ if `host-key` exists. |
-| `repos."strict-host-key-checking"` | `no`             | Indicates whether the config server will fail to start when leverage the provide `host-key`, should be `true` (default value) or `false`. |
+| `repos."host-key-algorithm"`       | `no`             | The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Only __required__ if `host-key` exists. |
+| `repos."strict-host-key-checking"` | `no`             | Indicates whether the config server will fail to start when leveraging the private `host-key`. Should be `true` (default value) or `false`. |
 
 ## Attaching your Config Server repository to Azure Spring Cloud
 
@@ -141,7 +139,7 @@ You can import your `application.yml` file directly from your local machine to A
 
 If your repository is public: In the **Default repository** section, paste the repository URI in the **Uri** section and ensure the **Authentication** setting is **Public**. Then click **Apply** to finish. 
 
-### Private Repository
+### Private repository
 
 Azure Spring Cloud supports basic password/token based authentication and SSH. 
 
@@ -168,8 +166,7 @@ Once you've saved a configuration file, the **Delete app configuration** button 
 
 ## Next steps
 
-In this tutorial, you learned how to enable and configure the Config Server. 
- To learn more about managing your application, continue to the tutorial for manually scaling your app.
+In this tutorial, you learned how to enable and configure the Config Server. To learn more about managing your application, continue to the tutorial for manually scaling your app.
 
 > [!div class="nextstepaction"]
 > [Learn how to manually scale your Azure Spring Cloud application](spring-cloud-tutorial-scale-manual.md).

@@ -575,13 +575,13 @@ At the time of this release, the following browsers are supported: Chrome, Firef
 ### Azure Machine Learning Data Prep SDK v1.1.8
 
 + **New features**
- + Dataflow objects can now be iterated over, producing a sequence of records. See documentation for `Dataflow.to_record_iterator`.
+  + Dataflow objects can now be iterated over, producing a sequence of records. See documentation for `Dataflow.to_record_iterator`.
 
 + **Bug fixes and improvements**
- + Increased the robustness of DataPrep SDK.
- + Improved handling of pandas DataFrames with non-string Column Indexes.
- + Improved the performance of `to_pandas_dataframe` in Datasets.
- + Fixed a bug where Spark execution of Datasets failed when run in a multi-node environment.
+  + Increased the robustness of DataPrep SDK.
+  + Improved handling of pandas DataFrames with non-string Column Indexes.
+  + Improved the performance of `to_pandas_dataframe` in Datasets.
+  + Fixed a bug where Spark execution of Datasets failed when run in a multi-node environment.
 
 ## 2019-07-01
 
