@@ -142,8 +142,6 @@
           href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
-    - name: API reference documentation
-      href: https://go.microsoft.com/fwlink/?linkid=2109131
     - name: Customer data requests
       href: ../iot-central/core/iot-central-customer-data-requests.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Supported browsers
