@@ -37,10 +37,10 @@ In this tutorial, you'll:
 
 In this tutorial, you'll need these resources:
 
-* A resource group to contain the other resources.
-* An Event Hubs namespace, event hub, and authorization rule.
-* A Cosmos DB account, database, and collection.
-* A function app and a storage account to host it.
+* A resource group to contain the other resources
+* An Event Hubs namespace, event hub, and authorization rule
+* A Cosmos DB account, database, and collection
+* A function app and a storage account to host it
 
 The following sections show you how to create these resources using the Azure CLI.
 
@@ -217,11 +217,11 @@ mvn archetype:generate --batch-mode \
 
 This command generates several files inside a `telemetry-functions` folder:
 
-* A `pom.xml` file for use with Maven.
-* A `local.settings.json` file to hold app settings for local testing.
-* A `host.json` file that enables the Azure Functions Extension Bundle, required for Cosmos DB output binding in your data analysis function.
-* A `Function.java` file that includes a default function implementation.
-* A few test files that this tutorial doesn't need.
+* A `pom.xml` file for use with Maven
+* A `local.settings.json` file to hold app settings for local testing
+* A `host.json` file that enables the Azure Functions Extension Bundle, required for Cosmos DB output binding in your data analysis function
+* A `Function.java` file that includes a default function implementation
+* A few test files that this tutorial doesn't need
 
 To avoid compilation errors, you'll need to delete the test files. Run the following commands to navigate to the new project folder and delete the test folder:
 
