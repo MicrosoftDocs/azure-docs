@@ -140,7 +140,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### Create the application gateway with the WAF
 
-Now that you created the necessary supporting resources, specify parameters for the application gateway using [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). Specify the WAF configuration using [New-AzApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/az.network/new-azapplicationgatewaywebapplicationfirewallconfiguration). And then create the application gateway named *myAppGateway* using [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Now that you created the necessary supporting resources, specify parameters for the application gateway using [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). Specify the Firewall Policy using [New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy). And then create the application gateway named *myAppGateway* using [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -148,9 +148,9 @@ $sku = New-AzApplicationGatewaySku `
   -Tier WAF_v2 `
   -Capacity 2
 
-$wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
-  -Enabled $true `
-  -FirewallMode "Detection"
+$policySetting = New-AzApplicationGatewayFirewallPolicySetting -Mode Prevention -State Enabled -MaxRequestBodySizeInKb 100 -MaxFileUploadInMb 256
+
+$wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafpolicyNew -ResourceGroup $rgname -Location $location -PolicySetting $PolicySetting
 
 $appgw = New-AzApplicationGateway `
   -Name myAppGateway `
@@ -164,7 +164,7 @@ $appgw = New-AzApplicationGateway `
   -HttpListeners $defaultlistener `
   -RequestRoutingRules $frontendRule `
   -Sku $sku `
-  -WebApplicationFirewallConfig $wafConfig
+  -FirewallPolicy $wafPolicy
 ```
 
 ## Create a virtual machine scale set
