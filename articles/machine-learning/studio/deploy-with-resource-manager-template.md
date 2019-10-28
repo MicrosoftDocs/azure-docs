@@ -122,7 +122,7 @@ $rgd = New-AzResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworks
 Once the deployment is completed, it is straightforward to access properties of the workspace you deployed. For example, you can access the Primary Key Token.
 
 ```powershell
-# Access Azure Machine Learning studio Workspace Token after its deployment.
+# Access Azure Machine Learning Studio Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
