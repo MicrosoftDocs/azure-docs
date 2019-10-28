@@ -38,6 +38,15 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.2.8"/>2.2.8
+* Stability and diagnosability improvements:
+  * Added support to detect reading change feed taking long time. When it takes longer than the value specified by the `ChangeFeedProcessorOptions.ChangeFeedTimeout` property, the following steps are taken:
+    * The operation to read change feed on the problematic partition is aborted.
+    * The change feed processor instance drops ownership of the problematic lease. The dropped lease will be picked up during the next lease acquire step that will be done by the same or different change feed processor instance. This way, reading change feed will start over.
+    * An issue is reported to the health monitor. The default heath monitor sends all reported issues to trace log.
+  * Added a new public property: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. The default value of this property is 10 mins.
+  * Added a new public enum value: `Monitoring.MonitoredOperation.ReadChangeFeed`. When the value of `HealthMonitoringRecord.Operation` is set to `Monitoring.MonitoredOperation.ReadChangeFeed`, it indicates the health issue is related to reading change feed.
+
 ### <a name="2.2.7"/>2.2.7
 * Improved load balancing strategy for scenario when getting all leases takes longer than lease expiration interval, e.g. due to network issues:
   * In this scenario load balancing algorithm used to falsely consider leases as expired, causing stealing leases from active owners. This could trigger unnecessary re-balancing a lot of leases.
@@ -165,6 +174,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.8](#2.2.8) |October 28, 2019 |--- |
 | [2.2.7](#2.2.7) |May 14, 2019 |--- |
 | [2.2.6](#2.2.6) |January 29, 2019 |--- |
 | [2.2.5](#2.2.5) |December 13, 2018 |--- |
