@@ -41775,7 +41775,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-create-event-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules/",
+      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp/",
       "redirect_document_id": true
     },
     {
@@ -41785,7 +41785,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-create-telemetry-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
+      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp",
       "redirect_document_id": true
     },
     {
@@ -42000,7 +42000,7 @@
     },
     {
       "source_path": "articles/iot-central/tutorial-configure-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules/",
+      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp/",
       "redirect_document_id": true
     },
     {
