@@ -21,7 +21,8 @@ highlightedContent:
       url: ./core/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - title: What are application templates? 
       itemType: concept 
-      url: ./core/howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ./core/concepts-app-templates.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      
     - title: Azure IoT Central Architecture
       itemType: architecture
       url: ./core/concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
@@ -92,7 +93,7 @@ productDirectory:
       links:
           - text: Building retail solutions with Azure IoT Central
             url: ./retail/overview-iot-central-retail-pnp.md
-          - text: Create a retail application
+          - text: Create an in-store analytics application
             url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
           - text: Create a smart inventory management application
             url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md
