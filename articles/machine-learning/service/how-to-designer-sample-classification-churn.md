@@ -45,7 +45,7 @@ First, some simple data processing.
 
     ![Clean the dataset](./media/how-to-ui-sample-classification-predict-churn/cleaned-dataset.png)
 
-- The features and the corresponding churn are in different datasets. Use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. From the visualization result we can see the dataset is unbalanced. There way more negative (-1) amples than positive examples (+1). We will use **SMOTE** module to increase underrepresented cases later.
+- The features and the corresponding churn are in different datasets. Use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. From the visualization result we can see the dataset is unbalanced. There way more negative (-1) examples than positive examples (+1). We will use **SMOTE** module to increase underrepresented cases later.
 
     ![Add the column dataset](./media/how-to-ui-sample-classification-predict-churn/added-column1.png)
 
