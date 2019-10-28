@@ -4,7 +4,7 @@ description: How to view and leave your organizations from the Organizations pag
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: kasimpso
+ms.reviewer: jpettere
 
 ms.service: active-directory
 ms.workload: identity

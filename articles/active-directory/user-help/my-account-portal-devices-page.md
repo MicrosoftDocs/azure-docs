@@ -4,20 +4,20 @@ description: How to view and disable your connected devices from the Devices pag
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: kasimpso
+ms.reviewer: jpettere
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
 # Manage your connected devices from the My Account portal
 
-From the **Devices** page of the **My account** portal, you can:
+From the **Devices** page of the **My Account** portal, you can:
 
 - View your work or school account-connected devices.
 
@@ -48,13 +48,15 @@ You can disable any of your connected devices at any time. This is especially im
 
 2. Select **Yes** to confirm you want to disable the device.
 
-## View a BitLocker key <!--Need images and to update from them-->
+## View a BitLocker key
 
 If you're locked out of your device or have a fatal error, you can go to another device and view your BitLocker key from the **My Account** portal.
 
 1. On another device, where you're not locked out, go to the **Devices** page of the **My Account** portal.
 
-2. Select **View BitLocker key** for the locked out device.
+    ![Device page with BitLocker key option](media/my-account-portal/my-account-portal-devices-bitlocker.png)
+
+2. Select **View Bitlocker Keys** for the locked out device and write down the BitLocker key for your locked device.
 
 ## Next steps
 
