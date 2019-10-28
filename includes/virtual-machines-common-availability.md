@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/19/2019
+ ms.date: 10/28/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -43,16 +43,23 @@ This approach ensures that at least one instance of your application always rema
 
 ## Virtual Machines Scale Sets 
 
-Azure virtual machine scale sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update a large number of VMs. With virtual machine scale sets, you can build large-scale services for areas such as compute, big data, and container workloads.
+Azure virtual machine scale sets (VMSS) let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. We recommended that two or more VMs are created within a VMSS to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). There is no cost for the VMSS itself, you only pay for each VM instance that you create. When a single VM is using [Azure premium SSDs](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), the Azure SLA applies for unplanned maintenance events. Virtual machines in a scale set can be deployed across multiple regions and fault domains to maximize availability and resilience to outages due to data center outages, and planned or unplanned maintenance events. Virtual machines in a scale set can also be deployed into a single Availability zone, or regionally. Availability zone deployment options may differ based on the VMSS orchestration mode.
 
+### Preview: Orchestration mode Preview
+Virtual machines scale sets allow you to specify orchestration mode.  With the virtual machine scale set orchestration mode (preview), you can now choose whether the scale set should orchestrate virtual machines which are created explicitly outside of a scale set configuration model, or virtual machine instances created implicitly based on the configuration model. Choose the orchestration mode that VM orchestration model allows you group explicitly defined Virtual Machines together in a region or in an availability zone. Virtual machines deployed in an Availability Zone provides zonal isolation to VMs are they are bound to the availability zone boundary and are not subjected to any failures that may occur in other availability zone in the region. 
 
-### VM orchestration mode (Preview)
+|   | “orchestrationMode”: “VM” (VirtualMachine)| “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
+|----|----|----|
+| VM configuration model| None| Required |
+| Adding new VM to Scale Set| VMs are explicitly added to the scale set when the VM is created. |
+| VMs are implicitly created and added to the scale set based on the VM configuration model, instance count, and AutoScaling rules
+| Availability Zones| Supports regional deployment or VMs in one Availability Zone| Supports regional deployment or multiple Availability Zones; Can define the zone balancing strategy |
+| Fault domains| Can define fault domains. 2 or 3 based on regional support and 5 for Availability zone.| Can define fault domains going from 1 through 5 |
+| Update domains| N/A. Update domains are automatically mapped to fault domains| N/A. Update domains are automatically mapped to fault domains |
 
-Virtual machines scale sets (VMSS) now enables workloads to use all availability constructs together. VMSS lets customers to logically group Virtual Machines together in a region or in an availability zone. As group of VMs are deployed in an Availability Zone, it provides zonal isolation to VMs are they are bound to the availability zone boundary and are not subjected to any failures that may occur in other availability zone in the region. We recommended that two or more VMs are created within a VMSS to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). There is no cost for the VMSS itself, you only pay for each VM instance that you create. When a single VM is using [Azure premium SSDs](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), the Azure SLA applies for unplanned maintenance events. 
-
-VMSS is also simplifying fault domains and update domains, by aligning them for you. As you create new VMSS under VM orchestration mode you will only have to define fault domains and Azure aligns update domains for you. 
-
-To provide consistency, when a VM is deployed and has an assigned fault domain, the logical fault domain will not change till the VM is deleted. Fault domains will persist with VM lifecycle including deallocate, re-start lifecycle. 
+** VMSS Fault domains and Update domains **
+Virtual machine scale sets simplify designing for high availability by aligning fault domains and update domains. You will only have to define fault domains count for the scale set. In VM orchestration mode, you can specify the fault domain for VMs added to the scale set.
+To provide consistency, when a VM is deployed and has an assigned fault domain, the logical fault domain will not change till the VM is deleted. Fault domains will persist with VM lifecycle including deallocate, re-start lifecycle.
 
 
 ## Availability sets
