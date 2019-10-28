@@ -16126,6 +16126,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/powerbi-output-managed-identity.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#power-bi",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/vs-code-how-to.md",
       "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
       "redirect_document_id": false
@@ -42616,6 +42621,21 @@
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/image-moderation-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/dotnet-sdk-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/text-moderation-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/dotnet-sdk-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/moderation-reviews-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/dotnet-sdk-quickstart",
       "redirect_document_id": false
     },
     {

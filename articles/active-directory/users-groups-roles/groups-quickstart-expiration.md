@@ -23,13 +23,13 @@ In this quickstart, you set the expiration policy for your Office 365 groups. Wh
 
 Expiration policy is simple:
 
-- Groups with user activities are automatically renewed as the expiration nears (preview)
+- Groups with user activities are automatically renewed as the expiration nears
 - Group owners are notified to renew an expiring group
 - A group that is not renewed is deleted
 - A deleted Office 365 group can be restored within 30 days by a group owner or by an Azure AD administrator
 
 > [!NOTE]
-> Groups now use Azure AD intelligence to automatically renewed based on whether they have been in recent use (currently in public preview, so no sign-up is required). This feature is based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, Yammer, and others.
+> Groups now use Azure AD intelligence to automatically renewed based on whether they have been in recent use. This renewal decision is based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, Yammer, and others.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
