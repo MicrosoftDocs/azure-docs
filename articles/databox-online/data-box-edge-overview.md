@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Box Edge overview | Microsoft Docs
+title: Microsoft Azure Data Box Edge Azure Stack Edge overview | Microsoft Docs
 description: Describes Azure Data Box Edge, a storage solution that uses a physical device for network-based transfer into Azure.
 services: databox
 author: alkohli
@@ -7,12 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 07/17/2019
+ms.date: 10/28/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
-# What is Azure Data Box Edge? 
+# What is Azure Stack Edge? 
 
+Azure Data Box Edge is now branded as Azure Stack Edge!
 Azure Data Box Edge is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Data Box Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device. 
 
 Data Box Edge is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device with a built-in Field Programmable Gate Array (FPGA) that enables accelerated AI-inferencing and has all the capabilities of a storage gateway. 
