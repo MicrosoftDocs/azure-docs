@@ -17,10 +17,8 @@ This tutorial shows you how to create an Azure Function in Java that is triggere
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Create an Event Hub namespace, hub, and authorization rule
-> * Create a Cosmos DB account, database, and collection
-> * Create an Azure Functions app and a storage account to host it
-> * Create and test Java functions on your local machine
+> * Create and configure Azure resources using the Azure CLI
+> * Create and test Java functions that interact with these resources
 > * Deploy your functions to Azure and monitor them with Application Insights
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -120,7 +118,7 @@ az cosmosdb collection create \
     --resource-group-name $RESOURCE_GROUP
 ```
 
-<!-- TODO say something about partition keys -->
+The `partition-key-path` value partitions your data based on the `temperatureStatus` value of each item. This enables Cosmos DB to increase performance by dividing your data into distinct subsets that it can access independently. For more information, see [Partitioning in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview).
 
 ### Create a storage account and function app
 
