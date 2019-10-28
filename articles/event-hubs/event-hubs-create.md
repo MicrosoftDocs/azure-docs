@@ -9,9 +9,9 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2019
+ms.date: 01/23/2019
 ms.author: shvija
-#Quickstart - Customer intent: How do I stream data and process telemetry from an event hub? 
+#Customer intent: How do I stream data and process telemetry from an event hub? 
 
 ---
 
