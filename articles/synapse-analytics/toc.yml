@@ -359,7 +359,7 @@
         - name: Storage Access Control
           href: ../synapse-analytics/sql-analytics/development-storage-files-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Spark Tables
-          href: ../synapse-analytics/sql-analytics/development-storage-spark-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ../synapse-analytics/sql-analytics/development-storage-files-spark-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Workload management
       items:
       - name: Resource classes & workload management
