@@ -184,19 +184,15 @@ If possible, you can prepare files for better performance:
 - If query targets single large file you will benefit from splitting it to multiple smaller files.
 - Try keeping your CSV file size below 10GB.
 - It is preferred to have equally sized files for single OPENROWSET path or external table LOCATION
-- Partition your data by storing partitions to different folders or file names - check [use fileiname and filepath functions to target specific partitions](use-fileinfo-and-filepath-functions-to-target-specific-partitions)
+- Partition your data by storing partitions to different folders or file names - check [use filename and filepath functions to target specific partitions](use-fileinfo-and-filepath-functions-to-target-specific-partitions)
 
 ### Use fileinfo and filepath functions to target specific partitions
 
-Data is often organized in partitions - you can instruct SQL Analytics on-demand to query particular folders and files. You will reduce number of files and amount of data query needs to read and process. As a consequence you will get better performance. Example:
-
-+++++++++++- link to filename file path
-
-++++++++example Stefan parquet read partitions
+Data is often organized in partitions - you can instruct SQL Analytics on-demand to query particular folders and files. You will reduce number of files and amount of data query needs to read and process. As a consequence you will get better performance. For more information, check [filename](development-storage-files-overview.md#filename-function) and [filepath](development-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](querying-specific-files.md).
 
 If your data in storage is not partitioned, consider partitioning it so you could use these functions to optimize queries targeting those files.
 
-When querying partitioned Spark tables from SQL Analytics on-demand, query will automatically target only files needed.+++++ link to metadata
+When [querying partitioned Spark tables](development-storage-files-spark-tables.md) from SQL Analytics on-demand, query will automatically target only files needed.
 
 ### Use CETAS to enhance query performance and joins
 
