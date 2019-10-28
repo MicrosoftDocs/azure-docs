@@ -87,13 +87,13 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    This example uses the **Get row** action, which gets a single record.
 
-   ![Find and select SQL "Get row" action](./media/connectors-create-api-sqlazure/select-sql-get-row.png)
+   ![Find and select SQL "Get row" action](./media/connectors-create-api-sqlazure/find-select-sql-get-row-action.png)
 
    This action returns only one row from the selected table, nothing else. To view the data in this row, you might add other actions that create a file that includes the fields from the returned row, and store that file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
 
 1. If you are prompted to create a connection, [create your SQL connection now](#create-connection). If your connection exists, select a **Table name**, and enter the **Row ID** for the record that you want.
 
-   ![Enter the table name and row ID](./media/connectors-create-api-sqlazure/table-row-id.png)
+   ![Enter the table name and row ID](./media/connectors-create-api-sqlazure/specify-table-row-id-property-value.png)
 
 1. When you're done, on the designer toolbar, select **Save**.
 
