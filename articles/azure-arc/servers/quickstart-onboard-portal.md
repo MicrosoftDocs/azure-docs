@@ -19,7 +19,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Review the supported clients and required network configuration in the [Azure Arc for Servers Overview](overview.md).
 
-## Generate the agent install script using the Azure Portal
+## Generate the agent install script using the Azure portal
 
 1. Launch [https://aka.ms/hybridmachineportal][aka_hybridmachineportal]
 1. Click on **+Add**
@@ -65,5 +65,5 @@ To disconnect a machine from Azure Arc for Servers, you need to perform two step
 > [Assign a Policy to Connected Machines](../../governance/policy/assign-policy-portal.md)
 
 [Azure CLI]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
-[CreateSPNPortal]: https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal
+[CreateSPNPortal]: https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
 [aka_hybridmachineportal]:https://aka.ms/hybridmachineportal
