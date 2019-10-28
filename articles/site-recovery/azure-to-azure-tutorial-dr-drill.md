@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 10/21/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -28,6 +28,7 @@ This tutorial shows you how to run a disaster recovery drill for an Azure VM, fr
 
 - Before you run a test failover, we recommend that you verify the VM properties to make sure everything's as expected.  Access the VM properties in **Replicated items**. The **Essentials** blade shows information about machines settings and status.
 - **We recommend you use a separate Azure VM network for the test failover**, and not the default network that was set up when you enabled replication.
+- Depending on your source networking configurations for each NIC, you can optionally specify **subnet, IP address, Public IP, Network Security Group or Internal Load Balancer** to attach to each NIC under test failover settings in Compute & Network prior to conducting DR drill.
 
 
 ## Run a test failover
@@ -45,6 +46,9 @@ This tutorial shows you how to run a disaster recovery drill for an Azure VM, fr
 
 3. Select the target Azure virtual network to which Azure VMs in the secondary region will be
    connected, after the failover occurs.
+
+    > [!NOTE]
+    > Dropdown to select Azure virtual network will not be visible if the test failover settings are pre-configured for the replicated item.
 
 4. To start the failover, click **OK**. To track progress, click the VM to open its properties. Or,
    you can click the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site
