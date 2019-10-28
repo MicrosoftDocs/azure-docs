@@ -18,7 +18,7 @@
     - name: Solar panel app architecture
       href: concept-iot-central-solar-panel-app.md  
     - name: Connectivity
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+      href: ../core/overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: What are application templates?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
 - name: How-to guides
@@ -115,5 +115,4 @@
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Supported browsers
       href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
-    - name: API reference documentation
-      href: https://go.microsoft.com/fwlink/?linkid=2109131
+

@@ -9,8 +9,8 @@ search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 10/25/2019
+ms.topic: reference
+ms.date: 10/28/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -135,7 +135,7 @@ In | Can do
 ----- | ----------
 [Microsoft 365 compliance center](https://protection.office.com) | Protect and manage your organization’s data across Microsoft 365 services<br>Manage compliance alerts
 [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
-[Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
+[Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request<br><br>This role has the same permissions as the [Compliance Administrator RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) in Office 365 Security & Compliance Center role-based access control.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br> Can view all the built-in reports under Data Management
 
@@ -147,7 +147,7 @@ In | Can do
 ----- | ----------
 [Microsoft 365 compliance center](https://protection.office.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
 [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
-[Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request<br><br>This role has the same permissions as the [Compliance Data Administrator RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) in Office 365 Security and Compliance Center role-based access control.
+[Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request<br><br>This role has the same permissions as the [Compliance Data Administrator RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) in Office 365 Security & Compliance Center role-based access control.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br> Can view all the built-in reports under Data Management
 
@@ -228,7 +228,7 @@ Users in this role can read settings and administrative information across Micro
 >* [M365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global reader can't read customer lockbox requests. You won't find the **Customer lockbox requests** tab under **Support** in the left pane of M365 Admin Center.
 >* [M365 Security center](https://security.microsoft.com/homepage) - Global reader can't read sensitivity and retention labels. You won't find **Sensitivity labels**, **Retention labels**, and **Label analytics** tabs in the left pane of the M365 Security center.
 >* [Teams admin center](https://admin.teams.microsoft.com) - Global reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management** and **App catalog**.
->* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global reader role.
+>* [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global reader role.
 >* [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) - Global reader is supported for [central reporting](https://docs.microsoft.com/azure/information-protection/reports-aip) only, and when your tenant isn't on the [unified labeling platform](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > These features are currently in development.
