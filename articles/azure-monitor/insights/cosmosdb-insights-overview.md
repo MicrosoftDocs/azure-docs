@@ -14,7 +14,7 @@ ms.date: 10/27/2019
 
 Azure Monitor Cosmos DB Insights (preview) provides a view of the overall performance, failures, capacity, and operational health of all your Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
 
-## Introduction (preview)
+## Introduction
 
 Before diving into the experience, you should understand how it presents and visualizes information. 
 
