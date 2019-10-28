@@ -8,7 +8,7 @@ ms.reviewer: chipalost
 ms.service: iot-edge
 services: iot-edge
 ms.topic: overview
-ms.date: 04/17/2019
+ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
 ---
