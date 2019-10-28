@@ -20,7 +20,7 @@ This article describes how to create and manage an Azure Time Series Insights Pr
 
 Azure Time Series Insights Preview environments are pay-as-you-go (PAYG) environments.
 
-When you provision an Azure Time Series Insights Preview environment, you create two Azure resources:
+When you provision an Azure Time Series Insights Preview environment, you create these Azure resources:
 
 * An Azure Time Series Insights Preview environment  
 * An Azure Storage general-purpose v1 account
@@ -50,11 +50,11 @@ To create an Azure Time Series Insights Preview environment:
     > * Time Series IDs can be up to three keys.
     > * For more information about selecting a Time Series ID, read [Choose a Time Series ID](./time-series-insights-update-how-to-id.md).
 
-1. Create an Azure Storage account by selecting a storage account name and designating a replication choice. Doing so automatically creates an Azure Storage general-purpose v1 account. The account is created in the same region as the Azure Time Series Insights Preview environment that you previously selected.
+1. Create an Azure storage account by selecting a storage account name and designating a replication choice. Doing so automatically creates an Azure Storage general-purpose v1 account. The account is created in the same region as the Azure Time Series Insights Preview environment that you previously selected.
 
-    [![Create an Azure Storage account for your instance](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
+    [![Create an Azure storage account for your instance](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
-1. **(Optional)** Enable warm store for your environment if you want faster and unlimited queries over most recent data in your environment. You can also create or delete a warm store through the **Storage Configuration** option on the left navigation pane, after you create a Time Series Insights Preview environment.
+1. **(Optional)** Enable warm store for your environment if you want faster and unlimited queries over most recent data in your environment. You can also create or delete a warm store through the **Storage Configuration** option in the left navigation pane, after you create a Time Series Insights Preview environment.
 
 1. **(Optional)** You can add an event source now. Alternatively, you can wait until the instance has been provisioned.
 
@@ -80,7 +80,7 @@ You can manage your Azure Time Series Insights Preview environment by using the 
   * The Time Series ID property is added. It determines how your data is partitioned.
   * Reference data sets are removed.
   * The displayed URL directs you to the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
-  * Your Azure Storage account name is listed.
+  * Your Azure storage account name is listed.
 
 * The Azure portal's **Configure** blade is removed in Azure Time Series Insights Preview because PAYG environments aren't configurable. However, you can use **Storage Configuration** to configure the newly introduced warm store.
 
