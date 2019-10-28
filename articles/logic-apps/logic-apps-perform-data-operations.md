@@ -87,7 +87,7 @@ To try an example, follow these steps by using the Logic App Designer. Or, if yo
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "Add action" to add "Compose" action](./media/logic-apps-perform-data-operations/add-compose-action.png)
+     ![Select "New step" for "Compose" action](./media/logic-apps-perform-data-operations/add-compose-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -145,7 +145,7 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "Add action" to add "Create CSV table" action](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     ![Select "New step" for "Create CSV table" action](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -206,11 +206,11 @@ In the action, keep the **Header** column empty. On each row in the **Value** co
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   ![Expression to dereference "Description" property in "Create CSV table" action](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+   ![Dereference "Description" for "Create CSV table"](./media/logic-apps-perform-data-operations/csv-table-expression.png)
 
 1. Repeat the previous steps for each array property that you want. When you're done, your action looks like this example:
 
-   !["item()" function expressions for "Create CSV table"](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+   !["item()" function in "Create CSV table"](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
 
 1. To resolve expressions into more descriptive versions, switch to code view and back to designer view, and then reopen the collapsed action:
 
@@ -298,7 +298,7 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "Add action" for "Create HTML table" action](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     ![Select "New step" for "Create HTML table" action](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -363,7 +363,7 @@ In the action, keep the **Header** column empty. On each row in the **Value** co
 
 1. Repeat the previous steps for each array property that you want. When you're done, your action looks like this example:
 
-   !["item()" function for "Create HTML table"](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+   !["item()" function in "Create HTML table"](./media/logic-apps-perform-data-operations/finished-html-expression.png)
 
 1. To resolve expressions into more descriptive versions, switch to code view and back to designer view, and then reopen the collapsed action:
 
@@ -465,7 +465,7 @@ If you prefer working in the code view editor, you can copy the example **Filter
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "Add action" to add "Filter array" action](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
+     ![Select "New step" for "Filter array" action](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -527,7 +527,7 @@ If you prefer working in the code view editor, you can copy the example **Join**
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "Add action" to add "Join" action](./media/logic-apps-perform-data-operations/add-join-action.png)
+     ![SSelect "New step" for "Join" action](./media/logic-apps-perform-data-operations/add-join-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -587,7 +587,7 @@ If you prefer working in the code view editor, you can copy the example **Parse 
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "Add action" to add "Parse JSON" action](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
+     ![Select "New step" for "Parse JSON" action](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -663,7 +663,7 @@ If you prefer working in the code view editor, you can copy the example **Select
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "Add action" to add "Select" action](./media/logic-apps-perform-data-operations/add-select-action.png)
+     ![Select "New step" for "Select" action](./media/logic-apps-perform-data-operations/add-select-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
