@@ -527,13 +527,13 @@ If you prefer working in the code view editor, you can copy the example **Join**
 
    * To add an action under the last step, select **New step**.
 
-     ![SSelect "New step" for "Join" action](./media/logic-apps-perform-data-operations/add-join-action.png)
+     ![SSelect "New step" for "Join" action](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
 1. In the search box, enter `join` as your filter. From the actions list, select this action: **Join**
 
-   ![Select "Join" action](./media/logic-apps-perform-data-operations/select-join-action.png)
+   ![Select "Join" action](./media/logic-apps-perform-data-operations/select-join-operation-action.png)
 
 1. In the **From** box, provide the array that has the items you want to join as a string.
 
@@ -567,7 +567,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
    Based on the email connector you used, here are the results you get:
 
-   ![Email with "Join" action results](./media/logic-apps-perform-data-operations/join-email-results.png)
+   ![Email with "Join" action results](./media/logic-apps-perform-data-operations/join-send-email-results.png)
 
 <a name="parse-json-action"></a>
 
@@ -663,7 +663,7 @@ If you prefer working in the code view editor, you can copy the example **Select
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "New step" for "Select" action](./media/logic-apps-perform-data-operations/add-select-action.png)
+     ![Select "New step" for "Select" action](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
