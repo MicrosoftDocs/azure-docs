@@ -36185,22 +36185,22 @@
     },
     {
       "source_path": "articles/iot-central/tutorial-add-device-pnp.md",
-      "redirect_url": "/azure/iot-central/quick-create-pnp-device-pnp",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/tutorial-define-device-type-pnp.md",
-      "redirect_url": "/azure/iot-central/quick-create-pnp-device-pnp",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-export-data-blob-storage-pnp.md",
-      "redirect_url": "/azure/iot-central/howto-export-data-pnp",
+      "redirect_url": "/azure/iot-central/core/howto-export-data-pnp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-export-data-event-hubs-service-bus-pnp.md",
-      "redirect_url": "/azure/iot-central/howto-export-data-pnp",
+      "redirect_url": "/azure/iot-central/core/howto-export-data-pnp",
       "redirect_document_id": false
     },
     {
@@ -41809,18 +41809,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/iot-central/howto-export-data-blob-storage-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-blob-storage-pnp/",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/iot-central/howto-export-data-event-hubs-service-bus.md",
       "redirect_url": "/azure/iot-central/core/howto-export-data-event-hubs-service-bus/",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/iot-central/howto-export-data-event-hubs-service-bus-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-event-hubs-service-bus-pnp/",
       "redirect_document_id": true
     },
     {
@@ -42004,11 +41994,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/iot-central/tutorial-add-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-add-device-pnp/",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/iot-central/tutorial-configure-rules.md",
       "redirect_url": "/azure/iot-central/core/tutorial-configure-rules/",
       "redirect_document_id": true
@@ -42026,11 +42011,6 @@
     {
       "source_path": "articles/iot-central/tutorial-define-device-type.md",
       "redirect_url": "/azure/iot-central/core/tutorial-define-device-type/",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/iot-central/tutorial-define-device-type-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-define-device-type-pnp/",
       "redirect_document_id": true
     },
     {
