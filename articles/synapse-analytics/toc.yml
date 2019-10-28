@@ -476,16 +476,16 @@
       #     href: article-template.md
       #   - name: with T-SQL
       #     href: article-template.md
-      # - name: Data Flow and Data Ingest
-      #   href: article-template.md
+      - name: With the copy activity
+        href: data-integration/data-integration-sql-pool.md
       # - name: Spark
       #   href: article-template.md
       # - name: Best practices
       #   href: article-template.md
     - name: Into the data lake
       items:
-#       - name: Data Flow and Data Ingest
-#         href: article-template.md
+       - name: With the copy activity
+         href: data-integration/data-integration-data-lake.md
 #       - name: Spark
 #         href: article-template.md
 #       - name: Best practices
