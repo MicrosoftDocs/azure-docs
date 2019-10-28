@@ -19,7 +19,7 @@ SQL Analytics on-demand is a distributed data processing system, built for large
 
 SQL Analytics on-demand is serverless, hence there is no infrastructure to setup or clusters to maintain. A default endpoint for this service is provided within every Azure Synapse workspace, so you can start querying data as soon as the workspace is created. There is no charge for resources reserved, you are only being charged for the data scanned by queries you run, hence this model is a true pay-per-use model.  
 
-If you use Spark in your data pipeline, for data preparation, cleansing or enrichment, you can query any Spark tables you’ve created in the process, directly from SQL Analytics on-demand. Use Private Link to bring SQL Analytics on-demand endpoint into your private virtual network by mapping it to a private IP address. Keep your data secured using familiar SQL-based security mechanisms.  
+If you use Spark in your data pipeline, for data preparation, cleansing or enrichment, you can [query any Spark tables](development-storage-files-spark-tables.md) you’ve created in the process, directly from SQL Analytics on-demand. Use Private Link to bring SQL Analytics on-demand endpoint into your private virtual network by mapping it to a private IP address. Keep your data secured using familiar SQL-based security mechanisms.  
 
 ## Who is SQL Analytics on-demand for?
 
@@ -33,8 +33,8 @@ Different professional roles can benefit from SQL Analytics on-demand:
 
 - Data Engineers can explore the lake, transform and prepare data using this service, and simplify their data transformation pipelines. For more information, check this tutorial
 - Data Scientists can quickly reason about the contents and structure of the data in the lake, thanks to features such as OPENROWSET and automatic schema inference
-- Data Analysts can explore data and Spark tables created by Data Scientists or Data Engineers using familiar T-SQL language or their favorite tools that can connect to SQL on-demand
-- BI Professionals can quickly create Power BI reports on top of data in the lake and Spark tables 
+- Data Analysts can [explore data and Spark tables](development-storage-files-spark-tables.md) created by Data Scientists or Data Engineers using familiar T-SQL language or their favorite tools that can connect to SQL on-demand
+- BI Professionals can quickly [create Power BI reports on top of data in the lake](tutorial-bi-professional.md) and Spark tables 
 
  
 
@@ -46,9 +46,9 @@ SQL Analytics on-demand endpoint is provided within every Azure Synapse workspac
 
 ## Client tools
 
-SQL Analytics on-demand enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can connect to and query SQL Analytics on-demand. You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes. 
+SQL Analytics on-demand enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can [connect to and query SQL Analytics](sql-analytics-connect-overview.md) on-demand. You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes. 
 
-At this moment, Azure Data Studio is fully supported. SSMS can be used to connect and query although some features might not work. It will be fully supported until GA. Please make sure you use latest versions of tools.
+At this moment, latest version of Azure Data Studio is fully supported. Latest version of SSMS can be used to connect and query but is not supported yet. It will be fully supported until GA. Please make sure you use latest versions of tools.
 
 
 
@@ -89,21 +89,21 @@ SQL Analytics on-demand has no local storage, only metadata objects are stored i
 
 In order to enable smooth experience for in place querying of data residing in files in data lake, SQL Analytics on-demand extends the existing [OPENROWSET](https://docs.microsoft.com/en-us/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-2017) function by adding following capabilities:
 
-[Querying multiple files/folders](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#querying-multiple-files-folders)
+[Querying multiple files/folders](development-storage-files-overview.md#querying-multiple-files-folders)
 
-[PARQUET file format](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#parquet-file-format)
+[PARQUET file format](development-storage-files-overview.md#parquet-file-format)
 
-[Additional options for working with delimited text (field terminator, row terminator, escape char)](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#additional-options-for-working-with-delimited-text)
+[Additional options for working with delimited text (field terminator, row terminator, escape char)](development-storage-files-overview.md#additional options for working with delimited text)
 
-[Reading a chosen subset of columns](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#reading-a-chosen-subset-of-columns)
+[Reading a chosen subset of columns](development-storage-files-overview.md#reading-a-chosen-subset-of-columns)
 
-[Schema inference](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#schema-inference)
+[Schema inference](development-storage-files-overview.md#schema-inference)
 
-[filename function](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#filename-function)
+[filename function](development-storage-files-overview.md#filename-function)
 
-[filepath function](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#filepath-function)
+[filepath function](development-storage-files-overview.md#filepath-function)
 
-[Working with complex types and nested / repeated data structures](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#working-with-complex-types-and-nested--repeated-data-structures)
+[Working with complex types and nested / repeated data structures](development-storage-files-overview.md#working-with-complex-types-and-nested---repeated-data-structures)
 
  
 
@@ -131,7 +131,7 @@ SQL Analytics on-demand authentication refers to how users prove their identity 
 
 Authorization refers to what a user can do within a SQL Analytics on-demand database, and is controlled by your user account's database role memberships and object-level permissions.
 
-If SQL Authentication is used, SQL user exists only in SQL Analytics on-demand and permissions are scoped to the objects in SQL Analytics on-demand. Access to securable objects in other services (such as Azure Storage) can’t be granted to SQL user directly since it only exists in scope of SQL Analytics on-demand. The SQL user needs to use one of the supported authorization types described below to access the files.
+If SQL Authentication is used, SQL user exists only in SQL Analytics on-demand and permissions are scoped to the objects in SQL Analytics on-demand. Access to securable objects in other services (such as Azure Storage) can’t be granted to SQL user directly since it only exists in scope of SQL Analytics on-demand. The SQL user needs to use one of the [supported authorization types](development-storage-files-storage-access-control#supported-storage-authorization-types) to access the files.
 
 If AAD authentication is used, a user can login into SQL Analytics on-demand and other services, like Azure Storage, can grant permissions to the AAD user. 
 
@@ -151,6 +151,5 @@ A user that is logged into SQL Analytics on-demand service must be authorized to
 
 ## Next steps
 
-- Connect to your endpoint
-- Configure access to storage account
-- Query your files
+- [Connect to your endpoint](sql-analytics-connect-overview.md)
+- [Query your files](development-storage-files-overview.md)
