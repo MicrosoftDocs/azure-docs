@@ -40,7 +40,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: image-moderation-quickstart-dotnet.md
+            url: dotnet-sdk-quickstart.md
           - text: Using the Python SDK
             url: python-sdk-quickstart.md
           - text: Using the Java SDK
@@ -78,7 +78,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: text-moderation-quickstart-dotnet.md
+            url: dotnet-sdk-quickstart.md
           - text: Using the Python SDK
             url: python-sdk-quickstart.md
           - text: Using the Java SDK

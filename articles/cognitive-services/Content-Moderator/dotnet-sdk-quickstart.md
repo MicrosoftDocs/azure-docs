@@ -197,7 +197,7 @@ Declare the following array at the root of your **Program** class. This variable
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_urls)]
 
-### Get Review credentials
+### Get review credentials
 
 Sign in to the [Review tool](https://contentmoderator.cognitive.microsoft.com) and retrieve your team name. Then assign it to the appropriate variable in the **Program** class. Optionally, you can set up a callback endpoint to receive updates on the activity of the review.
 
