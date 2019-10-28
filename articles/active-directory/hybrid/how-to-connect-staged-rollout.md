@@ -1,12 +1,12 @@
 ---
 title: Cloud Authentication - Staged Rollout
-description: Explains how migrate from federated authentication to cloud auth.
+description: Explains how to migrate from federated authentication to cloud auth using a staged roll-out.
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 10/28/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -91,13 +91,13 @@ If you want to test Pass through-authentication (PTA) Sign-in using staged rollo
 
 -   Ensure that you have configured your [Smart Lockout settings](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-smart-lockout) appropriately. This is to ensure that your users' on-premises Active Directory accounts don't get locked out by bad actors.
 
-We recommend to enable Seamless SSO irrespective of the sign-in method ( PHS or PTA ) you select for staged rollout. Please complete the below pre-work to enable Seamless SSO for staged rollout.
+We recommend enabling Seamless SSO irrespective of the sign-in method ( PHS or PTA ) you select for staged rollout. Please complete the below pre-work to enable Seamless SSO for staged rollout.
 
 ## Pre-work for Seamless SSO
 
 1.  Enable Seamless SSO on the AD forests using PowerShell. If you have more than one AD Forest, please enable the same for each forest individually. Seamless SSO will only be triggered for users selected for staged rollout and won't impact your existing federation setup.
 
-**Brief Summary of the steps are below**
+**Summary of the steps**
 
 1.  First, login to Azure AD Connect Server
 
@@ -148,7 +148,7 @@ Use the following steps to rollout a specific feature (Pass-through Authenticati
 
 ![](./media/how-to-connect-staged-rollout/sr5.png)
 
-3.  Please add the respective groups to the feature to enable Pass-through Authentication and Seamless single sign-on. Please ensure the security groups have no more than 200 members initially to avoid UX time out.
+3.  Please add the respective groups to the feature to enable Pass-through Authentication and Seamless single sign-on. Please ensure the security groups have no more than 200 members initially to avoid UX time-out.
 
 ![](./media/how-to-connect-staged-rollout/sr6.png)
 
