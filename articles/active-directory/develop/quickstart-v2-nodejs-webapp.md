@@ -147,24 +147,7 @@ $ node app.js | bunyan
 
 You will have a server successfully running on `http://localhost:3000`.
 
-## Community Help and Support
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-We use [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) with the community to provide support. We highly recommend you ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [azure-active-directory].
-
-If you find a bug or issue with this sample, please raise the issue on [GitHub Issues](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/issues).
-
-For issues with the passport-azure-ad library, please raise the issue on the library GitHub repo.
-
-## Contributing
-
-If you'd like to contribute to this sample, please follow the [GitHub Fork and Pull request model](https://help.github.com/articles/fork-a-repo/).
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.   
-
-## Security Library
-
-This library controls how users sign-in and access services. We recommend you always take the latest version of our library in your app when possible.
-
-## Security Reporting
-
-If you find a security issue with our libraries or services please report it to [secure@microsoft.com](mailto:secure@microsoft.com) with as much detail as possible. Your submission may be eligible for a bounty through the [Microsoft Bounty](https://aka.ms/bugbounty) program. Please do not post security issues to GitHub Issues or any other public site. We will contact you shortly upon receiving the information. We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/en-us/security/dd252948) and subscribing to Security Advisory Alerts.
+## Next steps
+Learn more about the different [Authentication flows and application scenarios](authentication-flows-app-scenarios.md) that the Microsoft identity platform supports.
