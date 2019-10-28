@@ -1,14 +1,14 @@
 ---
 title: 'Shape events with Azure Time Series Insights Preview | Microsoft Docs'
 description: Understand how to shape events with Azure Time Series Insights Preview.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
 ---
 
@@ -23,10 +23,10 @@ Think about how you send events to Time Series Insights Preview. Namely, you sho
 * Send data over the network as efficiently as possible.
 * Store your data in a way that helps you aggregate it more suitably for your scenario.
 
-For the best possible query performance, do the following:
+For the best query performance, do the following:
 
 * Don't send unnecessary properties. Time Series Insights Preview bills you on your usage. It's best to store and process the data that you'll query.
-* Use instance fields for static data. This practice helps you avoid sending static data over the network. Instance fields, a component of the time series model, work like reference data in the Time Series Insights generally available service. To learn more about instance fields, see [Time Series Models](./time-series-insights-update-tsm.md).
+* Use instance fields for static data. This practice helps you avoid sending static data over the network. Instance fields, a component of the Time Series Model, work like reference data in the Time Series Insights service that's generally available. To learn more about instance fields, see [Time Series Model](./time-series-insights-update-tsm.md).
 * Share dimension properties among two or more events. This practice helps you send data over the network more efficiently.
 * Don't use deep array nesting. Time Series Insights Preview supports up to two levels of nested arrays that contain objects. Time Series Insights Preview flattens arrays in messages into multiple events with property value pairs.
 * If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events and might improve query performance because fewer events need to be processed.
@@ -35,7 +35,9 @@ For the best possible query performance, do the following:
 
 The following example is based on a scenario where two or more devices send measurements or signals. The measurements or signals can be *Flow Rate*, *Engine Oil Pressure*, *Temperature*, and *Humidity*.
 
-In the following example, there's a single Azure IoT Hub message where the outer array contains a shared section of common dimension values. The outer array uses Time Series Instance data to increase the efficiency of the message. Time Series Instance contains device metadata, which doesn't change with every event, but it does provide useful properties for data analysis. To save on bytes sent over the wire and make the message more efficient, consider batching common dimension values and employing Time Series Instance metadata.
+In the example, there's a single Azure IoT Hub message where the outer array contains a shared section of common dimension values. The outer array uses Time Series Instance data to increase the efficiency of the message. 
+
+The Time Series Instance contains device metadata. This metadata doesn't change with every event, but it does provide useful properties for data analysis. To save on bytes sent over the wire and make the message more efficient, consider batching common dimension values and using Time Series Instance metadata.
 
 ### Example JSON payload
 
@@ -114,15 +116,15 @@ Time Series Insights Preview joins a table (after flattening) during query time.
 In the preceding example, note the following points:
 
 * Static properties are stored in Time Series Insights Preview to optimize data sent over the network.
-* Time Series Insights Preview data is joined at query time by using the Time Series ID that's defined in the instance.
-* Two layers of nesting are used, which is the most that's supported by Time Series Insights Preview. It's critical to avoid deeply nested arrays.
+* Time Series Insights Preview data is joined at query time through the Time Series ID that's defined in the instance.
+* Two layers of nesting are used. This number is the most that Time Series Insights Preview supports. It's critical to avoid deeply nested arrays.
 * Because there are few measures, they're sent as separate properties within the same object. In the example, **series.Flow Rate psi**, **series.Engine Oil Pressure psi**, and **series.Flow Rate ft3/s** are unique columns.
 
 >[!IMPORTANT]
-> Instance fields aren't stored with telemetry. They're stored with metadata in the **Time Series Model**.
+> Instance fields aren't stored with telemetry. They're stored with metadata in the Time Series Model.
 > The preceding table represents the query view.
 
 ## Next steps
 
-- To put these guidelines into practice, see [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights Preview data access REST API.
+- To put these guidelines into practice, see [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights Preview REST API for data access.
 - To learn about supported JSON shapes, see [Supported JSON shapes](./time-series-insights-send-events.md#supported-json-shapes).
