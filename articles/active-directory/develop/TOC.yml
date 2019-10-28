@@ -42,7 +42,7 @@
     - name: Web APIs
       items:
       - name: ASP .NET
-        href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
+        href: quickstart-v2-dotnet-native-aspnet.md
       - name: ASP .NET Core
         href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
     - name: Mobile and desktop apps
