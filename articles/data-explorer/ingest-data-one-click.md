@@ -22,39 +22,46 @@ This article shows how to use one-click ingestion for quick ingestion of a new t
 
 ## Ingest new data
 
-1. Right-click on the *Database name* and select **Ingest new data (Preview)**
+1. Right-click on the *Database* or *table* row in left hand menu and select **Ingest new data (Preview)**
 
     ![select one click ingestion in web UI](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
  
 1. In the **Data Ingestion (Preview)** window, in **Source** tab, complete the **Project Details**:
 
-    * Enter new **Table name**. 
+    * **Table**: Select existing table name from drop-down or select **Create new** to make a new table.
 	* Select **Ingestion type** > **from storage**.
-	* Enter **Link to storage** Add url to storage. Use Blob SAS URL for private storage accounts. 
+	* Enter **Link to storage** Add url to storage. Use [Blob SAS URL](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for private storage accounts. 
     * Select **Edit schema**
  
     ![one click ingestion source details](media/ingest-data-one-click/one-click-ingestion-source.png) 
 
-1. In **Schema** tab, select **Data format** from drop-down > **JSON** or **CSV**. 
-   
-   If select **CSV**:
-    * Select checkbox **Ignore headline** to ignore heading row of csv file.    
+    > [!NOTE]
+    > If you select **Ingest new data (Preview)** on a *table* row, the selected table name will appear in the **Project Details**.
+
+1. If you selected an existing table, the **Map columns** window opens to map source data columns to target table columns. Use **Omit column** to remove a target column from the table. Use **New column** to add a new column to your table. 
+
+    ![Map columns window](media/ingest-data-one-click/one-click-map-columns-window.png)
+
+1. In **Schema** tab:
+
+    * Select **Compression type** from drop-down > **Uncompressed** or **GZip**.
+    * Select **Data format** from drop-down > **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE**, or **PSV**. 
+    * If select format (other than JSON): select checkbox **Include column names** to ignore heading row of file.    
     * **Mapping name** is set automatically but can be edited.
+    * If you selected an existing table, you can select **Map columns** button to open the **Map columns** window.
 
     ![one click ingestion csv format schema.png](media/ingest-data-one-click/one-click-csv-format.png)
 
    If select **JSON**:
-    * Select **JSON levels**: 1-10 from drop-down. The levels in the json file are shown in the table on the bottom right. 
-    * **Mapping name** is set automatically but can be edited.
+    * Select **JSON levels**: 1-10. The levels in the json file are shown in the table. 
 
     ![one click ingestion json format schema](media/ingest-data-one-click/one-click-json-format.png)  
 
-1. In **Editor**, select **V** on right to open the editor. In the editor, you can view and copy the automatic queries generated from your inputs. 
+1. In **Editor**, select **V** on the right to open the editor. In the editor, you can view and copy the automatic queries generated from your inputs. 
 
 1.	In table on the bottom right: 
-    * Select **V** on right of column to **Rename column**, **Delete column**, **Sort ascending**, or **Sort descending**
-    * Double-click on column name to edit.
-    * Select the icon to the left of the column name to change the data type. 
+    * Select **V** on right of new columns to **Change data type**, **Rename column**, **Delete column**, **Sort ascending**, or **Sort descending**. Existing columns are limited to sorting changes.
+    * Double-click on the new column name to edit.
 
 1. Select **Start ingestion** to create table, create mapping, and data ingestion.
  
