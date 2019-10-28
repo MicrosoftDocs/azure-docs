@@ -27,7 +27,7 @@ Moving away from federated authentication has implications. For example, if you 
 
 These features should be taken into consideration prior to switching to cloud authentication.  Before trying this feature, we suggest you review our guide on choosing the right authentication method. See [this table](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods) for more details.
 
->[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3inQJ]
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE3inQJ]
 
 
 
@@ -77,11 +77,11 @@ If you want to test Password Hash Sync (PHS) Sign-in using staged rollout, pleas
 
 ## Pre-work for Password Hash Sync
 
--   Enable Password Hash Sync from the "[Optional features](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-custom#optional-features)" page in Azure AD Connect. 
+-   Enable Password Hash Sync from the "[Optional features](how-to-connect-install-custom.md#optional-features)" page in Azure AD Connect. 
 
 ![](media/how-to-connect-staged-rollout/sr1.png)
 
--   Ensure that a full Password Hash Sync cycle has run through so that all the users' password hashes have been synchronized to Azure AD. You can use the PowerShell diagnostics [here](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-password-hash-synchronization) to check the status of Password Hash Sync.
+-   Ensure that a full Password Hash Sync cycle has run through so that all the users' password hashes have been synchronized to Azure AD. You can use the PowerShell diagnostics [here](tshoot-connect-password-hash-synchronization.md) to check the status of Password Hash Sync.
 
 ![](./media/how-to-connect-staged-rollout/sr2.png)
 
@@ -89,13 +89,13 @@ If you want to test Pass through-authentication (PTA) Sign-in using staged rollo
 
 ## Pre-work for Pass-through Authentication
 
--   Identify a server running Windows Server 2012 R2 or later where you want the Pass through Authentication Agent to run (**DO NOT choose the Azure AD Connect server**). Ensure that the server is domain-joined, can authenticate selected users with Active Directory, and can communicate with Azure AD on outbound ports / URLs (see detailed [[pre-requisites]{.underline}](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start)).
+-   Identify a server running Windows Server 2012 R2 or later where you want the Pass through Authentication Agent to run (**DO NOT choose the Azure AD Connect server**). Ensure that the server is domain-joined, can authenticate selected users with Active Directory, and can communicate with Azure AD on outbound ports / URLs (see detailed [pre-requisites](how-to-connect-sso-quick-start.md)).
 
 -   [[Download]{.underline}](https://aka.ms/getauthagent) & install the Microsoft Azure AD Connect Authentication Agent on the server. 
 
--   To enable [[high availability]{.underline}](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start), install additional Authentication Agents on other servers.
+-   To enable [[high availability](how-to-connect-sso-quick-start.md))., install additional Authentication Agents on other servers.
 
--   Ensure that you have configured your [Smart Lockout settings](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-smart-lockout) appropriately. This is to ensure that your users' on-premises Active Directory accounts don't get locked out by bad actors.
+-   Ensure that you have configured your [Smart Lockout settings](../authentication/howto-password-smart-lockout.md) appropriately. This is to ensure that your users' on-premises Active Directory accounts don't get locked out by bad actors.
 
 We recommend enabling Seamless SSO irrespective of the sign-in method ( PHS or PTA ) you select for staged rollout. Please complete the below pre-work to enable Seamless SSO for staged rollout.
 
@@ -124,7 +124,7 @@ We recommend enabling Seamless SSO irrespective of the sign-in method ( PHS or P
 
 7.  Call `Enable-AzureADSSOForest -OnPremCredentials \$creds`. This command creates the AZUREADSSOACC computer account from the on-premises domain controller for this specific Active Directory forest that is required for Seamless SSO.
 
-8.  Seamless SSO requires URL's to be in the intranet zone. Please refer to the link [here](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-3-roll-out-the-feature) to deploy those URL's using Group Policies.
+8.  Seamless SSO requires URL's to be in the intranet zone. Please refer to the link [here](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature) to deploy those URL's using Group Policies.
 
 9.  You could also download our [deployment plans](https://aka.ms/SeamlessSSODPDownload) for Seamless SSO for a complete walkthrough.
 
@@ -196,7 +196,7 @@ To test sign-in with Password Hash Sync or Pass-through Authentication (username
 
 -   If user has been targeted for staged rollout, the user will not be redirected to your federated login page and instead will be asked to sign in on the Azure AD tenant-branded sign-in page.
 
--   Ensure that the sign-in successfully appears in the [Azure AD sign-in activity report](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-sign-ins) by filtering with the UserPrincipalName..
+-   Ensure that the sign-in successfully appears in the [Azure AD sign-in activity report](../reports-monitoring/concept-sign-ins.md) by filtering with the UserPrincipalName..
 
 To test sign-in with Seamless SSO:
 
@@ -204,11 +204,11 @@ To test sign-in with Seamless SSO:
 
 -   If the user has been targeted for staged rollout of Seamless SSO, the user will see a "Trying to sign you in ..." message before being silently signed in.
 
--   Ensure that the sign-in successfully appears in the [Azure AD sign-in activity report](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-sign-ins) by filtering with the UserPrincipalName.
+-   Ensure that the sign-in successfully appears in the [Azure AD sign-in activity report](../reports-monitoring/concept-sign-ins.md) by filtering with the UserPrincipalName.
 
 To check user sign-ins still happening on federation providers:
 
--   Here is how you can track user sign-ins still happening on AD FS for selected staged rollout users using [these instructions](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation on how to check this on 3rd party federation providers.
+-   Here is how you can track user sign-ins still happening on AD FS for selected staged rollout users using [these instructions](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation on how to check this on 3rd party federation providers.
 
 # Roll back
 
