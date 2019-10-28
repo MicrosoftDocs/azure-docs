@@ -16131,11 +16131,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/stream-analytics/custom-deserializer.md",
-      "redirect_url": "https://aka.ms/asapreview1",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/stream-analytics/stream-analytics-tools-for-visual-studio.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-vs",
       "redirect_document_id": false
@@ -36181,6 +36176,21 @@
     {
       "source_path": "articles/key-vault/vs-key-vault-aspnet-what-happened.md",
       "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/concepts-connectivity-pnp.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-get-connected-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/concepts-stay-connected.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-stay-connected-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/overview-iot-central-transform.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-transform-pnp",
       "redirect_document_id": false
     },
     {
