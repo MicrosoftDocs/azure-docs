@@ -17,19 +17,22 @@ ms.collection: M365-identity-device-management
 ---
 # Sign in to Windows virtual machine in Azure using Azure Active Directory authentication (Preview)
 
-You can now integrate Azure Active Directory (AD) authentication for your Azure VMs that you create using **Windows Server 2019 Datacenter edition or Windows 10 1809** and later. When you use Azure AD authentication for such VMs, you centrally control and enforce policies using Azure Role-Based Access Control (RBAC) and Azure AD Conditional Access to allow who can sign in to the VMs. This article shows you how to create and configure a Windows Server 2019 VM to use Azure AD authentication.
+Organizations can now utilize Azure Active Directory (AD) authentication for their Azure virtual machines (VMs) running **Windows Server 2019 Datacenter edition** or **Windows 10 1809** and later. Using Azure AD to authenticate to VMs provides you with a way to centrally control and enforce policies. Tools like Azure Role-Based Access Control (RBAC) and Azure AD Conditional Access allow you to control who can access a VM. This article shows you how to create and configure a Windows Server 2019 VM to use Azure AD authentication.
 
-Note
-This feature is in preview and is not recommended for use with production virtual machines or workloads. Use this feature on a test virtual machine that you expect to discard after testing.
+|     |
+| --- |
+| Azure AD sign in for Azure Windows VMs is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 There are many benefits of using Azure AD authentication to log in to Windows VMs in Azure, including:
 
-- You can use your corporate AD credential to log in to Windows Server 2019 VM in Azure. There is no need to use local administrator accounts and manage credential lifetime.
-- By reducing your reliance on local administrator accounts, you do not need to worry about credential loss/theft, users configuring weak credentials etc.
-- The password complexity and password lifetime policies configured for your Azure AD directory help secure Windows VMs as well.
-- The ability to log in to Windows Server VMs with Azure Active Directory also works for customers that use [Federation Services](../hybrid/how-to-connect-fed-whatis.md).
-- With Azure RBAC, you can specify who can sign in to a given VM as a regular user or with administrator privileges. When users join or leave your team, you can update the RBAC policy for the VM to grant access as appropriate. This experience is much simpler than having to scrub VMs to remove unnecessary local accounts. When employees leave your organization and their user account is disabled or removed from Azure AD, they no longer have access to your resources.
-- With Azure AD Conditional Access you can enforce additional policy requirements such as MFA, location, or user risk. before allowing and authorized user to login in to the VM. 
+- Utilize the same federated or managed Azure AD credentials you normally use.
+- No longer have to manage local administrator accounts.
+- Azure RBAC allows you to grant the appropriate access to VMs based on need and remove it when it is no longer needed.
+- Before allowing access to a VM Azure AD Conditional Access can enforce additional requirements such as: 
+   - Multi-factor authentication
+   - Trusted location
+   - Device compliance
 
 ## Supported Azure regions and Windows distributions
 
@@ -58,10 +61,10 @@ To enable Azure AD authentication for your Windows VMs in Azure, you need to ens
 To use Azure AD login in for Windows VM in Azure, you need to first enable Azure AD login option for your Windows VM and then you need to configure RBAC role assignments for users who are authorized to login in to the VM.
 There are multiple ways you can enable Azure AD login for your Windows VM:
 
-- Using the Azure Portal experience when creating a Windows VM
+- Using the Azure portal experience when creating a Windows VM
 - Using the Azure Cloud Shell experience when creating a Windows VM or for an existing Windows VM
 
-## Using Azure Portal create VM experience to enable Azure AD login
+## Using Azure portal create VM experience to enable Azure AD login
 
 You can enable Azure AD login for Windows Server 2019 Datacenter or Windows 10 1809 and later VM images. 
 To create a Windows Server 2019 Datacenter VM in Azure with Azure AD logon: 
@@ -159,15 +162,15 @@ az role assignment create \
     --scope $vm
 ```
 
-Note
-If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account with [az ad user list](https://docs.microsoft.com/cli/azure/ad/user#az-ad-user-list).
+> [!NOTE]
+> If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account with [az ad user list](https://docs.microsoft.com/cli/azure/ad/user#az-ad-user-list).
 
 For more information on how to use RBAC to manage access to your Azure subscription resources, see using the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), [Azure portal](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal), or [Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
 
 ## Log in using Azure AD credentials to a Windows VM
 
 > [!IMPORTANT]
-> Remote connection to VMs joined in Azure AD is only allowed from Windows 10 PCs that are either Azure AD joined, or Hybrid Azure AD joined to the same Azure AD directory as the VM. Additionally, to RDP using Azure AD credential, the user must belong to either of the two RBAC roles, Virtual Machine Administrator Login or Virtual Machine User Login.
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to either of the two RBAC roles, Virtual Machine Administrator Login or Virtual Machine User Login.
 
 To login in to your Windows Server 2019 virtual machine using Azure AD: 
 
@@ -194,25 +197,35 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
 1. Open a command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
    1. correct information about the Azure VM.
+
       curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+   
    1. valid Tenant ID associated with the Azure Subscription.
+   
       curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"
+   
    1. valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM.
+   
       curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"
 
    > [!NOTE]
    > The access token can be decoded using a tool like [http://calebb.net/](http://calebb.net/). Verify the "appid" in the access token matches the managed identity assigned to the VM.
 
 1. Ensure the required endpoints are accessible from the VM using the command line:
-   curl https://login.microsoftonline.com/ -D –
-   curl https://login.microsoftonline.com/<TenantID>/ -D –
+   
+      curl https://login.microsoftonline.com/ -D –
+
+      curl https://login.microsoftonline.com/<TenantID>/ -D –
 
    > [!NOTE]
    > Replace <TenantID> with the Azure AD Tenant ID that is associated with the Azure subscription.
 
-   curl https://enterpriseregistration.windows.net/ -D -
-   curl https://device.login.microsoftonline.com/ -D -
-   curl https://pas.windows.net/ -D -
+      curl https://enterpriseregistration.windows.net/ -D -
+   
+      curl https://device.login.microsoftonline.com/ -D -
+   
+      curl https://pas.windows.net/ -D -
+
 1. The Device State can be viewed by running “Dsregcmd /status”. The goal is for Device State to show as AzureAdJoined : YES.
 
    > [!NOTE]
@@ -222,33 +235,45 @@ If AADLoginForWindows extension fails with certain error code, you can perform t
 
 ### Issue 1: AADLoginForWindows extension fails to install with terminal error code '1007' and Exit code: -2145648574.
 
-This Exit code translates to DSREG_E_MSI_TENANTID_UNAVAILABLE because the extension is unable to query the Azure AD Tenant information.
+This exit code translates to DSREG_E_MSI_TENANTID_UNAVAILABLE because the extension is unable to query the Azure AD Tenant information.
 
 1. Verify the Azure VM can retrieve the TenantID from the Instance Metadata Service. 
    1. RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated command line on the VM.
+
       curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
-1. The VM admin attempts to install the AADLoginForWindows extension, but a system assigned managed identity has not enabled the VM first. Navigate to the Identity blade of the VM. From the System assigned tab verify Status is toggled to On.
+
+1. The VM admin attempts to install the AADLoginForWindows extension, but a system assigned managed identity has not enabled the VM first. Navigate to the Identity blade of the VM. From the System assigned tab, verify Status is toggled to On.
 
 ### Issue 2: AADLoginForWindows extension fails to install with Exit code: -2145648607
 
 This Exit code translates to DSREG_AUTOJOIN_DISC_FAILED because the extension is not able to reach the https://enterpriseregistration.windows.net endpoint.
 
 1. Verify the required endpoints are accessible from the VM using the command line:
+
    curl https://login.microsoftonline.com/ -D –
+
    curl https://login.microsoftonline.com/<TenantID>/ -D –
    
    > [!NOTE]
    > Replace <TenantID> with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select Azure Active Directory > Properties > Directory ID in the Azure portal.
 
    curl https://enterpriseregistration.windows.net/ -D -
+
    curl https://device.login.microsoftonline.com/ -D -
+
    curl https://pas.windows.net/ -D -
-1. If the any of the commands fails with "Could not resolve host <URL>", try running this command to determine the DNS server that is being used by the VM.
-nslookup <URL>
+
+1. If any of the commands fails with "Could not resolve host <URL>", try running this command to determine the DNS server that is being used by the VM.
+   
+   `nslookup <URL>`
+
    > [!NOTE] 
    > Replace <URL> with the fully qualified domain names used by the endpoints, such as “login.microsoftonline.com”.
+
 1. Next, see if specifying a public DNS server allows the command to succeed:
-nslookup <URL> 208.67. 222.222
+
+   `nslookup <URL> 208.67.222.222`
+
 1. If necessary, change the DNS server that is assigned to the Network Security Group that the Azure VM belongs to.
 
 ### Issue 3: AADLoginForWindows extension fails to install with Exit code: 51
@@ -259,7 +284,7 @@ At Public Preview, the AADLoginForWindows extension is only intended to be insta
 
 ## Troubleshoot sign-in issues
 
-Some common errors when you try to RDP with Azure AD credentials include no RBAC roles assigned, unauthorized client or 2FA sign-in method required. Use the following information to correct these issues.
+Some common errors when you try to RDP with Azure AD credentials include no RBAC roles assigned, unauthorized client, or 2FA sign-in method required. Use the following information to correct these issues.
 
 The Device and SSO State can be viewed by running `dsregcmd /status`. The goal is for Device State to show as `AzureAdJoined : YES` and `SSO State` to show `AzureAdPrt : YES`.
 
