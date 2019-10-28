@@ -236,6 +236,9 @@ The firewall log is generated only if you have enabled it for each application g
 |details.line     | Line number in the configuration file that triggered the event.       |
 |hostname   | Hostname or IP address of the Application Gateway.    |
 |transactionId  | Unique ID for a given transaction which helps group multiple rule violations that occurred within the same request.   |
+|policyId   | Unique ID of the Firewall Policy associated with the Application Gateway, Listener, or Path.   |
+|policyScope    | The location of the policy - values can be "Global", "Listener", or "Location".   |
+|policyScopeName   | The name of the object where the policy is applied.    |
 
 ```json
 {
@@ -262,7 +265,7 @@ The firewall log is generated only if you have enabled it for each application g
         "line": "791"
       },
       "hostname": "127.0.0.1",
-      "transactionId": "16861477007022634343"
+      "transactionId": "16861477007022634343",
       "policyId": "/subscriptions/1496a758-b2ff-43ef-b738-8e9eb5161a86/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/perListener",
       "policyScope": "Listener",
       "policyScopeName": "httpListener1"
