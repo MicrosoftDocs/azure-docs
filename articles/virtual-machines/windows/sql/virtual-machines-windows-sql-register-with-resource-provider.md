@@ -241,9 +241,9 @@ Run the following PowerShell code snippet:
   ```
 ---
 
-## Register the SQL VM resource provider with a subscription 
+## Register subscription with RP
 
-To register your SQL Server VM with the SQL VM resource provider, you must register the resource provider with your subscription. You can do so by using the Azure portal, the Azure CLI, or PowerShell.
+To register your SQL Server VM with the SQL VM resource provider, you must first register your subscription with the resource provider.  You can do so by using the Azure portal, the Azure CLI, or PowerShell.
 
 ### Azure portal
 
