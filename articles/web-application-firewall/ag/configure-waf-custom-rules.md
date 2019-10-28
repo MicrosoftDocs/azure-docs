@@ -100,7 +100,7 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name WAF_v2 -Tier WAF_v2
 ```
 
-### Create 2 custom rules and apply it to WAF policy
+### Create two custom rules and apply it to WAF policy
 
 ```azurepowershell
 # Create a User-Agent header custom rule 
