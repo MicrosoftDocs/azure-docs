@@ -152,7 +152,7 @@
         href: app/pricing.md
       - name: Log data usage and costs
         href: platform/manage-cost-storage.md
-  - name: Application Insights
+  - name: Monitor applications (Application Insights)
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
@@ -468,10 +468,8 @@
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md        
-  - name: Monitoring scenarios
-    items:
-    - name: Monitor Azure service
-      href: insights/monitor-azure-resource.md
+  - name: Monitor Azure service
+    href: insights/monitor-azure-resource.md
   - name: Monitor Azure platform
     items:
     - name: Platform logs overview
@@ -728,6 +726,12 @@
           href: insights/network-performance-monitor-pricing-faq.md
         - name: FAQ
           href: insights/network-performance-monitor-faq.md
+    - name: Monitoring solutions
+      items:
+      - name: Overview
+        href: insights/solutions.md
+      - name: Target solutions
+        href: insights/solution-targeting.md
       - name: Assess AD Health
         href: insights/ad-assessment.md
       - name: AD Replication Status
@@ -736,12 +740,6 @@
         href: insights/solution-office-365.md
       - name: Surface Hub
         href: insights/surface-hubs.md
-    - name: Monitoring solutions
-      items:
-      - name: Overview
-        href: insights/solutions.md
-      - name: Target solutions
-        href: insights/solution-targeting.md
   - name: Collect custom data 
     items:
     - name: Custom metrics
