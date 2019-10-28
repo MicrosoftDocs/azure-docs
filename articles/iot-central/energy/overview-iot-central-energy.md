@@ -11,6 +11,10 @@ manager: abjork
 ---
 
 # Build energy solutions with IoT Central 
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
+
 Smart meters and solar panels are playing an important role in the energy industry transformation. The smart meters give more controls and real-time insights about energy consumptions and solar panels growth is driving breakthrough in renewable energy generation. The smart meter and solar panel monitoring apps are sample templates to show the various capabilities. Partners can leverage these templates to build energy solutions with IoT Central for their specific needs. No new coding and no additional cost are required to deploy and use these applications. Learn more about energy application templates and their capabilities.
 
 
@@ -31,8 +35,8 @@ You can try the [smart meter monitoring app for free](https://apps.azureiotcentr
 
 After you deploy the app, you'll see the simulated meter data on the dashboard, as shown in the figure below. This template is a sample app that you can easily extend and customize for your specific use cases.
 
-> [!div class="mx-imgBorder"]
-> ![Smart Meter App Dashboard](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
+[!div class="mx-imgBorder"]
+![Smart Meter App Dashboard](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
 
 
 ## What is the solar panel monitoring application?
@@ -57,7 +61,8 @@ After you deploy the app, you'll see the simulated solar panel data within 1-2 m
 
 ## Next steps
 To get started building an energy solution:
-* Deploy the application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), 
+* Create application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), 
 [solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Learn more about IoT Central: [IoT Central overview](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
-
+* Learn about [smart meter monitoring app concepts](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+* Learn about [solar panel monitoring app concepts](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+* Learn about [IoT Central platform](https://docs.microsoft.com/azure/iot-central/)
