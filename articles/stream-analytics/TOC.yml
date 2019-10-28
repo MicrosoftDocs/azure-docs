@@ -79,1690 +79,504 @@
     href: stream-analytics-concepts-checkpoint-replay.md
   - name: Error policy
     href: stream-analytics-output-error-policy.md
-- name: How-to guides
+- name: How-to-guides
   items:
-  - name: Getting started 
+  - name: Manage
     items:
-    - name: Try Azure Databricks 
-      href: getting-started/try-databricks.md
-      maintainContext: true
-    - name: Get started with Azure Databricks 
-      href: getting-started/quick-start.md
-      maintainContext: true
-    - name: Data overview
-      href: getting-started/data.md
-      maintainContext: true
-    - name: Azure Databricks concepts
-      href: getting-started/concepts.md
-      maintainContext: true
-    - name: Azure Databricks datasets 
-      href: getting-started/databricks-datasets.md
-      maintainContext: true
-    - name: Apache Spark
-      items: 
-      - name: Apache Spark overview
-        href: getting-started/spark/index.md
-        maintainContext: true
-      - name: Get started with Apache Spark 
-        href: getting-started/spark/quick-start.md
-        maintainContext: true
-      - name: DataFrames
-        href: getting-started/spark/dataframes.md
-        maintainContext: true 
-      - name: Datasets
-        href: getting-started/spark/datasets.md
-        maintainContext: true 
-      - name: Machine learning
-        href: getting-started/spark/machine-learning.md
-        maintainContext: true
-      - name: Structured streaming
-        href: getting-started/spark/streaming.md
-        maintainContext: true
-      - name: What's next
-        href: getting-started/spark/next.md
-        maintainContext: true
-    - name: Training and FAQ 
-      href: getting-started/training-faq.md
-      maintainContext: true
-    - name: Supported browsers 
-      href: getting-started/supported-browsers.md
-      maintainContext: true
-  - name: Databricks runtimes
+    - name: Update credentials
+      href: stream-analytics-login-credentials-inputs-outputs.md
+    - name: Configure event ordering policies
+      href: event-ordering.md
+    - name: Configure alerts
+      href: stream-analytics-set-up-alerts.md
+    - name: Start a job
+      href: start-job.md
+    - name: Test a job
+      href: stream-analytics-test-query.md
+    - name: View results on a dashboard
+      href: stream-analytics-power-bi-dashboard.md
+    - name: Stop or delete a job
+      href: stream-analytics-clean-up-your-job.md
+    - name: Pair jobs for reliability
+      href: stream-analytics-job-reliability.md
+    - name: Authenticate with managed identity - ADLS Gen 1 output
+      href: stream-analytics-managed-identities-adls.md
+    - name: Use SQL reference data
+      href: sql-reference-data.md
+    - name: Authenticate with managed identity - Blob output
+      href: blob-output-managed-identity.md
+  - name: Build solutions
     items:
-    - name: Runtime overview
-      href: runtime/index.md
+    - name: Twitter sentiment analysis
+      href: stream-analytics-twitter-sentiment-analysis-trends.md
+    - name: Real-time fraud detection
+      href: stream-analytics-real-time-fraud-detection.md
+    - name: Run jobs on IoT Edge
+      href: stream-analytics-edge.md
+    - name: Toll booth sensor data analysis
+      href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
+    - name: Run a JavaScript UDA
+      href: stream-analytics-javascript-user-defined-aggregates.md
+    - name: High-frequency trading
+      href: stream-analytics-high-frequency-trading.md
+    - name: Process IoT streaming data
+      href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+    - name: Threshold-based rules
+      href: stream-analytics-threshold-based-rules.md
+    - name: Process Kafka events
+      href: ../event-hubs/event-hubs-kafka-stream-analytics.md
       maintainContext: true
-    - name: Databricks Runtime
-      href: runtime/dbr.md
+    - name: Process Event Hubs data 
+      href: ../event-hubs/process-data-azure-stream-analytics.md
       maintainContext: true
-    - name: Databricks Runtime with Conda
-      href: runtime/conda.md
-      maintainContext: true
-    - name: Databricks Runtime for Machine Learning
-      href: runtime/mlruntime.md
-      maintainContext: true
-    - name: Databricks Runtime for Genomics
-      href: runtime/genomicsruntime.md
-      maintainContext: true
-    - name: Databricks Light
-      href: runtime/light.md
-      maintainContext: true
-  - name: Workspace
+    - name: Geospatial scenarios
+      href: geospatial-scenarios.md
+  - name: Monitor
     items:
-    - name: Explore the Databricks workspace
-      href: workspace/index.md
-      maintainContext: true
-    - name: Workspace assets
-      href: workspace/workspace-assets.md
-      maintainContext: true
-    - name: Work with workspace objects
-      href: workspace/workspace-objects.md
-      maintainContext: true 
-    - name: Get workspace, cluster, notebook, and job identifiers
-      href: workspace/workspace-details.md
-      maintainContext: true
-  - name: Clusters
+    - name: Monitor jobs- Azure portal
+      href: stream-analytics-monitoring.md
+    - name: Monitor jobs- PowerShell
+      href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
+    - name: Monitor jobs- Azure .NET SDK
+      href: stream-analytics-monitor-jobs.md
+    - name: Monitor jobs- Visual Studio
+      href: stream-analytics-monitor-jobs-use-vs.md
+  - name: Scale
     items:
-    - name: Clusters overview
-      href: clusters/index.md
-      maintainContext: true
-    - name: Create a cluster
-      href: clusters/create.md
-      maintainContext: true
-    - name: Manage clusters
-      href: clusters/clusters-manage.md
-      maintainContext: true
-    - name: Configure clusters
-      href: clusters/configure.md
-      maintainContext: true
-    - name: Initialize cluster nodes
-      href: clusters/init-scripts.md
-      maintainContext: true
-    - name: Custom containers
-      href: clusters/custom-containers.md
-      maintainContext: true 
-    - name: GPU-enabled clusters
-      href: clusters/gpu.md
-      maintainContext: true 
-    - name: Pools
+    - name: Scale with streaming units
+      href: stream-analytics-streaming-unit-consumption.md
+    - name: Scale with parallelization
       items:
-      - name: Pools overview
-        href: clusters/instance-pools/index.md
-        maintainContext: true
-      - name: Display pools
-        href: clusters/instance-pools/display.md
-        maintainContext: true
-      - name: Create a pool
-        href: clusters/instance-pools/create.md
-        maintainContext: true 
-      - name: Configure a pool
-        href: clusters/instance-pools/configure.md
-        maintainContext: true
-      - name: Edit a pool
-        href: clusters/instance-pools/edit.md
-        maintainContext: true
-      - name: Delete a pool
-        href: clusters/instance-pools/delete.md
-        maintainContext: true
-      - name: Use a pool
-        href: clusters/instance-pools/cluster-instance-pool.md
-        maintainContext: true
-  - name: Notebooks
+      - name: Query parallelization
+        href: stream-analytics-parallelization.md
+      - name: Increase throughput
+        href: stream-analytics-scale-jobs.md
+    - name: Scale with ML functions
+      href: stream-analytics-scale-with-machine-learning-functions.md
+    - name: Scale with repartitioning
+      href: repartition.md
+  - name: Automate
     items:
-    - name: Notebooks overview
-      href: notebooks/index.md
-      maintainContext: true
-    - name: Manage notebooks
-      href: notebooks/notebooks-manage.md
-      maintainContext: true
-    - name: Use notebooks
-      href: notebooks/notebooks-use.md
-      maintainContext: true
-    - name: Version control
-      items:
-      - name: Version control with Azure DevOps
-        href: notebooks/azure-devops-services-version-control.md
-        maintainContext: true 
-      - name: Version control with Bitbucket Cloud
-        href: notebooks/bitbucket-cloud-version-control.md
-        maintainContext: true 
-      - name: Version control with GitHub
-        href: notebooks/github-version-control.md
-        maintainContext: true
-    - name: Visualizations
-      items:
-      - name: Visualize data
-        href: notebooks/visualizations/index.md
-        maintainContext: true
-      - name: Migrate deprecated line charts
-        href: notebooks/visualizations/migrate-charts.md
-        maintainContext: true
-      - name: Visualization deep dive in Python
-        href: notebooks/visualizations/charts-and-graphs-python.md
-        maintainContext: true 
-      - name: Visualization deep dive in Scala
-        href: notebooks/visualizations/charts-and-graphs-scala.md
-        maintainContext: true
-      - name: HTML, D3, and SVG in notebooks
-        href: notebooks/visualizations/html-d3-and-svg.md
-        maintainContext: true 
-      - name: Bokeh in Python notebooks
-        href: notebooks/visualizations/bokeh.md
-        maintainContext: true 
-      - name: Matplotlib and ggplot in Python notebooks
-        href: notebooks/visualizations/matplotlib-and-ggplot.md
-        maintainContext: true 
-      - name: htmlwidgets in R notebooks
-        href: notebooks/visualizations/htmlwidgets.md
-        maintainContext: true
-      - name: Plotly in Python and R notebooks
-        href: notebooks/visualizations/plotly.md
-        maintainContext: true 
-    - name: Dashboards
-      href: notebooks/dashboards.md
-      maintainContext: true 
-    - name: Widgets
-      href: notebooks/widgets.md
-      maintainContext: true
-    - name: Notebook workflows
-      href: notebooks/notebook-workflows.md
-      maintainContext: true   
-    - name: Package cells
-      href: notebooks/package-cells.md
-      maintainContext: true
-  - name: Jobs
-    href: jobs.md
-    maintainContext: true
-  - name: Libraries
-    href: libraries.md
-    maintainContext: true
-  - name: Data
+    - name: Using .NET SDK
+      href: stream-analytics-dotnet-management-sdk.md
+    - name: Using Azure PowerShell
+      href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
+    - name: Using API for IoT Edge jobs
+      href: stream-analytics-cicd-api.md
+  - name: Visual Studio
     items:
-    - name: Databricks File System
-      href: data/databricks-file-system.md
-      maintainContext: true
-    - name: Databases and tables
-      href: data/tables.md
-      maintainContext: true
-    - name: Metastores  
-      items:
-      - name: External Hive metastore
-        href: data/metastores/external-hive-metastore.md
-        maintainContext: true
-    - name: Data sources
-      items:
-      - name: SQL databases using JDBC
-        href: data/data-sources/sql-databases.md
-        maintainContext: true 
-      - name: Azure SQL Database using the Apache Spark connector
-        href: data/data-sources/sql-databases-azure.md
-        maintainContext: true 
-      - name: Azure blob storage
-        href: data/data-sources/azure/azure-storage.md
-        maintainContext: true
-      - name: Azure Data Lake Storage Gen2
-        href: data/data-sources/azure/azure-datalake-gen2.md
-        maintainContext: true 
-      - name: Azure Data Lake Storage
-        href: data/data-sources/azure/azure-datalake.md
-        maintainContext: true
-      - name: Azure Data Lake Storage passthrough
-        href: data/data-sources/azure/adls-passthrough.md
-        maintainContext: true 
-      - name: Cosmos DB
-        href: data/data-sources/azure/cosmosdb-connector.md
-        maintainContext: true 
-      - name: SQL Data Warehouse
-        href: data/data-sources/azure/sql-data-warehouse.md
-        maintainContext: true
-      - name: Binary files
-        href: data/data-sources/binary-file.md
-        maintainContext: true 
-      - name: Cassandra
-        href: data/data-sources/cassandra.md
-        maintainContext: true 
-      - name: Couchbase
-        href: data/data-sources/couchbase.md
-        maintainContext: true 
-      - name: Elastic search
-        href: data/data-sources/elasticsearch.md
-        maintainContext: true 
-      - name: Images
-        href: data/data-sources/image.md
-        maintainContext: true 
-      - name: Hive tables
-        href: data/data-sources/hive-tables.md
-        maintainContext: true
-      - name: MLflow experiment
-        href: data/data-sources/mlflow-experiment.md
-        maintainContext: true 
-      - name: MongoDb
-        href: data/data-sources/mongodb.md
-        maintainContext: true 
-      - name: Neo4j
-        href: data/data-sources/neo4j.md
-        maintainContext: true 
-      - name: Avro files
-        href: data/data-sources/read-avro.md
-        maintainContext: true 
-      - name: CSV files
-        href: data/data-sources/read-csv.md
-        maintainContext: true 
-      - name: JSON files
-        href: data/data-sources/read-json.md
-        maintainContext: true 
-      - name: LZO compressed files
-        href: data/data-sources/read-lzo.md
-        maintainContext: true 
-      - name: Parquet files
-        href: data/data-sources/read-parquet.md
-        maintainContext: true 
-      - name: Redis
-        href: data/data-sources/redis.md
-        maintainContext: true 
-      - name: Riak Time Series
-        href: data/data-sources/riak-ts.md
-        maintainContext: true 
-      - name: Snowflake
-        href: data/data-sources/snowflake.md
-        maintainContext: true
-      - name: ZIP files
-        href: data/data-sources/zip-files.md
-        maintainContext: true 
-    - name: FileStore
-      href: data/filestore.md
-      maintainContext: true
-  - name: Business intelligence tools
+    - name: Install tools
+      href: stream-analytics-tools-for-visual-studio-install.md
+    - name: Test with sample data
+      href: stream-analytics-vs-tools-local-run.md
+    - name: Test with live data
+      href: stream-analytics-live-data-local-testing.md
+    - name: View jobs in Visual Studio
+      href: stream-analytics-vs-tools.md
+    - name: Develop an edge job
+      href: stream-analytics-tools-for-visual-studio-edge-jobs.md
+    - name: Set up CI/CD pipeline
+      href: stream-analytics-tools-for-visual-studio-cicd.md
+    - name: Write .NET UDF
+      href: stream-analytics-edge-csharp-udf-methods.md
+  - name: Visual Studio Code
     items:
-    - name: Connect BI tools
-      href: bi/jdbc-odbc-bi.md
-      maintainContext: true
-    - name: Tableau
-      href: bi/tableau.md
-      maintainContext: true
-    - name: Power BI
-      href: bi/power-bi.md
-      maintainContext: true
-    - name: Alteryx
-      href: bi/alteryx.md
-      maintainContext: true
-    - name: Looker
-      href: bi/looker.md
-      maintainContext: true
-    - name: SQL Workbench/J
-      href: bi/workbenchj.md
-      maintainContext: true
-  - name: Delta Lake
+    - name: Test with sample data
+      href: vscode-local-run.md
+    - name: Set up CI/CD pipeline
+      href: setup-cicd-vs-code.md
+    - name: Explore jobs
+      href: vscode-explore-jobs.md
+  - name: Troubleshoot
     items:
-    - name: Introduction to Delta Lake
-      href: delta/delta-intro.md
-      maintainContext: true
-    - name: Get started with Delta Lake
-      href: delta/quick-start.md
-      maintainContext: true 
-    - name: Introductory notebooks
-      href: delta/intro-notebooks.md
-      maintainContext: true
-    - name: Table batch reads and writes
-      href: delta/delta-batch.md
-      maintainContext: true
-    - name: Table streaming reads and writes
-      href: delta/delta-streaming.md
-      maintainContext: true
-    - name: Table delete, update, and merge
-      href: delta/delta-update.md
-      maintainContext: true
-    - name: Table utility commands
-      href: delta/delta-utility.md
-      maintainContext: true
-    - name: Delta Lake API reference
-      href: delta/delta-apidoc.md
-      maintainContext: true
-    - name: Concurrency control
-      href: delta/concurrency-control.md
-      maintainContext: true
-    - name: Optimizations
-      items:
-      - name: Optimizations overview
-        href: delta/optimizations/index.md
-        maintainContext: true
-      - name: Optimize performance with file management
-        href: delta/optimizations/file-mgmt.md
-        maintainContext: true
-      - name: Auto optimize
-        href: delta/optimizations/auto-optimize.md
-        maintainContext: true
-      - name: Optimize performance with caching
-        href: delta/optimizations/delta-cache.md
-        maintainContext: true
-      - name: Isolation levels
-        href: delta/optimizations/isolation-level.md
-        maintainContext: true
-      - name: Replicate MySQL tables to Delta Lake tables
-        href: delta/optimizations/mysql-delta.md
-        maintainContext: true
-      - name: Optimize join performance
-        items:
-        - name: Optimize join performance overview
-          href: delta/join-performance/index.md
-          maintainContext: true
-        - name: Range Join optimization
-          href: delta/join-performance/range-join.md
-          maintainContext: true
-        - name: Skew Join optimization
-          href: delta/join-performance/skew-join.md
-          maintainContext: true
-      - name: Optimized data transformation
-        items:
-        - name: Optimized data transformation overview
-          href: delta/data-transformation/index.md
-          maintainContext: true
-        - name: Higher-order functions
-          href: delta/data-transformation/higher-order-lambda-functions.md
-          maintainContext: true
-        - name: Transform complex data types
-          href: delta/data-transformation/complex-types.md
-          maintainContext: true
-      - name: Best practices
-        href: delta/best-practices.md
-        maintainContext: true
-      - name: Table versioning
-        href: delta/optimizations/versioning.md
-        maintainContext: true
-      - name: Optimization examples
-        href: delta/optimizations/optimization-examples.md
-        maintainContext: true
-    - name: Frequently asked questions
-      href: delta/delta-faq.md
-      maintainContext: true
-    - name: Additional Delta resources
-      href: delta/delta-resources.md
-      maintainContext: true
-  - name: DataFrames and Datasets
+    - name: Input
+      href: stream-analytics-troubleshoot-input.md
+    - name: Output
+      href: stream-analytics-troubleshoot-output.md
+    - name: Query logic
+      href: stream-analytics-troubleshoot-query.md
+    - name: Activity and diagnostic logs
+      href: stream-analytics-job-diagnostic-logs.md
+    - name: Data errors
+      href: data-errors.md
+  - name: Integrate with machine learning
     items:
-    - name: DataFrames and Datasets overview
-      href: spark/latest/dataframes-datasets/index.md
-      maintainContext: true 
-    - name: Introduction to Python DataFrames
-      href: spark/latest/dataframes-datasets/introduction-to-dataframes-python.md
-      maintainContext: true 
-    - name: Introduction to Scala Dataframes
-      href: spark/latest/dataframes-datasets/introduction-to-dataframes-scala.md
-      maintainContext: true 
-    - name: Introduction to Datasets
-      href: spark/latest/dataframes-datasets/introduction-to-datasets.md
-      maintainContext: true 
-    - name: Complex and nested data
-      href: spark/latest/dataframes-datasets/complex-nested-data.md
-      maintainContext: true
-    - name: Aggregators
-      href: spark/latest/dataframes-datasets/aggregators.md
-      maintainContext: true 
-  - name: Structured Streaming
-    items:
-      - name: Structured Streaming overview
-        href: spark/latest/structured-streaming/index.md
-        maintainContext: true
-      - name: Introductory notebooks
-        href: spark/latest/structured-streaming/demo-notebooks.md
-        maintainContext: true
-      - name: Streaming data sources and sinks
-        items:
-        - name: Sources and sinks overview
-          href: spark/latest/structured-streaming/data-sources.md
-          maintainContext: true
-        - name: Apache Kafka
-          href: spark/latest/structured-streaming/kafka.md
-          maintainContext: true
-        - name: Azure Event Hubs
-          href: spark/latest/structured-streaming/streaming-event-hubs.md
-          maintainContext: true
-        - name: Delta Lake tables
-          href: spark/latest/structured-streaming/delta.md
-          maintainContext: true
-        - name: Read and write streaming Avro data with DataFrames
-          href: spark/latest/structured-streaming/avro-dataframe.md
-          maintainContext: true
-        - name: Write to arbitrary data sinks
-          href: spark/latest/structured-streaming/foreach.md
-          maintainContext: true
-        - name: Optimized Azure Blob storage with Azure Queue storage
-          href: spark/latest/structured-streaming/aqs.md
-          maintainContext: true
-      - name: Structured Streaming in production
-        href: spark/latest/structured-streaming/production.md
-        maintainContext: true
-      - name: Streaming examples
-        href: spark/latest/structured-streaming/examples.md
-        maintainContext: true
-      - name: Spark Streaming (Legacy)
-        items:
-        - name: Spark Streaming (Legacy) overview
-          href: spark/latest/rdd-streaming/index.md
-          maintainContext: true
-        - name: Debug Spark Streaming applications
-          href: spark/latest/rdd-streaming/debugging-streaming-applications.md
-          maintainContext: true
-        - name: Best practices for streaming application development
-          href: spark/latest/rdd-streaming/developing-streaming-applications.md
-          maintainContext: true
-  - name: SQL
-    items:
-    - name: SQL overview
-      href: spark/latest/spark-sql/index.md
-      maintainContext: true
-    - name: SQL language manual
+    - name: Sentiment analysis with ML models
+      href: stream-analytics-machine-learning-integration-tutorial.md
+    - name: Anomaly detection
+      href: stream-analytics-machine-learning-anomaly-detection.md
+    - name: Use REST APIs
+      href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
+  - name: Debug using job diagram
+    href: stream-analytics-job-diagram-with-metrics.md
+- name: Stream Analytics Query Language
+  items:
+    - name: Built-in Functions
       items:
-      - name: Alter Database
-        href: spark/latest/spark-sql/language-manual/alter-database.md
-        maintainContext: true
-      - name: Alter Table or View
-        href: spark/latest/spark-sql/language-manual/alter-table-or-view.md
-        maintainContext: true
-      - name: Alter Table Partitions
-        href: spark/latest/spark-sql/language-manual/alter-table-partitions.md
-        maintainContext: true
-      - name: Analyze Table
-        href: spark/latest/spark-sql/language-manual/analyze-table.md
-        maintainContext: true
-      - name: Cache
-        href: spark/latest/spark-sql/language-manual/cache-dbio.md
-        maintainContext: true
-      - name: Cache Table
-        href: spark/latest/spark-sql/language-manual/cache-table.md
-        maintainContext: true
-      - name: Clear Cache
-        href: spark/latest/spark-sql/language-manual/clear-cache.md
-        maintainContext: true
-      - name: Convert To Delta (Delta Lake on Azure Databricks)
-        href: spark/latest/spark-sql/language-manual/convert-to-delta.md
-        maintainContext: true
-      - name: Create Database
-        href: spark/latest/spark-sql/language-manual/create-database.md
-        maintainContext: true
-      - name: Create Function
-        href: spark/latest/spark-sql/language-manual/create-function.md
-        maintainContext: true
-      - name: Create Table
-        href: spark/latest/spark-sql/language-manual/create-table.md
-        maintainContext: true
-      - name: Create View
-        href: spark/latest/spark-sql/language-manual/create-view.md
-        maintainContext: true
-      - name: Delete From (Delta Lake on Azure Databricks)
-        href: spark/latest/spark-sql/language-manual/delete-from.md
-        maintainContext: true
-      - name: Describe Database
-        href: spark/latest/spark-sql/language-manual/describe-database.md
-        maintainContext: true
-      - name: Describe Function
-        href: spark/latest/spark-sql/language-manual/describe-function.md
-        maintainContext: true
-      - name: Describe Table
-        href: spark/latest/spark-sql/language-manual/describe-table.md
-        maintainContext: true
-      - name: Drop Database
-        href: spark/latest/spark-sql/language-manual/drop-database.md
-        maintainContext: true
-      - name: Drop Function
-        href: spark/latest/spark-sql/language-manual/drop-function.md
-        maintainContext: true
-      - name: Drop Table
-        href: spark/latest/spark-sql/language-manual/drop-table.md
-        maintainContext: true
-      - name: Explain
-        href: spark/latest/spark-sql/language-manual/explain.md
-        maintainContext: true
-      - name: Fsck Repair Table  (Delta Lake on Azure    Databricks
-        href: spark/latest/spark-sql/language-manual/fsck.md
-        maintainContext: true
-      - name: Functions
-        href: spark/latest/spark-sql/language-manual/functions.md
-        maintainContext: true
-      - name: Insert
-        href: spark/latest/spark-sql/language-manual/insert.md
-        maintainContext: true
-      - name: Load Data
-        href: spark/latest/spark-sql/language-manual/load-data.md
-        maintainContext: true
-      - name: Merge Into  (Delta Lake on AzureDatabricks
-        href: spark/latest/spark-sql/language-manual/merge-into.md
-        maintainContext: true
-      - name: Optimize  (Delta Lake on AzureDatabricks
-        href: spark/latest/spark-sql/language-manual/optimize.md
-        maintainContext: true
-      - name: Refresh Table
-        href: spark/latest/spark-sql/language-manual/refresh-table.md
-        maintainContext: true
-      - name: Reset
-        href: spark/latest/spark-sql/language-manual/reset.md
-        maintainContext: true
-      - name: Select
-        href: spark/latest/spark-sql/language-manual/select.md
-        maintainContext: true
-      - name: Set
-        href: spark/latest/spark-sql/language-manual/set.md
-        maintainContext: true
-      - name: Show Columns
-        href: spark/latest/spark-sql/language-manual/show-columns.md
-        maintainContext: true
-      - name: Show Create Table
-        href: spark/latest/spark-sql/language-manual/show-create-table.md
-        maintainContext: true
-      - name: Show Databases
-        href: spark/latest/spark-sql/language-manual/show-databases.md
-        maintainContext: true
-      - name: Show Functions
-        href: spark/latest/spark-sql/language-manual/show-functions.md
-        maintainContext: true
-      - name: Show Partitions
-        href: spark/latest/spark-sql/language-manual/show-partitions.md
-        maintainContext: true
-      - name: Show Table Properties
-        href: spark/latest/spark-sql/language-manual/show-table-properties.md
-        maintainContext: true
-      - name: Show Tables
-        href: spark/latest/spark-sql/language-manual/show-tables.md
-        maintainContext: true
-      - name: Truncate Table
-        href: spark/latest/spark-sql/language-manual/truncate-table.md
-        maintainContext: true
-      - name: Uncache Table
-        href: spark/latest/spark-sql/language-manual/uncache-table.md
-        maintainContext: true
-      - name: Update  (Delta Lake on Azure Databricks
-        href: spark/latest/spark-sql/language-manual/update.md
-        maintainContext: true
-      - name: Use Database
-        href: spark/latest/spark-sql/language-manual/use-database.md
-        maintainContext: true
-      - name: Vacuum
-        href: spark/latest/spark-sql/language-manual/vacuum.md
-        maintainContext: true
-    - name: Spark SQL examples
-      items:
-      - name: Cost-Based Optimizer
-        href: spark/latest/spark-sql/cbo.md
-        maintainContext: true
-      - name: Data Skipping Index
-        href: spark/latest/spark-sql/dataskipping-index.md
-        maintainContext: true
-      - name: Transactional Writes to Cloud Storage with DBIO
-        href: spark/latest/spark-sql/dbio-commit.md
-        maintainContext: true
-      - name: Handle bad records and files
-        href: spark/latest/spark-sql/handling-bad-records.md
-        maintainContext: true 
-      - name: Task Preemption for High Concurrency
-        href: spark/latest/spark-sql/preemption.md
-        maintainContext: true
-      - name: Handle Large Queries in interactive workflows
-        href: spark/latest/spark-sql/query-watchdog.md
-        maintainContext: true
-      - name: Optimize conversion between Spark and  Pandas DataFrames
-        href: spark/latest/spark-sql/spark-pandas.md
-        maintainContext: true
-      - name: User defined aggregate functions - Scala
-        href: spark/latest/spark-sql/udf-scala.md
-        maintainContext: true
-      - name: User-defined functions - Python
-        href: spark/latest/spark-sql/udf-python.md
-        maintainContext: true
-      - name: Pandas user-defined Functions
-        href: spark/latest/spark-sql/udf-python-pandas.md
-        maintainContext: true
-      - name: Apache Hive Compatibility
-        href: spark/latest/spark-sql/compatibility/hive.md
-        maintainContext: true
-  - name: R
-    items:
-    - name: R guide
-      href: spark/latest/sparkr/index.md
-      maintainContext: true
-    - name: SparkR overview
-      href: spark/latest/sparkr/overview.md
-      maintainContext: true
-    - name: SparkR ML tutorials
-      items:
-      - name: SparkR ML tutorials overview
-        href: spark/latest/sparkr/tutorials/index.md
-        maintainContext: true
-      - name: Use glm
-        href: spark/latest/sparkr/tutorials/using-glm.md
-        maintainContext: true
-    - name: SparkR function reference
-      href: spark/latest/sparkr/sparkr.md
-      maintainContext: true
-    - name: SparkR 1.6
-      items:
-      - name: SparkR 1.6 overview
-        href: spark/1.6/sparkr/overview.md
-        maintainContext: true
-      - name: SparkR 1.6 function reference
-        href: spark/1.6/sparkr/functions/index.md
-        maintainContext: true
-    - name: sparklyr
-      href: spark/latest/sparkr/sparklyr.md
-      maintainContext: true
-    - name: RStudio on Azure Databricks
-      href: spark/latest/sparkr/rstudio.md
-      maintainContext: true 
-  - name: Machine learning
-    items:
-    - name: Machine learning overview
-      href: applications/machine-learning/index.md
-      maintainContext: true 
-    - name: Apache Spark MLlib
-      items:
-      - name: Binary classification example
-        href: applications/machine-learning/mllib/binary-classification-mllib-pipelines.md
-        maintainContext: true 
-      - name: Decision trees example
-        href: applications/machine-learning/mllib/decision-trees.md
-        maintainContext: true 
-      - name: MLib pipelines and Structured Streaming
-        href: applications/machine-learning/mllib/mllib-pipelines-and-stuctured-streaming.md
-        maintainContext: true
-      - name: Advanced MLib example
-        href: applications/machine-learning/mllib/advanced-mllib.md
-        maintainContext: true
-    - name: Auto ML
-      items:
-        - name: Hyperopt
+        - name: Built-in Functions Overview
+          href: /stream-analytics-query/built-in-functions-azure-stream-analytics
+          maintainContext: true
+        - name: Aggregate Functions
           items:
-          - name: Hyperopt overview
-            href: applications/machine-learning/automl/hyperopt/index.md
-            maintainContext: true
-          - name: Distributed Hyperopt and automated MLflow tracking
-            href: applications/machine-learning/automl/hyperopt/hyperopt-spark-mlflow-integration.md
-            maintainContext: true
-          - name: Hyperopt with HorovodRunner
-            href: applications/machine-learning/automl/hyperopt/hyperopt-distributed-ml.md
-            maintainContext: true
-          - name: Model Search using Distributed Hyperopt
-            href: applications/machine-learning/automl/hyperopt/hyperopt-model-selection.md
-            maintainContext: true
-        - name: MLib and automated MLflow tracking
-          href: applications/machine-learning/automl/mllib-mlflow-integration.md
+            - name: Aggregate Functions Overview
+              href: /stream-analytics-query/aggregate-functions-azure-stream-analytics
+              maintainContext: true
+            - name: AVG
+              href: /stream-analytics-query/avg-azure-stream-analytics
+              maintainContext: true
+            - name: COUNT
+              href: /stream-analytics-query/count-azure-stream-analytics
+              maintainContext: true
+            - name: Collect
+              href: /stream-analytics-query/collect-azure-stream-analytics
+              maintainContext: true
+            - name: CollectTOP
+              href: /stream-analytics-query/collecttop-azure-stream-analytics
+              maintainContext: true
+            - name: MAX
+              href: /stream-analytics-query/max-azure-stream-analytics
+              maintainContext: true
+            - name: MIN
+              href: /stream-analytics-query/min-azure-stream-analytics
+              maintainContext: true
+            - name: Percentile_Cont
+              href: /stream-analytics-query/percentile-cont-azure-stream-analytics
+              maintainContext: true
+            - name: Percentile_Disc
+              href: /stream-analytics-query/percentile-disc-azure-stream-analytics
+              maintainContext: true
+            - name: STDEV
+              href: /stream-analytics-query/stdev-azure-stream-analytics
+              maintainContext: true
+            - name: STDEVP
+              href: /stream-analytics-query/stdevp-azure-stream-analytics
+              maintainContext: true
+            - name: SUM
+              href: /stream-analytics-query/sum-azure-stream-analytics
+              maintainContext: true
+            - name: TopOne
+              href: /stream-analytics-query/topone-azure-stream-analytics
+              maintainContext: true
+            - name: VAR
+              href: /stream-analytics-query/var-azure-stream-analytics
+              maintainContext: true
+            - name: VARP
+              href: /stream-analytics-query/varp-azure-stream-analytics
+              maintainContext: true
+        - name: Analytic Functions
+          items:
+            - name: Analytic Functions Overview
+              href: /stream-analytics-query/analytic-functions-azure-stream-analytics
+              maintainContext: true
+            - name: AnomalyDetection_SpikeAndDip
+              href: /stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+              maintainContext: true
+            - name: AnomalyDetection_ChangePoint
+              href: /stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics
+              maintainContext: true
+            - name: ISFIRST
+              href: /stream-analytics-query/isfirst-azure-stream-analytics
+              maintainContext: true
+            - name: LAG
+              href: /stream-analytics-query/lag-azure-stream-analytics
+              maintainContext: true
+            - name: LAST
+              href: /stream-analytics-query/last-azure-stream-analytics
+              maintainContext: true
+        - name: Array Functions
+          items:
+            - name: Array Functions Overview
+              href: /stream-analytics-query/array-functions-stream-analytics
+              maintainContext: true
+            - name: GetArrayLength
+              href: /stream-analytics-query/getarraylength-azure-stream-analytics
+              maintainContext: true
+            - name: GetArrayElement
+              href: /stream-analytics-query/getarrayelement-azure-stream-analytics
+              maintainContext: true
+            - name: GetArrayElements
+              href: /stream-analytics-query/getarrayelements-azure-stream-analytics
+              maintainContext: true
+        - name: Conversion Functions
+          items:
+            - name: Conversion Functions Overview
+              href: /stream-analytics-query/conversion-functions-azure-stream-analytics
+              maintainContext: true
+            - name: CAST
+              href: /stream-analytics-query/cast-azure-stream-analytics
+              maintainContext: true
+            - name: GetType
+              href: /stream-analytics-query/gettype-azure-stream-analytics
+              maintainContext: true
+            - name: TRY_CAST
+              href: /stream-analytics-query/try-cast-azure-stream-analytics
+              maintainContext: true
+        - name: Date and Time Functions
+          items:
+            - name: Date and Time Functions Overview
+              href: /stream-analytics-query/date-and-time-functions-azure-stream-analytics
+              maintainContext: true
+            - name: DATEADD
+              href: /stream-analytics-query/dateadd-azure-stream-analytics
+              maintainContext: true
+            - name: DATEDIFF
+              href: /stream-analytics-query/datediff-azure-stream-analytics
+              maintainContext: true
+            - name: DATENAME
+              href: /stream-analytics-query/datename-azure-stream-analytics
+              maintainContext: true
+            - name: DATEPART
+              href: /stream-analytics-query/datepart-azure-stream-analytics
+              maintainContext: true
+            - name: DATETIMEFROMPARTS
+              href: /stream-analytics-query/datetimefromparts-azure-stream-analytics
+              maintainContext: true
+            - name: DAY
+              href: /stream-analytics-query/day-azure-stream-analytics
+              maintainContext: true
+            - name: MONTH
+              href: /stream-analytics-query/month-azure-stream-analytics
+              maintainContext: true
+            - name: YEAR
+              href: /stream-analytics-query/year-azure-stream-analytics
+              maintainContext: true
+        - name: GeoSpatial Functions
+          items:
+            - name: GeoSpatial Functions Overview
+              href: /stream-analytics-query/geospatial-functions
+              maintainContext: true
+            - name: CreateLineString
+              href: /stream-analytics-query/createlinestring
+              maintainContext: true
+            - name: CreatePoint
+              href: /stream-analytics-query/createpoint
+              maintainContext: true
+            - name: CreatePolygon
+              href: /stream-analytics-query/createpolygon
+              maintainContext: true
+            - name: ST_DISTANCE
+              href: /stream-analytics-query/st-distance
+              maintainContext: true
+            - name: ST_OVERLAPS
+              href: /stream-analytics-query/st-overlaps
+              maintainContext: true
+            - name: ST_INTERSECTS
+              href: /stream-analytics-query/st-intersects
+              maintainContext: true
+            - name: ST_WITHIN
+              href: /stream-analytics-query/st-within
+              maintainContext: true
+        - name: Input Metadata Functions
+          items:
+            - name: Input Metadata Functions Overview
+              href: /stream-analytics-query/input-metadata-functions
+              maintainContext: true
+            - name: GetMetadataPropertyValue
+              href: /stream-analytics-query/getmetadatapropertyvalue
+              maintainContext: true
+        - name: Mathematical Functions
+          items:
+            - name: Mathematical Functions Overview
+              href: /stream-analytics-query/mathematical-functions-azure-stream-analytics
+              maintainContext: true
+            - name: ABS
+              href: /stream-analytics-query/abs-azure-stream-analytics
+              maintainContext: true
+            - name: CEILING
+              href: /stream-analytics-query/ceiling-azure-stream-analytics
+              maintainContext: true
+            - name: EXP
+              href: /stream-analytics-query/exp-azure-stream-analytics
+              maintainContext: true
+            - name: FLOOR
+              href: /stream-analytics-query/floor-azure-stream-analytics
+              maintainContext: true
+            - name: POWER
+              href: /stream-analytics-query/power-azure-stream-analytics
+              maintainContext: true
+            - name: ROUND
+              href: /stream-analytics-query/round-azure-stream-analytics.md
+              maintainContext: true
+            - name: SIGN
+              href: /stream-analytics-query/sign-azure-stream-analytics
+              maintainContext: true
+            - name: SQUARE
+              href: /stream-analytics-query/square-azure-stream-analytics
+              maintainContext: true
+            - name: SQRT
+              href: /stream-analytics-query/sqrt-azure-stream-analytics
+              maintainContext: true
+        - name: Record Functions
+          items:
+            - name: Record Functions Overview
+              href: /stream-analytics-query/record-functions-azure-stream-analytics
+              maintainContext: true
+            - name: GetRecordProperties
+              href: /stream-analytics-query/getrecordproperties-azure-stream-analytics
+              maintainContext: true
+            - name: GetRecordPropertyValue
+              href: /stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics
+              maintainContext: true
+        - name: String Functions
+          items:
+            - name: String Functions Overview
+              href: /stream-analytics-query/string-functions-azure-stream-analytics
+              maintainContext: true
+            - name: CHARINDEX
+              href: /stream-analytics-query/charindex-azure-stream-analytics
+              maintainContext: true
+            - name: CONCAT
+              href: /stream-analytics-query/concat-azure-stream-analytics
+              maintainContext: true
+            - name: LEN
+              href: /stream-analytics-query/len-azure-stream-analytics
+              maintainContext: true
+            - name: LOWER
+              href: /stream-analytics-query/lower-azure-stream-analytics
+              maintainContext: true
+            - name: PATINDEX
+              href: /stream-analytics-query/patindex-azure-stream-analytics
+              maintainContext: true
+            - name: REGEXMATCH
+              href: /stream-analytics-query/regexmatch-azure-stream-analytics
+              maintainContext: true
+            - name: REPLACE
+              href: /stream-analytics-query/replace-azure-stream-analytics.md
+              maintainContext: true
+            - name: SUBSTRING
+              href: /stream-analytics-query/substring-azure-stream-analytics
+              maintainContext: true
+            - name: UPPER
+              href: /stream-analytics-query/upper-azure-stream-analytics
+              maintainContext: true
+        - name: Windowing Functions
+          items:
+            - name: Windowing Functions Overview
+              href: /stream-analytics-query/windowing-azure-stream-analytics
+              maintainContext: true
+            - name: Hopping Window
+              href: /stream-analytics-query/hopping-window-azure-stream-analytics
+              maintainContext: true
+            - name: Session Window
+              href: /stream-analytics-query/session-window-azure-stream-analytics
+              maintainContext: true
+            - name: Sliding Window
+              href: /stream-analytics-query/sliding-window-azure-stream-analytics
+              maintainContext: true
+            - name: Tumbling Window
+              href: /stream-analytics-query/tumbling-window-azure-stream-analytics
+              maintainContext: true
+            - name: Aggregate Windowing functions
+              href: /stream-analytics-query/windows-azure-stream-analytics
+              maintainContext: true
+    - name: Data Types
+      items:
+        - name: Data Types Overview
+          href: /stream-analytics-query/data-types-azure-stream-analytics
           maintainContext: true
-    - name: Third-party machine learning integration
-      href: applications/machine-learning/third-party/index.md
-      maintainContext: true
-  - name: Deep learning
-    items:
-    - name: Deep learning overview
-      href: applications/deep-learning/index.md
-      maintainContext: true
-    - name: Data preparation
-      items:
-      - name: Data preparation overview
-        href: applications/deep-learning/data-prep/index.md
-        maintainContext: true
-      - name: Prepare storage for data loading and model checkpoint
-        href: applications/deep-learning/data-prep/ddl-storage.md
-        maintainContext: true
-      - name: Prepare data for distributed training
-        href: applications/deep-learning/data-prep/ddl-data.md
-        maintainContext: true
-      - name: Load data using Petastorm
-        href: /applications/deep-learning/data-prep/petastorm.md
-        maintainContext: true
-      - name: Save DataFrames and Datasets to TFRecord files
-        href: /applications/deep-learning/data-prep/dataset-to-tfrecords.md
-        maintainContext: true
-      - name: Load data from TFRecord files with TensorFlow
-        href: /applications/deep-learning/data-prep/tfrecords-to-tensorflow.md
-        maintainContext: true
-      - name: Save data to TFRecord files with TensorFlow
-        href: /applications/deep-learning/data-prep/tensorflow-to-tfrecords.md
-        maintainContext: true
-    - name: Single node training
-      items:
-      - name: Single node training overview
-        href: applications/deep-learning/single-node-training/index.md
-        maintainContext: true
-      - name: Deep Learning Pipelines
-        href: applications/deep-learning/single-node-training/deep-learning-pipelines.md
-        maintainContext: true
-      - name: TensorFlow
-        href: applications/deep-learning/single-node-training/tensorflow.md
-        maintainContext: true
-      - name: Keras
-        href: applications/deep-learning/single-node-training/keras.md
-        maintainContext: true
-      - name: PyTorch
-        href: applications/deep-learning/single-node-training/pytorch.md
-        maintainContext: true
-      - name: Single node PyTorch to distributed DL
-        href: applications/deep-learning/distributed-training/mnist-pytorch.md
-        maintainContext: true 
-      - name: Single node Keras to distributed DL
-        href: applications/deep-learning/distributed-training/mnist-tensorflow-keras.md
-        maintainContext: true 
-      - name: Single node TensorFlow to distributed DL
-        href: applications/deep-learning/distributed-training/mnist-tensorflow.md
-        maintainContext: true
-    - name: Distributed training
-      items: 
-      - name: HorovodRunner
-        href: applications/deep-learning/distributed-training/horovod-runner.md
-        maintainContext: true
-      - name: HorovodEstimator
-        href: applications/deep-learning/distributed-training/horovod-estimator.md
-        maintainContext: true
-    - name: Model inference
-      items:
-      - name: Model inference overview
-        href: applications/deep-learning/inference/index.md
-        maintainContext: true
-      - name: Model inference workflow
-        href: applications/deep-learning/inference/model-inference.md
-        maintainContext: true 
-      - name: Model inference examples
-        href: applications/deep-learning/inference/model-inference-examples.md
-        maintainContext: true 
-      - name: Model inference using Keras
-        href: applications/deep-learning/inference/resnet-model-inference-keras.md
-        maintainContext: true 
-      - name: Model inference using PyTorch
-        href: applications/deep-learning/inference/resnet-model-inference-pytorch.md
-        maintainContext: true 
-      - name: Model inference using TensorFlow
-        href: applications/deep-learning/inference/resnet-model-inference-tensorflow.md
-        maintainContext: true
-      - name: Model inference performance tuning
-        href: applications/deep-learning/inference/model-inference-performance.md
-        maintainContext: true
-  - name: MLflow
-    items: 
-    - name: MLflow overview
-      href: applications/mlflow/index.md
-      maintainContext: true
-    - name: Get started with MLflow
-      href: applications/mlflow/quick-start.md
-      maintainContext: true
-    - name: Get started with MLflow Java and Scala
-      href: applications/mlflow/quick-start-java-scala.md
-      maintainContext: true 
-    - name: Get started with MLflow Python
-      href: applications/mlflow/quick-start-python.md
-      maintainContext: true 
-    - name: Get started with MLflow R
-      href: applications/mlflow/quick-start-r.md
-      maintainContext: true
-    - name: Track machine learning training runs
-      href: applications/mlflow/tracking.md
-      maintainContext: true
-    - name: MLflow tracking examples
-      href: applications/mlflow/tracking-examples.md
-      maintainContext: true
-    - name: Access tracking externally
-      href: applications/mlflow/access-hosted-tracking-server.md
-      maintainContext: true
-    - name: Save, load, and deploy models
-      href: applications/mlflow/models.md
-      maintainContext: true
-    - name: MLflow model examples
-      href: applications/mlflow/model-examples.md
-      maintainContext: true
-    - name: Reproduce runs with MLflow projects
-      href: applications/mlflow/projects.md
-      maintainContext: true  
-  - name: Graph analysis
-    items:
-    - name: Graph analysis overview
-      href: spark/latest/graph-analysis/index.md
-      maintainContext: true
-    - name: GraphFrames
-      items:
-      - name: Graph Analysis  tutorial with GraphFrames
-        href: spark/latest/graph-analysis/graphframes/graph-analysis-tutorial.md
-        maintainContext: true
-      - name: GraphFrames - Python
-        href: spark/latest/graph-analysis/graphframes/user-guide-python.md
-        maintainContext: true
-      - name: GraphFrames - Scala
-        href: spark/latest/graph-analysis/graphframes/user-guide-scala.md
-        maintainContext: true
-    - name: Graph Analysis with GraphX (Legacy)
-      href: spark/latest/graph-analysis/graph-analysis-graphx-tutorial.md
-      maintainContext: true
-  - name: Genomics
-    items:
-    - name: Genomics overview
-      href: applications/genomics/index.md
-      maintainContext: true
-    - name: Genomics ETL overview
-      href: applications/genomics/etl/index.md
-      maintainContext: true 
-    - name: Secondary analysis
-      items:
-      - name: Secondary analysis overview
-        href: applications/genomics/secondary/index.md
-        maintainContext: true 
-      - name: DNASeq pipeline
-        href: applications/genomics/secondary/dnaseq-pipeline.md
-        maintainContext: true
-      - name: RNASeq pipeline
-        href: applications/genomics/secondary/rnaseq-pipeline.md
-        maintainContext: true 
-      - name: Tumor/Normal pipeline
-        href: applications/genomics/secondary/tumor-normal-pipeline.md
-        maintainContext: true
-      - name: Variant annotation methods
-        href: applications/genomics/secondary/annotate-variants.md
-        maintainContext: true
-      - name: SnpEff pipeline
-        href: applications/genomics/secondary/snpeff-pipeline.md
-        maintainContext: true 
-      - name: Vep pipeline
-        href: applications/genomics/secondary/vep-pipeline.md
-        maintainContext: true
-    - name: ETL
-      items:
-      - name: Variant IO with Apache Spark SQL
-        href: applications/genomics/etl/variant-data.md
-        maintainContext: true 
-      - name: Create Geomics Delta Lake
-        href: applications/genomics/etl/vcf2delta.md
-        maintainContext: true
-      - name: Variant quality control
-        href: applications/genomics/etl/variant-qc.md
-        maintainContext: true 
-      - name: Sample quality control
-        href: applications/genomics/etl/sample-qc.md
-        maintainContext: true
-      - name: Lift over
-        href: applications/genomics/etl/lift-over.md
-        maintainContext: true
-    - name: Tertiary analysis
-      items:
-      - name: Tertiary analysis overview
-        href: applications/genomics/tertiary/index.md
-        maintainContext: true 
-      - name: Joint genotyping pipeline
-        href: applications/genomics/tertiary/joint-genotyping-pipeline.md
-        maintainContext: true
-      - name: Parallelize command-line tools with Pipe Transformer
-        href: applications/genomics/tertiary/pipe-transformer.md
-        maintainContext: true 
-      - name: Variant normalization
-        href: applications/genomics/tertiary/variant-normalization.md
-        maintainContext: true
-      - name: Regression tests
-        href: applications/genomics/tertiary/regression-tests.md
-        maintainContext: true
-      - name: Python statistics libraries
-        href: applications/genomics/tertiary/pandas-udf.md
-        maintainContext: true
-      - name: SAIGE
-        href: applications/genomics/tertiary/saige.md
-        maintainContext: true
-      - name: Hail 0.2
-        href: applications/genomics/tertiary/hail.md
-        maintainContext: true
-  - name: Migration
-    items:
-    - name: Migrate production workloads
-      href: migration/production.md
-      maintainContext: true
-    - name: Migrate single node 
-      href: migration/single-node.md
-      maintainContext: true
-    - name: Migrate workloads to Delta Lake
-      href: delta/porting.md
-      maintainContext: true
-  - name: Security and privacy
-    items:
-    - name: Security overview
-      href: security/index.md
-      maintainContext: true 
-    - name: Secrets
-      items:
-      - name: Keep data secure with secrets
-        href: security/secrets/index.md
-        maintainContext: true
-      - name: Secret scopes
-        href: security/secrets/secret-scopes.md
-        maintainContext: true 
-      - name: Secrets
-        href: security/secrets/secrets.md
-        maintainContext: true
-      - name: Secret access control
-        href: security/secrets/secret-acl.md
-        maintainContext: true  
-      - name: Secret redaction
-        href: security/secrets/redaction.md
-        maintainContext: true
-      - name: Secret workflow example
-        href: security/secrets/example-secret-workflow.md
-        maintainContext: true
-  - name: Administration
-    items:
-    - name: Administration overview
-      href: administration-guide/index.md
-      maintainContext: true
-    - name: Admin console
-      href: administration-guide/admin-console.md
-      maintainContext: true
-    - name: Manage your Azure Databricks account
-      items:
-      - name: Account management overview
-        href: administration-guide/account-settings/index.md
-        maintainContext: true
-      - name: Manage Your Subscription
-        href: administration-guide/account-settings/account.md
-        maintainContext: true
-      - name: Diagnostic logging in Azure Databricks
-        href: administration-guide/account-settings/azure-diagnostic-logs.md
-        maintainContext: true
-    - name: Manage Users and Groups
-      items:
-      - name: Users and groups overview
-        href: administration-guide/users-groups/index.md
-        maintainContext: true 
-      - name: Manage users
-        href: administration-guide/users-groups/users.md
-        maintainContext: true
-      - name: Manage groups
-        href: administration-guide/users-groups/groups.md
-        maintainContext: true
-      - name: Set up single sign-on
-        href: administration-guide/users-groups/single-sign-on/index.md
-        maintainContext: true
-      - name: Provision users and groups using SCIM
-        href: administration-guide/users-groups/scim/index.md
-        maintainContext: true
-      - name: Configure SCIM provisioning for AAD
-        href: administration-guide/users-groups/scim/aad.md
-        maintainContext: true
-    - name: Manage access control
-      items:
-      - name: Access control overview
-        href: administration-guide/access-control/index.md
-        maintainContext: true
-      - name: Cluster access control
-        href: administration-guide/access-control/cluster-acl.md
-        maintainContext: true
-      - name: Pool access control
-        href: administration-guide/access-control/pool-acl.md
-        maintainContext: true
-      - name: Jobs access control
-        href: administration-guide/access-control/jobs-acl.md
-        maintainContext: true
-      - name: Table access control
-        items:
-        - name: Table access control overview
-          href: administration-guide/access-control/table-acls/index.md
+        - name: Parsing JSON and AVRO data
+          href: stream-analytics-parsing-json.md
           maintainContext: true
-        - name: Enable Table access control
-          href: administration-guide/access-control/table-acls/table-acl.md
+    - name: Query Language Elements
+      items:
+        - name: Query Language Elements Overview
+          href: /stream-analytics-query/query-language-elements-azure-stream-analytics
           maintainContext: true
-        - name: Set Permissions on a Data Object
-          href: administration-guide/access-control/table-acls/object-permissions.md
+        - name: APPLY
+          href: /stream-analytics-query/apply-azure-stream-analytics
           maintainContext: true
-      - name: Workspace access control
-        href: administration-guide/access-control/workspace-acl.md
-        maintainContext: true
-      - name: Enable Token-based authentication
-        href: administration-guide/access-control/tokens.md
-        maintainContext: true
-      - name: Conditional access
-        href: administration-guide/access-control/conditional-access.md
-        maintainContext: true
-      - name: Enable Azure Data Lake Storage credential passthrough
-        href: administration-guide/access-control/credential-passthrough.md
-        maintainContext: true
-    - name: Manage workspace storage
-      href: administration-guide/workspace-storage/storage.md
-      maintainContext: true
-    - name: Manage virtual networks
+        - name: CASE
+          href: /stream-analytics-query/case-azure-stream-analytics
+          maintainContext: true
+        - name: COALESCE
+          href: /stream-analytics-query/coalesce-azure-stream-analytics.md
+          maintainContext: true
+        - name: CREATE TABLE
+          href: /stream-analytics-query/create-table-stream-analytics
+          maintainContext: true
+        - name: FROM
+          href: /stream-analytics-query/from-azure-stream-analytics
+          maintainContext: true
+        - name: GROUP BY
+          href: /stream-analytics-query/group-by-azure-stream-analytics
+          maintainContext: true
+        - name: HAVING
+          href: /stream-analytics-query/having-azure-stream-analytics
+          maintainContext: true
+        - name: INTO
+          href: /stream-analytics-query/into-azure-stream-analytics
+          maintainContext: true
+        - name: JOIN
+          href: /stream-analytics-query/join-azure-stream-analytics
+          maintainContext: true
+        - name: MATCH_RECOGNIZE
+          href: /stream-analytics-query/match-recognize-stream-analytics
+          maintainContext: true
+        - name: Reference Data JOIN
+          href: /stream-analytics-query/reference-data-join-azure-stream-analytics
+          maintainContext: true
+        - name: SELECT
+          href: /stream-analytics-query/select-azure-stream-analytics
+          maintainContext: true
+        - name: UNION
+          href: /stream-analytics-query/union-azure-stream-analytics
+          maintainContext: true
+        - name: WHERE
+          href: /stream-analytics-query/where-azure-stream-analytics
+          maintainContext: true
+        - name: WITH
+          href: /stream-analytics-query/with-azure-stream-analytics
+          maintainContext: true
+    - name: Time Management
       items:
-      - name: Virtual networks overview
-        href: administration-guide/cloud-configurations/azure/index.md
-        maintainContext: true
-      - name: Peer virtual networks
-        href: administration-guide/cloud-configurations/azure/vnet-peering.md
-        maintainContext: true
-      - name: Upgrade your preview workspace to GA
-        href: administration-guide/cloud-configurations/azure/vnet-inject-upgrade.md
-        maintainContext: true
-      - name: Deploy Azure Databricks in your VNet
-        href: administration-guide/cloud-configurations/azure/vnet-inject.md
-        maintainContext: true
-      - name: Connect a workspace to an on-premises network
-        href: administration-guide/cloud-configurations/azure/on-prem-network.md
-        maintainContext: true
-      - name: User-defined route settings 
-        href: administration-guide/cloud-configurations/azure/udr.md
-        maintainContext: true
-  - name: Troubleshooting
-    items:
-    - name: Common questions
-      href: /azure/azure-databricks/frequently-asked-questions-databricks
-      maintainContext: true
-    - name: Administration
-      items: 
-      - name: Who deleted a workspace in Azure
-        href: kb/administration/who-deleted-workspace.md
-        maintainContext: true 
-    - name: Business intelligence 
-      items:
-      - name: JDBC and ODBC connections
-        href: kb/bi/jdbc-odbc-troubleshooting.md
-        maintainContext: true 
-    - name: Azure infrastructure 
-      items:
-      - name: Unable to mount ADLS Gen1 account
-        href: kb/cloud/adls-gen1-mount-problem.md
-        maintainContext: true 
-      - name: ADLException - Error getting info for file
-        href: kb/cloud/azure-vnet-gen1-issue.md
-        maintainContext: true 
-      - name: Assign a single public IP for VNet workspaces using Azure Firewall
-        href: kb/cloud/azure-vnet-single-ip.md
-        maintainContext: true 
-      - name: Analyze user interface performance issues
-        href: kb/cloud/har-log-analysis.md
-        maintainContext: true
-    - name: Clusters
-      items:
-      - name: Calculate number of cores in a cluster
-        href: kb/clusters/calculate-number-of-cores.md
-        maintainContext: true 
-      - name: Cluster failed to launch
-        href: kb/clusters/cluster-failed-launch.md
-        maintainContext: true 
-      - name: Cluster manager core instance request limit
-        href: kb/clusters/cluster-manager-limit.md
-        maintainContext: true 
-      - name: Admin user cannot restart cluster
-        href: kb/clusters/cluster-restart-fails-admin-user.md
-        maintainContext: true 
-      - name: Configuration setting overwrites default  settings
-        href: kb/clusters/conf-overwrites-default-settings.md
-        maintainContext: true 
-      - name: Run JNI libraries on single-core executors
-        href: kb/clusters/multiple-executors-single-worker.md
-        maintainContext: true 
-      - name: Overwrite log4j configurations
-        href: kb/clusters/overwrite-log4j-logs.md
-        maintainContext: true 
-      - name: Set executor log level
-        href: kb/clusters/set-executor-log-level.md
-        maintainContext: true 
-      - name: Unexpected cluster termination
-        href: kb/clusters/termination-reasons.md
-        maintainContext: true
-      - name: Apache Spark UI show less than total node memory
-        href: kb/clusters/spark-shows-less-memory.md
-        maintainContext: true
-    - name: Data management
-      items:
-      - name: Append to a DataFrame
-        href: kb/data/append-a-row-to-rdd-or-dataframe.md
-        maintainContext: true 
-      - name: Spark 2.0.0 cluster slow to append data
-        href: kb/data/append-slow-with-spark-2.0.0.md
-        maintainContext: true 
-      - name: Improve performance with bucketing
-        href: kb/data/bucketing.md
-        maintainContext: true 
-      - name: Simplify chained transformations
-        href: kb/data/chained-transformations.md
-        maintainContext: true 
-      - name: Dump tables in different formats
-        href: kb/data/dump-table.md
-        maintainContext: true 
-      - name: Hive UDFs
-        href: kb/data/hive-udf.md
-        maintainContext: true 
-      - name: Prevent duplicated columns on DataFrame joins
-        href: kb/data/join-two-dataframes-duplicated-columns.md
-        maintainContext: true 
-      - name: List and delete files faster
-        href: kb/data/list-delete-files-faster.md
-        maintainContext: true 
-      - name: Handle corrupted Parquet files with different   schema
-        href: kb/data/match-parquet-schema.md
-        maintainContext: true 
-      - name: Nulls and empty strings in partitioned columns save as nulls
-        href: kb/data/null-empty-strings.md
-        maintainContext: true 
-      - name: Behavior of randomSplit method
-        href: kb/data/random-split-behavior.md
-        maintainContext: true 
-      - name: Generate a schema from Case class
-        href: kb/data/schema-from-case-class.md
-        maintainContext: true 
-      - name: Specify skew hints in Dataset and DataFrame   join commands
-        href: kb/data/skew-hints-in-join.md
-        maintainContext: true 
-      - name: Update nested columns
-        href: kb/data/update-nested-column.md
-        maintainContext: true 
-      - name: Incompatible schema in some files
-        href: kb/data/wrong-schema-in-files.md
-        maintainContext: true 
-    - name: Data sources 
-      items:
-      - name: Error reading data from ADLS Gen1 with Sparklyr
-        href: kb/data-sources/access-adls1-from-sparklyr.md
-        maintainContext: true 
-      - name: Blob Storage mount and access failures
-        href: kb/data-sources/access-blob-fails-wasb.md
-        maintainContext: true 
-      - name: JDBC/ODBC access to ADLS Gen2
-        href: kb/data-sources/access-blobstore-odbc.md
-        maintainContext: true 
-      - name: Unable to access ADLS Gen1 with firewall
-        href: kb/data-sources/adls-gen1-firewall-access.md
-        maintainContext: true 
-      - name: CosmosDB connector library conflict
-        href: kb/data-sources/cosmosdb-connector-lib-conf.md
-        maintainContext: true
-      - name: Failure to detect encoding in JSON
-        href: kb/data-sources/json-unicode.md
-        maintainContext: true 
-      - name: JDBC query option doesn't work for Oracle   Database
-        href: kb/data-sources/query-option-not-work-oracle.md
-        maintainContext: true
-    - name: DBFS
-      items:
-      - name: Can't read objects stored in DBFS root
-        href: kb/dbfs/dbfs-root-permissions.md
-        maintainContext: true
-    - name: Delta Lake
-      items:
-      - name: Populate or update columns in Delta Lake table
-        href: kb/delta/backfill-delta-table-cols.md
-        maintainContext: true 
-      - name: Delta Cache behavior on autoscaling cluster
-        href: kb/delta/delta-cache-autoscaling.md
-        maintainContext: true 
-      - name: Improve MERGE INTO performance with partition pruning
-        href: kb/delta/delta-merge-into.md
-        maintainContext: true 
-      - name: Write job fails
-        href: kb/delta/delta-write-fails.md
-        maintainContext: true 
-      - name: Drop a managed Delta Lake table
-        href: kb/delta/drop-delta-table.md
-        maintainContext: true
-      - name: UPDATE query fails with IllegalStateException
-        href: kb/delta/update-query-fails.md
-        maintainContext: true 
-    - name: Developer tools 
-      items:
-      - name: Common Azure Data Factory errors
-        href: kb/dev-tools/common-errors-adf.md
-        maintainContext: true 
-      - name: Invalid Access Token with Airflow
-        href: kb/dev-tools/invalid-access-token-airflow.md
-        maintainContext: true
-    - name: Job execution
-      items:
-      - name: Increate number of tasks per stage
-        href: kb/execution/increase-tasks-per-stage.md
-        maintainContext: true 
-      - name: Maximum execution context and notebook  attachment     limits
-        href: kb/execution/maximum-execution-context.md
-        maintainContext: true 
-      - name: Set executor log level
-        href: kb/execution/set-executor-log-level.md
-        maintainContext: true 
-      - name: Seralized task is too large
-        href: kb/execution/spark-serialized-task-is-too-large.md
-        maintainContext: true
-    - name: Jobs
-      items:
-      - name: Active vs Dead jobs
-        href: kb/jobs/active-vs-dead-jobs.md
-        maintainContext: true 
-      - name: ADLS CREATE limits
-        href: kb/jobs/azure-throttling.md
-        maintainContext: true 
-      - name: Driver is temporarily unavailable
-        href: kb/jobs/driver-unavailable.md
-        maintainContext: true 
-      - name: Delete all jobs using the REST API
-        href: kb/jobs/howto-jobsdeleterestapi.md
-        maintainContext: true 
-      - name: Library not installed
-        href: kb/jobs/job-fails-no-library.md
-        maintainContext: true 
-      - name: Resolve job hangs and collect diagnostics
-        href: kb/jobs/job-hang-resolve-and-collect-diagnostics.md
-        maintainContext: true 
-      - name: Job rate limit
-        href: kb/jobs/job-rate-limit.md
-        maintainContext: true 
-      - name: Create table in overwrite mode fails when       interrupted
-        href: kb/jobs/spark-overwrite-cancel.md
-        maintainContext: true 
-      - name: Spark job hags due to custom UDF
-        href: kb/jobs/spark-udf-performance.md
-        maintainContext: true 
-      - name: Job fails maxresultsize
-        href: kb/jobs/job-fails-maxresultsize-exception.md
-        maintainContext: true
-    - name: Libraries
-      items:
-      - name: Can't uninstall library from UI
-        href: kb/libraries/cant-uninstall-libraries.md
-        maintainContext: true 
-      - name: Error installing pyodbc on a cluster
-        href: kb/libraries/install-pyodbc-on-cluster.md
-        maintainContext: true 
-      - name: Library unavailability job failure
-        href: kb/libraries/library-install-latency.md
-        maintainContext: true 
-      - name: Update a Maven library
-        href: kb/libraries/maven-library-version-mgmt.md
-        maintainContext: true
-    - name: Machine learning
-      items: 
-      - name: Extract feature information for tree-based  SparkML pipeline models
-        href: kb/machine-learning/extract-feature-info.md
-        maintainContext: true 
-      - name: SparkML model fit error
-        href: kb/machine-learning/fit-spark-model-error.md
-        maintainContext: true 
-      - name: Group K-fold cross-validation
-        href: kb/machine-learning/kfold-cross-validation.md
-        maintainContext: true 
-      - name: Speed up cross-validation
-        href: kb/machine-learning/speed-up-cross-validation.md
-        maintainContext: true 
-    - name: Metastores
-      items:
-      - name: Create table DDLs to import into an external      metastore
-        href: kb/metastore/create-table-ddl-for-metastore.md
-        maintainContext: true 
-      - name: Drop tables with corrupted metadata
-        href: kb/metastore/drop-table-corruptedmetadata.md
-        maintainContext: true 
-      - name: Azure metastore drop table AnalysisException
-        href: kb/metastore/drop-table-exception-azure-metastore.md
-        maintainContext: true 
-      - name: Common Hive metastore issues
-        href: kb/metastore/hive-metastore-troubleshooting.md
-        maintainContext: true 
-      - name: List table names
-        href: kb/metastore/list-tables.md
-        maintainContext: true 
-      - name: Set up embedded Hive metastore
-        href: kb/metastore/set-up-embedded-metastore.md
-        maintainContext: true 
-      - name: Set up Hive metastore on SQL Server
-        href: kb/metastore/set-up-sql-backed-hive-metastore.md
-        maintainContext: true 
-    - name: Metrics
-      items:
-      - name: Explore Spark metrics with Spark listeners
-        href: kb/metrics/explore-spark-metrics.md
-        maintainContext: true 
-      - name: Use Apache Spark metrics
-        href: kb/metrics/spark-metrics.md
-        maintainContext: true
-    - name: Notebooks
-      items:
-      - name: Check if a Spark property can be modified
-        href: kb/notebooks/check-spark-property-modifiable.md
-        maintainContext: true 
-      - name: Common notebook errors
-        href: kb/notebooks/common-errors-in-notebooks.md
-        maintainContext: true 
-      - name: Get full notebook path
-        href: kb/notebooks/get-notebook-path.md
-        maintainContext: true 
-      - name: Notebook autosave fails due to file size limits
-        href: kb/notebooks/notebook-autosave.md
-        maintainContext: true 
-      - name: Can't run notebook after cancelling streaming cell
-        href: kb/notebooks/streaming-notebook-stuck.md
-        maintainContext: true 
-      - name: Troubleshoot cancel command
-        href: kb/notebooks/troubleshoot-cancel-command.md
-        maintainContext: true
-    - name: Security and permissions
-      items:
-      - name: Table creation failure with security exception
-        href: kb/security/table-create-security-exception.md
-        maintainContext: true
-    - name: Python
-      items:
-      - name: Create a cluster with Anaconda
-        href: kb/python/anaconda-environment.md
-        maintainContext: true 
-      - name: Install and compile Cython
-        href: kb/python/cython.md
-        maintainContext: true 
-      - name: Read large DBFS-mounted files
-        href: kb/python/dbfs-file-size-limit.md
-        maintainContext: true 
-      - name: Command fails after installing Bokeh
-        href: kb/python/python-cmd-fails-tornado-version.md
-        maintainContext: true 
-      - name: Command cancelled due to library conflict
-        href: kb/python/python-command-cancelled.md
-        maintainContext: true 
-      - name: Command fails with AttributeError
-        href: kb/python/python-exec-display-cancelled.md
-        maintainContext: true 
-      - name: Run C++ code
-        href: kb/python/running-c-plus-plus-code.md
-        maintainContext: true
-      - name: Run SQL queries
-        href: kb/python/sql-in-python.md
-        maintainContext: true
-    - name: R with Spark
-      items:
-      - name: Change version of R
-        href: kb/r/change-r-version.md
-        maintainContext: true 
-      - name: Install rJava and RJDBC libraries
-        href: kb/r/install-rjava-rjdbc-libraries.md
-        maintainContext: true 
-      - name: Resolve package or namespace load error
-        href: kb/r/namespace-onload.md
-        maintainContext: true 
-      - name: Persist and share code in RStudio
-        href: kb/r/persist-share-code-rstudio.md
-        maintainContext: true 
-      - name: Fix the version of R packages
-        href: kb/r/pin-r-packages.md
-        maintainContext: true 
-      - name: Fail to render R markdown file containing sparklyr
-        href: kb/r/rmarkdown-sparklyr-code.md
-        maintainContext: true 
-      - name: Parallelize R code with gapply
-        href: kb/r/sparkr-gapply.md
-        maintainContext: true 
-      - name: Parallelize R code with spark.lapply
-        href: kb/r/sparkr-lapply.md
-        maintainContext: true
-    - name: Spark
-      items:
-      - name: Run C++ code in Scala
-        href: kb/scala/running-c-plus-plus-code-scala.md
-        maintainContext: true 
-    - name: SQL
-      items:
-      - name: Table or view not found
-        href: kb/sql/global-temp-view-not-found.md
-        maintainContext: true  
-    - name: Streaming
-      items:
-      - name: Recovery after checkpoint or output directory   change
-        href: kb/streaming/file-sink-streaming.md
-        maintainContext: true 
-      - name: Restart a structured Streaming query from last written offset
-        href: kb/streaming/ss-read-from-last-offset.md
-        maintainContext: true 
-    - name: Visualizations 
-      items: 
-      - name: Save Ploty files and display from DBFS
-        href: kb/visualizations/save-plotly-to-dbfs.md
-        maintainContext: true 
-  - name: Developer tools
-    items:
-    - name: Databricks Connect
-      href: dev-tools/databricks-connect.md
-      maintainContext: true
-    - name: Manage dependencies in data pipelines
-      href: dev-tools/data-pipelines.md
+        - name: Time Management Overview
+          href: /stream-analytics-query/time-management-azure-stream-analytics
+          maintainContext: true
+        - name: System.Timestamp
+          href: /stream-analytics-query/system-timestamp-stream-analytics
+          maintainContext: true
+        - name: TIMESTAMP BY
+          href: /stream-analytics-query/timestamp-by-azure-stream-analytics
+          maintainContext: true
+        - name: Time Skew Policies
+          href: /stream-analytics-query/time-skew-policies-azure-stream-analytics
+          maintainContext: true
+    - name: Event Delivery Guarantees
+      href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
       maintainContext: true
 - name: Reference
   items:
-  - name: Databricks REST API
-    items:
-    - name: REST API 2.0
-      items:
-      - name: API examples
-        href: dev-tools/api/latest/examples.md
-        maintainContext: true
-      - name: Authentication
-        href: dev-tools/api/latest/authentication.md
-        maintainContext: true 
-      - name: Clusters
-        href: dev-tools/api/latest/clusters.md
-        maintainContext: true 
-      - name: DBFS
-        href: dev-tools/api/latest/dbfs.md
-        maintainContext: true 
-      - name: Groups
-        href: dev-tools/api/latest/groups.md
-        maintainContext: true
-      - name: Instance Pools API
-        href: dev-tools/api/latest/instance-pools.md
-        maintainContext: true 
-      - name: Jobs
-        href: dev-tools/api/latest/jobs.md
-        maintainContext: true 
-      - name: Libraries
-        href: dev-tools/api/latest/libraries.md
-        maintainContext: true 
-      - name: MLflow
-        href: dev-tools/api/latest/mlflow.md
-        maintainContext: true
-      - name: SCIM
-        href: dev-tools/api/latest/scim.md
-        maintainContext: true 
-      - name: Secrets
-        href: dev-tools/api/latest/secrets.md
-        maintainContext: true 
-      - name: Tokens
-        href: dev-tools/api/latest/tokens.md
-        maintainContext: true 
-      - name: Workspace
-        href: dev-tools/api/latest/workspace.md
-        maintainContext: true
-      - name: Runtime version string for REST API calls
-        href: dev-tools/api/latest/runtime-version-string.md
-        maintainContext: true 
-    - name: REST API 1.2
-      href: dev-tools/api/1.2/index.md
-      maintainContext: true
-  - name: Databricks Utilities
-    href: dev-tools/databricks-utils.md
-    maintainContext: true
-  - name: Databricks CLI
-    href: dev-tools/databricks-cli.md
-    maintainContext: true
-  - name: Stack CLI
-    href: dev-tools/stack.md
-    maintainContext: true
-  - name: Azure Databricks REST API
-    href: /rest/api/databricks
+  - name: Azure PowerShell
+    href: /powershell/module/az.streamanalytics
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.streamanalytics
+  - name: REST
+    href: /rest/api/streamanalytics
   - name: Resource Manager template
-    href: /azure/templates/microsoft.databricks/workspaces  
+    href: /azure/templates/microsoft.streamanalytics/allversions
 - name: Resources
   items:
-  - name: Release notes
-    items:
-    - name: Platform 
-      items:
-      - name: Platform release notes 
-        href: release-notes/product/index.md
-        maintainContext: true
-      - name: October 2019
-        href: release-notes/product/2019/october.md
-        maintainContext: true
-      - name: September 2019
-        href: release-notes/product/2019/september.md
-        maintainContext: true
-      - name: August 2019
-        href: release-notes/product/2019/august.md
-        maintainContext: true
-      - name: July 2019
-        href: release-notes/product/2019/july.md
-        maintainContext: true
-      - name: June 2019
-        href: release-notes/product/2019/june.md
-        maintainContext: true
-      - name: May 2019
-        href: release-notes/product/2019/may.md
-        maintainContext: true
-      - name: April 2019
-        href: release-notes/product/2019/april.md
-        maintainContext: true
-      - name: March 2019
-        href: release-notes/product/2019/march.md
-        maintainContext: true
-      - name: February 2019
-        href: release-notes/product/2019/february.md
-        maintainContext: true
-      - name: January 2019
-        href: release-notes/product/2019/january.md
-        maintainContext: true
-      - name: December 2018
-        href: release-notes/product/2018/december.md
-        maintainContext: true
-      - name: November 2018
-        href: release-notes/product/2018/november.md
-        maintainContext: true
-      - name: October 2018
-        href: release-notes/product/2018/october.md
-        maintainContext: true
-      - name: September 2018
-        href: release-notes/product/2018/september.md
-        maintainContext: true
-      - name: August 2018
-        href: release-notes/product/2018/august.md
-        maintainContext: true
-      - name: July 2018
-        href: release-notes/product/2018/july.md
-        maintainContext: true
-      - name: June 2018
-        href: release-notes/product/2018/june.md
-        maintainContext: true
-      - name: May 2018
-        href: release-notes/product/2018/may.md
-        maintainContext: true
-      - name: April 2018
-        href: release-notes/product/2018/april.md
-        maintainContext: true
-      - name: March 2018
-        href: release-notes/product/2018/march.md
-        maintainContext: true
-      - name: February 2018
-        href: release-notes/product/2018/february.md
-        maintainContext: true
-      - name: January 2018
-        href: release-notes/product/2018/january.md
-        maintainContext: true
-    - name: Databricks Runtime
-      items:
-        - name: Supported
-          items:
-          - name: Supported runtime releases
-            href: release-notes/runtime/supported.md
-            maintainContext: true
-          - name: Databricks Runtime 6.1
-            href: release-notes/runtime/6.1.md
-            maintainContext: true
-          - name: Databricks Runtime 6.1 ML
-            href: release-notes/runtime/6.1ml.md
-            maintainContext: true
-          - name: Databricks Runtime 6.0
-            href: release-notes/runtime/6.0.md
-            maintainContext: true
-          - name: Databricks Runtime 6.0 with Conda
-            href: release-notes/runtime/6.0conda.md
-            maintainContext: true
-          - name: Databricks Runtime 6.0 ML
-            href: release-notes/runtime/6.0ml.md
-            maintainContext: true
-          - name: Databricks Runtime 5.5
-            href: release-notes/runtime/5.5.md
-            maintainContext: true 
-          - name: Databricks Runtime 5.5 with Conda
-            href: release-notes/runtime/5.5conda.md
-            maintainContext: true 
-          - name: Databricks Runtime 5.5 ML
-            href: release-notes/runtime/5.5ml.md
-            maintainContext: true
-          - name: Databricks Runtime 5.4
-            href: release-notes/runtime/5.4.md
-            maintainContext: true 
-          - name: Databricks Runtime 5.4 with Conda
-            href: release-notes/runtime/5.4conda.md
-            maintainContext: true 
-          - name: Databricks Runtime 5.4 ML
-            href: release-notes/runtime/5.4ml.md
-            maintainContext: true
-          - name: Databricks Runtime 5.3
-            href: release-notes/runtime/5.3.md
-            maintainContext: true 
-          - name: Databricks Runtime 5.3 ML
-            href: release-notes/runtime/5.3ml.md
-            maintainContext: true
-          - name: Databricks Light 2.4
-            href: release-notes/runtime/2.4light.md
-            maintainContext: true 
-          - name: Databricks Runtime 5.2
-            href: release-notes/runtime/5.2.md
-            maintainContext: true 
-          - name: Databricks Runtime 5.2 ML
-            href: release-notes/runtime/5.2ml.md
-            maintainContext: true 
-          - name: Databricks Runtime 3.5
-            href: release-notes/runtime/3.5.md
-            maintainContext: true 
-        - name: Unsupported
-          items:
-          - name: Unsupported runtime releases
-            href: release-notes/runtime/unsupported.md
-            maintainContext: true
-          - name: Databricks Runtime 5.1
-            href: release-notes/runtime/5.1.md
-            maintainContext: true 
-          - name: Databricks Runtime 5.1 ML 
-            href: release-notes/runtime/5.1ml.md
-            maintainContext: true
-          - name: Databricks Runtime 5.0
-            href: release-notes/runtime/5.0.md
-            maintainContext: true 
-          - name: Databricks Runtime 5.0 ML 
-            href: release-notes/runtime/5.0ml.md
-            maintainContext: true
-          - name: Databricks Runtime 4.3
-            href: release-notes/runtime/4.3.md
-            maintainContext: true
-          - name: Databricks Runtime 4.2
-            href: release-notes/runtime/4.2.md
-            maintainContext: true
-          - name: Databricks Runtime 4.1
-            href: release-notes/runtime/4.1.md
-            maintainContext: true 
-          - name: Databricks Runtime 4.1 ML 
-            href: release-notes/runtime/4.1ml.md
-            maintainContext: true
-          - name: Databricks Runtime 4.0
-            href: release-notes/runtime/4.0.md
-            maintainContext: true
-          - name: Databricks Runtime 3.4
-            href: release-notes/runtime/3.4.md
-            maintainContext: true 
-        - name: Maintenance updates
-          href: release-notes/runtime/maintenance-updates.md
-          maintainContext: true 
-        - name: Runtime support lifecycle
-          href: release-notes/runtime/databricks-runtime-ver.md
-          maintainContext: true 
-    - name: Release types
-      href: release-notes/release-types.md
-      maintainContext: true 
-  - name: R developer's guide 
-    href: /azure/machine-learning/r-developers-guide
+  - name: Stream Analytics previews
+    href: stream-analytics-previews.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=analytics
+    href: https://azure.microsoft.com/roadmap/
+  - name: Blog
+    href: https://azure.microsoft.com/blog/tag/azure-stream-analytics/
+  - name: Feedback forum
+    href: https://feedback.azure.com/forums/270577-azure-stream-analytics
+  - name: Forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/databricks/
+    href: https://azure.microsoft.com/pricing/details/stream-analytics/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=stream-analytics
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-databricks
-  - name: Region availability
-    href: https://azure.microsoft.com/regions/services/
-  - name: Support options
-    href: https://azure.microsoft.com/support/options/
+    href: https://stackoverflow.com/questions/tagged/azure-stream-analytics
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
+  - name: Customer case studies
+    href: https://azure.microsoft.com/case-studies/?service=stream-analytics
+  - name: Whitepaper - Real-time event processing
+    href: stream-analytics-real-time-event-processing-reference-architecture.md
