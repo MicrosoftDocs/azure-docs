@@ -354,7 +354,7 @@ dotnet build
 dotnet run
 ```
 
-The output of the example application is similar to the following example:
+The output of the app is similar to the following example:
 
 ```output
 Azure Blob storage - .NET Quickstart example

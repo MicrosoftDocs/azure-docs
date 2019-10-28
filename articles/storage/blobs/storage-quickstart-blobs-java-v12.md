@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/26/2019
+ms.date: 10/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -182,7 +182,7 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-dotnet-v12/blob1.png)
+![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-java-v12/blob1.png)
 
 Use the following Java classes to interact with these resources:
 
@@ -226,7 +226,7 @@ String connectStr = System.getenv("CONNECT_STR");
 Decide on a name for the new container. The code below appends a UUID value to the container name to ensure that it is unique.
 
 > [!IMPORTANT]
-> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 Next, create an instance of the [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) class, then call the [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) method to actually create the container in your storage account.
 
@@ -284,7 +284,7 @@ Add this code to the end of the `Main` method:
 ```java
 System.out.println("\nListing blobs...");
 
-// List the blob(s) in our container.
+// List the blob(s) in the container.
 for (BlobItem blobItem : containerClient.listBlobsFlat()) {
     System.out.println("\t" + blobItem.getName());
 }
@@ -347,7 +347,7 @@ Run the following `mvn` command to execute the app.
 mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
 
-The output of the example application is similar to the following example:
+The output of the app is similar to the following example:
 
 ```output
 [INFO] Scanning for projects...
@@ -381,9 +381,9 @@ Done
 [INFO] ------------------------------------------------------------------------
 ```
 
-When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your *MyDocuments* folder for the two files. You can open them and observe that they are identical. Copy the blob's URL from the console window and paste it into a browser to view the contents of the blob.
+When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your *MyDocuments* folder for the two files. You can open them and observe that they are identical.
 
-After you've verified the files, hit any key to finish the demo and delete the test files.
+After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
 
 ## Next steps
 
@@ -392,7 +392,7 @@ In this quickstart, you learned how to upload, download, and list blobs using Ja
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure blob storage Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+> [Azure blob storage v12 Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * To learn more, see the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
 * For tutorials, samples, quick starts and other documentation, visit [Azure for Java cloud developers](/azure/java/).

@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/22/2019
+ms.date: 10/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -17,13 +17,12 @@ Get started with the Azure Blob Storage client library v12 for Python. Azure Blo
 Use the Azure Blob Storage client library v12 for Python to:
 
 * Create a container
-* Set permissions on a container
 * Create a blob in Azure Storage
 * Download the blob to your local computer
 * List all of the blobs in a container
 * Delete a container
 
-[API reference documentation](python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/) | [Samples](/samples/browse/?products=azure&languages=python&service=storage&term=blob)
+[API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
 ## Prerequisites
 
@@ -39,38 +38,19 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 Create a Python application named *blob-quickstart-v12*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *blob-quickstart-v12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
+1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
 
    ```console
-   dotnet new console -n blob-quickstart-v12
+   mkdir blob-quickstart-v12
    ```
 
-2. Switch to the newly created *blob-quickstart-v12* folder and build the app to verify that all is well.
+1. Switch to the newly created *blob-quickstart-v12* directory.
 
    ```console
    cd blob-quickstart-v12
    ```
 
-   ```console
-   dotnet build
-   ```
-
-3. The expected output from the build should look something like this:
-
-   ```output
-   C:\QuickStarts\blob-quickstart-v12> dotnet build
-   Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
-   Copyright (C) Microsoft Corporation. All rights reserved.
-   
-    Restore completed in 42.22 ms for C:\QuickStarts\blob-quickstart-v12\BlobQuickstartV12.csproj.
-     BlobQuickstartV12 -> C:\QuickStarts\blob-quickstart-v12\bin\Debug\netcoreapp3.0\BlobQuickstartV12.dll
-   
-   Build succeeded.
-       0 Warning(s)
-       0 Error(s)
-   
-   Time Elapsed 00:00:05.88
-   ```
+1. 
 
 ### Install the package
 
@@ -80,35 +60,32 @@ While still in the application directory, install the Azure Blob Storage client 
 pip install azure-storage-blob --pre
 ```
 
+This command installs the Azure Blob Storage client library for Python package and all the libraries on which it depends. In this case, that is just the Azure core library for Python.
+
 ### Set up the app framework
 
 From the project directory:
 
-1. Open the *Program.cs* file in your editor
-1. Remove the `Console.WriteLine("Hello World!");` statement
-1. Add `using` directives
-1. Update the `Main` method declaration to support async code
+1. Open your code editor
+1. Add `import` directives
+1. Start the definition of a `run_quickstart` method where the main code will reside
+1. Create the structure for the program, including very basic exception handling
 
 Here's the code:
 
-```csharp
-using Azure.Storage;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
-using System;
-using System.IO;
-using System.Threading.Tasks;
+```python
+import os, uuid, sys
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
-namespace BlobQuickstartV12
-{
-    class Program
-    {
-        static async Task Main()
-        {
-        }
-    }
-}
+try:
+    print("Azure Blob Storage v12 - Python quickstart sample")
+    # Quick start code goes here
+except Exception as ex:
+    print('Exception:')
+    print(ex)
 ```
+
+Save the file under the name *blob-quickstart-v12.py*.
 
 ### Copy your credentials from the Azure portal
 
@@ -159,14 +136,13 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-dotnet-v12/blob1.png)
+![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-python-v12/blob1.png)
 
 Use the following Python classes to interact with these resources:
 
-* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers. The storage account provides the top-level namespace for the Blob service.
-* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
-* [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): The `BlobDownloadInfo` class represents the properties and content returned from downloading a blob.
+* [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers.
+* [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
+* [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
 
 ## Code examples
 
@@ -174,7 +150,6 @@ These example code snippets show you how to perform the following with the Azure
 
    * [Get the connection string](#get-the-connection-string)
    * [Create a container](#create-a-container)
-   * [Set permissions on a container](#set-permissions-on-a-container)
    * [Upload blobs to a container](#upload-blobs-to-a-container)
    * [List the blobs in a container](#list-the-blobs-in-a-container)
    * [Download blobs](#download-blobs)
@@ -184,190 +159,169 @@ These example code snippets show you how to perform the following with the Azure
 
 The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
-Add this code inside the `Main` method:
+Add this code inside the `try` block:
 
-```csharp
-Console.WriteLine("Azure Blob Storage v12 - Python quickstart sample\n");
-
-// Retrieve the connection string for use with the application. The storage 
-// connection string is stored in an environment variable on the machine 
-// running the application called CONNECT_STR. If the 
-// environment variable is created after the application is launched in a 
-// console or with Visual Studio, the shell or application needs to be closed
-// and reloaded to take the environment variable into account.
-string connectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
+```python
+# Retrieve the connection string for use with the application. The storage 
+# connection string is stored in an environment variable on the machine 
+# running the application called CONNECT_STR. If the environment variable is
+# created after the application is launched in a console or with Visual Studio,
+# the shell or application needs to be closed and reloaded to take the 
+# environment variable into account.
+connect_str = os.getenv('CONNECT_STR')
 ```
 
 ### Create a container
 
-Decide on a name for the new container. The code below appends a GUID value to the container name to ensure that it is unique.
+Decide on a name for the new container. The code below appends a UUID value to the container name to ensure that it is unique.
 
 > [!IMPORTANT]
-> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Next, create an instance of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, then call the [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync) method to create actually the container in your storage account. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync) method to create the container only if it does not already exist.
+Next, create an instance of the [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) class, then call the [create_container_](/python/api/azure-storage-blob/azure.storage.blob.containerclient#create-container-metadata-none--public-access-none----kwargs-) method to actually create the container in your storage account.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `try` block:
 
-```csharp
-//Create a unique name for the container
-string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
+```python
+# Create the BlobServiceClient object which will be used to create a container client
+blob_service_client = BlobServiceClient.from_connection_string(connect_str)
 
-// Create an object that represents the container
-BlobContainerClient containerClient = new BlobContainerClient(connectionString, containerName);
+# Create a unique name for the container
+container_name = "quickstartblobs" + str(uuid.uuid4())
 
-// Create the actual container
-await containerClient.CreateAsync();
-```
-
-### Set permissions on a container
-
-Set permissions on the container so that any blobs in the container are public. If a blob is public, it can be accessed anonymously by any client.
-
-```csharp
-// Set permissions so blobs in the container are public
-await containerClient.SetAccessPolicyAsync(PublicAccessType.BlobContainer);
+# Create the container
+container_client = blob_service_client.create_container(container_name)
 ```
 
 ### Upload blobs to a container
 
 The following code snippet:
 
-1. Declares and initializes a member variable that contains the path to the local *Documents* directory.
-1. Creates a text file in the local *Documents* directory.
-1. Gets a reference to a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
-1. Uploads the local text file to the blob by calling the [​Upload​Async](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+1. Creates a text file in the local directory.
+1. Gets a reference to a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object by calling the [get_blob_client](/python/api/azure-storage-blob/azure.storage.blob.containerclient#get-blob-client-blob--snapshot-none-) method on the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) from the [Create a container](#create-a-container) section.
+1. Uploads the local text file to the blob by calling the [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#upload-blob-data--blob-type--blobtype-blockblob---blockblob----length-none--metadata-none----kwargs-) method.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `try` block:
 
-```csharp
-// Path to the local documents folder
-string myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+```python
+# Create a file in local Documents directory to upload and download
+local_path = os.path.expanduser("~\\Documents")
+local_file_name = "QuickStart" + str(uuid.uuid4()) + ".txt"
+upload_file_path = os.path.join(local_path, local_file_name)
 
-// Create a file in your local myDocumentsPath folder to upload to a blob
-string localFileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
-string localFilePath = Path.Combine(myDocumentsPath, localFileName);
+# Write text to the file
+file = open(upload_file_path, 'w')
+file.write("Hello, World!")
+file.close()
 
-// Write text to the file
-await File.WriteAllTextAsync(localFilePath, "Hello, World!");
+# Create a blob client using the local file name as the name for the blob
+blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
 
-// Get a reference to a blob
-BlobClient blob = containerClient.GetBlobClient(localFileName);
+print("\nUploading to Azure storage as blob:\n\t" + local_file_name)
 
-Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blob.Uri);
-
-// Open the file and upload its data
-using FileStream uploadFileStream = File.OpenRead(localFilePath);
-await blob.UploadAsync(uploadFileStream);
-uploadFileStream.Close();
+# Upload the created file, use local_file_name for the blob name
+with open(upload_file_path, "rb") as data:
+    blob_client.upload_blob(data)
 ```
 
 ### List the blobs in a container
 
-List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+List the blobs in the container by calling the [list_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `try` block:
 
-```csharp
-Console.WriteLine("Listing blobs...");
+```python
+print("\nListing blobs...")
 
-// List all blobs in the container
-await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
-{
-    Console.WriteLine("\t" + blobItem.Name);
-}
+# List the blobs in the container
+blob_list = container_client.list_blobs()
+for blob in blob_list:
+    print("\t" + blob.name)
 ```
 
 ### Download blobs
 
-Download the blob created previously by calling the [​Download​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) method. The example code adds a suffix of "DOWNLOADED" to the file name so that you can see both files in local file system.
+Download the blob created previously by calling the [download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#download-blob-offset-none--length-none----kwargs-) method. The example code adds a suffix of "DOWNLOAD" to the file name so that you can see both files in local file system.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `try` block:
 
-```csharp
-// Download the blob to a local file, using the reference created earlier.
-// Append the string "DOWNLOADED" before the .txt extension so that you can see both files in MyDocuments.
-string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
+```python
+# Download the blob to a local file
+# Add 'DOWNLOAD' before the .txt extension so you can see both files in Documents
+download_file_path = os.path.join(local_path, str.replace(local_file_name ,'.txt', 'DOWNLOAD.txt'))
+print("\nDownloading blob to \n\t" + download_file_path)
 
-Console.WriteLine("\nDownloading blob to\n\t {0}\n", downloadFilePath);
-
-// Download the blob's contents and save it to a file
-BlobDownloadInfo download = await blob.DownloadAsync();
-
-using FileStream downloadFileStream = File.OpenWrite(downloadFilePath);
-await download.Content.CopyToAsync(downloadFileStream);
-downloadFileStream.Close();
+with open(download_file_path, "wb") as download_file:
+    download_file.writelines(blob_client.download_blob())
 ```
 
 ### Delete a container
 
-The following code cleans up the resources the app created by deleting the entire container using [​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
+The following code cleans up the resources the app created by removing the entire container using the [​delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete) method. You can also delete the local files, if you like.
 
-The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
+The app pauses for user input by calling `System.console().readLine()` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `try` block:
 
-```csharp
-// Clean up
-Console.Write("Press any key to begin clean up");
-Console.ReadLine();
+```python
+# Clean up
+print("\nPress the Enter key to begin clean up")
+sys.stdout.flush()
+input()
 
-Console.WriteLine("Deleting blob container...");
-await containerClient.DeleteAsync();
+print("Deleting blob container...")
+container_client.delete_container()
 
-Console.WriteLine("Deleting the local source and downloaded files...");
-File.Delete(localFilePath);
-File.Delete(downloadFilePath);
+print("Deleting the local source and downloaded files...")
+os.remove(upload_file_path)
+os.remove(download_file_path)
 
-Console.WriteLine("Done");
+print("Done")
 ```
 
 ## Run the code
 
-This app creates a test file in your local *MyDocuments* folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
+This app creates a test file in your local folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
 
-Navigate to your application directory, then build and run the application.
-
-```console
-dotnet build
-```
+Navigate to the directory containing the *blob-quickstart-v12.py* file, then execute the following `python` command to run the app.
 
 ```console
-dotnet run
+python blob-quickstart-v12.py
 ```
 
-The output of the example application is similar to the following example:
+The output of the app is similar to the following example:
 
 ```output
 Azure Blob Storage v12 - Python quickstart sample
 
-Uploading to Blob storage as blob:
-        https://mystorageacct.blob.core.windows.net/quickstartblobs79c3043b-0b0b-4935-9dc3-308fcb89a616/quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
+Uploading to Azure storage as blob:
+        QuickStart11bf4e4e-5aff-4b1f-aa4c-2fc2fc28f622.txt
 
 Listing blobs...
-        quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
+        QuickStart11bf4e4e-5aff-4b1f-aa4c-2fc2fc28f622.txt
 
-Downloading blob to:
-        C:\Users\myusername\Documents\quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0afDOWNLOADED.txt
+Downloading blob to
+        C:\Users\myusername\Documents\QuickStart11bf4e4e-5aff-4b1f-aa4c-2fc2fc28f622DOWNLOAD.txt
 
-Press any key to begin clean up
+Press the Enter key to begin clean up
+
 Deleting blob container...
 Deleting the local source and downloaded files...
 Done
 ```
 
-When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your *MyDocuments* folder for the two files. You can open them and observe that they are identical. Copy the blob's URL from the console window and paste it into a browser to view the contents of the blob.
+When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your *Documents* folder for the two files. You can open them and observe that they are identical.
 
-After you've verified the files, hit any key to finish the demo and delete the test files.
+After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
 
 ## Next steps
 
 In this quickstart, you learned how to upload, download, and list blobs using Python.
 
-To learn how to create a web app that uploads an image to Blob storage, continue to:
+To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Upload and process an image](storage-upload-process-images.md)
+> [Azure blob storage v12 Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
-* To explore a sample application that you can deploy from Visual Studio for Windows, see the [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
+* To learn more, see the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
+* For tutorials, samples, quick starts and other documentation, visit [Azure for Python Developers](/azure/python/).
