@@ -24,11 +24,13 @@ Add new users or delete existing users from your Azure Active Directory (Azure A
 
 You can create a new user using the Azure Active Directory portal.
 
-### To add a new user
+To add a new user, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as a User administrator for the organization.
 
-1. Select **Azure Active Directory**, select **Users**, and then select **New user**.
+1. On the Azure portal menu, select **Azure Active Directory** or search for and select *Azure Active Directory* from any page.
+
+1. Select **Users**, and then select **New user**.
 
     ![Add a user through Users - All users in Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
 
@@ -38,9 +40,9 @@ You can create a new user using the Azure Active Directory portal.
 
    - **User name**. Required. The user name of the new user. For example, *mary@contoso.com*.
 
-    The domain part of the user name must use either the initial default domain name, *\<yourdomainname>.onmicrosoft.com*, or a custom domain name, such as *contoso.com*. For more information about how to create a custom domain name, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md).
+     The domain part of the user name must use either the initial default domain name, *\<yourdomainname>.onmicrosoft.com*, or a custom domain name, such as *contoso.com*. For more information about how to create a custom domain name, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md).
 
-   - **Profile**. Optionally, you can add more information about the user. You can also add user information at a later time. For more information about adding user info, see [How to add or change user profile information](active-directory-users-profile-azure-portal.md).
+   - **Profile**. Optionally, you can add more information about the user. You can also add user information at a later time. For more information about adding user information, see [How to add or change user profile information](active-directory-users-profile-azure-portal.md).
 
    - **Groups**. Optionally, you can add the user to one or more existing groups. You can also add the user to groups at a later time. For more information about adding users to groups, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
@@ -60,22 +62,22 @@ If you have an environment with both Azure Active Directory (cloud) and Windows 
 
 You can delete an existing user using Azure Active Directory portal.
 
-### To delete a user
+To delete a user, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a User administrator account for the organization.
 
-2. Select **Azure Active Directory**, select **Users**, and then search for and select the user you want to delete from your Azure AD tenant. For example, _Mary Parker_.
+1. On the Azure portal menu, select **Azure Active Directory**, select **Users**. Search for and select the user you want to delete from your Azure AD tenant. For example, _Mary Parker_.
 
-3. Select **Delete user**.
+1. Select **Delete user**.
 
     ![Users - All users page with Delete user highlighted](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [How to restore or permanently remove a recently deleted user](active-directory-users-restore.md). 
+The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [How to restore or permanently remove a recently deleted user](active-directory-users-restore.md).
 
-When a user is deleted, any licenses consumed by the user are made available for other users to be consumed.
+When a user is deleted, any licenses consumed by the user are made available for other users.
 
 >[!Note]
->You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
+>You must use Windows Server Active Directory to update the identity, contact information, or job information for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
 
 ## Next steps
 
