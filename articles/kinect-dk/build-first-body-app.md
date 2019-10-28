@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Build an Azure Kinect body tracking application 
+title: 'Quickstart: Build an Azure Kinect body tracking application'
 description: Step by step instructions to build your first Azure Kinect body tracking application 
 author: qm13
 ms.author: quentinm
