@@ -27,7 +27,7 @@ The application will recognize an utterance like "turn on the tv" and respond wi
 - A [Language Understanding](https://www.luis.ai/home) (LUIS) authoring key:
   1. Open a web browser and navigate to the [Azure portal](https://portal.azure.com)
   1. Select Create a resource
-  1. Search for and select Language Understanding
+  1. Search for and select [Language Understanding](https://aka.ms/sc-luis-all)
   1. Select Authoring in the create options
   1. After the resource is deployed, go to the resource and copy the key from the Quickstart or Keys section
 

@@ -14,6 +14,8 @@ ms.author: donkim
 
 # How To: Fulfill Commands on the client with the Speech SDK (Preview)
 
+To complete tasks using a Custom Commands application you can send custom payloads to a connected client device.
+
 In this article, you'll:
 
 - Define and send a custom JSON payload from your Custom Commands application
