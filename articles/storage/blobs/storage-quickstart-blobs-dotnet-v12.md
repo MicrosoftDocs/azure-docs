@@ -345,7 +345,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your *MyDocuments* folder for the two files. You can open them and observe that they are identical.
+Before you begin the clean up process, check your *MyDocuments* folder for the two files. You can open them and observe that they are identical.
 
 After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
 
@@ -353,10 +353,10 @@ After you've verified the files, press the **Enter** key to delete the test file
 
 In this quickstart, you learned how to upload, download, and list blobs using .NET.
 
-To learn how to create a web app that uploads an image to Blob storage, continue to:
+To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure blob storage v12 .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+> [Azure blob storage SDK v12 .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
 * For tutorials, samples, quick starts and other documentation, visit [Azure for .NET and .NET Core developers](/dotnet/azure/).
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).

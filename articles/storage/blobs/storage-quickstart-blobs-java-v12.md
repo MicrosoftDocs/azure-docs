@@ -22,7 +22,7 @@ Use the Azure Blob Storage client library v12 for Java to:
 * Download a blob to your local computer
 * Delete a container
 
-[API reference documentation](/java/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples)
+[API reference documentation](/java/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 ## Prerequisites
 
@@ -381,7 +381,7 @@ Done
 [INFO] ------------------------------------------------------------------------
 ```
 
-When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your *MyDocuments* folder for the two files. You can open them and observe that they are identical.
+Before you begin the clean up process, check your *MyDocuments* folder for the two files. You can open them and observe that they are identical.
 
 After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
 
@@ -392,7 +392,7 @@ In this quickstart, you learned how to upload, download, and list blobs using Ja
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure blob storage v12 Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+> [Azure blob storage SDK v12 Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * To learn more, see the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
 * For tutorials, samples, quick starts and other documentation, visit [Azure for Java cloud developers](/azure/java/).

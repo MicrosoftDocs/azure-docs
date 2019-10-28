@@ -68,7 +68,6 @@ From the project directory:
 
 1. Open your code editor
 1. Add `import` directives
-1. Start the definition of a `run_quickstart` method where the main code will reside
 1. Create the structure for the program, including very basic exception handling
 
 Here's the code:
@@ -178,16 +177,16 @@ Decide on a name for the new container. The code below appends a UUID value to t
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Next, create an instance of the [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) class, then call the [create_container_](/python/api/azure-storage-blob/azure.storage.blob.containerclient#create-container-metadata-none--public-access-none----kwargs-) method to actually create the container in your storage account.
+Create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class by calling the [from_connection_string](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#from-connection-string-conn-str--credential-none----kwargs-) method. Then, call the [create_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#create-container-name--metadata-none--public-access-none----kwargs-) method to actually create the container in your storage account.
 
 Add this code to the end of the `try` block:
 
 ```python
-# Create the BlobServiceClient object which will be used to create a container client
-blob_service_client = BlobServiceClient.from_connection_string(connect_str)
-
 # Create a unique name for the container
 container_name = "quickstartblobs" + str(uuid.uuid4())
+
+# Create the BlobServiceClient object which will be used to create a container client
+blob_service_client = BlobServiceClient.from_connection_string(connect_str)
 
 # Create the container
 container_client = blob_service_client.create_container(container_name)
@@ -257,9 +256,9 @@ with open(download_file_path, "wb") as download_file:
 
 ### Delete a container
 
-The following code cleans up the resources the app created by removing the entire container using the [​delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete) method. You can also delete the local files, if you like.
+The following code cleans up the resources the app created by removing the entire container using the [​delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-) method. You can also delete the local files, if you like.
 
-The app pauses for user input by calling `System.console().readLine()` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
+The app pauses for user input by calling `input()` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
 
 Add this code to the end of the `try` block:
 
@@ -310,7 +309,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your *Documents* folder for the two files. You can open them and observe that they are identical.
+Before you begin the clean up process, check your *Documents* folder for the two files. You can open them and observe that they are identical.
 
 After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
 
@@ -321,7 +320,7 @@ In this quickstart, you learned how to upload, download, and list blobs using Py
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure blob storage v12 Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Azure blob storage SDK v12 Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
 * To learn more, see the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
 * For tutorials, samples, quick starts and other documentation, visit [Azure for Python Developers](/azure/python/).
