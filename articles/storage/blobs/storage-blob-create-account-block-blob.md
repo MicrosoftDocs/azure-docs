@@ -154,11 +154,7 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
-
-   >[!NOTE]
-   > If you want to optimize your storage account for data analytics, then add `-EnableHierarchicalNamespace $True` to the command. 
-   >
-   > To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+   If you want to optimize your storage account for data analytics, then add `-EnableHierarchicalNamespace $True` to the command. To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -189,10 +185,8 @@ To create a block blob account by using the Azure CLI, you must first install Az
     --sku "Premium_LRS"
    ```
 
-   >[!NOTE]
-   > If you want to optimize your storage account for data analytics, then add `--hierarchical-namespace true` to the command. 
-   >
-   > To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+   If you want to optimize your storage account for data analytics, then add `--hierarchical-namespace true` to the command. To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+   
 ---
 
 ## Next steps
