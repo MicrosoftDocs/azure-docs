@@ -31,7 +31,7 @@ Learn [how to plan your environment](./time-series-insights-update-plan.md).
 Associate each Azure Time Series Insights Preview environment with an event source. For more information, read [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md) and [Add an IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md). You provide a Timestamp ID property and a unique consumer group during this step. Doing so ensures that the environment has access to the appropriate events.
 
 > [!NOTE]
-> The preceding step above is optional in the provisioning workflow while you create the Time Series Preview environment. However, you must attach an event source to the environment so the data can start flowing in that environment.
+> The preceding step is optional in the provisioning workflow while you create the Time Series Preview environment. However, you must attach an event source to the environment so the data can start flowing in that environment.
 
 After provisioning is complete, you can modify your access policies and other environment attributes to suit your business requirements.
 
