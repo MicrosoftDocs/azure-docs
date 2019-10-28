@@ -111,7 +111,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
         az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 
-1. Add secrets for *clientId* and *clientSecret* to Secrets Manager. These commands must be executed in the same directory as the *.csproj* file.
+1. Add secrets for *clientId* and *clientSecret* to Secrets Manager, the tool for storing sensitive data that you added to the *.csproj* file in the [previous tutorial](https://docs.microsoft.com/en-us/azure/azure-app-configuration/quickstart-aspnet-core-app). These commands must be executed in the same directory as the *.csproj* file.
 
         dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>        
         dotnet user-secrets set ConnectionStrings:KeyVaultClientSecret <clientSecret-of-your-service-principal>
