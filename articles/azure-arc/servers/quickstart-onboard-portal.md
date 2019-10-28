@@ -63,7 +63,3 @@ To disconnect a machine from Azure Arc for Servers, you need to perform two step
 
 > [!div class="nextstepaction"]
 > [Assign a Policy to Connected Machines](../../governance/policy/assign-policy-portal.md)
-
-[Azure CLI]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
-[CreateSPNPortal]: https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
-[aka_hybridmachineportal]:https://aka.ms/hybridmachineportal
