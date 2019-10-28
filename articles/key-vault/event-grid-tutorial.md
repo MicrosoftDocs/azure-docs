@@ -32,7 +32,7 @@ Azure Event Grid is an eventing service for the cloud. In this guide, you will s
 
 ## Create an Azure Automation account
 
-Create an Azure Automation account through the [Azure portal](http://portal.azure.com).
+Create an Azure Automation account through the [Azure portal](https://portal.azure.com).
 
 1.  Go to portal.azure.com and log in to your subscription.
 
@@ -52,7 +52,7 @@ After your Azure Automation account is ready, create a runbook.
 
 ![](media/image3.png)
 
-1.  Select the automation account you created in step 1.
+1.  Select the automation account you just created.
 
 1.  Select "Runbooks" under the Process Automation section.
 
@@ -115,7 +115,7 @@ Now create a webhook, to trigger your newly created runbook.
 
 ## Create an Event Grid subscription
 
-Create an Event Grid subscription through the [Azure portal](http://portal.azure.com).
+Create an Event Grid subscription through the [Azure portal](https://portal.azure.com).
 
 1.  Open the Azure portal using the following link: https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true
 
