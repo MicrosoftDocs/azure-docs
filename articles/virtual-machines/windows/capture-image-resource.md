@@ -53,16 +53,17 @@ To generalize your Windows VM, follow these steps:
 
 6. When Sysprep completes, it shuts down the VM. Do not restart the VM.
 
->[!TIP]**Optional** Use [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) to optimize your image
+> [!TIP]
+> **Optional** Use [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) to optimize your image and reduce your VM's first boot time.
 >
->Optimizing an image reduces your VM's first boot time.
+> To optimize your image, mount your VHD by double-clicking on it in Windows explorer, and then run DISM with the `/optimize-image` parameter.
 >
->```cmd
->DISM /image:D:\ /optimize-image /boot
->```
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
 > Where D: is the mounted VHD's path.
 >
-> This optimization should be the final step before you boot the VM. If you modify your image, you’ll have to run the optimization command again. 
+> Running `DISM /optimize-image` should be the last modification you make to your VHD. If you make any changes to your VHD prior to deployment, you'll have to run `DISM /optimize-image` again.
 
 ## Create a managed image in the portal 
 
