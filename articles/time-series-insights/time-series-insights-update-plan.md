@@ -1,10 +1,10 @@
 ﻿---
 title: 'Plan your Azure Time Series Insights Preview environment | Microsoft Docs'
 description: Plan your Azure Time Series Insights Preview environment.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
@@ -14,14 +14,14 @@ ms.custom: seodec18
 
 # Plan your Azure Time Series Insights Preview environment
 
-This article describes best practices to plan and get started quickly by using the Azure Time Series Insights Preview.
+This article describes best practices to plan and get started quickly by using Azure Time Series Insights Preview.
 
 > [!NOTE]
 > For best practices to plan a general availability Time Series Insights instance, see [Plan your Azure Time Series Insights general availability environment](time-series-insights-environment-planning.md).
 
 ## Best practices for planning and preparation
 
-To get started with Time Series Insights, it’s best if you understand:
+Best practices surrounding planning for and preparing your environment are described further in the following articles:
 
 * What you get when you [provision a Time Series Insights Preview environment](#the-preview-environment).
 * What your [Time Series IDs and Timestamp properties are](#configure-time-series-ids-and-timestamp-properties).
@@ -31,12 +31,19 @@ To get started with Time Series Insights, it’s best if you understand:
 
 Azure Time Series Insights employs a pay-as-you-go business model. For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-## The Preview environment
+## The preview environment
 
 When you provision a Time Series Insights Preview environment, you create two Azure resources:
 
 * An Azure Time Series Insights Preview environment
 * An Azure Storage general-purpose V1 account
+
+As part of the provisioning process, you specify whether you want to enable a warm store. Warm store provides you with a tiered query experience. When enabled, you must specify a retention period between 7 and 30 days. Queries executed within the warm store retention period generally provide faster response times. When a query spans over the warm store retention period, it's served from cold storage.
+
+Queries on warm store are free, while queries on cold store incur costs. It's important to understand your query patterns and plan your warm store configuration accordingly. We recommend that interactive analytics on the most recent data reside in your warm store and pattern analysis and long-term trends reside in cold.
+
+> [!NOTE]
+> We currently support a maximum of 1,000 properties with warm store.
 
 To start, you need three additional items:
 
@@ -44,16 +51,20 @@ To start, you need three additional items:
 * An [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
 * [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format
 
+## Review preview limits
+
+[!INCLUDE [Review Time Series Insights Preview limits](../../includes/time-series-insights-preview-limits.md)]
+
 ## Configure Time Series IDs and Timestamp properties
 
 To create a new Time Series Insights environment, select a Time Series ID. Doing so acts as a logical partition for your data. As noted, make sure to have your Time Series IDs ready.
 
 > [!IMPORTANT]
-> Time Series IDs *cannot be changed later*. Verify each one before final selection and first use.
+> Time Series IDs *can't be changed later*. Verify each one before final selection and first use.
 
 You can select up to three keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Storage and ingress](./time-series-insights-update-storage-ingress.md).
 
-The Timestamp property is also important. You can designate this property when you add event sources. Each event source has an optional Timestamp property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
+The **Timestamp** property is also important. You can designate this property when you add event sources. Each event source has an optional Timestamp property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
 
 > [!TIP]
 > Verify the formatting and parsing requirements for your event sources.
@@ -75,7 +86,7 @@ You can verify the way that you send events to Time Series Insights. Ideally, yo
 A good rule of thumb:
 
 * Store metadata in your Time Series Model.
-* Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp.
+* Ensure that Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp property.
 
 For more information, see [Shape events](./time-series-insights-send-events.md#supported-json-shapes).
 
@@ -84,7 +95,5 @@ For more information, see [Shape events](./time-series-insights-send-events.md#s
 ## Next steps
 
 - Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
-
 - Read more about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Time Series Insights Preview.
-
 - Learn about [data modeling](./time-series-insights-update-tsm.md) in the Time Series Insights Preview.

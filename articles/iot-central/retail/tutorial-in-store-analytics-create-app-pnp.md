@@ -1,5 +1,5 @@
 ---
-title: Create a retail application in Azure IoT Central | Microsoft Docs
+title: Create an in-store analytics application in Azure IoT Central | Microsoft Docs
 description: This tutorial shows how to create an in-store analytics retail application in IoT Central. You'll create it, customize it, and add sensor devices.
 services: iot-central
 ms.service: iot-central
@@ -277,4 +277,4 @@ In this tutorial, you learned how to:
 Now that you've created an Azure IoT Central condition monitoring application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Customize the operator dashboard](./tutorial-in-store-analytics-customize-dashboard-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)
+> [Customize the operator dashboard](./tutorial-in-store-analytics-customize-dashboard-pnp.md)
