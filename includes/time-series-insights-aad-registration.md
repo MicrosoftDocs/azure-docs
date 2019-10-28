@@ -1,13 +1,14 @@
 ---
- title: include file
- description: include file
- ms.topic: include
- ms.custom: include file
- services: time-series-insights
- ms.service: time-series-insights
- author: kingdomofends
- ms.author: adgera
- ms.date: 09/24/2019
+title: include file
+description: include file
+ms.topic: include
+ms.custom: include file
+services: time-series-insights
+ms.service: time-series-insights
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
+ms.date: 09/24/2019
 ---
 
 > [!IMPORTANT]
