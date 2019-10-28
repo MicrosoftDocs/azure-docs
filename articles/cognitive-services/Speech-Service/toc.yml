@@ -1,6 +1,6 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
 - name: Speech service documentation
-  href: https://aka.ms/speech/hub
+  href: index.md
 - name: Overview
   expanded: false
   items:
@@ -26,21 +26,19 @@
     - name: Change speech recognition source language
       href: how-to-specify-source-language.md
     - name: Improve accuracy with Custom Speech
-      href: https://aka.ms/speech/custom-sr-overview
+      href: how-to-custom-speech.md
     - name: Improve accuracy with Phrase Lists
       href: how-to-phrase-lists.md
     - name: Improve accuracy with Tenant Models
-      href: https://aka.ms/speech/tlm-overview
+      href: tutorial-tenant-model.md
     - name: Select a specific microphone input device
       href: how-to-select-audio-input-devices.md
     - name: Use automatic source language detection
       href: how-to-automatic-language-detection.md
     - name: Use compressed audio input formats
       href: how-to-use-codec-compressed-audio-input-streams.md
-    - name: Use continuous recognition
-      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Use speech recognition with Docker containers
-      href: https://aka.ms/speech/sr-containers
+      href: speech-container-howto.md
   - name: Reference
     items:
     - name: Speech SDK APIs
@@ -85,11 +83,11 @@
     - name: Improve output with SSML
       href: speech-synthesis-markup.md
     - name: Improve output with Custom Voices
-      href: https://aka.ms/speech/custom-tts-overview
+      href: how-to-custom-voice.md
     - name: Synthesize speech with Long Audio API
       href: long-audio-api.md
     - name: Use speech synthesis with Docker containers
-      href: https://aka.ms/speech/tts-containers
+      href: speech-container-howto.md
   - name: Reference
     items:
     - name: Speech SDK
@@ -143,7 +141,7 @@
         href: releasenotes.md
     - name: LUIS Service
       items:
-      - name: LUIS Developer Resources 
+      - name: LUIS Developer Resources
         href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
 - name: Speech translation
   exanded: false
@@ -313,10 +311,6 @@
       items:
       - name: "How-to: Audio Content Creation"
         href: how-to-audio-content-creation.md
-    - name: Custom neural voices
-      items:
-      - name: Placeholder
-        href: https://example.com
   - name: Custom keyword spotting
     href: speech-devices-sdk-create-kws.md
 - name: Speech Service
@@ -352,11 +346,11 @@
       - name: Batch transcription & customization REST API
         href: https://westus.cris.ai/swagger/ui/index
       - name: Conversation Transcription REST API
-        href: https://aka.ms/ignite2019/speech/placeholder
+        href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
       - name: Speech-to-text REST API
-        href: https://aka.ms/ignite2019/speech/placeholder
+        href: rest-speech-to-text.md
       - name: Text-to-speech REST API
-        href: https://aka.ms/ignite2019/speech/placeholder
+        href: rest-text-to-speech.md
       - name: Webhooks REST API
         href: webhooks.md
     - name: Swagger documentation
