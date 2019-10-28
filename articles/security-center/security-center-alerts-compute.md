@@ -47,7 +47,7 @@ Security Center also has access to the underlying sandboxes and VMs. Together wi
 > [!NOTE]
 > Security Center Threat Detection for App Service is currently not available in Azure government and sovereign cloud regions.
 
-## Azure Container Service <a name="azure-containers"></a>
+## Azure Kubernetes Service <a name="azure-kubernetes"></a>
 
 Security Center provides real-time threat detection for your containers on Linux machines based on the auditd framework. The alerts identify several suspicious Docker activities, such as the creation of a privileged container on a host, an indication of a Secure Shell (SSH) server running inside a Docker container, or the use of crypto miners. 
 
