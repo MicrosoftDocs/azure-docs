@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: KingdomOfEnds
   ms.author: v-adgera
-  ms.date: 09/04/2019
+  ms.date: 10/21/2019
 
 
 landingContent:
@@ -26,6 +26,14 @@ landingContent:
             url: time-series-insights-update-overview.md
           - text: About Azure Time Series Insights GA
             url: time-series-insights-overview.md
+          - text: Client SDK sample visualization
+            url: https://tsiclientsample.azurewebsites.net/
+      - linkListType: concept
+        links:
+          - text: Visualize data in Time Series Insights explorer Preview
+            url: time-series-insights-update-explorer.md
+          - text: Time Series Model
+            url: time-series-insights-update-tsm.md
       - linkListType: video
         links:
           - text: Time Series Insight for IoT apps. (13:31)
@@ -41,19 +49,6 @@ landingContent:
         links:
           - text: Azure Time Series Insights Preview tutorial
             url: time-series-insights-update-create-environment.md
-          - text: Client SDK sample visualization
-            url: https://tsiclientsample.azurewebsites.net/
-      - linkListType: how-to-guide
-        links:
-          - text: Provision and manage
-            url: time-series-insights-update-how-to-manage.md
-      - linkListType: concept
-        links:
-          - text: Visualize data in Time Series Insights explorer Preview
-            url: time-series-insights-update-explorer.md
-
-  - title: Plan and prepare Preview
-    linkLists:
       - linkListType: deploy
         links:
           - text: Connect to Event Hubs
@@ -66,55 +61,12 @@ landingContent:
             url: time-series-insights-update-storage-ingress.md
       - linkListType: how-to-guide
         links:
+          - text: Provision and manage
+            url: time-series-insights-update-how-to-manage.md
           - text: Grant data access
             url: time-series-insights-data-access.md
           - text: Shape JSON for queries
             url: time-series-insights-update-how-to-shape-events.md
-      - linkListType: concept
-        links:
-          - text: Time Series Model
-            url: time-series-insights-update-tsm.md
-  - title: Get started with GA
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Explore Azure Time Series Insights GA
-            url: time-series-quickstart.md
-      - linkListType: tutorial
-        links:
-          - text: Create a Time Series Insights environment
-            url: tutorial-create-populate-tsi-environment.md
-          - text: Client SDK sample visualization
-            url: https://tsiclientsample.azurewebsites.net/
-      - linkListType: how-to-guide
-        links:
-          - text: Create an environment
-            url: time-series-insights-get-started.md
-      - linkListType: concept
-        links:
-          - text: Visualize data in Time Series Insights explorer
-            url: time-series-insights-explorer.md
-
-  - title: Plan and prepare GA
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Connect to Event Hubs
-            url: time-series-insights-how-to-add-an-event-source-eventhub.md
-          - text: Connect to IoT Hub
-            url: time-series-insights-how-to-add-an-event-source-iothub.md
-          - text: Plan your environment
-            url: time-series-insights-environment-planning.md
-          - text: Scale your environment
-            url: time-series-insights-how-to-scale-your-environment.md
-      - linkListType: how-to-guide
-        links:
-          - text: Grant data access
-            url: time-series-insights-data-access.md
-          - text: Shape JSON for queries
-            url: how-to-shape-query-json.md
-          - text: Send events
-            url: time-series-insights-send-events.md
 
   - title: API Reference
     linkLists:

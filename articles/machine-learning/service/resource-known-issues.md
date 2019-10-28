@@ -85,6 +85,16 @@ Automated machine learning does not currently support tensor flow version 1.13. 
 
 Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering correctly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
+## Datasets and Data Preparation
+
+### Fail to read Parquet file from HTTP or ADLS Gen 2
+
+There is a known issue in AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. To fix this issue, please upgrade to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
+
 ## Databricks
 
 Databricks and Azure Machine Learning issues.
