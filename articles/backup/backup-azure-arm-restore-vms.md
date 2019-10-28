@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Restore virtual machines by using the Azure portal'
+title: 'Azure Backup: Restore VMs by using the Azure portal'
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal
 ms.reviewer: geg
 author: dcurwin
@@ -14,8 +14,6 @@ ms.author: dacurwin
 
 This article describes how to restore Azure VM data from the recovery points stored in [Azure Backup](backup-overview.md) Recovery Services vaults.
 
-
-
 ## Restore options
 
 Azure Backup provides a number of ways to restore a VM.
@@ -25,7 +23,6 @@ Azure Backup provides a number of ways to restore a VM.
 **Create a new VM** | Quickly creates and gets a basic VM up and running from a restore point.<br/><br/> You can specify a name for the VM, select the resource group and virtual network (VNet) in which it will be placed, and specify a storage account for the restored VM. The new VM must be created in the same region as the source VM.
 **Restore disk** | Restores a VM disk, which can then be used to create a new VM.<br/><br/> Azure Backup provides a template to help you customize and create a VM. <br/><br> The restore job generates a template that you can download and use to specify custom VM settings, and create a VM.<br/><br/> The disks are copied to the storage account you specify.<br/><br/> Alternatively, you can attach the disk to an existing VM, or create a new VM using PowerShell.<br/><br/> This option is useful if you want to customize the VM, add configuration settings that weren't there at the time of backup, or add settings that must be configured using the template or PowerShell.
 **Replace existing** | You can restore a disk, and use it to replace a disk on the existing VM.<br/><br/> The current VM must exist. If it's been deleted, this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM before replacing the disk, and stores it in the staging location you specify. Existing disks connected to the VM are replaced with the selected restore point.<br/><br/> The snapshot is copied to the vault, and retained in accordance with the retention policy. <br/><br/> Replace existing is supported for unencrypted managed VMs. It's not supported for unmanaged disks, [generalized VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), or for VMs [created using custom images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM configuration.<br/><br/>
-
 
 > [!NOTE]
 > You can also recover specific files and folders on an Azure VM. [Learn more](backup-azure-restore-files-from-vm.md).
@@ -41,19 +38,16 @@ Some details about storage accounts:
 - **Replace disk**: When you replace a disk on an existing VM, Azure Backup takes a snapshot of the existing VM before replacing the disk. The snapshot is stored in the staging location (storage account) you specify. This storage account is used to temporarily store the snapshot during the restore process, and we recommend that you create a new account to do this, that can be easily removed afterwards.
 - **Storage account location**: The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
 - **Storage type**: Blob storage isn't supported.
-- **Storage redundancy**: Zone redundant storage (ZRS) isn't supported. The replication and redundancy information for the account is shown in parentheses after the account name. 
+- **Storage redundancy**: Zone redundant storage (ZRS) isn't supported. The replication and redundancy information for the account is shown in parentheses after the account name.
 - **Premium storage**:
-    - When restoring non-premium VMs, premium storage accounts aren't supported.
-    - When restoring managed VMs, premium storage accounts configured with network rules aren't supported.
-
+  - When restoring non-premium VMs, premium storage accounts aren't supported.
+  - When restoring managed VMs, premium storage accounts configured with network rules aren't supported.
 
 ## Before you start
 
 To restore a VM (create a new VM), make sure you have the correct role-based access control (RBAC) [permissions](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) for the Restore VM operation.
 
 If you don't have permissions, you can [restore a disk](#restore-disks), and then after the disk is restored, you can [use the template](#use-templates-to-customize-a-restored-vm) that was generated as part of the restore operation to create a new VM.
-
-
 
 ## Select a restore point
 
@@ -88,7 +82,6 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
     ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 6. In **Restore configuration**, select **OK**. In **Restore**, click **Restore** to trigger the restore operation.
-
 
 ## Restore disks
 
@@ -129,7 +122,6 @@ After the disk is restored, use the template that was generated as part of the r
 
    ![Submit template deployment](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
-
 ## Replace existing disks
 
 As one of the [restore options](#restore-options), you can replace an existing VM disk with the selected restore point. [Review](#restore-options) all restore options.
@@ -139,7 +131,6 @@ As one of the [restore options](#restore-options), you can replace an existing V
 3. In **Staging Location**, specify where snapshots of the current managed disks should be saved during the restore process. [Learn more](#storage-accounts).
 
    ![Restore configuration wizard Replace Existing](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
-
 
 ## Restore VMs with special configurations
 
@@ -158,6 +149,7 @@ There are a number of common scenarios in which you might need to restore VMs.
 **Zone Pinned VMs** | Azure Backup supports backup and restore of zoned pinned VMs. [Learn more](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## Track the restore operation
+
 After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, select the **Notifications** symbol, and then select **View all Jobs** to see the Restore Process Status.
 
 ![Restore triggered](./media/backup-azure-arm-restore-vms/restore-notification1.png)
@@ -182,12 +174,12 @@ There are a number of things to note after restoring a VM:
 - If the backed-up VM had a static IP address, the restored VM will have a dynamic IP address to avoid conflict. You can [add a static IP address to the restored VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 - A restored VM doesn't have an availability set. If you use the restore disk option, then you can [specify an availability set](../virtual-machines/windows/tutorial-availability-sets.md) when you create a VM from the disk using the provided template or PowerShell.
 - If you use a cloud-init-based Linux distribution, such as Ubuntu, for security reasons the password is blocked after the restore. Use the VMAccess extension on the restored VM to [reset the password](../virtual-machines/linux/reset-password.md). We recommend using SSH keys on these distributions, so you don't need to reset the password after the restore.
-- If you are unable to access VM once restored due to VM having broken relationship with domain controller then follow the below steps to bring up the VM:
-    - Attach OS disk as a data disk to a recovered VM.
-    - Manually install VM agent if Azure Agent is found to be unresponsive by following this [link](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
-    - Enable Serial Console access on VM to allow command line access to VM
-    
-  ```
+- If you are unable to access VM once restored due to VM having broken relationship with domain controller, then follow the steps below to bring up the VM:
+  - Attach OS disk as a data disk to a recovered VM.
+  - Manually install VM agent if Azure Agent is found to be unresponsive by following this [link](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+  - Enable Serial Console access on VM to allow command-line access to VM
+
+  ```cmd
     bcdedit /store <drive letter>:\boot\bcd /enum
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5
@@ -195,11 +187,12 @@ There are a number of things to note after restoring a VM:
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<<BOOT LOADER IDENTIFIER>>} ON
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
     ```
-    - When the VM is rebuilt use Azure portal to reset local administrator account and password
-    - Use Serial console access and CMD to disjoin VM from domain
 
-    ```
-    cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force" 
+  - When the VM is rebuilt use Azure portal to reset local administrator account and password
+  - Use Serial console access and CMD to disjoin VM from domain
+
+    ```cmd
+    cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force"
     ```
 
 - Once the VM is disjoined and restarted, you will be able to successfully RDP to VM with local admin credentials and rejoin VM back to domain successfully.
