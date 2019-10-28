@@ -1,24 +1,20 @@
-- name: Azure Cognitive Search Documentation
+- name: Azure Search Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
-  - name: What is Azure Cognitive Search?
+  - name: What is Azure Search?
     href: search-what-is-azure-search.md
-  - name: What's new
-    href: whats-new.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a service
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Create a search index
+    - name: Create and use an index
       href: search-get-started-portal.md
-    - name: Create a cognitive skillset
+    - name: Enrich with cognitive search (AI)
       href: cognitive-search-quickstart-blob.md
-    - name: Create a knowledge store
-      href: knowledge-store-create-portal.md
   - name: C#
     href: search-get-started-dotnet.md
   - name: Java
@@ -83,7 +79,7 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
-  - name: AI enrichment
+  - name: Cognitive search
     href: cognitive-search-concept-intro.md
   - name: Skillsets
     href: cognitive-search-working-with-skillsets.md
@@ -91,8 +87,6 @@
     href: knowledge-store-concept-intro.md
   - name: Projections
     href: knowledge-store-projection-overview.md
-  - name: Incremental indexing
-    href: cognitive-search-incremental-indexing-conceptual.md
 - name: How-to guides
   items:
   - name: Planning
@@ -215,8 +209,6 @@
       href: search-howto-schedule-indexers.md
     - name: Map fields
       href: search-indexer-field-mappings.md
-    - name: Incremental indexing
-      href: search-howto-incremental-index.md
     - name: Connect to SQL Managed Instance
       href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Connect to SQL Server VMs
@@ -255,6 +247,8 @@
       href: cognitive-search-resources-documentation.md
     - name: Knowledge store (preview)
       items:
+      - name: Create a knowledge store in Azure portal
+        href: knowledge-store-create-portal.md
       - name: Create using REST and Postman
         href: knowledge-store-create-rest.md
       - name: View with Storage Explorer
