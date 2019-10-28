@@ -15,7 +15,8 @@ You can use Azure PowerShell to [create a WAF Policy](create-waf-policy-ag.md), 
 
 1. Get your Application Gateway and Firewall Policy. If you don't have an existing Firewall Policy, see step 2. 
 
-```Connect-AzAccount
+```azurepowershell-interactive
+Connect-AzAccount
 Select-AzSubscription -Subscription "<sub id>"`
 
 #Get Application Gateway and existing policy object or create new`
