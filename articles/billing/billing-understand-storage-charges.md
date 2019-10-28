@@ -24,15 +24,23 @@ When you delete a resource, the reservation discount automatically applies to an
 
 The following examples show how the Azure Storage reserved capacity discount applies, depending on the deployments.
 
-- **Example 1**: You purchase 5 units of 100 cDWU reserved capacity. You run a DW1500c SQL Data Warehouse instance for an hour. In this case, usage is emitted for 15 units of 100 cDWU usage. The reservation discount applies to the 5 units that you used. You are charged using pay-as-you-go rates for the remaining 10 units of 100 cDWU usage that you used.
+Suppose that you have purchased 100 TiB of reserved capacity in the in US West 2 region for a 1-year term. Your reservation is for locally redundant storage (LRS) in the hot access tier.
 
-- **Example 2**: You purchase 5 units of 100 cDWU reserved capacity. You run two DW100c SQL Data Warehouse instances for an hour. In this case, two usage events are emitted for 1 unit of 100 cDWU usage. Both usage events get reserved capacity discounts. The remaining 3 units of 100 cDWU reserved capacity are wasted and don't carry over for future use.
+The cost of this sample reservation is $18,540. You can either choose to pay the full amount up front or to pay fixed monthly installments of $1,545 per month for the next twelve months.
 
-- **Example 3**: You purchase 1 unit of 100 cDWU reserved capacity. You run two DW100c SQL Data Warehouse instances. Each runs for 30 minutes. In this case, both usage events get reserved capacity discounts. No usage is charged using pay-as-you-go rates.
+For these examples, assume that you have signed up for a monthly reservation payment plan. The following scenarios describe what happens if you under-use or overuse your reserved capacity.
+
+### Underusing your capacity
+
+Suppose that in a given month within the reservation period, you used only 80 TiB of your 100 TiB reserved capacity. In this scenario, you are billed the full monthly payment of $1,545 for your reservation, even though you did not use it all in that month.
+
+### Overusing your capacity
+
+Suppose that in a given month within the reservation period, you used 101 TiB of storage capacity. Your bill for the month will include $1,545 for the 100 TiB of reserved capacity and $18.80 for an additional 1 TiB at pay-as-you-go prices. Your total bill for that month is $1563.80.
 
 ## Need help? Contact us
 
-- If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 

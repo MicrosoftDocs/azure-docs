@@ -1,6 +1,6 @@
 ---
-title: Optimize costs for Blob storage with reserved capacity in Azure Storage 
-description: Learn how to list blob containers in your Azure Storage account using the .NET client library.
+title: Optimize costs for Blob storage with reserved capacity - Azure Storage 
+description: Learn about purchasing Azure Storage reserved capacity to save costs on block blob and Azure Data Lake Storage Gen2 resources.
 services: storage
 author: tamram
 
@@ -11,11 +11,11 @@ ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Optimize costs for block blobs and Azure Data Lake Storage Gen2 with reserved capacity
+# Optimize costs for Blob storage with reserved capacity
 
 You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
-Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. Depending on the duration of your reservation, the total capacity you choose to reserve, and the access tier that you've chosen for your storage account, you can save up to 38% on capacity costs over pay-as-you-go rates (???do we want to provide this number here???). Reserved capacity provides a billing discount and doesn't affect the state of your Azure Storage resources.
+Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. The cost savings achieved depend on the duration of your reservation, the total capacity you choose to reserve, and the access tier and type of redundancy that you've chosen for your storage account. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Storage resources.
 
 ## Reservation terms for Azure Storage
 
@@ -33,7 +33,11 @@ An Azure Storage reservation covers only the amount of data that is stored in a 
 
 ### Supported account types, tiers, and redundancy options
 
-Azure Storage reserved capacity is available for resources in standard storage accounts, including general-purpose v2 (GPv2), general-purpose v1 (GPv1), and Blob storage accounts. All access tiers (hot, cool, and archive) and redundancy options are supported. 
+Azure Storage reserved capacity is available for resources in standard storage accounts, including general-purpose v2 (GPv2), general-purpose v1 (GPv1), and Blob storage accounts.
+
+All access tiers (hot, cool, and archive) are supported for reservations. For more information on access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
+
+All types of redundancy are supported for reservations. For more information about redundancy options, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
 Reserved capacity is not available for premium storage accounts, page blobs, Azure Queue storage, Azure Table storage, Azure Files, managed disks, or unmanaged disks.  
 
@@ -77,7 +81,7 @@ Follow these steps to purchase reserved capacity:
    | **Redundancy** | The redundancy option for the reservation. Options include *LRS*, *ZRS*, *GRS*, and *RA-GZRS*. For more information about redundancy options, see [Azure Storage redundancy](../common/storage-redundancy.md). |
    | **Billing frequency** | Indicates how often the account is billed for the reservation. Options include *Monthly* or *Upfront*. |
    | **Size** | The region where the reservation is in effect. |
-   |**Term**  |   One year or three years.   |
+   |**Term**  | One year or three years.   |
 
 1. After you select the parameters for your reservation, the Azure portal displays the cost. The portal also shows the discount percentage over pay-as-you-go billing.
 
@@ -85,13 +89,43 @@ Follow these steps to purchase reserved capacity:
 
     ![Screenshot showing how to purchase a reservation](media/storage-blob-reserved-capacity/purchase-reservations.png)
 
-After you purchase a reservation, it is automatically applied to any existing Azure Storage block blob or Azure Data Lake Storage Gen2 resources that match its terms. If you haven't created any Azure Storage resources yet, the reservation will apply whenever you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
+After you purchase a reservation, it is automatically applied to any existing Azure Storage block blob or Azure Data Lake Storage Gen2 resources that matches the terms of the reservation. If you haven't created any Azure Storage resources yet, the reservation will apply whenever you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
 
 If the purchase is made in the middle of the month, the reserved amount is pro-rated for that month (???to check with Yash here - i don't see this in any of the other service docs???).
 
-When a reservation expires, Azure Storage capacity is billed at the pay-as-you go rate. Reservations don't renew automatically.
+## Exchange or refund a reservation
 
-## Cancel, exchange, or refund reservations
+You can exchange or refund a reservation, with certain limitations. These limitations are described in the following sections.
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+To exchange or refund a reservation, navigate to the reservation details in the Azure portal. Select **Exchange** or **Refund**, and follow the instructions to submit a support request. When the request has been processed, Microsoft will send you an email to confirm completion of the request.
 
+For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+
+### Exchange a reservation
+
+Exchanging a reservation enables you to receive a prorated refund based on the unused portion of the reservation. You can then apply the refund to the purchase price of a new Azure Storage reservation.
+
+There's no limit on the number of exchanges you can make. Additionally, there's no fee associated with an exchange. The new reservation that you purchase must be of equal or greater value than the prorated credit from the original reservation. An Azure Storage reservation can be exchanged only for another Azure Storage reservation, and not for a reservation for any other Azure service.
+
+If you decide that you wish to exchange your Azure Storage Reserved Capacity (e.g., exchange a purchase 7 units of 100TB block for 1 unit of 1PBblock ), you can initiate exchange from management portal and view the inventory of Azure Reserved Capacities. Click on a purchased capacity and two buttons will appear in the command bar stating “refund” or “exchange”. Once selected, a support ticket, prepopulated with all of the Azure Storage Reserved Capacity details, will open. Once submitted, the request will be processed, and an email will be sent to you to confirm completion of the request.
+
+### Refund a reservation
+
+You may cancel an Azure Storage reservation at any time. When you cancel, you'll receive a prorated refund based on the remaining term of the reservation, minus a 12 percent early termination fee. The maximum refund per year is $50,000.
+
+Cancelling a reservation immediately terminates the reservation and returns the remaining months to Microsoft. The remaining prorated balance, minus the fee, will be refunded to your original form of purchase.
+
+## Expiration of a reservation
+
+When a reservation expires, any Azure Storage capacity that you are using under that reservation is billed at the pay-as-you go rate. Reservations don't renew automatically.
+
+You will receive an email notification 30 days prior to the expiration of the reservation, and again on the expiration date. To continue taking advantage of the cost savings that a reservation provides, renew it no later than the expiration date.
+
+## Need help? Contact us
+
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## Next steps
+
+- [What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
+- [Understand how the reservation discount is applied to Azure Storage](../../billing/billing-understand-storage-charges.md)
