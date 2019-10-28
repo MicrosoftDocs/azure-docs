@@ -29,6 +29,8 @@
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
   - name: 5 - Run C# UDF on IoT Edge
     href: stream-analytics-edge-csharp-udf.md
+  - name: 6 - Create custom .NET deserializer
+    href: custom-deserializer.md
 - name: Samples
   items:
   - name: Code samples
@@ -47,6 +49,8 @@
       href: stream-analytics-define-inputs.md
     - name: Reference data inputs
       href: stream-analytics-use-reference-data.md
+    - name: Write .NET custom deserializers
+      href: custom-deserializer-examples.md
   - name: Output types for a job
     items:
     - name: Outputs overview
