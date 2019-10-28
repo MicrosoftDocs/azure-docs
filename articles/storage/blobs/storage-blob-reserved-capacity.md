@@ -107,8 +107,6 @@ Exchanging a reservation enables you to receive a prorated refund based on the u
 
 There's no limit on the number of exchanges you can make. Additionally, there's no fee associated with an exchange. The new reservation that you purchase must be of equal or greater value than the prorated credit from the original reservation. An Azure Storage reservation can be exchanged only for another Azure Storage reservation, and not for a reservation for any other Azure service.
 
-If you decide that you wish to exchange your Azure Storage Reserved Capacity (e.g., exchange a purchase 7 units of 100TB block for 1 unit of 1PBblock ), you can initiate exchange from management portal and view the inventory of Azure Reserved Capacities. Click on a purchased capacity and two buttons will appear in the command bar stating “refund” or “exchange”. Once selected, a support ticket, prepopulated with all of the Azure Storage Reserved Capacity details, will open. Once submitted, the request will be processed, and an email will be sent to you to confirm completion of the request.
-
 ### Refund a reservation
 
 You may cancel an Azure Storage reservation at any time. When you cancel, you'll receive a prorated refund based on the remaining term of the reservation, minus a 12 percent early termination fee. The maximum refund per year is $50,000.
