@@ -40,12 +40,12 @@ ms.author: maquaran
 
 ### <a name="2.2.8"/>2.2.8
 * Stability and diagnosability improvements:
-  * Added support for detecting reading change feed taking long time. When it takes longer than the value specified by ChangeFeedProcessorOptions.ChangeFeedTimeout the following happens:
-    * Reading change feed on problem partition is aborted.
-    * The Change Feed Processor instance drops ownership of the problem lease. The lease will be picked up during next lease acquire by same or different Change Feed Processor instance and reading change feed will start over.
-    * An issue is reported to health monitor. Default trace monitor sends all reported issues to trace log.
-  * Added new public property: ChangeFeedProcessorOptions.ChangeFeedTimeout. Default value is 10 mins.
-  * Added new public enum value: Monitoring.MonitoredOperation.ReadChangeFeed. When the value of HealthMonitoringRecord.Operation is Monitoring.MonitoredOperation.ReadChangeFeed, that and indicates to health issues related to reading change feed.
+  * Added support to detect reading change feed taking long time. When it takes longer than the value specified by the `ChangeFeedProcessorOptions.ChangeFeedTimeout` property, the following steps are taken:
+    * The operation to read change feed on the problematic partition is aborted.
+    * The change feed processor instance drops ownership of the problematic lease. The dropped lease will be picked up during the next lease acquire step that will be done by the same or different change feed processor instance. This way, reading change feed will start over.
+    * An issue is reported to the health monitor. The default heath monitor sends all reported issues to trace log.
+  * Added a new public property: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. The default value of this property is 10 mins.
+  * Added new public enum value: `Monitoring.MonitoredOperation.ReadChangeFeed`. When the value of `HealthMonitoringRecord.Operation` is set to `Monitoring.MonitoredOperation.ReadChangeFeed`, it indicates the health issue is related to reading change feed.
 
 ### <a name="2.2.7"/>2.2.7
 * Improved load balancing strategy for scenario when getting all leases takes longer than lease expiration interval, e.g. due to network issues:
