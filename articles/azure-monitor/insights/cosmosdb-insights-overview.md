@@ -46,9 +46,9 @@ To view the utilization and performance of your storage accounts across all of y
 
 ![Screenshot of Cosmos DB overview workbook](./media/cosmosdb-insights-overview/cosmos-db.png)
 
-### Overview workbook
+### Overview
 
-On the **Overview** workbook, the table displays interactive Cosmos DB metrics. You can filter the results based on the options you select from the following drop-down lists:
+On **Overview**, the table displays interactive Cosmos DB metrics. You can filter the results based on the options you select from the following drop-down lists:
 
 * **Subscriptions** - only subscriptions that have a Cosmos DB resource are listed.  
 
@@ -64,9 +64,9 @@ Selecting a drop-down arrow next to one of the Cosmos DB resources will reveal a
 
 Selecting the Cosmos DB resource name highlighted in blue will take you to the default **Overview** for the associated Cosmos DB account. 
 
-### Failures workbook
+### Failures
 
-Select **Failures** at the top of the page and the **Failures** workbook opens. It shows you  total requests with the distribution of responses that make up those requests:
+Select **Failures** at the top of the page and the **Failures** portion of the workbook template opens. It shows you  total requests with the distribution of responses that make up those requests:
 
 ![Screenshot of failures view with breakdown by HTTP request type](./media/cosmosdb-insights-overview/failures.png)
 
@@ -78,17 +78,17 @@ Select **Failures** at the top of the page and the **Failures** workbook opens. 
 
 For a full list of status codes, consult the [Cosmos DB HTTP status code article](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-### Capacity workbook
+### Capacity
 
-Select **Capacity** at the top of the page and the **Capacity** workbook opens. It shows you how many documents you have, your document growth over time, data usage, and the total amount of available storage that you have left.  This can be used to help identify potential storage and data utilization issues.
+Select **Capacity** at the top of the page and the **Capacity** portion of the workbook template opens. It shows you how many documents you have, your document growth over time, data usage, and the total amount of available storage that you have left.  This can be used to help identify potential storage and data utilization issues.
 
 ![Capacity workbook](./media/cosmosdb-insights-overview/capacity.png) 
 
 As with the overview workbook, selecting the drop-down next to a Cosmos DB resource in the **Subscription** column will reveal a breakdown by the individual containers that make up the database.
 
-### Operations workbook
+### Operations 
 
-Select **Operations** at the top of the page and the **Operations** workbook opens. It gives you the ability to see your requests broken down by the type of requests made. 
+Select **Operations** at the top of the page and the **Operations** portion of the workbook template opens. It gives you the ability to see your requests broken down by the type of requests made. 
 
 So in the example below you see that `eastus-billingint` is predominantly receiving read requests, but with a small number of upsert and create requests. Whereas `westeurope-billingint` is read-only from a request perspective, at least over the past four hours that the workbook is currently scoped to via its time range parameter.
 
@@ -96,7 +96,7 @@ So in the example below you see that `eastus-billingint` is predominantly receiv
 
 ## Pin, export, and expand
 
-You can pin any one of the metric sections to an Azure Dashboard by selecting the pushpin icon at the top right of the section.
+You can pin any one of the metric sections to an [Azure Dashboard](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) by selecting the pushpin icon at the top right of the section.
 
 ![Metric section pin to dashboard example](./media/cosmosdb-insights-overview/pin.png)
 
