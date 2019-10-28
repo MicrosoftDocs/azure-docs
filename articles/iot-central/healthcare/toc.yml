@@ -56,8 +56,7 @@
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Create custom analytics with Databricks
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Create custom analytics with Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+
     - name: Administration
       items:
         - name: Change application settings
