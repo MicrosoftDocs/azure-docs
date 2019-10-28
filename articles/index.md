@@ -2252,7 +2252,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Synapse Analytics (formerly SQL DW)</h3>
-                                                    <p>Limitless cloud data warehouse with unmatched time to insight</p>
+                                                    <p>Limitless analytics service with unmatched time to insight</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3222,7 +3222,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Synapse Analytics (formerly SQL DW)</h3>
-                                                    <p>Limitless cloud data warehouse with unmatched time to insight</p>
+                                                    <p>Limitless analytics service with unmatched time to insight</p>
                                                 </div>
                                             </div>
                                         </div>
