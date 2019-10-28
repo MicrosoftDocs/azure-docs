@@ -32,8 +32,8 @@ The table in this article provides information on the Peering Service connectivi
 | [BBIX](https://www.bbix.net/service/mpr) |Japan |
 | CCL |Oceania |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe|
-| DE-CIX|Europe |
-| IIJ | Japan |
+| DE-CIX|Europe, North America |
+| [IIJ](https://www.iij.ad.jp/en/) | Japan |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
 | Liquid Telecom | Africa  |
