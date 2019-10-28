@@ -15,8 +15,6 @@ services: event-grid
 
 This article shows you how to locally react to Blob creation and Blob deletion events on IoT Edge using Event Grid.
 
-Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
-
 For an overview of the Azure Blob Storage on IoT Edge, see [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
 
 > [!WARNING]
