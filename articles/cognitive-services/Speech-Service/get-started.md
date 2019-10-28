@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
+ms.custom: seodec18, seo-javascript-october2019
 ---
 
 # Try Speech Services for free
@@ -31,15 +31,15 @@ To sign up for a 30-day free trial:
 
 1. Select the **Speech APIs** tab.
 
-   ![Speech Services tab](media/index/try-speech-api-free-trial1.png)
+   ![Speech API - Speech Services tab](media/index/cognitive-services-speech-api-tab.png)
 
 1. Under **Speech Services**, select **Get API Key**.
 
-   ![API key](media/index/try-speech-api-free-trial2.png)
+   ![Speech API - Get API key](media/index/speech-api-get-api-key.png)
 
 1. Agree to the terms and select your locale from the drop-down menu.
 
-   ![Agree to terms](media/index/try-speech-api-free-trial3.png)
+   ![Speech API - Agree to terms](media/index/speech-api-agree-to-terms.png)
 
 1. Sign in by using your Microsoft, Facebook, LinkedIn, or GitHub account.
 
@@ -68,17 +68,17 @@ To add a Speech Services resource (free or paid tier) to your Azure account:
 
 1. Select **Create a resource** at the top left of the portal.
 
-    ![Create a resource](media/index/try-speech-api-create-speech1.png)
+    ![Speech API - Create a resource](media/index/speech-api-create-resource.png)
 
 1. In the **New** window, search for **speech**.
 
 1. In the search results, select **Speech**.
 
-    ![Select Speech](media/index/try-speech-api-create-speech2.png)
+    ![Speech API - Select Speech](media/index/speech-api-select-speech.png)
 
 1. Under **Speech**, select the **Create** button.
 
-    ![Select the Create button](media/index/try-speech-api-create-speech3.png)
+    ![Speech API - Create button](media/index/speech-api-create-button.png)
 
 1. Under **Create**, enter:
 
@@ -90,11 +90,11 @@ To add a Speech Services resource (free or paid tier) to your Azure account:
    * For convenient access to your subscription in the future, select the **Pin to dashboard** check box.
    * Select **Create.**
 
-     ![Select the Create button](media/index/try-speech-api-create-speech4.png)
+     ![Speech API - Select Create](media/index/speech-api-select-create.png)
 
      It takes a moment to create and deploy your new Speech resource. Select **Quickstart** to see information about your new resource.
 
-     ![Quickstart panel](media/index/try-speech-api-create-speech5.png)
+     ![Speech API - Deploy the resource](media/index/speech-api-deploy-resource.png)
 
 1. Under **Quickstart**, select the **Keys** link under step 1 to display your subscription keys. Each subscription has two keys; you can use either key in your application. Select the button next to each key to copy it to the clipboard for pasting into your code.
 

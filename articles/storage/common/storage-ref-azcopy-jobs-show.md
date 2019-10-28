@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy jobs sho
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -17,6 +17,8 @@ Shows detailed information for the given job ID.
 ## Synopsis
 
 If only the job ID is supplied without a flag, then the progress summary of the job is returned.
+
+The byte counts and percent complete that appears when you run this command reflect only files that are completed in the job. They don't reflect partially completed files.
 
 If the `with-status` flag is set, then the list of transfers in the job with the given value will be shown.
 

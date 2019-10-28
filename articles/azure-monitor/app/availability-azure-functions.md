@@ -1,16 +1,13 @@
 ---
 title: Create and run custom availability tests using Azure Functions
 description: This doc will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger function. The results of this test will be sent to your Application Insights resource, where you will be able to query for and alert on the availability results data. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test if it's not available in your region.
-services: application-insights
-documentationcenter: ''
-author: morgangrobin
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/11/2019
+author: morgangrobin
 ms.author: mogrobin
+ms.date: 10/11/2019
+
 ---
 
 # Create and run custom availability tests using Azure Functions
@@ -158,7 +155,7 @@ private static async Task AvailabilityTestRun(string name, string location, stri
         log.LogError($"[Error]: {ex.Message}");
 
         // optional - throw to fail the function
-        throw;
+        //throw;
     }
     finally
     {

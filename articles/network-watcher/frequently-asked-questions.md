@@ -51,16 +51,26 @@ Visit the [Pricing page](https://azure.microsoft.com/pricing/details/network-wat
 ### Which regions is Network Watcher available in?
 You can view the latest regional availability on the [Azure Service availability page](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
+### What are resource limits on Network Watcher?
+See the [Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits) page for all limits.  
+
+### Why is only one instance of Network Watcher allowed per region?
+Network Watcher just needs to be enabled once for a subscription for it's features to work, this is a not a service limit.
+
 ## NSG Flow Logs
 
 ### What does NSG Flow Logs do?
 Azure network resources can be combined and managed through [Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview). NSG Flow Logs enable you to log 5-tuple flow information about all traffic through your NSGs. The raw flow logs are written to an Azure Storage account from where they can be further processed, analyzed, queried, or exported as needed.
 
-### Are there caveats for using NSG Flow Logs?
+### Are there any caveats to using NSG Flow Logs?
 There are no pre-requisites for using NSG Flow Logs. However, there are two limitations
 - **Service Endpoints must not be present on your VNET**: NSG Flow Logs are emitted from agents on your VMs to Storage accounts. However, today you can only emit logs directly to storage accounts and cannot use a service endpoint added to your VNET.
 
-There are two ways to fix this:
+- **Storage Account must not be firewalled**: Due to internal limitations, Storage accounts must be accessible through the public internet for NSG Flow Logs to work with them. Traffic will still be routed through Azure internally and you will not face extra egress charges.
+
+See the next two questions for instructions on how to work around these issues. Both of these limitations are expected to be addressed by Jan 2020.
+
+### How do I use NSG Flow Logs with Service Endpoints?
 
 *Option 1: Reconfigure NSG flow logs to emit to Azure Storage account without VNET endpoints*
 
@@ -85,8 +95,7 @@ You can check the storage logs after a few minutes, you should see an updated Ti
 
 If the Microsoft.Storage service endpoints are a must, you will have to disable NSG Flow Logs.
 
-
-- **Storage Accounts must not be firewalled**: Due to internal limitations, Storage accounts must be accessible through the public internet for NSG Flow Logs to work with them. Traffic will still be routed through Azure internally and you will not face extra egress charges.
+### How do I disable the  firewall on my storage account?
 
 This issue is resolved by enabling "All networks" to access the storage account:
 
@@ -94,8 +103,6 @@ This issue is resolved by enabling "All networks" to access the storage account:
 * Navigate to the storage account by typing the storage account's name in the global search on the portal
 * Under the **SETTINGS** section, select **Firewalls and virtual networks**
 * Select **All networks** and save it. If it is already selected, no change is needed.  
-
-Both of these limitations are expected to be addressed by Jan 2020.
 
 ### What is the difference between flow logs versions 1 & 2?
 Flow Logs version 2 introduces the concept of *Flow State* & stores information about bytes and packets transmitted. [Read more](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).

@@ -110,7 +110,7 @@ Instructions for paying your bill are shown at the bottom of the invoice. You ca
 If you've already paid your bill, you can check the status of the payment on the Invoices page in the Azure portal.
 
 ## Check access to a Microsoft Partner Agreement
-[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
+[!INCLUDE [billing-check-mpa](../../includes/billing-check-mpa.md)]
 
 ## Need help? Contact us.
 

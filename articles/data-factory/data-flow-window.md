@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory Mapping Data Flow Window Transformation
-description: Azure Data Factory Mapping Data Flow Window Transformation
+title: Azure Data Factory mapping data flow Window Transformation
+description: Azure Data Factory mapping data flow Window Transformation
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
