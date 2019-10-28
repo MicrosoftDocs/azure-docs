@@ -121,7 +121,7 @@ Prior to utilizing the managed Virtual WAN hub for production connectivity, it i
 ![Transition connectivity to virtual WAN hub](./media/migrate-from-hub-spoke-topology/figure8.png)
 **Figure 8: VDC hub-and-spoke to virtual WAN migration – Step 5**
 
-**a**. Delete the existing peering connections from Spoke virtual networks to the old VDC Hub. Access to applications in spoke virtual networks is unavailable until steps 1-3 are complete.
+**a**. Delete the existing peering connections from Spoke virtual networks to the old VDC Hub. Access to applications in spoke virtual networks is unavailable until steps a-c are complete.
 
 **b**. Connect the spoke virtual networks to the virtual WAN Hub via VNet connections.
 
