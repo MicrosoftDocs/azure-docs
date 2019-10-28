@@ -124,11 +124,11 @@ To better understand entitlement management and its documentation, you can refer
 | assignment | An assignment of an access package to a user ensures the user has all the resource roles of that access package.  Access package assignments typically have a time limit before they expire. |
 | catalog | A container of related resources and access packages.  Catalogs are used for delegation, so that non-administrators can create their own access packages. Catalog owners can add resources they own to a catalog. |
 | catalog creator | A collection of users who are authorized to create new catalogs.  When a non-administrator user who is authorized to be a catalog creator creates a new catalog, they automatically become the owner of that catalog. |
-| connected organization | A external directory or domain whose users are identified by a policy as being allowed to request access. |
+| connected organization | A external Azure AD directory or domain that you have a relationship with. The users from a connected organization can be specified in a policy as being allowed to request access. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access through an assignment. A policy is linked to an access package. For example, an access package could have two policies - one for employees to request access and a second for external users to request access. |
 | resource | An asset, such as an Office group, a security group, an application, or a SharePoint Online site, with a role that a user can be granted permissions to. |
-| resource role | A collection of permissions associated with and defined by a resource. A group has two roles - member and owner. SharePoint sites typically have 3 roles but may have additional custom roles. Applications can have custom roles. |
 | resource directory | A directory that has one or more resources to share. |
+| resource role | A collection of permissions associated with and defined by a resource. A group has two roles - member and owner. SharePoint sites typically have 3 roles but may have additional custom roles. Applications can have custom roles. |
 
 ## License requirements
 
