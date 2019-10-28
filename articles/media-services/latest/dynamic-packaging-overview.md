@@ -95,7 +95,7 @@ For information about live streaming in Media Services v3, see [Live streaming o
 Dynamic Packaging supports MP4 files which contain video that's encoded with [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC or AVC1) or [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1, or hvc1).
 
 > [!NOTE]
-> Resolutions of up to 4K, and frame rates of up to 60 frames/second have been tested with Dynamic Packaging. The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to H.265, via the legacy v2 APIs.
+> Resolutions of up to 4K and frame rates of up to 60 frames/second have been tested with Dynamic Packaging. The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to H.265 via the legacy v2 APIs.
 
 ## <a id="audio-codecs"/>Audio codecs supported by Dynamic Packaging
 
@@ -121,10 +121,10 @@ Dynamic Packaging supports multiple audio tracks with DASH or HLS (version 4 or 
 Dynamic Packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
 
 > [!NOTE]
-> The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to Dolby Digital Plus, via the legacy v2 APIs. 
+> The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to Dolby Digital Plus via the legacy v2 APIs.
 
-## Manifests 
- 
+## Manifests
+
 In Media Services Dynamic Packaging, the streaming client manifests for HLS, MPEG-DASH, and Smooth Streaming are dynamically generated based on the format selector in the URL.  
 
 A manifest file includes streaming metadata such as track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), and video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments that are available and their location. Fragments (or segments) are the actual "chunks" of video content.
@@ -233,13 +233,13 @@ The player can use the `Label` element to display on its UI.
 
 ### Signaling audio description tracks
 
-You can add a  narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. You need to annotate an audio track as audio description in the manifest. To do that, add “accessibility” and “role” parameters to the .ism file. It is your responsibility to set these parameters correctly to signal an audio track as audio description. For example, add `<param name="accessibility" value="description" />` and `<param name="role" value="alternate"` to the .ism file for a specific audio track. 
+You can add a narration track to your video to help visually impaired clients follow the video recording by listening to the narration. You need to annotate an audio track as audio description in the manifest. To do that, add “accessibility” and “role” parameters to the .ism file. It's your responsibility to set these parameters correctly to signal an audio track as audio description. For example, add `<param name="accessibility" value="description" />` and `<param name="role" value="alternate"` to the .ism file for a specific audio track. 
 
 For more information, see the [How to signal a descriptive audio track](signal-descriptive-audio-howto.md) example.
 
 #### Smooth Streaming manifest
 
-If you are playing a Smooth Streaming stream, the manifest would carry values in `Accessibility` and `Role` attributes for that audio track. For example, `Role="alternate" Accessibility="description"` would be added in the `StreamIndex` element to indicate it is an audio description.
+If you're playing a Smooth Streaming stream, the manifest would carry values in `Accessibility` and `Role` attributes for that audio track. For example, `Role="alternate" Accessibility="description"` would be added in the `StreamIndex` element to indicate it's an audio description.
 
 #### DASH manifest
 
@@ -272,7 +272,7 @@ Check out [Azure Media Services community](media-services-community.md) to see d
 
 ## Need help?
 
-You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 
@@ -280,4 +280,3 @@ You can open a support ticket by navigating to [New support request](https://por
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 Learn how to [upload, encode, and stream videos](stream-files-tutorial-with-api.md).
-
