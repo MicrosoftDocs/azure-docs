@@ -12,6 +12,8 @@ manager: eliotgra
 
 # Tutorial: Deploy and walkthrough a continuous patient monitoring app template
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial shows you, as a solution builder, how to get started by deploying an IoT Central continuous patient monitoring application template. You will learn how to deploy the template, what's included out of the box, and what you might want to do next.
 
 In this tutorial, you learn how to:
