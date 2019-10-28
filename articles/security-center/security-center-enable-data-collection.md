@@ -276,13 +276,13 @@ You can manually install the Log Analytics Agent, so Security Center can collect
 
    3. Populate the public config and the private config with these values:
      
-           $PublicConf = '{
-               "workspaceId": "WorkspaceID value"
-           }' 
+           $PublicConf = @{
+               "workspaceId"= "<WorkspaceID value>"
+           }
  
-           $PrivateConf = '{
-               "workspaceKey": "<Primary key value>”
-           }' 
+           $PrivateConf = @{
+               "workspaceKey"= "<Primary key value>”
+           }
 
 	  - When installing on a Windows VM:
 	    

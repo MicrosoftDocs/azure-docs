@@ -70,7 +70,7 @@ Here's an example application that uses stateless services:
 ![Application that uses stateless services][Image1]
 
 Here's an example application that uses stateful services:
-![Application that uses stateless services][Image2]
+![Application that uses stateful services][Image2]
 
 ## Next steps
 
@@ -88,5 +88,5 @@ Here's an example application that uses stateful services:
   * [Scale Service Fabric services](service-fabric-concepts-scalability.md)
   * [Partition Service Fabric services](service-fabric-concepts-partitioning.md)
 
-[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
-[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
+[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.png
+[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.png

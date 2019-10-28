@@ -4,7 +4,7 @@ description:
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard,csscontent
+manager: dcscontentpm
 editor: ''
 tags: ''
 

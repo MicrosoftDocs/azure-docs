@@ -3,7 +3,7 @@ title: Troubleshooting - Azure Automation Hybrid Runbook Workers
 description: This article provides information troubleshooting Azure Automation Hybrid Runbook Workers
 services: automation
 ms.service: automation
-ms.subservice: 
+ms.subservice:
 author: bobbytreed
 ms.author: robreed
 ms.date: 02/12/2019
@@ -162,7 +162,7 @@ The following example query shows the machines in a workspace and their last hea
 
 ```loganalytics
 // Last heartbeat of each computer
-Heartbeat 
+Heartbeat
 | summarize arg_max(TimeGenerated, *) by Computer
 ```
 

@@ -70,7 +70,7 @@ typeProperties | The type properties are different for each type (for example: A
 
 ### Data flow compatible dataset
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 See [supported dataset types](#dataset-type) for a list of dataset types that are [Data Flow](concepts-data-flow-overview.md) compatible. Datasets that are compatible for Data Flow require fine-grained dataset definitions for transformations. Thus, the JSON definition is slightly different. Instead of a _structure_ property, datasets that are Data Flow compatible have a _schema_ property.
 

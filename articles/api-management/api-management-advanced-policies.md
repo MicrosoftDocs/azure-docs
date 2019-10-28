@@ -34,7 +34,7 @@ This topic provides a reference for the following API Management policies. For i
 -   [Set request method](#SetRequestMethod) - Allows you to change the HTTP method for a request.
 -   [Set status code](#SetStatus) - Changes the HTTP status code to the specified value.
 -   [Set variable](api-management-advanced-policies.md#set-variable) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.
--   [Trace](#Trace) - Adds a string into the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output.
+-   [Trace](#Trace) - Adds custom traces into the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output, Application Insights telemetries, and Diagnostic Logs.
 -   [Wait](#Wait) - Waits for enclosed [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](api-management-advanced-policies.md#choose) policies to complete before proceeding.
 
 ## <a name="choose"></a> Control flow
@@ -909,16 +909,31 @@ Expressions used in the `set-variable` policy must return one of the following b
 
 ## <a name="Trace"></a> Trace
 
-The `trace` policy adds a string into the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output. The policy will execute only when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to `true` and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key associated with the admin account.
+The `trace` policy adds a custom trace into the API Inspector output, Application Insights telemetries, and/or Diagnostic Logs. 
+
+* The policy adds a custom trace to the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to true and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing. 
+* The policy creates a [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) telemetry in Application Insights, when [Application Insights integration](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) is enabled and the `severity` level specified in the policy is at or higher than the `verbosity` level specified in the diagnostic setting. 
+* The policy adds a property in the log entry when [Diagnostic Logs](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.  
+
 
 ### Policy statement
 
 ```xml
 
-<trace source="arbitrary string literal">
-    <!-- string expression or literal -->
+<trace source="arbitrary string literal" severity="verbose|information|error">
+    <message>String literal or expressions</message>
+    <metadata name="string literal or expressions" value="string literal or expressions"/>
 </trace>
 
+```
+
+### <a name="traceExample"></a> Example
+
+```xml
+<trace source="PetStore API" severity="verbose">
+    <message>@((string)context.Variables["clientConnectionID"])</message>
+    <metadata name="Operation Name" value="New-Order"/>
+</trace>
 ```
 
 ### Elements
@@ -926,12 +941,17 @@ The `trace` policy adds a string into the [API Inspector](https://azure.microsof
 | Element | Description   | Required |
 | ------- | ------------- | -------- |
 | trace   | Root element. | Yes      |
+| message | A string or expression to be logged. | Yes |
+| metadata | Adds a custom property to the Application Insights [Trace](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry) telemetry. | No |
 
 ### Attributes
 
 | Attribute | Description                                                                             | Required | Default |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | String literal meaningful to the trace viewer and specifying the source of the message. | Yes      | N/A     |
+| severity    | Specifies the severity level of the trace. Allowed values are `verbose`, `information`, `error` (from lowest to highest). | No      | Verbose     |
+| name    | Name of the property. | Yes      | N/A     |
+| value    | Value of the property. | Yes      | N/A     |
 
 ### Usage
 

@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Manage the Avere vFXT cluster

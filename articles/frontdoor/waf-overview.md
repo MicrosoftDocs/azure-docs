@@ -68,7 +68,7 @@ A WAF policy can consist of two types of security rules - custom rules, authored
 
 You can configure custom rules WAF as follows:
 
-- **IP allow list and block list:** You can configure custom rules to control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list.
+- **IP allow list and block list:** You can configure custom rules to control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list. A client IP address can be different from the IP address WAF observes, for example, when a client accesses WAF via a proxy. You can create [IP restriction rules](https://docs.microsoft.com/azure/frontdoor/waf-front-door-configure-ip-restriction) based on either Client IP addresses (RemoteAddr) or IP addresses seen by WAF (SocketAddr). Configuration of a SocketAddr IP restriction rule is currently supported using Powershell and Azure CLI.
 
 - **Geographic based access control:** You can configure custom rules to control access to your web applications based on the country code associated with a client’s IP address.
 
@@ -102,14 +102,17 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 
 ### Bot protection rule (preview)
 
-A managed Bot protection rule set can be enabled for your WAF to take custom actions on requests from known malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
+A managed Bot protection rule set can be enabled for your WAF to take custom actions on requests from known bot categories.
+There are 3 bot categories supported: bad bots, good bots and unknown bots. In the bad bots category, one rule detects malicious bots based on IP reputation of clieny addresses. IP reputation are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center. In addition, requests that pretend to be known search engines are also detected as malicious.
+Good bots are validated seacrh engines. Unknown categories include requests are are identified as bots, but with unknown intentions. 
+You may set custom actions to Block, Allow, Log or redirect for different categories of Bots.
 
 ![Bot Protection Rule Set](./media/waf-front-door-configure-bot-protection/BotProtect2.png)
 
 > [!IMPORTANT]
 > Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-If Bot Protection is enabled, incoming requests that match Malicious Bots client IPs are logged at FrontdoorWebApplicationFirewallLog log. You may access WAF logs from storage account, event hub or log analytics. 
+If Bot Protection is enabled, incoming requests that match bot rules are logged at FrontdoorWebApplicationFirewallLog log. You may access WAF logs from storage account, event hub or log analytics. 
 
 ## Configuration
 

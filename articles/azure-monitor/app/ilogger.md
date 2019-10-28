@@ -1,14 +1,14 @@
 ---
 title: Explore .NET trace logs in Azure Application Insights with ILogger
 description: Samples of using the Azure Application Insights ILogger provider with ASP.NET Core and Console applications.
-services: application-insights
-author: cijothomas
-manager: carmonm
-ms.service: application-insights
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.reviewer: mbullwin
+author: cijothomas
 ms.author: cithomas
+ms.date: 02/19/2019
+
+ms.reviewer: mbullwin
 ---
 
 # ApplicationInsightsLoggerProvider for .NET Core ILogger logs
@@ -215,6 +215,10 @@ You can still use the old provider. (It will be removed only in a major version 
 > The new provider is available for applications that target NETSTANDARD2.0 or later. If your application targets older .NET Core versions, such as .NET Core 1.1, or if it targets the .NET Framework, continue to use the old provider.
 
 ## Console application
+
+> [!NOTE]
+> There is a new beta Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights (ILogger and other Application Insights telemetry) for any Console Applications. It is recommended to use this package and associated instructions from [here](../../azure-monitor/app/worker-service.md).
+The following example will be deprecated once stable version of this new package is released.
 
 The following code shows a sample console application that's configured to send ILogger traces to Application Insights.
 

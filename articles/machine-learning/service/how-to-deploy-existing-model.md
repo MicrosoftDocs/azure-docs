@@ -142,13 +142,13 @@ The entry script has only two required functions, `init()` and `run(data)`. Thes
 The following Python code is an example entry script (`score.py`):
 
 ```python
+import os
 import pickle
 import json
 import time
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
 from gensim.models.word2vec import Word2Vec
-from azureml.core.model import Model
 
 # SENTIMENT
 POSITIVE = "POSITIVE"
@@ -164,8 +164,8 @@ def init():
     global encoder
     global w2v_model
 
-    # Get the path where the model(s) registered as the name 'sentiment' can be found.
-    model_path = Model.get_model_path('sentiment')
+    # Get the path where the deployed model can be found.
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), './models')
     # load models
     model = load_model(model_path + '/model.h5')
     w2v_model = Word2Vec.load(model_path + '/model.w2v')

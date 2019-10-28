@@ -6,7 +6,7 @@
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 05/29/2018
- ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
+ ms.author: azcspmt;jonbeck;cynthn;amverma
  ms.custom: include file
 ---
 

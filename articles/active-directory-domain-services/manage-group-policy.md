@@ -35,6 +35,9 @@ To complete this article, you need the following resources and privileges:
     * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
 
+> [!NOTE]
+> As there's [no access to domain controllers in Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), you can't create and use a Central Store for group policy administrative templates in a managed domain. [Sysvol isn't included in on-premises Azure AD Connect synchronization](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), so you also can't create an on-premises Central Store and synchronize it to Azure AD DS through Azure AD.
+
 ## Install Group Policy Management tools
 
 To create and configure Group Policy Object (GPOs), you need to install the Group Policy Management tools. These tools can be installed as a feature in Windows Server. For more information on how to install the administrative tools on a Windows client, see install [Remote Server Administration Tools (RSAT)][install-rsat].

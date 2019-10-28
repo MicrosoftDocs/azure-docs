@@ -1,6 +1,6 @@
 ---
-title: Dynamically create a Disk volume for multiple pods in Azure Kubernetes Service (AKS)
-description: Learn how to dynamically create a persistent volume with Azure disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
+title: Dynamically create and use a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
+description: Learn how to dynamically create a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
 services: container-service
 author: mlearned
 

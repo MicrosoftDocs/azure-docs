@@ -524,7 +524,7 @@ The Table storage input binding supports the following scenarios:
 
 * **Read one or more rows in JavaScript**
 
-  Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<name>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
+  Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
 
 ## Output
 
@@ -781,7 +781,7 @@ The Table storage output binding supports the following scenarios:
 
 * **Write one or more rows in JavaScript**
 
-  In JavaScript functions, access the table output using `context.bindings.<name>`.
+  In JavaScript functions, access the table output using `context.bindings.<BINDING_NAME>`.
 
 ## Exceptions and return codes
 

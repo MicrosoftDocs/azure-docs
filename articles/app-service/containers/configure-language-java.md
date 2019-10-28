@@ -4,7 +4,7 @@ description: Learn how to configure Java apps running in Azure App Service on Li
 keywords: azure app service, web app, linux, oss, java, java ee, jee, javaee
 services: app-service
 author: bmitchell287
-manager: douge
+manager: barbkess
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,7 +13,6 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-
 ---
 
 # Configure a Linux Java app for Azure App Service

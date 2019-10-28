@@ -23,7 +23,7 @@ K-means is one of the simplest and the best known *unsupervised* learning algori
 
 To create a clustering model, you:
 
-* Add this module to your experiment.
+* Add this module to your pipeline.
 * Connect a dataset.
 * Set parameters, such as the number of clusters you expect, the distance metric to use in creating the clusters, and so forth. 
   
@@ -49,7 +49,7 @@ When it processes the training data, the K-means algorithm begins with an initia
 
 ## Configure the K-Means Clustering module
   
-1.  Add the **K-Means Clustering** module to your experiment.  
+1.  Add the **K-Means Clustering** module to your pipeline.  
   
 2.  To specify how you want the model to be trained, select the **Create trainer mode** option.  
   
@@ -114,7 +114,7 @@ If you used the [Train Clustering Model](train-clustering-model.md) module:
 
 2. Select **Trained model**, and then select **Save as Trained Model**.
 
-The saved model represents the training data at the time you saved the model. If you later update the training data used in the experiment, it doesn't update the saved model. 
+The saved model represents the training data at the time you saved the model. If you later update the training data used in the pipeline, it doesn't update the saved model. 
 
 #### See the clustering result dataset 
 

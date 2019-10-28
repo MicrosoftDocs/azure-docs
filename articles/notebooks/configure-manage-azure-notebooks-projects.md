@@ -4,13 +4,11 @@ description: How to manage project metadata, project files, the project's enviro
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
-
+manager: barbkess
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: kraigb

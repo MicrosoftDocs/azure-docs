@@ -2,12 +2,14 @@
 title: 'Tutorial: Analyze events from Azure Digital Twins setup | Microsoft Docs'
 description: Learn how to visualize and analyze events from your Azure Digital Twins spaces, with Azure Time Series Insights, by using the steps in this tutorial.
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 08/05/2019
-ms.author: alinast
+ms.date: 09/23/2019
+#Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to analyze events from an Azure Digital Twins instance. 
 ---
 
 # Tutorial: Visualize and analyze events from your Azure Digital Twins spaces by using Time Series Insights
@@ -33,6 +35,9 @@ This tutorial assumes that you have [configured](tutorial-facilities-setup.md) a
 - The [Digital Twins C# samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
 - [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify that the right version is installed.
 
+> [!TIP]
+> Use a unique Digital Twins instance name if you're provisioning a new instance.
+
 ## Stream data by using Event Hubs
 
 You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to create a pipeline to stream your data. This section shows you how to create your event hub as the connector between your Azure Digital Twins and Time Series Insights instances.
@@ -49,10 +54,10 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. In the Event Hubs namespace deployment, select the **Overview** pane, then select **Go to resource**.
 
-    ![Event Hubs namespace after deployment](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
+    [![Event Hubs namespace after deployment](./media/tutorial-facilities-analyze/open-event-hub-ns.png)](./media/tutorial-facilities-analyze/open-event-hub-ns.png#lightbox)
 
 1. In the Event Hubs namespace **Overview** pane, select the **Event Hub** button at the top.
-    ![Event Hub button](./media/tutorial-facilities-analyze/create-event-hub.png)
+    [![Event Hub button](./media/tutorial-facilities-analyze/create-event-hub.png)](./media/tutorial-facilities-analyze/create-event-hub.png#lightbox)
 
 1. Enter a **Name** for your event hub, and select **Create**.
 
@@ -60,13 +65,13 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. Select the **Consumer group** button at the top, and enter a name such as **tsievents** for the consumer group. Select **Create**.
 
-    ![Event Hub consumer group](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
+    [![Event Hub consumer group](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)](./media/tutorial-facilities-analyze/event-hub-consumer-group.png#lightbox)
 
    After the consumer group is created, it appears in the list at the bottom of the event hub's **Overview** pane.
 
 1. Open the **Shared access policies** pane for your event hub, and select the **Add** button. Enter **ManageSend** as the policy name, make sure all the check boxes are selected, and select **Create**.
 
-    ![Event Hub connection strings](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
+    [![Event Hub connection strings](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
 1. Open the ManageSend policy that you created, and copy the values for **Connection string--primary key** and **Connection string--secondary key** to a temporary file. You'll need these values to create an endpoint for the event hub in the next section.
 
@@ -119,21 +124,21 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
    It creates two endpoints for your event hub.
 
-   ![Endpoints for Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
+   [![Endpoints for Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png#lightbox)
 
 ## Analyze with Time Series Insights
 
 1. In the left pane of the [Azure portal](https://portal.azure.com), select **Create a resource**. 
 
-1. Search for and select a new **Time Series Insights** resource. Select **Create**.
+1. Search for and select a **Time Series Insights** General Availability (GA) resource. Select **Create**.
 
 1. Enter a **Name** for your Time Series Insights instance, and then select your **Subscription**. Select the **Resource group** that you used for your Digital Twins instance, and your **Location**. Select **Next: Event Source** button or the **Event Source** tab.
 
-    ![Selections for creating a Time Series Insights instance](./media/tutorial-facilities-analyze/create-tsi.png)
+    [![Selections for creating a Time Series Insights instance](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
 1. In the **Event Source** tab, enter a **Name**, select **Event Hub** as the **Source type**, and make sure the other values are selected correctly. Select **ManageSend** for **Event Hub access policy name**, and then select the consumer group that you created in the previous section for **Event Hub consumer group**. Select **Review + create**.
 
-    ![Selections for creating an event source](./media/tutorial-facilities-analyze/tsi-event-source.png)
+    [![Selections for creating an event source](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 
 1. In the **Review + Create** pane, review the information you entered, and select **Create**.
 
@@ -145,13 +150,13 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. After a few simulated events are generated, go back to the Time Series Insights explorer, and select the refresh button at the top. You should see analytical charts being created for your simulated sensor data. 
 
-    ![Chart in the Time Series Insights explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)
+    [![Chart in the Time Series Insights explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
 
 1. In the Time Series Insights explorer, you can then generate charts and heatmaps for different events and data from your rooms, sensors, and other resources. On the left side, use the **MEASURE** and **SPLIT BY** drop-down boxes to create your own visualizations. 
 
    For example, select **Events** for **MEASURE** and **DigitalTwins-SensorHardwareId** for **SPLIT BY**, to generate a heatmap for each of your sensors. The heatmap will be similar to the following image:
 
-   ![Heatmap in the Time Series Insights explorer](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)
+   [![Heatmap in the Time Series Insights explorer](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png#lightbox)
 
 ## Clean up resources
 

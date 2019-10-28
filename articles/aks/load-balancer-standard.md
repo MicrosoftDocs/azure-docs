@@ -6,7 +6,7 @@ author: zr-msft
 
 ms.service: container-service
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/27/2019
 ms.author: zarhoads
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
@@ -26,25 +26,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.59 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.74 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Before you begin
 
 The AKS cluster service principal needs permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
 
 You must create an AKS cluster that sets the SKU for the load balancer to *Standard* instead of the default *Basic*.
-
-### Install aks-preview CLI extension
-
-To use the Azure load balancer standard SKU, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ### Limitations
 
@@ -266,7 +254,7 @@ azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP  
 
 Navigate to the public IP in a browser and verify you see the sample application. In the above example, the public IP is `52.179.23.131`.
 
-![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 > [!NOTE]
 > You can also configure the load balancer to be internal and not expose a public IP. To configure the load balancer as internal, add `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` as an annotation to the *LoadBalancer* service. You can see an example yaml manifest as well as more details about an internal load balancer [here][internal-lb-yaml].
@@ -338,7 +326,7 @@ az aks update \
 ```
 
 > [!IMPORTANT]
-> The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster.
+> The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster. 
 
 ### Define your own public IP or prefixes at cluster create time
 

@@ -87,7 +87,7 @@ In this section, you enable Azure AD SSO in the Azure portal.
     `https://<subdomain>.jamfcloud.com`
 
 	> [!NOTE]
-	> These values aren't real. Update these values with the actual identifier, reply URL, and sign-on URL. You'll get the actual identifier value from *the **Single Sign-On** section in Jamf Pro portal, which is explained later in the tutorial. You can extract the actual subdomain value from the identifier value and use that subdomain information as your sign-on URL and reply URL. You can also refer to the formulas shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. Update these values with the actual identifier, reply URL, and sign-on URL. You'll get the actual identifier value from the **Single Sign-On** section in Jamf Pro portal, which is explained later in the tutorial. You can extract the actual subdomain value from the identifier value and use that subdomain information as your sign-on URL and reply URL. You can also refer to the formulas shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, go to the **SAML Signing Certificate** section, select the **copy** button to copy **App Federation Metadata URL**, and then save it to your computer.
 

@@ -258,7 +258,8 @@ The first thing you need to do is write a function to call the Translator Text A
    # Don't forget to replace with your Cog Services subscription key!
    # If you prefer to use environment variables, see Extra Credit for more info.
    subscription_key = 'YOUR_TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
-
+   
+   # Don't forget to replace with your Cog Services location!
    # Our Flask route will supply two arguments: text_input and language_output.
    # When the translate text button is pressed in our Flask app, the Ajax request
    # will grab these values from our web app, and use them in the request.
@@ -271,6 +272,7 @@ The first thing you need to do is write a function to call the Translator Text A
 
        headers = {
            'Ocp-Apim-Subscription-Key': subscription_key,
+           'Ocp-Apim-Subscription-Region': 'location',
            'Content-type': 'application/json',
            'X-ClientTraceId': str(uuid.uuid4())
        }

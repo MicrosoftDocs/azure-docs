@@ -1,18 +1,15 @@
 ---
 title: Azure Application Insights for JavaScript web apps | Microsoft Docs
 description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/12/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 09/20/2019
+
 ---
+
 # Application Insights for web pages
 
 Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
@@ -24,13 +21,13 @@ Application Insights can be used with any web pages - you just add a short piece
 1. First you need an Application Insights resource. If you don't already have a resource and instrumentation key, follow the [create a new resource instructions](create-new-resource.md).
 2. Copy the instrumentation key from the resource where you want your JavaScript telemetry to be sent.
 3. Add the Application Insights JavaScript SDK to your web page or app via one of the following two options:
-    * [NPM Setup](#npm-based-setup)
+    * [npm Setup](#npm-based-setup)
     * [JavaScript Snippet](#snippet-based-setup)
 
 > [!IMPORTANT]
-> You only need to use one of the methods below for adding the Application Insights JavaScript SDK to your application. If you use the NPM based setup, don't use the snippet based setup. The same goes for the reverse scenario when using the snippet based approach, don't also use the NPM based setup. 
+> You only need to use one of the methods below for adding the Application Insights JavaScript SDK to your application. If you use the npm based setup, don't use the snippet based setup. The same goes for the reverse scenario when using the snippet based approach, don't also use the npm based setup. 
 
-### NPM based setup
+### npm based setup
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -44,7 +41,7 @@ appInsights.loadAppInsights();
 
 ### Snippet based setup
 
-If your app does not use NPM, you can directly instrument your webpages with Application Insights by pasting this snippet at the top of each your pages. Preferably, it should be the first script in your `<head>` section so that it can monitor any potential issues with all of your dependencies.
+If your app does not use npm, you can directly instrument your webpages with Application Insights by pasting this snippet at the top of each your pages. Preferably, it should be the first script in your `<head>` section so that it can monitor any potential issues with all of your dependencies. If you are using Blazor Server App, add the snippet at the top of the file `_Host.cshtml` in the `<head>` section.
 
 ```html
 <script type="text/javascript">
@@ -114,7 +111,7 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | disableAjaxTracking | false | If true, Ajax calls are not autocollected. Default is false. |
 | disableFetchTracking | true | If true, Fetch requests are not autocollected. Default is true |
 | overridePageViewDuration | false | If true, default behavior of trackPageView is changed to record end of page view duration interval when trackPageView is called. If false and no custom duration is provided to trackPageView, the page view performance is calculated using the navigation timing API. Default is false. |
-| maxAjaxCallsPerView | 500 | Default 500 - controls how many AJAX calls will be monitored per page view. Set to -1 to monitor all (unlimited) AJAX calls on the page. |
+| maxAjaxCallsPerView | 500 | Default 500 - controls how many Ajax calls will be monitored per page view. Set to -1 to monitor all (unlimited) Ajax calls on the page. |
 | disableDataLossAnalysis | true | If false, internal telemetry sender buffers will be checked at startup for items not yet sent. |
 | disableCorrelationHeaders | false | If false, the SDK will add two headers ('Request-Id' and 'Request-Context') to all dependency requests to correlate them with corresponding requests on the server side. Default is false. |
 | correlationHeaderExcludedDomains |  | Disable correlation headers for specific domains |
@@ -126,12 +123,16 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | isRetryDisabled | false | Default false. If false, retry on 206 (partial success), 408 (timeout), 429 (too many requests), 500 (internal server error), 503 (service unavailable), and 0 (offline, only if detected) |
 | isStorageUseDisabled | false | If true, the SDK will not store or read any data from local and session storage. Default is false. |
 | isBeaconApiDisabled | true | If false, the SDK will send all telemetry using the [Beacon API](https://www.w3.org/TR/beacon) |
+| onunloadDisableBeacon | false | Default false. when tab is closed, the SDK will send all remaining telemetry using the [Beacon API](https://www.w3.org/TR/beacon) |
 | sdkExtension | null | Sets the sdk extension name. Only alphabetic characters are allowed. The extension name is added as a prefix to the 'ai.internal.sdkVersion' tag (for example, 'ext_javascript:2.0.0'). Default is null. |
 | isBrowserLinkTrackingEnabled | false | Default is false. If true, the SDK will track all [Browser Link](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) requests. |
 | appId | null | AppId is used for the correlation between AJAX dependencies happening on the client-side with the server-side requests. When Beacon API is enabled, it cannot be used automatically, but can be set manually in the configuration. Default is null |
 | enableCorsCorrelation | false | If true, the SDK will add two headers ('Request-Id' and 'Request-Context') to all CORS requests to correlate outgoing AJAX dependencies with corresponding requests on the server side. Default is false |
 | namePrefix | undefined | An optional value that will be used as name postfix for localStorage and cookie name.
 | enableAutoRouteTracking | false | Automatically track route changes in Single Page Applications (SPA). If true, each route change will send a new Pageview to Application Insights. Hash route changes (`example.com/foo#bar`) are also recorded as new page views.
+| enableRequestHeaderTracking | false | If true, AJAX & Fetch request headers is tracked, default is false.
+| enableResponseHeaderTracking | false | If true, AJAX & Fetch request's response headers is tracked, default is false.
+| distributedTracingMode | `DistributedTracingModes.AI` | Sets the distributed tracing mode. If AI_AND_W3C mode or W3C mode is set, W3C trace context headers (traceparent/tracestate) will be generated and included in all outgoing requests. AI_AND_W3C is provided for back-compatibility with any legacy Application Insights instrumented services.
 
 ## Single Page Applications
 
@@ -220,7 +221,7 @@ If you're using the current application insights PRODUCTION SDK (1.0.20) and wan
    "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
    ```
 
-- NPM scenario: Call `downloadAndSetup` to download the full ApplicationInsights script from CDN and initialize it with instrumentation key:
+- npm scenario: Call `downloadAndSetup` to download the full ApplicationInsights script from CDN and initialize it with instrumentation key:
 
    ```ts
    appInsights.downloadAndSetup({

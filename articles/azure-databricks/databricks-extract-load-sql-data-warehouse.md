@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
-> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
+> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
      
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Complete these tasks before you begin this tutorial:
 
 * Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create and query an Azure SQL data warehouse in the Azure portal](../sql-data-warehouse/create-data-warehouse-portal.md).
 
-* Create a database master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+* Create a master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
 * Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. See [Quickstart: Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Read replicas in Azure Database for MySQL.
-description: This article describes read replicas for Azure Database for MySQL.
+description: 'Learn about read replicas in Azure Database for MySQL: choosing regions, creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -14,7 +14,7 @@ The read replica feature allows you to replicate data from an Azure Database for
 
 Replicas are new servers that you manage similar to regular Azure Database for MySQL servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
-To learn more about MySQL replication features and issues, please see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+To learn more about MySQL replication features and issues, see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 ## When to use a read replica
 
@@ -34,7 +34,7 @@ You can have a master server in any [Azure Database for MySQL region](https://az
 [ ![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
-You can always create a read replica in any of the following regions, regardless of where your master server is located. These are the universal replica regions:
+You can create a read replica in any of the following regions, regardless of where your master server is located. The supported universal replica regions include:
 
 Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2.
 
@@ -58,7 +58,7 @@ If a master server has no existing replica servers, the master will first restar
 
 When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the master server. The creation time depends on the amount of data on the master and the time since the last weekly full backup. The time can range from a few minutes to several hours.
 
-Every replica is enabled for storage [auto-grow](concepts-pricing-tiers.md#storage-auto-grow). The auto-grow feature allows the replica to keep up with the data replicated to it, and prevent a break in replication caused by out of storage errors.
+Every replica is enabled for storage [auto-grow](concepts-pricing-tiers.md#storage-auto-grow). The auto-grow feature allows the replica to keep up with the data replicated to it, and prevent an interruption in replication caused by out-of-storage errors.
 
 Learn how to [create a read replica in the Azure portal](howto-read-replicas-portal.md).
 
@@ -104,7 +104,7 @@ Read replicas are currently only available in the General Purpose and Memory Opt
 
 ### Master server restart
 
-When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Please take this into consideration and perform these operations during an off-peak period.
+When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
 
 ### New replicas
 

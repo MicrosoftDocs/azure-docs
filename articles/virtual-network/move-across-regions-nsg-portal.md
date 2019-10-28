@@ -1,5 +1,5 @@
 ---
-title: Move Azure network security group (NSG) to another Azure region using the Azure portal 
+title: Move Azure network security group (NSG) to another Azure region using the Azure portal
 description: Use Azure Resource Manager template to move Azure network security group from one Azure region to another using the Azure portal.
 author: asudbring
 ms.service: virtual-network
@@ -22,7 +22,7 @@ Azure security groups can't be moved from one region to another. You can however
 - Azure network security groups can't be moved between regions.  You'll have to associate the new NSG to resources in the target region.
 
 - To export an NSG configuration and deploy a template to create an NSG in another region, you'll need the Network Contributor role or higher.
-   
+
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, public IPs, and virtual networks.
 
 - Verify that your Azure subscription allows you to create NSGs in the target region that's used. Contact support to enable the required quota.
@@ -36,7 +36,7 @@ The following steps show how to prepare the network security group for the confi
 
 ### Export the template and deploy from the portal
 
-1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source NSG and click on it.
 3. Select > **Settings** > **Export template**.
 4. Choose **Deploy** in the **Export template** blade.
@@ -72,19 +72,19 @@ The following steps show how to prepare the network security group for the confi
             "location": "<target-region>",
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78", 
+                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78",
              }
             }
            ]
 
     ```
-  
+
 11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
-    
+
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
     * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **template.json** file:
-    
+
         ```json
            "resources": [
             {
@@ -150,7 +150,7 @@ The following steps show how to prepare the network security group for the confi
 
 14. Click **BASICS** > **Subscription** to choose the subscription where the target NSG will be deployed.
 
-15. Click **BASICS** > **Resource group** to choose the resource group where the target NSG will be deployed.  You can click **Create new** to create a new resource group for the target NSG.  Ensure the name isn't the same as the source resource group of the existing NSG. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target NSG will be deployed.  You can click **Create new** to create a new resource group for the target NSG.  Ensure the name isn't the same as the source resource group of the existing NSG.
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the NSG to be deployed.
 
@@ -160,7 +160,7 @@ The following steps show how to prepare the network security group for the confi
 
 19. Click the **Purchase** button to deploy the target network security group.
 
-## Discard 
+## Discard
 
 If you wish to discard the target NSG, delete the resource group that contains the target NSG.  To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page.
 

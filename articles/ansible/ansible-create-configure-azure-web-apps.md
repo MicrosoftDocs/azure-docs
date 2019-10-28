@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure apps in Azure App Service using Ansible | Microsoft Docs
+title: Tutorial - Configure apps in Azure App Service using Ansible
 description: Learn how to create an app in Azure App Service with Java 8 and the Tomcat container runtime
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial

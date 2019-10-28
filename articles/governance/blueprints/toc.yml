@@ -110,6 +110,17 @@
     - name: Steps to deploy
       displayName: standards, Payment Card Industry Data Security Standard
       href: ./samples/pci-dss-3.2.1/deploy.md
+  - name: SWIFT CSP v2020   
+    items:
+    - name: Overview
+      displayName: standards, SWIFT CSP-CSCF v2020
+      href: ./samples/swift-2020/index.md
+    - name: Control mapping
+      displayName: standards, SWIFT CSP-CSCF v2020
+      href: ./samples/swift-2020/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, SWIFT CSP-CSCF v2020
+      href: ./samples/swift-2020/deploy.md
   - name: UK OFFICIAL and UK NHS
     items:
     - name: Overview

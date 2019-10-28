@@ -35,7 +35,7 @@ Yes. See the documentation from [Twistlock](https://www.twistlock.com/2016/11/07
 
 ### How do I configure Kubernetes with Azure Container Registry?
 
-See the documentation for [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](container-registry-auth-aks.md).
+See the documentation for [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](../aks/cluster-container-registry-integration.md).
 
 ### How do I get admin credentials for a container registry?
 
@@ -257,6 +257,7 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Why does the Azure portal fail to fetch repositories or tags?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### Check health with `az acr check-health`
@@ -406,6 +407,17 @@ curl $redirect_url
 ### Why does the Azure portal not list all my repositories or tags? 
 
 If you are using the Microsoft Edge/IE browser, you can see at most 100 repositories or tags. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
+
+### Why does the Azure portal fail to fetch repositories or tags?
+
+The browser might not be able to send the request for fetching repositories or tags to the server. There could be various reasons such as:
+
+* Lack of network connectivity
+* Firewall
+* Ad blockers
+* DNS errors
+
+Please contact your network administrator or check your network configuration and connectivity. Try running `az acr check-health -n yourRegistry` using your Azure CLI to check if your environment is able to connect to the Container Registry. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
 ### How do I collect http traces on Windows?
 

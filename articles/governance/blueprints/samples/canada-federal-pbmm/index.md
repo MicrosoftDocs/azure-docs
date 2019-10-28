@@ -1,12 +1,11 @@
 ---
-title: Sample - Canada Federal PBMM blueprint - Overview
-description: Overview of the Canada Federal PBMM blueprint sample.
+title: Canada Federal PBMM blueprint sample - Overview
+description: Overview of the Canada Federal PBMM blueprint sample. This blueprint sample helps customers asses specific Canada Federal PBMM controls.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the Canada Federal PBMM blueprint sample
 
