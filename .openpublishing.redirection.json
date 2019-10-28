@@ -42867,6 +42867,11 @@
       "source_path": "articles/industry/retail/visual-search-use-case-overview.md",
       "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/agriculture/index.md",
+      "redirect_url": "/azure/industry/agriculture/overview",
+      "redirect_document_id": false
     }
   ]
 }
