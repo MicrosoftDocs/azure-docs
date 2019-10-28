@@ -1,8 +1,8 @@
 ---
 title: How to query with SQL in Azure Cosmos DB?
 description: Learn to query with SQL in Azure Cosmos DB
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
@@ -60,7 +60,7 @@ For more information about SQL queries, see:
 
 ## Prerequisites
 
-This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those? Complete the [5-minute quickstart](create-mongodb-nodejs.md).
+This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those? Complete the [5-minute quickstart](create-cosmosdb-resources-portal.md).
 
 ## Example query 1
 
