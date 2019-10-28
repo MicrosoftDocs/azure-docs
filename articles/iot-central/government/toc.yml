@@ -6,8 +6,6 @@
       href: overview-iot-central-government.md
 - name: Tutorials
   items:
-  - name : In-store analytics checkout
-    items:
     - name: Create a connected waste management app
       href: tutorial-connected-waste-management.md
     - name: Create a water consumption monitoring app
@@ -23,13 +21,12 @@
       href: concepts-waterconsumptionmonitoring-architecture.md 
     - name: Water quality monitoring reference architecture
       href: concepts-waterqualitymonitoring-architecture.md  
-    - name: Connectivity
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-    - name: What are application templates?
-      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+     
 - name: How-to guides
   items:
-
+    - name: Connect your app with Dynamics 365 Field Services
+      href: how-to-configure-connected-field-services.md
+ 
     - name: Connect devices
       items:
         - name: Prepare and connect an MXChip IoT DevKit
@@ -63,8 +60,7 @@
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Create custom analytics with Databricks
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-        - name: Create custom analytics with Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+
     - name: Administration
       items:
         - name: Change application settings
