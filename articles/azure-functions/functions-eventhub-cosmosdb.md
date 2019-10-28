@@ -12,25 +12,18 @@ ms.author: karler
 
 # Tutorial: Create an Azure function in Java with an Event Hub trigger and Cosmos DB output binding
 
-<!-- TODO figure out exact brand/usage requirements for event hub(s) -->
-
 This tutorial shows you how to create an Azure Function in Java that is triggered by Event Hub events representing temperature and pressure inputs. The function responds to the event data by adding status entries to a Cosmos DB.
 
-<!-- In this tutorial, you learn to: 
- -->
-<!-- TODO update this list -->
+In this tutorial, you learn to:
 
-<!-- > [!div class="checklist"]
-> * Create Azure resources an Event Hub, Cosmos DB, and storage account 
-> * Import a custom TensorFlow machine learning model into a function app
-> * Build a serverless HTTP API for predicting whether a photo contains a dog or a cat
-> * Consume the API from a web application
-
-![Screenshot of finished project](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png) -->
+[!div class="checklist"]
+> * Create an Event Hub namespace, hub, and authorization rule
+> * Create a Cosmos DB account, database, and collection
+> * Create an Azure Functions app and a storage account to host it
+> * Create and test Java functions on your local machine
+> * Deploy your functions to Azure and monitor them with Application Insights
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-<!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
 
 ## Prerequisites
 
@@ -38,8 +31,6 @@ This tutorial shows you how to create an Azure Function in Java that is triggere
 * [Maven](https://maven.apache.org)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools)
-
-<!-- TODO include info on Azure CLI and Cloud Shell if needed -->
 
 ## Create Azure resources
 
@@ -88,7 +79,7 @@ az group create \
 
 ### Create an event hub
 
-Next, create an Azure Event Hubs namespace, event hub, and authorization rule using the following commands:
+Next, create an [Azure Event Hubs](/azure/event-hubs/event-hubs-about) namespace, event hub, and authorization rule using the following commands:
 
 ```azurecli
 az eventhubs namespace create \
@@ -111,7 +102,7 @@ The Event Hubs namespace contains the actual event hub and its authorization rul
 
 ### Create a Cosmos DB
 
-Next, create an Azure Cosmos DB account, database, and collection using the following commands:
+Next, create an [Azure Cosmos DB](/azure/cosmos-db/introduction) account, database, and collection using the following commands:
 
 ```azurecli
 az cosmosdb create \
@@ -133,7 +124,7 @@ az cosmosdb collection create \
 
 ### Create a storage account and function app
 
-Next, create a storage account to host your Azure Functions app, then create the function app. Use the following commands:
+Next, create an [Azure Storage](/azure/storage/common/storage-introduction) account to host your Azure Functions app, then create the function app. Use the following commands:
 
 ```azurecli
 az storage account create \
@@ -147,6 +138,8 @@ az functionapp create \
     --consumption-plan-location $LOCATION \
     --runtime java
 ```
+
+When the `az functionapp create` command creates your Azure Functions app, it also creates an [Application Insights](/azure/azure-monitor/app/app-insights-overview) resource with the same name. The function app is automatically configured with a setting named `APPINSIGHTS_INSTRUMENTATIONKEY` that connects it to Application Insights. You can view app telemetry after you deploy your functions to Azure, as described later in this topic.
 
 ## Configure your function app
 
@@ -199,13 +192,11 @@ Your Azure resources have now been created and configured to work properly toget
 
 ## Create and test your functions
 
-Next, you will create a project on your local machine, add Java code, and test it using Maven and the Azure Functions Core Tools. Your functions will run locally, but will use the cloud-based resources you've created. After you get the functions working locally, you can deploy them to the cloud and watch your data and analytics accumulate.
+Next, you will create a project on your local machine, add Java code, and test it. You will use [Maven Plugin for Azure Functions](/java/api/overview/azure/maven/azure-functions-maven-plugin/readme), which works with [Azure Functions Core Tools](/azure/azure-functions/functions-run-local). Your functions will run locally, but will use the cloud-based resources you've created. After you get the functions working locally, you can use Maven to deploy them to the cloud and watch your data and analytics accumulate.
 
 ### Create a local functions project
 
 Use the following Maven command to create a functions project and add the required dependencies.
-
-<!-- TODO update to use batch mode instead of interactive mode -->
 
 ```bash
 mvn archetype:generate --batch-mode \
@@ -309,7 +300,9 @@ public class Function {
 }
 ```
 
-As you can see, this file contains two functions, `generateSensorData` and `processSensorData`. The `generateSensorData` function simulates a sensor that sends temperature and pressure readings to the event hub. A timer trigger runs the function every 10 seconds, and an event hub output binding sends the return value to the event hub. When the event hub receives the message, it generates an event. The `processSensorData` function runs when it receives the event. It then processes the event data and uses a Cosmos DB output binding to send the results to Cosmos DB.
+As you can see, this file contains two functions, `generateSensorData` and `processSensorData`. The `generateSensorData` function simulates a sensor that sends temperature and pressure readings to the event hub. A timer trigger runs the function every 10 seconds, and an event hub output binding sends the return value to the event hub.
+
+When the event hub receives the message, it generates an event. The `processSensorData` function runs when it receives the event. It then processes the event data and uses a Cosmos DB output binding to send the results to Cosmos DB. For more information about input and output bindings, see [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java).
 
 The data used by these functions is stored using a class called `TelemetryItem`, so you'll need an implementation of that. Create a new file called `TelemetryItem.java` in the same location as `Function.java` and add the following code:
 
@@ -395,24 +388,21 @@ After some build and startup messages, you will see output similar to the follow
 
 You can then go to the Azure portal, navigate to your Cosmos DB account, and use Data Explorer to confirm that the database has been updated with records of the processing results:
 
-![Data Explorer](media/functions-eventhub-cosmosdb/data-explorer.png)
+![Cosmos DB Data Explorer](media/functions-eventhub-cosmosdb/data-explorer.png)
 
-## Deploy to Azure
+## Deploy to Azure and view app telemetry
 
-TBD
+Next, deploy your project to Azure using the following command:
 
-<!-- In VSCode command pallet, do >Azure Functions: Upload Local Settings. Follow prompts – Select your function app in Azure. Go to the portal -> Function App -> and in the Overview tab, under Configured Features, click Configuration. to make sure all your settings are uploaded correctly.  
-Then in the command palette do >Azure Functions: Deploy to Function App and select your function app. Once deployment is successful, you should be able to in your portal, see function.json in your app.  -->
+```bash
+mvn azure-functions:deploy
+```
 
-## Test in Azure
+Your functions will now run in Azure, and continue to accumulate data in your Cosmos DB. You can view your deployed function app in the Azure portal, where you can start and stop it, and view app telemetry through the connected Application Insights resource. The following screenshot shows the Live Metrics Stream for the app:
 
-TBD
+![Application Insights Live Metrics Stream](media/functions-eventhub-cosmosdb/application-insights-live-metrics-stream.png)
 
-<!-- Follow the same steps that you used to test locally. This time your function app is running in Azure. Based on the function app logic, you can go to the cosmos db created in your resource group to see items being creates (as we used output binding).  -->
-
-## View Application Insights telemetry
-
-TBD
+For more information, see [Monitor Azure Functions](/azure/azure-functions/functions-monitoring).
 
 ## Clean up resources
 
@@ -424,18 +414,11 @@ az group delete --name $RESOURCE_GROUP
 
 ## Next steps
 
-In this tutorial, you learned how to ... TBD
+In this tutorial, you learned how to create Azure Functions that handle events from the Event Hub, process the data in the event messages, and write analysis results to a Cosmos DB.
 
-<!-- build and customize an HTTP API with Azure Functions to make predictions using a TensorFlow model. You also learned how to call the API from a web application.
-
-You can use the techniques in this tutorial to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
-
-To deploy the function app to Azure, use the [Azure Functions Core Tools](./functions-run-local.md#publish) or [Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
+Next, learn how to store your app secrets in [Azure Key Vault](/azure/key-vault/key-vault-overview) or use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) for automated deployment:
 
 > [!div class="nextstepaction"]
-> [Azure Functions Python Developer Guide](./functions-reference-python.md)
-
-
-Advance to the next article to learn how to create...
+> [Build and deploy Java to Azure Functions](/azure/devops/pipelines/ecosystems/java-function)
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md) -->
+> [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
