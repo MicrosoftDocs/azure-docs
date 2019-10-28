@@ -97,7 +97,7 @@
 - name: Resources
   items:
   - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+    href: https://docs.microsoft.com/samples/browse/?products=azure&term=vision
   - name: Limits and quotas
     href: limits-and-quotas.md
   - name: UserVoice

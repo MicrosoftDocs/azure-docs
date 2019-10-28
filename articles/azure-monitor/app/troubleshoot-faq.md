@@ -1,18 +1,15 @@
 ---
 title: Azure Application Insights FAQ | Microsoft Docs
 description: Frequently asked questions about Application Insights.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/16/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 09/16/2019
+
 ---
+
 # Application Insights: Frequently Asked Questions
 
 ## Configuration problems
