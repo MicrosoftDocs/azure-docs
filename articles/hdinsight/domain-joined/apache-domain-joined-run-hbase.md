@@ -1,5 +1,5 @@
 ---
-title: Apache HBase with HDInsight Enterprise Security Package - Azure
+title: Apache HBase & Enterprise Security Package - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
