@@ -1,6 +1,6 @@
 ---
 title: Cloud Authentication - Staged Rollout
-description: Explains how to migrate from federated authentication to cloud auth using a staged roll-out.
+description: Explains how to migrate from federated authentication to cloud auth using a staged rollout.
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 
 ## What is Cloud Authentication -- Staged Rollout?
 
-This feature allows you to test cloud authentication and migrate from federated authentication (ADFS, Ping Federate, Okta etc.) to cloud authentication (Pass-through authentication / Password Hash Sync) with seamless SSO using a staged approach, instead of using the hard cutover approach of converting domains from federated to managed as documented [here](../fundamentals/active-directory-deployment-plans.md).
+This feature allows you to migrate from federated authentication to cloud authentication using a staged approach.
 
-Moving away from federated authentication has implications especially if you have on-premises MFA server or if you are using smart cards for authentication and other federation only features. Before trying this feature, we suggest you review our guide on choosing the right authentication method. See [this table](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods) for more details.
+Moving away from federated authentication has implications. If you have an on-premises MFA server or if you are using smart cards for authentication and other federation only features, please plan accordingly. Before trying this feature, we suggest you review our guide on choosing the right authentication method. See [this table](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods) for more details.
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3inQJ]
 
@@ -27,11 +27,11 @@ Moving away from federated authentication has implications especially if you hav
 
 ## Pre-requisites
 
--   The customer must have an Azure AD tenant with federated domains.
+-   You have an Azure AD tenant with federated domains.
 
--   The customer should choose to move to either Password Hash Sync + Seamless SSO **(Option A),** or Pass-through Authentication + Seamless SSO **(Option B).** Although seamless SSO is optional, we recommend enabling seamless SSO to achieve a silent sign-in experience for users using domain joined machines from inside corporate network.
+-   You have decided to move to either Password Hash Sync + Seamless SSO **(Option A),** or Pass-through Authentication + Seamless SSO **(Option B).** Although seamless SSO is optional, we recommend enabling seamless SSO to achieve a silent sign-in experience for users using domain joined machines from inside corporate network.
 
--   The customer has configured all the appropriate tenant branding and conditional access policies they need for users who are being migrated over to cloud authentication.
+-   You have configured all the appropriate tenant branding and conditional access policies you need for users who are being migrated over to cloud authentication.
 
 -   If you plan to use Azure MFA, we recommend you use [converged registration for Self-service Password Reset (SSPR) and Azure MFA](../authentication/concept-registration-mfa-sspr-combined.md) to get your users to register their authentication methods once.
 
@@ -47,7 +47,7 @@ Moving away from federated authentication has implications especially if you hav
 
 ## Unsupported Scenarios
 
-1.  Certain applications send the "domain\_hint" query parameter to Azure AD during authentication. These flows will continue to hit the federation provider and users enabled for staged rollout will continue to use federation for authentication.
+1.  Certain applications send the "domain\_hint" query parameter to Azure AD during authentication. These flows will continue and users enabled for staged rollout will continue to use federation for authentication.
 
 <!-- -->
 
