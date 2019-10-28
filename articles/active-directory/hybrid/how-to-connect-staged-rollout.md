@@ -6,7 +6,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -59,6 +59,8 @@ Moving away from federated authentication has implications especially if you hav
 
     c.  Dynamic groups are **not supported** for staged rollout.
 
+	d. Contact Objects inside the group will block the group form being added.
+
 4.  The final cutover from federated to cloud authentication still needs to happen using Azure AD Connect or PowerShell. This feature doesn't switch domains from federate to managed.
 
 5.  When you first add a security group for staged rollout, it is limited to 200 users to avoid the UX from timing out. Once the group is added in the UX, you can add more users directly to the group as required.
@@ -105,14 +107,16 @@ We recommend to enable Seamless SSO irrespective of the sign-in method ( PHS or 
 
 4.  Run PowerShell as an Administrator. In PowerShell, call New-AzureADSSOAuthenticationContext. This command should give you a popup to enter your tenant\'s Global Administrator credentials.
 
-5.  Call Get-AzureADSSOStatus \| ConvertFrom-Json. This command provides you the list of AD forests (look at the \"Domains\" list) on which this feature has been enabled.
+5.  Call `Get-AzureADSSOStatus \| ConvertFrom-Json`. This command provides you the list of AD forests (look at the \"Domains\" list) on which this feature has been enabled.
+
+ By default, it is set to false at the tenant level.
 
 > **Example:**
 ![](./media/how-to-connect-staged-rollout/sr3.png)
 
-6.  Call \$creds = Get-Credential. When prompted, enter the Domain Administrator credentials for the intended AD forest.
+6.  Call `\$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
 
-7.  Call Enable-AzureADSSOForest -OnPremCredentials \$creds. This command creates the AZUREADSSOACC computer account from the on-premises domain controller for this specific Active Directory forest that is required for Seamless SSO.
+7.  Call `Enable-AzureADSSOForest -OnPremCredentials \$creds`. This command creates the AZUREADSSOACC computer account from the on-premises domain controller for this specific Active Directory forest that is required for Seamless SSO.
 
 8.  Seamless SSO requires URL's to be in the intranet zone. Please refer to the link [here](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-3-roll-out-the-feature) to deploy those URL's using Group Policies.
 
@@ -208,7 +212,7 @@ To check user sign-ins still happening on federation providers:
 
 2.  If you wish to disable staged rollout feature, please slide the feature back to **'OFF'** state to turn off staged rollout.
 
-# [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167256) - For filing new feature requests.
+
 
 # Frequently asked questions
 
