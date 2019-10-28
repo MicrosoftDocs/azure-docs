@@ -575,13 +575,13 @@ At the time of this release, the following browsers are supported: Chrome, Firef
 ### Azure Machine Learning Data Prep SDK v1.1.8
 
 + **New features**
- + Dataflow objects can now be iterated over, producing a sequence of records. See documentation for `Dataflow.to_record_iterator`.
+  + Dataflow objects can now be iterated over, producing a sequence of records. See documentation for `Dataflow.to_record_iterator`.
 
 + **Bug fixes and improvements**
- + Increased the robustness of DataPrep SDK.
- + Improved handling of pandas DataFrames with non-string Column Indexes.
- + Improved the performance of `to_pandas_dataframe` in Datasets.
- + Fixed a bug where Spark execution of Datasets failed when run in a multi-node environment.
+  + Increased the robustness of DataPrep SDK.
+  + Improved handling of pandas DataFrames with non-string Column Indexes.
+  + Improved the performance of `to_pandas_dataframe` in Datasets.
+  + Fixed a bug where Spark execution of Datasets failed when run in a multi-node environment.
 
 ## 2019-07-01
 
@@ -902,7 +902,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 
  + **Changes**
    + The azureml-tensorboard package replaces azureml-contrib-tensorboard.
-   + With this release, you can set up a user account on your managed compute cluster (amlcompute), while creating it. This can be done by passing these properties in the provisioning configuration. You can find more details in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remotelogin-port-public-access--notspecified--).
+   + With this release, you can set up a user account on your managed compute cluster (amlcompute), while creating it. This can be done by passing these properties in the provisioning configuration. You can find more details in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--).
 
 ### Azure Machine Learning Data Prep SDK v1.0.17
 

@@ -93,9 +93,7 @@ In every automated machine learning experiment, your data is automatically scale
 
 Additional advanced preprocessing and featurization are also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
 
-+ Azure portal: Selecting the **Preprocess** checkbox in the **Advanced settings** [with these steps](how-to-create-portal-experiments.md).
-
-+ Python SDK: Specifying `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ Python SDK: Specifying `"feauturization": auto' / 'off' / FeaturizationConfig` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 
 ## Time-series forecasting
@@ -106,6 +104,8 @@ An automated time-series experiment is treated as a multivariate regression prob
 Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md). Or, see the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
 
 * holiday detection and featurization
+* time-series and DNN learners (Auto-ARIMA, Prophet, ForecastTCN)
+* many model support through grouping
 * rolling-origin cross validation
 * configurable lags
 * rolling window aggregate features
