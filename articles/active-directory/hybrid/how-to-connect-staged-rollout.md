@@ -19,7 +19,13 @@ ms.collection: M365-identity-device-management
 
 This feature allows you to migrate from federated authentication to cloud authentication using a staged approach.
 
-Moving away from federated authentication has implications. If you have an on-premises MFA server or if you are using smart cards for authentication and other federation only features, please plan accordingly. Before trying this feature, we suggest you review our guide on choosing the right authentication method. See [this table](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods) for more details.
+Moving away from federated authentication has implications. For example, if you have any of the following:
+	
+-  an on-premises MFA server 
+-  are using smart cards for authentication 
+-  other federation only features
+
+These features should be taken into consideration prior to switching to cloud authentication.  Before trying this feature, we suggest you review our guide on choosing the right authentication method. See [this table](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods) for more details.
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3inQJ]
 
