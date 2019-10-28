@@ -43062,11 +43062,6 @@
       "source_path": "articles/cognitive-services/speech-service/how-to-voice-tuning.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-audio-content-creation",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/speech-service/how-to-voice-tuning.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-audio-content-creation",
-      "redirect_document_id": false
     }
   ]
 }
