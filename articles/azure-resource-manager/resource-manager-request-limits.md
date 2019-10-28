@@ -4,7 +4,7 @@ description: Describes how to use throttling with Azure Resource Manager request
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/26/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ---
