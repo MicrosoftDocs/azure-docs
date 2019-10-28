@@ -61,7 +61,7 @@ For example, add the **Request** trigger to your logic app.
     }
     ```
 
-   ![Add the Request action](./media/logic-apps-http-endpoint/manualtrigger.png)
+   ![Provide JSON schema for the Request action](./media/logic-apps-http-endpoint/manualtrigger.png)
 
    > [!TIP]
    >
@@ -117,7 +117,7 @@ By default, the **Request** trigger expects an HTTP POST request, but you can us
    > [!NOTE]
    > You can select any other HTTP method, or specify a custom method for your own logic app.
 
-   ![Change HTTP method](./media/logic-apps-http-endpoint/change-method.png)
+   ![Select HTTP method to use for Request](./media/logic-apps-http-endpoint/change-method.png)
 
 ## Accept parameters through your HTTP endpoint URL
 
@@ -151,7 +151,7 @@ that you specified in your trigger's relative path.
 
    Your **Body** should look like this example:
 
-   ![Response body with parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+   ![Example response body with parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 6. Save your logic app. 
 
@@ -209,7 +209,7 @@ To include these logic apps, add the
 **Azure Logic Apps - Choose a Logic Apps workflow** action 
 to your trigger. You can then select from eligible logic apps.
 
-![Add another logic app](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+![Nest logic app inside current logic app](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
 ## Call or trigger logic apps through HTTP endpoints
 
@@ -276,7 +276,7 @@ that the response has content type `application/json`.
 and the body contains `title` and `name`, based on 
 the JSON schema updated previously for the **Request** trigger.
 
-![HTTP Response action](./media/logic-apps-http-endpoint/response.png)
+![Provide response content for HTTP Response action](./media/logic-apps-http-endpoint/response.png)
 
 Responses have these properties:
 
