@@ -76,7 +76,7 @@ Select **Failures** at the top of the page and the **Failures** workbook opens. 
 | `201 Created` | A POST operation to create a resource is successful. |
 | `404 Not Found` | The operation is attempting to act on a resource that no longer exists. For example, the resource may have already been deleted. |
 
-For a full list of status codes, consult the [Cosmos DB HTTP status code article](https://docs.microsoft.com/en-us/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+For a full list of status codes, consult the [Cosmos DB HTTP status code article](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### Capacity workbook
 
