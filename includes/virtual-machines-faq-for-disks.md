@@ -149,7 +149,7 @@ Disk reservation is the option to purchase one year of disk storage in advance, 
 Azure disk reservation provides options to purchase Premium SSD Managed Disks in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for one-year term. There is no limitation on the minimal unit you can purchase per disk SKU. Additionally, you can choose to pay with a single, upfront payment or monthly payments.  
 
 **How will I be billed for Azure disk reservation?**
-- For Enterprise Agreement (EA) customers, Azure Monetary Commitment will be used first to purchase Azure Disks Reservation. In scenarios where EA customers have used all their monetary commitment, Azure Disks Reservation can still be purchased, and those purchases will be invoiced for the single, upfront payment on their next overage bill.
+- For Enterprise Agreement (EA) customers, the Azure monetary commitment will first be used to purchase Azure Disks Reservation. In scenarios where EA customers have used all their monetary commitment, Azure Disks Reservation can still be purchased, and those purchases will be invoiced for the single, upfront payment on their next overage bill.
 
 - For customers purchasing via Azure.com, at the time of purchase, the credit card on file will be charged for the full upfront payment (or monthly fixed payments) of Azure Disks Reservation.
 
