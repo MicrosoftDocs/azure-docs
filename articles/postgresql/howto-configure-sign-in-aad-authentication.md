@@ -14,7 +14,7 @@ This article will walk you through the steps how to configure Azure Active Direc
 
 > [!IMPORTANT]
 > Azure AD authentication for Azure Database for PostgreSQL is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Setting the Azure AD Admin user
@@ -202,5 +202,5 @@ This assumes you have created a group "DBReadUser" in your Azure AD. Users belon
 
 <!--Image references-->
 
-[1]: ./media/concepts-aad-authentication/authentication_flow.png
-[2]: ./media/concepts-aad-authentication/set_aad_admin.png
+[1]: ./media/concepts-aad-authentication/authentication-flow.png
+[2]: ./media/concepts-aad-authentication/set-aad-admin.png

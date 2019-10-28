@@ -15,7 +15,7 @@ With Azure AD authentication, you can manage database user identities and other 
 
 > [!IMPORTANT]
 > Azure AD authentication for Azure Database for PostgreSQL is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Benefits of using Azure AD include:
@@ -90,5 +90,5 @@ Once you have authenticated against the Active Directory, you then retrieve a to
 
 <!--Image references-->
 
-[1]: ./media/concepts-aad-authentication/authentication_flow.png
-[2]: ./media/concepts-aad-authentication/admin_structure.png
+[1]: ./media/concepts-aad-authentication/authentication-flow.png
+[2]: ./media/concepts-aad-authentication/admin-structure.png
