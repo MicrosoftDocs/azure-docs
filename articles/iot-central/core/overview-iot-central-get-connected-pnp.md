@@ -10,7 +10,7 @@ services: iot-central
 manager: philmea
 ---
 
-# Get connected (preview features)
+# Get connected to Azure IoT Central (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
