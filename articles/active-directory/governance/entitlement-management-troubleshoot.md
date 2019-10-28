@@ -38,7 +38,9 @@ This article describes some items you should check to help you troubleshoot Azur
 
 ## Resources
 
-* For an application to be a resource in an access package, it must have at least one resource role that can be assigned. The roles are defined by the application itself and are managed in Azure AD. Note that the Azure portal may also show service principals for services that cannot be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they cannot be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
+* Roles for applications are defined by the application itself and are managed in Azure AD. If an application does not have any resource roles, entitlement management assigns users to a **Default Access** role.
+
+    Note that the Azure portal may also show service principals for services that cannot be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they cannot be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
 
 * For a group to be a resource in an access package, it must be able to be modifiable in Azure AD.  Groups that originate in an on-premises Active Directory cannot be assigned as resources because their owner or member attributes cannot be changed in Azure AD.   Groups that originate in Exchange Online as Distribution groups cannot be modified in Azure AD either. 
 
@@ -52,13 +54,11 @@ This article describes some items you should check to help you troubleshoot Azur
 
 ## External users
 
-* When an external user wants to request access to an access package, be sure that they are using the **My Access portal link** for the access package. For more information, see [Share link to request an access package](entitlement-management-access-package-settings.md). If an external user just visits **myaccess.microsoft.com** and does not use the full My Access portal link, then they will see the access packages available to them in their own organization and not in your organization.
+* When an external user wants to request access to an access package, make sure they are using the **My Access portal link** for the access package. For more information, see [Share link to request an access package](entitlement-management-access-package-settings.md). If an external user just visits **myaccess.microsoft.com** and does not use the full My Access portal link, then they will see the access packages available to them in their own organization and not in your organization.
 
-* If there is a B2B [allow list](../b2b/allow-deny-list.md), then users whose directories are not allowed will not be able to request access.
+* If an external user is unable to request access to an access package or is unable to access resources, be sure to check your [settings for external users](entitlement-management-external-users.md#settings-for-external-users).
 
-* Ensure that there are no [Conditional Access policies](../conditional-access/require-managed-devices.md) that would prevent external users from requesting access or being able to use the applications in the access packages.
-
-* If a new external user, that has not previously signed in your directory, receives an access package including a SharePoint Online site, their access package will show as not fully delivered until their account is provisioned in SharePoint Online.
+* If a new external user, that has not previously signed in your directory, receives an access package including a SharePoint Online site, their access package will show as not fully delivered until their account is provisioned in SharePoint Online. For more information about sharing settings, see [Review your SharePoint Online external sharing settings](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings).
 
 ## Requests
 

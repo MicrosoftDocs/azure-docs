@@ -73,36 +73,6 @@ The following diagram and steps provide an overview of how external users are gr
 
 1. Depending on the lifecycle of external users settings, when the external user no longer has any access package assignments, the external user is blocked from signing in and the guest user account is removed from your directory.
 
-## Manage the lifecycle of external users
-
-You can select what happens when an external user, who was invited to your directory through an access package request being approved, no longer has any access package assignments. This can happen if the user relinquishes all their access package assignments, or their last access package assignment expires. By default, when an external user no longer has any access package assignments, they are blocked from signing in to your directory. After 30 days, their guest user account is removed from your directory.
-
-**Prerequisite role:** Global administrator or User administrator
-
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
-
-1. In the left menu, in the **Entitlement management** section, click **Settings**.
-
-1. Click **Edit**.
-
-    ![Settings to manage the lifecycle of external users](./media/entitlement-management-external-users/settings-external-users.png)
-
-1. In the **Manage the lifecycle of external users** section, select the different settings for external users.
-
-1. Once an external user loses their last assignment to any access packages, if you want to block them from signing in to this directory, set the **Block external user from signing in to this directory** to **Yes**.
-
-    > [!NOTE]
-    > If a user is blocked from signing in to this directory, then the user will be unable to re-request the access package or request additional access in this directory. Do not configure blocking them from signing in if they will subsequently need to request access to other access packages.
-
-1. Once an external user loses their last assignment to any access packages, if you want to remove their guest user account in this directory, set **Remove external user** to **Yes**.
-
-    > [!NOTE]
-    > Entitlement management only removes accounts that were invited through entitlement management. Also, note that a user will be blocked from signing in and removed from this directory even if that user was added to resources in this directory that were not access package assignments. If the guest was present in this directory prior to receiving access package assignments, they will remain. However, if the guest was invited through an access package assignment, and after being invited was also assigned to a OneDrive for Business or SharePoint Online site, they will still be removed.
-
-1. If you want to remove the guest user account in this directory, you can set the number of days before it is removed. If you want to remove the guest user account as soon as they lose their last assignment to any access packages, set **Number of days before removing external user from this directory** to **0**.
-
-1. Click **Save**.
-
 ## Settings for external users
 
 To ensure people outside of your organization can request access packages and get access to the resources in those access packages, there are some settings that you should verify are properly configured.
@@ -134,17 +104,50 @@ To ensure people outside of your organization can request access packages and ge
 - If you want to include SharePoint Online sites in your access packages for external users, make sure that your organization-level external sharing setting is set to **Anyone** (users don't require sign in) or **New and existing guests** (guests must sign in or provide a verification code). For more information, see [Turn external sharing on or off](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
 - If you want to restrict any external sharing outside of entitlement management, you can set the external sharing setting to **Existing guests**. Then, only new users that are invited through entitlement management will be able to gain access to these sites. For more information, see [Turn external sharing on or off](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
 - Make sure that the site-level settings enable guest access (same option selections as previously listed). For more information, see [Turn external sharing on or off for a site](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
 
 ### Review your Office 365 group sharing settings
 
 - If you want to include Office 365 groups in your access packages for external users, make sure the **Let users add new guests to the organization** is set to **On** to allow guest access. For more information, see [Manage guest access to Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups).
 
+- If you want external users to be able to access the SharePoint Online site and resources associated with an Office 365 group, make sure you turn on SharePoint Online external sharing. For more information, see [Turn external sharing on or off](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
 - For information about how to set the guest policy for Office 365 groups at the directory level in PowerShell, see [Example: Configure Guest policy for groups at the directory level](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### Review your Teams sharing settings
 
 - If you want to include Teams in your access packages for external users, make sure the **Allow guest access in Microsoft Teams** is set to **On** to allow guest access. For more information, see [Configure guest access in the Microsoft Teams admin center](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center).
+
+## Manage the lifecycle of external users
+
+You can select what happens when an external user, who was invited to your directory through an access package request being approved, no longer has any access package assignments. This can happen if the user relinquishes all their access package assignments, or their last access package assignment expires. By default, when an external user no longer has any access package assignments, they are blocked from signing in to your directory. After 30 days, their guest user account is removed from your directory.
+
+**Prerequisite role:** Global administrator or User administrator
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, in the **Entitlement management** section, click **Settings**.
+
+1. Click **Edit**.
+
+    ![Settings to manage the lifecycle of external users](./media/entitlement-management-external-users/settings-external-users.png)
+
+1. In the **Manage the lifecycle of external users** section, select the different settings for external users.
+
+1. Once an external user loses their last assignment to any access packages, if you want to block them from signing in to this directory, set the **Block external user from signing in to this directory** to **Yes**.
+
+    > [!NOTE]
+    > If a user is blocked from signing in to this directory, then the user will be unable to re-request the access package or request additional access in this directory. Do not configure blocking them from signing in if they will subsequently need to request access to other access packages.
+
+1. Once an external user loses their last assignment to any access packages, if you want to remove their guest user account in this directory, set **Remove external user** to **Yes**.
+
+    > [!NOTE]
+    > Entitlement management only removes accounts that were invited through entitlement management. Also, note that a user will be blocked from signing in and removed from this directory even if that user was added to resources in this directory that were not access package assignments. If the guest was present in this directory prior to receiving access package assignments, they will remain. However, if the guest was invited through an access package assignment, and after being invited was also assigned to a OneDrive for Business or SharePoint Online site, they will still be removed.
+
+1. If you want to remove the guest user account in this directory, you can set the number of days before it is removed. If you want to remove the guest user account as soon as they lose their last assignment to any access packages, set **Number of days before removing external user from this directory** to **0**.
+
+1. Click **Save**.
 
 ## Next steps
 
