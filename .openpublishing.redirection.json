@@ -42882,6 +42882,191 @@
       "source_path": "articles/industry/index.md",
       "redirect_url": "/azure/industry-marketing/index",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-dotnet-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-uwp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-xamarin.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-unity.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-cpp-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-cpp-linux.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-cpp-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-java-android.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-java-jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-js-browser.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-js-node.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-objectivec-ios.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-objective-c-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-swift-ios.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-swift-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-python.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-translate-speech-dotnetcore-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-translate-speech-dotnetframework-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-translate-speech-uwp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-translate-speech-cpp-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-translate-speech-java-jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-dotnet-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-dotnetcore.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-csharp-uwp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-csharp-unity.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-cpp-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-cpp-linux.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-java-android.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-java-jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-objectivec-ios.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-objectivec-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-swift-ios.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-swift-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-python.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-voice-tuning.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-audio-content-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-voice-tuning.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-audio-content-creation",
+      "redirect_document_id": false
     }
   ]
 }
