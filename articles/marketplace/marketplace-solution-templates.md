@@ -6,7 +6,7 @@ author: ellacroi
 manager: nunoc
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 9/25/2019
 ms.author: ellacroi
 ---
 
@@ -16,7 +16,7 @@ Solution templates are one of the main ways to publish a solution in the Marketp
 
 Use the Azure app: solution template offer type when your solution requires additional deployment and configuration automation beyond a single VM. You may automate the provisioning of one or more VMs using Azure apps: solution templates. You may also provision networking and storage resources. Azure apps: solution templates offer type provides automation benefits for single VMs and entire IaaS-based solutions.
 
-These solution templates are transaction offers, which are deployed and billed through the Marketplace. The call to action that a user sees is "Get It Now."
+These solution templates are not transaction offers, but can be used to deploy paid VM offers billed through Microsoft's commercial marketplace. The call to action that a user sees is "Get It Now."
 
 
 ## Requirements for Solution Templates

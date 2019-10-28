@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
-ms.author: chackdan
+ms.author: pepogors
 
 ---
 # Service Fabric cluster capacity planning considerations
@@ -77,7 +77,7 @@ The durability tier is used to indicate to the system the privileges that your V
 | Bronze           | 1                              | VMs with at least 50 GB of local SSD                                              | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
 
 > [!WARNING]
-> Node types running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed, which might impact your workloads. Use only Bronze for node types that run only stateless workloads. For production workloads, running Silver or above is recommended. 
+> Node types running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateful workloads will not be stopped or delayed, which might impact your workloads. Use only Bronze for node types that run only stateless workloads. For production workloads, running Silver or above is recommended. 
 > 
 > Regardless of any durability level, [Deallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) operation on VM Scale Set will destroy the cluster
 
@@ -119,7 +119,7 @@ The reliability tier is used to set the number of replicas of the system service
 
 The reliability tier can take the following values:
 
-* Platinum - Run the System services with a target replica set count of seven
+* Platinum - Run the System services with a target replica set count of nine
 * Gold - Run the System services with a target replica set count of seven
 * Silver - Run the System services with a target replica set count of five 
 * Bronze - Run the System services with a target replica set count of three

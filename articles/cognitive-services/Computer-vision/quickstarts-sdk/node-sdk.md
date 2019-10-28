@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/18/2019
+ms.date: 10/01/2019
 ms.author: pafarley
 ---
 
@@ -166,9 +166,9 @@ Define the helper function `formatRectFaces`:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_formatfaces)]
 
-### Detect adult or racy content
+### Detect adult, racy, or gory content
 
-The following code prints the detected presence of adult or racy content in the image. See [Adult and racy content](../concept-detecting-adult-content.md) for more details.
+The following code prints the detected presence of adult content in the image. See [Adult, racy, gory content](../concept-detecting-adult-content.md) for more details.
 
 Define the URL of the image to use:
 
@@ -223,7 +223,7 @@ Computer Vision can read visible text in an image and convert it to a character 
 
 ### Set up test images
 
-Save a reference the URL of the images you want to extract text from.
+Save a reference of the URL of the images you want to extract text from.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 

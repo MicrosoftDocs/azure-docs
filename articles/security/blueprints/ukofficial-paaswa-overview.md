@@ -108,7 +108,7 @@ This template deploys the following App Service features:
 - Multiple App Service [deployment slots](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Dev, Preview, QA, UAT and of course Production (default slot).
 - [Managed identities for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity) to connect to [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (this could also be used to provide access to [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Integration with [Azure Application Insights](../../azure-monitor/app/azure-web-apps.md) to monitor performance
-- [Diagnostic Logs](../../azure-monitor/platform/diagnostic-logs-overview.md) 
+- [Diagnostic Logs](../../azure-monitor/platform/resource-logs-overview.md) 
 - Metric [alerts](../../azure-monitor/app/alerts.md) 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 

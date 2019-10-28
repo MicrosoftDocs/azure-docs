@@ -67,10 +67,10 @@ You can also export your existing list of contacts of an offer, and then make ch
 
     | **Role**    | **Description**  |
     | :------------------- | :-------------------|
-    | *Partner marketing* | This role focuses on marketing your solution and collaborating on marketing efforts with Microsoft sales teams and channel resellers. The main point of contact for marketing engagements and offer listing content, such as product descriptions, images, and videos. |
-    | *Partner sales* | This role focuses on selling your solution and collaborating on sales with Microsoft sales teams and channel resellers. For co-sell solutions, indicate at least one partner sales contact per region in which you wish to be Co-sell Ready. The same partner sales contact may cover multiple regions. |
-    | *Partner technical sales* | Supports technical architecture and deployment considerations during the sales cycle, the post-sales integration, and deployment periods. |
-    | *Partner customer success manager* | Typically supports customers post-deployment, to help them get the most out of your solution and grow its footprint within the customer’s organization. |
+    | *:::no-loc text="Partner marketing":::* | This role focuses on marketing your solution and collaborating on marketing efforts with Microsoft sales teams and channel resellers. The main point of contact for marketing engagements and offer listing content, such as product descriptions, images, and videos. |
+    | *:::no-loc text="Partner sales":::* | This role focuses on selling your solution and collaborating on sales with Microsoft sales teams and channel resellers. For co-sell solutions, indicate at least one partner sales contact per region in which you wish to be Co-sell Ready. The same partner sales contact may cover multiple regions. |
+    | *:::no-loc text="Partner technical sales":::* | Supports technical architecture and deployment considerations during the sales cycle, the post-sales integration, and deployment periods. |
+    | *:::no-loc text="Partner customer success manager":::* | Typically supports customers post-deployment, to help them get the most out of your solution and grow its footprint within the customer’s organization. |
 
 * *Countries/Regions (Required):*  When filling out the template, use the [two letter country/region codes as listed](./commercial-marketplace-co-sell-countries.md). If the contact covers all Countries/Regions, use the three letter code “OOO”. If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter “US, CA, FR” without quotation marks into the template).
 

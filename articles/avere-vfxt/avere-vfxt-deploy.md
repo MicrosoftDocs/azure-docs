@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Deploy the vFXT cluster

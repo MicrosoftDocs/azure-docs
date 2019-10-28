@@ -1,13 +1,12 @@
 ---
 title: Troubleshoot Azure Data Share Preview
-description: Learn how to troubleshoot issues with Azure Data Share Preview
+description: Learn how to troubleshoot issues with invitations and errors when creating or receiving data shares with Azure Data Share Preview.
 services: data-share
 author: joannapea
-
+ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.author: joanpo
 ---
 
 # Troubleshoot common issues in Azure Data Share Preview

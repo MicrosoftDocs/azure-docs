@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.custom: seo-javascript-september2019
 ---
 
-# How to upload, download, and list blobs using the client library for Node.js v2
+# Upload, download, and list blobs using the client library for Node.js
 
 In this how-to guide, you learn how to use the client library for Node.js v2 to upload, download, and list blobs with Azure Blob storage.
 

@@ -71,3 +71,4 @@ The easiest way to add an app configuration store to your application is through
 * [Azure Function quickstart](./quickstart-azure-function-csharp.md)
 * [Java Spring quickstart](./quickstart-java-spring-app.md)
 * [ASP.NET Core feature flag quickstart](./quickstart-feature-flag-aspnet-core.md)
+* [Spring Boot feature flag quickstart](./quickstart-feature-flag-spring-boot.md)

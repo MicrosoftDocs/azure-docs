@@ -2,7 +2,6 @@
 title: Sample - Audit no Azure AD admin
 description: This sample policy definition audits when there is no Azure Active Directory administrator assigned to the SQL server.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019

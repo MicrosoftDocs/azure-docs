@@ -28,8 +28,7 @@ Azure Search is a fully managed, cloud-based search service used for building a 
 
 Notice that *upgrade* is not listed as an administrative task. Because resources are allocated when the service is provisioned, moving to a different tier requires a new service. For details, see [Create an Azure Search service](search-create-service-portal.md).
 
-> [!Tip]
-> Looking for help on how to analyze search traffic or query performance? You can monitor query volume, which terms people search for, and how successful search results are in guiding customers to specific documents in your index. For more information, see [Search Traffic Analytics for Azure Search](search-traffic-analytics.md), [Monitor usage and query metrics](search-monitor-usage.md), and [Performance and optimization](search-performance-optimization.md).
+You can monitor query volume and other metrics, and use those insights to adjust your service for faster response times. For more information, see [Monitor usage and query metrics](search-monitor-usage.md) and [Performance and optimization](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -49,7 +48,7 @@ In terms of general information about your service, you can obtain information i
 
 * In the portal, on the service dashboard, through notifications, properties, and status messages.
 * Using [PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to [get service properties](https://docs.microsoft.com/rest/api/searchmanagement/services), or status on index resource usage.
-* Via [search traffic analytics](search-traffic-analytics.md), as noted previously.
+
 
 <a id="sub-5"></a>
 
@@ -73,10 +72,9 @@ If you do not use indexers, you would use your application code to push objects 
 
 ## Backup and restore
 
-Because Azure Search is not a primary data storage solution, we do not provide a formal mechanism for self-service backup and restore. Your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. 
+Because Azure Search is not a primary data storage solution, we do not provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to backup your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
 
-To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store.
-
+Otherwise, your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store.
 
 <a id="scale"></a>
 

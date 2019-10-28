@@ -185,7 +185,7 @@ print(local_script_run.get_status())
 To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
 
 ```azurecli-interactive
-az ml run cancel -r runid
+az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
 For more information, see [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
@@ -216,7 +216,7 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > As they move out of scope, child runs are automatically marked as completed.
 
-To create many child runs efficiently, use the [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) method. Because because each creation results in a network call, 
+To create many child runs efficiently, use the [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) method. Because each creation results in a network call, 
 creating a batch of runs is more efficient than creating them one by one.
 
 ### Submit child runs
@@ -226,7 +226,7 @@ compute targets, connected by common parent run ID.
 
 Use the ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) 
 method to submit a child run from within a parent run. To do this in the parent run script, get the run context and submit the child run 
-using the ''submit_child''' method of the context instance.
+using the ``submit_child`` method of the context instance.
 
 ```python
 ## In parent run script
@@ -246,7 +246,7 @@ child_run.parent.id
 ### Query child runs
 
 To query the child runs of a specific parent, use the [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) method. 
-The '''recursive = True''' argument allows you to query a nested tree of children and grandchildren.
+The ``recursive = True`` argument allows you to query a nested tree of children and grandchildren.
 
 ```python
 print(parent_run.get_children())
@@ -336,9 +336,9 @@ For more information on querying Azure CLI results, see [Query Azure CLI command
 
 The following notebooks demonstrate the concepts in this article:
 
-* To learn more about the logging APIs, see the [logging API notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb).
+* To learn more about the logging APIs, see the [logging API notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb).
 
-* For more information about managing runs with the Azure Machine Learning SDK, see the [manage runs notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/manage-runs).
+* For more information about managing runs with the Azure Machine Learning SDK, see the [manage runs notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
 
 ## Next steps
 

@@ -1,30 +1,29 @@
 ---
 title: 'Quickstart: Recognize speech, Unity - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to create a speech-to-text application with Unity and the Speech SDK for Unity (Beta). When finished, you can use your computer's microphone to transcribe speech to text in real time.
+description: Use this guide to create a speech-to-text application with Unity and the Speech SDK for Unity. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 09/17/2019
 ms.author: jhakulin
 ---
 
-# Quickstart: Recognize speech with the Speech SDK for Unity (Beta)
+# Quickstart: Recognize speech with the Speech SDK for Unity
 
 Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-csharp-unity.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Use this guide to create a speech-to-text application using [Unity](https://unity3d.com/) and the Speech SDK for Unity (Beta).
+Use this guide to create a speech-to-text application using [Unity](https://unity3d.com/) and the Speech SDK for Unity.
 When finished, you can talk into your device to transcribe speech to text in real time.
 If you're new to Unity, we suggest you study the [Unity User Manual](https://docs.unity3d.com/Manual/UnityManual.html) before developing your application.
 
 > [!NOTE]
-> The Speech SDK for Unity is currently in beta.
-> It supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), and Android (x86, ARM32/64).
+> The Speech SDK for Unity supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) and iOS (x64 simulator, ARM32 and ARM64)
 
 ## Prerequisites
 
@@ -32,7 +31,7 @@ To complete this project, you'll need:
 
 - [Unity 2018.3 or later](https://store.unity.com/) with [Unity 2019.1 adding support for UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). Version 15.9 or higher of Visual Studio 2017 is also acceptable.
-  - For ARM64 support, install the [optional build tools for ARM64, and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
+- For Windows ARM64 support, install the [optional build tools for ARM64, and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
 - A subscription key for the Speech Service. [Get one for free](get-started.md).
 - Access to your computer's microphone.
 
@@ -57,7 +56,7 @@ To install the Speech SDK for Unity, follow these steps:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-1. Download and open the [Speech SDK for Unity (Beta)](https://aka.ms/csspeech/unitypackage), which is packaged as a Unity asset package (.unitypackage). When the asset package is opened, the **Import Unity Package** dialog box appears.
+1. Download and open the [Speech SDK for Unity](https://aka.ms/csspeech/unitypackage), which is packaged as a Unity asset package (.unitypackage). When the asset package is opened, the **Import Unity Package** dialog box appears.
 
    [![Import Unity Package dialog box in the Unity Editor](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
 1. Ensure that all files are selected, and select **Import**. After a few moments, the Unity asset package is imported into your project.

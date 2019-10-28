@@ -77,7 +77,7 @@ CreatePersonResult friend1 = await faceClient.PersonGroupPerson.CreateAsync(
 // Define Bill and Clare in the same way
 ```
 ### <a name="step2-2"></a> Step 2.2: Detect faces and register them to the correct person
-Detection is done by sending a "POST" web request to the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API with the image file in the HTTP request body. When you use the client library, face detection is done through the DetectAsync method for the FaceClient class.
+Detection is done by sending a "POST" web request to the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API with the image file in the HTTP request body. When you use the client library, face detection is done through one of the Detect..Async methods of the FaceClient class.
 
 For each face that's detected, call [PersonGroup Person – Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) to add it to the correct person.
 
@@ -138,7 +138,7 @@ string testImageFile = @"D:\Pictures\test_img1.jpg";
 
 using (Stream s = File.OpenRead(testImageFile))
 {
-    var faces = await faceClient.Face.DetectAsync(s);
+    var faces = await faceClient.Face.DetectWithStreamAsync(s);
     var faceIds = faces.Select(face => face.FaceId).ToArray();
  
     var results = await faceClient.Face.IdentifyAsync(faceIds, personGroupId);

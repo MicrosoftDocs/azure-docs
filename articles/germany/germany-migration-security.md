@@ -42,7 +42,7 @@ Get-AzKeyVaultSecret -vaultname mysecrets -name Deploydefaultpw
 
 For more information:
 
-- Refresh your knowledge by completing the [Key Vault tutorials](https://docs.microsoft.com/azure/key-vault/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Key Vault tutorials](https://docs.microsoft.com/azure/key-vault/).
 - Review the [Key Vault overview](../key-vault/key-vault-overview.md).
 - Review the [Key Vault PowerShell cmdlets](/powershell/module/az.keyvault/).
 
@@ -69,7 +69,7 @@ You can collect information about your current gateway configuration by using th
 
 For more information:
 
-- Refresh your knowledge by completing the [Application Gateway tutorials](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Application Gateway tutorials](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal).
 - Learn how to [create an application gateway](../application-gateway/quick-create-portal.md).
 - Review the [Get-AzApplicationGateway](/powershell/module/az.network/get-azapplicationgateway) PowerShell cmdlets.
 

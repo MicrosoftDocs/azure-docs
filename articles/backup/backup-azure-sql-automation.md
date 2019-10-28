@@ -1,5 +1,5 @@
 ---
-title: Back up and restore SQL Databases in Azure VMs with PowerShell - Azure Backup
+title: SQL DB in Azure VM backup & restore via PowerShell - Azure Backup
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -12,7 +12,7 @@ ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
 ---
 
-# Back up and restore SQL Databases in Azure  VMs with PowerShell
+# Back up and restore SQL Databases in Azure VMs with PowerShell
 
 This article describes how to use Azure PowerShell to back up and recover a SQL DB within an Azure VM using [Azure Backup](backup-overview.md) Recovery Services vault.
 
@@ -41,8 +41,6 @@ The object hierarchy is summarized in the following diagram.
 Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.recoveryservices) reference in the Azure library.
 
 ### Set up and install
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Set up PowerShell as follows:
 
@@ -258,7 +256,7 @@ Since the instruction is to back up all future DBs, the operation is done at a S
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $targetVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"
-Enable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupManagementType AzureWorkload -WorkloadType MSSQL -Policy $targetPolicy -VaultId $targetvault.ID
+Enable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupManagementType AzureWorkload -WorkloadType MSSQL -Policy $NewSQLPolicy -VaultId $targetvault.ID
 ```
 
 Once the autoprotection intent is given, the inquiry into the machine to fetch newly added DBs takes place as a scheduled background task every 8 hours.
@@ -468,7 +466,7 @@ If the output is lost or if you want to get the relevant Job ID, [get the list o
 
 ### Change policy for backup items
 
-User can either modify existing policy or change the policy of the backed-up item from Policy1 to Policy2. To switch policies for a backed-up item, simply fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) command with backup item as the parameter.
+User can either modify existing policy or change the policy of the backed-up item from Policy1 to Policy2. To switch policies for a backed-up item, fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) command with backup item as the parameter.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>

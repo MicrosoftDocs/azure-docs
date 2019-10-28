@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure managed applications | Microsoft Docs
-description: Describes the concepts for Azure managed applications
+description: Describes the concepts for Azure Managed Applications, which provides cloud solutions that are easy for consumers to deploy and operate.
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview

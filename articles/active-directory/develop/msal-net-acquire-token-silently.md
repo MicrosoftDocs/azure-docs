@@ -1,5 +1,6 @@
 ---
-title: Acquire a token silently (Microsoft Authentication Library for .NET) | Azure
+title: Acquire a token silently (Microsoft Authentication Library for .NET) 
+titleSuffix: Microsoft identity platform
 description: Learn how to acquire an access token silently (from the token cache) using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name

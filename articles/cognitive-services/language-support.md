@@ -6,8 +6,8 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 06/16/2019
+ms.topic: conceptual
+ms.date: 09/26/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -33,7 +33,7 @@ These core languages are supported across Azure Cognitive Services:
 * Spanish
 
 > [!NOTE]
-> ¹ LUIS and Video Indexer: Speech-to-Text are not supported.
+> ¹ LUIS, Video Indexer, Text Analytics, and Speech-to-Text are not supported.
 
 ## Additional language availability by service
 
