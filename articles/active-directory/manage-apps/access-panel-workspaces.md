@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 10/28/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
@@ -21,13 +21,12 @@ ms.collection: M365-identity-device-management
 
 # Create workspaces on the My Apps (preview) portal
 
-The **My Apps** portal at https://myapps.microsoft.com lets end users view and launch the cloud-based applications you've given them access to. By default, all applications are listed together on a single page. If you're an admin with an Azure AD Premium license, you can use My Apps workspaces to create logical groupings of applications for specific job roles, tasks, or projects. With a workspace, you group applications together and present them on a separate tab. Then users viewing that workspace will only see the applications they have access to. If the workspace contains other applications the user doesn't have access to, the user can see them by selecting **Add app**.
+Your users can use the **My Apps** portal to view and start the cloud-based applications they have access to. By default, all the applications a user can access are listed together on a single page. To better organize this page for your users, if you have an Azure AD Premium P1 or P2 license you can set up workspaces. With a workspace, you can group together applications that are related (for example, by job role, task, or project) and display them on a separate tab. A workspace essentially applies a filter to the applications a user can already access, so the user sees only those applications in the workspace that have been assigned to them.
 
-This article covers how an admin can enable and create workspaces. For information for the end user about how to use the My Apps portal and workspaces, see  [Access and use workspaces](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces.md).
+> [!NOTE]
+> This article covers how an admin can enable and create workspaces. For information for the end user about how to use the My Apps portal and workspaces, see  [Access and use workspaces](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces.md).
 
 ## Enable My Apps preview features
-
-First, enable the My Apps preview features, which include workspaces.
 
 1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a user administrator or Global Administrator.
 
@@ -41,11 +40,16 @@ First, enable the My Apps preview features, which include workspaces.
 
    ![User preview features](media/access-panel-workspaces/user-preview-features.png)
 
+> [!NOTE]
+> To open the My Apps portal, users can use the link `https://myapps.microsoft.com` or the customized link for your organization, such as `https://myapps.microsoft.com/contoso.com`. If users aren't redirected to the My Apps preview version, users should try `https://myapplications.microsoft.com` or `https://myapplications.microsoft.com/contoso.com`.
+
 ## Create a workspace
 
-1. Open the [**Azure Portal**](https://portal.azure.com/) and select **Azure Active Directory**.
+To create a workspace, you must have an Azure AD Premium P1 or P2 license.
 
-2. Select **Enterprise Applications**
+1. Open the [**Azure Portal**](https://portal.azure.com/) and sign in as an admin with an Azure AD Premium P1 or P2 license.
+
+2. Go to **Azure Active Directory** > **Enterprise Applications**.
 
 3. Under **Manage**, select **Workspaces (Preview)**.
 
