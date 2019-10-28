@@ -102,11 +102,11 @@ This article shows how to download, install, and set up your on-premises data ga
 
 1. Select **On-premises data gateway (recommended)**, which is standard mode, and then select **Next**.
 
-   ![Select run mode for data gateway](./media/logic-apps-gateway-install/select-gateway-mode.png)
+   ![Select run mode for data gateway](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. Review the minimum requirements, keep the default installation path, accept the terms of use, and then select **Install**.
 
-   ![Review requirements and accept terms of use](./media/logic-apps-gateway-install/accept-terms.png)
+   ![Review requirements and accept terms of use](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
 1. After the gateway successfully installs, provide the email address for your Azure account, and then select **Sign in**, for example:
 
@@ -116,7 +116,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
 1. Select **Register a new gateway on this computer** > **Next**. This step registers your gateway installation with the [gateway cloud service](#gateway-cloud-service).
 
-   ![Register gateway on local computer](./media/logic-apps-gateway-install/register-gateway.png)
+   ![Register gateway on local computer](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
 1. Provide this information for your gateway installation:
 
@@ -124,7 +124,7 @@ This article shows how to download, install, and set up your on-premises data ga
    * The recovery key, which must have at least eight characters, that you want to use
    * Confirmation for your recovery key
 
-   ![Provide information for gateway installation](./media/logic-apps-gateway-install/set-up-gateway.png)
+   ![Provide information for gateway installation](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
    > Save and keep your recovery key in a safe place. 
@@ -135,7 +135,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
 1. Check the region for the gateway cloud service and [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) that's used by your gateway installation. By default, this region is the same location as the Azure AD tenant for your Azure account.
 
-   ![Confirm region for gateway service and service bus](./media/logic-apps-gateway-install/check-region.png)
+   ![Confirm region for gateway service and service bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
 1. To accept the default region, select **Configure**. However, if the default region isn't the one that's closest to you, you can change the region.
 
@@ -145,7 +145,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
    1. Next to the current region, select **Change Region**.
 
-      ![Change the current gateway region](./media/logic-apps-gateway-install/change-region.png)
+      ![Change the current gateway region](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
    1. On the next page, open the **Select Region** list, select the region you want, and select **Done**.
 
