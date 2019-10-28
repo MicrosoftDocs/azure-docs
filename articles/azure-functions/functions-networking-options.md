@@ -1,6 +1,6 @@
 ---
 title: Azure Functions networking options
-description: An overview of all networking options available in Azure Functions
+description: Provides an overview of all networking options available in Azure Functions.
 author: alexkarcher-msft
 manager: gwallace
 ms.service: azure-functions
@@ -11,13 +11,13 @@ ms.author: alkarche
 ---
 # Azure Functions networking options
 
-This article describes the networking features available across the hosting options for Azure Functions. All of the following networking options provide some ability to access resources without using internet routable addresses, or restrict internet access to a function app.
+This article describes the networking features available across the hosting options for Azure Functions. All the following networking options give you some ability to access resources without using internet-routable addresses, or to restrict internet access to a function app.
 
 The hosting models have different levels of network isolation available. Choosing the correct one will help you meet your network isolation requirements.
 
 You can host function apps in a couple of ways:
 
-* There's a set of plan options that run on a multitenant infrastructure, with various levels of virtual network connectivity and scaling options:
+* There's a set of plan options that run on a multi-tenant infrastructure, with various levels of virtual network connectivity and scaling options:
     * The [Consumption plan](functions-scale.md#consumption-plan), which scales dynamically in response to load and offers minimal network isolation options.
     * The [Premium plan](functions-scale.md#premium-plan), which also scales dynamically, while offering more comprehensive network isolation.
     * The Azure [App Service plan](functions-scale.md#app-service-plan), which operates at a fixed scale and offers similar network isolation to the Premium plan.
