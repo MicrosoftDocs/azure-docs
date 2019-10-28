@@ -23,6 +23,10 @@
         href: quickstarts/python-receipts.md
   - name: Using the .NET SDK
     href: quickstarts/dotnet-sdk.md
+- name: Tutorials
+  items:
+  - name: Use Form Recognizer with Logic Apps
+    href: tutorial-form-recognizer-with-logic-apps.md
 - name: How-to guides
   items:
   - name: Build a training data set
