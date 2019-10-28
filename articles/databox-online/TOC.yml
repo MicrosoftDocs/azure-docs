@@ -57,7 +57,7 @@
         href: data-box-gateway-1905-release-notes.md
       - name: General availability (GA)
         href: data-box-gateway-release-notes.md
-- name: Data Box Edge
+- name: Azure Stack Edge
   items:
   - name: Overview
     items:

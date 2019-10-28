@@ -58,7 +58,7 @@ The Azure Stack Edge solution comprises of Azure Stack Edge resource, Azure Stac
 
 * **Azure Stack Edge physical device** - A 1U rack-mounted server supplied by Microsoft that can be configured to send data to Azure. 
     
-* **Azure Stack Edge resource** – a resource in the Azure portal that lets you manage a Azure Stack Edge device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
+* **Azure Stack Edge resource** – a resource in the Azure portal that lets you manage an Azure Stack Edge device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
     <!--![The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
@@ -68,7 +68,7 @@ The Azure Stack Edge solution comprises of Azure Stack Edge resource, Azure Stac
 
     <!--![The Azure Stack Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-edge-manage-access-power-connectivity-mode.md).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge](data-box-edge-manage-access-power-connectivity-mode.md).
 
 
 ## Region availability
