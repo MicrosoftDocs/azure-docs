@@ -169,4 +169,4 @@ For a detailed explanation of all sections in the JSON response, refer to the [T
 
 ## Next steps
 
-Use the REST API in your code or start with the [Text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) to integrate with your application.
+Use the REST API in your code, or follow the [.NET SDK quickstart](dotnet-sdk-quickstart.md) to integrate with your application.
