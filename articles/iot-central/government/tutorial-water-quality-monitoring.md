@@ -13,6 +13,8 @@ manager: abjork
 
 # Tutorial: Create a water quality monitoring application in IoT Central
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial guides you to create an Azure IoT Central water quality monitoring application from the IoT Central Water Quality Monitoring application template. 
 
 In this tutorial you will learn to: 
