@@ -8,7 +8,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/18/2018
+ms.date: 10/28/2019
 ms.author: martinco
 ---
 
@@ -26,6 +26,8 @@ This checklist will help you quickly deploy critical recommended actions to prot
 * Increase your awareness of auditing and monitoring.
 * Enable more predictable and complete end-user security with self-help.
 
+Make sure you keep track of which features and steps are already complete while reading this checklist.
+
 > [!NOTE]
 > Many of the recommendations in this document apply only to applications that are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](../../active-directory/manage-apps/configure-single-sign-on-portal.md) is the foundation - on which all these recommendations are based.
 
@@ -33,11 +35,14 @@ The recommendations in this document are aligned with the [Identity Secure Score
 
 ![Identity Secure Score](./media/steps-secure-identity/azure-ad-sec-steps0.png)
 
+> [!NOTE]
+> Many of the features described here require Azure AD Premium subscriptions, while some are free. Please review our [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Deployment checklist](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2) for more information.
+
 ## Before you begin: Protect privileged accounts with MFA
 
 Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. You first need to protect your privileged accounts.
 
-Attackers who get control of privileged accounts can do tremendous damage, so it's critical to protect these accounts first. Enable and require [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) for all administrators in your organization using [Baseline Protection](../../active-directory/conditional-access/baseline-protection.md). If you haven't implemented MFA, do it now! It's that important.
+Attackers who get control of privileged accounts can do tremendous damage, so it's critical to protect these accounts first. Enable and require [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) for all administrators in your organization using [Azure AD Security Defaults](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md) or [Conditional Access](../../active-directory/conditional-access/plan-conditional-access.md). If you haven't implemented MFA, do it now! It's that important.
 
 All set? Let's get started on the checklist.
 
@@ -46,9 +51,11 @@ All set? Let's get started on the checklist.
 Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video (45 min):
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
-### Make sure your organization use strong authentication
+### Make sure your organization uses strong authentication
 
 Given the frequency of passwords being guessed, phished, stolen with malware, or reused, it's critical to back the password with some form of strong credential – learn more about [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
+
+To easily enable the basic level of identity security, you can use the one-click enablement with [Azure AD Security Defaults](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md). Security defaults enforces Azure MFA for all users in a tenant and blocks sign-ins from legacy protocols tenant-wide.
 
 ### Start banning commonly attacked passwords and turn off traditional complexity, and expiration rules.
 
@@ -94,7 +101,7 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 1. Block [legacy authentication if you use AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Setup [SharePoint Online and Exchange Online to use modern authentication](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Use [Conditional Access policies to block legacy authentication](../../active-directory/conditional-access/conditions.md).
+3. If you have Azure AD Premium, use [Conditional Access policies](../../active-directory/conditional-access/conditions.md) to block legacy authentication, otherwise use [Azure AD Security Defaults](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md)
 
 ### Block invalid authentication entry points
 
@@ -192,4 +199,7 @@ There are many aspects to a secure Identity infrastructure, but this five-step c
 We appreciate how seriously you take Identity Security and hope this document is a useful roadmap to a more secure posture for your organization.
 
 ## Next steps
+
 If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](https://aka.ms/deploymentplans) for help.
+
+If you're confident all these steps are complete, use Microsoft’s [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), which will keep you up to date with the [latest best practices](identity-management-best-practices.md) and security threats.
