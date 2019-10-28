@@ -1,13 +1,13 @@
 ---
 title: Permissions to repositories in Azure Container Registry
-description: Create an Azure Container Registry access token with scoped permissions to specific repositories to pull or push images
+description: Create a token to access Azure Container Registry with permissions scoped to specific repositories to pull or push images
 services: container-registry
 author: dlepow
 manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 10/27/2019
 ms.author: danlep
 ---
 
@@ -27,6 +27,7 @@ See [About repository-scoped permissions](#about-repository-scoped-permissions),
 * This feature is only available in a **Premium** container registry. For information about registry service tiers, see [Azure Container Registry SKUs](container-registry-skus.md).
 * Permitted registry operations when using an access token are limited to running `docker login`, `docker push`, and `docker pull`. Other operations including tag listing and repository listing aren't currently supported.
 * You can't currently assign repository-scoped permissions to Azure Active Directory objects such as a service principal or managed identity.
+* A registry allows a maximum of 20,000 scope maps and 20,000 tokens.
 
 ## Prerequisites
 
