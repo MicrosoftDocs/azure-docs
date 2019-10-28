@@ -18,7 +18,7 @@ ms.author: juliako
 ---
 # Live Events and Live Outputs in Azure Media Services
 
-Azure Media Services lets you to deliver live events to your customers on the Azure cloud. To set up your live streaming events in Media Services v3, you need to understand the concepts discussed in this article.
+Azure Media Services lets you deliver live events to your customers on the Azure cloud. To set up your live streaming events in Media Services v3, you need to understand the concepts discussed in this article.
 
 > [!TIP]
 > For customers migrating from Media Services v2 APIs, the **Live Event** entity replaces **Channel** in v2 and **Live Output** replaces **Program**.
@@ -41,7 +41,7 @@ A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one 
 
 When using the pass-through **Live Event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 protocol). The Live Event then carries through the incoming video streams without any further processing. Such a pass-through Live Event is optimized for long-running live events or 24x365 linear live streaming. When creating this type of Live Event, specify None (LiveEventEncodingType.None).
 
-You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec.  See the [Live Event types comparison](live-event-types-comparison.md) article for more details.
+You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. For more information, see [Live Event types comparison](live-event-types-comparison.md).
 
 > [!NOTE]
 > Using a pass-through method is the most economical way to do live streaming when you're doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
@@ -55,9 +55,9 @@ See a .NET code example in [MediaV3LiveApp](https://github.com/Azure-Samples/med
 
 When using live encoding with Media Services, you configure your on-premises live encoder to send a single bitrate video as the contribution feed to the Live Event (using RTMP or Fragmented-Mp4 protocol). You then set up a Live Event so that it encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), and makes the output available for delivery to play back devices via protocols like MPEG-DASH, HLS, and Smooth Streaming.
 
-When you use live encoding, you can send the contribution feed only at resolutions up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. Note that pass-through Live Events can support resolutions up to 4K at 60 frames/second. See the [Live Event types comparison](live-event-types-comparison.md) article for more details.
+When you use live encoding, you can send the contribution feed only at resolutions up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. Note that pass-through Live Events can support resolutions up to 4K at 60 frames/second. For more information, see [Live Event types comparison](live-event-types-comparison.md).
 
-The resolutions and bitrates contained in the output from the live encoder is determined by the preset. If using a **Standard** live encoder (LiveEventEncodingType.Standard), then the *Default720p* preset specifies a set of 6 resolution/bit rate pairs, going from 720p at 3.5Mbps down to 192p at 200 kbps. Otherwise, if using a **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), then the *Default1080p* preset specifies a set of 6 resolution/bit rate pairs, going from 1080p at 3.5Mbps down to 180p at 200 kbps. For information, see [System presets](live-event-types-comparison.md#system-presets).
+The resolutions and bitrates contained in the output from the live encoder is determined by the preset. If using a **Standard** live encoder (LiveEventEncodingType.Standard), then the *Default720p* preset specifies a set of six resolution/bit rate pairs, going from 720p at 3.5 Mbps down to 192p at 200 kbps. Otherwise, if using a **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), then the *Default1080p* preset specifies a set of six resolution/bit rate pairs, going from 1080p at 3.5 Mbps down to 180p at 200 kbps. For information, see [System presets](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
 > If you need to customize the live encoding preset, open a support ticket via Azure portal. Specify the desired table of resolution and bitrates. Verify that there's only one layer at 720p (if requesting a preset for a Standard live encoder) or at 1080p (if requesting a preset for a Premium1080p live encoder), and 6 layers at most.
@@ -73,7 +73,7 @@ When creating a Live Event, you can specify the following options:
 
     For more information, see [Live Event states and billing](live-event-states-billing.md).
 
-* IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there's no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with 4 numbers or CIDR address range.
+* IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there's no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with four numbers or CIDR address range.
 
     If you want to enable certain IPs on your own firewalls or want to constrain inputs to your live events to Azure IP addresses, download a JSON file from [Azure Datacenter IP address ranges](https://www.microsoft.com/download/details.aspx?id=41653). For details about this file, select the **Details** section on the page.
 
@@ -104,7 +104,7 @@ You can either use non-vanity URLs or vanity URLs.
 
 * Vanity URL
 
-    Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to re-configure their encoders when they start the Live Event. They want a predictive ingest URL, which doesn't change over time.
+    Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to reconfigure their encoders when they start the Live Event. They want a predictive ingest URL, which doesn't change over time.
 
     To specify this mode, you set `vanityUrl` to `true` at creation time (default is `false`). You also need to pass your own access token (`LiveEventInput.accessToken`) at creation time. You specify the token value to avoid a random token in the URL. The access token has to be a valid GUID string (with or without the hyphens). Once the mode is set, it can't be updated.
 
