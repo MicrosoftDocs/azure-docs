@@ -21,7 +21,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Azure Active Directory OIDC Node.js Web Sample
+# Quickstart: Add sign-in using OIDC to a Node.js Web App
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
