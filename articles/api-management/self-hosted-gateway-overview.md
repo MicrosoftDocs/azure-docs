@@ -1,6 +1,6 @@
 ---
-title: Self-hosted API Management gateway overview | Microsoft Docs
-description: Learn how API Management self-hosted gateway helps organizations manage APIs in hybrid and multicloud environments.
+title: Self-hosted Azure API Management gateway overview | Microsoft Docs
+description: Learn how self-hosted Azure API Management gateway helps organizations manage APIs in the hybrid and multicloud environments.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 10/31/2019
 ms.author: apimpm
 ---
 
@@ -30,7 +30,7 @@ With the self-hosted gateway, customers have the flexibility to deploy a contain
 
 Each API Management service is composed of the following key components:
 
--   Management plane, exposed via API and backed by a database, used to configure the service via the Azure portal, PowerShell, and other supported mechanisms.
+-   Management plane, exposed as an API, used to configure the service via the Azure portal, PowerShell, and other supported mechanisms.
 -   Gateway (or data plane) is responsible for proxying API requests, applying policies, and collecting telemetry
 -   Developer portal used by developers to discover, learn, and onboard to use the APIs
 
@@ -60,7 +60,7 @@ The self-hosted gateway requires outbound TCP/IP connectivity to Azure on port 4
 
 When connectivity to Azure is lost, self-hosted gateway will be unable to receive configuration updates, report its status, or upload telemetry.
 
-The self-hosted gateway is designed to "fail static" and can survive the temporary loss of connectivity to Azure. It can be deployed with or without local configuration backup turned on. In the latter case, self-hosted gateways will save a backup copy of configuration after each update on a persistent volume attached to the container or pod.
+The self-hosted gateway is designed to "fail static" and can survive the temporary loss of connectivity to Azure. It can be deployed with or without local configuration backup turned on. In the former case, self-hosted gateways will regularly save a backup copy of configuration on a persistent volume attached to the container or pod.
 
 When configuration backup is turned off and connectivity to Azure is interrupted:
 
