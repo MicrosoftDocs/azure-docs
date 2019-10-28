@@ -1,18 +1,13 @@
 ---
 title: How to troubleshoot issues with the Log Analytics agent for Windows | Microsoft Docs
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics agent for Windows in Azure Monitor.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
+author: MGoedtel
 ms.author: magoedte
+ms.date: 06/12/2019
+
 ---
 
 # How to troubleshoot issues with the Log Analytics agent for Windows 
@@ -31,7 +26,7 @@ If none of these steps work for you, the following support channels are also ava
 
 ## Connectivity issues
 
-If the agent is communicating through a proxy server or firewall, there may be restrictions in place preventing communication from the source computer and the Azure Monitor service. If communication is blocked, misconfiguration, registration with a workspace may fail while attempting to install the agent, configure the agent post-setup to report to an additional workspace, or agent communication fails after successful registration. This section describes the methods to troubleshoot this type of issue with the Windows agent. 
+If the agent is communicating through a proxy server or firewall, there may be restrictions in place preventing communication from the source computer and the Azure Monitor service. In case communication is blocked, because of misconfiguration, registration with a workspace might fail while attempting to install the agent or configure the agent post-setup to report to an additional workspace. Agent communication may fail after successful registration. This section describes the methods to troubleshoot this type of issue with the Windows agent.
 
 Double check that the firewall or proxy is configured to allow the following ports and URLs described in the following table. Also confirm HTTP inspection is not enabled for web traffic, as it can prevent a secure TLS channel between the agent and Azure Monitor.  
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory Mapping Data Flow Select Transformation
-description: Azure Data Factory Mapping Data Flow Select Transformation
+title: Azure Data Factory mapping data flow Select Transformation
+description: Azure Data Factory mapping data flow Select Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -10,6 +10,7 @@ ms.date: 02/12/2019
 
 # Mapping data flow select transformation
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Use this transformation for column selectivity (reducing number of columns), alias columns and stream names, and reorder columns.
 

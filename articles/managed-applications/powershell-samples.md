@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell samples - Azure Managed Applications | Microsoft Docs
-description: Azure PowerShell samples - Azure Managed Applications
+description: Provides Azure PowerShell sample scripts to use when working with Azure Managed Applications.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac

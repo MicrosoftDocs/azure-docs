@@ -6,10 +6,10 @@
     href: overview-what-is.md
   - name: Who can benefit from Synapse Analytics
     href: overview-who-can-benefit-from-synapse-analytics.md
-  # - name: Cheat sheet 
-  #   href: article-template.md
-  # - name: FAQ
-  #   href: article-template.md
+  - name: Cheat sheet 
+    href: overview-cheat-sheet.md
+  - name: FAQ
+    href: overview-faq.md
 - name: Release notes
   items:
   - name: Recent release
@@ -70,10 +70,10 @@
     items:
     # - name: SQL Analytics pool
     #   href: article-template.md
-    # - name: SQL Analytics on-demand
-    #   href: article-template.md
     # - name: Spark pool template
     #   href: article-template.md
+  - name: SQL Analytics on-demand
+    href: ../synapse-analytics/sql-analytics/sql-analytics-on-demand-workspace-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Pipeline and activity
     href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Execution and trigger
@@ -234,8 +234,8 @@
       #     href: article-template.md
       # - name: Using IntelliJ
       #   href: article-template.md
-      # - name: Use Visual Studio Code and Spark.Net
-      #   href: article-template.md
+      - name: Use .NET for Apache Spark
+        href: spark-dotnet.md
       # - name: Use an interactive Spark Shell
       #   href: article-template.md
       # - name: Remote Jobs with Apache Livy

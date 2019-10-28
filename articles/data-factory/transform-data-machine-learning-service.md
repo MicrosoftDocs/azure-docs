@@ -13,6 +13,8 @@ ms.author: daperlov
 ---
 # Execute Azure Machine Learning service pipelines in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Run your Azure Machine Learning service pipelines as a step in your Azure Data Factory pipelines. The Machine Learning Execute Pipeline activity enables batch prediction scenarios such as identifying possible loan defaults, determining sentiment, and analyzing customer behavior patterns.
 
 ## Syntax

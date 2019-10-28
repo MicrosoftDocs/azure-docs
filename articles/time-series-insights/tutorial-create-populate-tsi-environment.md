@@ -5,7 +5,7 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 10/16/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
@@ -51,7 +51,7 @@ This tutorial also uses an [IoT solution accelerator](https://www.azureiotsoluti
 
 First, create the device simulation solution, which generates test data to populate your Time Series Insights environment.
 
-1. In a separate window or tab, go to [azureiotsolutions.com](https://www.azureiotsolutions.com). Sign in by using the same Azure subscription account, and select the **Device Simulation** accelerator.
+1. In a separate window or tab, go to [azureiotsolutions.com](https://www.azureiotsolutions.com). Sign in by using the same Azure subscription account, and select the **Device Simulation** accelerator. Select **Try Now**.
 
    [![Run the Device Simulation accelerator](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
 
@@ -64,7 +64,7 @@ First, create the device simulation solution, which generates test data to popul
    **Deployment options** | Select **Provision new IoT Hub** to create a new IoT hub specific to this tutorial.
    **Azure location** | Specify the same region that was used to create your Time Series Insights environment in the previous section.
 
-   When you're finished, select **Create solution** to provision the solution's Azure resources. It may take up to 20 minutes to complete this process.
+   When you're finished, select **Create** to provision the solution's Azure resources. It may take up to 20 minutes to complete this process.
 
    [![Provision the device simulation solution](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
 
@@ -100,13 +100,15 @@ Second, create a Time Series Insights environment in your Azure subscription.
    **Tier** | Choose the throughput needed. Select **S1**.
    **Capacity** | Capacity is the multiplier applied to the ingress rate and storage capacity associated with the selected SKU. You can change the capacity after creation. Select a capacity of **1**.
 
-   When finished, select **Review + create** to proceed to the next step.
+   When finished, select **Next: Event Source** to proceed to the next step.
 
    [![Create a Time Series Insights environment resource](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
 
 1. Now, connect the Time Series Insights environment to the IoT hub created by the Solution Accelerator. Set **Select a hub** to `Select existing`. Then, choose the IoT hub created by the Solution Accelerator when setting **IoT Hub name**.
 
    [![Connect the Time Series Insights environment to the created IoT hub](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png#lightbox)
+
+   Lastly, select **Review + create**.
 
 1. Check the **Notifications** panel to monitor deployment completion. 
 
@@ -118,7 +120,7 @@ Now that the deployment and initial configuration's complete, populate the Time 
 
 Along with the IoT hub, an Azure App Service web application was generated to create and transmit simulated device telemetry.
 
-1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again, if necessary, by using the same Azure account you've been using in this tutorial. Now you can select **Launch** under your "Device Simulation" solution.
+1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again, if necessary, by using the same Azure account you've been using in this tutorial. Select your "Device Solution" and then **Go to your solution accelerator** to launch your deployed solution.
 
      [![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
 

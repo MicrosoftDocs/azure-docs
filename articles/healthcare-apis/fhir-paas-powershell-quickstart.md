@@ -6,7 +6,7 @@ author: hansenms
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 10/15/2019
 ms.author: mihansen
 ---
 
@@ -28,23 +28,9 @@ If the `Microsoft.HealthcareApis` resource provider is not already registered fo
 Register-AzResourceProvider -ProviderNamespace Microsoft.HealthcareApis
 ```
 
-## Create Azure Resource Manager template
+## Locate your identity object ID
 
-Create an Azure Resource Manager template with the following content:
-
-[!code-json[](samples/azuredeploy.json)]
-
-Save it with the name `azuredeploy.json`
-
-## Create Azure Resource Manager parameter file
-
-Create an Azure Resource Manager template parameter file with the following content:
-
-[!code-json[](samples/azuredeploy.parameters.json)]
-
-Save it with the name `azuredeploy.parameters.json`
-
-The object ID values `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` and `yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy` correspond to the object IDs of specific Azure Active Directory users or service principals in the directory associated with the subscription. If you would like to know the object ID of a specific user, you can find it with a command like:
+Object ID values are guids that correspond to the object IDs of specific Azure Active Directory users or service principals in the directory associated with the subscription. If you would like to know the object ID of a specific user, you can find it with a command like:
 
 ```azurepowershell-interactive
 $(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
@@ -55,21 +41,23 @@ Read the how-to guide on [finding identity object IDs](find-identity-object-ids.
 ## Create Azure resource group
 
 ```azurepowershell-interactive
-$rg = New-AzResourceGroup -Name "myResourceGroupName" -Location westus2
+New-AzResourceGroup -Name "myResourceGroupName" -Location westus2
 ```
 
-## Deploy template
+## Deploy Azure API for FHIR
 
 ```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroup $rg.ResourceGroupName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+New-AzHealthcareApisService -Name nameoffhirservice -ResourceGroupName myResourceGroupName -Location westus2 -Kind fhir-R4 -AccessPolicyObjectId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
+
+where `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` is the identity object ID for a user or service principal that you would like to have access to the FHIR API.
 
 ## Fetch capability statement
 
 You'll be able to validate that the Azure API for FHIR account is running by fetching a FHIR capability statement:
 
 ```azurepowershell-interactive
-$metadata = Invoke-WebRequest -Uri $metadataUrl "https://nameOfFhirAccount.azurehealthcareapis.com/metadata"
+$metadata = Invoke-WebRequest -Uri "https://nameoffhirservice.azurehealthcareapis.com/metadata"
 $metadata.RawContent
 ```
 
@@ -78,7 +66,7 @@ $metadata.RawContent
 If you're not going to continue to use this application, delete the resource group with the following steps:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name $rg.ResourceGroupName
+Remove-AzResourceGroup -Name myResourceGroupName
 ```
 
 ## Next steps

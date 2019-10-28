@@ -1,6 +1,6 @@
 ---
-title: Monitor B2B messages with Azure Monitor logs - Azure Logic Apps | Microsoft Docs
-description: Monitor AS2, X12, and EDIFACT messages for integration accounts and Azure Logic Apps and set up diagnostics logging with Azure Monitor logs
+title: Monitor B2B messages with Azure Monitor - Azure Logic Apps
+description: Set up diagnostics logging for AS2, X12, and EDIFACT messages in Azure Logic Apps by using Azure Monitor
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/23/2018
 ---
 
-# Monitor B2B messages with Azure Monitor logs in Azure Logic Apps
+# Set up diagnostics logging for B2B messages in Azure Logic Apps by using Azure Monitor
 
 After you set up B2B communication between trading partners 
 in your integration account, those partners can exchange 
