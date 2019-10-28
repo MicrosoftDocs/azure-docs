@@ -7,6 +7,7 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
+ms.custom: fasttrack-edit
 ---
 
 # Frequently asked questions about Application Gateway
@@ -264,7 +265,7 @@ Application Gateway supports up to 100 SSL certificates.
 
 ### How many authentication certificates for backend reencryption does Application Gateway support?
 
-Application Gateway supports up to 10 authentication certificates. The default is 5.
+Application Gateway supports up to 100 authentication certificates.
 
 ### Does Application Gateway natively integrate with Azure Key Vault?
 

@@ -130,6 +130,7 @@ To better understand entitlement management and its documentation, you can refer
 | resource directory | A directory that has one or more resources to share. |
 | resource role | A collection of permissions associated with and defined by a resource. A group has two roles - member and owner. SharePoint sites typically have 3 roles but may have additional custom roles. Applications can have custom roles. |
 
+
 ## License requirements
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
