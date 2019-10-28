@@ -47,4 +47,4 @@ You can use Azure PowerShell to [create a WAF Policy](create-waf-policy-ag.md), 
    ```
 
 ## Next steps
-[Learn about Custom Rules.](./ag/configure-waf-custom-rules.md)
+[Learn about Custom Rules.](/configure-waf-custom-rules.md)
