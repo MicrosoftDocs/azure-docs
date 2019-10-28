@@ -209,7 +209,7 @@ To include these logic apps, add the
 **Azure Logic Apps - Choose a Logic Apps workflow** action 
 to your trigger. You can then select from eligible logic apps.
 
-![Add nested logic app to call](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+![Nest logic app inside current logic app](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
 ## Call or trigger logic apps through HTTP endpoints
 
