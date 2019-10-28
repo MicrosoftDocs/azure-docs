@@ -6,14 +6,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 7/5/2019
+ms.date: 10/23/2019
 ms.author: dapine
 ---
 
 ## Create a LUIS resource
 
 1. Sign into the [Azure portal](https://portal.azure.com)
-1. Click [Create **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS)
+1. Click [Create **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 1. Enter all required settings:
 
     |Setting|Value|

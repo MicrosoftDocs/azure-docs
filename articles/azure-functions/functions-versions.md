@@ -11,7 +11,7 @@ ms.author: glenga
 ---
 # Azure Functions runtime versions overview
 
- The major versions of the Azure Functions runtime are related to the version of .NET on which the runtime is based. The following table indicates the current version of the runtime, the release level, and the related .NET version. 
+The major versions of the Azure Functions runtime are related to the version of .NET on which the runtime is based. The following table indicates the current version of the runtime, the release level, and the related .NET version. 
 
 | Runtime version | Release level<sup>1</sup> | .NET version | 
 | --------------- | ------------- | ------------ |
@@ -20,8 +20,11 @@ ms.author: glenga
 | 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
 
 <sup>1</sup>GA releases are supported for production scenarios.   
-<sup>2</sup>Version 1.x is in maintenance mode. Enhancements are provided only in later versions. 
+<sup>2</sup>Version 1.x is in maintenance mode. Enhancements are provided only in later versions.   
 <sup>3</sup>Only supports development in the Azure portal or locally on Windows computers.
+
+>[!NOTE]  
+> Version 3.x of the Functions runtime is in preview and isn't supported for production environments. For more information about trying out version 3.x, see [this announcement](https://dev.to/azure/develop-azure-functions-using-net-core-3-0-gcm).
 
 This article details some of the differences between the various versions, how you can create each version, and how to change versions.
 
