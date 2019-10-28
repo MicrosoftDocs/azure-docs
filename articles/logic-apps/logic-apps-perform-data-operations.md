@@ -87,7 +87,7 @@ To try an example, follow these steps by using the Logic App Designer. Or, if yo
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "New step" for "Compose" action](./media/logic-apps-perform-data-operations/add-compose-action.png)
+     ![Select "New step" for "Compose" action](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
