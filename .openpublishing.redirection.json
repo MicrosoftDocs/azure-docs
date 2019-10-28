@@ -36210,12 +36210,12 @@
     },
     {
       "source_path": "articles/iot-central/howto-create-application.md",
-      "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-connect-powerbi-pnp.md",
-      "redirect_url": "/azure/iot-central/howto-connect-powerbi",
+      "redirect_url": "/azure/iot-central/core/howto-connect-powerbi",
       "redirect_document_id": false
     },
     {
@@ -39480,7 +39480,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-export-data.md",
-      "redirect_url": "/azure/iot-central/howto-export-data-event-hubs-service-bus",
+      "redirect_url": "/azure/iot-central/core/howto-export-data-event-hubs-service-bus",
       "redirect_document_id": false
     },
     {
@@ -41645,12 +41645,12 @@
     },
     {
       "source_path": "articles/iot-central/howto-create-and-manage-applications-as-CSP.md",
-      "redirect_url": "/azure/iot-central/howto-create-and-manage-applications-csp",
+      "redirect_url": "/azure/iot-central/core/howto-create-and-manage-applications-csp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-version-devicetemplate.md",
-      "redirect_url": "/azure/iot-central/howto-version-device-template",
+      "redirect_url": "/azure/iot-central/core/howto-version-device-template",
       "redirect_document_id": true
     },
     {
