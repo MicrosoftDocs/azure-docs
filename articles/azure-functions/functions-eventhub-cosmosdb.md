@@ -8,13 +8,14 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: karler
+#Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Cosmos DB.
 ---
 
 # Tutorial: Create an Azure function in Java with an Event Hub trigger and Cosmos DB output binding
 
 This tutorial shows you how to create an Azure Function in Java that is triggered by Event Hub events representing temperature and pressure inputs. The function responds to the event data by adding status entries to a Cosmos DB.
 
-In this tutorial, you learn to:
+In this tutorial, you'll:
 
 > [!div class="checklist"]
 > * Create and configure Azure resources using the Azure CLI
@@ -23,16 +24,18 @@ In this tutorial, you learn to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## Prerequisites
 
 * [Java Developer Kit](https://aka.ms/azure-jdks), version 8
 * [Maven](https://maven.apache.org)
-* [Azure CLI](/cli/azure/install-azure-cli)
+* [Azure CLI](/cli/azure/install-azure-cli) if you prefer not to use the Cloud Shellx
 * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools)
 
 ## Create Azure resources
 
-In this topic, you'll need these resources:
+In this tutorial, you'll need these resources:
 
 * A resource group to contain the other resources.
 * An Event Hubs namespace, event hub, and authorization rule.
@@ -45,31 +48,33 @@ The following sections show you how to create these resources using the Azure CL
 
 First, you'll need to access your account. You should also set the default subscription if you have access to more than one. Open a Bash prompt and run the following commands:
 
-```azurecli
+```azurecli-interactive
 az login
 az account set --subscription <the ID for the existing Azure subscription to use>
 ```
 
 ### Set environment variables
 
-Next, create some environment variables for the info needed to create your resources. Use the following command, replacing the `<value>` placeholders with values of your choosing. For the `LOCATION` variable, use one of the values produced by the [az functionapp list-consumption-locations](/cli/azure/functionapp?view=azure-cli-latest#az-functionapp-list-consumption-locations) command.
+Next, create some environment variables for the names and location of the resources you will create. Use the following command, replacing the `<value>` placeholders with values of your choosing. The `$RANDOM` variable appends a random number to help avoid naming conflicts where resource names must be unique. For the `LOCATION` variable, use one of the values produced by the `az functionapp list-consumption-locations` command.
 
-```azurecli
-export RESOURCE_GROUP=<value>
-export EVENT_HUB_NAMESPACE=<value>
-export EVENT_HUB_NAME=<value>
-export EVENT_HUB_AUTHORIZATION_RULE=<value>
-export COSMOS_DB_ACCOUNT=<value>
-export STORAGE_ACCOUNT=<value>
-export FUNCTION_APP=<value>
-export LOCATION=<value>
+```azurecli-interactive
+RESOURCE_GROUP=<value>
+EVENT_HUB_NAMESPACE="<value>-$RANDOM"
+EVENT_HUB_NAME=<value>
+EVENT_HUB_AUTHORIZATION_RULE=<value>
+COSMOS_DB_ACCOUNT="<value>-$RANDOM"
+STORAGE_ACCOUNT="<value>-$RANDOM"
+FUNCTION_APP="<value>-$RANDOM"
+LOCATION=<value>
 ```
+
+These values are used by the Azure CLI commands shown in the rest of this tutorial, so you will not need to replace any more placeholders. However, if you start a new session before you complete this tutorial, you will need to set these variables again before you use the Azure CLI commands.
 
 ### Create a resource group
 
-Azure uses resource groups to collect all related resources in your account. That way, you can view them as a unit and delete them with a single command when you are done with them. Use the following command to create a group:
+Azure uses resource groups to collect all related resources in your account. That way, you can view them as a unit and delete them with a single command when you are done with them, as shown at the end of this tutorial. Use the following command to create a group:
 
-```azurecli
+```azurecli-interactive
 az group create \
     --name $RESOURCE_GROUP \
     --location $LOCATION
@@ -77,22 +82,22 @@ az group create \
 
 ### Create an event hub
 
-Next, create an [Azure Event Hubs](/azure/event-hubs/event-hubs-about) namespace, event hub, and authorization rule using the following commands:
+Next, create an Azure Event Hubs namespace, event hub, and authorization rule using the following commands:
 
-```azurecli
+```azurecli-interactive
 az eventhubs namespace create \
-    --name $EVENT_HUB_NAMESPACE \
-    --resource-group $RESOURCE_GROUP
+    --resource-group $RESOURCE_GROUP \
+    --name $EVENT_HUB_NAMESPACE
 az eventhubs eventhub create \
+    --resource-group $RESOURCE_GROUP \
     --name $EVENT_HUB_NAME \
     --namespace-name $EVENT_HUB_NAMESPACE \
-    --resource-group $RESOURCE_GROUP \
     --message-retention 1
 az eventhubs eventhub authorization-rule create \
+    --resource-group $RESOURCE_GROUP \
     --name $EVENT_HUB_AUTHORIZATION_RULE \
     --eventhub-name $EVENT_HUB_NAME \
     --namespace-name $EVENT_HUB_NAMESPACE \
-    --resource-group $RESOURCE_GROUP \
     --rights Listen Send
 ```
 
@@ -100,44 +105,44 @@ The Event Hubs namespace contains the actual event hub and its authorization rul
 
 ### Create a Cosmos DB
 
-Next, create an [Azure Cosmos DB](/azure/cosmos-db/introduction) account, database, and collection using the following commands:
+Next, create an Azure Cosmos DB account, database, and collection using the following commands:
 
-```azurecli
+```azurecli-interactive
 az cosmosdb create \
-    --name $COSMOS_DB_ACCOUNT \
-    --resource-group $RESOURCE_GROUP
+    --resource-group $RESOURCE_GROUP \
+    --name $COSMOS_DB_ACCOUNT
 az cosmosdb database create \
-    --db-name TelemetryDb \
+    --resource-group-name $RESOURCE_GROUP \
     --name $COSMOS_DB_ACCOUNT \
-    --resource-group-name $RESOURCE_GROUP
+    --db-name TelemetryDb
 az cosmosdb collection create \
+    --resource-group-name $RESOURCE_GROUP \
+    --name $COSMOS_DB_ACCOUNT \
     --collection-name TelemetryInfo \
     --db-name TelemetryDb \
-    --name $COSMOS_DB_ACCOUNT \
-    --partition-key-path '/temperatureStatus' \
-    --resource-group-name $RESOURCE_GROUP
+    --partition-key-path '/temperatureStatus'
 ```
 
-The `partition-key-path` value partitions your data based on the `temperatureStatus` value of each item. This enables Cosmos DB to increase performance by dividing your data into distinct subsets that it can access independently. For more information, see [Partitioning in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview).
+The `partition-key-path` value partitions your data based on the `temperatureStatus` value of each item. This enables Cosmos DB to increase performance by dividing your data into distinct subsets that it can access independently.
 
 ### Create a storage account and function app
 
-Next, create an [Azure Storage](/azure/storage/common/storage-introduction) account to host your Azure Functions app, then create the function app. Use the following commands:
+Next, create an Azure Storage account to host your Azure Functions app, then create the function app. Use the following commands:
 
-```azurecli
+```azurecli-interactive
 az storage account create \
-    --name $STORAGE_ACCOUNT \
     --resource-group $RESOURCE_GROUP \
+    --name $STORAGE_ACCOUNT \
     --sku Standard_LRS
 az functionapp create \
-    --name $FUNCTION_APP \
     --resource-group $RESOURCE_GROUP \
+    --name $FUNCTION_APP \
     --storage-account $STORAGE_ACCOUNT \
     --consumption-plan-location $LOCATION \
     --runtime java
 ```
 
-When the `az functionapp create` command creates your Azure Functions app, it also creates an [Application Insights](/azure/azure-monitor/app/app-insights-overview) resource with the same name. The function app is automatically configured with a setting named `APPINSIGHTS_INSTRUMENTATIONKEY` that connects it to Application Insights. You can view app telemetry after you deploy your functions to Azure, as described later in this topic.
+When the `az functionapp create` command creates your Azure Functions app, it also creates an Application Insights resource with the same name. The function app is automatically configured with a setting named `APPINSIGHTS_INSTRUMENTATIONKEY` that connects it to Application Insights. You can view app telemetry after you deploy your functions to Azure, as described later in this tutorial.
 
 ## Configure your function app
 
@@ -147,27 +152,27 @@ Your function app will need to access the other resources in order to work corre
 
 Use the following commands to retrieve the storage, event hub, and Cosmos DB connection strings and save them in environment variables:
 
-```azurecli
-export AZURE_WEB_JOBS_STORAGE=` \
+```azurecli-interactive
+export AZURE_WEB_JOBS_STORAGE=$( \
     az storage account show-connection-string \
         --name $STORAGE_ACCOUNT \
         --query connectionString \
-        --output tsv`
-export EVENT_HUB_CONNECTION_STRING=` \
+        --output tsv)
+export EVENT_HUB_CONNECTION_STRING=$( \
     az eventhubs eventhub authorization-rule keys list \
+        --resource-group $RESOURCE_GROUP \
         --name $EVENT_HUB_AUTHORIZATION_RULE \
         --eventhub-name $EVENT_HUB_NAME \
         --namespace-name $EVENT_HUB_NAMESPACE \
-        --resource-group $RESOURCE_GROUP \
         --query primaryConnectionString \
-        --output tsv`
-export COSMOS_DB_CONNECTION_STRING=` \
+        --output tsv)
+export COSMOS_DB_CONNECTION_STRING=$( \
     az cosmosdb keys list \
-        --name $COSMOS_DB_ACCOUNT \
         --resource-group $RESOURCE_GROUP \
+        --name $COSMOS_DB_ACCOUNT \
         --type connection-strings \
         --query connectionStrings[0].connectionString \
-        --output tsv`
+        --output tsv)
 ```
 
 Each variable is set to a value retrieved using an Azure CLI command with a JMESPath query. Each query extracts the connection string from the JSON payload returned by the CLI command.
@@ -176,10 +181,10 @@ Each variable is set to a value retrieved using an Azure CLI command with a JMES
 
 Next, use the following command to transfer the connection string values to app settings in your Azure Functions account:
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set \
-    --name $FUNCTION_APP \
     --resource-group $RESOURCE_GROUP \
+    --name $FUNCTION_APP \
     --settings \
         AzureWebJobsStorage=$AZURE_WEB_JOBS_STORAGE \
         EventHubConnectionString=$EVENT_HUB_CONNECTION_STRING \
@@ -190,7 +195,7 @@ Your Azure resources have now been created and configured to work properly toget
 
 ## Create and test your functions
 
-Next, you will create a project on your local machine, add Java code, and test it. You will use [Maven Plugin for Azure Functions](/java/api/overview/azure/maven/azure-functions-maven-plugin/readme), which works with [Azure Functions Core Tools](/azure/azure-functions/functions-run-local). Your functions will run locally, but will use the cloud-based resources you've created. After you get the functions working locally, you can use Maven to deploy them to the cloud and watch your data and analytics accumulate.
+Next, you will create a project on your local machine, add Java code, and test it. You will use Maven Plugin for Azure Functions, which works with Azure Functions Core Tools. Your functions will run locally, but will use the cloud-based resources you've created. After you get the functions working locally, you can use Maven to deploy them to the cloud and watch your data and analytics accumulate.
 
 ### Create a local functions project
 
@@ -210,9 +215,9 @@ This command generates several files inside a `telemetry-functions` folder:
 
 * A `pom.xml` file for use with Maven.
 * A `local.settings.json` file to hold app settings for local testing.
-* A `host.json` file that enables the [Azure Functions Extension Bundle](/azure/azure-functions/functions-bindings-register#extension-bundles), required for Cosmos DB output binding in your data analysis function.
+* A `host.json` file that enables the Azure Functions Extension Bundle, required for Cosmos DB output binding in your data analysis function.
 * A `Function.java` file that includes a default function implementation.
-* A few test files that this topic doesn't need.
+* A few test files that this tutorial doesn't need.
 
 To avoid compilation errors, you will need to delete the test files. Run the following commands to navigate to the new project folder and delete the test folder:
 
@@ -223,7 +228,7 @@ rm -r src/test
 
 ### Retrieve your function app settings for local use
 
-For local testing, your function project will need the connection strings that you added to your Azure Functions account earlier in this topic. Use the following Azure Functions Core Tools command to retrieve all the function app settings stored in the cloud, and add them to your `local.settings.json` file:
+For local testing, your function project will need the connection strings that you added to your Azure Functions account earlier in this tutorial. Use the following Azure Functions Core Tools command to retrieve all the function app settings stored in the cloud, and add them to your `local.settings.json` file:
 
 ```bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
@@ -300,7 +305,7 @@ public class Function {
 
 As you can see, this file contains two functions, `generateSensorData` and `processSensorData`. The `generateSensorData` function simulates a sensor that sends temperature and pressure readings to the event hub. A timer trigger runs the function every 10 seconds, and an event hub output binding sends the return value to the event hub.
 
-When the event hub receives the message, it generates an event. The `processSensorData` function runs when it receives the event. It then processes the event data and uses a Cosmos DB output binding to send the results to Cosmos DB. For more information about input and output bindings, see [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java).
+When the event hub receives the message, it generates an event. The `processSensorData` function runs when it receives the event. It then processes the event data and uses a Cosmos DB output binding to send the results to Cosmos DB.
 
 The data used by these functions is stored using a class called `TelemetryItem`, so you'll need an implementation of that. Create a new file called `TelemetryItem.java` in the same location as `Function.java` and add the following code:
 
@@ -373,7 +378,7 @@ mvn azure-functions:run
 
 After some build and startup messages, you will see output similar to the following for each time the functions run:
 
-```bash
+```output
 [10/22/19 4:01:30 AM] Executing 'Functions.generateSensorData' (Reason='Timer fired at 2019-10-21T21:01:30.0016769-07:00', Id=c1927c7f-4f70-4a78-83eb-bc077d838410)
 [10/22/19 4:01:30 AM] Java Timer trigger function executed at: 2019-10-21T21:01:30.015
 [10/22/19 4:01:30 AM] Function "generateSensorData" (Id: c1927c7f-4f70-4a78-83eb-bc077d838410) invoked by Java Worker
@@ -390,7 +395,9 @@ You can then go to the Azure portal, navigate to your Cosmos DB account, and use
 
 ## Deploy to Azure and view app telemetry
 
-Next, deploy your project to Azure using the following command:
+Finally, you can deploy your app to Azure and verify that it continues to work the same way it did locally.
+
+Deploy your project to Azure using the following command:
 
 ```bash
 mvn azure-functions:deploy
@@ -400,13 +407,11 @@ Your functions will now run in Azure, and continue to accumulate data in your Co
 
 ![Application Insights Live Metrics Stream](media/functions-eventhub-cosmosdb/application-insights-live-metrics-stream.png)
 
-For more information, see [Monitor Azure Functions](/azure/azure-functions/functions-monitoring).
-
 ## Clean up resources
 
-When you are finished with the Azure resources you created in this topic, you can delete them using the following command:
+When you are finished with the Azure resources you created in this tutorial, you can delete them using the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete --name $RESOURCE_GROUP
 ```
 
@@ -414,9 +419,7 @@ az group delete --name $RESOURCE_GROUP
 
 In this tutorial, you learned how to create Azure Functions that handle events from the Event Hub, process the data in the event messages, and write analysis results to a Cosmos DB.
 
-Next, learn how to store your app secrets in [Azure Key Vault](/azure/key-vault/key-vault-overview) or use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) for automated deployment:
+Next, learn how to use Azure Pipelines CI/CD for automated deployment:
 
 > [!div class="nextstepaction"]
-> [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
-> [!div class="nextstepaction"]
-> [Use Azure Pipelines CI/CD to build and deploy Java to Azure Functions](/azure/devops/pipelines/ecosystems/java-function)
+> [Build and deploy Java to Azure Functions](/azure/devops/pipelines/ecosystems/java-function)

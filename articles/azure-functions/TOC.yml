@@ -51,7 +51,7 @@
     href: functions-create-function-linux-custom-image.md
   - name: Functions on IoT Edge device
     href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Event Hub trigger with Cosmos DB output binding
+  - name: Java functions with Event Hub and Cosmos DB
     href: functions-eventhub-cosmosdb.md
 - name: Samples
   items:
