@@ -62,6 +62,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI - Available via an Azure Regional Community, see [here](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant.
 * Azure Active Directory
+* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>**The following services are NOT supported**:
     * CDN
@@ -82,6 +83,14 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
     * Azure Front Door
     * Multi-factor Authentication Server (legacy)
     * Traffic Manager
+
+### Why I see 'Advertised public prefixes' status as 'Validation needed', while configuring Microsoft peering?
+
+Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see the message 'Validation needed'.
+
+If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket as shown below.
+
+![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
 ### Is Dynamics 365 supported on ExpressRoute?
 
