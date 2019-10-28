@@ -30,6 +30,7 @@ If you can't find answers to your questions in this document, check out [other s
 
 **A:** The best way to begin with creating a Custom Commands (Preview) application or basic Bot Framework bot.
 
+* [Create a Custom Commands (Preview) application](quickstart-custom-speech-commands-create-new.md)
 * [Create a basic Bot Framework bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Connect a bot to the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 

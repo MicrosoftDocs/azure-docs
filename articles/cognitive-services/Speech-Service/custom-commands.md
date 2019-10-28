@@ -30,6 +30,12 @@ The first step for using Custom Commands (Preview) to make a voice assistant is 
 
    ![Authoring flow for Custom Commands (Preview)](media/voice-assistants/custom-commands-flow.png "The Custom Commands (Preview) authoring flow")
 
+We offer quickstarts designed to have you running code in less than 10 minutes.
+
+* [Create a Custom Commands (Preview) application](quickstart-custom-speech-commands-create-new.md)
+* [Create a Custom Commands (Preview) application with parameters](quickstart-custom-speech-commands-create-parameters.md)
+* [Connect to a Custom Commands (Preview) application with the Speech SDK, C#](quickstart-custom-speech-commands-speech-sdk.md)
+
 ## Sample code
 
 Sample code for creating a voice assistant with Custom Commands (Preview) is available on GitHub.
