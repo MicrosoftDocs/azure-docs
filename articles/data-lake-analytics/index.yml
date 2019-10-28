@@ -84,7 +84,7 @@ landingContent:
           - text: Adding a user in the Azure portal
             url: data-lake-analytics-add-users.md
           - text: Manage Azure Data Lake Analytics using policies
-            url: data-lake-analytics-policies.md
+            url: data-lake-analytics-account-policies.md
 
   # Card (optional)
   - title: Continuous integration and continuous deployment
@@ -99,3 +99,15 @@ landingContent:
             url: data-lake-analytics-cicd-test.md
           - text: Use U-SQL SDK
             url: data-lake-analytics-u-sql-sdk.md
+
+  #Card (optional)
+  - title: Understand Spark for U-SQL developers
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Understand Apache Spark for U-SQL Developers
+            url: data-lake-analytics-understand-spark-for-usql-developers.md
+          - text: Understand Apache Spark data formats
+            url: data-lake-analytics-understand-spark-data-formats.md
+          - text: Understand Apache Spark code concepts
+            url: data-lake-analytics-understand-spark-code-concepts.md
