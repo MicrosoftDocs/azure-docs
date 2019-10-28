@@ -47,7 +47,7 @@ The container you create will be used to store assets related to your Stream Ana
 
 2. In Solution Explorer, right-click your **Protobuf Deserializer** project and select **Manage NuGet Packages** from the menu. Then install the **Microsoft.Azure.StreamAnalytics** and **Google.Protobuf** NuGet packages.
 
-3. Add the [MessageBodyProto class]() and the [MessageBodyDeserializer class]() to your project.
+3. Add the [MessageBodyProto class](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/MessageBodyProto.cs) and the [MessageBodyDeserializer class](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/MessageBodyDeserializer.cs) to your project.
 
 4. Build the **Protobuf Deserializer** project.
 
@@ -91,7 +91,7 @@ The container you create will be used to store assets related to your Stream Ana
    SELECT * FROM Input
    ```
 
-4. Download the [sample protobuf input file](). In the **Inputs** folder, right-click **Input.json** and select **Add Local Input**. Then, double-click **local_Input.json** and configure the following settings:
+4. Download the [sample protobuf input file](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/SimulatedTemperatureEvents.protobuf). In the **Inputs** folder, right-click **Input.json** and select **Add Local Input**. Then, double-click **local_Input.json** and configure the following settings:
 
    |Setting|Suggested Value|
    |-------|---------------|

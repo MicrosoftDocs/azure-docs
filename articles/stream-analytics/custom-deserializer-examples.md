@@ -228,13 +228,13 @@ This feature is available in the following regions:
 * East US 2
 * West Central US
 
-You can [request support](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRylhI-EtGgJIjAdlkhp3-C5UNjlBMVBXOEhMT1haUzBBOFVTVEFVSFJHMi4u) for additional regions.
+You can [request support](https://aka.ms/ccodereqregion) for additional regions.
 
 ## Frequently asked questions
 
 ### When will this feature be available in all Azure regions?
 
-This feature is available in 6 regions (#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRylhI-EtGgJIjAdlkhp3-C5UNjlBMVBXOEhMT1haUzBBOFVTVEFVSFJHMi4u). Support for all Azure regions is on the roadmap.
+This feature is available in 6 regions (#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
 
 ### Can I access MetadataPropertyValue from my inputs similar to GetMetadataPropertyValue function?
 
