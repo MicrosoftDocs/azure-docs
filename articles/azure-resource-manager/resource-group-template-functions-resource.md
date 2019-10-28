@@ -4,7 +4,7 @@ description: Describes the functions to use in an Azure Resource Manager templat
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 10/26/2019
 ms.author: tomfitz
 
 ---
@@ -745,6 +745,12 @@ The resource ID is returned in the following format:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+When used in a [subscription-level deployment](deploy-to-subscription.md), the resource ID is returned in the following format:
+
+```json
+/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
 To get the ID in other formats, see:
