@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -56,12 +56,13 @@ Once you have found the access package in the My Access portal, you can submit a
 
 1. Find the access package in the list.  If necessary, you can search by typing a search string and then selecting the **Name**, **Catalog**, or **Resources** filter.
 
-    ![My Access portal - Resource search](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
+    ![My Access portal - Resource search](./media/entitlement-management-request-access/my-access-resource-search.png)
+
 1. Click the checkmark to select the access package.
 
-    ![My Access portal - Access packages](./media/entitlement-management-shared/my-access-access-packages.png)
-
 1. Click **Request access** to open the Request access pane.
+
+    ![My Access portal - Access packages](./media/entitlement-management-request-access/my-access-request-access-button.png)
 
 1. If the **Business justification** box is displayed, type a justification for needing access.
 
@@ -76,6 +77,12 @@ Once you have found the access package in the My Access portal, you can submit a
 1. Click **Request history** to see a list of your requests and the status.
 
     If the access package requires approval, the request is now in a pending approval state.
+
+### Select a policy
+
+If you request access to an access package that has multiple policies that apply, you might be asked to select a policy. For example, an access package manager might configure an access package with two policies for two groups of internal employees. The first policy might allow access for 60 days and require approval. The second policy might allow access for 2 days and not require approval. If you encounter this scenario, you must select the policy you want to use.
+
+![My Access portal - Request access - multiple policies](./media/entitlement-management-request-access/my-access-multiple-policies.png)
 
 ## Cancel a request
 
@@ -92,12 +99,6 @@ If you submit an access request and the request is still in the **pending approv
     ![My Access portal - Cancel request](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
 1. Click **Request history** to confirm the request was canceled.
-
-## Select a policy
-
-If you are requesting access to an access package that has multiple policies that apply, you might be asked to select a policy. For example, an access package manager might configure an access package with two policies for two groups of internal employees. The first policy might allow access for 60 days and require approval. The second policy might allow access for 2 days and not require approval. If you encounter this scenario, you must select the policy you want to use.
-
-**Prerequisite role:** Requestor
 
 ## Next steps
 
