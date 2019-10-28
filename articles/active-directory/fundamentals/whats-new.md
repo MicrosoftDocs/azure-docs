@@ -55,7 +55,7 @@ For more information about the new riskDetection API, see the [Risk detection AP
 **Service category:** App Proxy  
 **Product capability:** Access Control
 
-A couple of weeks prior to the Chrome 80 browser release, we plan to update the how Application Proxy cookies treat the **SameSite** attribute. With the release of Chrome 80, any cookie that doesn't specify the **SameSite** attribute will be treated as though it was set to `SameSite=Lax`.
+A couple of weeks prior to the Chrome 80 browser release, we plan to update how Application Proxy cookies treat the **SameSite** attribute. With the release of Chrome 80, any cookie that doesn't specify the **SameSite** attribute will be treated as though it was set to `SameSite=Lax`.
 
 To help avoid potentially negative impacts due to this change, we're updating Application Proxy access and session cookies by:
 
@@ -100,7 +100,7 @@ For detailed information about these new capabilities, including how to use them
 
 ---
 
-### New My Sign-ins page for end-users in Azure AD
+### New My Sign-ins page for end users in Azure AD
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
@@ -118,13 +118,13 @@ For more information, see the [Users can now check their sign-in history for unu
 
 ---
 
-### Migration of Azure AD Domain Services (Azure AD DS) from classic to ARM virtual networks
+### Migration of Azure AD Domain Services (Azure AD DS) from classic to Azure Resource Manager virtual networks
 
 **Type:** New feature  
 **Service category:** Azure AD Domain Services  
 **Product capability:** Azure AD Domain Services
 
-To our customers who have been stuck on classic virtual networks -- we have great news for you! You can now perform a one-time migration from a classic virtual network to an existing resource manager virtual network. After moving to the resource manager virtual network, you'll be able to take advantage of the additional and upgraded features such as, fine-grained password policies, email notifications, and audit logs.
+To our customers who have been stuck on classic virtual networks -- we have great news for you! You can now perform a one-time migration from a classic virtual network to an existing Resource Manager virtual network. After moving to the Resource Manager virtual network, you'll be able to take advantage of the additional and upgraded features such as, fine-grained password policies, email notifications, and audit logs.
 
 For more information, see [Preview - Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet).
 
@@ -191,13 +191,13 @@ For more information, see [Security - Getting started](https://portal.azure.com/
 
 ---
 
-### Office 365 groups expiration policy enhanced with auto-renewal
+### Office 365 groups expiration policy enhanced with autorenewal
 
 **Type:** Changed feature  
 **Service category:** Group Management  
 **Product capability:** Identity Lifecycle Management
 
-The Office 365 groups expiration policy has been enhanced to automatically renew groups that are actively in use by its members. Groups will be auto-renewed based on user activity across all the Office 365 apps, including Outlook, SharePoint, and Teams.
+The Office 365 groups expiration policy has been enhanced to automatically renew groups that are actively in use by its members. Groups will be autorenewed based on user activity across all the Office 365 apps, including Outlook, SharePoint, and Teams.
 
 This enhancement helps to reduce your group expiration notifications and helps to make sure that active groups continue to be available. If you already have an active expiration policy for your Office 365 groups, you don't need to do anything to turn on this new functionality.
 
@@ -211,7 +211,7 @@ For more information, see [Configure the expiration policy for Office 365 groups
 **Service category:** Azure AD Domain Services  
 **Product capability:** Azure AD Domain Services
 
-We've updated Azure AD Domain Services (Azure AD DS) to include a new and improved creation experience, helping you to create a managed domain in just 3 clicks! In addition, you can now upload and deploy Azure AD DS from a template.
+We've updated Azure AD Domain Services (Azure AD DS) to include a new and improved creation experience, helping you to create a managed domain in just three clicks! In addition, you can now upload and deploy Azure AD DS from a template.
 
 For more information, see [Tutorial: Create and configure an Azure Active Directory Domain Services instance](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance).
 
@@ -231,7 +231,7 @@ For more information about the workbooks, see [How to use Azure Monitor workbook
 
 ---
 
-### My Profile is re-naming and integrating with the Microsoft Office account page
+### My Profile is renaming and integrating with the Microsoft Office account page
 
 **Type:** Plan for change  
 **Service category:** My Profile/Account  
