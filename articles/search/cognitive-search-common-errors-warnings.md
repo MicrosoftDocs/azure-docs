@@ -219,4 +219,4 @@ It is possible to override this behavior, enabling incremental progress and supp
 [More information about Cosmos DB incremental progress and custom queries.](https://go.microsoft.com/fwlink/?linkid=2099593)
 
 ### Could not map output field 'X' to search index
-Output field mappings which reference non-existent/null data will produce warnings for each document and results in an empty index field. Double check your output field mapping source paths for possible typos or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To workaround this issue, double-check your output field mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
