@@ -43,7 +43,7 @@ In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) a
 
 ### IP address version
 
-Public IP addresses are created with an IPv4 or IPv6 address. Public IPv6 addresses can only be assigned to Internet-facing load balancers.
+Public IP addresses are created with an IPv4 or IPv6 address. 
 
 ### SKU
 
@@ -143,10 +143,6 @@ In the Azure Resource Manager deployment model, a private IP address is associat
 * Virtual machine network interfaces
 * Internal load balancers (ILBs)
 * Application gateways
-
-### IP address version
-
-Private IP addresses are created with an IPv4 or IPv6 address. Private IPv6 addresses can only be assigned with the dynamic allocation method. You cannot communicate between private IPv6 addresses on a virtual network. You can communicate inbound to a private IPv6 address from the Internet, through an Internet-facing load balancer. See [Create an Internet-facing load balancer with IPv6](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
 
 ### Allocation method
 
