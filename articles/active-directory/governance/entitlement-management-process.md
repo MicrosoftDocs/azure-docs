@@ -52,7 +52,7 @@ A user that needs access to an access package can submit an access request. Depe
 
 If you are an approver, you are sent email notifications when you need to approve an access request and when an access request has been completed. If you are a requestor, you are sent email notifications that indicate the status of your request.
 
-The following diagrams shows when these email notifications are sent to either the approvers or the requestor. Reference the [email notifications table](entitlement-management-process.md###email-notifications-table) to find the corresponding number to the email notifications displayed in the diagrams.
+The following diagrams shows when these email notifications are sent to either the approvers or the requestor. Reference the [email notifications table](entitlement-management-process.md#email-notifications-table) to find the corresponding number to the email notifications displayed in the diagrams.
 
 ### Primary approvers and alternate approvers
 The following diagram shows the experience of primary approvers and alternate approvers, and the email notifications they receive during the request process:
@@ -87,9 +87,9 @@ The following table provides more detail about each of these email notifications
 
 When a requestor submits an access request for an access package configured to require approval, all approvers added to the policy will receive an email notification with details of the request. Details include the requestor's name, organization, access start and end date (if provided), business justification, when the request was submitted, and when the request will expire.
 
-The email includes a link approvers can click on to go to Myaccess to approve or deny the access request. Here is a sample email notification that is sent to an approver when a requestor submits an access request.
+The email includes a link approvers can click on to go to Myaccess to approve or deny the access request. Here is a sample email notification that is sent to an approver when a requestor submits an access request:
 
-![Review access request email](./media/entitlement-management-process/approver-request-email.png)
+![Approve request to access package email](./media/entitlement-management-shared/approver-request-email.png)
 
 ### Alternate approver request emails
 
