@@ -161,7 +161,7 @@ Use the following steps to rollout a specific feature (Pass-through Authenticati
 >[!NOTE]
 >The members in a group are automatically enabled for staged rollout. Nested and Dynamic groups are not supported for staged rollout.
 
-# Auditing
+## Auditing
 
 We have enabled audit events for the different actions we perform for staged rollout.
 
@@ -188,7 +188,7 @@ We have enabled audit events for the different actions we perform for staged rol
 ![](media/how-to-connect-staged-rollout/sr11.png)
 
 ![](./media/how-to-connect-staged-rollout/sr12.png)
-# Validation
+## Validation
 
 To test sign-in with Password Hash Sync or Pass-through Authentication (username / password sign-in):
 
@@ -210,7 +210,7 @@ To check user sign-ins still happening on federation providers:
 
 -   Here is how you can track user sign-ins still happening on AD FS for selected staged rollout users using [these instructions](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation on how to check this on 3rd party federation providers.
 
-# Roll back
+## Roll back
 
 ### Remove a user from staged rollout
 
@@ -220,7 +220,7 @@ To check user sign-ins still happening on federation providers:
 
 
 
-# Frequently asked questions
+## Frequently asked questions
 
 -   **Q: Can a customer use this capability in production?**
 
