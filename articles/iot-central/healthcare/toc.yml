@@ -115,8 +115,6 @@
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Supported browsers
       href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-    - name: API reference documentation
-      href: https://go.microsoft.com/fwlink/?linkid=2109131
     - name: Azure API for FHIR
       href: https://docs.microsoft.com/azure/healthcare-apis/
     - name: Designing secure health solutions
