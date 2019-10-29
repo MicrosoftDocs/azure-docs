@@ -6,7 +6,7 @@ author: lisaleib
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/29/2019
 ms.author: v-lilei
  
 ---
@@ -19,9 +19,19 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 ## Prerequisites
 
-+ Follow the steps in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
++ Follow the steps in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md) or [Create an Azure Search knowledge store by using REST](https://docs.microsoft.com/en-us/azure/search/knowledge-store-create-rest) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
 + [Install Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+
+## Sample Power BI template - Azure portal only
+
+If you [created your knowledge store using the Azure Portal](knowledge-store-create-portal.md), you can use the [Azure Cognitive Search Power BI template sample](https://github.com/Azure-Samples/cognitive-search-templates) to view and experiment with Power BI visualizations. This template download is also available when you step through the **Import data** wizard.
+
+The sample template automatically performs the setup steps outlined in the remainder of this article and includes many visualizations, such as WordCloud and Network Navigator visualizations for key phrases.
+
+![Sample Azure Search Power BI Template](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Sample Power BI template")
+
+[!Note] Some visualizations in the template, such as the Locations map and the Entity-Graph Viewer will now show data for the sample knowledge store created in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md). This is because only a subset of the AI enrichments available in the **Import data** wizard were used.
 
 ## Connect with Power BI
 
