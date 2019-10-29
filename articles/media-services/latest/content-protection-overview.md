@@ -21,9 +21,9 @@ ms.custom: seodec18
 
 Use Azure Media Services to help secure your media from the time it leaves your computer all the way through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients.  
 
-In Media Services v3, a content key is associated with Streaming Locator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you can let Azure Media Services generate the content key for you. You should generate the content key yourself if you're using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two data centers.
+In Media Services v3, a content key is associated with Streaming Locator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you can let Azure Media Services generate the content key for you. The content key should be generated yourself if you're using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two data centers.
 
-When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide if the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
 
 You can use the REST API, or a Media Services client library to configure authorization and authentication policies for your licenses and keys.
 
@@ -83,7 +83,7 @@ The example shows how to:
 A video player app based on a player SDK (either native or browser-based) needs to meet the following requirements:
 
 * The player SDK supports the needed DRM clients.
-* The player SDK supports the required streaming protocols: Smooth, DASH, and/or HLS.
+* The player SDK supports the required streaming protocols: Smooth, DASH, and/or HTTP Live Streaming (HLS).
 * The player SDK can handle passing a JWT token in a license acquisition request.
 
 You can create a player by using the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
@@ -100,7 +100,7 @@ Choose the right browser to test different DRMs:
 
 ### Security token service
 
-A security token service (STS) issues JWT as the access token for back-end resource access. You can use the Azure Media Services license/key delivery service as the back-end resource. An STS has to define the following:
+A security token service (STS) issues JWT as the access token for back-end resource access. You can use the Azure Media Services license/key delivery service as the back-end resource. An STS has to define the following things:
 
 * Issuer and audience (or scope).
 * Claims, which are dependent on business requirements in content protection.
@@ -111,7 +111,7 @@ You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/J
 
 ## Streaming protocols and encryption types
 
-You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HTTP Live Streaming (HLS), MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods.
+You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HLS, MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods.
 
 ### HLS
 
@@ -164,7 +164,7 @@ Common browsers support the following DRM clients:
 
 ## Controlling content access
 
-You can control who has access to your content by configuring the content key policy. Media Services supports multiple ways of authorizing users who make key requests. You must configure the content key policy. The client (player) must meet the policy before the key can be delivered to the client. The content key policy can have *open* or *token* restriction.
+You can control who has access to your content by configuring the content key policy. Media Services supports multiple ways of authorizing users who make key requests. The client (player) must meet the policy before the key can be delivered to the client. The content key policy can have *open* or *token* restriction.
 
 An open-restricted content key policy may be used when you want to issue license to anyone without authorization. For example, if your revenue is ad-based and not subscription-based.  
 
@@ -185,7 +185,7 @@ The *Token Replay Prevention* feature allows Media Services customers to set a l
 
 * Customers must have control over token generation. The claim needs to be placed in the token itself.
 * When using this feature, requests with tokens whose expiry time is more than one hour away from the time the request is received are rejected with an unauthorized response.
-* Tokens are uniquely identified by their signature. Any change to the payload (for example, update to the expiry time or the claim) changes the signature of the token and it will count as a new token that Key Delivery hasn't encountered before.
+* Tokens are uniquely identified by their signature. Any change to the payload (for example, update to the expiry time or the claim) changes the signature of the token and it will count as a new token that Key Delivery hasn't come across before.
 * Playback fails if the token has exceeded the `maxuses` value set by the customer.
 * This feature can be used for all existing protected content (only the token issued needs to be changed).
 * This feature works with both JWT and SWT.
@@ -212,7 +212,7 @@ There are two types of security keys:
 * Symmetric key: The same key is used to generate and to verify a JWT.
 * Asymmetric key: A public-private key pair in an X509 certificate is used with a private key to encrypt/generate a JWT and with the public key to verify the token.
 
-If you use .NET Framework/C# as your development platform, the X509 certificate used for an asymmetric security key must have a key length of at least 2048. This is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception is thrown: IDX10630: The 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' for signing can't be smaller than '2048' bits.
+If you use .NET Framework/C# as your development platform, the X509 certificate used for an asymmetric security key must have a key length of at least 2048. This key length is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception is thrown: IDX10630: The 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' for signing can't be smaller than '2048' bits.
 
 ## Custom key and license acquisition URL
 
