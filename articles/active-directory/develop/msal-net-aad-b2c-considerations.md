@@ -35,8 +35,8 @@ This page is for MSAL 3.x. If you are interested in MSAL 2.x, please see [Azure 
 
 The authority to use is `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}` where:
 
-- `azureADB2CHostname` is the name of the Azure AD B2C tenant plus the host (for example `{your-tenant-name}.b2clogin.com`,
-- `tenant` is the full name of the Azure AD B2C tenant (including, for example, `{your-tenant-name}.onmicrosoft.com` or the GUID for the tenant, 
+- `azureADB2CHostname` is the name of the Azure AD B2C tenant plus the host (for example `{your-tenant-name}.b2clogin.com`),
+- `tenant` is the full name of the Azure AD B2C tenant (for example, `{your-tenant-name}.onmicrosoft.com`) or the GUID for the tenant, 
 - `policyName` the name of the policy, or user flow, to apply (for instance "b2c_1_susi" for sign-up/sign-in).
 
 For more information, on the Azure AD B2C authorities, see this [documentation](/azure/active-directory-b2c/b2clogin).
