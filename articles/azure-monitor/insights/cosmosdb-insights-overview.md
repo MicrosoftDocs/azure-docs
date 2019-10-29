@@ -12,7 +12,7 @@ ms.date: 10/27/2019
 
 # Explore Azure Monitor for Azure Cosmos DB (preview)
 
-Azure Monitor Cosmos for Azure Cosmos DB (preview) provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
+Azure Monitor for Azure Cosmos DB (preview) provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
 
 ## Introduction
 
