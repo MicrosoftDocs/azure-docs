@@ -32,11 +32,11 @@ You can deploy a custom Ambari DB with all cluster types and versions. Multiple 
 
 The custom Ambari DB has the following other requirements:
 
-1. You must have an existing Azure SQL DB server and database.
-1. The database that you provide for Ambari setup must be empty. There should be no tables in the default dbo schema.
-1. The user used to connect to the database should have SELECT, CREATE TABLE, and INSERT permissions on the database.
-1. Turn on the option to [Allow access to Azure services](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#azure-portal-steps) on the Azure SQL server where you will host Ambari.
-1. Management IP addresses from HDInsight service need to be allowed in the SQL Server. See [HDInsight management IP addresses](hdinsight-management-ip-addresses.md) for a list of the IP addresses that must be added to the SQL server firewall.
+- You must have an existing Azure SQL DB server and database.
+- The database that you provide for Ambari setup must be empty. There should be no tables in the default dbo schema.
+- The user used to connect to the database should have SELECT, CREATE TABLE, and INSERT permissions on the database.
+- Turn on the option to [Allow access to Azure services](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#azure-portal-steps) on the Azure SQL server where you will host Ambari.
+- Management IP addresses from HDInsight service need to be allowed in the SQL Server. See [HDInsight management IP addresses](hdinsight-management-ip-addresses.md) for a list of the IP addresses that must be added to the SQL server firewall.
 
 When you host your Apache Ambari DB in an external database, remember the following points:
 
