@@ -48,4 +48,8 @@ The inputs for command are:
 
 By default `Restore-AzDeletedWebApp` will restore both your app configuration as well a content. If you want to only restore content, you use the `-RestoreContentOnly` flag with this commandlet.
 
+> [!NOTE]
+> If the app was hosted on and then deleted from an App Service Environment then it can be restored only if the corresponding App Service Environment still exist.
+>
+
 You can find the full commandlet reference here: [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).

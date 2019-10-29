@@ -31,7 +31,7 @@ Common causes for this problem are:
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-- CIFS utilities (cfs-utils) are not installed on the client.
+- CIFS utilities (cifs-utils) are not installed on the client.
 - The minimum SMB/CIFS version, 2.1, is not installed on the client.
 - SMB 3.0 encryption is not supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
 - You're trying to connect to a storage account over TCP port 445, which is not supported.

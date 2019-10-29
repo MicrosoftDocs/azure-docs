@@ -59,6 +59,8 @@
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure AD authentication over SMB
       href: storage-files-active-directory-overview.md
+    - name: Use Azure Private Endpoints
+      href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json  
     - name: Compliance offerings
       href: ../common/storage-compliance-offerings.md
   - name: Development
@@ -177,6 +179,8 @@
       href: storage-troubleshooting-files-performance.md
     - name: Troubleshoot Azure File Sync
       href: storage-sync-files-troubleshoot.md
+    - name: Troubleshoot Deleting Azure Files
+      href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
 - name: Reference
   items:
   - name: Azure PowerShell

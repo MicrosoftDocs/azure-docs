@@ -1,5 +1,6 @@
 ---
-title: Create identity for Azure app in portal | Microsoft Docs
+title: Create identity for Azure app in portal 
+titleSuffix: Microsoft identity platform
 description: Describes how to create a new Azure Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: active-directory
 documentationcenter: na

@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.author: normesta
+ms.author: mhopkins
 ms.reviewer: dineshm
 ---
 

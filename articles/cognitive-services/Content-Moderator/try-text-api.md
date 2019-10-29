@@ -3,8 +3,8 @@ title: Moderate text by using the Text Moderation API - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Test-drive text moderation by using the Text Moderation API in the online console.
 services: cognitive-services
-author: sanjeev3
-ms.author: sajagtap
+author: PatrickFarley
+ms.author: pafarley
 manager: nitinme
 
 ms.service: cognitive-services
@@ -57,9 +57,6 @@ For **Content-Type**, select the type of content you want to screen. For this ex
 ### Sample text to scan
 
 In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
-
-> [!NOTE]
-> The invalid social security number in the following sample text is intentional. The purpose is to convey the sample input and output format.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -172,4 +169,4 @@ For a detailed explanation of all sections in the JSON response, refer to the [T
 
 ## Next steps
 
-Use the REST API in your code or start with the [Text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) to integrate with your application.
+Use the REST API in your code, or follow the [.NET SDK quickstart](dotnet-sdk-quickstart.md) to integrate with your application.
