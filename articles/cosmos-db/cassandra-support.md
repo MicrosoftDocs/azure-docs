@@ -135,7 +135,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 * BATCH - Only unlogged commands are supported 
 * DELETE
 
-All crud operations when executed through CQLV4 compatible SDK will return extra information about error, request units consumed. Delete and update commands need to be handled with resource governance in consideration, to avoid right use of provisioned throughput. 
+All crud operations when executed through CQLV4 compatible SDK will return extra information about error, request units consumed. Delete and update commands need to be handled with resource governance in consideration, to ensure right use of provisioned throughput. 
 * Note  gc_grace_seconds value must be zero if specified.
 
 ```csharp
