@@ -163,7 +163,7 @@ This section shows you how to deploy the Azure Blob Storage module, which would 
 6. Click **Next** to continue to the routes section
 
     > [!NOTE]
-    > If you are using an Azure VM as the edge device, add an inbound port rule to allow inbound traffic on the ports: 4438 (HTTPS), 5888 (HTTP), 11002 (Blob Storage module).
+    > If you are using an Azure VM as the edge device, add an inbound port rule to allow inbound traffic on the host ports used in this tutorial: 4438, 8080, 11002. For instructions on adding the rule, see [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
 ### Setup routes
 

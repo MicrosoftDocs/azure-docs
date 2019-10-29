@@ -77,7 +77,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     >[!IMPORTANT]
     > In this tutorial, you will deploy the Event Grid module with client authentication disabled and allow HTTP subscribers. For production workloads, we recommend that you enable the client authentication and allow only HTTPs subscribers. For more information on how to configure Event Grid module securely, see [Security and authentication](security-authentication.md).
     > 
-    > If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438. 
+    > If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438. For instructions on adding the rule, see [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
 ## Deploy Azure Function IoT Edge module
