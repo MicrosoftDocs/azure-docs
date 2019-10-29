@@ -168,7 +168,7 @@ Encoding = {'UTF8' | 'UTF16'}
 SQL Analytics on-demand can read UTF8 and UTF16 encoded delimited text files.
 
 DATA_COMPRESSION = *data_compression_method*
-This argument is not used when reading from external tables, only when writing to external tables using [CETAS](development-tables-cetas.md). It specifies the data compression method for the external data. When DATA_COMPRESSION isn't specified, the default is +++++++++++++++uncompressed data. 
+This argument is ignored when reading from external tables. It is used only when writing to external tables using [CETAS](development-tables-cetas.md). It specifies the data compression method for the external data.
 
 The PARQUET file format type supports the following compression methods:
 
