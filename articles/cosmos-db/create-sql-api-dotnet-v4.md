@@ -1,5 +1,5 @@
 ---
-title: Quickstart to build a console app using .Net V4 SDK to manage Azure Cosmos DB SQL API resources 
+title: Manage Azure Cosmos DB SQL API resources using .Net V4 SDK
 description: Quickstart to build a console app using .Net V4 SDK  to manage Azure Cosmos DB SQL API account resources.
 author: ealsur
 ms.author: maquaran
@@ -134,16 +134,11 @@ Before you start building the application, let's look into the hierarchy of reso
 To learn in more about the hierarchy of different entities, see the [working with databases, containers, and items in Azure Cosmos DB](databases-containers-items.md) article. You will use the following .NET classes to interact with these resources:
 
 * [CosmosClient](https://docs.microsoft.com/dotnet/api/azure.cosmos.cosmosclient?view=azure-dotnet) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
-
 * [CreateDatabaseIfNotExistsAsync](/dotnet/api/azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet) - This method creates (if doesn't exist) or gets (if already exists) a database resource as an asynchronous operation. 
-
 * [CreateContainerIfNotExistsAsync](/dotnet/api/azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet)- - This method creates (if it doesn't exist) or gets (if it already exists) a container as an asynchronous operation. You can check the status code from the response to determine whether the container was newly created (201) or an existing container was returned (200). 
-* [CreateItemAsync](/dotnet/api/azure.cosmos.container.createitemasync?view=azure-dotnet) - This method creates an item within the container. 
-
+* [CreateItemAsync](/dotnet/api/azure.cosmos.container.createitemasync?view=azure-dotnet) - This method creates an item within the container.
 * [UpsertItemAsync](/dotnet/api/azure.cosmos.container.upsertitemasync?view=azure-dotnet) - This method creates an item within the container if it doesn't already exist or replaces the item if it already exists. 
-
 * [GetItemQueryIterator](/dotnet/api/azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet) - This method creates a query for items under a container in an Azure Cosmos database using a SQL statement with parameterized values. 
-
 * [DeleteAsync](/dotnet/api/azure.cosmos.database.deleteasync?view=azure-dotnet) - Deletes the specified database from your Azure Cosmos account. `DeleteAsync` method only deletes the database.
 
  ## <a id="code-examples"></a>Code examples
@@ -230,7 +225,7 @@ The following output is generated when you run the application. You can also sig
    
    Running query: SELECT * FROM c WHERE c.LastName = 'Andersen'
    
-           Read {"id":"Andersen.1","LastName":"Andersen","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null   "FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":   {"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":false}
+           Read {"id":"Andersen.1","LastName":"Andersen","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null   "FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets": [{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":false}
    
    Updated Family [Wakefield,Wakefield.7].
            Body is now: {"id":"Wakefield.7","LastName":"Wakefield","Parents":[{"FamilyName":"Wakefield","FirstName":"Robin"}   {"FamilyName":"Miller","FirstName":"Ben"}],"Children":[{"FamilyName":"Merriam","FirstName":"Jesse","Gender":"female","Grade":6   "Pets":[{"GivenName":"Goofy"},{"GivenName":"Shadow"}]},{"FamilyName":"Miller","FirstName":"Lisa","Gender":"female","Grade":1   "Pets":null}],"Address":{"State":"NY","County":"Manhattan","City":"NY"},"IsRegistered":true}
