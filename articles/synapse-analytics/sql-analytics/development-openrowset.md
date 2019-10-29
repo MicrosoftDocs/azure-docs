@@ -1,13 +1,13 @@
 ---
-title: Using OPENROWSET in SQL Analytics #Required; update as needed page title displayed in search results. Include the brand.
-description: #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: filippopovic #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/21/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: fipopovi #Required; update with your microsoft alias of author; optional team alias.
+title: Using OPENROWSET in SQL Analytics
+description: This article describes using of OPENROWSET in SQL analytics on-demand 
+services: sql-data-warehouse
+author: filippopovic
+ms.service: sql-data-warehouse
+ms.topic: overview
+ms.subservice: design
+ms.date: 10/21/2019
+ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
