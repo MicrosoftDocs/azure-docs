@@ -77,7 +77,7 @@ To confirm that virtual networks are peered, you can check effective routes. Che
 
 You can also troubleshoot connectivity to a virtual machine in a peered virtual network using Azure Network Watcher. A connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface. For more information, see [Troubleshoot connections with Azure Network Watcher using the Azure portal](../network-watcher/network-watcher-connectivity-portal.md#check-connectivity-to-a-virtual-machine).
 
-You can also try the [Troubleshoot virtual network peering issues](troubleshooter-for-virtual-network-peering-issues.md).
+You can also try the [Troubleshoot virtual network peering issues](virtual-network-troubleshoot-peering-issues.md).
 
 ## Requirements and constraints
 
