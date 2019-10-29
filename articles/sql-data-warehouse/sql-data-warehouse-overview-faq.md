@@ -28,7 +28,6 @@ Q. How do I get started with Azure Synapse Analytics?
 
 A. You can get started with an [Azure free account](https://azure.microsoft.com/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html). 
 
-
 Q. What does SQL DW offer for data security?
 
 A. SQL DW offers several solutions for protecting data such as TDE and auditing. For more information, see [Security].

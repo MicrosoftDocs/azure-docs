@@ -27,7 +27,7 @@ Azure Synapse Analytics has four components:
 - Studio : Unified user experience.  (Preview)
 
 > [!NOTE]
-> Azure Synapse Analytics is available as a limited public preview.  To request access, register [here](https://aka.ms/synapsepreview), and specify your interest in trying Azure Synapse Analytics. Microsoft will triage all requests and respond as soon as possible.
+> The preview features of Azure Synapse Analytics are only available as a limited public preview. To request access, register [here](https://aka.ms/synapsepreview), and specify your interest in trying Azure Synapse Analytics. Microsoft will triage all requests and respond as soon as possible.
 
 
 ## SQL Analytics and SQL pools
