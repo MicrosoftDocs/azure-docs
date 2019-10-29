@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/24/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
@@ -36,15 +36,17 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 
     ![Select New application to add a gallery app to your tenant](media/add-gallery-app/new-application.png)
 
-4. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Note that the applications listed in the **Featured applications** section have icons indicating whether they support Azure AD single sign-on and provisioning.
+ 4. Switch to the new gallery preview experience: In the banner at the top of the **Add an application page**, select the link that says **Click here to try out the new and improved app gallery**.
+
+5. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Note that the applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
 
     ![Search for an app by name or category](media/add-gallery-app/browse-gallery.png)
 
-5. Browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. (Optional) In the **Create your own application** form, you can edit the application name to match the needs of your organization.
+6. Browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. (Optional) In the **Create your own application** form, you can edit the application name to match the needs of your organization.
 
     ![Shows how to add an application from the gallery](media/add-gallery-app/create-application.png)
 
-6. Select **Create**. A getting started page appears with the options for configuring the application for your organization.
+7. Select **Create**. A getting started page appears with the options for configuring the application for your organization.
 
 ## Configure user sign-in properties
 

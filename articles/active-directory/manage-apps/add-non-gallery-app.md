@@ -42,12 +42,12 @@ This article describes how to add a non-gallery application to **Enterprise Appl
    > [!NOTE]
    > We recommend using the gallery version of your application whenever possible. If the application you want to add appears in the search results, select the application and skip the rest of this procedure.
 
-6. Under **What are you looking to do with your application?** choose **Integrate any other application you don't find in the gallery**.
+6. Under **What are you looking to do with your application?** choose **Integrate any other application you don't find in the gallery**. This option is typically used for SAML and WS-Fed applications.
 
    > [!NOTE]
    > The other two options are used in the following scenarios:
    >* **Configure Application Proxy for secure remote access to an on-premises application** opens the configuration page for Azure AD Application Proxy and connectors.
-   >* **Register an application you're working on to integrate with Azure AD** opens the **App registrations** page.
+   >* **Register an application you're working on to integrate with Azure AD** opens the **App registrations** page. This option is typically used for OpenID Connect applications.
 
 7. Select **Create**. The application **Overview** page opens.
 
