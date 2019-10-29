@@ -210,7 +210,7 @@ To prevent these situations from occurring, Service Fabric allows you to *enfo
 </Section>
 ```
 
-In order to be able to enforce the resource limits for user services, node capacities for the resource metrics need to be configured, as explained in the [Cluster setup for enabling resource governance](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-resource-governance#cluster-setup-for-enabling-resource-governance) section. If no capacities are set, the node is considered to have infinite capacity for the given metric, and the limit enforcement feature cannot be used (since SF doesn't know how much resources to reserve for system services). SF will issue a health warning if "EnforceUserServiceMetricCapacities" is true but capacities are not specified.
+In order to be able to enforce the resource limits for user services, node capacities for the resource metrics need to be configured, as explained in the [Cluster setup for enabling resource governance](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) section. If no capacities are set, the node is considered to have infinite capacity for the given metric, and the limit enforcement feature cannot be used (since SF doesn't know how much resources to reserve for system services). SF will issue a health warning if "EnforceUserServiceMetricCapacities" is true but capacities are not specified.
 
 ## Other resources for containers
 
