@@ -216,6 +216,11 @@ The following high-level steps are required to introduce Azure Firewall into the
 - Link firewall policy to Azure virtual WAN hub.
 The above step allows the existing virtual WAN hub to function as a secured virtual hub, and deploys the required Azure Firewall resources.
 
+ [!NOTE]
+If a FW is deployed in a Standard Virtual WAN Hub (SKU : Standard): V2V, B2V, V2I and B2I FW policies are only enforced on the traffic originating from the Vnets and Branches connected to the specific hub where the Azure FW is deployed (Secured Hub). 
+
+Traffic originating from remote Vnets and Branches that are attached to other Virtual WAN hubs in the same Virtual WAN will not be "firewalled"  even though these remote Branches and Vnet are interconnected via Virtual WAN hub to hub links. Cross hub firewalling support is on the Azure Virtual WAN and Firewall Manager roadmap.
+
 The following paths describe the connectivity paths enabled by utilizing Azure secured virtual hubs.
 
 ### Path 6
