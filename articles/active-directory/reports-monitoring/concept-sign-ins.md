@@ -69,7 +69,7 @@ A sign-ins log has a default list view that shows:
 - The status of the risk detection
 - The status of the multi-factor authentication (MFA) requirement
 
-![Sign-in activity](./media/concept-sign-ins/01.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/sign-in-activity.png "Sign-in activity")
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
@@ -81,7 +81,7 @@ Displays additional fields or remove fields that are already displayed.
 
 Select an item in the list view to get more detailed information.
 
-![Sign-in activity](./media/concept-sign-ins/03.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/basic-sign-in.png "Sign-in activity")
 
 > [!NOTE]
 > Customers can now troubleshoot Conditional Access policies through all sign-in reports. By clicking on the **Conditional Access** tab for a sign-in record, customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
@@ -216,7 +216,7 @@ The entry point to this data is the top three applications in your organization.
 
 The app-usage graphs weekly aggregations of sign-ins for your top three applications in a given time period. The default for the time period is 30 days.
 
-![Sign-in activity](./media/concept-sign-ins/47.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/graph-chart.png "Sign-in activity")
 
 If you want to, you can set the focus on a specific application.
 
@@ -225,8 +225,6 @@ If you want to, you can set the focus on a specific application.
 When you click on a day in the app usage graph, you get a detailed list of the sign-in activities.
 
 The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
-
-![Sign-in activity](./media/concept-sign-ins/11.png "Sign-in activity")
 
 ## Office 365 activity logs
 
