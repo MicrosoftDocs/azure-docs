@@ -163,7 +163,7 @@ Under **New update deployment**, specify the following information:
   * If the maintenance window is exceeded on Windows, it is often because of a service pack update taking a long time to install.
 
   > [!NOTE]
-  > “By the way” info not critical to a taskTo avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For information about how to configure the package, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+  > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For information about how to configure the package, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Reboot options**: This setting determines how reboots should be handled. Available options are:
   * Reboot if required (Default)
