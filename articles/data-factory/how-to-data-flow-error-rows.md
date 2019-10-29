@@ -16,73 +16,31 @@ ms.author: makromer
 
 A very common scenario in Data Factory when using mapping data flows, is to write your transformed data to an Azure SQL database. In this scenario, a common error condition that you must prevent against is possible column truncation. Follow these steps to provide logging of columns that won't fit into a target string column, allowing your data flow to continue in those scenarios.
 
-## Create a pipeline
+## Scenario
 
-1. Select **+New Pipeline** to create a new pipeline.
+1. We have a target Azure SQL database table that has an ```nvarchar(5)``` column called "name".
 
-2. Add a data flow activity, which will be used for processing fixed-width files:
+2. Inside of our data flow, we want to map movie titles from our sink to that target "name" column.
 
-    ![Fixed Width Pipeline](media/data-flow/fwpipe.png)
+    ![Movie data flow 1](media/data-flow/error4.png)
+    
+3. The problem is that the movie title won't all fit within a sink column that can only hold 5 characters. When you execute this data flow, you will receive an error like this one: ```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
 
-3. In the data flow activity, select **New mapping data flow**.
+## How to design around this condition
 
-4. Add a Source, Derived Column, Select, and Sink transformation:
+1. In this scenario, the maximum length of the "name" column is five characters. So, let's add a conditional split transformation that will allow us to log rows with "titles" that are longer than five characters while also allowing the rest of the rows that can fit into that space to write to the database.
 
-    ![Fixed Width Data Flow](media/data-flow/fw2.png)
+    ![conditional split](media/data-flow/error1.png)
 
-5. Configure the Source transformation to use a new dataset, which will be of the Delimited Text type.
+2. This conditional split transformation defines the maximum length of "title" to be 5. Any row that is less than or equal to five will go into the ```GoodRows``` stream. Any row that is larger than five will go into the ```BadRows``` stream.
 
-6. Don't set any column delimiter or headers.
+3. Now we need to log the rows that failed. Add a sink transformation to the ```BadRows``` stream for logging. Here, we'll "auto-map" all of the fields so that we have logging of the complete transaction record. This is a text delimited CSV file output to a single file in Blob Storage. We'll call the log file "badrows.csv".
 
-   Now we'll set field starting points and lengths for the contents of this file:
+    ![Bad rows](media/data-flow/error3.png)
+    
+4. The completed data flow is shown below. We are now able to split off error rows to avoid the SQL truncation errors and put those entries into a log file. Meanwhile, successful rows can continue to write to our target database.
 
-    ```
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    1234567813572468
-    ```
-
-7. On the **Projection** tab of your Source transformation, you should see a string column that's named *Column_1*.
-
-8. In the Derived column, create a new column.
-
-9. We'll give the columns simple names like *col1*.
-
-10. In the expression builder, type the following:
-
-    ```substring(Column_1,1,4)```
-
-    ![derived column](media/data-flow/fwderivedcol1.png)
-
-11. Repeat step 10 for all the columns you need to parse.
-
-12. Select the **Inspect** tab to see the new columns that will be generated:
-
-    ![inspect](media/data-flow/fwinspect.png)
-
-13. Use the Select transform to remove any of the columns that you don't need for transformation:
-
-    ![select transformation](media/data-flow/fwselect.png)
-
-14. Use Sink to output the data to a folder:
-
-    ![fixed width sink](media/data-flow/fwsink.png)
-
-    Here's what the output looks like:
-
-    ![fixed width output](media/data-flow/fxdoutput.png)
-
-  The fixed-width data is now split, with four characters each and assigned to Col1, Col2, Col3, Col4, and so on. Based on the preceding example, the data is split into four columns.
+    ![complete data flow](media/data-flow/error2.png)
 
 ## Next steps
 
