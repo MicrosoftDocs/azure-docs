@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery: Frequently asked questions
+title: Azure Site Recovery-Frequently asked questions
 description: This article discusses popular questions about Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
