@@ -106,6 +106,18 @@ For optimal performance, the following setting should also be turned on in the c
 </Section>
 ```
 
+> [!IMPORTANT]
+> Starting with Service Fabric version 7.0, we have updated the rule for how node resource capacities are calculated in the cases where user manually provides the values for node resource capacities. Let's consider the following scenario:
+>
+> * There are 10 cpu cores total on the node
+> * SF is configured to use 80% of the total resources for the user services (default setting), which leaves a buffer of 20% for the other services running on the node (incl. Service Fabric system services)
+> * User decides to manually override the node resource capacity for the cpu cores metric, and sets it to 5 cores
+>
+> We have changed the rule on how the available capacity for Service Fabric user services is calculated in the following way:
+>
+> * Before Service Fabric 7.0, available capacity for user services would be calculated to **5 cores** (capacity buffer of 20% is ignored)
+> * Starting with Service Fabric 7.0, available capacity for user services would be calculated to **4 cores** (capacity buffer of 20% is not ignored)
+
 ## Specify resource governance
 
 Resource governance limits are specified in the application manifest (ServiceManifestImport section) as shown in the following example:
@@ -181,6 +193,24 @@ In this example, default parameter values are set for the production environment
 > Specifying resource governance with application parameters is available starting with Service Fabric version 6.1.<br>
 >
 > When application parameters are used to specify resource governance, Service Fabric cannot be downgraded to a version prior to version 6.1.
+
+## Enforcing the resource limits for user services
+
+Some Service Fabric users ran into situations where runaway user services consumed all available resources on the Service Fabric nodes. This can cause:
+
+* Resource starvation of other services running on the nodes (including Service Fabric system services)
+* Nodes ending up in an unhealthy state
+* Unresponsive Service Fabric cluster management APIs
+
+To prevent these situations from occurring, Service Fabric allows you to *enforce the resource limits for all Service Fabric user services running on the node* (both governed and ungoverned) to guarantee that user services will never use more than the specified amount of resources. This is achieved by setting the value for the EnforceUserServiceMetricCapacities config in the PlacementAndLoadBalancing section of the ClusterManifest to true. This setting is turned off by default.
+
+```xml
+<SectionName="PlacementAndLoadBalancing">
+	<ParameterName="EnforceUserServiceMetricCapacities" Value="false"/>
+</Section>
+```
+
+In order to be able to enforce the resource limits for user services, node capacities for the resource metrics need to be configured, as explained in the [Cluster setup for enabling resource governance](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) section. If no capacities are set, the node is considered to have infinite capacity for the given metric, and the limit enforcement feature cannot be used (since SF doesn't know how much resources to reserve for system services). SF will issue a health warning if "EnforceUserServiceMetricCapacities" is true but capacities are not specified.
 
 ## Other resources for containers
 
