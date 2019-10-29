@@ -61,7 +61,8 @@ To run this sample you will need:
 >    - Leave **Redirect URI** blank for now, and select **Register**.
 > 1. On the **Overview** page, find the **Application (client) ID** and the **Directory (tenant) ID** values of the application. Copy these values for later.
 > 1. Select the **Authentication** from the menu, and then add the following information:
->    - In **Redirect URIs**, add `http://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/me`.
+>    - In **Redirect URIs**, add `http://localhost:8080/msal4jsamples/secure/aad` and `http://localhost:8080/msal4jsamples/graph/me`.
+>    - In **Advanced settings**, add `https://localhost:8080/msal4jsample/sign-out` to **Logout URL**.
 >    - Select **Save**.
 > 1. Select the **Certificates & secrets** from the menu and in the **Client secrets** section, click on **New client secret**:
 > 
@@ -75,10 +76,10 @@ To run this sample you will need:
 > 
 > For the code sample for this quickstart to work, you need to:
 > 
-> 1. Add reply URLs as `http://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/me`.
+> 1. Add reply URLs as `http://localhost:8080/msal4jsamples/secure/aad` and `http://localhost:8080/msal4jsamples/graph/me`.
 > 1. Create a Client Secret.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Make this change for me]()
+> > [Make these changes for me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with these attributes.
@@ -145,7 +146,7 @@ Add MSAL4J to your application by using Maven or Gradle to manage your dependenc
 ```
 
 ```$xslt
-compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
+compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.6.0-preview'
 ```
 
 ### MSAL initialization
