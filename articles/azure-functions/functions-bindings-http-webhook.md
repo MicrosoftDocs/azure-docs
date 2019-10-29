@@ -626,32 +626,6 @@ module.exports = function (context, req) {
 
 The function execution context is exposed via a parameter declared as `func.HttpRequest`. This instance allows a function to access data route parameters, query string values and methods that allow you to return HTTP responses.
 
-Route parameters are defined via the `route` property in the *function.json* file.
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ],
-      "route": "products/{category:alpha}/{id:int?}"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-}
-```
-
 Once defined, the route parameters are available to the function by calling the `route_params` method.
 
 ```python
