@@ -51,10 +51,6 @@ There are several ways that you can configure entitlement management for your or
 1. [Watch video: Delegation from catalog owner to access package manager](https://www.microsoft.com/videoplayer/embed/RE3Lq08)
 1. [Delegate users to access package manager role](entitlement-management-delegate-managers.md)
 
-### Access package manager: Delegate management of access packages
-
-- [Create and manage access packages](entitlement-management-access-package-create.md)
-
 ## Govern access for users in your organization
 
 ### Access package manager: Allow employees in your organization to request access to resources
@@ -79,11 +75,6 @@ There are several ways that you can configure entitlement management for your or
 
 1. [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
 1. View active access packages
-
-### Requestor: Extend your existing access
-
-1. [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
-1. Request an extension of your access to an access package
 
 ## Govern access for users outside your organization
 
@@ -117,11 +108,6 @@ There are several ways that you can configure entitlement management for your or
 
 1. [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
 1. View active access packages
-
-### Requestor: Extend your existing access
-
-1. [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
-1. Request an extension of your access to an access package
 
 ## Day-to-day management
 
