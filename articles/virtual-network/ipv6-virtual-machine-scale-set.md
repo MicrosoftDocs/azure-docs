@@ -1,7 +1,7 @@
 ---
 title: Deploy virtual machine scale sets with IPv6 in Azure
 titlesuffix: Azure Virtual Network
-description: This article shows how to deploy IPv6 addresses to an existing application in Azure virtual network using Azure CLI.
+description: This article shows how to deploy virtual machine scale sets with IPv6 in an Azure virtual network.
 services: virtual-network
 documentationcenter: na
 author: KumudD
