@@ -31,8 +31,8 @@
         href: api-management-get-started-revise-api.md
       - name: 8 - Add multiple versions
         href: api-management-get-started-publish-versions.md
-      - name: 9 - Customize the Developer portal
-        href: api-management-customize-styles.md
+      - name: 9 - Customize the developer portal
+        href: api-management-howto-developer-portal-customize.md
 - name: Samples
   items:
       - name: Policies
@@ -126,8 +126,6 @@
         items:
             - name: Understand the developer portal
               href: api-management-howto-developer-portal.md
-            - name: Access and customize the developer portal
-              href: api-management-howto-developer-portal-customize.md
             - name: Automate developer portal deployments
               href: api-management-howto-developer-portal-automate.md
             - name: Authentication with Azure AD
@@ -140,6 +138,8 @@
               href: api-management-howto-configure-notifications.md
             - name: Enable console OAuth support
               href: api-management-howto-oauth2.md
+            - name: Legacy portal - customize the portal
+              href: api-management-customize-styles.md
             - name: Legacy portal - modify pages and layouts
               href: api-management-modify-content-layout.md
             - name: Legacy portal - customize with templates
