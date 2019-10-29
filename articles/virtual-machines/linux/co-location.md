@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/28/2019
-ms.author: cynthn
+ms.date: 10/30/2019
+ms.author: zivr, cynthn
 ---
 
 # Co-locate resources for improved latency
 
 When deploying your application in Azure, spreading instances across regions or availability zones creates network latency, which may impact the overall performance of your application. 
 
-## Preview: Proximity placement groups
+## Proximity placement groups
 
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
@@ -28,3 +28,8 @@ When deploying your application in Azure, spreading instances across regions or 
 
 Deploy a VM to a [proximity placement group](proximity-placement-groups.md) using the Azure CLI.
 
+Learn how to [test network latency](http://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Learn how to [optimize network throughput](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+
+Learn how to [use proximity placement groups with SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
