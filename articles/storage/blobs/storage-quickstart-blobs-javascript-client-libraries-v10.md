@@ -164,23 +164,23 @@ When you make changes to *index.html*, be sure to reload the page to see the cha
 
 ### Add the blob storage client library
 
-To enable calls to the blob storage API, first [Download the Azure Storage SDK for JavaScript - Blob client library](https://aka.ms/downloadazurestoragejsblob), extract the contents of the zip, and place the *azure-storage.blob.js* file in the *azure-blobs-javascript* folder.
+To enable calls to the blob storage API, first [Download the Azure Storage SDK for JavaScript - Blob client library](https://aka.ms/downloadazurestoragejsblob), extract the contents of the zip, and place the *azure-storage-blob.js* file in the *azure-blobs-javascript* folder.
 
 Next, paste the following HTML into *index.html* after the `</body>` closing tag, replacing the placeholder comment.
 
 ```html
-<script src="azure-storage.blob.js" charset="utf-8"></script>
+<script src="azure-storage-blob.js" charset="utf-8"></script>
 
 <script>
 // You'll add code here in the following sections.
 </script>
 ```
 
-This code adds a reference to the script file and provides a place for your own JavaScript code. For the purposes of this quickstart, we're using the *azure-storage.blob.js* script file so that you can open it in VS Code, read its contents, and set breakpoints. In production, you should use the more compact *azure-storage.blob.min.js* file that is also provided in the zip file.
+This code adds a reference to the script file and provides a place for your own JavaScript code. For the purposes of this quickstart, we're using the *azure-storage-blob.js* script file so that you can open it in VS Code, read its contents, and set breakpoints. In production, you should use the more compact *azure-storage.blob.min.js* file that is also provided in the zip file.
 
 You can find out more about each blob storage function in the [reference documentation](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Note that some of the functions in the SDK are only available in Node.js or only available in the browser.
 
-The code in *azure-storage.blob.js* exports a global variable called `azblob`, which you'll use in your JavaScript code to access the blob storage APIs.
+The code in *azure-storage-blob.js* exports a global variable called `azblob`, which you'll use in your JavaScript code to access the blob storage APIs.
 
 ### Add the initial JavaScript code
 

@@ -35,7 +35,7 @@ Skippable errors should be emitted using `IStreamingDiagnostics` passed through 
 
 1. T is a class or a struct.
 1. All public fields in T are either
-    1. One of [long, DateTime, string, double] or their nullable equivalents.
+    1. One of [sbyte, byte, short, ushort, int, uint, long, DateTime, string, float, double] or their nullable equivalents.
     1. Another struct or class following the same rules.
     1. Array of type `T2` that follows the same rules.
     1. IList`T2` where T2 follows the same rules.
@@ -221,12 +221,12 @@ The following Javascript code is an example of the .NET deserializer serializati
 
 This feature is available in the following regions:
 
-* West Europe
-* East US
-* North Europe
-* West US
-* East US 2
-* West Central US
+* West Central US (available)
+* North Europe (available)
+* East US (available)
+* West US (rolling out soon)
+* East US 2 (rolling out soon)
+* West Europe (rolling out soon)
 
 You can [request support](https://aka.ms/ccodereqregion) for additional regions.
 
@@ -239,10 +239,6 @@ This feature is available in 6 regions (#region-support). If you are interested 
 ### Can I access MetadataPropertyValue from my inputs similar to GetMetadataPropertyValue function?
 
 This functionality is not supported. If you need this capability, you can vote for this request on [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese).
-
-### StreamDeserializer deserializes a stream into object of type T. Can the public fields in T be any supported type in .NET?
-
-Support for all supported types in .NET is on the roadmap.
 
 ### Can I share my deserializer implementation with the community so that others can benefit?
 
