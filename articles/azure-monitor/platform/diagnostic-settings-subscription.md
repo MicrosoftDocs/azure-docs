@@ -11,11 +11,11 @@ ms.date: 10/31/2019
 ---
 
 # Collect Azure Activity log with diagnostic settings (preview)
-The [Azure Activity log](activity-logs-overview.md) is a [platform log](platform-logs-overview.md) that provides insight into subscription-level events that have occurred in Azure. You create a log profile to send Activity log entries to [an event hub or storage account](activity-log-export.md) and use a connector to collect them into a [Log Analytics workspace](activity-log-collect.md).
+The [Azure Activity log](activity-logs-overview.md) is a [platform log](platform-logs-overview.md) that provides insight into subscription-level events that have occurred in Azure. Until now, you created a log profile to send Activity log entries to [an event hub or storage account](activity-log-export.md) and used a connector to collect them into a [Log Analytics workspace](activity-log-collect.md).
 
 You can now configure collection of the Azure Activity log using the same [diagnostic settings](diagnostic-settings.md) that are used to collect [resource logs](resource-logs-overview.md). Using diagnostic settings has the following advantages over the current methods:
 
-- Consistent method for collecting all [platform logs](platform-logs-overview.md).
+- Consistent method for collecting all platform logs.
 - Collect Activity log across multiple subscriptions and tenants.
 - Filter collection to only collect logs for particular categories.
 
@@ -39,22 +39,11 @@ Use the following procedure to create a diagnostic setting in the Azure portal t
    
    ![Diagnostic settings](media/diagnostic-settings-subscription/diagnostic-settings.png)
    
-4. Click the purple banner for the legacy experience and disable any current collection to storage or event hubs. Leaving these settings enabled may result in duplicate data being collected.
+4. Click the purple banner for the legacy experience and disable any current collection to storage or event hubs. 
 
     ![Legacy experience](media/diagnostic-settings-subscription/legacy-experience.png)
 
 5. Follow the procedures in [Create diagnostic settings in Azure portal](diagnostic-settings.md#create-diagnostic-settings-in-azure-portal) to create a diagnostic setting. See [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log) for an explanation of the categories you can use to filter events from the Activity log. 
-
-
-## Disable existing Log Analytics workspace collection
-If your Activity log is connected to any Log Analytics workspaces, you should disable these settings before configuring diagnostic settings. Leaving these settings enabled may result in duplicate data being collected.
-
-Use the following procedure to disconnect any Log Analytics workspaces.
-
-1. Open the **Log Analytics workspaces** menu in the Azure portal and select the workspace to collect the Activity Log.
-2. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
-3. Click the subscription you want to disconnect.
-4. Click **Disconnect** and then **Yes** when asked to confirm your choice.
 
 
 ## Differences in data
