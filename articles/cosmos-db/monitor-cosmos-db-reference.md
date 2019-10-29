@@ -1,27 +1,18 @@
 ---
 title: Azure Cosmos DB monitoring data reference | Microsoft Docs
-description: 
+description: Log and metrics reference for monitoring data from Azure Cosmos DB.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 09/30/2019
+ms.date: 10/29/2019
 ms.author: bwren
 ms.subservice: logs
 ---
+
 # Azure Cosmos DB monitoring data reference
-See [Monitoring Cosmos DB](monitor-cosmos-db.md) for details on collecting and analyzing monitoring data for Azure Cosmos DB.
+This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cosmos DB. See [Monitoring Cosmos DB](monitor-cosmos-db.md) for details on collecting and analyzing monitoring data for Azure Cosmos DB.
 
-## Activity log
-The following table lists the operations related to Azure Cosmos DB that may be create in the Activity log.
-
-| Operation | Description |
-|:---|:---|
-| Create container | |
-| List keys | |
-| Delete keys | |
-| List database | |
-| ... | |
 
 ## Resource logs
 The following table lists the properties for Azure Cosmos DB resource logs when they're collected in Azure Monitor Logs or Azure Storage. In Azure Monitor Logs, they're collected in the **AzureDiagnostics** table with a **ResourceProvider** value of *MICROSOFT.DOCUMENTDB*.
