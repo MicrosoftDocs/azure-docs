@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 
 This document is related to key concepts for designing tables in Azure SQL Analytics pool. 
 
-[SQL Analytics on-demand](sql-on-demand.md) is a query service over the data in your data lake. It has no local storage that you can ingest data to. Therefore some topics described in this document do not apply to SQL Analytics on-demand. Table below shows which topics are related to SQL Analytics pool and on-demand:
+[SQL Analytics on-demand](sql-analytics-on-demand.md) is a query service over the data in your data lake. It has no local storage that you can ingest data to. Therefore some topics described in this document do not apply to SQL Analytics on-demand. Table below shows which topics are related to SQL Analytics pool and on-demand:
 
 | Topic                                                        | SQL Analytics pool | SQL Analytics on-demand |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
@@ -33,7 +33,7 @@ This document is related to key concepts for designing tables in Azure SQL Analy
 | [Replicated tables](#replicated-tables)                      | Yes                | No                      |
 | [Round-robin tables](#round-robin-tables)                    | Yes                | No                      |
 | [Common distribution methods for tables](#common-distribution-methods-for-tables) | Yes                | No                      |
-| [Partitions](#Partitions)                                    | Yes                | Yes                     |
+| [Partitions](#partitions)                                    | Yes                | Yes                     |
 | [Columnstore indexes](#columnstore-indexes)                  | Yes                | No                      |
 | [Statistics](#statistics)                                    | Yes                | Yes                     |
 | [Primary key and unique key](#primary-key-and-unique-key)    | Yes                | No                      |
@@ -143,7 +143,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 
 
 
-In SQL Analytics on-demand, you can limit files/folders (partitions) that will be read by your query. Partitioning by path is supported using filepath and fileinfo functions described in [Querying storage files](querying-storage-files.md). Following example reads folder with data for year 2017:
+In SQL Analytics on-demand, you can limit files/folders (partitions) that will be read by your query. Partitioning by path is supported using filepath and fileinfo functions described in [Querying storage files](development-storage-files-overview.md). Following example reads folder with data for year 2017:
 
 ```sql
 SELECT 
