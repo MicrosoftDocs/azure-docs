@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Bing Autosuggest Documentation 
-summary: Bing Autosuggest API lets you send a partial search query term to Bing and get back a list of suggested queries that other users have searched on.  For example, as users type each character of their search term, you can call this API to populate the search box's drop-down list with suggestions. Learn how to use Autosuggest API with our quickstarts, tutorials, and samples.
+summary: The Bing Autosuggest API lets you send partial search queries term to Bing, and get a list of suggestions that others have searched for. Call the API to populate search boxes and drop-down lists in your app with suggestions, as your users type.
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
   title: Bing Autosuggest Documentation - Tutorials, quickstarts, API references
@@ -57,9 +57,9 @@ landingContent:
           url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference
         - text: Autosuggest REST API v5
           url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference
-        - text: .NET
+        - text: .NET SDK
           url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
-        - text: Java
+        - text: Java SDK
           url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
-        - text: Go
+        - text: Go SDK
           url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
