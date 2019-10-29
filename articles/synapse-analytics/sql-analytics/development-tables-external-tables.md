@@ -290,4 +290,4 @@ SELECT TOP 1 * FROM census_external_table
 ## Next steps
 
 
-Check [CETAS](development-tables-cetas.md) to save the result of query to external table in Azure Storage, or start querying [Spark tables](development-storage-spark-tables.md).
+Check [CETAS](development-tables-cetas.md) to save the result of query to external table in Azure Storage, or start querying [Spark tables](development-storage-files-spark-tables.md).
