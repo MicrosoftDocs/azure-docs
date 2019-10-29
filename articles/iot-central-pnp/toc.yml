@@ -118,6 +118,10 @@
           href: ../iot-central/core/howto-manage-preferences.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Toggle live chat
           href: ../iot-central/core/howto-show-hide-chat.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- name: Reference
+  items:
+    - name: REST API
+      href: https://docs.microsoft.com/rest/api/iotcentral/
 - name: Related
   items:
     - name: Platform services
