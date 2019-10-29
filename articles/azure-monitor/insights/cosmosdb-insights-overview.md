@@ -50,7 +50,7 @@ To view the utilization and performance of your storage accounts across all of y
 
 On **Overview**, the table displays interactive Azure Cosmos DB metrics. You can filter the results based on the options you select from the following drop-down lists:
 
-* **Subscriptions** - only subscriptions that have a Azure Cosmos DB resource are listed.  
+* **Subscriptions** - only subscriptions that have an Azure Cosmos DB resource are listed.  
 
 * **Cosmos DB** - You can select all, a subset, or single Azure Cosmos DB resource.
 
@@ -68,7 +68,7 @@ Selecting the Azure Cosmos DB resource name highlighted in blue will take you to
 
 Select **Failures** at the top of the page and the **Failures** portion of the workbook template opens. It shows you  total requests with the distribution of responses that make up those requests:
 
-![Screenshot of failures view with breakdown by HTTP request type](./media/cosmosdb-insights-overview/failures.png)
+![Screenshot of failures with breakdown by HTTP request type](./media/cosmosdb-insights-overview/failures.png)
 
 | Code 		|  Description       | 
 |-----------|:--------------------|
@@ -84,7 +84,7 @@ Select **Capacity** at the top of the page and the **Capacity** portion of the w
 
 ![Capacity workbook](./media/cosmosdb-insights-overview/capacity.png) 
 
-As with the overview workbook, selecting the drop-down next to a Azure Cosmos DB resource in the **Subscription** column will reveal a breakdown by the individual containers that make up the database.
+As with the overview workbook, selecting the drop-down next to an Azure Cosmos DB resource in the **Subscription** column will reveal a breakdown by the individual containers that make up the database.
 
 ### Operations 
 
@@ -92,7 +92,7 @@ Select **Operations** at the top of the page and the **Operations** portion of t
 
 So in the example below you see that `eastus-billingint` is predominantly receiving read requests, but with a small number of upsert and create requests. Whereas `westeurope-billingint` is read-only from a request perspective, at least over the past four hours that the workbook is currently scoped to via its time range parameter.
 
-![Operations workbook](./media/cosmosdb-insights-overview/operations.png) 
+![Operations workbook](./media/cosmosdb-insights-overview/operation.png) 
 
 ## Pin, export, and expand
 
