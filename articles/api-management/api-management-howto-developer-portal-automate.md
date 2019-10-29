@@ -17,9 +17,7 @@ ms.author: apimpm
 
 # Automate developer portal deployments
 
-This article shows you how to access the managed version of the Azure API Management developer portal. It walks you through the visual editor experience - adding and editing content - as well as customizing the look of the website.
-
-![New API Management developer portal](media/api-management-howto-developer-portal/cover.png)
+The developer portal supports programmatic access to content. This article explains where to find more information on this topic.
 
 ## <a name="prerequisites"></a> Prerequisites
 
@@ -32,8 +30,10 @@ This article shows you how to access the managed version of the Azure API Manage
 
 ## Automating portal deployments
 
-The portal supports DevOps scenarios in both managed and self-hosted versions. You can extract content through the management API of your API Management service. The APIs are documented [in the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki/). We have also written [a script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), which might help you get started.
+You can programmatically access and manage the developer portal's content through the REST API, regardless if you're using a managed or a self-hosted portal.
 
+The API is documented in [the GitHub repository's wiki section][2]. It can also be used for automating migrations of portal content between environments - for example from a test environment to the production environment. You can learn more about this process [in the migration documentation article](https://aka.ms/apimdocs/migrateportal) on GitHub.
+ 
 ## Next steps
 
 Learn more about the new developer portal:

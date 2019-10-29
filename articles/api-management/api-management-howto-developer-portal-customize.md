@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ---
 
-# Access and customize the managed developer portal
+# Access and customize managed developer portal
 
 Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
