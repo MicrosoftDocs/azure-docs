@@ -178,7 +178,7 @@ To change your logic app's location type or location, you have to open your logi
 
    ![Properties window shows the "Choose Location Type" and "Location" properties](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
 
-1. To change the location type, open the **Choose Location Type** property, and select the location type that you want.
+1. To change the location type, open the **Choose Location Type** property list, and select the location type that you want.
 
    For example, if the location type is **Integration Service Environment**, you can select **Region**.
 
