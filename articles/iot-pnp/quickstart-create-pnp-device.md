@@ -150,8 +150,6 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 
 1. Choose **ANSI C** as your language.
 
-1. Choose **CMake Project** as your project type.
-
 1. Choose **Via IoT Hub device connection string** as connection method.
 
 1. Choose **CMake Project on Windows** as project template.

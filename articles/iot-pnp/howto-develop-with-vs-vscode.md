@@ -3,7 +3,7 @@ title: Use Visual Studio and Visual Studio Code to build IoT Plug and Play Previ
 description: Use Visual Studio and Visual Studio Code to accelerate authoring IoT Plug and Play device models and implementing the device code.
 author: liydu
 ms.author: liydu
-ms.date: 09/10/2019
+ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -43,15 +43,24 @@ In VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug a
 
 - **Project name**. The project name is used as the folder name for the generated code and other project files. The folder is, by default, placed next to the DCM file. To avoid having to manually copy the generated code folder whenever you update your DCM and regenerate the device code, keep your DCM file in the same folder as the project folder.
 
-- **Project type**. The code generator also generates a project file so that you can integrate the code into your own project or into the device SDK project. Currently, the supported project types are:
-
-    - **CMake Project**: for a device project that uses [CMake](https://cmake.org/) as build system. This option generates a `CMakeLists.txt` file in the same folder as the C code.
-    - **MXChip IoT DevKit project**: for a device project that runs on an [MXChip IoT DevKit](https://aka.ms/iot-devkit) device. This option generates an Arduino project that you can [use in VS Code](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) or in the Arduino IDE to build and run on an IoT DevKit device.
-
 - **Method to connect to Azure IoT**. The generated files also contain code to configure the device to connect to Azure IoT Hub. You can choose to connect directly to [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) or use the [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps).
 
     - **Via IoT Hub device connection string**: specify the device connection string for the device application to connect to IoT Hub directly.
     - **Via DPS symmetric key**: specify the **Scope ID**, **Registration ID**, and **SaS Key** for the device application that are required to connect to IoT Hub or IoT Central using DPS.
+
+- **Project type**. The code generator also generates a CMake or Arduino project. Currently, the supported project types are:
+
+    - **CMake Project on Windows**: for a device project that uses [CMake](https://cmake.org/) as build system on Windows. This option generates a `CMakeLists.txt` file that will include the device SDK configurations in the same folder as the C code.
+    - **CMake Project on Linux**: for a device project that uses [CMake](https://cmake.org/) as build system on Linux. This option generates a `CMakeLists.txt` file that will include the device SDK configurations in the same folder as the C code.
+    - **MXChip IoT DevKit project**: for a device project that runs on an [MXChip IoT DevKit](https://aka.ms/iot-devkit) device. This option generates an Arduino project that you can [use in VS Code](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) or in the Arduino IDE to build and run on an IoT DevKit device.
+
+- **Device SDK type**. If you selects CMake as project type, this is the step to configure how generated code will include Azure IoT C device SDK in the `CMakeLists.txt`:
+
+    - **Via Source Code**: the generated code relies on the [device SDK source code](https://github.com/Azure/azure-iot-sdk-c) to include in and build together with it. This is recommended when you have customized the device SDK source code
+    - **Via Vcpkg**: the generated code relies on the [device SDK Vcpkg](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c) to include in and build together with it. This is the recommended way for devices running Windows, Linux or macOS.
+
+    > [!NOTE]
+    > macOS support for device SDK Vcpkg is still working in progress.
 
 The code generator tries to use DCM and interface files located in the local folder. If the interface files aren't in the local folder, the code generator looks for them in the public model repository or company model repository. [Common interface files](./concepts-common-interfaces.md) are stored in the public model repository.
 

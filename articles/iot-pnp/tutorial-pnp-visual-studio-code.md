@@ -307,9 +307,11 @@ You can use the **Azure IoT Tools for VS Code** to generate skeleton C code from
 
 1. Choose **ANSI C** as the language.
 
-1. Choose **CMake Project** as the target.
-
 1. Choose **Via IoT Hub device connection string** as the way to connect.
+
+1. Choose **CMake Project on Windows** as project template.
+
+1. Choose **Via Vcpkg** as way to include the device SDK.
 
 VS Code generates the skeleton C code and saves the files in the **sensorbox_app** folder in the **modelcode** folder. VS Code opens a new window that contains the generated code files.
 
