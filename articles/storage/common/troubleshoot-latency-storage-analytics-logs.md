@@ -96,15 +96,15 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
    |PutBlob|Yes|No|[**Put Operation:** RequestStatus = Success](#put-operation-requeststatus--success)|
    |PutBlob|No|Yes|[**Put Operation:** RequestStatus = (SAS)NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
-## GetBlob Operation RequestStatus results
+## Status Results
+
+### GetBlob Operation: RequestStatus = Success
 
 Check the following values as mentioned in step 5 of the "Recommended steps" section:
 
 * End-to-End Latency
 * Server-Latency
 * Client-Latency
-
-### GetBlob Operation: RequestStatus = Success
 
 In a **GetBlob Operation** with **RequestStatus = Success**, if **Max Time** is spent in **Client-Latency**, this indicates that Azure Storage is spending a large volume of time writing data to the client. This delay indicates a Client-Side Issue.
 
@@ -115,6 +115,12 @@ In a **GetBlob Operation** with **RequestStatus = Success**, if **Max Time** is 
 
 ### GetBlob Operation: RequestStatus = (SAS)NetworkError
 
+Check the following values as mentioned in step 5 of the "Recommended steps" section:
+
+* End-to-End Latency
+* Server-Latency
+* Client-Latency
+
 In a **GetBlob Operation** with **RequestStatus = (SAS)NetworkError**, if **Max Time** is spent in **Client-Latency**, the most common issue is that the client is disconnecting before a timeout expires in the storage service.
 
 **Recommendation:**
@@ -122,15 +128,13 @@ In a **GetBlob Operation** with **RequestStatus = (SAS)NetworkError**, if **Max 
 * Investigate the code in your client to understand why and when the client disconnects from the storage service.
 * se Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
-## Put Operation RequestStatus results
+### Put Operation: RequestStatus = Success
 
 Check the following values as mentioned in step 5 of the "Recommended steps" section:
 
 * End-to-End Latency
 * Server-Latency
 * Client-Latency
-
-### Put Operation: RequestStatus = Success
 
 In a **Put Operation** with **RequestStatus = Success**, if **Max Time** is spent in **Client-Latency**, this indicates that the Client is taking more time to send data to the Azure Storage. This delay indicates a Client-Side Issue.
 
@@ -140,6 +144,12 @@ In a **Put Operation** with **RequestStatus = Success**, if **Max Time** is spen
 * Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
 ### Put Operation: RequestStatus = (SAS)NetworkError
+
+Check the following values as mentioned in step 5 of the "Recommended steps" section:
+
+* End-to-End Latency
+* Server-Latency
+* Client-Latency
 
 In a **PutBlob Operation** with **RequestStatus = (SAS)NetworkError**, if **Max Time** is spent in **Client-Latency**, the most common issue is that the client is disconnecting before a timeout expires in the storage service.
 
