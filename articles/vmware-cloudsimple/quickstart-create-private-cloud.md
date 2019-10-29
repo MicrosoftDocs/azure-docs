@@ -57,7 +57,7 @@ Private Cloud provisioning process starts.  It can take up to two hours for the 
 
 ## Launch CloudSimple portal
 
-You can access the CloudSimple portal from Azure portal.  The CloudSimple portal will be launched with your Azure sign in credentials using Single Sign-On (SSO).  Accessing the CloudSimple portal requires you to authorize the **CloudSimple Service Authorization** application.  For more information on granting permissions, see [Consent to CloudSimple Service Authorization application](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
+You can access the CloudSimple portal from Azure portal.  The CloudSimple portal will be launched with your Azure sign in credentials using Single Sign-On (SSO).  Accessing the CloudSimple portal requires you to authorize the **CloudSimple Service Authorization** application.  For more information on granting permissions, see [Consent to CloudSimple Service Authorization application](access-cloudsimple-portal.md#consent-to-AVS-service-authorization-application).
 
 1. Select **All services**.
 2. Search for **CloudSimple Services**.

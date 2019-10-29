@@ -12,7 +12,7 @@ manager: dikamath
 
 # Access Azure VMware Solutions (AVS) from the Azure portal
 
-Single sign-on is supported for access to the AVS portal. After you sign in to the Azure portal, you can access the AVS portal without signing in again. The first time you access the AVS portal you're prompted to authorize the [AVS Service Authorization](#consent-to-cloudsimple-service-authorization-application) application. Authorization is a one-time action.
+Single sign-on is supported for access to the AVS portal. After you sign in to the Azure portal, you can access the AVS portal without signing in again. The first time you access the AVS portal you're prompted to authorize the [AVS Service Authorization](#consent-to-AVS-service-authorization-application) application. Authorization is a one-time action.
 
 ## Before you begin
 
@@ -39,7 +39,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 3. Select the AVS service on which you want to create your Private Cloud.
 
-4. On the **Overview** page, click **Go to the AVS portal**. If you're accessing the AVS portal from the Azure portal for the first time, you'll be prompted to authorize the [AVS Service Authorization](#consent-to-cloudsimple-service-authorization-application) application. 
+4. On the **Overview** page, click **Go to the AVS portal**. If you're accessing the AVS portal from the Azure portal for the first time, you'll be prompted to authorize the [AVS Service Authorization](#consent-to-AVS-service-authorization-application) application. 
 
     ![Launch AVS portal](media/launch-cloudsimple-portal.png)
 
