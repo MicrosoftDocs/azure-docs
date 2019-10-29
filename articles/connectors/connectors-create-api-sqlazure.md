@@ -63,7 +63,7 @@ In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/l
 
 1. Set the **Interval** and **Frequency** properties, which specify how often your logic app checks the table.
 
-   This trigger returns only one row from the selected table, nothing else. To perform other tasks, add other actions that perform the tasks you want. For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
+   This trigger returns only one row from the selected table, nothing else. To perform other tasks, add other actions that perform the tasks you want. For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [connector's reference page](https://docs.microsoft.com/connectors/sql/).
 
 1. When you're done, on the designer toolbar, select **Save**.
 
@@ -89,7 +89,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Find and select SQL "Get row" action](./media/connectors-create-api-sqlazure/find-select-sql-get-row-action.png)
 
-   This action returns only one row from the selected table, nothing else. To view the data in this row, you might add other actions that create a file that includes the fields from the returned row, and store that file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
+   This action returns only one row from the selected table, nothing else. To view the data in this row, you might add other actions that create a file that includes the fields from the returned row, and store that file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](https://docs.microsoft.com/connectors/sql/).
 
 1. If you are prompted to create a connection, [create your SQL connection now](#create-connection). If your connection exists, select a **Table name**, and enter the **Row ID** for the record that you want.
 
@@ -127,7 +127,7 @@ Sometimes, you have to work with result sets so large that the connector doesn't
 
 ## Connector-specific details
 
-For technical information about this connector's triggers, actions, and limits, see the [connector's reference page](/connectors/sql/).
+For technical information about this connector's triggers, actions, and limits, see the [connector's reference page](https://docs.microsoft.com/connectors/sql/).
 
 ## Next steps
 
