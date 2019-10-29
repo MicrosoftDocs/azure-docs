@@ -226,8 +226,8 @@
       #   href: article-template.md
       # - name: Using Synapse Analytics Spark Job Definitions
       #   href: article-template.md
-      - name: Using Synapse Analytics Studio Notebooks
-        href: development-using-synapse-analytics-studio-notebooks.md
+      # - name: Using Synapse Analytics Studio Notebooks
+      #   href: article-template.md
       #  items:
         
       #   - name: Shortcuts and magics
