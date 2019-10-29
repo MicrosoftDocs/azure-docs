@@ -510,7 +510,7 @@
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
-  - name: Monitor VMs and Compute
+  - name: Monitor VMs and compute
     items: 
     - name: Agents
       items:
