@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 10/24/2019
+ms.date: 10/31/2019
 
 ---
 
@@ -19,18 +19,36 @@ You can now configure collection of the Azure Activity log using the same [diagn
 - Collect Activity log across multiple subscriptions and tenants.
 - Filter collection to only collect logs for particular categories.
 
+## Considerations
+Consider the following details of Activity log collection using diagnostic settings before enabling this feature.
+
+- You should disable existing collection of the Activity before enabling it using diagnostic settings. Having both enabled may result in duplicate data.
+- The retention setting for collecting the Activity log to Azure storage has been removed meaning that data will be stored indefinitely until you remove it.
+- You can send the Activity log from multiple subscriptions to a single Log Analytics workspace. You can send the Activity log from any single subscription to up to five Log Analytics workspaces.
+
 ## Configure diagnostic settings
 Use the following procedure to create a diagnostic setting in the Azure portal to collect the Azure Activity log. You cannot currently create a subscription level diagnostic setting using other methods.
 
-1. Disable any log profiles for the subscription and disconnect it from any Log Analytics workspaces. See **Disable existing collection** below.
-2. From the **Azure Monitor** menu in the Azure portal, select **Subscription level diagnostics**.
-2. Follow the procedures in [Create diagnostic settings in Azure portal](diagnostic-settings.md#create-diagnostic-settings-in-azure-portal) to create a diagnostic setting. See [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log) for an explanation of the categories you can use to filter events from the Activity log. 
+1. Disable existing Log Analytics workspace collection for the Activity log:
+   1. Open the **Log Analytics workspaces** menu in the Azure portal and select the workspace to collect the Activity Log.
+   2. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
+   3. Click the subscription you want to disconnect.
+   4. Click **Disconnect** and then **Yes** when asked to confirm your choice.
+2. From the **Azure Monitor** menu in the Azure portal, select **Activity log**.
+3. Click **Diagnostic settings**.
+   
+   ![Diagnostic settings](media/diagnostic-settings-subscription/diagnostic-settings.png)
+   
+4. Click the purple banner for the legacy experience and disable any current collection to storage or event hubs. Leaving these settings enabled may result in duplicate data being collected.
+
+    ![Legacy experience](media/diagnostic-settings-subscription/legacy-experience.png)
+
+5. Follow the procedures in [Create diagnostic settings in Azure portal](diagnostic-settings.md#create-diagnostic-settings-in-azure-portal) to create a diagnostic setting. See [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log) for an explanation of the categories you can use to filter events from the Activity log. 
 
 
-## Disable existing collection
-If you have existing log profiles for the subscription or if it's connected to any Log Analytics workspaces, you should disable these settings before configuring diagnostic settings to collect Activity logs. Leaving these settings enabled may result in duplicate data being collected.
+## Disable existing Log Analytics workspace collection
+If your Activity log is connected to any Log Analytics workspaces, you should disable these settings before configuring diagnostic settings. Leaving these settings enabled may result in duplicate data being collected.
 
-### Log Analytics workspace connection
 Use the following procedure to disconnect any Log Analytics workspaces.
 
 1. Open the **Log Analytics workspaces** menu in the Azure portal and select the workspace to collect the Activity Log.
@@ -38,15 +56,6 @@ Use the following procedure to disconnect any Log Analytics workspaces.
 3. Click the subscription you want to disconnect.
 4. Click **Disconnect** and then **Yes** when asked to confirm your choice.
 
-### Log profile
-Use the following procedure to disable any log profiles.
-
-1. Open the **Azure Monitor** menu in the Azure portal and then select **Activity log**.
-2. Select **Export to Event Hub**.
-3. Select a subscription.
-4. Note any settings for storage account and event hub that you may want to configure in a diagnostic setting.
-5. Uncheck **Export to a storage account** and **Export to an event hub**.
-6. Click **Save**.
 
 ## Differences in data
 Diagnostic settings collect the same data as the previous methods used to collect the Activity log with the following current differences:
