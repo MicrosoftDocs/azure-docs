@@ -48,7 +48,6 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 
 ### Arguments 
 
-FORMAT
 Format of the input files containing data to be queried. Valid values are:
 
 - 'CSV’ - Covers any delimited text file with row/column separators. Any character can be used as a field separator (i.e. TSV: FIELDTERMINATOR = tab)
@@ -67,7 +66,7 @@ Provides path to data in form of `'<prefix>://<storage_account_path>/<storage_pa
  `'<storage_path>'` is path within your storage that points to folder or file you want to read. If path points to container or folder, all files will be read from that particular container or folder. Files in subfolders will not be included. You can use wildcards to target multiple files or folders. Usage of multiple nonconsecutive wildcards is allowed.
 Example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  `'https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv'`
 
-If you specify unstructured_data_path to be a folder, a SQL Analytics on-demand query will retrieve files from the folder. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It also return files for which the file name begins with an underline (_) or a period (.).
+If you specify unstructured_data_path to be a folder, a SQL Analytics on-demand query will retrieve files from the folder. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It also returns files for which the file name begins with an underline (_) or a period (.).
 
 In this example, if unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/', a SQL Analytics on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in subfolder.
 
@@ -75,10 +74,10 @@ In this example, if unstructured_data_path='https://mystorageaccount.dfs.core.wi
 
 [WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]
 
-WITH clause allows you to specify columns which you want to read from files. 
+WITH clause allows you to specify columns that you want to read from files. 
 
-- In case of CSV data files, to read all the columns, simply provide column names and their data types. In case you want a subset of columns, use ordinal number to pick the columns from originating data files by ordinal (i.e. columns will be binded by ordinal). WITH clause is mandatory for CSV files.
-- In case of Parquet data files, provide column names which match the column names in the originating data files (i.e. columns will be binded by name). If WITH clause is omitted, all columns from Parquet files will be returned.
+- In case of CSV data files, to read all the columns, simply provide column names and their data types. In case you want a subset of columns, use ordinal number to pick the columns from originating data files by ordinal (i.e. columns will be bound by ordinal). WITH clause is mandatory for CSV files.
+- In case of Parquet data files, provide column names that match the column names in the originating data files (i.e. columns will be bound by name). If WITH clause is omitted, all columns from Parquet files will be returned.
 
 column_name
 Name for the output column. If provided, this name overrides the column name in the source file.
@@ -109,7 +108,7 @@ Specifies the row terminator to be used. The default row terminator is **\r\n*
 
 ## Examples
 
-Following example returns only 2 columns with ordinal numbers 1 and 4 from *population*.csv* files, and start reading from the first line as there is no header row in files:
+Following example returns only two columns with ordinal numbers 1 and 4 from *population*.csv* files, and start reading from the first line as there is no header row in files:
 
 ```sql
 /* make sure you have credentials for storage account access created
@@ -137,7 +136,7 @@ WITH (
 
 
 
-Following example returns all columns of first row from census data set in parquet format without specyfing column names and data types: 
+Following example returns all columns of first row from census data set in parquet format without specifying column names and data types: 
 
 ```sql
 /* make sure you have credentials for storage account access created
