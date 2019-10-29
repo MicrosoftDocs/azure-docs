@@ -182,7 +182,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
    It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 
-## Publish created and deleted Events
+## Publish BlobCreated and BlobDeleted events
 
 1. This module automatically creates topic **MicrosoftStorage**. Verify that it exists
     ```sh
