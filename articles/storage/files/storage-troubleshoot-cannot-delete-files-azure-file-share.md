@@ -1,5 +1,5 @@
 ---
-title: Azure File Share – Failed to Delete Files from Azure File Share
+title: Azure file share – failed to delete files from Azure file share
 description: Identify and troubleshoot the failure to delete files from Azure File Share.
 author: v-miegge
 ms.topic: troubleshooting
@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: common
 ---
 
-# Azure File Share – Failed to Delete Files from Azure File Share
+# Azure file share – failed to delete files from Azure file share
 
 The failure to delete files from Azure File Share can have several symptoms:
 
@@ -44,13 +44,13 @@ Reduce the number of concurrent open handles by closing some handles.
 # Connect-AzAccount
 ```
 
-### Select the subscription of the target Storage Account:
+### Select the subscription of the target storage account:
 
 ```
 # Select-AzSubscription -subscriptionid "SubscriptionID"
 ```
 
-### Create context for the target Storage Account:
+### Create context for the target storage account:
 
 ```
 $Context = New-AzStorageContext -StorageAccountName "StorageAccountName" -StorageAccountKey "StorageAccessKey"
@@ -80,3 +80,8 @@ To close an open handle, use the following command:
 # Close-AzStorageFileHandle -Context $Context -ShareName "FileShareName" -Path 'New folder/test.zip' -CloseAll
 ```
 
+## Next steps
+
+* [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)
