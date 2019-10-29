@@ -102,13 +102,13 @@ In this quickstart, you prepare a development environment by installing the Azur
     Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run (note: requires admin on first use)
 
     ```cmd/sh
-    .\vcpkg integrate install
+    .\vcpkg.exe integrate install
     ```
 
 1. Install Azure IoT C device SDK Vcpkg:
 
     ```cmd/sh
-    .\vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
 ## Author your model
@@ -135,7 +135,7 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
 
     > [!NOTE]
-    > The first time you use the IoT Plug and Play Code Generator utility, it takes a few seconds to download.
+    > The first time you use the IoT Plug and Play CodeGen CLI, it takes a few seconds to download and install automatically.
 
 1. Choose the DCM file you want to use to generate the device code stub.
 
@@ -156,7 +156,7 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 
 You build the generated device code stub together with the device SDK. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. Create a `cmake` subdirectory in the folder contains the generated code stub, and navigate to that folder:
+1. Create a `cmake` subdirectory in the `sample_device` folder, and navigate to that folder:
 
     ```cmd\sh
     mkdir cmake
@@ -166,7 +166,8 @@ You build the generated device code stub together with the device SDK. The appli
 1. Run the following commands to build generated code stub:
 
     ```cmd\sh
-    cmake .. -DCMAKE_TOOLCHAIN_FILE={directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
+    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+
     cmake --build . -- /m /p:Configuration=Release
     ```
 
