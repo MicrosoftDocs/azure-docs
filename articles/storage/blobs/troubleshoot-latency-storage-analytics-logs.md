@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: common
 ---
 
-# Troubleshoot latency using Storage Analytics logs
+# Troubleshoot latency using storage analytics logs
 
 Diagnosing and troubleshooting is a key skill for building and supporting client applications with Azure Storage.
 
@@ -157,3 +157,8 @@ If **Max Time** is spent in **Client-Latency**, the most common issue is that th
 
 * Investigate the code in your client to understand why and when the client disconnects from the storage service.
 * Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
+
+## Next steps
+
+- [Introduction to Azure Blob storage](storage-blobs-introduction.md)
+- [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

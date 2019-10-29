@@ -555,6 +555,10 @@
           href: https://github.com/Azure/azure-storage-python
     - name: Compliance offerings
       href: ../common/storage-compliance-offerings.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot latency using Storage Analytics
+      href: ../common/how-to-troubleshoot/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Data Lake Storage Gen2
   items:
   - name: Switch to Data Lake Storage Gen1 documentation
