@@ -140,7 +140,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Allow
 ```
 
 And the corresponding JSON:
@@ -152,7 +152,7 @@ And the corresponding JSON:
         "name": "allowUS",
         "ruleType": "MatchRule",
         "priority": 2,
-        "action": "Block",
+        "action": "Allow",
         "matchConditions": [
           {
             "matchVariable": "RequestHeaders",
