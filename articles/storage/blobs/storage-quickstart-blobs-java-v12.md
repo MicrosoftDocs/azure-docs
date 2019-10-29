@@ -193,7 +193,7 @@ The following diagram shows the relationship between these resources.
 Use the following Java classes to interact with these resources:
 
 * [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers. The storage account provides the top-level namespace for the Blob service.
-* [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder): The `BlobServiceClientBuilder` class provides a fluent builder API to help aid the configuration and instantiation of `BlobServiceClient` and `BlobServiceAsyncClient` objects.
+* [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder): The `BlobServiceClientBuilder` class provides a fluent builder API to help aid the configuration and instantiation of `BlobServiceClient` objects.
 * [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
 * [BlobClient](/java/api/com.azure.storage.blob.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
 * [BlobItem](/java/api/com.azure.storage.blob.blobitem): The `BlobItem` class represents individual blobs returned from a call to `listBlobsFlat`.
@@ -245,18 +245,15 @@ BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionS
 //Create a unique name for the container
 String containerName = "quickstartblobs" + java.util.UUID.randomUUID();
 
-// Create an object that represents the container
-BlobContainerClient containerClient = blobServiceClient.getBlobContainerClient(containerName);
-
-// Create the actual container
-containerClient.create();
+// Create the container and return a container client object
+BlobContainerClient containerClient = blobServiceClient.createBlobContainer(containerName);
 ```
 
 ### Upload blobs to a container
 
 The following code snippet:
 
-1. Creates a text file in the local directory.
+1. Creates a text file in the local *data* directory.
 1. Gets a reference to a [BlobClient](/java/api/com.azure.storage.blob.blobclient) object by calling the [getBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
 1. Uploads the local text file to the blob by calling the [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
@@ -309,14 +306,14 @@ Add this code to the end of the `Main` method:
 String downloadFileName = fileName.replace(".txt", "DOWNLOAD.txt");
 File downloadedFile = new File(localPath + downloadFileName);
 
-System.out.println("\nDownloading blob to\n\t " + downloadFileName);
+System.out.println("\nDownloading blob to\n\t " + localPath + downloadFileName);
 
 blobClient.downloadToFile(localPath + downloadFileName);
 ```
 
 ### Delete a container
 
-The following code cleans up the resources the app created by removing the entire container using the [​delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete) method. You can also delete the local files, if you like.
+The following code cleans up the resources the app created by removing the entire container using the [​delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete) method. It also deletes the local files created by the app.
 
 The app pauses for user input by calling `System.console().readLine()` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
 
@@ -358,35 +355,22 @@ mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonTh
 The output of the app is similar to the following example:
 
 ```output
-[INFO] Scanning for projects...
-[INFO]
-[INFO] --------------< com.blobs.quickstart:blob-quickstart-v12 >--------------
-[INFO] Building blob-quickstart-v12 1.0-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO]
-[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ blob-quickstart-v12 ---
 Azure Blob Storage v12 - Java quickstart sample
 
 Uploading to Blob storage as blob:
-        https://myragrsacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
+        https://mystorageacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
 
 Listing blobs...
         quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
 
 Downloading blob to
-         quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65DOWNLOAD.txt
+        ./data/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65DOWNLOAD.txt
 
 Press the Enter key to begin clean up
 
 Deleting blob container...
 Deleting the local source and downloaded files...
 Done
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:25 min
-[INFO] Finished at: 2019-10-24T15:45:14-07:00
-[INFO] ------------------------------------------------------------------------
 ```
 
 Before you begin the clean up process, check your *MyDocuments* folder for the two files. You can open them and observe that they are identical.

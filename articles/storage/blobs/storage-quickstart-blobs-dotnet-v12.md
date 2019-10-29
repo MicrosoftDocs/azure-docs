@@ -188,51 +188,48 @@ Decide on a name for the new container. The code below appends a GUID value to t
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Next, create an instance of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, then call the [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync) method to create actually the container in your storage account. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync) method to create the container only if it does not already exist.
+Create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. Then, call the [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) method to create the container in your storage account.
 
 Add this code to the end of the `Main` method:
 
 ```csharp
+// Create a BlobServiceClient object which will be used to create a container client
+BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
+
 //Create a unique name for the container
 string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
 
-// Create an object that represents the container
-BlobContainerClient containerClient = new BlobContainerClient(connectionString, containerName);
-
-// Create the actual container
-await containerClient.CreateAsync();
+// Create the container and return a container client object
+BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName);
 ```
 
 ### Upload blobs to a container
 
 The following code snippet:
 
-1. Declares and initializes a member variable that contains the path to the local *Documents* directory.
-1. Creates a text file in the local *Documents* directory.
+1. Creates a text file in the local *data* directory.
 1. Gets a reference to a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
 1. Uploads the local text file to the blob by calling the [​Upload​Async](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 Add this code to the end of the `Main` method:
 
 ```csharp
-// Path to the local documents folder
-string myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-// Create a file in your local myDocumentsPath folder to upload to a blob
-string localFileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
-string localFilePath = Path.Combine(myDocumentsPath, localFileName);
+// Create a local file in the ./data/ directory for uploading and downloading
+string localPath = "./data/";
+string fileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
+string localFilePath = Path.Combine(localPath, fileName);
 
 // Write text to the file
 await File.WriteAllTextAsync(localFilePath, "Hello, World!");
 
 // Get a reference to a blob
-BlobClient blob = containerClient.GetBlobClient(localFileName);
+BlobClient blobClient = containerClient.GetBlobClient(fileName);
 
-Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blob.Uri);
+Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri);
 
 // Open the file and upload its data
 using FileStream uploadFileStream = File.OpenRead(localFilePath);
-await blob.UploadAsync(uploadFileStream);
+await blobClient.UploadAsync(uploadFileStream);
 uploadFileStream.Close();
 ```
 
@@ -245,7 +242,7 @@ Add this code to the end of the `Main` method:
 ```csharp
 Console.WriteLine("Listing blobs...");
 
-// List the blobs in the container
+// List all blobs in the container
 await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
 {
     Console.WriteLine("\t" + blobItem.Name);
@@ -263,7 +260,7 @@ Add this code to the end of the `Main` method:
 // Append the string "DOWNLOAD" before the .txt extension so you can see both files in MyDocuments
 string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOAD.txt");
 
-Console.WriteLine("\nDownloading blob to\n\t {0}\n", downloadFilePath);
+Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
 
 // Download the blob's contents and save it to a file
 BlobDownloadInfo download = await blob.DownloadAsync();
@@ -275,7 +272,7 @@ downloadFileStream.Close();
 
 ### Delete a container
 
-The following code cleans up the resources the app created by deleting the entire container using [​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
+The following code cleans up the resources the app created by deleting the entire container by using [​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). It also deletes the local files created by the app.
 
 The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
 
@@ -316,13 +313,13 @@ The output of the app is similar to the following example:
 Azure Blob Storage v12 - .NET quickstart sample
 
 Uploading to Blob storage as blob:
-        https://mystorageacct.blob.core.windows.net/quickstartblobs79c3043b-0b0b-4935-9dc3-308fcb89a616/quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
+         https://mystorageacct.blob.core.windows.net/quickstartblobs60c70d78-8d93-43ae-954d-8322058cfd64/quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31.txt
 
 Listing blobs...
-        quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
+        quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31.txt
 
-Downloading blob to:
-        C:\Users\myusername\Documents\quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0afDOWNLOADED.txt
+Downloading blob to
+        ./data/quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31DOWNLOADED.txt
 
 Press any key to begin clean up
 Deleting blob container...
