@@ -28,11 +28,11 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure AD entitlement management is a [identity governance](identity-governance-overview.md) feature which enables organizations to manage identity and access lifecycle at scale, through automating access request workflows, access assignments, reviews and expiration.
+Azure Active Directory (Azure AD) entitlement management is a [identity governance](identity-governance-overview.md) feature that  enables organizations to manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration.
 
 Employees in organizations need access to various groups, applications, and sites to perform their job. Managing this access is challenging, as requirements change - new applications are added or users need additional access rights.  This scenario gets more complicated when you collaborate with outside organizations - you may not know who in the other organization needs access to your organization's resources, and they won't know what applications, groups or sites your organization is using.
 
-Azure Active Directory (Azure AD) entitlement management can help you more efficiently manage access to groups, applications, and SharePoint Online sites for internal users, and also for users outside your organization who need access to those resources.
+Azure AD entitlement management can help you more efficiently manage access to groups, applications, and SharePoint Online sites for internal users, and also for users outside your organization who need access to those resources.
 
 ## Why use entitlement management?
 
@@ -55,7 +55,7 @@ Azure AD entitlement management can help address these challenges.  To learn mor
 Here are some of capabilities of entitlement management:
 
 - Delegate to non-administrators the ability to create access packages. These access packages contain resources that users can request, and the delegated access package managers can define policies with rules for which users can request, who must approve their access, and when access expires.
-- Select connected organizations whose users can request access.  When a user who is not yet in your directory requests access, and is approved, they are automatically invited into your directory and assigned access.  When their access is expired, if they have no other access package assignments, their B2B account in your directory can be automatically removed.
+- Select connected organizations whose users can request access.  When a user who is not yet in your directory requests access, and is approved, they are automatically invited into your directory and assigned access.  When their access expires, if they have no other access package assignments, their B2B account in your directory can be automatically removed.
 
 You can get started with our [tutorial to create your first access package](entitlement-management-access-package-first.md). You can also read the [common scenarios](entitlement-management-scenarios.md), or watch videos, including
 
@@ -104,7 +104,7 @@ The following diagram shows an example of the different elements in entitlement 
 
 Access packages do not replace other mechanisms for access assignment.  They are most appropriate in situations such as the following:
 
-- Employees need time-limited access for a particular task in addition to their 'birthright' access.  For example, you might use group-based licensing and a dynamic group to ensure all employees have an Exchange Online mailbox, and then use access packages when employees need access to departmental resources from another department.
+- Employees need time-limited access for a particular task.  For example, you might use group-based licensing and a dynamic group to ensure all employees have an Exchange Online mailbox, and then use access packages for situations in which employees need additional access,such as to read departmental resources from another department.
 - Access needs to be approved by an employee's manager or other designated individuals.
 - Departments wish to manage their own access policies for their resources without IT involvement.  
 - Two or more organizations are collaborating on a project, and as a result, multiple users from one organization will need to be brought in via Azure AD B2B to access another organization's resources.
