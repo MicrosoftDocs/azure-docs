@@ -72,6 +72,58 @@ This article describes some items you should check to help you troubleshoot Azur
 
 * In the My Access portal, if a user is both a requestor and an approver, they will not see their request for an access package on the **Approvals** page. This behavior is intentional - a user cannot approve their own request. Ensure that the access package they are requesting has additional approvers configured on the policy. For more information, see [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md).
 
+### View a request's delivery errors
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Click **Requests**.
+
+1. Select the request you want to view.
+
+    If the request has any delivery errors, the request status will be **Undelivered** or **Partially delivered**.
+
+    If there are any delivery errors, in the request's detail pane, there will be a count of delivery errors.
+
+1. Click the count to see all of the request's delivery errors.
+
+### Reprocess a request
+
+If a request encounters an error, you can reprocess the request to try it again. You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week.
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Click **Requests**.
+
+1. Click the request you want to reprocess.
+
+1. In the request details pane, click **Reprocess request**.
+
+    ![Reprocess a failed request](./media/entitlement-management-troubleshoot/reprocess-request.png)
+
+### Cancel a pending request
+
+You can only cancel a pending request that has not yet been delivered or whose delivery has failed.
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Click **Requests**.
+
+1. Click the request you want to cancel.
+
+1. In the request details pane, click **Cancel request**.
+
 ## Multiple policies
 
 * Entitlement management follows least privilege best practices. When a user requests access to an access package that has multiple policies that apply, entitlement management includes logic to help ensure stricter or more specific policies are prioritized over generic policies. If a policy is generic, entitlement management might not display the policy to the requestor or might automatically select a stricter policy.
