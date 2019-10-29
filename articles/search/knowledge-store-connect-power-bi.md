@@ -27,14 +27,13 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 If you [created your knowledge store using the Azure Portal](knowledge-store-create-portal.md), you can use the [Azure Cognitive Search Power BI template sample](https://github.com/Azure-Samples/cognitive-search-templates) to view and experiment with Power BI visualizations. This template download is also available when you step through the **Import data** wizard.
 
->[!Note]
->This template was specifically designed for knowledge stores that are created using the Import Data wizard in the Azure Portal. If you used the REST API instead, use the remaining sections in this article to connect your knowledge store to Power BI.
+This template was specifically designed for knowledge stores that are created using the Import Data wizard in the Azure Portal. If you used the REST API instead, use the remaining sections in this article to connect your knowledge store to Power BI.
 
 The sample template automatically performs the setup steps outlined in the remainder of this article and includes many visualizations, such as WordCloud and Network Navigator visualizations for key phrases.
 
 ![Sample Azure Search Power BI Template](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Sample Power BI template")
 
-[!Note] Some visualizations in the template, such as the Locations map and the Entity-Graph Viewer will now show data for the sample knowledge store created in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md). This is because only a subset of the AI enrichments available in the **Import data** wizard were used.
+Some visualizations in the template, such as the Locations map and the Entity-Graph Viewer will not show data for the sample knowledge store created in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md). This is because only a subset of the AI enrichments available in the **Import data** wizard were used.
 
 ## Connect with Power BI
 
