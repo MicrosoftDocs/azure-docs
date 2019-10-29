@@ -153,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	a. In **Display name mapping**, select **Use attribute**.
 
 	b. In the **Display name attribute** text box, enter the value `http://schema.microsoft.com/identity/claims/displayname`.
-	
+
 	c. In **Unique user mapping**, select **Use attribute**.
 
 	d. In the **Unique user attribute** text box, enter the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
