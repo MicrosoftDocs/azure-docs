@@ -26,27 +26,32 @@ You can find many improvements in the new [App registrations](https://go.microso
 
 ## Key changes
 
-App registrations aren't limited to being either a *web app/API* or a *native* app. You can use the same app registration for all of these apps by registering the respective redirect URIs.
+- App registrations aren't limited to being either a *web app/API* or a *native* app. You can use the same app registration for all of these apps by registering the respective redirect URIs.
 
-The legacy experience supported apps that sign in organizational (Azure AD) accounts only. Apps were registered as single-tenant, supporting only organizational accounts from the directory the app was registered in. Apps could be modified to be multi-tenant, supporting all organizational accounts. The new experience allows you to register apps that can support both those options as well as a third option: all organizational accounts as well as personal Microsoft accounts.
+- The legacy experience supported apps that sign in by using organizational (Azure AD) accounts only. Apps were registered as single-tenant. Apps supported only organizational accounts from the directory that the app was registered in. Apps could be modified to be multi-tenant and support all organizational accounts. The new experience allows you to register apps that can support both those options as well as a third option: all organizational accounts as well as personal Microsoft accounts.
 
-The legacy experience was only available when signed into the Azure portal using an organizational account. With the new experience, you can use personal Microsoft accounts that aren't associated with a directory.
+- The legacy experience was only available when signed into the Azure portal using an organizational account. With the new experience, you can use personal Microsoft accounts that aren't associated with a directory.
 
 ## List of applications
 
-The new app list shows applications that were registered through the legacy app registrations experience in the Azure portal. These apps sign in Azure AD accounts. The new app list also shows apps registered though the [Application Registration Portal](https://apps.dev.microsoft.com/). These apps sign in Azure AD and personal Microsoft accounts.
+The new app list shows applications that were registered through the legacy app registrations experience in the Azure portal. These apps sign in by using Azure AD accounts. The new app list also shows apps registered though the Application Registration Portal. These apps sign in by using Azure AD and personal Microsoft accounts.
 
-The new app list doesn't have an **Application type** column because a single app registration can be several types. The list has two additional columns: a **Created on** column and a **Certificates & secrets** column that shows the status of credentials that have been registered on the app. Statuses include **current**, **expiring soon**, or **expired**.
+>[!NOTE]
+>The Application Registration Portal has been deprecated.
+
+The new app list doesn't have an **Application type** column because a single app registration can be several types. The list has two additional columns: **Created on** and **Certificates & secrets**. **Certificates & secrets** shows the status of credentials that have been registered on the app. Statuses include **Current**, **Expiring soon**, and **Expired**.
 
 ## New app registration
 
-In the legacy experience, to register an app you were required to provide: **Name**, **Application type**, and **Sign-on URL/Redirect URI**. The apps that were created were Azure AD only single-tenant applications meaning that they only supported organizational accounts from the directory the app was registered in.
+In the legacy experience, to register an app you were required to provide: **Name**, **Application type**, and **Sign-on URL/Redirect URI**. The apps that were created were Azure AD only single-tenant applications. They only supported organizational accounts from the directory the app was registered in.
 
-In the new experience, you must provide a **Name** for the app and choose the **Supported account types**. You can optionally provide a **Redirect URI**. If you provide a redirect URI, you'll need to specify if it's web/public (mobile and desktop). For more information on how to register an app using the new app registrations experience, see [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
+In the new experience, you must provide a **Name** for the app and choose the **Supported account types**. You can optionally provide a **Redirect URI**. If you provide a redirect URI, you'll need to specify whether it's web/public (mobile and desktop). For more information on how to register an app using the new app registrations experience, see [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
 
-## The legacy Properties page
+## Differences between the Application Registration Portal and App registrations page
 
-The legacy experience had a **Properties** page that the new experience doesn't have. **Properties** had the following fields:
+### The legacy Properties page
+
+The legacy experience had a **Properties** page. **Properties** had the following fields:
 
 - **Name**
 - **Object ID**
@@ -60,37 +65,37 @@ The legacy experience had a **Properties** page that the new experience doesn't 
 - **Application type**
 - **Multi-tenant**
 
-Here's where you can find the equivalent functionality in the new experience:
+The new experience doesn't have that page. Here's where you can find the equivalent functionality:
 
 - **Name**, **Logo**, **Home page URL**, **Terms of service URL**, and **Privacy statement URL** are now on the app's **Branding** page.
 - **Object ID** and **Application (client) ID** are on the **Overview** page.
-- The functionality controlled by the **Multi-tenant** toggle in the legacy experience has been replaced by **Supported account types** on the **Authentication** page. For more information about how multi-tenant maps to the supported account type options, see [Quickstart: Modify the accounts supported by an application](quickstart-modify-supported-accounts.md).
+- The functionality controlled by the **Multi-tenant** toggle in the legacy experience has been replaced by **Supported account types** on the **Authentication** page. For more information about how multi-tenant functionality and supported account type options, see [Quickstart: Modify the accounts supported by an application](quickstart-modify-supported-accounts.md).
 - **Logout URL** is now on the **Authentication** page.
 - **Application type** is no longer a valid field. Instead, redirect URIs, which you can find on the **Authentication** page, determine which app types are supported.
 - **App ID URI** is now called **Application ID URI** and you can find it on **Expose an API**. In the legacy experience, this property was autoregistered using the following format: `https://{tenantdomain}/{appID}`, for example, `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b`. In the new experience, it's autogenerated as `api://{appID}`, but it needs to be explicitly saved.
 
-## Reply URLs/redirect URls
+### Reply URLs/redirect URls
 
-In the legacy experience, an app had a **Reply URLs** page. In the new experience, reply URLs can be found on an app's **Authentication** section. They're now referred to as **Redirect URIs**.
+In the legacy experience, an app had a **Reply URLs** page. In the new experience, reply URLs can be found on an app's **Authentication** page. They're now referred to as **Redirect URIs**.
 
 The format for redirect URIs has changed. They're required to be associated with an app type, either web or public. For security reasons, wildcards and `http://` schemes aren't supported, except for *http://localhost*.
 
-## Keys/Certificates & secrets
+### Keys/Certificates & secrets
 
 In the legacy experience, an app had **Keys** page. In the new experience, it has been renamed to **Certificates & secrets**.
 
-**Public keys** are referred to as **Certificates** and **Passwords** are referred to as **Client secrets**.
+**Public keys** are now referred to as **Certificates**. **Passwords** are now referred to as **Client secrets**.
 
-## Required permissions/API permissions
+### Required permissions/API permissions
 
 In the legacy experience, an app had a **Required permissions** page. In the new experience, it has been renamed to **API permissions**.
 
-When you selected an API in the legacy experience, you could choose from a small list of Microsoft APIs or search through service principals in the tenant. In the new experience, you can choose from multiple tabs: **Microsoft APIs**, **APIs my organization uses**, or **My APIs**. The search bar on **APIs my organization** uses tab searches through service principals in the tenant.
+When you selected an API in the legacy experience, you could choose from a small list of Microsoft APIs. You could also search through service principals in the tenant. In the new experience, you can choose from multiple tabs: **Microsoft APIs**, **APIs my organization uses**, or **My APIs**. The search bar on **APIs my organization** uses tab searches through service principals in the tenant.
 
 > [!NOTE]
 > You won't see this tab if your application isn't associated with a tenant. For more information on how to request permissions using the new experience, see [Quickstart: Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md).
 
-The legacy experience had a **Grant permissions** button at the top of the **Requested permissions** page. In the new experience, there's a **Grant consent** section with a **Grant admin consent** button on an app's **API permissions** section. There are also some differences in the ways the buttons function:
+The legacy experience had a **Grant permissions** button at the top of the **Requested permissions** page. In the new experience, the **Grant consent** page has a **Grant admin consent** button on an app's **API permissions** section. There are also some differences in the ways the buttons function:
 
 - In the legacy experience, the logic varied depending on the signed in user and the permissions being requested. The logic was:
 
@@ -102,7 +107,7 @@ The legacy experience had a **Grant permissions** button at the top of the **Req
 
 ## Deleting an app registration
 
-In the legacy experience, an app had to be single-tenant to be deleted. The delete button was disabled for multi-tenant apps. In the new experience, apps can be deleted in any state, but you must confirm the action. For more information about deleting app registrations, see [Quickstart: Remove an application registered with the Microsoft identity platform](quickstart-remove-app.md).
+In the legacy experience, you could delete only single-tenant apps. The delete button was disabled for multi-tenant apps. In the new experience, you can delete apps in any state, but you must confirm the action. For more information about deleting app registrations, see [Quickstart: Remove an application registered with the Microsoft identity platform](quickstart-remove-app.md).
 
 ## Application manifest
 
@@ -110,7 +115,7 @@ The legacy and new experiences use different versions for the format of the JSON
 
 ## New UI
 
-There's new UI controls for new properties or ones that could previously only be set using the manifest editor or the API:
+The new experience adds UI controls for new properties or properties previously controlled by using the manifest editor or the API:
 
 - **Implicit grant flow** (`oauth2AllowImplicitFlow`) can be found on the **Authentication** page. Unlike in the legacy experience, you can enable **Access tokens** or **ID tokens**, or both.
 - **Scopes defined by this API** (`oauth2Permissions`) and **Authorized client applications** (`preAuthorizedApplications`) can be configured through the **Expose an API** page. For more information on how to configure an app to be a web API and expose permissions/scopes, see [Quickstart: Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md).
