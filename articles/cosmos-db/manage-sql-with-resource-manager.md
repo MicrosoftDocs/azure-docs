@@ -78,7 +78,7 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 The `az cosmosdb show` command shows the newly created Azure Cosmos account after it has been provisioned. If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) article.
 
-## Create an Azure Cosmos DB container with a stored procedure, trigger and user-defined function <a id="create-sproc"></a>
+## Create an Azure Cosmos DB container with server-side functionality <a id="create-sproc"></a>
 
 Create an Azure Cosmos DB container with a stored procedure, trigger and user-defined function using an Azure Resource Manager template. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
 
