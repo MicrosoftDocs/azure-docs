@@ -139,6 +139,9 @@
     - name: Train with datasets
       displayName: data, dataset
       href: how-to-train-with-datasets.md
+    - name: Version & track datasets
+      displayName: data, data set
+      href: how-to-version-track-datasets.md      
   - name: Train models
     items:
     - name: Use visual interface
@@ -270,6 +273,8 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: Schedule ML pipelines in Python
+      href: how-to-schedule-pipelines.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -284,6 +289,8 @@
   - name: Machine Learning CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
+  - name: Machine learning pipeline YAML reference
+    href: reference-pipeline-yaml.md
   - name: Visual interface modules
     displayName: module, reference, algorithm, studio
     items:
@@ -296,7 +303,15 @@
     - name: Data input & output
       items:
       - name: Import Data
-        href: ../algorithm-module-reference/import-data.md
+        items: 
+        - name: Import Data
+          href: ../algorithm-module-reference/import-data.md
+        - name: Import from Web URL via HTTP
+          href: ../algorithm-module-reference/import-from-web-url-via-http.md
+        - name: Import from Azure Blob Storage module
+          href: ../algorithm-module-reference/import-from-azure-blob-storage.md
+        - name: Import from Azure SQL Database
+          href: ../algorithm-module-reference/import-from-azure-sql-database.md
       - name: Export Data
         href: ../algorithm-module-reference/export-data.md
       - name: Enter Data Manually
@@ -329,6 +344,10 @@
         href: ../algorithm-module-reference/normalize-data.md
       - name: Partition and Sample
         href: ../algorithm-module-reference/partition-and-sample.md
+      - name: Clip Values
+        href: ../algorithm-module-reference/clip-values.md
+      - name: Apply SQL Transformation
+        href: ../algorithm-module-reference/apply-sql-transformation.md
     - name: Machine learning
       items:
       - name: Score Model
@@ -381,6 +400,12 @@
         href: ../algorithm-module-reference/create-python-model.md
       - name: Execute R Script
         href: ../algorithm-module-reference/execute-r-script.md
+    - name: Statistical Functions
+      items: 
+      - name: Apply Math Operation
+        href: ../algorithm-module-reference/apply-math-operation.md
+      - name: Summarize Data
+        href: ../algorithm-module-reference/summarize-data.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources

@@ -90,14 +90,14 @@ The following PaaS resources are supported by Azure Security Center:
 |MySQL*|✔| ✔|
 |CosmosDB*|X| ✔|
 |Blob storage|✔| ✔|
-|Storage account|✔| NA|
+|Storage account|✔| X|
 |App service|✔| ✔|
 |Function|✔| X|
 |Cloud Service|✔| X|
-|VNet|✔| NA|
-|Subnet|✔| NA|
-|NIC|✔| NA|
-|NSG|✔| NA|
+|VNet|✔| X|
+|Subnet|✔| X|
+|NIC|✔| X|
+|NSG|✔| X|
 |Subscription|✔ **| ✔|
 |Batch account|✔| X|
 |Service fabric account|✔| X|
@@ -108,7 +108,7 @@ The following PaaS resources are supported by Azure Security Center:
 |Stream analytics|✔| X|
 |Event hub namespace|✔| X|
 |Logic apps|✔| X|
-|Redis|✔| NA|
+|Redis|✔| X|
 |Data Lake Analytics|✔| X|
 |Data Lake Store|✔| X|
 |Key vault|✔| X|

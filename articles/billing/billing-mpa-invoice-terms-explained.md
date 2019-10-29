@@ -70,7 +70,7 @@ At the bottom of the invoice, there are instructions for paying your bill. You c
 If you have third-party services in your bill, the name and address of each publisher is listed at the bottom of your invoice.
 
 ## Check access to a Microsoft Partner Agreement
-[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
+[!INCLUDE [billing-check-mpa](../../includes/billing-check-mpa.md)]
 
 ## Need help? Contact us.
 

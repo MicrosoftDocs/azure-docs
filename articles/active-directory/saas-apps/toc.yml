@@ -291,6 +291,8 @@
         href: clickup-productivity-platform-tutorial.md
       - name: Cloud Management Portal for Microsoft Azure
         href: newsignature-tutorial.md
+      - name: Cloudmore
+        href: cloudmore-tutorial.md
       - name: CloudPassage
         href: cloudpassage-tutorial.md
       - name: Cloud Service PICCO
@@ -323,6 +325,8 @@
         href: confluencemicrosoft-tutorial.md
       - name: Consent2Go
         href: consent2go-tutorial.md
+      - name: Contentful
+        href: contentful-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
       - name: Control
@@ -399,12 +403,16 @@
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
         href: dynatrace-tutorial.md
+      - name: EAB Navigate IMPL
+        href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
         href: eab-navigate-strategic-care-tutorial.md
       - name: EasyTerritory
         href: easyterritory-tutorial.md
       - name: EBSCO
         href: ebsco-tutorial.md
+      - name: eCornell
+        href: ecornell-tutorial.md
       - name: Edcor
         href: edcor-tutorial.md
       - name: eDigitalResearch
@@ -806,6 +814,8 @@
         href: lynda-tutorial.md
       - name: M-Files
         href: m-files-tutorial.md
+      - name: Mail Luck!
+        href: mail-luck-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
       - name: Marketo
@@ -888,6 +898,8 @@
         href: netdocuments-tutorial.md
       - name: Netop Portal
         href: netop-portal-tutorial.md
+      - name: Netskope Cloud Security
+        href: netskope-cloud-security-tutorial.md
       - name: Netsuite
         href: netsuite-tutorial.md
       - name: New Relic
@@ -968,6 +980,8 @@
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
         href: pavaso-digital-close-tutorial.md
+      - name: Paylocity
+        href: paylocity-tutorial.md
       - name: Peakon
         href: peakon-tutorial.md
       - name: Pega Systems
@@ -1178,6 +1192,8 @@
         href: sharepoint-on-premises-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
+      - name: ShipHazmat
+        href: shiphazmat-tutorial.md
       - name: Shmoop For Schools
         href: shmoopforschools-tutorial.md
       - name: Showpad
@@ -1376,6 +1392,8 @@
         href: vibehcm-tutorial.md
       - name: Vidyard
         href: vidyard-tutorial.md
+      - name: Visit.org
+        href: visitorg-tutorial.md
       - name: Visitly
         href: visitly-tutorial.md
       - name: Vocoli
@@ -1499,6 +1517,8 @@
         href: 15five-provisioning-tutorial.md
     - name: A - L
       items:
+      - name: Airstack
+        href: airstack-provisioning-tutorial.md
       - name: Amazon Web Services (AWS) - Role Provisioning
         href: amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on
       - name: Asana
@@ -1573,6 +1593,8 @@
         href: leapsome-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
+      - name: Meta Networks Connector
+        href: meta-networks-connector-provisioning-tutorial.md
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle
