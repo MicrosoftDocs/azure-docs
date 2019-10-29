@@ -352,8 +352,14 @@
         href: sql-analytics/development-group-by-options.md
       - name: Labels
         href: sql-analytics/development-label.md
-      # - name: Storage files
-      #   href: article-template.md
+      - name: Storage files
+        items:
+        - name: Overview
+          href: ../synapse-analytics/sql-analytics/development-storage-files-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Storage Access Control
+          href: ../synapse-analytics/sql-analytics/development-storage-files-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Spark Tables
+          href: ../synapse-analytics/sql-analytics/development-storage-files-spark-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Workload management
       items:
       - name: Resource classes & workload management
