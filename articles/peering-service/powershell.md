@@ -48,7 +48,7 @@ Ensure the connectivity providers are partnered with Microsoft.
 Before proceeding to the steps of registering Peering Service, you need to register your subscription with the resource provider and feature flag using the Azure PowerShell. The Azure PowerShell commands are specified below:
 
 ```PowerShellCopy
-Register-AzProviderFeature-FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
+Register-AzProviderFeature -FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
 

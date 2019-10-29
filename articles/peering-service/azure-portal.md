@@ -110,13 +110,13 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 
    - Prefix received with private AS in the path, please contact Peering Service provider.
 
-**To add or remove a Prefix**
+### Add or remove a Prefix
 
 Click on **Add prefixes** in the **Prefixes** page to add prefixes.
 
 Click on the ellipsis (...) next to the listed prefix and click on the **Delete** option.
 
-**To delete a Peering Service**
+### Delete a Peering Service
 
 In the **All Resources** page, click the checkbox on the Peering Service and click on the **Delete** option on the top of the page.
 
