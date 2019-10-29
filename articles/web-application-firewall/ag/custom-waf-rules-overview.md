@@ -183,7 +183,7 @@ If you are using the Geomatch operator, the selectors can be any of the followin
 | BH | Bahrain|
 | BI | Burundi|
 | BJ | Benin|
-| BL | Saint Barthelemy|
+| BL | Saint Barthélemy|
 | BN | Brunei Darussalam|
 | BO | Bolivia|
 | BR | Brazil|
