@@ -16,6 +16,7 @@ ms.custom:
 ---
 
 # Version and track datasets in experiments
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this how-to, you learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data, so you can apply a specific version of the dataset for future experiments.
 
@@ -153,6 +154,8 @@ model = run.register_model(model_name='keras-mlp-mnist',
 ```
 
 After registration, you're able to see the list of models registered with the dataset using Python or the [Azure Machine Learning studio](https://ml.azure.com/).
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with that experiment run.
 
