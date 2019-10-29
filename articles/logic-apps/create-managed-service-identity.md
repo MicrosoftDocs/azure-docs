@@ -152,7 +152,7 @@ After you set up a managed identity for your logic app, you can [give that ident
 
 ## Authenticate access with managed identity
 
-After you [enable the managed identity for your logic app](#azure-portal-system-logic-app) and [give that identity access to the target resource](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+After you [enable the managed identity for your logic app](#azure-portal-system-logic-app) and [give that identity access to the target resource or entity](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 > [!IMPORTANT]
 > If you have an Azure function where you want to use the system-assigned identity, 
@@ -162,33 +162,31 @@ These steps show how to use the managed identity with a trigger or action throug
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-1. If you haven't done so yet, add the trigger or action [that supports managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+1. If you haven't done so yet, add the [trigger or action that supports managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
-   For example, suppose that you want to run the [Snapshot Blob operation](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) on a blob in the Azure Storage account where you previously set up access for your identity, but the [Azure Blob Storage connector](/connectors/azureblob/) doesn't currently offer this operation. Instead, you can use the [HTTP action](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) to run the operation or any other [Blob Service REST API operations](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs). For authentication, the HTTP action can use the system-assigned identity that you enabled for your logic app. The HTTP action also uses these properties to specify the resource that you want to access:
+   For example, the HTTP trigger or action can use the system-assigned identity that you enabled for your logic app. In general, the HTTP trigger or action uses these properties to specify the resource or entity that you want to access:
 
-   * The **URI** property specifies the endpoint URL for accessing the target Azure resource. This URI syntax usually includes the [resource ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for the Azure resource or service.
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Method** | Yes | The HTTP method that's used by the operation that you want to run |
+   | **URI** | Yes | The endpoint URL for accessing the target Azure resource or entity. The URI syntax usually includes the [resource ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for the Azure resource or service. |
+   | **Headers** | No | Any header values that you need or want to include in the outgoing request, such as the content type |
+   | **Queries** | No | Any query parameters that you need or want to include in the request, such as the parameter for a specific operation or the API version for the operation that you want to run |
+   | **Authentication** | Yes | The authentication type to use for authenticating access to the target resource or entity |
+   ||||
 
-   * The **Headers** property specifies any header values that you need or want to include in the request.
+   As a specific example, suppose that you want to run the [Snapshot Blob operation](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) on a blob in the Azure Storage account where you previously set up access for your identity. However, the [Azure Blob Storage connector](/connectors/azureblob/) doesn't currently offer this operation. Instead, you can run this operation by using the [HTTP action](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) or another [Blob Service REST API operation](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs).
 
-     > [!IMPORTANT]
-     > For outgoing HTTP trigger or action calls, make sure that the header specifies the 
-     > `x-ms-version` property and the API version for the operation that you want to run 
-     > on the target resource. For more information, see 
-     > [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   To run the [Snapshot Blob operation](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
 
-   * The **Queries** property specifies any query parameters that you need to include in the request, such as the parameter for a specific operation.
-
-   So, to run the [Snapshot Blob operation](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
-
-   * **Method**: Specifies the `PUT` operation.
-
-   * **URI**: Specifies the resource ID for an Azure Blob Storage file in the Azure Global (public) environment and uses this syntax:
-
-     `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}`
-
-   * **Headers**: Specifies `x-ms-blob-type` as `BlockBlob` and `x-ms-version` as `2019-02-02` for the Snapshot Blob operation. For more information, see [Request headers - Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) and [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services).
-
-   * **Queries**: Specifies `comp` as the query parameter name and `snapshot` as the parameter value.
+   | Property | Required | Example value | Description |
+   |----------|----------|---------------|-------------|
+   | **Method** | Yes | `PUT`| The HTTP method that the Snapshot Blob operation uses |
+   | **URI** | Yes | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | The resource ID for an Azure Blob Storage file in the Azure Global (public) environment, which uses this syntax |
+   | **Headers** | Yes, for Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | The `x-ms-blob-type` and `x-ms-version` header values that are required for Azure Storage operations. <p><p>**Important**: In outgoing HTTP trigger and action requests for Azure Storage, the header requires the `x-ms-version` property and the API version for the operation that you want to run. <p>For more information, see these topics: <p><p>- [Request headers - Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Queries** | Yes, for this operation | `comp` = `snapshot` | The query parameter name and value for the Snapshot Blob operation. |
+   | **Authentication** | Yes | `Managed Identity` | The authentication type to use for authenticating access to the Azure blob |
+   |||||
 
    Here is the example HTTP action that shows all these property values:
 
