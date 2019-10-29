@@ -44,7 +44,7 @@ When creating the private endpoint, you must specify the storage account and the
 > [!TIP]
 > Create a separate private endpoint for the secondary instance of the storage service for better read performance on RA-GRS accounts.
 
-For read availability on a [read-access geo redundant storage account](storage-redundancy-grs.md#read-access-geo-redundant-storage), you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover.
+For read availability on a [read-access geo redundant storage account](storage-redundancy-grs.md#read-access-geo-redundant-storage), you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover.git 
 
 #### Resources
 
@@ -87,14 +87,14 @@ This approach enables access to the storage account using the same connection st
 
 The recommended DNS zone names for private endpoints for storage services are:
 
-| Storage service        | Zone name                          |
-| :--------------------- | :--------------------------------- |
-| Blob service           | privatelink.blob.core.windows.net  |
-| Data Lake Storage Gen2 | privatelink.dfs.core.windows.net   |
-| File service           | privatelink.file.core.windows.net  |
-| Queue service          | privatelink.queue.core.windows.net |
-| Table service          | privatelink.table.core.windows.net |
-| Static Websites        | privatelink.web.core.windows.net   |
+| Storage service        | Zone name                            |
+| :--------------------- | :----------------------------------- |
+| Blob service           | `privatelink.blob.core.windows.net`  |
+| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
+| File service           | `privatelink.file.core.windows.net`  |
+| Queue service          | `privatelink.queue.core.windows.net` |
+| Table service          | `privatelink.table.core.windows.net` |
+| Static Websites        | `privatelink.web.core.windows.net`   |
 
 ## Pricing
 
