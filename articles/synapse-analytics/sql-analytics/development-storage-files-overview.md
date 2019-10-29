@@ -28,16 +28,16 @@ By default, for queries ran by AAD users, storage accounts will be accessed usin
 
 In order to enable smooth experience for in place querying of data residing in files in Azure Storage, SQL Analytics on-demand uses [OPENROWSET](development-openrowset.md) function with additional capabilities:
 
-- [Querying multiple files/folders](#querying-multiple-files/folders)
+- [Querying multiple files or folders](#querying-multiple-files-or-folders)
 - [PARQUET file format](#parquet-file-format)
 - [Additional options for working with delimited text (field terminator, row terminator, escape char)](#additional-options-for-working-with-delimited-text)
 - [Reading a chosen subset of columns](#reading-a-chosen-subset-of-columns)
 - [Schema inference](#schema-inference)
 - [filename function](#filename-function)
 - [filepath function](#filepath-function)
-- [Working with complex types and nested / repeated data structures](#working-with-complex-types-and-nested--repeated-data-structures)
+- [Working with complex types and nested or repeated data structures](#working-with-complex-types-and-nested-or-repeated-data-structures)
 
-### Querying multiple files/folders
+### Querying multiple files or folders
 
 To run a T-SQL query over a set of files within a folder or set of folders on storage treating them as a single entity/rowset, provide a path to folder or a pattern (using wildcards) over a set of files/folders.  
 Following rules apply: 
@@ -136,7 +136,7 @@ This function returns full path or part of path:
 
 Check [filepath function](querying-specific-files.md#filepath-function) in samples section for queries.
 
-### Working with complex types and nested / repeated data structures
+### Working with complex types and nested or repeated data structures
 
 In order to enable smooth experience when working with data stored in nested/repeated data types (e.g. in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files), Starlight added extensions below.
 
