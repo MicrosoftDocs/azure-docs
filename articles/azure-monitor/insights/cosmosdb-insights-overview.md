@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure Cosmos DB with Azure Monitor Cosmos DB Insights (preview)| Microsoft Docs
-description: This article describes the Azure Monitor Cosmos DB Insights feature that provides Cosmos DB owners with a quick understanding of performance and utilization issues with their CosmosDB accounts.
+title: Monitor Azure Cosmos DB with Azure Monitor for Cosmos DB (preview)| Microsoft Docs
+description: This article describes the Azure Monitor for Cosmos DB feature that provides Cosmos DB owners with a quick understanding of performance and utilization issues with their CosmosDB accounts.
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
@@ -10,9 +10,9 @@ ms.date: 10/27/2019
 
 ---
 
-# Explore Azure Monitor Cosmos DB Insights (preview)
+# Explore Azure Monitor for Azure Cosmos DB (preview)
 
-Azure Monitor Cosmos DB Insights (preview) provides a view of the overall performance, failures, capacity, and operational health of all your Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
+Azure Monitor Cosmos for Azure Cosmos DB (preview) provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
 
 ## Introduction
 
@@ -20,19 +20,19 @@ Before diving into the experience, you should understand how it presents and vis
 
 It delivers:
 
-* **At scale perspective** of your Cosmos DB resources across all your subscriptions in a single location, with the ability to selectively scope to only those subscriptions and resources you are interested in evaluating.
+* **At scale perspective** of your Azure Cosmos DB resources across all your subscriptions in a single location, with the ability to selectively scope to only those subscriptions and resources you are interested in evaluating.
 
-* **Drill down analysis** of a particular CosmosDB resource to help diagnose issues or perform detailed analysis by category - utilization, failures, capacity, and operations. Selecting any one of those options provides an in-depth view of the relevant Cosmos DB metrics.  
+* **Drill down analysis** of a particular Azure CosmosDB resource to help diagnose issues or perform detailed analysis by category - utilization, failures, capacity, and operations. Selecting any one of those options provides an in-depth view of the relevant Azure Cosmos DB metrics.  
 
-* **Customizable** - Cosmos DB Insights is built on top of Azure Monitor workbook templates allowing you to change what metrics are displayed, modify or set thresholds that align with your limits, and then save into a custom workbook. Charts in the workbooks can then be pinned to Azure dashboards.  
+* **Customizable** - This experience is built on top of Azure Monitor workbook templates allowing you to change what metrics are displayed, modify or set thresholds that align with your limits, and then save into a custom workbook. Charts in the workbooks can then be pinned to Azure dashboards.  
 
-This feature does not require you to enable or configure anything, these Cosmos DB metrics are collected by default.
+This feature does not require you to enable or configure anything, these Azure Cosmos DB metrics are collected by default.
 
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
 
 
-## Accessing Azure Monitor Cosmos DB Insights
+## Accessing Azure Monitor for Azure Cosmos DB
 
 To view the utilization and performance of your storage accounts across all of your subscriptions, perform the following steps.
 
@@ -48,21 +48,21 @@ To view the utilization and performance of your storage accounts across all of y
 
 ### Overview
 
-On **Overview**, the table displays interactive Cosmos DB metrics. You can filter the results based on the options you select from the following drop-down lists:
+On **Overview**, the table displays interactive Azure Cosmos DB metrics. You can filter the results based on the options you select from the following drop-down lists:
 
-* **Subscriptions** - only subscriptions that have a Cosmos DB resource are listed.  
+* **Subscriptions** - only subscriptions that have a Azure Cosmos DB resource are listed.  
 
-* **Cosmos DB** - You can select all, a subset, or single Cosmos DB resource.
+* **Cosmos DB** - You can select all, a subset, or single Azure Cosmos DB resource.
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
-The counter tile under the drop-down lists rolls-up the total number of Cosmos DB resources are in the selected subscriptions. There is conditional color-coding or heatmaps for columns in the workbook that report transaction metrics. The deepest color has the highest value and a lighter color is based on the lowest values. 
+The counter tile under the drop-down lists rolls-up the total number of Azure Cosmos DB resources are in the selected subscriptions. There is conditional color-coding or heatmaps for columns in the workbook that report transaction metrics. The deepest color has the highest value and a lighter color is based on the lowest values. 
 
-Selecting a drop-down arrow next to one of the Cosmos DB resources will reveal a breakdown of the performance metrics at the individual database container level:
+Selecting a drop-down arrow next to one of the Azure Cosmos DB resources will reveal a breakdown of the performance metrics at the individual database container level:
 
 ![Expanded drop down revealing individual database containers and associated performance breakdown](./media/cosmosdb-insights-overview/container-view.png)
 
-Selecting the Cosmos DB resource name highlighted in blue will take you to the default **Overview** for the associated Cosmos DB account. 
+Selecting the Azure Cosmos DB resource name highlighted in blue will take you to the default **Overview** for the associated Azure Cosmos DB account. 
 
 ### Failures
 
@@ -76,7 +76,7 @@ Select **Failures** at the top of the page and the **Failures** portion of the w
 | `201 Created` | A POST operation to create a resource is successful. |
 | `404 Not Found` | The operation is attempting to act on a resource that no longer exists. For example, the resource may have already been deleted. |
 
-For a full list of status codes, consult the [Cosmos DB HTTP status code article](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+For a full list of status codes, consult the [Azure Cosmos DB HTTP status code article](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### Capacity
 
@@ -84,7 +84,7 @@ Select **Capacity** at the top of the page and the **Capacity** portion of the w
 
 ![Capacity workbook](./media/cosmosdb-insights-overview/capacity.png) 
 
-As with the overview workbook, selecting the drop-down next to a Cosmos DB resource in the **Subscription** column will reveal a breakdown by the individual containers that make up the database.
+As with the overview workbook, selecting the drop-down next to a Azure Cosmos DB resource in the **Subscription** column will reveal a breakdown by the individual containers that make up the database.
 
 ### Operations 
 
@@ -109,9 +109,9 @@ To expand or collapse all drop-down views in the workbook, select the expand ico
 
 ![Expand workbook icon](./media/cosmosdb-insights-overview/expand.png)
 
-## Customize Azure Monitor Cosmos DB Insights (preview)
+## Customize Azure Monitor for Azure Cosmos DB (preview)
 
-Since Azure Monitor Cosmos DB Insights are built on top of Azure Monitor workbook templates, you have the ability to **Customize** > **Edit** and **Save** a copy of your modified version into a custom workbook. 
+Since this experience is built on top of Azure Monitor workbook templates, you have the ability to **Customize** > **Edit** and **Save** a copy of your modified version into a custom workbook. 
 
 ![Customize bar](./media/cosmosdb-insights-overview/customize.png)
 
