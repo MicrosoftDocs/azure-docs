@@ -409,9 +409,11 @@ Deploy your project to Azure using the following command:
 mvn azure-functions:deploy
 ```
 
-Your functions will now run in Azure, and continue to accumulate data in your Cosmos DB. You can view your deployed function app in the Azure portal, and view app telemetry through the connected Application Insights resource. The following screenshot shows the Live Metrics Stream for the app:
+Your functions will now run in Azure, and continue to accumulate data in your Cosmos DB. You can view your deployed function app in the Azure portal, and view app telemetry through the connected Application Insights resource. The following screenshots show the Live Metrics Stream and the Performance blades.
 
 ![Application Insights Live Metrics Stream](media/functions-eventhub-cosmosdb/application-insights-live-metrics-stream.png)
+
+![Application Insights Performance blade](media/functions-eventhub-cosmosdb/application-insights-performance.png)
 
 ## Clean up resources
 
