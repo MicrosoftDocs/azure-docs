@@ -32,13 +32,16 @@ To define an Azure Blob container, enter this information.
 
 ![screenshot of the add storage target page, populated with information for a new Azure Blob storage target](media/hpc-cache-add-blob.png)
 
-<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
+<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
 
 * **Storage target name** - Set a name that identifies this storage target in the Azure HPC Cache.
 * **Target type** - Choose **Blob**.
 * **Storage account** - Select the account with the container to reference.
 
   You will need to authorize the cache instance to access the storage account as described in [Add the access roles](#add-the-access-control-roles-to-your-account).
+
+  For information about the kind of storage account you can use, read [Blob storage requirements](hpc-cache-prereqs.md#blob-storage-requirements).
+
 * **Storage container** - Select the Blob container for this target.
 
 * **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
@@ -49,7 +52,7 @@ When finished, click **OK** to add the storage target.
 
 Azure HPC Cache uses [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) to authorize the cache application to access your storage account for Azure Blob storage targets.
 
-The storage account owner must explicitly add the roles [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "StorageCache Resource Provider".
+The storage account owner must explicitly add the roles [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "HPC Cache Resource Provider".
 
 You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target.
 
@@ -63,7 +66,10 @@ Steps to add the RBAC roles:
 
 1. In the **Assign access to** field, leave the default value selected ("Azure AD user, group, or service principal").  
 
-1. In the **Select** field, search for "storagecache".  This string should match one security principal, named "HPC Cache Resource Provider". Click that principal to select it.
+1. In the **Select** field, search for "hpc".  This string should match one service principal, named "HPC Cache Resource Provider". Click that principal to select it.
+
+   > [!NOTE]
+   > If a search for "hpc" doesn't work, try using the string "storagecache" instead. Users who joined the preview early might need to use the older name for the service principal.
 
 1. Click the **Save** button to add the role assignment to the storage account.
 

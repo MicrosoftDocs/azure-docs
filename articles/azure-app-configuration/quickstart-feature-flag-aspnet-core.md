@@ -49,7 +49,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 1. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
 
    ```    
-   dotnet new mvc
+   dotnet new mvc --no-https
    ```
 
 ## Add Secret Manager

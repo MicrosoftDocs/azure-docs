@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Mount the Azure HPC Cache (preview)

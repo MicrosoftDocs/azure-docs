@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure databases in Azure Database for MySQL using Ansible | Microsoft Docs
+title: Tutorial - Configure databases in Azure Database for MySQL using Ansible
 description: Learn how to use Ansible to create and configure an Azure Database for MySQL server
 keywords: ansible, azure, devops, bash, playbook, mysql, database
 ms.topic: tutorial

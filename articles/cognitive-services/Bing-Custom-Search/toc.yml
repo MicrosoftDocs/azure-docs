@@ -60,8 +60,9 @@
     - name: Handle hit highlighting
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Page through webpages
-      href: page-webpages.md
+    - name: Page through search results
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: Reference
   items:
     - name: Bing Custom Autosuggest API Reference

@@ -580,7 +580,7 @@
   - name: Quickstarts
     items:
     - name: Query Apache HBase - Apache Phoenix
-      href: ./hbase/apache-hbase-phoenix-squirrel-linux.md
+      href: ./hbase/apache-hbase-query-with-phoenix.md
     - name: Query Apache HBase - HBase Shell
       href: ./hbase/query-hbase-with-hbase-shell.md
   - name: Tutorials
@@ -595,6 +595,8 @@
         href: ./hbase/apache-hbase-rest-sdk.md
       - name: Develop Java applications
         href: ./hbase/apache-hbase-build-java-maven-linux.md
+      - name: Apache Phoenix with Apache Zeppelin
+        href: ./hbase/apache-hbase-phoenix-zeppelin.md
       - name: Apache Phoenix in HDInsight
         href: ./hdinsight-phoenix-in-hdinsight.md
       - name: Use the Apache Phoenix Query Server REST SDK

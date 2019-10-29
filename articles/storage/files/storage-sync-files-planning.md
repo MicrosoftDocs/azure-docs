@@ -4,7 +4,7 @@ description: Learn what to consider when planning for an Azure Files deployment.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -64,7 +64,7 @@ Cloud tiering is an optional feature of Azure File Sync in which frequently acce
 This section covers Azure File Sync agent system requirements and interoperability with Windows Server features and roles and third-party solutions.
 
 ### Evaluation cmdlet
-Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported operating system version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
 
 The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
@@ -92,13 +92,16 @@ To display the results in CSV:
 ```
 
 ### System Requirements
-- A server running Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019:
+- A server running one of the following operating system versions:
 
     | Version | Supported SKUs | Supported deployment options |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter and Standard | Full and Core |
     | Windows Server 2016 | Datacenter and Standard | Full and Core |
     | Windows Server 2012 R2 | Datacenter and Standard | Full and Core |
+    | Windows Server IoT 2019 for Storage| Datacenter and Standard | Full and Core |
+    | Windows Storage Server 2016| Datacenter and Standard | Full and Core |
+    | Windows Storage Server 2012 R2| Datacenter and Standard | Full and Core |
 
     Future versions of Windows Server will be added as they are released.
 
@@ -170,7 +173,7 @@ For volumes that don't have cloud tiering enabled, Azure File Sync supports Wind
     - Note: Once a file is tiered by Azure File Sync, the Deduplication optimization job will skip the file.
 - If a server running Windows Server 2012 R2 with the Azure File Sync agent installed is upgraded to Windows Server 2016 or Windows Server 2019, the following steps must be performed to support Data Deduplication and cloud tiering on the same volume:  
     - Uninstall the Azure File Sync agent for Windows Server 2012 R2 and restart the server.
-    - Download the Azure File Sync agent for the new server OS version (Windows Server 2016 or Windows Server 2019).
+    - Download the Azure File Sync agent for the new server operating system version (Windows Server 2016 or Windows Server 2019).
     - Install the Azure File Sync agent and restart the server.  
     
     Note: The Azure File Sync configuration settings on the server are retained when the agent is uninstalled and reinstalled.

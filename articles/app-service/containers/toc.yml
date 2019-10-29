@@ -111,6 +111,8 @@
         href: ../containers/app-service-linux-ci-cd.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy from local Git
         href: ../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Deploy with GitHub Actions
+        href: deploy-container-github-action.md
       - name: Deploy with template
         href: ../deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Java SE with Maven

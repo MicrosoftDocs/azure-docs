@@ -1,18 +1,13 @@
 ---
 title: Collect log data with Azure Log Analytics agent | Microsoft Docs
 description: This topic helps you understand how to collect data and monitor computers hosted in Azure, on-premises, or other cloud environment with Log Analytics.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/30/2019
+author: MGoedtel
 ms.author: magoedte
+ms.date: 10/07/2019
+
 ---
 
 # Collect log data with the Log Analytics agent
@@ -48,7 +43,7 @@ The agent for Linux and Windows isn't only for connecting to Azure Monitor, it a
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
 * Windows Server 2019
-* Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
+* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
 * Windows 7 SP1, Windows 8 Enterprise and Pro, and Windows 10 Enterprise and Pro
 
 >[!NOTE]

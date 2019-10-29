@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-manager: carmonm
 ---
 # Tutorial: Create and manage policies to enforce compliance
 
@@ -463,7 +462,7 @@ overview](../overview.md).
 
 1. Select **Compliance** in the left side of the Azure Policy page.
 
-1. Locate the **Get Source** initiative. It's likely still in _Compliance state_ of **Not started**.
+1. Locate the **Get Secure** initiative. It's likely still in _Compliance state_ of **Not started**.
    Click on the initiative to get full details on the progress of the assignment.
 
    ![Initiative compliance page - evaluations not started](../media/create-and-manage/compliance-status-not-started.png)

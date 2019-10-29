@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 10/08/2019
 ms.author: anzaman
 
 ---
@@ -26,7 +26,7 @@ There are a number of different diagrams in this article. Each section shows a d
 
 ## <a name="isolatedvnet"></a>One isolated VNet
 
-The Point-to-Site VPN gateway connection in this example is for a VNet that is not connected or peered with any other virtual network (VNet1). In this example, clients using SSTP or IKEv2 can access VNet1.
+The Point-to-Site VPN gateway connection in this example is for a VNet that is not connected or peered with any other virtual network (VNet1). In this example, clients can access VNet1.
 
 ![isolated VNet routing](./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolated VNet routing")
 
