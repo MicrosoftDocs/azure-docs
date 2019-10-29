@@ -72,6 +72,8 @@ Styling guide is a panel created with designers in mind. It allows for styling a
 
 ### Save button
 
+![Save button](media/api-management-howto-developer-portal-customize/save-button.png)
+
 Whenever you make a change in the portal, you need to save it manually by pressing the **Save** button (floppy disk) in the menu on the bottom. When you click the button, the modified content is automatically uploaded to your API Management service.
 
 ### Demonstration
@@ -82,26 +84,28 @@ In the video below we demonstrate how to edit the content of the portal, customi
 
 ## Step 3: customize the default content
 
+Before you make your portal available to the visitors, you should personalize the automatically generated content. The areas, which require the most changes are the landing page and the styling.
+
+> [!NOTE]
+> Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
+
 ### Landing page
 
 TODO
 
-### Styles
+### Styling
 
-TODO
-
-### Locked-down pages
-
-Due to integration considerations, the following pages can't be removed or moved under a different URL (but you can still customize them): 
 TODO
 
 ## Step 4: publish the portal
 
-TODO
+![Publish portal](media/api-management-howto-developer-portal-customize/publish-portal.png)
+
+To make your portal and its latest changes available to visitors, you need to publish it. This operation takes a few moments.
 
 ## Step 5: visit the portal
 
-TODO
+Once your portal is published, it is available under the same URL as the administrative panel, for example `https://contoso-api.portal.azure-api.net`. You can visit it in a new browser tab.
 
 ## Next steps
 

@@ -67,7 +67,9 @@ In this section, we answer common questions about the new developer portal, whic
 
 By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been modified in the generally available version for better user experience and it now includes new widgets.
 
-If you're using the managed version, you can reset the content of the portal by clicking **Reset content** in the **Portal operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content.
+If you're using the managed version, you can reset the content of the portal by clicking **Reset content** in the **Operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content.
+
+![Reset portal content](media/api-management-howto-developer-portal/reset-content.png)
 
 If you're using the self-hosted version, you can use the `scripts/generate.bat` script from the GitHub repository to reset the content.
 
