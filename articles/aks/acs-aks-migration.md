@@ -21,6 +21,9 @@ The scenarios where you want to utilize this document are:
 * Migrating from AKS Engine to AKS
 * Migrating AKS Cluster using Availability Sets to Virtual Machine Scale Sets
 
+__TODO__ Do we want to add a scenario where the user doesn't want to upgrade and instead wants to re-build the cluster?
+__TODO__ Do we want to add a note this assume within the same region?  If not, need to consider ACR + Storage migration too.  Documenting all cases becomes more complicated
+
 ## Differences between Kubernetes clusters
 
 ### ACS vs AKS
@@ -31,20 +34,25 @@ ACS and AKS differ in some key areas that affect migration. Before any migration
     * Unmanaged disks must be converted before you can attach them to AKS nodes.
     * Custom `StorageClass` objects for Azure disks must be changed from `unmanaged` to `managed`.
     * Any `PersistentVolumes` should use `kind: Managed`.
-* AKS supports [multiple node pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) (currently in preview).
+* AKS supports [multiple node pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools).
 * Nodes based on Windows Server are currently in [preview in AKS](https://azure.microsoft.com/blog/kubernetes-on-azure/).
 * AKS supports a limited set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions).
 * AKS is a managed service with a hosted Kubernetes control plane. You might need to modify your applications if you've previously modified the configuration of your ACS masters.
 
 ### AKS Engine vs AKS
 
+__TODO__ Add differences between two cluster types here
+
 ### AKS with Availability Sets vs Virtual Machine Scale Sets
+
+__TODO__ Add differences between two cluster types here
 
 ## Differences between Kubernetes versions
 
 If you're migrating to a newer version of Kubernetes, review the following resources to understand the Kubernetes versioning strategies:
 
 * [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions)
+* [AKS supported Kubernetes versions](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions)
 
 ## Reusable Resources
 
@@ -61,7 +69,7 @@ When migrating clusters, the following Azure resources should not need any addit
 
 ### Agent pools
 
-Although AKS manages the Kubernetes control plane, you still define the size and number of nodes to include in your new cluster. Assuming you want a 1:1 mapping from ACS to AKS, you'll want to capture your existing ACS node information. Use this data when you create your new AKS cluster.
+Although AKS manages the Kubernetes control plane, you still define the size and number of nodes to include in your new cluster. Assuming you want a 1:1 mapping to AKS, you'll want to capture your existing node pool sku. Use this data when you create your new AKS cluster.
 
 Example:
 
@@ -80,17 +88,30 @@ For complex applications, you'll typically migrate over time rather than all at 
 
 To complete the migration, you'll want to point clients to the new services that are running on AKS. We recommend that you redirect traffic by updating DNS to point to the Load Balancer that sits in front of your AKS cluster.
 
-* __TODO__ Go into detail about using Traffic Manager or Azure Front Door
+[Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) can direct customers to the desired Kubernetes cluster and application instance.  Traffic Manager is a DNS-based traffic load balancer that can distribute network traffic across regions.  For the best performance and redundancy, direct all application traffic through Traffic Manager before it goes to your AKS cluster.
+
+![AKS with Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
+
+In a multicluster deployment, customers should connect to a Traffic Manager DNS name that points to the services on each AKS cluster. Define these services by using Traffic Manager endpoints. Each endpoint is the *service load balancer IP*. Use this configuration to direct network traffic from the Traffic Manager endpoint in one region to the endpoint in a different region.
 
 ### Stateless applications
 
-Stateless application migration is the most straightforward case. You'll apply your YAML definitions to the new cluster, make sure everything works as expected, and redirect traffic to activate your new cluster.
+Stateless application migration is the most straightforward case. Apply your resource definitions (YAML or Helm) to the new cluster, make sure everything works as expected, and redirect traffic to activate your new cluster.
 
 ### Stateful applications
 
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
 
-__TODO__ Too generic.  Needs work
+If you use Azure Files, you can mount the file share as a volume into the new cluster:
+* [Mount Static Azure Files as a Volume](https://docs.microsoft.com/en-us/azure/aks/azure-files-volume#mount-the-file-share-as-a-volume)
+
+If you use Azure Managed Disks, you can only mount the disk if unattached to any VM:
+* [Mount Static Azure Disk as a Volume](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume#mount-disk-as-volume)
+
+If neither of those approaches work, you can use a backup and restore options:
+* [Velero on Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
+
+__TODO__ Could use better integration with the sections below it.
 
 #### Highly available applications
 
@@ -140,7 +161,7 @@ If you want to start with an empty share and make a copy of the source data, you
 
 We recommend that you use your existing CI/CD pipeline to deploy a known-good configuration to AKS. Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
 
-If that's not possible, export resource definitions from ACS and then apply them to AKS. You can use `kubectl` to export objects.
+If that's not possible, export resource definitions from your existing Kubernetes cluster and then apply them to AKS. You can use `kubectl` to export objects.
 
 ```console
 kubectl get deployment -o=yaml --export > deployments.yaml
@@ -148,7 +169,7 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 Several open-source tools can help, depending on your deployment needs:
 
-* [Velero](https://github.com/heptio/ark) (This tool requires Kubernetes 1.7.)
+* [Velero](https://velero.io/) (Requires Kubernetes 1.7+)
 * [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli)
 * [ReShifter](https://github.com/mhausenblas/reshifter)
 
