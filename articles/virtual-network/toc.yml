@@ -119,7 +119,7 @@
           href: ipv6-configure-standard-load-balancer-template-json.md
       - name: Standard Internal Load Balancer
         href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-      - name: virtual machine scale set with IPv6
+      - name: Virtual machine scale set with IPv6
         href: ipv6-virtual-machine-scale-set.md    
     - name: Network security groups
       items:
