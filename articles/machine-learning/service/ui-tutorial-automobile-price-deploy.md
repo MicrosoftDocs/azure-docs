@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ---
 
 # Tutorial: Deploy a machine learning model with the visual interface
@@ -36,7 +36,7 @@ In order to deploy your pipeline, you must:
 
 1. At the top of the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**
 
-    When you select **Create Predictive Pipeline**, several things happen:
+    When you select **Create inference pipeline**, several things happen:
     
     * The trained model is stored as a **Dataset** module in the module palette. You can find it under **My Datasets**.
     * Modules, like **Train Model** and **Split Data**, that were used for training are removed.
@@ -93,7 +93,7 @@ After your AKS service has finished provisioning, return to the real-time infere
 
 1. Select **Deploy**.
 
-    [!Screenshot showing how to setup a new real-time endpoint](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Screenshot showing how to set up a new real-time endpoint](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
 
     A success notification above the canvas will appear when deployment completes, it may take a few minutes.
 
