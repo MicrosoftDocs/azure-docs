@@ -71,7 +71,7 @@ Security can be enforced using:
 
 Supported T-SQL:
 
-- Full [SELECT](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-2017) surface area is supported, including majority of SQL functions
+- Full [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=sql-server-2017) surface area is supported, including majority of SQL functions
 - CETAS - CREATE EXTERNAL TABLE AS SELECT
 - DDL statements related to views and security only
 
@@ -87,7 +87,7 @@ SQL Analytics on-demand has no local storage, only metadata objects are stored i
 
 ### Extensions
 
-In order to enable smooth experience for in place querying of data residing in files in data lake, SQL Analytics on-demand extends the existing [OPENROWSET](https://docs.microsoft.com/en-us/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-2017) function by adding following capabilities:
+In order to enable smooth experience for in place querying of data residing in files in data lake, SQL Analytics on-demand extends the existing [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-2017) function by adding following capabilities:
 
 [Querying multiple files/folders](development-storage-files-overview.md#querying-multiple-files-folders)
 
@@ -113,7 +113,7 @@ SQL Analytics on-demand offers mechanisms to secure access to your data.
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL Analytics on-demand enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication). This capability simplifies permission management and enhances security. Azure Active Directory (AAD) supports [multi-factor authentication](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-ssms-mfa-authentication-configure) (MFA) to increase data and application security while supporting a single sign-on process.
+SQL Analytics on-demand enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication). This capability simplifies permission management and enhances security. Azure Active Directory (AAD) supports [multi-factor authentication](https://docs.microsoft.com/azure/sql-database/sql-database-ssms-mfa-authentication-configure) (MFA) to increase data and application security while supporting a single sign-on process.
 
 #### Authentication
 

@@ -83,7 +83,7 @@ For more about details about the options available in sqlcmd see [sqlcmd documen
 <!--Article references-->
 
 <!--MSDN references--> 
-[ads]: https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-ver15
+[ads]: https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15
 [Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->

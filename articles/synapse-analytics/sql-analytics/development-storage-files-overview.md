@@ -181,7 +181,7 @@ Check [Accessing elements from nested columns](querying-parquet-nested-types.md#
 
 #### Accessing elements from repeated columns
 
-To access elements from a repeated column (e.g. element of an Array or Map), use [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) function for every scalar element you need to project and provide:
+To access elements from a repeated column (e.g. element of an Array or Map), use [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) function for every scalar element you need to project and provide:
 
 - Nested/repeated column, as first parameter
 - A [JSON path](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to access, as a second parameter
@@ -189,7 +189,7 @@ To access elements from a repeated column (e.g. element of an Array or Map), use
 To access non-scalar elements from a repeated column, use [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) function for every non-scalar element you need to project and provide:
 
 - Nested/repeated column, as first parameter
-- A [JSON path](https://docs.microsoft.com/en-us/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to access, as a second parameter
+- A [JSON path](https://docs.microsoft.com/lational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to access, as a second parameter
 
 See syntax fragment below:
 

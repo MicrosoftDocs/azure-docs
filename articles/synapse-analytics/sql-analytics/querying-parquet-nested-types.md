@@ -69,7 +69,7 @@ FROM
 
 ## Accessing elements from repeated columns
 
-Following query reads file *justSimpleArray.parquet* file and utilizes [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve **scalar** element from within repeated column (e.g. Array or Map):
+Following query reads file *justSimpleArray.parquet* file and utilizes [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve **scalar** element from within repeated column (e.g. Array or Map):
 
 ```mssql
 SELECT 
@@ -86,7 +86,7 @@ FROM
 
 
 
-Following query reads file *mapExample.parquet* file and utilizes [JSON_QUERY](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve **non-scalar** element from within repeated column (e.g. Array or Map):
+Following query reads file *mapExample.parquet* file and utilizes [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve **non-scalar** element from within repeated column (e.g. Array or Map):
 
 ```mssql
 SELECT 
