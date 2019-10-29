@@ -13,12 +13,12 @@ ms.custom: mvc
 
 # ################################INCOMPLETE###############################
 # ASSUMPTIONS/QUESTIONS:
-# 26, 77, 79, 81, 84     -    Uses Microsoft Azure IoT device SDK for C# (Azure/azure-iot-sdk-csharp)
-#    84                  -    "preview" branch
-# 30                 -    Version of .NET?
-# 89-109             -    How do I build? This section needs to be replaced.
-# 115-119            -    Where is the project that you run? How do you run it?
-#     113, 118           -    takes same parameter as C project
+# 26, 48, 50, 52, 55     -    Uses Microsoft Azure IoT device SDK for C# (Azure/azure-iot-sdk-csharp)
+#    55                      -    "preview" branch
+# 30                     -    Should I give a minimum version of .NET?
+# 60-80                  -    How do I build? This section needs to be replaced.
+# 86-90                  -    Where is the project that you run? How do you run it?
+#     84, 89                 -    takes same parameter as C project
 ---
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub
@@ -41,36 +41,7 @@ Download and install the latest release of **Azure IoT explorer** from the tool'
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Prepare an IoT hub
-
-You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't have an IoT hub, follow [these instructions to create one](../iot-hub/iot-hub-create-using-cli.md):
-
-> [!NOTE]
-> During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
-
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance.
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** placeholders with your actual names.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
-```
-
-Run the following commands to get the _device connection string_ for the device you just registered:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
-```
-
-Run the following commands to get the _IoT hub connection string_ for your hub:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 ## Prepare the development environment
 
@@ -120,35 +91,15 @@ digitaltwin_sample_device.exe "<your device connection string>"
 
 The device application starts sending data to IoT Hub.
 
-## Use the Azure IoT explorer to validate the code
+[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
-1. Open Azure IoT explorer. You see the **App configurations** page.
-
-1. Enter your _IoT Hub connection string_ and select **Connect**.
-
-1. After you connect, you see the device overview page.
-
-1. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ New** and then **On the connected device** to add it.
+4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ New** and then **On the connected device** to add it.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:<YOUR_COMPANY_NAME>:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - interface, properties, commands, and telemetry.
+1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
 
-1. Select the **Telemetry** page to view the telemetry data the device is sending.
-
-1. Select the **Properties(non-writable)** page to view the non-writable properties reported by the device.
-
-1. Select the **Properties(writable)** page to view the writable properties you can update.
-
-1. Expand property **name**, update with a new name and select **update writable property**. 
-
-1. To see the new name show up in the **Reported Property** column, select the **Refresh** button on top of the page.
-
-1. Select the **Command** page to view all the commands the device supports.
-
-1. Expand the **blink** command and set a new blink time interval. Select **Send Command** to call the command on the device.
-
-1. Go to the simulated device to verify that the command executed as expected.
+[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer-2.md)]
 
 ## Next steps
 

@@ -28,36 +28,7 @@ node --version
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Prepare an IoT hub
-
-You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't have an IoT hub, follow [these instructions](../iot-hub/iot-hub-create-using-cli.md) to create one:
-
-> [!NOTE]
-> During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
-
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance.
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** with your actual names.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
-```
-
-Run the following commands to get the _device connection string_ for the device you just registered:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
-```
-
-Run the following commands to get the _IoT hub connection string_ for your hub:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 ## Connect your device
 
@@ -230,21 +201,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     acknowledgement succeeded.
     ```
 
-## Clean up resources
-
-If you plan to continue with later articles, you can keep the resources you used in this quickstart. Otherwise you can delete the resources you've created for this quickstart to avoid additional charges.
-
-To delete the hub and registered device, complete the following steps using the Azure CLI:
-
-```azurecli-interactive
-az group delete --name <Your group name>
-```
-
-To delete just the device you registered with your IoT Hub, complete the following steps using the Azure CLI:
-
-```azurecli-interactive
-az iot hub device-identity delete --hub-name [YourIoTHubName] --device-id [YourDevice]
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## Next steps
 
