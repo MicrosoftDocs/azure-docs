@@ -12,11 +12,13 @@ ms.reviewer: jrasnick
 
 # Synapse Analytics SQL resource consumption
 
-## SQL On-demand
+This article describes resource consumption models of SQL Analytics on-demand and SQL Analytics pool.
+
+## SQL Analytics on-demand
 
 SQL Analytics on-demand is a pay per query service that doesn't require you to pick the right size. The system automatically adjusts based on your requirements, freeing you up from managing your infrastructure and picking the right size for your solution.
 
-## SQL Pools - Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
+## SQL Analytics pool - Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
 
 Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWUs) to optimize price and performance, and how to change the number of units.
 
