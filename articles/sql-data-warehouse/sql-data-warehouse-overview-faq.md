@@ -41,7 +41,7 @@ Q. Can I connect PowerBI?
 
 A. Yes! Though PowerBI supports direct query with SQL DW, it’s not intended for large number of users or real-time data. For production use of PowerBI, we recommend using PowerBI on top of Azure Analysis Services or Analysis Service IaaS. 
 
-Q. What are SQL Data Warehouse Capacity Limits?
+Q. What are SQL Analytics Capacity Limits?
 
 A. See our current [capacity limits] page. 
 
@@ -57,7 +57,7 @@ A. If you have a feature request, submit it on our [UserVoice] page
 
 Q. How can I do x?
 
-A. For help in developing with SQL Data Warehouse, you can ask questions on our [Stack Overflow] page. 
+A. For help in developing with Azure Synapse Analytics, you can ask questions on our [Stack Overflow] page. 
 
 Q. How do I submit a support ticket?
 
@@ -65,24 +65,24 @@ A. [Support Tickets] can be filed through Azure portal.
 
 ## SQL language/feature support 
 
-Q. What datatypes does SQL Data Warehouse support?
+Q. What datatypes are supported?
 
-A. See SQL Data Warehouse [data types].
+A. See  [data types].
 
 Q. What table features do you support?
 
-A. While SQL Data Warehouse supports many features, some are not supported and are documented in [Unsupported Table Features].
+A. Many features are supported, the ones that are not supported and are documented in [Unsupported Table Features].
 
 ## Tooling and administration
 
 Q. Do you support Database projects in Visual Studio.
 
-A. We currently do not support Database projects in Visual Studio for SQL Data Warehouse. If you'd like to cast a vote to get this feature, visit our User Voice 
+A. We currently do not support Database projects in Visual Studio. If you'd like to cast a vote to get this feature, visit our User Voice 
 [Database projects feature request].
 
-Q. Does SQL Data Warehouse support REST APIs?
+Q. Does SQL Analytics support REST APIs?
 
-A. Yes. Most REST functionality that can be used with SQL Database is also available with SQL Data Warehouse. You can find API information within REST documentation pages or
+A. Yes. Most REST functionality that can be used with SQL Database is also available with SQL Analytics. You can find API information within REST documentation pages or
 [MSDN].
 
 
@@ -92,24 +92,24 @@ Q. What client drivers do you support?
 
 A. Driver support for DW can be found on the [Connection Strings] page
 
-Q: What file formats are supported by PolyBase with SQL Data Warehouse?
+Q: What file formats are supported by PolyBase?
 
 A: Orc, RC, Parquet, and flat delimited text
 
-Q: What can I connect to from SQL DW using PolyBase? 
+Q: What data sources can I connect to using PolyBase? 
 
 A: [Azure Data Lake Store] and [Azure Storage Blobs]
 
-Q: Is computation pushdown possible  when connecting to Azure Storage Blobs or ADLS? 
+Q: Is computation pushdown possible when connecting to Azure Storage Blobs or ADLS? 
 
-A: No, SQL DW PolyBase only interacts the storage components. 
+A: No, PolyBase only interacts with the storage components. 
 
 Q: Can I connect to HDI?
 
 A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, then you can load that data into SQL DW. However, you cannot generate pushdown computation to the HDI instance. 
 
 ## Next steps
-For more information on SQL Data Warehouse as a whole, see our [Overview] page.
+For more information on Azure Synapse Analytics as a whole, see our [Overview] page.
 
 
 <!-- Article references -->
