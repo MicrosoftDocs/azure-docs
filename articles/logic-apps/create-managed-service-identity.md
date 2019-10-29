@@ -168,14 +168,15 @@ These steps show how to use the managed identity with a trigger or action throug
 
    * The **URI** property specifies the endpoint URL for accessing the target Azure resource. This URI syntax usually includes the [resource ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for the Azure resource or service.
 
-   * The **Headers** property specifies any header values that the request needs or requires.
+   * The **Headers** property specifies any header values that you need or want to include in the request.
 
      > [!IMPORTANT]
-     > Make sure that the header specifies the `x-ms-version` property and the API version 
-     > for the operation that you want to run on the target resource. For more information, see 
+     > For outgoing HTTP trigger or action calls, make sure that the header specifies the 
+     > `x-ms-version` property and the API version for the operation that you want to run 
+     > on the target resource. For more information, see 
      > [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
-   * The **Queries** property specifies any query parameters that you need to include in the request, such as the parameter for a specific operation or a specific API version when required.
+   * The **Queries** property specifies any query parameters that you need to include in the request, such as the parameter for a specific operation.
 
    So, to run the [Snapshot Blob operation](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
 
