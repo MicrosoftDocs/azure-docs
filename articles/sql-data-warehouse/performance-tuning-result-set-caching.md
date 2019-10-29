@@ -32,7 +32,13 @@ Once result set caching is turned ON for a database, results are cached for all 
 - Queries using tables with row level security or column level security enabled
 - Queries returning data with row size larger than 64KB
 
-Queries with large result sets (for example, > 1 million rows) may experience slower performance during the first run when the result cache is being created.
+> [!IMPORTANT]
+> The operations to create result set cache and retrieving data from the cache are managed by the control node of a data warehouse instance.  
+> When result set caching is turned ON, running queries with large result set (large number of rows returned and/or large total size) can cause high CPU usage on the control node and slow down the instance's overall query performance.  
+
+Users can check [sys.dm_pdw_request_steps] for the time taken by the result set caching operations for your query. 
+
+
 
 ## When cached results are used
 
