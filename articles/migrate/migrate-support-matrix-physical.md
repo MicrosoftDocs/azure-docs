@@ -29,7 +29,7 @@ The table summarizes supported scenarios for physical servers.
 **Support** | **Details**
 --- | ---
 **Azure permissions** | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
-**Physical servers** | Assess up to x physical servers in a single project. You can have multiple projects in an Azure subscription. A project can include physical servers, VMware VMs and Hyper-V VMs, up to the assessment limits.
+**Physical servers** | Assess up to 250 physical servers in a single project. You can have multiple projects in an Azure subscription. A project can include physical servers, VMware VMs and Hyper-V VMs, up to the assessment limits.
 **Geography** | You can create Azure Migrate projects in a number of geographies. Although you can create projects in specific geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
 
   **Geography** | **Metadata storage location**
