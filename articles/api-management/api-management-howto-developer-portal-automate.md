@@ -24,9 +24,9 @@ This article shows you how to access the managed version of the Azure API Manage
 ## <a name="prerequisites"></a> Prerequisites
 
 - Read the [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
-- [Access and customize the managed developer portal in Azure API Management](api-management-howto-developer-portal-customize.md)
 - Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
 - Import and publish an Azure API Management instance. For more information, see [Import and publish](import-and-publish.md)
+- Complete the [Access and customize the managed developer portal in Azure API Management](api-management-howto-developer-portal-customize.md) tutorial
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
