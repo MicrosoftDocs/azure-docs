@@ -89,7 +89,7 @@ SQL Analytics on-demand has no local storage, only metadata objects are stored i
 
 In order to enable smooth experience for in place querying of data residing in files in data lake, SQL Analytics on-demand extends the existing [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-2017) function by adding following capabilities:
 
-[Querying multiple files/folders](development-storage-files-overview.md#querying-multiple-files/folders)
+[Querying multiple files or folders](development-storage-files-overview.md#querying-multiple-files-or-folders)
 
 [PARQUET file format](development-storage-files-overview.md#parquet-file-format)
 
@@ -103,7 +103,7 @@ In order to enable smooth experience for in place querying of data residing in f
 
 [filepath function](development-storage-files-overview.md#filepath-function)
 
-[Working with complex types and nested / repeated data structures](development-storage-files-overview.md#working-with-complex-types-and-nested-/-repeated-data-structures)
+[Working with complex types and nested or repeated data structures](development-storage-files-overview.md#working-with-complex-types-and-nested-or-repeated-data-structures)
 
  
 
