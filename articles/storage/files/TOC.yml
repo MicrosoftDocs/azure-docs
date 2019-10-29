@@ -27,6 +27,8 @@
     href: storage-files-planning.md
   - name: Planning for an Azure File Sync deployment
     href: storage-sync-files-planning.md
+  - name: Networking considerations for direct access
+    href: storage-files-networking-overview.md
   - name: About cloud tiering
     href: storage-sync-cloud-tiering.md
   - name: About storage accounts
@@ -107,6 +109,14 @@
       href: storage-how-to-use-files-linux.md
     - name: Use Azure Files with macOS
       href: storage-how-to-use-files-mac.md
+  - name: Network
+    items:
+    - name: Configure Site-to-Site VPN 
+      href: storage-files-configure-s2s-vpn.md
+    - name: Configure Point-to-Site VPN on Windows
+      href: storage-files-configure-p2s-vpn-windows.md
+    - name: Configure Point-to-Site VPN on Linux
+      href: storage-files-configure-p2s-vpn-linux.md
   - name: Manage
     items:
     - name: Register a server with Azure File Sync

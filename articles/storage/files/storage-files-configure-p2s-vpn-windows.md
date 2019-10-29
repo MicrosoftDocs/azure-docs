@@ -22,9 +22,9 @@ The article details the steps to configure a Point-to-Site VPN on Windows (Windo
 - The Azure Private DNS PowerShell module. This is not currently distributed as part of the Azure PowerShell module, so this may be installed with the following method:
     ```PowerShell
     if ($PSVersionTable.PSVersion -ge [System.Version]::new(6, 0)) {
-        Install-Module -Name Az.PrivateDns -RequiredVersion "0.1.3"
-    } else {
         Install-Module -Name Az.PrivateDns -AllowClobber -AllowPrerelease
+    } else {
+        Install-Module -Name Az.PrivateDns -RequiredVersion "0.1.3"
     }
 
     Import-Module -Name Az.PrivateDns
@@ -118,7 +118,7 @@ $internalVnet = Get-AzResource `
     -ApiVersion "2019-04-01"
 
 $internalVnet.Properties.subnets[1].properties.privateEndpointNetworkPolicies = "Disabled"
-$internalVnet | Set-AzResource -Force
+$internalVnet | Set-AzResource -Force | Out-Null
 
 $privateEndpointConnection = New-AzPrivateLinkServiceConnection `
     -Name "myConnection" `
@@ -137,8 +137,7 @@ if ($null -eq $zone) {
     $zone = New-AzPrivateDnsZone `
         -ResourceGroupName $resourceGroupName `
         -Name "privatelink.file.core.windows.net"
-}
-else {
+} else {
     $zone = $zone[0]
 }
 
@@ -203,7 +202,7 @@ Export-Certificate `
     -FilePath $exportedencodedrootcertpath `
     -NoClobber | Out-Null
 
-certutil -encode $exportedencodedrootcertpath  $exportedrootcertpath | Out-Null
+certutil -encode $exportedencodedrootcertpath $exportedrootcertpath | Out-Null
 
 $rawRootCertificate = Get-Content -Path $exportedrootcertpath
 
@@ -229,7 +228,7 @@ $publicIpAddressName = "$vpnName-PublicIP"
 
 $publicIPAddress = New-AzPublicIpAddress `
     -ResourceGroupName $resourceGroupName ` 
-    -Name "VpnIpAddress" `
+    -Name $publicIpAddressName `
     -Location $region `
     -Sku Basic `
     -AllocationMethod Dynamic
@@ -271,7 +270,10 @@ Invoke-WebRequest `
     -Uri $vpnClientConfiguration.VpnProfileSASUrl `
     -OutFile "$vpnTemp\vpnclientconfiguration.zip"
 
-Expand-Archive -Path "$vpnTemp\vpnclientconfiguration.zip"
+Expand-Archive `
+    -Path "$vpnTemp\vpnclientconfiguration.zip" `
+    -DestinationPath "$vpnTemp\vpnclientconfiguration"
+
 $vpnGeneric = "$vpnTemp\vpnclientconfiguration\Generic"
 $vpnProfile = ([xml](Get-Content -Path "$vpnGeneric\VpnSettings.xml")).VpnProfile
 
@@ -372,10 +374,6 @@ foreach ($session in $sessions) {
                 -AllUserConnection
 
             rasdial $virtualNetworkName
-
-            New-PSDrive -Name Z -PSProvider 
-
-            Remove-Item -Path $vpnTemp -Recurse
         }
 }
 
