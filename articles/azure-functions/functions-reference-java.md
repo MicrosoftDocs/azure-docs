@@ -22,7 +22,7 @@ This article assumes that you have already read the [Azure Functions developer r
 
 The concepts of [triggers and bindings](functions-triggers-bindings.md) are fundamental to Azure Functions. Triggers start the execution of your code. Bindings give you a way to pass data to and return data from a function, without having to write custom data access code.
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                        ## Create Java functions
+## Create Java functions
 
 To make it easier to create Java functions, there are Maven-based tooling and archetypes that use predefined Java templates to help you create projects with a specific function trigger.    
 
