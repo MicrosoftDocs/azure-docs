@@ -28,12 +28,10 @@ This document focuses on enabling security key based passwordless authentication
 
 ## Requirements
 
-| Device Type | Azure AD joined | Hybrid Azure AD joined |
-| --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
-| [Combined security information registration preview](concept-registration-mfa-sspr-combined.md) | X | X |
-| Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
-| WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher** | X | X |
+- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
+- Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
+- WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher**
 
 **Other vendors are also working to support WebAuthN in their browsers.
 

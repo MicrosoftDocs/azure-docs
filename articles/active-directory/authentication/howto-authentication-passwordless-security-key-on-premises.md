@@ -45,8 +45,7 @@ Organizations must complete the steps in the article [Enable passwordless securi
 
 Organizations must meet the following software requirements.
 
-- Azure AD joined devices must be running Windows 10 version 1809 or higher
-- Hybrid Azure AD joined devices must be running Windows 10 Insider Build 18945 or newer
+- Devices must be running Windows 10 Insider Build 18945 or newer
 - Upgrade to the latest version of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect)
 - Fully patched Windows Server 2016/2019 Domain Controllers to handle the on-premises authentication request load.
 
@@ -191,7 +190,7 @@ If clean installing a hybrid Azure AD joined machine, post domain join and resta
 
 ### I’m unable to get SSO to my NTLM network resource after signing in with FIDO and get a credential prompt
 
-There are known limitations based on how many servers have the new build and which will respond in time to service your resource request. To check if you can see a server that is running the feature, check the output of `nltest /dsgetdc:contoso /keylist /kdc`.
+Make sure enough domain controllers are patched to respond in time to service your resource request. To check if you can see a domain controller that is running the feature, check the output of nltest /dsgetdc:contoso /keylist /kdc.
 
 ## Next steps
 

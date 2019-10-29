@@ -34,7 +34,8 @@ This document focuses on enabling security key based passwordless authentication
 | WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher | X | X |
 | [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1809 or higher | X |   |
 | [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 Insider Build 18945 or higher |   | X |
-| Hybrid environments require fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
+| Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
+| Upgrade to the latest version of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) |   | X |
 | [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (Optional) | X | X |
 | Provisioning package (Optional) | X | X |
 | Group Policy (Optional) |   | X |
@@ -116,6 +117,10 @@ For devices not managed by Intune, a provisioning package can be installed to en
 1. Select **Build** on the **Build the provisioning package** page.
 1. Save the two files created (ppkg and cat) to a location where you can apply them to machines later.
 1. Follow the guidance in the article [Apply a provisioning package](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package), to apply the provisioning package you created.
+
+> [!NOTE]
+> Devices running Windows 10 Version 1809 must also enable shared PC mode (EnableSharedPCMode). Information about enabling this funtionality can be found in the article, 
+[Set up a shared or guest PC with Windows 10](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc).
 
 ### Enable with Group Policy
 
