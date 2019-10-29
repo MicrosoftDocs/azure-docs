@@ -6,7 +6,7 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/22/2019
+ms.date: 09/29/2019
 
 ---
 
@@ -20,6 +20,7 @@ First, the short answer:
 * You can write code that sends additional custom telemetry to help you with diagnostics and monitoring usage. (This extensibility is a great feature of Application Insights.) It would be possible, by mistake, to write this code so that it includes personal and other sensitive data. If your application works with such data, you should apply a thorough review processes to all the code you write.
 * While developing and testing your app, it's easy to inspect what's being sent by the SDK. The data appears in the debugging output windows of the IDE and browser. 
 * The data is held in [Microsoft Azure](https://azure.com) servers in the USA or Europe. (But your app can run anywhere.) Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit and at rest.
+*	Review the collected data, as this may include data that is allowed in some circumstances but not others.  A good example of this is Device Name. The Device Name from a Server has no privacy impact and is useful, but a Device Name from a Phone or Laptop may have a Privacy Impact and be less useful. An SDK developed primarily to target Servers would collect Device Name by default, and this may need to be overwritten in both normal events and exceptions.
 
 The rest of this article elaborates more fully on these answers. It's designed to be self-contained, so that you can show it to colleagues who aren't part of your immediate team.
 
