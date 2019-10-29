@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/16/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ---
@@ -84,7 +84,7 @@ The following table lists all configuration tests that are performed on AD FS ap
 |Relying party has NotBeforeSkew set up.      | Pass/Warning          | AD FS allows a time skew based on the NotBefore and NotOnOrAfter times in the SAML token. Azure AD doesn’t support this today but should not block the migration of the application to Azure AD.          |
 |Relying Party has RequestMFAFromClaimsProviders set to true.       | Pass/Warning          | This is a setting in AD FS that lets you specify whether the application is hardcoded to another claim provider and requires MFA. To move to Azure AD, we recommend that you move to Azure MFA or Custom Controls integration with a third party MFA provider. [Learn more about Azure MFA](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks).          |
 |Relying Party has SignedSamlRequestsRequired set to true       | Pass/Fail          | The application is configured in AD FS to verify the signature in the SAML request. This is an optional setting and should not block your migration. Azure Active Directory uses the reply URLs to validate the service provider.  If you have a scenario where this is blocking the migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13394589-saml-signature).          |
-|Relying Party has SignedSamlRequestsRequired set to true       | Pass/Warning         | The application is configured for a custom token lifetime. AD FS default is 1 hour. Azure AD supports this functionality using Conditional Access. To learn more, see [Configure authentication session management with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).          |
+|TokenLifetimeCheckResult        | Pass/Fail         | The application is configured for a custom token lifetime. AD FS default is 1 hour. Azure AD supports this functionality using Conditional Access. To learn more, see [Configure authentication session management with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).          |
 |Relying Party is set to encrypt claims. This is supported by Azure AD       | Pass          | With Azure AD you can encrypt the token send to the application. To learn more, see [Configure Azure AD SAML token encryption](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/howto-saml-token-encryption).          |
 |Relying Party is set to encrypt NameID in the SAML token.      | Pass/Fail          | The application is configured to encrypt the nameID claim in the SAML token. With Azure AD you can encrypt the entire token sent to the application. Encryption of specific claims is not yet supported. To learn more, see [Configure Azure AD SAML token encryption](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/howto-saml-token-encryption).         |
 
