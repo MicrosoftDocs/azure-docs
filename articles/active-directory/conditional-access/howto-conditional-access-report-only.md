@@ -31,7 +31,7 @@ To configure a Conditional Access policy in report-only mode:
 
 View report-only result in Azure AD Sign-in logs.
 
-To view the result of a Report-only policy for a particular sign-in:
+To view the result of a report-only policy for a particular sign-in:
 
 1. Sign into the **Azure portal** as a reports reader, security reader, security administrator, or global administrator.
 1. Browse to **Azure Active Directory** > **Sign-ins**.
