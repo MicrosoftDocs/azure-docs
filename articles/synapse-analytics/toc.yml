@@ -36,8 +36,8 @@
     #   href: article-template.md
     # - name: With SQL Analytics pool
     #   href: article-template.md
-    # - name: With SQL on-demand
-    #   href: article-template.md
+    - name: With SQL on-demand
+      href: ../synapse-analytics/sql-analytics/quickstart-using-sql-on-demand.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Tutorials
   items:
   # - name: BI Professional
@@ -518,22 +518,24 @@
 #           href: article-template.md
       - name: Query data in storage
         items:
-#         - name: Querying single CSV file
-#           href: article-template.md
-#         - name: Querying folders and multiple CSV files
-#           href: article-template.md
-#         - name: Querying specific files
-#           href: article-template.md
-#         - name: Querying Parquet files
-#           href: article-template.md
-#         - name: Querying Parquet nested types
-#           href: article-template.md
-#         - name: Querying JSON files
-#           href: article-template.md
-#         - name: Creating and using views
-#           href: article-template.md
+        - name: Overview
+          href: ../synapse-analytics/sql-analytics/query-data-in-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Querying single CSV file
+          href: ../synapse-analytics/sql-analytics/querying-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Querying folders and multiple CSV files
+          href: ../synapse-analytics/sql-analytics/querying-folders-and-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Querying specific files
+          href: ../synapse-analytics/sql-analytics/querying-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Querying Parquet files
+          href: ../synapse-analytics/sql-analytics/querying-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Querying Parquet nested types
+          href: ../synapse-analytics/sql-analytics/querying-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Querying JSON files
+          href: ../synapse-analytics/sql-analytics/querying-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Creating and using views
+          href: ../synapse-analytics/sql-analytics/creating-and-using-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 #         - name: Querying Spark tables
-#           href: article-template.md
+#           href: querying-spark-tables.md
 #       - name: Best practices
 #         href: article-template.md
     - name: Spark
