@@ -377,6 +377,11 @@
       "url": "https://github.com/microsoft/immersive-reader-sdk",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmosdb-java-v2",
+      "url": "https://github.com/Azure/azure-cosmosdb-java",
+      "branch": "master"
     }
   ],
   "branch_target_mapping": {
