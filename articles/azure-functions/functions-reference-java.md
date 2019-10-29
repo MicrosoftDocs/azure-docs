@@ -22,42 +22,44 @@ This article assumes that you have already read the [Azure Functions developer r
 
 The concepts of [triggers and bindings](functions-triggers-bindings.md) are fundamental to Azure Functions. Triggers start the execution of your code. Bindings give you a way to pass data to and return data from a function, without having to write custom data access code.
 
-## Project Scaffolding
+                                                                                                                                                                                                                                                                                                                                                                                                                                        ## Create Java functions
 
-The simplest way to scaffold a Java-based Azure Function project is to use `Apache Maven` archetypes shown below.  
-There are currently two Azure Functions archetypes for Maven:
-
-### Java Archetype
-
-This archetype is published under the following groupId and artifactId [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/).
-
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-	-DarchetypeArtifactId=azure-functions-archetype 
-```
-
-To get started, see the [Java quickstart](functions-create-first-java-maven.md). 
-
-### Kotlin Archetype (Preview)
-
-This archetype is published under the following groupId and artifactId [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/).
-
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-	-DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
-
-The source code of these archetypes can be found on the [Azure Maven Archetypes GitHub repository](https://github.com/microsoft/azure-maven-archetypes).
+To make it easier to create Java functions, there are Maven-based tooling and archetypes that use predefined Java templates to help you create projects with a specific function trigger.    
 
 ### Maven-based tooling
 
-You'll also find support for creating Java function projects using Maven in the following developer environments: 
+The following developer environments have tooling that lets you create Java function projects: 
 
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)
 + [IntelliJ](functions-create-maven-intellij.md)
+
+The article links above show you how to create your first functions using your IDE of choice. 
+
+### Project Scaffolding
+
+If you prefer command line development from the Terminal, the simplest way to scaffold Java-based function projects is to use `Apache Maven` archetypes. There are currently two Functions archetypes for Maven:
+
++ **Java Archetype**: published under the following groupId and artifactId [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/):
+
+    ```
+    mvn archetype:generate \
+        -DarchetypeGroupId=com.microsoft.azure \
+    	-DarchetypeArtifactId=azure-functions-archetype 
+    ```
+
+    To get started using this archetype, see the [Java quickstart](functions-create-first-java-maven.md). 
+
++ **Kotlin Archetype (Preview)** published under the following groupId and artifactId [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/):
+
+    ```
+    mvn archetype:generate \
+        -DarchetypeGroupId=com.microsoft.azure \
+    	-DarchetypeArtifactId=azure-functions-kotlin-archetype
+    ```
+
+The source code of these archetypes can be found on the [Azure Maven Archetypes GitHub repository](https://github.com/microsoft/azure-maven-archetypes).
+
 
 ## Folder structure
 
