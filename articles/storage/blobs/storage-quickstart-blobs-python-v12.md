@@ -297,13 +297,13 @@ The output of the app is similar to the following example:
 Azure Blob Storage v12 - Python quickstart sample
 
 Uploading to Azure storage as blob:
-        QuickStart11bf4e4e-5aff-4b1f-aa4c-2fc2fc28f622.txt
+        quickstartcf275796-2188-4057-b6fb-038352e35038.txt
 
 Listing blobs...
-        QuickStart11bf4e4e-5aff-4b1f-aa4c-2fc2fc28f622.txt
+        quickstartcf275796-2188-4057-b6fb-038352e35038.txt
 
 Downloading blob to
-        C:\Users\myusername\Documents\QuickStart11bf4e4e-5aff-4b1f-aa4c-2fc2fc28f622DOWNLOAD.txt
+        ./data/quickstartcf275796-2188-4057-b6fb-038352e35038DOWNLOAD.txt
 
 Press the Enter key to begin clean up
 
