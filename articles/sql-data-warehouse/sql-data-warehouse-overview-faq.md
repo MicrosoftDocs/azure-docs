@@ -26,7 +26,7 @@ A. Azure Synapse is Azure Sql Data Warehouse evolved. We have taken the same ind
 
 Q. How do I get started with Azure Synapse Analytics?
 
-A. You can get started with an [Azure free account](https://azure.microsoft.com/en-us/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html)
+A. You can get started with an [Azure free account](https://azure.microsoft.com/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html)
 
 Q. What does SQL DW offer for data security?
 
