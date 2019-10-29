@@ -169,6 +169,8 @@
       href: storage-troubleshooting-files-performance.md
     - name: Troubleshoot Azure File Sync
       href: storage-sync-files-troubleshoot.md
+    - name: Troubleshoot Deleting Azure Files
+      href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
 - name: Reference
   items:
   - name: Azure PowerShell
