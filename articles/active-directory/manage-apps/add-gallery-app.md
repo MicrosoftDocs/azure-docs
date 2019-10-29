@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 
     ![Search for an app by name or category](media/add-gallery-app/browse-gallery.png)
 
-6. Browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. (Optional) In the **Create your own application** form, you can edit the application name to match the needs of your organization.
+6. Browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. (Optional) In the form, you can edit the application name to match the needs of your organization.
 
     ![Shows how to add an application from the gallery](media/add-gallery-app/create-application.png)
 

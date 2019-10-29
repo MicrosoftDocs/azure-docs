@@ -51,7 +51,7 @@ To add a gallery application to your Azure AD tenant:
 
     ![Search for an app by name or category](media/add-application-portal/browse-gallery.png)
 
-6. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. The **Create your own application** form appears. You can edit the name of the application to match the needs of your organization. In this example we've changed the name to **GitHub-test**.
+6. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. In the form, you can edit the name of the application to match the needs of your organization. In this example we've changed the name to **GitHub-test**.
 
     ![Shows how to add an application from the gallery](media/add-application-portal/create-application.png)
 
