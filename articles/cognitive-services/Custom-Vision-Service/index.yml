@@ -84,7 +84,7 @@ landingContent:
             url: test-your-model.md
           - text: Improve your model
             url: getting-started-improving-your-classifier.md
-          - text: Use suggested tags
+          - text: Use Smart Labeler
             url: suggested-tags.md
 
   - title: Export models
