@@ -45,11 +45,11 @@ After running an automated machine learning experiment, a history of the runs ca
 
    [![Experiment list](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
 
-1. In the bottom table, select the **Run Number**.
+1. In the bottom table, select the **Run**.
 
    [![Experiment run](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
-1. In the Iterations table, select the **Iteration Number** for the model that you want to explore further.
+1. In the Models, select the **Algorithm name** for the model that you want to explore further.
 
    [![Experiment model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
