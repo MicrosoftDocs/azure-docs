@@ -63,8 +63,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
  1. Click **Save**
  1. Click **Next** to continue to the routes section
 
-> [!NOTE]
-> If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438 for HTTPS or 5888 for HTTP.
+    > [!NOTE]
+    > If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438 for HTTPS or 5888 for HTTP.
 
 
 ### Setup routes

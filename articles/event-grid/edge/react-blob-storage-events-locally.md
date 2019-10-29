@@ -5,7 +5,7 @@ author: arduppal
 manager: mchad
 ms.author: arduppal
 ms.reviewer: spelluru 
-ms.date: 10/29/2019
+ms.date: 10/02/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -162,10 +162,10 @@ This section shows you how to deploy the Azure Blob Storage module, which would 
 5. Click **Save**
 6. Click **Next** to continue to the routes section
 
-> [!NOTE]
-> If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the ports: 4438 for HTTPS, or 5888 for HTTP, 11002 for the Blob Storage module. 
+    > [!NOTE]
+    > If you are using an Azure VM as the edge device, add an inbound port rule to allow inbound traffic on the ports: 5888 for HTTP, 11002 for the Blob Storage module.
 
- ### Setup routes
+### Setup routes
 
 Keep the default routes, and select **Next** to continue to the review section
 
@@ -356,7 +356,6 @@ The data object has the following properties:
 
 See the following articles from the Blob Storage documentation:
 
-- To troubleshoot issues with using Azure Event Grid on IoT Edge, see [Troubleshooting guide](troubleshoot.md).
 - [Filter Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
 - [Recommended practices for consuming Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
 
