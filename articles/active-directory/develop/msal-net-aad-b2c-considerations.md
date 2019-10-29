@@ -37,9 +37,9 @@ The authority to use is `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
 - `azureADB2CHostname` is the name of the Azure AD B2C tenant plus the host (for example `{your-tenant-name}.b2clogin.com`),
 - `tenant` is the full name of the Azure AD B2C tenant (for example, `{your-tenant-name}.onmicrosoft.com`) or the GUID for the tenant, 
-- `policyName` the name of the policy, or user flow, to apply (for instance "b2c_1_susi" for sign-up/sign-in).
+- `policyName` the name of the policy or user flow to apply (for instance "b2c_1_susi" for sign-up/sign-in).
 
-For more information, on the Azure AD B2C authorities, see this [documentation](/azure/active-directory-b2c/b2clogin).
+For more information on the Azure AD B2C authorities, see this [documentation](/azure/active-directory-b2c/b2clogin).
 
 ## Instantiating the application
 
@@ -79,7 +79,7 @@ AuthenticationResult ar = await application .AcquireTokenInteractive(scopes)
 with:
 
 - `policy` being one of the previous strings (for instance `PolicySignUpSignIn`).
-- `ParentActivityOrWindow` is an optional parameter, for platforms supporting it, the parent UI (window in Windows, Activity in Android, UIViewController in iOS). For Android (all flows) and iOS (broker only) this parameter is required. See more information [here on the UI dialog](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow).
+- `ParentActivityOrWindow` is required for Android (the Activity), and optional for other platforms which support the parent UI, such as windows in Windows and UIViewController in iOS. See more information [here on the UI dialog](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow).
 - `GetAccountByPolicy(IEnumerable<IAccount>, string)` is a method that finds an account for a given policy. For example:
 
   ```csharp
@@ -95,12 +95,12 @@ with:
   }
   ```
 
-Applying a policy, or user flow, (for example, letting the end user edit their profile or reset their password) is currently done by calling `AcquireTokenInteractive`. In the case of these two policies you don't use the returned token / authentication result.
+Applying a policy or user flow (for example, letting the end user edit their profile or reset their password) is currently done by calling `AcquireTokenInteractive`. In the case of these two policies, you don't use the returned token / authentication result.
 
 ## Special case of EditProfile and ResetPassword policies
 
-When you want to provide an experience where your end-users sign in with a social identity, and then edit their profile, you want to apply the Azure AD B2C Edit Profile policy. The way to do this, is by calling `AcquireTokenInteractive` with
-the specific authority for that policy and a Prompt set to `Prompt.NoPrompt` to avoid the account selection dialog to be displayed (as the user is already signed-in and has an active cookie session).
+When you want to provide an experience where your end users sign in with a social identity and then edit their profile, you want to apply the Azure AD B2C Edit Profile policy. The way to do this is by calling `AcquireTokenInteractive` with
+the specific authority for that policy, and a Prompt set to `Prompt.NoPrompt` to prevent the account selection dialog from being displayed (as the user is already signed-in and has an active cookie session).
 
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
@@ -126,8 +126,8 @@ For more details on the ROPC flow, please see this [documentation](v2-oauth-ropc
 
 This flow is **not recommended** because your application asking a user for their password is not secure. For more information about this problem, see [this article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
 
-By using username/password, you are giving-up a number of things:
-- Core tenants of modern identity: password gets fished, replayed. Because we have this concept of a share secret that can be intercepted. This is incompatible with passwordless.
+By using username/password, you are giving up a number of things:
+- Core tenets of modern identity: password gets fished, replayed. Because we have this concept of a share secret that can be intercepted. This is incompatible with passwordless.
 - Users who need to do MFA won't be able to sign in (as there is no interaction).
 - Users won't be able to do single sign-on.
 
