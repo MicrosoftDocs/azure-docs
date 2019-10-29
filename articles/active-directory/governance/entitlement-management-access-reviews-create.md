@@ -39,7 +39,7 @@ To enable reviews of access packages, you must meet the prerequisites for creati
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
 
-## Create access reviews in an access package
+## Create access review of an access package
 
 You can enable access reviews when [creating a new policy](entitlement-management-access-package-create.md) or [editing an existing access package]entitlement-management-access-package-request-policy.md) policy. Follow these steps to enable access reviews while creating a new policy in an access package:git
 
@@ -67,7 +67,7 @@ This determines how often access reviews will occur.
 
 ![Specify the reviewers](./media/active-directory-entitlement-management-access-reviews/access-reviews-select-reviewer.png)
 
-## Create access reviews in an existing access package
+## Create access reviews of an existing access package
 
 Follow these steps to enable access reviews to an existing access package:
 
