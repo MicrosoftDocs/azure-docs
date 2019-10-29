@@ -277,4 +277,4 @@ In this tutorial, you learned how to:
 Now that you've created an Azure IoT Central condition monitoring application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Customize the operator dashboard](./tutorial-in-store-analytics-customize-dashboard-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)
+> [Customize the operator dashboard](./tutorial-in-store-analytics-customize-dashboard-pnp.md)
