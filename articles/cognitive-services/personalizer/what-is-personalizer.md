@@ -15,13 +15,12 @@ ms.author: diberry
 
 # What is Personalizer?
 
-Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
+Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their collective real-time behavior.
 
 * Provide information about your users and content and receive the top action to show your users. 
 * No need to clean and label data before using Personalizer.
 * Provide feedback to Personalizer when it is convenient to you. 
 * View real-time analytics. 
-* Use Personalizer as part of a larger data science effort to validate existing experiments.
 
 ## How does Personalizer work?
 
@@ -33,9 +32,9 @@ Personalizer uses machine learning models to discover what action to rank highes
 
 1. Choose an experience in your app to personalize.
 1. Create and configure an instance of the Personalization Service in the Azure portal. Each instance is a Personalizer Loop.
-1. Use SDK to call Personalizer with information (_features_) about your users, and the content (_actions_). You don't need to provide clean, labeled data before using Personalizer. 
+1. Use the [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) to call Personalizer with information (_features_) about your users, and the content (_actions_). You don't need to provide clean, labeled data before using Personalizer. APIs can be called directly or using SDKs available for different programming languages.
 1. In the client application, show the user the action selected by Personalizer.
-1. Use the SDK to provide feedback to Personalizer indicating if the user selected Personalizer's action. This is a _[reward score](concept-rewards.md)_.
+1. Use the [Reward API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) to provide feedback to Personalizer indicating if the user selected Personalizer's action. This is a _[reward score](concept-rewards.md)_.
 1. View analytics in the Azure portal to evaluate how the system is working and how your data is helping personalization.
 
 ## Where can I use Personalizer?

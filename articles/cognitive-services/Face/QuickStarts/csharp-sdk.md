@@ -24,7 +24,7 @@ Use the Face client library for .NET to:
 * [Identify a face](#identify-a-face)
 * [Take a snapshot for data migration](#take-a-snapshot-for-data-migration)
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
+[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
 ## Prerequisites
 
