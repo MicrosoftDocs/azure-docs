@@ -33,12 +33,24 @@ Once result set caching is turned ON for a database, results are cached for all 
 - Queries returning data with row size larger than 64KB
 
 > [!IMPORTANT]
-> The operations to create result set cache and retrieving data from the cache are managed by the control node of a data warehouse instance.  
-> When result set caching is turned ON, running queries with large result set (large number of rows returned and/or large total size) can cause high CPU usage on the control node and slow down the instance's overall query performance.  
+> The operations to create result set cache and retrieving data from the cache are managed by the control node of a data warehouse instance. 
+> When result set caching is turned ON, running queries that return large result set (for example, >1 million rows) can cause high CPU usage on the control node and slow down the instance's overall query performance.  To avoid this, turn OFF result set caching on the database before running those type of queries. 
 
-Users can check [sys.dm_pdw_request_steps] for the time taken by the result set caching operations for your query. 
+To check if the result set caching operations are taking too long, run this query in the database where result set caching is turned ON.
 
+```sql
+SELECT step_index, operation_type, location_type, status, total_elapsed_time, command 
+FROM sys.dm_pdw_request_steps 
+WHERE request_id  = <'request_id'>; 
+```
 
+Here is an example output for a query executed with result set caching disabled.
+
+![Query-steps-with-rsc-disabled](media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+
+Here is an example output for a query executed with result set caching enabled.
+
+![Query-steps-with-rsc-enabled](media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## When cached results are used
 
