@@ -100,7 +100,7 @@ The configuration would look like:
 3. [Create outbound rules](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule). Currently it is not possible to create outbound rules from the Azure portal. You can create outbound rules with [Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
 
    ```
-    az network lb outbound-rule create --address-pool <b>MyBackendPoolOfPublicILB</b> --frontend-ip-configs <b>MyPublicILBFrondEndIP</b> --idle-timeout 30 --lb-name <b>MyPublicILB</b> --name <b>MyOutBoundRules</b>  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group <b>MyResourceGroup</b>
+    az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
    ```
 
 4. Create Network Security group rules to restrict access to specific Public End Points. If there is existing Network Security Group, you can adjust it. The example below shows how to for allow access only to the Azure management API: 
@@ -159,8 +159,8 @@ The architecture would look like:
    1. Enter Name MyRouteTable, select Subscription, Resource group, and Location (matching the location of your Virtual network and Firewall).  
    1. Save  
 
-The firewall rule would look like:
-![Outbound connection with Azure Firewall](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   The firewall rule would look like:
+   ![Outbound connection with Azure Firewall](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Create User Defined Route from the subnet of your VMs to the private IP of **MyAzureFirewall**.
    1. As you are positioned on the Route Table, click Routes. Select Add. 
@@ -190,8 +190,8 @@ To allow pacemaker to communicate with the Azure management API, perform the fol
    ```
    sudo vi /etc/sysconfig/pacemaker
    # Add the following lines
-   http_proxy=http://<b>MyProxyService</b>:<b>MyProxyPort</b>
-   https_proxy=http://<b>MyProxyService</b>:<b>MyProxyPort</b>
+   http_proxy=http://MyProxyService:MyProxyPort
+   https_proxy=http://MyProxyService:MyProxyPort
    ```
 
 2. Restart the pacemaker service on **all** cluster nodes.  
