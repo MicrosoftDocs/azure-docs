@@ -12,7 +12,9 @@
       items:
       - name: Azure portal
         href: create-cosmosdb-resources-portal.md
-      - name: .NET app
+      - name: .NET app - V4 SDK
+        href: create-sql-api-dotnet-v4.md
+      - name: .NET app - V3 SDK
         href: create-sql-api-dotnet.md
       - name: Java app
         href: create-sql-api-java.md
