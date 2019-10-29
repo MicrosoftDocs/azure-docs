@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 
@@ -95,7 +95,13 @@ After you add an external Azure AD group, you can review and configure its prope
  
 Users from the configured Azure AD instance can now sign in to the developer portal. They can view and subscribe to any groups for which they have visibility.
 
-## <a id="log_in_to_dev_portal"/>Sign in to the developer portal by using an Azure AD account
+## <a id="log_in_to_dev_portal"/> Developer portal - sign in with an Azure AD account
+
+TODO
+
+## Legacy developer portal - sign in with an Azure AD account
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 To sign in to the developer portal by using an Azure AD account that you configured in the previous sections:
 

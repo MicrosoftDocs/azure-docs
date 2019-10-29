@@ -1,6 +1,6 @@
 ---
-title: Access and customize the new developer portal - Azure API Management | Microsoft Docs
-description: Learn how to use the new developer portal in API Management.
+title: Overview of Azure API Management developer portal - Azure API Management | Microsoft Docs
+description: Learn about the developer portal in API Management.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -17,9 +17,9 @@ ms.author: apimpm
 
 # Azure API Management developer portal overview
 
-Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It's a place, where API consumers can discover your APIs, learn how to use them, request access, and try them out interactively.
+Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
-This article describes the differences between the self-hosted and managed versions of the developer portal in API Management. It also explains its architecture and provides answers to frequently asked questions.
+This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture and provides answers to frequently asked questions.
 
 ![New API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
@@ -57,11 +57,19 @@ The portal components can be logically divided into two categories: *code* and *
 
 *API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
 
-The portal is based on an adapted fork of the [Paperbits framework](http://paperbits.io/). The original Paperbits functionality has been extended to provide API Management-specific widgets (e.g., a list of APIs, a list of Products) and a connector to API Management service for saving and retrieving content.
+The portal is based on an adapted fork of the [Paperbits framework](https://paperbits.io/). The original Paperbits functionality has been extended to provide API Management-specific widgets (e.g., a list of APIs, a list of Products) and a connector to API Management service for saving and retrieving content.
 
 ## <a name="faq"></a> Frequently asked questions
 
 In this section, we answer common questions about the new developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
+
+### How can I migrate from the preview version of the developer portal?
+
+By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been modified in the generally available version for better user experience and it now includes new widgets.
+
+If you're using the managed version, you can reset the content of the portal by clicking **Reset content** in the **Portal operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content.
+
+If you're using the self-hosted version, you can use the `scripts/generate.bat` script from the GitHub repository to reset the content.
 
 ### How can I migrate from the old developer portal to the new one?
 
