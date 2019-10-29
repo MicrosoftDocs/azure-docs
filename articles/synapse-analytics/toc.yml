@@ -957,7 +957,7 @@
       - name: Query with SSMS
         href: ../synapse-analytics/sql-analytics/sql-analytics-query-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with Visual Studio
-        href: ../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ../synapse-analytics/sql-analytics/sql-analytics-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     # - name: Spark pool
     #   href: article-template.md
 - name: Reference

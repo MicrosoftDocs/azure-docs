@@ -1,18 +1,17 @@
 ---
-title: Connect to Azure SQL Data Warehouse - VSTS | Microsoft Docs
-description: Query SQL Data Warehouse with Visual Studio.
+title: Connect to Azure SQL Pool - VSTS | Microsoft Docs
+description: Query SQL Pool with Visual Studio.
 services: sql-data-warehouse
-author: kevinvngo 
-manager: craigg
+author: azaricstefan 
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 08/15/2019
-ms.author: kevin
-ms.reviewer: igorstan
+ms.date: 10/21/2019
+ms.author: v-stazar 
+ms.reviewer: jrasnick
 ---
 
-# Connect to SQL Data Warehouse with Visual Studio and SSDT
+# Connect to SQL Pool with Visual Studio and SSDT
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](sql-analytics-query-ads.md)
 > * [Power BI](tutorial-bi-professional.md)
@@ -22,7 +21,7 @@ ms.reviewer: igorstan
 > 
 > 
 
-Use Visual Studio to query Azure SQL Data Warehouse in just a few minutes. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
+Use Visual Studio to query Azure SQL Pool in just a few minutes. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
 
 ## Supported tools for SQL analytics on-demand
 Visual studio is not supported currently with SQL analytics on-demand.
@@ -32,11 +31,11 @@ SQL Server Management Studio is supported partially from version 18.4 with limit
 ## Prerequisites
 To use this tutorial, you need:
 
-* An existing SQL Data Warehouse. To create one, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].
+* An existing SQL Pool. To create one, see [Create a SQL Pool][Create a SQL Pool].
 * SSDT for Visual Studio. If you have Visual Studio, you probably already have this. For installation instructions and options, see [Installing Visual Studio and SSDT][Installing Visual Studio and SSDT].
-* The fully qualified SQL server name. To find this, see [Connect to SQL Data Warehouse][Connect to SQL Data Warehouse].
+* The fully qualified SQL server name. To find this, see [Connect to SQL Pool][Connect to SQL Pool].
 
-## 1. Connect to your SQL Data Warehouse
+## 1. Connect to your SQL Pool
 1. Open Visual Studio 2019.
 2. Open SQL Server Object Explorer. To do this, select **View** > **SQL Server Object Explorer**.
    
@@ -78,13 +77,13 @@ Now that a connection has been established to your database, let's write a query
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI][visualizing the data with PowerBI].
 
-To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Data Warehouse][Authenticate to SQL Data Warehouse].
+To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Pool][Authenticate to SQL Pool].
 
 <!--Arcticles-->
-[Connect to SQL Data Warehouse]: ../../sql-data-warehouse/sql-data-warehouse-connect-overview.md
-[Create a SQL Data Warehouse]: ../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md
+[Connect to SQL Pool]: ../../sql-data-warehouse/sql-data-warehouse-connect-overview.md
+[Create a SQL Pool]: ../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md
 [Installing Visual Studio and SSDT]: ../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md
-[Authenticate to SQL Data Warehouse]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md
+[Authenticate to SQL Pool]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md
 [visualizing the data with PowerBI]: tutorial-bi-professional.md
 
 <!--Other-->
