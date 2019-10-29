@@ -110,11 +110,11 @@ The configuration would look like:
    1. Add a rule to **Allow** access to **AzureCloud**, with priority lower than the priority of the rule to deny all internet access.
 
 
-The outbound security rules would look like: 
+   The outbound security rules would look like: 
 
-![Outbound connection with Second Load Balancer with public IP](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
+   ![Outbound connection with Second Load Balancer with public IP](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-For more information on Azure Network security groups, see [Security Groups ](https://docs.microsoft.com/azure/virtual-network/security-overview). 
+   For more information on Azure Network security groups, see [Security Groups ](https://docs.microsoft.com/azure/virtual-network/security-overview). 
 
 ## Azure Firewall for outbound connections to internet
 
