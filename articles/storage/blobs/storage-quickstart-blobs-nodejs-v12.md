@@ -1,20 +1,20 @@
 ---
-title: "Quickstart: Azure Blob storage client library version 12 for Python"
-description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+title: "Quickstart: Azure Blob storage client library version 12 for Javascript"
+description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for Javascript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/30/2019
+ms.date: 10/31/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ---
 
-# Quickstart: Azure Blob storage client library version 12 for Python
+# Quickstart: Azure Blob storage client library version 12 for Javascript
 
-Get started with the Azure Blob Storage client library v12 for Python. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob Storage client library v12 for Javascript. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob Storage client library v12 for Python to:
+Use the Azure Blob Storage client library v12 for Javascript to:
 
 * Create a container
 * Create a blob in Azure Storage
@@ -22,21 +22,21 @@ Use the Azure Blob Storage client library v12 for Python to:
 * List all of the blobs in a container
 * Delete a container
 
-[API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+[API reference documentation](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob/v/12.0.0-preview.5) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Current [Python](https://www.python.org/downloads/) for your operating system.
+* Current [Node.js](https://nodejs.org/en/download/) for your operating system.
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for Python.
+This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for Javascript.
 
 ### Create the project
 
-Create a Python application named *blob-quickstart-v12*.
+Create a Javascript application named *blob-quickstart-v12*.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
 
@@ -58,13 +58,13 @@ Create a Python application named *blob-quickstart-v12*.
 
 ### Install the package
 
-While still in the application directory, install the Azure Blob Storage client library for Python package by using the `pip install` command.
+While still in the application directory, install the Azure Blob Storage client library for Javascript package by using the `npm install` command.
 
 ```console
-pip install azure-storage-blob --pre
+npm install @azure/storage-blob@12.0.0-preview.5
 ```
 
-This command installs the Azure Blob Storage client library for Python package and all the libraries on which it depends. In this case, that is just the Azure core library for Python.
+This command installs the Azure Blob Storage client library for Javascript package and all the libraries on which it depends. In this case, that is just the Azure core library for Javascript.
 
 ### Set up the app framework
 
@@ -76,12 +76,12 @@ From the project directory:
 
     Here's the code:
 
-    ```python
+    ```javascript
     import os, uuid
     from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
     try:
-        print("Azure Blob Storage v12 - Python quickstart sample")
+        print("Azure Blob Storage v12 - Javascript quickstart sample")
         # Quick start code goes here
     except Exception as ex:
         print('Exception:')
@@ -139,24 +139,24 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-python-v12/blob1.png)
+![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-javascript-v12/blob1.png)
 
-Use the following Python classes to interact with these resources:
+Use the following Javascript classes to interact with these resources:
 
-* [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers.
-* [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-* [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
+* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers.
+* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
+* [BlobClient](/javascript/api/@azure/storage-blob/blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob storage client library for Python:
+These example code snippets show you how to perform the following with the Azure Blob storage client library for Javascript:
 
-   * [Get the connection string](#get-the-connection-string)
-   * [Create a container](#create-a-container)
-   * [Upload blobs to a container](#upload-blobs-to-a-container)
-   * [List the blobs in a container](#list-the-blobs-in-a-container)
-   * [Download blobs](#download-blobs)
-   * [Delete a container](#delete-a-container)
+* [Get the connection string](#get-the-connection-string)
+* [Create a container](#create-a-container)
+* [Upload blobs to a container](#upload-blobs-to-a-container)
+* [List the blobs in a container](#list-the-blobs-in-a-container)
+* [Download blobs](#download-blobs)
+* [Delete a container](#delete-a-container)
 
 ### Get the connection string
 
@@ -164,7 +164,7 @@ The code below retrieves the connection string for the storage account from the 
 
 Add this code inside the `try` block:
 
-```python
+```javascript
 # Retrieve the connection string for use with the application. The storage 
 # connection string is stored in an environment variable on the machine 
 # running the application called CONNECT_STR. If the environment variable is
@@ -294,7 +294,7 @@ python blob-quickstart-v12.py
 The output of the app is similar to the following example:
 
 ```output
-Azure Blob Storage v12 - Python quickstart sample
+Azure Blob Storage v12 - Javascript quickstart sample
 
 Uploading to Azure storage as blob:
         quickstartcf275796-2188-4057-b6fb-038352e35038.txt
@@ -318,12 +318,12 @@ After you've verified the files, press the **Enter** key to delete the test file
 
 ## Next steps
 
-In this quickstart, you learned how to upload, download, and list blobs using Python.
+In this quickstart, you learned how to upload, download, and list blobs using Javascript.
 
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure blob storage SDK v12 Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Azure blob storage SDK v12 Javascript samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* To learn more, see the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
-* For tutorials, samples, quick starts and other documentation, visit [Azure for Python Developers](/azure/python/).
+* To learn more, see the [Azure SDK for Javascript](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
+* For tutorials, samples, quick starts and other documentation, visit [Azure for Javascript Developers](/azure/python/).

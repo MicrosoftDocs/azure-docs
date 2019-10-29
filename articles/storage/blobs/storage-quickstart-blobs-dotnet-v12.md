@@ -156,12 +156,12 @@ Use the following .NET classes to interact with these resources:
 
 These example code snippets show you how to perform the following with the Azure Blob storage client library for .NET:
 
-   * [Get the connection string](#get-the-connection-string)
-   * [Create a container](#create-a-container)
-   * [Upload blobs to a container](#upload-blobs-to-a-container)
-   * [List the blobs in a container](#list-the-blobs-in-a-container)
-   * [Download blobs](#download-blobs)
-   * [Delete a container](#delete-a-container)
+* [Get the connection string](#get-the-connection-string)
+* [Create a container](#create-a-container)
+* [Upload blobs to a container](#upload-blobs-to-a-container)
+* [List the blobs in a container](#list-the-blobs-in-a-container)
+* [Download blobs](#download-blobs)
+* [Delete a container](#delete-a-container)
 
 ### Get the connection string
 
@@ -172,10 +172,10 @@ Add this code inside the `Main` method:
 ```csharp
 Console.WriteLine("Azure Blob Storage v12 - .NET quickstart sample\n");
 
-// Retrieve the connection string for use with the application. The storage 
-// connection string is stored in an environment variable on the machine 
-// running the application called CONNECT_STR. If the 
-// environment variable is created after the application is launched in a 
+// Retrieve the connection string for use with the application. The storage
+// connection string is stored in an environment variable on the machine
+// running the application called CONNECT_STR. If the
+// environment variable is created after the application is launched in a
 // console or with Visual Studio, the shell or application needs to be closed
 // and reloaded to take the environment variable into account.
 string connectionString = Environment.GetEnvironmentVariable("CONNECT_STR");

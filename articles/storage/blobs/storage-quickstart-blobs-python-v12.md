@@ -151,12 +151,12 @@ Use the following Python classes to interact with these resources:
 
 These example code snippets show you how to perform the following with the Azure Blob storage client library for Python:
 
-   * [Get the connection string](#get-the-connection-string)
-   * [Create a container](#create-a-container)
-   * [Upload blobs to a container](#upload-blobs-to-a-container)
-   * [List the blobs in a container](#list-the-blobs-in-a-container)
-   * [Download blobs](#download-blobs)
-   * [Delete a container](#delete-a-container)
+* [Get the connection string](#get-the-connection-string)
+* [Create a container](#create-a-container)
+* [Upload blobs to a container](#upload-blobs-to-a-container)
+* [List the blobs in a container](#list-the-blobs-in-a-container)
+* [Download blobs](#download-blobs)
+* [Delete a container](#delete-a-container)
 
 ### Get the connection string
 
@@ -165,11 +165,11 @@ The code below retrieves the connection string for the storage account from the 
 Add this code inside the `try` block:
 
 ```python
-# Retrieve the connection string for use with the application. The storage 
-# connection string is stored in an environment variable on the machine 
+# Retrieve the connection string for use with the application. The storage
+# connection string is stored in an environment variable on the machine
 # running the application called CONNECT_STR. If the environment variable is
 # created after the application is launched in a console or with Visual Studio,
-# the shell or application needs to be closed and reloaded to take the 
+# the shell or application needs to be closed and reloaded to take the
 # environment variable into account.
 connect_str = os.getenv('CONNECT_STR')
 ```
