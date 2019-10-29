@@ -339,11 +339,11 @@
         - name: Transaction Best Practices
           href: sql-analytics/development-transaction-best-practices.md
         - name: User-defined schemas
-          href: sql-analytics/development-user-defined-schemas.md
+          href: ../synapse-analytics/sql-analytics-develop-user-defined-schemas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Variable assignment
-          href: sql-analytics/development-variable-assignment.md
+          href: ../synapse-analytics/sql-analytics-develop-variable-assignment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Views
-          href: sql-analytics/development-views.md
+          href: ../synapse-analytics/sql-analytics-develop-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Querying
       items:
       - name: Dynamic SQL
