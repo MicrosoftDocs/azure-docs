@@ -1,26 +1,101 @@
 ---
-title: Monitor Python applications with Azure Monitor (preview) | Microsoft Docs
-description: Provides instructions to wire up OpenCensus Python with Azure Monitor
+title: Incoming Request Tracking in Azure Application Insights with OpenCensus Python | Microsoft Docs
+description: Monitor request calls for your Python apps via OpenCensus Python.
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: reyang
-ms.author: reyang
-ms.date: 10/11/2019
+author: lzchen
+ms.author: lechen
+ms.date: 10/28/2019
 
 ms.reviewer: mbullwin
 ---
 
-# Set up Azure Monitor for your Python application (preview)
+# Track dependencies with OpenCensus Python
 
-Azure Monitor supports distributed tracing, metric collection, and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article will walk you through the process of setting up OpenCensus for Python and sending your monitoring data to Azure Monitor.
+Incoming request data is collected using OpenCensus Python and its various integrations. Track incoming request data sent to your web applications built on top of the popular web frameworks `django`, `flask` and `pyramid`. The data is then sent to Application Insights under Azure Monitor as `requests` telemetry.
 
-## Prerequisites
+First, instrument your Python application with latest [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor changes.
+## Tracking Django applications
 
+1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-django/) and instrument your application with the `django` middleware. Incoming requests sent to your `django` application will be tracked.
 
+2. Include `opencensus.ext.django.middleware.OpencensusMiddleware` in your `settings.py` file under `MIDDLEWARE`.
+
+```python
+MIDDLEWARE = (
+    ...
+    'opencensus.ext.django.middleware.OpencensusMiddleware',
+    ...
+)
+```
+
+3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`.
+
+```python
+OPENCENSUS = {
+    'TRACE': {
+        'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
+        'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
+            service_name='foobar',
+        )''',
+    }
+}
+```
+
+4. You can also add urls to `settings.py` under `BLACKLIST_PATHS` for requests that you do not want to track.
+
+```python
+OPENCENSUS = {
+    'TRACE': {
+        'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
+        'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
+            service_name='foobar',
+        )''',
+        'BLACKLIST_PATHS': 'https://example.com',  <--- This site will not be traced if a request is sent from it.
+    }
+}
+```
+
+## Tracking Flask applications
+
+1. Download and install `opencensus-ext-flask` from [PyPI](https://pypi.org/project/opencensus-ext-flask/) and instrument your application with the `flask` middleware. Incoming requests sent to your `flask` application will be tracked.
+
+```python
+
+from flask import Flask
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.ext.flask.flask_middleware import FlaskMiddleware
+from opencensus.trace.samplers import ProbabilitySampler
+
+app = Flask(__name__)
+middleware = FlaskMiddleware(
+    app,
+    exporter=AzureExporter(connection_string="InstrumentationKey=<your-ikey-here>"),
+    sampler=ProbabilitySampler(rate=1.0),
+)
+
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=8080, threaded=True)
+
+```
+
+2. Include `opencensus.ext.django.middleware.OpencensusMiddleware` in your `settings.py` file under `MIDDLEWARE`.
+
+```python
+MIDDLEWARE = (
+    ...
+    'opencensus.ext.django.middleware.OpencensusMiddleware',
+    ...
+)
+```
+
+3. 
 
 ## Sign in to the Azure portal
 
