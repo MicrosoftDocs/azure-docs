@@ -528,9 +528,46 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - usage
 
+The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
+
+### Customize the HTTP endpoint
+
+By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
+
+    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+
+You can customize this route using the optional `route` property on the HTTP trigger's input binding. As an example, the following *function.json* file defines a `route` property for an HTTP trigger:
+
+```json
+{
+    "bindings": [
+    {
+        "type": "httpTrigger",
+        "name": "req",
+        "direction": "in",
+        "methods": [ "get" ],
+        "route": "products/{category:alpha}/{id:int?}"
+    },
+    {
+        "type": "http",
+        "name": "res",
+        "direction": "out"
+    }
+    ]
+}
+```
+
+Using this configuration, the function is now addressable with the following route instead of the original route.
+
+```
+http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
+```
+
+This allows the function code to support two parameters in the address, _category_ and _id_.
+
 # [C#](#tab/csharp)
 
-[!INCLUDE [functions-bindings-http-input-usage](../../includes/functions-bindings-http-input-usage.md)]
+You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters.
 
 The following C# function code makes use of both parameters.
 
@@ -547,8 +584,6 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 ```
 
 # [C# Script](#tab/csharp-script)
-
-[!INCLUDE [functions-bindings-http-input-usage](../../includes/functions-bindings-http-input-usage.md)]
 
 The following C# function code makes use of both parameters.
 
@@ -748,59 +783,15 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # [JavaScript](#tab/javascript)
 
-The authenticated user is available via `context.user`.
-
-```javascript
-module.exports = function(context, req) {
-
-    const user = context.user;
-
-    // ...
-
-    context.done();
-};
-```
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 # [Python](#tab/python)
 
-The authenticated user is available via `req.user`.
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    user = req.user
-
-    # ...
-
-    return func.HttpResponse(f"Done")
-```
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 # [Java](#tab/java)
 
-The authenticated user is available via `req.user`.
-
-```java
-@FunctionName("GetUser")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req",
-            methods = {HttpMethod.GET},
-            authLevel = AuthorizationLevel.FUNCTION)
-        HttpRequestMessage<Optional<String>> request,
-        final ExecutionContext context) {
-
-    Object user = req.user;
-
-    // ...
-
-    return request.createResponseBuilder(HttpStatus.OK)
-                        .body("Done")
-                        .build();
-}
-```
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 ---
 
