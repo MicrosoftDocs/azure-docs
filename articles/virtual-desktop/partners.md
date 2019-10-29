@@ -57,6 +57,16 @@ When used with Windows Virtual Desktop, ControlUp provides additional capabiliti
 - [See the join solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Go to the partner website](https://www.controlup.com/solutions/ms_wvd/).
 
+## Ivanti
+
+![Ivanti Logo](./media/partners/ivanti.png)
+
+Ivanti User Workspace Manager is a Windows Virtual Desktop value-added service that eases desktop deployment and management by separating user data from the desktop for seamless portability. With Ivanti, users can deliver complex projects like migration to Windows 10, adoption of Office 365, or moving services to the cloud faster. 
+
+When used with Windows Virtual Desktop, Ivanti User Workspace Manager provides simple contextual management of the user desktop experience. Eliminate slow user logins and eradicate group policy nightmares. Utilizing Ivanti User Workspace Manager out-of-the-box templates, users can rapidly install simply using agents and existing console. Ivanti User Workspace Manager delivers responsive, secure desktops that users love, saving money on servers, managing users more effectively, and reducing endpoint security risk. 
+
+- [Go to the partner website](https://www.ivanti.com/products/user-workspace-manager).
+
 ## Lakeside Software
 
 ![Lakeside Software Logo](./media/partners/lakeside.png)
