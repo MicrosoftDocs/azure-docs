@@ -158,6 +158,8 @@ To configure role assignments for your Azure AD enabled Windows Server 2019 Data
 
 After a few moments, the security principal is assigned the role at the selected scope.
 
+![Assign roles to users who will access the VM](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-access-control-assign-role.png)
+
 ### Using the Azure Cloud Shell experience
 
 The following example uses [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](https://docs.microsoft.com/cli/azure/account#az-account-show), and the scope is set to the VM created in a previous step with [az vm show](https://docs.microsoft.com/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal RBAC inheritance permissions apply. For more information, see [Role-Based Access Controls](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control).
