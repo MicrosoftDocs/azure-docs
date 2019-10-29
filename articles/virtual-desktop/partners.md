@@ -94,7 +94,7 @@ Nerdio extends the value of Windows Virtual Desktop by making it easy to provisi
 
 ![Numecent Logo](./media/partners/numecent.png)
 
-Numecent is a Windows Virtual Desktop value-added services provider that significantly reduces the total operating costs by enabling rapid on-boarding and migration of complicated or incompatible Windows applications onto WVD environments, while minimizing configuration, reducing application updates, and simplifying complexity. Because Numecent Cloudpaging supports more applications seamlessly than any other application delivery tool, it reduces time and IT workloads in environments with a diverse set of applications. 
+Numecent is a Windows Virtual Desktop value-added services provider that significantly reduces the total operating costs by enabling rapid on-boarding and migration of complicated or incompatible Windows applications in Windows Virtual Desktop environments, while minimizing configuration, reducing application updates, and simplifying complexity. Because Numecent Cloudpaging supports more applications seamlessly than any other application delivery tool, it reduces time and IT workloads in environments with a diverse set of applications. 
 
 Used with Windows Virtual Desktop, Cloudpaging further reduces costs by completing the software asset lifecycle from deploying, upgrading, metering, and removing applications. Cloudpaging simplifies image management by dynamically provisioning apps as needed in real-time to the Windows Virtual Desktop deployments. Cloudpaging helps applications run without administration or intervention through the periodic Windows 10 updates. Cloudpaging also reduces the licensing cost of expensive applications by enabling more efficient deployment and usage of these applications. 
 
