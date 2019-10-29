@@ -23,7 +23,7 @@ Typically this happens when:
 * Your application may be doing predictive personalization in which Rank calls are made with less real-time context and their output may or may not be used by the application. 
 
 In these cases, the correct way to use Personalizer is by calling Rank requesting the event to be _inactive_. Personalizer will not expect a reward for this event, and will not apply a default reward either. 
-Letr in your business logic, if the application uses the information from the rank call, all you need to do is _activate_ the event. From the moment the event is active, Personalizer will expect a reward for the event or apply a default reward if no explicit call gets made to the Reward API.
+Later in your business logic, if the application uses the information from the rank call, all you need to do is _activate_ the event. From the moment the event is active, Personalizer will expect a reward for the event or apply a default reward if no explicit call gets made to the Reward API.
 
 ## Get inactive events
 
