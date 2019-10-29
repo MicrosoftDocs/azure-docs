@@ -30,14 +30,6 @@ ms.collection: M365-identity-device-management
 
 Azure AD Entitlement Management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how a user performs a self-review of their assigned access package(s).
 
-## Prerequisites
-
-To perform a self-review of your active access package assignments, you must meet the prerequisites for performing a self-review:
-- Azure AD Premium P2
-- User
-
-For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
-
 ## Open the access review
 
 To perform an access review, you must first open the access review. Use the following procedure to find and open the access review:
