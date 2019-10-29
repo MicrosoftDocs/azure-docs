@@ -28,7 +28,7 @@ The following table provides information about what kind of weather information 
 
 
 | Country/region              |  Satellite Tiles | Minute Forecast | Other* | 
-|-----------------------------|----------------|-----------------|--------|  
+|-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Anguilla                                 | ✓ |   |  ✓| 
 | Antarctica                               | ✓ |   |  ✓|
 | Antigua and Barbuda                      | ✓ |   |  ✓| 
@@ -92,7 +92,7 @@ The following table provides information about what kind of weather information 
 ## Middle East and Africa
 
 | Country/region              |  Satellite Tiles | Minute Forecast | Other* | 
-|-----------------------------|----------------|-----------------|--------|  
+|-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Algeria                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
 | Bahrain                     | ✓               |                              |        ✓| 
@@ -172,7 +172,7 @@ The following table provides information about what kind of weather information 
 ## Asia Pacific
 
 | Country/region              |  Satellite Tiles | Minute Forecast | Other* | 
-|-----------------------------|----------------|-----------------|--------|  
+|-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afghanistan                       | ✓ |   |  ✓| 
 | American Samoa                    | ✓ |   |  ✓| 
 | Australia                         | ✓ | ✓ |  ✓| 
@@ -239,9 +239,8 @@ The following table provides information about what kind of weather information 
 
 ## Europe
 
-
 | Country/region              |  Satellite Tiles | Minute Forecast | Other* | 
-|-----------------------------|----------------|-----------------|--------|
+|-----------------------------|:----------------:|:-----------------:|:--------:|
 | Albania                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
 | Armenia                | ✓ |   |  ✓| 
