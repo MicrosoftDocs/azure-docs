@@ -91,9 +91,9 @@ You can obtain the current service tag and range information to include as part 
 ### Service tag Discovery API (Public Preview)
 You can programmatically retrieve the current list of service tags with IP address range details:
 
-- [REST](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
+- [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
 > While in Public Preview, the Discovery API may return information that is not as current as the JSON downloads (below).
@@ -108,7 +108,7 @@ You can download JSON files containing the current list of service tags with IP 
 - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)   
 
 > [!NOTE]
->A subset of this information has previously been published in XML files for [Azure Public](https://www.microsoft.com/en-us/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/en-us/download/details.aspx?id=42064) and [Azure Germany](https://www.microsoft.com/en-us/download/details.aspx?id=54770). These XML downloads will be deprecated by June 30, 2020 and will no longer be available after that date. Please migrate to using the Discovery API or JSON file downloads as described above.
+>A subset of this information has previously been published in XML files for [Azure Public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/download/details.aspx?id=42064) and [Azure Germany](https://www.microsoft.com/download/details.aspx?id=54770). These XML downloads will be deprecated by June 30, 2020 and will no longer be available after that date. Please migrate to using the Discovery API or JSON file downloads as described above.
 
 ### Tips 
 - You can detect updates from one publishing to the next via increased *changeNumber* values within the JSON file. Each subsection (e.g. **Storage.WestUS**) has its own *changeNumber* that is incremented as changes occur.  The top level of the file's *changeNumber* is incremented when any of the subsections has changed.
