@@ -1,12 +1,11 @@
 ---
 title: Azure Data Share terminology 
-description: Azure Data Share terminology
-author: joannapea
-
+description: Learn about common terms used to describe resources used in Azure Data Share (data provider, data consumer, data share, share subscription, snapshot, invitation, recipient.)
 ms.service: data-share
+author: joannapea
+ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
 ---
 # Azure Data Share Concepts 
 
@@ -50,7 +49,7 @@ A data provider can invite multiple recipients to their data share. They can do 
 
 A data provider can delete an invitation after it has been sent if it has not been accepted. If the data provider deletes an invitation and it has not yet been accepted, the data consumer will not be able to accept it. 
 
-Invitations can be resent up to 5 times a day. 
+Invitations can be resent up to five times a day. 
 
 ## Recipient
 
@@ -59,4 +58,3 @@ A recipient is someone that receives an invitation to a data share. Typically, a
 ## Next steps
 
 To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.
-
