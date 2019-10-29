@@ -567,9 +567,7 @@ This allows the function code to support two parameters in the address, _categor
 
 # [C#](#tab/csharp)
 
-You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters.
-
-The following C# function code makes use of both parameters.
+You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. The following C# function code makes use of both parameters.
 
 ```csharp
 using System.Net;
@@ -585,7 +583,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 
 # [C# Script](#tab/csharp-script)
 
-The following C# function code makes use of both parameters.
+You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. The following C# function code makes use of both parameters.
 
 ```csharp
 #r "Newtonsoft.Json"
