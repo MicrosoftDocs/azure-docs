@@ -1,20 +1,21 @@
 ---
 title: Moderate text by using the Text Moderation API - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Test-drive text moderation by using the Text Moderation API in the online console.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
+ms.author: pafarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/29/2019
 ---
 
 # Moderate text from the API console
 
-Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator to scan your text content. The operation scans your content for profanity and compares the content against custom and shared blacklists.
+Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator to scan your text content for profanity and compare it against custom and shared lists.
 
 ## Get your API key
 
@@ -57,9 +58,6 @@ For **Content-Type**, select the type of content you want to screen. For this ex
 
 In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
-> [!NOTE]
-> The invalid social security number in the following sample text is intentional. The purpose is to convey the sample input and output format.
-
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
 These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.
@@ -68,7 +66,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## Analyze the response
 
-The following response shows the various insights from the API. It contains potential profanity, PII, classification (preview), and the auto-corrected version.
+The following response shows the various insights from the API. It contains potential profanity, personal data, classification (preview), and the auto-corrected version.
 
 > [!NOTE]
 > The machine-assisted 'Classification' feature is in preview and supports English only.

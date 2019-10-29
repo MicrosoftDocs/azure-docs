@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Ruby"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
+titleSuffix: Azure Cognitive Services
+description: Learn how to quickly start suggesting search terms in real-time with the Bing Autosuggest API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 07/26/2019
 ms.author: aahi
 ---
 
@@ -34,7 +34,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     require 'json'
     ```
 
-2. Create variables for your API host and path, [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), partial search query.
+2. Create variables for your API host and path, [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), partial search query.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -150,4 +150,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## See also
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

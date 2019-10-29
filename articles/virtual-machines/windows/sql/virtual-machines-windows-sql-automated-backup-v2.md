@@ -8,7 +8,7 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -62,7 +62,7 @@ The following table describes the options that can be configured for Automated B
 | **Automated Backup** | Enable/Disable (Disabled) | Enables or disables Automated Backup for an Azure VM running SQL Server 2016/2017 Developer, Standard, or Enterprise. |
 | **Retention Period** | 1-30 days (30 days) | The number of days to retain backups. |
 | **Storage Account** | Azure storage account | An Azure storage account to use for storing Automated Backup files in blob storage. A container is created at this location to store all backup files. The backup file naming convention includes the date, time, and database GUID. |
-| **Encryption** |Enable/Disable (Disabled) | Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account. It uses the same **automaticbackup** container with the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups. |
+| **Encryption** |Enable/Disable (Disabled) | Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account. It uses the same **automatic backup** container with the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups. |
 | **Password** |Password text | A password for encryption keys. This password is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. |
 
 ### Advanced Settings
@@ -122,7 +122,7 @@ You can use the Azure portal to configure Automated Backup v2 during provisionin
 
 Use the Azure portal to configure Automated Backup v2 when you create a new SQL Server 2016 or 2017 Virtual Machine in the Resource Manager deployment model.
 
-In the **SQL Server settings** pane, select **Automated backup**. The following Azure portal screenshot shows the **SQL Automated Backup** settings.
+In the **SQL Server settings** tab, select **Enable** under **Automated backup**. The following Azure portal screenshot shows the **SQL Automated Backup** settings.
 
 ![SQL Automated Backup configuration in Azure portal](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
@@ -131,15 +131,14 @@ In the **SQL Server settings** pane, select **Automated backup**. The following 
 
 ## Configure existing VMs
 
-For existing SQL Server virtual machines, select your SQL Server virtual machine. Then select the **SQL Server configuration** section of the VM **Settings**.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+For existing SQL Server virtual machines, navigate to the [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) and then select **Backups** to configure your automated backups.
 
 ![SQL Automated Backup for existing VMs](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
-In the **SQL Server configuration** settings, click the **Edit** button in the Automated backup section.
 
-![Configure SQL Automated Backup for existing VMs](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration-edit.png)
-
-When finished, click the **OK** button on the bottom of the **SQL Server configuration** settings to save your changes.
+When finished, click the **Apply** button on the bottom of the **Backups** settings page to save your changes.
 
 If you are enabling Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that, the Azure portal will reflect the new settings.
 
@@ -205,7 +204,7 @@ If your output shows that **Enable** is set to **False**, then you have to enabl
 ### Configure Automated Backup v2
 You can use PowerShell to enable Automated Backup as well as to modify its configuration and behavior at any time. 
 
-First, select or create a storage account for the backup files. The following script selects a storage account or creates it if it does not exist.
+First, select, or create a storage account for the backup files. The following script selects a storage account or creates it if it does not exist.
 
 ```powershell
 $storage_accountname = “yourstorageaccount”
@@ -316,7 +315,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 To monitor Automated Backup on SQL Server 2016/2017, you have two main options. Because Automated Backup uses the SQL Server Managed Backup feature, the same monitoring techniques apply to both.
 
-First, you can poll the status by calling [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Or query the [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) table valued function.
+First, you can poll the status by calling [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Or query the [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) table-valued function.
 
 Another option is to take advantage of the built-in Database Mail feature for notifications.
 

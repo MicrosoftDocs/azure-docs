@@ -1,6 +1,6 @@
 ---
 title: How to migrate your project to the 3.0 API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to migrate Custom Vision projects from the previous version of the API to the 3.0 API.
 services: cognitive-services
 author: areddish

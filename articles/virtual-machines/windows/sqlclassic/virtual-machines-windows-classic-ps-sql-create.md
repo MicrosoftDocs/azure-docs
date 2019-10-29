@@ -8,7 +8,7 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server

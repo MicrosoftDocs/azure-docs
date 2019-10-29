@@ -1,11 +1,11 @@
 ---
 title: Request Units and throughput in Azure Cosmos DB
 description: Learn about how to specify and estimate Request Unit requirements in Azure Cosmos DB
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: rimman
+ms.date: 07/23/2019
 
 ---
 # Request Units in Azure Cosmos DB
@@ -70,3 +70,4 @@ While you estimate the number of RUs per second to provision, consider the follo
 * Learn how to [optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md).
 * Learn how to [optimize reads and writes cost in Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Learn how to [optimize query cost in Azure Cosmos DB](optimize-cost-queries.md).
+* Learn how to [use metrics to monitor throughput](use-metrics.md).

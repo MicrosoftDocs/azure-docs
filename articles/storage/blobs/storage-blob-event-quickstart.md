@@ -1,16 +1,13 @@
 ---
 title: Send Azure Blob storage events to web endpoint - Azure CLI | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. Send the events to a Webhook. Handle the events in a web application.
-services: storage,event-grid 
 author: normesta
-
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
-ms.custom: seodec18
 ---
 
 # Quickstart: Route storage events to web endpoint with Azure CLI
@@ -22,7 +19,6 @@ Typically, you send events to an endpoint that processes the event data and take
 When you complete the steps described in this article, you see that the event data has been sent to the web app.
 
 ![View subscription event](./media/storage-blob-event-quickstart/view-results.png)
-
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -3,6 +3,7 @@ title: Azure Container Registry authentication with a managed identity
 description: Provide access to images in your private container registry by using a user-assigned or system-assigned managed Azure identity.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article

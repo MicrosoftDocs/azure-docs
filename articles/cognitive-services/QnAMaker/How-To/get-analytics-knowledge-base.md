@@ -1,16 +1,16 @@
 ---
-title: Analytics on knowledgebase 
+title: Analytics on knowledgebase - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker stores all chat logs and other telemetry, if you have enabled App Insights during the creation of your QnA Maker service. Run the sample queries to get your chat logs from App Insights.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 02/04/2019
-ms.author: tulasim
+ms.topic: conceptual
+ms.date: 09/12/2019
+ms.author: diberry
 ---
 
 # Get analytics on your knowledge base
@@ -21,34 +21,33 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
     ![Select your application insights resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Select **Analytics**. A new window opens where you can query QnA Maker telemetry.
-
-    ![Select Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
+2. Select **Log (Analytics)**. A new window opens where you can query QnA Maker telemetry.
 
 3. Paste in the following query and run it.
 
-    ```query
-        requests
-        | where url endswith "generateAnswer"
-        | project timestamp, id, name, resultCode, duration
-        | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
-        | join kind= inner (
-        traces | extend id = operation_ParentId
-        ) on id
-        | extend question = tostring(customDimensions['Question'])
-        | extend answer = tostring(customDimensions['Answer'])
-        | project KbId, timestamp, resultCode, duration, question, answer
+    ```kusto
+    requests
+    | where url endswith "generateAnswer"
+    | project timestamp, id, name, resultCode, duration, performanceBucket
+    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
+    | join kind= inner (
+    traces | extend id = operation_ParentId
+    ) on id
+    | extend question = tostring(customDimensions['Question'])
+    | extend answer = tostring(customDimensions['Answer'])
+    | extend score = tostring(customDimensions['Score'])
+    | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId 
     ```
 
     Select **Run** to run the query.
 
-    ![Run query](../media/qnamaker-how-to-analytics-kb/run-query.png)
+    [![Run query to determine questions, answers, and score from users](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 ## Run queries for other analytics on your QnA Maker knowledge base
 
 ### Total 90-day traffic
 
-```query
+```kusto
     //Total Traffic
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
@@ -58,7 +57,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
 ### Total question traffic in a given time period
 
-```query
+```kusto
     //Total Question Traffic in a given time period
     let startDate = todatetime('2018-02-18');
     let endDate = todatetime('2018-03-12');
@@ -71,7 +70,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
 ### User traffic
 
-```query
+```kusto
     //User Traffic
     requests
     | where url endswith "generateAnswer"
@@ -86,7 +85,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
 ### Latency distribution of questions
 
-```query
+```kusto
     //Latency distribution of questions
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
@@ -98,4 +97,4 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage keys](./key-management.md)
+> [Choose capactiy](../tutorials/choosing-capacity-qnamaker-deployment.md)

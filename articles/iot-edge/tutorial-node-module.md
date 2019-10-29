@@ -36,7 +36,7 @@ This tutorial demonstrates how to develop a module in **Node.js** using **Visual
 
 Use the following table to understand your options for developing and deploying Node.js modules: 
 
-| Node.js | Visual Studio Code | Visual Studio 2017 | 
+| Node.js | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Use VS Code for Node.js modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use VS Code for Node.js modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
@@ -105,7 +105,7 @@ Currently, Visual Studio Code can develop Node.js modules for Linux AMD64 and Li
 
 ### Update the module with custom code
 
-Each template comes with sample code included, which takes simulated sensor data from the **tempSensor** module and routes it to IoT Hub. In this section, add code to have NodeModule analyze the messages before sending them. 
+Each template comes with sample code included, which takes simulated sensor data from the **SimulatedTemperatureSensor** module and routes it to IoT Hub. In this section, add code to have NodeModule analyze the messages before sending them. 
 
 1. In the VS Code explorer, open **modules** > **NodeModule** > **app.js**.
 
@@ -209,7 +209,7 @@ Make sure that your IoT Edge device is up and running.
 
 3. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
 
-4. Click the refresh button. You should see the new **NodeModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**.
+4. Click the refresh button. You should see the new **NodeModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.
 
 ## View generated data
 

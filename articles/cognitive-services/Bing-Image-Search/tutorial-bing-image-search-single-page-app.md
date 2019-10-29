@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/12/2019
 ms.author: aahi
 ---
 
@@ -111,7 +111,7 @@ By default, the `onsubmit` handler returns `false`, keeping the form from being 
 
 ![[Bing Image Search form]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-The Bing Image Search API offers several [filter query parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) to narrow and filter search results. The HTML form in this application uses and displays the following parameter options:
+The Bing Image Search API offers several [filter query parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) to narrow and filter search results. The HTML form in this application uses and displays the following parameter options:
 
 |              |                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -364,7 +364,7 @@ The `index` and `count` parameters are used to number results, generate HTML for
     }, // relatedSearches renderer omitted
 ```
 
-The thumbnail image's `height` and `width` are used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. This enables Bing to return [a thumbnail](resize-and-crop-thumbnails.md) of exactly that size.
+The thumbnail image's `height` and `width` are used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. This enables Bing to return [a thumbnail](../bing-web-search/resize-and-crop-thumbnails.md) of exactly that size.
 
 ## Persisting client ID
 
@@ -381,7 +381,7 @@ Browser security policies (CORS) may prevent the `X-MSEdge-ClientID` header from
 > [!NOTE]
 > In a production Web application, you should perform the request server-side anyway. Otherwise, your Bing Search API key must be included in the Web page, where it is available to anyone who views source. You are billed for all usage under your API subscription key, even requests made by unauthorized parties, so it is important not to expose your key.
 
-For development purposes, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+For development purposes, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that allows response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow our tutorial app to access the client ID header. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then issue the following command in a command window:
 

@@ -67,7 +67,7 @@ When multiple partitions from the same input stream are combined, the late arriv
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-This message to inform you that at least one partition in your input is empty and will delay your output by the late arrival threshold. To overcome this, it is recommended you either: 
+This message to inform you that at least one partition in your input is empty and will delay your output by the late arrival threshold. To overcome this, it is recommended you either:  
 1. Ensure all partitions of your Event Hub/IoT Hub receive input. 
 2. Use Partition by PartitionID clause in your query. 
 

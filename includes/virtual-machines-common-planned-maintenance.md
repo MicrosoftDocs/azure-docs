@@ -5,7 +5,7 @@
  author: shants123
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 4/30/2019
+ ms.date: 8/22/2019
  ms.author: shants
  ms.custom: include file
 ---
@@ -16,7 +16,7 @@ Updates rarely affect the hosted VMs. When updates do have an effect, Azure choo
 
 - If the update doesn't require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host.
 
-- If maintenance requires a reboot, you're notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance yourself, at a time that works for you. The self-maintenance window is typically 30 days unless the maintenance is urgent. Azure is investing in technologies to reduce the number of cases in which planned platform maintenance requires the VMs to be rebooted. 
+- If maintenance requires a reboot, you're notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance yourself, at a time that works for you. The self-maintenance window is typically 35 days unless the maintenance is urgent. Azure is investing in technologies to reduce the number of cases in which planned platform maintenance requires the VMs to be rebooted. 
 
 This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](../articles/virtual-machines/windows/manage-availability.md) or the corresponding article for [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -34,7 +34,7 @@ Memory-preserving maintenance works for more than 90 percent of Azure VMs. It do
 
 These maintenance operations that don't require a reboot are applied one fault domain at a time. They stop if they receive any warning health signals. 
 
-These types of updates can affect some applications. When the VM is live-migrated to a different host, some sensitive workloads might show a slight performance degradation in the few minutes leading up to the VM pause. To prepare for VM maintenance and reduce impact during Azure maintenance, try [using Scheduled Events for Windows](../articles/virtual-machines/windows/scheduled-events.md) or [Linux](../articles/virtual-machines/linux/scheduled-events.md) for such applications. Azure is working on maintenance-control features for these sensitive applications. 
+These types of updates can affect some applications. When the VM is live-migrated to a different host, some sensitive workloads might show a slight performance degradation in the few minutes leading up to the VM pause. To prepare for VM maintenance and reduce impact during Azure maintenance, try [using Scheduled Events for Windows](../articles/virtual-machines/windows/scheduled-events.md) or [Linux](../articles/virtual-machines/linux/scheduled-events.md) for such applications. Azure also provides full control over such non-zero impact platform maintenance on [Azure Dedicated Hosts](../articles/virtual-machines/windows/dedicated-hosts.md) and [Isolated VMs](../articles/security/fundamentals/isolation-choices.md). Maintenance control feature is in preview and you can request access by submitting [sign-up form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u). It gives you the option to skip non-zero impact platform updates and apply the updates as a batch at a time of your choice within a 35-day rolling window.
 
 ### Live migration
 

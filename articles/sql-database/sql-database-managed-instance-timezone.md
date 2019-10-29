@@ -9,8 +9,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
-manager: craigg
-ms.date: 05/22/2019
+ms.date: 09/03/2019
 ---
 # Time zones in Azure SQL Database Managed Instance
 
@@ -24,7 +23,9 @@ Use [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-tra
 
 ## Supported time zones
 
-A set of supported time zones is inherited from the underlying operating system of the managed instance. It's regularly updated to get new time zone definitions and reflect changes to the existing ones. 
+A set of supported time zones is inherited from the underlying operating system of the managed instance. It's regularly updated to get new time zone definitions and reflect changes to the existing ones.
+
+[Daylight saving time/time zone changes policy](https://aka.ms/time) guarantees historical accuracy from 2010 forward.
 
 A list with names of the supported time zones is exposed through the [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) system view.
 
@@ -37,7 +38,7 @@ A time zone of a managed instance can be set during instance creation only. The 
 
 ### Set the time zone through the Azure portal
 
-When you enter parameters for a new instance, select a time zone from the list of supported time zones. 
+When you enter parameters for a new instance, select a time zone from the list of supported time zones.
   
 ![Setting a time zone during instance creation](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -76,14 +77,14 @@ You can restore a backup file or import data to a managed instance from an insta
 
 ### Point-in-time restore
 
-When you perform a point-in-time restore, the time to restore to is interpreted as UTC time. This setting avoids any ambiguity due to daylight saving time and its potential changes.
+When you perform a point-in-time restore, the time to restore to is interpreted as UTC time. This way any ambiguities due to daylight saving time and its potential changes are avoided.
 
 ### Auto-failover groups
 
 Using the same time zone across a primary and secondary instance in a failover group isn't enforced, but we strongly recommend it.
 
   >[!WARNING]
-  > We strongly recommend that you use the same time zone for the primary and secondary instance in a failover group. Because of some rare scenarios, keeping the same time zone across primary and secondary instances isn't enforced. It's important to understand that in the case of manual or automatic failover, the secondary instance will retain its original time zone.
+  > We strongly recommend that you use the same time zone for the primary and secondary instance in a failover group. Because of certain rare use cases keeping the same time zone across primary and secondary instances isn't enforced. It's important to understand that in the case of manual or automatic failover, the secondary instance will retain its original time zone.
 
 ## Limitations
 

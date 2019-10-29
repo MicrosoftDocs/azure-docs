@@ -141,13 +141,13 @@ You author two linked services in this section:
    
    b. For **Type**, confirm that **On-demand HDInsight** is selected.
    
-   c. For **Azure Storage Linked Service**, select **AzureStorage1**. You created this linked service earlier. If you used a different name, specify the right name here. 
+   c. For **Azure Storage Linked Service**, select **AzureBlobStorage1**. You created this linked service earlier. If you used a different name, specify the right name here. 
    
    d. For **Cluster type**, select **spark**.
    
    e. For **Service principal id**, enter the ID of the service principal that has permission to create an HDInsight cluster. 
    
-      This service principal needs to be a member of the Contributor role of the subscription or the resource group in which the cluster is created. For more information, see [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md).
+      This service principal needs to be a member of the Contributor role of the subscription or the resource group in which the cluster is created. For more information, see [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). The **Service principal id** is equivalent to the *Application ID*, and a **Service principal key** is equivalent to the value for a *Client secret*.
    
    f. For **Service principal key**, enter the key. 
    
@@ -183,7 +183,7 @@ You author two linked services in this section:
    ![Specifying the HDInsight linked service](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Switch to the **Script/Jar** tab, and complete the following steps: 
 
-   a. For **Job Linked Service**, select **AzureStorage1**.
+   a. For **Job Linked Service**, select **AzureBlobStorage1**.
    
    b. Select **Browse Storage**.
 
@@ -200,7 +200,7 @@ You author two linked services in this section:
 
 
 ## Trigger a pipeline run
-Select **Trigger** on the toolbar, and then select **Trigger Now**. 
+Select **Add Trigger** on the toolbar, and then select **Trigger Now**. 
 
 !["Trigger" and "Trigger Now" buttons](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -216,7 +216,7 @@ Select **Trigger** on the toolbar, and then select **Trigger Now**.
 
    ![Pipeline run status](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   You can switch back to the pipeline runs view by selecting the **Pipelines** link at the top.
+   You can switch back to the pipeline runs view by selecting the **All Pipeline Runs** link at the top.
 
    !["Activity Runs" view](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 

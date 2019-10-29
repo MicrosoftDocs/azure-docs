@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Node.js"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to quickly start suggesting search terms in real-time with the Bing Autosuggest API.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 07/26/2019
 ms.author: aahi
 ---
 
@@ -33,7 +33,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     let https = require ('https');
     ```
 
-2. Create variables for the API endpoint host and path, your subscription key, [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), and a search term.
+2. Create variables for the API endpoint host and path, your subscription key, [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search term.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -187,4 +187,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Create a single-page web app](../tutorials/autosuggest.md)
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

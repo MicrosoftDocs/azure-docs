@@ -4,8 +4,8 @@ description: This article describes how to manage updates for Azure virtual mach
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
@@ -53,7 +53,7 @@ Select **Add Azure VMs**.
 
 ![Add Azure VM tab](./media/manage-update-multi/update-onboard-vm.png)
 
-Select a virtual machine to onboard. 
+Select a virtual machine to onboard.
 
 Under **Enable Update Management**, select **Enable** to onboard the virtual machine.
 
@@ -79,7 +79,7 @@ Computers that have recently been enabled for Update Management might not have b
 
 - **Non-compliant**: Computers that are missing at least one critical or security update.
 
-- **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last 3 hours. For Windows computers, the expected timeframe is in the last 12 hours.
+- **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last hour. For Windows computers, the expected timeframe is in the last 12 hours.
 
 To view the status of the agent, select the link in the **UPDATE AGENT READINESS** column. Selecting this option opens the **Hybrid Worker** pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
 
@@ -110,7 +110,7 @@ After a computer completes a scan for update compliance, the agent forwards the 
 
 In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes of the MMA being restarted, before update installation, and after update installation.
 
-For a Linux computer, the compliance scan is performed every 3 hours by default. If the MMA agent is restarted, a compliance scan is initiated within 15 minutes.
+For a Linux computer, the compliance scan is performed every hour by default. If the MMA agent is restarted, a compliance scan is initiated within 15 minutes.
 
 It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
 
@@ -124,12 +124,12 @@ In the **New update deployment** pane, specify the following information:
 
 - **Name**: Enter a unique name to identify the update deployment.
 - **Operating system**: Select **Windows** or **Linux**.
-- **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management.md#using-dynamic-groups)
+- **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management-groups.md)
 - **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
-- **Update classification**: Select the types of software to include in the update deployment. For a description of the classification types, see [Update classifications](automation-update-management.md#update-classifications). The classification types are:
+- **Update classification**: Select the types of software to include in the update deployment. For a description of the classification types, see [Update classifications](automation-view-update-assessments.md#update-classifications). The classification types are:
   - Critical updates
   - Security updates
   - Update rollups
@@ -139,7 +139,7 @@ In the **New update deployment** pane, specify the following information:
   - Tools
   - Updates
 
-- **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior)
+- **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [Schedule an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 - **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. You can also specify a different time.
 
@@ -162,7 +162,7 @@ In the **New update deployment** pane, specify the following information:
 When you're finished configuring the schedule, select the **Create** button to return to the status dashboard. The **Scheduled** table shows the deployment schedule that you created.
 
 > [!NOTE]
-> Update Management supports deploying first party updates and pre-downloading patches. This requires changes on the systems being patched, see [first party and pre download support](automation-update-management.md#firstparty-predownload) to learn how to configure these settings on your systems.
+> Update Management supports deploying first party updates and pre-downloading patches. This requires changes on the systems being patched, see [first party and pre download support](automation-configure-windows-update.md#pre-download-updates) to learn how to configure these settings on your systems.
 
 ## View results of an update deployment
 

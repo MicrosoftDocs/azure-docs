@@ -4,13 +4,11 @@ description: Samples are a great way to experience Jupyter notebooks running in 
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
-
+manager: barbkess
 ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb

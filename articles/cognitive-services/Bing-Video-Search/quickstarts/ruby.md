@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for videos using the Bing Video Search REST API and Ruby"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using Ruby.
 services: cognitive-services
 author: aahill
@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
 ---
 
 # Quickstart: Search for videos using the Bing Video Search REST API and Ruby
 
-Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple Ruby application sends an HTTP video search query to the API, and displays the response. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages. 
+Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple Ruby application sends an HTTP video search query to the API, and displays the response. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) with additional error handling, and code annotations.
 
 ## Prerequisites
 

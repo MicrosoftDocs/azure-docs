@@ -1,13 +1,13 @@
 ---
 title: Prepare the DPM server to back up workloads to Azure
 description: An introduction to backing up DPM data to an Azure Recovery Services vault.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
+ms.author: dacurwin
 ---
 # Prepare to back up workloads to Azure with System Center DPM
 
@@ -48,6 +48,7 @@ Supported file types | These file types can be backed up with Azure Backup: Encr
 Unsupported file types | Servers on case-sensitive file systems; hard links (skipped); reparse points (skipped); encrypted and compressed (skipped); encrypted and sparse (skipped); Compressed stream; parse stream.
 Local storage | Each machine you want to back up must have local free storage that's at least 5 % of the size of the data that is being backed up. For example, backing up 100 GB of data requires a minimum of 5 GB of free space in the scratch location.
 Vault storage | There’s no limit to the amount of data you can back up to an Azure Backup vault, but the size of a data source (for example a virtual machine or database) shouldn’t exceed 54400 GB.
+Azure ExpressRoute | If Azure ExpressRoute is configured with Private or Microsoft peering, it cannot be used to back up the data to Azure.<br/><br/> If Azure ExpressRoute is configured with Public Peering, it can be used to back up the data to Azure.<br/><br/> **Note:** Public Peering is deprecated for new circuits.
 Azure Backup agent | If DPM is running on System Center 2012 SP1, install Rollup 2 or later for DPM SP1. This is required for agent installation.<br/><br/> This article describes how to deploy the latest version of the Azure Backup agent, also known as the Microsoft Azure Recovery Service (MARS) agent. If you have an earlier version deployed, update to the latest version to ensure that backup works as expected.
 
 Before you start, you need an Azure account with the Azure Backup feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. Read about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
@@ -84,13 +85,13 @@ You use vault credentials when you register the DPM server in the vault.
 
 ### Best practices for vault credentials
 
-To obtain the credentials you download the vault credential file through a secure channel from the Azure portal:
+To obtain the credentials, download the vault credential file through a secure channel from the Azure portal:
 
 - The vault credentials are used only during the registration workflow.
 - It's your responsibility to ensure that the vault credentials file is safe, and not compromised.
     - If control of the credentials is lost, the vault credentials can be used to register other machines to vault.
     - However, backup data is encrypted using a passphrase that belongs to the customer, so existing backup data can't be compromised.
-- Ensure that file is saved in a location which can be accessed from the DPM server. If it is stored in a file share/SMB, check for the access permissions.
+- Ensure that file is saved in a location that can be accessed from the DPM server. If it is stored in a file share/SMB, check for the access permissions.
 - Vault credentials expire after 48 hrs. You can download new vault credentials as many times as needed. However, only the latest vault credential file can be used during the registration workflow.
 - The Azure Backup service isn't aware of the certificate's private key, and the private key isn't available in the portal or the service.
 
@@ -176,7 +177,7 @@ The vault credentials file is valid only for 48 hrs (after it’s downloaded fro
 
 ### Access error
 
-Ensure that the vault credentials file is available in a location which can be accessed by the setup application. If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.
+Ensure that the vault credentials file is available in a location that can be accessed by the setup application. If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.
 
 ### Invalid credentials error
 

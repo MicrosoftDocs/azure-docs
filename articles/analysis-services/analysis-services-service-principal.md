@@ -2,7 +2,6 @@
 title: Automate Azure Analysis Services tasks with service principals  | Microsoft Docs
 description: Learn how to create service principals for automating Azure Analysis Services tasks.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/23/2019
@@ -93,7 +92,7 @@ When connecting with client applications and web apps, [AMO and ADOMD client lib
 
 In the following example, `appID` and a `password` are used to perform a model database refresh operation:
 
-```C#
+```csharp
 string appId = "xxx";
 string authKey = "yyy";
 string connString = $"Provider=MSOLAP;Data Source=asazure://westus.asazure.windows.net/<servername>;User ID=app:{appId};Password={authKey};";

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/29/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,6 +33,9 @@ Azure AD combined security information registration is not currently available t
 > [!IMPORTANT]
 > Users who are enabled for both the original preview and the enhanced combined registration experience will see the new behavior. Users who are enabled for both experiences will see only the new My Profile experience. The new My Profile aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 
+> [!NOTE] 
+> You might encounter an error message while trying to access the Security info option. For example, "Sorry, we can't sign you in". In this case, confirm that you don't have any configuration or group policy object that blocks third-party cookies on the web browser. 
+
 My Profile pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages will continue to render in the last language used. If you clear the cache, the pages will re-render. If you want to force a specific language, you can add `?lng=<language>` to the end of the URL, where `<language>` is the code of the language you want to render.
 
 ![Set up SSPR or other security verification methods](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
@@ -54,7 +57,7 @@ Combined registration supports the following authentication methods and actions:
 | App passwords | Yes | No | Yes |
 
 > [!NOTE]
-> App passwords are available only to users who have been enforced for Multi-Factor Authentication. App passwords are not available to users who are enabled for Multi-Factor Authentication via a conditional access policy.
+> App passwords are available only to users who have been enforced for Multi-Factor Authentication. App passwords are not available to users who are enabled for Multi-Factor Authentication via a Conditional Access policy.
 
 Users can set one of the following options as the default Multi-Factor Authentication method:
 
@@ -83,7 +86,7 @@ Here are several scenarios in which users might be prompted to register or refre
 
 - Multi-Factor Authentication registration enforced through Identity Protection: Users are asked to register during sign-in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
 - Multi-Factor Authentication registration enforced through per-user Multi-Factor Authentication: Users are asked to register during sign-in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
-- Multi-Factor Authentication registration enforced through conditional access or other policies: Users are asked to register when they use a resource that requires Multi-Factor Authentication. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
+- Multi-Factor Authentication registration enforced through Conditional Access or other policies: Users are asked to register when they use a resource that requires Multi-Factor Authentication. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
 - SSPR registration enforced: Users are asked to register during sign-in. They register only SSPR methods.
 - SSPR refresh enforced: Users are required to review their security info at an interval set by the admin. Users are shown their info and can confirm the current info or make changes if needed.
 
@@ -132,7 +135,11 @@ A user who has previously set up at least one method that can be used for Multi-
 
 ## Next steps
 
+[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+
 [Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
+
+[SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
 
 [Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
 

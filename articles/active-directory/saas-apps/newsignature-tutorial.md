@@ -121,7 +121,7 @@ To configure Azure AD single sign-on with Cloud Management Portal for Microsoft 
 	|--|
 	| `https://<subdomain>.igcm.com/<instancename>` |
 	| `https://<subdomain>.newsignature.com` |
-	| `https://<subdomain>.newsignature.com/<instancename>` |<instancename>`
+	| `https://<subdomain>.newsignature.com/<instancename>` |
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Cloud Management Portal for Microsoft Azure Client support team](mailto:jczernuszka@newsignature.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -211,5 +211,5 @@ When you click the Cloud Management Portal for Microsoft Azure tile in the Acces
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

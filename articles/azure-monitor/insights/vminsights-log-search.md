@@ -1,18 +1,13 @@
 ---
 title: How to Query Logs from Azure Monitor for VMs (preview) | Microsoft Docs
 description: Azure Monitor for VMs solution collects metrics and log data to and this article describes the records and includes sample queries.
-services: azure-monitor
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/10/2019
 ms.author: magoedte
+ms.date: 04/10/2019
+
 ---
 
 # How to query logs from Azure Monitor for VMs (preview)
@@ -119,13 +114,6 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 
 ### Ports 
 Ports on a machine that actively accept incoming traffic or could potentially accept traffic, but are idle during the reporting time window, are written to the VMBoundPort table.  
-
->[!NOTE]
->Azure Monitor for VMs does not support collecting and recording port data in a Log Analytics workspace in the following regions:  
->- East US  
->- West Europe
->
-> Collecting this data is enabled in the other [supported regions](vminsights-enable-overview.md#log-analytics) for Azure Monitor for VMs. 
 
 Every record in VMBoundPort is identified by the following fields: 
 

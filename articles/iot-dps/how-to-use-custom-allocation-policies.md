@@ -152,7 +152,7 @@ In this section, you will create a new enrollment group that uses the custom all
 
 10. Replace the code for the new C# function with the following code and click **Save**:    
 
-    ```C#
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using System.Text;

@@ -1,15 +1,11 @@
 ---
 title: Create a VM and storage account for a scalable application in Azure | Microsoft Docs 
 description: Learn how to deploy a VM to be used to run a scalable application using Azure blob storage
-services: storage
 author: roygara
-
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
 ---
 
@@ -28,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

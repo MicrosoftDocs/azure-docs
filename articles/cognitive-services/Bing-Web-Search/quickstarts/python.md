@@ -51,13 +51,13 @@ search_term = "Azure Cognitive Services"
 
 ## Make a request
 
-This block uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. See [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation for a complete list of options and parameters.
+This block uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. See [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) documentation for a complete list of options and parameters.
 
 ```python
 import requests
 
-headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
-params  = {"q": search_term, "textDecorations":True, "textFormat":"HTML"}
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+params = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
 response = requests.get(search_url, headers=headers, params=params)
 response.raise_for_status()
 search_results = response.json()
@@ -73,7 +73,7 @@ from IPython.display import HTML
 rows = "\n".join(["""<tr>
                        <td><a href=\"{0}\">{1}</a></td>
                        <td>{2}</td>
-                     </tr>""".format(v["url"],v["name"],v["snippet"]) \
+                     </tr>""".format(v["url"], v["name"], v["snippet"])
                   for v in search_results["webPages"]["value"]])
 HTML("<table>{0}</table>".format(rows))
 ```

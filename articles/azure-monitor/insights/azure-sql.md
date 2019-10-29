@@ -1,15 +1,14 @@
 ---
 title: Azure SQL Analytics solution in Azure Monitor | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
-services: log-analytics
-ms.service: log-analytics
-ms.custom: 
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/17/2018
+
+ms.reviewer: carlrab
 ---
 
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview)
@@ -31,7 +30,7 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Azure Diagnostics](../platform/collect-azure-metrics-logs.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
+| [Diagnostics settings](../platform/diagnostic-settings.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
 | [Azure storage account](../platform/collect-azure-metrics-logs.md) | No | Azure Monitor doesn't read the data from a storage account. |
 | [Windows agents](../platform/agent-windows.md) | No | Direct Windows agents aren't used by the solution. |
 | [Linux agents](../learn/quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by the solution. |
@@ -154,7 +153,6 @@ Replace the “{SubscriptionId}" in the below script with your Azure subscriptio
     $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
     $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
-    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
     $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
     $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");

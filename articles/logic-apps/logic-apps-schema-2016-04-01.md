@@ -219,9 +219,10 @@ the Azure Diagnostic telemetry, emitted as part of a workflow. For example:
 }
 ```
 
-## Next Steps
+## Next steps
+
 * [Create workflow definitions for logic apps](../logic-apps/logic-apps-author-definitions.md)
-* [Create deployment templates for logic apps](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png

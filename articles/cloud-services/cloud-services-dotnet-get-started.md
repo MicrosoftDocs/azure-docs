@@ -3,18 +3,13 @@ title: Get started with Azure Cloud Services and ASP.NET | Microsoft Docs
 description: Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs.
 services: cloud-services, storage
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: jeconnoc
+ms.author: gwallace
 
 ---
 # Get started with Azure Cloud Services and ASP.NET
@@ -697,7 +692,7 @@ public override void Run()
 }
 ```
 
-After each iteration of the loop, if no queue message was found, the program sleeps for a second. This prevents the worker role from incurring excessive CPU time and storage transaction costs. The Microsoft Customer Advisory Team tells a story about a  developer who forgot to include this, deployed to production, and left for vacation. When he got back, his oversight cost more than the vacation.
+After each iteration of the loop, if no queue message was found, the program sleeps for a second. This prevents the worker role from incurring excessive CPU time and storage transaction costs. The Microsoft Customer Advisory Team tells a story about a  developer who forgot to include this, deployed to production, and left for vacation. When they got back, their oversight cost more than the vacation.
 
 Sometimes the content of a queue message causes an error in processing. This is called a *poison message*, and if you just logged an error and restarted the loop, you could endlessly try to process that message.  Therefore the catch block includes an if statement that checks to see how many times the app has tried to process the current message, and if it has been more than 5 times, the message is deleted from the queue.
 

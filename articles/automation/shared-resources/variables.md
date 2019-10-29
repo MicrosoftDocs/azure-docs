@@ -4,8 +4,8 @@ description: Variable assets are values that are available to all runbooks and D
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
@@ -22,7 +22,7 @@ Variable assets are values that are available to all runbooks and DSC configurat
 
 Since Automation variables are persisted, they are available even if the runbook or DSC configuration fails. This behavior allows a value to be set by one runbook that is then used by another, or is used by the same runbook or DSC configuration the next time that it's run.
 
-When a variable is created, you can specify that it is stored encrypted. Encrypted variables are stored securely in Azure Automation, and its value can't be retrieved from the [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet that ships as part of the Azure PowerShell module. The only way that an encrypted value can be retrieved is from the **Get-AutomationVariable** activity in a runbook or DSC configuration.
+When a variable is created, you can specify that it is stored encrypted. Encrypted variables are stored securely in Azure Automation, and its value can't be retrieved from the [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet that ships as part of the Azure PowerShell module. The only way that an encrypted value can be retrieved is from the **Get-AutomationVariable** activity in a runbook or DSC configuration. If you want to change an encrypted variable to un-encrypted, you can must delete and re-create the variable as un-encrypted.
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each automation account. This key is stored in a system managed Key Vault. Before storing a secure asset, the key is loaded from Key Vault and then used to encrypt the asset. This process is managed by Azure Automation.
@@ -54,7 +54,7 @@ For AzureRM, the cmdlets in the following table are used to create and manage au
 
 ## Activities
 
-The activities in the following table are used to access credentials in a runbook and DSC configurations.
+The activities in the following table are used to access variables in a runbook and DSC configurations. The difference between Get-AzureRmAutomationVariable and Get-AutomationVariable cmdlets is clarified above at the start of this document.
 
 | Activities | Description |
 |:---|:---|

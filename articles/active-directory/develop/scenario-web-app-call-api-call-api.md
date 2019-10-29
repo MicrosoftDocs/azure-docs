@@ -25,7 +25,18 @@ Now that you have a token, you can call a protected web API.
 
 ## ASP.NET Core
 
-Here is a simplified code of the action of the `HomeController`. This code gets a token to call the Microsoft Graph. This time code was added, showing how to call Microsoft Graph as a REST API.
+Here is a simplified code of the action of the `HomeController`. This code gets a token to call the Microsoft Graph. This time code was added, showing how to call Microsoft Graph as a REST API. The URL for the graph API is provided in the `appsettings.json` file and read in a variable named `webOptions`:
+
+```JSon
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    ...
+  },
+  ...
+  "GraphApiUrl": "https://graph.microsoft.com"
+}
+```
 
 ```CSharp
 public async Task<IActionResult> Profile()

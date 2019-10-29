@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 The following documentation provides information about the various device options available in Azure AD Connect. You can use Azure AD Connect to configure the following two operations: 
 * **Hybrid Azure AD join**: If your environment has an on-premises AD footprint and you want the benefits of Azure AD, you can implement hybrid Azure AD joined devices. These devices are joined  both to your on-premises Active Directory, and your Azure Active Directory.
-* **Device writeback**: Device writeback is used to enable conditional access based on devices to AD FS (2012 R2 or higher) protected devices
+* **Device writeback**: Device writeback is used to enable Conditional Access based on devices to AD FS (2012 R2 or higher) protected devices
 
 ## Configure device options in Azure AD Connect
 

@@ -4,8 +4,8 @@ description: Credential assets in Azure Automation contain security credentials 
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm
@@ -106,7 +106,7 @@ $password = $myCredential.GetNetworkCredential().Password
 You can also use a credential to authenticate to Azure with [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Under most circumstances, you should use a [Run As account](../manage-runas-account.md) and retrieve it with [Get-AutomationConnection](../automation-connections.md).
 
 ```azurepowershell
-$myCred = Get-AutomationPSCredential -Name 'MyCredential`
+$myCred = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password

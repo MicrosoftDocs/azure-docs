@@ -43,8 +43,8 @@ Each command in the table links to command specific documentation. This script u
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Creates an Azure SignalR Service resource. |
-| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | List the keys, which will be used by your application when pushing real-time content updates with SignalR. |
+| [az signalr create](/cli/azure/signalr#az-signalr-create) | Creates an Azure SignalR Service resource. |
+| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | List the keys, which will be used by your application when pushing real-time content updates with SignalR. |
 
 
 ## Next steps

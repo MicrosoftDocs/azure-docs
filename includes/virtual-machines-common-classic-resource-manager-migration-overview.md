@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/25/2019
-ms.author: jeconnoc
+ms.author: kasing
 ms.custom: include file
 
 ---

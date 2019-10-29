@@ -2,19 +2,11 @@
 title: What is a Cloud Service model and package | Microsoft Docs
 description: Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
+ms.author: gwallace
 
 ---
 # What is the Cloud Service model and how do I package it?
@@ -182,7 +174,7 @@ The following sample shows the configuration for a web role with a website and w
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" hostHeader="mail.mysite.cloudapp.net" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">

@@ -1,13 +1,13 @@
 ---
 title: 'Egress and endpoints in Azure Digital Twins | Microsoft Docs'
 description: Guidelines on how to create endpoints with Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
-ms.author: alinast
+ms.date: 10/02/2019
 ---
 
 # Egress and endpoints
@@ -241,7 +241,7 @@ The following examples demonstrate how to configure the supported endpoints.
 >[!IMPORTANT]
 > Pay careful attention to the **eventTypes** attribute. It defines which event types are handled by the endpoint and thus determine its routing.
 
-An authenticated HTTP POST request against
+An authenticated HTTP POST request against:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints

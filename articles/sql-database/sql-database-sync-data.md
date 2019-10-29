@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
+ms.date: 08/20/2019
 ---
 # Sync data across multiple cloud and on-premises databases with SQL Data Sync
 
@@ -113,6 +112,12 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 ### General requirements
 
 - Each table must have a primary key. Don't change the value of the primary key in any row. If you have to change a primary key value, delete the row and recreate it with the new primary key value. 
+
+> [!IMPORTANT]
+> Changing the value of an existing primary key will result in the following faulty behavior:   
+>	- Data between hub and member can be lost even though sync does not report any issue.
+> - Sync can fail because the tracking table has a non-existing row from source due to the primary key change.
+
 - Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### General limitations
@@ -123,6 +128,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 - Azure Active Directory authentication is not supported.
 - Tables with same name but different schema (for example, dbo.customers and sales.customers) are not supported.
+- Columns with User Defined Data Types are not supported
 
 #### Unsupported data types
 

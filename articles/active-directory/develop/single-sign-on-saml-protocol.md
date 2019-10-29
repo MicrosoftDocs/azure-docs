@@ -13,7 +13,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev

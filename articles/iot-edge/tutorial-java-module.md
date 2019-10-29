@@ -34,7 +34,7 @@ This tutorial demonstrates how to develop a module in **Java** using **Visual St
 
 Use the following table to understand your options for developing and deploying Java modules: 
 
-| Java | Visual Studio Code | Visual Studio 2017 | 
+| Java | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Use VS Code for Java modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use VS Code for Java modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
@@ -248,7 +248,7 @@ Make sure that your IoT Edge device is up and running.
 
 3. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
 
-4. Click the refresh button. You should see the new **JavaModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**.  
+4. Click the refresh button. You should see the new **JavaModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.  
 
 ## View generated data
 

@@ -4,17 +4,16 @@ description: Deploy the Stackify Retrace Linux agent on a Linux virtual machine.
 services: virtual-machines-linux 
 documentationcenter: ''
 author:  darinhoward
-manager: jeconnoc 
+manager: gwallace 
 editor: ''
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services 
 ms.date: 04/12/2018
-ms.author: roiyz
+ms.author: akjosh
 
 ---
 # Stackify Retrace Linux Agent Extension

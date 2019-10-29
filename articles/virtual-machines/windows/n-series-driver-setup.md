@@ -3,13 +3,13 @@ title: Azure N-series GPU driver setup for Windows | Microsoft Docs
 description: How to set up NVIDIA GPU drivers for N-series VMs running Windows Server or Windows in Azure
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: f3950c34-9406-48ae-bcd9-c0418607b37d
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -36,6 +36,8 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 After GRID driver installation on a VM, a restart is required. After CUDA driver installation, a restart is not required.
 
 ## Verify driver installation
+
+Please note that the Nvidia Control panel is only accessible with the GRID driver installation. If you have installed CUDA drivers then the Nvidia control panel will not be visible.
 
 You can verify driver installation in Device Manager. The following example shows successful configuration of the Tesla K80 card on an Azure NC VM.
 

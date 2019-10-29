@@ -5,8 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 03/18/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -24,6 +23,9 @@ This tutorial shows you how to migrate on-premises servers running Windows Serve
 > * Failover to Azure and complete the migration
 
 The limitations and known issues section, lists some of limitations and workarounds for known issues that you may encounter while migrating Windows Server 2008 machines to Azure. 
+
+> [!NOTE]
+> You can now migrate from on-premises to Azure using the Azure Migrate service. [Learn more](../migrate/migrate-services-overview.md).
 
 
 ## Supported Operating Systems and environments

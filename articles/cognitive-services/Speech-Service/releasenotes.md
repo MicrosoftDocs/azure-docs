@@ -1,19 +1,78 @@
 ---
-title: Release Notes - Speech Services
-titlesuffix: Azure Cognitive Services
-description: See a running log of feature releases, improvements, bug fixes, and known issues for Azure Speech Services.
+title: Release Notes - Speech Service
+titleSuffix: Azure Cognitive Services
+description: See a running log of feature releases, improvements, bug fixes, and known issues for the Speech Service.
 services: cognitive-services
-author: wolfma61
+author: BrianMouncer
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.author: wolfma
+ms.date: 09/20/2019
+ms.author: brianem
 ms.custom: seodec18
 ---
 
 # Release notes
+## Speech SDK 1.7.0: 2019-September release
+
+**New Features**
+*   Added beta support for Xamarin on Universal Windows Platform (UWP), Android, and iOS
+*   Added iOS support for Unity
+*   Added Compressed input support for ALaw, Mulaw, FLAC on Android, iOS and Linux
+*   Added SendMessageAsync in Connection class for sending a message to service
+*   Added SetMessageProperty in Connection class for setting property of a message
+*   TTS added bindings for Java (Jre and Android), Python, Swift, and Objective-C
+*   TTS added playback support for macOS, iOS, and Android.
+*   Added "word boundary" information for TTS.
+
+**Bug fixes**
+*   Fixed IL2CPP build issue on Unity 2019 for Android
+*   Fixed issue with malformed headers in wav file input being processed incorrectly
+*   Fixed issue with UUIDs not being unique in some connection properties
+*   Fixed a few warnings about nullability specifiers in the Swift bindings (might require small code changes)
+*   Fixed a bug that caused websocket connections to be closed ungracefully under network load
+*   iOS: dropped support for arm7s architecture
+*   Fixed an issue on Android that sometimes results in duplicate impression IDs used by DialogServiceConnector
+*   Improvements to the stability of connections across multi-turn interactions and the reporting of failures (via Canceled events) when they occur with DialogServiceConnector
+*   DialogServiceConnector session starts will now properly provide events, including when calling ListenOnceAsync() during an active StartKeywordRecognitionAsync()
+*   Addressed a crash associated with DialogServiceConnector activities being received 
+
+**Samples**
+*   Quickstart for Xamarin
+*   Updated CPP Quickstart with Linux ARM64 information
+*   Updated Unity quickstart with iOS information
+
+## Speech SDK 1.6.0: 2019-June release
+
+**Samples**
+*	Quickstart samples for Text To Speech on UWP and Unity
+*	Quickstart sample for Swift on iOS
+*	Unity samples for Speech & Intent Recognition and Translation
+*	Updated quickstart samples for DialogServiceConnector
+
+**Improvements / Changes**
+* Dialog namespace:
+    * SpeechBotConnector has been renamed to DialogServiceConnector
+    * BotConfig has been renamed to DialogServiceConfig
+    * BotConfig::FromChannelSecret() has been remapped to DialogServiceConfig::FromBotSecret()
+    * All existing Direct Line Speech clients continue to be supported after the rename
+* Update TTS REST adapter to support proxy, persistent connection
+* Improve error message when an invalid region is passed
+* Swift/Objective-C:
+    * Improved error reporting: Methods that can result in an error are now present in two versions: One that exposes an `NSError` object for error handling, and one that raises an exception. The former are exposed to Swift. This change requires adaptations to existing Swift code.
+    * Improved event handling
+
+**Bug fixes**
+*	Fix for TTS: where SpeakTextAsync future returned without waiting until audio has completed rendering
+*	Fix for marshaling strings in C# to enable full language support
+*	Fix for .NET core app problem to load core library with net461 target framework in samples
+*	Fix for occasional issues to deploy native libraries to the output folder in samples
+*	Fix for web socket closing reliably
+*	Fix for possible crash while opening a connection under very heavy load on Linux
+*	Fix for missing metadata in the framework bundle for macOS
+*	Fix for problems with `pip install --user` on Windows
+
 
 ## Speech SDK 1.5.1
 

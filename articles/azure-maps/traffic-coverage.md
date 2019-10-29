@@ -58,7 +58,9 @@ However, Maps does not have the same level of information and accuracy for all r
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Austria     |✓         |✓         |
+|Belarus    |✓         |✓         |
 |Belgium     |✓         |✓         |
+|Bosnia and Herzegovina    |✓         |✓         |
 |Bulgaria     |✓         |✓         |
 |Croatia     |✓         |✓         |
 |Czech Republic     |✓         |✓         |
@@ -74,6 +76,7 @@ However, Maps does not have the same level of information and accuracy for all r
 |Iceland     |✓         |✓         |
 |Ireland     |✓         |✓         |
 |Italy     |✓         |✓        |
+|Kazakhstan    |✓         |✓        |
 |Latvia     |✓         |✓         |
 |Lesotho     |✓         |✓         |
 |Liechtenstein      |✓         |✓         |
@@ -89,6 +92,7 @@ However, Maps does not have the same level of information and accuracy for all r
 |Romania     |✓         |✓         |
 |Russian Federation     |✓         |✓         |
 |San Marino    |✓         |✓         |
+|Serbia   |✓         |✓         |
 |Slovakia     |✓         |✓         |
 |Slovenia     |✓         |✓         |
 |Spain     |✓         |✓         |

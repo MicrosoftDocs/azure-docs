@@ -11,7 +11,7 @@ keywords: ''
 
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -63,20 +63,20 @@ This article explains how to achieve high availability for SAP NetWeaver applica
 Read the following SAP Notes and papers first:
 
 * [Azure NetApp Files documentation][anf-azure-doc] 
-* SAP Note [1928533], which has:  
+* SAP Note [1928533][1928533], which has:  
   * List of Azure VM sizes that are supported for the deployment of SAP software
   * Important capacity information for Azure VM sizes
   * Supported SAP software, and operating system (OS) and database combinations
   * Required SAP kernel version for Windows and Linux on Microsoft Azure
-* SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
-* SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
-* SAP Note [2243692] has information about SAP licensing on Linux in Azure.
-* SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
-* SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
-* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
+* SAP Note [2015553][2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP Note [2205917][2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [1944799][1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [2178632][2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP Note [2191498][2191498] has the required SAP Host Agent version for Linux in Azure.
+* SAP Note [2243692][2243692] has information about SAP licensing on Linux in Azure.
+* SAP Note [1984787][1984787] has general information about SUSE Linux Enterprise Server 12.
+* SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
@@ -138,7 +138,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
 SAP NetWeaver requires shared storage for the transport and profile directory.  Before proceeding with the setup for Azure NetApp files infrastructure, familiarize yourself with the [Azure NetApp Files documentation][anf-azure-doc]. 
 Check if your selected Azure region offers Azure NetApp Files. The following link shows the availability of Azure NetApp Files by Azure region: [Azure NetApp Files Availability by Azure Region][anf-avail-matrix].
 
-Azure NetApp files is available in several several [Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp). Before deploying Azure NetApp Files, request onboarding to Azure NetApp Files , following the [Register for Azure NetApp files instructions][anf-register]. 
+Azure NetApp files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Before deploying Azure NetApp Files, request onboarding to Azure NetApp Files , following the [Register for Azure NetApp files instructions][anf-register]. 
 
 ### Deploy Azure NetApp Files resources  
 
@@ -393,6 +393,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
+   > [!IMPORTANT]
+   > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
+   > For existing Pacemaker clusters, we recommend replacing netcat with socat, following the instructions in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Note that the change will require brief downtime.  
+
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    
    sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' \
@@ -405,7 +409,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ASCS anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
      op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>QAS</b>_ASCS fs_<b>QAS</b>_ASCS nc_<b>QAS</b>_ASCS vip_<b>QAS</b>_ASCS \
@@ -425,7 +429,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #     fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
    #     nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
    #     vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
-   #     rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl1</b>
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
   
@@ -461,10 +464,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ERS anything \
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>01</b>" \
+    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>01</b>,backlog=10,fork,reuseaddr /dev/null" \
     op monitor timeout=20s interval=10 depth=0
    
-   # WARNING: Resources nc_QAS_ASCS,nc_QAS_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
+   # WARNING: Resources nc_QAS_ASCS,nc_QAS_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
    # Do you still want to commit (y/n)? y
    
    sudo crm configure group g-<b>QAS</b>_ERS fs_<b>QAS</b>_ERS nc_<b>QAS</b>_ERS vip_<b>QAS</b>_ERS
@@ -730,7 +733,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    # Add the following lines to the file, save and exit
    /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/sapmnt<b>qas</b>
    /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/ursap<b>qas</b>pas
+   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/usrsap<b>qas</b>pas
    </code></pre>
 
    Restart `autofs` to mount the new shares
@@ -968,6 +971,9 @@ The following tests are a copy of the test cases in the [best practices guides o
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
+   # Remove migration constraints
+   anftstsapcl1:~ # crm resource clear rsc_sap_QAS_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_QAS_ASCS00
    </code></pre>
 
    Resource state after the test:

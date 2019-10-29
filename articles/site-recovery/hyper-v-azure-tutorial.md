@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 08/07/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -25,6 +25,10 @@ In this tutorial, you learn how to:
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](https://docs.microsoft.com/azure/site-recovery).
+
+> [!WARNING]
+> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
+
 
 ## Before you begin
 
@@ -100,7 +104,7 @@ If you're running a Hyper-V core server, download the setup file and follow thes
 3. Register the server by running this command:
 
     ```
-    cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
+    cd  "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
     ```
 
 ## Set up the target environment

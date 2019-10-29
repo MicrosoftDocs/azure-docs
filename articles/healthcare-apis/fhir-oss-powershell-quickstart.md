@@ -4,6 +4,7 @@ description: This quickstart explains how to deploy the Microsoft Open Source FH
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: quickstart 
 ms.date: 02/07/2019
 ms.author: mihansen
@@ -17,7 +18,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 

@@ -4,7 +4,7 @@ description: Learn to use Python to create and manage a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
@@ -107,15 +107,15 @@ Management clients are needed to create and manage resources using the Python SD
 
 ```python
 resource_group_client = ResourceManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 network_client = NetworkManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 compute_client = ComputeManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 ```

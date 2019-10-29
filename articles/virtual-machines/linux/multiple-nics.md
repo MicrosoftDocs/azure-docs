@@ -4,7 +4,7 @@ description: Learn how to create a Linux VM with multiple NICs attached to it us
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691

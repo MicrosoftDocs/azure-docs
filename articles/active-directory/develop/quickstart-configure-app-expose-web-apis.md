@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
@@ -49,7 +49,7 @@ Before you can configure the app, follow these steps:
 
 ## Expose a new scope through the UI
 
-[![Expose an API using the UI](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Shows how to expose an API using the UI](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 To expose a new scope through the UI:
 
@@ -113,8 +113,9 @@ To expose a new scope through the application manifest:
 ## Verify the web API is exposed to other applications
 
 1. Go back to your Azure AD tenant, select **App registrations**, find and select the client application you want to configure.
-1. Repeat the steps outlined in Configure a client application to access web APIs.
-1. When you get to the **Select an API** step, select your resource. You should see the new scope, available for client permission requests.
+1. Repeat the steps outlined in [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md).
+1. When you get to the step to [select an API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+), select your resource. You should see the new scope, available for client permission requests.
 
 ## More on the application manifest
 

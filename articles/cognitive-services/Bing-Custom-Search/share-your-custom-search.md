@@ -1,6 +1,6 @@
 ---
 title: Share your custom search - Bing Custom Search
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Describes how to share a custom search instance.
 services: cognitive-services
 author: aahill

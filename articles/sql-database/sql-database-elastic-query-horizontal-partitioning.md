@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/03/2019
 ---
 # Reporting across scaled-out cloud databases (preview)

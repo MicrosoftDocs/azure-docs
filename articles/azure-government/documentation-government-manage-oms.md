@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 12/05/2016
-ms.author: saweld
+ms.author: jobruno
 ---
 
 # Azure Government cybersecurity: Monitoring and securing your assets with Azure Monitor logs

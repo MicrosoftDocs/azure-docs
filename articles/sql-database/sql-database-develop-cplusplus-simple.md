@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 12/12/2018
 ---
 # Connect to SQL Database using C and C++

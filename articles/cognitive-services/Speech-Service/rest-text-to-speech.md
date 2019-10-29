@@ -1,5 +1,5 @@
 ---
-title: Text-to-speech API reference (REST) - Speech Services
+title: Text-to-speech API reference (REST) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the text-to-speech REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 
 # Text-to-speech REST API
@@ -163,7 +162,7 @@ This table lists required and optional headers for text-to-speech requests.
 
 ### Audio outputs
 
-This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Services supports 24 KHz, 16 KHz, and 8 KHz audio outputs.
+This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Services supports 24 kHz, 16 kHz, and 8 kHz audio outputs.
 
 |||
 |-|-|
@@ -176,7 +175,7 @@ This is a list of supported audio formats that are sent in each request as the `
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24 kHz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
 
 ### Request body
 
@@ -220,6 +219,7 @@ The HTTP status code for each response indicates success or common errors.
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
 | 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. |
 | 413 | Request Entity Too Large | The SSML input is longer than 1024 characters. |
+| 415 | Unsupported Media Type | It's possible that the wrong `Content-Type` was provided. `Content-Type` should be set to `application/ssml+xml`. |
 | 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway	| Network or server-side issue. May also indicate invalid headers. |
 

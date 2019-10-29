@@ -2,12 +2,12 @@
 title: Create an HTTPS ingress with Azure Kubernetes Service (AKS) cluster
 description: Learn how to install and configure an NGINX ingress controller that uses Let's Encrypt for automatic TLS certificate generation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
+ms.author: mlearned
 
 #Customer intent: As a cluster operator or developer, I want to use an ingress controller to handle the flow of incoming traffic and secure my apps using automatically generated TLS certificates
 ---
@@ -43,6 +43,9 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 > [!TIP]
 > The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the Helm commands.
 
+> [!TIP]
+> If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, SSL pass-through will not work.
+
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
@@ -51,7 +54,8 @@ kubectl create namespace ingress-basic
 helm install stable/nginx-ingress \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
-    --set nodeSelector."beta.kubernetes.io/os"=linux
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 During the installation, an Azure public IP address is created for the ingress controller. This public IP address is static for the life-span of the ingress controller. If you delete the ingress controller, the public IP address assignment is lost. If you then create an additional ingress controller, a new public IP address is assigned. If you wish to retain the use of the public IP address, you can instead [create an ingress controller with a static public IP address][aks-ingress-static-tls].
@@ -304,6 +308,7 @@ To delete the entire sample namespace, use the `kubectl delete` command and spec
 
 ```console
 kubectl delete namespace ingress-basic
+kubectl delete namespace cert-manager
 ```
 
 Then, remove the Helm repo for the AKS hello world app:
@@ -401,4 +406,5 @@ You can also:
 [aks-ingress-own-tls]: ingress-own-tls.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli

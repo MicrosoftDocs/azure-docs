@@ -4,16 +4,16 @@ description: Network architecture of how to deploy SAP HANA on Azure (Large Inst
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/25/2019
-ms.author: rclaus
+ms.date: 07/15/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -70,7 +70,9 @@ The differences to SAP deployments in Azure are:
 - The SAP application architecture is more sensitive to network latency than typical scenarios where data is exchanged between on-premises and Azure.
 - The Azure ExpressRoute gateway has at least two ExpressRoute connections. One circuit that is connected from on-premise and one that is connected from HANA Large Instances. This leaves only room for another two additional circuits from different MSEEs to connect to on ExpressRoute Gateway. This restriction is independent of the usage of ExpressRoute Fast Path. All the connected circuits share the maximum bandwidth for incoming data of the ExpressRoute gateway.
 
-The network latency experienced between VMs and HANA Large Instance units can be higher than a typical VM-to-VM network round-trip latency. Dependent on the Azure region, the values measured can exceed the 0.7-ms round-trip latency classified as below average in [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E). Dependent on Azure Region and tool to measure network round-trip latency between an Azure VM and HANA Large Instance unit, the measured latency can be up to and around 2 milliseconds. Nevertheless, customers deploy SAP HANA-based production SAP applications successfully on SAP HANA Large Instance. Make sure you test your business processes thoroughly in Azure HANA Large Instance. A new functionality, called ExpressRoute Fast Path, is able to reduce the network latency between HANA Large Instances and application layer VMs in Azure substantially (see below). 
+With Revision 3 of HANA Large Instance stamps, the network latency experienced between VMs and HANA Large Instance units can be higher than a typical VM-to-VM network round-trip latency. Dependent on the Azure region, the values measured can exceed the 0.7-ms round-trip latency classified as below average in [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E). Dependent on Azure Region and tool to measure network round-trip latency between an Azure VM and HANA Large Instance unit, the measured latency can be up to and around 2 milliseconds. Nevertheless, customers deploy SAP HANA-based production SAP applications successfully on SAP HANA Large Instance. Make sure you test your business processes thoroughly in Azure HANA Large Instance. A new functionality, called ExpressRoute Fast Path, is able to reduce the network latency between HANA Large Instances and application layer VMs in Azure substantially (see below). 
+
+With Revision 4 of HANA Large Instance stamps, the network latency between Azure VMs that are deployed in proximity to the HANA Large Instance stamp, is experienced to meet the average or better than average classification as documented in [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E) if Azure ExpressRoute Fast Path is configured (see below). In order to deploy Azure VMs in close proximity to HANA Large Instance units of Revision 4, you need to leverage [Azure Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). The way how proximity placement groups can be used to locate the SAP application layer in the same Azure datacenter as Revision 4 hosted HANA Large Instance units is described in [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
 
 To provide deterministic network latency between VMs and HANA Large Instance, the choice of the ExpressRoute gateway SKU is essential. Unlike the traffic patterns between on-premises and VMs, the traffic pattern between VMs and HANA Large Instance can develop small but high bursts of requests and data volumes to be transmitted. To handle such bursts well, we highly recommend the use of the UltraPerformance gateway SKU. For the Type II class of HANA Large Instance SKUs, the use of the UltraPerformance gateway SKU as a ExpressRotue gateway is mandatory.
 
@@ -97,7 +99,7 @@ The on-premises infrastructure previously shown is connected through ExpressRout
 > [!NOTE] 
 > To run SAP landscapes in Azure, connect to the enterprise edge router closest to the Azure region in the SAP landscape. HANA Large Instance stamps are connected through dedicated enterprise edge router devices to minimize network latency between VMs in Azure IaaS and HANA Large Instance stamps.
 
-The ExpressRoute gateway for the VMs that host SAP application instances is connected to one ExpressRoute circuit that connects to on-premise. The same virtual network is connected to a separate enterprise edge router dedicated to connecting to Large Instance stamps. Using ExpressRoute Fast Path, the data flow from HANA Large Instances to the SAP application layer VMs are not routed through the ExpressRoute gateway anymore and with that reduce the network round trip latency.
+The ExpressRoute gateway for the VMs that host SAP application instances are connected to one ExpressRoute circuit that connects to on-premise. The same virtual network is connected to a separate enterprise edge router dedicated to connecting to Large Instance stamps. Using ExpressRoute Fast Path, the data flow from HANA Large Instances to the SAP application layer VMs are not routed through the ExpressRoute gateway anymore and with that reduce the network round-trip latency.
 
 This system is a straightforward example of a single SAP system. The SAP application layer is hosted in Azure. The SAP HANA database runs on SAP HANA on Azure (Large Instances). The assumption is that the ExpressRoute gateway bandwidth of 2-Gbps or 10-Gbps throughput doesn't represent a bottleneck.
 
@@ -133,7 +135,14 @@ By default deployment, three network routing considerations are important for SA
 * SAP HANA on Azure (Large Instances) units have an assigned IP address from the server IP pool address range that you submitted when requesting the HANA Large Instance deployment. For more information, see [SAP HANA (Large Instances) infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This IP address is accessible through the Azure subscriptions and circuit  that connects Azure virtual networks to HANA Large Instances. The IP address assigned out of that server IP pool address range is directly assigned to the hardware unit. It's *not* assigned through NAT anymore, as was the case in the first deployments of this solution. 
 
 ### Direct Routing to HANA Large Instances
-By default the transitive routing between HANA Large Instance units and on-premise or between HANA Large Instance routing that are deployed in two different regions does not work. There are several possibilities to enable such a transitive routing.
+
+By default, the transitive routing does not work in these scenarios:
+
+* Between HANA Large Instance units and an on-premises deployment.
+
+* Between HANA Large Instance routing that are deployed in two different regions.
+
+There are three ways to enable transitive routing in those scenarios:
 
 - A reverse-proxy to route data, to and from. For example, F5 BIG-IP, NGINX with Traffic Manager deployed in the Azure virtual network that connects to HANA Large Instances and to on-premise as a virtual firewall/traffic routing solution.
 - Using [IPTables rules](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in a Linux VM to enable routing between on-premises locations and HANA Large Instance units, or between HANA Large Instance units in different regions. The VM running IPTables needs to be deployed in the Azure virtual network that connects to HANA Large Instances and to on-premise. The VM needs to be sized accordingly, so, that the network throughput of the VM is sufficient for the expected network traffic. For details on VM network bandwidth, check the article [Sizes of Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).

@@ -26,13 +26,16 @@ The samples are written in C# by using the Azure Cognitive Services Face API cli
 
 ## Step 1: Initialize the client object
 
-When you use the Face API client library, the subscription key and subscription endpoint are passed in through the constructor of the FaceServiceClient class. For example:
+When you use the Face API client library, the subscription key and subscription endpoint are passed in through the constructor of the FaceClient class. For example:
 
-```CSharp
+```csharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
-string SubscriptionRegion = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/";
-FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, SubscriptionRegion);
+string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
+private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials(subscriptionKey),
+            new System.Net.Http.DelegatingHandler[] { });
+faceClient.Endpoint = SubscriptionEndpoint
 ```
 
 To get the subscription key with its corresponding endpoint, go to the Azure Marketplace from the Azure portal.
@@ -67,7 +70,7 @@ Add all of the faces and persons from the PersonGroup to the new LargePersonGrou
 The preceding table is a comparison of list-level operations between FaceList and LargeFaceList. As is shown, LargeFaceList comes with new operations, Train and Get Training Status, when compared with FaceList. Training the LargeFaceList is a precondition of the 
 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) operation. Training isn't required for FaceList. The following snippet is a helper function to wait for the training of a LargeFaceList:
 
-```CSharp
+```csharp
 /// <summary>
 /// Helper function to train LargeFaceList and wait for finish.
 /// </summary>
@@ -91,13 +94,13 @@ private static async Task TrainLargeFaceList(
     int timeIntervalInMilliseconds = 1000)
 {
     // Trigger a train call.
-    await FaceServiceClient.TrainLargeFaceListAsync(largeFaceListId);
+    await FaceClient.LargeTrainLargeFaceListAsync(largeFaceListId);
 
     // Wait for training finish.
     while (true)
     {
         Task.Delay(timeIntervalInMilliseconds).Wait();
-        var status = await FaceServiceClient.GetLargeFaceListTrainingStatusAsync(largeFaceListId);
+        var status = await faceClient.LargeFaceList.TrainAsync(largeFaceListId);
 
         if (status.Status == Status.Running)
         {
@@ -117,12 +120,12 @@ private static async Task TrainLargeFaceList(
 
 Previously, a typical use of FaceList with added faces and FindSimilar looked like the following:
 
-```CSharp
+```csharp
 // Create a FaceList.
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-FaceServiceClient.CreateFaceListAsync(FaceListId, FaceListName).Wait();
+faceClient.FaceList.CreateAsync(FaceListId, FaceListName).Wait();
 
 // Add Faces to the FaceList.
 Parallel.ForEach(
@@ -131,7 +134,7 @@ Parallel.ForEach(
         {
             using (Stream stream = File.OpenRead(imagePath))
             {
-                await FaceServiceClient.AddFaceToFaceListAsync(FaceListId, stream);
+                await faceClient.FaceList.AddFaceFromStreamAsync(FaceListId, stream);
             }
         });
 
@@ -140,22 +143,22 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = FaceServiceClient.DetectAsync(stream).Result;
+    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
     foreach (var face in faces)
     {
-        results.Add(await FaceServiceClient.FindSimilarAsync(face.FaceId, FaceListId, 20));
+        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, FaceListId, 20));
     }
 }
 ```
 
 When migrating it to LargeFaceList, it becomes the following:
 
-```CSharp
+```csharp
 // Create a LargeFaceList.
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-FaceServiceClient.CreateLargeFaceListAsync(LargeFaceListId, LargeFaceListName).Wait();
+faceClient.LargeFaceList.CreateAsync(LargeFaceListId, LargeFaceListName).Wait();
 
 // Add Faces to the LargeFaceList.
 Parallel.ForEach(
@@ -164,7 +167,7 @@ Parallel.ForEach(
         {
             using (Stream stream = File.OpenRead(imagePath))
             {
-                await FaceServiceClient.AddFaceToLargeFaceListAsync(LargeFaceListId, stream);
+                await faceClient.LargeFaceList.AddFaceFromStreamAsync(LargeFaceListId, stream);
             }
         });
 
@@ -177,10 +180,10 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = FaceServiceClient.DetectAsync(stream).Result;
+    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
     foreach (var face in faces)
     {
-        results.Add(await FaceServiceClient.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
+        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
     }
 }
 ```
@@ -228,13 +231,13 @@ If a relatively long latency is acceptable, it isn't necessary to trigger the Tr
 
 Suppose there's a `TrainLargePersonGroup` function similar to `TrainLargeFaceList`. A typical implementation of the standalone training on a LargePersonGroup by invoking the [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) class in `System.Timers` is:
 
-```CSharp
+```csharp
 private static void Main()
 {
     // Create a LargePersonGroup.
     const string LargePersonGroupId = "mylargepersongroupid_001";
     const string LargePersonGroupName = "MyLargePersonGroupDisplayName";
-    FaceServiceClient.CreateLargePersonGroupAsync(LargePersonGroupId, LargePersonGroupName).Wait();
+    faceClient.LargePersonGroup.CreateAsync(LargePersonGroupId, LargePersonGroupName).Wait();
 
     // Set up standalone training at regular intervals.
     const int TimeIntervalForStatus = 1000 * 60; // 1-minute interval for getting training status.

@@ -8,7 +8,7 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
+ms.date: 09/20/2019
 ---
 
 # Tutorial: Validate a hub and spoke network with Terraform in Azure

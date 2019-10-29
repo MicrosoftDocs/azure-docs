@@ -1,6 +1,6 @@
 ---
-title: "Prepare test data for Custom Speech - Speech Services"
-titlesuffix: Azure Cognitive Services
+title: "Prepare test data for Custom Speech - Speech Service"
+titleSuffix: Azure Cognitive Services
 description: "Whether you're testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text). On this page, we cover the types of data, how they are used, and how to manage them."
 services: cognitive-services
 author: erhopf
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/06/2019
 ms.author: erhopf
 ---
 
@@ -24,13 +24,13 @@ This table lists accepted data types, when each data type should be used, and th
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5 - 5 hours of audio | Yes | 1 - 1,000 hours of audio |
-| [Related text](##related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
+| [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
 ## Upload data
 
-When you're ready to upload your data, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
+When you're ready to upload your data, navigate to the [Custom Speech portal](https://speech.microsoft.com/customspeech), then click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
 
 ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -39,7 +39,7 @@ Each dataset you upload must meet the requirements for the data type that you ch
 After your dataset is uploaded, you have a few options:
 
 * You can navigate to the **Testing** tab and visually inspect audio only or audio + human-labeled transcription data.
-* You can navigate to the **Training** tab and us audio + human transcription data or related text data to train a custom model.
+* You can navigate to the **Training** tab and use audio + human transcription data or related text data to train a custom model.
 
 ## Audio data for testing
 
@@ -91,7 +91,7 @@ To address issues like word deletion or substitution, a significant amount of da
 
 The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. For the appropriate language to use when you prepare your transcriptions, see [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md)
 
-After you've gathered your audio files and corresponding transcriptions, they should be packaged as a single .zip file before uploading to the Custom Speech portal. This is an example dataset with three audio files and a human-labeled transcription file:
+After you've gathered your audio files and corresponding transcriptions, they should be packaged as a single .zip file before uploading to the [Custom Speech portal](https://speech.microsoft.com/customspeech). This is an example dataset with three audio files and a human-labeled transcription file:
 
 ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
@@ -104,7 +104,7 @@ If you have product names or features that are unique, and you want to make sure
 | Utterances and/or sentences | These can improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. |
 | Pronunciations | These can improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. |
 
-Utterances can be provided as a single or multiple text files. The closer the text data is to what will be spoken, the greater the likelihood that accuracy is improved. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the Custom Speech portal.
+Utterances can be provided as a single or multiple text files. The closer the text data is to what will be spoken, the greater the likelihood that accuracy is improved. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
 
 ### Guidelines to create an utterances file
 
@@ -133,11 +133,11 @@ If there are uncommon terms without standard pronunciations that your users will
 
 This includes examples of a spoken utterance, and a custom pronunciation for each:
 
-| Spoken form | Recognized/displayed form |
+| Recognized/displayed form | Spoken form |
 |--------------|--------------------------|
-| three c p o | 3CPO |  
-| c n t k | CNTK |
-| i triple e | IEEE |
+| 3CPO | three c p o |  
+| CNTK | c n t k |
+| IEEE | i triple e |
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
 

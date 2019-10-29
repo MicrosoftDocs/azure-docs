@@ -2,14 +2,14 @@
 title: Azure Key Vault logging | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault logging.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/18/2019
-ms.author: barclayn
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---
 # Azure Key Vault logging
@@ -31,7 +31,7 @@ Use this tutorial to help you get started with Azure Key Vault logging. You'll c
 > This article provides Azure PowerShell instructions for updating diagnostic logging. You can also update diagnostic logging by using Azure Monitor in the **Diagnostic logs** section of the Azure portal. 
 >
 
-For overview information about Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
+For overview information about Key Vault, see [What is Azure Key Vault?](key-vault-overview.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Prerequisites
 
@@ -150,7 +150,7 @@ Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-a
 
 Name
 
-- - -
+---
 resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=05/h=01/m=00/PT1H.json
 
 resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json

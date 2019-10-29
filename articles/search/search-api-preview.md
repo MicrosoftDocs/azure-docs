@@ -3,7 +3,7 @@ title: Preview REST API for Azure Search 2019-05-06-Preview - Azure Search
 description: Azure Search Service REST API Version 2019-05-06-Preview includes experimental features such as knowledge store and customer-managed encryption keys.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 
 ms.service: search
 ms.devlang: rest-api
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/02/2019
-ms.author: HeidiSteen
+ms.author: heidist
 ms.custom: seodec2018
 
 ---

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 07/12/2019
 ms.author: spelluru
 
 ---
@@ -48,9 +48,8 @@ The remainder of this article discusses Resource Manager templates that use Micr
 ## View and save a virtual machine's Resource Manager template
 1. Follow the steps at [Create your first VM in a lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) to begin creating a virtual machine.
 1. Enter the required information for your virtual machine and add any artifacts you want for this VM.
+1. Swtich to the **Advanced Settings** tab. 
 1. At the bottom of the Configure settings window, choose **View ARM template**.
-
-   ![View ARM template button](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. Copy and save the Resource Manager template to use later to create another virtual machine.
 
    ![Resource Manager template to save for later use](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
@@ -60,6 +59,11 @@ After you have saved the Resource Manager template, you must update the paramete
 ![Customize parameters using a JSON file](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
 The Resource Manager template is now ready to use to [create a VM](devtest-lab-create-environment-from-arm.md).
+
+## Set expiration date
+In scenarios such as training, demos and trials, you may want to create virtual machines and delete them automatically after a fixed duration so that you don’t incur unnecessary costs. You can create a lab VM with an expiration date by specifying the **expirationDate** property for the VM. Check out the same Resource Manager template in [our GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
+
+
 
 ### Next steps
 * Learn how to [Create multi-VM environments with Resource Manager templates](devtest-lab-create-environment-from-arm.md).

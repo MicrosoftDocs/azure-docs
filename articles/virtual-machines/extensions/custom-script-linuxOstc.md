@@ -4,13 +4,12 @@ description: Automate Linux VM configuration tasks by using the Custom Script Ex
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

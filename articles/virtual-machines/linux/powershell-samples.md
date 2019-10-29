@@ -4,13 +4,13 @@ description: Azure Virtual Machine PowerShell Samples
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 
 ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -41,4 +41,5 @@ The following table includes links to PowerShell scripts samples that create and
 |**Monitor virtual machines**||
 | [Monitor a VM with Azure Monitor logs](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, installs the Log Analytics agent, and enrolls the VM in a Log Analytics workspace.  |
 | [Copy a managed disk to the same or a different subscription](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Copies a managed disk to the same or a different subscription that is in the same region as the parent managed disk.
+| [Collect details about all VMs in a subscription with PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a csv that contains the VM Name, Resource Group Name, Region, Virtual Network, Subnet, Private IP Address, OS Type, and Public IP Address of the VMs in the provided subscription.
 | | |

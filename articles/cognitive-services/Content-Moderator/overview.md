@@ -1,6 +1,6 @@
 ---
 title: What is Azure Content Moderator?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to use Content Moderator to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
 author: PatrickFarley
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
@@ -23,11 +23,14 @@ The Azure Content Moderator API is a cognitive service that checks text, image, 
 
 The following are a few scenarios in which a software developer or team would use Content Moderator:
 
-- Online marketplaces that moderate product catalogs and other user-generated content
-- Gaming companies that moderate user-generated game artifacts and chat rooms
-- Social messaging platforms that moderate images, text, and videos added by their users
-- Enterprise media companies that implement centralized moderation for their content
-- K-12 education solution providers filtering out content that is inappropriate for students and educators
+- Online marketplaces that moderate product catalogs and other user-generated content.
+- Gaming companies that moderate user-generated game artifacts and chat rooms.
+- Social messaging platforms that moderate images, text, and videos added by their users.
+- Enterprise media companies that implement centralized moderation for their content.
+- K-12 education solution providers filtering out content that is inappropriate for students and educators.
+
+> [!NOTE]
+> You cannot use Content Moderator to detect illegal child exploitation images. However, qualified organizations can use the [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") to screen for this type of content.
 
 ## What it includes
 
@@ -60,7 +63,7 @@ The Review APIs let you integrate your moderation pipeline with human reviewers.
 
 ## The Review tool
 
-The Content Moderator service also includes the web-based [Review tool](Review-Tool-User-Guide/human-in-the-loop.md), which hosts the content reviews for human moderators to process. The human input does not train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy. The Review tool also provides a user-friendly front-end for a variety of Content Moderator resources.
+The Content Moderator service also includes the web-based [Review tool](Review-Tool-User-Guide/human-in-the-loop.md), which hosts the content reviews for human moderators to process. The human input does not train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy. The Review tool also provides a user-friendly front end for a variety of Content Moderator resources.
 
 ![Content Moderator human review tool homepage](images/homepage.PNG)
 

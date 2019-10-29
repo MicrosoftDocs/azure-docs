@@ -3,18 +3,16 @@ title: Create an application gateway with SSL termination - Azure CLI
 description: Learn how to create an application gateway and add a certificate for SSL termination using the Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
 ---
+
 # Create an application gateway with SSL termination using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for [SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for [SSL termination](ssl-overview.md). For backend servers, you can use a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 In this article, you learn how to:
 
@@ -79,7 +77,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## Create the application gateway
@@ -96,7 +96,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 443 \
   --http-settings-port 80 \
@@ -178,4 +178,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## Next steps
 
-* [Create an application gateway that hosts multiple web sites](./tutorial-multiple-sites-cli.md)
+[Create an application gateway that hosts multiple web sites](./tutorial-multiple-sites-cli.md)

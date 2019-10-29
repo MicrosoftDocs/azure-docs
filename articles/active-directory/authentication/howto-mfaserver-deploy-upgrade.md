@@ -21,6 +21,9 @@ This article walks you through the process of upgrading Azure Multi-Factor Authe
 
 If you're upgrading from v6.x or older to v7.x or newer, all components change from .NET 2.0 to .NET 4.5. All components also require Microsoft Visual C++ 2015 Redistributable Update 1 or higher. The MFA Server installer installs both the x86 and x64 versions of these components if they aren't already installed. If the User Portal and Mobile App Web Service run on separate servers, you need to install those packages before upgrading those components. You can search for the latest Microsoft Visual C++ 2015 Redistributable update on the [Microsoft Download Center](https://www.microsoft.com/download/). 
 
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+
 Upgrade steps at a glance:
 
 * Upgrade Azure MFA Servers (Subordinates then Master)
@@ -60,7 +63,7 @@ If you have the User Portal on multiple servers, repeat the installation on all 
 ## Upgrade the Mobile App Web Service
 
 > [!NOTE]
-> When upgrading from a version of Azure MFA Server older than 8.0 to 8.0+ that the mobile app web service can be uninstalled after the upgrade
+> When upgrading from a version of Azure MFA Server older than 8.0 to 8.0+ then the mobile app web service can be uninstalled after the upgrade
 
 ## Upgrade the AD FS Adapters
 

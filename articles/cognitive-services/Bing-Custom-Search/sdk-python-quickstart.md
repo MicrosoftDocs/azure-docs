@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using the Python SDK | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: Use the Bing Custom Search SDK for Python to get custom search results.
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using the Python SDK. 
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: aahi
 ---
 

@@ -3,8 +3,8 @@ title: View reports and logs in Azure AD entitlement management (Preview) - Azur
 description: Learn how to view the user assignments report and audit logs in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
 ms.workload: identity
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 04/19/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 
@@ -21,12 +21,19 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want view resources a user has access to and view request logs for auditing purposes.
 
 ---
+
 # View reports and logs in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The user assignments report and Azure Active Directory audit log provide additional details about the users in your directory. As an administrator, you can view resources a user has access to and view request logs for auditing purposes or to determine the status of a user’s request. This article describes how to use the user assignments report and Azure AD audit logs.
+
+Watch the following video to learn how to use entitlement management to manage access for users in Azure Active Directory:
+
+>[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
 ## View resources a user has access to
 

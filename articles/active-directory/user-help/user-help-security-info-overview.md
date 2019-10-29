@@ -5,7 +5,6 @@ services: active-directory
 author: eross-msft
 manager: daveba
 ms.reviewer: sahenry
-
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
@@ -28,13 +27,14 @@ The **Security info** page helps you to set up your two-step verification method
 
 For detailed information and instructions about adding, updating, and deleting your security info, see the following articles (based on the method you want to use):
 
-|Article |Description |
-|------|------------|
-|[Add your security method from a prompt on your sign-in page](security-info-setup-signin.md)| Instructions about how to set up your security info when prompted from your sign-in page. You'll only see this prompt if you haven’t already set up the security info required by your organization. If you don't see the prompt, you can still change and add verification methods using the other articles in this table.|
-|[Add the Microsoft Authenticator app as a verification method](security-info-setup-auth-app.md)| Instructions about how to set up the Microsoft Authenticator app as a verification method.|
-|[Add text messaging as a verification method](security-info-setup-text-msg.md)| Instructions about how to set up text messaging as a verification method.|
-|[Add phone calls as a verification method](security-info-setup-phone-number.md)| Instructions about how to set up your phone number as a verification method.|
-|[Add an email address to reset your own password](security-info-setup-email.md)| Instructions about how to add your email address, so you can reset your own password.|
-|[Add security questions to reset your own password](security-info-setup-questions.md)| Instructions about how to add pre-defined security questions, so you can reset your own password.|
-|[Manage app passwords for apps that don't support two-step verification](security-info-app-passwords.md)| Instructions about how to create app passwords for apps that don't support two-step verification in an organization that uses two-step verification.|
-|[How to sign in](user-help-sign-in.md)|Describes how to sign in using your specified verification method.|
+| Article | Description |
+| ------ | ------------ |
+| [Add your security method from a prompt on your sign-in page](security-info-setup-signin.md) | Instructions about how to set up your security info when prompted from your sign-in page. You'll only see this prompt if you haven’t already set up the security info required by your organization. If you don't see the prompt, you can still change and add verification methods using the other articles in this table. |
+| [Add the Microsoft Authenticator app as a verification method](security-info-setup-auth-app.md) | Instructions about how to set up the Microsoft Authenticator app as a verification method. |
+| [Add text messaging as a verification method](security-info-setup-text-msg.md) | Instructions about how to set up text messaging as a verification method. |
+| [Add phone calls as a verification method](security-info-setup-phone-number.md) | Instructions about how to set up your phone number as a verification method. |
+| [Add a security key as a verification method](security-info-setup-security-key.md) | Instructions about how to register a Microsoft-compatible security key as a verification method. |
+| [Add an email address to reset your own password](security-info-setup-email.md) | Instructions about how to add your email address, so you can reset your own password. |
+| [Add security questions to reset your own password](security-info-setup-questions.md) | Instructions about how to add pre-defined security questions, so you can reset your own password. |
+| [Manage app passwords for apps that don't support two-step verification](security-info-app-passwords.md) | Instructions about how to create app passwords for apps that don't support two-step verification in an organization that uses two-step verification. |
+| [How to sign in](user-help-sign-in.md) |Describes how to sign in using your specified verification method. |

@@ -9,10 +9,10 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: dalechen
+manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 11/14/2018
+ms.date: 06/14/2019
 ---
 # Working with SQL Database connection issues and transient errors
 
@@ -88,7 +88,7 @@ One way you can test your retry logic is to disconnect your client computer from
 - **SqlException.Number** = 11001
 - Message: "No such host is known"
 
-As part of the first retry attempt, your program can correct the misspelling and then attempt to connect.
+As part of the first retry attempt, you can reconnect your client computer to the network and then attempt to connect.
 
 To make this test practical, unplug your computer from the network before you start your program. Then your program recognizes a runtime parameter that causes the program to:
 
@@ -449,6 +449,6 @@ public bool IsTransient(Exception ex)
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php

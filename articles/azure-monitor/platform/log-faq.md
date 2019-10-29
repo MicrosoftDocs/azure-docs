@@ -1,18 +1,13 @@
 ---
 title: Log Analytics FAQ | Microsoft Docs
 description: Answers to frequently asked questions about the Azure Log Analytics service.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/13/2018
+author: MGoedtel
 ms.author: magoedte
+ms.date: 11/13/2018
+
 ---
 
 # Log Analytics FAQ
@@ -79,7 +74,7 @@ A: The list of views and installed solutions are available in Azure portal. Clic
 
 ### Q. Why I can’t create workspaces in West Central US region? 
 
-A: This region is at temporary capacity limit. The limit is planned to be addressed in the first half of 2019.
+A: This region is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019.
 
 
 ### Q. Does Log Analytics use the same agent as Azure Security Center?

@@ -1,5 +1,5 @@
 ---
-title: Use reference data from a SQL Database for an Azure Stream Analytics job (Preview)
+title: Use SQL Database reference data in an Azure Stream Analytics job
 description: This article describes how to use a SQL Database as reference data input for an Azure Stream Analytics job in the Azure portal and in Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -9,7 +9,7 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
 ---
-# Use reference data from a SQL Database for an Azure Stream Analytics job (Preview)
+# Use reference data from a SQL Database for an Azure Stream Analytics job
 
 Azure Stream Analytics supports Azure SQL Database as a source of input for reference data. You can use SQL Database as reference data for your Stream Analytics job in the Azure portal and in Visual Studio with Stream Analytics tools. This article demonstrates how to do both methods.
 
@@ -53,16 +53,14 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 ### Visual Studio prerequisites
 
-1. If you are using Visual Studio 2017, update to 15.8.2 or above. Note that 16.0 and above are not supported at this point.
-
-2. [Install the Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md). The following versions of Visual Studio are supported:
+1. [Install the Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md). The following versions of Visual Studio are supported:
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. Become familiar with the [Stream Analytics tools for Visual Studio](stream-analytics-quick-create-vs.md) quickstart.
+2. Become familiar with the [Stream Analytics tools for Visual Studio](stream-analytics-quick-create-vs.md) quickstart.
 
-4. Create a storage account.
+3. Create a storage account.
 
 ### Create a SQL Database table
 
@@ -112,7 +110,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Open the SQL file in the editor and write the SQL query.
 
-5. If you are using Visual Studio 2017 and you have installed SQL Server Data tools, you can test the query by clicking **Execute**. A wizard window will pop up to help you connect to the SQL database and the query result will appear in the window at the bottom.
+5. If you are using Visual Studio 2019, and you have installed SQL Server Data tools, you can test the query by clicking **Execute**. A wizard window will pop up to help you connect to the SQL database and the query result will appear in the window at the bottom.
 
 ### Specify storage account
 

@@ -128,7 +128,7 @@ The ability to transfer the predictive analytic forecasting from Studio to Excel
 Here are some resources for helping you work with regression: 
 
 * Regression in Excel. If you’ve never tried regression in Excel, this tutorial makes it easy: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* Regression vs forecasting. Tyler Chessman wrote a blog article explaining how to do time series forecasting in Excel, which contains a good beginner’s description of linear regression. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Regression vs forecasting. Tyler Chessman wrote a blog article explaining how to do time series forecasting in Excel, which contains a good beginner’s description of linear regression. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * Ordinary Least Squares Linear Regression: Flaws, Problems and Pitfalls. For an introduction and discussion of Regression: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ 
 ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 

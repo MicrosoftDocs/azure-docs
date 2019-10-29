@@ -2,14 +2,14 @@
 title: Localization string IDs - Azure Active Directory B2C | Microsoft Docs
 description: Specify the IDs for a content definition with an Id of api.signuporsignin in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -81,11 +81,11 @@ The following example localizes the Facebook identity provider to Arabic:
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | Your password is incorrect. |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | We can't seem to find your account. |
-| **UserMessageIfOldPasswordUsed** | Looks like you used an old password. |  
-| **DefaultMessage** | Invalid username or password. |  
-| **UserMessageIfUserAccountDisabled** | Your account has been locked. Contact your support person to unlock it, then try again. |  
-| **UserMessageIfUserAccountLocked** | Your account is temporarily locked to prevent unauthorized use. Try again later. |  
-| **AADRequestsThrottled** | There are too many requests at this moment. Please wait for some time and try again. |  
+| **UserMessageIfOldPasswordUsed** | Looks like you used an old password. |
+| **DefaultMessage** | Invalid username or password. |
+| **UserMessageIfUserAccountDisabled** | Your account has been locked. Contact your support person to unlock it, then try again. |
+| **UserMessageIfUserAccountLocked** | Your account is temporarily locked to prevent unauthorized use. Try again later. |
+| **AADRequestsThrottled** | There are too many requests at this moment. Please wait for some time and try again. |
 
 ## Sign-up and self asserted pages user interface elements
 
@@ -142,7 +142,7 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 
 The following example shows the use of some of the user interface elements in the sign-up page:
 
-![Sign-up page UX elements](./media/localization-string-ids/localization-sign-up.png)
+![Sign-up page with its UI element names labeled](./media/localization-string-ids/localization-sign-up.png)
 
 The following example shows the use of some of the user interface elements in the sign-up page, after user clicks on send verification code button:
 
@@ -151,7 +151,7 @@ The following example shows the use of some of the user interface elements in th
 
 ## Phone factor authentication page user interface elements
 
-The Following are the IDs for a content definition with an ID of `api.phonefactor`. 
+The Following are the IDs for a content definition with an ID of `api.phonefactor`.
 
 | ID | Default value |
 | -- | ------------- |

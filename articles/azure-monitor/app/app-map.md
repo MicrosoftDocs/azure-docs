@@ -1,21 +1,16 @@
 ---
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/15/2019
-ms.reviewer: sdash
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 03/15/2019
 
+ms.reviewer: sdash
 ---
+
 # Application Map: Triage Distributed Applications
 
 Application Map helps you spot performance bottlenecks or failure hotspots across all components of your distributed application. Each node on the map represents an application component or its dependencies; and has health KPI and alerts status. You can click through from any component to more detailed diagnostics, such as Application Insights events. If your app uses Azure services, you can also click through to Azure diagnostics, such as SQL Database Advisor recommendations.
@@ -115,7 +110,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Load initializer to the active TelemetryConfiguration**
+**ASP.NET apps: Load initializer to the active TelemetryConfiguration**
 
 In ApplicationInsights.config :
 
@@ -128,9 +123,6 @@ In ApplicationInsights.config :
       </TelemetryInitializers>
     </ApplicationInsights>
 ```
-
-> [!NOTE]
-> Adding initializer using `ApplicationInsights.config` is not valid for ASP.NET Core applications.
 
 An alternate method for ASP.NET Web apps is to instantiate the initializer in code, for example in Global.aspx.cs:
 
@@ -145,15 +137,20 @@ An alternate method for ASP.NET Web apps is to instantiate the initializer in co
     }
 ```
 
+> [!NOTE]
+> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications. 
+
+**ASP.NET Core apps: Load initializer to the TelemetryConfiguration**
+
 For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
  using CustomInitializer.Telemetry;
  public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-    }
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 ### Node.js
@@ -191,7 +188,7 @@ For further information on Java correlation and how to configure cloud role name
 
 ```javascript
 appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
+appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.role"] = "your role name";
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
@@ -266,4 +263,6 @@ To provide feedback, use the feedback option.
 
 ## Next steps
 
-* [Understanding correlation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* To learn more about how correlation works in Application Insights consult the [telemetry correlation article](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
+* The [end-to-end transaction diagnostic experience](transaction-diagnostics.md) correlates server-side telemetry from across all your Application Insights monitored components into a single view.
+* For advanced correlation scenarios in ASP.NET Core and ASP.NET consult the [track custom operations](custom-operations-tracking.md) article.

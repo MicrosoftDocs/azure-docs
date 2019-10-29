@@ -1,21 +1,25 @@
 ---
 title: Container instance logging with Azure Monitor logs
-description: Learn how to send container output (STDOUT and STDERR) to Azure Monitor logs.
+description: Learn how to send logs from Azure container instances to Azure Monitor logs.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/17/2018
+ms.date: 09/02/2019
 ms.author: danlep
 ---
 # Container instance logging with Azure Monitor logs
 
-Log Analytics workspaces provide a centralized location for storing and querying log data from not only Azure resources, but also on premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending data to Azure Monitor logs.
+Log Analytics workspaces provide a centralized location for storing and querying log data from not only Azure resources, but also on-premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending logs and event data to Azure Monitor logs.
 
-To send container instance data to Azure Monitor logs, you must create a container group by using the Azure CLI (or Cloud Shell) and a YAML file. The following sections describe creating a logging-enabled container group and querying logs.
+To send container group log and event data to Azure Monitor logs, you must specify a Log Analytics workspace ID and workspace key when creating a container group. The following sections describe creating a logging-enabled container group and querying logs.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+> Currently, you can only send event data from Linux container instances to Log Analytics.
 
 ## Prerequisites
 
@@ -31,7 +35,7 @@ Azure Container Instances needs permission to send data to your Log Analytics wo
 To obtain the log analytics workspace ID and primary key:
 
 1. Navigate to your Log Analytics workspace in the Azure portal
-1. Under **SETTINGS**, select **Advanced settings**
+1. Under **Settings**, select **Advanced settings**
 1. Select **Connected Sources** > **Windows Servers** (or **Linux Servers**--the ID and keys are the same for both)
 1. Take note of:
    * **WORKSPACE ID**
@@ -61,7 +65,7 @@ az container create \
 Use this method if you prefer to deploy container groups with YAML. The following YAML defines a container group with a single container. Copy the YAML into a new file, then replace `LOG_ANALYTICS_WORKSPACE_ID` and `LOG_ANALYTICS_WORKSPACE_KEY` with the values you obtained in the previous step. Save the file as **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -85,7 +89,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Next, execute the following command to deploy the container group; replace `myResourceGroup` with a resource group in your subscription (or first create a resource group named "myResourceGroup"):
+Next, execute the following command to deploy the container group. Replace `myResourceGroup` with a resource group in your subscription (or first create a resource group named "myResourceGroup"):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
@@ -93,28 +97,43 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 You should receive a response from Azure containing deployment details shortly after issuing the command.
 
-## View logs in Azure Monitor logs
+## View logs
 
-After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. To view the container group's logs, open your Log Analytics workspace, then:
+After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. To view the container group's logs in the `ContainerInstanceLog_CL` table:
 
-1. In the **OMS workspace** overview, select **Log Search**. OMS workspaces are now referred to as Log Analytics workspaces.  
-1. Under **A few more queries to try**, select the **All collected data** link
+1. Navigate to your Log Analytics workspace in the Azure portal
+1. Under **General**, select **Logs**  
+1. Type the following query: `ContainerInstanceLog_CL | limit 50`
+1. Select **Run**
 
-You should see several results displayed by the `search *` query. If at first you don't see any results, wait a few minutes, then select the **RUN** button to execute the query again. By default, log entries are displayed in "List" view--select **Table** to see the log entries in a more condensed format. You can then expand a row to see the contents of an individual log entry.
+You should see several results displayed by the query. If at first you don't see any results, wait a few minutes, then select the **Run** button to execute the query again. By default, log entries are displayed in **Table** format. You can then expand a row to see the contents of an individual log entry.
 
 ![Log Search results in the Azure portal][log-search-01]
+
+## View events
+
+You can also view events for container instances in the Azure portal. Events include the time the instance is created and when it is started. To view the event data in the `ContainerEvent_CL` table:
+
+1. Navigate to your Log Analytics workspace in the Azure portal
+1. Under **General**, select **Logs**  
+1. Type the following query: `ContainerEvent_CL | limit 50`
+1. Select **Run**
+
+You should see several results displayed by the query. If at first you don't see any results, wait a few minutes, then select the **Run** button to execute the query again. By default, entries are displayed in **Table** format. You can then expand a row to see the contents of an individual entry.
+
+![Event Search results in the Azure portal][log-search-02]
 
 ## Query container logs
 
 Azure Monitor logs includes an extensive [query language][query_lang] for pulling information from potentially thousands of lines of log output.
 
-The Azure Container Instances logging agent sends entries to the `ContainerInstanceLog_CL` table in your Log Analytics workspace. The basic structure of a query is the source table (`ContainerInstanceLog_CL`) followed by a series of operators separated by the pipe character (`|`). You can chain several operators to refine the results and perform advanced functions.
+The basic structure of a query is the source table (in this article, `ContainerInstanceLog_CL` or `ContainerEvent_CL`) followed by a series of operators separated by the pipe character (`|`). You can chain several operators to refine the results and perform advanced functions.
 
-To see example query results, paste the following query into the query text box (under "Show legacy language converter"), and select the **RUN** button to execute the query. This query displays all log entries whose "Message" field contains the word "warn":
+To see example query results, paste the following query into the query text box , and select the **Run** button to execute the query. This query displays all log entries whose "Message" field contains the word "warn":
 
 ```query
 ContainerInstanceLog_CL
-| where Message contains("warn")
+| where Message contains "warn"
 ```
 
 More complex queries are also supported. For example, this query displays only those log entries for the "mycontainergroup001" container group generated within the last hour:
@@ -143,6 +162,7 @@ For information about monitoring container instance CPU and memory resources, se
 
 <!-- IMAGES -->
 [log-search-01]: ./media/container-instances-log-analytics/portal-query-01.png
+[log-search-02]: ./media/container-instances-log-analytics/portal-query-02.png
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/

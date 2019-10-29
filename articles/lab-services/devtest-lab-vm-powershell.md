@@ -78,6 +78,7 @@ try {
           "labSubnetName"           = $labSubnetName;
           "notes"                   = "Windows Server 2016 Datacenter";
           "osType"                  = "windows"
+          "expirationDate"          = "2019-12-01"
           "galleryImageReference"   = @{
              "offer"     = "WindowsServer";
              "publisher" = "MicrosoftWindowsServer";
@@ -184,6 +185,39 @@ The following procedure gives you steps to get properties of an image by using t
 5. Select **Run**.
 6. You see the **properties for the image** based on which the VM was created. 
 
+## Set expiration date
+In scenarios such as training, demos and trials, you may want to create virtual machines and delete them automatically after a fixed duration so that you don’t incur unnecessary costs. You can set an expiration date for a VM while creating it using PowerShell as shown in the example [PowerShell script](#powershell-script) section.
+
+Here is a sample PowerShell script that sets expiration date for all existing VMs in a lab:
+
+```powershell
+# Values to change
+$subscriptionId = '<Enter the subscription Id that contains lab>'
+$labResourceGroup = '<Enter the lab resource group>'
+$labName = '<Enter the lab name>'
+$VmName = '<Enter the VmName>'
+$expirationDate = '<Enter the expiration date e.g. 2019-12-16>'
+
+# Log into your Azure account
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+$VmResourceId = "subscriptions/$subscriptionId/resourcegroups/$labResourceGroup/providers/microsoft.devtestlab/labs/$labName/virtualmachines/$VmName"
+
+$vm = Get-AzureRmResource -ResourceId $VmResourceId -ExpandProperties
+
+# Get all the Vm properties
+$VmProperties = $vm.Properties
+
+# Set the expirationDate property
+If ($VmProperties.expirationDate -eq $null) {
+    $VmProperties | Add-Member -MemberType NoteProperty -Name expirationDate -Value $expirationDate
+} Else {
+    $VmProperties.expirationDate = $expirationDate
+}
+
+Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
+```
 
 
 ## Next steps

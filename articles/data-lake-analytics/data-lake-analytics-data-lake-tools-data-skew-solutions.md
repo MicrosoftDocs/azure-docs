@@ -1,5 +1,5 @@
 ---
-title: Resolve data-skew problems by using Azure Data Lake Tools for Visual Studio
+title: Resolve data-skew - Azure Data Lake Tools for Visual Studio
 description: Troubleshooting potential solutions for data-skew problems by using Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
 author: yanancai
@@ -160,7 +160,7 @@ The example that follows shows a separated left row set. Each output row depends
 
 Attributes of combiner mode:
 
-- [SqlUserDefinedCombiner(Mode=CombinerMode.Full)]: Every output row potentially depends on all the input rows from left and right with the same key value.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Full): Every output row potentially depends on all the input rows from left and right with the same key value.
 
 - SqlUserDefinedCombiner(Mode=CombinerMode.Left): Every output row depends on a single input row from the left (and potentially all rows from the right with the same key value).
 

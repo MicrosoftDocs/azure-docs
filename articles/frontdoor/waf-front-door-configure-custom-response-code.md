@@ -9,8 +9,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
-ms.author: tyao;kumud
-
+ms.author: kumud
+ms.reviewer: tyao
 ---
 
 # Configure a custom response for Azure web application firewall
@@ -61,7 +61,7 @@ New-AzFrontDoorWafPolicy `
 -CustomBlockResponseBody "<html><head><title>You are blocked.</title></head><body></body></html>"
 ```
 
-Modify custom response code or response body settings of an existing WAF policy, using [Update-AzFrontDoorFireWallPolicy ](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy).
+Modify custom response code or response body settings of an existing WAF policy, using [Update-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy).
 
 ```azurepowershell
 # modify WAF response code

@@ -7,6 +7,7 @@ ms.date: 03/28/2019
 ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
+ms.service: batch
 ---
 
 # Use Azure Pipelines to build and deploy HPC solutions

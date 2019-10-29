@@ -4,7 +4,7 @@ description: Learn how to use multiple virtual machines to ensure high availabil
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -12,7 +12,7 @@ ms.assetid: 02351953-7b6a-4657-b9e1-de2ea8f6aa05
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: cynthn

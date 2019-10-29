@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkdin;juliako
+ms.author: juliako
 
 ---
 # How to perform live streaming with on-premises encoders using .NET

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Face API C#"
 titleSuffix: Azure Cognitive Services
-description: Create a simple Windows app that uses the Cognitive Services Face API to detect features of faces in an image.
+description: Create a Windows app that uses the Cognitive Services Face API to detect features of faces in an image.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 07/03/2019
 ms.author: ghogen
 ---
 # Connecting to Cognitive Services Face API by using Connected Services in Visual Studio
@@ -142,7 +142,7 @@ This article and its companion articles provide details for using the Visual Stu
             });
         }
    ```
-    The code in this step constructs a HTTP request with a call to the Face REST API, using the key you added when you added the connected service.
+    The code in this step constructs an HTTP request with a call to the Face REST API, using the key you added when you added the connected service.
 
 1. Add the helper functions GetImageAsByteArray and JsonPrettyPrint.
 
@@ -234,7 +234,7 @@ This article and its companion articles provide details for using the Visual Stu
 
 When no longer needed, delete the resource group. This deletes the cognitive service and related resources. To delete the resource group through the portal:
 
-1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
+1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 1. Select **Delete resource group**.
 1. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 

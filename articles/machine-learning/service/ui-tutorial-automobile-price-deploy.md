@@ -1,149 +1,117 @@
 ---
 title: 'Tutorial: Deploy a machine learning model with the visual interface'
-titleSuffix: Azure Machine Learning service
-description: Learn how to build a predictive analytics solution in the Azure Machine Learning service visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobile prices using linear regression.
+titleSuffix: Azure Machine Learning
+description: Learn how to build a predictive analytics solution in the Azure Machine Learning visual interface. Train, score, and deploy a machine learning model using drag and drop modules.
 
 author: peterclu
-ms.author: peterclu
+ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/06/2019
+ms.date: 10/22/2019
 ---
 
 # Tutorial: Deploy a machine learning model with the visual interface
 
-In this tutorial, you take an extended look at developing a predictive solution in the Azure Machine Learning service visual interface. This tutorial is **part two of a two-part tutorial series**. In [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you trained, scored, and evaluated a model to predict car prices. In this part of the tutorial, you:
+To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as a real-time endpoint. In part 1, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
 
 > [!div class="checklist"]
-> * Prepare a model for deployment
-> * Deploy a web service
-> * Test a web service
-> * Manage a web service
-> * Consume the web service
+> * Deploy a real-time endpoint
+> * Create an inferencing cluster
+> * Test a real-time endpoint
 
 ## Prerequisites
 
-Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md).
+Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md) to learn how to train and score a machine learning model in the visual interface.
 
-## Prepare for deployment
+## Deploy a real-time endpoint
 
-To give others a chance to use the predictive model developed in this tutorial, you can deploy it as an Azure web service.
+In order to deploy your pipeline, you must:
 
-So far, you've been experimenting with training your model. Now, it's time to generate new predictions based on user input.
+1. Convert the training pipeline into a real-time inference pipeline, which removes training modules and adds inputs and outputs for inferencing requests.
+1. Deploy the inference pipeline.
 
-Preparation for deployment is a two-step process:  
+### Create a real-time inference pipeline
 
-1. Convert the *training experiment* that you've created into a *predictive experiment*
-1. Deploy the predictive experiment as a web service
+1. At the top of the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**
 
-You may want to make a copy of the experiment first by selecting **Save As** at the bottom of the experiment canvas.
+    When you select **Create inference pipeline**, several things happen:
+    
+    * The trained model is stored as a **Dataset** module in the module palette. You can find it under **My Datasets**.
+    * Modules, like **Train Model** and **Split Data**, that were used for training are removed.
+    * The saved trained model is added back into the pipeline.
+    * **Web Service Input** and **Web Service Output** modules are added. These modules identify where user data will enter the model, and where data is returned.
 
-### Convert the training experiment to a predictive experiment
+    > [!Note]
+    > The **training pipeline** is saved under the new tab at the top of the pipeline canvas. It can also be found as a published pipeline in the visual interface.
+    >
 
-To get this model ready for deployment, convert this training experiment to a predictive experiment. This typically involves three steps:
+    Your pipeline should now look like this:  
 
-1. Save the model you've trained and replace your training modules
-1. Trim the experiment to remove modules that were only needed for training
-1. Define where the web service will accept input data and where it generates the output
+   ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-You could do these steps manually or you could select **Set Up Web Service** at the bottom of the experiment canvas to have them done automatically.
+1. Select **Run** and use the same compute target and experiment you used in part 1.
 
-![Animated gif showing the automatic conversion of a training experiment to a predictive experiment](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
+1. Select the **Score Model** module.
 
-When you select **Set Up Web Service**, several things happen:
+1. In the properties pane, select **Outputs** > **Visualize** to verify the model is still working. You can see the original data is displayed along with the predicted price ("Scored Labels").
 
-* The trained model is converted to a single **Trained Model** module. It's stored in the module palette to the left of the experiment canvas. You can find it under **Trained Models**.
-* Modules that were used for training are removed; specifically:
-  * Train Model
-  * Split Data
-  * Evaluate Model
-* The saved trained model is added back into the experiment
-* **Web service input** and **Web service output** modules are added. These modules identify where the user's data will enter the model, and where data is returned.
+1. Select **Deploy**.
 
-You can see that the experiment is saved in two parts under the new tabs at the top of the experiment canvas. The original training experiment is under the tab **Training experiment**, and the newly created predictive experiment is under **Predictive experiment**. The predictive experiment is the one you'll deploy as a web service.
+### Create an inferencing cluster
 
-Your experiment should now look like this:  
+In the dialog that appears, you can select from existing Azure Kubernetes Service (AKS) clusters in your workspace to deploy your model. If you don't have an AKS cluster, use the following steps to create one.
 
-![Screenshot showing the expected configuration of the experiment after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
+1. Select **Compute** in the dialog to navigate to the **Compute** page.
 
-Run the experiment one last time (select **Run**). Choose the compute target you want the experiment to run on in the popup dialog. To verify the model is still working, select the output of the Score Model module and select **View Results**. You can see the original data is displayed, along with the predicted price ("Scored Labels").
+1. In the navigation ribbon, select **Inference Clusters** > **+ New**.
 
-## Deploy the web service
+    ![Screenshot showing how to navigate to the new inference cluster pane](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
 
-To deploy a New web service derived from your experiment:
+1. In the inference cluster pane, configure a new Kubernetes Service.
 
-1. Select **Deploy Web Service** below the canvas.
-1. Select the **Compute Target** that you'd like to run your web service.
+1. Enter "aks-compute" for the **Compute name**.
+    
+1. Select a nearby available **Region**.
 
-    Currently, the visual interface only supports deployment to Azure Kubernetes Service (AKS) compute targets. You can choose from available AKS compute targets in your machine learning service workspace or configure a new AKS environment using the steps in the dialogue that appears.
+1. Select **Create**.
 
-    ![Screenshot showing a possible configuration for a new compute target](./media/ui-tutorial-automobile-price-deploy/deploy-compute.png)
+    > [!Note]
+    > It takes approximately 15 minutes to create a new AKS service. You can check the provisioning state on the **Inference Clusters** page
+    >
 
-1. Select **Deploy Web Service**. You'll see the following notification when deployment completes. Deployment may take a few minutes.
+### Deploy the real-time endpoint
 
-    ![Screenshot showing the confirmation message for a successful deployment.](./media/ui-tutorial-automobile-price-deploy/deploy-succeed.png)
+After your AKS service has finished provisioning, return to the real-time inferencing pipeline to complete deployment.
 
-## Test the web service
+1. Select **Deploy** above the canvas.
 
-User input data enters your deployed model through the **Web service input** module. The input is then scored in the  **Score Model** module. The way you've set up the predictive experiment, the model expects data in the same format as the original automobile price dataset. Finally, the results are returned to the user through the **Web service output** module.
+1. Select **Deploy new real-time endpoint**. 
 
-You can test a web service in the web service tab in the visual interface.
+1. Select the AKS cluster you created.
 
-1. Go to the web service section. You'll see the web service you deployed with the name **Tutorial - Predict Automobile Price[Predictive Exp]**.
+1. Select **Deploy**.
 
-     ![Screenshot showing the web service tab with the recently created web service highlighted](./media/ui-tutorial-automobile-price-deploy/web-services.png)
+    ![Screenshot showing how to set up a new real-time endpoint](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
 
-1. Select the web service name to view additional details.
+    A success notification above the canvas will appear when deployment completes, it may take a few minutes.
 
-     ![Screenshot showing the additional details available in the web service view](./media/ui-tutorial-automobile-price-deploy/web-service-details.png)
+## Test the real-time endpoint
+
+You can test your real-time endpoint by navigating to the **Endpoints** page in the workspace navigation pane on the left.
+
+1. On the **Endpoints** page, select the endpoint you deployed.
+
+    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
 1. Select **Test**.
 
-    ![Screenshot showing the web service testing page](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
+1. Input testing data or use the autofilled sample data and select **Test**.
 
-1. Input testing data or use the autofilled sample data and select **Test** at the bottom. The test request is submitted to the web service and the results are shown on page.
+    The test request is submitted to the endpoint and the results are shown on page. Although a price value is generated for the input data, it is not used to generate the prediction value.
 
-## Manage the web service
-
-Once you've deployed your web service, you can manage it from the **Web Services** tab in the visual interface.
-
-You can delete a web service by selecting **Delete** in the web service detail page.
-
-   ![Screenshot showing the location of the Delete web service button at the bottom of the window](./media/ui-tutorial-automobile-price-deploy/web-service-delete.png)
-
-## Consume the web service
-
-In the previous steps of this tutorial, you deployed an automobile prediction model as an Azure web service. Now users can send data to it and receive results via REST API.
-
-**Request/Response** - The user sends one or more rows of automobile data to the service by using an HTTP protocol. The service responds with one or more sets of results.
-
-You can find sample REST calls in the **Consume** tab of the web service details page.
-
-   ![Screenshot showing a sample REST call that users can find in the Consume tab](./media/ui-tutorial-automobile-price-deploy/web-service-consume.png)
-
-Navigate to the **API Doc** tab, to find more API details.
-
-  ![Screenshot showing additional API details that users can find in the API Doc tab](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
-
-## Manage models and deployments in Azure Machine Learning service workspace
-
-The models and web service deployments you create in the visual interface can be managed from the Azure Machine Learning service workspace.
-
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
-
-1. In your workspace, select **Models**. Then select the experiment you created.
-
-    ![Screenshot showing how to navigate to experiments in the Azure portal](./media/ui-tutorial-automobile-price-deploy/portal-models.png)
-
-    On this page, you'll see additional details about the model.
-
-    ![Screenshot showing overview of experiment statistics in the Azure portal](./media/ui-tutorial-automobile-price-deploy/model-details.png)
-
-1. Select **Deployments**, it will list any web services that use the model. Select the web service name, it will go to web service detail page. In this page, you can get more detailed information of the web service.
-
-    ![Screenshot detailed run report](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)
+    ![Screenshot showing how to test the real-time endpoint with the scored label for price highlighted](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
 
 ## Clean up resources
 
@@ -151,7 +119,7 @@ The models and web service deployments you create in the visual interface can be
 
 ## Next steps
 
-In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, check out the sample experiments.
+In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, see out our other sample pipelines.
 
 > [!div class="nextstepaction"]
-> [Credit risk classification sample](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+> [Credit risk classification sample](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)

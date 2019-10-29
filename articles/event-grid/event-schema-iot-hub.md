@@ -31,6 +31,8 @@ Azure IoT Hub emits the following event types:
 | Microsoft.Devices.DeviceDisconnected | Published when a device is disconnected from an IoT hub. | 
 | Microsoft.Devices.DeviceTelemetry | Published when a telemetry message is sent to an IoT hub. |
 
+All device events except device telemetry events are generally available in all regions supported by Event Grid. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+
 ## Example event
 
 The schema for DeviceConnected and DeviceDisconnected events have the same structure. This sample event shows the schema of an event raised when a device is connected to an IoT hub:
@@ -176,7 +178,7 @@ For **Device Telemetry** IoT Hub event, the data object contains the device-to-c
 | -------- | ---- | ----------- |
 | body | string | The content of the message from the device. |
 | properties | string | Application properties are user-defined strings that can be added to the message. These fields are optional. |
-| system properties | string | [System properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) help identify contents and source of the messages. |
+| system properties | string | [System properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) help identify contents and source of the messages. Device telemetry message must be in a valid JSON format with the contentType set to JSON and contentEncoding set to UTF-8 in the message system properties. If this is not set, then IoT Hub will write the messages in base 64 encoded format.  |
 
 For **Device Created** and **Device Deleted** IoT Hub events, the data object contains the following properties:
 

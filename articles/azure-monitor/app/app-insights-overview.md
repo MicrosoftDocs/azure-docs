@@ -1,35 +1,29 @@
 ---
 title: What is Azure Application Insights? | Microsoft Docs
 description: Application Performance Management and usage tracking of your live web application.  Detect, triage and diagnose problems, understand how people use your app.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: overview
-ms.custom: mvc
-ms.date: 02/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
----
-# What is Application Insights?
-Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and Java EE, hosted on-premises, hybrid, or any public cloud. It integrates with your DevOps process, and has connection points to a variety of development tools. It can monitor and analyze telemetry from mobile apps by integrating with Visual Studio App Center.
+ms.date: 06/03/2019
 
-[Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
+ms.custom: mvc
+---
+
+# What is Application Insights?
+Application Insights, a feature of [Azure Monitor](../overview.md), is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and Java EE, hosted on-premises, hybrid, or any public cloud. It integrates with your DevOps process, and has connection points to a variety of development tools. It can monitor and analyze telemetry from mobile apps by integrating with Visual Studio App Center.
 
 ## How does Application Insights work?
-You install a small instrumentation package in your application, and set up an Application Insights resource in the Microsoft Azure portal. The instrumentation monitors your app and sends telemetry data to the portal. (The application can run anywhere - it doesn't have to be hosted in Azure.)
+You install a small instrumentation package in your application, and set up an Application Insights resource in the Microsoft Azure portal. The instrumentation monitors your app and sends telemetry data to Azure Monitor. (The application can run anywhere - it doesn't have to be hosted in Azure.)
 
 You can instrument not only the web service application, but also any background components, and the JavaScript in the web pages themselves. 
 
-![Application Insights instrumentation in your app sends telemetry to your Application Insights resource.](./media/app-insights-overview/01-scheme.png)
+![Application Insights instrumentation in your app sends telemetry to your Application Insights resource.](./media/app-insights-overview/diagram.png)
 
 In addition, you can pull in telemetry from the host environments such as performance counters, Azure diagnostics, or Docker logs. You can also set up web tests that periodically send synthetic requests to your web service.
 
-All these telemetry streams are integrated in the Azure portal, where you can apply powerful analytic and search tools to the raw data.
-
+All these telemetry streams are integrated into Azure Monitor. In the Azure portal, you can apply powerful analytic and search tools to the raw data.
 
 ### What's the overhead?
 The impact on your app's performance is very small. Tracking calls are non-blocking, and are batched and sent in a separate thread.
@@ -98,11 +92,14 @@ Application Insights is one of the many services hosted within Microsoft Azure, 
 
 There are several ways to get started. Begin with whichever works best for you. You can add the others later.
 
-* **At run time: instrument your web app on the server.** Avoids any update to the code. You need admin access to your server.
-  * [**IIS on-premises or on a VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Azure web app or VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* **At development time: add Application Insights to your code.** Allows you to write custom telemetry and to instrument back-end and desktop apps.
-  * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 update 2 or later.
+* **At run time: instrument your web app on the server.** Ideal for applications already deployed. Avoids any update to the code.
+  * [**ASP.NET or ASP.NET Core applications hosted on Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
+  * [**ASP.NET applications hosted in IIS on Azure VM or Azure virtual machine scale set**](../../azure-monitor/app/azure-vm-vmss-apps.md)
+  * [**ASP.NET applications hosted in IIS on-premises VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* **At development time: add Application Insights to your code.** Allows you to customize telemetry collection and send additional telemetry.
+  * [ASP.NET Applications](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core Applications](../../azure-monitor/app/asp-net-core.md)
+  * [.NET Console Applications](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Other platforms](../../azure-monitor/app/platforms.md)
@@ -113,11 +110,14 @@ There are several ways to get started. Begin with whichever works best for you. 
 ## Next steps
 Get started at runtime with:
 
+* [Azure VM and Azure virtual machine scale set IIS-hosted apps](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [IIS server](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 
 Get started at development time with:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
 
@@ -130,12 +130,6 @@ Get started at development time with:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blog:
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
-
-## Videos
-
-[![Animated introduction](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 <!--Link references-->
 

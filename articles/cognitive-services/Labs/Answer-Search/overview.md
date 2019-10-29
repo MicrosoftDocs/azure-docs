@@ -11,6 +11,7 @@ ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
 # What is Project Answer Search?

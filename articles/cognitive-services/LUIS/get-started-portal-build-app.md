@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create a new app in the LUIS portal" 
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In this quickstart, you create a new app in the LUIS portal. Create the basic parts of an app, intents, and entities. Test the app by providing a sample user utterance in the interactive test panel to get the predicted intent. Building an app is free; it doesn't require an Azure subscription. 
 services: cognitive-services
 author: diberry
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/04/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances. 
 ---
@@ -19,9 +19,9 @@ In this quickstart, you build a new app in the [LUIS portal](https://www.luis.ai
 
 Building an app is free and doesn't require an Azure subscription. When you're ready to deploy your app, see the [quickstart to deploy an app](get-started-portal-deploy-app.md). It shows you how to create an Azure Cognitive Service Resource and assign it to the app.
 
-## Create an app
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
-1. Open the [LUIS portal](https://www.luis.ai) in a browser and sign in. If it's your first time signing in, you need to create a free LUIS portal user account.
+## Create an app
 
 1. Select **Create new app** from the context toolbar.
 

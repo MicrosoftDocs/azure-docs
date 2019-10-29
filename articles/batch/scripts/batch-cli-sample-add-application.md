@@ -4,7 +4,7 @@ description: Azure CLI Script Example - Add an Application in Batch
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: 
 
 ms.assetid:

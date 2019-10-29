@@ -4,6 +4,7 @@ description: This article explains which features of the FHIR specification that
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: mihansen
@@ -15,29 +16,31 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## FHIR version
 
-Current version: `3.0.1`
+Latest version supported: `4.0.0`
+
+Previous versions also currently supported include : `3.0.1`
 
 ## REST API
 
-| API                            | Supported | Comment |
-|--------------------------------|-----------|---------|
-| read                           | Yes       |         |
-| vread                          | Yes       |         |
-| update                         | Yes       |         |
-| update with optimistic locking | Yes       |         |
-| update (conditional)           | No        |         |
-| patch                          | No        |         |
-| delete                         | Yes       |         |
-| delete (conditional)           | No        |         |
-| create                         | Yes       | Support both POST/PUT |
-| create (conditional)           | No        |         |
-| search                         | Partial   | See below |
-| capabilities                   | Yes       |         |
-| batch                          | No        |         |
-| transaction                    | No        |         |
-| history                        | Yes       |         |
-| paging                         | Partial   | `self` and `next` are supported |
-| intermediaries                 | No        |         |
+| API                            | Supported | Comment                                             |
+|--------------------------------|-----------|-----------------------------------------------------|
+| read                           | Yes       |                                                     |
+| vread                          | Yes       |                                                     |
+| update                         | Yes       |                                                     |
+| update with optimistic locking | Yes       |                                                     |
+| update (conditional)           | Yes       |                                                     |
+| patch                          | No        |                                                     |
+| delete                         | Yes       |                                                     |
+| delete (conditional)           | No        |                                                     |
+| create                         | Yes       | Support both POST/PUT                               |
+| create (conditional)           | Yes       |                                                     |
+| search                         | Partial   | See below                                           |
+| capabilities                   | Yes       |                                                     |
+| batch                          | No        |                                                     |
+| transaction                    | No        |                                                     |
+| history                        | Yes       |                                                     |
+| paging                         | Partial   | `self` and `next` are supported                     |
+| intermediaries                 | No        |                                                     |
 
 ## Search
 
@@ -53,6 +56,7 @@ All search parameter types are supported. Chained parameters and reverse chainin
 | Composite             | Yes       |         |
 | Quantity              | Yes       | Issue [#103](https://github.com/Microsoft/fhir-server/issues/103) |
 | URI                   | Yes       |         |
+| Special               | No        |        
 
 
 | Modifiers             | Supported | Comment |

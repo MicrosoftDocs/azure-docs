@@ -3,17 +3,17 @@ title: What is the Translator Text API? - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Integrate the Translator Text API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 02/21/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ms.custom: seodec18
 ---
 
-# What is Translator Text API?
+# What is the Translator Text API?
 
 The Translator Text API is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [more than 60 languages](languages.md), and can be used on any hardware platform with any operating system for text-to-text language translation.
 

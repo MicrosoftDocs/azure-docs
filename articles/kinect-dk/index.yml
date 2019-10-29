@@ -1,0 +1,121 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Kinect DK Documentation
+metadata: 
+  title: Azure Kinect DK documentation | Microsoft Docs
+  description:  Azure Kinect DK is a developer kit with advanced AI sensors that provide sophisticated computer vision and speech models.  Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and SDKs.
+  ms.prod: kinect-dk
+  author: tesych
+  ms.author: tesych
+  ms.topic: landing-page
+  ms.date: 06/04/2019  
+abstract:
+  description: 
+sections:
+- items:
+    html: <img src="./media/index/device-image.jpg" style="max-width:100%" alt="Azure Kinect device">
+- items:
+  - type: paragraph
+    text: Azure Kinect DK is a developer kit with advanced AI sensors that provide sophisticated computer vision and speech models.
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: about-azure-kinect-dk.md
+          html: <p>Learn about the Azure Kinect DK.</p>
+          image:
+            src: https://docs.microsoft.com/media/common/i_overview.svg
+          title: What is Azure Kinect DK?
+          alt:
+        - href: hardware-specification.md
+          html: <p>Review Azure Kinect DK Hardware Specification.</p>
+          image:
+            src: https://docs.microsoft.com/media/common/i_get-started.svg
+          title: Azure Kinect DK Hardware Specification
+          alt:
+        - href: sensor-sdk-download.md
+          html: <p>Follow Instructions to download Azure Kinect Sensor SDK.</p>
+          image:
+            src: ./media/index/kinect-viewer.svg
+          title: Download Sensor SDK
+          alt:
+        - href: body-sdk-download.md
+          html: <p>Follow Instructions to download Azure Kinect Body Tracking SDK.</p>
+          image:
+            src: ./media/index/body-tracking.svg
+          title: Download Body Tracking SDK
+          alt:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to set up and start working with Azure Kinect DK'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_guidelines.svg
+      text: Set up Azure Kinect DK
+      alt:
+      href: set-up-azure-kinect-dk.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_tools.svg
+      text: Record sensor streams to a file
+      alt:
+      href: record-sensor-streams-file.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_build.svg
+      text: Build your first Azure Kinect application
+      alt:
+      href: build-first-app.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_setup.svg
+      text: Set up Body Tracking SDK
+      alt:
+      href: body-sdk-setup.md
+- title: Introduction
+  items:
+  - type: paragraph
+    text: |
+      Get familiar with Azure Kinect DK and its SDKs
+      <div class="row"><div class="column"><ul>
+      <li><b><a href="system-requirements.md">Sensor SDK system requirements</a></b></li>
+      <li><b><a href="about-sensor-sdk.md">Learn about Sensor SDK</a></b></li>
+      <li><b><a href="depth-camera.md">Learn about depth camera</a></b></li></ul></div><div class="column"><ul>
+      <li><b><a href="update-device-firmware.md">Update Azure Kinect DK firmware</a></b></li>
+      <li><b><a href="azure-kinect-viewer.md">Learn how to use viewer</a></b></li>
+      <li><b><a href="azure-kinect-recorder.md">Learn how to use recorder</a></b></li></ul></div></div>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Services
+      html: <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">
+                  Speech Services
+               </a>
+            </p>
+            <p><a href="https://azure.microsoft.com/services/cognitive-services/directory/vision/">
+                  Vision Services
+               </a>
+            </p>
+    - title: Contact us
+      html: <p><a href="https://feedback.azure.com/forums/920053">
+                  Share your ideas
+               </a>
+            </p>
+            <p><a href="https://github.com/microsoft/Azure-Kinect-Sensor-SDK">
+                  Contribute to the sensor SDK
+               </a>
+            </p>
+    - title: Support
+      html: <p><a href="troubleshooting.md">
+                  Troubleshooting
+               </a>
+            </p>
+            <p><a href="https://aka.ms/kinectsupport">
+                  Microsoft support
+               </a>
+            </p>

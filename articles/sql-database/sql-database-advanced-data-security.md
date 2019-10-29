@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: 
 ms.topic: conceptual
-author: monhaber
-ms.author: monhaber
+ms.author: memildin
+author: memildin
+manager: rkarlin
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/31/2019
 ---
 # Advanced data security for Azure SQL Database

@@ -10,13 +10,13 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ---
-# Azure Stream Analytics JavaScript user-defined aggregates (Preview)
+# Azure Stream Analytics JavaScript user-defined aggregates
  
 Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript, it enables you to implement complex stateful business logic. Within UDA you have full control of the state data structure, state accumulation, state decumulation, and aggregate result computation. The article introduces the two different JavaScript UDA interfaces, steps to create a UDA, and how to use UDA with window-based operations in Stream Analytics query.
 
 ## JavaScript user-defined aggregates
 
-A user-defined aggregate is used on top of a time window specification to aggregate over the events in that window and produce a single result value. There are two types of UDA interfaces that Stream Analytics supports today, AccumulateOnly and AccumulateDeaccumulate. Both types of UDA can be used by Tumbling Window, Hopping Window, and Sliding Window. AccumulateDeaccumulate UDA performs better than AccumulateOnly UDA when used together with Hopping Window and Sliding Window. You choose one of the two types based on the algorithm you use.
+A user-defined aggregate is used on top of a time window specification to aggregate over the events in that window and produce a single result value. There are two types of UDA interfaces that Stream Analytics supports today, AccumulateOnly and AccumulateDeaccumulate. Both types of UDA can be used by Tumbling, Hopping, Sliding and Session Window. AccumulateDeaccumulate UDA performs better than AccumulateOnly UDA when used together with Hopping, Sliding and Session Window. You choose one of the two types based on the algorithm you use.
 
 ### AccumulateOnly aggregates
 
@@ -86,7 +86,7 @@ A specific type that Stream Analytics job supported, or "Any" if you want to han
 
 ### Function name
 
-The name of this Function object. The function name should literally match the UDA alias (preview behavior, we are considering support anonymous function when GA).
+The name of this Function object. The function name should match the UDA alias.
 
 ### Method - init()
 
@@ -94,11 +94,11 @@ The init() method initializes state of the aggregate. This method is called when
 
 ### Method – accumulate()
 
-The accumulate() method calculates the UDA state based on the previous state and the current event values. This method is called when an event enters a time window (TUMBLINGWINDOW, HOPPINGWINDOW, or SLIDINGWINDOW).
+The accumulate() method calculates the UDA state based on the previous state and the current event values. This method is called when an event enters a time window (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW or SESSIONWINDOW).
 
 ### Method – deaccumulate()
 
-The deaccumulate() method recalculates state based on the previous state and the current event values. This method is called when an event leaves a SLIDINGWINDOW.
+The deaccumulate() method recalculates state based on the previous state and the current event values. This method is called when an event leaves a SLIDINGWINDOW or SESSIONWINDOW.
 
 ### Method – deaccumulateState()
 
@@ -106,7 +106,7 @@ The deaccumulateState() method recalculates state based on the previous state an
 
 ### Method – computeResult()
 
-The computeResult() method returns aggregate result based on the current state. This method is called at the end of a time window (TUMBLINGWINDOW, HOPPINGWINDOW, and SLIDINGWINDOW).
+The computeResult() method returns aggregate result based on the current state. This method is called at the end of a time window (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW or SESSIONWINDOW).
 
 ## JavaScript UDA supported input and output data types
 For JavaScript UDA data types, refer to section **Stream Analytics and JavaScript type conversion** of [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md).
@@ -228,5 +228,5 @@ For additional help, try our [Azure Stream Analytics forum](https://social.msdn.
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

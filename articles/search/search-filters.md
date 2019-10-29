@@ -2,11 +2,11 @@
 title: Filters for scoping search results in an index - Azure Search
 description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -91,7 +91,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## Filter usage patterns
 
-The following examples illustrate several usage patterns for filter scenarios. For more ideas, see [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+The following examples illustrate several usage patterns for filter scenarios. For more ideas, see [OData expression syntax > Examples](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
 + Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is just an asterisk, which means "match all documents".
 
@@ -152,11 +152,11 @@ Text strings are case-sensitive. There is no lower-casing of upper-cased words: 
 
 ### Approaches for filtering on text
 
-| Approach | Description | When to use | 
+| Approach | Description | When to use |
 |----------|-------------|-------------|
-| [search.in](query-odata-filter-orderby-syntax.md) | A function that matches a field against a delimited list of strings. | Recommended for [security filters](search-security-trimming-for-azure-search.md) and for any filters where many raw text values need to be matched with a string field. The **search.in** function is designed for speed and is much faster than explicitly comparing the field against each string using `eq` and `or`. | 
-| [search.ismatch](query-odata-filter-orderby-syntax.md) | A function that allows you to mix full-text search operations with strictly Boolean filter operations in the same filter expression. | Use **search.ismatch** (or its scoring equivalent, **search.ismatchscoring**) when you want multiple search-filter combinations in one request. You can also use it for a *contains* filter to filter on a partial string within a larger string. |
-| [$filter=field operator string](query-odata-filter-orderby-syntax.md) | A user-defined expression composed of fields, operators, and values. | Use this when you want to find exact matches between a string field and a string value. |
+| [`search.in`](search-query-odata-search-in-function.md) | A function that matches a field against a delimited list of strings. | Recommended for [security filters](search-security-trimming-for-azure-search.md) and for any filters where many raw text values need to be matched with a string field. The **search.in** function is designed for speed and is much faster than explicitly comparing the field against each string using `eq` and `or`. | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | A function that allows you to mix full-text search operations with strictly Boolean filter operations in the same filter expression. | Use **search.ismatch** (or its scoring equivalent, **search.ismatchscoring**) when you want multiple search-filter combinations in one request. You can also use it for a *contains* filter to filter on a partial string within a larger string. |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | A user-defined expression composed of fields, operators, and values. | Use this when you want to find exact matches between a string field and a string value. |
 
 ## Numeric filter fundamentals
 
@@ -189,7 +189,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-To work with more examples, see [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+To work with more examples, see [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
 ## See also
 

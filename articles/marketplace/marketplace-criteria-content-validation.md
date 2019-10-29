@@ -7,7 +7,7 @@ manager: nunoc
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: yijenj
+ms.author: pabutler
 ---
 
 # Azure Marketplace listing guidelines
@@ -34,14 +34,14 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 | 11 | Solution Support & Help | Link to at least one of the following: <br>o	Telephone numbers <br>o	Email support <br>o	Chat agents <br>o	Community forums |<br>•	All support methods listed: telephone & email support. <br>•	Paid support offered free during trial or test drive period | 
 | 12 | Legal | Policies or terms available via a public URL |  | 
 
-----
+---
 ## Trial offer requirements
 
 |  | Listing Element | Base Requirements | Optimal Requirements | 
 |:--- |:--- |:--- |:--- |
 |  | List Status | Link must lead to customer-led trial experience | Other CTAs (e.g. buy now) also available | 
 
-----
+---
 ## SaaS apps requirements
 
 |  | Listing Element | Base Requirements | Optimal Requirements | 
@@ -58,7 +58,7 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 | 10 | Contacts: Solution Support & Help | <br>•	Engineering contact name: Enter the name of the engineering contact for your app. This contact will receive technical communications from Microsoft.<br>•	Engineering contact email:  Enter the email address of the engineering contact for your app.<br>•	Engineering contacts Phone: Enter the phone number of the engineering contact. ISO phone number notations are supported; for details, see https://en.wikipedia.org/wiki/E.123.<br>•	Support contact Name: Enter the name of the support contact for your app. This contact will receive support-related communications from Microsoft.<br>•	Support contact email: Enter the email address of the support contact for your app. <br>•	Support contact phone: Enter the phone number of the support contact. ISO phone number notations are supported; for details, see https://en.wikipedia.org/wiki/E.123. <br>•	Support URL: Enter the URL to your support page. | <br>•	All support methods listed: telephone & email support. <br>•	Paid support offered free during trial or test drive period |
 | 11 | Legal |<br>•	Privacy policy URL: Enter the URL to your app's privacy policy in the Privacy policy URL field in CPP. <br>•	Terms of use: Enter the terms of use of your app. Customers are required to accept these terms before they can try your app. |	Policies or terms available via a public URL site |
 
-----
+---
 
 ## Container offer requirements
 
@@ -69,7 +69,7 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 | 3 | Marketplace Artifacts | Logos display correctly |<br>• Logo includes “hero image,” which is the large-format image in the Azure Portal <br>• Logos: Small (48x48) & Large (216x216) are requirements <br>• Hero image requirements: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Screenshot (Max 5):  CPP requires a .png image with resolution 1280 x 720.|
 | 4 | Lead Management |<br>•	Lead Management: Select the system where your leads will be stored. <br>•	Learn how to connect your CRM system [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
-----
+---
 
 ## Consulting offer requirements
 
@@ -92,6 +92,3 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 ## Next steps
 * Learn about different offer types in the marketplace. <br>[SaaS Apps](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Consulting services](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
-
- 
----

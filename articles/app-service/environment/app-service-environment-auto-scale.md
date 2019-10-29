@@ -11,7 +11,6 @@ ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy

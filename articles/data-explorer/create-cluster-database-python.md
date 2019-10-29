@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Create an Azure Data Explorer cluster and database by using Python'
+title: 'Create an Azure Data Explorer cluster and database by using Python'
 description: Learn how to create an Azure Data Explorer cluster and database by using Python.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
+ms.topic: conceptual
+ms.date: 06/03/2019
 ---
 
 # Create an Azure Data Explorer cluster and database by using Python
@@ -17,9 +17,9 @@ ms.date: 03/25/2019
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [ARM template](create-cluster-database-resource-manager.md)
 
-Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database by using Python.
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this article, you create a cluster and a database by using Python.
 
 ## Prerequisites
 
@@ -30,43 +30,59 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 To install the Python package for Azure Data Explorer (Kusto), open a command prompt that has Python in its path. Run this command:
 
 ```
+pip install azure-common
 pip install azure-mgmt-kusto
 ```
+## Authentication
+For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
 
 ## Create the Azure Data Explorer cluster
 
 1. Create your cluster by using the following command:
 
     ```Python
-    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto import KustoManagementClient
     from azure.mgmt.kusto.models import Cluster, AzureSku
+    from azure.common.credentials import ServicePrincipalCredentials
 
-    credentials = xxxxxxxxxxxxxxx
-    
-    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
+    #Directory (tenant) ID
+    tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Application ID
+    client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Client Secret
+    client_secret = "xxxxxxxxxxxxxx"
+    subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
+
     location = 'Central US'
-    sku = 'D13_v2'
+    sku_name = 'Standard_D13_v2'
     capacity = 5
+    tier = "Standard"
     resource_group_name = 'testrg'
     cluster_name = 'mykustocluster'
-    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    cluster = Cluster(location=location, sku=AzureSku(name=sku_name, capacity=capacity, tier=tier))
     
     kustoManagementClient = KustoManagementClient(credentials, subscription_id)
     
     cluster_operations = kustoManagementClient.clusters
     
-    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    poller = cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
     ```
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
    | cluster_name | *mykustocluster* | The desired name of your cluster.|
-   | sku | *D13_v2* | The SKU that will be used for your cluster. |
+   | sku_name | *Standard_D13_v2* | The SKU that will be used for your cluster. |
+   | tier | *Standard* | The SKU tier. |
+   | capacity | *number* | The number of instances of the cluster. |
    | resource_group_name | *testrg* | The resource group name where the cluster will be created. |
 
-    There are additional optional parameters that you can use, such as the capacity of the cluster.
-	
-1. Set [*your credentials*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
+    > [!NOTE]
+    > **Create a cluster** is a long running operation. Method **create_or_update** returns an instance of LROPoller, see [LROPoller class](/python/api/msrest/msrest.polling.lropoller?view=azure-python) to get more information.
 
 1. Run the following command to check whether your cluster was successfully created:
 
@@ -93,7 +109,8 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
 						soft_delete_period=softDeletePeriod,
 						hot_cache_period=hotCachePeriod)
 	
-	database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
+	#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+    poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
 
    |**Setting** | **Suggested value** | **Field description**|
@@ -114,7 +131,7 @@ You now have a cluster and a database.
 
 ## Clean up resources
 
-* If you plan to follow our other quickstarts and tutorials, keep the resources you created.
+* If you plan to follow our other articles, keep the resources you created.
 * To clean up resources, delete the cluster. When you delete a cluster, it also deletes all the databases in it. Use the following command to delete your cluster:
 
     ```Python
@@ -123,5 +140,4 @@ You now have a cluster and a database.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
+* [Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)

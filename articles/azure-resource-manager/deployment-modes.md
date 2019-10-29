@@ -1,16 +1,10 @@
 ---
 title: Azure Resource Manager deployment modes | Microsoft Docs
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/14/2019
+ms.date: 10/23/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager deployment modes
@@ -21,7 +15,11 @@ For both modes, Resource Manager tries to create all resources specified in the 
 
 ## Complete mode
 
-In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template. Resources that are specified in the template, but not deployed because a [condition](resource-group-authoring-templates.md#condition) evaluates to false, aren't deleted.
+In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template.
+
+If your template includes a resource that isn't deployed because [condition](conditional-resource-deployment.md) evaluates to false, the result depends on which REST API version you use to deploy the template. If you use a version earlier than 2019-05-10, the resource **isn't deleted**. With 2019-05-10 or later, the resource **is deleted**. The latest versions of Azure PowerShell and Azure CLI delete the resource.
+
+Be careful using complete mode with [copy loops](resource-group-create-multiple.md). Any resources that aren't specified in the template after resolving the copy loop are deleted.
 
 There are some differences in how resource types handle complete mode deletions. Parent resources are automatically deleted when not in a template that's deployed in complete mode. Some child resources aren't automatically deleted when not in the template. However, these child resources are deleted if the parent resource is deleted. 
 
@@ -43,7 +41,7 @@ If the resource group is [locked](resource-group-lock-resources.md), complete mo
 
 In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template.
 
-However, when redeploying an existing resource in incremental mode, the outcome is a different. Specify all properties for the resource, not just the ones you're updating. A common misunderstanding is to think properties that are not specified are left unchanged. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
+However, when redeploying an existing resource in incremental mode, the outcome is a different. Specify all properties for the resource, not just the ones you're updating. A common misunderstanding is to think properties that aren't specified are left unchanged. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
 
 ## Example result
 

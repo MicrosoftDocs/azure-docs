@@ -1,5 +1,5 @@
 ---
-title: Build an iOS app that integrates with Azure AD for sign-in and calls protected APis using OAuth 2.0 | Microsoft Docs
+title: Build an iOS app integrated with Azure AD for sign-in using OAuth 2.0 | Microsoft Docs
 description: Learn how to sign in users and call the Microsoft Graph API from my iOS app.
 services: active-directory
 documentationcenter: ios
@@ -97,7 +97,7 @@ Now that you have an application in Azure AD, you can install ADAL and write you
     link_with ['QuickStart']
     xcodeproj 'QuickStart'
 
-    pod 'ADALiOS'
+    pod 'ADAL'
     ```
 
 1. Load the podfile by using CocoaPods. This step creates a new XCode workspace that you load.

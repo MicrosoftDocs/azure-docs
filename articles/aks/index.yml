@@ -6,14 +6,12 @@ metadata:
   title: Azure Kubernetes Service (AKS) Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   services: container-service
-  author: carolz
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-service
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07-21-2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.'
 sections:

@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 ## Clone and edit the sample app
 
-In this step, you will clone the sample application and configure the Maven Project Object Model (POM or pom.xml) for deployment.
+In this step, you will clone the sample application and configure the Maven Project Object Model (POM or *pom.xml*) for deployment.
 
 ### Clone the sample
 
@@ -46,9 +46,9 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### Update the Maven POM
 
-Update the Maven Azure Plugin with the desired name and resource group of your App Service. You do not need to create the App Service plan or instance beforehand. The Maven plugin will create the resource group and App Service if it does not already exist. 
+Update the Maven Azure Plugin with the desired name and resource group of your App Service. You do not need to create the App Service plan or instance beforehand. The Maven plugin will create the resource group and App Service if it does not already exist.
 
-You can scroll down to the `<plugins>` section of _pom.xml_, line 200, to make the changes. 
+You can scroll down to the `<plugins>` section of *pom.xml*, line 200, to make the changes.
 
 ```xml
 <!-- Azure App Service Maven plugin for deployment -->
@@ -63,6 +63,7 @@ You can scroll down to the `<plugins>` section of _pom.xml_, line 200, to make t
   ...
 </plugin>  
 ```
+
 Replace `YOUR_APP_NAME` and `YOUR_RESOURCE_GROUP` with the names of your App Service and resource group.
 
 ## Build and deploy the application
@@ -99,13 +100,19 @@ At this point, the application is using an in-memory H2 database. Click "admin" 
 
 ## Provision a Postgres Database
 
-To provision a Postgres database server, open a terminal and run the following command with your desired values for the server name, username, password, and location. Use the same resource group that your App Service is in. Keep a note of your password for later!
+To provision a Postgres database server, open a terminal and use the [az postgres server create](https://docs.microsoft.com/cli/azure/postgres/server) command, as shown in the following example. Replace the placeholders (including the angle brackets) with values of your choosing, using the same resource group that you provided earlier for your App Service instance. The administrator credentials you provide will enable future access, so be sure to keep a note of them for later use.
 
 ```bash
-az postgres server create -n <desired-name> -g <same-resource-group> --sku-name GP_Gen4_2 -u <desired-username> -p <desired-password> -l <location>
+az postgres server create \
+    --name <server name> \
+    --resource-group <resource group> \
+    --location <location>
+    --sku-name GP_Gen5_2 \
+    --admin-user <administrator username> \
+    --admin-password <administrator password> \
 ```
 
-Browse to the Portal and search for your Postgres database. When the blade is up, copy the "Server name" and "Server admin login name" values, you will need them later.
+After you run this command, browse to the Azure portal and navigate to your Postgres database. When the blade is up, copy the "Server name" and "Server admin login name" values, you will need them later.
 
 ### Allow access to Azure Services
 
@@ -119,7 +126,7 @@ We will now make some changes to the Java application to enable it to use our Po
 
 ### Add Postgres credentials to the POM
 
-In _pom.xml_, replace the capitalized placeholder values with your Postgres server name, admin login name, and password. These fields are within the Azure Maven Plugin. (Be sure to replace `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`, and `YOUR_PG_PASSWORD` in the `<value>` tags... not within the `<name>` tags!)
+In *pom.xml*, replace the capitalized placeholder values with your Postgres server name, admin login name, and password. These fields are within the Azure Maven Plugin. (Be sure to replace `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`, and `YOUR_PG_PASSWORD` in the `<value>` tags... not within the `<name>` tags!)
 
 ```xml
 <plugin>
@@ -144,36 +151,34 @@ In _pom.xml_, replace the capitalized placeholder values with your Postgres serv
 
 ### Update the Java Transaction API
 
-Next, we need to edit our Java Transaction API (JPA) configuration so that our Java application will communicate with Postgres instead of the in-memory H2 database we were using previously. Open an editor to _src/main/resources/META-INF/persistence.xml_. Replace the value for `<jta-data-source>` with `java:jboss/datasources/postgresDS`. Your JTA XML should now have this setting:
+Next, we need to edit our Java Transaction API (JPA) configuration so that our Java application will communicate with Postgres instead of the in-memory H2 database we were using previously. Open an editor to *src/main/resources/META-INF/persistence.xml*. Replace the value for `<jta-data-source>` with `java:jboss/datasources/postgresDS`. Your JTA XML should now have this setting:
 
 ```xml
-...
 <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
-...
 ```
 
 ## Configure the WildFly application server
 
 Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencies. More configuration information can be found at [Configure WildFly server](configure-language-java.md#configure-java-ee-wildfly).
 
-To configure the server, we will need the four files in the  `wildfly_config/` directory:
+To configure the server, we will need the four files in the  *wildfly_config/* directory:
 
 - **postgresql-42.2.5.jar**: This JAR file is the JDBC driver for Postgres. For more information,  see the [official website](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: This XML file declares a name for the Postgres module (org.postgres). It also specifies the resources and dependencies necessary for the module to be used.
-- **jboss_cli_commands.cl**: This file contains configuration commands that will be executed to by the JBoss CLI. The commands add the Postgres module to the WildFly application server, provide the credentials, declare a JNDI name, set the timeout threshold, etc. If you are unfamiliar with the JBoss CLI, see the [official documentation](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- **startup_script.sh**: Finally, this shell script will be executed whenever your App Service instance is started. The script only performs one function: piping the commands in `jboss_cli_commands.cli` to the JBoss CLI.
+- **jboss_cli_commands.cli**: This file contains configuration commands that will be executed to by the JBoss CLI. The commands add the Postgres module to the WildFly application server, provide the credentials, declare a JNDI name, set the timeout threshold, etc. If you are unfamiliar with the JBoss CLI, see the [official documentation](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **startup_script.sh**: Finally, this shell script will be executed whenever your App Service instance is started. The script only performs one function: piping the commands in *jboss_cli_commands.cli* to the JBoss CLI.
 
-We highly suggest reading the contents of these files, especially _jboss_cli_commands.cli_.
+We highly suggest reading the contents of these files, especially *jboss_cli_commands.cli*.
 
 ### FTP the configuration files
 
-We will need to FTP the contents of `wildfly_config/` to our App Service instance. To get your FTP credentials, click the **Get Publish Profile** button on the App Service blade in the Azure portal. Your FTP username and password will be in the downloaded XML document. For more information on the Publish Profile,  see [this document](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+We will need to FTP the contents of *wildfly_config/* to our App Service instance. To get your FTP credentials, click the **Get Publish Profile** button on the App Service blade in the Azure portal. Your FTP username and password will be in the downloaded XML document. For more information on the Publish Profile,  see [this document](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
-Using an FTP tool of your choice, transfer the four files in `wildfly_config/` to `/home/site/deployments/tools/`. (Note that you should not transfer the directory, just the files themselves.)
+Using an FTP tool of your choice, transfer the four files in *wildfly_config/* to */home/site/deployments/tools/*. (Note that you should not transfer the directory, just the files themselves.)
 
 ### Finalize App Service
 
-In the App Service blade navigate to the "Application settings" panel. Under "Runtime", set the "Startup File" field to `/home/site/deployments/tools/startup_script.sh`. This will ensure that the shell script is run after the App Service instance is created, but before the WildFly server starts.
+In the App Service blade navigate to the "Application settings" panel. Under "Runtime", set the "Startup File" field to */home/site/deployments/tools/startup_script.sh*. This will ensure that the shell script is run after the App Service instance is created, but before the WildFly server starts.
 
 Finally, restart your App Service. The button is in the "Overview" panel.
 
@@ -185,7 +190,7 @@ In a terminal window, rebuild and redeploy your application.
 mvn clean install -DskipTests azure-webapp:deploy
 ```
 
-Congratulations! Your application is now using a Postgres database and any records created in the application will be stored in Postgres, rather than the previous H3 in-memory database. To confirm this, you can make a record and restart your App Service. The records will still be there when your application restarts.
+Congratulations! Your application is now using a Postgres database and any records created in the application will be stored in Postgres, rather than the previous H2 in-memory database. To confirm this, you can make a record and restart your App Service. The records will still be there when your application restarts.
 
 ## Clean up
 

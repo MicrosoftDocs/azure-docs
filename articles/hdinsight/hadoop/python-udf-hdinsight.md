@@ -23,7 +23,7 @@ HDInsight also includes Jython, which is a Python implementation written in Java
 
 * **A Hadoop cluster on HDInsight**. See [Get Started with HDInsight on Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **An SSH client**. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be wasb:// for Azure Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be wasbs:// or abfss://, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
+* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be wasbs://.  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 * **Possible change to storage configuration.**  See [Storage configuration](#storage-configuration) if using storage account kind `BlobStorage`.
 * Optional.  If Planning to use PowerShell, you will need the [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installed.
 
@@ -155,9 +155,6 @@ In the commands below, replace `sshuser` with the actual username if different. 
     ```
 
 ### Upload file (PowerShell)
-
-> [!IMPORTANT]  
-> These PowerShell scripts will not work if [secure transfer](../../storage/common/storage-require-secure-transfer.md) is enabled.  Either use shell commands or disable secure transfer.
 
 PowerShell can also be used to remotely run Hive queries. Ensure your working directory is where `hiveudf.py` is located.  Use the following PowerShell script to run a Hive query that uses the `hiveudf.py` script:
 
@@ -320,6 +317,7 @@ On your development environment, create a text file named `pigudf.py`. Use the f
 # Uncomment the following if using C Python
 #from pig_util import outputSchema
 
+
 @outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
 def create_structure(input):
     if (input.startswith('java.lang.Exception')):
@@ -427,9 +425,6 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
 
 ### Upload file (PowerShell)
-
-> [!IMPORTANT]  
-> These PowerShell scripts will not work if [secure transfer](../../storage/common/storage-require-secure-transfer.md) is enabled.  Either use shell commands or disable secure transfer.
 
 PowerShell can also be used to remotely run Hive queries. Ensure your working directory is where `pigudf.py` is located.  Use the following PowerShell script to run a Hive query that uses the `pigudf.py` script:
 

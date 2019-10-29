@@ -53,9 +53,10 @@ If you have a video service developed today on top of the [legacy Media Services
 
 ## Changes from v2
 
-* For Assets created with v3, Media Services supports only the [Azure Storage server-side storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+* For assets created with v3, Media Services supports only the [Azure Storage server-side storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
     * You can use v3 APIs with Assets created with v2 APIs that had [storage encryption](../previous/media-services-rest-storage-encryption.md) (AES 256) provided by Media Services.
     * You cannot create new Assets with the legacy AES 256 [storage encryption](../previous/media-services-rest-storage-encryption.md) using v3 APIs.
+* The [Asset](assets-concept.md)'s properties in v3 differ to from v2, see [how the properties map](assets-concept.md#map-v3-asset-properties-to-v2).
 * The v3 SDKs are now decoupled from the Storage SDK, which gives you more control over the version of Storage SDK you want to use and avoids versioning issues. 
 * In the v3 APIs, all of the encoding bit rates are in bits per second. This is different than the v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128 (kbps), but in v3 it would be 128000 (bits/second). 
 * Entities AssetFiles, AccessPolicies, and IngestManifests do not exist in v3.
@@ -70,13 +71,16 @@ If you have a video service developed today on top of the [legacy Media Services
 * Live Outputs start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
 *  To get information about a job, you need to know the Transform name under which the job was created. 
 
+> [!NOTE]
+> Review the naming conventions that are applied to [Media Services v3 resources](media-services-apis-overview.md#naming-conventions). Also review [naming blobs](assets-concept.md#naming-blobs).
+
 ## Feature gaps with respect to v2 APIs
 
 The v3 API has the following feature gaps with respect to the v2 API. Closing the gaps is work in progress.
 
 * The [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) and the legacy [media analytics processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via v3.<br/>Customers who wish to migrate from the Media Indexer 1 or 2 preview can immediately use the AudioAnalyzer preset in the v3 API.  This new preset contains more features than the older Media Indexer 1 or 2. 
 * Many of the [advanced features of the Media Encoder Standard in v2](../previous/media-services-advanced-encoding-with-mes.md) APIs are currently not available in v3, such as:
-    * Clipping (for on-demand and live scenarios)
+  
     * Stitching of Assets
     * Overlays
     * Cropping

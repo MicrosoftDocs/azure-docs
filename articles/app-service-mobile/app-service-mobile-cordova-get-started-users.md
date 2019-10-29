@@ -3,7 +3,7 @@ title: Add authentication on Apache Cordova with Mobile Apps | Microsoft Docs
 description: Learn how to use Mobile Apps in Azure App Service to authenticate users of your Apache Cordova app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft.
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 
@@ -13,12 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Add authentication to your Apache Cordova app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
+>
+> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 ## Summary
 In this tutorial, you add authentication to the todolist quickstart project on Apache Cordova using a

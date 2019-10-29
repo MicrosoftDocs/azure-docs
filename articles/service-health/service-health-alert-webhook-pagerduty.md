@@ -1,15 +1,15 @@
 ---
-title: Configure Azure service health alerts with PagerDuty | Microsoft Docs
+title: Send Azure service health alerts with PagerDuty using webhooks
 description: Get personalized notifications about service health events to your PagerDuty instance.
 author: stephbaron
 ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 06/10/2019
 
 ---
-# Configure service health alerts with PagerDuty
+# Send Azure service health alerts with PagerDuty using webhooks
 
 This article shows you how to set up Azure service health notifications through PagerDuty using a webhook. By using [PagerDuty](https://www.pagerduty.com/)'s custom Microsoft Azure integration type, you can effortlessly add Service Health alerts to your new or existing PagerDuty services.
 

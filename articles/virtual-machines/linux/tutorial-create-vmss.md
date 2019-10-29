@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use the Azure CLI to create and 
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -33,7 +33,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * View connection info for scale set instances
 > * Use data disks in a scale set
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 

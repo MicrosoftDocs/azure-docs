@@ -4,7 +4,6 @@ description: Overview of Service Bus access control using Shared Access Signatur
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: ''
@@ -13,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2018
+ms.date: 08/22/2019
 ms.author: aschhab
 
 ---
@@ -23,6 +22,13 @@ ms.author: aschhab
 *Shared Access Signatures* (SAS) are the primary security mechanism for Service Bus messaging. This article discusses SAS, how they work, and how to use them in a platform-agnostic way.
 
 SAS guards access to Service Bus based on authorization rules. Those are configured either on a namespace, or a messaging entity (relay, queue, or topic). An authorization rule has a name, is associated with specific rights, and carries a pair of cryptographic keys. You use the rule's name and key via the Service Bus SDK or in your own code to generate a SAS token. A client can then pass the token to Service Bus to prove authorization for the requested operation.
+
+> [!NOTE]
+> Azure Service Bus supports authorizing access to a Service Bus namespace and its entities using Azure Active Directory (Azure AD). Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities.
+>
+> Microsoft recommends using Azure AD with your Azure Service Bus applications when possible. For more information, see the following articles:
+> - [Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities](authenticate-application.md).
+> - [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](service-bus-managed-service-identity.md)
 
 ## Overview of SAS
 

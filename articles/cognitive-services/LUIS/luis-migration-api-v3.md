@@ -8,13 +8,13 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 05/22/2019
+ms.topic: conceptual
+ms.date: 07/30/2019
 ms.author: diberry
 ---
 
 
-# Preview: Migrate to API version 3.x  for LUIS apps
+# Preview: Migrate to API version 3.x for LUIS apps
 
 The query prediction endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 
@@ -40,6 +40,32 @@ The following LUIS features are **not supported** in the V3 API:
 
 [Reference documentation](https://aka.ms/luis-api-v3) is available for V3.
 
+## Endpoint URL changes by slot name
+
+The format of the V3 endpoint HTTP call has changed.
+
+|METHOD|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|||
+
+Valid values for slots:
+
+* `production`
+* `staging`
+
+## Endpoint URL changes by version ID
+
+If you want to query by version, you first need to [publish via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) with the `"directVersionPublish":true`. Query the endpoint referencing the version ID instead of the slot name.
+
+
+|METHOD|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|||
+
 ## Prebuilt entities with new JSON
 
 The V3 response object changes include [prebuilt entities](luis-reference-prebuilt-entities.md). 
@@ -50,11 +76,14 @@ The V3 response object changes include [prebuilt entities](luis-reference-prebui
 
 The V3 API has different query string parameters.
 
-|Param name|Type|Version|Purpose|
-|--|--|--|--|
-|`query`|string|V3 only|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
-|`show-all-intents`|boolean|V3 only|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
-|`verbose`|boolean|V2 & V3|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
+|Param name|Type|Version|Default|Purpose|
+|--|--|--|--|--|
+|`log`|boolean|V2 & V3|false|Store query in log file.| 
+|`query`|string|V3 only|No default - it is required in the GET request|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
+|`show-all-intents`|boolean|V3 only|false|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
+|`verbose`|boolean|V2 & V3|false|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
+
+
 
 <!--
 |`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
@@ -67,12 +96,23 @@ The V3 API has different query string parameters.
 {
     "query":"your utterance here",
     "options":{
-        "timezoneOffset": "-8:00"
+        "datetimeReference": "2019-05-05T12:00:00",
+        "overridePredictions": true
     },
     "externalEntities":[],
     "dynamicLists":[]
 }
 ```
+
+|Property|Type|Version|Default|Purpose|
+|--|--|--|--|--|
+|`dynamicLists`|array|V3 only|Not required.|[Dynamic lists](#dynamic-lists-passed-in-at-prediction-time) allow you to extend an existing trained and published list entity, already in the LUIS app.|
+|`externalEntities`|array|V3 only|Not required.|[External entities](#external-entities-passed-in-at-prediction-time) give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities. |
+|`options.datetimeReference`|string|V3 only|No default|Used to determine [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). The format for the datetimeReference is [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
+|`options.overridePredictions`|boolean|V3 only|false|Specifies if user's [external entity (with same name as existing entity)](#override-existing-model-predictions) is used or the existing entity in the model is used for prediction. |
+|`query`|string|V3 only|Required.|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
+
+
 
 ## Response changes
 
@@ -106,6 +146,10 @@ The top JSON properties for V3 are:
 }
 ```
 
+<!--
+The `alteredQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+-->
+
 The `intents` object is an unordered list. Do not assume the first child in the `intents` corresponds to the `topIntent`. Instead, use the `topIntent` value to find the score:
 
 ```nodejs
@@ -116,7 +160,7 @@ const score = intents[topIntentName];
 The response JSON schema changes allow for:
 
 * Clear distinction between original utterance, `query`, and returned prediction, `prediction`.
-* Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **named** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
+* Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **name** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
 * Data types, if determined, are respected. Numerics are no longer returned as strings.
 * Distinction between first priority prediction information and additional metadata, returned in the `$instance` object. 
 
@@ -271,6 +315,67 @@ In the previous utterance, the utterance uses `him` as a reference to `Hazem`. T
 
 The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.  
 
+### Override existing model predictions
+
+The `overridePredictions` options property specifies that if the user sends an external entity that overlaps with a predicted entity with the same name, LUIS chooses the entity passed in or the entity existing in the model. 
+
+For example, consider the query `today I'm free`. LUIS detects `today` as a datetimeV2 with the following response:
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+If the user sends the external entity:
+
+```JSON
+{
+    "entityName": "datetimeV2",
+    "startIndex": 0,
+    "entityLength": 5,
+    "resolution": {
+        "date": "2019-06-21"
+    }
+}
+```
+
+If the `overridePredictions` is set to `false`, LUIS returns a response as if the external entity were not sent. 
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+If the `overridePredictions` is set to `true`, LUIS returns a response including:
+
+```JSON
+"datetimeV2": [
+    {
+        "date": "2019-06-21"
+    }
+]
+```
+
+
+
 #### Resolution
 
 The _optional_ `resolution` property returns in the prediction response, allowing you to pass in the metadata associated with the external entity, then receive it back out in the response. 
@@ -283,6 +388,7 @@ The `resolution` property can be a number, a string, an object, or an array:
 * {"text": "value"}
 * 12345 
 * ["a", "b", "c"]
+
 
 
 ## Dynamic lists passed in at prediction time
@@ -308,7 +414,7 @@ Send in the following JSON body to add a new sublist with synonyms to the list, 
     },
     "dynamicLists": [
         {
-            "listEntityName":"ProductList",
+            "listEntity*":"ProductList",
             "requestLists":[
                 {
                     "name": "Azure Cognitive Services",

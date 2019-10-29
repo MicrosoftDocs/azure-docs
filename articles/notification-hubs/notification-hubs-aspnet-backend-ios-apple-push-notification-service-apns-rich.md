@@ -3,9 +3,9 @@ title: Azure Notification Hubs Rich Push
 description: Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#.
 documentationcenter: ios
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: 590304df-c0a4-46c5-8ef5-6a6486bb3340
 ms.service: notification-hubs
@@ -14,7 +14,9 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # Azure Notification Hubs Rich Push
@@ -46,12 +48,12 @@ At a high level:
     ![][IOS2]
 5. In `Notifications.cs`, add the following using statement:
 
-    ```c#
+    ```csharp
     using System.Reflection;
     ```
 6. Update the whole `Notifications` class with the following code. Be sure to replace the placeholders with your notification hub credentials and image file name.
 
-    ```c#
+    ```csharp
     public class Notification {
         public int Id { get; set; }
         // Initial notification message to display to users
@@ -101,7 +103,7 @@ At a high level:
 
 7. In `NotificationsController.cs`, redefine `NotificationsController with the following snippets. This sends an initial silent rich notification id to device and allows client-side retrieval of image:
 
-    ```c#
+    ```csharp
     // Return http response with image binary
     public HttpResponseMessage Get(int id) {
         var stream = Notifications.Instance.ReadImage(id);

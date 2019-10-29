@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 04/08/2019
 ---
 # What is a single database in Azure SQL Database
@@ -54,6 +53,6 @@ SQL Database provides a range of [built-in security and compliance](sql-database
 
 ## Next steps
 
-- To quickly get started with a single database, start with the [Single database quickstart guide.md](sql-database-single-database-quickstart-guide.md).
+- To quickly get started with a single database, start with the [Single database quickstart guide](sql-database-single-database-quickstart-guide.md).
 - To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-single-database-migrate.md).
 - For information about supported features, see [Features](sql-database-features.md).

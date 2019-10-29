@@ -164,7 +164,7 @@ Redeploy your app with the changes and restart it. If you deploy it with Kudu (f
 
 As an alternative to using *.htaccess*, you can use [ini_set()](https://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
 
-### Customize PHP_INI_SYSTEM directives
+### <a name="customize-php_ini_system-directives"></a>Customize PHP_INI_SYSTEM directives
 
 To customize PHP_INI_SYSTEM directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), you can't use the *.htaccess* approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
 

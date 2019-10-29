@@ -3,7 +3,7 @@ title: Azure Container Instances - frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Instances service 
 services: container-instances
 author: dkkapur
-manager: jeconnoc
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article

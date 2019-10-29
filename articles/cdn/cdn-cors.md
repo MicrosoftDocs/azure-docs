@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -81,7 +81,7 @@ If the regular expression matches, your rule will replace the **Access-Control-A
 ![Rules example with regular expression](./media/cdn-cors/cdn-cors-regex.png)
 
 #### Request header rule for each origin.
-Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1). As with the regular expression method, the rules engine alone sets the CORS headers. 
+Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](/previous-versions/azure/mt757336(v=azure.100)#match-conditions). As with the regular expression method, the rules engine alone sets the CORS headers. 
 
 ![Rules example without regular expression](./media/cdn-cors/cdn-cors-no-regex.png)
 

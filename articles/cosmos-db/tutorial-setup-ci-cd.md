@@ -25,7 +25,7 @@ To use the build task, we first need to install it onto our Azure DevOps organiz
 Next, choose the organization in which to install the extension. 
 
 > [!NOTE]
-> To install an extension to an Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> To install an extension to an Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
 ![Choose an Azure DevOps organization in which to install an extension](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
@@ -42,6 +42,9 @@ Now that the extension is installed, sign in to your Azure DevOps account and fi
    ![Select the team project, repository, and branch for the build pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Finally, select the desired template for the build pipeline. We'll select the **ASP.NET** template in this tutorial. 
+
+> [!NOTE]
+> The agent pool to be selected for this CI should have Docker for Windows installed unless the installation is done manually in a prior task as a part of the CI. See [Microsoft hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) article for a selection of agent pools; we recommend to start with `Hosted VS2017` or `Hosted VS2019`. 
 
 Now we have a build pipeline that we can set up to use the Azure Cosmos DB emulator build task. 
 

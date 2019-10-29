@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkd;juliako
+ms.author: juliako
 
 ---
 # Working with Channels that receive multi-bitrate live stream from on-premises encoders
@@ -227,7 +227,7 @@ Here are other considerations related to working with channels and related compo
 ## Related topics
 [Recommended on premises encoders](media-services-recommended-encoders.md)
 
-[Azure Media Services fragmented MP4 lives ingest specification](media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services fragmented MP4 lives ingest specification](../media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services overview and common scenarios](media-services-overview.md)
 

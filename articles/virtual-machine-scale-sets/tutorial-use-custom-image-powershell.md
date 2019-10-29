@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## Create and configure a source VM

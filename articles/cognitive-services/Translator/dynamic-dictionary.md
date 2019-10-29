@@ -1,24 +1,29 @@
 ---
 title: Dynamic Dictionary - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: How to use the dynamic dictionary feature of the Translator Text API.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
-# How to use the dynamic dictionary feature of the Translator Text API
+# How to use a dynamic dictionary
 
 If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for compound nouns like proper names and product names.
 
 **Syntax:**
 
 <mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
+
+**Requirements:**
+
+* The `From` and `To` languages must be different. 
+* You must include the `From` parameter in your API translation request instead of using the auto-detect feature. 
 
 **Example: en-de:**
 

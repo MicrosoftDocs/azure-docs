@@ -54,7 +54,9 @@ Log in to the Azure portal at https://portal.azure.com.
    |Location| Select **East US** |
    |Subnet Name| Public|
    |Subnet Address range| 10.0.0.0/24|
+   |DDoS protection| Basic|
    |Service endpoints| Disabled|
+   |Firewall| Disabled|
 
    ![Enter basic information about your virtual network](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 

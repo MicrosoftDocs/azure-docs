@@ -2,7 +2,6 @@
 title: Refresh Azure Analysis Services models with Azure Automation | Microsoft Docs
 description: Learn how to code model refreshes by using Azure Automation.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
@@ -21,7 +20,7 @@ A sample PowerShell Runbook, which demonstrates refreshing a model is provided l
 
 All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The example in this article will use a Service Principal (SPN) to authenticate to Azure Analysis Services.
 
-To learn more about creating a Service Principal, see []
+To learn more about creating a Service Principal, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Prerequisites
 

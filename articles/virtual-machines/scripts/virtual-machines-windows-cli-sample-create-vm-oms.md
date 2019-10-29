@@ -4,7 +4,7 @@ description: Azure CLI sample - Create an Azure VM running Windows Server 2016 V
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: 
 

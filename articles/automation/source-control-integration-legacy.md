@@ -4,8 +4,8 @@ description: This article describes source control integration with GitHub in Az
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm

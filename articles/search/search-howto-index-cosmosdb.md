@@ -4,7 +4,7 @@ description: Crawl an Azure Cosmos DB data source and ingest data in a full text
 
 ms.date: 05/02/2019
 author: mgottein 
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
@@ -129,7 +129,7 @@ In your Cosmos DB account you can choose whether you want the collection to auto
 
 ### 1 - Assemble inputs for the request
 
-For each request, you must provide the service name and admin key for Azure Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-fiddler.md) to send HTTP requests to Azure Search.
+For each request, you must provide the service name and admin key for Azure Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-get-started-postman.md) to send HTTP requests to Azure Search.
 
 Copy the following four values into Notepad so that you can paste them into a request:
 
@@ -278,6 +278,8 @@ Once the index and data source have been created, you're ready to create the ind
 This indexer runs every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
 
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+For more information about defining indexer schedules see [How to schedule indexers for Azure Search](search-howto-schedule-indexers.md).
 
 ## Use .NET
 

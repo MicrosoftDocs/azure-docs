@@ -1,10 +1,9 @@
 ---
 title: How to deploy Azure Files | Microsoft Docs
 description: Learn how to deploy Azure Files from start to finish.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
@@ -59,7 +58,7 @@ The following steps will import data from an on-premises location to your Azure 
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Multiple shares with a Storage Account may be specified. See [Prepare the dataset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file) for more information.
+    Multiple shares with a Storage Account may be specified. See [Prepare the dataset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for more information.
 
 5. Create the driveset CSV file. The driveset CSV file lists the disks available to the on-premises export agent. For example, the following driveset CSV file lists `X:`, `Y:`, and `Z:` drives to be used in the on-premises export job:
 
@@ -70,7 +69,7 @@ The following steps will import data from an on-premises location to your Azure 
     Z,Format,SilentMode,Encrypt,
     ```
     
-    See [Prepare the driveset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) for more information.
+    See [Prepare the driveset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for more information.
 
 6. Use the [WAImportExport Tool](https://www.microsoft.com/download/details.aspx?id=55280) to copy your data to one or more hard drives.
 

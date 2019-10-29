@@ -3,13 +3,13 @@ title: Confidence Score - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: The confidence score indicates the confidence that the answer is the right match for the given user query. 
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.topic: conceptual
+ms.date: 08/30/2019
+ms.author: diberry
 ms.custom: seodec18
 ---
 # Confidence score of a QnA Maker knowledge base
@@ -40,7 +40,7 @@ The following table indicates typical confidence associated for a given score.
 |0|No match, so the answer is not returned.|"How much does the service cost"|
 
 ## Choose a score threshold
-The table above shows the scores that are expected on most KBs. However, since every KB is different, and has different types of words, intents and goals- we recommend you test and choose the threshold that best works for you. By default the threshold is set to 0, so that all possible answers are returned. The recommended threshold that should work for most KBs, is **50**.
+The table above shows the scores that are expected on most KBs. However, since every KB is different, and has different types of words, intents, and goals- we recommend you test and choose the threshold that best works for you. By default the threshold is set to 0, so that all possible answers are returned. The recommended threshold that should work for most KBs, is **50**.
 
 When choosing your threshold, keep in mind the balance between Accuracy and Coverage, and tweak your threshold based on your requirements.
 
@@ -49,7 +49,13 @@ When choosing your threshold, keep in mind the balance between Accuracy and Cove
 - If **Coverage** (or recall) is more important- and you want to answer as many questions as possible, even if there is only a partial relation to the user's question- then LOWER the threshold. This means there could be more cases where the answer does not answer the user's actual query, but gives some other somewhat related answer. *For example:* if you make the threshold **30**, you might give answers for queries like "Where can I edit my KB?"
 
 > [!NOTE]
-> Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/troubleshooting-runtime.md).
+> Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+
+## Set threshold 
+
+Set the threshold score as a property of the [GenerateAnswer API JSON body](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). This means you set it for each call to GenerateAnswer. 
+
+From the bot framework, set the score as part of the options object with [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) or [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## Improve confidence scores
 To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [word alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords in your KB.

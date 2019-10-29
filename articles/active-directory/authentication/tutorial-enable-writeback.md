@@ -59,4 +59,4 @@ Enabling the password writeback feature in Azure AD Connect is only half of the 
 In this tutorial, you have enabled password writeback for self-service password reset. Leave the Azure portal window open and continue to the next tutorial to configure additional settings related to self-service password reset before you roll out the solution in a pilot.
 
 > [!div class="nextstepaction"]
-> [Enabling SSPR at the Windows logon screen](tutorial-sspr-windows.md)
+> [Evaluate risk at sign in](tutorial-risk-based-sspr-mfa.md)

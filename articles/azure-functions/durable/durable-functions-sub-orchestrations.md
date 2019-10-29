@@ -6,19 +6,21 @@ author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/07/2019
 ms.author: azfuncdf
 ---
 
 # Sub-orchestrations in Durable Functions (Azure Functions)
 
-In addition to calling activity functions, orchestrator functions can  call other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or you can run multiple instances of an orchestrator function in parallel.
+In addition to calling activity functions, orchestrator functions can call other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or you can run multiple instances of an orchestrator function in parallel.
 
 An orchestrator function can call another orchestrator function by calling the [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) or the [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) methods in .NET, or the `callSubOrchestrator` or `callSubOrchestratorWithRetry` methods in JavaScript. The [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) article has more information on automatic retry.
 
-Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function.
+Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function. 
+
+> [!NOTE]
+> Currently, it's necessary to provide an `instanceId` argument value to the subOrchestration API in JavaScript.
 
 ## Example
 
@@ -103,9 +105,12 @@ module.exports = df.orchestrator(function*(context) {
 
     // Run multiple device provisioning flows in parallel
     const provisioningTasks = [];
+    var id = 0;
     for (const deviceId of deviceIds) {
-        const provisionTask = context.df.callSubOrchestrator("DeviceProvisioningOrchestration", deviceId);
+        const child_id = context.df.instanceId+`:${id}`;
+        const provisionTask = context.df.callSubOrchestrator("DeviceProvisioningOrchestration", deviceId, child_id);
         provisioningTasks.push(provisionTask);
+        id++;
     }
 
     yield context.df.Task.all(provisioningTasks);
@@ -114,7 +119,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+> [!NOTE]
+> Sub-orchestrations must be defined in the same function app as the parent orchestration. If you need to call and wait for orchestrations in another function app, consider using the built-in support for HTTP APIs and the HTTP 202 polling consumer pattern. For more information, see the [HTTP Features](durable-functions-http-features.md) topic.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn what task hubs are and how to configure them](durable-functions-task-hubs.md)
+> [Learn how to set a custom orchestration status](durable-functions-custom-orchestration-status.md)

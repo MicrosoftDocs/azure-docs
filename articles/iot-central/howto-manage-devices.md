@@ -3,7 +3,7 @@ title: Manage the devices in your Azure IoT Central application | Microsoft Docs
 description: As an operator, learn how to manage devices in your Azure IoT Central application.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/30/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,6 +11,8 @@ manager: peterpr
 ---
 
 # Manage devices in your Azure IoT Central application
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 This article describes how, as an operator, to manage devices in your Azure IoT Central application. As an operator, you can:
 

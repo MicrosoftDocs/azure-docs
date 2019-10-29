@@ -5,8 +5,8 @@ keywords: azure powershell, powershell script tutorial, powershell automation
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
@@ -28,6 +28,7 @@ To complete this tutorial, you need the following prerequisites:
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](automation-quickstart-create-account.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. You stop and start this machine so it shouldn't be a production VM.
+* You may need to [update your Azure modules](automation-update-azure-modules.md) based on the cmdlets you use.
 
 ## Create new runbook
 
@@ -46,7 +47,7 @@ You can either type code directly into the runbook, or you can select cmdlets, r
 
 1. Your runbook is currently empty, type *Write-Output "Hello World."* in the body of the script.
 
-   ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
+   ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)
 
 2. Save the runbook by clicking **Save**.
 
@@ -58,11 +59,11 @@ Before you publish the runbook to make it available in production, you want to t
 2. Click **Start** to start the test. This should be the only enabled option.
 3. A [runbook job](automation-runbook-execution.md) is created and its status displayed.
 
-   The job status starts as *Queued* indicating that it's waiting for a runbook worker in the cloud to come available. It moves to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
+   The job status starts as *Queued* indicating that it's waiting for a runbook worker in the cloud to come available. It moves to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.
 
 4. When the runbook job completes, its output is displayed. In your case, you should see *Hello World*.
 
-   ![Test Pane Output](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
+   ![Test Pane Output](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)
 
 5. Close the Test pane to return to the canvas.
 
@@ -72,7 +73,7 @@ The runbook that you created is still in Draft mode. It must be published before
 
 1. Click **Publish** to publish the runbook and then **Yes** when prompted.
 1. If you scroll left to view the runbook in the **Runbooks** pane now, it shows an **Authoring Status** of **Published**.
-1. Scroll back to the right to view the pane for **MyFirstRunbook-PowerShell**.  
+1. Scroll back to the right to view the pane for **MyFirstRunbook-PowerShell**.
    The options across the top allow us to start the runbook, view the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call.
 1. You want to start the runbook, so click **Start** and then click **Ok** when the Start Runbook page opens.
 1. A job page is opened for the runbook job that you created. You can close this pane, but in this case you leave it open so you can watch the job's progress.
@@ -92,7 +93,7 @@ The runbook that you created is still in Draft mode. It must be published before
 1. Close the Streams page and the Job page to return to the MyFirstRunbook-PowerShell page.
 1. Under **Details**, click **Jobs** to open the Jobs pane for this runbook. This page lists all of the jobs created by this runbook. You should only see one job listed since you only ran the job once.
 
-   ![Job List](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)  
+   ![Job List](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)
 
 1. You can click this job to open the same Job pane that you viewed when you started the runbook. This action allows you to go back in time and view the details of any job that was created for a particular runbook.
 
@@ -103,10 +104,23 @@ You've tested and published your runbook, but so far it doesn't do anything usef
    ```powershell
    # Ensures you do not inherit an AzureRMContext in your runbook
    Disable-AzureRmContextAutosave –Scope Process
-   
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
--ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+
+   # Wrap authentication in retry logic for transient network failures
+   $logonAttempt = 0
+   while(!($connectionResult) -And ($logonAttempt -le 10))
+   {
+       $LogonAttempt++
+       # Logging in to Azure...
+       $connectionResult =    Connect-AzureRmAccount `
+                                  -ServicePrincipal `
+                                  -Tenant $connection.TenantID `
+                                  -ApplicationID $connection.ApplicationID `
+                                  -CertificateThumbprint $connection.CertificateThumbprint
+
+       Start-Sleep -Seconds 30
+   }
 
    $AzureContext = Select-AzureRmSubscription -SubscriptionId $connection.SubscriptionID
 
@@ -122,8 +136,19 @@ You've tested and published your runbook, but so far it doesn't do anything usef
    Disable-AzureRmContextAutosave –Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
-   -ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+
+   while(!($connectionResult) -And ($logonAttempt -le 10))
+   {
+       $LogonAttempt++
+       # Logging in to Azure...
+       $connectionResult =    Connect-AzureRmAccount `
+                                  -ServicePrincipal `
+                                  -Tenant $connection.TenantID `
+                                  -ApplicationID $connection.ApplicationID `
+                                  -CertificateThumbprint $connection.CertificateThumbprint
+
+       Start-Sleep -Seconds 30
+   }
    ```
 
    > [!IMPORTANT]
@@ -138,15 +163,26 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
 Now that your runbook is authenticating to your Azure subscription, you can manage resources. You add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now you hardcode that name in the runbook.
 
-1. After *Connect-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
+1. After *Connect-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.
 
    ```powershell
    # Ensures you do not inherit an AzureRMContext in your runbook
    Disable-AzureRmContextAutosave –Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
-   -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+   while(!($connectionResult) -And ($logonAttempt -le 10))
+   {
+       $LogonAttempt++
+       # Logging in to Azure...
+       $connectionResult =    Connect-AzureRmAccount `
+                                  -ServicePrincipal `
+                                  -Tenant $connection.TenantID `
+                                  -ApplicationID $connection.ApplicationID `
+                                  -CertificateThumbprint $connection.CertificateThumbprint
+
+       Start-Sleep -Seconds 30
+   }
+
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    ```
 
@@ -168,8 +204,19 @@ Your runbook currently starts the virtual machine that you hardcoded in the runb
    Disable-AzureRmContextAutosave –Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
-   -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+   while(!($connectionResult) -And ($logonAttempt -le 10))
+   {
+       $LogonAttempt++
+       # Logging in to Azure...
+       $connectionResult =    Connect-AzureRmAccount `
+                                  -ServicePrincipal `
+                                  -Tenant $connection.TenantID `
+                                  -ApplicationID $connection.ApplicationID `
+                                  -CertificateThumbprint $connection.CertificateThumbprint
+
+       Start-Sleep -Seconds 30
+   }
+
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    ```
 
@@ -177,7 +224,7 @@ Your runbook currently starts the virtual machine that you hardcoded in the runb
 1. Close the Test pane.
 1. Click **Publish** to publish the new version of the runbook.
 1. Stop the virtual machine that you started in the previous step.
-1. Click **OK** to start the runbook. Type in the **VMName** and **ResourceGroupName** for the virtual machine that you're going to start.<br><br> ![Pass Parameter](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>  
+1. Click **OK** to start the runbook. Type in the **VMName** and **ResourceGroupName** for the virtual machine that you're going to start.<br><br> ![Pass Parameter](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>
 1. When the runbook completes, check that the virtual machine was started.
 
 ## Differences from PowerShell Workflow
@@ -191,6 +238,7 @@ PowerShell runbooks have the same lifecycle, capabilities, and management as Pow
 
 ## Next steps
 
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](/powershell/scripting/overview).
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 * To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)

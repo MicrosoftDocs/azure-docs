@@ -1,13 +1,11 @@
 ---
 title: How to connect to data sources in Azure Data Catalog
 description: How-to article highlighting how to connect to data sources discovered with Azure Data Catalog.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 08/01/2019
 ---
 # How to connect to data sources
 ## Introduction
@@ -24,7 +22,7 @@ When using the default tile view, this menu is available on the each tile.
 
 When using the list view, the menu is available in the search bar at the top of the portal window.
 
- ![Opening a SQL Server Reporting Services report in Report Manager from the search bar](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Opening a SQL Server Reporting Services report in Report Manager](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## Supported Client Applications
 When using the “Open in…” menu for data sources in the Azure Data Catalog portal, the correct client application must be installed on the client computer.

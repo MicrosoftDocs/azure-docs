@@ -66,8 +66,8 @@ function Get-NSGFlowLogCloudBlockBlob {
         # Gets the storage blog
         $Blob = Get-AzStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
-        # Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
-        $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
+        # Gets the block blog of type 'Microsoft.Azure.Storage.Blob.CloudBlob' from the storage blob
+        $CloudBlockBlob = [Microsoft.Azure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
         #Return the Cloud Block Blob
         $CloudBlockBlob
@@ -77,7 +77,7 @@ function Get-NSGFlowLogCloudBlockBlob {
 function Get-NSGFlowLogBlockList  {
     [CmdletBinding()]
     param (
-        [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
+        [Microsoft.Azure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
     )
     process {
         # Stores the block list in a variable from the block blob.
@@ -112,14 +112,14 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## Read the block blob
 
-Next you need to read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method to retrieve the data.
+Next you need to read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) method to retrieve the data.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {
     [CmdletBinding()]
     param (
         [System.Array] [Parameter(Mandatory=$true)] $blockList,
-        [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
+        [Microsoft.Azure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
 
     )
     # Set the size of the byte array to the largest block
