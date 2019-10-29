@@ -266,14 +266,14 @@
     items:
     - name: Overview
       items:
-      - name: What is SQL Analytics pool and SQL on demand
-        href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      # - name: SQL on demand 
-      #   href: article-template.md
+    #  - name: What is SQL Analytics pool and SQL on demand
+    #    href: 
+      - name: SQL Analytics on-demand 
+        href: sql-analytics/sql-analytics-on-demand.md
       - name: SQL Analytics pool 
+        href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Architecture
         href: ../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      # - name: Architecture
-      #   href: article-template.md
       - name: Resource consumption models
         href: sql-analytics/resource-consumption-models.md
       - name: Best practices
