@@ -195,8 +195,8 @@ However, if you recognize and trust all the connected servers, you can try the c
 |----------------------------------|:--------------------|:--------------------|:-----------------|:--------------------|:---------------------|
 | .NET                             | Supported           | Supported           | Supported        | Supported           | Supported            |
 | .NET Core (target=.NET Framework)| Supported           | Supported           | Supported        | Supported           | Supported            |
-| .NET Core (target=.NET Core)     | Supported           | Supported*          | Supported        | Supported           | Supported            |
-| Azure Functions v2               | Supported           | Supported           | Supported        | Supported           | Supported            |
+| .NET Core (target=.NET Core)     | Supported           | Supported*          | Supported        | Supported           | **Not Supported**    |
+| Azure Functions v2               | Supported           | Supported           | Supported        | Supported           | **Not Supported**    |
 | Java                             | Supported (V1.0.7+) | Supported (V1.0.7+) | **Not Supported**| **Not Supported**   | **Not Supported**    |
 | Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**| Supported (V1.3.0+) | **Not Supported**    |
 
