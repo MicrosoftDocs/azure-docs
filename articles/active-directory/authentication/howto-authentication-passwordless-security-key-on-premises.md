@@ -67,7 +67,8 @@ The following scenarios are not supported:
 
 ## Create Kerberos server object
 
-Administrators will use PowerShell tools from their Azure AD Connect server to create an Azure AD Kerberos Server object in their on-premises directory.
+Administrators will use PowerShell tools from their Azure AD Connect server to create an Azure AD Kerberos Server object in their on-premises directory. 
+You will need to run these steps in each domain and forest in your organization that contain Azure AD users.
 
 1. Upgrade to the latest version of Azure AD Connect. The instructions assume you have already configured Azure AD Connect to support your hybrid environment.
 1. On the Azure AD Connect Server, open an elevated PowerShell prompt, and navigate to C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\
@@ -143,7 +144,7 @@ The Azure AD Kerberos server object is represented in Azure AD as a KerberosDoma
 
 For example, your organization has an Active Directory forest with two domains, contoso.com and fabrikam.com. If you choose to allow Azure AD to issue Kerberos Ticket Granting Tickets (TGT) for the entire forest, there will be two KerberosDomain objects in Azure AD. One KerberosDomain object for contoso.com and one for fabrikam.com. If you have multiple Active Directory forests, you will have one KerberosDomain object for each domain in each forest.
 
-You will need to run the steps in [Create Kerberos server object](#create-kerberos-server-object) in each domain and forest in your organization.
+You will need to run the steps in [Create Kerberos server object](#create-kerberos-server-object) in each domain and forest in your organization that contain Azure AD users.
 
 ## Known behavior
 
