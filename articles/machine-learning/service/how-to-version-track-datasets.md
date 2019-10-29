@@ -48,7 +48,7 @@ By registering a dataset, you can version, reuse, and share it across experiment
 
 ### Register a dataset version
 
-The following code registers a new version of the dataset, `titanic_ds`, by setting the `create_new_version` parameter to `True`. If there's no existing `titanic_ds` registered with the workspace, it creates a new dataset with the name `titanic_ds` and sets its version to 1.
+The following code registers a new version of the `titanic_ds` dataset by setting the `create_new_version` parameter to `True`. If there's no existing `titanic_ds` dataset registered with the workspace, the code creates a new dataset with the name `titanic_ds` and sets its version to 1.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -75,12 +75,12 @@ titanic_ds = Dataset.get_by_name(workspace = workspace,
 
 ## Versioning best practice
 
-When you create a dataset version, you're *not* creating an extra copy of data with the workspace. Because datasets are references to the data in your storage service, you have only a single source of truth managed by your storage service.
+When you create a dataset version, you're *not* creating an extra copy of data with the workspace. Because datasets are references to the data in your storage service, you have a single source of truth, managed by your storage service.
 
 >[!IMPORTANT]
 > If the data referenced by your dataset is overwritten or deleted, calling a specific version of the dataset does *not* revert the change.
 
-When you load data from a dataset, the current data content referenced by the dataset will always be loaded. If you want to make sure that each dataset version is reproducible, we recommend that you not modify data content referenced by the dataset version. When new data comes in, save new data files into a separate data folder and then create a new dataset version to include data from that new data folder.
+When you load data from a dataset, the current data content referenced by the dataset is always loaded. If you want to make sure that each dataset version is reproducible, we recommend that you not modify data content referenced by the dataset version. When new data comes in, save new data files into a separate data folder and then create a new dataset version to include data from that new folder.
 
 The following image and sample code show the recommended way to structure your data folders and to create dataset versions that reference those folders:
 
@@ -167,12 +167,12 @@ train_dataset.to_path()
 
 You can also find the `input_datasets` from experiments by using the [workspace landing page (preview)](https://ml.azure.com/). 
 
-The following image shows where to find the input dataset of an experiment on the workspace landing page. For this example, 
-go to your **Experiments** pane, and open the **Properties** tab for a specific run of your experiment, `keras-mnist`. 
+The following image shows where to find the input dataset of an experiment on the workspace landing page. In this example, 
+go to the **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`. 
 
 ![Input datasets](media/how-to-version-datasets/input-datasets.png)
 
-You can also find the models that used your dataset with the workspace landing page. The following view is from the **Datasets** blade under **Assets**. Select the dataset and select the **Models** tab to see a list of models that use that dataset. 
+You can also find the models that used your dataset through the workspace landing page. The following view is from the **Datasets** blade under **Assets**. Select the dataset and select the **Models** tab to see a list of models that use that dataset. 
 
 ![Input datasets models](media/how-to-version-datasets/dataset-models.png)
 
