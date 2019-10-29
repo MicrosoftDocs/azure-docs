@@ -54,7 +54,7 @@ If you're accessing the portal for the first time, the default content will be a
 
 ### Visual editor
 
-You can customize the content of the portal with the visual editor. The menu sections on the left let you modify or create pages, layouts, styles, or website settings. The menu items on the bottom let you switch between viewports (for example, mobile or desktop), view the elements of the portal visible to authenticated or anonymous users, or save or undo actions.
+You can customize the content of the portal with the visual editor. The menu sections on the left let you modify or create pages, media, layouts, menus, styles, or website settings. The menu items on the bottom let you switch between viewports (for example, mobile or desktop), view the elements of the portal visible to authenticated or anonymous users, or save or undo actions.
 
 ### Layouts and pages
 
