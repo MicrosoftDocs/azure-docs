@@ -1,47 +1,56 @@
 ---
-title: Resources for developing an Azure SQL Data Warehouse | Microsoft Docs
-description: Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse.
+title: Resources for developing with Azure SQL Analytics | Microsoft Docs
+description: Development concepts, design decisions, recommendations and coding techniques for SQL Analytics.
 services: sql-data-warehouse
-author: XiaoyuMSFT
+author: fipopovi
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 08/29/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 10/20/2019
+ms.author: fipopovi
+ms.reviewer: jrasnick
 ---
 
-# Design decisions and coding techniques for SQL Data Warehouse
-Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for SQL Data Warehouse.
+# Design decisions and coding techniques for SQL Analytics
+Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for SQL Analytics.
 
 ## Key design decisions
-The following articles highlight concepts and design decisions for developing a distributed data warehouse using SQL Data Warehouse:
+The following articles highlight concepts and design decisions for developing using SQL Analytics:
 
-* [connections][connections]
-* [concurrency][concurrency]
-* [transactions][transactions]
-* [user-defined schemas][user-defined schemas]
-* [table distribution][table distribution]
-* [table indexes][table indexes]
-* [table partitions][table partitions]
-* [CTAS][CTAS]
-* [statistics][statistics]
+|                                                       |   SQL Analytics pool   | SQL Analytics on-demand |
+| ----------------------------------------------------- | ---- | ---- |
+| [Connections][connections]                            | Yes | Yes |
+| [Resource classes and concurrency][concurrency] | Yes | No |
+| [Transactions][transactions]                          | Yes | No |
+| [User-defined schemas][user-defined schemas]          | Yes | Yes |
+| [Table distribution][table distribution]              | Yes | No |
+| [Table indexes][table indexes]                        | Yes | No |
+| [Table partitions][table partitions]                  | Yes | No |
+| [Statistics][statistics]                              | Yes | Yes |
+| [CTAS][CTAS]                                          | Yes | No |
+| [External tables](development-tables-external-tables) | Yes | Yes |
+| [CETAS](development-tables-cetas)                     | Yes | Yes |
+
 
 ## Development recommendations and coding techniques
-These articles highlight specific coding techniques, tips, and recommendations for developing your SQL Data Warehouse:
+These articles highlight specific coding techniques, tips, and recommendations for developing:
 
-* [stored procedures][stored procedures]
-* [labels][labels]
-* [views][views]
-* [temporary tables][temporary tables]
-* [dynamic SQL][dynamic SQL]
-* [looping][looping]
-* [group by options][group by options]
-* [variable assignment][variable assignment]
+|                                            | SQL Analytics pool | SQL Analytics on-demand |
+| ------------------------------------------ | ------------------ | ----------------------- |
+| [Stored procedures][stored procedures]     | Yes                | No (coming soon)        |
+| [Labels][labels]                           | Yes                | No                      |
+| [Views][views]                             | Yes                | Yes                     |
+| [Temporary tables][temporary tables]       | Yes                | Yes                     |
+| [Dynamic SQL][dynamic SQL]                 | Yes                | Yes                     |
+| [Looping][looping]                         | Yes                | Yes                     |
+| [Group by options][group by options]       | Yes                | No                      |
+| [Variable assignment][variable assignment] | Yes                | Yes                     |
+
+
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse T-SQL statements](../../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md).
+For more reference information, see [SQL Analytics pool T-SQL statements](../../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 
