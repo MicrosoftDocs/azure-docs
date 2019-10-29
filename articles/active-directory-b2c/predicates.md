@@ -194,7 +194,7 @@ With **Predicates** and **PredicateValidationsInput** you can control the comple
 - **Lowercase** using the `IncludesCharacters` method, validates that the password contains a lowercase letter.
 - **Uppercase** using the `IncludesCharacters` method, validates that the password contains an uppercase letter.
 - **Number** using the `IncludesCharacters` method, validates that the password contains a digit.
-- **Symbol** using the `IncludesCharacters` method, validates that the password contains one of following symbols `@#$%^&*\-_+=[]{}|\\:',.?/``~"();!`
+- **Symbol** using the `IncludesCharacters` method, validates that the password contains one of several symbol characters.
 - **PIN** using the `MatchesRegex` method, validates that the password contains numbers only.
 - **AllowedAADCharacters** using the `MatchesRegex` method, validates that the password only invalid character was provided.
 - **DisallowedWhitespace** using the `MatchesRegex` method, validates that the password doesn't begin or end with a whitespace character.
