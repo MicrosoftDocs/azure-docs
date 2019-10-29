@@ -5,157 +5,107 @@ author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 
 ---
 
 
 # How to create a labeling project for machine learning
 
+Labeling large amounts of data is a headache in many machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. Azure Machine Learning Studio makes it easy to create, manage, and monitor labeling projects. 
 
+A labeling project allows you to assign a team of people to a labeling task. Currently supported tasks are image classification, either multi-label or multi-class, and object identification. Labelers do not require an Azure account to participate. Once authenticated with their Windows Live ID or tk, labelers are given randomly selected unlabeled data. They can view, assign, and change labels using keyboard shortcuts. They can choose from a variety of presentation layouts, either concentrating on a single image or seeing several to give themselves more context. 
 
-Introductory paragraph.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language,
-what the customer will learn, or do, or accomplish. Answer the
-fundamental “why would I want to do this?” question.
---->
+You can start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in either COCO format or tk. 
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-<!---Required:
-The outline of the tutorial should be included in the beginning and at
-the end of every tutorial. These will align to the **procedural** H2
-headings for the activity. You do not need to include all H2 headings.
-Leave out the prerequisites, clean-up resources and next steps--->
+> * Create a labeling project
+> * Specify your data
+> * Specify your label classes
+> * Describe the labeling task
+> * Initialize the labeling project
+> * Manage teams and people
 
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because tutorials are intended to help new customers use the product or
-service to complete a top task, include a link to a free trial before the
-first H2, if one exists. You can find listed examples in
-[Write tutorials](contribute-how-to-mvc-tutorial.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over
-them. Better to put that info directly into the article text.--->
+If you don't have a Studio account, go to the [Studio homepage](https://studio.azureml.net) and select **Sign up here** to create a free account. The free workspace will have all the features you need for this article.
 
 ## Prerequisites
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you need them, make Prerequisites your first H2 in a tutorial. If
-there’s something a customer needs to take care of before they start (for
-example, creating a VM) it’s OK to link to that content before they
-begin.--->
+* The imagery you wish to label, either in local files or already in Azure storage
+* The set of labels you wish to apply
+* Instructions for labeling. You can paste and format these instructions in the labeling project.
+* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-## Sign in to <service/product/tool name>
+## Sign in to Azure Machine Learning Studio
 
-Sign in to the [<service> portal](url).
-<!---If you need to sign in to the portal to do the tutorial, this H2 and
-link are required.--->
+Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-## Procedure 1
+## Create a labeling project
 
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end
-procedure. Make sure to use specific naming for setting up accounts and
-configuring technology.
-Don't link off to other content - include whatever the customer needs to
-complete the scenario in the article. For example, if the customer needs
-to set permissions, include the permissions they need to set, and the
-specific settings in the tutorial procedure. Don't send the customer to
-another article to read about it.
-In a break from tradition, do not link to reference topics in the
-procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete
-the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+The **Labeling projects** page allows you to manage the people working on your projects, the teams in which those people are organized, and your data labeling projects. A project has one or more teams assigned to it, and a team has one or more people assigned to it. 
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
+If your data are already stored in Azure, you should make them available as a datastore prior to creating your labeling project. For information, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).  
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   ![Browser](media/contribute-how-to-mvc-tutorial/browser.png)
-   <!---Use screenshots but be judicious to maintain a reasonable length. 
-   Make sure screenshots align to the
-   [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
-   If users access your product/service via a web browser the first 
-   screenshot should always include the full browser window in Chrome or
-   Safari. This is to show users that the portal is browser-based - OS 
-   and browser agnostic.--->
-1. Step four of the procedure
+To create a project, choose **Add project**. Give it an appropriate name and select **Project type**. 
 
-## Procedure 2
+* Choose **Image classification multi-label** for projects in which **one _or more_** labels from a set of classes may be applied to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*
+* Choose **Image classification multi-class** for projects in which only a **single class** from a set of classes may be applied to an image. 
+* Choose **Object identification (bounding box)** for projects in which the task is to both to assign a class to an object within an image, but to specify a bounding box surrounding the object
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+Choose **Next** when you are ready to move on.
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
+## Specify your data
 
-## Procedure 3
+If you have already created a dataset containing your data, you can select it from the **Select an existing dataset** dropdown. Or, choose **Create a dataset** to either select an existing Azure datastore or to upload local files. 
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.--->
+Although direct upload of local files is fine for many use-cases, [Azure Storage Explorer](tk) is both more robust and faster for transferring significant amounts of data. 
 
-Here is an example of a code block for Java:
+If you choose **Advanced settings**, you may customize the datastore, container, and path to your data. 
 
-    ```java
-    cluster = Cluster.build(new File("src/remote.yaml")).create();
-    ...
-    client = cluster.connect();
-    ```
+Choose **Next** when you have completed this step.
 
-or a code block for Azure CLI:
+## Specify your label classes
 
-    ```azurecli-interactive 
-    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-    ```
-    or a code block for Azure PowerShell:
+On the **Label classes** page, you will specify the set of classes used to categorize your data. Give thought to these labels, as your labelers' accuracy and speed will be affected by the ease with which they can properly choose among them. For instance, rather than spelling out the full genus and species for plants or animals it might be better to use field codes or abbreviate the genus. 
 
-    ```azurepowershell-interactive
-    New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-    ```
+## Describe the labeling task
 
-## Clean up resources
+Explaining the labeling task clearly is important. The **Labeling instructions** page allows you to either link to an external site or to include formatted text that will be presented to labelers. Keep the instructions task-oriented and appropriate to the audience. 
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+* What are the labels they will see and how will they choose between them? Is there a reference text to which they should refer?
+* What should they do if no label seems appropriate? 
+* What should they do if multiple labels seem appropriate?
+* What confidence threshold should they apply to a label? Do you want their "best guess" if they are not certain?
+* What should they do with partially occluded or overlapping objects of interest?
+* What should they do if an object of interest is clipped by the edge of the image?
+* What should they do if they feel they've made a mistake with an image after submitting it? 
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+With bounding boxes, other important questions include:
 
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
---->
+* How is the bounding box defined for this task? Should it be entirely interior to the object, cropped as closely as possible to its extent, or is some amount of clearance acceptable? 
+* What level of care and consistency do you expect the labeler to apply to defining bounding boxes?
+
+>[!Note]
+> Be sure to say that the labeler will be able to choose among the first 10 labels with number keys 0-9. The number 0 applies the 10th label. 
+
+## Initialize the labeling project
+
+Once initialized, the labeling project is largely immutable: you cannot change the task type, dataset, labels, or task description. Carefully review the settings before creating the project. Once you have submitted the project, you'll be taken back to the **Labeling** homepage, which will show the project as **Initializing**. This page does not autorefresh, so after some amount of time, manually refreshing it will show the project as **Created**.
+
+## Manage teams and people
+
+A labeling project gets a default team and adds you as a default member. Each labeling project gets a new default team, but teams can be shared between projects. Projects may have more than one team. Creating a team is done by choosing **Add team** on the **Teams** page. 
+
+People are managed on the **People** page. You can add and remove people keyed on their email address. Each labeler will have to authenticate using either tk (know to most users as their "Windows Live ID") or tk.  
+
+Once you've added a person, you can assign them to one or more teams. Navigate to the **Teams** page, select the particular team in which you're interested, and then use **Assign people** or **Remove people** as desired.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Learn more about Azure Machine Learning studio at [this article](tk).
+
 > [!div class="nextstepaction"]
 > [Next steps button](contribute-get-started-mvc.md)
 
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
