@@ -49,6 +49,8 @@
       href: routing-coverage.md
     - name: Mobility coverage
       href: mobility-coverage.md
+    - name: Weather Coverage
+      href: weather-coverage.md  
   - name: Localization support
     href: supported-languages.md
   - name: Supported map styles
