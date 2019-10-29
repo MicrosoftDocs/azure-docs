@@ -99,9 +99,9 @@ The configuration would look like:
    1. Select the VMs and their IP addresses and add them to the backend pool  
 3. [Create outbound rules](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule). Currently it is not possible to create outbound rules from the Azure portal. You can create outbound rules with [Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
 
-   <pre><code>
+   ```
     az network lb outbound-rule create --address-pool <b>MyBackendPoolOfPublicILB</b> --frontend-ip-configs <b>MyPublicILBFrondEndIP</b> --idle-timeout 30 --lb-name <b>MyPublicILB</b> --name <b>MyOutBoundRules</b>  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group <b>MyResourceGroup</b>
-   </code></pre>
+   ```
 
 4. Create Network Security group rules to restrict access to specific Public End Points. If there is existing Network Security Group, you can adjust it. The example below shows how to for allow access only to the Azure management API: 
    1. Navigate to the Network Security Group
@@ -139,7 +139,7 @@ The architecture would look like:
 ### Deployment steps
 
 1. The deployment steps assume that you already have Virtual network and subnet defined for your VMs.  
-2. Create Subnet **AzureFirewallSubnet** in the same Virtual Network, where the VMS and the Standard Load Balancer are deployed  
+2. Create Subnet **AzureFirewallSubnet** in the same Virtual Network, where the VMS and the Standard Load Balancer are deployed.  
    1. In Azure portal, Navigate to the Virtual Network: Click All Resources, Search for the Virtual Network, Click on the Virtual Network, Select Subnets.  
    1. Click Add Subnet. Enter **AzureFirewallSubnet** as Name. Enter appropriate Address Range. Save.  
 3. Create Azure Firewall.  
@@ -187,33 +187,33 @@ There are many different Proxy options available in the industry. Step-by-step i
 To allow pacemaker to communicate with the Azure management API, perform the following steps on all cluster nodes:  
 
 1. Edit the pacemaker configuration file /etc/sysconfig/pacemaker and add the following lines (all cluster nodes):  
-   <pre><code>
+   ```
    sudo vi /etc/sysconfig/pacemaker
    # Add the following lines
    http_proxy=http://<b>MyProxyService</b>:<b>MyProxyPort</b>
    https_proxy=http://<b>MyProxyService</b>:<b>MyProxyPort</b>
-   </code></pre>
+   ```
 
 2. Restart the pacemaker service on **all** cluster nodes.  
   - SUSE  
-     <pre><code>
+     ```
      # Place the cluster in maintenance mode
      sudo pcs property set maintenance-mode=true
      #Restart on all nodes
      sudo systemctl restart pacemaker
      # Take the cluster out of maintenance mode
      sudo pcs property set maintenance-mode=false
-     </code></pre>
+     ```
 
   - Red Hat  
-     <pre><code>
+     ```
      # Place the cluster in maintenance mode
      sudo pcs property set maintenance-mode=true
      #Restart on all nodes
      sudo systemctl restart pacemaker
      # Take the cluster out of maintenance mode
      sudo pcs property set maintenance-mode=false
-     </code></pre>
+     ```
 
 ## Next steps
 
