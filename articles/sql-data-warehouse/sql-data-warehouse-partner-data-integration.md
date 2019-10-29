@@ -29,7 +29,8 @@ To create your data warehouse solution, choose from a wide variety of industry-l
 | ![Segment][10] |**Segment**<br>Segment is a data management and analytics solutions that helps you make sense of customer data coming from various sources. It allows you to connect your data to over 200 tools to create better decisions, products, and experiences. Segment will transform and load multiple data sources into your warehouse for you using its built-in data connectors|[Product page][segment_website]<br> |
 | ![Skyvia][11] |**Skyvia (data integration)**<br>Skyvia data integration provides a wizard that automates data imports. This wizard allows you to migrate data between a variety of sources - CRMs, application database, CSV files, and more. |[Product page][segment_website]<br> |
 | ![SnapLogic][6] |**SnapLogic**<br>The SnapLogic Platform enables customers to quickly transfer data into and out of Microsoft Azure SQL Data Warehouse. It offers the ability to integrate hundreds of applications, services, and IoT scenarios in one solution.|[Product page][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
-| ![Talend][12] |**Talend Cloud**<br>Talend Cloud is an interprise data integration platform to connect, access, and transform any data across the cloud or on-premises. It is an integration platform-as-a-service (iPaaS) offering that provides broad connectivity, built-in data quality, and native support for the latest big data and cloud technologies |[Product page][talend_website]<br> [Azure Marketplace][talend_marketplace] |
+| ![StreamSets][15] |**StreamSets**<br>StreamSets provides a data integration platform for DataOps. It operationalizes the full design-deploy-operate lifecycle of integrating data into Azure SQL Data Warehouse. You can not only quickly ingest and integrate data to and from the warehouse, via streaming, batch or changed data capture data delivery methods, but also ensure continuous operations with smart data pipelines that provide end-to-end data flow visibility and resiliency.|[Product page][streamsets_website]|
+| ![Talend][12] |**Talend Cloud**<br>Talend Cloud is an enterprise data integration platform to connect, access, and transform any data across the cloud or on-premises. It is an integration platform-as-a-service (iPaaS) offering that provides broad connectivity, built-in data quality, and native support for the latest big data and cloud technologies |[Product page][talend_website]<br> [Azure Marketplace][talend_marketplace] |
 | ![Trifacta][13] |**Trifacta Wrangler**<br> Trifacta helps individuals and organizations explore, and join together diverse data for analysis. Trifacta Wrangler is designed to handle data wrangling workloads that need to support data at scale and a large number of end users.|[Product page][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
 | ![WhereScape][14] |**Wherescape RED**<br> WhereScape RED is an IDE that provides teams with automation tools to streamline ETL workflows. The IDE provides best practice, optimized native code for popular data targets. Use WhereScape RED to cut the time to develop, deploy, and operate your data infrastructure.|[Product page][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
 
@@ -59,6 +60,8 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 [12]: ./media/sql-data-warehouse-partner-data-integration/talend_logo.png
 [13]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
 [14]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
+[15]: ./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png
+
 
 
 <!--Website Links -->
@@ -79,6 +82,7 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 [talend_website]:https://www.talend.com/
 [trifacta_website]:https://www.trifacta.com/
 [wherescape_website]:https://www.wherescape.com/
+[streamsets_website]:https://streamsets.com/partners/microsoft
 
 <!--Marketplace Links -->
 
