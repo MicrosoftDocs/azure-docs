@@ -33,7 +33,7 @@ Given that daemon applications only make sense in Azure AD tenants, when you cre
 
 ## Authentication - no Reply URI needed
 
-In the case where your confidential client application uses **only** the client credentials flow, the reply URL doesn't need to be registered. It's not needed either for the application configuration/construction. The client credentials flow doesn't use it.
+In the case where your confidential client application uses **only** the client credentials flow, the Reply URI doesn't need to be registered. It's not needed either for the application configuration/construction. The client credentials flow doesn't use it.
 
 ## API Permissions - app permissions and admin consent
 
