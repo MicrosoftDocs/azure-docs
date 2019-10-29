@@ -73,7 +73,7 @@ For more information, see [Web application firewall CRS rule groups and rules](a
 
 Application Gateway also support custom rules. With custom rules, you can create your own rules, which are evaluated for each request that passes through WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. If a set of conditions are met, an action is taken to allow or block. 
 
-For more information, see [Custom Rules for Application Gateway.](https://docs.microsoft.com/azure/application-gateway/custom-waf-rules-overview)
+For more information, see [Custom Rules for Application Gateway.](custom-waf-rules-overview.md)
 
 ### Bot Mitigation (preview)
 
