@@ -90,7 +90,7 @@ Demo data contains following data sets:
 | /release/us_population_county/                               | US population data files in Parquet format, partitioned by year using Hive/Hadoop partitioning scheme. |
 
 
-## Preparing View for Power BI Desktop
+## Preparing view for Power BI Desktop
 
 It is required to expose data as views or external tables for Power BI to consume it.
 Following query is going to create a view called "usPopulationView" inside a database with name "demo".
@@ -158,3 +158,11 @@ DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdataco
 ```sql
 DROP VIEW usPopulationView
 ```
+
+## Next steps
+
+
+Advance to the next article to learn how to query storage files using SQL Analytics.
+> [!div class="nextstepaction"]
+> [Query storage files](development-storage-files-overview.md)
+-
