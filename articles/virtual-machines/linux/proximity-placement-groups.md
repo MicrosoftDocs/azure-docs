@@ -44,6 +44,7 @@ az ppg list -o table
 ## Create a VM
 
 Create a VM within the proximity placement group using [new az vm](/cli/azure/vm#az-vm-create).
+
 ```azurecli-interactive
 az vm create \
    -n myVM \
