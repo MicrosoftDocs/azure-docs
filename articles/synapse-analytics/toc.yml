@@ -937,15 +937,15 @@
     - name: SQL Analytics
       items:
       - name: Overview
-        href: ../sql-data-warehouse/sql-data-warehouse-connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      # - name: Query with ADS
-      #   href: article-template.md
+        href: ../synapse-analytics/sql-analytics/sql-analytics-connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query with ADS
+        href: ../synapse-analytics/sql-analytics/sql-analytics-query-ads.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connection strings
-        href: ../sql-data-warehouse/sql-data-warehouse-connection-strings.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ../synapse-analytics/sql-analytics/sql-analytics-connection-strings.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: sqlcmd
-        href: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-sqlcmd.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ../synapse-analytics/sql-analytics/sql-analytics-get-started-connect-sqlcmd.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with SSMS
-        href: ../sql-data-warehouse/sql-data-warehouse-query-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ../synapse-analytics/sql-analytics/sql-analytics-query-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with Visual Studio
         href: ../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     # - name: Spark pool
