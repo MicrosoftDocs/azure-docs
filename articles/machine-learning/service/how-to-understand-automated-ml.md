@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 11/04/2019
 ---
 
 # Understand automated machine learning results
