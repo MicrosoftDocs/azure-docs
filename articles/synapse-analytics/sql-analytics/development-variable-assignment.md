@@ -1,24 +1,23 @@
 ---
-title: Assign variables in Azure SQL Data Warehouse | Microsoft Docs
-description: Tips for assigning T-SQL variables in Azure SQL Data Warehouse for developing solutions.
+title: Assign variables in Azure SQL analytics | Microsoft Docs
+description: Tips for assigning T-SQL variables in Azure SQL analytics for developing solutions.
 services: sql-data-warehouse
-author: XiaoyuMSFT 
-manager: craigg
+author: azaricstefan 
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 04/17/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 10/23/2019 
+ms.author: v-stazar 
+ms.reviewer: jrasnick
 ---
 
-# Assigning variables in Azure SQL Data Warehouse
+# Assigning variables in Azure SQL analytics
 
-Tips for assigning T-SQL variables in Azure SQL Data Warehouse for developing solutions.
+Tips for assigning T-SQL variables in Azure SQL analytics for developing solutions.
 
 ## Setting variables with DECLARE
 
-Variables in SQL Data Warehouse are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL Data Warehouse.
+Variables in SQL analytics are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL analytics.
 
 ```sql
 DECLARE @v  int = 0
@@ -62,4 +61,4 @@ You cannot use UPDATE for variable assignment.
 
 ## Next steps
 
-For more development tips, see [development overview](development-overview.md).
+For more development tips, see [SQL analytics development overview](sql-analytics-overview-develop.md).
