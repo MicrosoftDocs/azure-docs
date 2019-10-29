@@ -3,7 +3,7 @@ title: 'Understand data retention in your Azure Time Series Insights environment
 description: This article describes two settings that control data retention in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile
