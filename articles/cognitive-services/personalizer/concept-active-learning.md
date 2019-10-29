@@ -16,7 +16,7 @@ ms.author: diberry
 
 When your application calls the Rank API, you receive which Action the application should show in the rewardActionId field.  From that moment, Personalizer will be expecting a Reward call with the same eventId. The reward score will be used to train the model that will be used for future Rank calls. If no Reward call is received for the eventId, a defaul reward will be applied. Default rewards are established in the Azure Portal.
 
-In some cases, the application may need to call Rank bore it even knows if the result will be used or displayedn to the user. This may happen in situations where, for example, the page render of promoted content gets overwritten with a marketing campaign. If the result of the Rank call was never used and the user never got to see it, it would be incorrect to train it with any reward at all, zero or otherwise.
+In some cases, the application may need to call Rank before it even knows if the result will be used or displayed to the user. This may happen in situations where, for example, the page render of promoted content gets overwritten with a marketing campaign. If the result of the Rank call was never used and the user never got to see it, it would be incorrect to train it with any reward at all, zero or otherwise.
 Typically this happens when:
 
 * You may be pre-rendering some UI that the user may or may not get to see. 
