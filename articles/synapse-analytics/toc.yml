@@ -324,10 +324,12 @@
           href: sql-analytics/development-tables-statistics.md
         - name: Temporary
           href: sql-analytics/development-tables-temporary.md
-        # - name: External tables
-        #   href: article-template.md
-        # - name: CETAS
-        #   href: article-template.md
+        - name: OPENROWSET
+          href: sql-analytics/development-tables-openrowset.md
+        - name: External tables
+          href: sql-analytics/development-tables-external-tables.md
+        - name: CETAS
+          href: sql-analytics/development-tables-cetas.md
       - name: T-SQL language elements
         items:
         - name: Loops
