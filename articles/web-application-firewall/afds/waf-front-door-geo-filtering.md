@@ -43,7 +43,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | BH | Bahrain|
 | BI | Burundi|
 | BJ | Benin|
-| BL | Saint Barthelemy|
+| BL | Saint Barthélemy|
 | BN | Brunei Darussalam|
 | BO | Bolivia|
 | BR | Brazil|
