@@ -39,7 +39,7 @@ No. You can purchase a VPN connection of any speed from your service provider. H
 
 ### If I pay for an ExpressRoute circuit of a given bandwidth, do I have the ability to burst up to higher speeds if necessary?
 
-Yes. ExpressRoute circuits are configured to allow you to burst up to two times the bandwidth limit you procured for no additional cost. Check with your service provider to see if they support this capability. This is not for a sustained period of time and is not guaranteed. 
+Yes. ExpressRoute circuits are configured to allow you to burst up to two times the bandwidth limit you procured for no additional cost. Check with your service provider to see if they support this capability. This is not for a sustained period of time and is not guaranteed.  If traffic flows through an ExpressRoute Gateway, the bandwidth for the sku is fixed and not burstable.
 
 ### Can I use the same private network connection with virtual network and other Azure services simultaneously?
 
