@@ -1,5 +1,5 @@
 ---
-title: Enterprise Security Package with Azure Active Directory in HDInsight
+title: Enterprise Security with Azure AD - Azure HDInsight
 description: Learn how to set up and configure a HDInsight Enterprise Security Package cluster by using Azure Active Directory Domain Services.
 author: hrasheed-msft
 ms.author: hrasheed
