@@ -62,7 +62,7 @@ Once your table properties are set correctly, execute the Hive warehouse migrati
 
 1. Connect to your cluster headnode using SSH. For instructions, see [Connect to HDInsight using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
 1. Open a login shell as the Hive user by running `sudo su - hive`
-1. Determine the Hortonworks Data Platform stack version by executing `ls /usr/hdp`. This will display a version string that you should use in the next command.
+1. Determine the data platform stack version by executing `ls /usr/hdp`. This will display a version string that you should use in the next command.
 1. Execute the following command from the shell. Replace `${{STACK_VERSION}}` with the version string from the previous step:
 
 ```bash
