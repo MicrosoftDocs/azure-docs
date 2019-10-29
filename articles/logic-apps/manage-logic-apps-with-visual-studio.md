@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/25/2019
+ms.date: 10/29/2019
 ---
 
 # Manage logic apps with Visual Studio
@@ -170,8 +170,6 @@ To change your logic app's location type or location, you have to open your logi
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates to Visual Studio and the Azure Logic Apps Tools extension.
 
 1. Make sure that the Logic App Designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Choose Location Type** and **Location** properties for your logic app.
-
-   ![Properties window shows the "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
    > [!TIP]
    > If the Properties window isn't already open, from the **View** menu, select **Properties Window**. (Keyboard: Press F4)
