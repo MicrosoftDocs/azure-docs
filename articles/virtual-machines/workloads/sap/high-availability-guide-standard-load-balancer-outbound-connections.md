@@ -21,6 +21,11 @@ ms.author: radeltch
 
 # Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios
 
+The scope of this article is to describe configurations, that will enable outbound connectivity to public end point(s). The configurations are mainly in the context of High Availability with Pacemaker for SUSE / RHEL.  
+
+If you are using Pacemaker with Azure fence agent in your high availability solution, then the VMs must have outbound connectivity to the Azure management API.  
+The article presents several options to enable you to select the option that is best suited for your scenario.  
+
 ## Overview
 
 When implementing high availability for SAP solutions via clustering, one of the necessary components is [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Azure offers two load balancer SKUs: standard and basic.
@@ -41,11 +46,6 @@ Examples of scenarios, requiring access to Azure public end point are:
 - Azure Site Recovery  
 - Using public repository for patching the Operating system
 - The SAP application data flow may require outbound connectivity to public end point
-
-The scope of this article is to describe configurations, that will enable outbound connectivity to public end point(s). The configurations are mainly in the context of High Availability with Pacemaker for SUSE / RHEL.  
-
-If you are using Pacemaker with Azure fence agent in your  high availability solution, then the VMs must have outbound connectivity to the Azure management API.  
-The article presents several options to enable you to select the option that is best suited for your scenario.  
 
 If your SAP deployment doesn’t require outbound connectivity to public end points, you don’t need to implement the additional configuration. It is sufficient to create internal standard SKU Azure Load Balancer for your high availability scenario, assuming that there is also no need for inbound connectivity from public end points.  
 
@@ -87,16 +87,16 @@ The configuration would look like:
 ### Deployment steps
 
 1. Create Load Balancer  
-  - In the [Azure portal](https://portal.azure.com) , click All resources, Add, then search for **Load Balancer**  
-  - Click **Create** 
-  - Load Balancer Name **MyPublicILB**  
-  - Select **Public** as a Type, **Standard** as SKU  
-  - Select **Create Public IP address** and specify as a name **MyPublicILBFrondEndIP**  
-  - Select **Zone Redundant** as Availability zone  
-  - Click Review and Create, then click Create  
+   1. In the [Azure portal](https://portal.azure.com) , click All resources, Add, then search for **Load Balancer**  
+   1. Click **Create** 
+   1. Load Balancer Name **MyPublicILB**  
+   1. Select **Public** as a Type, **Standard** as SKU  
+   1. Select **Create Public IP address** and specify as a name **MyPublicILBFrondEndIP**  
+   1. Select **Zone Redundant** as Availability zone  
+   1. Click Review and Create, then click Create  
 2. Create Backend pool **MyBackendPoolOfPublicILB** and add the VMs.  
-  - Select the Virtual network  
-  - Select the VMs and their IP addresses and add them to the backend pool  
+   1. Select the Virtual network  
+   1. Select the VMs and their IP addresses and add them to the backend pool  
 3. [Create outbound rules](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule). Currently it is not possible to create outbound rules from the Azure portal. You can create outbound rules with [Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
 
    <pre><code>
@@ -104,10 +104,10 @@ The configuration would look like:
    </code></pre>
 
 4. Create Network Security group rules to restrict access to specific Public End Points. If there is existing Network Security Group, you can adjust it. The example below shows how to for allow access only to the Azure management API: 
-- Navigate to the Network Security Group
-- Click Outbound Security Rules
-- Add a rule to **Deny** all outbound Access to **Internet**.
-- Add a rule to **Allow** access to **AzureCloud**, with priority lower than the priority of the rule to deny all internet access.
+   1. Navigate to the Network Security Group
+   1. Click Outbound Security Rules
+   1. Add a rule to **Deny** all outbound Access to **Internet**.
+   1. Add a rule to **Allow** access to **AzureCloud**, with priority lower than the priority of the rule to deny all internet access.
 
 
 The outbound security rules would look like: 
@@ -140,33 +140,32 @@ The architecture would look like:
 
 1. The deployment steps assume that you already have Virtual network and subnet defined for your VMs.  
 2. Create Subnet **AzureFirewallSubnet** in the same Virtual Network, where the VMS and the Standard Load Balancer are deployed  
-  - In Azure portal, Navigate to the Virtual Network: Click All Resources, Search for the Virtual Network, Click on the Virtual Network, Select Subnets.  
-  - Click Add Subnet. Enter **AzureFirewallSubnet** as Name. Enter appropriate Address Range. Save.  
+   1. In Azure portal, Navigate to the Virtual Network: Click All Resources, Search for the Virtual Network, Click on the Virtual Network, Select Subnets.  
+   1. Click Add Subnet. Enter **AzureFirewallSubnet** as Name. Enter appropriate Address Range. Save.  
 3. Create Azure Firewall.  
-  - In Azure portal select All resources, click Add, Firewall, Create. Select Resource group (select the same resource group, where the Virtual Network is).  
-  - Enter name for the Azure Firewall resource. For instance, **MyAzureFirewall**.  
-  - Select Region and select at least two Availability zones, aligned with the Availability zones where your VMs are deployed.  
-  - Select your Virtual Network, where the SAP VMs and Azure Standard Load balancer are deployed.  
-  - Public IP Address: Click create and enter a name. For Instance **MyFirewallPublicIP**.  
+   1. In Azure portal select All resources, click Add, Firewall, Create. Select Resource group (select the same resource group, where the Virtual Network is).  
+   1. Enter name for the Azure Firewall resource. For instance, **MyAzureFirewall**.  
+   1. Select Region and select at least two Availability zones, aligned with the Availability zones where your VMs are deployed.  
+   1. Select your Virtual Network, where the SAP VMs and Azure Standard Load balancer are deployed.  
+   1. Public IP Address: Click create and enter a name. For Instance **MyFirewallPublicIP**.  
 4. Create Azure Firewall Rule to allow outbound connectivity to specified public end points. The example shows how to allow access to the Azure Management API public endpoint.  
-  - Select Rules, Network Rule Collection, then click Add network rule collection.  
-  - Name: **MyOutboundRule**, enter Priority, Select Action **Allow**.  
-  - Service: Name **ToAzureAPI**.  Protocol: Select **Any**. Source Address: enter the range for your subnet,  where the VMs and Standard Load Balancer are deployed for instance: **11.97.0.0/24**. Destination ports: enter <b>*</b>.  
-  - Save
-  - As you are still positioned on the Azure Firewall, Select Overview. Note down the Private IP Address of the Azure Firewall.  
+   1. Select Rules, Network Rule Collection, then click Add network rule collection.  
+   1. Name: **MyOutboundRule**, enter Priority, Select Action **Allow**.  
+   1. Service: Name **ToAzureAPI**.  Protocol: Select **Any**. Source Address: enter the range for your subnet,  where the VMs and Standard Load Balancer are deployed for instance: **11.97.0.0/24**. Destination ports: enter <b>*</b>.  
+   1. Save
+   1. As you are still positioned on the Azure Firewall, Select Overview. Note down the Private IP Address of the Azure Firewall.  
 5. Create route to Azure Firewall  
-  - In Azure portal select All resources, then click Add, Route Table, Create.  
-  - Enter Name MyRouteTable, select Subscription, Resource group,
-  -  and Location (matching the location of your Virtual network and Firewall).  
-  - Save  
+   1. In Azure portal select All resources, then click Add, Route Table, Create.  
+   1. Enter Name MyRouteTable, select Subscription, Resource group, and Location (matching the location of your Virtual network and Firewall).  
+   1. Save  
 
 The firewall rule would look like:
 ![Outbound connection with Azure Firewall](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Create User Defined Route from the subnet of your VMs to the private IP of **MyAzureFirewall**.
-  - As you are positioned on the Route Table, click Routes. Select Add. 
-  - Route name: ToMyAzureFirewall, Address prefix: **0.0.0.0/0**. Next hop type: Select Virtual Appliance. Next hop address: enter the private IP address of the firewall you configured: **11.97.1.4**.  
-  - Save
+   1. As you are positioned on the Route Table, click Routes. Select Add. 
+   1. Route name: ToMyAzureFirewall, Address prefix: **0.0.0.0/0**. Next hop type: Select Virtual Appliance. Next hop address: enter the private IP address of the firewall you configured: **11.97.1.4**.  
+   1. Save
 
 ## Using Proxy for Pacemaker calls to Azure Management API
 
