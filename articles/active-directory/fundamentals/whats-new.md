@@ -70,6 +70,18 @@ For more information about the Application Proxy cookie settings, see [Cookie se
 
 ---
 
+### App registrations (legacy) and converged app management from the Application Registration Portal (apps.dev.microsoft.com) will no longer be available
+
+**Type:** Plan for change  
+**Service category:** N/A  
+**Product capability:** Developer Experience
+
+In the near future, users with Azure AD accounts will no longer be able to register and manage converged applications using the Application Registration Portal (apps.dev.microsoft.com), or register and manage applications in the App registrations (legacy) experience in the Azure portal.
+
+To learn more about the new App registrations experience, see the [App registrations in the Azure portal training guide](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide).
+
+---
+
 ### Users are no longer required to re-register during migration from per-user MFA to Conditional Access-based MFA
 
 **Type:** Fixed  
