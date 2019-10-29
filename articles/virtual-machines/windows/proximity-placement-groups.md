@@ -1,11 +1,9 @@
 ---
-title: Use proximity placement groups for Windows VMs | Microsoft Docs
+title: Use proximity placement groups for Windows VMs 
 description: Learn about creating and using proximity placement groups for Windows virtual machines in Azure. 
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-
+manager: gwallace
 ms.service: virtual-machines-windows
 
 ms.topic: article
@@ -19,7 +17,7 @@ ms.author: cynthn
 # Deploy VMs to proximity placement groups using PowerShell
 
 
-To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a [proximity placement group](co-location.md#preview-proximity-placement-groups).
+To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a [proximity placement group](co-location.md#proximity-placement-groups).
 
 A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. Proximity placement groups are useful for workloads where low latency is a requirement.
 

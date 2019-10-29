@@ -6,7 +6,7 @@
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 10/30/2019
- ms.author: zivr, cynthn
+ ms.author: zivr
  ms.custom: include file
 ---
 
@@ -24,7 +24,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 - Low latency between multiple application tiers using different hardware types. For example, running the backend using M-series in an availability set and the front end on a D-series instance, in a scale set, in a single proximity placement group.
 
 
-![Graphic for proximity placement groups](./media/virtual-machines-common/ppg.png)
+![Graphic for proximity placement groups](./media/virtual-machines-common-ppg/ppg.png)
 
 ## Using Proximity Placement Groups 
 
