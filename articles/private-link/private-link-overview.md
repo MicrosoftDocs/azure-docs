@@ -42,7 +42,7 @@ Azure Private Link provides the following benefits:
 |  | Azure Data Lake Storage Gen2        |  East US, West US, West Central US       | Preview         |
 |  |  Azure SQL Database         | West Central US; WestUS; South Central US; East US; North Central US      |   Preview      |
 ||Azure SQL Data Warehouse| West Central US; WestUS; South Central US; East US; North Central US |Preview|
-||Azure Cosmos DB| West Central US; WestUS; EastUS; NorthUS; EastUS 2; WestUS 2 |Preview|
+||Azure Cosmos DB| West Central US; WestUS; EastUS; North Central US; EastUS 2; WestUS 2 |Preview|
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 
