@@ -104,7 +104,8 @@ The following Resource Provider modes are currently supported during preview:
   [Azure Key Vault](../../../key-vault/key-vault-overview.md).
 
 > [!NOTE]
-> Resource Provider modes only support built-in policy definitions while in preview.
+> Resource Provider modes only support built-in policy definitions and don't support initiatives
+> while in preview.
 
 ## Parameters
 
