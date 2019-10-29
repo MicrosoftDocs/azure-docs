@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Synapse Analytics (formerly Azure SQL Data Wwarehouse)  # < 60 chars
+title: Azure Synapse Analytics (formerly Azure SQL Data Warehouse)  # < 60 chars
 summary: Azure Synapse Analytics is a limitless cloud data warehouse that gives you the freedom to query data on your terms, using on-demand or provisioned resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. # < 160 chars
 metadata:
   title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
