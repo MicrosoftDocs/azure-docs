@@ -64,7 +64,7 @@ To complete this tutorial, you need to:
     * binlog_format = row
     * binlog_checksum = NONE
 3. Save the new parameter group.
-4. Associate the new parameter to the RDS MySQL instance. A reboot might be required.
+4. Associate the new parameter group with the RDS MySQL instance. A reboot might be required.
 
 ## Migrate the schema
 
