@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -91,6 +91,12 @@ Create a Java Core application named *blob-quickstart-v12*.
    ```console
    cd blob-quickstart-v12
    ```
+
+1. In side the *blob-quickstart-v12* directory, create another directory called *data*. This is where the blob data files will be created and stored.
+
+    ```console
+    mkdir data
+    ```
 
 ### Install the package
 
@@ -233,7 +239,7 @@ Next, create an instance of the [BlobContainerClient](/java/api/com.azure.storag
 Add this code to the end of the `Main` method:
 
 ```java
-// Create a BlobServiceClient object which will be used to create a container client.
+// Create a BlobServiceClient object which will be used to create a container client
 BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionString(connectStr).buildClient();
 
 //Create a unique name for the container
@@ -257,12 +263,13 @@ The following code snippet:
 Add this code to the end of the `Main` method:
 
 ```java
-// Create a local file to upload to a blob
+// Create a local file in the ./data/ directory for uploading and downloading
+String localPath = "./data/";
 String fileName = "quickstart" + java.util.UUID.randomUUID() + ".txt";
-File localFile = new File(fileName);
+File localFile = new File(localPath + fileName);
 
 // Write text to the file
-FileWriter writer = new FileWriter(fileName, true);
+FileWriter writer = new FileWriter(localPath + fileName, true);
 writer.write("Hello, World!");
 writer.close();
 
@@ -271,8 +278,8 @@ BlobClient blobClient = containerClient.getBlobClient(fileName);
 
 System.out.println("\nUploading to Blob storage as blob:\n\t" + blobClient.getBlobUrl());
 
-// Create the blob with string (plain text) content.
-blobClient.uploadFromFile(fileName);
+// Upload the blob
+blobClient.uploadFromFile(localPath + fileName);
 ```
 
 ### List the blobs in a container
@@ -297,14 +304,14 @@ Download the blob created previously by calling the [downloadToFile](/java/api/c
 Add this code to the end of the `Main` method:
 
 ```java
-// Download the blob to local file.
+// Download the blob to a local file
 // Append the string "DOWNLOAD" before the .txt extension so that you can see both files.
 String downloadFileName = fileName.replace(".txt", "DOWNLOAD.txt");
-File downloadedFile = new File(downloadFileName);
+File downloadedFile = new File(localPath + downloadFileName);
 
 System.out.println("\nDownloading blob to\n\t " + downloadFileName);
 
-blobClient.downloadToFile(downloadFileName);
+blobClient.downloadToFile(localPath + downloadFileName);
 ```
 
 ### Delete a container
@@ -316,6 +323,7 @@ The app pauses for user input by calling `System.console().readLine()` before it
 Add this code to the end of the `Main` method:
 
 ```java
+// Clean up
 // Clean up
 System.out.println("\nPress the Enter key to begin clean up");
 System.console().readLine();

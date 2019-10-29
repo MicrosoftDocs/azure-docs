@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -44,32 +44,17 @@ Create a .NET Core application named *BlobQuickstartV12*.
    dotnet new console -n BlobQuickstartV12
    ```
 
-1. Switch to the newly created *BlobQuickstartV12* folder and build the app to verify that all is well.
+1. Switch to the newly created *BlobQuickstartV12* directory.
 
    ```console
    cd BlobQuickstartV12
    ```
 
-   ```console
-   dotnet build
-   ```
+1. In side the *BlobQuickstartV12* directory, create another directory called *data*. This is where the blob data files will be created and stored.
 
-1. The expected output from the build should look something like this:
-
-   ```output
-   C:\quickstarts\BlobQuickstartV12> dotnet build
-   Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
-   Copyright (C) Microsoft Corporation. All rights reserved.
-
-   Restore completed in 42.22 ms for C:\quickstarts\BlobQuickstartV12\BlobQuickstartV12.csproj.
-    BlobQuickstartV12 -> C:\quickstarts\BlobQuickstartV12\bin\Debug\netcoreapp3.0\BlobQuickstartV12.dll
-
-   Build succeeded.
-   0 Warning(s)
-   0 Error(s)
-
-   Time Elapsed 00:00:05.88
-   ```
+    ```console
+    mkdir data
+    ```
 
 ### Install the package
 
