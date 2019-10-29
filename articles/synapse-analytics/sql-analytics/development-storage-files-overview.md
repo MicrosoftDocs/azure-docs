@@ -17,7 +17,7 @@ SQL Analytics on-demand enables you to query data in your data lake. It offers a
 
 For querying, following T-SQL aspects are supported:
 
-- Full [SELECT](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-2017) surface area, including majority of SQL functions, operators, etc.
+- Full [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=sql-server-2017) surface area, including majority of SQL functions, operators, etc.
 - [CETAS](development-tables-cetas.md) - CREATE EXTERNAL TABLE AS SELECT -  creates an [external table](development-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
 For more information on what is supported and what is not, check [SQL Analytics on-demand overview](sql-analytics-on-demand.md) document, section related to [supported T-SQL](sql-analytics-on-demand.md#is-full t-sql-supported-).
@@ -175,7 +175,7 @@ By default, OPENROWSET function matches source field name and path with column n
 - Function returns a scalar value (e.g., int, decimal, varchar) from the specified element on the specified path for all Parquet types that are not in Nested Type group.
 - If the path points to an element that is of Nested Type, the function returns a JSON fragment starting from the top element on the specified path. JSON fragment is of type varchar (8000).
 - If the property can't be found at the specified column_name, the function returns an error.
-- If the property can't be found at the specified column_path depending on [Path mode](https://docs.microsoft.com/en-us/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017#PATHMODE), the function returns an error (in strict mode) or null (in lax mode)
+- If the property can't be found at the specified column_path depending on [Path mode](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017#PATHMODE), the function returns an error (in strict mode) or null (in lax mode)
 
 Check [Accessing elements from nested columns](querying-parquet-nested-types.md#accessing-elements-from-nested-columns) in samples section for queries.
 
@@ -184,9 +184,9 @@ Check [Accessing elements from nested columns](querying-parquet-nested-types.md#
 To access elements from a repeated column (e.g. element of an Array or Map), use [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) function for every scalar element you need to project and provide:
 
 - Nested/repeated column, as first parameter
-- A [JSON path](https://docs.microsoft.com/en-us/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to access, as a second parameter
+- A [JSON path](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to access, as a second parameter
 
-To access non-scalar elements from a repeated column, use [JSON_QUERY](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) function for every non-scalar element you need to project and provide:
+To access non-scalar elements from a repeated column, use [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) function for every non-scalar element you need to project and provide:
 
 - Nested/repeated column, as first parameter
 - A [JSON path](https://docs.microsoft.com/en-us/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to access, as a second parameter

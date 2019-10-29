@@ -59,7 +59,7 @@ SQL Analytics on-demand is used to authorize the access to data. Before accessin
 > 
 >To be able to user your identity to access the data you need to have Storage Blob Data Owner/Contributor/Reader role.
 > Even if you are an Owner of a Storage Account, you will still need to add yourself into one of the Storage Blob Data roles.
-> [Click here to read more about access control in Azure Data Lake Store Gen2.](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control)
+> [Click here to read more about access control in Azure Data Lake Store Gen2.](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
 > 
 
 ### Managed Identity
@@ -68,7 +68,7 @@ SQL Analytics on-demand is used to authorize the access to data. Before accessin
 
 ## Creating credentials
 
-In order to be able to query a file residing in Azure Storage, your SQL Analytics on-demand endpoint needs a server-level CREDENTIAL that contains the authentication information. Credential can be added by running [CREATE CREDENTIAL](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) statement and providing CREDENTIAL NAME argument that must match part of the path or whole path to data in Storage (see below). Please note that FOR CRYPTOGRAPHIC PROVIDER argument is not supported.
+In order to be able to query a file residing in Azure Storage, your SQL Analytics on-demand endpoint needs a server-level CREDENTIAL that contains the authentication information. Credential can be added by running [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) statement and providing CREDENTIAL NAME argument that must match part of the path or whole path to data in Storage (see below). Please note that FOR CRYPTOGRAPHIC PROVIDER argument is not supported.
 
 For all supported authorization types, credential can point to account, container, any directory (non-root), or a single file. 
 
