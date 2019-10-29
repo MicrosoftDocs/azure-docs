@@ -26,6 +26,10 @@ Azure Synapse Analytics has four components:
 - Data Integration : Hybrid data integration (Preview)
 - Studio : Unified user experience.  (Preview)
 
+> [!NOTE]
+> Azure Synapse Analytics is first available as a limited public preview.  To request access, register [here](https://aka.ms/synapsepreview), and specify your interest in trying Azure Synapse Analytics. Microsoft will triage all requests and respond as soon as possible.
+
+
 ## SQL Analytics and SQL pools
 
 SQL Analytics is a cloud-based Enterprise Data Warehouse (EDW) built upon Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data and is a key component of an optimized big data solution.
