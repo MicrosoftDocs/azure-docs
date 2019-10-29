@@ -188,6 +188,6 @@ This SockPerf example uses a 350 byte message size because it is a typical avera
 
 ## Next steps
 * Improve latency with [Azure Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)
-* Learn about how to [Optimize networking for VMs](virtual-network/virtual-network-optimize-network-bandwidth.md) for your scenario.
-* Read about how [bandwidth is allocated to virtual machines](virtual-network/virtual-machine-network-throughput.md)
-* Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-network/virtual-networks-faq.md)
+* Learn about how to [Optimize networking for VMs](../virtual-network/virtual-network-optimize-network-bandwidth.md) for your scenario.
+* Read about how [bandwidth is allocated to virtual machines](../virtual-network/virtual-machine-network-throughput.md)
+* Learn more with [Azure Virtual Network frequently asked questions (FAQ)](../virtual-network/virtual-networks-faq.md)
