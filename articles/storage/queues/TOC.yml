@@ -195,7 +195,7 @@
   - name: Troubleshoot
     items:
     - name: Troubleshoot latency using Storage Analytics
-      href: ../common/how-to-troubleshoot/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Reference
   items:
   - name: Azure PowerShell
