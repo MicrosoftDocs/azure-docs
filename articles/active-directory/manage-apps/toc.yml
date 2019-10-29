@@ -155,6 +155,8 @@
           href: migration-resources.md
         - name: Migrate an ADFS app to Azure
           href: migrate-adfs-apps-to-azure.md
+        - name: AD FS application activity report
+          href: migrate-adfs-application-activity.md
       - name: Troubleshoot
         items:
         - name: Troubleshoot adding apps
