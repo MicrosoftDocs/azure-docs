@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: common
 ---
 
-# Troubleshoot latency using storage analytics logs
+# Troubleshoot latency using Storage Analytics logs
 
 Diagnosing and troubleshooting is a key skill for building and supporting client applications with Azure Storage.
 
