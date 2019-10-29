@@ -147,7 +147,7 @@ The following section describes the configuration of auditing on your managed in
 
 For additional information:
 
-- [Auditing differences between single databases, elastic pool,s, and managed instances in Azure SQL Database and databases in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Auditing differences between single databases, elastic pools, and managed instances in Azure SQL Database and databases in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -219,7 +219,6 @@ Azure Monitor logs gives you real-time operational insights using integrated sea
 The key differences between auditing in databases in Azure SQL Database and databases in SQL Server are:
 
 - With the managed instance deployment option in Azure SQL Database, auditing works at the server level and stores `.xel` log files in Azure Blob storage.
-- With the single database and elastic pool deployment options in Azure SQL Database, auditing works at the database level.
 - In SQL Server on-premises / virtual machines, audit works at the server level, but stores events on files system/windows event logs.
 
 XEvent auditing in managed instance supports Azure Blob storage targets. File and windows logs are **not supported**.
