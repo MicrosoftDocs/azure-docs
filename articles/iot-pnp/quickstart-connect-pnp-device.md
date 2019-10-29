@@ -20,7 +20,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 To complete this quickstart, you need to install the following software on your local machine:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
+* [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16).
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 

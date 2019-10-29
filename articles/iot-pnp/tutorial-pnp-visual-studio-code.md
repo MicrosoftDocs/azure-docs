@@ -40,7 +40,7 @@ To work with the device capability model in this tutorial, you need:
 
 To build the generated C code on Windows in this tutorial, you need:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
+* [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16).
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
 * A local copy of the Azure IoT C SDK:
