@@ -61,7 +61,7 @@ For example, add the **Request** trigger to your logic app.
     }
     ```
 
-   ![Provide JSON schema for the Request action](./media/logic-apps-http-endpoint/manualtrigger.png)
+   ![Provide JSON schema for the Request action](./media/logic-apps-http-endpoint/manual-request-trigger-schema.png)
 
    > [!TIP]
    >
@@ -95,7 +95,7 @@ For example, add the **Request** trigger to your logic app.
 
    This URL contains a Shared Access Signature (SAS) key in the query parameters that are used for authentication. You can also get the HTTP endpoint URL from your logic app overview in the Azure portal. Under **Trigger History**, select your trigger:
 
-   ![Get HTTP endpoint URL from Azure portal](./media/logic-apps-http-endpoint/manualtriggerurl.png)
+   ![Get HTTP endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
    Or you can get the URL by making this call:
 
@@ -117,7 +117,7 @@ By default, the **Request** trigger expects an HTTP POST request, but you can us
    > [!NOTE]
    > You can select any other HTTP method, or specify a custom method for your own logic app.
 
-   ![Select HTTP method to use for Request](./media/logic-apps-http-endpoint/change-method.png)
+   ![Select HTTP method to use for Request](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
 ## Accept parameters through your HTTP endpoint URL
 
@@ -137,7 +137,7 @@ so that you can test your HTTP endpoint's URL.
 3. Under **Relative path**, specify the relative path for the parameter 
 that your URL should accept, for example, `customers/{customerID}`.
 
-   ![Specify the HTTP method and relative path for parameter](./media/logic-apps-http-endpoint/relativeurl.png)
+   ![Specify the HTTP method and relative path for parameter](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
 4. To use the parameter, add a **Response** action to your logic app. 
 (Under your trigger, choose **New step** > **Add an action** > **Response**) 
@@ -147,7 +147,7 @@ that you specified in your trigger's relative path.
 
    For example, to return `Hello {customerID}`, update your response's **Body** with `Hello {customerID token}`. The dynamic content list should appear and show the `customerID` token for you to select.
 
-   ![Add parameter to response body](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+   ![Add parameter to response body](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
    Your **Body** should look like this example:
 
@@ -276,7 +276,7 @@ that the response has content type `application/json`.
 and the body contains `title` and `name`, based on 
 the JSON schema updated previously for the **Request** trigger.
 
-![Provide response content for HTTP Response action](./media/logic-apps-http-endpoint/response.png)
+![Provide response content for HTTP Response action](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 Responses have these properties:
 

@@ -44,7 +44,7 @@ Cached result set is reused for a query if all of the following requirements are
 Run this command to check if a query was executed with a result cache hit or miss. If there is a cache hit, the result_cache_hit will return 1.
 
 ```sql
-SELECT request_id, command, result_cache_hit FROM sys.pdw_exec_requests 
+SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests 
 WHERE request_id = <'Your_Query_Request_ID'>
 ```
 
