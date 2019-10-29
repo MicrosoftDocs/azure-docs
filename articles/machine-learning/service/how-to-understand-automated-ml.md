@@ -3,13 +3,13 @@ title: Understand automated ML results
 titleSuffix: Azure Machine Learning
 description: Learn how to view and understand charts and metrics for each of your automated machine learning runs. 
 services: machine-learning
-author: nilesha
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 11/04/2019
 ---
 
 # Understand automated machine learning results
@@ -33,7 +33,7 @@ Learn more about:
 
 ## View the run
 
-After running an automated machine learning experiment, a history of the runs can be found in your machine learning service workspace. 
+After running an automated machine learning experiment, a history of the runs can be found in your machine learning workspace. 
 
 1. Go to your workspace.
 
@@ -224,7 +224,7 @@ You can review the feature importance score for the model overall as well as per
 
 ![Feature Explain ability](./media/how-to-understand-automated-ml/feature-importance.gif)
 
-For more information on enabling interpretability features, see [Configure automated ML experiments in Python](how-to-configure-auto-train.md#explain-the-model-interpretability).  For an example that explains the best model, see [Best model explanation](how-to-auto-train-remote.md#explain).
+For more information on enabling interpretability features, see the [how-to](how-to-machine-learning-interpretability-automl.md) on enabling interpretability in automated ML experiments.
 
 ## Next steps
 

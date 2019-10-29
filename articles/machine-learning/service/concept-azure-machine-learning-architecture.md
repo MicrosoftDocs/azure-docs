@@ -45,7 +45,7 @@ Use these tools for Azure Machine Learning:
 + Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
-+ Use [Azure Machine Learning designer (preview)](ui-concept-visual-interface.md) to perform the workflow steps without writing code.
++ Use [Azure Machine Learning designer (preview)](concept-designer.md) to perform the workflow steps without writing code.
 
 
 > [!NOTE]
@@ -83,9 +83,13 @@ Activities can provide notifications through the SDK or the web UI so that you c
 
 ### Compute instance
 
-An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for smaller training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
 
-Learn more about compute instances.
+An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+
+Learn more about [compute instances](concept-compute-instance.md).
 
 ### Compute targets
 
@@ -155,7 +159,9 @@ For an example of using an experiment, see [Tutorial: Train your first model](tu
 
 ### GitHub tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
+
+For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
 ### Logging
 

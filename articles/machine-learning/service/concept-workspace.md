@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 10/07/2019
+ms.date: 11/04/2019
 # As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -45,7 +45,7 @@ You can interact with your workspace in the following ways:
 
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
-    + [Azure Machine Learning designer (preview)](ui-concept-visual-interface.md) - Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces.
+    + [Azure Machine Learning designer (preview)](concept-designer.md) - Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces.
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
@@ -72,12 +72,15 @@ You can also perform the following workspace management tasks:
 | Manage workspace access    | **&check;**   || |  **&check;**    |
 | Upgrade to Enterprise edition    | **&check;** |  | |     |
 | Create and manage compute resources    |   | **&check;** | **&check;** |  **&check;**   |
-| Create a compute instance |   | **&check;** | |     |
+| Create a compute instance | **&check;**  | **&check;** | **&check;** |     |
 
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
 
 ## <a name='create-workspace'></a> Create a workspace
 
-When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The edition determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](ui-concept-visual-interface.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
+When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The edition determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](concept-designer.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 There are multiple ways to create a workspace:  
 
@@ -110,6 +113,6 @@ To get started with Azure Machine Learning, see:
 + [Create a workspace](how-to-manage-workspace.md)
 + [Manage a workspace](how-to-manage-workspace.md)
 + [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)
-+ [Tutorial: Get started with Azure Machine Learning  with the R SDK](tutorial-1st-experiment-R-set-up.md)
++ [Tutorial: Get started with Azure Machine Learning  with the R SDK]( tutorial-1st-r-experiment.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)
-+ [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)
++ [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)

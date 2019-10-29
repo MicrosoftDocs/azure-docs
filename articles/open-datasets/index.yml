@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title:  Azure Open Datasets Preview Documentation
-summary: Azure Open Datasets offer curated and cleansed data that you can use with minimal preparation, including weather, census, and holidays to enrich ML models. 
+title:  Azure Open Datasets Documentation
+summary: Azure Open Datasets is curated and cleansed data - including weather, census, and holidays - that you can use with minimal preparation to enrich ML models. 
 
 metadata:
-  title: Open Datasets Preview Documentation - Azure
-  description: Azure Open Datasets offer curated and cleansed data that you can use with minimal preparation, including weather, census, and holidays to enrich ML models.  
+  title: Open Datasets Documentation - Azure
+  description: Azure Open Datasets is curated and cleansed data - including weather, census, and holidays - that you can use with minimal preparation to enrich ML models. 
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: data-science-vm
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: cjgronlund
   ms.author: cgronlun
-  ms.date: 09/03/2019
+  ms.date: 11/04/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -36,7 +36,9 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Build a regression model with automated machine learning
-            url: tutorial-opendatasets-automl.md
+            url: /azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context
+          - text: Enrich an image classification model in Azure Machine Learning
+            url: /azure/machine-learning/service/tutorial-train-models-with-aml?context=azure/open-datasets/context/open-datasets-context            
 
 # REFERENCE
   - title: Explore reference content

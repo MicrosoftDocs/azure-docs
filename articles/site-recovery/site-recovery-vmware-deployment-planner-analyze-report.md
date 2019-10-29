@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/29/2019
+ms.date: 10/21/2019
 ms.author: mayg
 
 ---
@@ -274,7 +274,6 @@ Premium P20 or P30 or P40 or P50 disk | 16 KB or greater | 20 MB/s | 1684 GB per
 
 **Source data churn** | **Maximum Limit**
 ---|---
-Average data churn per VM| 25 MB/s
 Peak data churn across all disks on a VM | 54 MB/s
 Maximum data churn per day supported by a Process Server | 2 TB
 

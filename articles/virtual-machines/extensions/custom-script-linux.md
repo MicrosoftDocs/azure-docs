@@ -34,7 +34,7 @@ Please switch new and existing deployments to use the new version 2 instead. The
 
 ### Operating System
 
-The Custom Script Extension for Linux will run on the extension supported extension OS's, for more information, see this [article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+The Custom Script Extension for Linux will run on the extension supported extension OS's, for more information, see this [article](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
 ### Script Location
 

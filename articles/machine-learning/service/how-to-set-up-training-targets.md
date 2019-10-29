@@ -3,13 +3,13 @@ title: Create and use compute targets for model training
 titleSuffix: Azure Machine Learning
 description: Configure the training environments (compute targets) for machine learning model training. You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
 services: machine-learning
-author: heatherbshapiro
-ms.author: hshapiro
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
 ---
 # Set up and use compute targets for model training 
@@ -443,6 +443,8 @@ The run configuration file is YAML formatted, with following sections
  * Data reference and data store details.
  * Configuration details specific for Machine Learning Compute for creating a new cluster.
 
+See the example [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) for a full runconfig schema.
+
 ### Create an experiment
 
 First, create an experiment for your runs
@@ -496,7 +498,7 @@ For more details on these ```az ml``` CLI commands and full set of arguments, se
 
 ## Git tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## Notebook examples
 

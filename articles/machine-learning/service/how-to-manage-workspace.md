@@ -7,10 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-ms.reviewer: jmartens
-ms.author: shipatel
-author: shivp950
-ms.date: 05/10/2019
+ms.author: sgilley
+author: sdgilley
+ms.date: 11/04/2019
 ms.custom: seodec18
 
 ---
@@ -41,10 +40,12 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
    Field|Description 
    ---|---
    Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.  
-   Workspace type | Select **Basic** or **Enterprise**.  This workspace type determines the features to which you’ll have access and pricing. Learn more about [Basic and Enterprise edition offerings](overview-what-is-azure-ml.md#sku). 
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
    Location | Select the location closest to your users and the data resources to create your workspace.
+   Workspace edition | Select **Basic** or **Enterprise**.  This workspace edition determines the features to which you’ll have access and pricing. Learn more about [Basic and Enterprise edition offerings](overview-what-is-azure-ml.md#sku). 
+
+    ![Configure your workspace](media/how-to-manage-workspace/select-edition.png)
 
 1. After you are finished configuring the workspace, select **Create**. 
 
@@ -69,22 +70,27 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
 You can upgrade your workspace from Basic edition to Enterprise edition to take advantage of the enhanced features such low-code experiences and enhanced security features.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to [Azure portal](https://portal.azure.com).
 
 1. Select the workspace that you wish to upgrade.
 
-1. Select **Upgrade**.
+1. Select **Upgrade** either at the top or in the upgrade message.
+
+    ![Upgrade a workspace](media/how-to-manage-workspace/upgrade.png)
+
+1. Select **Confirm Update**.
+
 
 > [!IMPORTANT]
-> You cannot downgrade an Enterprise edition workspace to a Basic edition workspace.  
+> You cannot downgrade an Enterprise edition workspace to a Basic edition workspace. 
 
-## <a name="view"></a>View a workspace
+## <a name="view"></a>Find a workspace
 
 1. In top left corner of the portal, select **All services**.
 
-1. In the **All services** filter field, type **machine learning service**.  
+1. In the **All services** filter field, type **machine learning**.  
 
-1. Select **Machine Learning service workspaces**.
+1. Select **Azure Machine Learning**.
 
    ![Search for Azure Machine Learning workspace](media/how-to-manage-workspace/all-services.png)
 
@@ -98,6 +104,7 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 Use the Delete button at the top of the workspace you wish to delete.
 
   ![Delete button](media/how-to-manage-workspace/delete-workspace.png)
+
 
 ## Clean up resources
 

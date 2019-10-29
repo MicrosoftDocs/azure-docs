@@ -15,19 +15,19 @@ ms.date: 10/22/2019
 
 Learn about the error messages and exception codes you might encounter using  modules in Azure Machine Learning designer (preview). 
 
-To resolve the issue, look for the error in this article to read about common causes. There are two ways to get the full text of an error message in Studio:  
+To resolve the issue, look for the error in this article to read about common causes. There are two ways to get the full text of an error message in the designer:  
  
 - Click the link, **View Output Log**, in the right pane and scroll to the bottom. The detailed error message is displayed in the last two lines of the window.  
   
 - Select the module that has the error, and click the red X. Only the pertinent error text is displayed.  
   
-If the error message text is not helpful, send us information about the context and any desired additions or changes. You can either submit feedback on the error topic, or visit the [Azure Machine Learning STUDIO forum](https://aka.ms/aml-forum-studio) and post a question.  
+If the error message text is not helpful, send us information about the context and any desired additions or changes by submitting feedback.
 
 
 ## Error 0001  
  Exception occurs if one or more specified columns of data set couldn't be found.  
   
- You will receive this error if a column selection is made for a module, but the selected column(s) do not exist in the input data set. This error may occur if you have manually typed in a column name or if the column selector has provided a suggested column that did not exist in your dataset when you ran the experiment.  
+ You will receive this error if a column selection is made for a module, but the selected column(s) do not exist in the input data set. This error may occur if you have manually typed in a column name or if the column selector has provided a suggested column that did not exist in your dataset when you ran the pipeline.  
   
 **Resolution:**
  Revisit the module throwing this exception and validate that the column name or names are correct and that all referenced columns do exist.  
@@ -164,9 +164,9 @@ If the error message text is not helpful, send us information about the context 
 ## Error 0009  
  Exception occurs when the Azure storage account name or container name is specified incorrectly.  
   
-This error occurs in Azure Machine Learning Studio when you specify parameters for an Azure storage account, but the name or password cannot be resolved. Errors on passwords or account names can happen for many reasons:
+This error occurs in Azure Machine Learning designer when you specify parameters for an Azure storage account, but the name or password cannot be resolved. Errors on passwords or account names can happen for many reasons:
  
- + The account is the wrong type. Some new account types are not supported for use with Machine Learning Studio. See [Import Data](import-data.md) for details.
+ + The account is the wrong type. Some new account types are not supported for use with Machine Learning designer. See [Import Data](import-data.md) for details.
  + You entered the incorrect account name
  + The account no longer exists
  + The password for the storage account is wrong or has changed
@@ -218,7 +218,7 @@ If the complete path to a blob was specified, verify that the path is specified 
   
  If the module requires that you select a specific column, such as a label column, verify that the right column is selected.  
   
- If inappropriate columns are selected, remove them and rerun the experiment.  
+ If inappropriate columns are selected, remove them and rerun the pipeline.  
   
 |Exception Messages|  
 |------------------------|  
@@ -241,7 +241,7 @@ If the complete path to a blob was specified, verify that the path is specified 
 ## Error 0013  
  Exception occurs if the learner passed to the module is an invalid type.  
   
- This error occurs whenever a trained model is incompatible with the connected scoring module. <!--For example, connecting the output of [Train Matchbox Recommender](train-matchbox-recommender.md) to [Score Model](score-model.md) (instead of [Score Matchbox Recommender](score-matchbox-recommender.md)) will generate this error when the experiment is run.  -->
+ This error occurs whenever a trained model is incompatible with the connected scoring module. <!--For example, connecting the output of [Train Matchbox Recommender](train-matchbox-recommender.md) to [Score Model](score-model.md) (instead of [Score Matchbox Recommender](score-matchbox-recommender.md)) will generate this error when the pipeline is run.  -->
   
 **Resolution:**
 
@@ -1008,7 +1008,7 @@ Another reason you might get this error if you try to use a column containing fl
 ## Error 0057  
  Exception occurs when attempting to create a file or blob that already exists.  
   
- This exception occurs when you are using the [Export Data](export-data.md) module or other module to save  results of an experiment in Azure Machine Learning to Azure blob storage, but you attempt to create a file or blob that already exists.   
+ This exception occurs when you are using the [Export Data](export-data.md) module or other module to save  results of a pipeline in Azure Machine Learning to Azure blob storage, but you attempt to create a file or blob that already exists.   
   
 **Resolution:**
  
@@ -1107,10 +1107,10 @@ Another reason you might get this error if you try to use a column containing fl
   
 **Resolution:**
 
-1. In Azure Machine Learning Studio, right-click the module that has the error, and select **View Log**.
+1. In Azure Machine Learning designer, right-click the module that has the error, and select **View Log**.
 2. Examine the standard error log of the module, which contains the stack trace.
     + Lines beginning with [ModuleOutput] indicate output from R.
-    + Messages from R marked as **warnings** typically do not cause the experiment to fail.
+    + Messages from R marked as **warnings** typically do not cause the pipeline to fail.
 3. Resolve script issues.  
     + Check for R syntax errors. Check for variables that are defined but never populated.
     + Review the input data and the script to determine if either the data or variables in the script use characters not supported by Azure Machine Learning.
@@ -1118,11 +1118,11 @@ Another reason you might get this error if you try to use a column containing fl
     + Check whether your code loads required libraries that are not loaded by default.
     + Check whether the required packages are the correct version.
     + Make sure that any dataset that you want to output is converted to a data frame.  
-4.  Resubmit the experiment.
+4.  Resubmit the pipeline.
 
  <!--
 > [!NOTE]
-> These topics contains examples of R code that you can use, as well as links to experiments in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com) that use R script.
+> These topics contains examples of R code that you can use, as well as links to pipelines in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com) that use R script.
 > + [Execute R Script](execute-r-script.md)
 > + [Create R Model](create-r-model.md)
 -->  
@@ -1422,7 +1422,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
  This error in Azure Machine Learning occurs when a saved machine learning model or transform cannot be loaded by a newer version of the Azure Machine Learning runtime as a result of a breaking change.  
   
 **Resolution:**
- The training experiment that produced the model or transform must be rerun and the model or transform must be resaved.  
+ The training pipeline that produced the model or transform must be rerun and the model or transform must be resaved.  
   
 |Exception Messages|  
 |------------------------|  

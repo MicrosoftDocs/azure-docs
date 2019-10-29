@@ -9,7 +9,7 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 10/14/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
@@ -40,13 +40,19 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 * Complete the [Tutorial: Get started creating your first ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
     * Create a workspace
-    * Create a cloud notebook server
-    * Launch the Jupyter notebook dashboard
+    * Clone the tutorials notebook to your folder in the workspace.
+    * Create a cloud-based compute instance.
 
-* After you launch the Jupyter notebook dashboard, open the **tutorials/img-classification-part1-training.ipynb** notebook.
+* In your cloned **tutorials** folder, open the **img-classification-part1-training.ipynb** notebook. 
+
 
 The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial.
 
+> [!Important]
+> The rest of this article contains the same content as you see in the notebook.  
+>
+> Switch to the Jupyter notebook now if you want to read along as you run the code. 
+> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
 ## <a name="start"></a>Set up your development environment
 

@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/03/2019
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Train your first ML model
@@ -70,15 +70,17 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## Load data and prepare for training
 
-For this tutorial, you use the diabetes data set, which is a pre-normalized data set included in scikit-learn. This data set uses features like age, gender, and BMI to predict diabetes disease progression. Load the data from the `load_diabetes()` static function, and split it into training and test sets using `train_test_split()`. This function segregates the data so the model has unseen data to use for testing following training.
+For this tutorial, you use the diabetes data set, which uses features like age, gender, and BMI to predict diabetes disease progression. Load the data from the [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) class, and split it into training and test sets using `train_test_split()`. This function segregates the data so the model has unseen data to use for testing following training.
 
 
 ```python
-from sklearn.datasets import load_diabetes
+from azureml.opendatasets import Diabetes
 from sklearn.model_selection import train_test_split
 
-X, y = load_diabetes(return_X_y = True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=66)
+x_df = Diabetes.get_tabular_dataset().to_pandas_dataframe().dropna()
+y_df = x_df.pop("Y")
+
+X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=66)
 ```
 
 ## Train a model

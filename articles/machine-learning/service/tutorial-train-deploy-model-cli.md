@@ -16,7 +16,7 @@ ms.date: 09/12/2019
 
 In this tutorial, you use the machine learning extension for the Azure CLI to train, register, and deploy a model.
 
-The Python training scripts in this tutorial use [scikit-learn](https://scikit-learn.org/) to train a basic model. The focus of this tutorial is not on the scripts or the model, but the process of using the CLI to work with the Azure Machine Learning.
+The Python training scripts in this tutorial use [scikit-learn](https://scikit-learn.org/) to train a basic model. The focus of this tutorial is not on the scripts or the model, but the process of using the CLI to work with Azure Machine Learning.
 
 Learn how to take the following actions:
 
@@ -178,7 +178,7 @@ This command creates a `.azureml/config.json` file, which contains information n
 
 ## Create the compute target for training
 
-This example uses an Azure Machine Learning Compute instance to train the model. To create a new compute instance, use the following command:
+This example uses an Azure Machine Learning Compute cluster to train the model. To create a new compute cluster, use the following command:
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
@@ -213,7 +213,7 @@ This command specifies a name for the experiment (`myexperiment`). The experimen
 
 The `-c sklearn` parameter specifies the `.azureml/sklearn.runconfig` file. As mentioned earlier, this file contains information used to configure the environment used by the training run. If you inspect this file, you'll see that it references the `cpu` compute target you created earlier. It also lists the number of nodes to use when training (`"nodeCount": "4"`), and contains a `"condaDependenciees"` section that lists the Python packages needed to run the training script.
 
-For more information on run configuration files, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli).
+For more information on run configuration files, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli), or reference this [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) to see the full schema for a runconfig.
 
 The `-t` parameter stores a reference to this run in a JSON file, and will be used in the next steps to register and download the model.
 

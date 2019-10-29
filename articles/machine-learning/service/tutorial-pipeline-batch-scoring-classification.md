@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/05/2019
+ms.date: 11/04/2019
 ---
 
 # Build & use an Azure Machine Learning pipeline for batch scoring

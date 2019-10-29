@@ -9,12 +9,16 @@ ms.topic: conceptual
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
-ms.date: 08/08/2019
+ms.date: 10/25/2019
 ---
 
 # Deploy a model to Azure Machine Learning compute instances
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can deploy a model to either a compute instance or a Notebook VM using the steps in this article.
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on your Azure Machine Learning compute instance. Use compute instances if one of the following conditions is true:
 
@@ -42,7 +46,13 @@ An example notebook that demonstrates local deployments is included on your comp
 
     ![Screenshot of the running local service port](media/how-to-deploy-local-container-notebookvm/deploy-local-service-port.png)
 
-1. To test the service from the compute instance, use the `https://localhost:<local_service.port>` URL. To test from a remote client, get the public URL of the service running on the compute instance. The public URL can be determined use the following formula; `https://<notebookvm_name>-<local_service_port>.<azure_region_of_notebook>.notebooks.azureml.net/score`. For example, `https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score`.
+1. To test the service from a compute instance, use the `https://localhost:<local_service.port>` URL. To test from a remote client, get the public URL of the service running on the compute instance. The public URL can be determined use the following formula; 
+    * Notebook VM: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
+    * Compute instance: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
+    
+    For example, 
+    * Notebook VM: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
+    * Compute instance: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
 ## Test the service
 
@@ -58,7 +68,8 @@ test_sample = json.dumps({'data': [
 test_sample = bytes(test_sample,encoding = 'utf8')
 access_token = "your bearer token"
 headers = {'Content-Type':'application/json', 'Authorization': 'Bearer ' + access_token}
-service_url = "https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score"
+service_url = "https://vm-name-6789.northcentralus.notebooks.azureml.net/score"
+# for a compute instance, the url would be https://vm-name-6789.northcentralus.instances.azureml.net/score
 resp = requests.post(service_url, test_sample, headers=headers)
 print("prediction:", resp.text)
 ```

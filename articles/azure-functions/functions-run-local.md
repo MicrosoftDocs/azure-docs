@@ -436,7 +436,7 @@ To publish your local code to a function app in Azure, use the `publish` command
 func azure functionapp publish <FunctionAppName>
 ```
 
-This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
+This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command uses [remote build](functions-deployment-technologies.md#remote-build) and deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
 
 >[!IMPORTANT]
 > When you create a function app in the Azure portal, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).
@@ -458,6 +458,7 @@ The following publish options are only supported in version 2.x:
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the .funcignore file. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
 | **`--build-native-deps`** | Skips generating .wheels folder when publishing python function apps. |
+| **`--build [-b]`** | Performs build action when deploying to a Linux function app. (accepts: remote, local) |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore pre-publishing verification in certain scenarios. |
 | **`--csx`** | Publish a C# script (.csx) project. |

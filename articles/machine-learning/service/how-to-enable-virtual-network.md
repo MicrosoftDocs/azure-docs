@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-ms.reviewer: jmartens
+ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 08/05/2019
+ms.date: 10/25/2019
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
@@ -105,6 +105,10 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 ## Use a Machine Learning Compute
 
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+> Use one of these regions to create a compute instance that can be added to virtual network.
+
 To use an Azure Machine Learning compute instance or compute cluster in a virtual network, the following network requirements must be met:
 
 > [!div class="checklist"]
@@ -183,7 +187,7 @@ When you add the UDRs, define the route for each related Batch IP address prefix
 
 For more information, see [Create an Azure Batch pool in a virtual network](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
-### Create a Machine Learning Compute cluster in a virtual network
+### Create a compute cluster in a virtual network
 
 To create a Machine Learning Compute cluster, do the following:
 
@@ -242,6 +246,28 @@ except ComputeTargetException:
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
 <a id="vmorhdi"></a>
+
+### Create a compute instance in a virtual network
+
+Create an Azure Machine Learning compute instance in a virtual network. To create a compute instance, do the following:
+
+1. In the workspace studio, select **Compute** in left pane.
+
+1. On the compute instances tab select **New** to start creating a new compute instance.
+
+1. Set the Compute name and Virtual Machine size fields and enable/disable SSH access.
+
+1. To configure this compute instance to use a virtual network, do the following:
+
+    a. Select **Advanced settings**.
+
+    b. In the **Resource group** drop-down list, select the resource group that contains the virtual network.
+
+    c. In the **Virtual network** drop-down list, select the virtual network that contains the subnet.
+
+    d. In the **Subnet** drop-down list, select the subnet to use.
+
+1. Select **Create** to provision a compute instance inside a virtual network.
 
 ## Use a virtual machine or HDInsight cluster
 

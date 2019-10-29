@@ -10,7 +10,7 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 10/15/2019
+ms.date: 11/04/2019
 
 ---
 
@@ -93,10 +93,16 @@ datastore_paths = [
                   (datastore, 'weather/2019/*.csv')
                  ]
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
+```
 
-# create a TabularDataset from a delimited file behind a public web url
+By default, when creating TabularDataset, column data types are inferred automatically. If the inferred types are not as expected, you can specify column types using the following code. Learn more about supported data types [here](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+
+```Python
+from azureml.data.dataset_factory import DataType
+
+# create a TabularDataset from a delimited file behind a public web url and convert column "Survived" to boolean
 web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
-titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_types={'Survived': DataType.to_bool()})
 
 # preview the first 3 rows of titanic_ds
 titanic_ds.take(3).to_pandas_dataframe()
@@ -104,9 +110,9 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 | |PassengerId|Survived|Pclass|Name|Sex|Age|SibSp|Parch|Ticket|Fare|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|0|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
-1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|1|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
+1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
+2|3|True|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 Use the [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) method on `TabularDatasetFactory` class to read from Azure SQL Database.
 
@@ -171,9 +177,8 @@ To create a dataset in the studio:
 1. Select **Datasets** in the **Assets** section of the left pane. 
 1. Select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls.
 1. Select **Tabular** or **File** for Dataset type.
-1. Select **Next** to review the **Settings and preview** and the **Schema** forms; they are intelligently populated based on file type. 
-    Use these forms to further configure your dataset prior to creation.  
-1. Select **Done** to complete your dataset creation.
+1. Select **Next** to review the **Settings and preview**, **Schema** and **Confirm details** forms; they are intelligently populated based on file type. Use these forms to check your selections and to further configure your dataset prior to creation.  
+1. Select **Create** to complete your dataset creation.
 
 ## Register datasets
 
@@ -240,11 +245,7 @@ The dataset is now created and available in your workspace under **Datasets**, a
 
 ## Version datasets
 
-You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider for versioning are: 
-
-* When new data is available for retraining.
-* When you are applying different data preparation or feature engineering approaches.
-
+You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Learn more about [dataset versions](how-to-version-track-datasets.md).
 ```Python
 # create a TabularDataset from Titanic training data
 web_paths = [
@@ -284,6 +285,6 @@ df = titanic_ds.to_pandas_dataframe()
 
 ## Next steps
 
-* Learn [how to train with datasets](how-to-train-with-datasets.md)
+* Learn [how to train with datasets](how-to-train-with-datasets.md).
 * Use automated machine learning to [train with TabularDatasets](https://aka.ms/automl-dataset).
 * For more examples of training with datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).
