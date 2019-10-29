@@ -14,7 +14,7 @@ Azure Database for PostgreSQL automatically creates server backups and stores th
 
 ## Backups
 
-Azure Database for PostgreSQL takes full, differential, and transaction log backups. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure it up to 35 days. All backups are encrypted using AES 256-bit encryption.
+Azure Database for PostgreSQL takes full, differential, and transaction log backups. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure it up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
 ### Backup frequency
 

@@ -31,6 +31,10 @@ landingContent:
         links:
           - text: Create a runbook
             url: automation-quickstart-create-runbook.md
+      - linkListType: deploy
+        links: 
+          - text: Start/Stop VMs during off-hours
+            url: automation-solution-vm-management.md
 
   - title: Manage Updates for VMs
     linkLists:

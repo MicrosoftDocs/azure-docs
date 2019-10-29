@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/27/2019
+ms.date: 10/01/2019
 ms.author: diberry
 ---
 

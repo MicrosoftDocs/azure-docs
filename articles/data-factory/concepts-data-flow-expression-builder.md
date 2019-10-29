@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory Mapping Data Flow Expression Builder
-description: The Expression Builder for Azure Data Factory Mapping Data Flows
+title: Azure Data Factory mapping data flow Expression Builder
+description: The Expression Builder for Azure Data Factory mapping data flows
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/30/2019
 ---
 
-# Mapping Data Flow Expression Builder
+# Mapping data flow Expression Builder
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-In Azure Data Factory Mapping Data Flow, you'll find expression boxes where you can enter expressions for data transformation. Use columns, fields, variables, parameters, functions from your data flow in these boxes. To build the expression, use the Expression Builder, which is launched by clicking in the expression text box inside the transformation. You'll also sometimes see "Computed Column" options when selecting columns for transformation. When you click that, you'll also see the Expression Builder launched.
+
+In Azure Data Factory mapping data flow, you'll find expression boxes where you can enter expressions for data transformation. Use columns, fields, variables, parameters, functions from your data flow in these boxes. To build the expression, use the Expression Builder, which is launched by clicking in the expression text box inside the transformation. You'll also sometimes see "Computed Column" options when selecting columns for transformation. When you click that, you'll also see the Expression Builder launched.
 
 ![Expression Builder](media/data-flow/xpb1.png "Expression Builder")
 

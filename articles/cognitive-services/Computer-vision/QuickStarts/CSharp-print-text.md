@@ -54,7 +54,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the OCR method endpoint
-        const string uriBase = endpoint + "vision/v2.0/ocr";
+        const string uriBase = endpoint + "vision/v2.1/ocr";
 
         static void Main()
         {

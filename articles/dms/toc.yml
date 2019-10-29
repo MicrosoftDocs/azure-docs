@@ -58,8 +58,10 @@
     href: resource-scenario-status.md
   - name: Overview of prerequisites
     href: pre-reqs.md
-  - name: Network topologies for Azure SQL DB managed instance migrations
+  - name: Network topologies for Azure SQL DB MI migrations
     href: resource-network-topologies.md
+  - name: Custom roles for online migrations from SQL Server to Azure SQL DB MI
+    href: resource-custom-roles-sql-db-managed-instance.md
   - name: Troubleshooting and known issues
     items:
     - name: Troubleshoot source database connectivity issues
@@ -70,8 +72,10 @@
       href: known-issues-azure-sql-online.md
     - name: Known Issues - Online migration to Azure DB for MySQL
       href: known-issues-azure-mysql-online.md
-    - name: Known Issues - Online migration to Azure DB for PostgreSQL–Single server
+    - name: Known Issues - Online migration from PostgreSQL to Azure DB for PostgreSQL–Single server
       href: known-issues-azure-postgresql-online.md
+    - name: Known Issues - Online migration from Oracle to Azure DB for PostgreSQL–Single server
+      href: known-issues-oracle-azure-postgresql-online.md
   - name: Videos
     items:
     - name: Use the Database Migration Guide

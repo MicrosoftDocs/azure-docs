@@ -58,10 +58,10 @@ public async Task<IActionResult> Profile()
  string[] scopes = new string[]{"user.read"};
  string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
 
-// use the access token to call a protected web API
-HttpClient client = new HttpClient();
-client.DefaultRequestHeaders.Add("Authorization", result.CreateAuthorizationHeader());
-string json = await client.GetStringAsync(url);
+ // use the access token to call a protected web API
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ string json = await client.GetStringAsync(url);
 }
 ```
 
