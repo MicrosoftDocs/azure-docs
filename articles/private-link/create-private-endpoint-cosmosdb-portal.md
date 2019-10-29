@@ -12,7 +12,7 @@ ms.author: sngun
 
 Azure Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link resources.
 
-In this article, you will learn how to create a VM on an Azure virtual network, an Azure Cosmos account with a Private Endpoint using Azure portal. Then, you can securely access the Azure Cosmos account from the VM.
+In this article, you will learn how to create a VM on an Azure virtual network and an Azure Cosmos account with a Private Endpoint using the Azure portal. Then, you can securely access the Azure Cosmos account from the VM.
 
 ## Sign in to Azure
 
@@ -20,11 +20,9 @@ Sign in to the [Azure portal.](https://portal.azure.com)
 
 ## Create a VM
 
-In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link Resource (an Azure Cosmos account in this example).
-
 ### Create the virtual network
 
-In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource.
+In this section, you will create a virtual network and the subnet to host the VM that is used to access your Private Link resource (an Azure Cosmos account in this example).
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 
@@ -43,7 +41,7 @@ In this section, you will create virtual network and the subnet to host the VM t
 
 1. Leave the rest as default and select **Create**.
 
-### Create virtual machine
+### Create the virtual machine
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**.
 
@@ -96,7 +94,7 @@ Create an [Azure Cosmos SQL API account](../cosmos-db/create-cosmosdb-resources-
 
 ## Create a Private Endpoint for your Azure Cosmos account
 
-Create a Private Link for your Azure Cosmos account  as described in the [Create a Private Link using the Azure portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) section of the linked article.
+Create a Private Link for your Azure Cosmos account as described in the [Create a Private Link using the Azure portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) section of the linked article.
 
 ## Connect to a VM from the internet
 
@@ -108,7 +106,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
-1. Open the downloaded.rdp* file.
+1. Open the downloaded *.rdp* file.
 
     1. If prompted, select **Connect**.
 
@@ -128,11 +126,11 @@ Connect to the VM *myVm* from the internet as follows:
 In this section, you will connect privately to the Azure Cosmos account using the Private Endpoint. 
 
 > [!IMPORTANT]
-> The DNS configuration for the Azure Cosmos account needs a manual modification on the hosts file to include the FQDN of the specific account. In production scenarios you will configure the DNS server to use the private IP addresses. However for the demo purpose, you can use administrator permissions on the VM and modify the `c:\Windows\System32\Drivers\etc\hosts` file or `/etc/hosts` file on Linux to include the IP address and DNS mapping.
+> The DNS configuration for the Azure Cosmos account needs a manual modification on the hosts file to include the FQDN of the specific account. In production scenarios you will configure the DNS server to use the private IP addresses. However for the demo purpose, you can use administrator permissions on the VM and modify the `c:\Windows\System32\Drivers\etc\hosts` file (on Windows) or `/etc/hosts` file (on Linux) to include the IP address and DNS mapping.
 
 1. To include the IP address and DNS mapping, sign into your Virtual machine *myVM*, open the `c:\Windows\System32\Drivers\etc\hosts` file and include the DNS information from previous step in the following format:
 
-   [Private IP Address] myaccount.blob.core.windows.net
+   [Private IP Address] [Account endpoint].documents.azure.com
 
    **Example:**
 
@@ -173,9 +171,8 @@ When you're done using the Private Endpoint, Azure Cosmos account and the VM, de
 
 ## Next steps
 
-In this article, you created a VM on a virtual network and Azure Cosmos account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the Azure Cosmos account using Private Link.
+In this article, you created a VM on a virtual network, an Azure Cosmos account and a Private Endpoint. You connected to the VM from the internet and securely communicated to the Azure Cosmos account using Private Link.
 
 * To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
 
 * To learn more about limitation of Private Endpoint when using with Azure Cosmos DB, see [Azure Private Link with Azure Cosmos DB](../cosmos-db/how-to-configure-private-endpoints.md) article.
-
