@@ -93,7 +93,7 @@ In order to enable smooth experience for in place querying of data residing in f
 
 [PARQUET file format](development-storage-files-overview.md#parquet-file-format)
 
-[Additional options for working with delimited text (field terminator, row terminator, escape char)](development-storage-files-overview.md#additional options for working with delimited text)
+[Additional options for working with delimited text (field terminator, row terminator, escape char)](development-storage-files-overview.md#additional-options-for-working-with-delimited-text)
 
 [Reading a chosen subset of columns](development-storage-files-overview.md#reading-a-chosen-subset-of-columns)
 
