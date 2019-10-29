@@ -1,5 +1,5 @@
 ---
-title: Test Network Latency | Microsoft Docs
+title: Test Azure VM Network Latency | Microsoft Docs
 description: Learn how to test network latency between Azure VMs on a virtual network
 services: virtual-network
 documentationcenter: na
@@ -38,7 +38,7 @@ These steps can be used to measure network latency between two Virtual Machines 
   - Virtual network, such as routing or filtering changes
 
 ### Tools for testing
-To measureme latency we have two different options, one for Windows-based systems, and one for Linux-based systems
+To measure latency we have two different options, one for Windows-based systems, and one for Linux-based systems
 
 For Windows: latte.exe (Windows)
 [https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
