@@ -77,8 +77,10 @@ To create a Windows Server 2019 Datacenter VM in Azure with Azure AD logon:
    1. Click **Windows Server** and choose **Windows Server 2019 Datacenter** from Select a software plan dropdown.
    1. Click on **Create**.
 1. On the “Management” tab, enable the option to **Login with AAD credentials (Preview)** under the Azure Active Directory section from Off to **On**.
-1. Make sure **System assigned managed identity** under the Identity section is set to **On**. This action should happen automatically once you enable Login with AAD credentials.
+1. Make sure **System assigned managed identity** under the Identity section is set to **On**. This action should happen automatically once you enable Login with Azure AD credentials.
 1. Go through the rest of the experience of creating a virtual machine. During this preview, you will have to create an administrator username and password for the VM.
+
+![Login with Azure AD credentials create a VM](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
 
 > [!NOTE]
 > In order to log in to the VM using your Azure AD credential, you will first need to configure role assignments for the VM as described in one of the sections below.
