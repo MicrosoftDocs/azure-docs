@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -68,7 +68,7 @@ After you open an access request pending approval, you can see details that will
 
 1. If necessary, enter a reason.
 
-    ![My Access portal - Access request](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![My Access portal - Access request](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Click **Submit** to submit your decision.
 

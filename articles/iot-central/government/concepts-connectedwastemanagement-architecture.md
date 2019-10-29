@@ -12,6 +12,7 @@ services: iot-central
 
 # Connected waste monitoring reference architecture 
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 A connected waste management solution can be built using the **Azure IoT Central app template** as a kick starter IoT application. This article provides a high-level reference architecture guidance on building an end to end solution. 
 
