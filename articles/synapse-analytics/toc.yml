@@ -325,7 +325,7 @@
         - name: Temporary
           href: sql-analytics/development-tables-temporary.md
         - name: OPENROWSET
-          href: sql-analytics/development-tables-openrowset.md
+          href: sql-analytics/development-openrowset.md
         - name: External tables
           href: sql-analytics/development-tables-external-tables.md
         - name: CETAS
@@ -957,7 +957,7 @@
       - name: Query with SSMS
         href: sql-analytics/sql-analytics-query-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with Visual Studio
-        href: sql-analytics/sql-analytics-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/sql-analytics-get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     # - name: Spark pool
     #   href: article-template.md
 - name: Reference
