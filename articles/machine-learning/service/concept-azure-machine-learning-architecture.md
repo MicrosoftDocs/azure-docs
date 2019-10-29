@@ -146,8 +146,9 @@ For an example of using an experiment, see [Tutorial: Train your first model](tu
 
 ### GitHub tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
 
+For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
 ### Logging
 

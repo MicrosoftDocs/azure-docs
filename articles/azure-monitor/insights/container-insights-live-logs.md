@@ -1,18 +1,13 @@
 ---
 title: View Azure Monitor for containers logs in real time | Microsoft Docs
 description: This article describes the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
-services: azure-monitor
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
 ms.author: magoedte
+ms.date: 07/12/2019
+
 ---
 
 # How to view logs and events in real time (preview)

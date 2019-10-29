@@ -1,10 +1,8 @@
 ---
 title: host.json reference for Azure Functions 2.x
 description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords:
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
@@ -64,7 +62,7 @@ The following sample *host.json* files have all possible options specified.
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 5
+              "maxTelemetryItemsPerSecond" : 20
             }
         }
     },
@@ -99,7 +97,7 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
     "applicationInsights": {
         "samplingSettings": {
           "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 5
+          "maxTelemetryItemsPerSecond" : 20
         }
     }
 }
@@ -111,7 +109,7 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
 |Property  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|true|Enables or disables sampling.| 
-|maxTelemetryItemsPerSecond|5|The threshold at which sampling begins.| 
+|maxTelemetryItemsPerSecond|20|The threshold at which sampling begins.| 
 |EnableLiveMetrics |true|Enables live metrics collection.|
 |EnableDependencyTracking|true|Enables dependency tracking.|
 |EnablePerformanceCountersCollection|true|Enables Kudu performance counters collection.|
@@ -145,9 +143,7 @@ A list of functions that the job host runs. An empty array means run all functio
 ## functionTimeout
 
 Indicates the timeout duration for all functions. It follows the timespan string format. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes.  
-In a Dedicated (App Service) plan, there is no overall limit, and the default depends on the runtime version: 
-+ Version 1.x: the default is *null*, which indicates no timeout.   
-+ Version 2.x: the default value is 30 minutes. A value of `-1` indicates unbounded execution.
+In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution.
 
 ```json
 {
