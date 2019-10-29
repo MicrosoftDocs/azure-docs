@@ -95,7 +95,7 @@ Run your code with `node index.js` in your console window.
 
 ## Language detection
 
-Create a list of dictionary objects containing your documents. Call the client's [detectLanguage()](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest#detectlanguage-object-) method and get the returned [LanguageBatchResult](https://docs.microsoft.com/en-us/javascript/api/azure-cognitiveservices-textanalytics/languagebatchresult?view=azure-node-latest). Then iterate through the results, and print each document's ID, and language.
+Create a list of dictionary objects containing your documents. Call the client's [detectLanguage()](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest#detectlanguage-object-) method and get the returned [LanguageBatchResult](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/languagebatchresult?view=azure-node-latest). Then iterate through the results, and print each document's ID, and language.
 
 [!code-javascript[Language detection](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=languageDetection)]
 
