@@ -27,7 +27,7 @@ User that logged into SQL Analytics on-demand must be authorized to access and q
 - [User Identity](#user-identity)
 
 > [!NOTE]
-> [AAD pass-through](force-aad-pass-through) is default behavior when you create workspace. You can [disable this behavior](disable-forcing-aad-pass-through).
+> [AAD pass-through](#force-aad-pass-through) is default behavior when you create workspace. You can [disable this behavior](#disable-forcing-aad-pass-through).
 
 Depending on the user type, different authorization types are supported (or will be supported soon).
 
@@ -104,7 +104,7 @@ You can use following combinations of authorization types and Azure Storage type
 ### Examples
 
 
-Depending on desired [authorization type](supported-storage-authorization-types), you can create credential using syntax below.
+Depending on desired [authorization type](#supported-storage-authorization-types), you can create credential using syntax below.
 
 T-SQL syntax for **Shared Access Signature and Blob Storage** (change <mystorageaccountname> with your actual storage account name, and <mystorageaccountcontainername> with actual container name:
 >
@@ -138,7 +138,7 @@ Forcing AAD pass-through is default behavior. To achieve this, special CREDENTIA
 > [!NOTE]
 > AAD pass-through is default behavior.
 
-In case you [disabled forcing AAD pass-through for each query](disable-forcing-AAD-pass-through) and want to enable it again, execute:
+In case you [disabled forcing AAD pass-through for each query](#disable-forcing-AAD-pass-through) and want to enable it again, execute:
 
 ```sql
 CREATE CREDENTIAL [UserIdentity]
@@ -161,7 +161,7 @@ You can disable [forcing AAD pass-through for each query](#force-aad-pass-throug
 DROP CREDENTIAL [UserIdentity]
 ```
 
-In case you want to enable it again, check [force AAD pass-through](force-aad-pass-through). 
+In case you want to enable it again, check [force AAD pass-through](#force-aad-pass-through). 
 
 To disable forcing AAD pass-through for specific user, you can deny REFERENCE permission on credential `UserIdentity` to particular user. Following example disables forcing AAD pass-through for user user_name:
 
@@ -189,11 +189,11 @@ When authorizing queries, lookup of credential to be used to access storage acco
 
 1. If user is logged in as AAD login
 
-   - if UserIdentity credential exists and user has reference permissions on it, AAD pass-through will be used, otherwise [lookup credential by path](lookup-credential-by-path)
+   - if UserIdentity credential exists and user has reference permissions on it, AAD pass-through will be used, otherwise [lookup credential by path](#lookup-credential-by-path)
 
 2. If user is logged in as SQL login
 
-   - [lookup credential by path](lookup-credential-by-path)
+   - [lookup credential by path](#lookup-credential-by-path)
 
 ### Lookup credential by path
 

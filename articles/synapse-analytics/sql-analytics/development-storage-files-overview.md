@@ -125,7 +125,7 @@ BULK N'path_to_file(s)', FORMAT='PARQUET');
 
 This function returns file name that row originates from.
 
-Check [filename function](querying-specific-files.md#filename-function) in samples section for queries.
+Check [filename function](querying-specific-files.md#filename) in samples section for queries.
 
 ### filepath function
 
@@ -134,7 +134,7 @@ This function returns full path or part of path:
 - When called without parameter, returns full file path that row originates from. 
 - When called with parameter, it returns part of path that matches wildcard on position specified in parameter. For example, parameter value 1 would return part of path that matches first wildcard.
 
-Check [filepath function](querying-specific-files.md#filepath-function) in samples section for queries.
+Check [filepath function](querying-specific-files.md#filepath) in samples section for queries.
 
 ### Working with complex types and nested or repeated data structures
 
