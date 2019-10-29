@@ -95,6 +95,8 @@ landingContent:
             url: my-account-portal-devices-page.md
           - text: Manage your organizations
             url: my-account-portal-organizations-page.md
+          - text: View your sign-in activity
+            url: my-account-portal-sign-ins-page.md
   
   # Card
   - title: Reset your own password
