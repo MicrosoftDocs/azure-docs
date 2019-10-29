@@ -67,7 +67,7 @@ Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotne
 
 This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs) file of the *MediaV3LiveApp* project.
 
-The sample creates a unique suffix for each resource so that we don't have name collisions if you run the sample multiple times without cleaning up.
+The sample creates a unique suffix for each resource so that you don't have name collisions if you run the sample multiple times without cleaning up.
 
 > [!IMPORTANT]
 > This sample uses a unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you'll end up with multiple Live Events in your account. <br/>
@@ -154,7 +154,7 @@ foreach (StreamingPath path in paths.StreamingPaths)
 If you're done streaming events and want to clean up the resources provisioned earlier, follow the following procedure:
 
 * Stop pushing the stream from the encoder.
-* Stop the Live Event. Once the Live Event is stopped, it won't incur any charges. When you need to start it again, it'll have the same ingest URL so you won't need to reconfigure your encoder.
+* Stop the Live Event. Once the Live Event is stopped, it won't incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
 * You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the Live Event is in a stopped state, it won't incur any charges.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLiveEventAndOutput)]
@@ -163,7 +163,7 @@ If you're done streaming events and want to clean up the resources provisioned e
 
 ## Watch the event
 
-To watch the event, copy the streaming URL that you got when you ran code described in Create a Streaming Locator and use a player of your choice. You can use [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) to test your stream at https://ampdemo.azureedge.net. 
+To watch the event, copy the streaming URL that you got when you ran code described in Create a Streaming Locator. You can use a media player of your choice. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) is available to test your stream at https://ampdemo.azureedge.net.
 
 Live Event automatically converts events to on-demand content when stopped. Even after you stop and delete the event, users can stream your archived content as a video on demand for as long as you don't delete the asset. An asset can't be deleted if it's used by an event; the event must be deleted first.
 
