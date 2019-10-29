@@ -1,14 +1,13 @@
 ---
 title: Examples & common scenarios - Azure Logic Apps
-description: Examples, scenarios, tutorials, and walkthroughs for Azure Logic Apps
+description: Find examples, common scenarios, tutorials, and walkthroughs for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
+ms.topic: conceptual
 ms.date: 07/31/2019
 ---
 

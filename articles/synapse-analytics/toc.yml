@@ -70,10 +70,10 @@
     items:
     # - name: SQL Analytics pool
     #   href: article-template.md
-    # - name: SQL Analytics on-demand
-    #   href: article-template.md
     # - name: Spark pool template
     #   href: article-template.md
+  - name: SQL Analytics on-demand
+    href: ../synapse-analytics/sql-analytics/sql-analytics-on-demand-workspace-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Pipeline and activity
     href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Execution and trigger
@@ -478,16 +478,16 @@
       #     href: article-template.md
       #   - name: with T-SQL
       #     href: article-template.md
-      # - name: Data Flow and Data Ingest
-      #   href: article-template.md
+      - name: With the copy activity
+        href: data-integration/data-integration-sql-pool.md
       # - name: Spark
       #   href: article-template.md
       # - name: Best practices
       #   href: article-template.md
     - name: Into the data lake
       items:
-#       - name: Data Flow and Data Ingest
-#         href: article-template.md
+       - name: With the copy activity
+         href: data-integration/data-integration-data-lake.md
 #       - name: Spark
 #         href: article-template.md
 #       - name: Best practices
