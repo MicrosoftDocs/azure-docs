@@ -91,67 +91,57 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
    |   |RequestStatus=<br>Success|RequestStatus=<br>(SAS)NetworkError|Recommendation|
    |---|---|---|---|
-   |GetBlob|Yes|No|GetBlob Operation: RequestStatus = Success|
-   |GetBlob|No|Yes|GetBlob Operation: RequestStatus = (SAS)NetworkError|
-   |PutBlob|Yes|No|Put Operation: RequestStatus = Success|
-   |PutBlob|No|Yes|Put Operation: RequestStatus = (SAS)NetworkError|
+   |GetBlob|Yes|No|[**GetBlob Operation:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
+   |GetBlob|No|Yes|[**GetBlob Operation:** RequestStatus = (SAS)NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|Yes|No|[**Put Operation:** RequestStatus = Success](#put-operation-requeststatus--success)|
+   |PutBlob|No|Yes|[**Put Operation:** RequestStatus = (SAS)NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
-## Status results
+## GetBlob Operation RequestStatus results
 
-### GetBlob=Success
-
-In a **GetBlob Operation** with **RequestStatus = Success**, check the following values as mentioned in step 5 of the "Recommended steps" section:
+Check the following values as mentioned in step 5 of the "Recommended steps" section:
 
 * End-to-End Latency
 * Server-Latency
 * Client-Latency
 
-If **Max Time** is spent in **Client-Latency**, this indicates that Azure Storage is spending a large volume of time writing data to the client. This delay indicates a Client-Side Issue.
+### GetBlob Operation: RequestStatus = Success
+
+In a **GetBlob Operation** with **RequestStatus = Success**, if **Max Time** is spent in **Client-Latency**, this indicates that Azure Storage is spending a large volume of time writing data to the client. This delay indicates a Client-Side Issue.
 
 **Recommendation:**
 
 * Investigate the code in your client.
 * Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
-### GetBlob=(SAS)NetworkError
+### GetBlob Operation: RequestStatus = (SAS)NetworkError
 
-In a **GetBlob Operation** with **RequestStatus = (SAS)NetworkError**, check the following values as mentioned in step 5 of the "Recommended steps" section:
-
-* End-to-End Latency
-* Server-Latency
-* Client-Latency
-
-If **Max Time** is spent in **Client-Latency**, the most common issue is that the client is disconnecting before a timeout expires in the storage service.
+In a **GetBlob Operation** with **RequestStatus = (SAS)NetworkError**, if **Max Time** is spent in **Client-Latency**, the most common issue is that the client is disconnecting before a timeout expires in the storage service.
 
 **Recommendation:**
 
 * Investigate the code in your client to understand why and when the client disconnects from the storage service.
 * se Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
-### Put Operation=Success
+## Put Operation RequestStatus results
 
-In a **Put Operation** with **RequestStatus = Success**, check the following values as mentioned in step 5 of the "Recommended steps" section:
+Check the following values as mentioned in step 5 of the "Recommended steps" section:
 
 * End-to-End Latency
 * Server-Latency
 * Client-Latency
 
-If **Max Time** is spent in **Client-Latency**, this indicates that the Client is taking more time to send data to the Azure Storage. This delay indicates a Client-Side Issue.
+### Put Operation: RequestStatus = Success
+
+In a **Put Operation** with **RequestStatus = Success**, if **Max Time** is spent in **Client-Latency**, this indicates that the Client is taking more time to send data to the Azure Storage. This delay indicates a Client-Side Issue.
 
 **Recommendation:**
 
 * Investigate the code in your client.
 * Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
-### PutOperation=(SAS)NetworkError
+### Put Operation: RequestStatus = (SAS)NetworkError
 
-In a PutBlob Operation with RequestStatus = (SAS)NetworkError, check the following values as mentioned in step 5 of the "Recommended steps" section:
-
-* End-to-End Latency
-* Server-Latency
-* Client-Latency
-
-If **Max Time** is spent in **Client-Latency**, the most common issue is that the client is disconnecting before a timeout expires in the storage service.
+In a **PutBlob Operation** with **RequestStatus = (SAS)NetworkError**, if **Max Time** is spent in **Client-Latency**, the most common issue is that the client is disconnecting before a timeout expires in the storage service.
 
 **Recommendation:**
 
