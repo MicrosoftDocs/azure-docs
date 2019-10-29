@@ -272,9 +272,9 @@ az account list
 
 ## Remove delegated resources
 
-Users in the customer's tenant with the appropriate permissions can remove access to resources that have been delegated to a service provider in the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal.
+By default, a user in the customer's tenant who has the appropriate permissions can remove access to resources that have been delegated to a service provider in the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal.
 
-If you have included users with the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) when onboarding the customer for Azure delegated resource management, the users with that role can also remove that delegation.
+If you have included users with the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) when onboarding the customer for Azure delegated resource management, users in your tenant who have that role can also remove the delegation.
 
 The example below shows an assignment granting this permission to a that can be included in your parameter file:
 
@@ -288,7 +288,7 @@ The example below shows an assignment granting this permission to a that can be 
     ] 
 ```
 
-The principalId with this permission can remove a delegation in one of the following ways.
+A user with this permission can remove a delegation in one of the following ways.
 
 ### PowerShell
 
