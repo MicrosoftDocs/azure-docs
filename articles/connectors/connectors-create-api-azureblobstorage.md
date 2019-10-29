@@ -63,8 +63,11 @@ For trusted Microsoft services to access storage accounts through firewalls, add
 1. In your logic app, [use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) in an HTTP action or another action that supports managed identities for authenticating access to the storage account.
 
    > [!IMPORTANT]
-   > For outgoing calls to Azure Storage accounts, make sure that the request header includes the `x-ms-version` property 
-   > and the API version for the operation that you want to run on the storage account. For more information, see [Authenticate access with managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) and [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > For outgoing HTTP trigger or action calls to Azure Storage accounts, 
+   > make sure that the request header includes the `x-ms-version` property 
+   > and the API version for the operation that you want to run on the storage account. 
+   > For more information, see [Authenticate access with managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) and 
+   > [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 <a name="access-other-regions"></a>
 
