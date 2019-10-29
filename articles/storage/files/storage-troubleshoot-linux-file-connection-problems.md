@@ -275,7 +275,7 @@ This reconnection problem in the Linux kernel is now fixed as part of the follow
 - [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: Fix a possible double locking of mutex during reconnect (for kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-However, these changes might not be ported yet to all the Linux distributions. If you're using a popular Linux distribution, you can check on the [Use Azure Files with Linux](storage-files-how-to-use-files-linux.md) to see which version of your distribution has the necessary kernel changes.
+However, these changes might not be ported yet to all the Linux distributions. If you're using a popular Linux distribution, you can check on the [Use Azure Files with Linux](storage-how-to-use-files-linux.md) to see which version of your distribution has the necessary kernel changes.
 
 ### Workaround
 
