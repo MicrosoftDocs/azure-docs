@@ -89,7 +89,7 @@ SQL Analytics on-demand has no local storage, only metadata objects are stored i
 
 In order to enable smooth experience for in place querying of data residing in files in data lake, SQL Analytics on-demand extends the existing [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-2017) function by adding following capabilities:
 
-[Querying multiple files/folders](development-storage-files-overview.md#querying-multiple-files-folders)
+[Querying multiple files/folders](development-storage-files-overview.md#querying-multiple-files/folders)
 
 [PARQUET file format](development-storage-files-overview.md#parquet-file-format)
 
@@ -103,7 +103,7 @@ In order to enable smooth experience for in place querying of data residing in f
 
 [filepath function](development-storage-files-overview.md#filepath-function)
 
-[Working with complex types and nested / repeated data structures](development-storage-files-overview.md#working-with-complex-types-and-nested---repeated-data-structures)
+[Working with complex types and nested / repeated data structures](development-storage-files-overview.md#working-with-complex-types-and-nested-/-repeated-data-structures)
 
  
 
@@ -131,7 +131,7 @@ SQL Analytics on-demand authentication refers to how users prove their identity 
 
 Authorization refers to what a user can do within a SQL Analytics on-demand database, and is controlled by your user account's database role memberships and object-level permissions.
 
-If SQL Authentication is used, SQL user exists only in SQL Analytics on-demand and permissions are scoped to the objects in SQL Analytics on-demand. Access to securable objects in other services (such as Azure Storage) can’t be granted to SQL user directly since it only exists in scope of SQL Analytics on-demand. The SQL user needs to use one of the [supported authorization types](development-storage-files-storage-access-control#supported-storage-authorization-types) to access the files.
+If SQL Authentication is used, SQL user exists only in SQL Analytics on-demand and permissions are scoped to the objects in SQL Analytics on-demand. Access to securable objects in other services (such as Azure Storage) can’t be granted to SQL user directly since it only exists in scope of SQL Analytics on-demand. The SQL user needs to use one of the [supported authorization types](development-storage-files-storage-access-control.md#supported-storage-authorization-types) to access the files.
 
 If AAD authentication is used, a user can login into SQL Analytics on-demand and other services, like Azure Storage, can grant permissions to the AAD user. 
 
