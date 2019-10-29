@@ -61,7 +61,7 @@ To help avoid potentially negative impacts due to this change, we're updating Ap
 
 - Setting the default value for the **Use Secure Cookie** setting to **Yes**.
 
-- Setting the default value for the SameSite attribute to **None**.
+- Setting the default value for the **SameSite** attribute to **None**.
 
     >[!NOTE]
     > Application Proxy access cookies have always been transmitted exclusively over secure channels. These changes only apply to session cookies.
