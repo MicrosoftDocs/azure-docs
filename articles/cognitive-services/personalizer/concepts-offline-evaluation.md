@@ -1,5 +1,5 @@
 ---
-title: Offline Evaluation - Personalizer
+title: Use the Offline Evaluation method - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Create feedback loop in this C# quickstart with the Personalizer service.
 services: cognitive-services

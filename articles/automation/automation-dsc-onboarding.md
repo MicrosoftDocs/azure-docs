@@ -64,7 +64,7 @@ Select an Azure virtual machine to onboard.
 
 If the machine does not have the PowerShell desired state extension installed and the power state is running, click **Connect**.
 
-Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/managing-nodes/metaconfig)
+Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/scripting/dsc/managing-nodes/metaConfig)
 required for your use case, and optionally a node configuration to assign to the VM.
 
 ![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
@@ -123,7 +123,7 @@ can also be onboarded to Azure Automation State Configuration, as long as they h
 [outbound access to Azure](automation-dsc-overview.md#network-planning):
 
 1. Make sure the latest version of [PowerShell Desired State Configuration for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is installed on the machines you want to onboard to Azure Automation State Configuration.
-1. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation State Configuration:
+1. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/scripting/dsc/managing-nodes/metaConfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation State Configuration:
 
    - On each Linux machine to onboard to Azure Automation State Configuration, use `Register.py` to onboard using the PowerShell DSC Local Configuration Manager defaults:
 
@@ -157,7 +157,7 @@ The machine this command is run from must have the latest version of [WMF 5](htt
 
 ## Generating DSC metaconfigurations
 
-To generically onboard any machine to Azure Automation State Configuration, a [DSC metaconfiguration](/powershell/dsc/metaconfig)
+To generically onboard any machine to Azure Automation State Configuration, a [DSC metaconfiguration](/powershell/scripting/dsc/managing-nodes/metaConfig)
 can be generated that tells the DSC
 agent to pull from and/or report to Azure Automation State Configuration. DSC
 metaconfigurations for Azure Automation State Configuration can be generated using either a
@@ -369,7 +369,7 @@ After registering a machine as a DSC node in Azure Automation State Configuratio
 number of reasons why you may need to reregister that node in the future:
 
 - For versions of Windows Server prior to Windows Server 2019, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year's time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node's authentication certificate expires, and the node is not reregistered, the node is unable to communicate with Azure Automation and is marked 'Unresponsive.' Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.  A resolution to this issue is included in Windows Server 2019 and later.
-- To change any [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through reregistration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
+- To change any [PowerShell DSC Local Configuration Manager values](/powershell/scripting/dsc/managing-nodes/metaConfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through reregistration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
 
 Reregistration can be performed in the same way you registered the node initially, using any of the
 onboarding methods described in this document. You do not need to unregister a node from Azure

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Recognize speech, Objective-C - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Objective-C on iOS using the Speech SDK
+description: Learn how to recognize speech in Objective-C on iOS by using the Speech SDK
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -12,72 +12,75 @@ ms.date: 07/05/2019
 ms.author: chlandsi
 ---
 
-# Quickstart: Recognize speech in Objective-C on iOS using the Speech SDK
+# Quickstart: Recognize speech in Objective-C on iOS by using the Speech SDK
 
 Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-objectivec-ios.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you learn how to create an iOS app in Objective-C using the Cognitive Services Speech SDK to transcribe speech to text from microphone or from a file with recorded audio.
+In this article, you learn how to create an iOS app in Objective-C by using the Azure Cognitive Services Speech SDK to transcribe speech to text from a microphone or from a file with recorded audio.
 
 ## Prerequisites
 
-Before you get started, here's a list of prerequisites:
+Before you get started, you'll need:
 
-* A [subscription key](get-started.md) for the Speech Service
-* A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later
-* The target set to iOS version 9.3 or later
+* A [subscription key](get-started.md) for the Speech Service.
+* A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later.
+* The target set to iOS version 9.3 or later.
 
 ## Get the Speech SDK for iOS
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The Cognitive Services Speech SDK for iOS is currently distributed as a Cocoa Framework.
-It can be downloaded from [here](https://aka.ms/csspeech/iosbinary). Download the file to your home directory.
+The Cognitive Services Speech SDK for iOS is currently distributed as a Cocoa framework.
+It can be downloaded from [this website](https://aka.ms/csspeech/iosbinary). Download the file to your home directory.
 
-## Create an Xcode Project
+## Create an Xcode project
 
-Start Xcode, and start a new project by clicking **File** > **New** > **Project**.
-In the template selection dialog, choose the "iOS Single View App" template.
+Start Xcode, and start a new project by selecting **File** > **New** > **Project**.
+In the template selection dialog box, select the **iOS Single View App** template.
 
-In the dialogs that follow, make the following selections:
+In the dialog boxes that follow, make the following selections.
 
-1. Project Options Dialog
-    1. Enter a name for the quickstart app, for example `helloworld`.
-    1. Enter an appropriate organization name and organization identifier, if you already have an Apple developer account. For testing purposes, you can just pick any name like `testorg`. To sign the app, you need a proper provisioning profile. Refer to the [Apple developer site](https://developer.apple.com/) for details.
-    1. Make sure Objective-C is chosen as the language for the project.
-    1. Disable all checkboxes for tests and core data.
-    ![Project Settings](media/sdk/qs-objectivec-project-settings.png)
-1. Select project directory
-    1. Choose your home directory to put the project in. This creates a `helloworld` directory in your home directory that contains all the files for the Xcode project.
-    1. Disable the creation of a Git repo for this example project.
-    1. Adjust the paths to the SDK in the *Project Settings*.
-        1. In the **General** tab under the **Embedded Binaries** header, add the SDK library as a framework: **Add embedded binaries** > **Add other...** > Navigate to your home directory and choose the file `MicrosoftCognitiveServicesSpeech.framework`. This adds the SDK library to the header **Linked Framework and Libraries** automatically.
-        ![Added Framework](media/sdk/qs-objectivec-framework.png)
-        1. Go to the **Build Settings** tab and activate **All** settings.
-        1. Add the directory `$(SRCROOT)/..` to the *Framework Search Paths* under the **Search Paths** heading.
-        ![Framework Search Path setting](media/sdk/qs-objectivec-framework-search-paths.png)
+1. In the **Project Options** dialog box:
+    1. Enter a name for the quickstart app, for example, *helloworld*.
+    1. Enter an appropriate organization name and organization identifier if you already have an Apple developer account. For testing purposes, use a name like *testorg*. To sign the app, you need a proper provisioning profile. For more information, see the [Apple developer site](https://developer.apple.com/).
+    1. Make sure **Objective-C** is selected as the language for the project.
+    1. Clear all the check boxes for tests and core data.
+
+    ![Project settings](media/sdk/qs-objectivec-project-settings.png)
+
+1. Select a project directory:
+   1. Choose your home directory to put the project in. This step creates a helloworld directory in your home directory that contains all the files for the Xcode project.
+   1. Disable the creation of a Git repo for this example project.
+   1. Adjust the paths to the SDK on the project settings screen.
+      1. On the **General** tab under the **Embedded Binaries** header, add the SDK library as a framework by selecting **Add embedded binaries** > **Add other**. Go to your home directory and select the file `MicrosoftCognitiveServicesSpeech.framework`. This action adds the SDK library to the header **Linked Framework and Libraries** automatically.
+         ![Added framework](media/sdk/qs-objectivec-framework.png)
+      1. Go to the **Build Settings** tab, and select the **All** setting.
+      1. Add the directory $(SRCROOT)/.. to **Framework Search Paths** under the **Search Paths** heading.
+
+      ![Framework Search Paths setting](media/sdk/qs-objectivec-framework-search-paths.png)
 
 ## Set up the UI
 
-The example app will have a very simple UI: Two buttons to start speech recognition either from file or from microphone input, and a text label to display the result.
-The UI is set up in the `Main.storyboard` part of the project.
-Open the XML view of the storyboard by right-clicking the `Main.storyboard` entry of the project tree and selecting **Open As...** > **Source Code**.
+The example app has a very simple UI. It has two buttons to start speech recognition either from file or from microphone input and a text label to display the result. The UI is set up in the `Main.storyboard` part of the project. Open the XML view of the storyboard by right-clicking the `Main.storyboard` entry of the project tree and selecting **Open As** > **Source Code**.
+
 Replace the autogenerated XML with this code:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
 
 ## Add the sample code
 
-1. Download the [sample wav file](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) by right-clicking the link and choosing **Save target as...**.
+1. Download the [sample wav file](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) by right-clicking the link and selecting **Save target as**.
    Add the wav file to the project as a resource by dragging it from a Finder window into the root level of the Project view.
-   Click **Finish** in the following dialog without changing the settings.
-1. Replace the contents of the autogenerated `ViewController.m` file by:
+   Select **Finish** in the following dialog box without changing the settings.
+1. Replace the contents of the autogenerated `ViewController.m` file with the following code:
 
-   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
+   [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. Replace the string `YourSubscriptionKey` with your subscription key.
-1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
-1. Add the request for microphone access. Right-click the `Info.plist` entry of the project tree and select **Open As...** > **Source Code**. Add the following lines into the `<dict>` section and then save the file.
+1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, use `westus` for the free trial subscription.
+1. Add the request for microphone access. Right-click the `Info.plist` entry of the project tree, and select **Open As** > **Source Code**. Add the following lines into the `<dict>` section, and then save the file.
+
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>
@@ -85,14 +88,14 @@ Replace the autogenerated XML with this code:
 
 ## Build and run the sample
 
-1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
+1. Make the debug output visible by selecting **View** > **Debug Area** > **Activate Console**.
 1. Choose either the iOS simulator or an iOS device connected to your development machine as the destination for the app from the list in the **Product** > **Destination** menu.
-1. Build and run the example code in the iOS simulator by selecting **Product** > **Run** from the menu or clicking the **Play** button.
-1. After you click the "Recognize (File)" button in the app, you should see the contents of the audio file "What's the weather like?" on the lower part of the screen.
+1. Build and run the example code in the iOS simulator by selecting **Product** > **Run** from the menu. You also can select the **Play** button.
+1. After you select the **Recognize (File)** button in the app, you should see the contents of the audio file "What's the weather like?" on the lower part of the screen.
 
-   ![Simulated iOS App](media/sdk/qs-objectivec-simulated-app.png)
+   ![Simulated iOS app](media/sdk/qs-objectivec-simulated-app.png)
 
-1. After you click the "Recognize (Microphone)" button in the app and say a few words, you should see the text you have spoken on the lower part of the screen.
+1. After you select the **Recognize (Microphone)** button in the app and say a few words, you should see the text you have spoken on the lower part of the screen.
 
 ## Next steps
 

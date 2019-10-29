@@ -1,5 +1,5 @@
 ---
-title: Sample - PCI-DSS v3.2.1 blueprint - Control mapping
+title: PCI-DSS v3.2.1 blueprint sample - Control mapping
 description: Control mapping of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample to Azure Policy and RBAC.
 services: blueprints
 author: DCtheGeek

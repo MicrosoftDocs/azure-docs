@@ -5,7 +5,7 @@ services: network-watcher
 documentationcenter: na
 author: KumudD
 manager: twooley
-editor: 
+editor:
 
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
@@ -97,6 +97,26 @@ $requestBody = @"
 "@
 
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
+```
+
+## Delete a Network Watcher in the portal
+
+Navigate to **All Services** > **Networking** > **Network Watcher**.
+
+Select the overview tab, if you're not already there. Use the dropdown to select the subscription you want to disable network watcher in.
+Expand the list of regions for your chosen subscription by clicking on the arrow. For any given, use the 3 dots on the right to access the context menu.
+Click on "Disable network watcher" to start disabling. You will be asked to confirm this step. Click Yes to continue.
+On the portal, you will have to do this individually for every region in every subscription.
+
+
+## Delete a Network Watcher with PowerShell
+
+To delete an instance of Network Watcher, run the following example:
+
+```powershell
+New-AzResourceGroup -Name NetworkWatcherRG -Location westcentralus
+New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG -Location westcentralus
+Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG
 ```
 
 ## Next steps

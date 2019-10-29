@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create and manage a Stream Analytics job using Azure portal"
+title: Create and manage a Stream Analytics job using Azure portal
 description: This tutorial provides an end-to-end demonstration of how to use Azure Stream Analytics to analyze fraudulent calls in a phone call stream.
 services: stream-analytics
 author: mamccrea

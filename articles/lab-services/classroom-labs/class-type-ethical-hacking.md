@@ -125,7 +125,11 @@ The template is now updated and has images needed for an ethical hacking penetra
 ## Cost  
 If you would like to estimate the cost of this lab, you can use the following example: 
  
-For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be: 25 students * (20 + 10) hours * 55 Lab Units * 0.01 USD per hour = 412.50. FOr more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be: 
+
+25 students * (20 + 10) hours * 55 Lab Units * 0.01 USD per hour = 412.50 USD. 
+
+For more information on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## Conclusion
 This article walked you through the steps to create a lab for ethical hacking class. It includes steps to set up nested virtualization for creating two virtual machines inside the host virtual machine for penetrating testing.
@@ -134,7 +138,7 @@ This article walked you through the steps to create a lab for ethical hacking cl
 Next steps are common to setting up any lab:
 
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Email registration links to students](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link). 
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users). 
 

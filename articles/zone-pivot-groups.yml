@@ -15,6 +15,7 @@ groups:
     title: Node.js
   - id: programming-language-go
     title: Go
+<<<<<<< HEAD
 - id: programming-languages-set-two
   title: Programming languages
   prompt: Choose a programming language
@@ -39,3 +40,15 @@ groups:
     title: Language Detection
   - id: text-analytics-sentiment-analysis
     title: Sentiment Analysis
+=======
+- id: client-operating-system
+  title: Programming languages
+  prompt: Choose a client operating system
+  pivots:
+  - id: client-operating-system-linux
+    title: Linux
+  - id: client-operating-system-macos
+    title: MacOS
+  - id: client-operating-system-windows
+    title: Windows
+>>>>>>> aa55ebf43dc4447433975a48be3fab316212f0d0

@@ -46,7 +46,7 @@ Azure Migrate uses the [Service Map](../operations-management-suite/operations-m
   > Once you have attached a workspace to a project, you cannot change it later.
 
   > [!NOTE]
-  > Azure Migrate currently supports creation of OMS workspace in East US, Southeast Asia and West Europe regions. If the workspace is created outside of Azure Migrate in any other region, it currently cannot be associated with an Azure Migrate project. 
+  > Azure Migrate currently supports creation or association of Log Analytics workspaces that are in East US, Southeast Asia and West Europe regions. If the workspace is created outside of Azure Migrate in an unsupported region, it currently cannot be associated with an Azure Migrate project. 
 
 - The associated workspace is tagged with the key **Migration Project**, and value **Project name**, which you can use to search in the Azure portal.
 - To navigate to the workspace associated with the project, you can go to **Essentials** section of the project **Overview** page and access the workspace

@@ -1,7 +1,8 @@
 ---
 
 let application: MSALPublicClientApplication!
-title: Migrate apps to MSAL.ObjectiveC | Microsoft identity platform
+title: Migrate apps to MSAL.ObjectiveC 
+titleSuffix: Microsoft identity platform
 description: Learn about the differences between Microsoft Authentication Library for ObjectiveC (MSAL for iOS and macOS) and Azure AD Authentication Library for ObjectiveC (ADAL.ObjC) and how to migrate to MSAL for iOS and macOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -70,7 +71,7 @@ There are two ways to provide scopes in MSAL:
 
 * Provide a list of all the permissions your apps needs. For example: 
 
-    `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
+    `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
     In this case, the app requests the `directory.read` and `directory.write` permissions. The user will be asked to consent for those permissions if they haven't consented to them before for this app. The application might also receive additional permissions that the user has already consented to for the application. The user will only be prompted to consent for new permissions, or permissions that haven't been granted.
 

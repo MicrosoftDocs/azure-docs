@@ -30,7 +30,6 @@ To secure web servers, a Secure Sockets Layer (SSL) certificate can be used to e
 > * Create a VM and install the IIS web server
 > * Inject the certificate into the VM and configure IIS with an SSL binding
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Launch Azure Cloud Shell
 

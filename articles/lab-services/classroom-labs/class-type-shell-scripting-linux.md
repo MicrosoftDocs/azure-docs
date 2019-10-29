@@ -37,7 +37,7 @@ Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and 
 | ------------ | ------------------ |
 | Virtual machine (VM) size | Small  |
 | VM image | [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer1804LTS) |
-| Enable remote desktop connection | Enable. <p>Enabling this setting will allow teachers and students to connect to their VMs using the remote desktop (RDP). For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md#teachers-connecting-to-the-template-vm-using-rdp). </p>|
+| Enable remote desktop connection | Enable. <p>Enabling this setting will allow teachers and students to connect to their VMs using the remote desktop (RDP). For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## Install desktop and xrdp
@@ -80,9 +80,11 @@ This section shows you how to install a couple of text editors. Gedit is the def
 ## Cost 
 If you would like to estimate the cost of this lab, you can use the following example:
  
-For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be: 25 students * (20 + 10) hours * 20 Lab Units * 0.01 USD per hour = 150 USD
+For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be: 
 
-For more details on the pricing can be found in the following document: [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+25 students * (20 + 10) hours * 20 Lab Units * 0.01 USD per hour = 150 USD
+
+For more information on the pricing can be found in the following document: [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## Conclusion
 This article walked you through the steps to create a lab for scripting classes. While this article focused on setting up Ruby scripting tools on Linux machine, same setup can be used for other scripting classes like Python on Linux.
@@ -91,9 +93,9 @@ This article walked you through the steps to create a lab for scripting classes.
 Next steps are common to setting up any lab:
 
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Email registration links to students](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link). 
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users). 
 
 
 

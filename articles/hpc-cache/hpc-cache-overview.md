@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
 ms.date: 09/24/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # What is Azure HPC Cache? (Preview)

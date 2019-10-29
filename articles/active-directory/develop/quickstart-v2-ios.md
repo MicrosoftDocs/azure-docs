@@ -16,7 +16,7 @@ ms.workload: identity
 ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev, identityplatformtop40 
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS or macOS application.
 ms.collection: M365-identity-device-management
 ---
@@ -263,7 +263,7 @@ self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error
 > |Where: ||
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (`api://<Application ID>/access_as_user`) |
-> | `account` | The account a token is being requested for. This quickstart is a single account application, if you want to build a multi-account app you'll need to define logic to identify which account to use for token requests `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `account` | The account a token is being requested for. This quickstart is about a single account application. If you want to build a multi-account app you'll need to define logic to identify which account to use for token requests using `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## Next steps
 

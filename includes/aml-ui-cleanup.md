@@ -7,12 +7,11 @@ ms.custom: "include file"
 ms.topic: "include"
 author: sgilley
 ms.author: sgilley
-ms.date: 05/06/2019
+ms.date: 10/16/2019
 ---
 
 >[!IMPORTANT]
 >You can use the resources that you created as prerequisites for other Azure Machine Learning service tutorials and how-to articles.
-
 
 ### Delete everything
 
@@ -44,6 +43,6 @@ The compute target that you created here *automatically autoscales* to zero nod
 
 ### Delete individual assets
 
-In the visual interface where you created your experiment, delete individual assets by selecting them and then selecting the **Delete** button.
+In the visual interface where you created your experiment, delete individual assets by selecting them and then selecting the **Delete** button. Datasets can be unregistered from your workspace by selecting each dataset and selecting **Unregister**.
 
-![Delete experiments](./media/aml-ui-cleanup/delete-experiment.png)
+![Delete assets](./media/aml-ui-cleanup/delete-asset.png)
