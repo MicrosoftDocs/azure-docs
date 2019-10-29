@@ -152,7 +152,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## Consistency mapping 
 
-Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
+Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](consistency-levels-across-apis.md#cassandra-mapping).
 
 ## Permission and role management
 
@@ -160,7 +160,7 @@ Azure Cosmos DB supports role-based access control (RBAC) for provisioning, rota
 
 ## Keyspace and Table options
 
-The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB’s [global distribution](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI or portal, to learn more, see the [how to add regions](how-to-manage-database-account.md#addremove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of 4 replicas and this replica set [configuration](global-dist-under-the-hood.md) can't be modified.
+The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB’s [global distribution](global-dist-under-the-hood.md) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI or portal, to learn more, see the [how to add regions](how-to-manage-database-account.md#addremove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of 4 replicas and this replica set [configuration](global-dist-under-the-hood.md) can't be modified.
  
 All the options are ignored when creating the table, except gc_grace_seconds which should be set to zero.
 The Keyspace and table have an extra option named "cosmosdb_provisioned_throughput" with a minimum value of 400 RU/s. The Keyspace throughput allows sharing throughput across multiple tables and it is useful for scenarios when all tables are not utilizing the provisioned throughput. Alter Table command allows changing the provisioned throughput across the regions. 
