@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/28/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -26,6 +26,8 @@ The following diagram shows the relationship between the elements:
 ## Predicates
 
 The **Predicate** element defines a basic validation to check the value of a claim type and returns `true` or `false`. The validation is done by using a specified **Method** element and a set of **Parameter** elements relevant to the method. For example, a predicate can check whether the length of a string claim value is within the range of minimum and maximum parameters specified, or whether a string claim value contains a character set. The **UserHelpText** element provides an error message for users if the check fails. The value of **UserHelpText** element can be localized using [language customization](localization.md).
+
+The **Predicates** element must appear directly following the **ClaimsSchema** element within the [BuildingBlocks](buildingblocks.md) element.
 
 The **Predicates** element contains the following element:
 
@@ -107,6 +109,8 @@ The following example shows a `IsDateRange` method with the parameters `Minimum`
 ## PredicateValidations
 
 While the predicates define the validation to check against a claim type, the **PredicateValidations** group a set of predicates to form a user input validation that can be applied to a claim type. Each **PredicateValidation** element contains a set of **PredicateGroup** elements that contain a set of **PredicateReference** elements that points to a **Predicate**. To pass the validation, the value of the claim should pass all of the tests of any predicate under all of the **PredicateGroup** with their set of **PredicateReference** elements.
+
+The **PredicateValidations** element must appear directly following the **Predicates** element within the [BuildingBlocks](buildingblocks.md) element.
 
 ```XML
 <PredicateValidations>
@@ -190,7 +194,6 @@ With **Predicates** and **PredicateValidationsInput** you can control the comple
 - **Lowercase** using the `IncludesCharacters` method, validates that the password contains a lowercase letter.
 - **Uppercase** using the `IncludesCharacters` method, validates that the password contains an uppercase letter.
 - **Number** using the `IncludesCharacters` method, validates that the password contains a digit.
-- **Symbol** using the `IncludesCharacters` method, validates that the password contains one of following symbols `@#$%^&*\-_+=[]{}|\:',?/~"();!`
 - **PIN** using the `MatchesRegex` method, validates that the password contains numbers only.
 - **AllowedAADCharacters** using the `MatchesRegex` method, validates that the password only invalid character was provided.
 - **DisallowedWhitespace** using the `MatchesRegex` method, validates that the password doesn't begin or end with a whitespace character.
@@ -226,13 +229,6 @@ With **Predicates** and **PredicateValidationsInput** you can control the comple
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Symbol" Method="IncludesCharacters">
-    <UserHelpText>a symbol</UserHelpText>
-    <Parameters>
-      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\:',?/`~"();!</Parameter>
-    </Parameters>
-  </Predicate>
-
   <Predicate Id="PIN" Method="MatchesRegex">
     <UserHelpText>The password must be numbers only.</UserHelpText>
     <Parameters>
@@ -258,7 +254,7 @@ With **Predicates** and **PredicateValidationsInput** you can control the comple
 After you define the basic validations, you can combine them together and create a set of password policies that you can use in your policy:
 
 - **SimplePassword** validates the DisallowedWhitespace, AllowedAADCharacters, and IsLengthBetween8And64
-- **StrongPassword** validates the DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. The last group `CharacterClasses` runs an additional set of predicates with `MatchAtLeast` set to 3. The user password must be between 8 and 16 characters, and three of the following characters: Lowercase, Uppercase, Number, or Symbol.
+- **StrongPassword** validates the DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. The last group `CharacterClasses` runs an additional set of predicates with `MatchAtLeast` set to 2. The user password must be between 8 and 16 characters, and two of the following characters: Lowercase, Uppercase, or Number.
 - **CustomPassword** validates only DisallowedWhitespace, AllowedAADCharacters. So, user can provide any password with any length, as long as the characters are valid.
 
 ```XML
@@ -301,12 +297,11 @@ After you define the basic validations, you can combine them together and create
         </PredicateReferences>
       </PredicateGroup>
       <PredicateGroup Id="CharacterClasses">
-        <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
-        <PredicateReferences MatchAtLeast="3">
+        <UserHelpText>The password must have at least 2 of the following:</UserHelpText>
+        <PredicateReferences MatchAtLeast="2">
           <PredicateReference Id="Lowercase" />
           <PredicateReference Id="Uppercase" />
           <PredicateReference Id="Number" />
-          <PredicateReference Id="Symbol" />
         </PredicateReferences>
       </PredicateGroup>
     </PredicateGroups>
