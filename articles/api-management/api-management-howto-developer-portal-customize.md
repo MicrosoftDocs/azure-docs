@@ -80,12 +80,6 @@ To edit a variant, click on it and select the pencil icon that appears on top of
 
 Whenever you make a change in the portal, you need to save it manually by pressing the **Save** button (floppy disk) in the menu on the bottom before you navigate to another page. When you save your changes, the modified content is automatically uploaded to your API Management service.
 
-### Demonstration
-
-In the video below we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
-
-> [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
-
 ## Step 3: customize the default content
 
 Before you make your portal available to the visitors, you should personalize the automatically generated content. The areas, which require the most changes are the landing page and the styling.
@@ -93,13 +87,23 @@ Before you make your portal available to the visitors, you should personalize th
 > [!NOTE]
 > Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
 
-### Landing page
+### Home page
 
-TODO
+The default **Home** page contains a lot of dummy content. You can either remove the whole sections with the content or adjust the elements one by one - replace the generated text and images. 
+
+### Layouts
+
+You should replace the automatically generated logo in the navigation bar with your own image.
 
 ### Styling
 
-TODO
+Although you don't need to adjust any styles, you may consider adapting particular elements. For example, change the primary color to match your brand's color.
+
+### Customization example
+
+In the video below we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
+
+> [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
 ## Step 4: publish the portal
 
