@@ -6,16 +6,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 10/29/2019
 ms.author: hrasheed
 ---
-# Setup HDInsight clusters with a custom Ambari DB
+# Set up HDInsight clusters with a custom Ambari DB
 
 Apache Ambari simplifies the management and monitoring of an Apache Hadoop cluster. Ambari provides an easy to use web UI and REST API. Ambari is included on HDInsight clusters, and is used to monitor the cluster and make configuration changes.
 
 In normal cluster creation, as described in other articles such as [Set up clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari is deployed in an [S0 Azure SQL database](../sql-database/sql-database-dtu-resource-limits-single-databases.md#standard-service-tier) that is managed by HDInsight and is not accessible to users.
 
-The custom Ambari DB feature allows you to deploy a new cluster and setup Ambari in an external database that you manage. This feature has the following benefits:
+The custom Ambari DB feature allows you to deploy a new cluster and setup Ambari in an external database that you manage. The deployment is done with an Azure Resource Manager template. This feature has the following benefits:
 
 - Customization - you choose the size and processing capacity of the database. If you have large clusters processing intensive workloads, an Ambari database with lower specifications could become a bottleneck for management operations.
 - Flexibility - you can scale the database as needed to suit your requirements.
