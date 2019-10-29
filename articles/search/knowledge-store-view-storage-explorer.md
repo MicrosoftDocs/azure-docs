@@ -19,11 +19,11 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 ## Prerequisites
 
-+ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) or [Create an Azure Search knowledge store by using REST](https://docs.microsoft.com/en-us/azure/search/knowledge-store-create-rest) to create the sample knowledge store used in this walkthrough.
++ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) or [Create an Azure Search knowledge store by using REST](https://docs.microsoft.com/azure/search/knowledge-store-create-rest) to create the sample knowledge store used in this walkthrough.
 
 + You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
-## View, edit and query a knowledge store in Storage Explorer
+## View, edit, and query a knowledge store in Storage Explorer
 
 1. In the Azure portal, open the storage account that you used to create the knowledge store.
 
