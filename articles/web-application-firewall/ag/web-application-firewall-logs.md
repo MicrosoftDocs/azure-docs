@@ -236,6 +236,9 @@ The firewall log is generated only if you have enabled it for each application g
 |details.line     | Line number in the configuration file that triggered the event.       |
 |hostname   | Hostname or IP address of the Application Gateway.    |
 |transactionId  | Unique ID for a given transaction which helps group multiple rule violations that occurred within the same request.   |
+|policyId   | Unique ID of the Firewall Policy associated with the Application Gateway, Listener, or Path.   |
+|policyScope    | The location of the policy - values can be "Global", "Listener", or "Location".   |
+|policyScopeName   | The name of the object where the policy is applied.    |
 
 ```json
 {
@@ -244,24 +247,29 @@ The firewall log is generated only if you have enabled it for each application g
   "time": "2017-03-20T15:52:09.1494499Z",
   "category": "ApplicationGatewayFirewallLog",
   "properties": {
-    "instanceId": "ApplicationGatewayRole_IN_0",
-    "clientIp": "104.210.252.3",
-    "clientPort": "4835",
-    "requestUri": "/?a=%3Cscript%3Ealert(%22Hello%22);%3C/script%3E",
-    "ruleSetType": "OWASP",
-    "ruleSetVersion": "3.0",
-    "ruleId": "941320",
-    "message": "Possible XSS Attack Detected - HTML Tag Handler",
-    "action": "Blocked",
-    "site": "Global",
-    "details": {
-      "message": "Warning. Pattern match \"<(a|abbr|acronym|address|applet|area|audioscope|b|base|basefront|bdo|bgsound|big|blackface|blink|blockquote|body|bq|br|button|caption|center|cite|code|col|colgroup|comment|dd|del|dfn|dir|div|dl|dt|em|embed|fieldset|fn|font|form|frame|frameset|h1|head|h ...\" at ARGS:a.",
-      "data": "Matched Data: <script> found within ARGS:a: <script>alert(\\x22hello\\x22);</script>",
-      "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
-      "line": "865"
+      "instanceId": "ApplicationGatewayRole_IN_0",
+      "clientIp": "52.161.109.147",
+      "clientPort": "0",
+      "requestUri": "/",
+      "ruleSetType": "OWASP",
+      "ruleSetVersion": "3.0",
+      "ruleId": "920350",
+      "ruleGroup": "920-PROTOCOL-ENFORCEMENT",
+      "message": "Host header is a numeric IP address",
+      "action": "Matched",
+      "site": "Global",
+      "details": {
+        "message": "Warning. Pattern match \"^[\\\\d.:]+$\" at REQUEST_HEADERS:Host ....",
+        "data": "127.0.0.1",
+        "file": "rules/REQUEST-920-PROTOCOL-ENFORCEMENT.conf",
+        "line": "791"
+      },
+      "hostname": "127.0.0.1",
+      "transactionId": "16861477007022634343",
+      "policyId": "/subscriptions/1496a758-b2ff-43ef-b738-8e9eb5161a86/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/perListener",
+      "policyScope": "Listener",
+      "policyScopeName": "httpListener1"
     }
-    "hostname": "40.90.218.100", 
-    "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
   }
 } 
 
