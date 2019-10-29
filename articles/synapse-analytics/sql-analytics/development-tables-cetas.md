@@ -70,7 +70,7 @@ You need to have permissions to list folder content and write to LOCATION folder
 
 Following examples uses CETAS to save total population aggregated by year and state to aggregated_data folder in population_ds datasource. 
 
-This sample relies on credential, data source and external file format previously created in [external tables](development-tables-external-tables.md) document. If you want to save result of query to different folder in the same data source, change LOCATION argument. If you want to save results to different storage account, create and use different data source for DATA_SOURCE argument.
+This sample relies on credential, data source, and external file format previously created in [external tables](development-tables-external-tables.md) document. If you want to save,  result of query to different folder in the same data source, change LOCATION argument. If you want to save results to different storage account, create and use different data source for DATA_SOURCE argument.
 
 > [!NOTE]
 > Samples below use public Azure Open Data storage account. It is read-only and you need to provide your data source you have write permissions for to be able to execute these queries.
@@ -96,7 +96,7 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-Following sample uses external table as source for CETAS. It relies on credential, data source, external file format and external table previously created in [external tables](development-tables-external-tables.md) document. 
+Following sample uses external table as source for CETAS. It relies on credential, data source, external file format, and external table previously created in [external tables](development-tables-external-tables.md) document. 
 
 ```sql
 -- use CETAS with select from external table
