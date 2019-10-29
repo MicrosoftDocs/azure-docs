@@ -13,6 +13,8 @@ manager: abjork
 
 # Tutorial: Create a water quality monitoring application in IoT Central
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial guides you to create an Azure IoT Central water quality monitoring application from the IoT Central Water Quality Monitoring application template. 
 
 In this tutorial you will learn to: 
@@ -46,7 +48,7 @@ To create a new Azure IoT Central water quality monitoring application:
 
     ![Enter your organization account](./media/tutorial-waterqualitymonitoring/sign-in.png)
 
-2. Click on **Build** from the left navigation menu and select the **Government** tab. The government page displays several government application templates.
+2. Click on **Build** from the left pane and select the **Government** tab. The government page displays several government application templates.
 
     ![Build Government App templates](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
 
@@ -251,8 +253,8 @@ As a builder, you can change several settings to customize the user experience i
 
 If you're not going to continue to use this application, delete your application with the following steps:
 
-1. Open the Administration tab from the left navigation menu of your IoT Central application. 
-2. Select Application settings and click Delete button at the bottom of the page. 
+1. Open the Administration tab from the left pane of your IoT Central application.
+2. Select Application settings and click Delete button at the bottom of the page.
 
     ![Delete application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)        
 
