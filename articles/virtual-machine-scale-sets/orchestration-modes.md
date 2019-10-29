@@ -14,7 +14,7 @@ ms.author: vashan
 ---
 
 
-# Preview: Orchestration modes
+# Orchestration mode (preview)
 
 Virtual machines scale sets provide a logical grouping of platform-managed virtual machines. With scale sets, you create a virtual machine configuration model, automatically add or remove additional instances based on CPU or memory load, and automatically upgrade to the latest OS version. Traditionally, scale sets allow you to create virtual machines using a VM configuration model provided at time of scale set creation, and the scale set can only manage virtual machines that are implicitly created based on the configuration model.
 
@@ -23,8 +23,8 @@ With the scale set orchestration mode (preview), you can now choose whether the 
 
 Virtual machine scale sets will support 2 distinct orchestration modes:
 
-1. ScaleSetVM – Virtual machine instances added to the scale set are based on the scale set configuration model. The virtual machine instance lifecycle - creation, update, deletion - is managed by the scale set.
-1. VM (virtual machines) – Virtual machines created outside of the scale set can be explicitly added to the scaleset. 
+- ScaleSetVM – Virtual machine instances added to the scale set are based on the scale set configuration model. The virtual machine instance lifecycle - creation, update, deletion - is managed by the scale set.
+- VM (virtual machines) – Virtual machines created outside of the scale set can be explicitly added to the scaleset. 
  
 
 > [!IMPORTANT]
@@ -35,7 +35,7 @@ Virtual machine scale sets will support 2 distinct orchestration modes:
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-**Orchestration Modes**
+## Orchestration modes
 
 |                             | “orchestrationMode”: “VM” (VirtualMachine) | “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
@@ -57,6 +57,6 @@ Virtual machine scale sets will support 2 distinct orchestration modes:
 | Single placement group == false | Not supported                          | Supported |
 
 
-** Next steps **
+## Next steps
 
 For more information, see the [Overview of availability options](availability.md).
