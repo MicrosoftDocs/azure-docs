@@ -37,7 +37,7 @@ Watch the following video to learn how to view what resources users have access 
 
 ## View access packages for a user
 
-This report enables you to list the access packages a user can request and the access packages that are currently assigned to the user.
+This report enables you to list all of the access packages a user can request and the access packages that are currently assigned to the user.
 
 **Prerequisite role:** Global administrator or User administrator
 
@@ -51,15 +51,17 @@ This report enables you to list the access packages a user can request and the a
 
 1. Find the user in the list and then click **Select**.
 
-    The **Can request** tab displays a list of the access packages the user can request.
+    The **Can request** tab displays a list of the access packages the user can request. This list is determined by the [request policies](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) defined for the access packages. 
 
     ![Access packages for a user](./media/entitlement-management-reports/access-packages-report.png)
 
-1. Click the **Assigned** tab to see a list of of the access packages currently assigned to the user.
+1. If there are more than one resource roles or policies for an access package, click the resource roles or policies entry to see selection details.
+
+1. Click the **Assigned** tab to see a list of the access packages currently assigned to the user. When an access package is assigned to a user, it means that the user has access to all of the resource roles in the access package.
 
 ## View resource assignments for a user
 
-This report enables you to list the resources currently assigned to a user.
+This report enables you to list the resources currently assigned to a user in entitlement management. Note that this report is for resources managed with entitlement management. The user might have access to other resources in your directory outside of entitlement management.
 
 **Prerequisite role:** Global administrator or User administrator
 
@@ -73,7 +75,9 @@ This report enables you to list the resources currently assigned to a user.
 
 1. Find the user in the list and then click **Select**.
 
-    A list of the resources currently assigned to the user is displayed.
+    A list of the resources currently assigned to the user is displayed. The list also shows the access package and policy they got the resource role from, along with start and end date for access.
+    
+    If a user got access to the same resource in two or more packages, you can click an arrow to see each package and policy.
 
     ![Resource assignments for a user](./media/entitlement-management-reports/resource-assignments-report.png)
 
