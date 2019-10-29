@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 ---
 
 # Using T-SQL loops in SQL Analytics
-[SQL Analytics on-demand](sql-on-demand.md) currently does not support loops.
+SQL Analytics on-demand currently does not support loops.
 
 This document provides tips for using T-SQL loops and replacing cursors in Azure SQL Analytics pool for developing solutions.
 
