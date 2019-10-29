@@ -32,6 +32,7 @@ The Advisor dashboard displays personalized recommendations for all your subscri
 * **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
 * **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-performance-recommendations.md).
 * **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
+* **Operational Excellence**: To achieve operational excellence and efficiently use and manage Azure environment. For more information, see [Advisor Operational Excellence](advisor-operational-excellence-recommendations.md).
 
   ![Advisor recommendation types](./media/advisor-overview/advisor-dashboard.png)
 
@@ -73,3 +74,4 @@ To learn more about Advisor recommendations, see:
 * [Advisor Security recommendations](advisor-security-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)
+* [Advisor Operational Excellence](advisor-operational-excellence-recommendations.md)
