@@ -102,7 +102,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [.NET Console Applications](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
-  * [OpenCensus Python (preview)](../../azure-monitor/app/opencensus-python.md)
+  * [Python (preview)](../../azure-monitor/app/opencensus-python.md)
   * [Other platforms](../../azure-monitor/app/platforms.md)
 * **[Instrument your web pages](../../azure-monitor/app/javascript.md)** for page view, AJAX, and other client-side telemetry.
 * **[Analyze mobile app usage](../../azure-monitor/learn/mobile-center-quickstart.md)** by integrating with Visual Studio App Center.
@@ -121,7 +121,7 @@ Get started at development time with:
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
-* [OpenCensus Python (preview)](../../azure-monitor/app/opencensus-python.md)
+* [Python (preview)](../../azure-monitor/app/opencensus-python.md)
 
 
 ## Support and feedback
