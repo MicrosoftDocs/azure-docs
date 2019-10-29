@@ -86,7 +86,7 @@ After you register your app and associated it with Azure Maps, you can request a
 
 * If your application uses user-token authentication with the Azure Maps Web SDK, you need to configure your HTML page with the Azure Maps client ID and the Azure AD app ID.
 
-* If your application uses server/application authentication, you need to request a token from Azure AD login endpoint `https://login.microsoftonline.com` with the Azure AD resource ID `https://atlas.microsoft.com/`, the Azure Maps client ID, the Azure AD app ID, and the Azure AD app registration password or certificate.
+* If your application uses server/application authentication, you need to request a token from Azure AD token endpoint `https://login.microsoftonline.com` with the Azure AD resource ID `https://atlas.microsoft.com/`, the Azure Maps client ID, the Azure AD app ID, and the Azure AD app registration password or certificate.
 
 | Azure Environment   | Azure AD token endpoint | Azure Resource ID |
 | --------------------|-------------------------|-------------------|

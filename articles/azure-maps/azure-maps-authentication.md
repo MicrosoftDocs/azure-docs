@@ -36,7 +36,7 @@ Azure Maps accepts **OAuth 2.0** access tokens for Azure AD tenants associated w
 * Partner applications that use permissions delegated by users.
 * Managed identities for Azure resources.
 
-Azure Maps generates a *unique identifier (client ID)* for each Azure Maps account. When you combine this client ID with additional parameters, you can request tokens from Azure AD by specifying the following value:
+Azure Maps generates a *unique identifier (client ID)* for each Azure Maps account. When you combine this client ID with additional parameters, you can request tokens from Azure AD by specifying the following URL:
 
 ```
 https://login.microsoftonline.com
@@ -44,10 +44,10 @@ https://login.microsoftonline.com
 
 The following table contains values you will need depending upon your Azure Environment.
 
-| Azure Environment   | Azure AD token endpoint | Azure Resource ID |
-| --------------------|-------------------------|-------------------|
-| Azure Public        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
-| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
+| Azure Environment   | Azure AD token endpoint |
+| --------------------|-------------------------|
+| Azure Public        | https://login.microsoftonline.com |
+| Azure Government    | https://login.microsoftonline.us |
 
 
 For more information about how to configure Azure AD and request tokens for Azure Maps, see [Manage authentication in Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
