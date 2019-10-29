@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Redis server | Microsoft Docs
+title: Troubleshoot Azure Cache for Redis server-side issues | Microsoft Docs
 description: Learn how to resolve common server-side issues with Azure Cache for Redis
 services: cache
 documentationcenter: ''
