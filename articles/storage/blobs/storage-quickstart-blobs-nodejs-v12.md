@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -77,7 +77,7 @@ From the project directory:
     Here's the code:
 
     ```python
-    import os, uuid, sys
+    import os, uuid
     from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
     try:
@@ -208,7 +208,7 @@ Add this code to the end of the `try` block:
 
 ```python
 # Create a file in local Documents directory to upload and download
-local_path = os.path.expanduser("~\\Documents")
+local_path = "./data"
 local_file_name = "QuickStart" + str(uuid.uuid4()) + ".txt"
 upload_file_path = os.path.join(local_path, local_file_name)
 
@@ -269,7 +269,6 @@ Add this code to the end of the `try` block:
 ```python
 # Clean up
 print("\nPress the Enter key to begin clean up")
-sys.stdout.flush()
 input()
 
 print("Deleting blob container...")
@@ -298,13 +297,13 @@ The output of the app is similar to the following example:
 Azure Blob Storage v12 - Python quickstart sample
 
 Uploading to Azure storage as blob:
-        QuickStart11bf4e4e-5aff-4b1f-aa4c-2fc2fc28f622.txt
+        quickstartcf275796-2188-4057-b6fb-038352e35038.txt
 
 Listing blobs...
-        QuickStart11bf4e4e-5aff-4b1f-aa4c-2fc2fc28f622.txt
+        quickstartcf275796-2188-4057-b6fb-038352e35038.txt
 
 Downloading blob to
-        C:\Users\myusername\Documents\QuickStart11bf4e4e-5aff-4b1f-aa4c-2fc2fc28f622DOWNLOAD.txt
+        ./data/quickstartcf275796-2188-4057-b6fb-038352e35038DOWNLOAD.txt
 
 Press the Enter key to begin clean up
 
