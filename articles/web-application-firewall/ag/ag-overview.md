@@ -15,7 +15,7 @@ Azure Web Application Firewall (WAF) on Azure Application Gateway provides centr
 
 WAF on Application Gateway is based on [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1, 3.0, or 2.2.9 from the Open Web Application Security Project (OWASP). The WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed. 
 
-All of the WAF features listed below exist inside of a WAF Policy. You can create as many policies as you want, and they can be associated with an Application Gateway, or to individual listeners on an Application Gateway. This way, you can have separate policies for each site behind your Application Gateway if needed. For more information on WAF Policies, see [Create a WAF Policy](create-waf-policy-ag.md).
+All of the WAF features listed below exist inside of a WAF Policy. You can create as many policies as you want, and they can be associated with an Application Gateway, to individual listeners, or to path-based routing rules on an Application Gateway. This way, you can have separate policies for each site behind your Application Gateway if needed. For more information on WAF Policies, see [Create a WAF Policy](create-waf-policy-ag.md).
 
 ![Application Gateway WAF diagram](../media/ag-overview/waf1.png)
 
@@ -82,7 +82,7 @@ A managed Bot protection rule set can be enabled for your WAF to block or log re
 > [!NOTE]
 > Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-If Bot Protection is enabled, incoming requests that match Malicious Bots client IPs are logged in the Firewall log, see more information below. You may access WAF logs from storage account, event hub, or log analytics. 
+If Bot Protection is enabled, incoming requests that match Malicious Bot's client IPs are logged in the Firewall log, see more information below. You may access WAF logs from storage account, event hub, or log analytics. 
 
 ### WAF modes
 
