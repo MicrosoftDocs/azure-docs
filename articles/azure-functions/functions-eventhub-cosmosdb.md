@@ -50,20 +50,20 @@ If you're not using Cloud Shell, you'll need to use the Azure CLI locally to acc
 
 ### Set environment variables
 
-Next, create some environment variables for the names and location of the resources you'll create. Use the following commands, replacing the `<value>` placeholders with values of your choosing. The `$RANDOM` variable appends a random number to help avoid naming conflicts where resource names must be unique. For the `LOCATION` variable, use one of the values produced by the `az functionapp list-consumption-locations` command.
+Next, create some environment variables for the names and location of the resources you'll create. Use the following commands, replacing the `<value>` placeholders with values of your choosing. Values should conform to the [naming rules and restrictions for Azure resources](/azure/architecture/best-practices/resource-naming). For the `LOCATION` variable, use one of the values produced by the `az functionapp list-consumption-locations` command.
 
 ```azurecli-interactive
 RESOURCE_GROUP=<value>
-EVENT_HUB_NAMESPACE="<value>-$RANDOM"
+EVENT_HUB_NAMESPACE=<value>
 EVENT_HUB_NAME=<value>
 EVENT_HUB_AUTHORIZATION_RULE=<value>
-COSMOS_DB_ACCOUNT="<value>-$RANDOM"
-STORAGE_ACCOUNT="<value>-$RANDOM"
-FUNCTION_APP="<value>-$RANDOM"
+COSMOS_DB_ACCOUNT=<value>
+STORAGE_ACCOUNT=<value>
+FUNCTION_APP=<value>
 LOCATION=<value>
 ```
 
-The rest of this tutorial uses these variables. If you start a new Azure CLI session before you complete the tutorial, be sure to set these variables again using the same values.
+The rest of this tutorial uses these variables. Be aware that these variables persist only for the duration of your current Azure CLI or Cloud Shell session. You will need to run these commands again if you use a different local terminal window or your Cloud Shell session times out.
 
 ### Create a resource group
 
@@ -150,12 +150,13 @@ Your function app will need to access the other resources to work correctly. The
 Use the following commands to retrieve the storage, event hub, and Cosmos DB connection strings and save them in environment variables:
 
 ```azurecli-interactive
-export AZURE_WEB_JOBS_STORAGE=$( \
+AZURE_WEB_JOBS_STORAGE=$( \
     az storage account show-connection-string \
         --name $STORAGE_ACCOUNT \
         --query connectionString \
         --output tsv)
-export EVENT_HUB_CONNECTION_STRING=$( \
+echo $AZURE_WEB_JOBS_STORAGE
+EVENT_HUB_CONNECTION_STRING=$( \
     az eventhubs eventhub authorization-rule keys list \
         --resource-group $RESOURCE_GROUP \
         --name $EVENT_HUB_AUTHORIZATION_RULE \
@@ -163,16 +164,18 @@ export EVENT_HUB_CONNECTION_STRING=$( \
         --namespace-name $EVENT_HUB_NAMESPACE \
         --query primaryConnectionString \
         --output tsv)
-export COSMOS_DB_CONNECTION_STRING=$( \
+echo $EVENT_HUB_CONNECTION_STRING
+COSMOS_DB_CONNECTION_STRING=$( \
     az cosmosdb keys list \
         --resource-group $RESOURCE_GROUP \
         --name $COSMOS_DB_ACCOUNT \
         --type connection-strings \
         --query connectionStrings[0].connectionString \
         --output tsv)
+echo $COSMOS_DB_CONNECTION_STRING
 ```
 
-These variables are set to values retrieved from Azure CLI commands. Each command uses a JMESPath query to extract the connection string from the JSON payload returned.
+These variables are set to values retrieved from Azure CLI commands. Each command uses a JMESPath query to extract the connection string from the JSON payload returned. The connection strings are also displayed using `echo` so you can confirm that they've been retrieved successfully.
 
 ### Update your function app settings
 
@@ -425,7 +428,11 @@ az group delete --name $RESOURCE_GROUP
 
 ## Next steps
 
-In this tutorial, you learned how to create an Azure Function that handles Event Hub events and updates a Cosmos DB. Next, learn how to use Azure Pipelines CI/CD for automated deployment:
+In this tutorial, you learned how to create an Azure Function that handles Event Hub events and updates a Cosmos DB. For more information, see the [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java).
+
+This tutorial used environment variables and application settings to store secrets such as connection strings. For information on storing these secrets in Azure Key Vault, see [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references).
+
+Next, learn how to use Azure Pipelines CI/CD for automated deployment:
 
 > [!div class="nextstepaction"]
 > [Build and deploy Java to Azure Functions](/azure/devops/pipelines/ecosystems/java-function)
