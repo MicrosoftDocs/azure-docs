@@ -40,7 +40,7 @@ The following are required for using this feature:
 
 ## Azure Resource Manager deployment
 
-Using Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
+Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
 
 
 1. You can create a **Microsoft.StreamAnalytics/streamingjobs** resource with a Managed Identity by including the following property in the resource section of your Resource Manager template:
@@ -92,13 +92,13 @@ Using Azure Resource Manager allows you to fully automate the deployment of your
     }
     ```
 
-    The above job can be deployed to the Resource group **ExampleGroup** using the below Azure CLI command:
+    Deploy the job above to the Resource group **ExampleGroup** using the below Azure CLI command:
 
     ```azurecli
     az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
-2. After the job is created, you can use Azure Resource Manager to retrieve the job's full definition.
+2. After the job is created, use Azure Resource Manager to retrieve the job's full definition.
 
     ```azurecli
     az resource show --ids /subscriptions/<subsription-id>/resourceGroups/<resource-group>/providers/Microsoft.StreamAnalytics/StreamingJobs/<resource-name>
