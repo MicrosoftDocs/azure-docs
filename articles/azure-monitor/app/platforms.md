@@ -33,6 +33,7 @@ ms.reviewer: olegan
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
+* [OpenCensus Python (preview)](../../azure-monitor/app/opencensus-python.md)
 * [Universal Windows app](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Windows desktop applications, services, and worker roles](../../azure-monitor/app/windows-desktop.md)
 
