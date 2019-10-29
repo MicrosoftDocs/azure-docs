@@ -194,6 +194,7 @@ With **Predicates** and **PredicateValidationsInput** you can control the comple
 - **Lowercase** using the `IncludesCharacters` method, validates that the password contains a lowercase letter.
 - **Uppercase** using the `IncludesCharacters` method, validates that the password contains an uppercase letter.
 - **Number** using the `IncludesCharacters` method, validates that the password contains a digit.
+- **Symbol** using the `IncludesCharacters` method, validates that the password contains one of following symbols `@#$%^&*\-_+=[]{}|\\:',.?/``~"();!`
 - **PIN** using the `MatchesRegex` method, validates that the password contains numbers only.
 - **AllowedAADCharacters** using the `MatchesRegex` method, validates that the password only invalid character was provided.
 - **DisallowedWhitespace** using the `MatchesRegex` method, validates that the password doesn't begin or end with a whitespace character.
@@ -229,6 +230,13 @@ With **Predicates** and **PredicateValidationsInput** you can control the comple
     </Parameters>
   </Predicate>
 
+  <Predicate Id="Symbol" Method="IncludesCharacters">
+    <UserHelpText>a symbol</UserHelpText>
+    <Parameters>
+      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
+    </Parameters>
+  </Predicate>
+
   <Predicate Id="PIN" Method="MatchesRegex">
     <UserHelpText>The password must be numbers only.</UserHelpText>
     <Parameters>
@@ -254,7 +262,7 @@ With **Predicates** and **PredicateValidationsInput** you can control the comple
 After you define the basic validations, you can combine them together and create a set of password policies that you can use in your policy:
 
 - **SimplePassword** validates the DisallowedWhitespace, AllowedAADCharacters, and IsLengthBetween8And64
-- **StrongPassword** validates the DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. The last group `CharacterClasses` runs an additional set of predicates with `MatchAtLeast` set to 2. The user password must be between 8 and 16 characters, and two of the following characters: Lowercase, Uppercase, or Number.
+- **StrongPassword** validates the DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. The last group `CharacterClasses` runs an additional set of predicates with `MatchAtLeast` set to 3. The user password must be between 8 and 16 characters, and three of the following characters: Lowercase, Uppercase, Number, or Symbol.
 - **CustomPassword** validates only DisallowedWhitespace, AllowedAADCharacters. So, user can provide any password with any length, as long as the characters are valid.
 
 ```XML
@@ -297,11 +305,12 @@ After you define the basic validations, you can combine them together and create
         </PredicateReferences>
       </PredicateGroup>
       <PredicateGroup Id="CharacterClasses">
-        <UserHelpText>The password must have at least 2 of the following:</UserHelpText>
-        <PredicateReferences MatchAtLeast="2">
+        <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+        <PredicateReferences MatchAtLeast="3">
           <PredicateReference Id="Lowercase" />
           <PredicateReference Id="Uppercase" />
           <PredicateReference Id="Number" />
+          <PredicateReference Id="Symbol" />
         </PredicateReferences>
       </PredicateGroup>
     </PredicateGroups>
