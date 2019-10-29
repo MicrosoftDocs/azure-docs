@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 We recommend that you require multi-factor authentication (MFA) for all your administrators. This reduces the risk of an attack due to a compromised password.
 
-You can require that users complete a multi=factor authentication challenge when they sign in. You can also require that users complete a multi=factor authentication challenge when they activate a role in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). This way, if the user didn't complete a multi=factor authentication challenge when they signed in, they will be prompted to do so by Privileged Identity Management.
+You can require that users complete a multi-factor authentication challenge when they sign in. You can also require that users complete a multi-factor authentication challenge when they activate a role in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). This way, if the user didn't complete a multi-factor authentication challenge when they signed in, they will be prompted to do so by Privileged Identity Management.
 
 > [!IMPORTANT]
 > Right now, Azure Multi-Factor Authentication only works with work or school accounts, not Microsoft personal accounts (usually a personal account that's used to sign in to Microsoft services such as Skype, Xbox, or Outlook.com). Because of this, anyone using a personal account can't be an eligible administrator because they can't use multi-factor authentication to activate their roles. If these users need to continue managing workloads using a Microsoft account, elevate them to permanent administrators for now.
