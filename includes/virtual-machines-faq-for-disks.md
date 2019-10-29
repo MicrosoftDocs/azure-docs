@@ -146,24 +146,23 @@ Premium SSD, standard SSD, and standard HDD support snapshots. For these three d
 Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost.
 
 **What options does Azure disk reservation offer?**
-Azure disk reservation provides options to purchase Premium SSD Managed Disks in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for one-year term. There is no limitation on the minimal unit you can purchase per disk SKU. Additionally, you can choose to pay with a single, upfront payment or monthly payments.  
+Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.
+
+Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divvy that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
 
 **How will I be billed for Azure disk reservation?**
-- For Enterprise Agreement (EA) customers, the Azure monetary commitment will first be used to purchase Azure Disks Reservation. In scenarios where EA customers have used all their monetary commitment, Azure Disks Reservation can still be purchased, and those purchases will be invoiced for the single, upfront payment on their next overage bill.
+- For Enterprise Agreement (EA) customers, the Azure monetary commitment will first be used to purchase Azure disks reservations. In scenarios where EA customers have used all their monetary commitment, disk reservations may still be purchased, and those purchases will be invoiced for the single, upfront payment on their next overage bill.
 
 - For customers purchasing via Azure.com, at the time of purchase, the credit card on file will be charged for the full upfront payment (or monthly fixed payments) of Azure Disks Reservation.
 
 **How is Azure disk reservation applied?**
-Azure Disks Reservation is applied in the same model as Reserved VM Instances with the difference that it cannot be applied to different SKUs. You can find more details on the Reserved VM instances model here. 
+Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) for more information on VM instances. 
 
-**What is covered with my Azure disk reservation purchase?**
-Azure Disks Reservation allows you to purchase Premium SSD Managed Disks on per disk unit. There is no additional transactional cost applied for Premium SSD Managed Disks.
+**Can I use my data storage purchased through Azure disks reservation across multiple regions?**
+Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.
 
-**Can I use my data storage purchased through Azure Disks Reservation across multiple regions?**
-Azure Disks Reservation is purchased for a specific region and SKU (like P30), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage need in other regions or SKUs.
-
-**What happens when my Azure Disks Reservation expires?**
-You will receive email notifications 30 days prior to expiration, and again on the expiration date. Once the reservation expires, deployed capacity will continue to run and will be billed at the then current pay-as-you-go rate.
+**What happens when my Azure disks reservation expires?**
+You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
 
 ## Ultra disks
 
