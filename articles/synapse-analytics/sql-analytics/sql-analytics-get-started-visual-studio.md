@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](sql-analytics-query-ads.md)
 > * [Power BI](tutorial-bi-professional.md)
-> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [Visual Studio](sql-analytics-get-started-visual-studio.md)
 > * [sqlcmd](sql-analytics-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-analytics-query-ssms.md)
 > 

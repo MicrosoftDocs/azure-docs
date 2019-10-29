@@ -26,7 +26,7 @@ Views can be used in a number of different ways to improve the quality of your s
 
 ### SQL Analytics on-demand - create view
 > [!NOTE]
-> **SQL Analytics on-demand**: Syntax for CREATE VIEW is not discussed in this article. For more information, see the [CREATE VIEW](sql-analytics-create-view-syntax) documentation.
+> **SQL Analytics on-demand**: Syntax for CREATE VIEW is not discussed in this article. For more information, see the [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentation.
 > 
 
 ## Architectural abstraction

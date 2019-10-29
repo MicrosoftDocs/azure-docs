@@ -345,7 +345,7 @@
         - name: Variable assignment
           href: sql-analytics/sql-analytics-develop-variable-assignment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Views
-          href: sql-analytics//sql-analytics-develop-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/sql-analytics-develop-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Querying
       items:
       - name: Dynamic SQL
