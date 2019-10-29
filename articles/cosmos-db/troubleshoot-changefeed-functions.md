@@ -99,6 +99,10 @@ This error happens if your Azure Functions project (or any referenced project) c
 
 To workaround this situation, remove the manual NuGet reference that was added and let the Azure Cosmos DB SDK reference resolve through the Azure Functions Cosmos DB Extension package.
 
+### Changing Azure Function's polling interval for the detecting changes
+
+As explained earlier in [My changes take too long to be received](#my-changes-take-too-long-to-be-received) section of this article, Azure function will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes. This way it avoids high throughput consumption. You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [trigger configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) . This value should be in milliseconds.
+
 ## Next steps
 
 * [Enable monitoring for your Azure Functions](../azure-functions/functions-monitoring.md)
