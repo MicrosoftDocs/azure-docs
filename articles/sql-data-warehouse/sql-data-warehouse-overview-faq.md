@@ -18,15 +18,16 @@ ms.reviewer: igorstan
 
 Q. What is Azure Synapse Analytics?
 
-A. Azure Synapse is a limitless analytics service that brings together traditional data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources - at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs.
+A. Azure Synapse is a limitless analytics service that brings together traditional data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources - at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. What happened to Azure SQL Data Warehouse?
 
-A. Azure Synapse is Azure Sql Data Warehouse evolved. We have taken the same industry leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production today with Azure Synapse and you will automatically benefit from the preview capabilities when they become generally available.
+A. Azure Synapse is Azure Sql Data Warehouse evolved. We have taken the same industry leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production today with Azure Synapse and you will automatically benefit from the preview capabilities when they become generally available. Azure Synapse has four components, SQL Analytics is the component that includes data warehouses. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. How do I get started with Azure Synapse Analytics?
 
-A. You can get started with an [Azure free account](https://azure.microsoft.com/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html)
+A. You can get started with an [Azure free account](https://azure.microsoft.com/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html). 
+
 
 Q. What does SQL DW offer for data security?
 
