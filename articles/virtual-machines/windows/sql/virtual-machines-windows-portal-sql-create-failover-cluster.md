@@ -93,31 +93,31 @@ Before you complete the steps in this article, you should already have:
    - Both virtual machines.
    - The failover cluster IP address.
    - An IP address for each FCI.
-- DNS configured on the Azure Network, pointing to the domain controllers.
+- DNS configured on the Azure network, pointing to the domain controllers.
 
-With these prerequisites in place, you can proceed with building your failover cluster. The first step is to create the virtual machines.
+With these prerequisites in place, you can start building your failover cluster. The first step is to create the virtual machines.
 
-## Step 1: Create virtual machines
+## Step 1: Create the virtual machines
 
-1. Log in to the [Azure portal](https://portal.azure.com) with your subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your subscription.
 
 1. [Create an Azure availability set](../tutorial-availability-sets.md).
 
-   The availability set groups virtual machines across fault domains and update domains. The availability set makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers.
+   The availability set groups virtual machines across fault domains and update domains. It ensures your application isn't affected by single points of failure, like the network switch or the power unit of a rack of servers.
 
-   If you have not created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the availability set, do the following steps:
+   If you haven't created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the availability set, take these steps:
 
-   - In the Azure portal, click **+** to open the Azure Marketplace. Search for **Availability set**.
-   - Click **Availability set**.
-   - Click **Create**.
-   - On the **Create availability set** blade, set the following values:
+   1. In the Azure portal, select **Create a resource** to open the Azure Marketplace. Search for **Availability set**.
+   1. Select **Availability Set**.
+   1. Select **Create**.
+   1. Under **Create availability set**, provide these values:
       - **Name**: A name for the availability set.
       - **Subscription**: Your Azure subscription.
-      - **Resource group**: If you want to use an existing group, click **Use existing** and select the group from the drop-down list. Otherwise choose **Create New** and type a name for the group.
+      - **Resource group**: If you want to use an existing group, click **Select existing** and then select the group from the list. Otherwise, select **Create new** and enter a name for the group.
       - **Location**: Set the location where you plan to create your virtual machines.
-      - **Fault domains**: Use the default (3).
-      - **Update domains**: Use the default (5).
-   - Click **Create** to create the availability set.
+      - **Fault domains**: Use the default (**3**).
+      - **Update domains**: Use the default (**5**).
+   1. Select **Create** to create the availability set.
 
 1. Create the virtual machines in the availability set.
 
@@ -125,55 +125,55 @@ With these prerequisites in place, you can proceed with building your failover c
 
    Place both virtual machines:
 
-   - In the same Azure resource group that your availability set is in.
+   - In the same Azure resource group as your availability set.
    - On the same network as your domain controller.
-   - On a subnet with sufficient IP address space for both virtual machines, and all FCIs that you may eventually use on this cluster.
-   - In the Azure availability set.   
+   - On a subnet that has enough IP address space for both virtual machines and all FCIs that you might eventually use on the cluster.
+   - In the Azure availability set.
 
       >[!IMPORTANT]
-      >You cannot set or change availability set after a virtual machine has been created.
+      >You can't set or change the availability set after you've created a virtual machine.
 
-   Choose an image from the Azure Marketplace. You can use a Marketplace image with that includes Windows Server and SQL Server, or just the Windows Server. For details, see [Overview of SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)
+   Choose an image from Azure Marketplace. You can use an Azure Marketplace image that includes Windows Server and SQL Server, or use one that just includes Windows Server. For details, see [Overview of SQL Server on Azure virtual machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-   The official SQL Server images in the Azure Gallery include an installed SQL Server instance, plus the SQL Server installation software, and the required key.
+   The official SQL Server images in the Azure Gallery include an installed SQL Server instance, the SQL Server installation software, and the required key.
 
-   Choose the right image according to how you want to pay for the SQL Server license:
+   Choose the right image, based on how you want to pay for the SQL Server license:
 
-   - **Pay per usage licensing**: The per-second cost of these images includes the SQL Server licensing:
-      - **SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
-      - **SQL Server 2016 Standard on Windows Server Datacenter 2016**
-      - **SQL Server 2016 Developer on Windows Server Datacenter 2016**
+   - **Pay-per-usage licensing**. The per-second cost of these images includes the SQL Server licensing:
+      - **SQL Server 2016 Enterprise on Windows Server 2016 Datacenter**
+      - **SQL Server 2016 Standard on Windows Server 2016 Datacenter**
+      - **SQL Server 2016 Developer on Windows Server 2016 Datacenter**
 
    - **Bring-your-own-license (BYOL)**
 
-      - **{BYOL} SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
-      - **{BYOL} SQL Server 2016 Standard on Windows Server Datacenter 2016**
+      - **(BYOL) SQL Server 2016 Enterprise on Windows Server 2016 Datacenter**
+      - **(BYOL) SQL Server 2016 Standard on Windows Server 2016 Datacenter**
 
    >[!IMPORTANT]
-   >After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You will use the pre-installed SQL Server media to create the SQL Server FCI after you configure the failover cluster and S2D.
+   >After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You'll use the pre-installed SQL Server media to create the SQL Server FCI after you set up the failover cluster and Storage Spaces Direct.
 
-   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the failover cluster and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server.
+   Alternatively, you can use Azure Marketplace images that contain just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you set up the failover cluster and Storage Spaces Direct. This image doesn't contain SQL Server installation media. Place the SQL Server installation media in a location where you can run it for each server.
 
-1. After Azure creates your virtual machines, connect to each virtual machine with RDP.
+1. After Azure creates your virtual machines, connect to each one by using RDP.
 
-   When you first connect to a virtual machine with RDP, the computer asks if you want to allow this PC to be discoverable on the network. Click **Yes**.
+   When you first connect to a virtual machine by using RDP, a prompt asks you if you want to allow the PC to be discoverable on the network. Select **Yes**.
 
-1. If you are using one of the SQL Server-based virtual machine images, remove the SQL Server instance.
+1. If you're using one of the SQL Server-based virtual machine images, remove the SQL Server instance.
 
-   - In **Programs and Features**, right-click **Microsoft SQL Server 2016 (64-bit)** and click **Uninstall/Change**.
-   - Click **Remove**.
-   - Select the default instance.
-   - Remove all features under **Database Engine Services**. Do not remove **Shared Features**. See the following picture:
+   1. In **Programs and Features**, right-click **Microsoft SQL Server 2016 (64-bit)** and select **Uninstall/Change**.
+   1. Select **Remove**.
+   1. Select the default instance.
+   1. Remove all features under **Database Engine Services**. Don't remove **Shared Features**. You'll see something like the following screenshot:
 
-      ![Remove Features](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+      ![Select Features](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
-   - Click **Next**, and then click **Remove**.
+   1. Select **Next**, and then select **Remove**.
 
 1. <a name="ports"></a>Open the firewall ports.
 
-   On each virtual machine, open the following ports on the Windows Firewall.
+   On each virtual machine, open these ports on the Windows Firewall:
 
-   | Purpose | TCP Port | Notes
+   | Purpose | TCP port | Notes
    | ------ | ------ | ------
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened.
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
@@ -182,9 +182,9 @@ With these prerequisites in place, you can proceed with building your failover c
 
    Both virtual machines need at least two data disks.
 
-   Attach raw disks - not NTFS formatted disks.
+   Attach raw disks, not NTFS-formatted disks.
       >[!NOTE]
-      >If you attach NTFS-formatted disks, you can only enable S2D with no disk eligibility check.  
+      >If you attach NTFS-formatted disks, you can enable Storage Spaces Direct only without a disk eligibility check.  
 
    Attach a minimum of two premium SSDs to each VM. We recommend at least P30 (1 TB) disks.
 
@@ -194,62 +194,60 @@ With these prerequisites in place, you can proceed with building your failover c
 
 1. [Add the virtual machines to your pre-existing domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-After the virtual machines are created and configured, you can configure the failover cluster.
+After you create and configure the virtual machines, you can set up the failover cluster.
 
-## Step 2: Configure the Windows Failover Cluster with S2D
+## Step 2: Configure the Windows Server Failover Cluster with Storage Spaces Direct
 
-The next step is to configure the failover cluster with S2D. In this step, you will do the following substeps:
+The next step is to configure the failover cluster with Storage Spaces Direct. In this step, you'll complete these substeps:
 
-1. Add Windows Failover Clustering feature
-1. Validate the cluster
-1. Create the failover cluster
-1. Create the cloud witness
-1. Add storage
+1. Add the Windows Server Failover Clustering feature.
+1. Validate the cluster.
+1. Create the failover cluster.
+1. Create the cloud witness.
+1. Add storage.
 
-### Add Windows Failover Clustering feature
+### Add Windows Server Failover Clustering
 
-1. To begin, connect to the first virtual machine with RDP using a domain account that is a member of local administrators, and has permissions to create objects in Active Directory. Use this account for the rest of the configuration.
+1. Connect to the first virtual machine with RDP by using a domain account that's a member of the local administrators and that has permission to create objects in Active Directory. Use this account for the rest of the configuration.
 
-1. [Add Failover Clustering feature to each virtual machine](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Add Failover Clustering to each virtual machine](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 
-   To install Failover Clustering feature from the UI, do the following steps on both virtual machines.
-   - In **Server Manager**, click **Manage**, and then click **Add Roles and Features**.
-   - In **Add Roles and Features Wizard**, click **Next** until you get to **Select Features**.
-   - In **Select Features**, click **Failover Clustering**. Include all required features and the management tools. Click **Add Features**.
-   - Click **Next** and then click **Finish** to install the features.
+   To install Failover Clustering from the UI, take these steps on both virtual machines:
+   1. In **Server Manager**, select **Manage**, and then select **Add Roles and Features**.
+   1. In the **Add Roles and Features Wizard**, select **Next** until you get to **Select Features**.
+   1. In **Select Features**, select **Failover Clustering**. Include all required features and the management tools. Select **Add Features**.
+   1. Select **Next**, and then select **Finish** to install the features.
 
-   To install the Failover Clustering feature with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
+   To install Failover Clustering by using PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines:
 
    ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-For reference, the next steps follow the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+For further reference about the next steps, see the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 ### Validate the cluster
 
-This guide refers to instructions under [validate cluster](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
+Validate the cluster in the UI or by using PowerShell.
 
-Validate the cluster in the UI or with PowerShell.
+To validate the cluster by using the UI, take the following steps on one of the virtual machines:
 
-To validate the cluster with the UI, do the following steps from one of the virtual machines.
+1. Under **Server Manager**, select **Tools**, and then select **Failover Cluster Manager**.
+1. Under **Failover Cluster Manager**, select **Action**, and then select **Validate Configuration**.
+1. Select **Next**.
+1. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
+1. Under **Testing options**, select **Run only tests I select**. Select **Next**.
+1. Under **Test Selection**, select all tests except for **Storage**, as shown here:
 
-1. In **Server Manager**, click **Tools**, then click **Failover Cluster Manager**.
-1. In **Failover Cluster Manager**, click **Action**, then click **Validate Configuration...**.
-1. Click **Next**.
-1. On **Select Servers or a Cluster**, type the name of both virtual machines.
-1. On **Testing options**, choose **Run only tests I select**. Click **Next**.
-1. On **Test selection**, include all tests except **Storage**. See the following picture:
+   ![Select cluster validation tests](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-   ![Validate Tests](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
-
-1. Click **Next**.
-1. On **Confirmation**, click **Next**.
+1. Select **Next**.
+1. Under **Confirmation**, select **Next**.
 
 The **Validate a Configuration Wizard** runs the validation tests.
 
-To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
+To validate the cluster by using PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines:
 
    ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
@@ -259,16 +257,14 @@ After you validate the cluster, create the failover cluster.
 
 ### Create the failover cluster
 
-This guide refers to [Create the failover cluster](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
-
 To create the failover cluster, you need:
-- The names of the virtual machines that become the cluster nodes.
+- The names of the virtual machines that will become the cluster nodes.
 - A name for the failover cluster
-- An IP address for the failover cluster. You can use an IP address that is not used on the same Azure virtual network and subnet as the cluster nodes.
+- An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
 
-#### Windows Server 2008-2016
+#### Windows Server 2008 through Windows Sever 2016
 
-The following PowerShell creates a failover cluster for **Windows Server 2008-2016**. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
+The following PowerShell script creates a failover cluster for Windows Server 2008 through Windows Server 2016. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
@@ -276,7 +272,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### Windows Server 2019
 
-The following PowerShell creates a failover cluster for Windows Server 2019.  For more information, review the blog [Failover Cluster: Cluster network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).  Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
+The following PowerShell script creates a failover cluster for Windows Server 2019. For more information, see [Failover cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97). Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -285,7 +281,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ### Create a cloud witness
 
-Cloud Witness is a new type of cluster quorum witness stored in an Azure Storage Blob. This removes the need of a separate VM hosting a witness share.
+Cloud Witness is a new type of cluster quorum witness that's stored in an Azure storage blob. This removes the need for a separate VM that hosts a witness share.
 
 1. [Create a cloud witness for the failover cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -297,11 +293,11 @@ Cloud Witness is a new type of cluster quorum witness stored in an Azure Storage
 
 ### Add storage
 
-The disks for S2D need to be empty and without partitions or other data. To clean disks follow [the steps in this guide](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
+The disks for Storage Spaces Direct need to be empty. They can't contain partitions or other data. To clean the disks, follow [the steps in this guide](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
 
-1. [Enable Store Spaces Direct \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Enable Store Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
-   The following PowerShell enables storage spaces direct.  
+   The following PowerShell script enables Storage Spaces Direct:  
 
    ```powershell
    Enable-ClusterS2D

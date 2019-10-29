@@ -95,17 +95,17 @@ With these prerequisites in place, you can start building your failover cluster.
 
    If you haven't created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the availability set, take these steps:
 
-   - In the Azure portal, select **Create a resource** to open Azure Marketplace. Search for **Availability set**.
-   - Select **Availability Set**.
-   - Select **Create**.
-   - Under **Create availability set**, provide these values:
-          - **Name**: A name for the availability set.
-          - **Subscription**: Your Azure subscription.
-          - **Resource group**: If you want to use an existing group, click **Select existing** and then select the group from the list. Otherwise, select **Create new** and enter a name for the group.
-          - **Location**: Set the location where you plan to create your virtual machines.
-          - **Fault domains**: Use the default (**3**).
-          - **Update domains**: Use the default (**5**).
-          - Select **Create** to create the availability set.
+   1. In the Azure portal, select **Create a resource** to open Azure Marketplace. Search for **Availability set**.
+   1. Select **Availability Set**.
+   1. Select **Create**.
+   1. Under **Create availability set**, provide these values:
+      - **Name**: A name for the availability set.
+      - **Subscription**: Your Azure subscription.
+      - **Resource group**: If you want to use an existing group, click **Select existing** and then select the group from the list. Otherwise, select **Create new** and enter a name for the group.
+      - **Location**: Set the location where you plan to create your virtual machines.
+      - **Fault domains**: Use the default (**3**).
+      - **Update domains**: Use the default (**5**).
+   1. Select **Create** to create the availability set.
 
 1. Create the virtual machines in the availability set.
 
@@ -113,37 +113,37 @@ With these prerequisites in place, you can start building your failover cluster.
 
    Place both virtual machines:
 
-   - In the same Azure resource group that your availability set is in.
+   - In the same Azure resource group as your availability set.
    - On the same network as your domain controller.
    - On a subnet that has sufficient IP address space for both virtual machines and all FCIs that you might eventually use on the cluster.
    - In the Azure availability set.
 
       >[!IMPORTANT]
-      >You can't set or change the availability set after you have created a virtual machine.
+      >You can't set or change the availability set after you've created a virtual machine.
 
    Choose an image from Azure Marketplace. You can use an Azure Marketplace image that includes Windows Server and SQL Server, or use one that just includes Windows Server. For details, see [Overview of SQL Server on Azure virtual machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
    The official SQL Server images in the Azure Gallery include an installed SQL Server instance, the SQL Server installation software, and the required key.
 
    >[!IMPORTANT]
-   > After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You'll use the pre-installed SQL Server media to create the SQL Server FCI after you configure the failover cluster and premium file share as storage.
+   > After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You'll use the pre-installed SQL Server media to create the SQL Server FCI after you set up the failover cluster and premium file share as storage.
 
-   Alternatively, you can use Azure Marketplace images that contain just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the failover cluster and premium file share as storage. This image doesn't contain SQL Server installation media. Place the SQL Server installation media in a location where you can run it for each server.
+   Alternatively, you can use Azure Marketplace images that contain just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you set up the failover cluster and premium file share as storage. This image doesn't contain SQL Server installation media. Place the SQL Server installation media in a location where you can run it for each server.
 
-1. After Azure creates your virtual machines, connect to each virtual machine by using RDP.
+1. After Azure creates your virtual machines, connect to each one by using RDP.
 
    When you first connect to a virtual machine by using RDP, a prompt asks you if you want to allow the PC to be discoverable on the network. Select **Yes**.
 
 1. If you're using one of the SQL Server-based virtual machine images, remove the SQL Server instance.
 
-   - In **Programs and Features**, right-click **Microsoft SQL Server 201_ (64-bit)** and select **Uninstall/Change**.
-   - Select **Remove**.
-   - Select the default instance.
-   - Remove all features under **Database Engine Services**. Don't remove **Shared Features**. You'll see something like the following screenshot:
+   1. In **Programs and Features**, right-click **Microsoft SQL Server 201_ (64-bit)** and select **Uninstall/Change**.
+   1. Select **Remove**.
+   1. Select the default instance.
+   1. Remove all features under **Database Engine Services**. Don't remove **Shared Features**. You'll see something like the following screenshot:
 
         ![Select Features](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
-   - Select **Next**, and then select **Remove**.
+   1. Select **Next**, and then select **Remove**.
 
 1. <a name="ports"></a>Open the firewall ports.
 
@@ -184,23 +184,23 @@ After you create and configure the virtual machines, you can configure the premi
 
 The next step is to configure the failover cluster. In this step, you'll complete the following substeps:
 
-1. Add the Windows Failover Clustering feature.
+1. Add the Windows Server Failover Clustering feature.
 1. Validate the cluster.
 1. Create the failover cluster.
 1. Create the cloud witness.
 
 
-### Add Windows Failover Clustering
+### Add Windows Server Failover Clustering
 
-1. Connect to the first virtual machine with RDP by using a domain account that's a member of the local administrators and that has permissions to create objects in Active Directory. Use this account for the rest of the configuration.
+1. Connect to the first virtual machine with RDP by using a domain account that's a member of the local administrators and that has permission to create objects in Active Directory. Use this account for the rest of the configuration.
 
 1. [Add Failover Clustering to each virtual machine](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    To install Failover Clustering from the UI, take these steps on both virtual machines:
-   - In **Server Manager**, select **Manage**, and then select **Add Roles and Features**.
-   - In the **Add Roles and Features Wizard**, select **Next** until you get to **Select Features**.
-   - In **Select Features**, select **Failover Clustering**. Include all required features and the management tools. Select **Add Features**.
-   - Select **Next**, and then select **Finish** to install the features.
+   1. In **Server Manager**, select **Manage**, and then select **Add Roles and Features**.
+   1. In the **Add Roles and Features Wizard**, select **Next** until you get to **Select Features**.
+   1. In **Select Features**, select **Failover Clustering**. Include all required features and the management tools. Select **Add Features**.
+   1. Select **Next**, and then select **Finish** to install the features.
 
    To install Failover Clustering by using PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines:
 
@@ -209,9 +209,9 @@ The next step is to configure the failover cluster. In this step, you'll complet
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-### Validate the cluster
+For further reference about the next steps, see the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
-This section refers to instructions in the section [Validate the cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share#validate-the-cluster).
+### Validate the cluster
 
 Validate the cluster by in the UI or by using PowerShell.
 
@@ -256,7 +256,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### Windows Server 2019
 
-The following PowerShell script creates a failover cluster for Windows Server 2019. For more information, see [Failover cluster: Cluster network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97). Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
+The following PowerShell script creates a failover cluster for Windows Server 2019. For more information, see [Failover cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97). Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
