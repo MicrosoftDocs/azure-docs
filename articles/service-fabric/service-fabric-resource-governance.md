@@ -196,10 +196,10 @@ In this example, default parameter values are set for the production environment
 
 ## Enforcing the resource limits for user services
 
-Some Service Fabric users ran into situations where runaway user services consumed all available resources on the Service Fabric nodes. These situations can result in problems like:
+Some Service Fabric users ran into situations where runaway user services consumed all available resources on the Service Fabric nodes. This can cause:
 
-* Resource starving of other services running on the nodes (including Service Fabric system services)
-* Nodes ending up in a bad state
+* Resource starvation of other services running on the nodes (including Service Fabric system services)
+* Nodes ending up in an unhealthy state
 * Unresponsive Service Fabric cluster management APIs
 
 To prevent these situations from occurring, Service Fabric allows you to *enforce the resource limits for all Service Fabric user services running on the node* (both governed and ungoverned) to guarantee that user services will never use more than the specified amount of resources. This is achieved by setting the value for the EnforceUserServiceMetricCapacities config in the PlacementAndLoadBalancing section of the ClusterManifest to true. This setting is turned off by default.
