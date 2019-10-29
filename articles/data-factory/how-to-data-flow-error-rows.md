@@ -14,7 +14,7 @@ ms.author: makromer
 
 # Handle SQL truncation error rows in Data Factory mapping data flows
 
-A very common scenario in Data Factory when using mapping data flows, is to write your transformed data to an Azure SQL database. In this scenario, a common error condition that you must prevent against is possible column truncation. Follow these steps to provide logging of columns that won't fit into a target string column, allowing your data flow to continue in those scenarios.
+A common scenario in Data Factory when using mapping data flows, is to write your transformed data to an Azure SQL database. In this scenario, a common error condition that you must prevent against is possible column truncation. Follow these steps to provide logging of columns that won't fit into a target string column, allowing your data flow to continue in those scenarios.
 
 ## Scenario
 
@@ -32,9 +32,9 @@ A very common scenario in Data Factory when using mapping data flows, is to writ
 
     ![conditional split](media/data-flow/error1.png)
 
-2. This conditional split transformation defines the maximum length of "title" to be 5. Any row that is less than or equal to five will go into the ```GoodRows``` stream. Any row that is larger than five will go into the ```BadRows``` stream.
+2. This conditional split transformation defines the maximum length of "title" to be five. Any row that is less than or equal to five will go into the ```GoodRows``` stream. Any row that is larger than five will go into the ```BadRows``` stream.
 
-3. Now we need to log the rows that failed. Add a sink transformation to the ```BadRows``` stream for logging. Here, we'll "auto-map" all of the fields so that we have logging of the complete transaction record. This is a text delimited CSV file output to a single file in Blob Storage. We'll call the log file "badrows.csv".
+3. Now we need to log the rows that failed. Add a sink transformation to the ```BadRows``` stream for logging. Here, we'll "auto-map" all of the fields so that we have logging of the complete transaction record. This is a text-delimited CSV file output to a single file in Blob Storage. We'll call the log file "badrows.csv".
 
     ![Bad rows](media/data-flow/error3.png)
     
