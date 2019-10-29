@@ -285,13 +285,13 @@ This command:
 
 # [Custom Speech-to-text](#tab/cstt)
 
-The *Custom Speech-to-text* container relies on a custom speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech). The custom speech **Model ID** and **Language** are required to run the container. These values can be found on the **Training** page of the custom speech portal. From the custom speech portal, navigate to the **Training** page and select the model.
-<br><br>
+The *Custom Speech-to-text* container relies on a custom speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech). The custom speech **Model ID** is required to run the container. It can be found on the **Training** page of the custom speech portal. From the custom speech portal, navigate to the **Training** page and select the model.
+<br>
 
 ![Custom speech training page](media/custom-speech/custom-speech-model-training.png)
 
-Obtain the **Model ID**. Then use the [Speech-to-text language support](language-support.md#speech-to-text) table to cross reference the model **Language** and obtain the **Locale**. Use the cross-referenced **Locale** as the `Locale` argument. For example, `English (United States)` would map to `en-US`, then `en-US` would be used as the argument to the `Locale` parameter of the `docker run` command.
-<br><br>
+Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the `docker run` command.
+<br>
 
 ![Custom speech model details](media/custom-speech/custom-speech-model-details.png)
 
@@ -301,7 +301,6 @@ The following table represents the various `docker run` parameters and their cor
 |---------|---------|
 | `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\CustomSpeech* where the *C drive* is located on the host machine. |
 | `{MODEL_ID}` | The Custom Speech **Model ID** from the **Training** page of the custom speech portal. |
-| `{MODEL_LOCALE}` | Using the [Speech-to-text language support](language-support.md#speech-to-text) table, look up the locale **Code** from the model **Language**. |
 | `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [gathering required parameters](#gathering-required-parameters). |
 | `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
@@ -312,7 +311,6 @@ docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 -v {VOLUME_MOUNT}:/usr/local/models \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
 ModelId={MODEL_ID} \
-Locale={MODEL_LOCALE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -349,13 +347,13 @@ This command:
 
 # [Custom Text-to-speech](#tab/ctts)
 
-The *Custom Text-to-speech* container relies on a custom voice model. The custom model has to have been [trained](how-to-custom-voice-create-voice.md) using the [custom voice portal](https://aka.ms/custom-voice-portal). The custom voice **Model ID** and **Language** are required to run the container. These values can be found on the **Training** page of the custom voice portal. From the custom voice portal, navigate to the **Training** page and select the model.
-<br><br>
+The *Custom Text-to-speech* container relies on a custom voice model. The custom model has to have been [trained](how-to-custom-voice-create-voice.md) using the [custom voice portal](https://aka.ms/custom-voice-portal). The custom voice **Model ID** is required to run the container. It can be found on the **Training** page of the custom voice portal. From the custom voice portal, navigate to the **Training** page and select the model.
+<br>
 
 ![Custom voice training page](media/custom-voice/custom-voice-model-training.png)
 
-Obtain the **Model ID**. Then use the [Text-to-speech language support](language-support.md#text-to-speech) table to cross reference the model **Language** and obtain the **Locale**. Use the cross-referenced **Locale** as the locale. For example, `English (United States)` would map to `en-US`, then `en-US` would be used as the argument to the `Locale` parameter of the docker run command.
-<br><br>
+Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the docker run command.
+<br>
 
 ![Custom voice model details](media/custom-voice/custom-voice-model-details.png)
 
@@ -365,7 +363,6 @@ The following table represents the various `docker run` parameters and their cor
 |---------|---------|
 | `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\CustomSpeech* where the *C drive* is located on the host machine. |
 | `{MODEL_ID}` | The Custom Speech **Model ID** from the **Training** page of the custom voice portal. |
-| `{MODEL_LOCALE}` | Using the [Text-to-speech language support](language-support.md#text-to-speech) table, look up the locale **Code** from the model **Language**. |
 | `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [gathering required parameters](#gathering-required-parameters). |
 | `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
@@ -376,7 +373,6 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 ModelId={MODEL_ID} \
-Locale={MODEL_LOCALE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
