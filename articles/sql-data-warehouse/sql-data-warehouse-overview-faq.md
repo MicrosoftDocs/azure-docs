@@ -22,7 +22,7 @@ A. Azure Synapse is a limitless analytics service that brings together tradition
 
 Q. What happened to Azure SQL Data Warehouse?
 
-A. Azure Synapse is Azure Sql Data Warehouse evolved. We have taken the same industry leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production today with Azure Synapse and you will automatically benefit from the preview capabilities when they become generally available. Azure Synapse has four components, SQL Analytics is the component that includes data warehouses. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure Synapse is Azure SQL Data Warehouse (SQL DW) evolved. We have taken the same industry leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production today with Azure Synapse and you will automatically benefit from the preview capabilities when they become generally available. Azure Synapse has four components, SQL Analytics is the component that includes data warehouses. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. How do I get started with Azure Synapse Analytics?
 
