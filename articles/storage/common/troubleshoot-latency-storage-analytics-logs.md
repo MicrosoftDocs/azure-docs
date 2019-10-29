@@ -160,5 +160,5 @@ If **Max Time** is spent in **Client-Latency**, the most common issue is that th
 
 ## Next steps
 
-- [Introduction to Azure Blob storage](storage-blobs-introduction.md)
+- [Introduction to Azure Blob storage](../blobs/storage-blobs-introduction.md)
 - [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)
