@@ -34,7 +34,13 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 > [!TIP]
 > **Region** specifies intended location of the gateway nodes that will be associated with this gateway resource. It's semantically equivalent to a similar property associated with any Azure resource, but can be assigned an arbitrary string value.
 4. Optionally, enter a **Description** of the gateway resource.
-5. Click **Add**.
+5. Optionally, select **+** under **APIs** to associate one or more APIs with this gateway resource.
+> [!TIP]
+> You can associate and remove an API from a gateway on the API's **Settings** tab.
+
+> [!IMPORTANT]
+> By default, none of the existing APIs will be associated with the new gateway resource. Therefore, and attempt to invoke them via the new gateway will result in the 404 Resource Not Found response.
+6. Click **Add**.
 
 Now the gateway resource has been provisioned in your API Management instance. You can proceed to deploy the gateway.
 

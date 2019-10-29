@@ -72,6 +72,8 @@ When configuration backup is turned on and connectivity to Azure is interrupted:
 -   Self-hosted gateways that are running will continue to function using an in-memory copy of the configuration
 -   Stopped self-hosted gateways will start using a backup copy of the configuration
 
+When connectivity is restored, each self-hosted gateway affected by the outage will automatically reconnect with its associated API Management service and download all configuration updates that occurred while the gateway was "offline".
+
 ## Next steps
 
 -   [Read a whitepaper for additional background on this topic](https://aka.ms/hybrid-and-multi-cloud-api-management)
