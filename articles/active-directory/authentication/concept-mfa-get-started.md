@@ -33,8 +33,8 @@ Customers who are utilizing the free benefits of Azure AD can use [security defa
 
 For customers with Office 365, there are two options:
 
-1. [Security defaults](../conditional-access/concept-conditional-access-security-defaults.md) can be enabled through Azure AD to protect all of your users with Azure Multi-Factor Authentication.
-2. If your organization requires more granularity in providing multi-factor authentication, your Office licenses include [per-user MFA](../authentication/howto-mfa-userstates.md) capabilities. Per-user MFA is enabled and enforced on each user individually by administrators.
+- [Security defaults](../conditional-access/concept-conditional-access-security-defaults.md) can be enabled through Azure AD to protect all of your users with Azure Multi-Factor Authentication.
+- If your organization requires more granularity in providing multi-factor authentication, your Office licenses include [per-user MFA](../authentication/howto-mfa-userstates.md) capabilities. Per-user MFA is enabled and enforced on each user individually by administrators.
 
 ## Azure AD Premium P1
 
