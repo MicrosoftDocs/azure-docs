@@ -112,27 +112,27 @@ FROM
 
 ## Creating Power BI desktop report
 Open Power BI desktop application and select "Get data" option.
-![Open Power BI desktop application and select get data.](./media/tutorial-bi-professional/step_0_open_powerbi.png)
+![Open Power BI desktop application and select get data.](./media/tutorial-bi-professional/step-0-open-powerbi.png)
 
 ### Step 1 - Select data source
 Select "Azure" in the menu and then "Azure SQL Database".
-![Select data source.](./media/tutorial-bi-professional/step_1_select_data_source.png)
+![Select data source.](./media/tutorial-bi-professional/step-1-select-data-source.png)
 
 ### Step 2 - Select database
 Write URL for the database and name of the database where view is residing.
-![Select database on the endpoint.](./media/tutorial-bi-professional/step_2_db.png)
+![Select database on the endpoint.](./media/tutorial-bi-professional/step-2-db.png)
 
 ### Step 3 - Select view
 Select view "usPopulationView"
-![Select a View on the database that is selected.](./media/tutorial-bi-professional/step_3_select_view.png)
+![Select a View on the database that is selected.](./media/tutorial-bi-professional/step-3-select-view.png)
 
 ### Step 4 - Apply changes
 After few seconds popup will show, click "Apply changes".
-![Click apply changes.](./media/tutorial-bi-professional/step_4_apply_changes.png)
+![Click apply changes.](./media/tutorial-bi-professional/step-4-apply-changes.png)
 
 ### Step 5 - Wait for a query to finish
 After clicking "Apply changes", we should wait for a query to finish.
-![Wait for a query to finish.](./media/tutorial-bi-professional/step_5_wait_for_query_to_finish.png)
+![Wait for a query to finish.](./media/tutorial-bi-professional/step-5-wait-for-query-to-finish.png)
 
 ### Step 6 - Select columns of interest
 After loading finishes, we should select following columns (with this order):
@@ -141,7 +141,7 @@ After loading finishes, we should select following columns (with this order):
 2. population
 3. stateName
 
-![Select columns of interest to generate a map report.](./media/tutorial-bi-professional/step_6_select_columns_of_interest.png)
+![Select columns of interest to generate a map report.](./media/tutorial-bi-professional/step-6-select-columns-of-interest.png)
 
 
 ## Clean up resources
