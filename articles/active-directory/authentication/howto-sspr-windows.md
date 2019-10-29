@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/28/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -35,7 +35,6 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
 ## General limitations
 
 - Password reset is not currently supported from a Remote Desktop or from Hyper-V enhanced sessions.
-- Account unlock, mobile app notification, and mobile app code are not supported.
 - This feature does not work for networks with 802.1x network authentication deployed and the option “Perform immediately before user logon”. For networks with 802.1x network authentication deployed it is recommended to use machine authentication to enable this feature.
 
 ## Windows 10 password reset

@@ -40,7 +40,7 @@ ms.author: cynthn
 | China East 2        | 2                       |
 | China North         | 2                       |
 | China North 2       | 2                       |
-|
+|                     |                         |
 | Australia East      | 2                       |
 | Australia Southeast | 2                       |
 | Australia Central   | 2                       |
