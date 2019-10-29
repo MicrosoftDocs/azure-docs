@@ -49,13 +49,6 @@ In this article, an Azure Resource Manager template is used to create a resource
                 "description": "Name of the container in storage account to create"
             }
         },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Specifies the Azure location for all resources."
-            }
-        },
         "eventHubSku": {
             "type": "string",
             "allowedValues": ["Basic", "Standard"],
