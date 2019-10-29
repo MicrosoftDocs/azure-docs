@@ -181,4 +181,4 @@ The Content Moderator provides a [Term List API](https://westus.dev.cognitive.mi
 
 ## Next steps
 
-Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the [Text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) if you're familiar with Visual Studio and C#.
+Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the Text moderation section of the [.NET SDK quickstart](dotnet-sdk-quickstart.md) if you're familiar with Visual Studio and C#.
