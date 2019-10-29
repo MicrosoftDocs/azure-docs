@@ -24,7 +24,7 @@ ms.author: steveesp
 
 Measuring network latency with a tool that is designed for the task will give the most accurate results. Publicly available tools like SockPerf (for Linux) and Latte (for Windows) are examples of tools that can isolate and measure network latency while excluding other types of latency, such as application latency. These tools focus on the kind of network traffic that affects application performance, namely TCP and UDP. Other common connectivity tools, like ping, may sometimes be used for measuring latency but those results may not be representative of network traffic used in real workloads. That&#39;s because most of these tools employ the ICMP protocol, which can be treated differently from application traffic, and the results may not be applicable to workloads that use TCP and UDP. For accurate network latency testing of protocols used by most applications, SockPerf (for Linux) and Latte (for Windows) produce the most relevant results. This document covers both of these tools.
 
-# Overview
+## Overview
 
 Using two VMs, one as sender and one as receiver, a two-way communications channel is created to send and receive packets in both directions to measure the round-trip time (RTT).
 
@@ -37,7 +37,7 @@ These steps can be used to measure network latency between two Virtual Machines 
   - VM properties, like Accelerated Networking or size changes
   - Virtual network, such as routing or filtering changes
 
-## Tools for testing
+### Tools for testing
 To measureme latency we have two different options, one for Windows-based systems, and one for Linux-based systems
 
 For Windows: latte.exe (Windows)
@@ -48,21 +48,21 @@ For Linux: SockPerf (Linux)
 
 Using these tools ensures that only TCP or UDP payload delivery times are measured and not ICMP (Ping) or other packet types that aren't used by applications and don't affect their performance.
 
-## Tips for an Optimal VM Configuration:
+### Tips for an Optimal VM Configuration:
 
 - Use the latest version of Windows or Linux
 - Enable Accelerated Networking for best results
 - Deploy VMs with [Azure Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)
 - Larger VMs generally perform better than smaller VMs
 
-## Tips for Analysis
+### Tips for Analysis
 
 - Establish a baseline early, as soon as deployment, configuration, and optimizations are complete
 - Always compare new results to a baseline or otherwise from one test to another with controlled changes
 - Repeat tests whenever changes are observed or planned
 
 
-# Testing VMs running WINDOWS:
+## Testing VMs running WINDOWS:
 
 ## Get Latte.exe onto the VMs
 
@@ -116,15 +116,15 @@ Wait for the results. Depending on how far apart the VMs are, it could take a fe
 
 
 
-# Testing VMs running Linux
+## Testing VMs running Linux
 
 Use SockPerf. It is available from [https://github.com/mellanox/sockperf](https://github.com/mellanox/sockperf)
 
-## Install SockPerf on the VMs​
+### Install SockPerf on the VMs​
 
 ​On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare SockPerf on your VMs. Commands are provided for the major distros.
 
-### For RHEL / CentOS, follow these steps:
+#### For RHEL / CentOS, follow these steps:
 ```bash
 #CentOS / RHEL - Install GIT and other helpful tools
     sudo yum install gcc -y -q
@@ -135,7 +135,7 @@ Use SockPerf. It is available from [https://github.com/mellanox/sockperf](https:
     sudo yum install -y autoconf
 ```
 
-### For Ubuntu, follow these steps:
+#### For Ubuntu, follow these steps:
 ```bash
 #Ubuntu - Install GIT and other helpful tools
     sudo apt-get install build-essential -y
@@ -145,7 +145,7 @@ Use SockPerf. It is available from [https://github.com/mellanox/sockperf](https:
     sudo apt-get install -y autoconf
 ```
 
-### For all distros, copy, compile and install SockPerf according to the following steps:
+#### For all distros, copy, compile and install SockPerf according to the following steps:
 ```bash
 #Bash - all distros
 
@@ -162,7 +162,7 @@ make
 sudo make install
 ```
 
-## Run SockPerf on the VMs​
+### Run SockPerf on the VMs​
 
 With the SockPerf installation complete, the VMs are ready to run the latency tests. 
 
