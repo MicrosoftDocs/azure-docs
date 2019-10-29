@@ -143,7 +143,7 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
     }
     ```
 
-3. Now that the job is created, see the [Give the Stream Analytics job access to your Power BI workspace](#give-the-stream-analytics-job-access-to-your-powerbi-workspace) section of this article.
+3. Now that the job is created, continue to the [Give the Stream Analytics job access to your Power BI workspace](#give-the-stream-analytics-job-access-to-your-powerbi-workspace) section of this article.
 
 
 ## Give the Stream Analytics job access to your Power BI workspace
