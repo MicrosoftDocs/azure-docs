@@ -19,7 +19,7 @@ Customers will need to work with their local carriers and co-location providers 
 
 ### What locations currently support ExpressRoute Direct? 
 
-Please check the availability on the [location page](../expressroute/expressroute-locations-providers.md). 
+Please check the availability on the [location page](../articles/expressroute/expressroute-locations-providers.md). 
 
 ### What is the SLA for ExpressRoute Direct?
 
