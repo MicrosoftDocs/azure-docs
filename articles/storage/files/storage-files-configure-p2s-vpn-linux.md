@@ -97,7 +97,7 @@ az storage account update \
 ```
 
 ## Create a private endpoint (preview) for your storage account
-Create a private endpoint for your storage account gives your storage account an IP address within the IP address space of your virtual network. When you mount your Azure file share from on-premises using this private IP address, the routing rules autodefined by the VPN installation will route your mount request to the storage account via the VPN. 
+Creating a private endpoint for your storage account gives your storage account an IP address within the IP address space of your virtual network. When you mount your Azure file share from on-premises using this private IP address, the routing rules autodefined by the VPN installation will route your mount request to the storage account via the VPN. 
 
 ```bash
 zoneName="privatelink.file.core.windows.net"
