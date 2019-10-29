@@ -156,9 +156,5 @@ If **Max Time** is spent in **Client-Latency**, the most common issue is that th
 **Recommendation:**
 
 * Investigate the code in your client to understand why and when the client disconnects from the storage service.
-* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
+* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client.
 
-## Next steps
-
-- [Introduction to Azure Blob storage](../blobs/storage-blobs-introduction.md)
-- [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)
