@@ -191,7 +191,7 @@ This workbook shows the expected impact of each Conditional Access policy in you
 ![Conditional Access status](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
-The Impact Summary shows the number of users or sign-ins for which the selected policies had a particular result. Total is the number of users or sign-ins for which the selected policies  was evaluated in the selected Time Range. Click on a tile to filter the data in the workbook by that result type. 
+The Impact Summary shows the number of users or sign-ins for which the selected policies had a particular result. Total is the number of users or sign-ins for which the selected policies  were evaluated in the selected Time Range. Click on a tile to filter the data in the workbook by that result type. 
 
 ![Conditional Access status](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
@@ -248,7 +248,7 @@ For each trend, you get a breakdown by app and protocol.
 
 ## Sign-ins failure analysis
 
-Use the **Sign-ins failure analysis** workbook to troubleshoot errors with the following:
+Use the **Sign-ins failure analysis** workbook to troubleshoot errors with:
 
 - Sign-ins
 - Conditional Access policies
