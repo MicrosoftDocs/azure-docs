@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Warehouse Frequently Asked Questions | Microsoft Docs
-description: This article lists out frequently asked questions about Azure SQL Data Warehouse from customers and developers
+title: Azure Synapse Analytics (formerly SQL DW) Frequently Asked Questions | Microsoft Docs
+description: This article lists out frequently asked questions about Azure Synapse Analytics (formerly SQL DW) from customers and developers
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -12,15 +12,27 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# SQL Data Warehouse Frequently asked questions
+# Azure Synapse Analytics (formerly SQL DW) Frequently asked questions
 
 ## General
+
+Q. What is Azure Synapse Analytics?
+
+A. Azure Synapse is a limitless analytics service that brings together traditional data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources - at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs.
+
+Q. What happened to Azure SQL Data Warehouse?
+
+A. Azure Synapse is Azure Sql Data Warehouse evolved. We have taken the same industry leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production today with Azure Synapse and you will automatically benefit from the preview capabilities when they become generally available.
+
+Q. How do I get started with Azure Synapse Analytics?
+
+A. You can get started with an [Azure free account](https://azure.microsoft.com/en-us/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html)
 
 Q. What does SQL DW offer for data security?
 
 A. SQL DW offers several solutions for protecting data such as TDE and auditing. For more information, see [Security].
 
-Q. Where can I find out what legal or business standards is SQL DW compliant with?
+Q. Where can I find out what legal or business standards SQL DW is compliant with?
 
 A. Visit the [Microsoft Compliance] page for various compliance offerings by product such as SOC and ISO. 
 First choose by Compliance title, then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure services are compliant.
