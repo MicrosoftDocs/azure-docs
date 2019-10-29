@@ -425,3 +425,17 @@ Below is an example of a proxy-resources annotation that is to be applied to you
 ```
 azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
 ```
+
+### Enable Azure Dev Spaces on an existing namespace with running pods
+
+You may have an existing AKS cluster and namespace with running pods where you want to enable Azure Dev Spaces.
+
+To enable Azure Dev Spaces on an existing namespace in an AKS cluster, run `use-dev-spaces` and use `kubectl` to restart all pods in that namespace.
+
+```console
+az aks get-credentials --resource-group MyResourceGroup --name MyAKS
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+kubectl -n my-namespace delete pod --all
+```
+
+After your pods have restarted, you can begin using your existing namespace with Azure Dev Spaces.

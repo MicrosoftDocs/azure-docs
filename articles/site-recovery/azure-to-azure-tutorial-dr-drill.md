@@ -22,7 +22,7 @@ This tutorial shows you how to run a disaster recovery drill for an Azure VM, fr
 > * Run a test failover for a single VM
 
 > [!NOTE]
-> This tutorial is intended to guide the user through the steps to perform a DR drill with minimal steps; in case you want to learn more about the various aspects associated with performing a DR drill, including networking considerations, automation or troubleshooting, refer to the documents under 'How To' for Azure VMs.
+> This tutorial helps you to perform a DR drill with minimal steps; in case you want to learn more about the various aspects associated with performing a DR drill, including networking considerations, automation or troubleshooting, refer to the documents under 'How To' for Azure VMs.
 
 ## Prerequisites
 
@@ -37,12 +37,11 @@ This tutorial shows you how to run a disaster recovery drill for an Azure VM, fr
 
 2. In **Test Failover**, Select a recovery point to use for the failover:
 
-   - **Latest processed**: Fails the VM over to the latest recovery point that was processed by the
-     Site Recovery service. The time stamp is shown. With this option, no time is spent processing
+    - **Latest**: Processes all the data in Site Recovery and provides the lowest RTO (Recovery Time Objective).
+    - **Latest processed**: Fails the VM over to the latest recovery point that was processed by Site Recovery. The time stamp is shown. With this option, no time is spent processing
      data, so it provides a low RTO (Recovery Time Objective)
-   - **Latest app-consistent**: This option fails over all VMs to the latest app-consistent
-     recovery point. The time stamp is shown.
-   - **Custom**: Select any recovery point.
+   - **Latest app-consistent**: This option fails over all VMs to the latest app-consistent recovery point. The time stamp is shown.
+   - **Custom**: Fail over to particular recovery point. Custom is only available when you fail over a single VM, and not for failover with a recovery plan.
 
 3. Select the target Azure virtual network to which Azure VMs in the secondary region will be
    connected, after the failover occurs.
