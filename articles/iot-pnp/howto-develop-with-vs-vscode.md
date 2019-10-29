@@ -134,7 +134,7 @@ To build the device code together with the device C SDK Vcpkg using CMake in a L
 1. Run the following commands to use CMake to build the device SDK and the generated code stub:
 
     ```bash
-    cmake .. -DCMAKE_TOOLCHAIN_FILE={directory of your Vcpkg repo}/scripts/buildsystems/vcpkg.cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
+    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}/scripts/buildsystems/vcpkg.cmake"
 
     cmake --build .
     ```

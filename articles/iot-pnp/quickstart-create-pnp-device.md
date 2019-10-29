@@ -99,7 +99,7 @@ In this quickstart, you prepare a development environment by installing the Azur
     .\bootstrap-vcpkg.bat
     ```
 
-    Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run (note: requires admin on first use)
+    Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run (note: requires admin on first use):
 
     ```cmd/sh
     .\vcpkg.exe integrate install
@@ -108,7 +108,7 @@ In this quickstart, you prepare a development environment by installing the Azur
 1. Install Azure IoT C device SDK Vcpkg:
 
     ```cmd/sh
-    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]:x64-windows
     ```
 
 ## Author your model
@@ -166,9 +166,9 @@ You build the generated device code stub together with the device SDK. The appli
 1. Run the following commands to build generated code stub:
 
     ```cmd\sh
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    cmake .. -G "Visual Studio 16 2019" -A "Win32" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
 
-    cmake --build . -- /m /p:Configuration=Release
+    cmake --build .
     ```
 
     > [!NOTE]
@@ -177,8 +177,7 @@ You build the generated device code stub together with the device SDK. The appli
 1. After the build completes successfully, run your application passing the IoT hub device connection string as parameter.
 
     ```cmd\sh
-    cd pnp_app\sample_device\Release\
-    sample_device.exe "[IoT Hub device connection string]"
+    .\Debug\sample_device.exe "[IoT Hub device connection string]"
     ```
 
 1. The device application starts sending data to IoT Hub.
