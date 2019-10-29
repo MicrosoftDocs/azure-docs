@@ -1,13 +1,13 @@
 ---
-title: Using CETAS in SQL Analytics #Required; update as needed page title displayed in search results. Include the brand.
-description: Using CETAS in SQL Analytics #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: filippopovic #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/21/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: fipopovi #Required; update with your microsoft alias of author; optional team alias.
+title: Using CETAS in SQL Analytics
+description: Using CETAS in SQL Analytics
+services: sql-data-warehouse
+author: filippopovic
+ms.service: sql-data-warehouse
+ms.topic: overview
+ms.subservice: design
+ms.date: 10/21/2019
+ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
@@ -70,7 +70,7 @@ You need to have permissions to list folder content and write to LOCATION folder
 
 Following examples uses CETAS to save total population aggregated by year and state to aggregated_data folder in population_ds datasource. 
 
-This sample relies on credential, data source and external file format previously created in [external tables](development-external-tables) document. If you want to save result of query to different folder in the same data source, change LOCATION argument. If you want to save results to different storage account, create and use different data source for DATA_SOURCE argument.
+This sample relies on credential, data source and external file format previously created in [external tables](development-tables-external-tables.md) document. If you want to save result of query to different folder in the same data source, change LOCATION argument. If you want to save results to different storage account, create and use different data source for DATA_SOURCE argument.
 
 > [!NOTE]
 > Samples below use public Azure Open Data storage account. It is read-only and you need to provide your data source you have write permissions for to be able to execute these queries.
@@ -96,7 +96,7 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-Following sample uses external table as source for CETAS. It relies on credential, data source, external file format and external table previously created in [external tables](development-external-tables) document. 
+Following sample uses external table as source for CETAS. It relies on credential, data source, external file format and external table previously created in [external tables](development-tables-external-tables.md) document. 
 
 ```sql
 -- use CETAS with select from external table
@@ -122,4 +122,4 @@ SELECT * FROM population_by_year_state
 
 ## Next steps
 
-You can try querying [Spark tables](development-storage-spark-tables.md).
+You can try querying [Spark tables](development-storage-files-spark-tables.md).
