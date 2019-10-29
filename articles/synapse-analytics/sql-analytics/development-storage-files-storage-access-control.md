@@ -22,7 +22,7 @@ SQL Analytics on-demand query reads files directly from Azure Storage. As storag
 
 User that logged into SQL Analytics on-demand must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
 
-- [Shared access signature (SAS)](#shared-access-signature--sas-)
+- [Shared access signature](#shared-access-signature)
 - [Managed Identity](#managed-identity)
 - [User Identity](#user-identity)
 
@@ -33,11 +33,11 @@ Depending on the user type, different authorization types are supported (or will
 
 | Authorization type                    | *SQL user*    | *AAD user*  |
 | ------------------------------------- | ------------- | ----------- |
-| [SAS](#shared-access-signature--sas-) | Supported     | Supported   |
+| [SAS](#shared-access-signature) | Supported     | Supported   |
 | [Managed Identity](#managed-identity) | Coming soon   | Coming soon |
 | [User Identity](#user-identity)       | Not supported | Supported   |
 
-### Shared access signature (SAS)
+### Shared access signature
 
 **SAS** provides delegated access to resources in storage account. With a SAS, customer can grant clients access to resources in storage account, without sharing account keys. A SAS gives you granular control
 over the type of access you grant to clients who have the SAS: validity interval, granted permissions, acceptable IP address range, acceptable protocol (https/http).
