@@ -156,7 +156,8 @@ The maximum number of instances that the function app can scale out to. Default 
 
 ## WEBSITE\_NODE\_DEFAULT_VERSION
 
-For function apps running on Windows only. The version of Node.js to use with this function app. A tilde with a major version means use the latest available version of that major version (for example, "~10"). When a major version is targeted with a tilde, the site's platform bitness is honored.
+_Windows only._  
+Sets the version of Node.js to use when running your function app on Windows. You should use a tilde (~) to have the runtime use the latest available version of the targeted major version. For example, when set to `~10`, the latest version of Node.js 10 is used. When a major version is targeted with a tilde, you don't have to manually update the minor version. 
 
 |Key|Sample value|
 |---|------------|
