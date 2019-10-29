@@ -26,8 +26,8 @@ If you use Spark in your data pipeline, for data preparation, cleansing or enric
 If you need to explore data in the data lake, gain insights from it or optimize your existing data transformation pipeline, you can benefit from using SQL Analytics on-demand. It is suitable for the following scenarios:
 
 - Basic discovery and exploration - Quickly reason about the data in various formats (Parquet, CSV, JSON) in your data lake, so you can plan how to extract insights from it.
-- Logical data warehouse – Provide a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up to date view of your data.
-- Data transformation - Simple, scalable and performant way to transform data in the lake using T-SQL, so it can fed to BI and other tools, or loaded into a relational data store (SQL Analytics databases, Azure SQL Database, etc.).
+- Logical data warehouse – Provide a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data.
+- Data transformation - Simple, scalable, and performant way to transform data in the lake using T-SQL, so it can fed to BI and other tools, or loaded into a relational data store (SQL Analytics databases, Azure SQL Database, etc.).
 
 Different professional roles can benefit from SQL Analytics on-demand:
 
@@ -60,13 +60,13 @@ SQL Analytics on-demand offers T-SQL querying surface area, which is slightly en
 - Databases - SQL Analytics on-demand endpoint can have multiple databases. 
 - Schemas - Within a database, there can be one or many object ownership groups called schemas. 
 - Views
-- External resources – data sources, file formats and tables
+- External resources – data sources, file formats, and tables
 
 Security can be enforced using:
 
 - Logins and users
 - Credentials to control access to storage accounts
-- Grant, deny and revoke permissions per object level
+- Grant, deny, and revoke permissions per object level
 - Azure Active Directory integration
 
 Supported T-SQL:
@@ -133,17 +133,15 @@ Authorization refers to what a user can do within a SQL Analytics on-demand data
 
 If SQL Authentication is used, SQL user exists only in SQL Analytics on-demand and permissions are scoped to the objects in SQL Analytics on-demand. Access to securable objects in other services (such as Azure Storage) can’t be granted to SQL user directly since it only exists in scope of SQL Analytics on-demand. The SQL user needs to use one of the [supported authorization types](development-storage-files-storage-access-control.md#supported-storage-authorization-types) to access the files.
 
-If AAD authentication is used, a user can login into SQL Analytics on-demand and other services, like Azure Storage, can grant permissions to the AAD user. 
+If AAD authentication is used, a user can log in into SQL Analytics on-demand and other services, like Azure Storage, can grant permissions to the AAD user. 
 
 ### Access to storage accounts
 
 A user that is logged into SQL Analytics on-demand service must be authorized to access and query the files in Azure Storage. SQL Analytics on-demand supports following authorization types:
 
-- **Shared access signature (SAS)
-  ** SAS provides delegated access to resources in storage account. With a SAS, you can grant clients access to resources in storage account, without sharing account keys. A SAS gives you granular control over the type of access you grant to clients who have the SAS: validity interval, granted permissions, acceptable IP address range, acceptable protocol (https/http).
+- **Shared access signature (SAS)** provides delegated access to resources in storage account. With a SAS, you can grant clients access to resources in storage account, without sharing account keys. A SAS gives you granular control over the type of access you grant to clients who have the SAS: validity interval, granted permissions, acceptable IP address range, acceptable protocol (https/http).
 
-- **User Identity**
-   User Identity (aka “pass-through”) is authorization type where the identity of the AAD user that logged into SQL Analytics on-demand is used to authorize the access to data. Before accessing the data, Azure Storage administrator must grant permissions to AAD user for accessing the data. This authorization type uses AAD user that logged into SQL Analytics on-demand, therefore it’s not supported for SQL user type.
+- **User Identity** (also known as “pass-through”) is authorization type where the identity of the AAD user that logged into SQL Analytics on-demand is used to authorize the access to data. Before accessing the data, Azure Storage administrator must grant permissions to AAD user for accessing the data. This authorization type uses AAD user that logged into SQL Analytics on-demand, therefore it’s not supported for SQL user type.
 
 - **Managed Identity (coming soon)**
 
