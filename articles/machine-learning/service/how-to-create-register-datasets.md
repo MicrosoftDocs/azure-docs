@@ -14,7 +14,7 @@ ms.date: 11/04/2019
 
 ---
 
-# Create and access datasets (preview) in Azure Machine Learning
+# Create and access datasets in Azure Machine Learning
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
