@@ -138,7 +138,7 @@ Forcing AAD pass-through is default behavior. To achieve this, special CREDENTIA
 > [!NOTE]
 > AAD pass-through is default behavior.
 
-In case you [disabled forcing AAD pass-through for each query](#disable-forcing-AAD-pass-through) and want to enable it again, execute:
+In case you [disabled forcing AAD pass-through for each query](#disable-forcing-aad-pass-through) and want to enable it again, execute:
 
 ```sql
 CREATE CREDENTIAL [UserIdentity]
