@@ -103,6 +103,8 @@
       href: storage-sync-files-deployment-guide.md
     - name: Configure File Sync proxy and firewall settings
       href: storage-sync-files-firewall-and-proxy.md
+    - name: SQL Server FCI with premium file shares
+      href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Mount
     items:
     - name: Use Azure Files with Windows
