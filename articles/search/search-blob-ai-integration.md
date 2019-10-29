@@ -6,7 +6,7 @@ description: Add semantic, natural language processing and image analysis to Azu
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
 ---
@@ -64,7 +64,7 @@ AI enrichment refers to modules that look for patterns or characteristics, and t
 
 In Azure Search, *skills* are the individual components of AI processing that you can use standalone, or in combination with other skills. 
 
-+ Built-in skills are backed by Cognitive Services, with image analysis based on Computer Vision, and natural language processing based on Text Analytics. For the complete list, see [Built-in skills for content enrichment](cognitive-search-predefined-skills.md).
++ Built-in skills are backed by Cognitive Services, with image analysis based on Computer Vision, and natural language processing based on Text Analytics. You can review the full list of built-in skills in [Predefined skills for content enrichment](cognitive-search-predefined-skills.md).
 
 + Custom skills are custom code, wrapped in an [interface definition](cognitive-search-custom-skill-interface.md) that allows for integration into the pipeline. In customer solutions, it's common practice to use both, with custom skills providing open-source, third-party, or first-party AI modules.
 

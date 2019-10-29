@@ -1,19 +1,20 @@
 ---
-title: Custom Web API skill in an enrichment pipeline
-titleSuffix: Azure Cognitive Search
-description: Extend capabilities of Azure Cognitive Search skillsets by calling out to Web APIs. Use the Custom Web API skill to integrate your custom code.
-
+title: Custom cognitive search skill - Azure Search
+description: Extend capabilities of cognitive search skillsets by calling out to Web APIs
+services: search
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
-ms.service: cognitive-search
+
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 05/02/2019
+ms.author: luisca
 ---
 
-# Custom Web API skill in an Azure Cognitive Search enrichment pipeline
+# Custom Web API skill
 
-The **Custom Web API** skill allows you to extend AI enrichment by calling out to a Web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
+The **Custom Web API** skill allows you to extend cognitive search by calling out to a Web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
 
 The structure of the JSON payloads are described further down in this document.
 
@@ -37,6 +38,7 @@ Parameters are case-sensitive.
 | httpHeaders | A collection of key-value pairs where the keys represent header names and values represent header values that will be sent to your Web API along with the payload. The following headers are prohibited from being in this collection:  `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
 | batchSize | (Optional) Indicates how many "data records" (see _JSON_ payload structure below) will be sent per API call. If not set, a default of 1000 is chosen. We recommend that you make use of this parameter to achieve a suitable tradeoff between indexing throughput and load on your API |
+| degreeOfParallelism | (Optional) When specified, indicates the number of calls the indexer will make in parallel to the endpoint you have provided. You can decrease this value if your endpoint is failing under too high of a request load, or raise it if your endpoint is able to accept more requests and you would like an increase in the performance of the indexer.  If not set, a default value of 5 is used. The degreeOfParallelism can be set to a maximum of 10 and a minimum of 1. |
 
 ## Skill inputs
 
@@ -199,5 +201,5 @@ For cases when the Web API is unavailable or returns a HTTP error, a friendly er
 
 + [Power Skills: a repository of custom skills](https://aka.ms/powerskills)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Add custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
-+ [Example: Creating a custom skill for AI enrichment(cognitive-search-create-custom-skill-example.md)
++ [Add custom skill to cognitive search](cognitive-search-custom-skill-interface.md)
++ [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)
