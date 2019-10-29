@@ -76,13 +76,21 @@ Run the following commands to get the _IoT hub connection string_ for your hub:
 az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
 ```
 
+Make a note of the device connection string, which looks like:
+
+```json
+HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={YourSharedAccessKey}
+```
+
+You'll use this value later in the quickstart.
+
 ## Prepare the development environment
 
 ### Get Azure IoT device SDK for C
 
 In this quickstart, you prepare a development environment by installing the Azure IoT C device SDK via [Vcpkg](https://github.com/microsoft/vcpkg).
 
-1. Open a command prompt. Execute the following command to install Vcpkg.
+1. Open a command prompt. Execute the following command to install Vcpkg:
 
     ```cmd/sh
     git clone https://github.com/Microsoft/vcpkg.git
@@ -97,25 +105,10 @@ In this quickstart, you prepare a development environment by installing the Azur
     .\vcpkg integrate install
     ```
 
-1. Install public preview release of Azure IoT C device SDK.
+1. Install Azure IoT C device SDK Vcpkg:
 
     ```cmd/sh
-    .\vcpkg install azure-iot-sdk-c[public-preview]
-    ```
-
-1. Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
-
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
-    ```
-
-    You should expect this operation to take several minutes to complete.
-
-1. Create a `pnp_app` subdirectory in the root of the local clone of the repository. You use this folder for the device model files and device code stub.
-
-    ```cmd/sh
-    cd azure-iot-sdk-c
-    mkdir pnp_app
+    .\vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
 ## Author your model
@@ -163,7 +156,7 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 
 You build the generated device code stub together with the device SDK. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. Create a cmake subdirectory in the device SDK root folder, and navigate to that folder:
+1. Create a `cmake` subdirectory in the folder contains the generated code stub, and navigate to that folder:
 
     ```cmd\sh
     mkdir cmake
@@ -173,7 +166,7 @@ You build the generated device code stub together with the device SDK. The appli
 1. Run the following commands to build generated code stub:
 
     ```cmd\sh
-    cmake .. -DCMAKE_TOOLCHAIN_FILE={Directory of your vcpkg repo}\scripts\buildsystems\vcpkg.cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
+    cmake .. -DCMAKE_TOOLCHAIN_FILE={directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
     cmake --build . -- /m /p:Configuration=Release
     ```
 

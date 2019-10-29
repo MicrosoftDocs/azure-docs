@@ -85,60 +85,63 @@ The following instructions describe how to use the generated code in your own de
 
 ### Linux
 
-To build the device code together with the device C SDK using CMake in a Linux environment such as Ubuntu or Debian:
+To build the device code together with the device C SDK Vcpkg using CMake in a Linux environment such as Ubuntu or Debian:
 
 1. Open a terminal application.
 
 1. Install **GCC**, **Git**, `cmake`, and all dependencies using the `apt-get` command:
 
-    ```sh
+    ```bash
     sudo apt-get update
     sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
     ```
 
     Verify the version of `cmake` is above **2.8.12** and the version of **GCC** is above **4.4.7**.
 
-    ```sh
+    ```bash
     cmake --version
     gcc --version
     ```
 
-1. Clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) repository:
+1. Install Vcpkg:
 
-    ```sh
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
+    ```bash
+    git clone https://github.com/Microsoft/vcpkg.git
+    cd vcpkg
+
+    ./bootstrap-vcpkg.sh
     ```
 
-    You should expect this operation to take several minutes to complete.
+    Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run:
 
-1. Copy the folder that contains the generated code into the device SDK root folder.
-
-1. In VS Code, open the `CMakeLists.txt` file in the device SDK root folder.
-
-1. Add the following line at the end of the `CMakeLists.txt` file to include the device code stub folder when you compile the SDK:
-
-    ```txt
-    add_subdirectory({generated_code_folder_name})
+    ```bash
+    ./vcpkg integrate install
     ```
 
-1. Create a folder called `cmake` in the device SDK root folder, and navigate to that folder.
+1. Install Azure IoT C device SDK Vcpkg:
 
-    ```sh
+    ```bash
+    ./vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
+    ```
+
+1. Create a `cmake` subdirectory in the folder contains the generated code stub, and navigate to that folder:
+
+    ```bash
     mkdir cmake
     cd cmake
     ```
 
 1. Run the following commands to use CMake to build the device SDK and the generated code stub:
 
-    ```cmd\sh
-    cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON ..
+    ```bash
+    cmake .. -DCMAKE_TOOLCHAIN_FILE={directory of your Vcpkg repo}/scripts/buildsystems/vcpkg.cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
+
     cmake --build .
     ```
 
 1. After the build succeeds, run the application specifying the IoT Hub device connection string as parameter.
 
-    ```cmd\sh
-    cd azure-iot-sdk-c/cmake/{generated_code_folder_name}/
+    ```bash
     ./{generated_code_project_name} "[IoT Hub device connection string]"
     ```
 
@@ -202,7 +205,7 @@ To build the device code together with the device C SDK on Windows using CMake a
 
 ### macOS
 
-The following steps show you how to build the device code together with the device C SDK on macOS using CMake:
+The following steps show you how to build the device code together with the device C SDK source code on macOS using CMake:
 
 1. Open terminal application.
 
@@ -221,7 +224,7 @@ The following steps show you how to build the device code together with the devi
 
 1. [Patch CURL](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#upgrade-curl-on-mac-os) to the latest version available.
 
-1. Clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) repository:
+1. In the folder that contains the generated code, clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) repository:
 
     ```bash
     git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
@@ -229,17 +232,7 @@ The following steps show you how to build the device code together with the devi
 
     You should expect this operation to take several minutes to complete.
 
-1. Copy the folder that contains the generated code into the device SDK root folder.
-
-1. In VS Code, open the `CMakeLists.txt` file in the device SDK root folder.
-
-1. Add the following line at the end of the `CMakeLists.txt` file to include the device code stub folder when you compile the SDK:
-
-    ```txt
-    add_subdirectory({generated_code_folder_name})
-    ```
-
-1. Create a folder called `cmake` in the device SDK root folder, and navigate to that folder.
+1. Create a folder called `cmake` under the folder that contains the generated code, and navigate to that folder.
 
     ```bash
     mkdir cmake
@@ -256,7 +249,7 @@ The following steps show you how to build the device code together with the devi
 1. After the build succeeds, run the application specifying the IoT Hub device connection string as parameter.
 
     ```bash
-    cd azure-iot-sdk-c/cmake/{generated_code_folder_name}/
+    cd {generated_code_folder_name}/cmake/
     ./{generated_code_project_name} "[IoT Hub device connection string]"
     ```
 
