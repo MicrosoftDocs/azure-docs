@@ -30,9 +30,9 @@ You can access your Azure Data Explorer cluster using the following IP addresses
 
 The following DNS records are created to access the service: 
 
-* `[clustername].[geo-region].kusto.windows.net` (Engine) `ingest-[clustername].[geo-region].kusto.windows.net` (Data Management) are mapped to the public IP for each service. 
+* `[clustername].[geo-region].kusto.windows.net` (engine) `ingest-[clustername].[geo-region].kusto.windows.net` (data management) are mapped to the public IP for each service. 
 
-* `private-[clustername].[geo-region].kusto.windows.net` (Engine) `private-ingest-[clustername].[geo-region].kusto.windows.net` (Data Management) are mapped to the private IP for each service.
+* `private-[clustername].[geo-region].kusto.windows.net` (engine) `private-ingest-[clustername].[geo-region].kusto.windows.net` (data management) are mapped to the private IP for each service.
 
 ## Plan subnet size in your VNet
 
@@ -248,6 +248,6 @@ For example, for **West US** region, the following UDRs must be defined:
 
 ## Deploy Azure Data Explorer cluster into your VNet using an ARM template
 
-To deploy Azure Data Explorer cluster into your virtual network use the [Deploy Azure Data Explorer cluster into your VNet](https://azure.microsoft.com/en-us/resources/templates/101-kusto-vnet/) template.
+To deploy Azure Data Explorer cluster into your virtual network use the [Deploy Azure Data Explorer cluster into your VNet](https://azure.microsoft.com/resources/templates/101-kusto-vnet/) template.
 
 This template creates the cluster, virtual network, subnet, network security group, and public ip addresses.
