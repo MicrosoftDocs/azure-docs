@@ -106,7 +106,7 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 az role definition list --name "<roleName>" | grep name
 ```
 > [!TIP]
-> We recommend assigning the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) when onboarding a customer, so that users in your tenant can [remove the delegation](#remove-access-to-a-delegation) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
+> We recommend assigning the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) when onboarding a customer, so that users in your tenant can [remove access to the delegation](#remove-access-to-a-delegation) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
 
 ## Create an Azure Resource Manager template
 
