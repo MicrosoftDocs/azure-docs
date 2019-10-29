@@ -28,7 +28,7 @@ By default, for queries ran by AAD users, storage accounts will be accessed usin
 
 In order to enable smooth experience for in place querying of data residing in files in Azure Storage, SQL Analytics on-demand uses [OPENROWSET](development-openrowset.md) function with additional capabilities:
 
-- [Querying multiple files/folders](#querying-multiple-files-folders)
+- [Querying multiple files/folders](#querying-multiple-files/folders)
 - [PARQUET file format](#parquet-file-format)
 - [Additional options for working with delimited text (field terminator, row terminator, escape char)](#additional-options-for-working-with-delimited-text)
 - [Reading a chosen subset of columns](#reading-a-chosen-subset-of-columns)
