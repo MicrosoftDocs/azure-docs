@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/25/2019
 ms.author: jingwang
 
 ---
@@ -71,7 +71,7 @@ The following properties are supported for the Dynamics linked service.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **Dynamics**. | Yes |
+| type | The type property must be set to **Dynamics**, **DynamicsCrm**, or **CommonDataServiceForApps**. | Yes |
 | deploymentType | The deployment type of the Dynamics instance. It must be **"Online"** for Dynamics online. | Yes |
 | serviceUri | The service URL of your Dynamics instance, e.g. `https://adfdynamics.crm.dynamics.com`. | Yes |
 | authenticationType | The authentication type to connect to a Dynamics server. Specify **"Office365"** for Dynamics online. | Yes |
@@ -114,7 +114,7 @@ The following properties are supported for the Dynamics linked service.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **Dynamics**. | Yes |
+| type | The type property must be set to **Dynamics**, **DynamicsCrm**, or **CommonDataServiceForApps**. | Yes |
 | deploymentType | The deployment type of the Dynamics instance. It must be **"OnPremisesWithIfd"** for Dynamics on-premises with IFD.| Yes |
 | hostName | The host name of the on-premises Dynamics server. | Yes |
 | port | The port of the on-premises Dynamics server. | No, default is 443 |
@@ -156,17 +156,12 @@ The following properties are supported for the Dynamics linked service.
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Dynamics dataset.
 
-To copy data from and to Dynamics, set the type property of the dataset to **DynamicsEntity**. The following properties are supported.
+To copy data from and to Dynamics, the following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to **DynamicsEntity**. |Yes |
+| type | The type property of the dataset must be set to **DynamicsEntity**, **DynamicsCrmEntity**, or **CommonDataServiceForAppsEntity**. |Yes |
 | entityName | The logical name of the entity to retrieve. | No for source (if "query" in the activity source is specified), Yes for sink |
-
-> [!IMPORTANT]
->- When you copy data from Dynamics, the "structure" section is optional but highly recommanded in the Dynamics dataset to ensure a deterministic copy result. It defines the column name and data type for Dynamics data that you want to copy over. To learn more, see [Dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) and [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
->- When importing schema in authoring UI, ADF infer the schema by sampling the top rows from the Dynamics query result to initialize the structure construction, in which case columns with no values will be omitted. The same behavior applies to copy executions if there is no explicit structure definition. You can review and add more columns into the Dynamics dataset schema/structure as needed, which will be honored during copy runtime.
->- When you copy data to Dynamics, the "structure" section is optional in the Dynamics dataset. Which columns to copy into are determined by the source data schema. If your source is a CSV file without a header, in the input dataset, specify the "structure" with the column name and data type. They map to fields in the CSV file one by one in order.
 
 **Example:**
 
@@ -175,24 +170,7 @@ To copy data from and to Dynamics, set the type property of the dataset to **Dyn
     "name": "DynamicsDataset",
     "properties": {
         "type": "DynamicsEntity",
-        "structure": [
-            {
-                "name": "accountid",
-                "type": "Guid"
-            },
-            {
-                "name": "name",
-                "type": "String"
-            },
-            {
-                "name": "marketingonly",
-                "type": "Boolean"
-            },
-            {
-                "name": "modifiedon",
-                "type": "Datetime"
-            }
-        ],
+        "schema": [],
         "typeProperties": {
             "entityName": "account"
         },
@@ -210,15 +188,19 @@ For a full list of sections and properties available for defining activities, se
 
 ### Dynamics as a source type
 
-To copy data from Dynamics, set the source type in the copy activity to **DynamicsSource**. The following properties are supported in the copy activity **source** section.
+To copy data from Dynamics, the following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to **DynamicsSource**. | Yes |
+| type | The type property of the copy activity source must be set to **DynamicsSource**, **DynamicsCrmSource**, or **CommonDataServiceForAppsSource**. | Yes |
 | query | FetchXML is a proprietary query language that is used in Dynamics (online and on-premises). See the following example. To learn more, see [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | No (if "entityName" in the dataset is specified) |
 
 >[!NOTE]
 >The PK column will always be copied out even if the column projection you configure in the FetchXML query doesn't contain it.
+
+> [!IMPORTANT]
+>- When you copy data from Dynamics, explicit column mapping from Dynamics to sink is optional but highly recommanded to ensure a deterministic copy result.
+>- When importing schema in authoring UI, ADF infers the schema by sampling the top rows from the Dynamics query result to initialize the source column list, in which case columns with no values in top rows will be omitted. The same behavior applies to copy executions if there is no explicit mapping. You can review and add more columns into the mapping, which will be honored during copy runtime.
 
 **Example:**
 
@@ -274,12 +256,13 @@ To copy data from Dynamics, set the source type in the copy activity to **Dynami
 
 ### Dynamics as a sink type
 
-To copy data to Dynamics, set the sink type in the copy activity to **DynamicsSink**. The following properties are supported in the copy activity **sink** section.
+To copy data to Dynamics, the following properties are supported in the copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity sink must be set to **DynamicsSink**. | Yes |
+| type | The type property of the copy activity sink must be set to **DynamicsSink**, **DynamicsCrmSink**, or **CommonDataServiceForAppsSink**. | Yes |
 | writeBehavior | The write behavior of the operation.<br/>Allowed value is **"Upsert"**. | Yes |
+| alternateKeyName | Specify the alternate key name defined on your entity to perform "Upsert". | No |
 | writeBatchSize | The row count of data written to Dynamics in each batch. | No (default is 10) |
 | ignoreNullValues | Indicates whether to ignore null values from input data (except key fields) during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert/update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert/update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
 

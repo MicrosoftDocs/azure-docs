@@ -3,7 +3,7 @@ title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
 ---
@@ -29,7 +29,7 @@ from related resource types. Here is the list of tables available in Resource Gr
 |Resource Graph tables |Description |
 |---|---|
 |Resources |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
-|ResourceContainers |Includes subscription (`Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
+|ResourceContainers |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
 |AlertsManagementResources |Includes resources _related_ to `Microsoft.AlertsManagement`. |
 |SecurityResources |Includes resources _related_ to `Microsoft.Security`. |
 
@@ -62,8 +62,8 @@ the name of the key vault, and the name of the subscription it's in.
 
 ```kusto
 Resources
-| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | where type == 'microsoft.keyvault/vaults'
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | project type, name, SubName
 | limit 1
 ```

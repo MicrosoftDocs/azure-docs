@@ -1,6 +1,6 @@
 ---
-title: Schema reference for Workflow Definition Language - Azure Logic Apps
-description: Reference guide for Workflow Definition Language schema in Azure Logic Apps
+title: Schema for Workflow Definition Language - Azure Logic Apps
+description: Schema reference for the Workflow Definition Language in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 05/13/2019
 ---
 
-# Schema reference for Workflow Definition Language in Azure Logic Apps
+# Schema reference guide for the Workflow Definition Language in Azure Logic Apps
 
 When you create a logic app in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
 your logic app has an underlying workflow definition that 
