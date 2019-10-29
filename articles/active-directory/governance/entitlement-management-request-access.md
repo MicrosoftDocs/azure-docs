@@ -84,6 +84,29 @@ If you request access to an access package that has multiple policies that apply
 
 ![My Access portal - Request access - multiple policies](./media/entitlement-management-request-access/my-access-multiple-policies.png)
 
+## Resubmit a request
+
+You may submit an access request to an access package and your request is denied or your access request timed-out before you received access, but you still need access. You have the option to resubmit the access request. The following procedure explains how to resubmit and access request:
+
+**Prerequisite role:** Requestor
+
+1. Log in to the **My Access** portal.
+1. Click **Request history** from the navigation menu to the left.
+    
+    ![Select request history](./media/entitlement-management-request-access/resubmit-request-select-request-history.png)
+
+1. Find the access package for which you are resubmitting a request.
+1. When you find the access package, click the bubble next to it.
+1. Click the blue **View** link to the right of the selected access package.
+    
+    ![Select access package and view link](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+
+1. A pane will open to the right with the request history for the access package.
+    
+    ![Select resubmit button](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+
+1. Click the **resubmit** button at the bottom of the pane.
+
 ## Cancel a request
 
 If you submit an access request and the request is still in the **pending approval** state, you can cancel the request.
