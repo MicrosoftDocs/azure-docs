@@ -11,7 +11,7 @@ description: "Review and test changes from a pull request directly in Azure Kube
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, GitHub Actions, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Preview - GitHub Actions & Azure Kubernetes Service
+# GitHub Actions & Azure Kubernetes Service (preview)
 
 Azure Dev Spaces provides a workflow using GitHub Actions that allows you to test changes from a pull request directly in AKS before the pull request is merged into your repository’s main branch. Having a running application to review changes of a pull request can increase the confidence of both the developer as well as team members. This running application can also help team members such as, product managers and designers, become part of the review process during early stages of development.
 
