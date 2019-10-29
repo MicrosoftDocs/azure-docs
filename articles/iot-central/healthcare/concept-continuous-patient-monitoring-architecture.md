@@ -11,6 +11,9 @@ manager: eliotgra
 ---
 
 # Continuous patient monitoring architecture
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 Continuous patient monitoring solutions can be built by leveraging the app template provided and using the architecture outlined below as guidance.
 
 >[!div class="mx-imgBorder"] 
