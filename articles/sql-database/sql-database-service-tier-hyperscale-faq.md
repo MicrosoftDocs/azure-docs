@@ -40,9 +40,9 @@ The vCore-based service tiers are differentiated based on database availability 
 | **Compute size**|Single database / elastic pool * | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
 | |Managed instance | 8, 16, 24, 32, 40, 64, 80  vCores | N/A | 8, 16, 24, 32, 40, 64, 80  vCores |
 | **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
-| **Storage size** | Single database / elastic pool | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
+| **Storage size** | Single database / elastic pool *| 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
 | | Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **IOPS** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
+| **IOPS** | Single database | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
 | | Managed instance | Depends on file size | N/A | 1375 IOPS/vCore |
 |**Availability**|All|1 replica, no Read Scale-out, no local cache | Multiple replicas, up to 4 Read Scale-out, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
 |**Backups**|All|RA-GRS, 7-35 day retention (7 days by default)| RA-GRS, 7 day retention, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 day retention (7 days by default) |
