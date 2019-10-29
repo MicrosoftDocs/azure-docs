@@ -58,23 +58,27 @@ You can customize the content of the portal with the visual editor. The menu sec
 
 ### Layouts and pages
 
-TODO: image
+![Pages and layouts](media/api-management-howto-developer-portal-customize/pages-layouts.png)
 
 Layouts define how pages are displayed. For example, in the default content, there are two layouts with top navigation bars and footers - one applies to the landing page, and the other to all other pages.
 
 A layout gets applied to a page by matching its URL template to the page's URL. For example, layout with a URL template of `/wiki/*` will be applied to every page with the `/wiki/` segment: `/wiki/getting-started`, `/wiki/styles`, etc.
 
+In the image above, content belonging to the layout is marked in blue, while the page is marked in red. The menu sections are marked respectively.
+
 ### Styling guide
 
-TODO: image
+![Styling guide](media/api-management-howto-developer-portal-customize/pages-layouts.png)
 
-Styling guide is a panel created with designers in mind. It allows for styling all the visual elements and creating their variants. 
+Styling guide is a panel created with designers in mind. It allows for overseeing and styling all the visual elements in your portal. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background; if you'd like to change a button's color, you need to change the original color variant.
+
+To edit a variant, click on it and select the pencil icon that appears on top of it. Once you make the changes in the pop-up window, close it.
 
 ### Save button
 
 ![Save button](media/api-management-howto-developer-portal-customize/save-button.png)
 
-Whenever you make a change in the portal, you need to save it manually by pressing the **Save** button (floppy disk) in the menu on the bottom. When you click the button, the modified content is automatically uploaded to your API Management service.
+Whenever you make a change in the portal, you need to save it manually by pressing the **Save** button (floppy disk) in the menu on the bottom before you navigate to another page. When you save your changes, the modified content is automatically uploaded to your API Management service.
 
 ### Demonstration
 
@@ -101,7 +105,7 @@ TODO
 
 ![Publish portal](media/api-management-howto-developer-portal-customize/publish-portal.png)
 
-To make your portal and its latest changes available to visitors, you need to publish it. This operation takes a few moments.
+To make your portal and its latest changes available to visitors, you need to publish it. Click on **Publish website** in the **Operations** section of the menu. This operation may take a few minutes.
 
 ## Step 5: visit the portal
 
