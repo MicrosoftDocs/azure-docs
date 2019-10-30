@@ -54,7 +54,7 @@ Application Gateway Ingress Controller (AGIC) allows you to use Application Gate
 
 The ingress controller runs as a pod within the AKS cluster and consumes [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) and converts them to an Application Gateway configuration which allows the gateway to load-balance traffic to the Kubernetes pods. The ingress controller only supports Application Gateway V2 SKU. 
 
-For more information, see [Application Gateway Ingress Controller (AGIC)](application-gateway-ingress-controller-overview.md).
+For more information, see [Application Gateway Ingress Controller (AGIC)](ingress-controller-overview.md).
 
 ## URL-based routing
 

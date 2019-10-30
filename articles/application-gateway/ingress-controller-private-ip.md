@@ -19,7 +19,7 @@ Application Gateway with a [Private IP configuration](https://docs.microsoft.com
 There are two ways to configure the controller to use Private IP for ingress,
 
 ## Assign to a particular ingress
-To expose a particular ingress over Private IP, use annotation [`appgw.ingress.kubernetes.io/use-private-ip`](./application-gateway-ingress-controller-annotations.md#use-private-ip) in Ingress.
+To expose a particular ingress over Private IP, use annotation [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) in Ingress.
 
 ### Usage
 ```yaml

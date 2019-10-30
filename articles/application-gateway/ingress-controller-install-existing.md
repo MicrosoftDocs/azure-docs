@@ -240,7 +240,7 @@ In the first few steps we install Helm's Tiller on your Kubernetes cluster. Use 
 
 1. Check the log of the newly created pod to verify if it started properly
 
-Refer to [this how-to guide](application-gateway-ingress-controller-expose-service-over-http-https.md) to understand how you can expose an AKS service over HTTP or HTTPS, to the internet, using an Azure Application Gateway.
+Refer to [this how-to guide](ingress-controller-expose-service-over-http-https.md) to understand how you can expose an AKS service over HTTP or HTTPS, to the internet, using an Azure Application Gateway.
 
 
 

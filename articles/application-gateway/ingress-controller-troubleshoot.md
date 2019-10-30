@@ -194,7 +194,7 @@ The following must be in place for AGIC to function as expected:
 
 * Get the existing namespaces in Kubernetes cluster. What namespace is your app
 running in? Is AGIC watching that namespace? Refer to the
-[Multiple Namespace Support](./application-gateway-ingress-controller-multiple-namespace-support.md#enable-multiple-namespace-support)
+[Multiple Namespace Support](./ingress-controller-multiple-namespace-support.md#enable-multiple-namespace-support)
 documentation on how to properly configure observed namespaces.
 
     ```bash

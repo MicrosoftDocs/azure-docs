@@ -349,5 +349,5 @@ kubectl apply -f aspnetapp.yaml
 
 
 ## Other Examples
-This [how-to guide](application-gateway-ingress-controller-expose-service-over-http-https.md) contains more examples on how to expose an AKS
+This [how-to guide](ingress-controller-expose-service-over-http-https.md) contains more examples on how to expose an AKS
 service via HTTP or HTTPS, to the Internet with Application Gateway.

@@ -34,7 +34,7 @@ AGIC is able to handle multiple namespaces and has ProhibitedTargets, which mean
 
 ### Next Steps
 
-- [**Greenfield Deployment**](application-gateway-ingress-controller-install-new.md): Instructions on installing AGIC, AKS, and Application Gateway on
+- [**Greenfield Deployment**](ingress-controller-install-new.md): Instructions on installing AGIC, AKS, and Application Gateway on
 blank-slate infrastructure.
-- [**Brownfield Deployment**](application-gateway-ingress-controller-install-existing.md): Install AGIC on an existing AKS and Application Gateway.
+- [**Brownfield Deployment**](ingress-controller-install-existing.md): Install AGIC on an existing AKS and Application Gateway.
 
