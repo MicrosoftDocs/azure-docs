@@ -202,37 +202,13 @@ determine the reason a resource is **non-compliant** or to find the change respo
 
 ## Command line
 
-The same information available in the portal can be retrieved with the REST API (including with [ARMClient](https://github.com/projectkudu/ARMClient))
-or Azure PowerShell. For full details on the REST API, see the [Azure Policy Insights](/rest/api/policy-insights/)
+The same information available in the portal can be retrieved with the REST API (including with
+[ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell, and Azure CLI (preview).
+For full details on the REST API, see the [Azure Policy Insights](/rest/api/policy-insights/)
 reference. The REST API reference pages have a green 'Try It' button on each operation that allows
 you to try it right in the browser.
 
-To use the following examples in Azure PowerShell, construct an authentication token with this
-example code. Then replace the $restUri with the string in the examples to retrieve a JSON object
-that can then be parsed.
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-
-$azContext = Get-AzContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token.AccessToken
-}
-
-# Define the REST API to communicate with
-# Use double quotes for $restUri as some endpoints take strings passed in single quotes
-$restUri = "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04"
-
-# Invoke the REST API
-$response = Invoke-RestMethod -Uri $restUri -Method POST -Headers $authHeader
-
-# View the response object (as JSON)
-$response
-```
+Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
 
 ### Summarize results
 
