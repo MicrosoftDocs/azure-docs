@@ -25,11 +25,11 @@ ms.collection: M365-identity-device-management
 
 In this quickstart, you expose a Web API and protect it so that only authenticated user can access it. This sample shows how to expose a ASP.NET Web API so it can accept tokens issued by personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory.
 
-The sample also include a Windows Desktop application (WPF) client that demonstrate how you can request an access token to access a Web APIs.
+The sample also includes a Windows Desktop application (WPF) client that demonstrates how you can request an access token to access a Web API.
 
 ## Prerequisites
 
-To run this sample you will need the following:
+To run this sample, you will need the following:
 
 * Visual Studio 2017 or 2019.  Download [Visual Studio for free](https://www.visualstudio.com/downloads/).
 
@@ -52,7 +52,7 @@ Or, you can [download the sample as a ZIP file](https://github.com/AzureADQuickS
 If you want to register your apps manually, as a first step you'll need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
-1. If your account is present in more than one Azure AD tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory**.
+1. If your account is present in more than one Azure AD tenant, select your profile at the top-right corner in the menu on top of the page, and then **switch directory**.
    Change your portal session to the desired Azure AD tenant.
 
 ### Register the service app (TodoListService)
@@ -81,21 +81,21 @@ If you want to register your apps manually, as a first step you'll need to:
 ### Configure your *TodoListService* and *TodoListClient* projects to match the Web API you just registered
 
 1. Open the solution in Visual Studio and then open the **Web.config** file under the root of **TodoListService** project.
-1. Replace the value of `ida:ClientId` parameter with the **Client ID (Application Id)** from the application you just registered in the Application Registration Portal.
+1. Replace the value of `ida:ClientId` parameter with the **Client ID (Application ID)** from the application you just registered in the Application Registration Portal.
 
 ### Add the new scope to the *TodoListClient*`s app.config
 
-1. Open the **app.config** file located in **TodoListClient** project's root folder and then paste **Application Id** from the application you just registered for your *TodoListService* under `TodoListServiceScope` parameter, replacing the string `{Enter the Application Id of your TodoListService from the app registration portal}`.
+1. Open the **app.config** file located in **TodoListClient** project's root folder and then paste **Application ID** from the application you just registered for your *TodoListService* under `TodoListServiceScope` parameter, replacing the string `{Enter the Application ID of your TodoListService from the app registration portal}`.
 
    > Note: Make sure it uses the following format:
    >
-   > `api://{TodoListService-Application-Id}/access_as_user` 
+   > `api://{TodoListService-Application-ID}/access_as_user` 
    >
-   >(where {TodoListService-Application-Id} is the Guid representing the Application Id for your TodoListService).
+   >(where {TodoListService-Application-ID} is the GUID representing the Application ID for your TodoListService).
 
 ## Register the client app (TodoListClient)
 
-In this step, you configure your *TodoListClient* project by registering a new application in the Application registration portal. In the cases where the client and server are considered *the same application* you may also just reuse the same application registered in the 'Step 2.'. Using the same application is actually needed if you want users to sign-in with Microsoft personal accounts
+In this step, you configure your *TodoListClient* project by registering a new application in the Application registration portal. In the cases where the client and server are considered *the same application* you may also just reuse the same application registered in the 'Step 2.'. Using the same application is needed if you want users to sign in with Microsoft personal accounts
 
 ### Register the *TodoListClient* application in the *Application registration portal*
 
@@ -117,19 +117,19 @@ In this step, you configure your *TodoListClient* project by registering a new a
 
 ### Configure your *TodoListClient* project
 
-1. In the *Application registration portal*, in the **Overview** page copy the value of the **Application (client) Id**
+1. In the *Application registration portal*, in the **Overview** page copy the value of the **Application (client) ID**
 1. Open the **app.config** file located in the **TodoListClient** project's root folder and then paste the value in the `ida:ClientId` parameter value
 
 ## Run your project
 
 1. Press `<F5>` to run your project. Your *TodoListClient* should open.
-1. Select **Sign in** in the top right and sign in with the same user you have used to register your application, or a user in the same directory.
+1. Select **Sign in** at the top right and sign in with the same user you have used to register your application, or a user in the same directory.
 1. At this point, if you are signing in for the first time, you may be prompted to consent to *TodoListService* Web Api.
 1. The sign-in also request the access token to the *access_as_user* scope to access *TodoListService* Web Api and manipulate the *To-Do* list.
 
 ## Pre-authorize your client application
 
-One of the ways to allow users from other directories to access your Web API is by *pre-authorizing* the client applications to access your Web API by adding the Application Ids from client applications in the list of *pre-authorized* applications for your Web API. By adding a pre-authorized client, you will not require user to consent to use your Web API. Follow the steps below to pre-authorize your Web Application::
+One of the ways to allow users from other directories to access your Web API is by *pre-authorizing* the client applications to access your Web API by adding the Application IDs from client applications in the list of *pre-authorized* applications for your Web API. By adding a pre-authorized client, you will not require user to consent to use your Web API. Follow the steps below to pre-authorize your Web Application::
 
 1. Go back to the *Application registration portal* and open the properties of your **TodoListService**.
 1. In the **Expose an API** section, click on **Add a client application** under the *Authorized client applications* section.
@@ -140,11 +140,11 @@ One of the ways to allow users from other directories to access your Web API is 
 ##  Run your project
 
 1. Press `<F5>` to run your project. Your *TodoListClient* should open.
-1. Select **Sign in** in the top right (or Clear Cache/Sign-in) and then sign-in either using a personal Microsoft account (live.com or hotmail.com) or work or school account.
+1. Select **Sign in** at the top right (or Clear Cache/Sign-in) and then sign-in either using a personal Microsoft account (live.com or hotmail.com) or work or school account.
 
 ## Optional: Restrict sign-in access to your application
 
-By default, when you download this code sample and configure the application to use the Azure Active Directory v2 endpoint following the preceeding steps, both personal accounts - like outlook.com, live.com, and others - as well as Work or school accounts from any organizations that are integrated with Azure AD can request tokens and access your Web API. 
+By default, when you download this code sample and configure the application to use the Azure Active Directory v2 endpoint following the preceding steps, both personal accounts - like outlook.com, live.com, and others - as well as Work or school accounts from any organizations that are integrated with Azure AD can request tokens and access your Web API. 
 
 To restrict who can sign in to your application, use one of the options:
 
@@ -153,7 +153,7 @@ To restrict who can sign in to your application, use one of the options:
 You can restrict sign-in access for your application to only user accounts that are in a single Azure AD tenant - including *guest accounts* of that tenant. This scenario is a common for *line-of-business applications*:
 
 1. Open the **App_Start\Startup.Auth** file, and change the value of the metadata endpoint that's passed into the `OpenIdConnectSecurityTokenProvider` to `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"` (you can also use the Tenant Name, such as `contoso.onmicrosoft.com`).
-2. In the same file, set the `ValidIssuer` property on the `TokenValidationParameters` to `"https://sts.windows.net/{Tenant Id}/"` and the `ValidateIssuer` argument to `true`.
+2. In the same file, set the `ValidIssuer` property on the `TokenValidationParameters` to `"https://sts.windows.net/{Tenant ID}/"` and the `ValidateIssuer` argument to `true`.
 
 ### Option 2: Use a custom method to validate issuers
 
