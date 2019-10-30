@@ -151,18 +151,8 @@ There are several ways that you can configure entitlement management for your or
 
 ### Administrator: View resources assigned to users
 
-- [View User assignments report](entitlement-management-reports.md)
-
-## Access reviews
-
-### Access package manager: Recertify access to resources
-
-1. Create an access review for the access package
-1. Review access to the access package
-
-### Requestor: Review access
-
-- Review access for yourself
+1. [View access packages for a user](entitlement-management-reports.md#view-access-packages-for-a-user)
+1. [View resource assignments for a user](entitlement-management-reports.md#view-resource-assignments-for-a-user)
 
 ## Next steps
 
