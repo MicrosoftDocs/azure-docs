@@ -93,6 +93,8 @@
       href: security-center-policy-definitions.md 
     - name: Create custom security policies
       href: custom-security-policies.md
+    - name: Manage policies with Azure Policy's REST API
+      href: configure-security-policy-azure-policy.md
   - name: Add dynamic compliance packages
     href: update-regulatory-compliance-packages.md
   - name: Customize the information protection policy

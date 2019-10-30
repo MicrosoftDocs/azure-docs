@@ -36,9 +36,9 @@ With this preview feature, you can add your own *custom* initiatives. You'll the
 
     The following page appears:
 
-    ![test](media/custom-security-policies/create-or-add-custom-policy.png)
+    ![Create or add a policy](media/custom-security-policies/create-or-add-custom-policy.png)
 
-1. In the Add custom initiatives page, review the list of custom policies already created in your organization. If you see one you want to add to your subscription, click **Add**. If there isn't an initiative in the list that meets your needs, skip this step.
+1. In the Add custom initiatives page, review the list of custom policies already created in your organization. If you see one you want to assign to your subscription, click **Add**. If there isn't an initiative in the list that meets your needs, skip this step.
 
 1. To create a new custom initiative:
 
@@ -48,7 +48,7 @@ With this preview feature, you can add your own *custom* initiatives. You'll the
     1. Enter any desired parameters.
     1. Click **Save**.
     1. In the Add custom initiatives page, click refresh and your new initiative will be shown as available.
-    1. Click **Add** to add it to your subscription.
+    1. Click **Add** and assign it to your subscription.
 
     > [!NOTE]
     > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Azure Security Center](security-center-permissions.md).
