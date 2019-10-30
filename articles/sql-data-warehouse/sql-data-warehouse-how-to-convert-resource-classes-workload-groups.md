@@ -13,10 +13,10 @@ ms.reviewer: igorstan
 ---
 
 # Convert Resource Classes to Workload Groups
-Workload groups provide a mechanism to isolate and contain system resources.  Additionally, workload groups allow you to set execution rules for the requests running in them.  A query timeout execution rule allows runaway queries to be cancelled without user intervention.  This article explains how to take an existing resource class and create a workload group with a similar configuration and add an optional query timeout rule.
+Workload groups provide a mechanism to isolate and contain system resources.  Additionally, workload groups allow you to set execution rules for the requests running in them.  A query timeout execution rule allows runaway queries to be canceled without user intervention.  This article explains how to take an existing resource class and create a workload group with a similar configuration.  In addition, an optional query timeout rule is added.
 
 ## Understanding the existing resource class configuration
-Workload groups require a parameter called `REQUEST_MIN_RESOURCE_GRANT_PERCENT` that specifies the percentage of overall system resources allocated per request.  This is done for [resource class](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#what-are-resource-classes) by allocating concurrency slots.  To determine the value to specify for `REQUEST_MIN_RESOURCE_GRANT_PERCENT` use the sys.dm_workload_management_workload_groups_stats <link tbd> DMV.  For example, the below query query returns a value that can be used for the `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parameter to create a workload group similar to staticrc40.   
+Workload groups require a parameter called `REQUEST_MIN_RESOURCE_GRANT_PERCENT` that specifies the percentage of overall system resources allocated per request.  Resource allocation is done for [resource classes](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#what-are-resource-classes) by allocating concurrency slots.  To determine the value to specify for `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, use the sys.dm_workload_management_workload_groups_stats <link tbd> DMV.  For example, the below query query returns a value that can be used for the `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parameter to create a workload group similar to staticrc40.   
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent
@@ -27,12 +27,12 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 > [!NOTE]
 > Workload groups operate based on percentage of overall system resources.  
 
-Because workload groups operate based on percentage of overall system resources.  As you scale up and down the percentage of resources allocated to static resource classes relative to the overall system resources changes.  For example, staticrc40 at DW1000c allocates 9.6% of the overall system resources.  At DW2000c 19.2% are allocated.  This model is similar if you wish to scale up for concurrency versus allocating more resources per request.   
+Because workload groups operate based on percentage of overall system resources, as you scale up and down, the percentage of resources allocated to static resource classes relative to the overall system resources changes.  For example, staticrc40 at DW1000c allocates 9.6% of the overall system resources.  At DW2000c, 19.2% are allocated.  This model is similar if you wish to scale up for concurrency versus allocating more resources per request.   
 
 ## Create Workload Group
 With the known `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, you can use the CREATE WORKLOAD GROUP <link> syntax to create the workload group.  You can optionally specify a `MIN_PERCENTAGE_RESOURCE` that is greater than zero to isolate resources for the workload group.  Also, you can optionally specify `CAP_PERCENTAGE_RESOURCE` less than 100 to limit the amount of resources the workload group can consume.  
 
-The below example sets the `MIN_PERCENTAGE_RESOURCE` to dedicate 9.6% of the system resources to `wgDataLoads` and guarantees one query will be able to run all the times.  Additionally, `CAP_PERCENTAGE_RESOURCE` is set to 38.4% and limits this workload group to 4 concurrent requests.  By setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter to 3600, any query that runs for more than 1 hour will be automatically cancelled.
+The below example sets the `MIN_PERCENTAGE_RESOURCE` to dedicate 9.6% of the system resources to `wgDataLoads` and guarantees one query will be able to run all the times.  Additionally, `CAP_PERCENTAGE_RESOURCE` is set to 38.4% and limits this workload group to four concurrent requests.  By setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter to 3600, any query that runs for more than 1 hour will be automatically canceled.
 
 ```sql
 CREATE WORKLOAD GROUP wgDataLoads WITH  
@@ -43,7 +43,10 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 ```
 
 ## Create the Classifier
-Previously, the mapping of queries to resource classes was done with [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  To achieve the same functionality and map requests to workload groups, use the [CREATE WORKLOAD CLASSIFIER](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  A classifier provides additional options, such as label, session or time, aside from assigning resources based on a login.  
+Previously, the mapping of queries to resource classes was done with [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  To achieve the same functionality and map requests to workload groups, use the [CREATE WORKLOAD CLASSIFIER](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  Using sp_addrolemember only allowed you to map resources to a request based on a login.  A classifier provides additional options besides login, such as:
+    - label
+    - session
+    - time
 The below example assigns queries from the `AdfLogin` login that also have the [OPTION LABEL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-label)  set to `factloads` to the workload group `wgDataLoads` created above.
 
 ```sql

@@ -55,7 +55,7 @@
     - name: Create workload isolation
       items:
       - name: T-SQL
-        href: quickstart-configure-workload-isolation-tsql.md.md
+        href: quickstart-configure-workload-isolation-tsql.md
 - name: Concepts
   items:
   - name: Security
