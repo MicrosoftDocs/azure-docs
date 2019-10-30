@@ -68,7 +68,7 @@ In the image above, content belonging to the layout is marked in blue, while the
 
 ### Styling guide
 
-![Styling guide](media/api-management-howto-developer-portal-customize/pages-layouts.png)
+![Styling guide](media/api-management-howto-developer-portal-customize/styling-guide.png)
 
 Styling guide is a panel created with designers in mind. It allows for overseeing and styling all the visual elements in your portal. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background. If you'd like to change a button's color, you need to change the original color variant.
 
