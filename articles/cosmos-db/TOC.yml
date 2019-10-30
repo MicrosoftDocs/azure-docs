@@ -969,6 +969,8 @@
         href: monitor-cosmos-db.md
       - name: View metrics from Cosmos DB account 
         href: use-metrics.md
+      - name: Azure Monitor for Cosmos (preview) 
+        href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
       - name: Application logging with Logic Apps
         href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
         maintainContext: true 

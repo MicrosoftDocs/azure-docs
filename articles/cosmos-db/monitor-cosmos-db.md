@@ -5,7 +5,7 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: bwren
 ---
 
@@ -24,6 +24,11 @@ If you're not already familiar with monitoring Azure services, start with the ar
 - Standard tools in Azure for analyzing and alerting on monitoring data
 
 The following sections build on this article by describing the specific data gathered from Azure Cosmos DB and providing examples for configuring data collection and analyzing this data with Azure tools.
+
+## Azure Monitor for Cosmos DB (Preview)
+[Azure Monitor for Azure Cosmos DB](../insights/cosmosdb-insights-overview.md)  is based on the [workbooks feature of Azure Monitor](../azure-monitor/app/usage-workbooks.md) and uses the same monitoring data collected for Cosmos DB described in the sections below. Use this tool for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience, and leverage the other features of Azure Monitor for detailed analysis and alerting. 
+
+![Azure Monitor for Cosmos DB](media/monitor-cosmos-db/azure-monitor-cosmos-db.png)
 
 ## Overview
 The **Overview** page in the Azure portal for each Azure Cosmos database includes a brief view of the database usage including its request and hourly billing usage. This is useful information but only a small amount of the monitoring data available. Some of this data is collected automatically and available for analysis as soon as you create the database while you can enable additional data collection with some configuration.
