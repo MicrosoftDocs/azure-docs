@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform OIDC Node.js web app quickstart | Azure
-description: Learn how to implement authentication in a Node.js web application using OpenId Connect.
+description: Learn how to implement authentication in a Node.js web application using OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,7 +17,7 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-#Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
+#Customer intent: As an application developer, I want to know how to set up OpenID Connect authentication in a web application built using Node.js with Express.
 ms.collection: M365-identity-device-management
 ---
 
@@ -25,11 +25,11 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-In this quickstart, you'll learn how to set up OpenId Connect authentication in a web application built using Node.js with Express. The sample is designed to run on any platform.
+In this quickstart, you'll learn how to set up OpenID Connect authentication in a web application built using Node.js with Express. The sample is designed to run on any platform.
 
 ## Prerequisites
 
-To run this sample you will need the following:
+To run this sample, you will need:
 
 * Install Node.js from http://nodejs.org/
 
@@ -38,7 +38,7 @@ To run this sample you will need the following:
 ## Register your application 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using either a work or school account, or a personal Microsoft account.
 1. If your account is present in more than one Azure AD tenant:
-    - Select your profile from the menu on the top right corner of the page, and then **Switch directory**.
+    - Select your profile from the menu on the top-right corner of the page, and then **Switch directory**.
     - Change your session to the Azure AD tenant where you want to create your application.
 
 1. Navigate to [Azure Active Directory > App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register your app.
@@ -91,7 +91,7 @@ From the project root directory, run the command:
 Provide the parameters in `exports.creds` in config.js as instructed.
 
 * Update `<tenant_name>` in `exports.identityMetadata` with the Azure AD tenant name of the format \*.onmicrosoft.com.
-* Update `exports.clientID` with the Application Id noted from app registration.
+* Update `exports.clientID` with the Application ID noted from app registration.
 * Update `exports.clientSecret` with the Application secret noted from app registration.
 * Update `exports.redirectUrl` with the Redirect URI noted from app registration.
 
@@ -99,8 +99,8 @@ Provide the parameters in `exports.creds` in config.js as instructed.
 
 * Update `exports.destroySessionUrl` in config.js, if you want to use a different `post_logout_redirect_uri`.
 
-* Set `exports.useMongoDBSessionStore` in config.js to true, if you want to use use mongoDB or other [compatible session stores](https://github.com/expressjs/session#compatible-session-stores).
-The default session store in this sample is `express-session`. Note that the default session store is not suitable for production.
+* Set `exports.useMongoDBSessionStore` in config.js to true, if you want to use [mongoDB](https://www.mongodb.com) or other [compatible session stores](https://github.com/expressjs/session#compatible-session-stores).
+The default session store in this sample is `express-session`. The default session store is not suitable for production.
 
 * Update `exports.databaseUri`, if you want to use mongoDB session store and a different database URI.
 
@@ -131,4 +131,6 @@ You will have a server successfully running on `http://localhost:3000`.
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
-Learn more about the different [Authentication flows and application scenarios](authentication-flows-app-scenarios.md) that the Microsoft identity platform supports.
+Learn more about the web app scenario that the Microsoft identity platform supports:
+> [!div class="nextstepaction"]
+> [Web app that signs in users scenario](scenario-web-app-sign-user-overview.md)
