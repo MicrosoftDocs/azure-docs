@@ -279,7 +279,7 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 
 ## Metrics, alerts, and events
 
-Metrics can be quiried in the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with your machine learning workspace. All features of Application Insights, including setting up custom alert rules and action groups to trigger an action such as an Email/SMS/Push/Voice or Azure Function. Please refer to the complete Application Insights documentation for details. 
+Metrics can be queried in the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with your machine learning workspace, giving access to all features of Application Insights including setting up custom alert rules and action groups to trigger an action such as an Email/SMS/Push/Voice or Azure Function. Please refer to the complete Application Insights documentation for details. 
 
 To get started, navigate to the associated Application Insights resource from the Azure Portal:
 
