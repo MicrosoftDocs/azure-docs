@@ -43,11 +43,6 @@ To build the generated C code on Windows in this tutorial, you need:
 * [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16).
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
-* A local copy of the Azure IoT C SDK:
-
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
 
 To test your device code in this tutorial, you need:
 

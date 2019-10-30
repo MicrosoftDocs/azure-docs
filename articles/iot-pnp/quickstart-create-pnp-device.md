@@ -20,8 +20,6 @@ A _device capability model_ (DCM) describes the capabilities of an IoT Plug and 
 
 To complete this quickstart, you need to install the following software on your local machine:
 
-Build Tools for Visual Studio 2019
-
 * [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16).
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
@@ -226,8 +224,9 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
 
 1. Select the **Properties(writable)** page to view the writable properties you can update.
 
-1. Expand property **name**, update with a new name and select **update writable property**. 
-2. To see the new name shows up in the **Reported Property** column, click the **Refresh** button on top of the page.
+1. Expand property **name**, update with a new name and select **update writable property**.
+
+1. To see the new name shows up in the **Reported Property** column, click the **Refresh** button on top of the page.
 
 1. Select the **Command** page to view all the commands the device supports.
 
