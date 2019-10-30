@@ -21,7 +21,7 @@ Developer portal is an automatically generated, fully customizable website with 
 
 This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture and provides answers to frequently asked questions.
 
-![New API Management developer portal](media/api-management-howto-developer-portal/cover.png)
+![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

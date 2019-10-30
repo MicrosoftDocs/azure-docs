@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 You can find more details on the developer portal in the [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
 
-![New API Management developer portal](media/api-management-howto-developer-portal/cover.png)
+![API Management developer portal - admin mode](media/api-management-howto-developer-portal-customize/cover.png)
 
 ## Prerequisites
 
