@@ -1,18 +1,14 @@
 ---
-title: Test Terraform modules in Azure by using Terratest
+title: Tutorial - Test Terraform modules in Azure using Terratest
 description: Learn how to use Terratest to test your Terraform modules.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, storage account, azure, terratest, unit test, integration test
+ms.service: terraform
 author: tomarchermsft
-manager: gwallace
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/23/2019
-
+ms.date: 10/26/2019
 ---
 
-# Test Terraform modules in Azure by using Terratest
+# Tutorial: Test Terraform modules in Azure using Terratest
 
 > [!NOTE]
 > The sample code in this article does not work with version 0.12 (and greater).
@@ -36,7 +32,7 @@ Before you begin, install the following software:
 
 - **Go programming language**: Terraform test cases are written in [Go](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation) is a dependency management tool for Go.
-- **Azure CLI**: The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is a command-line tool you can use to manage Azure resources. (Terraform supports authenticating to Azure through a service principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
+- **Azure CLI**: The [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) is a command-line tool you can use to manage Azure resources. (Terraform supports authenticating to Azure through a service principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
 - **mage**: We use the [mage executable](https://github.com/magefile/mage/releases) to show you how to simplify running Terratest cases. 
 
 ## Create a static webpage module
@@ -87,7 +83,7 @@ As we mentioned earlier in the article, this module also outputs a URL that's de
 
 ```hcl
 output "homepage_url" {
-  value = "${azurerm_storage_blob.homepage.url}"
+  value = azurerm_storage_blob.homepage.url
 }
 ```
 
@@ -102,30 +98,30 @@ The static webpage module logic is implemented in `./main.tf`:
 ```hcl
 resource "azurerm_resource_group" "main" {
   name     = "${var.website_name}-staging-rg"
-  location = "${var.location}"
+  location = var.location
 }
 
 resource "azurerm_storage_account" "main" {
   name                     = "${lower(replace(var.website_name, "/[[:^alnum:]]/", ""))}data001"
-  resource_group_name      = "${azurerm_resource_group.main.name}"
-  location                 = "${azurerm_resource_group.main.location}"
+  resource_group_name      = azurerm_resource_group.main.name
+  location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
 resource "azurerm_storage_container" "main" {
   name                  = "wwwroot"
-  resource_group_name   = "${azurerm_resource_group.main.name}"
-  storage_account_name  = "${azurerm_storage_account.main.name}"
+  resource_group_name   = azurerm_resource_group.main.name
+  storage_account_name  = azurerm_storage_account.main.name
   container_access_type = "blob"
 }
 
 resource "azurerm_storage_blob" "homepage" {
   name                   = "index.html"
-  resource_group_name    = "${azurerm_resource_group.main.name}"
-  storage_account_name   = "${azurerm_storage_account.main.name}"
-  storage_container_name = "${azurerm_storage_container.main.name}"
-  source                 = "${var.html_path}"
+  resource_group_name    = azurerm_resource_group.main.name
+  storage_account_name   = azurerm_storage_account.main.name
+  storage_container_name = azurerm_storage_container.main.name
+  source                 = var.html_path
   type                   = "block"
   content_type           = "text/html"
 }
@@ -169,7 +165,7 @@ variable "website_name" {
 module "staticwebpage" {
   source       = "../../../"
   location     = "West US"
-  website_name = "${var.website_name}"
+  website_name = var.website_name
   html_path    = "empty.html"
 }
 ```
@@ -313,11 +309,11 @@ variable "website_name" {
 module "staticwebpage" {
   source       = "../../"
   location     = "West US"
-  website_name = "${var.website_name}"
+  website_name = var.website_name
 }
 
 output "homepage" {
-  value = "${module.staticwebpage.homepage_url}"
+  value = module.staticwebpage.homepage_url
 }
 ```
 
@@ -517,5 +513,5 @@ Instead of executing `az login` before tests, you can complete Azure authenticat
 
 ## Next steps
 
-* For more information about Terratest, see the [Terratest GitHub page](https://github.com/gruntwork-io/terratest).
-* For information about mage, see the [mage GitHub page](https://github.com/magefile/mage) and the [mage website](https://magefile.org/).
+> [!div class="nextstepaction"] 
+> [Terratest GitHub page](https://github.com/gruntwork-io/terratest).
