@@ -1,6 +1,6 @@
 ---
 title: Protect your content with Media Services dynamic encryption | Microsoft Docs
-description: An overview of content protection with dynamic encryption, streaming protocols, and encryption types.
+description: Learn about content protection with dynamic encryption, streaming protocols, and encryption types.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
 #Customer intent: As a developer who works on subsystems of online streaming/multiscreen solutions that need to deliver protected content, I want to make sure that delivered content is protected with DRM or AES-128.
@@ -107,8 +107,11 @@ A security token service (STS) issues JWT as the access token for back-end resou
 * Symmetric or asymmetric verification for signature verification.
 * Key rollover support (if necessary).
 
+<<<<<<< HEAD
 You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test the STS. It supports all three types of verification keys: symmetric, asymmetric, or Azure Active Directory (Azure AD) with key rollover.
 
+=======
+>>>>>>> 1e997afe41b7a636e144fb62c0b852b9186681cb
 ## Streaming protocols and encryption types
 
 You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HLS, MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods.

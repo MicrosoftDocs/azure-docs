@@ -134,7 +134,7 @@ following articles to learn about the overview and control mapping:
 > [UK OFFICIAL and UK NHS blueprints - Overview](./index.md)
 > [UK OFFICIAL and UK NHS blueprints - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
