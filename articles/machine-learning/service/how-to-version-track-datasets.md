@@ -154,7 +154,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
 
 After registration, you can see the list of models registered with the dataset by using Python or the [workspace landing page](https://ml.azure.com/).
 
-The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with the experiment that was run:
+The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with the experiment run:
 
 ```Python
 # get input datasets

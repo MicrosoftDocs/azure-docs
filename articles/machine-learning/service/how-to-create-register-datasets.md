@@ -41,11 +41,11 @@ To create and work with datasets, you need:
 
 ## Dataset types
 
-There are two dataset classes, based on how users consume them in training:
+There are two dataset types, based on how users consume them in training:
 
-* The [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) class represents data in a tabular format by parsing the provided file or list of files. By using this method, you can materialize the data into a pandas or Spark DataFrame. For example, a `TabularDataset` object can be created from .csv, .tsv, and Parquet files, and from SQL query results. For a complete list, see our [documentation](https://aka.ms/tabulardataset-api-reference).
+* The [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) class represents data in a tabular format by parsing the provided file or list of files. With this method, you can materialize the data into a pandas or Spark DataFrame. For example, a `TabularDataset` object can be created from .csv, .tsv, and Parquet files, and from SQL query results. For a complete list, see our [documentation](https://aka.ms/tabulardataset-api-reference).
 
-* The [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) class references single or multiple files in your datastores or public URLs. By this method, you can download or mount the files to your compute. The files can be in any format, which enables a wider range of machine learning scenarios, including deep learning.
+* The [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) class references single or multiple files in your datastores or public URLs. By this method, you can download or mount the files to your compute as a FileDataset object. The files can be in any format, which enables a wider range of machine learning scenarios, including deep learning.
 
 To learn more about upcoming API changes, see [Dataset API change notice](https://aka.ms/tabular-dataset).
 
