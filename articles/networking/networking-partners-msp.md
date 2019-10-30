@@ -36,7 +36,7 @@ Use the links in this section for more information about managed cloud networkin
 
 [Equinix](https://www.equinix.com/)
 
-[InterCloud](https://intercloud.com/partners/get-to-azure-via-expressroute/)
+[InterCloud](https://intercloud.com/partners/microsoft-azure/)
 
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 
