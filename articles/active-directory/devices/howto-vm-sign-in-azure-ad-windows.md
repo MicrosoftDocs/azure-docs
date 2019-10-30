@@ -31,7 +31,8 @@ There are many benefits of using Azure AD authentication to log in to Windows VM
 - Azure RBAC allows you to grant the appropriate access to VMs based on need and remove it when it is no longer needed.
 - Before allowing access to a VM, Azure AD Conditional Access can enforce additional requirements such as: 
    - Multi-factor authentication
-   - Trusted location
+   - Sign-in risk
+- Automate and scale Azure AD join for Azure based Windows VMs
 
 ## Requirements
 
