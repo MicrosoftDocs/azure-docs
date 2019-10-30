@@ -38,7 +38,7 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
 - The combination of the following specific three settings can cause this feature to not work.
     - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
     - DisableLockScreenAppNotifications = 1 or Enabled
-    - IsContentDeliveryPolicyEnforced = 1 or True 
+    - IsContentDeliveryPolicyEnforced = 1 or True
 
 ## Windows 10 password reset
 
@@ -85,7 +85,6 @@ Deploying the configuration change to enable password reset from the login scree
 1. Set the following registry key
    - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       - `"AllowPasswordReset"=dword:00000001`
-
 
 #### Troubleshooting Windows 10 password reset
 
