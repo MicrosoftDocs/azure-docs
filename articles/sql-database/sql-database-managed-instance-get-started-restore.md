@@ -29,12 +29,12 @@ This quickstart:
 - Uses resources from the [Create a Managed Instance](sql-database-managed-instance-get-started.md) quickstart.
 - Requires your computer have the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) installed.
 - Requires using SSMS to connect to your Managed Instance. See these quickstarts on how to connect:
+  - [Enable public endpoint](sql-database-managed-instance-public-endpoint-configure.md) on Managed Instance - this is recommended approach for this tutorial.
   - [Connect to an Azure SQL Database Managed Instance from an Azure VM](sql-database-managed-instance-configure-vm.md)
   - [Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md).
-- Requires Azure Blob Storage Account (for example Standard_LRS V2) on **public IP** protected with **SAS credential** that has `rw` permission. [Private IPs for blob storage protected by firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security) and Azure Blob Storage service endpoints are currently not supported.
 
 > [!NOTE]
-> For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), see [SQL Server Backup to URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), see [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## Restore the database from a backup file
 
@@ -80,7 +80,11 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. When the restore completes, view it in Object Explorer.
+7. When the restore completes, view the database in Object Explorer. You can verify that database restore is completed using [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) view.
+
+> [!NOTE]
+> Database restore operation is asynchronous and retriable. You might get some error is SQL Server Management Studio if connection breaks or some time-out expires. Azure SQL Database will keep trying to restore database in the background, and you can track the progress of restore using the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
+> In some phases of restore process you will see unique identifier instead of actual database name in the system views. Learn about `RESTORE` statement behavior differences [here](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## Next steps
 

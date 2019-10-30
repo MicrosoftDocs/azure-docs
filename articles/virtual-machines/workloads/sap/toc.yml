@@ -188,6 +188,8 @@
         href: high-availability-guide-suse-pacemaker.md
       - name: Pacemaker on RHEL
         href: high-availability-guide-rhel-pacemaker.md
+      - name: Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios
+        href: high-availability-guide-standard-load-balancer-outbound-connections.md
     - name: SAP Installation
       items:
       - name: Windows with Shared Disk for (A)SCS Instance
