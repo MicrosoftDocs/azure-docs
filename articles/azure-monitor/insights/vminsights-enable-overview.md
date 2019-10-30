@@ -202,6 +202,9 @@ Enable Azure Monitor for VMs by using one of the methods described in this table
 
 Azure Monitor for VMs configures a Log Analytics workspace to collect the performance counters that it uses. The following tables list the objects and counters that are collected every 60 seconds.
 
+>[!NOTE]
+>The following list of performance counters enabled by Azure Monitor for VMs does not limit you from enabling additional counters you need to collect from VMs reporting to the workspace. Also, if you disable these counters, it will prevent the set of performance charts included with the Performance feature from showing resource utilization from your VMs.
+
 ### Windows performance counters
 
 |Object name |Counter name |
