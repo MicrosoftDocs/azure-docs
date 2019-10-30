@@ -68,13 +68,13 @@ In the downloaded spreadsheet you can see usage per Azure resource (e.g. Log Ana
 
 To change the Log Analytics pricing tier of your workspace, 
 
-1. In the Azure portal, open open **Usage and estimated costs** from your workspace where you'll see a list of ach of the pricing tiers available to this workspace.
+1. In the Azure portal, open **Usage and estimated costs** from your workspace where you'll see a list of ach of the pricing tiers available to this workspace.
 
 2. Review the estimated costs for for each of the pricing tiers. This estimate is based on the last 31 days of usage, so this cost estimate relies on the last 31 days being representative of your typical usage. In the example below you can see how, based on the data patterns from the last 31 days, this workspace would cost less in the Pay-As-You-Go tier (#1) comapared to the 100 GB/day Capacity Reservation tier (#2).  
 
     ![Pricing tiers](media/manage-cost-storage/pricing-tier-estimated-costs.png)
 
-3. After reviewing the estimated costs based on the last 30 days of usage, if you decide to change the pricing tier, click **Select**.  
+3. After reviewing the estimated costs based on the last 31 days of usage, if you decide to change the pricing tier, click **Select**.  
 
 You can also [set the pricing tier via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `sku` parameter (`pricingTier` in the ARM template). 
 
