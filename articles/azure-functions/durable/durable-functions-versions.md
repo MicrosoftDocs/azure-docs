@@ -66,7 +66,7 @@ In version 1.x, the various _context_ objects supported by Durable Functions hav
 
 The following table represents the main changes:
 
-| Old type | New type |
+| 1.x | 2.x |
 |----------|----------|
 | `DurableOrchestrationClientBase` | `IDurableOrchestrationClient` or `IDurableClient` |
 | `DurableOrchestrationContext` or `DurableOrchestrationContextBase` | `IDurableOrchestrationContext` |
