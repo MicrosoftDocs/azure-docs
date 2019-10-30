@@ -1,6 +1,6 @@
 ---
-title: Request access to an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to use the My Access portal to request access to an access package in Azure Active Directory entitlement management (Preview).
+title: Request access to an access package in Azure AD entitlement management - Azure Active Directory
+description: Learn how to use the My Access portal to request access to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a requestor, I want simple steps for how to request resources I need so that I can start using the resources to perform my job.
 
 ---
-# Request access to an access package in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Request access to an access package in Azure AD entitlement management
 
 With Azure AD entitlement management, an access package enables a one-time setup of resources and policies that automatically administers access for the life of the access package. 
 
