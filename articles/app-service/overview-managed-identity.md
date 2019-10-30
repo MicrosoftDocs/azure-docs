@@ -303,7 +303,7 @@ Content-Type: application/json
 
 ### Code examples
 
-# [.NET](#tab/dotnet)
+# [C#](#tab/csharp)
 
 > [!TIP]
 > For .NET languages, you can also use [Microsoft.Azure.Services.AppAuthentication](#asal) instead of crafting this request yourself.
@@ -367,7 +367,7 @@ $accessToken = $tokenResponse.access_token
 
 ### <a name="asal"></a>Using the Azure SDK
 
-# [.NET](#tab/dotnet)
+# [C#](#tab/csharp)
 
 For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](/cli/azure), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
 
