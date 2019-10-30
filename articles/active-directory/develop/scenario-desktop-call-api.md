@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Desktop app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -23,13 +23,45 @@ ms.collection: M365-identity-device-management
 
 Now that you have a token, you can call a protected web API.
 
-## Calling a web API from .NET
+## Calling a web API
+
+# [.NET](#tab/dotnet)
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 <!--
 More includes will come later for Python and Java
 -->
+# [Python](#tab/python)
+
+```Python
+endpoint = "url to the API"
+http_headers = {'Authorization': 'Bearer ' + result['access_token'],
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'}
+data = requests.get(endpoint, headers=http_headers, stream=False).json()
+```
+
+# [Java](#tab/java)
+
+```Java
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+// Set the appropriate header fields in the request header.
+conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+conn.setRequestProperty("Accept", "application/json");
+
+String response = HttpClientHelper.getResponseStringFromConn(conn);
+
+int responseCode = conn.getResponseCode();
+if(responseCode != HttpURLConnection.HTTP_OK) {
+    throw new IOException(response);
+}
+
+JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
+```
+
+# [MacOS](#tab/macOS)
 
 ## Calling a web API in MSAL for iOS and macOS
 
@@ -42,7 +74,7 @@ NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
 urlRequest.URL = [NSURL URLWithString:"https://contoso.api.com"];
 urlRequest.HTTPMethod = @"GET";
 urlRequest.allHTTPHeaderFields = @{ @"Authorization" : [NSString stringWithFormat:@"Bearer %@", accessToken] };
-        
+
 NSURLSessionDataTask *task =
 [[NSURLSession sharedSession] dataTaskWithRequest:urlRequest
      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {}];
@@ -56,7 +88,7 @@ let urlRequest = NSMutableURLRequest()
 urlRequest.url = URL(string: "https://contoso.api.com")!
 urlRequest.httpMethod = "GET"
 urlRequest.allHTTPHeaderFields = [ "Authorization" : "Bearer \(accessToken)" ]
-     
+
 let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: Data?, response: URLResponse?, error: Error?) in }
 task.resume()
 ```
@@ -94,6 +126,7 @@ catch(MsalUiRequiredException ex)
                   .ExecuteAsync();
 }
 ```
+---
 
 ## Next steps
 
