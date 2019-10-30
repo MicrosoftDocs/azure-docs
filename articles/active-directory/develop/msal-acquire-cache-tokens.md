@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
