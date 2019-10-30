@@ -338,9 +338,9 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform apply" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. In the Azure portal, select **All services** in the left menu to see the resources created for your new Kubernetes cluster.
+1. In the Azure portal, select **All resources** in the left menu to see the resources created for your new Kubernetes cluster.
 
-    ![Cloud Shell prompt](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
+    ![All resources in the Azure portal](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
 ## Recover from a Cloud Shell timeout
 
