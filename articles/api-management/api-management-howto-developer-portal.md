@@ -97,6 +97,12 @@ If you'd like to provide feedback and help us shape the product, we're looking f
 
 For **assistance requests**, you can submit a post [on Stack Overflow](https://aka.ms/apimso) or contact Azure support for help.
 
+### How can I automate portal deployments?
+
+You can programmatically access and manage the developer portal's content through the REST API, regardless if you're using a managed or a self-hosted version.
+
+The API is documented in [the GitHub repository's wiki section][2]. It can also be used for automating migrations of portal content between environments - for example from a test environment to the production environment. You can learn more about this process [in this documentation article](https://aka.ms/apimdocs/migrateportal) on GitHub.
+
 ### Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
 
 No.
@@ -114,7 +120,6 @@ The interactive console makes a client-side API request from the browser. You ca
 Learn more about the new developer portal:
 
 - [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
-- [Automate developer portal deployments](api-management-howto-developer-portal-automate.md)
 - [Set up self-hosted version of the portal][2]
 
 Browse other resources:

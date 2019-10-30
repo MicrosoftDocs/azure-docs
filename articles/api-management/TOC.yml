@@ -126,8 +126,6 @@
         items:
             - name: Understand the developer portal
               href: api-management-howto-developer-portal.md
-            - name: Automate developer portal deployments
-              href: api-management-howto-developer-portal-automate.md
             - name: Authenticate with Azure AD
               href: api-management-howto-aad.md
             - name: Authenticate with Azure AD B2C
