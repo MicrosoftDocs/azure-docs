@@ -130,15 +130,25 @@ Use the steps below to provision roles for a user to your application. Note that
 - If your application expects a single app role name, you can use the [SingleAppRoleAssignment function](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data#singleapproleassignment) function. When using this function, ensure that users are only assigned one role per app. 
 <image - how to use the function>
 
+![Add SingleAppRoleAssignment](./media/customize-application-attributes/SingleAppRoleAssignmentToRoles.PNG)
+
 - The function described below allows you to provisionin two roles for a user and control what is sent as the display, type, and value. This gives you flexibility to mapp and transform attributes on a user to the display, type, and value properties of the role. 
 roles[primary eq "True"].display  ||
 roles[primary eq "True"].type ||
 roles[primary eq "True"].value
 
+ ![Add roles](./media/customize-application-attributes/RoleDisplay.PNG)
+
 - If you need to provision more than two roles per user, you can add a custom role attribute to your configuration and use the expression "AppRoleAssignments([appRoleAssignments])" or "AppRoleAssignmentsComplex([appRoleAssignments])". AppRoleAssignmentsComplex provides the "id", "name", and "displayName" while the AppRoleAssignments function solely provides the name. Note that with this option, we do not specify the primary role value. 
 
 <need JSON for what it will look like when roles are sent out>
 
+ ![Add roles](./media/customize-application-attributes/AddRoles.PNG)
+ 
+ 
+ ![Map AppRoleAssignmentsToRolesCapture](./media/customize-application-attributes/AppRoleAssignmentsToRolesCapture.PNG)
+ 
+ 
 - multipleEntitlementGrantsComplex
 
 ## Provisioning a multi-value attribute
