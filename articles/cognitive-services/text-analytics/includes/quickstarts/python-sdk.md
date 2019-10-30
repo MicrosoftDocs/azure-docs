@@ -76,7 +76,10 @@ Authenticate a client object, and call the [sentiment()](https://docs.microsoft.
 ### Output
 
 ```console
-Document Id:  1 , Sentiment Score:  0.87
+Document ID: 1 , Sentiment Score: 0.87
+Document ID: 2 , Sentiment Score: 0.11
+Document ID: 3 , Sentiment Score: 0.44
+Document ID: 4 , Sentiment Score: 1.00
 ```
 
 ## Language detection
@@ -89,7 +92,9 @@ Using the client created earlier, call [detect_language()](https://docs.microsof
 ### Output
 
 ```console
-Document Id:  1 , Language:  English
+Document ID: 1 , Language: English
+Document ID: 2 , Language: Spanish
+Document ID: 3 , Language: Chinese_Simplified
 ```
 
 ## Entity recognition
@@ -101,22 +106,40 @@ Using the client created earlier, call the [entities()](https://docs.microsoft.c
 ### Output
 
 ```console
-Document Id:  1
-	Key Entities:
-		 NAME:  Microsoft 	Type:  Organization 	Sub-type:  None
-			Offset:  0 	Length:  9 	Score:  1.00
-		 NAME:  Bill Gates 	Type:  Person 	Sub-type:  None
-			Offset:  25 	Length:  10 	Score:  1.00
-		 NAME:  Paul Allen 	Type:  Person 	Sub-type:  None
-			Offset:  40 	Length:  10 	Score:  1.00
-		 NAME:  April 4 	Type:  Other 	Sub-type:  None
-			Offset:  54 	Length:  7 	Score:  0.80
-		 NAME:  April 4, 1975 	Type:  DateTime 	Sub-type:  Date
-			Offset:  54 	Length:  13 	Score:  0.80
-		 NAME:  BASIC 	Type:  Other 	Sub-type:  None
-			Offset:  89 	Length:  5 	Score:  0.80
-		 NAME:  Altair 8800 	Type:  Other 	Sub-type:  None
-			Offset:  116 	Length:  11 	Score:  0.80
+Document ID: 1
+        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
+        Offset: 0, Length: 9,   Score: 1.0
+
+        Name: Bill Gates,       Type: Person,   Sub-Type: N/A
+        Offset: 25, Length: 10, Score: 0.999847412109375
+
+        Name: Paul Allen,       Type: Person,   Sub-Type: N/A
+        Offset: 40, Length: 10, Score: 0.9988409876823425
+
+        Name: April 4,  Type: Other,    Sub-Type: N/A
+        Offset: 54, Length: 7,  Score: 0.8
+
+        Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
+        Offset: 54, Length: 13, Score: 0.8
+
+        Name: BASIC,    Type: Other,    Sub-Type: N/A
+        Offset: 89, Length: 5,  Score: 0.8
+
+        Name: Altair 8800,      Type: Other,    Sub-Type: N/A
+        Offset: 116, Length: 11,        Score: 0.8
+
+Document ID: 2
+        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
+        Offset: 21, Length: 9,  Score: 0.999755859375
+
+        Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
+        Offset: 60, Length: 7,  Score: 0.9911284446716309
+
+        Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
+        Offset: 71, Length: 13, Score: 0.8
+
+        Name: Seattle,  Type: Location, Sub-Type: N/A
+        Offset: 88, Length: 7,  Score: 0.9998779296875
 ```
 
 ## Key phrase extraction
@@ -129,8 +152,20 @@ Using the client created earlier, call the [key_phrases()](https://docs.microsof
 ### Output
 
 ```console
-Document Id:  3
-	Phrases:
-		 cat
-		 veterinarian
+Document ID: 1
+         Key phrases:
+                幸せ
+Document ID: 2
+         Key phrases:
+                Stuttgart
+                Hotel
+                Fahrt
+                Fu
+Document ID: 3
+         Key phrases:
+                cat
+                veterinarian
+Document ID: 4
+         Key phrases:
+                fútbol
 ```

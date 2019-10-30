@@ -140,6 +140,9 @@ call `SentimentAnalysis()` in your project.
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
+Document ID: 2 , Sentiment Score: 0.11
+Document ID: 3 , Sentiment Score: 0.44
+Document ID: 4 , Sentiment Score: 1.00
 ```
 
 ## Language detection
@@ -155,7 +158,9 @@ Call `LanguageDetection()` in your project.
 ### Output
 
 ```console
-Document ID: 0 Detected Languages with Score: English 1.000000
+Document ID: 0 , Language: English 
+Document ID: 1 , Language: Spanish
+Document ID: 2 , Language: Chinese_Simplified
 ```
 
 ## Entity recognition
@@ -171,23 +176,31 @@ call `ExtractEntities()` in your project.
 ### Output
 
 ```console
-Document ID: 0
-	Extracted Entities:
-		Name: Microsoft	Type: Organization
-			Offset: 0	Length: 9	Score: 1.000000
-		Name: Bill Gates	Type: Person
-			Offset: 25	Length: 10	Score: 0.999847
-		Name: Paul Allen	Type: Person
-			Offset: 40	Length: 10	Score: 0.998841
-		Name: April 4	Type: Other
-			Offset: 54	Length: 7	Score: 0.800000
-		Name: April 4, 1975	Type: DateTime	Sub-Type: Date
+Document ID: 1
+    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
+    Offset: 0, Length: 9,   Score: 1.0
+    Name: Bill Gates,       Type: Person,   Sub-Type: N/A
+    Offset: 25, Length: 10, Score: 0.999847412109375
+    Name: Paul Allen,       Type: Person,   Sub-Type: N/A
+    Offset: 40, Length: 10, Score: 0.9988409876823425
+    Name: April 4,  Type: Other,    Sub-Type: N/A
+    Offset: 54, Length: 7,  Score: 0.8
+    Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
+    Offset: 54, Length: 13, Score: 0.8
+    Name: BASIC,    Type: Other,    Sub-Type: N/A
+    Offset: 89, Length: 5,  Score: 0.8
+    Name: Altair 8800,      Type: Other,    Sub-Type: N/A
+    Offset: 116, Length: 11,        Score: 0.8
 
-			Offset: 54	Length: 13	Score: 0.800000
-		Name: BASIC	Type: Other
-			Offset: 89	Length: 5	Score: 0.800000
-		Name: Altair 8800	Type: Other
-			Offset: 116	Length: 11	Score: 0.800000
+Document ID: 2
+    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
+    Offset: 21, Length: 9,  Score: 0.999755859375
+    Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
+    Offset: 60, Length: 7,  Score: 0.9911284446716309
+    Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
+    Offset: 71, Length: 13, Score: 0.8
+    Name: Seattle,  Type: Location, Sub-Type: N/A
+    Offset: 88, Length: 7,  Score: 0.9998779296875
 ```
 
 ## Key phrase extraction
@@ -203,8 +216,20 @@ Call `ExtractKeyPhrases()` in your project.
 ### Output
 
 ```console
-Document ID: 0
-	Extracted Key Phrases:
-		cat
-		veterinarian
+Document ID: 1
+         Key phrases:
+                幸せ
+Document ID: 2
+         Key phrases:
+                Stuttgart
+                Hotel
+                Fahrt
+                Fu
+Document ID: 3
+         Key phrases:
+                cat
+                veterinarian
+Document ID: 4
+         Key phrases:
+                fútbol
 ```

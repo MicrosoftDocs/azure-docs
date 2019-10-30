@@ -144,11 +144,26 @@ Document ID: 3 , Language: Chinese_Simplified
 
 In the client object, create a function called `RecognizeEntities()` that takes a list of input documents that will be created later. Call the client's `entities()` function and get the result. Then iterate through the results, and print each document's ID, and the recognized entities.
 
-[!code-ruby[client method for entity recognition](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=recognizeEntities)] 
+<!-- [!code-ruby[client method for entity recognition](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=recognizeEntities)] -->
+```csharp
+static void entityRecognitionExample(ITextAnalyticsClient client)
+{
+    var result = client.Entities("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.");
+    Console.WriteLine("Entities:");
+    foreach (var entity in result.Entities)
+    {
+        Console.WriteLine($"\tName: {entity.Name},\tType: {entity.Type ?? "N/A"},\tSub-Type: {entity.SubType ?? "N/A"}");
+        foreach (var match in entity.Matches)
+        {
+            Console.WriteLine($"\t\tOffset: {match.Offset},\tLength: {match.Length},\tScore: {match.EntityTypeScore:F3}");
+        }
+    }
+}
+```
 
 Outside of the client function, create a new function called `RecognizeEntitiesExample()` that takes the `TextAnalyticsClient` object created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id`, a `language`, and a `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the text, and the `id` can be any value. Then call the client's `RecognizeEntities()` function.
 
-[!code-ruby[entity recognition document creation and call](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=recognizeEntitiesCall)] 
+[!code-ruby[entity recognition documents and method call](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=recognizeEntitiesCall)] 
 
 Call the `RecognizeEntitiesExample()` function.
 
@@ -206,7 +221,36 @@ In the client object, create a function called `ExtractKeyPhrases()` that takes 
 
 Outside of the client function, create a new function called `KeyPhraseExtractionExample()` that takes the `TextAnalyticsClient` object created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id`, a `language`, and a `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the text, and the `id` can be any value. Then call the client's `ExtractKeyPhrases()` function.
 
-[!code-ruby[key phrase extraction document creation and call](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=keyPhrasesCall)] 
+<!-- [!code-ruby[key phrase document creation and call](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=keyPhrasesCall)] -->
+```ruby
+def KeyPhraseExtractionExample(client)
+  # The documents to be analyzed.
+  input_1 = MultiLanguageInput.new
+  input_1.id = '1'
+  input_1.language = 'ja'
+  input_1.text = '猫は幸せ'
+
+  input_2 = MultiLanguageInput.new
+  input_2.id = '2'
+  input_2.language = 'de'
+  input_2.text = 'Fahrt nach Stuttgart und dann zum Hotel zu Fu.'
+
+  input_3 = MultiLanguageInput.new
+  input_3.id = '3'
+  input_3.language = 'en'
+  input_3.text = 'My cat is stiff as a rock.'
+
+  input_4 = MultiLanguageInput.new
+  input_4.id = '4'
+  input_4.language = 'es'
+  input_4.text = 'A mi me encanta el fútbol!'
+
+  input_documents =  MultiLanguageBatchInput.new
+  input_documents.documents = [input_1, input_2, input_3, input_4]
+
+  client.ExtractKeyPhrases(input_documents)
+end
+```
 
 Call the `KeyPhraseExtractionExample()` function.
 

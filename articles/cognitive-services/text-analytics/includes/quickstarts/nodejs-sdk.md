@@ -90,7 +90,10 @@ Run your code with `node index.js` in your console window.
 ### Output
 
 ```console
-[ { id: '1', score: 0.8723785877227783 } ]
+[ { id: '1', score: 0.87 } ]
+[ { id: '2', score: 0.11 } ]
+[ { id: '3', score: 0.44 } ]
+[ { id: '4', score: 1.00 } ]
 ```
 
 ## Language detection
@@ -104,8 +107,9 @@ Run your code with `node index.js` in your console window.
 ### Output
 
 ```console
-===== LANGUAGE EXTRACTION ======
-ID: 1 Language English
+Document ID: 1 , Language: English
+Document ID: 2 , Language: Spanish
+Document ID: 3 , Language: Chinese_Simplified
 ```
 
 ## Entity recognition
@@ -120,20 +124,30 @@ Run your code with `node index.js` in your console window.
 
 ```console
 Document ID: 1
-    Name: Microsoft Type: Organization Sub Type: Organization
-            Offset: 0 Length: 9 Score: 1
-    Name: Bill Gates Type: Person Sub Type: Person
-            Offset: 25 Length: 10 Score: 0.999786376953125
-    Name: Paul Allen Type: Person Sub Type: Person
-            Offset: 40 Length: 10 Score: 0.9988105297088623
-    Name: April 4 Type: Other Sub Type: Other
-            Offset: 54 Length: 7 Score: 0.8
-    Name: April 4, 1975 Type: DateTime Sub Type: DateTime
-            Offset: 54 Length: 13 Score: 0.8
-    Name: BASIC Type: Other Sub Type: Other
-            Offset: 89 Length: 5 Score: 0.8
-    Name: Altair 8800 Type: Other Sub Type: Other
-            Offset: 116 Length: 11 Score: 0.8
+    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
+    Offset: 0, Length: 9,   Score: 1.0
+    Name: Bill Gates,       Type: Person,   Sub-Type: N/A
+    Offset: 25, Length: 10, Score: 0.999847412109375
+    Name: Paul Allen,       Type: Person,   Sub-Type: N/A
+    Offset: 40, Length: 10, Score: 0.9988409876823425
+    Name: April 4,  Type: Other,    Sub-Type: N/A
+    Offset: 54, Length: 7,  Score: 0.8
+    Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
+    Offset: 54, Length: 13, Score: 0.8
+    Name: BASIC,    Type: Other,    Sub-Type: N/A
+    Offset: 89, Length: 5,  Score: 0.8
+    Name: Altair 8800,      Type: Other,    Sub-Type: N/A
+    Offset: 116, Length: 11,        Score: 0.8
+
+Document ID: 2
+    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
+    Offset: 21, Length: 9,  Score: 0.999755859375
+    Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
+    Offset: 60, Length: 7,  Score: 0.9911284446716309
+    Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
+    Offset: 71, Length: 13, Score: 0.8
+    Name: Seattle,  Type: Location, Sub-Type: N/A
+    Offset: 88, Length: 7,  Score: 0.9998779296875
 ```
 
 ## Key phrase extraction
