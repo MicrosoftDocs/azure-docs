@@ -39,9 +39,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
-*  **Central US**
-
-*  **Central US EUAP**
+  * Central US
+  * Central US EUAP
+  * North Europe
+  * Southeast Asia
 
 To run the service-side application in this quickstart, you need Node.js v10.x.x or later on your development machine.
 

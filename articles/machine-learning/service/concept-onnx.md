@@ -1,7 +1,7 @@
 ---
 title: High performance, cross platform inference with ONNX
 titleSuffix: Azure Machine Learning
-description: Learn about ONNX and the ONNX Runtime for accelerating models
+description: Learn how using the Open Neural Network Exchange (ONNX) can help optimize the inference of your machine learning model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

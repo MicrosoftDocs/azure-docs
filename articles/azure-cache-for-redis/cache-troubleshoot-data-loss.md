@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Cache for Redis | Microsoft Docs
+title: Troubleshoot Azure Cache for Redis data loss | Microsoft Docs
 description: Learn how to resolve data loss issues with Azure Cache for Redis
 services: cache
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: yegu
 
 ---
 
-# Troubleshoot data loss
+# Troubleshoot Azure Cache for Redis data loss
 
 This section discusses how to diagnose actual or perceived data losses that may occur in Azure Cache for Redis.
 
@@ -98,7 +98,7 @@ If you find that most of or all keys have disappeared from your cache, you can c
 |---|---|
 | [Key flushing](#key-flushing) | Keys have been manually purged |
 | [Incorrect database selection](#incorrect-database-selection) | Redis is set to use a non-default database |
-| [Redis instance failure](#redis-instance-failure) | Keys are removed by explicit delete commands |
+| [Redis instance failure](#redis-instance-failure) | Redis server is unavailable |
 
 ### Key flushing
 
