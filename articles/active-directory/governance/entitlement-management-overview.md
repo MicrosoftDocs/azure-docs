@@ -127,7 +127,7 @@ To better understand entitlement management and its documentation, you should re
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
+Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use.
 
 ### How many licenses must you have?
 
