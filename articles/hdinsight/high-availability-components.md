@@ -8,9 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/09/2019
 ---
-# High Availability services supported by Azure HDInsight
+# High availability services supported by Azure HDInsight
 
- In order to provide you with optimal levels of availability for your analytics components, HDInsight has developed a unique architecture for ensuring availability of critical services. Some components of this architecture were developed by HDInsight to provide automatic failover. Other components are standard Apache components which are deployed to support specific services. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to failover and recover from a service interruption.
+ In order to provide you with optimal levels of availability for your analytics components, HDInsight has developed a unique architecture for ensuring high availability (HA) of critical services. Some components of this architecture were developed by HDInsight to provide automatic failover. Other components are standard Apache components which are deployed to support specific services. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to recover from other service interruptions.
 
 HDInsight provides customized infrastructure to ensure that four primary services are high availability:
 
@@ -19,7 +19,7 @@ HDInsight provides customized infrastructure to ensure that four primary service
 - Job History Server
 - Apache Livy
 
-To achieve this level of dependability, HDInsight has developed a unique reliability infrastructure to support these services and provide automatic failover capabilities. This infrastrucuture consists of a number of services and software components, some of which are custom-designed by HDInsight:
+To achieve this level of dependability, HDInsight has developed a unique reliability infrastructure to support these services and provide automatic failover capabilities. This infrastrucuture consists of a number of services and software components, some of which are designed by HDInsight. The following components are unique to the HDInsight platform:
 
 - Slave failover controller
 - Master failover controller
