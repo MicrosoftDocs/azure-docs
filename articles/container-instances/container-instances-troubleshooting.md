@@ -209,7 +209,7 @@ If you want to confirm that Azure Container Instances can listen on the port you
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --ip-address Public --ports 9000 \
-    --environment-variables 'PORT'='9000'
+    --environment-variables PORT=9000
     ```
 1. Find the IP address of the container group in the command output of `az container create`. Look for the value of **ip**. 
 1. After the container is provisioned successfully, browse to the IP address and port of the container app in your browser, for example: `192.0.2.0:9000`. 
