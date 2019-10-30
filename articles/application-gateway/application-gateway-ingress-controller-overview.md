@@ -32,7 +32,7 @@ AGIC is configured via the Kubernetes [Ingress resource](http://kubernetes.io/do
 
 AGIC is able to handle multiple namespaces and has ProhibitedTargets which means AGIC can configure the Application Gateway specifically for AKS clusters without affecting other existing backends. 
 
-## Next Steps
+### Next Steps
 
 - [**Greenfield Deployment**](application-gateway-ingress-controller-install-new.md): Instructions on installing AGIC, AKS and Application Gateway on
 blank-slate infrastructure.

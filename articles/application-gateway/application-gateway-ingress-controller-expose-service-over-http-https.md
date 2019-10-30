@@ -13,16 +13,6 @@ ms.author: caya
 
 These tutorials help illustrate the usage of [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) to expose an example Kubernetes service through the [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) over HTTP or HTTPS.
 
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Deploy `guestbook` application](#deploy-guestbook-application)
-- [Expose services over HTTP](#expose-services-over-http)
-- [Expose services over HTTPS](#expose-services-over-https)
-  - [Without specified hostname](#without-specified-hostname)
-  - [With specified hostname](#with-specified-hostname)
-- [Integrate with other services](#integrate-with-other-services)
-
 ## Prerequisites
 
 - Installed `ingress-azure` helm chart.
@@ -113,7 +103,8 @@ Without specifying hostname, the guestbook service will be available on all the 
               servicePort: 80
     ```
 
-    *NOTE:* Replace `<guestbook-secret-name>` in the above Ingress Resource with the name of your secret. Store the above Ingress Resource in a file name `ing-guestbook-tls.yaml`.
+    > [!NOTE] 
+    > Replace `<guestbook-secret-name>` in the above Ingress Resource with the name of your secret. Store the above Ingress Resource in a file name `ing-guestbook-tls.yaml`.
 
 1. Deploy ing-guestbook-tls.yaml by running
 

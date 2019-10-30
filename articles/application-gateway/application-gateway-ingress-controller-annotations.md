@@ -1,5 +1,5 @@
 ---
-title: Application Gateway Ingress Controller Annotations
+title: Application Gateway Ingress Controller annotations
 description: This article provides documentation on the annotations specific to the Application Gateway Ingress Controller. 
 services: application-gateway
 author: caya
@@ -62,7 +62,8 @@ spec:
 ```
 In the example above, we have defined an ingress resource named `go-server-ingress-bkprefix` with an annotation `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` . The annotation tells application gateway to create an HTTP setting, which will have a path prefix override for the path `/hello` to `/test/`.
 
-***NOTE:*** In the above example we have only one rule defined. However, the annotations are applicable to the entire ingress resource, so if a user had defined multiple rules, the backend path prefix would be set up for each of the paths specified. Thus, if a user wants different rules with different path prefixes (even for the same service) they would need to define different ingress resources.
+> [!NOTE] 
+> In the above example we have only one rule defined. However, the annotations are applicable to the entire ingress resource, so if a user had defined multiple rules, the backend path prefix would be set up for each of the paths specified. Thus, if a user wants different rules with different path prefixes (even for the same service) they would need to define different ingress resources.
 
 ## SSL Redirect
 
@@ -203,9 +204,9 @@ spec:
 
 This annotation allows us to specify whether to expose this endpoint on Private IP of Application Gateway.
 
-> **Note**
-1) Application Gateway doesn't support multiple IPs on the same port (example: 80/443). Ingress with annotation `appgw.ingress.kubernetes.io/use-private-ip: "false"` and another with `appgw.ingress.kubernetes.io/use-private-ip: "true"` on `HTTP` will cause AGIC to fail in updating the Application Gateway.
-2) For Application Gateway that doesn't have a private IP, Ingresses with `appgw.ingress.kubernetes.io/use-private-ip: "true"` will be ignored. This will reflected in the controller logs and ingress events for those ingresses with `NoPrivateIP` warning.
+> [!NOTE]
+> * Application Gateway doesn't support multiple IPs on the same port (example: 80/443). Ingress with annotation `appgw.ingress.kubernetes.io/use-private-ip: "false"` and another with `appgw.ingress.kubernetes.io/use-private-ip: "true"` on `HTTP` will cause AGIC to fail in updating the Application Gateway.
+> * For Application Gateway that doesn't have a private IP, Ingresses with `appgw.ingress.kubernetes.io/use-private-ip: "true"` will be ignored. This will reflected in the controller logs and ingress events for those ingresses with `NoPrivateIP` warning.
 
 
 ### Usage
@@ -237,9 +238,9 @@ spec:
 
 This annotation allows us to specify the protocol that Application Gateway should use while talking to the Pods. Supported Protocols: `http`, `https`
 
-> **Note**
-1) While self-signed certificates are supported on Application Gateway, currently, AGIC only support `https` when Pods are using certificate signed by a well-known CA.
-2) Make sure to not use port 80 with HTTPS and port 443 with HTTP on the Pods.
+> [!NOTE]
+> * While self-signed certificates are supported on Application Gateway, currently, AGIC only support `https` when Pods are using certificate signed by a well-known CA.
+> * Make sure to not use port 80 with HTTPS and port 443 with HTTP on the Pods.
 
 ### Usage
 ```yaml

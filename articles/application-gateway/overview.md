@@ -52,7 +52,7 @@ For more information, see [Web application firewall (WAF) in Application Gateway
 ## Ingress Controller for AKS
 Application Gateway Ingress Controller (AGIC) allows you to use Application Gateway as the ingress for an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. 
 
-The ingress controller runs as a pod within the AKS cluster and consumes [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) and converts them to an Application Gateway configuration which allows the gateway to load-balance traffic to the Kuberenetes pods. The ingress controller only supports Application Gateway V2 SKU. 
+The ingress controller runs as a pod within the AKS cluster and consumes [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) and converts them to an Application Gateway configuration which allows the gateway to load-balance traffic to the Kubernetes pods. The ingress controller only supports Application Gateway V2 SKU. 
 
 For more information, see [Application Gateway Ingress Controller (AGIC)](application-gateway-ingress-controller-overview.md).
 

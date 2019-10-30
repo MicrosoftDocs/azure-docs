@@ -44,11 +44,10 @@ Kubernetes API Reference:
 * [Container Probes](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 * [HttpGet Action](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
 
-**Note:**
-
-1. `readinessProbe` and `livenessProbe` are supported when configured with `httpGet`.
-1. Probing on a port other than the one exposed on the pod is currently not supported.
-1. `HttpHeaders`, `InitialDelaySeconds`, `SuccessThreshold` are not supported.
+> [!NOTE]
+> * `readinessProbe` and `livenessProbe` are supported when configured with `httpGet`.
+> * Probing on a port other than the one exposed on the pod is currently not supported.
+> * `HttpHeaders`, `InitialDelaySeconds`, `SuccessThreshold` are not supported.
 
 ###  Without `readinessProbe` or `livenessProbe`
 If the above probes are not provided, then Ingress Controller make an assumption that the service is reachable on `Path` specified for `backend-path-prefix` annotation or the `path` specified in the `ingress` definition for the service.

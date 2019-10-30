@@ -327,9 +327,9 @@ Yes. For details see, [Migrate Azure Application Gateway and Web Application Fir
 ### What is an Ingress Controller?
 
 Kubernetes allows creation of `deployment` and `service` resource to expose a group of pods internally in the cluster. To expose the same service externally, an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource is defined which provides load balancing, SSL termination and name-based virtual hosting.
-To satify this `Ingress` resource, an Ingress Controller is required which listens for any changes to `Ingress` resources and configures the load balancer policies.
+To satisfy this `Ingress` resource, an Ingress Controller is required which listens for any changes to `Ingress` resources and configures the load balancer policies.
 
-The Application Gateway Ingress Controller allows [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) aka AKS cluster.
+The Application Gateway Ingress Controller allows [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) also known as an AKS cluster.
 
 ### Can a single ingress controller instance manage multiple Application Gateways?
 

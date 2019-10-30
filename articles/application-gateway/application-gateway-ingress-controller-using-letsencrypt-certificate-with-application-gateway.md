@@ -66,7 +66,8 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
 
     The default challenge type in the YAML below is `http01`. Other challenges are documented on [letsencrypt.org - Challenge Types](https://letsencrypt.org/docs/challenge-types/)
 
-    **IMPORTANT:** Update `<YOUR.EMAIL@ADDRESS>` in the YAML below
+    > [!IMPORTANT] 
+    > Update `<YOUR.EMAIL@ADDRESS>` in the YAML below
 
     ```bash
     #!/bin/bash
@@ -105,7 +106,8 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     Note the annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`, which tells cert-manager to process the
     tagged Ingress resource.
 
-    **IMPORTANT:**  Update `<PLACEHOLDERS.COM>` in the YAML below with your own domain (or the Application Gateway one, for example
+    > [!IMPORTANT] 
+    > Update `<PLACEHOLDERS.COM>` in the YAML below with your own domain (or the Application Gateway one, for example
     'kh-aks-ingress.westeurope.cloudapp.azure.com')
 
     ```bash

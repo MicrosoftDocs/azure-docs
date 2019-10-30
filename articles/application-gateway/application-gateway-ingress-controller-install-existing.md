@@ -13,7 +13,7 @@ ms.author: caya
 
 The Application Gateway Ingress Controller (AGIC) is a pod within your Kubernetes cluster.
 AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
-resources, and creates and applies Application Gateway config based on these.
+resources, and creates and applies Application Gateway config based on the status of the Kubernetes cluster.
 
 ### Outline:
 - [Prerequisites](#prerequisites)
@@ -25,14 +25,14 @@ resources, and creates and applies Application Gateway config based on these.
 shared between one or more AKS clusters and/or other Azure components.
 
 ### Prerequisites
-This documents assumes you already have the following tools and infrastructure installed:
+This document assumes you already have the following tools and infrastructure installed:
 - [AKS](https://azure.microsoft.com/services/kubernetes-service/) with [Advanced Networking](https://docs.microsoft.com/azure/aks/configure-azure-cni) enabled
 - [Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant) in the same virtual network as AKS
 - [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) installed on your AKS cluster
 - [Cloud Shell](https://shell.azure.com/) is the Azure shell environment, which has `az` CLI, `kubectl`, and `helm` installed. These tools are required for the commands below.
 
 Please __backup your Application Gateway's configuration__ before installing AGIC:
-  1. using [Azure Portal](https://portal.azure.com/) navigate to your `Application Gateway` instance
+  1. using [Azure portal](https://portal.azure.com/) navigate to your `Application Gateway` instance
   2. from `Export template` click `Download`
 
 The zip file you downloaded will have JSON templates, bash, and PowerShell scripts you could use to restore App
@@ -122,20 +122,20 @@ look something like this: `/subscriptions/A/resourceGroups/B/providers/Microsoft
 ### Using a Service Principal
 It is also possible to provide AGIC access to ARM via a Kubernetes secret.
 
-  1. Create an Active Directory Service Principal and encode with base64. The base64 encoding is required for the JSON
-  blob to be saved to Kubernetes.
+1. Create an Active Directory Service Principal and encode with base64. The base64 encoding is required for the JSON
+blob to be saved to Kubernetes.
 
-  ```bash
-  az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0
-  ```
+```bash
+az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0
+```
 
-  2. Add the base64 encoded JSON blob to the `helm-config.yaml` file. More information on `helm-config.yaml` is in the
-  next section.
-   ```yaml
-   armAuth:
-       type: servicePrincipal
-       secretJSON: <Base64-Encoded-Credentials>
-   ```
+2. Add the base64 encoded JSON blob to the `helm-config.yaml` file. More information on `helm-config.yaml` is in the
+next section.
+```yaml
+armAuth:
+    type: servicePrincipal
+    secretJSON: <Base64-Encoded-Credentials>
+```
 
 ## Install Ingress Controller as a Helm Chart
 In the first few steps we install Helm's Tiller on your Kubernetes cluster. Use [Cloud Shell](https://shell.azure.com/) to install the AGIC Helm package:
@@ -211,7 +211,8 @@ In the first few steps we install Helm's Tiller on your Kubernetes cluster. Use 
     nano helm-config.yaml
     ```
 
-    **NOTE:** The `<identity-resource-id>` and `<identity-client-id>` are the properties of the Azure AD Identity you setup in the previous section. You can retrieve this information by running the following command: `az identity show -g <resourcegroup> -n <identity-name>`, where `<resourcegroup>` is the resource group in which the top level AKS cluster object, Application Gateway and Managed Identify are deployed.
+    > [!NOTE] 
+    > The `<identity-resource-id>` and `<identity-client-id>` are the properties of the Azure AD Identity you setup in the previous section. You can retrieve this information by running the following command: `az identity show -g <resourcegroup> -n <identity-name>`, where `<resourcegroup>` is the resource group in which the top level AKS cluster object, Application Gateway and Managed Identify are deployed.
 
 1. Install Helm chart `application-gateway-kubernetes-ingress` with the `helm-config.yaml` configuration from the previous step
 
@@ -246,10 +247,10 @@ Refer to [this how-to guide](application-gateway-ingress-controller-expose-servi
 ## Multi-cluster / Shared Application Gateway
 By default AGIC assumes full ownership of the Application Gateway it is linked to. AGIC version 0.8.0 and later can
 share a single Application Gateway with other Azure components. For instance, we could use the same Application Gateway for an app
-hosted on VMSS as well as an AKS cluster.
+hosted on Virtual Machine Scale Set as well as an AKS cluster.
 
 Please __backup your Application Gateway's configuration__ before enabling this setting:
-  1. using [Azure Portal](https://portal.azure.com/) navigate to your `Application Gateway` instance
+  1. using [Azure portal](https://portal.azure.com/) navigate to your `Application Gateway` instance
   2. from `Export template` click `Download`
 
 The zip file you downloaded will have JSON templates, bash, and PowerShell scripts you could use to restore Application Gateway
@@ -257,13 +258,13 @@ The zip file you downloaded will have JSON templates, bash, and PowerShell scrip
 ### Example Scenario
 Let's look at an imaginary Application Gateway, which manages traffic for 2 web sites:
   - `dev.contoso.com` - hosted on a new AKS, using Application Gateway and AGIC
-  - `prod.contoso.com` - hosted on an [Azure VMSS](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
+  - `prod.contoso.com` - hosted on an [Azure Virutal Machine Scale Set](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
 With default settings, AGIC assumes 100% ownership of the Application Gateway it is pointed to. AGIC overwrites all of App
 Gateway's configuration. If we were to manually create a listener for `prod.contoso.com` (on Application Gateway), without
 defining it in the Kubernetes Ingress, AGIC will delete the `prod.contoso.com` config within seconds.
 
-To install AGIC and also serve `prod.contoso.com` from our VMSS machines, we must constrain AGIC to configuring
+To install AGIC and also serve `prod.contoso.com` from our Virtual Machine Scale Set machines, we must constrain AGIC to configuring
 `dev.contoso.com` only. This is facilitated by instantiating the following
 [CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/):
 

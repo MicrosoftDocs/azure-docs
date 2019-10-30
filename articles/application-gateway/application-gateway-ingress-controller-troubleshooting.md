@@ -136,10 +136,10 @@ establish an HTTP connection to the newly deployed app:
 A result of `HTTP/1.1 200 OK` indicates that the Application Gateway + AKS + AGIC system is working as expected.
 
 
-### Inspect Kubernetes Installation
+## Inspect Kubernetes Installation
 
 #### Pods, Services, Ingress
-Application Gateway Ingress Controller (AGIC) continuously monitors the folowing Kubernetes resources: [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment) or [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod), [Service](https://kubernetes.io/docs/concepts/services-networking/service/), [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+Application Gateway Ingress Controller (AGIC) continuously monitors the following Kubernetes resources: [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment) or [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod), [Service](https://kubernetes.io/docs/concepts/services-networking/service/), [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
 
 The following must be in place for AGIC to function as expected:
@@ -190,26 +190,28 @@ The following must be in place for AGIC to function as expected:
      The ingress resource must be annotated with `kubernetes.io/ingress.class: azure/application-gateway`.
  
 
-#### Verify Observed Nampespace
+#### Verify Observed Namespace
 
 * Get the existing namespaces in Kubernetes cluster. What namespace is your app
 running in? Is AGIC watching that namespace? Refer to the
 [Multiple Namespace Support](./application-gateway-ingress-controller-multiple-namespace-support.md#enable-multiple-namespace-support)
 documentation on how to properly configure observed namespaces.
-```bash
-# What namespaces exist on your cluster
-kubectl get namespaces
 
-# What pods are currently running
-kubectl get pods --all-namespaces -o wide
-```
+    ```bash
+    # What namespaces exist on your cluster
+    kubectl get namespaces
+    
+    # What pods are currently running
+    kubectl get pods --all-namespaces -o wide
+    ```
 
 
 * The AGIC pod should be in the `default` namespace (see column `NAMESPACE`). A healthy pod would have `Running` in the `STATUS` column. There should be at least one AGIC pod.
-```bash
-# Get a list of the Application Gateway Ingress Controller pods
-kubectl get pods --all-namespaces --selector app=ingress-azure
-```
+
+    ```bash
+    # Get a list of the Application Gateway Ingress Controller pods
+    kubectl get pods --all-namespaces --selector app=ingress-azure
+    ```
 
 
 * If the AGIC pod is not healthy (`STATUS` column from the command above is not `Running`):
@@ -221,20 +223,22 @@ kubectl get pods --all-namespaces --selector app=ingress-azure
 * Do you have a Kubernetes
 [Service](https://kubernetes.io/docs/concepts/services-networking/service/) and
 [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resources?
-```bash
-# Get all services across all namespaces
-kubectl get service --all-namespaces -o wide
-
-# Get all ingress resources across all namespaces
-kubectl get ingress --all-namespaces -o wide
-```
+    
+    ```bash
+    # Get all services across all namespaces
+    kubectl get service --all-namespaces -o wide
+    
+    # Get all ingress resources across all namespaces
+    kubectl get ingress --all-namespaces -o wide
+    ```
 
 
 * Is your [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) annotated with: `kubernetes.io/ingress.class: azure/application-gateway`? AGIC will only watch for Kubernetes Ingress resources that have this annotation.
-```bash
-# Get the YAML definition of a particular ingress resource
-kubectl get ingress --namespace  <which-namespace?>  <which-ingress?>  -o yaml
-```
+    
+    ```bash
+    # Get the YAML definition of a particular ingress resource
+    kubectl get ingress --namespace  <which-namespace?>  <which-ingress?>  -o yaml
+    ```
 
 
 * AGIC emits Kubernetes events for certain critical errors. You can view these:

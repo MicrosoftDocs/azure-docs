@@ -1,5 +1,5 @@
 ---
-title: Use private IP for internal routing for an Ingress endpoint 
+title: Use private IP address for internal routing for an ingress endpoint 
 description: This article provides information on how to use private IPs for internal routing and thus exposing the Ingress endpoint within a cluster to the rest of the VNet. 
 services: application-gateway
 author: caya
@@ -57,8 +57,8 @@ appgw:
     usePrivateIP: true
 ```
 
-This will make the ingress controller filter the ipconfigurations for a Private IP when configuring the frontend listeners on the Application Gateway.
+This will make the ingress controller filter the IP address configurations for a Private IP when configuring the frontend listeners on the Application Gateway.
 AGIC will panic and crash if `usePrivateIP: true` and no Private IP is assigned.
 
-**Notes:**
-Application Gateway v2 SKU requires a Public IP. Should you require Application Gateway to be private, Attach a [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) to the Application Gateway's subnet to restrict traffic.
+> [!NOTE]
+> Application Gateway v2 SKU requires a Public IP. Should you require Application Gateway to be private, Attach a [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) to the Application Gateway's subnet to restrict traffic.
