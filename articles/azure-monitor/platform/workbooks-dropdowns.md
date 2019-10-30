@@ -105,7 +105,7 @@ If your query result/json contains a "group" field, the dropdown will display gr
     ![Image showing a drop-down referenced in KQL](./media/workbook-dropdowns/dropdown-reference.png)
 
 
-## Parameter Value, Label, Selection and Group
+## Parameter value, label, selection and group
 The query used in the dynamic drop-down parameter above just returns a list of values that are rendered faithfully in the drop-down. But what if you wanted a different display name, or one of these to be selected? Drop down parameters allow this via the value, label, selection and group columns.
 
 The sample below shows how to get a list of Application Insights dependencies whose display names are styled with an emoji, has the first one selected, and is grouped by  operation names.
@@ -128,7 +128,7 @@ dependencies
 | `{DependencyName:label}` | The selected label | 🌐 GET fabrikamaccount |
 | `{DependencyName:value}` | The selected value | GET fabrikamaccount |
 
-## Multiple Selection
+## Multiple selection
 The examples so far explicitly set the parameter to select only one value in the drop-down. Drop down parameters also support `multiple selection` - enabling this is as simple as checking the `Allow multiple selection` option. 
 
 The user also has the option of specifying the format of the result set via the `delimiter` and `quote with` settings. The default just returns the values as a collection in this form: 'a', 'b', 'c'. They also have the option to limit the number of selections.
@@ -145,7 +145,7 @@ Here is an example for multi-select drop-down at work:
 
 ![Image showing a multi-select drop-down parameter](./media/workbook-dropdowns/dropdown-multiselect.png)
 
-## Next Steps
+## Next steps
 
 * [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
 * [Control](workbooks-access-control.md) and share access to your workbook resources.

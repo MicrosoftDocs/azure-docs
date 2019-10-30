@@ -47,7 +47,7 @@ To make a query control use this data source, use the Query type drop-down to ch
 
 ![Screenshot of Azure Resource Graph KQL query](./media/workbooks-overview/azure-resource-graph.png)
 
-## Alerts (Preview)
+## Alerts (preview)
 
 Workbooks allow users to visualize the active alerts related to their resources. This feature allows the creation of reports that bring together notification data (alert) and diagnostic information (metrics, logs) into one report. This information can also be joined together to create rich reports that combine insights across these data sources.
 
@@ -55,7 +55,7 @@ To make a query control use this data source, use the Query type drop-down to ch
 
 ![Screenshot of alerts query](./media/workbooks-overview/alerts.png)
 
-## Workload Health (Preview)
+## Workload health (preview)
 
 Azure Monitor has functionality that proactively monitors the availability and performance of Windows or Linux guest operating systems. Azure Monitor models key components and their relationships, criteria for how to measure the health of those components, and which components alert you when an unhealthy condition is detected. Workbooks allow users to use this information to create rich interactive reports.
 
@@ -63,7 +63,7 @@ To make a query control use this data source, use the **Query type** drop-down t
 
 ![Screenshot of alerts query](./media/workbooks-overview/workload-health.png)
 
-## Azure Resource Health 
+## Azure resource health 
 
 Workbooks support getting Azure resource health and combining it with other data sources to create rich, interactive health reports
 
@@ -71,13 +71,13 @@ To make a query control use this data source, use the **Query type** drop-down t
 
 ![Screenshot of alerts query](./media/workbooks-overview/resource-health.png)
 
-## Azure Data Explorer (Preview)
+## Azure Data Explorer (preview)
 
 Workbooks now have support for querying from [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/) clusters with the powerful [Kusto](https://docs.microsoft.com/azure/kusto/query/index) query language.   
 
 ![Screenshot of Kusto query window](./media/workbooks-overview/data-explorer.png)
 
-## Next Steps
+## Next steps
 
 * [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
 * [Control](workbooks-access-control.md) and share access to your workbook resources.

@@ -22,7 +22,7 @@ This can be useful in scenarios like:
 
 The workbook will be created in the desired sub/resource-group and with the content specified in the Resource Manager templates.
 
-## Creating an Azure Resource Manager template that deploys a workbook
+## Azure Resource Manager template for deploying workbooks
 1. Open a workbook that you want to deploy programmatically.
 2. Switch the workbook to edit mode by clicking on the _Edit_ toolbar item.
 3. Open the _Advanced Editor_ using the _</>_ button on the toolbar.
@@ -93,7 +93,7 @@ This template shows how to deploy a simple workbook that displays a 'Hello World
 }
 ```
 
-### Template Parameters
+### Template parameters
 
 | Parameter | Explanation |
 | :------------- |:-------------|
@@ -105,7 +105,7 @@ This template shows how to deploy a simple workbook that displays a 'Hello World
 | `location` | The Azure location where the workbook will be created. Use _[resourceGroup().location]_ to create it in the same location as the resource group |
 | `serializedData` | Contains the content or payload to be used in the workbook. Use the Resource Manager template from the workbooks UI to get the value |
 
-### Workbook Types
+### Workbook types
 Workbook types specify which workbook gallery type the new workbook instance will show up under. Options include:
 
 | Type | Gallery location |

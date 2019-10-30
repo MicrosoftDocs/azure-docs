@@ -18,7 +18,7 @@ Resource parameters allow picking of resources in workbooks. This is useful in s
 
 Values from resource pickers can come from the workbook context, static list or from Azure Resource Graph queries.
 
-## Creating a resource parameter using workbook resources
+## Creating a resource parameter (workbook resources)
 1. Start with an empty workbook in edit mode.
 2. Choose _Add parameters_ from the links within the workbook.
 3. Click on the blue _Add Parameter_ button.
@@ -33,7 +33,7 @@ Values from resource pickers can come from the workbook context, static list or 
 
 ![Image showing the creation of a resource parameter using workbook resources](./media/workbooks-resources/resource-create.png)
 
-## Creating a resource parameter using Azure Resource Graph
+## Creating a resource parameter (Azure Resource Graph)
 1. Start with an empty workbook in edit mode.
 2. Choose _Add parameters_ from the links within the workbook.
 3. Click on the blue _Add Parameter_ button.
@@ -59,7 +59,7 @@ Values from resource pickers can come from the workbook context, static list or 
 
 [Azure Resource Graph documentation](https://docs.microsoft.com/azure/governance/resource-graph/overview)
 
-## Creating a resource parameter a JSON list
+## Creating a resource parameter  (JSON list)
 1. Start with an empty workbook in edit mode.
 2. Choose _Add parameters_ from the links within the workbook.
 3. Click on the blue _Add Parameter_ button.
