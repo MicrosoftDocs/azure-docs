@@ -66,13 +66,7 @@ Each cluster type has a set of node types, and each node type has specific optio
 
 To determine the optimal cluster size for your application, you can benchmark cluster capacity and increase the size as indicated. For example, you can use a simulated workload, or a *canary query*. With a simulated workload, you run your expected workloads on different size clusters, gradually increasing the size until the desired performance is reached. A canary query can be inserted periodically among the other production queries to show whether the cluster has enough resources.
 
-The VM size and type is determined by CPU processing power, RAM size, and network latency:
-
-* CPU: The VM size dictates the number of cores. The more cores, the greater the degree of parallel computation each node can achieve. Also, some VM types have faster cores.
-
-* RAM: The VM size also dictates the amount of RAM available in the VM. For workloads that store data in memory for processing, rather than reading from disk, ensure your worker nodes have enough memory to fit the data.
-
-* Network: For most cluster types, the data processed by the cluster isn't on local disk, but rather in an external storage service such as Data Lake Storage or Azure Storage. Consider the network bandwidth and throughput between the node VM and the storage service. The network bandwidth available to a VM typically increases with larger sizes. For details, see [VM sizes overview](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+For more information on how to choose the right VM family for your workload, see [Selecting the right VM size for your cluster](hdinsight-selecting-vm-size.md).
 
 ## Choose the cluster scale
 
@@ -102,10 +96,11 @@ After determining your target cluster VM size, scale, and type, check the curren
 1. Select **Help + support** on the bottom-left side of the page.
 1. Select **New support request**.
 1. On the **New support request** page, under **Basics** tab, select the following options:
+
    - **Issue type**: **Service and subscription limits (quotas)**
    - **Subscription**: the subscription you want to modify
    - **Quota type**: **HDInsight**
-    
+
      ![Create a support request to increase HDInsight core quota](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Select **Next: Solutions >>**.
