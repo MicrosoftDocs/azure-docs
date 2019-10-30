@@ -16,7 +16,7 @@ Sometimes DPS needs more data from devices to properly provision them to the rig
 This feature can be used as an enhancement for [custom allocation](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). For instance, you want to allocate your devices based on the device model without human intervention. In this case, you will use [custom allocation](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). You can configure the device to report the model information as part of the [register device call](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). DPS will pass the device’s information into to the custom allocation webhook. And your function can decide which IoT Hub this device will go to when it receives device model information. Similarly, if the webhook wishes to return some data to the device, it will pass the data back as a string in the webhook response.  
 
 ## Device sends data to DPS
-When your device is sending a [register device call](https://docs.microsoft.com/en-us/rest/api/iot-dps/runtimeregistration/registerdevice) to DPS. The register call can be enhanced to take other fields in the body. The body looks like the following: 
+When your device is sending a [register device call](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) to DPS. The register call can be enhanced to take other fields in the body. The body looks like the following: 
    ```
    { 
        “registrationId”: “mydevice”, 
@@ -50,7 +50,7 @@ If the custom allocation policy webhook wishes to return some data to the device
    ```
 
 ## SDK support
-This feature is available in C, C#, JAVA and Node.js [client SDKs](https://docs.microsoft.com/en-us/azure/iot-dps/).  
+This feature is available in C, C#, JAVA and Node.js [client SDKs](https://docs.microsoft.com/azure/iot-dps/).  
 
 ## Next steps
 * Develop using the [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) for Azure IoT Hub and Azure IoT Hub Device Provisioning Service
