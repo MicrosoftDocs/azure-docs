@@ -49,21 +49,21 @@ For Linux: SockPerf (Linux)
 
 Using these tools ensures that only TCP or UDP payload delivery times are measured and not ICMP (Ping) or other packet types that aren't used by applications and don't affect their performance.
 
-### Tips for an Optimal VM Configuration:
+### Tips for an optimal VM configuration:
 
 - Use the latest version of Windows or Linux
 - Enable Accelerated Networking for best results
 - Deploy VMs with [Azure Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)
 - Larger VMs generally perform better than smaller VMs
 
-### Tips for Analysis
+### Tips for analysis
 
 - Establish a baseline early, as soon as deployment, configuration, and optimizations are complete
 - Always compare new results to a baseline or otherwise from one test to another with controlled changes
 - Repeat tests whenever changes are observed or planned
 
 
-## Testing VMs running WINDOWS:
+## Testing VMs running Windows:
 
 ## Get Latte.exe onto the VMs
 
@@ -121,7 +121,7 @@ Wait for the results. Depending on how far apart the VMs are, it could take a fe
 
 Use SockPerf. It is available from [https://github.com/mellanox/sockperf](https://github.com/mellanox/sockperf)
 
-### Install SockPerf on the VMs​
+### Install SockPerf on the VMs
 
 ​On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare SockPerf on your VMs. Commands are provided for the major distros.
 
