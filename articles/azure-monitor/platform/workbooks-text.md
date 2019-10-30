@@ -29,7 +29,7 @@ A common use of textboxes is as internal variables used by other workbook contro
     4. Get default value from query: `unchecked`
 5. Choose 'Save' from the toolbar to create the parameter.
 
-![Image showing the creation of a text parameter](./media/workbooks-text/text-create.png)
+    ![Image showing the creation of a text parameter](./media/workbooks-text/text-create.png)
 
 This is how the workbook will look like in read-mode.
 
@@ -53,7 +53,7 @@ This is how the workbook will look like in read-mode.
     ```
 4. Run query to see the results
 
-![Image showing a text parameter referenced in KQL](./media/workbooks-text/text-reference.png)
+    ![Image showing a text parameter referenced in KQL](./media/workbooks-text/text-reference.png)
 
 
 ## Setting default values
@@ -74,7 +74,7 @@ This is how the workbook will look like in read-mode.
 6. Run query to see the result
 7. Choose 'Save' from the toolbar to create the parameter.
 
-![Image showing a text parameter with default value from KQL](./media/workbooks-text/text-default-value.png)
+    ![Image showing a text parameter with default value from KQL](./media/workbooks-text/text-default-value.png)
 
 > [!NOTE]
 > While this example queries Application Insights data, the approach can be used for any log based data source - Log Analytics, Azure Resource Graph, etc.

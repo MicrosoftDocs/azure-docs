@@ -41,7 +41,7 @@ The easiest way to specify a drop-down is by providing a static list in the para
 7. Choose 'Save' from the toolbar to create the parameter.
 8. The Environment parameter will be a drop-down with the three values.
 
-![Image showing the creation of a static drown down](./media/workbook-dropdowns/dropdown-create.png)
+    ![Image showing the creation of a static drown down](./media/workbook-dropdowns/dropdown-create.png)
 
 ## Creating a static dropdown with groups of items
 If your query result/json contains a "group" field, the dropdown will display groups of values. Follow the above sample, but use the following json instead:
@@ -55,7 +55,7 @@ If your query result/json contains a "group" field, the dropdown will display gr
     { "value":"prod2", "label":"Prod 2", "group":"Production" }
 ]
 ```
-![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
+    ![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
 
 
 ## Creating a dynamic drop-down parameter
@@ -79,7 +79,7 @@ If your query result/json contains a "group" field, the dropdown will display gr
 2. Choose 'Save' from the toolbar to create the parameter.
 3. The RequestName parameter will be a drop-down the names of all requests in the app.
 
-![Image showing the creation of a dynamic drop-down](./media/workbook-dropdowns/dropdown-dynamic.png)
+    ![Image showing the creation of a dynamic drop-down](./media/workbook-dropdowns/dropdown-dynamic.png)
 
 ## Referencing drop down parameter
 ### In KQL
@@ -102,7 +102,7 @@ If your query result/json contains a "group" field, the dropdown will display gr
 
 4. Run query to see the results. Optionally, render it as a chart.
 
-![Image showing a drop-down referenced in KQL](./media/workbook-dropdowns/dropdown-reference.png)
+    ![Image showing a drop-down referenced in KQL](./media/workbook-dropdowns/dropdown-reference.png)
 
 
 ## Parameter Value, Label, Selection and Group
@@ -118,7 +118,7 @@ dependencies
 | serialize Rank = row_number()
 | project value = name, label = strcat('🌐 ', name), selected = iff(Rank == 1, true, false), group = operation_Name
 ```
-![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
+    ![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
 
 
 ## Drop down parameter options

@@ -16,13 +16,13 @@ ms.author: mbullwin
 
 Access control in workbooks refers to two things:
 
-1. Access required to read data in a workbook. This access is controlled by standard [Azure roles](https://docs.microsoft.com/azure/role-based-access-control/overview) on the resources used in the workbook. Workbooks do not specify or configure access to those resources. Users would usually get this access to those resources using the [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) role on those resources.
+* Access required to read data in a workbook. This access is controlled by standard [Azure roles](https://docs.microsoft.com/azure/role-based-access-control/overview) on the resources used in the workbook. Workbooks do not specify or configure access to those resources. Users would usually get this access to those resources using the [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) role on those resources.
 
-2. Access required to save workbooks
+* Access required to save workbooks
 
-- Saving private `("My")` workbooks requires no additional privileges. All users can save private workbooks, and only they can see those workbooks.
-- Saving shared workbooks requires write privileges in a resource group to save the workbook. These privileges are usually specified by the [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) role, but can also be set via the *Workbooks Contributor* role.
-
+    - Saving private `("My")` workbooks requires no additional privileges. All users can save private workbooks, and only they can see those workbooks.
+    - Saving shared workbooks requires write privileges in a resource group to save the workbook. These privileges are usually specified by the [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) role, but can also be set via the *Workbooks Contributor* role.
+    
 ## Standard roles with workbook-related privileges
 
 [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) includes standard /read privileges that would be used by monitoring tools (including workbooks) to read data from resources.

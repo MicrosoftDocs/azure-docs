@@ -41,11 +41,11 @@ These parameter values can be referenced in other parts of workbooks either via 
     4. Available time ranges: Last hour, Last 12 hours, Last 24 hours, Last 48 hours, Last 3 days, Last 7 days and Allow custom time range selection
 5. Choose 'Save' from the toolbar to create the parameter.
 
-![Image showing the creation of a time range parameter](./media/workbooks-parameters/time-settings.png)
+   ![Image showing the creation of a time range parameter](./media/workbooks-parameters/time-settings.png)
 
 This is how the workbook will look like in read-mode, in the "Pills" style.
 
-![Image showing a time range parameter in read mode](./media/workbooks-parameters/parameters-time.png)
+   ![Image showing a time range parameter in read mode](./media/workbooks-parameters/parameters-time.png)
 
 ## Referencing a parameter
 ### Via Bindings
@@ -54,7 +54,7 @@ This is how the workbook will look like in read-mode, in the "Pills" style.
 3. This binds the time range parameter to the time range of the chart. The time scope of the sample query is now Last 24 hours.
 4. Run query to see the results
 
-![Image showing a time range parameter referenced via bindings](./media/workbooks-parameters/time-binding.png)
+    ![Image showing a time range parameter referenced via bindings](./media/workbooks-parameters/time-binding.png)
 
 ### In KQL
 1. Add a query control to the workbook and select an Application Insights resource.
@@ -62,7 +62,7 @@ This is how the workbook will look like in read-mode, in the "Pills" style.
 3. This expands on query evaluation time to `| where timestamp > ago(1d)`, which is the time range value of the parameter.
 4. Run query to see the results
 
-![Image showing a time range referenced in KQL](./media/workbooks-parameters/time-in-code.png)
+    ![Image showing a time range referenced in KQL](./media/workbooks-parameters/time-in-code.png)
 
 ### In Text 
 1. Add a text control to the workbook.

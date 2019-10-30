@@ -16,15 +16,6 @@ ms.author: mbullwin
 
 Azure Monitor workbooks support a number of different styles of visualizations to accommodate your reporting needs. This article provides examples of each type of visualization.
 
-## Visualization components
-
-* [Text](#text)
-* [Charts](#charts)
-* [Grids](#grids)
-* [Tiles](#tiles)
-* [Trees](#trees)
-* [Graphs](#graphs)
-
 ## Text
 
 Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of telemetry, information to help users interpret your data, section headings, etc.
@@ -238,15 +229,15 @@ The graph below show data flowing in/out of a computer via various port to/from 
 7. Set the visualization to **Graph**
 8. Click the **Graph Settings** button to open the settings pane
 9. In _Layout Fields_ at the bottom, set:
-    * Node Id: `Id`
-    * Source Id: `SourceId`
-    * Target Id: `TargetId`
-    * Edge Label: `None`
-    * Edge Size: `Calls`
-    * Node Size: `None`
-    * Coloring Type: `Categorical`
-    * Node Color Field: `Kind`
-    * Color palette: `Pastel`
+    * `Node Id`: `Id`
+    * `Source Id`: `SourceId`
+    * `Target Id`: `TargetId`
+    * `Edge Label`: `None`
+    * `Edge Size`: `Calls`
+    * `Node Size`: `None`
+    * `Coloring Type`: `Categorical`
+    * `Node Color Field`: `Kind`
+    * `Color palette`: `Pastel`
 10. In _Node Format Settings_ at the top, set:
     * _Top Content_- Use Column: `Name`, Column Renderer: `Text`
     * _Center Content_- Use Column: `Calls`, Column Renderer: `Big Number`, Color Palette: `None`

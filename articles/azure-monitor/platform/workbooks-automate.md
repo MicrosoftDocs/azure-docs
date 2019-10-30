@@ -17,8 +17,8 @@ ms.author: mbullwin
 Resource owners have the option to create and manage their workbooks programmatically via Resource Manager templates. 
 
 This can be useful in scenarios like:
-1. Deploying org- or domain-specific analytics reports along with resources deployments. For instance, you may deploy org-specific performance and failure workbooks for your new apps or virtual machines.
-2. Deploying standard reports or dashboards using workbooks for existing resources.
+* Deploying org- or domain-specific analytics reports along with resources deployments. For instance, you may deploy org-specific performance and failure workbooks for your new apps or virtual machines.
+* Deploying standard reports or dashboards using workbooks for existing resources.
 
 The workbook will be created in the desired sub/resource-group and with the content specified in the Resource Manager templates.
 
@@ -29,7 +29,7 @@ The workbook will be created in the desired sub/resource-group and with the cont
 4. In the editor, switch _Template Type_ to _Resource Manager template_.
 5. The Resource Manager template for creating shows up in the editor. Copy the content and use as-is or merge it with a larger template that also deploys the target resource.
 
-![Image showing how to get the Resource Manager template from within the workbook UI](./media/workbooks-automate/programmatic-template.png)
+    ![Image showing how to get the Resource Manager template from within the workbook UI](./media/workbooks-automate/programmatic-template.png)
 
 ## Sample Azure Resource Manager template
 This template shows how to deploy a simple workbook that displays a 'Hello World!'

@@ -92,7 +92,7 @@ Workbooks allow authors to add interactivity via a special type of grid column r
     4. Click _Save and Close_ to apply changes
 8. Click on one of the `Sample` links in the grid. This opens up a property pane with the details of a sampled request.
 
-![Image showing the creation an interactive experience using grid cell clicks](./media/workbooks-interactive/grid-cell-click-create.png)
+    ![Image showing the creation an interactive experience using grid cell clicks](./media/workbooks-interactive/grid-cell-click-create.png)
 
 ### Link Renderer Actions
 | Link action | Action on click |
