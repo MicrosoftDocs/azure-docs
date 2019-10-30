@@ -83,7 +83,7 @@ curl -i -N -H "Connection: Upgrade" \
         http://1.2.3.4:80/ws
 ```
 
-##### WebSocket Health Probes
+## WebSocket Health Probes
 
 If your deployment does not explicitly define health probes, Application Gateway would attempt an  HTTP GET on your WebSocket server endpoint.
 Depending on the server implementation ([here is one we love](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)) WebSocket specific headers may be required (`Sec-Websocket-Version` for instance).

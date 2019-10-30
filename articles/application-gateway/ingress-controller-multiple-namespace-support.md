@@ -11,7 +11,7 @@ ms.author: caya
 
 # Enable multiple Namespace support in an AKS cluster with Application Gateway Ingress Controller
 
-#### Motivation
+## Motivation
 Kubernetes [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 make it possible for a Kubernetes cluster to be partitioned and allocated to
 subgroups of a larger team. These subteams can then deploy and manage
@@ -32,7 +32,7 @@ Version 0.7 of AGIC will continue to exclusively observe the `default`
 namespace, unless this is explicitly changed to one or more different
 namespaces in the Helm configuration (see section below).
 
-#### Enable multiple namespace support
+## Enable multiple namespace support
 To enable multiple namespace support:
 1. modify the [helm-config.yaml](#sample-helm-config-file) file in one of the following ways:
    - delete the `watchNamespace` key entirely from [helm-config.yaml](#sample-helm-config-file) - AGIC will observe all namespaces
@@ -46,7 +46,7 @@ Once deployed with the ability to observe multiple namespaces, AGIC will:
   - compose combined [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
   - apply the config to the associated Application Gateway via [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 
-#### Conflicting Configurations
+## Conflicting Configurations
 Multiple namespaced [ingress resources](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource)
 could instruct AGIC to create conflicting configurations for a single Application Gateway. (Two ingresses claiming the same
 domain for instance.)
@@ -123,14 +123,14 @@ traffic to the staging backend pool. At a later stage, introducing `production`
 ingress, will cause AGIC to reprogram Application Gateway, which will start routing traffic
 to the `production` backend pool.
 
-#### Restrict Access to Namespaces
+## Restrict Access to Namespaces
 By default AGIC will configure Application Gateway based on annotated Ingress within
 any namespace. Should you want to limit this behavior you have the following
 options:
   - limit the namespaces, by explicitly defining namespaces AGIC should observe via the `watchNamespace` YAML key in [helm-config.yaml](#sample-helm-config-file)
   - use [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) to limit AGIC to specific namespaces
 
-#### Sample Helm config file
+## Sample Helm config file
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 

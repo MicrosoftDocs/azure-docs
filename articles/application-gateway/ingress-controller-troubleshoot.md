@@ -17,7 +17,7 @@ and AGIC installation. Launch your shell from [shell.azure.com](https://shell.az
 [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 
-### Test with a simple Kubernetes app
+## Test with a simple Kubernetes app
 
 The steps below assume:
   - You have an AKS cluster, with Advanced Networking enabled
@@ -138,7 +138,7 @@ A result of `HTTP/1.1 200 OK` indicates that the Application Gateway + AKS + AGI
 
 ## Inspect Kubernetes Installation
 
-#### Pods, Services, Ingress
+### Pods, Services, Ingress
 Application Gateway Ingress Controller (AGIC) continuously monitors the following Kubernetes resources: [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment) or [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod), [Service](https://kubernetes.io/docs/concepts/services-networking/service/), [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
 
@@ -190,7 +190,7 @@ The following must be in place for AGIC to function as expected:
      The ingress resource must be annotated with `kubernetes.io/ingress.class: azure/application-gateway`.
  
 
-#### Verify Observed Namespace
+### Verify Observed Namespace
 
 * Get the existing namespaces in Kubernetes cluster. What namespace is your app
 running in? Is AGIC watching that namespace? Refer to the
@@ -271,7 +271,7 @@ the JSON config dispatched to
   - add `verbosityLevel: 5` on a line by itself in [helm-config.yaml](#sample-helm-config-file) and re-install
   - get logs with `kubectl logs <pod-name>`
 
-#### Sample Helm config file
+### Sample Helm config file
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 

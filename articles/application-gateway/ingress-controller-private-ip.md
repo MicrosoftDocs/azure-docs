@@ -13,7 +13,7 @@ ms.author: caya
 
 This feature allows to expose the ingress endpoint within the `Virtual Network` using a private IP.
 
-**Pre-requisites**  
+## Pre-requisites  
 Application Gateway with a [Private IP configuration](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
 
 There are two ways to configure the controller to use Private IP for ingress,
