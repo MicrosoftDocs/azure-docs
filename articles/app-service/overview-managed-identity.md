@@ -303,7 +303,7 @@ Content-Type: application/json
 
 ### Code examples
 
-# [C#](#tab/csharp)
+# [.NET](#tab/dotnet)
 
 > [!TIP]
 > For .NET languages, you can also use [Microsoft.Azure.Services.AppAuthentication](#asal) instead of crafting this request yourself.
