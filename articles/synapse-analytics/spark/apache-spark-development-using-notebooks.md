@@ -1,5 +1,5 @@
 ---
-title: Using Synapse Analytics Studio Notebook 
+title: Using Azure Synapse Analytics Studio Notebook 
 description: Introduction of how to use synapse analytics studio notebook  
 services: sql-data-warehouse 
 author: ruixinxu 
@@ -11,18 +11,18 @@ ms.author: ruxu
 ms.reviewer: 
 ---
 
-# Using Synapse Analytics Studio Notebook 
+# Using Azure Synapse Analytics studio notebook 
 
 This document highlights following capabilities in Synapse Analytics Studio Notebook:
 
 
-## Spark Session Config
+## Spark session config
 You can specify the number and the size of executors to give to current Spark session in `spark session configuration`. Restarting of spark session is required for the changes to take effect. All cached notebook variables will be cleared.
 
 ![spark_session_config](../media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
 [back to top](#using-synapse-analytics-studio-notebook)
 
-## Magic Commands
+## Magic commands
 Synapse Analytics Studio Notebook allows you to write multiple languages in one notebook. You can use following magic commands to switch the cell level language.
 
 |Magic Commands |Language | Description |  
@@ -56,7 +56,7 @@ myNewPythonDataFrame = spark.sql(“SELECT * FROM mydataframetable”)
 ```
 [back to top](#using-synapse-analytics-studio-notebook)
 
-## Language Service
+## Language service
 
 
 |Languages| Syntax Highlight | Syntax Error Marker  | Syntax Code Completion | Variable Code Completion| System Function Code Completion| User Function Code Completion| Smart Indent | Code Folding|
@@ -69,7 +69,7 @@ myNewPythonDataFrame = spark.sql(“SELECT * FROM mydataframetable”)
 
 [back to top](#using-synapse-analytics-studio-notebook)
 
-## Shortcut Keys
+## Shortcut keys
 
 Same with Jupyter Notebook, Synapse Analytics Studio Notebook has a modal user interface. The keyboard does different things depending on which mode the Notebook cell is in. Synapse Analytics Studio Notebook supports following two modes for a given code cell:
 - Command Mode. Command mode is indicated by a blue cell border. 
@@ -80,7 +80,7 @@ Same with Jupyter Notebook, Synapse Analytics Studio Notebook has a modal user i
     When a cell is in edit mode, you cant type into the cell. Enter edit mode by pressing `Enter` or using the mouse to click on a cell's editor area.
 
 
-### Shortcut Keys under Command Mode
+### Shortcut keys under command mode
 | Action |Synapse Analytics Studio Notebook Shortcuts  |
 |--|--|
 |Run the current cell and select below | Shift+Enter |
@@ -95,7 +95,7 @@ Same with Jupyter Notebook, Synapse Analytics Studio Notebook has a modal user i
 |Switch to edit mode| Enter |
 
 
-### Shortcut Keys under Edit Mode
+### Shortcut keys under edit mode
 | Action |Synapse Analytics Studio Notebook Shortcuts  |
 |--|--|
 |Move cursor up | Up |
@@ -119,15 +119,15 @@ Same with Jupyter Notebook, Synapse Analytics Studio Notebook has a modal user i
 
 ## Visualization
 
-### display()
+### Display()
  A tabular results view is provided with built-in bar chart, line chart, pie chart, scatter chart, and area chart. You can visualize your data without having to write code. The charts can be customized in the Chart Options. The output of `%%sql` magic commands will appear in the rendered table view by default. For Spark DataFrames or RDDs you can call the `display(<DataFrame name>)` function to produce the rendered table view.
 
 ![builtin-charts](../media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
 
-### displayHTML()
+### DisplayHTML()
 You can also use `displayHTML()` function to render HTML or interactive libraries like `bokeh`.
 
-Here is an example of using `bokeh` to show the passengers drop off density of new york city green taxi data.
+Here is an example of using `bokeh` to show the passengers drop off density of New York City green taxi data.
  
 
 ![bokeh example](../media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
@@ -195,7 +195,7 @@ displayHTML(html)
 [back to top](#using-synapse-analytics-studio-notebook)
 
 
-## Spark Progress Indicator
+## Spark progress indicator
 
 A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
 
