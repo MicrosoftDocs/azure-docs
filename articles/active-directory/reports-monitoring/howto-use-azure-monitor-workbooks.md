@@ -13,12 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 10/29/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ---
 
 # How to use Azure Monitor workbooks for Azure Active Directory reports
+
+> [!IMPORTANT]
+> In order to optimize the underlying queries in this workbook, please click on "Edit", click on Settings icon and select the workspace where you want to run these queries. Workbooks by default will select all workspaces where you are routing your Azure AD logs. 
 
 Do you want to:
 
@@ -28,7 +31,23 @@ Do you want to:
 
 - Know who's using legacy authentications to sign in to your environment? (By [blocking legacy authentication](../conditional-access/block-legacy-authentication.md), you can improve your tenant's protection.)
 
-To help you to address these questions, Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, analytics queries, metrics, and parameters into rich interactive reports. 
+- Do you need to understand the impact of Conditional Access policies in your tenant?
+
+- Would you like the ability to review: sign-in log queries, the workbook 
+reports how many users were granted or denied access, as well as how many users bypassed 
+conditional access policies when accessing resources?
+
+- Interested in developing a deeper understanding of: the workbook details per 
+condition so that the impact of a policy can be contextualized per condition, 
+including device platform, device state, client app, sign-in risk, location, and application?
+
+- Gain deeper insights into sign-in log queries, the workbook 
+reports how many users were granted or denied access, as well as how many users bypassed 
+conditional access policies when accessing resources.
+
+- To help you to address these questions, Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, analytics queries, metrics, and parameters into rich interactive reports.
+
+
 
 This article:
 
@@ -167,7 +186,44 @@ For disabled sign-ins, you get a breakdown by the Conditional Access status.
 ![Conditional Access status](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
+## Conditional Access Insights
 
+### Overview
+
+Workbooks contain sign-in log queries that can help IT admins monitor the impact of Conditional Access policies in their tenant. You have the ability to report on how many users would have been granted or denied access. The workbook contains insights on how many users would have bypassed conditional access policies based on those users’ attributes at the time of sign-in. It contains details per condition so that the impact of a policy can be contextualized per condition, including device platform, device state, client app, sign-in risk, location, and application.
+
+### Instructions 
+To access the workbook for Conditional Access Insights, select the **Conditional Access Insights** workbook in the Conditional Access section. 
+This workbook shows the expected impact of each Conditional Access policy in your tenant. Select one or more Conditional Access policies from the dropdown list and narrow the scope of the workbook by applying the following filters: 
+
+- **Time Range**
+
+- **User**
+
+- **Apps**
+
+- **Data View**
+
+![Conditional Access status](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+
+
+The Impact Summary shows the number of users or sign-ins for which the selected policies had a particular result. Total is the number of users or sign-ins for which the selected policies  were evaluated in the selected Time Range. Click on a tile to filter the data in the workbook by that result type. 
+
+![Conditional Access status](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+
+This workbook also shows the impact of the selected policies broken down by each of six conditions: 
+- **Device state**
+- **Device platform**
+- **Client apps**
+- **Sign-in risk**
+- **Location**
+- **Applications**
+
+![Conditional Access status](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+
+You can also investigate individual sign-ins, filtered by the parameters selected in the workbook. Search for individual users, sorted by sign-in frequency, and view their corresponding sign-in events. 
+
+![Conditional Access status](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 
 
@@ -208,7 +264,7 @@ For each trend, you get a breakdown by app and protocol.
 
 ## Sign-ins failure analysis
 
-Use the **Sign-ins failure analysis** workbook to troubleshoot errors with the following:
+Use the **Sign-ins failure analysis** workbook to troubleshoot errors with:
 
 - Sign-ins
 - Conditional Access policies
