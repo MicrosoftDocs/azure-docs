@@ -42,7 +42,7 @@ A **ServiceBusService** object lets you work with topics and subscriptions to to
 from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-Use the following code to create a **ServiceBusService** object. Replace \<mynamespace>, \<sharedaccesskeyname>, and \<sharedaccesskeyvalue> with your Service Bus namespace name, Shared Access Signature (SAS) key name, and primary key value. You can find these values under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
+The following code creates a **ServiceBusService** object. Replace `<mynamespace>`, `<sharedaccesskeyname>`, and `<sharedaccesskeyvalue>` with your Service Bus namespace name, Shared Access Signature (SAS) key name, and primary key value. You can find these values under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
 
 ```python
 bus_service = ServiceBusService(
@@ -59,7 +59,7 @@ The following code uses the `create_topic` method to create a Service Bus topic 
 bus_service.create_topic('mytopic')
 ```
 
-You can use topic options to override default topic settings, such as message time to live (TTL) or maximum topic size. The following example creates a `mytopic` topic that sets maximum topic size to 5 GB and default message TTL to one minute:
+You can use topic options to override default topic settings, such as message time to live (TTL) or maximum topic size. The following example creates a topic named `mytopic` topic with maximum topic size of 5 GB and default message TTL of one minute:
 
 ```python
 topic_options = Topic()
@@ -79,7 +79,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 ### Use filters with subscriptions
 
-You can use the `create_rule` method of the **ServiceBusService** object to filter the messages that appear in a subscription. You can specify rules when you create the subscription, or add rules to existing subscriptions.
+Use the `create_rule` method of the **ServiceBusService** object to filter the messages that appear in a subscription. You can specify rules when you create the subscription, or add rules to existing subscriptions.
 
 The most flexible type of filter is a **SqlFilter**, which uses a subset of SQL-92. SQL filters operate based on the properties of messages published to the topic. For more information about the expressions you can use with a SQL filter, see the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
 
@@ -111,7 +111,7 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-When `AllMessages`, `HighMessages`, and `LowMessages` are all subscribed to `mytopic`, messages sent to `mytopic` are always delivered to receivers of the `AllMessages` subscription. Messages are also selectively delivered to the `HighMessages` or `LowMessages` subscription, depending on the message's `messageposition` property value. 
+When `AllMessages`, `HighMessages`, and `LowMessages` are all in effect, messages sent to `mytopic` are always delivered to receivers of the `AllMessages` subscription. Messages are also selectively delivered to the `HighMessages` or `LowMessages` subscription, depending on the message's `messageposition` property value. 
 
 ## Send messages to a topic
 
@@ -141,17 +141,19 @@ msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lo
 print(msg.body)
 ```
 
-The optional `peek_lock` parameter of `receive_subscription_message` determines whether Service Bus deletes messages from the subscription as they're read. The default setting for message receiving is **True**. *PeekLock* then reads (peeks) and locks messages without deleting them from the subscription. Each message must be explicitly completed and removed from the subscription.
+The optional `peek_lock` parameter of `receive_subscription_message` determines whether Service Bus deletes messages from the subscription as they're read. The default mode for message receiving is *PeekLock*, or `peek_lock` set to **True**, which reads (peeks) and locks messages without deleting them from the subscription. Each message must then be explicitly completed to remove it from the subscription.
 
-To delete messages from the subscription as they are read, you can set the `peek_lock` parameter to **False**, as in the preceding example. Reading and deleting messages as part of the receive operation is the simplest model. This behavior works fine if the application can tolerate missing a message when there's a failure. To understand this behavior, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it has missed the message that it consumed before the crash.
+To delete messages from the subscription as they're read, you can set the `peek_lock` parameter to **False**, as in the preceding example. Deleting messages as part of the receive operation is the simplest model, and works fine if the application can tolerate missing messages if there's a failure. To understand this behavior, consider a scenario in which the application issues a receive request and then crashes before processing it. If the message was deleted on being received, when the application restarts and begins consuming messages again, it has missed the message it received before the crash.
 
-If your application can't tolerate missed messages, leave `peek_lock` set to **True**. Peek lock finds the next message to be consumed, locks it to prevent other consumers from receiving it, and returns it to the application. After the application processes or stores the message, the application completes the second stage of the receive process by calling the `delete` method on the **Message** object. The `delete` method marks the message as being consumed and removes it from the queue. The following example demonstrates a peek lock scenario:
+If your application can't tolerate missed messages, the receive becomes a two-stage operation. PeekLock finds the next message to be consumed, locks it to prevent other consumers from receiving it, and returns it to the application. After processing or storing the message, the application completes the second stage of the receive process by calling the `complete` method on the **Message** object.  The `complete` method marks the message as being consumed and removes it from the subscription.
+
+The following example demonstrates a peek lock scenario:
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 if msg.body is not None:
     print(msg.body)
-    msg.delete()
+    msg.complete()
 ```
 
 ## Handle application crashes and unreadable messages
