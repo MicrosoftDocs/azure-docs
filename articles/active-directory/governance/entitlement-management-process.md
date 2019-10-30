@@ -60,7 +60,7 @@ The following diagram shows the experience of requestors and the email notificat
 ![Requestor process flow](./media/entitlement-management-process/requestor-approval-and-expiration-request-flow.png)
 
 ### Email notifications table
-The following table provides more detail about each of these email notifications.
+The following table provides more detail about each of these email notifications. To manage these emails, you can use rules. For example, in Outlook, you can create rules to move the emails to a folder if the subject contains words from this table:
 
 | # | Email subject | When sent | Sent to |
 | --- | --- | --- | --- |
