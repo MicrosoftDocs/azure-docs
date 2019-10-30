@@ -37,11 +37,11 @@ Azure Private Link provides the following benefits:
 
 |Scenario  |Supported services   |Available regions | Status   |
 |---------|---------|---------|---------|
-|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |West Central US; WestUS; South Central US; East US; North Central US  |  Preview  |
-|Private Link for Azure PaaS services   | Azure Storage        |  East US, West US, West Central US       | Preview         |
-|  | Azure Data Lake Storage Gen2        |  East US, West US, West Central US       | Preview         |
-|  |  Azure SQL Database         | West Central US; WestUS; South Central US; East US; North Central US      |   Preview      |
-||Azure SQL Data Warehouse| West Central US; WestUS; South Central US; East US; North Central US |Preview|
+|Private Link for customer-owned services|Private Link services behind Standard Load Balancer | All public regions  |  Preview  |
+|Private Link for Azure PaaS services   | Azure Storage        |  All public regions       | Preview         |
+|  | Azure Data Lake Storage Gen2        |  All public regions       | Preview         |
+|  |  Azure SQL Database         | All public regions      |   Preview      |
+||Azure SQL Data Warehouse| All public regions |Preview|
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network). 
 
