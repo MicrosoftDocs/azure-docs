@@ -23,8 +23,8 @@
     href: fhir-oss-cli-quickstart.md
   - name: Configure CORS
     href: configure-cross-origin-resource-sharing.md
-  - name: Configure Cosmos DB
-    href: configure-cosmos-db.md
+  - name: Configure Database Settings
+    href: configure-database.md
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
 - name: Tutorials
