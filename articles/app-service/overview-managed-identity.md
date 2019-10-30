@@ -190,7 +190,7 @@ Any resource of type `Microsoft.Web/sites` can be created with an identity by in
 > [!NOTE] 
 > An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`
 
-Adding the user-assigned type and a cotells Azure to create and manage the identity for your application.
+Adding the user-assigned type tells Azure to use the user-assigned identity specified for your application.
 
 For example, a web app might look like the following:
 ```json
