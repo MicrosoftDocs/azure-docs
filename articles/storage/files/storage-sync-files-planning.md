@@ -272,6 +272,8 @@ Azure File Sync is available only in the following regions:
 | US Gov Arizona | Arizona |
 | US Gov Texas | Texas |
 | US Gov Virginia | Virginia |
+| UAE North | Dubai |
+| UAE Central* | Abu Dhabi |
 | West Europe | Netherlands |
 | West Central US | Wyoming |
 | West US | California |
