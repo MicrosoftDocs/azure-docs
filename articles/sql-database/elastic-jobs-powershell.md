@@ -214,7 +214,7 @@ $serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerNa
 
 ### Create a job and steps
 
-This example defines a job and two job steps for the job to run. The first job step (*step1*) creates a new table (*Step1Table*) in every database in target group *ServerGroup*. The second job step (*step2*) creates a new table (*Step2Table*) in every database except for *TargetDb2*, because the target group [defined previously](#define-the-target-databases-you-want-to-run-the-job-against) specified to exclude it.
+This example defines a job and two job steps for the job to run. The first job step (*step1*) creates a new table (*Step1Table*) in every database in target group *ServerGroup*. The second job step (*step2*) creates a new table (*Step2Table*) in every database except for *TargetDb2*, because the target group defined previously specified to exclude it.
 
 ```powershell
 Write-Output "Creating a new job..."
