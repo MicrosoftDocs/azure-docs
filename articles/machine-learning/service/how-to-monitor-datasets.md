@@ -277,6 +277,30 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 
 ![Feature details categorical](media/how-to-monitor-datasets/feature-details2.png)
 
+## Metrics, alerts, and events
+
+Metrics can be quiried in the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with your machine learning workspace. All features of Application Insights, including setting up custom alert rules and action groups to trigger an action such as an Email/SMS/Push/Voice or Azure Function. Please refer to the complete Application Insights documentation for details. 
+
+To get started, navigate to the associated Application Insights resource from the Azure Portal:
+
+![Azure portal overview](media/how-to-monitor-datasets/ap-overview.png)
+
+Then click on Logs (Analytics):
+
+![Application insights overview](media/how-to-monitor-datasets/ai-overview.png)
+
+The dataset monitor metrics are stored as `customMetrics`. You can run a simple query after setting up a dataset monitor to view them:
+
+![Log analytics query](media/how-to-monitor-datasets/simple-query.png)
+
+After identifying metrics to setup alert rules, create a new alert rule:
+
+![New alert rule](media/how-to-monitor-datasets/alert-rule.png)
+
+You can use an existing action group, or create a new one to define the action to be taken when the set conditions are met:
+
+![New action group](media/how-to-monitor-datasets/action-group.png)
+
 ## Troubleshooting
 
 Limitations and known issues:
