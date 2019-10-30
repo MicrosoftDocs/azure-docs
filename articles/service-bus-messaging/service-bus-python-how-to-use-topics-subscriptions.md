@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 10/29/2019
 ms.author: aschhab
 
 ---
@@ -21,47 +21,45 @@ ms.author: aschhab
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This article describes how to use Python with Azure Service Bus to: 
+This article describes how to use Python with Azure Service Bus topics and subscriptions. The samples use the [Azure Python SDK][Azure Python package] package to: 
 
 - Create topics and subscriptions to topics
-- Create subscription filters 
+- Create subscription filters and rules
 - Send messages to a topic 
 - Receive messages from a subscription
 - Delete topics and subscriptions
 
 ## Prerequisites
-- An Azure subscription. To get one, you can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- A Service Bus namespace. For instructions, see [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md). Save the namespace name, shared access key name, and primary key value to use later in this quickstart. 
+- An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- A Service Bus namespace, created by following the steps at [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md). Copy the namespace name, shared access key name, and primary key value to use later in this quickstart. 
 - Python 3.4x or above, with the [Azure Python SDK][Azure Python package] package installed. For more information, see the [Python Installation Guide](/azure/python/python-sdk-azure-install).
 
 ## Create a ServiceBusService object
 
-The **ServiceBusService** object lets you work with topics and subscriptions to topics. To programmatically access Service Bus, add the following line near the top of a Python file:
+A **ServiceBusService** object lets you work with topics and subscriptions to topics. To programmatically access Service Bus, add the following line near the top of your Python file:
 
 ```python
 from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-Use the following code to create a **ServiceBusService** object. Replace \<mynamespace>, \<sharedaccesskeyname>, and \<sharedaccesskeyvalue> with your actual namespace name, Shared Access Signature (SAS) key name, and primary key value. You can find these values under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
+Use the following code to create a **ServiceBusService** object. Replace \<mynamespace>, \<sharedaccesskeyname>, and \<sharedaccesskeyvalue> with your actual Service Bus namespace name, Shared Access Signature (SAS) key name, and primary key value. You can find these values under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
 
 ```python
 bus_service = ServiceBusService(
-    service_namespace='<mynamespace'>,
+    service_namespace='<mynamespace>',
     shared_access_key_name='<sharedaccesskeyname>',
     shared_access_key_value='<sharedaccesskeyvalue>')
 ```
 
 ## Create a topic
 
-The following code creates a Service Bus topic called `mytopic`:
+The following code uses the `create_topic` method to create a Service Bus topic called `mytopic` with default settings:
 
 ```python
 bus_service.create_topic('mytopic')
 ```
 
-### Set topic options
-
-The `create_topic` method has options that let you override default topic settings, such as message time to live (TTL) or maximum topic size. The following example creates a `mytopic` topic that sets the maximum topic size to 5 GB, and default message TTL to one minute:
+You can use topic options to override default `create_topic` settings, such as message time to live (TTL) or maximum topic size. The following example creates a `mytopic` topic that sets maximum topic size to 5 GB and default message TTL to one minute:
 
 ```python
 topic_options = Topic()
@@ -71,11 +69,9 @@ topic_options.default_message_time_to_live = 'PT1M'
 bus_service.create_topic('mytopic', topic_options)
 ```
 
-## Create a subscription
+## Create subscriptions
 
-The **ServiceBusService** object also creates subscriptions to topics. A subscription has a name, and can have a filter to restrict the message set delivered to its virtual queue.
-
-If you don't specify a filter, new subscriptions use the default **MatchAll** filter, and deliver all messages published to the topic to the subscription's virtual queue. The following example creates a subscription to `mytopic` named `AllMessages`, which uses the default **MatchAll** filter:
+You also use the **ServiceBusService** object to create subscriptions to topics. A subscription can have a filter to restrict the message set delivered to its virtual queue. If you don't specify a filter, new subscriptions use the default **MatchAll** filter, which places all messages published to the topic into the subscription's virtual queue. The following example creates a subscription to `mytopic` named `AllMessages` that uses the **MatchAll** filter:
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
@@ -83,11 +79,11 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 ### Use filters with subscriptions
 
-To define filters that specify which messages appear in a subscription, use the `create_rule` method of the **ServiceBusService** object.
+You can use the `create_rule` method of the **ServiceBusService** object to filter which messages appear in a subscription. You can specify rules when you create the subscription, or add rules to existing subscriptions.
 
 The most flexible type of filter is a **SqlFilter**, which uses a subset of SQL-92. SQL filters operate based on the properties of messages published to the topic. For more information about the expressions you can use with a SQL filter, see the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
 
-Because the **MatchAll** default filter applies automatically to all new subscriptions, you must remove it, or **MatchAll** will override any other filters you specify. You can remove the default rule by using the `delete_rule` method of the **ServiceBusService** object.
+Because the **MatchAll** default filter applies automatically to all new subscriptions, you must remove it from subscriptions you want to filter, or **MatchAll** will override any other filters you specify. You can remove the default rule by using the `delete_rule` method of the **ServiceBusService** object.
 
 The following example creates a subscription to `mytopic` named `HighMessages`, with a **SqlFilter** rule named `HighMessageFilter`. The `HighMessageFilter` rule selects only messages with a custom `messageposition` property greater than 3:
 
@@ -115,13 +111,13 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-A message sent to `mytopic` is always delivered to receivers of the **AllMessages** subscription. The message is also selectively delivered to the **HighMessages** or **LowMessages** subscription, depending on the message's `messageposition` property value. 
+When `AllMessages`, `HighMessages`, and `LowMessages` are all subscribed to `mytopic`, messages sent to `mytopic` are always delivered to receivers of the `AllMessages` subscription. Messages are also selectively delivered to the `HighMessages` or `LowMessages` subscription, depending on the message's `messageposition` property value. 
 
 ## Send messages to a topic
 
 Applications use the `send_topic_message` method of the **ServiceBusService** object to send messages to a Service Bus topic.
 
-The following example shows how to send five test messages to the `mytopic` topic. The custom `messageposition` property value varies depending on the iteration of the loop. The `messageposition` property determines which subscriptions receive the message. 
+The following example sends five test messages to the `mytopic` topic. The custom `messageposition` property value varies depending on the iteration of the loop. The `messageposition` property determines which subscriptions receive the message. 
 
 ```python
 for i in range(5):
@@ -132,13 +128,13 @@ for i in range(5):
 
 ### Message size limits and quotas
 
-Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have a maximum size of 64 KB. There's no limit on the number of messages a topic holds, but there's a cap on the total size of the messages the topic holds. You can define topic size at creation time, with an upper limit of 5 GB. 
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have a maximum size of 64 KB. There's no limit on the number of messages a topic can hold, but there's a cap on the total size of the messages the topic holds. You can define topic size at creation time, with an upper limit of 5 GB. 
 
 For more information about quotas, see [Service Bus quotas][Service Bus quotas].
 
 ## Receive messages from a subscription
 
-Use the `receive_subscription_message` method on the **ServiceBusService** object to receive messages from a subscription. The following example receives messages from the `LowMessages` subscription to `mytopic`:
+Applications use the `receive_subscription_message` method on the **ServiceBusService** object to receive messages from a subscription. The following example receives messages from the `LowMessages` subscription:
 
 ```python
 msg = bus_service.receive_subscription_message(
@@ -150,15 +146,15 @@ print(msg.body)
 
 The `peek_lock` parameter of `receive_subscription_message` determines whether Service Bus deletes messages from the subscription as they are read. To delete messages from the subscription as they are read, set the `peek_lock` parameter to **False**. To read (peek) and lock messages without deleting them from the queue, set `peek_lock` to **True**.
 
-Reading and deleting messages as part of the receive operation is the simplest model. This behavior works fine if the application can tolerate missing a message when there's a failure. To understand this behavior, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it has missed the message that was consumed before the crash.
+Reading and deleting messages as part of the receive operation is the simplest model. This behavior works fine if the application can tolerate missing a message when there's a failure. To understand this behavior, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it has missed the message that it consumed before the crash.
 
 If your application can't tolerate missed messages, set the `peek_lock` parameter to **True**. Service Bus then finds the next message to be consumed, locks it to prevent other consumers from receiving it, and returns it to the application. After the application processes or stores the message, the application completes the second stage of the receive process by calling the `delete` method on the **Message** object. The `delete` method marks the message as being consumed and removes it from the subscription. The following example demonstrates a peek lock scenario:
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 if msg.body is not None:
-print(msg.body)
-msg.delete()
+    print(msg.body)
+    msg.delete()
 ```
 
 ## Handle application crashes and unreadable messages
@@ -171,30 +167,29 @@ If an application crashes after processing the message but before calling the `d
 
 ## Delete topics and subscriptions
 
-Topics and subscriptions are persistent unless the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) property is set. To delete topics and subscriptions, use the [Azure portal][Azure portal] or the `delete_topic` method. The following code deletes the topic named `mytopic`:
+To delete topics and subscriptions, use the [Azure portal][Azure portal] or the `delete_topic` method. The following code deletes the topic named `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
 ```
 
-Deleting a topic deletes all subscriptions to the topic. You can also delete subscriptions independently. The following code deletes a subscription named `HighMessages` from the `mytopic` topic:
+Deleting a topic deletes all subscriptions to the topic. You can also delete subscriptions independently. The following code deletes the subscription named `HighMessages` from the `mytopic` topic:
 
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-> [!NOTE]
-> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality and the ability to test topic, queues, subscriptions, relay services, notification hubs, and events hubs. 
+By default, topics and subscriptions are persistent, and exist until you delete them. To automatically delete subscriptions after a certain time period elapses, set the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) property. 
 
 > [!NOTE]
-> By default, subscriptions are persistent, and exist until you delete them or delete the topics they subscribe to. To automatically delete subscriptions after a certain time period elapses, set the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) property.
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality and the ability to test topics, queues, subscriptions, relay services, notification hubs, and event hubs. 
 
 ## Next steps
 
-Now that you've learned the basics of Service Bus topics, follow these links to learn more.
+Now that you've learned the basics of Service Bus topics, follow these links to learn more:
 
-* See [Queues, topics, and subscriptions][Queues, topics, and subscriptions].
-* Reference for [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+* [Queues, topics, and subscriptions][Queues, topics, and subscriptions].
+* [SqlFilter.SqlExpression][SqlFilter.SqlExpression] reference.
 
 [Azure portal]: https://portal.azure.com
 [Azure Python package]: https://pypi.python.org/pypi/azure
