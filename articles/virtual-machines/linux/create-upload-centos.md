@@ -352,7 +352,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
     Edit `/etc/dracut.conf`, add content:
 
 	```console
-	add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+	add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 	```
 
     Rebuild the initramfs:
