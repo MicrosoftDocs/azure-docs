@@ -14,13 +14,11 @@ ms.custom: seodec18
 
 # Data storage and ingress in Azure Time Series Insights Preview
 
-This article describes updates to data storage and ingress for Azure Time Series Insights Preview. It covers the underlying storage structure, file format, and Time Series ID property. It also discusses the underlying ingress process, throughput, and limitations.
+This article describes updates to data storage and ingress for Azure Time Series Insights Preview. It covers the underlying storage structure, file format, and Time Series ID property. It also discusses the underlying ingress process, best practices, and current preview limitations.
 
 ## Data ingress
 
-In Time Series Insights Preview, data ingress policies determine where data can be sourced from and what format the data should have.
-
-[![Time Series Model overview](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+Your Azure Time Series Insights environment contains an Ingestion Engine to collect, process, and store time-series data. When planning your environment, there are some considerations to take into account in order to ensure that all incoming data is processed, and to achieve high ingress scale and minimize ingestion latency (the time taken by TSI to read and process data from the event source). In Time Series Insights Preview, data ingress policies determine where data can be sourced from and what format the data should have.
 
 ### Ingress policies
 
@@ -31,7 +29,9 @@ Time Series Insights Preview supports the same event sources that Time Series In
 
 Time Series Insights Preview supports a maximum of two event sources per instance.
   
-Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs. To optimize your IoT JSON data, learn [how to shape JSON](./time-series-insights-send-events.md#supported-json-shapes).
+Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs. To optimize your IoT JSON data and to learn about limitations in preview, learn [how to shape JSON](./time-series-insights-send-events.md#supported-json-shapes).
+
+> [!WARNING] When attaching a new event source to your Time Series Insights Preview environment, depending on the number of events currently in your IoT Hub or Event Hub, you may experience high initial ingestion latency. As data is ingested, you should expect this high latency to subside, but if your experience indicates otherwise please contact us by submitting a support ticket through the Azure portal.
 
 ### Data storage
 
@@ -51,11 +51,11 @@ Time Series Insights Preview saves your cold store data to Azure Blob storage in
 Time Series Insights Preview partitions and indexes data for optimum query performance. Data becomes available to query after it’s indexed. The amount of data that's being ingested can affect this availability.
 
 > [!IMPORTANT]
-> The general availability (GA) release of Time Series Insights will make data available in 60 seconds after it's read from the event source. During the preview, you might experience a longer period before the data becomes available. If you experience significant latency beyond 60 seconds, please contact us.
+> The upcoming general availability (GA) release of Time Series Insights will make data available in 60 seconds after it's read from the event source. During the preview, you might experience a longer period before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
 
 ### Scale
 
-By default, Time Series Insights Preview supports an initial ingress scale of up to 1 megabyte per second (MB/s) per environment. A throughput of up to 16 MB/s is available if you need it. If you need enhanced scaling support, please contact us.
+By default, Time Series Insights Preview supports an initial ingress scale of up to 1 megabyte per second (MB/s) per environment. A throughput of up to 16 MB/s is available if you need it. If you need enhanced scaling support, please contact us by submitting a ticket through the Azure portal explaining your scenario and business needs.
 
 You can get additional ingress and scaling capabilities for the event source:
 
