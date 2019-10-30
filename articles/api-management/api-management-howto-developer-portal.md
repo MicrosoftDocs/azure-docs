@@ -21,8 +21,8 @@ Developer portal is an automatically generated, fully customizable website with 
 
 This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture and provides answers to frequently asked questions.
 
-> [!WARNING]
-> Navigate to [](#preview-to-ga) Learn how to migrate from the preview version to generally available version of the developer portal.
+> [!IMPORTANT]
+> [Learn how to migrate from the preview version to the generally available version](#preview-to-ga) of the developer portal.
 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
@@ -70,15 +70,15 @@ In this section, we answer common questions about the new developer portal, whic
 
 By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been significantly modified in the generally available version for better user experience. It also includes new widgets.
 
-If you're using the managed version, reset the content of the portal by clicking **Reset content** in the **Operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content.
+If you're using the managed version, reset the content of the portal by clicking **Reset content** in the **Operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content. The portal's engine has been automatically updated in your API Management service.
 
 ![Reset portal content](media/api-management-howto-developer-portal/reset-content.png)
 
-If you're using the self-hosted version, use the `scripts/cleanup.bat` and `scripts/generate.bat` from the GitHub repository to remove existing content and provision new content.
+If you're using the self-hosted version, use the `scripts/cleanup.bat` and `scripts/generate.bat` from the GitHub repository to remove existing content and provision new content. Make sure you upgrade your portal's code to the latest release from the GitHub repository beforehand.
 
-If you don't want to reset the content of the portal, you may consider using newly available widgets. Existing widgets have been automatically updated to the latest versions.
+If you don't want to reset the content of the portal, you may consider using newly available widgets throughout your pages. Existing widgets have been automatically updated to the latest versions.
 
-If your portal was provisioned after the general availability announcement, it should feature the new default content.
+If your portal was provisioned after the general availability announcement, it should already feature the new default content.
 
 ### How can I migrate from the old developer portal to the new one?
 
