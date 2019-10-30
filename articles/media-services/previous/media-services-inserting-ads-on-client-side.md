@@ -352,8 +352,8 @@ An executable ad is created in code that must be executed in a runtime environme
 
 ```xml
     <MediaFiles>
-       <MediaFile id="1" delivery="progressive" type=”application/x-shockwaveflash”
-                  width=”640” height=”480” apiFramework=”VPAID”>
+       <MediaFile id="1" delivery="progressive" type="application/x-shockwaveflash"
+                  width="640" height="480" apiFramework="VPAID">
            <!-- CDATA wrapped URI to executable ad -->
        </MediaFile>
     </MediaFiles>
