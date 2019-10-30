@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Enable remote access to Power BI Mobile with Azure AD Application Proxy
 
-This article discusses how to use Azure AD Application Proxy to enable the Power BI mobile app to connect to Power BI Report Server (PBIRS) and SQL Server Reporting Services (SSRS) 2016 and later. Through this integration, users who are away from the corporate network can access their Power BI reports from the Power BI mobile app and be protected by Azure AD authentication. This protection includes [security benefits](application-proxy-security.md#security-benefits) such as conditional access and multi-factor authentication.  
+This article discusses how to use Azure AD Application Proxy to enable the Power BI mobile app to connect to Power BI Report Server (PBIRS) and SQL Server Reporting Services (SSRS) 2016 and later. Through this integration, users who are away from the corporate network can access their Power BI reports from the Power BI mobile app and be protected by Azure AD authentication. This protection includes [security benefits](application-proxy-security.md#security-benefits) such as Conditional Access and multi-factor authentication.  
 
 ## Prerequisites
 
