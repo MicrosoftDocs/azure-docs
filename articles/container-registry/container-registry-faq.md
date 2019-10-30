@@ -35,7 +35,7 @@ Yes. See the documentation from [Twistlock](https://www.twistlock.com/2016/11/07
 
 ### How do I configure Kubernetes with Azure Container Registry?
 
-See the documentation for [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](container-registry-auth-aks.md).
+See the documentation for [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](../aks/cluster-container-registry-integration.md).
 
 ### How do I get admin credentials for a container registry?
 
@@ -417,7 +417,7 @@ The browser might not be able to send the request for fetching repositories or t
 * Ad blockers
 * DNS errors
 
-Please contact your network administrator or check your network configuration and connectivity. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
+Please contact your network administrator or check your network configuration and connectivity. Try running `az acr check-health -n yourRegistry` using your Azure CLI to check if your environment is able to connect to the Container Registry. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
 ### How do I collect http traces on Windows?
 

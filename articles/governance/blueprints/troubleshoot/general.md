@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
-manager: carmonm
 ---
 # Troubleshoot errors using Azure Blueprints
 

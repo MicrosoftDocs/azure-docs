@@ -1,5 +1,5 @@
 ---
-title: Create diagnostic setting in Azure using a Resource Manager template | Microsoft Docs
+title: Create diagnostic setting in Azure using Resource Manager template
 description: Create diagnostic settings using a Resource Manager template to forward Azure platform logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs.
 author: bwren
 services: azure-monitor
@@ -48,7 +48,7 @@ Depending on the [destinations](diagnostic-settings.md#destinations) for the dia
 "workspaceId":{
   "type": "string",
   "metadata": {
-    "description": "Azure Resource ID of the Log Analytics workspace for the Log Analytics workspace to which logs will be sent."
+    "description": "Azure Resource ID of the Log Analytics workspace to which logs will be sent."
   }
 }
 ```

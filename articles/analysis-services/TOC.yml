@@ -66,7 +66,9 @@
       href: analysis-services-addservprinc-admins.md
   - name: Model
     items:
-    - name: Deploy from Visual Studio (SSDT)
+    - name: Tabular modeling
+      href: https://docs.microsoft.com/analysis-services/tabular-models/tabular-models-ssas
+    - name: Deploy from Visual Studio
       href: analysis-services-deploy.md
     - name: Refresh with REST API
       href: analysis-services-async-refresh.md

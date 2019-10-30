@@ -1,5 +1,5 @@
 ﻿---
-title: Create Azure Resource Manager templates with dependent resources | Microsoft Docs
+title: Azure Resource Manager template with dependent resources
 description: Learn how to create an Azure Resource Manager template with multiple resources, and how to deploy it using the Azure portal
 services: azure-resource-manager
 documentationcenter: ''

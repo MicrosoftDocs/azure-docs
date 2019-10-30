@@ -68,12 +68,16 @@
     href: environment-setup.md
   - name: Bandwidth recommendations for remote sessions
     href: bandwidth-recommendations.md
+  - name: Determine user connection latency
+    href: connection-latency.md
   - name: Delegated access in Windows Virtual Desktop
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
   - name: FSLogix profile containers and Azure files
     href: fslogix-containers-azure-files.md
+  - name: Storage options for FSLogix profile containers
+    href: store-fslogix-profile.md
   - name: Partner integrations
     href: partners.md
   - name: Windows 10 Enterprise multi-session FAQ

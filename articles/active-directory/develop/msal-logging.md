@@ -1,5 +1,6 @@
 ---
-title: Logging in Microsoft Authentication Library (MSAL) applications | Azure
+title: Logging in Microsoft Authentication Library (MSAL) applications 
+titleSuffix: Microsoft identity platform
 description: Learn about logging in Microsoft Authentication Library (MSAL) applications.
 services: active-directory
 documentationcenter: dev-center-name
@@ -134,7 +135,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “<Enter your client id>”,
+        clientId: "<Enter your client id>",
     },
      system: {
     		 logger: new Msal.Logger(

@@ -54,7 +54,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the Analyze method endpoint
-        const string uriBase = endpoint + "vision/v2.0/analyze";
+        const string uriBase = endpoint + "vision/v2.1/analyze";
 
         static void Main()
         {

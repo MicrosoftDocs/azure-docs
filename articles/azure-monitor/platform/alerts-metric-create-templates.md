@@ -1,12 +1,12 @@
 ---
 title: Create a metric alert with a Resource Manager template
 description: Learn how to use a Resource Manager template to create a metric alert.
-author: snehithm
+author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 9/27/2018
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
@@ -21,8 +21,9 @@ This article shows how you can use an [Azure Resource Manager template](../../az
 The basic steps are as follows:
 
 1. Use one of the templates below as a JSON file that describes how to create the alert.
-2. Edit and use the corresponding parameters file as a JSON to customize the alert
-3. Deploy the template using [any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
+2. Edit and use the corresponding parameters file as a JSON to customize the alert.
+3. For the `metricName` parameter, see the available metrics in [Azure Monitor supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+4. Deploy the template using [any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Template for a simple static threshold metric alert
 
@@ -2474,7 +2475,7 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
                 "PT5M",
                 "PT15M",
                 "PT30M",
-                "PT1H""
+                "PT1H"
             ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
@@ -2964,6 +2965,9 @@ Save the json below as availabilityalert.json for the purpose of this walkthroug
     },
     "actionGroupId": {
       "type": "string"
+    },
+    "location": {
+      "type": "string"
     }
   },
   "variables": {
@@ -2975,7 +2979,7 @@ Save the json below as availabilityalert.json for the purpose of this walkthroug
       "name": "[variables('pingTestName')]",
       "type": "Microsoft.Insights/webtests",
       "apiVersion": "2014-04-01",
-      "location": "West Central US",
+      "location": "[parameters('location')]",
       "tags": {
         "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
       },
@@ -3054,13 +3058,16 @@ Save the json below as availabilityalert.parameters.json and modify it as requir
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appName": {
-            "value": "Replace with your Application Insights component name"
+            "value": "Replace with your Application Insights resource name"
         },
         "pingURL": {
             "value": "https://www.yoursite.com"
         },
         "actionGroupId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/microsoft.insights/actiongroups/replace-with-action-group-name"
+        },
+        "location": {
+            "value": "Replace with the location of your Application Insights resource"
         }
     }
 }
