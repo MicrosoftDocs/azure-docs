@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
@@ -102,7 +102,7 @@ When building a confidential client with certificates, the [parameters.json](htt
 
 # [Java](#tab/java)
 
-Here is the class used in msal4j dev samples to configure the samples: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+Here is the class used in MSAL Java dev samples to configure the samples: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
 public class TestData {
@@ -312,7 +312,7 @@ For details, see MSAL Python's reference documentation for [ConfidentialClientAp
 
 # [Java](#tab/java)
 
-msal4j is in public preview. Signed assertions aren't yet supported.
+MSAL Java is in public preview. Signed assertions aren't yet supported.
 
 ---
 

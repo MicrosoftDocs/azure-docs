@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
@@ -67,8 +67,8 @@ Code snippets in this article and the following are extracted from the [ASP.NET 
 
 # [Java](#tab/java)
 
-Code snippets in this article and the following are extracted from the [Java web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp) msal4j web app sample.
-The sample currently lets msal4j produce the authorization code URL and handles the navigation to the Microsoft identity platform authorize endpoint. It's also possible to use Sprint security to sign in the user. You might want to refer to this sample for full implementation details.
+Code snippets in this article and the following are extracted from the [Java web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp) MSAL Java web app sample.
+The sample currently lets MSAL Java produce the authorization code URL and handles the navigation to the Microsoft identity platform authorize endpoint. It's also possible to use Sprint security to sign in the user. You might want to refer to this sample for full implementation details.
 
 # [Python](#tab/python)
 
@@ -541,7 +541,7 @@ public static class MsalAppBuilder
 
 # [Java](#tab/java)
 
-msal4j provides methods to serialize and deserialize the token cache. The Java sample handles the serialization from the session, as illustrated in the `getAuthResultBySilentFlow` method in [AuthHelper.java#L99-L122](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L99-L122)
+MSAL Java provides methods to serialize and deserialize the token cache. The Java sample handles the serialization from the session, as illustrated in the `getAuthResultBySilentFlow` method in [AuthHelper.java#L99-L122](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L99-L122)
 
 ```Java
 IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, HttpServletResponse httpResponse)

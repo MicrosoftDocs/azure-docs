@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Web app that signs-in users using the Microsoft identity platform for developers.
@@ -31,7 +31,7 @@ The libraries used to protect a Web App (and a Web API) are:
 | Platform | Library | Description |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [Identity model extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Used directly by ASP.NET and ASP.NET Core, Microsoft Identity Extensions for .NET proposes a set of DLLs running both on .NET Framework and .NET Core. From an ASP.NET/ASP.NET Core Web app, you can control token validation using the **TokenValidationParameters** class (in particular in some ISV scenarios) |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL for Java - currently in public preview |
+| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL for Java - currently in public preview |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | MSAL for Python - currently in public preview |
 
 Select the tab corresponding to the platform you're interested in:
@@ -50,7 +50,7 @@ You might want to refer to this sample for full implementation details.
 
 # [Java](#tab/java)
 
-Code snippets in this article and the following are extracted from the [Java web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp) msal4j web app sample
+Code snippets in this article and the following are extracted from the [Java web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp) MSAL Java web app sample
 
 You might want to refer to this sample for full implementation details.
 
@@ -347,7 +347,7 @@ The Java sample uses the Spring framework. The application is protected because 
 
 - verifies if the user is authenticated (`isAuthenticated()` method)
 - if the user isn't authenticated, it computes the url of the Azure AD authorize endpoints, and redirects the browser to this URI
-- when the response arrives, containing the auth code flow it lets's msal4j acquiring the token.
+- when the response arrives, containing the auth code it acquires the token using MSAL Java.
 - when it finally receives the token from the token endpoint (on the redirect URI), the user is signed in.
 
 For details see the `doFilter()` method in [AuthFilter.java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)

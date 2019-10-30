@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Desktop app that calls web APIs using the Microsoft identity platform for developers.
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 Now that you have a token, you can call a protected web API.
 
-## Calling a web API 
+## Calling a web API
 
 # [.NET](#tab/dotnet)
 
