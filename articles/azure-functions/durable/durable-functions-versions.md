@@ -2,10 +2,9 @@
 title: Durable Functions versions overview - Azure Functions
 description: Learn about Durable Functions versions.
 author: cgillum
-manager: jeconnoc
-keywords:
+manager: gwallace
 ms.service: azure-functions
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
 ---
