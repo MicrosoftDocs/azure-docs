@@ -59,7 +59,7 @@ This example shows how you can start a logic app workflow with the **When a blob
 
    This example uses this trigger: **When a blob is added or modified (properties only)**
 
-   ![Select Azure Blob Storage trigger](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
+   ![Select Azure Blob Storage trigger](./media/connectors-create-api-azureblobstorage/add-azure-blob-storage-trigger.png)
 
 3. If you're prompted for connection details, [create your blob storage connection now](#create-connection). Or, if your connection already exists, provide the necessary information for the trigger.
 
@@ -69,7 +69,7 @@ This example shows how you can start a logic app workflow with the **When a blob
 
    2. In the folder list, choose the right-angle bracket ( **>** ), and then browse until you find and select the folder you want.
 
-      ![Select storage folder for connection](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
+      ![Select storage folder to use with trigger](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
    3. Select the interval and frequency for how often you want the trigger to check the folder for changes.
 
@@ -87,7 +87,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 2. In the Logic App Designer, under the trigger or action, choose **New step**.
 
-   ![Add new step to logic app workflow](./media/connectors-create-api-azureblobstorage/add-action.png) 
+   ![Add new step to logic app workflow](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
    To add an action between existing steps, move your mouse over the connecting arrow. Choose the plus sign (**+**) that appears, and select **Add an action**.
 
@@ -95,7 +95,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    This example uses this action: **Get blob content**
 
-   ![Select Azure Blob Storage action](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
+   ![Select Azure Blob Storage action](./media/connectors-create-api-azureblobstorage/add-azure-blob-storage-action.png)
 
 4. If you're prompted for connection details, [create your Azure Blob Storage connection now](#create-connection).
 Or, if your connection already exists, provide the necessary information for the action.
@@ -104,7 +104,7 @@ Or, if your connection already exists, provide the necessary information for the
 
    1. From the **Blob** box, select the folder icon.
   
-      ![Select blob folder for storage connection](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
+      ![Select storage folder to use with action](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
    2. Find and select the file you want based on the blob's **Id** number. You can find this **Id** number in the blob's metadata that is returned by the previously described blob storage trigger.
 
