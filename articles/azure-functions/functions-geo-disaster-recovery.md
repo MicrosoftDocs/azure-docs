@@ -1,6 +1,6 @@
 ---
-title: Azure Functions geo-disaster recovery | Microsoft Docs
-description: How to use geographical regions to fail over and use disaster recovery in Azure Functions.
+title: Azure Functions geo-disaster recovery and high availability | Microsoft Docs
+description: How to use geographical regions for redundancy and to fail over in Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
