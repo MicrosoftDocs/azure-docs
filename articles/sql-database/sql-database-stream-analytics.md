@@ -15,19 +15,20 @@ ms.date: 11/04/2019
 
 # Stream your data into SQL Database using Stream analytics integration (preview) in the Azure portal
 
-Users can now ingest, process, view and analyze real time streaming data into a table directly from a SQL database in the Azure portal using [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md). This experience enables a wide variety of scenarios such as connected car, remote monitoring, fraud detection, and many more. In the Azure portal, you can select an events source (Event Hub/IoT Hub), view incoming real-time events, and select a table to store events. You can also write Stream Analytics Query Language queries in the portal to transform incoming events and store them in the selected table. This new entry point is in addition to the creation and configuration experiences that already exist in Stream Analytics. This experience starts from the context of your database, enabling you to quickly set up a Stream Analytics job and navigate seamlessly between the Azure SQL Database and Stream Analytics experiences.
+Users can now ingest, process, view, and analyze real-time streaming data into a table directly from a SQL database in the Azure portal using [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md). This experience enables a wide variety of scenarios such as connected car, remote monitoring, fraud detection, and many more. In the Azure portal, you can select an events source (Event Hub/IoT Hub), view incoming real-time events, and select a table to store events. You can also write Stream Analytics Query Language queries in the portal to transform incoming events and store them in the selected table. This new entry point is in addition to the creation and configuration experiences that already exist in Stream Analytics. This experience starts from the context of your database, enabling you to quickly set up a Stream Analytics job and navigate seamlessly between the Azure SQL Database and Stream Analytics experiences.
 
 ![Stream Analytics flow](media/sql-database-stream-analytics/stream-analytics-flow.png)
 
-Key benefits 
-Minimum context switching: You can start from SQL Database portal and start ingesting real time data into a table without switching to any other service. 
-Reduced number of steps: The context of your database and table is used to pre-configure Stream Analytics job 
-Additional ease of use with preview data: Preview incoming data from the events source (Event Hub/IoT Hub) in the context of selected table 
+**Key benefits**:
+
+- Minimum context switching: You can start from a SQL Database in the portal and start ingesting real-time data into a table without switching to any other service. 
+- Reduced number of steps: The context of your database and table is used to pre-configure a Stream Analytics job.
+- Additional ease of use with preview data: Preview incoming data from the events source (Event Hub/IoT Hub) in the context of selected table 
 
 
 ## Prerequisites
 
-To complete the steps in this article you need the following:
+To complete the steps in this article, you need the following resources:
 
 - An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/). 
 - A SQL database. For details, see [Create a single database in Azure SQL Database](sql-database-single-database-get-started.md).
@@ -74,7 +75,7 @@ To complete the steps in this article you need the following:
     - You can preview incoming data in the Table format or Raw format. 
     - If your data shown isn't current, select **Refresh** to see the latest events. 
     - Select **Select time range** to test your query against a specific time range of incoming events. 
-    - Select **Upload sample input** to test your query by uploading a sample JSON/CSV file. For more details about testing a SAQL query, see [Test an Azure Stream Analytics job with sample data](../stream-analytics/stream-analytics-test-query.md). 
+    - Select **Upload sample input** to test your query by uploading a sample JSON/CSV file. For more information about testing a SAQL query, see [Test an Azure Stream Analytics job with sample data](../stream-analytics/stream-analytics-test-query.md). 
 
     ![test query](media/sql-database-stream-analytics/test-query.png)
 
