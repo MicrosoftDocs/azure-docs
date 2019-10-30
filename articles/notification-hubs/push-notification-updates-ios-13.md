@@ -44,7 +44,7 @@ await hub.SendNotificationAsync(notification);
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
 var headers = new Dictionary<string, string> {{"apns-push-type", "alert"}};
-var notification = new ApnsNotification("notification text", headers);
+var notification = new AppleNotification("notification text", headers);
 await hub.SendNotificationAsync(notification);
 ```
 
@@ -68,7 +68,7 @@ Setting this value to 10 is no longer allowed for background notifications, and 
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
 var headers = new Dictionary<string, string> {{"apns-push-type", "background"}, { "apns-priority", "5" }};
-var notification = new ApnsNotification("notification text", headers);
+var notification = new AppleNotification("notification text", headers);
 await hub.SendNotificationAsync(notification);
 ```
 
