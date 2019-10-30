@@ -174,7 +174,7 @@ You can put the storage account in an Azure virtual network that you manage, and
 
 ### Access storage accounts as a trusted service with managed identities
 
-To give Microsoft trusted services access to a storage account through a firewall, you can set up an exception on that storage account for those services. This solution permits Azure services that support [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md) to access storage accounts behind firewalls as trusted services. Specifically, for a logic app in global multi-tenant Azure to access these storage accounts, you first [enable managed identity support](../logic-apps/create-managed-service-identity.md) on the logic app. Then, you can use the HTTP trigger or action in your logic app and [set their authentication type to use your logic app's managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) for authentication. Currently, this approach works only with [specific built-in triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+To give Microsoft trusted services access to a storage account through a firewall, you can set up an exception on that storage account for those services. This solution permits Azure services that support [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md) to access storage accounts behind firewalls as trusted services. Specifically, for a logic app in global multi-tenant Azure to access these storage accounts, you first [enable managed identity support](../logic-apps/create-managed-service-identity.md) on the logic app. Then, you can use the HTTP trigger or action in your logic app and [set their authentication type to use your logic app's managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) for authentication. Currently, this approach works only with [specific built-in triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls).
 
 To set up the exception and managed identity support, follow these general steps:
 
@@ -186,7 +186,7 @@ To set up the exception and managed identity support, follow these general steps
 
 1. In your logic app's settings, [enable support for the managed identity](../logic-apps/create-managed-service-identity.md).
 
-1. In your logic app's workflow, add and set up the action that [supports managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+1. In your logic app's workflow, add and set up the [action that supports managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls).
 
    > [!IMPORTANT]
    > For outgoing HTTP trigger or action calls to Azure Storage accounts, 
