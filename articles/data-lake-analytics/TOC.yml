@@ -118,12 +118,14 @@
       href: data-lake-analytics-cicd-test.md
     - name: U-SQL SDK
       href: data-lake-analytics-u-sql-sdk.md
-  - name: Troubleshoot U-SQL jobs
+  - name: Understand Apache Spark for U-SQL developers
     items:
-    - name: Troubleshoot U-SQL runtime changes
-      href: data-lake-analytics-runtime-troubleshoot.md
-    - name: Troubleshoot a .NET upgrade
-      href: data-lake-analytics-dotnet-upgrade-troublehoot.md
+    - name: Understand Apache Spark for U-SQL developers
+      href: data-lake-analytics-understand-spark-for-usql-developers.md
+    - name: Understand Apache Spark data formats
+      href: data-lake-analytics-understand-spark-data-formats.md
+    - name: Understand Apache Spark code concepts
+      href: data-lake-analytics-understand-spark-code-concepts.md
 - name: Reference
   items:
   - name: Azure PowerShell
