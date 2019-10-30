@@ -129,6 +129,10 @@ The document was read and processed, but due to a mismatch in the configuration 
 
 In all these cases, refer to [Supported Data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers in Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
 
+### Could not process document within indexer max run time
+
+This error occurs when the indexer is unable to finish processing a single document from the data source within the allowed execution time.  The [allowed indexer execution time](search-limits-quotas-capacity.md#indexer-limits) depends on the sku of your search service as well as if your indexer is configured with or without a skillset.  If this error occurs, the indexer will not reattempt to process the document on future runs, and therefore will not block the processing of the rest of the documents in your data source.  If you cannot afford to have any document skipped in your data source, or if you are seeing this error consistently across a majority of your documents, you may need to consider breaking up documents that encounter this error into smaller documents that are more likely to be processable within the allowed execution time.
+
 ##  Warnings
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
 
