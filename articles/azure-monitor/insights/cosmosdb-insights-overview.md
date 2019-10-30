@@ -40,11 +40,11 @@ To view the utilization and performance of your storage accounts across all of y
 
 2. Search for **Monitor** and select **Monitor**.
 
-![Search box with the word "Monitor" and a dropdown that says Services "Monitor" with a speedometer style image](./media/cosmosdb-insights-overview/search-monitor.png)
+    ![Search box with the word "Monitor" and a dropdown that says Services "Monitor" with a speedometer style image](./media/cosmosdb-insights-overview/search-monitor.png)
 
 3. Select **Cosmos DB (preview)**.
 
-![Screenshot of Cosmos DB overview workbook](./media/cosmosdb-insights-overview/cosmos-db.png)
+    ![Screenshot of Cosmos DB overview workbook](./media/cosmosdb-insights-overview/cosmos-db.png)
 
 ### Overview
 
