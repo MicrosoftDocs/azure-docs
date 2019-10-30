@@ -324,7 +324,7 @@ The following localization options are supported:
 |SectionHeadingRequestHeaders|Request headers|  
 |FormLabelSubtextOptional|optional|  
 |SectionHeadingCodeSamples|Code samples|  
-|TextblockOpenidConnectHeaderDescription|OpenID Connect id token obtained from <i\>{0}</i\>. Supported grant types: <i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|OpenID Connect ID token obtained from <i\>{0}</i\>. Supported grant types: <i\>{1}</i\>.|  
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
