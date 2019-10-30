@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -73,6 +73,52 @@ The following diagram and steps provide an overview of how external users are gr
 
 1. Depending on the lifecycle of external users settings, when the external user no longer has any access package assignments, the external user is blocked from signing in and the guest user account is removed from your directory.
 
+## Settings for external users
+
+To ensure people outside of your organization can request access packages and get access to the resources in those access packages, there are some settings that you should verify are properly configured.
+
+### Enable catalog for external users
+
+- By default, when you create a [new catalog](entitlement-management-catalog-create.md), it is enabled to allow external users to request access packages in the catalog. Make sure **Enabled for external users** is set to **Yes**.
+
+    ![Edit catalog settings](./media/entitlement-management-shared/catalog-edit.png)
+
+### Configure your Azure AD B2B external collaboration settings
+
+- Allowing guests to invite other guests to your directory means that guest invites can occur outside of entitlement management. We recommend setting **Guests can invite** to **No** to only allow for properly governed invitations.
+- If you are using the B2B allow list, you must make sure any domain you want to partner with using entitlement management is added to the list. Alternatively, if you are using the B2B deny list, you must make sure any domain you want to partner with is not added to the list.
+- If you create an entitlement management policy for **All users** (All connected organizations + any new external users), any B2B allow or deny list settings you have will take precedence. Therefore, be sure to include the domains you intend to include in this policy to your allow list if you are using one, and exclude them from your deny list if you are using a deny list.
+- If you want to create an entitlement management policy that includes **All users** (All connected organizations + any new external users), you must first enable email one-time passcode authentication for your directory. For more information, see [Email one-time passcode authentication (preview)](../b2b/one-time-passcode.md#opting-in-to-the-preview).
+- For more information about Azure AD B2B external collaboration settings, see [Enable B2B external collaboration and manage who can invite guests](../b2b/delegate-invitations.md).
+
+    ![Azure AD external collaboration settings](./media/entitlement-management-external-users/collaboration-settings.png)
+
+### Review your Conditional Access policies
+
+- Make sure to exclude guests from any Conditional Access policies that new guest users will not be able to meet as this will block them from being able to sign in to your directory. For example, guests likely don't have a registered device, aren't in a known location, and don't want to re-register for multi-factor authentication (MFA), so adding these requirements in a Conditional Access policy will block guests from using entitlement management. For more information, see [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/conditions.md).
+
+    ![Azure AD Conditional Access policy exclude settings](./media/entitlement-management-external-users/conditional-access-exclude.png)
+
+### Review your SharePoint Online external sharing settings
+
+- If you want to include SharePoint Online sites in your access packages for external users, make sure that your organization-level external sharing setting is set to **Anyone** (users don't require sign in) or **New and existing guests** (guests must sign in or provide a verification code). For more information, see [Turn external sharing on or off](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- If you want to restrict any external sharing outside of entitlement management, you can set the external sharing setting to **Existing guests**. Then, only new users that are invited through entitlement management will be able to gain access to these sites. For more information, see [Turn external sharing on or off](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- Make sure that the site-level settings enable guest access (same option selections as previously listed). For more information, see [Turn external sharing on or off for a site](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
+
+### Review your Office 365 group sharing settings
+
+- If you want to include Office 365 groups in your access packages for external users, make sure the **Let users add new guests to the organization** is set to **On** to allow guest access. For more information, see [Manage guest access to Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups).
+
+- If you want external users to be able to access the SharePoint Online site and resources associated with an Office 365 group, make sure you turn on SharePoint Online external sharing. For more information, see [Turn external sharing on or off](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- For information about how to set the guest policy for Office 365 groups at the directory level in PowerShell, see [Example: Configure Guest policy for groups at the directory level](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+
+### Review your Teams sharing settings
+
+- If you want to include Teams in your access packages for external users, make sure the **Allow guest access in Microsoft Teams** is set to **On** to allow guest access. For more information, see [Configure guest access in the Microsoft Teams admin center](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center).
+
 ## Manage the lifecycle of external users
 
 You can select what happens when an external user, who was invited to your directory through an access package request being approved, no longer has any access package assignments. This can happen if the user relinquishes all their access package assignments, or their last access package assignment expires. By default, when an external user no longer has any access package assignments, they are blocked from signing in to your directory. After 30 days, their guest user account is removed from your directory.
@@ -103,20 +149,8 @@ You can select what happens when an external user, who was invited to your direc
 
 1. Click **Save**.
 
-## Enable a catalog for external users
-
-When you create a [new catalog](entitlement-management-catalog-create.md), there is a setting to enable users from external directories to request access packages in the catalog. If you don't want external users to have permissions to request access packages in the catalog, set **Enabled for external users** to **No**.
-
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
-
-![New catalog pane](./media/entitlement-management-shared/new-catalog.png)
-
-You can also change this setting after you have created the catalog.
-
-![Edit catalog settings](./media/entitlement-management-shared/catalog-edit.png)
-
 ## Next steps
 
 - [Add a connected organization](entitlement-management-organization.md)
 - [For users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
-- [Create and manage a catalog of resources](entitlement-management-catalog-create.md)
+- [Troubleshoot](entitlement-management-troubleshoot.md)
