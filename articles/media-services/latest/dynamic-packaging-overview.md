@@ -1,5 +1,6 @@
 ---
-title: Dynamic packaging in Azure Media Services | Microsoft Docs
+title: Dynamic packaging in Media Services
+titleSuffix: Azure Media Services
 description: An overview of dynamic packaging in Azure Media Services.
 author: Juliako
 manager: femila
@@ -17,7 +18,7 @@ ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
 
-# Dynamic packaging in Azure Media Services
+# Dynamic packaging in Media Services
 
 Microsoft Azure Media Services can be used to encode many media source file formats. It delivers them via different streaming protocols, with or without content protection, to reach all major devices (like iOS and Android devices). These clients understand different protocols. For example, iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH.
 

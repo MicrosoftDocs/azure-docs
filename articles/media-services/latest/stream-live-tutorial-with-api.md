@@ -1,5 +1,6 @@
 ---
-title: Stream live with Azure Media Services v3 | Microsoft Docs
+title: Stream live with Media Services v3
+titleSuffix: Azure Media Services
 description: Learn how to stream live with Azure Media Services v3.
 services: media-services
 documentationcenter: ''

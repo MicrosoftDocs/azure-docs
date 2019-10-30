@@ -1,5 +1,6 @@
 ---
-title: Live Events and Live Outputs in Azure Media Services | Microsoft Docs
+title: Live Events and Live Outputs in Media Services
+titleSuffix: Azure Media Services
 description: An overview of Live Events and Live Outputs in Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -16,7 +17,7 @@ ms.date: 09/30/2019
 ms.author: juliako
 
 ---
-# Live Events and Live Outputs in Azure Media Services
+# Live Events and Live Outputs in Media Services
 
 Azure Media Services lets you deliver live events to your customers on the Azure cloud. To set up your live streaming events in Media Services v3, you need to understand the concepts discussed in this article.
 
