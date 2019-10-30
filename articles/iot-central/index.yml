@@ -53,7 +53,7 @@ conceptualContent:
 
     - title: Stay connected (preview features)
       links: 
-        - url: ./core/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
           text: Use device groups
         - url: ./core/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json

@@ -43,9 +43,189 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
 
-In response to developer feedback, Azure AD Premium P2 subscribers can now perform complex queries on Azure AD Identity Protection’s risk detection data by using the new riskDetection API for Microsoft Graph. The existing [identityRiskEvent](https://docs.microsoft.com/en-us/graph/api/resources/identityriskevent?view=graph-rest-beta) API beta version will stop returning data around **January 10, 2020**. If your organization is using the identityRiskEvent API, you should transition to the new riskDetection API.
+In response to developer feedback, Azure AD Premium P2 subscribers can now perform complex queries on Azure AD Identity Protection’s risk detection data by using the new riskDetection API for Microsoft Graph. The existing [identityRiskEvent](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta) API beta version will stop returning data around **January 10, 2020**. If your organization is using the identityRiskEvent API, you should transition to the new riskDetection API.
 
 For more information about the new riskDetection API, see the [Risk detection API reference documentation](https://aka.ms/RiskDetectionsAPI).
+
+---
+
+### Application Proxy support for the SameSite Attribute and Chrome 80
+
+**Type:** Plan for change  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+
+A couple of weeks prior to the Chrome 80 browser release, we plan to update how Application Proxy cookies treat the **SameSite** attribute. With the release of Chrome 80, any cookie that doesn't specify the **SameSite** attribute will be treated as though it was set to `SameSite=Lax`.
+
+To help avoid potentially negative impacts due to this change, we're updating Application Proxy access and session cookies by:
+
+- Setting the default value for the **Use Secure Cookie** setting to **Yes**.
+
+- Setting the default value for the **SameSite** attribute to **None**.
+
+    >[!NOTE]
+    > Application Proxy access cookies have always been transmitted exclusively over secure channels. These changes only apply to session cookies.
+
+For more information about the Application Proxy cookie settings, see [Cookie settings for accessing on-premises applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
+
+---
+
+### App registrations (legacy) and converged app management from the Application Registration Portal (apps.dev.microsoft.com) will no longer be available
+
+**Type:** Plan for change  
+**Service category:** N/A  
+**Product capability:** Developer Experience
+
+In the near future, users with Azure AD accounts will no longer be able to register and manage converged applications using the Application Registration Portal (apps.dev.microsoft.com), or register and manage applications in the App registrations (legacy) experience in the Azure portal.
+
+To learn more about the new App registrations experience, see the [App registrations in the Azure portal training guide](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide).
+
+---
+
+### Users are no longer required to re-register during migration from per-user MFA to Conditional Access-based MFA
+
+**Type:** Fixed  
+**Service category:** MFA  
+**Product capability:** Identity Security & Protection
+
+We've fixed a known issue whereby when users were required to re-register if they were disabled for per-user Multi-Factor Authentication (MFA) and then enabled for MFA through a Conditional Access policy.
+
+To require users to re-register, you can select the **Required re-register MFA** option from the user's authentication methods in the Azure AD portal. For more information about migrating users from per-user MFA to Conditional Access-based MFA, see [Convert users from per-user MFA to Conditional Access based MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted#convert-users-from-per-user-mfa-to-conditional-access-based-mfa).
+
+---
+
+### New capabilities to transform and send claims in your SAML token
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+
+We've added additional capabilities to help you to customize and send claims in your SAML token. These new capabilities include:
+
+- Additional claims transformation functions, helping you to modify the value you send in the claim.
+
+- Ability to apply multiple transformations to a single claim.
+
+- Ability to specify the claim source, based on the user type and the group to which the user belongs.
+
+For detailed information about these new capabilities, including how to use them, see [Customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+
+---
+
+### New My Sign-ins page for end users in Azure AD
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** Monitoring & Reporting
+
+We've added a new **My Sign-ins** page (https://mysignins.microsoft.com) to let your organization's users view their recent sign-in history to check for any unusual activity. This new page allows your users to see:
+
+- If anyone is attempting to guess their password.
+
+- If an attacker successfully signed in to their account and from what location.
+
+- What apps the attacker tried to access.
+
+For more information, see the [Users can now check their sign-in history for unusual activity](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Users-can-now-check-their-sign-in-history-for-unusual-activity/ba-p/916066) blog.
+
+---
+
+### Migration of Azure AD Domain Services (Azure AD DS) from classic to Azure Resource Manager virtual networks
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+
+To our customers who have been stuck on classic virtual networks -- we have great news for you! You can now perform a one-time migration from a classic virtual network to an existing Resource Manager virtual network. After moving to the Resource Manager virtual network, you'll be able to take advantage of the additional and upgraded features such as, fine-grained password policies, email notifications, and audit logs.
+
+For more information, see [Preview - Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet).
+
+---
+
+### Updates to the Azure AD B2C page contract layout
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+
+We've introduced some new changes to version 1.2.0 of the page contract for Azure AD B2C. In this updated version, you can now control the load order for your elements, which can also help to stop the flicker that happens when the style sheet (CSS) is loaded.
+
+For a full list of the changes made to the page contract, see the [Version change log](https://docs.microsoft.com/azure/active-directory-b2c/page-layout#120).
+
+---
+
+### Update to the My Apps page along with new Workspaces (Public preview)
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** Access Control
+
+You can now customize the way your organization's users view and access the brand-new My Apps experience, including using the new Workspaces feature to make it easier for them to find apps. The new Workspaces functionality acts as a filter for the apps your organization's users already have access to.
+
+For more information on rolling out the new My Apps experience and creating Workspaces, see [Create workspaces on the My Apps (preview) portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+
+---
+
+### Support for the monthly active user-based billing model (General availability)
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+
+Azure AD B2C now supports monthly active users (MAU) billing. MAU billing is based on the number of unique users with authentication activity during a calendar month. Existing customers can switch to this new billing method at any time.
+
+Starting on November 1, 2019, all new customers will automatically be billed using this method. This billing method benefits customers through cost benefits and the ability to plan ahead.
+
+For more information, see [Upgrade to monthly active users billing model](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-how-to-enable-billing#upgrade-to-monthly-active-users-billing-model).
+
+---
+
+### Consolidated Security menu item in the Azure AD portal
+
+**Type:** Changed feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+
+You can now access all of the available Azure AD security features from the new **Security** menu item, and from the **Search** bar, in the Azure portal. Additionally, the new **Security** landing page, called **Security - Getting started**, will provide links to our public documentation, security guidance, and deployment guides.
+
+The new **Security** menu includes:
+
+- Conditional Access
+- Identity Protection
+- Security Center
+- Identity Secure Score
+- Authentication methods
+- MFA
+- Risk reports - Risky users, Risky sign-ins, Risk detections
+- And more...
+
+For more information, see [Security - Getting started](https://portal.azure.com/#blade/Microsoft_AAD_IAM/SecurityMenuBlade/GettingStarted).
+
+---
+
+### Office 365 groups expiration policy enhanced with autorenewal
+
+**Type:** Changed feature  
+**Service category:** Group Management  
+**Product capability:** Identity Lifecycle Management
+
+The Office 365 groups expiration policy has been enhanced to automatically renew groups that are actively in use by its members. Groups will be autorenewed based on user activity across all the Office 365 apps, including Outlook, SharePoint, and Teams.
+
+This enhancement helps to reduce your group expiration notifications and helps to make sure that active groups continue to be available. If you already have an active expiration policy for your Office 365 groups, you don't need to do anything to turn on this new functionality.
+
+For more information, see [Configure the expiration policy for Office 365 groups](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-lifecycle).
+
+---
+
+### Updated Azure AD Domain Services (Azure AD DS) creation experience
+
+**Type:** Changed feature  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+
+We've updated Azure AD Domain Services (Azure AD DS) to include a new and improved creation experience, helping you to create a managed domain in just three clicks! In addition, you can now upload and deploy Azure AD DS from a template.
+
+For more information, see [Tutorial: Create and configure an Azure Active Directory Domain Services instance](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance).
 
 ---
 
@@ -63,7 +243,7 @@ For more information about the workbooks, see [How to use Azure Monitor workbook
 
 ---
 
-### My Profile is re-naming and integrating with the Microsoft Office account page
+### My Profile is renaming and integrating with the Microsoft Office account page
 
 **Type:** Plan for change  
 **Service category:** My Profile/Account  
@@ -924,149 +1104,5 @@ Administrators can now create Conditional Access policies for use by the combine
 - Users agree to the organization’s terms of use (TOU).
 
 For more information about Conditional Access and password reset, you can see the [Conditional Access for the Azure AD combined MFA and password reset registration experience blog post](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348). For more information about Conditional Access policies for the combined registration process, see [Conditional Access policies for combined registration](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined#conditional-access-policies-for-combined-registration). For more information about the Azure AD terms of use feature, see [Azure Active Directory terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
-
----
-
-## April 2019
-
-### New Azure AD threat intelligence detection is now available as part of Azure AD Identity Protection
-
-**Type:** New feature  
-**Service category:** Azure AD Identity Protection  
-**Product capability:** Identity Security & Protection
-
-Azure AD threat intelligence detection is now available as part of the updated Azure AD Identity Protection feature. This new functionality helps to indicate unusual user activity for a specific user or activity that’s consistent with known attack patterns based on Microsoft’s internal and external threat intelligence sources.
-
-For more information about the refreshed version of Azure AD Identity Protection, see the [Four major Azure AD Identity Protection enhancements are now in public preview](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) blog and the [What is Azure Active Directory Identity Protection (refreshed)?](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) article. For more information about Azure AD threat intelligence detection, see the [Azure Active Directory Identity Protection risk detections](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence) article.
-
----
-
-### Azure AD entitlement management is now available (Public preview)
-
-**Type:** New feature  
-**Service category:** Identity Governance  
-**Product capability:** Identity Governance
-
-Azure AD entitlement management, now in public preview, helps customers to delegate management of access packages, which defines how employees and business partners can request access, who must approve, and how long they have access. Access packages can manage membership in Azure AD and Office 365 groups, role assignments in enterprise applications, and role assignments for SharePoint Online sites. Read more about entitlement management at the [overview of Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). To learn more about the breadth of Azure AD Identity Governance features, including Privileged Identity Management, access reviews and terms of use, see [What is Azure AD Identity Governance?](../governance/identity-governance-overview.md).
-
----
-
-### Configure a naming policy for Office 365 groups in Azure AD portal (Public preview)
-
-**Type:** New feature  
-**Service category:** Group Management  
-**Product capability:** Collaboration
-
-Administrators can now configure a naming policy for Office 365 groups, using the Azure AD portal. This change helps to enforce consistent naming conventions for Office 365 groups created or edited by users in your organization.
-
-You can configure naming policy for Office 365 groups in two different ways:
-
-- Define prefixes or suffixes, which are automatically added to a group name.
-
-- Upload a customized set of blocked words for your organization, which are not allowed in group names (for example, “CEO, Payroll, HR”).
-
-For more information, see [Enforce a Naming Policy for Office 365 groups](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-naming-policy).
-
----
-
-### Azure AD Activity logs are now available in Azure Monitor (General availability)
-
-**Type:** New feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
-
-To help address your feedback about visualizations with the Azure AD Activity logs, we're introducing a new Insights feature in Log Analytics. This feature helps you gain insights about your Azure AD resources by using our interactive templates, called Workbooks. These pre-built Workbooks can provide details for apps or users, and include:
-
-- **Sign-ins.** Provides details for apps and users, including sign-in location, the in-use operating system or browser client and version, and the number of successful or failed sign-ins.
-
-- **Legacy authentication and Conditional Access.** Provides details for apps and users using legacy authentication, including Multi-Factor Authentication usage triggered by Conditional Access policies, apps using Conditional Access policies, and so on.
-
-- **Sign-in failure analysis.** Helps you to determine if your sign-in errors are occurring due to a user action, policy issues, or your infrastructure.
-
-- **Custom reports.** You can create new, or edit existing Workbooks to help customize the Insights feature for your organization.
-
-For more information, see [How to use Azure Monitor workbooks for Azure Active Directory reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks).
-
----
-
-### New Federated Apps available in Azure AD app gallery - April 2019
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
-
-In April 2019, we've added these 21 new apps with Federation support to the app gallery:
-
-[SAP Fiori](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-fiori-tutorial), [HRworks Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/hrworks-single-sign-on-tutorial), [Percolate](https://docs.microsoft.com/azure/active-directory/saas-apps/percolate-tutorial), [MobiControl](https://docs.microsoft.com/azure/active-directory/saas-apps/mobicontrol-tutorial), [Citrix NetScaler](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [Shibumi](https://docs.microsoft.com/azure/active-directory/saas-apps/shibumi-tutorial), [Benchling](https://docs.microsoft.com/azure/active-directory/saas-apps/benchling-tutorial), [MileIQ](https://mileiq.onelink.me/991934284/7e980085), [PageDNA](https://docs.microsoft.com/azure/active-directory/saas-apps/pagedna-tutorial), [EduBrite LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/edubrite-lms-tutorial), [RStudio Connect](https://docs.microsoft.com/azure/active-directory/saas-apps/rstudio-connect-tutorial), [AMMS](https://docs.microsoft.com/azure/active-directory/saas-apps/amms-tutorial), [Mitel Connect](https://docs.microsoft.com/azure/active-directory/saas-apps/mitel-connect-tutorial), [Alibaba Cloud (Role-based SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial), [Certent Equity Management](https://docs.microsoft.com/azure/active-directory/saas-apps/certent-equity-management-tutorial), [Sectigo Certificate Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/sectigo-certificate-manager-tutorial), [GreenOrbit](https://docs.microsoft.com/azure/active-directory/saas-apps/greenorbit-tutorial), [Workgrid](https://docs.microsoft.com/azure/active-directory/saas-apps/workgrid-tutorial), [monday.com](https://docs.microsoft.com/azure/active-directory/saas-apps/mondaycom-tutorial), [SurveyMonkey Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/surveymonkey-enterprise-tutorial), [Indiggo](https://indiggolead.com/)
-
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
-
----
-
-### New access reviews frequency option and multiple role selection
-
-**Type:** New feature  
-**Service category:** Access Reviews  
-**Product capability:** Identity Governance
-
-New updates in Azure AD access reviews allow you to:
-
-- Change the frequency of your access reviews to **semi-annually**, in addition to the previously existing options of weekly, monthly, quarterly, and annually.
-
-- Select multiple Azure AD and Azure resource roles when creating a single access review. In this situation, all roles are set up with the same settings and all reviewers are notified at the same time.
-
-For more information about how to create an access review, see [Create an access review of groups or applications in Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/create-access-review).
-
----
-
-### Azure AD Connect email alert system(s) are transitioning, sending new email sender information for some customers
-
-**Type:** Changed feature  
-**Service category:** AD Sync  
-**Product capability:** Platform
-
-Azure AD Connect is in the process of transitioning our email alert system(s), potentially showing some customers a new email sender. To address this, you must add `azure-noreply@microsoft.com` to your organization's allow list or you won't be able to continue receiving important alerts from your Office 365, Azure, or your Sync services.
-
----
-
-### UPN suffix changes are now successful between Federated domains in Azure AD Connect
-
-**Type:** Fixed  
-**Service category:** AD Sync  
-**Product capability:** Platform
-
-You can now successfully change a user's UPN suffix from one Federated domain to another Federated domain in Azure AD Connect. This fix means you should no longer experience the FederatedDomainChangeError error message during the synchronization cycle or receive a notification email stating, "Unable to update this object in Azure Active Directory, because the attribute [FederatedUser.UserPrincipalName], is not valid. Update the value in your local directory services".
-
-For more information, see [Troubleshooting Errors during synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sync-errors#federateddomainchangeerror).
-
----
-
-### Increased security using the app protection-based Conditional Access policy in Azure AD (Public preview)
-
-**Type:** New feature  
-**Service category:** Conditional Access  
-**Product capability:** Identity Security & Protection
-
-App protection-based Conditional Access is now available by using the **Require app protection** policy. This new policy helps to increase your organization's security by helping to prevent:
-
-- Users gaining access to apps without a Microsoft Intune license.
-
-- Users being unable to get a Microsoft Intune app protection policy.
-
-- Users gaining access to apps without a configured Microsoft Intune app protection policy.
-
-For more information, see [How to Require app protection policy for cloud app access with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access).
-
----
-
-### New support for Azure AD single sign-on and Conditional Access in Microsoft Edge (Public preview)
-
-**Type:** New feature  
-**Service category:** Conditional Access  
-**Product capability:** Identity Security & Protection
-
-We've enhanced our Azure AD support for Microsoft Edge, including providing new support for Azure AD single sign-on and Conditional Access. If you've previously used Microsoft Intune Managed Browser, you can now use Microsoft Edge instead.
-
-For more information about setting up and managing your devices and apps using Conditional Access, see [Require managed devices for cloud app access with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) and [Require approved client apps for cloud app access with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). For more information about how to manage access using Microsoft Edge with Microsoft Intune policies, see [Manage Internet access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
 ---
