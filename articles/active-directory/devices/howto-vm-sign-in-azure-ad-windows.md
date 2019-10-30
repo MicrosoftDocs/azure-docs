@@ -32,7 +32,7 @@ There are many benefits of using Azure AD authentication to log in to Windows VM
 - Before allowing access to a VM, Azure AD Conditional Access can enforce additional requirements such as: 
    - Multi-factor authentication
    - Sign-in risk
-- Automate and scale Azure AD join for Azure based Windows VMs
+- Automate and scale Azure AD join for Azure based Windows VMs.
 
 ## Requirements
 
