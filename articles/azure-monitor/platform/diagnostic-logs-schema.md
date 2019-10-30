@@ -55,7 +55,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Data Explorer | [Azure Data Explorer logs](../../data-explorer/using-diagnostic-logs.md) |
 | Cognitive Services | [Logging for Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
-| Container Registry | [Logging for Azure Container Registry](../../container-registry-diagnostics-audit-logs.md) |
+| Container Registry | [Logging for Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Azure Logs for CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB Logging](../../cosmos-db/logging.md) |
 | Data Factory | [Monitor Data Factories using Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
