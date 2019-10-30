@@ -21,29 +21,10 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
 
 ![Example Windows 7 and 10 login screens with SSPR link shown](./media/howto-sspr-windows/windows-reset-password.png)
 
-## General prerequisites
-
-- An administrator must enable Azure AD self-service password reset from the Azure portal.
-- **Users must register for SSPR before using this feature**
-- Network proxy requirements
-   - Windows 10 devices 
-       - Port 443 to `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com`
-       - Windows 10 devices only support machine-level proxy configuration
-   - Windows 7, 8, and 8.1 devices
-       - Port 443 to `passwordreset.microsoftonline.com`
-
 ## General limitations
 
 - Password reset is not currently supported from a Remote Desktop or from Hyper-V enhanced sessions.
 - This feature does not work for networks with 802.1x network authentication deployed and the option “Perform immediately before user logon”. For networks with 802.1x network authentication deployed it is recommended to use machine authentication to enable this feature.
-
-## Windows 10 password reset
-
-### Windows 10 specific prerequisites
-
-- Run at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
-    - Azure AD joined
-    - Hybrid Azure AD joined
 - Hybrid Azure AD joined machines must have network connectivity line of sight to a domain controller to use the new password and update cached credentials.
 - If using an image, prior to running sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this step can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - The following settings are known to interfere with the ability to use and reset passwords on Windows 10 devices
@@ -58,6 +39,20 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
     - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
     - DisableLockScreenAppNotifications = 1 or Enabled
     - IsContentDeliveryPolicyEnforced = 1 or True 
+
+## Windows 10 password reset
+
+### Windows 10 prerequisites
+
+- An administrator must enable Azure AD self-service password reset from the Azure portal.
+- **Users must register for SSPR before using this feature**
+- Network proxy requirements
+   - Windows 10 devices 
+       - Port 443 to `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com`
+       - Windows 10 devices only support machine-level proxy configuration
+- Run at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
+    - Azure AD joined
+    - Hybrid Azure AD joined
 
 ### Enable for Windows 10 using Intune
 
@@ -102,8 +97,13 @@ When users reset their password from the login screen of a Windows 10 device, a 
 
 ## Windows 7, 8, and 8.1 password reset
 
-### Windows 7, 8, and 8.1 specific prerequisites
+### Windows 7, 8, and 8.1 prerequisites
 
+- An administrator must enable Azure AD self-service password reset from the Azure portal.
+- **Users must register for SSPR before using this feature**
+- Network proxy requirements
+   - Windows 7, 8, and 8.1 devices
+       - Port 443 to `passwordreset.microsoftonline.com`
 - Patched Windows 7 or Windows 8.1 Operating System.
 - TLS 1.2 enabled using the guidance found in [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12).
 - If more than one 3rd party credential provider is enabled on your machine, users will see more than one user profile on the login screen.
