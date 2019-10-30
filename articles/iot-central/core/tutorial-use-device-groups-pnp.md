@@ -64,7 +64,7 @@ To create a device group:
 
 ## Analytics
 
-You can use **Analytics** with a device group to analyze the telemetry from the devices in the group. For example you can plot the average temperature reported by all the Contoso environmental sensors.
+You can use **Analytics** with a device group to analyze the telemetry from the devices in the group. For example, you can plot the average temperature reported by all the Contoso environmental sensors.
 
 To analyze the telemetry for a device group:
 
@@ -74,7 +74,7 @@ To analyze the telemetry for a device group:
 
     ![Create analytics](./media/tutorial-use-device-groups-pnp/create-analysis.png)
 
-    Use the gear-wheel icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Split by** to change how the aggregate data is shown. For example, if you split by device id you see a plot for each device when you select **Analyze**.
+    Use the gear-wheel icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Split by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
 
 1. Select **Analyze** to view the average telemetry values:
 
@@ -84,7 +84,7 @@ To analyze the telemetry for a device group:
 
 ## Next steps
 
-Now that you have learned how to use device groups in your Azure IoT Central application, here is the suggested next step:
+Now that you've learned how to use device groups in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
 > [How to create telemetry rules](tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
