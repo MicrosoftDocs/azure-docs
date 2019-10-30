@@ -19,7 +19,7 @@ This article shows how you can access and manage files stored as blobs in your A
 
 Suppose that you have a tool that gets updated on an Azure website. which acts as the trigger for your logic app. When this event happens, you can have your logic app update some file in your blob storage container, which is an action in your logic app.
 
-If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, see the [Azure Blob Storage connector reference](/connectors/azureblobconnector/).
+If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, see the [Azure Blob Storage connector reference](https://docs.microsoft.com/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
 > To enable access from Azure Logic Apps to storage accounts behind firewalls, see the 
@@ -159,7 +159,7 @@ You can put the storage account in an Azure virtual network that you manage, and
 
 ### Access storage accounts as a trusted service with managed identities
 
-To give Microsoft trusted services access to a storage account through a firewall, you can set up an exception on that storage account for those services. This solution permits Azure services that support [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md) to access storage accounts behind firewalls as trusted services. Specifically, for a logic app in global multi-tenant Azure to access these storage accounts, you first [enable managed identity support](../logic-apps/create-managed-service-identity.md) on the logic app. Then, you can use the HTTP trigger or action in your logic app and [set their authentication type to use your logic app's managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) for authentication. Currently, this approach works only with [specific built-in triggers and actions](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+To give Microsoft trusted services access to a storage account through a firewall, you can set up an exception on that storage account for those services. This solution permits Azure services that support [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md) to access storage accounts behind firewalls as trusted services. Specifically, for a logic app in global multi-tenant Azure to access these storage accounts, you first [enable managed identity support](../logic-apps/create-managed-service-identity.md) on the logic app. Then, you can use the HTTP trigger or action in your logic app and [set their authentication type to use your logic app's managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) for authentication. Currently, this approach works only with [specific built-in triggers and actions](../logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 To set up the exception and managed identity support, follow these general steps:
 
