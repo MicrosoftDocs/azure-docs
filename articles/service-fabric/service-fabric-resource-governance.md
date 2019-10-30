@@ -52,7 +52,7 @@ At this point, the sum of limits is equal to the capacity of the node. A process
 
 However, there are two situations in which other processes might contend for CPU. In these situations, a process and a container from our example might experience the noisy neighbor problem:
 
-* *Mixing governed and non-governed services and containers*: If a user creates a service without any resource governance specified, the runtime sees it as consuming no resources, and can place it on the node in our example. In this case, this new process effectively consumes some CPU at the expense of the services that are already running on the node. There are two solution to this problem. Either don't mix governed and non-governed services on the same cluster, or use [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) so that these two types of services don't end up on the same set of nodes.
+* *Mixing governed and non-governed services and containers*: If a user creates a service without any resource governance specified, the runtime sees it as consuming no resources, and can place it on the node in our example. In this case, this new process effectively consumes some CPU at the expense of the services that are already running on the node. There are two solutions to this problem. Either don't mix governed and non-governed services on the same cluster, or use [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) so that these two types of services don't end up on the same set of nodes.
 
 * *When another process is started on the node, outside Service Fabric (for example, an OS service)*: In this situation, the process outside Service Fabric also contends for CPU with existing services. The solution to this problem is to set up node capacities correctly to account for OS overhead, as shown in the next section.
 
@@ -149,7 +149,7 @@ Memory limits are absolute, so both code packages are limited to 1024 MB of memo
 
 ### Using application parameters
 
-When specifying resource governance it is possible to use [application parameters](service-fabric-manage-multiple-environment-app-configuration.md) to manage multiple app configurations. The following example shows the usage of application parameters:
+When specifying resource governance settings, it is possible to use [application parameters](service-fabric-manage-multiple-environment-app-configuration.md) to manage multiple app configurations. The following example shows the usage of application parameters:
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -196,7 +196,7 @@ In this example, default parameter values are set for the production environment
 
 ## Enforcing the resource limits for user services
 
-Some Service Fabric users ran into situations where runaway user services consumed all available resources on the Service Fabric nodes. This can cause:
+While applying resource governance to your Service Fabric services guarantees that those resource-governed services cannot exceed their resources quota, many users still need to run some of their Service Fabric services in ungoverned mode. When using ungoverned Service Fabric services, it is possible to run into situations where "runaway" ungoverned services consume all available resources on the Service Fabric nodes, which can lead to serious issues like:
 
 * Resource starvation of other services running on the nodes (including Service Fabric system services)
 * Nodes ending up in an unhealthy state
@@ -210,7 +210,10 @@ To prevent these situations from occurring, Service Fabric allows you to *enfo
 </Section>
 ```
 
-In order to be able to enforce the resource limits for user services, node capacities for the resource metrics need to be configured, as explained in the [Cluster setup for enabling resource governance](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) section. If no capacities are set, the node is considered to have infinite capacity for the given metric, and the limit enforcement feature cannot be used (since SF doesn't know how much resources to reserve for system services). SF will issue a health warning if "EnforceUserServiceMetricCapacities" is true but capacities are not specified.
+Additional remarks:
+
+* Resource limit enforcement only applies to the `servicefabric:/_CpuCores` and `servicefabric:/_MemoryInMB` resource metrics
+* Resource limit enforcement only works if node capacities for the resource metrics are available to Service Fabric, either via auto-detection mechanism, or via users manually specifying the node  capacities (as explained in the [Cluster setup for enabling resource governance](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) section). If node capacities are not configured, the resource limit enforcement capability cannot be used since Service Fabric can't know how much resources to reserve for user services. Service Fabric will issue a health warning if "EnforceUserServiceMetricCapacities" is true but node capacities are not configured.
 
 ## Other resources for containers
 
