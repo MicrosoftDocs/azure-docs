@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/10/2019
+ms.date: 10/29/2019
 
 ---
 
@@ -21,7 +21,7 @@ There are internally generated properties you can use to identify unique process
 - Computer: Use *ResourceId* or *ResourceName_s* to uniquely identify a computer within a Log Analytics workspace.
 - Process: Use *ResourceId* to uniquely identify a process within a Log Analytics workspace. *ResourceName_s* is unique within the context of the machine on which the process is running (MachineResourceName_s) 
 
-Because multiple records can exist for a specified process and computer in a specified time range, queries can return more than one record for the same computer or process. To include only the most recent record, add "| dedup ResourceId" to the query.
+Because multiple records can exist for a specified process and computer in a specified time range, queries can return more than one record for the same computer or process. To include only the most recent record, add `| summarize arg_max(TimeGenerated, *) by ResourceId` to the query.
 
 ### Connections and ports
 The Connection Metrics feature introduces two new tables in Azure Monitor logs - VMConnection and VMBoundPort. These tables provide information about the connections for a machine (inbound and outbound), as well as the server ports that are open/active on them. ConnectionMetrics are also exposed via APIs that provide the means to obtain a specific metric during a time window. TCP connections resulting from *accepting* on a listening socket are inbound, while those created by *connecting* to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
@@ -194,82 +194,82 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 
 ### List all known machines
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 ```
 
 ### When was the VM last rebooted
 ```kusto
-let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc
 ```
 
 ### Summary of Azure VMs by image, location, and SKU
 ```kusto
-ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s
 ```
 
 ### List the physical memory capacity of all managed computers.
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 ```
 
 ### List computer name, DNS, IP, and OS.
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 ```
 
 ### Find all processes with "sql" in the command line
 ```kusto
-ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 ```
 
 ### Find a machine (most recent record) by resource name
 ```kusto
-search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 ```
 
 ### Find a machine (most recent record) by IP address
 ```kusto
-search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 ```
 
 ### List all known processes on a specified machine
 ```kusto
-ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 ```
 
 ### List all computers running SQL Server
 ```kusto
-ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 ```
 
 ### List all unique product versions of curl in my datacenter
 ```kusto
-ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 ```
 
 ### Create a computer group of all computers running CentOS
 ```kusto
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 ```
 
 ### Bytes sent and received trends
 ```kusto
-VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart
 ```
 
 ### Which Azure VMs are transmitting the most bytes
 ```kusto
-VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc
 ```
 
 ### Link status trends
 ```kusto
-VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart
 ```
 
 ### Connection failures trend
 ```kusto
-VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
+VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart
 ```
 
 ### Bound Ports
@@ -353,4 +353,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## Next steps
 * If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../../azure-monitor/log-query/get-started-portal.md) in the Azure portal to write log queries.
+
 * Learn about [writing search queries](../../azure-monitor/log-query/search-queries.md).
