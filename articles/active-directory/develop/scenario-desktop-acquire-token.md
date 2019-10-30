@@ -540,6 +540,15 @@ PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CL
 
  return result;
 ```
+
+# [Python](#tab/python)
+
+This flow is not yet supported in MSAL Python.
+
+# [MacOS](#tab/macOS)
+
+This flow does not apply to MacOS.
+
 ---
 
 ## Username / Password
@@ -550,7 +559,7 @@ You can also acquire a token by providing the username and password. This flow i
 
 This flow is **not recommended** because your application asking a user for their password isn't secure. For more information about this problem, see [this article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). The preferred flow for acquiring a token silently on Windows domain joined machines is [Integrated Windows Authentication](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Otherwise you can also use [Device code flow](https://aka.ms/msal-net-device-code-flow)
 
-> [!NOTE] 
+> [!NOTE]
 > Although this is useful in some cases (DevOps scenarios), if you want to use Username/password in interactive scenarios where you provide your own UI, you should really think about how to move away from it. By using username/password you are giving-up a number of things:
 >
 > - core tenets of modern identity: password gets fished, replayed. Because we have this concept of a share secret that can be intercepted.
@@ -782,6 +791,7 @@ static async Task GetATokenForGraph()
 For details on all the modifiers that can be applied to `AcquireTokenByUsernamePassword`, see [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
 # [Java](#tab/java)
+
 This is an extract from the [msal4j dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/). Here is the class used in msal4j dev samples to configure the samples: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
@@ -828,6 +838,7 @@ future.handle((res, ex) -> {
 ```
 
 # [Python](#tab/python)
+
 This is an extract from the [MSAL Python dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
 
 ```Python
@@ -855,6 +866,11 @@ if not result:
     result = app.acquire_token_by_username_password(
         config["username"], config["password"], scopes=config["scope"])
 ```
+
+# [MacOS](#tab/macOS)
+
+This flow is not supported on MSAL for macOS.
+
 ---
 
 ## Command-line tool (without web browser)
@@ -977,6 +993,7 @@ private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientA
 }
 ```
 # [Java](#tab/java)
+
 This is an extract from the [msal4j dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/). Here is the class used in msal4j dev samples to configure the samples: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```java
@@ -1009,6 +1026,7 @@ future.join();
 ```
 
 # [Python](#tab/python)
+
 This is an extract from the [MSAL Python dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
 
 ```Python
@@ -1057,6 +1075,11 @@ if not result:
         # or you may even turn off the blocking behavior,
         # and then keep calling acquire_token_by_device_flow(flow) in your own customized loop
 ```
+
+# [MacOS](#tab/macOS)
+
+This flow does not apply to MacOS.
+
 ---
 
 ## File based token cache

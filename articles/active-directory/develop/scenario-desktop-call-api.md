@@ -23,7 +23,9 @@ ms.collection: M365-identity-device-management
 
 Now that you have a token, you can call a protected web API.
 
-## Calling a web API from .NET
+## Calling a web API 
+
+# [.NET](#tab/dotnet)
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
