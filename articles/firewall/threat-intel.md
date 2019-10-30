@@ -15,7 +15,7 @@ Threat intelligence-based filtering can be enabled for your firewall to alert an
 
 ![Firewall threat intelligence](media/threat-intel/firewall-threat.png)
 
-If threat intelligence-based filtering is enabled, the associated rules are processed before any of the NAT rules, network rules, or application rules. During the preview, only highest confidence records are included.
+If you've enabled threat intelligence-based filtering, the associated rules are processed before any of the NAT rules, network rules, or application rules.
 
 You can choose to just log an alert when a rule is triggered, or you can choose alert and deny mode.
 
@@ -43,7 +43,7 @@ The following log excerpt shows a triggered rule:
 
 - **Outbound testing** - Outbound traffic alerts should be a rare occurrence, as it means that your environment has been compromised. To help test outbound alerts are working, a test FQDN has been created that triggers an alert. Use **testmaliciousdomain.eastus.cloudapp.azure.com** for your outbound tests.
 
-- **Inbound testing** - You can expect to see alerts on incoming traffic if DNAT rules are configured on the firewall. This is true even if only specific sources are allowed on the DNAT rule and traffic is otherwise denied. Azure Firewall does not alert on all known port scanners; only on scanners that are known to also engage in malicious activity.
+- **Inbound testing** - You can expect to see alerts on incoming traffic if DNAT rules are configured on the firewall. This is true even if only specific sources are allowed on the DNAT rule and traffic is otherwise denied. Azure Firewall doesn't alert on all known port scanners; only on scanners that are known to also engage in malicious activity.
 
 ## Next steps
 
