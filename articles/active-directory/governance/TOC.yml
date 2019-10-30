@@ -42,6 +42,8 @@
       items:
       - name: Delegate to catalog creators
         href: entitlement-management-delegate-catalog.md
+      - name: Add a connected organization
+        href: entitlement-management-organization.md
       - name: Govern access for external users
         href: entitlement-management-external-users.md
       - name: View reports and logs
@@ -66,7 +68,7 @@
         href: entitlement-management-access-package-request-policy.md
       - name: Change lifecycle settings
         href: entitlement-management-access-package-lifecycle-policy.md
-      - name: View and manage requests
+      - name: View requests
         href: entitlement-management-access-package-requests.md
       - name: View, add, and remove assignments
         href: entitlement-management-access-package-assignments.md

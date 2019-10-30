@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
@@ -29,27 +29,57 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The user assignments report and Azure Active Directory audit log provide additional details about the users in your directory. As an administrator, you can view resources a user has access to and view request logs for auditing purposes or to determine the status of a user’s request. This article describes how to use the user assignments report and Azure AD audit logs.
+The Azure AD entitlement management reports and Azure AD audit log provide additional details about what resources users have access to. As an administrator, you can view the access packages and resource assignments for a user and view request logs for auditing purposes or to determine the status of a user's request. This article describes how to use the entitlement management reports and Azure AD audit logs.
 
-Watch the following video to learn how to use entitlement management to manage access for users in Azure Active Directory:
+Watch the following video to learn how to view what resources users have access to in entitlement management:
 
 >[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
-## View resources a user has access to
+## View access packages for a user
+
+This report enables you to list all of the access packages a user can request and the access packages that are currently assigned to the user.
+
+**Prerequisite role:** Global administrator or User administrator
 
 1. Click **Azure Active Directory** and then click **Identity Governance**.
 
-1. In the left menu, click **User assignments report**.
+1. In the left menu, click **Reports**.
+
+1. Click **Access packages for a user**.
 
 1. Click **Select users** to open the Select users pane.
 
-1. Find the user in the list that you want to view the resources they have access to.
+1. Find the user in the list and then click **Select**.
 
-1. Click the user and then click **Select**.
+    The **Can request** tab displays a list of the access packages the user can request. This list is determined by the [request policies](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) defined for the access packages. 
 
-    A list of resources that the user has access to is displayed. It includes the access package, policy, and dates.
+    ![Access packages for a user](./media/entitlement-management-reports/access-packages-report.png)
 
-    ![User assignments report](./media/entitlement-management-reports/user-assignments-report.png)
+1. If there are more than one resource roles or policies for an access package, click the resource roles or policies entry to see selection details.
+
+1. Click the **Assigned** tab to see a list of the access packages currently assigned to the user. When an access package is assigned to a user, it means that the user has access to all of the resource roles in the access package.
+
+## View resource assignments for a user
+
+This report enables you to list the resources currently assigned to a user in entitlement management. Note that this report is for resources managed with entitlement management. The user might have access to other resources in your directory outside of entitlement management.
+
+**Prerequisite role:** Global administrator or User administrator
+
+1. Click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Reports**.
+
+1. Click **Resource assignments for a user**.
+
+1. Click **Select users** to open the Select users pane.
+
+1. Find the user in the list and then click **Select**.
+
+    A list of the resources currently assigned to the user is displayed. The list also shows the access package and policy they got the resource role from, along with start and end date for access.
+    
+    If a user got access to the same resource in two or more packages, you can click an arrow to see each package and policy.
+
+    ![Resource assignments for a user](./media/entitlement-management-reports/resource-assignments-report.png)
 
 ## Determine the status of a user's request
 

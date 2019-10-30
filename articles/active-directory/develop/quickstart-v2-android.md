@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2019
 ms.author: twhitney
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 #Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform endpoint.
 ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 
-This quickstart uses a code sample to demonstrate how an Android application can sign in personal, work, or school accounts, and then get an access token and call the Microsoft Graph API.
+This quickstart uses a code sample to demonstrate how an Android application can sign in personal, work, or school accounts using the Microsoft identity platform, and then get an access token and call the Microsoft Graph API.
 
 ![Screenshoft of the sample app](media/quickstart-v2-android/android-intro.svg)
 
