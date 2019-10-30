@@ -32,9 +32,6 @@ You have two options for creating and running Hive queries:
 * Create ad-hoc queries.
 * Create a Hive application.
 
-> [!NOTE]  
-> To upload to storage on your HDInsight cluster from Visual Studio, you need to have at least co-administrator access to your Azure subscription. To change administrators for a subscription, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md).
-
 ### Create an ad-hoc Hive query
 
 Ad-hoc queries can be executed in either **Batch** or **Interactive** mode.
