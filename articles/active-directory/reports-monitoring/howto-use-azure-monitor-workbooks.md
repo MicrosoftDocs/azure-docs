@@ -1,5 +1,4 @@
 ---
-
 title: Azure Monitor workbooks for reports | Microsoft Docs
 description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
@@ -13,11 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ---
-
 # How to use Azure Monitor workbooks for Azure Active Directory reports
 
 > [!IMPORTANT]
@@ -80,23 +78,19 @@ You must be in one of the following roles as well as have [access to underlying 
 - 	Report Reader
 - 	Application Admin
 
-
 ## Workbook access 
 
 To access workbooks:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the left navigation pane, select **Azure Active Directory**.
+1. On the left navigation pane, select **Azure Active Directory**.
 
-3. In the **Monitoring** section, select **Workbooks**. 
+1. In the **Monitoring** section, select **Workbooks**. 
 
-    ![Select Insights](./media/howto-use-azure-monitor-workbooks/41.png)
+1. Select a report or template, or on the toolbar select **Open**. 
 
-4. Select a report or template, or on the toolbar select **Open**. 
-
-    ![Select Open](./media/howto-use-azure-monitor-workbooks/42.png)
-
+![Find the Azure Monitor workbooks in Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## Sign-in analysis
 
