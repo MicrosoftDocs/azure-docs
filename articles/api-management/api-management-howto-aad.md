@@ -95,11 +95,15 @@ After you add an external Azure AD group, you can review and configure its prope
  
 Users from the configured Azure AD instance can now sign in to the developer portal. They can view and subscribe to any groups for which they have visibility.
 
-## <a id="log_in_to_dev_portal"/> Developer portal - sign in with an Azure AD account
+## <a id="log_in_to_dev_portal"/> Developer portal - add Azure AD account authentication
 
-TODO
+To enable sign in with AAD in the developer portal, you need to add the **OAuth buttons** widget to the sign-in form.
 
-## Legacy developer portal - sign in with an Azure AD account
+![AAD buttons widget](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+Although a new account will be automatically created whenever a new user signs in with AAD, you may consider adding the same widget in the sign-up form.
+
+## Legacy developer portal - how to sign in with Azure AD
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
