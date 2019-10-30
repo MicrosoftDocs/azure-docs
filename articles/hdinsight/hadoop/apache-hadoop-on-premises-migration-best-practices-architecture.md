@@ -1,5 +1,5 @@
 ---
-title: On-premises Apache Hadoop to Azure HDInsight - architecture
+title: 'Architecture: On-premises Apache Hadoop to Azure HDInsight'
 description: Learn architecture best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
