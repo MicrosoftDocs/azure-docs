@@ -94,16 +94,6 @@ The old developer and publisher portals are now *legacy* features - they will be
 
 Deprecation of the legacy portals will be announced separately. If you have questions, concerns, or comments, raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
 
-### I've found bugs, I need help, and/or I'd like to request a feature
-
-You can **report bugs** through [the GitHub repository Issues section](https://github.com/Azure/api-management-developer-portal/issues).
-
-If you'd like to provide feedback and help us shape the product, we're looking for your opinion on [the Issues marked with the `community` label](https://github.com/Azure/api-management-developer-portal/issues?q=is%3Aopen+is%3Aissue+label%3Acommunity).
-
-**Feature requests** can be raised [on the Azure Feedback Forum for API Management](https://aka.ms/apimwish).
-
-For **assistance requests**, you can submit a post [on Stack Overflow](https://aka.ms/apimso) or contact Azure support for help.
-
 ### How can I automate portal deployments?
 
 You can programmatically access and manage the developer portal's content through the REST API, regardless if you're using a managed or a self-hosted version.
