@@ -84,9 +84,7 @@ To access workbooks:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the left navigation pane, select **Azure Active Directory**.
-
-1. In the **Monitoring** section, select **Workbooks**. 
+1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**. 
 
 1. Select a report or template, or on the toolbar select **Open**. 
 
