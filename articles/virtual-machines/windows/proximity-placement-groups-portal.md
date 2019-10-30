@@ -39,10 +39,13 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 
 1. While creating a VM in the portal, go to the **Advanced** tab. 
 1. In the **Proximity placement group** selection, select the correct placement group. 
+
+	![Screenshot of the proximity placement group section when creating a new VM in the portal](./media/ppg/vm-ppg.png)
+
 1. When you are done making all of the other required selections, select **Review + create**.
 1. After it passes validation, select **Create** to deploy the VM in the placement group.
 
-	![Screenshot of the proximity placement group section when creating a new VM in the portal](./media/ppg/vm-ppg.png)
+
 
 
 ## Next steps
