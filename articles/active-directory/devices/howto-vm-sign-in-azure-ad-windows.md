@@ -1,12 +1,12 @@
 ---
-title: Windows VM Azure AD
-description: Windows VM Azure AD
+title: Sign in to Windows virtual machine in Azure using Azure Active Directory (Preview)
+description: Azure AD sign in to an Azure VM running Windows
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 10/27/2019
+ms.date: 10/29/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -218,7 +218,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
 1. Open a command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
 
-   | Command to run | Expected Output |
+   | Command to run | Expected output |
    | --- | --- |
    | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Correct information about the Azure VM |
    | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Valid Tenant ID associated with the Azure Subscription |
