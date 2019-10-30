@@ -139,7 +139,7 @@ There are several ways that you can configure entitlement management for your or
 
 ## Assignments and reports
 
-### Administrator: View access packages assigned to users
+### Administrator: View who has assignments to an access package
 
 1. Open an access package
 1. [View assignments](entitlement-management-access-package-assignments.md#view-who-has-an-assignment)
