@@ -46,17 +46,17 @@ Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
 ## Create a labeling project
 
-The **Labeling projects** page allows you to manage your projects, teams, and people. the people working on your projects, the teams in which those people are organized, and your data labeling projects. A project has one or more teams assigned to it, and a team has one or more people assigned to it. 
+The **Labeling projects** page allows you to manage your projects, teams, and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it. 
 
 If your data are already stored in Azure blob storage, you should make them available as a datastore before creating your labeling project. For information, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores). 
 
-To create a project, choose **Add project**. Give it an appropriate name and select **Project type**. 
+To create a project, choose **Add project**. Give it an appropriate name and select **Labeling task type**. 
 
 ![Labeling project creation wizard](media/how-to-create-labeling-projects/labeling_creation_wizard.png)
 
-* Choose **Image classification multi-label** for projects in which **one _or more_** labels from a set of classes may be applied to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*
-* Choose **Image classification multi-class** for projects in which only a **single class** from a set of classes may be applied to an image
-* Choose **Object identification (bounding box)** for projects in which the task is to both to assign a class to an object within an image, and to specify a bounding box surrounding the object
+* Choose **Image Classification Multi-label** for projects in which **one _or more_** labels from a set of classes may be applied to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*
+* Choose **Image Classification Multi-class** for projects in which only a **single class** from a set of classes may be applied to an image
+* Choose **Object Identification (Bounding Box)** for projects in which the task is to both to assign a class to an object within an image, and to specify a bounding box surrounding the object
 
 Choose **Next** when you're ready to move on.
 
@@ -76,7 +76,7 @@ To create a dataset from data that you've already stored in Azure blob storage:
 * Select the datastore 
 * If your data are in a subfolder within the blob storage, choose **Browse** to select the path. 
     * You may additionally append `/**` after the path to include all the files in subfolders of the selected path
-    * Use `**/*.*` to include all the data in the folder and subfolders
+    * Use `**/*.*` to include all the data in the current container and subfolders
 * Provide a description of your dataset
 * Choose **Next** 
 * Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
@@ -88,7 +88,7 @@ If you wish to directly upload your data:
 * Choose **Create a dataset** and **From local files**
 * Assign a **Name** for your dataset
 * You must choose "File" as the **Dataset type**
-* If you choose **Advanced settings**, you may customize the datastore, container, and path to your data. 
+* If you choose **Advanced settings**, you may customize the datastore, container, and path to your data
 * Choose **Browse** to select local files for upload
 * Provide a description of your dataset
 * Choose **Next** 
@@ -128,11 +128,11 @@ Once initialized, some aspects of the labeling project are immutable: you can't 
 
 A labeling project gets a default team and adds you as a default member. Each labeling project gets a new default team, but teams can be shared between projects. Projects may have more than one team. Creating a team is done by choosing **Add team** on the **Teams** page. 
 
-People are managed on the **People** page. You can add and remove people keyed on their email address. Each labeler will have to authenticate using either their Microsoft Account or, if they're within your organization and you use it, Azure Active Directory.  
+People are managed on the **People** page. You can add and remove people keyed on their email address. Each labeler will have to authenticate using either their Microsoft Account or Azure Active Directory if you use it.  
 
 Once you've added a person, you can assign them to one or more teams. Navigate to the **Teams** page, select the particular team in which you're interested, and then use **Assign people** or **Remove people** as desired.
 
-If you ever wish to send an email to everyone on the team, you can do so by choosing team to bring up the **Team details** page. On this page, the **Email team** button will open your email editor with the addresses of everyone on the team.
+If you ever wish to send an email to everyone on the team, you can do so by choosing the team to bring up the **Team details** page. On this page, the **Email team** button will open your email editor with the addresses of everyone on the team.
 
 ## Running and monitoring the project
 
@@ -144,7 +144,7 @@ On the **Team** tab, you can assign or unassign teams to this project.
 
 If you wish to take the project offline or online, choose the **Pause**/**Start** button, which toggles the running state of the project.
 
-You can label data directly from the **Project details** page by selecting **Label data**. 
+You can label data directly from the **Project details** page by selecting **Label data**. You may only label data when the project is running. 
 
 ## Exporting the labels
 
