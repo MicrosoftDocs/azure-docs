@@ -62,13 +62,13 @@ Create an application rule collection that allows the cluster to send and receiv
 
     **FQDN tags section**
 
-    | Name | Source Address | FQDN Tag | Notes |
+    | Name | Source address | FQDN tag | Notes |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate and HDInsight | Required for HDI services |
 
     **Target FQDNs section**
 
-    | Name | Source Addresses | Protocol:Port | Target FQDNS | Notes |
+    | Name | Source addresses | Protocol:Port | Target FQDNS | Notes |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |
@@ -96,7 +96,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
     **IP Addresses section**
 
-    | Name | Protocol | Source Addresses | Destination Addresses | Destination Ports | Notes |
+    | Name | Protocol | Source addresses | Destination addresses | Destination ports | Notes |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Time service |
     | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | * | If you're using Enterprise Security Package (ESP), then add a network rule in the IP Addresses section that allows communication with AAD-DS for ESP clusters. You can find the IP addresses of the domain controllers on the AAD-DS section in the portal |
@@ -173,13 +173,13 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you aren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
-To learn about the scale limits of Azure Firewall and request increases, see [this](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) document or refer to the [FAQs](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq).
+To learn about the scale limits of Azure Firewall and request increases, see [this](../azure-subscription-service-limits.md#azure-firewall-limits) document or refer to the [FAQs](../firewall/firewall-faq.md).
 
 ## Access to the cluster
 
 After having the firewall set up successfully, you can use the internal endpoint (`https://CLUSTERNAME-int.azurehdinsight.net`) to access the Ambari from inside the VNET.
 
-To use the public endpoint (`https://CLUSTERNAME.azurehdinsight.net`) or ssh endpoint (`CLUSTERNAME-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules to avoid the asymmetric routing issue explained [here](https://docs.microsoft.com/azure/firewall/integrate-lb). Specifically in this case, you need to allow the client IP address in the Inbound NSG rules and also add it to the user-defined route table with the next hop set as `internet`. If this isn't set up correctly, you'll see a timeout error.
+To use the public endpoint (`https://CLUSTERNAME.azurehdinsight.net`) or ssh endpoint (`CLUSTERNAME-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules to avoid the asymmetric routing issue explained [here](../firewall/integrate-lb.md). Specifically in this case, you need to allow the client IP address in the Inbound NSG rules and also add it to the user-defined route table with the next hop set as `internet`. If this isn't set up correctly, you'll see a timeout error.
 
 ## Configure another network virtual appliance
 
@@ -194,7 +194,7 @@ The previous instructions help you configure Azure Firewall for restricting outb
 * Wildcard HTTP/HTTPS endpoints are dependencies that can vary based on a number of qualifiers.
 * Assign the route table that you create to your HDInsight subnet.
 
-### Service Endpoint capable dependencies
+### Service endpoint capable dependencies
 
 | **Endpoint** |
 |---|
@@ -202,7 +202,7 @@ The previous instructions help you configure Azure Firewall for restricting outb
 | Azure Storage |
 | Azure Active Directory |
 
-#### IP Address dependencies
+#### IP address dependencies
 
 | **Endpoint** | **Details** |
 |---|---|
