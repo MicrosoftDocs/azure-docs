@@ -161,6 +161,9 @@ To create a C# project for an Apache Hive UDF:
 
 Next, upload the Hive and Pig UDF applications to storage on a HDInsight cluster.
 
+> [!NOTE] 
+> To upload to storage on your HDInsight cluster from Visual Studio, you need to have at least co-administrator access to your Azure subscription. To change administrators for a subscription, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md).
+
 1. In Visual Studio, open **Server Explorer**.
 
 2. Expand **Azure**, and then expand **HDInsight**.
