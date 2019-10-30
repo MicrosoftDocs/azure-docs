@@ -34,6 +34,8 @@
   items:
   - name: Application Gateway
     items:
+    - name: Managed Rules
+      href: ./ag/application-gateway-crs-rulegroups-rules.md
     - name: Custom rules overview
       href: ./ag/custom-waf-rules-overview.md
     - name: Request size limits and exclusion lists
