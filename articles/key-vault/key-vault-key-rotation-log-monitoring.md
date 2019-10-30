@@ -173,7 +173,7 @@ To allow Azure Automation to set secret values in your key vault, you must get t
 
 ![Azure Automation client ID](./media/keyvault-keyrotation/Azure_Automation_ClientID.png)
 
-In **Assets**, select **Modules**. Select **Gallery**, and then search for and import updated versions of each of the following modules:
+In **Shared Resources**, select **Modules gallery** and then search for and import updated versions of each of the following modules:
 
     Azure
     Azure.Storage
