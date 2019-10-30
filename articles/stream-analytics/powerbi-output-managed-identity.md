@@ -5,7 +5,7 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 10/31/2019
 ---
 
 # Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI (Preview)
@@ -152,10 +152,10 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
 
 Now that the Stream Analytics job has been created, it can be given access to a Power BI workspace.
 
-### Granting access using the Power BI UI
+### Grant access using the Power BI UI
 
    > [!Note]
-   > In order to add the Stream Analytics job to your Power BI workspace using the UI, you will also have to enable service principal access in the **Developer settings** in the Power BI admin portal. See [Get started with a service principal](https://docs.microsoft.com/power-bi/developer/embed-service-principal#get-started-with-a-service-principal) for more details.
+   > In order to add the Stream Analytics job to your Power BI workspace using the UI, you also have to enable service principal access in the **Developer settings** in the Power BI admin portal. See [Get started with a service principal](https://docs.microsoft.com/power-bi/developer/embed-service-principal#get-started-with-a-service-principal) for more details.
 
 1. Navigate to the workspace's access settings. See this article for more details: [Give access to your workspace](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 
@@ -165,7 +165,7 @@ Now that the Stream Analytics job has been created, it can be given access to a 
 
    ![Add Stream Analytics job to Power BI workspace](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
 
-### Granting access using the Power BI REST API
+### Grant access using the Power BI REST API
 
 The Stream Analytics job can also be added as a Contributor to the workspace by using the "Add Group User" REST API directly. Full documentation for this API can be found here: [Groups - Add Group User](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
 

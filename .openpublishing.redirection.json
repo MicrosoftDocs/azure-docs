@@ -16126,11 +16126,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/stream-analytics/powerbi-output-managed-identity.md",
-      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#power-bi",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/stream-analytics/vs-code-how-to.md",
       "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
       "redirect_document_id": false
@@ -19202,7 +19197,7 @@
     {
       "source_path": "articles/active-directory/user-help/user-help-reset-password.md",
       "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
-      "redirect_document_id": false      
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-protocols-oauth-code.md",
