@@ -100,7 +100,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
     Select **Next**.
 
-1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. 
+1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [how to define task types](how-to-define-task-type.md) for more information.
 
     1. For classification, you can also enable deep learning which is used for text featurizations.
 
