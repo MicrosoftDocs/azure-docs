@@ -117,7 +117,7 @@ When `AllMessages`, `HighMessages`, and `LowMessages` are all in effect, message
 
 Applications use the `send_topic_message` method of the **ServiceBusService** object to send messages to a Service Bus topic.
 
-The following example sends five test messages to the `mytopic` topic. The custom `messageposition` property value varies depending on the iteration of the loop. The `messageposition` property determines which subscriptions receive the message. 
+The following example sends five test messages to the `mytopic` topic. The custom `messageposition` property value depends on the iteration of the loop. The `messageposition` property determines which subscriptions receive the message. 
 
 ```python
 for i in range(5):
@@ -158,11 +158,11 @@ if msg.body is not None:
 
 ## Handle application crashes and unreadable messages
 
-Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process a message for some reason, it can call the `unlock` method on the **Message** object. Service Bus unlocks the message within the subscription and makes it available to be received again, either by the same or another consuming application.
+Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application can't process a message for some reason, it can call the `unlock` method on the **Message** object. Service Bus unlocks the message within the subscription and makes it available to be received again, either by the same or another consuming application.
 
 There's also a timeout for messages locked within the subscription. If an application fails to process a message before the lock timeout expires, for example if the application crashes, Service Bus unlocks the message automatically and makes it available to be received again.
 
-If an application crashes after processing a message but before calling the `delete` method, the message will be redelivered to the application when it restarts. This behavior is often called *At-least-once Processing*. Each message is processed at least once, but in certain situations the same message may be redelivered. If your scenario can't tolerate duplicate processing, you can use the **MessageId** property of the message, which remains constant across delivery attempts, to handle duplicate message delivery. 
+If an application crashes after processing a message but before calling the `complete` method, the message will be redelivered to the application when it restarts. This behavior is often called *At-least-once Processing*. Each message is processed at least once, but in certain situations the same message may be redelivered. If your scenario can't tolerate duplicate processing, you can use the **MessageId** property of the message, which remains constant across delivery attempts, to handle duplicate message delivery. 
 
 ## Delete topics and subscriptions
 
@@ -180,7 +180,7 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 
 By default, topics and subscriptions are persistent, and exist until you delete them. To automatically delete subscriptions after a certain time period elapses, you can set the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) property. 
 
-> [!NOTE]
+> [!TIP]
 > You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality and the ability to test topics, queues, subscriptions, relay services, notification hubs, and event hubs. 
 
 ## Next steps
