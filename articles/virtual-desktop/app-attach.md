@@ -16,11 +16,11 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). You can also leave feedback for this feature at the [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback) or the [MSIX packaging tool feedback hub](https://aka.ms/msixtoolfeedback).
 
-This document walks through prerequisite, tools, and configurations steps needed to evaluate MSIX app attach in a Windows Virtual Desktop environment.
+This topic will walk you through how to set up MSIX app attach in a Windows Virtual Desktop environment.
 
-## Prerequisites
+## Requirements
 
-Here's what you need to configure MSIX app attach:
+Before you get started, here's what you need to configure MSIX app attach:
 
 - Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
 - Windows Virtual Desktop deployment. For information, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
@@ -29,27 +29,27 @@ Here's what you need to configure MSIX app attach:
 
 ## Get the OS image
 
-First, you need to get the OS image you'll use for the MSIX app. To do this:
+First, you need to get the OS image you'll use for the MSIX app. To get the OS image:
 
 1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
 
 >[!NOTE]
->You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, see XXX.
+>You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
 
-2. Scroll down to **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX.**
+1. Scroll down to **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX.**
 
-3. Select **Confirm**, then select the language you wish to use, then select **Confirm**.
+2. Select **Confirm**, then select the language you wish to use, then select **Confirm**.
     
      >[!NOTE]
      >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
     
-4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
+3. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
 
 ## Prepare the VHD image for Azure 
 
-Before you follow these instructions, you'll need to create and customize a master VHD image. To learn more, see the instructions in [here](set-up-customize-master-image.md). 
+Before you get started, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. 
 
-After that, you must disable automatic updates for MSIX app attach applications. To do this, you'll need to run the following commands in a command line:
+After you've created your master VHD image, you must disable automatic updates for MSIX app attach applications. To disable automatic updates, you'll need to run the following commands in a command line:
 
 ```cmd
 # Disable Store auto update:
@@ -77,15 +77,15 @@ Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure.
 
 <!--can we get a tutorial for this?-->
 
-Once the VHD is uploaded in Azure, create a host pool based on this new image by following the instructions in [this tutorial](create-host-pools-azure-marketplace.md).
+Once the VHD is uploaded in Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
 
 ## Prepare the application for MSIX app attach 
 
-If you already have an MSIX package proceed to the next step. If you would like to test a legacy application please follow steps [here](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) to convert that application to a MSIX package.
+If you already have an MSIX package, skip ahead to [Configure Windows Virtual Desktop infrastructure](#configure-windows-virtual-desktop-infrastructure). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) to convert the legacy application to an MSIX package.
 
 ## Generate a VHD or VHDX package for MSIX
 
-Packages are in VHD or VHDX format to optimize performance. MSIX requres VHD or VHDX packages to work properly.
+Packages are in VHD or VHDX format to optimize performance. MSIX requires VHD or VHDX packages to work properly.
 
 To generate a VHD or VHDX package for MSIX:
 
@@ -128,11 +128,11 @@ To generate a VHD or VHDX package for MSIX:
     Format-Volume -FileSystem NTFS -Confirm:$false -DriveLetter $partition.DriveLetter -Force
     ```
 
-9. Create a parent folder on the mounted VHD. This step is mandatory as the MSIX app attach requires a parent folder. This can be named whatever you like.
+9. Create a parent folder on the mounted VHD. This step is mandatory as the MSIX app attach requires a parent folder. You can name the parent folder whatever you like.
 
 ### Expand MSIX
 
-After that, you'll need to "expand" the MSIX image by unpacking it. To do this:
+After that, you'll need to "expand" the MSIX image by unpacking it. To unpack the MSIX image:
 
 1. Open a **command prompt** as Administrator and navigate to the folder where **msixmgr** was downloaded and unzipped.
 
@@ -147,7 +147,7 @@ After that, you'll need to "expand" the MSIX image by unpacking it. To do this:
     `Successfully unpacked and applied ACLs for package: <package name>.msix`
 
     >[!NOTE]
-    > If your package is a store-signed package, please note that store-signed apps require a license file to be included, which can be downloaded from the Microsoft Store for Business. Instructions available [here](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+    > Store-signed apps require a license file to be included in your packages. To learn how to download a license file for your apps from the Microsoft Store for Business, see [Download an offline-licensed app](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 
 3. Navigate to the mounted VHD and open the app folder and confirm package content is present.
 
@@ -155,19 +155,19 @@ After that, you'll need to "expand" the MSIX image by unpacking it. To do this:
 
 ## Configure Windows Virtual Desktop infrastructure
 
-By design a single MSIX expanded package (VHD created in previous step) can be shared between multiple session host VMs as the VHDs are attached in Read Only mode.
+By design, a single MSIX expanded package (VHD created in previous step) can be shared between multiple session host VMs as the VHDs are attached in read-only mode.
 
 Before you start, make sure your network share meets these requirements:
 
 - The share is SMB compatible.
-- VMs that are part of the session host pool have NTFS permissions to the share.
+- The VMs that are part of the session host pool have NTFS permissions to the share.
 
-### Set up a MSIX app attach share 
+### Set up an MSIX app attach share 
 
 In your Windows Virtual Desktop environment create a network share and place the package there.
 
 >[!NOTE]
-> MSIX network share best practice is to set up the network share with NTFS read-only permissions.
+> Best practice for creating MSIX network shares is to set up the network share with NTFS read-only permissions.
 
 ## Prepare PowerShell scripts for MSIX app attach
 
@@ -180,11 +180,11 @@ MSIX app attach has four distinct phases that must be performed in the following
 
 Each phase creates a PowerShell script. Sample scripts for each phase are available [here](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
-### Stage PowerShell script
+### Stage the PowerShell script
 
-Prior to updating the PowerShell script below, make sure to obtain the volume GUID of the volume in the VHD. To do this:
+Before you update the PowerShell, make sure you have the volume GUID of the volume in the VHD. To get the volume GUID:
 
-1.  In the VM where the script will run, open the network share where the VHD is located.
+1.  Open the network shere where the VHD is located inside the VM where you'll run the script.
 
 2.  Right-click on the VHD and select **Mount**. This will mount the VHD to a drive letter.
 
@@ -197,7 +197,7 @@ Prior to updating the PowerShell script below, make sure to obtain the volume GU
 
     For example, `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
-5.  Open a command prompt and enter **mountvol**. This will display a list of volumes and their GUIDs. Copy the GUID of the volume where the drive letter matches the drive you mounted your VHD to in step 2.
+5.  Open a command prompt and enter **mountvol**. This command will display a list of volumes and their GUIDs. Copy the GUID of the volume where the drive letter matches the drive you mounted your VHD to in step 2.
 
     For example, in this example output for the mountvol command, if you mounted your VHD to Drive C, you'll want to copy the value above `C:\`:
 
@@ -312,7 +312,7 @@ Prior to updating the PowerShell script below, make sure to obtain the volume GU
 
 ### Register PowerShell script
 
-Update script below with variables applicable to your environment.
+To run the register script, run the following PowerShell cmdlets with the placeholder values replaced with values that apply to your environment.
 
 ```powershell
 #MSIX app attach registration sample
@@ -334,7 +334,7 @@ Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
 
 ### Deregister PowerShell script
 
-Update **\$packageName** with the package being tested.
+For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -354,7 +354,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### Destage PowerShell script
 
-Update **\$packageName** with the package being tested.
+For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
 
 ```powershell
 #MSIX app attach de staging sample
