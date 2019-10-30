@@ -16,13 +16,13 @@ These tutorials help illustrate the usage of [Kubernetes Ingress Resources](http
 ## Prerequisites
 
 - Installed `ingress-azure` helm chart.
-  - [**Greenfield Deployment**](application-gateway-ingress-controller-install-new.md): If you are starting from scratch, refer to these installation instructions which outlines steps to deploy an AKS cluster with Application Gateway and install application gateway ingress controller on the AKS cluster.
+  - [**Greenfield Deployment**](application-gateway-ingress-controller-install-new.md): If you are starting from scratch, refer to these installation instructions, which outlines steps to deploy an AKS cluster with Application Gateway and install application gateway ingress controller on the AKS cluster.
   - [**Brownfield Deployment**](application-gateway-ingress-controller-install-existing.md): If you have an existing AKS cluster and Application Gateway, refer to these instructions to install application gateway ingress controller on the AKS cluster.
 - If you want to use HTTPS on this application, you will need a x509 certificate and its private key.
 
 ## Deploy `guestbook` application
 
-The guestbook application is a canonical Kubernetes application that composes of a Web UI frontend, a backend and a Redis database. By default, `guestbook` exposes its application through a service with name `frontend` on port `80`. Without a Kubernetes Ingress Resource the service is not accessible from outside the AKS cluster. We will use the application and setup Ingress Resources to access the application through HTTP and HTTPS.
+The guestbook application is a canonical Kubernetes application that composes of a Web UI frontend, a backend and a Redis database. By default, `guestbook` exposes its application through a service with name `frontend` on port `80`. Without a Kubernetes Ingress Resource, the service is not accessible from outside the AKS cluster. We will use the application and setup Ingress Resources to access the application through HTTP and HTTPS.
 
 Follow the instructions below to deploy the guestbook application.
 
@@ -37,7 +37,7 @@ Now, the `guestbook` application has been deployed.
 
 ## Expose services over HTTP
 
-In order to expose the guestbook application we will using the following ingress resource:
+In order to expose the guestbook application, we will be using the following ingress resource:
 
 ```yaml
 apiVersion: extensions/v1beta1

@@ -78,7 +78,7 @@
     - name: Custom rules
       href: custom-waf-rules-overview.md
   - name: Ingress for AKS
-    href: application-gateway-ingress-controller-overview.md
+    href: ingress-controller-overview.md
   - name: Health monitoring
     items:
     - name: Health probe
@@ -158,25 +158,25 @@
   - name: Ingress for AKS 
     items:
     - name: Set up with existing Application Gateway 
-      href: application-gateway-ingress-controller-install-existing.md
+      href: ingress-controller-install-existing.md
     - name: Set up with new Application Gateway 
-      href: application-gateway-ingress-controller-install-new.md
+      href: ingress-controller-install-new.md
     - name: Enable cookie affinity 
-      href: application-gateway-ingress-controller-cookie-affinity.md
+      href: ingress-controller-cookie-affinity.md
     - name: Enable multiple namespace support 
-      href: application-gateway-ingress-controller-multiple-namespace-support.md
+      href: ingress-controller-multiple-namespace-support.md
     - name: Use private IP for internal routing
-      href: application-gateway-ingress-controller-using-private-ip.md
+      href: ingress-controller-private-ip.md
     - name: Add health probes to AKS pods
-      href: application-gateway-ingress-controller-adding-health-probes.md
+      href: ingress-controller-add-health-probes.md
     - name: Use Application Gateway to expose AKS service over HTTP/HTTPS 
-      href: application-gateway-ingress-controller-expose-service-over-http-https.md
+      href: ingress-controller-expose-service-over-http-https.md
     - name: Upgrade ingress controller using Helm 
-      href: application-gateway-ingress-controller-update-ingress-controller-using-helm.md
+      href: ingress-controller-update-ingress-controller.md
     - name: Use LetsEncrypt.org with Application Gateway
-      href: application-gateway-ingress-controller-using-letsencrypt-certificate-with-application-gateway.md
+      href: ingress-controller-letsencrypt-certificate-application-gateway.md
     - name: Expose WebSocket to Application Gateway 
-      href: application-gateway-ingress-controller-expose-websocket-server.md
+      href: ingress-controller-expose-websocket-server.md
   - name: Route by URL
     items:
     - name: Azure PowerShell
@@ -248,7 +248,7 @@
       - name: Web Application Firewall (WAF)
         href: web-application-firewall-troubleshoot.md
       - name: Ingress for AKS 
-        href: application-gateway-ingress-controller-troubleshooting.md
+        href: ingress-controller-troubleshoot.md
       - name: Resource Health
         href: resource-health-overview.md
       - name: Use Log Analytics
@@ -262,7 +262,7 @@
   - name: CRS rules
     href: application-gateway-crs-rulegroups-rules.md
   - name: Ingress for AKS annotations
-    href: application-gateway-ingress-controller-annotations.md
+    href: ingress-controller-annotations.md
   - name: Azure CLI
     href: /cli/azure/network/application-gateway
   - name: Azure PowerShell
