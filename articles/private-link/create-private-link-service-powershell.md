@@ -124,7 +124,7 @@ $peSubnet = New-AzVirtualNetworkSubnetConfig `
 
 $vnetPE = New-AzVirtualNetwork `
 -Name $virtualNetworkNamePE `
--ResourceGroupName myResourceGroup `
+-ResourceGroupName $rgName `
 -Location $location `
 -AddressPrefix "11.0.0.0/16" `
 -Subnet $peSubnet 

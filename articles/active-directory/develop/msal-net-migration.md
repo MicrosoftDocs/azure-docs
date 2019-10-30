@@ -28,7 +28,7 @@ Both Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentic
 
 - you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) as it uses the Microsoft identity platform endpoint,
 - your users will get the best single-sign-on experience.
-- your application can enable incremental consent, and supporting conditional access is easier
+- your application can enable incremental consent, and supporting Conditional Access is easier
 - you benefit from the innovation.
 
 **MSAL.NET is now the recommended auth library to use with the Microsoft identity platform**. No new features will be implemented on ADAL.NET. The efforts are focused on improving MSAL.
