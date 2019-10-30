@@ -14,7 +14,7 @@ ms.author: helohr
 > [!IMPORTANT]
 > MSIX app attach is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). You can also leave feedback for this feature at the [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback) or the [MSIX packaging tool feedback hub](../../../AppData/Roaming/Microsoft/Word/aka.ms/msixtoolfeedback).
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). You can also leave feedback for this feature at the [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback) or the [MSIX packaging tool feedback hub](https://aka.ms/msixtoolfeedback).
 
 This document walks through prerequisite, tools, and configurations steps needed to evaluate MSIX app attach in a Windows Virtual Desktop environment.
 
