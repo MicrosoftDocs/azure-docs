@@ -79,6 +79,12 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    ![Configure Microsoft peering](./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png)
 
+> [!IMPORTANT]
+> Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see the message 'Validation needed'. 
+>
+> If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket as shown below. 
+>
+
    If your circuit gets to a 'Validation needed' state, you must open a support ticket to show proof of ownership of the prefixes to our support team. You can open a support ticket directly from the portal, as shown in the following example:
 
    ![Validation Needed - support ticket](./media/expressroute-howto-routing-portal-resource-manager/ticket-portal-m.png)

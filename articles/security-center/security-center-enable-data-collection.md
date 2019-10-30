@@ -281,7 +281,7 @@ You can manually install the Log Analytics Agent, so Security Center can collect
            }
  
            $PrivateConf = @{
-               "workspaceKey"= "<Primary key value>”
+               "workspaceKey"= "<Primary key value>"
            }
 
 	  - When installing on a Windows VM:

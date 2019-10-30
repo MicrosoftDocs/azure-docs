@@ -11,9 +11,9 @@ ms.author: heidist
 ---
 # Quickstart: Create an AI enrichment pipeline using cognitive skills in Azure Search
 
-Azure Search integrates with [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), adding content extraction, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. 
+Azure Search integrates with [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), adding content extraction, natural language processing (NLP), and image processing (image tagging, object detection, OCR) skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. 
 
-Many Cognitive Services resources - such as [OCR](cognitive-search-skill-ocr.md), [language detection](cognitive-search-skill-language-detection.md), [entity recognition](cognitive-search-skill-entity-recognition.md) to name a few - can be attached to an indexing process. The AI algorithms of Cognitive Services are used to find patterns, features, and characteristics in source data, returning structures and textual content that can be used in full-text search solutions based on Azure Search.
+Many Cognitive Services resources - such as [image tagging](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-tagging-images), [object detection](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-object-detection), [OCR](cognitive-search-skill-ocr.md), [language detection](cognitive-search-skill-language-detection.md), [entity recognition](cognitive-search-skill-entity-recognition.md) to name a few - can be attached to an indexing process. The AI algorithms of Cognitive Services are used to find patterns, features, and characteristics in source data, returning structures and textual content that can be used in full-text search solutions based on Azure Search.
 
 In this quickstart, create your first enrichment pipeline in the [Azure portal](https://portal.azure.com) before writing a single line of code:
 
@@ -139,7 +139,7 @@ After an index is created, you can submit queries to return documents from the i
 
 1. Select **Change Index** at the top to select the index you created.
 
-1. Enter a search string to query the index, such as `search=Microsoft&searchFields=organizations`.
+1. Enter a search string to query the index, such as `search=Microsoft&searchFields=Organizations`.
 
 Results are returned in JSON, which can be verbose and hard to read, especially in large documents originating from Azure blobs. If you can't scan results easily, use CTRL-F to search within documents. For this query, you could search within the JSON for specific terms. 
 
