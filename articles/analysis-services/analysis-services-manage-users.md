@@ -1,10 +1,10 @@
 ---
-title: Authentication and user permissions in Azure Analysis Services | Microsoft Docs
+title: Azure Analysis Services authentication and user permissions| Microsoft Docs
 description: Learn about authentication and user permissions in Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 

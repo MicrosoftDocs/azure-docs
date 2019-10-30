@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Connect to Azure Analysis Services with Power BI Desktop | Microsoft Docs
+title: Tutorial: Connect Azure Analysis Services with Power BI Desktop | Microsoft Docs
 author: minewiskan
 description: Learn how to connect to Azure Analysis Services with Power BI Desktop.
 ms.service: azure-analysis-services
