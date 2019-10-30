@@ -69,8 +69,12 @@ The following table represents the main changes:
 | Old type | New type |
 |----------|----------|
 | `DurableOrchestrationClientBase` | `IDurableOrchestrationClient` or `IDurableClient` |
-| `DurableOrchestrationContextBase` | `IDurableOrchestrationContext` |
-| `DurableActivityContextBase` | `IDurableActivityContext` |
+| `DurableOrchestrationContext` or `DurableOrchestrationContextBase` | `IDurableOrchestrationContext` |
+| `DurableActivityContext` or `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
 In the case where an abstract base class contained virtual methods, these virtual methods have been replaced by extension methods defined in `DurableContextExtensions`.
+
+#### function.json changes (JavaScript and C# Script)
+
+In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `durableClient` instead.
