@@ -123,7 +123,7 @@
     - name: TypeScript
       href: functions-reference-node.md#typescript
   - name: Diagnostics
-    href: overview-functions-diagnostics.md
+    href: functions-diagnostics.md
   - name: Consumption plan costs
     href: functions-consumption-costs.md  
   - name: Performance considerations
