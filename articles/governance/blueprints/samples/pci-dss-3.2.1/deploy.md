@@ -137,7 +137,7 @@ following articles to learn about the overview and control mapping:
 > [PCI-DSS v3.2.1 blueprint - Overview](./index.md)
 > [PCI-DSS v3.2.1 blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
