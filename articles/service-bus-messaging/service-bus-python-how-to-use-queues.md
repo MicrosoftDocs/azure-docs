@@ -21,16 +21,16 @@ ms.custom: seo-python-october2019
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-In this article, you learn how to create Python applications to send messages to and receive messages from an Azure Service Bus queue. 
+In this article, you learn how to use Python to create, send messages to, and receive messages from Azure Service Bus queues. 
 
-For more information, see [Service Bus libraries for Python](/python/api/overview/azure/servicebus?view=azure-python).
+For more information about using Python with Service Bus, see [Service Bus libraries for Python](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## Prerequisites
 - An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - A Service Bus namespace, created by following the steps at [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md). Copy the primary connection string to use later in this article. 
 - Python 3.4x or above, with the [Azure Python SDK][Azure Python package] package installed. For more information, see the [Python Installation Guide](/azure/python/python-sdk-azure-install). For full  documentation of the Service Bus Python SDK, see [Service Bus libraries for Python](/python/api/overview/azure/servicebus?view=azure-python).
 
-## Create a ServiceBusClient object
+## Create a queue
 
 The **ServiceBusClient** object lets you work with queues. To programmatically access Service Bus, add the following line near the top of your Python file:
 
@@ -44,9 +44,7 @@ Use the following code to create a **ServiceBusClient** object. Replace \<connec
 sb_client = ServiceBusClient.from_connection_string('<connectionstring>')
 ```
 
-## Create a queue
-
-The following code then uses the `create_queue` method to create a Service Bus queue called `taskqueue` with default settings:
+The following code uses the `create_queue` method of the **ServiceBusClient** to create a queue named `taskqueue` with default settings:
 
 ```python
 sb_client.create_queue("taskqueue")
@@ -61,7 +59,7 @@ sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
 
 ## Send messages to a queue
 
-To send a message to a Service Bus queue, your application calls the `send` method on the **ServiceBusClient** object. The following code example creates a queue client and uses `send` to send a test message to the `taskqueue` queue. Replace \<connectionstring> with your Service Bus primary connection string value. You can find this value under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
+To send a message to a Service Bus queue, an application calls the `send` method on the **ServiceBusClient** object. The following code example creates a queue client and uses `send` to send a test message to the `taskqueue` queue. Replace \<connectionstring> with your Service Bus primary connection string value. 
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -83,7 +81,7 @@ For more information about quotas, see [Service Bus quotas][Service Bus quotas].
 
 ## Receive messages from a queue
 
-The queue client receives messages from a queue by using the `get_receiver` method on the **ServiceBusClient** object. The following code example creates a queue client and uses `get_receiver` to receive a message from the `taskqueue` queue. Replace \<connectionstring> with your Service Bus primary connection string value. You can find this value under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
+The queue client receives messages from a queue by using the `get_receiver` method on the **ServiceBusClient** object. The following code example creates a queue client and uses `get_receiver` to receive a message from the `taskqueue` queue. Replace \<connectionstring> with your Service Bus primary connection string value. 
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -102,27 +100,25 @@ with queue_client.get_receiver() as queue_receiver:
 
 ### Use the peek_lock parameter
 
-The default mode for message receiving is *PeekLock*, which requires each message to be explicitly completed before being removed from the queue.
+The `peek_lock` parameter of `get_receiver` determines whether Service Bus deletes messages from the queue as they are read. The default mode for message receiving is *PeekLock*, which reads (peeks) and locks messages without deleting them from the queue. Setting `peek_lock` to **True** requires each message to be explicitly completed and removed from the queue. 
 
-The `peek_lock` parameter of `get_receiver` determines whether Service Bus deletes messages from the queue as they are read. To delete messages from the queue as they are read, set the `peek_lock` parameter to **False**. To read (peek) and lock messages without deleting them from the queue, set the `peek_lock` parameter to **True**.
+Setting the `peek_lock` parameter to **False** deletes messages from the queue as they are read, Reading and deleting messages as part of the receive operation is the simplest model. This behavior works fine if the application can tolerate missing a message when there's a failure. To understand this behavior, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it has missed the message that it consumed before the crash.
 
-Reading and deleting messages as part of the receive operation is the simplest model. This behavior works fine if the application can tolerate missing a message when there's a failure. To understand this behavior, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it has missed the message that it consumed before the crash.
-
-If your application can't tolerate missed messages, set the `peek_lock` parameter to **True**. Service Bus then finds the next message to be consumed, locks it to prevent other consumers from receiving it, and returns it to the application. After the application processes or stores the message, the application completes the second stage of the receive process by calling the `delete` method on the **Message** object. The `delete` method marks the message as being consumed and removes it from the queue, as follows:
+If your application can't tolerate missed messages, Service Bus with `peek_lock` set to **True** finds the next message to be consumed, locks it to prevent other consumers from receiving it, and returns it to the application. After the application processes or stores the message, the application completes the second stage of the receive process by calling the `delete` method on the **Message** object. The `delete` method marks the message as being consumed and removes it from the queue, as follows:
 
 ```python
 msg.delete()
 ```
 
-## How to handle application crashes and unreadable messages
+## Handle application crashes and unreadable messages
 
-Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, it can call the `unlock` method on the **Message** object. This method causes Service Bus to unlock the message within the queue and make it available to be received again, either by the same or another consuming application.
+Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process a message for some reason, it can call the `unlock` method on the **Message** object. Service Bus unlocks the message within the queue and make it available to be received again, either by the same or another consuming application.
 
 There's also a timeout for messages locked within the queue. If an application fails to process a message before the lock timeout expires, for example if the application crashes, Service Bus unlocks the message automatically and makes it available to be received again.
 
-If an application crashes after processing the message but before calling the `delete` method, the message will be redelivered to the application when it restarts. This behavior is often called *At-least-once Processing*. Each message is processed at least once, but in certain situations the same message may be redelivered. If your scenario can't tolerate duplicate processing, you can use the **MessageId** property of the message, which remains constant across delivery attempts, to handle duplicate message delivery. 
+If an application crashes after processing a message but before calling the `delete` method, the message will be redelivered to the application when it restarts. This behavior is often called *At-least-once Processing*. Each message is processed at least once, but in certain situations the same message may be redelivered. If your scenario can't tolerate duplicate processing, you can use the **MessageId** property of the message, which remains constant across delivery attempts, to handle duplicate message delivery. 
 
-> [!NOTE]
+> [!TIP]
 > You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality and the ability to test topics, queues, subscriptions, relay services, notification hubs, and event hubs.
 
 ## Next steps
