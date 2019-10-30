@@ -31,6 +31,8 @@ In this tutorial, you'll:
 * [Maven](https://maven.apache.org)
 * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools)
 
+If you prefer to use the code for this tutorial directly, see the [java-functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) sample repo.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create Azure resources
