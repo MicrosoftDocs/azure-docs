@@ -1,6 +1,6 @@
 ---
 title: Canada Federal PBMM blueprint sample - Overview
-description: Overview of the Canada Federal PBMM blueprint sample. This blueprint sample helps customers asses specific Canada Federal PBMM controls.
+description: Overview of the Canada Federal PBMM blueprint sample. This blueprint sample helps customers assess specific Canada Federal PBMM controls.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/04/2019
@@ -32,7 +32,7 @@ articles to learn about the control mapping and how to deploy this sample:
 > [Canada Federal PBMM blueprint - Control mapping](./control-mapping.md)
 > [Canada Federal PBMM blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

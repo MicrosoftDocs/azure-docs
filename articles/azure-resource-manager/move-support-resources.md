@@ -936,7 +936,6 @@ Jump to a resource provider namespace:
 > | publicipprefixes | Yes | Yes |
 > | routefilters | No | No |
 > | routetables | Yes | Yes |
-> | securegateways | Yes | Yes |
 > | serviceendpointpolicies | Yes | Yes |
 > | trafficmanagerprofiles | Yes | Yes |
 > | virtualhubs | No | No |
