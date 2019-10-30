@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2018
+ms.date: 10/29/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -24,16 +24,17 @@ When it comes to protecting your accounts, two-step verification should be stand
 
 ## Available versions of Azure Multi-Factor Authentication
 
-The following table describes the differences between three versions of multi-factor authentication:
+The following table describes the differences between versions of multi-factor authentication:
 
 | Version | Description |
 | --- | --- |
-| Multi-Factor Authentication for Office 365 <br> Microsoft 365 Business | This version is managed from the Office 365 or Microsoft 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 or Microsoft 365 Business subscription. |
+| Free option | Customers who are utilizing the free benefits of Azure AD can use [security defaults](../conditional-access/concept-conditional-access-security-defaults.md) to enable multi-factor authentication in their environment. |
+| Multi-Factor Authentication for Office 365 | This version is managed from the Office 365 or Microsoft 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 subscription. |
 | Multi-Factor Authentication for Azure AD Administrators | Users assigned the Azure AD Global Administrator role in Azure AD tenants can enable two-step verification at no additional cost. |
-| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure portal](https://portal.azure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication is a feature of [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features). |
+| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure portal](https://portal.azure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication is a feature of [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) and [Microsoft 365 Business](https://www.microsoft.com/microsoft-365/business). |
 
 > [!NOTE]
-> New customers may no longer purchase Azure Multi-Factor Authentication as a standalone offering effective September 1st, 2018. Multi-factor authentication will continue to be available as a feature in Azure AD Premium licenses.
+> New customers may no longer purchase Azure Multi-Factor Authentication as a standalone offering effective September 1st, 2018. Multi-factor authentication will continue to be available as a feature in Azure AD Premium or Microsoft 365 Business licenses.
 
 ## Feature comparison of versions
 
@@ -43,24 +44,24 @@ The following table provides a list of the features that are available in the va
 > This comparison table discusses the features that are part of each version of Multi-Factor Authentication. If you have the full Azure Multi-Factor Authentication service, some features may not be available depending on whether you use [MFA in the cloud or MFA on-premises](concept-mfa-whichversion.md).
 >
 
-| Feature | Multi-Factor Authentication for Office 365 | Multi-Factor Authentication for Azure AD Administrators | Azure Multi-Factor Authentication |
-| --- |:---:|:---:|:---:|
-| Protect Azure AD admin accounts with MFA |● |● (Azure AD Global Administrator accounts only) |● |
-| Mobile app as a second factor |● |● |● |
-| Phone call as a second factor |● |● |● |
-| SMS as a second factor |● |● |● |
-| App passwords for clients that don't support MFA |● |● |● |
-| Admin control over verification methods |● |● |● |
-| Protect non-admin accounts with MFA |● | |● |
-| PIN mode | | |● |
-| Fraud alert | | |● |
-| MFA Reports | | |● |
-| One-Time Bypass | | |● |
-| Custom greetings for phone calls | | |● |
-| Custom caller ID for phone calls | | |● |
-| Trusted IPs | | |● |
-| Remember MFA for trusted devices |● |● |● |
-| MFA for on-premises applications | | |● |
+| Feature | Multi-Factor Authentication for Office 365 | Multi-Factor Authentication for Azure AD Administrators | Azure Multi-Factor Authentication | Security defaults | 
+| --- |:---:|:---:|:---:|:---:|
+| Protect Azure AD admin accounts with MFA |● |● (Azure AD Global Administrator accounts only) |● |● |
+| Mobile app as a second factor |● |● |● |● |
+| Phone call as a second factor |● |● |● |   |
+| SMS as a second factor |● |● |● |   |
+| App passwords for clients that don't support MFA |● |● |● |   |
+| Admin control over verification methods |● |● |● |   |
+| Protect non-admin accounts with MFA |● | |● |● |
+| PIN mode | | |● |   |
+| Fraud alert | | |● |   |
+| MFA Reports | | |● |   |
+| One-Time Bypass | | |● |   |
+| Custom greetings for phone calls | | |● |   |
+| Custom caller ID for phone calls | | |● |   |
+| Trusted IPs | | |● |   |
+| Remember MFA for trusted devices |● |● |● |   |
+| MFA for on-premises applications | | |● |   |
 
 > [!IMPORTANT]
 > Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
@@ -98,10 +99,8 @@ When using an Azure Multi-Factor Authentication Provider, there are two usage mo
    > Today, the Azure MFA service received 3,105 two-step verification requests. Your Azure subscription is billed for 310.5 authentication packs.
    >
 
-It's important to note that you can have licenses, but still get billed for consumption-based configuration. If you set up a per-authentication Azure MFA Provider, you are billed for every two-step verification request, even those done by users who have licenses. If you set up a per-user Azure MFA Provider on a domain that isn't linked to your Azure AD tenant, you are billed per enabled user even if your users have licenses on Azure AD.
+It's important to note that you can have licenses, but still get billed for consumption-based configuration. If you set up a per-authentication Azure MFA Provider, you are billed for every two-step verification request, even those requests done by users who have licenses. If you set up a per-user Azure MFA Provider on a domain that isn't linked to your Azure AD tenant, you are billed per enabled user even if your users have licenses on Azure AD.
 
 ## Next steps
 
 - For more pricing details, see [Azure MFA Pricing](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
-
-- Choose whether to deploy Azure MFA [in the cloud or on-premises](concept-mfa-whichversion.md)

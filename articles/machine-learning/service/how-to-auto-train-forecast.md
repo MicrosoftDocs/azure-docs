@@ -30,6 +30,27 @@ You can [configure](#config) how far into the future the forecast should extend 
 
 Features extracted from the training data play a critical role. And, automated ML performs standard pre-processing steps and generates additional time-series features to capture seasonal effects and maximize predictive accuracy.
 
+## Time-series and Deep Learning models
+
+
+Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. These learners include:
++ Prophet
++ Auto-ARIMA
++ ForecastTCN
+
+Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
+
+Deep learning models have three intrinsic capbailities:
+1. They can learn from arbitrary mappings from inputs to outputs
+1. They support multiple inputs and outputs
+1. They can automatically extract patterns in input data that spans over long sequences
+
+Given larger data, deep learning models, such as Microsofts' ForecasTCN, can improve the scores of the resulting model. 
+
+Native time series learners are also provided as part of automated ML. Prophet works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is accurate & fast, robust to outliers, missing data, and dramatic changes in your time series. 
+
+AutoRegressive Integrated Moving Average(ARIMA) is a popular statistical method for time series forecasting. This technique of forecasting is commonly used in short term forecasting scenarios where data shows evidence of trends such as cycles, which can be unpredictable and difficult to model or forecast. Auto-ARIMA transforms your data into stationary data to receive consistent, reliable results.
+
 ## Prerequisites
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
