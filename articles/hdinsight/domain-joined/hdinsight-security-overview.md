@@ -56,6 +56,10 @@ Protecting data is important for meeting organizational security and compliance 
 
 Both data stores for HDInsight clusters, Azure Blob storage and Azure Data Lake Storage Gen1/Gen2, support transparent server-side [encryption of data](../../storage/common/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this capability of server-side encryption of data at rest.
 
+### Compliance
+
+Azure compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+
 ## Shared responsibility model
 
 The following image summarizes the major system security areas and the security solutions that are available to you in each. It also highlights which security areas are your responsibility as a customer and which areas are the responsibility of HDInsight as the service provider.

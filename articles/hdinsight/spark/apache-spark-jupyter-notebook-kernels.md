@@ -48,13 +48,13 @@ An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark
 
 Here are a few benefits of using the new kernels with Jupyter notebook on Spark HDInsight clusters.
 
-- **Preset contexts**. With  **PySpark**, **PySpark3**, or the **Spark** kernels, you do not need to set the Spark or Hive contexts explicitly before you start working with your applications. These are available by default. These contexts are:
+- **Preset contexts**. With  **PySpark**, **PySpark3**, or the **Spark** kernels, you don't need to set the Spark or Hive contexts explicitly before you start working with your applications. These are available by default. These contexts are:
 
-  * **sc** - for Spark context
-  * **sqlContext** - for Hive context
-   
+  - **sc** - for Spark context
+  - **sqlContext** - for Hive context
+
     So, you don't have to run statements like the following to set the contexts:
-   
+
          sc = SparkContext('yarn-client')
          sqlContext = HiveContext(sc)
 
@@ -70,9 +70,9 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
    | info |`%%info` |Outputs session information for the current Livy endpoint |
    | configure |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configures the parameters for creating a session. The force flag (-f) is mandatory if a session has already been created, which ensures that the session is dropped and recreated. Look at [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) for a list of valid parameters. Parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](https://pandas.pydata.org/) dataframe. |
-   | local |`%%local`<br>`a=1` |All the code in subsequent lines is executed locally. Code must be valid Python2 code even irrespective of the kernel you are using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code. |
+   | local |`%%local`<br>`a=1` |All the code in subsequent lines is executed locally. Code must be valid Python2 code even irrespective of the kernel you're using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code. |
    | logs |`%%logs` |Outputs the logs for the current Livy session. |
-   | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. You cannot delete the session that is initiated for the kernel itself. |
+   | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. You can't delete the session that is initiated for the kernel itself. |
    | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
 
    > [!NOTE]  
@@ -90,7 +90,7 @@ The `%%sql` magic supports different parameters that you can use to control the 
 | -q |`-q` |Use this to turn off visualizations for the cell. If you don't want to autovisualize the content of a cell and just want to capture it as a dataframe, then use `-q -o <VARIABLE>`. If you want to turn off visualizations without capturing the results (for example, for running a SQL query, like a `CREATE TABLE` statement), use `-q` without specifying a `-o` argument. |
 | -m |`-m <METHOD>` |Where **METHOD** is either **take** or **sample** (default is **take**). If the method is **take**, the kernel picks elements from the top of the result data set specified by MAXROWS (described later in this table). If the method is **sample**, the kernel randomly samples elements of the data set according to `-r` parameter, described next in this table. |
 | -r |`-r <FRACTION>` |Here **FRACTION** is a floating-point number between 0.0 and 1.0. If the sample method for the SQL query is `sample`, then the kernel randomly samples the specified fraction of the elements of the result set for you. For example, if you run a SQL query with the arguments `-m sample -r 0.01`, then 1% of the result rows are randomly sampled. |
-| -n |`-n <MAXROWS>` |**MAXROWS** is an integer value. The kernel limits the number of output rows to **MAXROWS**. If **MAXROWS** is a negative number such as **-1**, then the number of rows in the result set is not limited. |
+| -n |`-n <MAXROWS>` |**MAXROWS** is an integer value. The kernel limits the number of output rows to **MAXROWS**. If **MAXROWS** is a negative number such as **-1**, then the number of rows in the result set isn't limited. |
 
 **Example:**
 
@@ -99,14 +99,14 @@ The `%%sql` magic supports different parameters that you can use to control the 
 
 The statement above does the following:
 
-* Selects all records from **hivesampletable**.
-* Because we use -q, it turns off autovisualization.
-* Because we use `-m sample -r 0.1 -n 500` it randomly samples 10% of the rows in the hivesampletable and limits the size of the result set to 500 rows.
-* Finally, because we used `-o query2` it also saves the output into a dataframe called **query2**.
+- Selects all records from **hivesampletable**.
+- Because we use -q, it turns off autovisualization.
+- Because we use `-m sample -r 0.1 -n 500` it randomly samples 10% of the rows in the hivesampletable and limits the size of the result set to 500 rows.
+- Finally, because we used `-o query2` it also saves the output into a dataframe called **query2**.
 
 ## Considerations while using the new kernels
 
-Whichever kernel you use, leaving the notebooks running consumes the cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks does not kill the context and hence the cluster resources continue to be in use. A good practice is to use the **Close and Halt** option from the notebook's **File** menu when you are finished using the notebook, which kills the context and then exits the notebook.
+Whichever kernel you use, leaving the notebooks running consumes the cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks doesn't kill the context and hence the cluster resources continue to be in use. A good practice is to use the **Close and Halt** option from the notebook's **File** menu when you're finished using the notebook, which kills the context and then exits the notebook.
 
 ## Where are the notebooks stored?
 
@@ -133,29 +133,29 @@ The new kernels are in evolving stage and will mature over time. This could also
 
 ## <a name="seealso"></a>See also
 
-* [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
+- [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
 ### Scenarios
 
-* [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
-* [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+- [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
+- [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
+- [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
+- [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
 
-* [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
+- [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
+- [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
+- [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
+- [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+- [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
+- [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
+- [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
 
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
+- [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
+- [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
