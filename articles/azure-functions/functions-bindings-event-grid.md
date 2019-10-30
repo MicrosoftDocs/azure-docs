@@ -248,7 +248,6 @@ The following examples show trigger binding in a *function.json* file and [Java 
     ) 
     String content, 
     final ExecutionContext context) {
-      // log 
       context.getLogger().info("Event content: " + content);      
   }
 ```
@@ -285,7 +284,6 @@ Upon arrival, the event's JSON payload is de-serialized into the ```EventSchema`
     ) 
     EventSchema event, 
     final ExecutionContext context) {
-      // log 
       context.getLogger().info("Event content: ");
       context.getLogger().info("Subject: " + event.subject);
       context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime
