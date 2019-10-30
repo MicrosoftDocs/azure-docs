@@ -25,7 +25,7 @@ The article details the steps to configure a Site-to-Site VPN to mount Azure fil
 
     If you do not have an existing network appliance, Windows Server contains a built-in Server Role, Routing and Remote Access (RRAS), which may be used as the on-premises network appliance. To learn more about how to configure Routing and Remote Access in Windows Server, see [RAS Gateway](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway).
 
-## Add your storage account to a virtual network (VNet)
+## Add storage account to VNet
 In the Azure portal, navigate to the storage account containing the Azure file share you would like to mount on-premises. In the table of contents for the storage account, select the **Firewalls and virtual networks** entry. Unless you added a virtual network to your storage account when you created it, the resulting pane should have the **Allow access from** radio button for **All networks** selected.
 
 To add your storage account to the desired virtual network, select **Selected networks**. Under the **Virtual networks** subheading, click either **+ Add existing virtual network** or **+Add new virtual network** depending on the desired state. Creating a new virtual network will result in a new Azure resource being created. The new or existing VNet resource does not need to be in the same resource group or subscription as the storage account, however it must be in the same region as the storage account and the resource group and subscription you deploy your VNet into must match the one you will deploy your VPN Gateway into. 
@@ -68,7 +68,7 @@ For the purposes of deploying the local network gateway resource, you must popul
 
 Select **Create** to create the local network gateway resource.  
 
-## Configure your on-premises network appliance
+## Configure on-premises network appliance
 The specific steps to configure your on-premises network appliance depend based on the network appliance your organization has selected. Depending on the device your organization has chosen, the [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) may have a link out to your device vendor's instructions for configuring with Azure VPN Gateway.
 
 ## Create private endpoint (preview)
@@ -88,7 +88,7 @@ The **Configuration** tab also allows you to set up a private DNS zone. This is 
 
 Click **Review + create** to create the private endpoint. Once the private endpoint has been created, you will see two new resources: a private endpoint resource and a paired virtual network interface. The virtual network interface resource will have the dedicated private IP of the storage account. 
 
-## Create the Site-to-Site connection in the VPN Gateway
+## Create the Site-to-Site connection
 To complete the deployment of a S2S VPN, you must create a connection between your on-premises network appliance (represented by the local network gateway resource) and the VPN Gateway. To do this, navigate to the VPN Gateway you created above. In the table of contents for the VPN Gateway, select **Connections**, and click **Add**. The resulting **Add connection** pane requires the following fields:
 
 - **Name**: The name of the connection. A VPN Gateway can host multiple connections, so pick a name helpful for your management that will distinguish this particular connection.
@@ -99,7 +99,7 @@ To complete the deployment of a S2S VPN, you must create a connection between yo
 
 Select **OK** to create the connection. You can verify the connection has been made successfully through the **Connections** page.
 
-## Mount your Azure file share 
+## Mount Azure file share 
 The final step in configuring a S2S VPN is verifying that it works for Azure Files. You can do this by mounting your Azure file share on-premises with your preferred OS. See the instructions to mount by OS here:
 
 - [Windows](storage-how-to-use-files-windows.md)

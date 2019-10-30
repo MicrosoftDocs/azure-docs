@@ -21,7 +21,7 @@ The article details the steps to configure a Point-to-Site VPN on Linux to mount
 
 - An Azure file share you would like to mount on-premises. You may use either a [standard](storage-how-to-create-file-share.md) or a [premium Azure file share](storage-how-to-create-premium-fileshare.md) with your Point-to-Site VPN.
 
-## Install the strongSwan VPN client and required software
+## Install required software
 The Azure virtual network gateway can provide VPN connections using several VPN protocols, including IPsec and OpenVPN. This guide shows how to use IPsec and uses the strongSwan package to provide the support on Linux. 
 
 > Verified with Ubuntu 18.10.
@@ -96,7 +96,7 @@ az storage account update \
     --default-action "Deny" > /dev/null
 ```
 
-## Create a private endpoint (preview) for your storage account
+## Create a private endpoint (preview)
 Creating a private endpoint for your storage account gives your storage account an IP address within the IP address space of your virtual network. When you mount your Azure file share from on-premises using this private IP address, the routing rules autodefined by the VPN installation will route your mount request to the storage account via the VPN. 
 
 ```bash
@@ -153,7 +153,7 @@ az network private-dns record-set a create \
     --resource-group $resourceGroupName > /dev/null
 ```
 
-## Create self-signed certificates for VPN authentication
+## Create certificates for VPN authentication
 In order for VPN connections from your on-premises Linux machines to be authenticated to access your virtual network, you must create two certificates: a root certificate, which will be provided to the virtual machine gateway, and a client certificate, which will be signed with the root certificate. The following script creates the required certificates.
 
 ```bash
@@ -183,7 +183,7 @@ sudo ipsec pki --pub --in "clientKey.pem" | \
 openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pem -export -out "client.p12" -password "pass:$password"
 ```
 
-## Deploy Azure virtual network gateway
+## Deploy virtual network gateway
 The Azure virtual network gateway is the service that your on-premises Linux machines will connect to. Deploying this service requires two basic components: a public IP that will identify the gateway to your clients wherever they are in the world and a root certificate you created earlier that will be used to authenticate your clients.
 
 Remember to replace `<desired-vpn-name-here>` with the name you would like for these resources.
@@ -223,7 +223,7 @@ az network vnet-gateway root-cert create \
     --output none
 ```
 
-## Configure the VPN client on the target machines
+## Configure the VPN client
 The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Linux machine. The following script will place the certificates you created in the correct spot and configure the `ipsec.conf` file with the correct values from the configuration file in the downloadable package.
 
 ```bash
@@ -262,7 +262,7 @@ sudo ipsec restart
 sudo ipsec up $virtualNetworkName 
 ```
 
-## Mount Azure file share via your VPN
+## Mount Azure file share
 Now that you have set up your Point-to-Site VPN, you can mount your Azure file share. The following example will mount the share non-persistently. To mount persistently, see [Use an Azure file share with Linux](storage-how-to-use-files-linux.md). 
 
 ```bash

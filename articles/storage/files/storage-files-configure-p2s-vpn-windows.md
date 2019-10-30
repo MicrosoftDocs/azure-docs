@@ -109,7 +109,7 @@ Update-AzStorageAccountNetworkRuleSet `
     -VirtualNetworkRule $networkRule | Out-Null
 ``` 
 
-## Create a private endpoint (preview) for your storage account
+## Create a private endpoint (preview)
 Creating a private endpoint for your storage account gives your storage account an IP address within the IP address space of your virtual network. When you mount your Azure file share from on-premises using this private IP address, the routing rules autodefined by the VPN installation will route your mount request to the storage account via the VPN. 
 
 ```PowerShell
@@ -167,7 +167,7 @@ foreach($ipconfig in $internalNic.Properties.ipConfigurations) {
 }
 ```
 
-## Create a self-signed root certificate for VPN authentication
+## Create root certificate for VPN authentication
 In order for VPN connections from your on-premises Windows machines to be authenticated to access your virtual network, you must create two certificates: a root certificate, which will be provided to the virtual machine gateway, and a client certificate, which will be signed with the root certificate. The following PowerShell creates the root certificate; the client certificate will be created after the Azure virtual network gateway is created with information from the gateway. 
 
 ```PowerShell
@@ -214,7 +214,7 @@ foreach($line in $rawRootCertificate) {
 }
 ```
 
-## Deploy Azure virtual network gateway
+## Deploy virtual network gateway
 The Azure virtual network gateway is the service that your on-premises Windows machines will connect to. Deploying this service requires two basic components: a public IP that will identify the gateway to your clients wherever they are in the world and a root certificate you created earlier which will be used to authenticate your clients.
 
 Remember to replace `<desired-vpn-name-here>` with the name you would like for these resources.
@@ -300,7 +300,7 @@ Export-PfxCertificate `
     -Cert $clientcert | Out-Null
 ```
 
-## Configure the VPN client on the target machines
+## Configure the VPN client
 The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Windows machine. We will configure the VPN connection using the [Always On VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/) feature of Windows 10/Windows Server 2016+. This package also contains executable packages which will configure the legacy Windows VPN client, if so desired. This guide uses Always On VPN rather than the legacy Windows VPN client as the Always On VPN client allows end-users to connect/disconnect from the Azure VPN without having administrator permissions to their machine. 
 
 The following script will install the client certificate required for authentication against the virtual network gateway, download, and install the VPN package. Remember to replace `<computer1>` and `<computer2>` with the desired computers. You can run this script on as many machines as you desire by adding more PowerShell sessions to the `$sessions` array. Your use account must be an administrator on each of these machines. If one of these machines is the local machine you are running the script from, you must run the script from an elevated PowerShell session. 
@@ -380,7 +380,7 @@ foreach ($session in $sessions) {
 Remove-Item -Path $vpnTemp -Recurse
 ```
 
-## Mount Azure file share via your VPN
+## Mount Azure file share
 Now that you have set up your Point-to-Site VPN, you can use it to mount the Azure file share on the computers you setup via PowerShell. The following example will mount the share, list the root directory of the share to prove the share is actually mounted, and the unmount the share. Unfortunately, it is not possible to mount the share persistently over PowerShell remoting. To mount persistently, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). 
 
 ```PowerShell

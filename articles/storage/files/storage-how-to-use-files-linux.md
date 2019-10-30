@@ -29,7 +29,7 @@ If you're using a Linux distribution not listed in the above table, you can chec
 uname -r
 ```
 
-## Prerequisites for mounting an Azure file share with Linux
+## Prerequisites
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Ensure the cifs-utils package is installed.**  
@@ -88,7 +88,7 @@ uname -r
 
     If you are unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md)..
 
-## Using an Azure file share with Linux
+## Mounting Azure file share
 To use an Azure file share with your Linux distribution, you must create a directory to serve as the mount point for the Azure file share. A mount point can be created anywhere on your Linux system, but it's common convention to create this under /mnt. After the mount point, you use the `mount` command to access the Azure file share.
 
 You can mount the same Azure file share to multiple mount points if desired.
@@ -189,7 +189,7 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
     > [!Note]  
     > The above mount command mounts with SMB 3.0. If your Linux distribution does not support SMB 3.0 with encryption or if it only supports SMB 2.1, you may only mount from an Azure VM within the same region as the storage account. To mount your Azure file share on a Linux distribution that does not support SMB 3.0 with encryption, you will need to [disable encryption in transit for the storage account](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## Securing your Linux distribution
+## Securing Linux
 In order to mount an Azure file share on Linux, port 445 must be accessible. Many organizations block port 445 because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with many Linux distributions. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
 
 Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy reasons, exposes a new module parameter (often referred to as *parm* by various external documentation), called `disable_legacy_dialects`. Although introduced in Linux kernel 4.18, some vendors have backported this change to older kernels that they support. For convenience, the following table details the availability of this module parameter on common Linux distributions.
@@ -213,7 +213,7 @@ Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy
 | SUSE Linux Enterprise 15 | No |
 | SUSE Linux Enterprise 15.1 | No |
 
-You can check to see if your linux distribution supports the `disable_legacy_dialects` module parameter via the following command.
+You can check to see if your Linux distribution supports the `disable_legacy_dialects` module parameter via the following command.
 
 ```bash
 sudo modinfo -p cifs | grep disable_legacy_dialects
