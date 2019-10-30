@@ -156,7 +156,7 @@ RDPSoft is a Windows Virtual Desktop partner that provides powerful and inexpens
  
 RDPSoft's Remote Desktop Commander solutions enhance Windows Virtual Desktop administration. Premium Management features simplify delegation of Windows Virtual Desktop management tasks to support desk staff by providing remote assistance, user session, and process management. At the same time, the Remote Desktop Commander Suite collects rich metrics about per-user performance and load, user activity and auditing, Windows Virtual Desktop connection quality (latency and bandwidth), licensing, and security into a central Azure SQL database instance for review. With RDPSoft, rich historic reporting and comprehensive dashboards are just a click away.
 
-- [Go to the partner website](https://www.rdpsoft.com/)
+- [Go to the partner website](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
 
 ## ThinPrint
 
