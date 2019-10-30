@@ -1,6 +1,6 @@
 ---
 title: Create multiple endpoints for a model
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets.
 services: machine-learning
 ms.service: machine-learning
@@ -12,17 +12,17 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
 ---
-# Use PowerShell to create Studio models and web service endpoints from one experiment
+# Use PowerShell to create Studio (classic) models and web service endpoints from one experiment
 
-Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm. But you want them to have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio using just a single experiment.
+Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm. But you want them to have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio (classic) using just a single experiment.
 
 For example, let's say you own a global bike rental franchise business. You want to build a regression model to predict the rental demand based on historic data. You have 1,000 rental locations across the world and you've collected a dataset for each location. They include important features such as date, time, weather, and traffic that are specific to each location.
 
 You could train your model once using a merged version of all the datasets across all locations. But, each of your locations has a unique environment. So a better approach would be to train your regression model separately using the dataset for each location. That way, each trained model could take into account the different store sizes, volume, geography, population, bike-friendly traffic environment, and more.
 
-That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning Studio with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
+That may be the best approach, but you don't want to create 1,000 training experiments in the classic version of Azure Machine Learning Studio with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
 
-Fortunately, you can accomplish this by using the [Azure Machine Learning Studio retraining API](/azure/machine-learning/studio/retrain-machine-learning-model) and automating the task with [Azure Machine Learning Studio PowerShell](powershell-module.md).
+Fortunately, you can accomplish this by using the [Azure Machine Learning Studio (classic) retraining API](/azure/machine-learning/studio/retrain-machine-learning-model) and automating the task with [Azure Machine Learning Studio (classic) PowerShell](powershell-module.md).
 
 > [!NOTE]
 > To make your sample run faster, reduce the number of locations from 1,000 to 10. But the same principles and procedures apply to 1,000 locations. However, if you do want to train from 1,000 datasets you might want to run the following PowerShell scripts in parallel. How to do that is beyond the scope of this article, but you can find examples of PowerShell multi-threading on the Internet.  
@@ -30,10 +30,10 @@ Fortunately, you can accomplish this by using the [Azure Machine Learning Studio
 > 
 
 ## Set up the training experiment
-Use the example [training experiment](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) that's in the [Cortana Intelligence Gallery](https://gallery.azure.ai). Open this experiment in your [Azure Machine Learning Studio](https://studio.azureml.net) workspace.
+Use the example [training experiment](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) that's in the [Cortana Intelligence Gallery](https://gallery.azure.ai). Open this experiment in your [Azure Machine Learning Studio (classic)](https://studio.azureml.net) workspace.
 
 > [!NOTE]
-> In order to follow along with this example, you may want to use a standard workspace rather than a free workspace. You create one endpoint for each customer - for a total of 10 endpoints - and that requires a standard workspace since a free workspace is limited to 3 endpoints. If you only have a free workspace, just change the scripts to allow for only th locations.
+> In order to follow along with this example, you may want to use a standard workspace rather than a free workspace. You create one endpoint for each customer - for a total of 10 endpoints - and that requires a standard workspace since a free workspace is limited to 3 endpoints.
 > 
 > 
 

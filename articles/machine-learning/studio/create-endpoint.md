@@ -1,7 +1,7 @@
 ---
 title: Create web service endpoints
-titleSuffix: Azure Machine Learning Studio
-description: Create web service endpoints in Azure Machine Learning Studio. Each endpoint in the web service is independently addressed, throttled, and managed.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Create web service endpoints in Azure Machine Learning Studio (classic). Each endpoint in the web service is independently addressed, throttled, and managed.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
 ---
-# Create endpoints for deployed Azure Machine Learning Studio web services
+# Create endpoints for deployed Azure Machine Learning Studio (classic) web services
 
 > [!NOTE]
 > This topic describes techniques applicable to a **Classic** Machine Learning web service.
@@ -27,14 +27,14 @@ You can add an endpoint to a web service using the Azure Machine Learning Web Se
 > [!NOTE]
 > If you have added additional endpoints to the web service, you cannot delete the default endpoint.
 
-1. In Machine Learning Studio, on the left navigation column, click Web Services.
+1. In Machine Learning Studio (classic), on the left navigation column, click Web Services.
 2. At the bottom of the web service dashboard, click **Manage endpoints**. The Azure Machine Learning Web Services portal opens to the endpoints page for the web service.
 3. Click **New**.
 4. Type a name and description for the new endpoint. Endpoint names must be 24 character or less in length, and must be made up of lower-case alphabets or numbers. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning web services](web-services-logging.md).
 
 ## <a id="scaling"></a> Scale a web service by adding additional endpoints
 
-By default, each published web service is configured to support 20 concurrent requests and can be as high as 200 concurrent requests. Azure Machine Learning Studio automatically optimizes the setting to provide the best performance for your web service and the portal value is ignored.
+By default, each published web service is configured to support 20 concurrent requests and can be as high as 200 concurrent requests. The classic version of Azure Machine Learning Studio automatically optimizes the setting to provide the best performance for your web service and the portal value is ignored.
 
 If you plan to call the API with a higher load than a Max Concurrent Calls value of 200 will support, you should create multiple endpoints on the same web service. You can then randomly distribute your load across all of them.
 

@@ -13,15 +13,17 @@ ms.date: 09/25/2019
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both the Azure portal and the SDK.
+In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both Azure Machine Learning studio and the SDK.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
 > * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in the next tutorial.
 > * Clone the tutorials notebook to your folder in the workspace.
-> * Create a cloud-based Jupyter notebook VM with Azure Machine Learning Python SDK installed and pre-configured.
+> * Create a cloud-based compute instance with Azure Machine Learning Python SDK installed and pre-configured.
+
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
@@ -41,23 +43,27 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
-You complete the following experiment set-up and run steps in the workspace landing page (preview), a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
-1. Sign in to the [workspace landing page](https://ml.azure.com/).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 
 1. Select your subscription and the workspace you created.
 
-1. Select **Notebooks and Files** on the left.
+1. Select **Notebooks** on the left.
 
-1. Open the **samples** folder.
+1. Open the **Samples** folder.
+
+1. Open the **Python** folder.
+
+1. Open the folder with a version number on it.  This number represents the current release for the Python SDK.
 
 1. Select the **"..."** at the right of the **tutorials** folder and then select **Clone**.
 
     ![Clone folder](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
-1. There is a folder displayed for each user who accesses the workspace.  Select your folder to clone the **tutorial**  folder there.
+1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **tutorials**  folder there.
 
-## <a name="open">Select a VM to run the notebook
+## <a name="open">Open the cloned notebook
 
 1. Under **User Files** open your folder and then open the cloned **tutorials** folder.
 
@@ -68,11 +74,9 @@ You complete the following experiment set-up and run steps in the workspace land
     
 1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials** folder.
 
-1. On the top bar, select a Notebook VM to use to run the notebook. These VMs are pre-configured with everything you need to run Azure Machine Learning. You can select a VM created by any user of your workspace. 
+1. On the top bar, select a compute instance to use to run the notebook. These VMs are pre-configured with [everything you need to run Azure Machine Learning](concept-compute-instance.md#contents). You can select a VM created by any user of your workspace. 
 
-1. If no VMs are found, select **+ New VM** to create the VM.
-
-    ![Create a VM](media/tutorial-1st-experiment-sdk-setup/no-vm.png)
+1. If no VMs are found, select **+ Add Compute** to create the VM.
 
     1. When you create a VM, provide a name.  The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
 
@@ -80,6 +84,9 @@ You complete the following experiment set-up and run steps in the workspace land
 
 1. Once the VM is available it will be displayed in the top toolbar.  You can now run the notebook either by using **Run all** in the toolbar, or by using **Shift+Enter** in the code cells of the notebook.
 
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can use either a Notebook VM or a compute instance to run your notebook.
 
 ## Next steps
 

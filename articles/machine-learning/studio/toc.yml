@@ -1,9 +1,9 @@
-- name: Machine Learning Studio Documentation 
+- name: Machine Learning Studio (classic) Documentation 
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: Machine Learning Studio
+  - name: Machine Learning Studio (classic)
     displayName: overview
     href: what-is-ml-studio.md
   - name: Compare our ML products
@@ -105,9 +105,7 @@
   - name: Select an algorithm
     items:
     - name: Choose algorithms
-      href: algorithm-choice.md
-    - name: Algorithm cheat sheet
-      href: algorithm-cheat-sheet.md        
+      href: algorithm-choice.md     
     - name: Algorithm examples
       displayName: infographic, studio basics
       href: basics-infographic-with-algorithm-examples.md
@@ -153,11 +151,11 @@
       href: azure-ml-customer-churn-scenario.md
     - name: Sentiment analysis
       href: text-analytics-module-tutorial.md
-    - name: Migrate analytics from Excel to Studio
+    - name: Migrate analytics from Excel to Studio (classic)
       href: linear-regression-in-azure.md
   - name: Delete & export customer data
     items:
-    - name: Studio data
+    - name: Studio (classic) data
       displayName: export
       href: export-delete-personal-data-dsr.md
     - name: Gallery data

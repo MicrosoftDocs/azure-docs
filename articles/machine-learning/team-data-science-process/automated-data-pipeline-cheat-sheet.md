@@ -24,7 +24,7 @@ Once you download the cheat sheet, you can print it in tabloid size (11 x 17 in.
 
 Download the cheat sheet here: **[Microsoft Azure Machine Learning automated data pipeline cheat sheet](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
-![Microsoft Azure Machine Learning Studio Capabilities Overview][op-cheat-sheet]
+![Microsoft Azure Machine Learning Studio (classic) Capabilities Overview][op-cheat-sheet]
 
 [op-cheat-sheet]: ./media/automated-data-pipeline-cheat-sheet/machine-learning-automated-data-pipeline-cheat-sheet_v1.1.png
 
@@ -33,6 +33,4 @@ Download the cheat sheet here: **[Microsoft Azure Machine Learning automated dat
 * For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](../studio/what-is-machine-learning.md).
 * For an explanation of how to deploy a scoring web service, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
 * For a discussion of how to consume a scoring web service, see [How to consume an Azure Machine Learning Web service](../studio/consume-web-services.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

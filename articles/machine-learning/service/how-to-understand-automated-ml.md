@@ -3,16 +3,17 @@ title: Understand automated ML results
 titleSuffix: Azure Machine Learning
 description: Learn how to view and understand charts and metrics for each of your automated machine learning runs. 
 services: machine-learning
-author: nilesha
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 11/04/2019
 ---
 
 # Understand automated machine learning results
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to view and understand the charts and metrics for each of your automated machine learning runs. 
 
@@ -25,14 +26,14 @@ Learn more about:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* Create an experiment for your automated machine learning run, either with the SDK, in the Azure portal or in your workspace landing page (preview).
+* Create an experiment for your automated machine learning run, either with the SDK, or in Azure Machine Learning studio.
 
     * Use the SDK to build a [classification model](how-to-auto-train-remote.md) or [regression model](tutorial-auto-train-models.md)
-    * Use the [Azure portal or your workspace landing page (preview)](how-to-create-portal-experiments.md) to create a classification or regression model by uploading the appropriate data.
+    * Use [Azure Machine Learning studio](how-to-create-portal-experiments.md) to create a classification or regression model by uploading the appropriate data.
 
 ## View the run
 
-After running an automated machine learning experiment, a history of the runs can be found in your machine learning service workspace. 
+After running an automated machine learning experiment, a history of the runs can be found in your machine learning workspace. 
 
 1. Go to your workspace.
 
@@ -223,7 +224,7 @@ You can review the feature importance score for the model overall as well as per
 
 ![Feature Explain ability](./media/how-to-understand-automated-ml/feature-importance.gif)
 
-For more information on enabling interpretability features, see [Configure automated ML experiments in Python](how-to-configure-auto-train.md#explain-the-model-interpretability).  For an example that explains the best model, see [Best model explanation](how-to-auto-train-remote.md#explain).
+For more information on enabling interpretability features, see the [how-to](how-to-machine-learning-interpretability-automl.md) on enabling interpretability in automated ML experiments.
 
 ## Next steps
 

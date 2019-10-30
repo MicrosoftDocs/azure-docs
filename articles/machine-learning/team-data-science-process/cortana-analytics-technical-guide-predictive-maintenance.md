@@ -92,7 +92,7 @@ Learning Service](https://azure.microsoft.com/services/machine-learning/)
 Use [Azure SQL
 Database](https://azure.microsoft.com/services/sql-database/)
 to store the predictions
-received by the Azure Machine Learning service, which are then consumed in the [Power BI](https://powerbi.microsoft.com) dashboard.
+received by the Azure Machine Learning, which are then consumed in the [Power BI](https://powerbi.microsoft.com) dashboard.
 
 ## Data consumption
 ### Power BI

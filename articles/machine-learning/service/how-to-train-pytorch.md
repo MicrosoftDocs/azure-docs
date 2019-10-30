@@ -16,6 +16,7 @@ ms.custom: seodec18
 ---
 
 # Train Pytorch deep learning models at scale with Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning's [PyTorch estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) class.  
 
@@ -29,7 +30,7 @@ Learn more about [deep learning vs machine learning](concept-deep-learning-vs-ma
 
 Run this code on either of these environments:
 
- - Azure Machine Learning Notebook VM - no downloads or installation necessary
+ - Azure Machine Learning compute instance - no downloads or installation necessary
 
     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-pytorch** folder. 

@@ -22,7 +22,7 @@ This reference architecture, associated implementation guide, and threat model a
 ## Architecture diagram and components
 This solution provides an analytics platform upon which customers can build their own analytics tools. The reference architecture outlines a generic use case. Customers can use it to input data through bulk data imports by the SQL/Data administrator. They also can use it to input data through operational data updates via an operational user. Both workstreams incorporate Azure Functions for importing data into Azure SQL Database. Azure Functions must be configured by the customer through the Azure portal to handle the import tasks unique to the customer's analytics requirements.
 
-Azure offers a variety of reporting and analytics services for the customer. This solution uses Azure Machine Learning services and SQL Database to rapidly browse through data and deliver quicker results through smarter modeling of data. Machine Learning is intended to increase query speeds by discovering new relationships between datasets. Initially, data is trained through several statistical functions. Afterward, up to seven additional query pools can be synchronized with the same tabular models to spread query workload and reduce response times. The customer server brings the total of query pools to eight.
+Azure offers a variety of reporting and analytics services for the customer. This solution uses Azure Machine Learning and SQL Database to rapidly browse through data and deliver quicker results through smarter modeling of data. Machine Learning is intended to increase query speeds by discovering new relationships between datasets. Initially, data is trained through several statistical functions. Afterward, up to seven additional query pools can be synchronized with the same tabular models to spread query workload and reduce response times. The customer server brings the total of query pools to eight.
 
 For enhanced analytics and reporting, SQL Database can be configured with column store indexes. Machine Learning and SQL Database can be scaled up or down or shut off completely in response to customer usage. All SQL traffic is encrypted with SSL through the inclusion of self-signed certificates. As a best practice, we recommend the use of a trusted certificate authority for enhanced security.
 
@@ -65,7 +65,7 @@ With [Event Grid](https://docs.microsoft.com/azure/event-grid/overview), custome
 **Azure Functions**:
 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) is a serverless compute service that runs code on-demand. You don't have to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events.
 
-**Azure Machine Learning service**:
+**Azure Machine Learning**:
 [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends.
 
 **Azure Data Catalog**:

@@ -15,6 +15,7 @@ ms.date: 08/16/2019
 ---
 
 # Regenerate storage account access keys
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 

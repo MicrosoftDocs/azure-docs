@@ -16,6 +16,7 @@ ms.date: 09/27/2019
 ---
 
 # Create and manage reusable environments for training and deployment with Azure Machine Learning.
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to create and manage Azure Machine Learning [environments](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) so you can track and reproduce your projects' software dependencies as they evolve.
 
@@ -258,7 +259,7 @@ myenv.docker.enabled = True
 
 Once built, the Docker image appears in the Azure Container Registry that's associated with the workspace, by default.  The repository name has the form *azureml/azureml_\<uuid\>*. The unique identifier (*uuid*) part corresponds to a hash computed from the environment configuration. This allows the service to determine whether an image corresponding to the given environment already exists for reuse.
 
-Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), and installs the specified Python packages. The base image has CPU and GPU versions. Azure Machine Learning service automatically detects which version to use.
+Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), and installs the specified Python packages. The base image has CPU and GPU versions. Azure Machine Learning automatically detects which version to use.
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults

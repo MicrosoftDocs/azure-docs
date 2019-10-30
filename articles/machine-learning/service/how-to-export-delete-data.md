@@ -1,19 +1,20 @@
 ---
 title: Export or delete workspace data
 titleSuffix: Azure Machine Learning
-description: Learn how to export or delete your workspace with the Azure portal, CLI, SDK, and authenticated REST APIs.
+description: Learn how to export or delete your workspace with the Azure Machine Learning studio, CLI, SDK, and authenticated REST APIs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens
-author: ph-com
-ms.author: pahusban
+author: lobrien
+ms.author: laobri
 ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 # Export or delete your Machine Learning service workspace data 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In Azure Machine Learning, you can export or delete your workspace data with the authenticated REST API. This article tells you how.
 
@@ -22,7 +23,7 @@ In Azure Machine Learning, you can export or delete your workspace data with the
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## Control your workspace data
-In-product data stored by Azure Machine Learning is available for export and deletion through the Azure portal, CLI, SDK, and authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy portal. 
+In-product data stored by Azure Machine Learning is available for export and deletion through Azure Machine Learning studio, CLI, SDK, and authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy portal. 
 
 In Azure Machine Learning, personal data consists of user information in run history documents and telemetry records of some user interactions with the service.
 
@@ -227,28 +228,27 @@ Data Sources can be obtained by:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## Delete visual interface assets
+## Delete assets in the designer
 
-In the visual interface where you created your experiment, delete individual assets:
+In the designer where you created your experiment, delete individual assets:
 
-1. On the left, select the type of asset you want to delete.
+1. Go to designer
 
     ![Delete assets](media/how-to-export-delete-data.md/delete-experiment.png)
 
-1. In the list, select the individual assets to delete.
+1. In the list, select the individual pipeline draft to delete.
 
 1. On the bottom, select **Delete**.
 
-## Export visual interface data
+## Unregister data in the designer
 
-In the visual interface where you created your experiment, export data you have added:
+In the designer where you created your experiment, export data you have added:
 
-1. On the left, select **Data**.
+1. On the left, select **Datasets**.
 
-1. On the top, select **My Datasets** or **Samples** to locate the data you want to export.
 
-    ![Download data](media/how-to-export-delete-data.md/download-data.png)
 
-1. In the list, select the individual datasets to export.
+    ![Download data](media/how-to-export-delete-data.md/unregister-dataset.png)
 
-1. On the bottom, select **Download**.
+1. In the list, select the individual dataset and click Unregister
+

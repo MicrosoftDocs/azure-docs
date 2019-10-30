@@ -9,10 +9,11 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/21/2019
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Use automated machine learning to predict taxi fares
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you use automated machine learning in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
@@ -895,14 +896,15 @@ To automatically train a model, take the following steps:
 
 ### Define training settings
 
-Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-10 min, but if you want a shorter run time, reduce the `iterations` parameter.
+Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_minutes` parameter.
 
 |Property| Value in this tutorial |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Time limit in minutes for each iteration. Reduce this value to decrease total runtime.|
-|**iterations**|20|Number of iterations. In each iteration, a new machine learning model is trained with your data. This is the primary value that affects total run time.|
+|**experiment_timeout_minutes**|20|Maximum amount of time in minutes that all iterations combined can take before the experiment terminates.|
+|**enable_early_stopping**|True|Flag to enble early termination if the score is not improving in the short term.|
 |**primary_metric**| spearman_correlation | Metric that you want to optimize. The best-fit model will be chosen based on this metric.|
-|**preprocess**| True | By using **True**, the experiment can preprocess the input data (handling missing data, converting text to numeric, etc.)|
+|**featurization**| auto | By using **auto**, the experiment can preprocess the input data (handling missing data, converting text to numeric, etc.)|
 |**verbosity**| logging.INFO | Controls the level of logging.|
 |**n_cross_validations**|5|Number of cross-validation splits to perform when validation data is not specified.|
 
@@ -911,9 +913,10 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "iterations": 20,
+    "experiment_timeout_minutes": 20,
+    "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
-    "preprocess": True,
+    "featurization": 'auto',
     "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
@@ -1066,14 +1069,9 @@ The traditional machine learning model development process is highly resource-in
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the notebook VM
+### Stop the compute instance
 
-If you used a cloud notebook server, stop the VM when you are not using it to reduce cost.
-
-1. In your workspace, select **Notebook VMs**.
-1. From the list, select the VM.
-1. Select **Stop**.
-1. When you're ready to use the server again, select **Start**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### Delete everything
 

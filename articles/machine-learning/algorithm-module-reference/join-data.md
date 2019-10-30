@@ -1,7 +1,7 @@
 ---
 title: "Join Data: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the join Join Data module in Azure Machine Learning service to merge datasets.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the join Join Data module in Azure Machine Learning to merge datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 06/01/2019
 
 # Join Data
 
-This article describes how to use the **Join Data** module in the Azure Machine Learning service visual interface to merge two datasets using a database-style join operation.  
+This article describes how to use the **Join Data** module in Azure Machine Learning designer (preview) to merge two datasets using a database-style join operation.  
 
 ## How to configure Join Data
 
@@ -64,4 +64,4 @@ To perform a join on two datasets, they should be related by a key column. Compo
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

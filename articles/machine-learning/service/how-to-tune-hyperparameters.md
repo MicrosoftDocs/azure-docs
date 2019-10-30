@@ -9,12 +9,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
 
 ---
 
 # Tune hyperparameters for your model with Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Efficiently tune hyperparameters for your model using Azure Machine Learning.  Hyperparameter tuning includes the following steps:
 
@@ -92,6 +93,12 @@ This code defines a search space with two parameters - `learning_rate` and `keep
 ### Sampling the hyperparameter space
 
 You can also specify the parameter sampling method to use over the hyperparameter space definition. Azure Machine Learning supports random sampling, grid sampling, and Bayesian sampling.
+
+#### Picking a sampling method
+
+* Grid sampling can be used if your hyperparameter space can be defined as a choice among discrete values and if you have sufficient budget to exhaustively search over all values in the defined search space. Additionally, one can use automated early termination of poorly performing runs, which reduces wastage of resources.
+* Random sampling allows the hyperparameter space to include both discrete and continuous hyperparameters. In practice it produces good results most of the times and also allows the use of automated early termination of poorly performing runs. Some users perform an initial search using random sampling and then iteratively refine the search space to improve results.
+* Bayesian sampling leverages knowledge of previous samples when choosing hyperparameter values, effectively trying to improve the reported primary metric. Bayesian sampling is recommended when you have sufficient budget to explore the hyperparameter space - for best results with Bayesian Sampling we recommend using a maximum number of runs greater than or equal to 20 times the number of hyperparameters being tuned. Note that Bayesian sampling does not currently support any early termination policy.
 
 #### Random sampling
 
@@ -245,8 +252,10 @@ policy=None
 
 If no policy is specified, the hyperparameter tuning service will let all training runs execute to completion.
 
->[!NOTE] 
->If you are looking for a conservative policy that provides savings without terminating promising jobs, you can use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
+### Picking an early termination policy
+
+* If you are looking for a conservative policy that provides savings without terminating promising jobs, you can use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
+* If you are looking for more aggressive savings from early termination, you can either use Bandit Policy with a stricter (smaller) allowable slack or Truncation Selection Policy with a larger truncation percentage.
 
 ## Allocate resources
 
@@ -302,6 +311,46 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
 `experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning work?](concept-azure-machine-learning-architecture.md))
+
+## Warm start your hyperparameter tuning experiment (optional)
+
+Often, finding the best hyperparameter values for your model can be an iterative process, needing multiple tuning runs that learn from previous hyperparameter tuning runs. Reusing knowledge from these previous runs will accelerate the hyperparameter tuning process, thereby reducing the cost of tuning the model and will potentially improve the primary metric of the resulting model. When warm starting a hyperparameter tuning experiment with Bayesian sampling, trials from the previous run will be used as prior knowledge to intelligently pick new samples, to improve the primary metric. Additionally, when using Random or Grid sampling, any early termination decisions will leverage metrics from the previous runs to determine poorly performing training runs. 
+
+Azure Machine Learning allows you to warm start your hyperparameter tuning run by leveraging knowledge from up to 5 previously completed / cancelled hyperparameter tuning parent runs. You can specify the list of parent runs you want to warm start from using this snippet:
+
+```Python
+from azureml.train.hyperdrive import HyperDriveRun
+
+warmstart_parent_1 = HyperDriveRun(experiment, "warmstart_parent_run_ID_1")
+warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
+warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
+```
+
+Additionally, there may be occasions when individual training runs of a hyperparameter tuning experiment are cancelled due to budget constraints or fail due to other reasons. It is now possible to resume such individual training runs from the last checkpoint (assuming your training script handles checkpoints). Resuming an individual training run will use the same hyperparameter configuration and mount the outputs folder used for that run. The training script should accept the `resume-from` argument, which contains the checkpoint or model files from which to resume the training run. You can resume individual training runs using the following snippet:
+
+```Python
+from azureml.core.run import Run
+
+resume_child_run_1 = Run(experiment, "resume_child_run_ID_1")
+resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
+child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
+```
+
+You can configure your hyperparameter tuning experiment to warm start from a previous experiment or resume individual training runs using the optional parameters `resume_from` and `resume_child_runs` in the config:
+
+```Python
+from azureml.train.hyperdrive import HyperDriveConfig
+
+hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
+                          hyperparameter_sampling=param_sampling, 
+                          policy=early_termination_policy,
+                          resume_from=warmstart_parents_to_resume_from, 
+                          resume_child_runs=child_runs_to_resume,
+                          primary_metric_name="accuracy", 
+                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                          max_total_runs=100,
+                          max_concurrent_runs=4)
+```
 
 ## Visualize experiment
 

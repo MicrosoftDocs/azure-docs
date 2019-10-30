@@ -1,7 +1,7 @@
 ---
 title: Get support & training
-titleSuffix: Azure Machine Learning Studio
-description: Get support and training and provide feedback for Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Get support and training and provide feedback for Azure Machine Learning Studio (classic)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,11 +11,11 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019 
 ---
-# Get support and training for Azure Machine Learning Studio
+# Get support and training for Azure Machine Learning Studio (classic)
 
-This article provides information on how to learn more about Azure Machine Learning Studio and get support for your issues and questions.
+This article provides information on how to learn more about Azure Machine Learning Studio (classic) and get support for your issues and questions.
 
-## Learn more about Studio
+## Learn more about Studio (classic)
 
 See our learning resources:
 + [Tutorials and how-to articles](../studio/index.yml) 
@@ -32,7 +32,7 @@ Check out these support resources:
 
 + **Technical support for Azure Customers**: [Submit and manage support requests](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) through the Azure portal.
 
-+ **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning Studio support forum on MSDN](https://aka.ms/aml-forum-studio).
++ **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning Studio (classic) support forum on MSDN](https://aka.ms/aml-forum-studio).
 
 + **Stack Overflow**: Visit the Azure Machine Learning community on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) tagged with "Azure-Machine-Learning".
 

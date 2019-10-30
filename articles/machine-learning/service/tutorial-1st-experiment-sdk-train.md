@@ -9,10 +9,12 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/03/2019
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Train your first ML model
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
 
@@ -32,7 +34,7 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 
 ## Open the notebook
 
-1. Sign in to the [workspace landing page](https://ml.azure.com/).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 
 1. Open the **tutorial-1st-experiment-sdk-train.ipynb** in your folder as shown in [part one](tutorial-1st-experiment-sdk-setup.md#open).
 
@@ -58,7 +60,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-Now create an experiment in your workspace. An experiment is another foundational cloud resource that represents a collection of trials (individual model runs). In this tutorial you use the experiment to create runs and track your model training in the Azure portal. Parameters include your workspace reference, and a string name for the experiment.
+Now create an experiment in your workspace. An experiment is another foundational cloud resource that represents a collection of trials (individual model runs). In this tutorial you use the experiment to create runs and track your model training in the Azure Machine Learning studio. Parameters include your workspace reference, and a string name for the experiment.
 
 
 ```python
@@ -68,15 +70,17 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## Load data and prepare for training
 
-For this tutorial, you use the diabetes data set, which is a pre-normalized data set included in scikit-learn. This data set uses features like age, gender, and BMI to predict diabetes disease progression. Load the data from the `load_diabetes()` static function, and split it into training and test sets using `train_test_split()`. This function segregates the data so the model has unseen data to use for testing following training.
+For this tutorial, you use the diabetes data set, which uses features like age, gender, and BMI to predict diabetes disease progression. Load the data from the [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) class, and split it into training and test sets using `train_test_split()`. This function segregates the data so the model has unseen data to use for testing following training.
 
 
 ```python
-from sklearn.datasets import load_diabetes
+from azureml.opendatasets import Diabetes
 from sklearn.model_selection import train_test_split
 
-X, y = load_diabetes(return_X_y = True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=66)
+x_df = Diabetes.get_tabular_dataset().to_pandas_dataframe().dropna()
+y_df = x_df.pop("Y")
+
+X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=66)
 ```
 
 ## Train a model
@@ -189,19 +193,9 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the notebook VM
+### Stop the compute instance
 
-If you used a cloud notebook server, stop the VM when you are not using it to reduce cost.
-
-1. In your workspace, select **Notebook VMs**.
-
-   ![Stop the VM server](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. From the list, select the VM.
-
-1. Select **Stop**.
-
-1. When you're ready to use the server again, select **Start**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### Delete everything
 

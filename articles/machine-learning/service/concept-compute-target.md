@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/10/2019
+ms.date: 11/04/2019
 # As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -42,16 +42,31 @@ Learn [where and how to deploy your model to a compute target](how-to-deploy-and
 <a name="amlcompute"></a>
 ## Azure Machine Learning compute (managed)
 
-A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning Compute is the only managed compute as of May 30, 2019. Additional managed compute resources may be added in the future.
+A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes. Additional managed compute resources may be added in the future.
 
-You can use Azure Machine Learning Compute for training and for batch inferencing (preview).  With this compute resource, you have:
+You can create Azure Machine Learning compute instances or compute clusters in:
+
+| | Azure Machine Learning studio | Azure portal | SDK | Resource Manager template | CLI |
+|---| ----- | ----- | ----- | ----- | ----- |
+| Compute instance | yes | yes | yes | yes |  |
+| Compute cluster | yes | yes | yes | yes | yes |
+
+When created these compute resources are automatically part of your workspace unlike other kinds of compute targets.
+
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
+
+### Compute clusters
+
+You can use Azure Machine Learning compute clusters for training and for batch inferencing (preview).  With this compute resource, you have:
 
 * Single- or multi-node cluster
 * Autoscales each time you submit a run 
 * Automatic cluster management and job scheduling 
 * Support for both CPU and GPU resources
 
-You can create Azure Machine Learning Compute instances in Azure portal or your [workspace landing page (preview)](https://ml.azure.com), with the SDK, or with the CLI. When created it is automatically part of your workspace unlike other kinds of compute targets.
+
 
 ## Unmanaged compute
 

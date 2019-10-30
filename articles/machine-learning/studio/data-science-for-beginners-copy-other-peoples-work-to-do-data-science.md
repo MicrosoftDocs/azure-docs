@@ -1,6 +1,6 @@
 ---
 title: Copy others' data science examples
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Azure AI Gallery.'
 services: machine-learning
 ms.service: machine-learning
@@ -45,9 +45,9 @@ One of the trade secrets of data science is getting other people to do your work
 
 ## Find examples in the Azure AI Gallery
 
-Microsoft has a cloud-based service called [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) that you're welcome to try for free. It provides you with a workspace where you can experiment with different machine learning algorithms, and, when you've got your solution worked out, you can launch it as a web service.
+Microsoft has a cloud-based service called [Azure Machine Learning Studio (classic)](https://azure.microsoft.com/services/machine-learning-studio/). It provides you with a workspace where you can experiment with different machine learning algorithms, and, when you've got your solution worked out, you can launch it as a web service.
 
-Part of this service is something called the **[Azure AI Gallery](https://gallery.azure.ai/)**. It contains resources, including a collection of Azure Machine Learning Studio experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions. Everyone is welcome to browse through it.
+Part of this service is something called the **[Azure AI Gallery](https://gallery.azure.ai/)**. It contains resources, including a collection of Azure Machine Learning Studio (classic) experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions. Everyone is welcome to browse through it.
 
 ![Azure AI Gallery](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -66,25 +66,25 @@ Click on that experiment and you get a web page that describes the work that thi
 
 ![Clustering experiment description page](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
 
-Notice the link that says **Open in Studio**.
+Notice the link that says **Open in Studio (classic)**.
 
-![Open in Studio button](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
+![Open in Studio (classic) button](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-I can click on that and it takes me right to **Azure Machine Learning Studio**. It creates a copy of the experiment and puts it in my own workspace. This includes the contributor's dataset, all the processing that they did, all of the algorithms that they used, and how they saved out the results.
+I can click on that and it takes me right to **Azure Machine Learning Studio (classic)**. It creates a copy of the experiment and puts it in my own workspace. This includes the contributor's dataset, all the processing that they did, all of the algorithms that they used, and how they saved out the results.
 
-![Open a Gallery experiment in Machine Learning Studio - clustering algorithm example](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
+![Open a Gallery experiment in Machine Learning Studio (classic) - clustering algorithm example](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 
 And now I have a starting point. I can swap out their data for my own and do my own tweaking of the model. This gives me a running start, and it lets me build on the work of people who really know what they’re doing.
 
 ## Find experiments that demonstrate machine learning techniques
 There are other experiments in the [Azure AI Gallery](https://gallery.azure.ai) that were contributed specifically to provide how-to examples for people new to data science. For instance, there's an experiment in the gallery that demonstrates how to handle missing values ([Methods for handling missing values](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1)). It walks you through 15 different ways of substituting empty values, and talks about the benefits of each method and when to use it.
 
-![Gallery experiments open in Machine Learning Studio - methods for missing values](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
+![Gallery experiments open in Machine Learning Studio (classic) - methods for missing values](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
 [Azure AI Gallery](https://gallery.azure.ai) is a place to find working experiments that you can use as a starting point for your own solutions.
 
-Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning Studio.
+Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning Studio (classic).
 
 ## Next steps
-* [Try your first data science experiment with Azure Machine Learning Studio](create-experiment.md)
+* [Try your first data science experiment with Azure Machine Learning Studio (classic)](create-experiment.md)
 * [Get an introduction to Machine Learning on Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

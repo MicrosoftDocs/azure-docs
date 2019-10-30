@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 09/03/2019
+  ms.date: 10/29/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -29,9 +29,11 @@ landingContent:
         links:
           - text: Experiment in Python notebooks
             url: service/tutorial-1st-experiment-sdk-setup.md
-          - text: Experiment using drag & drop
-            url: service/ui-tutorial-automobile-price-train-score.md
-          - text: Automate your first experiment
+          - text: Experiment in RStudio
+            url: service/tutorial-1st-r-experiment.md
+          - text: Experiment using drag & drop designer
+            url: service/tutorial-designer-automobile-price-train-score.md
+          - text: Automate your first ML experiment
             url: service/tutorial-first-experiment-automated-ml.md
       - linkListType: overview
         links:
@@ -44,7 +46,7 @@ landingContent:
           - text: Set up your environment
             url: service/how-to-configure-environment.md
           - text: Set up training compute targets
-            url: service/how-to-set-up-training-targets.md
+            url: service/how-to-set-up-training-targets.md    
             
   # PYTHON
   - title: 'Experiment: Python SDK'
@@ -57,8 +59,6 @@ landingContent:
             url: service/tutorial-train-models-with-aml.md                     
           - text: Predict taxi fares with automated ML
             url: service/tutorial-auto-train-models.md 
-          - text: Use pipelines for batch scoring
-            url: service/tutorial-pipeline-batch-scoring-classification.md   
       - linkListType: how-to-guide
         links:
           - text: Train with Scikit-learn
@@ -70,23 +70,29 @@ landingContent:
           - text: Train with Keras
             url: service/how-to-train-keras.md
 
-  # VISUAL INTERFACE
-  - title: 'Experiment: visual interface'
+  # Pipelines
+  - title: 'Use ML Pipelines'
     linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Use automated ML to predict subscriptions
-            url: service/tutorial-first-experiment-automated-ml.md
-          - text: Use linear regression to predict prices
-            url: service/ui-tutorial-automobile-price-train-score.md
-      - linkListType: how-to-guide
-        links:
-          - text: Predict credit risk
-            url: service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md                 
-          - text: Predict delays
-            url: service/how-to-ui-sample-classification-predict-flight-delay.md
-          - text: Predict churn
-            url: service/how-to-ui-sample-classification-predict-churn.md     
+    - linkListType: overview
+      links:
+      - text: What are ML pipelines?
+        url: service/concept-ml-pipelines.md   
+      - text: The 'drag-n-drop' designer
+        url: service/concept-designer.md   
+    - linkListType: tutorial
+      links:
+      - text: Linear regression to predict prices (designer)
+        url: service/tutorial-designer-automobile-price-train-score.md
+      - text: Create ML pipelines (Python SDK)
+        url: service/tutorial-pipeline-batch-scoring-classification.md     
+    - linkListType: how-to-guide
+      links:
+          - text: Scheduling pipelines (Python SDK)
+            url: service/how-to-schedule-pipelines.md                 
+          - text: Predict delays (designer)
+            url: service/how-to-designer-sample-classification-flight-delay.md
+          - text: Predict churn (designer)
+            url: service/how-to-designer-sample-classification-churn.md     
 
   # MLOps
   - title: Deploy & manage models
@@ -107,9 +113,11 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure ML Python SDK
+          - text: SDK for Python
             url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
-          - text: Azure ML CLI
+          - text: SDK for R
+            url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+          - text: Machine learning CLI
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-          - text: Visual interface algorithms & modules
+          - text: Designer algorithms & modules
             url: algorithm-module-reference/module-reference.md

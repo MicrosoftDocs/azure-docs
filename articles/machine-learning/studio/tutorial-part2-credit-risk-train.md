@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 2: Train credit risk models'
-titleSuffix: Azure Machine Learning Studio
-description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio. This tutorial is part two of a three-part tutorial series. It shows how to train and evaluate models.  
+titleSuffix: Azure Machine Learning Studio (classic)
+description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in the classic version of Azure Machine Learning Studio. This tutorial is part two of a three-part tutorial series. It shows how to train and evaluate models.  
 keywords: credit risk, predictive analytics solution,risk assessment
 author: sdgilley
 ms.author: sgilley
@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ---
 
-# Tutorial 2: Train credit risk models - Azure Machine Learning Studio
+# Tutorial 2: Train credit risk models - Azure Machine Learning Studio (classic)
 
-In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio.  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part two of a three-part tutorial series**.
+In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in  the classic version of Machine Learning Studio.  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part two of a three-part tutorial series**.
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution.  
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio (classic). You'll use the classic version of Azure Machine Learning Studio and a Machine Learning web service for this solution.  
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
-In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio workspace, uploaded data, and created an experiment.
+In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio (classic) workspace, uploaded data, and created an experiment.
 
 In this part of the tutorial you:
  
@@ -33,23 +33,20 @@ In this part of the tutorial you:
 
 In [part three of the tutorial](tutorial-part3-credit-risk-deploy.md), you'll deploy the model as a web service.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-
 ## Prerequisites
 
 Complete [part one of the tutorial](tutorial-part1-credit-risk.md).
 
 ## <a name="train"></a>Train multiple models
 
-One of the benefits of using Azure Machine Learning Studio for creating machine learning models is the ability to try more than one type of model at a time in a single experiment and compare the results. This type of experimentation helps you find the best solution for your problem.
+One of the benefits of using the classic version of Azure Machine Learning Studio for creating machine learning models is the ability to try more than one type of model at a time in a single experiment and compare the results. This type of experimentation helps you find the best solution for your problem.
 
 In the experiment we're developing in this tutorial, you'll create two different types of models and then compare their scoring results to decide which algorithm you want to use in our final experiment.  
 
 There are various models you could choose from. To see the models available, expand the **Machine Learning** node in the module palette, and then expand **Initialize Model** and the nodes beneath it. For the purposes of this experiment, you'll select the [Two-Class Support Vector Machine][two-class-support-vector-machine] (SVM) and the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] modules.
 
 > [!TIP]
-> To get help deciding which Machine Learning algorithm best suits the particular problem you're trying to solve, see [How to choose algorithms for Microsoft Azure Machine Learning Studio](algorithm-choice.md).
+> To get help deciding which Machine Learning algorithm best suits the particular problem you're trying to solve, see [How to choose algorithms for Microsoft Azure Machine Learning Studio (classic)](algorithm-choice.md).
 > 
 > 
 
@@ -187,9 +184,9 @@ To the right of the graph, click **Scored dataset** or **Scored dataset to compa
 By examining these values, you can decide which model is closest to giving you the results you're looking for. You can go back and iterate on your experiment by changing parameter values in the different models. 
 
 The science and art of interpreting these results and tuning the model performance is outside the scope of this tutorial. For additional help, you might read the following articles:
-- [How to evaluate model performance in Azure Machine Learning Studio](evaluate-model-performance.md)
-- [Choose parameters to optimize your algorithms in Azure Machine Learning Studio](algorithm-parameters-optimize.md)
-- [Interpret model results in Azure Machine Learning Studio](interpret-model-results.md)
+- [How to evaluate model performance in Azure Machine Learning Studio (classic)](evaluate-model-performance.md)
+- [Choose parameters to optimize your algorithms in Azure Machine Learning Studio (classic)](algorithm-parameters-optimize.md)
+- [Interpret model results in Azure Machine Learning Studio (classic)](interpret-model-results.md)
 
 > [!TIP]
 > Each time you run the experiment a record of that iteration is kept in the Run History. You can view these iterations, and return to any of them, by clicking **VIEW RUN HISTORY** below the canvas. You can also click **Prior Run** in the **Properties** pane to return to the iteration immediately preceding the one you have open.
@@ -197,7 +194,7 @@ The science and art of interpreting these results and tuning the model performan
 > You can make a copy of any iteration of your experiment by clicking **SAVE AS** below the canvas. 
 > Use the experiment's **Summary** and **Description** properties to keep a record of what you've tried in your experiment iterations.
 > 
-> For more information, see [Manage experiment iterations in Azure Machine Learning Studio](manage-experiment-iterations.md).  
+> For more information, see [Manage experiment iterations in Azure Machine Learning Studio (classic)](manage-experiment-iterations.md).  
 > 
 > 
 

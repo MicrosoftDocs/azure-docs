@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 1: Predict credit risk'
-titleSuffix: Azure Machine Learning Studio
-description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio. This tutorial is part one of a three-part tutorial series.  It shows how to create a workspace, upload data, and create an experiment.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in the classic version of Azure Machine Learning Studio. This tutorial is part one of a three-part tutorial series.  It shows how to create a workspace, upload data, and create an experiment.
 keywords: credit risk, predictive analytics solution,risk assessment
 author: sdgilley
 ms.author: sgilley
@@ -11,52 +11,51 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ---
-# Tutorial 1: Predict credit risk - Azure Machine Learning Studio
+# Tutorial 1: Predict credit risk - Azure Machine Learning Studio (classic)
 
-In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio.  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part one of a three-part tutorial series**.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio (classic).  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part one of a three-part tutorial series**.
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution.  
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio (classic). You'll use the classic version of Azure Machine Learning Studio and a Machine Learning web service for this solution.  
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
 In this part of the tutorial you: 
  
 > [!div class="checklist"]
-> * Create a Machine Learning Studio workspace
+> * Create a Machine Learning Studio (classic) workspace
 > * Upload existing data
 > * Create an experiment
 
 You can then use this experiment to [train models in part 2](tutorial-part2-credit-risk-train.md) and then [deploy them in part 3](tutorial-part3-credit-risk-deploy.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-
 ## Prerequisites
 
-This tutorial assumes that you've used Machine Learning Studio at least once before, and that you have some understanding of machine learning concepts. But it doesn't assume you're an expert in either.
+This tutorial assumes that you've used Machine Learning Studio (classic) at least once before, and that you have some understanding of machine learning concepts. But it doesn't assume you're an expert in either.
 
-If you've never used **Azure Machine Learning Studio** before, you might want to start with the quickstart, [Create your first data science experiment in Azure Machine Learning Studio](create-experiment.md). The quickstart takes you through Machine Learning Studio for the first time. It shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results.
+If you've never used **Azure Machine Learning Studio (classic)** before, you might want to start with the quickstart, [Create your first data science experiment in Azure Machine Learning Studio (classic)](create-experiment.md). The quickstart takes you through Machine Learning Studio (classic) for the first time. It shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results.
 
 
 > [!TIP] 
-> You can find a working copy of the experiment that you develop in this tutorial in the [Azure AI Gallery](https://gallery.azure.ai). Go to **[Tutorial - Predict credit risk](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
+> You can find a working copy of the experiment that you develop in this tutorial in the [Azure AI Gallery](https://gallery.azure.ai). Go to **[Tutorial - Predict credit risk](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio (classic) workspace.
 > 
 
 
-## Create a Machine Learning Studio workspace
+## Create a Machine Learning Studio (classic) workspace
 
-To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning Studio workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
+To use Machine Learning Studio (classic), you need to have a Microsoft Azure Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
 
-To create a workspace, see [Create and share an Azure Machine Learning Studio workspace](create-workspace.md).
+To create a workspace, see [Create and share an Azure Machine Learning Studio (classic) workspace](create-workspace.md).
 
-After your workspace is created, open Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). If you have more than one workspace, you can select the workspace in the toolbar in the upper-right corner of the window.
+After your workspace is created, open Machine Learning Studio (classic) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). If you have more than one workspace, you can select the workspace in the toolbar in the upper-right corner of the window.
 
-![Select workspace in Studio](./media/tutorial-part1-credit-risk/open-workspace.png)
+![Select workspace in Studio (classic)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> If you are owner of the workspace, you can share the experiments you're working on by inviting others to the workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
+> If you are owner of the workspace, you can share the experiments you're working on by inviting others to the workspace. You can do this in Machine Learning Studio (classic) on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
 > 
 > On the **SETTINGS** page, click **USERS**, then click **INVITE MORE USERS** at the bottom of the window.
 > 
@@ -91,7 +90,7 @@ This will increase the cost of this error in the training results.
 
 ### Convert the dataset format
 
-The original dataset uses a blank-separated format. Machine Learning Studio works better with a comma-separated value (CSV) file, so you'll convert the dataset by replacing spaces with commas.  
+The original dataset uses a blank-separated format. The classic version of Machine Learning Studio works better with a comma-separated value (CSV) file, so you'll convert the dataset by replacing spaces with commas.  
 
 There are many ways to convert this data. One way is by using the following Windows PowerShell command:   
 
@@ -103,11 +102,11 @@ Another way is by using the Unix sed command:
 
 In either case, you have created a comma-separated version of the data in a file named **german.csv** that you can use in your experiment.
 
-### Upload the dataset to Machine Learning Studio
+### Upload the dataset to Machine Learning Studio (classic)
 
-Once the data has been converted to CSV format, you need to upload it into Machine Learning Studio. 
+Once the data has been converted to CSV format, you need to upload it into the classic version of Machine Learning Studio. 
 
-1. Open the Machine Learning Studio home page ([https://studio.azureml.net](https://studio.azureml.net)). 
+1. Open the Machine Learning Studio (classic) home page ([https://studio.azureml.net](https://studio.azureml.net)). 
 
 2. Click the menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) in the upper-left corner of the window, click **Azure Machine Learning**, select **Studio**, and sign in.
 
@@ -133,17 +132,17 @@ Once the data has been converted to CSV format, you need to upload it into Machi
 
 This uploads the data into a dataset module that you can use in an experiment.
 
-You can manage datasets that you've uploaded to Studio by clicking the **DATASETS** tab to the left of the Studio window.
+You can manage datasets that you've uploaded to Studio (classic) by clicking the **DATASETS** tab to the left of the Studio (classic) window.
 
 ![Manage datasets](./media/tutorial-part1-credit-risk/dataset-list.png)
 
-For more information about importing other types of data into an experiment, see [Import your training data into Azure Machine Learning Studio](import-data.md).
+For more information about importing other types of data into an experiment, see [Import your training data into Azure Machine Learning Studio (classic)](import-data.md).
 
 ## Create an experiment
 
-The next step in this tutorial is to create an experiment in Machine Learning Studio that uses the dataset you uploaded.  
+The next step in this tutorial is to create an experiment in  the classic version of Machine Learning Studio that uses the dataset you uploaded.  
 
-1. In Studio, click **+NEW** at the bottom of the window.
+1. In Studio (classic), click **+NEW** at the bottom of the window.
 1. Select **EXPERIMENT**, and then select "Blank Experiment". 
 
     ![Create a new experiment](./media/tutorial-part1-credit-risk/create-new-experiment.png)
@@ -169,7 +168,7 @@ The next step in this tutorial is to create an experiment in Machine Learning St
 
 You can view the first 100 rows of the data and some statistical information for the whole dataset: Click the output port of the dataset (the small circle at the bottom) and select **Visualize**.  
 
-Because the data file didn't come with column headings, Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when you eventually publish this model in a web service, the headings help identify the columns to the user of the service.  
+Because the data file didn't come with column headings,  the classic version of Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when you eventually publish this model in a web service, the headings help identify the columns to the user of the service.  
 
 You can add column headings using the [Edit Metadata][edit-metadata] module.
 
@@ -291,7 +290,7 @@ For more information on using R scripts in your experiments, see [Extend your ex
 In this tutorial you completed these steps: 
  
 > [!div class="checklist"]
-> * Create a Machine Learning Studio workspace
+> * Create a Machine Learning Studio (classic) workspace
 > * Upload existing data into the workspace
 > * Create an experiment
 
