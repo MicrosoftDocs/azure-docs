@@ -14,7 +14,7 @@ ms.author: helohr
 > [!IMPORTANT]
 > MSIX app attach is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). You can also leave feedback for this feature at the [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback) or the [MSIX packaging tool feedback hub](https://aka.ms/msixtoolfeedback).
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This topic will walk you through how to set up MSIX app attach in a Windows Virtual Desktop environment.
 
@@ -378,7 +378,7 @@ rmdir $packageName -Force -Verbose
 #endregion
 ```
 
-## Set up simulation scripts for MSIX app attach agent
+## Set up simulation scripts for the MSIX app attach agent
 
 After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [this article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
 
@@ -388,3 +388,9 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 - The logon script runs the register script.
 - The logoff script runs the deregister script.
 - The shutdown script runs the destage script.
+
+## Next steps
+
+This feature isn't currently supported, but you can ask questions to the community at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+
+You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://aka.ms/MRSFeedbackHub), or leave feedback for the MSIX app and packaging tool at the [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback) and the [MSIX packaging tool feedback hub](https://aka.ms/msixtoolfeedback).
