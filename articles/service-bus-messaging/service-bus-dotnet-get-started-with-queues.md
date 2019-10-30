@@ -195,7 +195,7 @@ Run the program and check the Azure portal.
 
 Select the name of your queue in the namespace **Overview** window to display queue **Essentials**.
 
-![Message size][queue-message]
+![Messages received with count and size][queue-message]
 
 The **Active message count** value for the queue is now **10**. Each time you run the sender application without retrieving the messages, this value increases by 10.
 
@@ -398,7 +398,7 @@ namespace CoreReceiverApp
 
 Run the program, and check the portal again. Notice that the **Active message count** and **CURRENT** values are now **0**.
    
-![Queue length][queue-message-receive]
+![Queue after messages have been received][queue-message-receive]
 
 Congratulations! You've now created a queue, sent a set of messages to that queue, and received those messages from the same queue.
 
@@ -412,6 +412,6 @@ Check out our [GitHub repository with samples](https://github.com/Azure/azure-se
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
-[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/messages-sent-to-essentials.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive-in-essentials.png
 
