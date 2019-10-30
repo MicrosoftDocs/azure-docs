@@ -81,7 +81,7 @@ MSAL.NET has more explicit exceptions. For example, when silent authentication f
 ```csharp
 catch(AdalException exception)
 {
- if (exception.ErrorCode == “user_interaction_required”)
+ if (exception.ErrorCode == "user_interaction_required")
  {
   try
   {“try to authenticate interactively”}}
@@ -180,7 +180,7 @@ If you want to read and write with MSAL.NET Azure Active Directory using the AAD
 
 ```csharp
 ResourceId = "https://graph.windows.net/";
-var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directory.Write”}
+var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 #### Warning: Should you have one or two slashes in the scope corresponding to a v1.0 Web API

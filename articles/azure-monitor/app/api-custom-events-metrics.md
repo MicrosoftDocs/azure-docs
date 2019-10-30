@@ -612,7 +612,7 @@ If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCoun
 
 ## TrackDependency
 
-Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal.
+Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal. The code snippet below needs to be added wherever a dependency call is made.
 
 *C#*
 
