@@ -51,7 +51,7 @@ The Filter-Based Feature Selection module provides a variety of metrics for asse
 
 You choose a standard statistical metric. The module computes the correlation between a pair of columns: the label column and a feature column.
 
-1.  Add the **Filter-Based Feature Selection** module to your pipeline. You can find it in the **Feature Selection** category in the designer.
+1.  Add the Filter-Based Feature Selection module to your pipeline. You can find it in the **Feature Selection** category in the designer.
 
 2. Connect an input dataset that contains at least two columns that are potential features.  
 

@@ -25,7 +25,7 @@ This article provides an overview of the permutation feature, its theoretical ba
 
 Generating a set of feature scores requires that you have an already trained model, as well as a test dataset.  
 
-1.  Add the **Permutation Feature Importance** module to your pipeline. You can find this module in the **Feature Selection** category. 
+1.  Add the Permutation Feature Importance module to your pipeline. You can find this module in the **Feature Selection** category. 
 
 2.  Connect a trained model to the left input. The model must be a regression model or a classification model.  
 
