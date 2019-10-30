@@ -30,7 +30,7 @@ To learn more, see the [durable entities](durable-functions-entities.md) article
 
 ### Durable HTTP
 
-In Durable Functions 2.0, we introduced a new [Durable HTTP](durable-functions-http-features.md) feature that allows you to:
+In Durable Functions 2.0, we introduced a new [Durable HTTP](durable-functions-http-features.md#consuming-http-apis) feature that allows you to:
 
 * Call HTTP APIs directly from orchestration functions (with some documented limitations)
 * Implement automatic client-side HTTP 202 status polling
