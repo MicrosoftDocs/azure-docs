@@ -147,9 +147,24 @@ roles[primary eq "True"].value
  
  
  ![Map AppRoleAssignmentsToRolesCapture](./media/customize-application-attributes/AppRoleAssignmentsToRolesCapture.PNG)
- 
- 
-- multipleEntitlementGrantsComplex
+
+
+
+- **SingleAppRoleAssignment** - Provision a single role for a user
+  - **When to use:** loreIpsum
+  - **How to configure** lore ipsum
+  - **Example output:** loreIpsum
+  - **Things to consider**
+    - Ensure that multiple roles are not assigned to a user. We cannot gaurantee which role will be provisioned.   
+  
+- **AppRoleAssignmentsComplex -** Provision multiple roles per user
+  - **When to use:** loreIpsum
+  - **How to configure** lore ipsum
+  - **Example output:** loreIpsum
+  - **Things to consider**
+    - All roles will be provisioned as primary = false
+    - The POST contains type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH.
+    
 
 ## Provisioning a multi-value attribute
 Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression below for multi value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value.  Do you need to set it as multi-attribute?
