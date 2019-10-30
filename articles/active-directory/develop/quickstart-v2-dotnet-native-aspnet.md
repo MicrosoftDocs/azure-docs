@@ -162,4 +162,6 @@ You can implement a custom method to validate issuers by using the **IssuerValid
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
-Learn more about the different [Authentication flows and application scenarios](authentication-flows-app-scenarios.md) that the Microsoft identity platform supports.
+Learn more about the protected web API scenario that the Microsoft identity platform supports:
+> [!div class="nextstepaction"]
+> [Protected web API scenario](scenario-protected-web-api-overview.md)
