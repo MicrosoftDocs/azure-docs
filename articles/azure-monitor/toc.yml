@@ -175,11 +175,125 @@
         href: app/ilogger.md
       - name: Java
         items:
-        - name: Web apps
-          displayname: java
-          href: app/java-get-started.md
-        - name: Docker apps
-          href: app/docker.md
+        - name: Log-based & pre-aggregated metrics
+          href: app/pre-aggregated-metrics-log-metrics.md
+        - name: Log-based metrics definitions
+          href: platform/app-insights-metrics.md
+        - name: Classic metrics explorer   
+          href: app/metrics-explorer.md
+      - name: Search
+        href: app/diagnostic-search.md
+      - name: Profiler
+        items:
+        - name: Overview
+          displayname: profiling, debugging, code performance, perf
+          href: app/profiler-overview.md 
+        - name: Enable Profiler for an App Service
+          href: app/profiler.md
+        - name: Enable the Profiler for a Cloud Service
+          href: app/profiler-cloudservice.md 
+        - name: Enable Profiler for a Service Fabric Application
+          href: app/profiler-servicefabric.md 
+        - name: Enable Profiler for an Azure VM
+          href: app/profiler-vm.md
+        - name: Profiler for Linux App services (preview)
+          href: app/profiler-aspnetcore-linux.md
+        - name: Profiler Settings
+          href: app/profiler-settings.md 
+        - name: Track Requests for Profiling
+          href: app/profiler-trackrequests.md 
+        - name: Profiler Troubleshooting
+          href: app/profiler-troubleshooting.md 
+      - name: Snapshot Debugger
+        items:
+        - name: Overview
+          displayname: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
+          href: app/snapshot-debugger.md 
+        - name: Enable Snapshot Debugger for an App Service
+          href: app/snapshot-debugger-appservice.md
+        - name: Enable Snapshot Debugger for other environments
+          href: app/snapshot-debugger-vm.md
+        - name: Upgrade Snapshot Debugger
+          href: app/snapshot-debugger-upgrade.md
+        - name: Snapshot Debugger troubleshooting
+          displayname: troubleshoot, troubleshooting
+          href: app/snapshot-debugger-troubleshoot.md
+      - name: Smart Detection
+        href: app/proactive-diagnostics.md
+        items:
+        - name: Failure anomalies
+          href: app/proactive-failure-diagnostics.md
+        - name: Performance anomalies
+          href: app/proactive-performance-diagnostics.md
+        - name: Trace degradation
+          href: app/proactive-trace-severity.md
+        - name: Exception volume
+          href: app/proactive-exception-volume.md
+        - name: Memory leak
+          href: app/proactive-potential-memory-leak.md
+        - name: Security detection
+          href: app/proactive-application-security-detection-pack.md
+        - name: Azure Cloud Services
+          href: app/proactive-cloud-services.md
+        - name: Manage smart detection rules
+          href: app/proactive-arm-config.md
+        - name: E-mail notification
+          href: app/proactive-email-notification.md
+      - name: Usage (user behavior analytics)
+        items:
+        - name: Overview
+          displayname: user behavior analytics, user behavior, usage, behavioral analytics
+          href: app/usage-overview.md
+        - name: Send user context
+          href: app/usage-send-user-context.md
+        - name: Users, Sessions, Events
+          href: app/usage-segmentation.md
+        - name: Funnels
+          href: app/usage-funnels.md
+        - name: Cohorts
+          href: app/usage-cohorts.md
+        - name: Impact
+          href: app/usage-impact.md
+        - name: Retention
+          href: app/usage-retention.md
+        - name: User Flows
+          href: app/usage-flows.md
+        - name: Usage analytics
+          href: app/usage-troubleshoot.md
+        - name: Workbooks
+          href: app/usage-workbooks.md
+      - name: Azure DevOps
+        items: 
+        - name: Release annotations
+          href: app/annotations.md
+        - name: Continuous monitoring
+          href: app/continuous-monitoring.md
+      - name: Advanced configuration
+        items:
+        - name: Access control
+          href: app/resources-roles-access-control.md
+        - name: IP address collection
+          href: app/ip-collection.md
+          displayname: geolocation, IP collection, IP tracking, IP storage
+        - name: Sampling
+          displayname: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
+          href: app/sampling.md
+        - name: TelemetryChannels
+          dispayname: in memory, server telemetry channel, channel, inmemory, servertelemetry 
+          href: app/telemetry-channels.md
+        - name: TelemetryProcessors
+          displayname: processors, filtering, telemetry filtering, telemetry processor
+          href: app/api-filtering-sampling.md
+        - name: Telemetry correlation
+          href: app/correlation.md
+          displayname: correlation headers, w3c, distributed tracing
+        - name: Track custom operations in .NET SDK
+          href: app/custom-operations-tracking.md
+          displayname: correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation
+        - name: Custom email reports
+          href: app/automate-custom-reports.md
+        - name: Exceptions
+          href: app/asp-net-exceptions.md
         - name: Log traces
           href: app/java-trace-logs.md
         - name: Unix metrics
@@ -702,6 +816,8 @@
         href: insights/azure-sql.md
       - name: SQL Server
         href: insights/sql-assessment.md
+      - name: Azure Cosmos DB
+        href: insights/cosmosdb-insights-overview.md
     - name: Networks
       items:
       - name: Networking Analytics
@@ -871,7 +987,31 @@
       - name: Export application data
         href: app/export-power-bi.md 
     - name: Workbooks
-      href: app/usage-workbooks.md
+      items:
+      - name: Overview
+        href: platform/workbooks-overview.md
+      - name: Visualizations
+        href: platform/workbooks-visualizations.md
+      - name: Data sources
+        href: platform/workbooks-data-sources.md
+      - name: Deploy with Azure Resource Manager
+        href: platform/workbooks-automate.md
+      - name: Configuration
+        items:
+        - name: Access control
+          href: platform/workbooks-access-control.md
+        - name: Parameters
+          items:
+          - name: Parameter summary
+            href: platform/workbooks-parameters.md
+          - name: Drop down parameters
+            href: platform/workbooks-dropdowns.md
+          - name: Interactive parameters
+            href: platform/workbooks-interactive.md
+          - name: Time parameters
+            href: platform/workbooks-time.md
+          - name: Text parameters
+            href: platform/workbooks-text.md
     - name: Dashboards
       items:
       - name: Dashboard using log data

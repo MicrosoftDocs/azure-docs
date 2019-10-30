@@ -1,6 +1,6 @@
 ---
-title: Common scenarios in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management (Preview).
+title: Common scenarios in Azure AD entitlement management - Azure Active Directory
+description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using entitlement management.
 
 ---
-# Common scenarios in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Common scenarios in Azure AD entitlement management
 
 There are several ways that you can configure entitlement management for your organization. However, if you're just getting started, it's helpful to understand the common scenarios for administrators, approvers, and requestors.
 
