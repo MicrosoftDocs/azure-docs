@@ -96,22 +96,22 @@
       items:        
       - name: Create and manage classroom labs
         href: classroom-labs/how-to-manage-classroom-labs.md
-      - name: Set up and publish templates
+      - name: Set up, customize, and publish templates
         href: classroom-labs/how-to-create-manage-template.md
-      - name: Configure and control usage
+      - name: Set up and manage virtual machine pool 
+        href: classroom-labs/how-to-set-virtual-machine-passwords.md
+      - name: Add and manage lab users
         href: classroom-labs/how-to-configure-student-usage.md      
       - name: Create and manage schedules
         href: classroom-labs/how-to-create-schedules.md
-      - name: Create an environment with multiple VMs inside a template VM
-        href: classroom-labs/how-to-enable-multi-vm-environment.md
       - name: Use a shared image gallery
         href: classroom-labs/how-to-use-shared-image-gallery.md            
       - name: Enable remote desktop connection for Linux
         href: classroom-labs/how-to-enable-remote-desktop-linux.md
-      - name: Set or reset passwords for virtual machines 
-        href: classroom-labs/how-to-set-virtual-machine-passwords.md
       - name: Enable nested virtualization on a template VM
         href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
+      - name: Create an environment with multiple VMs inside a template VM
+        href: classroom-labs/how-to-enable-multi-vm-environment.md
     - name: Connect to VMs in classroom labs (student)
       items:        
       - name: Access classroom labs

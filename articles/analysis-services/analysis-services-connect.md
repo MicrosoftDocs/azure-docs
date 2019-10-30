@@ -2,7 +2,6 @@
 title: Connecting to Azure Analysis Services servers| Microsoft Docs
 description: Learn how to connect to and get data from an Analysis Services server in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 03/29/2019

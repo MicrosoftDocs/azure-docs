@@ -74,7 +74,7 @@ os.system(f"pip install scikit-misc")
 
 The **Execute Python Script** module contains sample Python code that you can use as a starting point. To configure the **Execute Python Script** module, you provide a set of inputs and Python code to execute in the **Python script** text box.
 
-1. Add the **Execute Python Script** module to your experiment.
+1. Add the **Execute Python Script** module to your pipeline.
 
 2. Add and connect on **Dataset1** any datasets from the interface that you want to use for input. Reference this dataset in your Python script as **DataFrame1**.
 
@@ -88,7 +88,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
 4. To include new Python packages or code, add the zipped file containing these custom resources  on **Script bundle**. The input to **Script bundle** must be a zipped file already uploaded to your workspace. 
 
-    Any file contained in the uploaded zipped archive can be used during experiment execution. If the archive includes a directory structure, the structure is preserved, but you must prepend a directory called **src** to the path.
+    Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved, but you must prepend a directory called **src** to the path.
 
 5. In the **Python script** text box, type or paste valid Python script.
 
@@ -102,13 +102,13 @@ The **Execute Python Script** module contains sample Python code that you can us
 
     + Two datasets can be returned to the interface, which must be a sequence of type `pandas.DataFrame`. You can create other outputs in your Python code and write them directly to Azure storage.
 
-6. Run the experiment, or select the module and click **Run selected** to run just the Python script.
+6. Run the pipeline, or select the module and click **Run selected** to run just the Python script.
 
     All of the data and code is loaded into a virtual machine, and run using the specified Python environment.
 
 ## Results
 
-The results of any computations performed by the embedded Python code must be provided as a pandas.DataFrame, which is automatically converted to the Azure Machine Learning dataset format, so that you can use the results with other modules in the experiment.
+The results of any computations performed by the embedded Python code must be provided as a pandas.DataFrame, which is automatically converted to the Azure Machine Learning dataset format, so that you can use the results with other modules in the pipeline.
 
 The module returns two datasets:  
   

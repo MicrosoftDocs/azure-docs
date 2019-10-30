@@ -29,7 +29,7 @@ To complete the steps in this article, you need the following resources:
 
 ## Get device connection details
 
-In your Azure IoT Central application, select the **Administration** tab and select **Device Connection**. Make a note of the **Scope ID** and **Primary key**.
+In your Azure IoT Central application, select the **Administration** tab and select **Device Connection**. Make a note of the **ID Scope** and **Primary key**.
 
 ![Device group connection details](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -56,7 +56,7 @@ In your Azure IoT Central application, select the **Administration** tab and sel
 
     - The name of your WiFi network (SSID).
     - Your WiFi network password.
-    - The connection details: the **Device ID** that you can choose yourself, and the **Scope ID** and **Group SAS Primary Key** you made a note of previously.
+    - The connection details: the **Device ID** that you can choose yourself, and the **ID Scope** and **Group SAS Primary Key** you made a note of previously.
 
     > [!NOTE]
     > Currently, the IoT DevKit only can connect to 2.4 GHz Wi-Fi, 5 GHz is not supported due to hardware restrictions.
@@ -81,7 +81,7 @@ In your IoT Central application, select **Devices** tab, select the device you a
 
 ## Review the code
 
-To review the code or modify and compile it, go to the [MXChip IoT DevKit sample code GitHub repository](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
+To review the code or modify and compile it, go to the [Code Samples](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
 
 ## Next steps
 

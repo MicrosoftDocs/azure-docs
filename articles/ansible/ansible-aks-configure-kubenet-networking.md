@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible | Microsoft Docs
+title: Tutorial - Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible
 description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service (AKS) cluster
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 ms.topic: tutorial

@@ -699,4 +699,4 @@ Use the `-showErr` parameter to view the standard error (STDERR) that is produce
 
 ## Next steps
 
-[Learn how to use SQLLine with Apache HBase](apache-hbase-phoenix-squirrel-linux.md)
+[Learn how to use SQLLine with Apache HBase](apache-hbase-query-with-phoenix.md)

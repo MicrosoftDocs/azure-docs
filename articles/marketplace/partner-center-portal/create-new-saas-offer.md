@@ -155,18 +155,7 @@ By enabling test drive, you will be asked to configure a demonstration environme
 
 ## Connect lead management
 
-Connect with customers directly by listing your offer in the marketplaces and hooking up your Customer Relationship Management (CRM) system so that you can receive customer contact information immediately after a customer expresses interest or deploys your product.
-
-- **Choose a lead destination** (drop-down menu): Provide connection details to the CRM system where you would like us to send customer leads. 
-
-Partner Center supports the following CRM systems for lead management. Select the link for setup instructions.
-
-- Azure Blob– Provide contact email, container name, and storage account connection string. 
-- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – Provide contact email and storage account connection string. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – Provide contact email, URL, and authentication mode (Office 365 or Azure Active Directory).
-- [Https Endpoint](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – Provide contact email and HTTPS endpoint URL. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – Provide contact email, form ID, Munchkin account ID, and server ID.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -  Provide contact email and organization ID. 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### Additional lead management resources
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
@@ -442,7 +431,7 @@ Select the frequency that customers must pay the price listed. At least one Mont
 - **Price**: USD per month or USD per year
 
 Prices set in local currency (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates available during setup. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. You are responsible for validating this pricing and own these settings.
-**You must first save your pricing changes to enable export of pricing data.*
+*\*You must first save your pricing changes to enable export of pricing data.*
 
 Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published:
 

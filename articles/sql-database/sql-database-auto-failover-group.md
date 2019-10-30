@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 09/06/2019
+ms.date: 10/21/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -143,6 +143,9 @@ When designing a service with business continuity in mind, follow these general 
 - **Use one or several failover groups to manage failover of multiple databases**
 
   One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region. The failover group creates geo-secondary database with the same service objective as the primary. If you add an existing geo-replication relationship to the failover group, make sure the geo-secondary is configured with the same service tier and compute size as the primary.
+  
+  > [!IMPORTANT]
+  > Creating failover groups between two servers in different subscriptions is not currently supported for single databases and elastic pools.
 
 - **Use read-write listener for OLTP workload**
 
@@ -298,9 +301,6 @@ This sequence is recommended specifically to avoid the problem where the seconda
 
 > [!NOTE]
 > If you created secondary database as part of the failover group configuration it is not recommended to downgrade the secondary database. This is to ensure your data tier has sufficient capacity to process your regular workload after failover is activated.
-
-> [!IMPORTANT]
-> Upgrading or downgrading a Managed Instance which is a member of a failover group is currently not supported.
 
 ## Preventing the loss of critical data
 

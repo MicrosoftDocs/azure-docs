@@ -70,7 +70,7 @@
   - name: Azure SDK for Ruby (Gem)
     href: https://rubygems.org/gems/azure_mgmt_resourcegraph
   - name: REST
-    href: /rest/api/azureresourcegraph/resources/resources
+    href: /rest/api/azure-resourcegraph/
   - name: OpenAPI
     href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01 
 - name: Resources

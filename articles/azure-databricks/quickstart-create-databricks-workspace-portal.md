@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Run a Spark job on Azure Databricks using Azure portal'
+title: Run a Spark job on Azure Databricks using Azure portal
 description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
 ms.service: azure-databricks
@@ -49,8 +49,9 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
     |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
     |**Pricing Tier**     |  Choose between **Standard**, **Premium**, or **Trial**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Virtual Network**     |  Choose to deploy an Azure Databricks workspace in your own Virtual Network (VNet). For more information, see [Deploy Azure Databricks in your Azure Virtual Network (VNet Injection)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
-    Select **Pin to dashboard** and then click **Create**.
+    Select **Create**.
 
 4. The workspace creation takes a few minutes. During workspace creation, you can view the deployment status in **Notifications**.
 
@@ -74,7 +75,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
    * Enter a name for the cluster.
-   * For this article, create a cluster with **5.2** runtime.
+   * For this article, create a cluster with **5.3** runtime.
    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
     
      Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.

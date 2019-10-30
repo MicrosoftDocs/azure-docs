@@ -3,8 +3,8 @@ title: Azure Security technical overviews | Microsoft Docs
 description: The article provides a curated list of Azure security technical overviews for different Azure resources.
 services: azure-security
 documentationcenter: na
-author: TomShinder
-manager: barbkess
+author: TerryLanfear
+manager: rkarlin
 editor: TomSh
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
-ms.author: tomsh
+ms.author: terrylan
 
 ---
 # Azure Security technical overviews
@@ -30,9 +30,9 @@ ms.author: tomsh
 * [Azure Service Fabric security overview](../../service-fabric/service-fabric-overview.md)
 * [Azure Storage security overview](storage-overview.md)
 * [Azure virtual machines security overview](virtual-machines-overview.md)
-* [Internet of Things security architecture](/azure/iot-suite/iot-security-architecture#security-in-iot) 
+* [Internet of Things security architecture](/azure/iot-suite/iot-security-architecture#security-in-iot)
 * [Introduction to Azure security](overview.md)
 * [Introduction to Azure log integration](azure-log-integration-overview.md)
 * [Secure your Internet of Things in Azure](iot-overview.md)
 * [Securing PaaS deployments](paas-deployments.md)
-* [What is Azure Security Center?](/azure/security-center/security-center-intro?toc=%2fazure%2fsecurity%2ftoc.json) 
+* [What is Azure Security Center?](/azure/security-center/security-center-intro?toc=%2fazure%2fsecurity%2ftoc.json)

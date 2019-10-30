@@ -3,8 +3,8 @@ title: Azure Security MVP Program | Microsoft Docs
 description: The article provides an overview of the Azure Security contribution area in the MVP Program.
 services: security
 documentationcenter: na
-author: barclayn
-manager: barbkess
+author: TerryLanfear
+manager: rkarlin
 editor: TomSh
 
 ms.assetid: 34f4bdf0-7332-4c4a-b186-05263da700cf
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2019
-ms.author: barclayn
+ms.author: terrylan
 
 ---
 # Azure Security MVP Program
