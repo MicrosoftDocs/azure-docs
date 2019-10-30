@@ -73,7 +73,7 @@ In the **data source** page, the source must be **Cosmos DB**, with the followin
 
 + **Collection** is a container of documents. Documents must exist in order for import to succeed. 
 
-+ **Query** can be blank if you want all documents, otherwise you can input a query that selects a document subset. Queries is only available for the SQL API.
++ **Query** can be blank if you want all documents, otherwise you can input a query that selects a document subset. **Query** is only available for the SQL API.
 
    ![Cosmos DB data source definition](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB data source definition")
 
