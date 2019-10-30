@@ -36,7 +36,7 @@ After this transformation, you copy the data as outlined in the chapter [Move da
 ## Caveats
 
 - Data semantics
-    When copying files, the copy will occur at the byte level.  So the same data should be appearing in the [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) account.  Note however, Spark may interpret some characters differently.  For example, it may use a different default for a row-delimiter in a CSV file.
+    When copying files, the copy will occur at the byte level. So the same data should be appearing in the [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) account. Note however, Spark may interpret some characters differently. For example, it may use a different default for a row-delimiter in a CSV file.
     Furthermore, if you're copying typed data (from tables), then Parquet and Spark may have different precision and scale for some of the typed values (for example, a float) and may treat null values differently. For example, U-SQL has the C# semantics for null values, while Spark has a three-valued logic for null values.
 
 - Data organization (partitioning)

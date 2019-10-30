@@ -15,14 +15,14 @@ ms.date: 10/11/2019
 
 The Azure Data Lake Analytics default runtime is upgrading from .NET Framework v4.5.2 to .NET Framework v4.7.2. This change introduces a small risk of breaking changes if your U-SQL code uses custom assemblies, and those custom assemblies use .NET libraries.
 
-This upgrade from .NET Framework 4.5.2 to version 4.7.2 means that the .NET Framework deployed in a U-SQL runtime (the default runtime) will now always be 4.7.2.  There isn't a side-by-side option for .NET Framework versions.
+This upgrade from .NET Framework 4.5.2 to version 4.7.2 means that the .NET Framework deployed in a U-SQL runtime (the default runtime) will now always be 4.7.2. There isn't a side-by-side option for .NET Framework versions.
 
 After this upgrade to .NET 4.7.2 is complete, the system’s managed code will run as version 4.7.2, user provided libraries such as the U-SQL custom assemblies will run in the backwards-compatible mode appropriate for the version that the assembly has been generated for.
 
 - If your assembly DLLs are generated for version 4.5.2, the deployed framework will treat them as 4.5.2 libraries, providing (with a few exceptions) 4.5.2 semantics.
-- You can now use U-SQL custom assemblies that make use of version 4.7.2 features, if you target the .NET Framework 4.7.2.  
+- You can now use U-SQL custom assemblies that make use of version 4.7.2 features, if you target the .NET Framework 4.7.2.
 
-Because of this upgrade to .NET 4.7.2, there's a potential to introduce breaking changes to your U-SQL jobs that use .NET custom assemblies.  We suggest you check for backwards-compatibility issues using the procedure below.
+Because of this upgrade to .NET 4.7.2, there's a potential to introduce breaking changes to your U-SQL jobs that use .NET custom assemblies. We suggest you check for backwards-compatibility issues using the procedure below.
 
 ## How to check for backwards-compatibility issues
 
@@ -48,7 +48,7 @@ You can check for the deployment of the new runtime here [Runtime troubleshoot](
 
 ### What if I can't get my code reviewed in time?
 
-You can submit your job against the old runtime version (which is built targeting 4.5.2), however due to the lack of .NET Framework side-by-side capabilities, it will still only run in 4.5.2 compatibility mode.  This means you may still encounter some of the backwards-compatibility issues.
+You can submit your job against the old runtime version (which is built targeting 4.5.2), however due to the lack of .NET Framework side-by-side capabilities, it will still only run in 4.5.2 compatibility mode. This means you may still encounter some of the backwards-compatibility issues.
 
 ### What are the most common backwards-compatibility issues you may encounter?
 
@@ -80,7 +80,7 @@ The most common backwards-incompatibilities that the checker is likely to identi
   - Suggested Action: Ensure you are handling the new expected behavior when there is null authorization policy
   
 - RSACng now correctly loads RSA keys of non-standard key size
-  - In .NET Framework versions prior to 4.6.2, customers with non-standard key sizes for RSA certificates are unable to access those keys via the `GetRSAPublicKey()` and `GetRSAPrivateKey()` extension methods.  A `CryptographicException` with the message "The requested key size is not supported" is thrown. In .NET Framework 4.6.2 this issue has been fixed. Similarly, `RSA.ImportParameters()` and `RSACng.ImportParameters()` now work with non-standard key sizes without throwing `CryptographicException`'s.
+  - In .NET Framework versions prior to 4.6.2, customers with non-standard key sizes for RSA certificates are unable to access those keys via the `GetRSAPublicKey()` and `GetRSAPrivateKey()` extension methods. A `CryptographicException` with the message "The requested key size is not supported" is thrown. In .NET Framework 4.6.2 this issue has been fixed. Similarly, `RSA.ImportParameters()` and `RSACng.ImportParameters()` now work with non-standard key sizes without throwing `CryptographicException`'s.
   - Impacted Libraries: mscorlib, System.Core
   - Suggested Action: Ensure RSA keys are working as expected
 
@@ -90,7 +90,7 @@ The most common backwards-incompatibilities that the checker is likely to identi
   - Suggested Action:
 
 - Calls to ClaimsIdentity constructors
-  - Starting with the .NET Framework 4.6.2, there is a change in how  `T:System.Security.Claims.ClaimsIdentity` constructors with an `T:System.Security.Principal.IIdentity` parameter set the `P:System.Security.Claims.ClaimsIdentify.Actor` property. If the `T:System.Security.Principal.IIdentity` argument is a `T:System.Security.Claims.ClaimsIdentity` object, and the `P:System.Security.Claims.ClaimsIdentify.Actor` property of that `T:System.Security.Claims.ClaimsIdentity` object is not `null`, the `P:System.Security.Claims.ClaimsIdentify.Actor` property is attached by using the `M:System.Security.Claims.ClaimsIdentity.Clone` method. In the Framework 4.6.1 and earlier versions, the `P:System.Security.Claims.ClaimsIdentify.Actor` property is attached as an existing reference.  Because of this change, starting with the .NET Framework 4.6.2, the `P:System.Security.Claims.ClaimsIdentify.Actor` property of the new `T:System.Security.Claims.ClaimsIdentity`  object is not equal to the `P:System.Security.Claims.ClaimsIdentify.Actor` property of the constructor's `T:System.Security.Principal.IIdentity`  argument. In the .NET Framework 4.6.1 and earlier versions, it is equal.
+  - Starting with the .NET Framework 4.6.2, there is a change in how `T:System.Security.Claims.ClaimsIdentity` constructors with an `T:System.Security.Principal.IIdentity` parameter set the `P:System.Security.Claims.ClaimsIdentify.Actor` property. If the `T:System.Security.Principal.IIdentity` argument is a `T:System.Security.Claims.ClaimsIdentity` object, and the `P:System.Security.Claims.ClaimsIdentify.Actor` property of that `T:System.Security.Claims.ClaimsIdentity` object is not `null`, the `P:System.Security.Claims.ClaimsIdentify.Actor` property is attached by using the `M:System.Security.Claims.ClaimsIdentity.Clone` method. In the Framework 4.6.1 and earlier versions, the `P:System.Security.Claims.ClaimsIdentify.Actor` property is attached as an existing reference. Because of this change, starting with the .NET Framework 4.6.2, the `P:System.Security.Claims.ClaimsIdentify.Actor` property of the new `T:System.Security.Claims.ClaimsIdentity` object is not equal to the `P:System.Security.Claims.ClaimsIdentify.Actor` property of the constructor's `T:System.Security.Principal.IIdentity` argument. In the .NET Framework 4.6.1 and earlier versions, it is equal.
   - Impacted Libraries: mscorlib
   - Suggested Action: Ensure ClaimsIdentity is working as expected on new runtime
 
