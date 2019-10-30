@@ -68,19 +68,6 @@ landingContent:
           url: define-custom-suggestions.md
         - text: Share your custom search instance
           url: share-your-custom-search.md
-
-- title: REST API Reference
-  linkLists:
-    - linkListType: reference
-      links:
-        - text: Custom Search REST API v7 
-          url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference
-        - text: Custom Autosuggest REST API v7 
-          url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference
-        - text: Custom Image Search REST API v7 
-          url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference
-        - text: Custom Video Search REST API v7 
-          url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference
 - title: SDK reference
   linkLists:
     - linkListType: reference
@@ -103,3 +90,16 @@ landingContent:
           url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
         - text: Azure CLI
           url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+- title: REST API Reference
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Custom Search REST API v7 
+          url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference
+        - text: Custom Autosuggest REST API v7 
+          url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference
+        - text: Custom Image Search REST API v7 
+          url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference
+        - text: Custom Video Search REST API v7 
+          url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference
+
