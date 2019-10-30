@@ -119,7 +119,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 ## Create a Virtual Network and a subnet for the application gateway
 
-The following example shows how to create a Virtual Network using the resource manager.
+The following example shows how to create a Virtual Network using Resource Manager.
 
 ### Step 1
 
