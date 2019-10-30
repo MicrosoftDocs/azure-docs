@@ -4,7 +4,7 @@ description: Learn how to create service principals for automating Azure Analysi
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
