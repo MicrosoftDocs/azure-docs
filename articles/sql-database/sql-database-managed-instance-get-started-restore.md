@@ -82,7 +82,7 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
 
 7. When the restore completes, view the database in Object Explorer. You can verify that database restore is completed using [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) view.
 
-> [NOTE!]
+> [!NOTE]
 > Database restore operation is asynchronous and retriable. You might get some error is SQL Server Management Studio if connection breaks or some time-out expires. Azure SQL Database will keep trying to restore database in the background, and you can track the progress of restore using the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
 > In some phases of restore process you will see unique identifier instead of actual database name in the system views. Learn about `RESTORE` statement behavior differences [here](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
