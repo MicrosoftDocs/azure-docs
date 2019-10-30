@@ -39,7 +39,7 @@ The troubleshooting process is as follows:
 6. Unmount and detach disk from recovery VM.
 7. Change the OS disk for the affected VM.
 
-You can use the VM recovery scripts to automate steps 1, 2, 3, 4, 6, and 7. For more documentation and instructions, see [VM Recovery Scripts for Resource Manager VM](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
+You can use the VM repair commands to automate steps 1, 2, 3, 4, 6, and 7. For more documentation and instructions, see [Repair a Windows VM by using the Azure Virtual Machine repair commands](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Make sure that you have [the latest Azure PowerShell](/powershell/azure/overview) installed and logged in to your subscription:
 
