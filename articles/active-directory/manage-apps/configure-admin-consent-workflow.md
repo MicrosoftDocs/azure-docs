@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
@@ -29,7 +29,7 @@ To approve requests, a reviewer must be a global administrator, cloud applicatio
 
 To enable the admin consent workflow and choose reviewers:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as one of the registered reviewers of the admin consent workflow.
 2. Click **All services** at the top of the left-hand navigation menu. The **Azure Active Directory Extension** opens.
 3. In the filter search box, type "**Azure Active Directory**" and select **the Azure Active Directory** item.
 4. From the navigation menu, click **Enterprise applications**. 
@@ -48,7 +48,7 @@ To enable the admin consent workflow and choose reviewers:
 7. Select **Save**. It can take up to an hour for the feature to become enabled.
 
 > [!NOTE]
-> You can add or remove reviewers for this workflow by modifying the **Select admin consent requests reviewers** list. Note that a current limitation of this feature is that reviewers could retain the ability to review requests even after they're removed.
+> You can add or remove reviewers for this workflow by modifying the **Select admin consent requests reviewers** list. Note that a current limitation of this feature is that reviewers can retain the ability to review requests that were made while they were designated as a reviewer.
 
 ## How users request admin consent
 
@@ -89,7 +89,7 @@ To review the admin consent requests and take action:
 
    * **Approve the request**. To approve a request, grant admin consent to the application. Once a request is approved, all requestors are notified that they have been granted access.  
    * **Deny the request**. To deny a request, you must provide a justification that will be provided to all requestors. Once a request is denied, all requestors are notified that they have been denied access to the application. Denying a request won't prevent users from requesting admin consent to the app again in the future.  
-   * **Block the request**. To block a request, you must provide a justification that will be provided to all requestors. Once a request is blocked, all requestors are notified they've been denied access to the application. Blocking a request creates a service principal object for the application in your tenant and disables the application. Users won't be able to request admin consent to the application in the future.
+   * **Block the request**. To block a request, you must provide a justification that will be provided to all requestors. Once a request is blocked, all requestors are notified they've been denied access to the application. Blocking a request creates a service principal object for the application in your tenant in a disabled state. Users won't be able to request admin consent to the application in the future.
  
 ## Email notifications
  
@@ -133,7 +133,7 @@ After turning on the feature, it may take up to 60 minutes for end users to see 
 
 Reviewers can only see admin requests that were created after they were designated as a reviewer. So if you were recently added as a reviewer, you won't see any requests that were created before your assignment.
 
-**As a requestor, why do I see multiple requests for the same application?**
+**As a reviewer, why do I see multiple requests for the same application?**
   
 If an application developer has configured their app to use static and dynamic consent to request access to their end user’s data, you'll see two admin consent requests. One request represents the static permissions, and the other represents the dynamic permissions.
 
