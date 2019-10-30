@@ -97,7 +97,7 @@ To run this sample you will need:
 
     ```file
     aad.clientId=Enter_the_Application_Id_here
-    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Name_Here/
+    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
     aad.secretKey=Enter_the_Client_Secret_Here
     aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
     aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
@@ -108,7 +108,7 @@ To run this sample you will need:
 >
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
 > - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
-> - `Enter_the_Tenant_Name_Here` - is the **Directory (tenant) ID** value of the application you registered.
+> - `Enter_the_Tenant_Info_Here` - is the **Directory (tenant) ID** value of the application you registered.
 
 #### Step 4: Run the code sample
 
