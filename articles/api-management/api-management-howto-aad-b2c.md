@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 
@@ -81,7 +81,17 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
     After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.
 
-## Sign up for a developer account by using Azure Active Directory B2C
+## Developer portal - add Azure AD B2C account authentication
+
+To enable sign in with AAD B2C in the developer portal, you need to add the **OAuth buttons** widget to the sign-in form.
+
+![AAD buttons widget](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+Although a new account will be automatically created whenever a new user signs in with AAD B2C, you may consider adding the same widget in the sign-up form.
+
+## Legacy developer portal - how to sign up with Azure AD B2C
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 1. To sign up for a developer account by using Azure Active Directory B2C, open a new browser window and go to the developer portal. Click the **Sign up** button.
 
@@ -132,7 +142,6 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.PNG
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-b2c-security-tab.png
 [api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png
