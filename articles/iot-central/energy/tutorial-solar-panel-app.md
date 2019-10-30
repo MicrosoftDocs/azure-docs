@@ -12,6 +12,8 @@ manager: abjork
 
 # Tutorial: Create and walk-through the solar panel monitoring app template 
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial guides you through the process of creating the solar panel monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn:
 
 
@@ -36,8 +38,8 @@ You can create this application in three simple steps:
 
 2. Select **Energy** tab and click **Create app** under **Solar panel monitoring** application tile. 
 
-    > [!div class="mx-imgBorder"]
-    > ![Build App](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
+    [!div class="mx-imgBorder"]
+    ![Build App](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
 3. **Create app** will open **New application** form. Fill in the requested details as shown in the figure below:
     * **Application name**: Pick a name for your IoT Central application. 
@@ -65,37 +67,37 @@ Adatum is a fictitious energy company, who monitors and manages solar panels. On
 * Track the total energy generation for planning and billing purposes
 * Command and control operations such as activate panel and update firmware version. In the template, the command buttons show the possible functionalities and don't send real commands.
 
-> [!div class="mx-imgBorder"]
-> ![Solar panel monitoring dashboard](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
+[!div class="mx-imgBorder"]
+![Solar panel monitoring dashboard](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
 ### Devices
 The app comes with a sample solar panel device. You can see the device details by clicking on the **Devices** tab.
 
-> [!div class="mx-imgBorder"]
-> ![Solar panel devices](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
+[!div class="mx-imgBorder"]
+![Solar panel devices](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
 
 
 Click on the sample device **SP0123456789** link to see the device details. On the **Update Properties** page, you can update the writable properties of the device and visualize the updated values on the dashboard. 
 
-> [!div class="mx-imgBorder"]
-> ![Solar panel properties](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
+[!div class="mx-imgBorder"]
+![Solar panel properties](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
 
 
 ### Device Template
 Click on the **Device templates** tab to see the solar panel device model. The model has pre-define interface for Data, Property, Commands, and Views.
 
-> [!div class="mx-imgBorder"]
-> ![Solar panel devices template](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
+[!div class="mx-imgBorder"]
+![Solar panel devices template](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
 ## Clean up resources
 If you decide to not continue using this application, delete your application with the following these steps:
 
-1. From the left-hand menu, open Administration tab
+1. From the left pane, open Administration tab
 2. Select Application settings and click Delete button at the bottom of the page. 
 
-    > [!div class="mx-imgBorder"]
-    > ![Delete application](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
+    [!div class="mx-imgBorder"]
+    ![Delete application](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
 
 ## Next steps

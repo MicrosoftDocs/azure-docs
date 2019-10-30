@@ -40,7 +40,7 @@ To complete this quickstart:
 1. [Install Git](https://git-scm.com/)
 2. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
-4. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 
 ## Install the Azure CLI extension
@@ -71,7 +71,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. Go to the service **Overview** page and select **Config Server**.
 
-1. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics", set **LABEL** to "config", and select **Apply** to save your changes.
+1. In the **Default repository** section, set **URI** to "https\://github.com/Azure-Samples/piggymetrics", set **LABEL** to "config", and select **Apply** to save your changes.
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
