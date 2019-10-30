@@ -58,7 +58,7 @@ SMB 3.0 was designed with the explicit requirement of being internet safe file s
 
 1. Ensure that SMB 1.0 is removed or disabled on your organization's devices. All currently supported versions of Windows and Windows Server support removing or disabling SMB 1.0, and starting with Windows 10, version 1709, SMB 1.0 is not installed on the Windows by default. To learn more about how to disable SMB 1.0, see our OS-specific pages:
     - [Securing Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
-    - [Securing Linux](storage-how-to-use-files-linux.md#securing-your-linux-distribution)
+    - [Securing Linux](storage-how-to-use-files-linux.md#securing-linux)
 1. Ensure that no products within your organization require SMB 1.0 and remove the ones that do. We maintain an [SMB1 Product Clearinghouse](https://aka.ms/stillneedssmb1), which contains all the first and third-party products known to Microsoft to require SMB 1.0. 
 1. (Optional) Use a third-party firewall with your organization's on-premises network to prevent SMB 1.0 traffic.
 
