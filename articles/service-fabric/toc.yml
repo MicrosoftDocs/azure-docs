@@ -877,6 +877,8 @@
     href: service-fabric-common-questions.md
   - name: MSDN Forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
+  - name: ARM Deployment Guardrails
+    href: service-fabric-arm-guardrails.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-fabric/
   - name: Pricing calculator
