@@ -129,7 +129,7 @@ Must be one of the following operators:
 - BeginsWith
 - EndsWith
 - Regex
-- Geomatch
+- Geomatch (preview)
 
 ### Negate condition [optional]
 
@@ -156,7 +156,7 @@ List of values to match against, which can be thought of as being *OR*'ed. For e
 - Block – Blocks the transaction based on *SecDefaultAction* (detection/prevention mode). Just like the Allow action, once the request is evaluated and added to the block list, evaluation is stopped and the request is blocked. Any request after that meets the same conditions will not be evaluated and will just be blocked. 
 - Log – Lets the rule write to the log, but lets the rest of the rules run for evaluation. Subsequent custom rules are evaluated in order of priority, followed by the managed rules.
 
-## Selectors for Geomatch custom rules
+## Geomatch custom rules (preview)
 
 If you are using the Geomatch operator, the selectors can be any of the following two-digit country codes. 
 
