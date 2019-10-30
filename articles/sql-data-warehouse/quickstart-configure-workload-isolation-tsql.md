@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 10/15/2019
+ms.date: 10/29/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
 
 # Quickstart: Configure workload isolation using T-SQL
 
-In this quickstart, you'll quickly create a workload classifier with high importance for the CEO of your organization. This workload classifier will allow CEO queries to take precedence over other queries with lower importance in the queue.
+In this quickstart, you'll quickly create a workload group and classifier for reserving resources for data loading. The workload group will allocate 20% of the system resorces to a data loads.  The workload classifier will assign requests to the data loads workload group.  With 20% isolation for data loads, they are guaranteed resources to hit SLAs.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -31,53 +31,67 @@ This quickstart assumes you already have a SQL Data Warehouse and that you have 
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create login for TheCEO
+## Create login for DataLoads
 
-Create a SQL Server authentication login in the `master` database using [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql) for 'TheCEO'.
+Create a SQL Server authentication login in the `master` database using [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql) for 'ELTLogin'.
 
 ```sql
-IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'TheCEO')
+IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'ELTLogin')
 BEGIN
-CREATE LOGIN [TheCEO] WITH PASSWORD='<strongpassword>'
+CREATE LOGIN [ELTLogin] WITH PASSWORD='<strongpassword>'
 END
 ;
 ```
 
 ## Create user
 
-[Create user](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "TheCEO", in mySampleDataWarehouse
+[Create user](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "ELTLogin", in mySampleDataWarehouse
 
 ```sql
-IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
+IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'ELTLogin')
 BEGIN
-CREATE USER [TheCEO] FOR LOGIN [TheCEO]
+CREATE USER [ELTLogin] FOR LOGIN [ELTLogin]
 END
+;
+```
+
+## Create a workload group
+Create a [workload group](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) for DataLoads with 20% isolation.
+```sql
+CREATE WORKLOAD GROUP DataLoads
+WITH ( MIN_PERCENTAGE_RESOURCE = 20   
+      ,CAP_PERCENTAGE_RESOURCE = 100
+      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 5) 
 ;
 ```
 
 ## Create a workload classifier
 
-Create a [workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) for "TheCEO" with high importance.
+Create a [workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) to map ELTLogin to the DataLoads workload group.
 
 ```sql
-DROP WORKLOAD CLASSIFIER [wgcTheCEO];
-CREATE WORKLOAD CLASSIFIER [wgcTheCEO]
-WITH (WORKLOAD_GROUP = 'xlargerc'
-      ,MEMBERNAME = 'TheCEO'
-      ,IMPORTANCE = HIGH);
+CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
+WITH (WORKLOAD_GROUP = 'ELTLogin'
+      ,MEMBERNAME = 'DataLoads')
+;
 ```
 
-## View existing classifiers
+## View existing workload groups and classifiers
 
 ```sql
-SELECT * FROM sys.workload_management_workload_classifiers
+SELECT * FROM 
+sys.workload_management_workload_groups
+
+SELECT * FROM 
+sys.workload_management_workload_classifiers
 ```
 
 ## Clean up resources
 
 ```sql
-DROP WORKLOAD CLASSIFIER [wgcTheCEO]
-DROP USER [TheCEO]
+DROP WORKLOAD CLASSIFIER [wgcELTLogin]
+DROP WORKLOAD GROUP [DataLoads]
+DROP USER [ELTLogin]
 ;
 ```
 
@@ -102,6 +116,5 @@ Follow these steps to clean up resources.
 
 ## Next steps
 
-- You've now created a workload classifier. Run a few queries as TheCEO to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
-- For more information about Azure SQL Data Warehouse workload management, see [Workload Importance](sql-data-warehouse-workload-importance.md) and [Workload Classification](sql-data-warehouse-workload-classification.md).
-- See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- You've now created a workload group. Run a few queries as ELTLogin to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the workload group assigned.
+- For more information about Azure SQL Data Warehouse workload management, see [Workload Management](sql-data-warehouse-workload-management.md) and [Workload Isolation](sql-data-warehouse-workload-isolation.md).
