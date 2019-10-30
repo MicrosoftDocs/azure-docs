@@ -31,7 +31,7 @@ visit the following articles to learn about the control mapping and how to deplo
 > [UK OFFICIAL and UK NHS blueprints - Control mapping](./control-mapping.md)
 > [UK OFFICIAL and UK NHS blueprints - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
