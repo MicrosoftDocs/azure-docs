@@ -4,7 +4,7 @@ description: " The migration of workloads to Azure IaaS brings opportunities to 
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: rkarlin
 editor: TomSh
 
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/26/2019
+ms.date: 10/28/2019
 ms.author: barclayn
 ---
 
@@ -24,13 +24,6 @@ This article describes security best practices for VMs and operating systems.
 The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time,  this article will be updated to reflect those changes.
 
 In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (VMs)](/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such scenarios, follow the [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), and apply security best practices to all your VMs.
-
-## Shared responsibility
-Your responsibility for security is based on the type of cloud service. The following chart summarizes the balance of responsibility for both Microsoft and you:
-
-![Areas of responsibility](./media/iaas/sec-cloudstack-new.png)
-
-Security requirements vary depending on a number of factors including different types of workloads. Not one of these best practices can by itself secure your systems. Like anything else in security, you have to choose the appropriate options and see how the solutions can complement each other by filling gaps.
 
 ## Protect VMs by using authentication and access control
 The first step in protecting your VMs is to ensure that only authorized users can set up new VMs and access VMs.

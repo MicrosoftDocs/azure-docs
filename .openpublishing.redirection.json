@@ -16126,6 +16126,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/powerbi-output-managed-identity.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#power-bi",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/vs-code-how-to.md",
       "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
       "redirect_document_id": false
@@ -19191,8 +19196,13 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-passwords.md",
-      "redirect_url": "active-directory-passwords-update-your-own-password",
+      "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-reset-password.md",
+      "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
+      "redirect_document_id": false      
     },
     {
       "source_path": "articles/active-directory/active-directory-protocols-oauth-code.md",
@@ -43291,6 +43301,11 @@
     {
       "source_path": "articles/terraform/terraform-vm-msi.md",
       "redirect_url": "/azure/terraform/terraform-vm-managed-identities-for-azure-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/msal-acquire-token-interactively.md",
+      "redirect_url": "/azure/active-directory/develop/msal-acquire-cache-tokens",
       "redirect_document_id": true
     }
   ]
