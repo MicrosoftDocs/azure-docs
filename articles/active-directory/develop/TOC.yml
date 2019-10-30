@@ -34,7 +34,7 @@
       - name: ASP .NET Core
         href: quickstart-v2-aspnet-core-webapp.md
       - name: NodeJS
-        href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
+        href: quickstart-v2-nodejs-webapp.md
       - name: Java
         href: quickstart-v2-java-webapp.md
       - name: Python
@@ -42,7 +42,7 @@
     - name: Web APIs
       items:
       - name: ASP .NET
-        href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
+        href: quickstart-v2-dotnet-native-aspnet.md
       - name: ASP .NET Core
         href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
     - name: Mobile and desktop apps
