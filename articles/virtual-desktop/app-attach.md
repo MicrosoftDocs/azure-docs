@@ -169,16 +169,14 @@ In your Windows Virtual Desktop environment create a network share and place the
 >[!NOTE]
 > MSIX network share best practice is to set up the network share with NTFS read-only permissions.
 
-<!---what does ntfs stand for?--->
-
 ## Prepare PowerShell scripts for MSIX app attach
 
 MSIX app attach has four distinct phases that must be performed in the following order:
 
 1. Stage
 2. Register
-3. De-register
-4. De-stage
+3. Deregister
+4. Destage
 
 Each phase creates a PowerShell script. Sample scripts for each phase are available [here](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
@@ -334,7 +332,7 @@ Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
 #endregion
 ```
 
-### De-Register PowerShell script
+### Deregister PowerShell script
 
 Update **\$packageName** with the package being tested.
 
@@ -354,7 +352,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 #endregion
 ```
 
-### De-Stage PowerShell script
+### Destage PowerShell script
 
 Update **\$packageName** with the package being tested.
 
@@ -388,5 +386,5 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 
 - The startup script runs the stage script.
 - The logon script runs the register script.
-- The logoff script runs the de-register script.
-- The shutdown script runs the de-stage script.
+- The logoff script runs the deregister script.
+- The shutdown script runs the destage script.
