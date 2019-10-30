@@ -1,5 +1,5 @@
 ---
-title: Archive for What's new? - Azure Active Directory | Microsoft Docs
+title: Archive for What's new in Azure Active Directory? | Microsoft Docs
 description: The What's new release notes in the Overview section of this content set contains 6 months of activity. After 6 months, the items are removed from the main article and put into this archive article.
 services: active-directory
 author: eross-msft
@@ -16,11 +16,11 @@ ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
-# Archive for What's new? in Azure Active Directory
+# Archive for What's new in Azure Active Directory?
 
-The primary [What's new release notes](whats-new.md) article contains the latest 6 months of information, while this article includes all the older information.
+The primary [What's new in Azure Active Directory? release notes](whats-new.md) article contains updates for the last six months, while this article contains all the older information.
 
-The What's new release notes provide you with information about:
+The What's new in Azure Active Directory? release notes provide information about:
 
 - The latest releases
 - Known issues
