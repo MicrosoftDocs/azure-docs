@@ -42,7 +42,7 @@ To set up a managed identity in the portal, you will first create an application
 
 4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-system.png)
+    ![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### Using the Azure CLI
 
@@ -171,7 +171,7 @@ First, you'll need to create a user-assigned identity resource.
 
 6. Search for the identity you created earlier and select it. Click **Add**.
 
-![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-user.png)
+    ![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-user.png)
 
 ### Using an Azure Resource Manager template
 
@@ -373,15 +373,15 @@ For .NET applications and functions, the simplest way to work with a managed ide
 
 2. Add the following code to your application, modifying to target the correct resource. This example shows two ways to work with Azure Key Vault:
 
-```csharp
-using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.Azure.KeyVault;
-// ...
-var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
-// OR
-var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-```
+    ```csharp
+    using Microsoft.Azure.Services.AppAuthentication;
+    using Microsoft.Azure.KeyVault;
+    // ...
+    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
+    // OR
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+    ```
 
 To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
@@ -391,26 +391,26 @@ For Java applications and functions, the simplest way to work with a managed ide
 
 1. Add a reference to the [Azure SDK library](https://mvnrepository.com/artifact/com.microsoft.azure/azure). For Maven projects, you might add this snippet to the `dependencies` section of the project's POM file:
 
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure</artifactId>
-    <version>1.23.0</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure</artifactId>
+        <version>1.23.0</version>
+    </dependency>
+    ```
 
 2. Use the `AppServiceMSICredentials` object for authentication. This example shows how this mechanism may be used for working with Azure Key Vault:
 
-```java
-import com.microsoft.azure.AzureEnvironment;
-import com.microsoft.azure.management.Azure;
-import com.microsoft.azure.management.keyvault.Vault
-//...
-Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
-        .withSubscription(subscriptionId);
-Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+    ```java
+    import com.microsoft.azure.AzureEnvironment;
+    import com.microsoft.azure.management.Azure;
+    import com.microsoft.azure.management.keyvault.Vault
+    //...
+    Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+            .withSubscription(subscriptionId);
+    Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
 
-```
+    ```
 
 
 ## <a name="remove"></a>Removing an identity
