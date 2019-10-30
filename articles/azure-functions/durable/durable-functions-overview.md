@@ -362,7 +362,7 @@ The sixth pattern is about aggregating event data over a period of time into a s
 
 The tricky thing about trying to implement this pattern with normal, stateless functions is that concurrency control becomes a huge challenge. Not only do you need to worry about multiple threads modifying the same data at the same time, you also need to worry about ensuring that the aggregator only runs on a single VM at a time.
 
-Using a [Durable Entity function](durable-functions-entities.md), one can implement this pattern easily as a single function.
+You can use [Durable entities](durable-functions-entities.md) to easily implement this pattern as a single function.
 
 ```csharp
 [FunctionName("Counter")]
