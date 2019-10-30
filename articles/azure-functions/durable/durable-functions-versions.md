@@ -56,7 +56,7 @@ Durable Functions 2.0 uses a new host.json schema. The main changes from 1.0 inc
 * `"tracking"` for tracking and logging configuration
 * `"notifications"` (and the `"eventGrid"` subsection) for event grid notification configuration
 
-See the [Durable Functions bindings documentation][durable-functions-bindings.md#durable-functions-2-0-host-json] for details.
+See the [Durable Functions bindings documentation](durable-functions-bindings.md#durable-functions-2-0-host-json) for details.
 
 #### Public interface changes (.NET only)
 
