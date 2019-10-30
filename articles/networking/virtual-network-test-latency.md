@@ -1,5 +1,6 @@
 ---
-title: Test Azure VM Network Latency | Microsoft Docs
+title: Test Azure Virtual Machine network latency in an Azure Virtual Network | Microsoft Docs
+titleSuffix: Azure Virtual Network latency
 description: Learn how to test network latency between Azure VMs on a virtual network
 services: virtual-network
 documentationcenter: na
