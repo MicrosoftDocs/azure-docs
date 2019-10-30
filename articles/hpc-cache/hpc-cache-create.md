@@ -1,14 +1,14 @@
 ---
-title: Create an Azure HPC Cache (preview)
+title: Create an Azure HPC Cache
 description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
-# Create an Azure HPC Cache (preview)
+# Create an Azure HPC Cache
 
 Use the Azure portal to create your cache.
 
@@ -18,7 +18,7 @@ Use the Azure portal to create your cache.
 
 ![screenshot of project details page in Azure portal](media/hpc-cache-create-basics.png)
 
-In **Project Details**, select the subscription and resource group that will host the cache. Make sure the subscription is on the [preview access](hpc-cache-prereqs.md#azure-subscription) list.
+In **Project Details**, select the subscription and resource group that will host the cache. Make sure the subscription is on the [access](hpc-cache-prereqs.md#azure-subscription) list.
 
 In **Service Details**, set the cache name and these other attributes:
 
