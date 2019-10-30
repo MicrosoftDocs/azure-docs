@@ -5,6 +5,7 @@
   - name: About Media Services
     href: media-services-overview.md
   - name: What's new in Media Services
+    displayName: release notes
     href: release-notes.md    
 - name: Tutorials
   expanded: true
@@ -39,6 +40,8 @@
   - name: Media Services samples
     displayName: .NET, Java
     href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+  - name: Media Services v3 REST samples
+    href: https://github.com/Azure-Samples/media-services-v3-rest-postman
 - name: Concepts
   items:
   - name: Overview

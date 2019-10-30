@@ -2,12 +2,12 @@
 title: 'Tutorial: Create an Azure Time Series Insights environment | Microsoft Docs'
 description: Tutorial to learn how to create a Time Series Insights environment that's populated with data from simulated devices.
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/16/2019
-ms.author: dpalled
-manager: cshankar
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create a Time Series Insights environment so that I can use Time Series Insights queries to understand device behavior.
 ---

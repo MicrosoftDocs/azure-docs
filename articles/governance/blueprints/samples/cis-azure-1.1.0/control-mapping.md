@@ -444,7 +444,7 @@ Azure portal to assign the initiative:
 > [CIS Microsoft Azure Foundations Benchmark blueprint - Overview](./index.md)
 > [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
