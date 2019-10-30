@@ -65,7 +65,7 @@ Create an environment variable named `ARM_ACCESS_KEY` with the value of the Azur
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-To further protect the Azure Storage account access key, store it in Azure Key Vault. The environment variable can then be set using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation][../key-vault/quick-create-cli.md].
+To further protect the Azure Storage account access key, store it in Azure Key Vault. The environment variable can then be set using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation](../key-vault/quick-create-cli.md).
 
 ```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
@@ -105,7 +105,7 @@ You can now find the state file in the Azure Storage Blob.
 
 Azure Storage blobs are automatically locked before any operation that writes state. This pattern prevents concurrent state operations, which can cause corruption. 
 
-For more information, see [State Locking][https://www.terraform.io/docs/state/locking.html] on the Terraform documentation.
+For more information, see [State Locking](https://www.terraform.io/docs/state/locking.html) on the Terraform documentation.
 
 The lock can be seen when examining the blob through the Azure portal or other Azure management tooling.
 
@@ -115,7 +115,7 @@ The lock can be seen when examining the blob through the Azure portal or other A
 
 Data stored in an Azure Blob is encrypted before being persisted. When needed, Terraform retrieves the state from the backend and stores it in local memory. Using this pattern, state is never written to your local disk.
 
-For more information on Azure Storage encryption, see [Azure Storage Service Encryption for data at rest][../storage/common/storage-service-encryption.md].
+For more information on Azure Storage encryption, see [Azure Storage Service Encryption for data at rest](../storage/common/storage-service-encryption.md).
 
 ## Next steps
 
