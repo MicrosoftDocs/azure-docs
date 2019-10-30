@@ -58,7 +58,7 @@ You've reviewed the overview and architecture of the CAF Migrate landing zone bl
 > [!div class="nextstepaction"]
 >  [CAF Migration landing zone blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
