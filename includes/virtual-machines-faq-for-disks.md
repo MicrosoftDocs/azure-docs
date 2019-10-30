@@ -162,7 +162,7 @@ Disks reservation follows a model similar to reserved virtual machine (VM) insta
 Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.
 
 **What happens when my Azure disks reservation expires?**
-You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Ultra disks
 
