@@ -156,8 +156,4 @@ The COCO file is created in the default blob store of the Azure ML workspace in 
 
 ## Next steps
 
-Learn more about Azure Machine Learning studio at [this article](tk).
-
-> [!div class="nextstepaction"]
-> [Next steps button](tk)
-
+* Learn more about [Azure Machine Learning and studio](../compare-azure-ml-to-studio-classic.md)
