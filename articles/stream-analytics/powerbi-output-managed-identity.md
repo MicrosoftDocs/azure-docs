@@ -28,7 +28,7 @@ The following are required for using this feature:
 
    ![Configure Stream Analytics managed identity](./media/common/stream-analytics-enable-managed-identity.png)
 
-2. Before configuring the output, give the Stream Analytics job access to your Power BI workspace by following the directions in the [Give the Stream Analytics job access to your Power BI workspace](#give-the-stream-analytics-job-access-to-your-powerbi-workspace) section of this article.
+2. Before configuring the output, give the Stream Analytics job access to your Power BI workspace by following the directions in the [Give the Stream Analytics job access to your Power BI workspace](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) section of this article.
 
 3. Navigate to the **Outputs** section of your Stream Analytic's job, select **+ Add**, and then choose **Power BI**. Then, select the **Authorize** button and login with your Power BI account.
 
@@ -145,7 +145,7 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
 
     If you plan to use Power BI's REST API to add the Stream Analytics job to your Power BI workspace, make note of the returned "principalId".
 
-3. Now that the job is created, continue to the [Give the Stream Analytics job access to your Power BI workspace](#give-the-stream-analytics-job-access-to-your-powerbi-workspace) section of this article.
+3. Now that the job is created, continue to the [Give the Stream Analytics job access to your Power BI workspace](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) section of this article.
 
 
 ## Give the Stream Analytics job access to your Power BI workspace
