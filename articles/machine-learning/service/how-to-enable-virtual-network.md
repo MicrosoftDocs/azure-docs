@@ -23,6 +23,12 @@ Azure Machine Learning relies on other Azure services for compute resources. Com
 
 This article also provides detailed information about *advanced security settings*, information that isn't necessary for basic or experimental use cases. Certain sections of this article provide configuration information for a variety of scenarios. You don't need to complete the instructions in order or in their entirety.
 
+> [!TIP]
+> Unless specifically called out, using resources such as storage accounts or compute targets inside a virtual network will work with both machine learning pipelines, and non-pipeline workflows such as script runs.
+
+> [!WARNING]
+> Microsoft does not support using the Azure Machine Learning designer or automated machine learning (from the studio) with resources inside a virtual network.
+
 ## Prerequisites
 
 + An Azure Machine Learning [workspace](how-to-manage-workspace.md).
