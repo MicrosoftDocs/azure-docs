@@ -73,7 +73,7 @@ To use Monitor workbooks, you need:
     - Global Admin
 
 ## Roles
-You must be in one of the following roles as well as have [access to underlying Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) workspace to manage the workbooks:
+You must be in one of the following roles as well as have [access to underlying Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) workspace to manage the workbooks:
 - 	Global Admin
 - 	Security Admin
 - 	Security Reader
