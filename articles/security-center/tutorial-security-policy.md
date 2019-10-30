@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2019
+ms.date: 11/04/2019
 ms.author: memildin
 ---
 
@@ -26,7 +26,7 @@ For instructions on how to set policies using PowerShell, see [Quickstart: Creat
 > Security Center started its integration with Azure Policy. Existing customers will be automatically migrated to the new built-in initiative in Azure Policy, instead of the previous security policies in Security Center. This change will not affect your resources or environment except the presence of the new initiative in Azure Policy.
 
 ## What are security policies?
-A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Policy, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personal data or customer data, might require a higher level of security than other workloads. To set a policy across subscriptions or on Management groups, set them in [Azure Policy](../governance/policy/overview.md).
+A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. In Azure Policy, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personal data or customer data, might require a higher level of security than other workloads. To set a policy across subscriptions or on Management groups, set them in [Azure Policy](../governance/policy/overview.md).
 
 Your security policies drive the security recommendations you get in Azure Security Center. You can monitor compliance with them to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see the list of [built-in security policies](security-center-policy-definitions.md).
 
@@ -34,7 +34,7 @@ When you enable Security Center, the security policy built-in to Security Center
 
 
 ### Management groups
-If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure Management Groups provides a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. Each directory is given a single top-level management group called the "root" management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This root management group allows for global policies and RBAC assignments to be applied at the directory level. To set up management groups for use with Azure Security Center, follow the instructions in [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md).
+If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure Management Groups provides a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. Each directory is given a single top-level management group called the "root" management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This root management group allows for global policies and Role-Based Access Control (RBAC) assignments to be applied at the directory level. To set up management groups for use with Azure Security Center, follow the instructions in [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md).
 
 > [!NOTE]
 > It’s important that you understand the hierarchy of management groups and subscriptions. See [Organize your resources with Azure Management Groups](../governance/management-groups/overview.md#root-management-group-for-each-directory) to learn more about management groups, root management, and management group access.
@@ -72,13 +72,21 @@ To view your security policies in Security Center:
 
    - The **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
    - At the top, use the links provided to open each policy **assignment** that applies on the subscription or management group. You can use the links to access the assignment and edit or disable the policy. For example, if you see that a particular policy assignment is effectively denying endpoint protection, you can use the link to access the policy and edit or disable it.
-   - In the list of policies, you can see the effective application of the policy on your subscription or management group. This means that the settings of each policy that apply to the scope are taken into consideration and you are provided with the cumulative outcome of what action is taken by the policy. For example, if in one assignment the policy is disabled, but in another it is set to AuditIfNotExist, then the cumulative effect applies AuditIfNotExist. The more active effect always takes precedence.
+   - In the list of policies, you can see the effective application of the policy on your subscription or management group. This means that the settings of each policy that apply to the scope are taken into consideration and you are provided with the cumulative outcome of what action is taken by the policy. For example, if in one assignment the policy is disabled, but in another it's set to AuditIfNotExist, then the cumulative effect applies AuditIfNotExist. The more active effect always takes precedence.
    - The policies' effect can be: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. For more information on how effects are applied, see [Understand Policy effects](../governance/policy/concepts/effects.md).
 
    ![policy screen](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
 > When you view assigned policies, you can see multiple assignments and you can see how each assignment is configured on its own.
+
+
+## Who can edit security policies?
+Security Center uses Role-Based Access Control (RBAC), which provides built-in roles that can be assigned to users, groups, and services in Azure. When users open Security Center, they see only information that's related to resources they have access to. Which means that users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. In addition to these roles, there are two specific Security Center roles:
+
+- **Security reader**: Have view rights to Security Center, which includes recommendations, alerts, policy, and health, but they can't make changes.
+- **Security admin**: Have the same view rights as *security reader*, and they can also update the security policy and dismiss recommendations and alerts.
+
 
 ## Edit security policies
 You can edit the default security policy for each of your Azure subscriptions and management groups in [Azure Policy](../governance/policy/tutorials/create-and-manage.md). To modify a security policy, you must be an owner, or security administrator, of the subscription or the containing management group.
@@ -125,15 +133,15 @@ Important concepts in Azure Policy:
 
 - An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
 
-Security Center has a built-in initiative that includes all of its security policies. In order to assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
+Security Center has a built-in initiative that includes all of its security policies. To assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
 
-The built-in initiative has all of Security Center’s policies enabled by default. You can choose to disable certain policies from the built-in initiative, for example you can apply all of Security Center’s policies except **web application firewall**, by changing the value of the policy’s effect parameter to **Disabled**. 
+The built-in initiative has all of Security Center’s policies enabled by default. You can choose to disable certain policies from the built-in initiative. For example, to apply all of Security Center’s policies except **web application firewall**, change the value of the policy’s effect parameter to **Disabled**. 
 
 ### API examples
 
 In the following examples, replace these variables:
 
-- **{scope}** enter the name of the management group or subscription you are applying the policy to.
+- **{scope}** enter the name of the management group or subscription to which you're applying the policy.
 - **{policyAssignmentName}** enter the [name of the relevant policy assignment](#policy-names).
 - **{name}** enter your name, or the name of the administrator who approved the policy change.
 
@@ -230,15 +238,6 @@ This example shows you how to remove an assignment:
 |Vulnerability assessment |Monitor VM Vulnerabilities in Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
 |Web application firewall |Monitor unprotected web application in Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Next generation firewall |Monitor unprotected network endpoints in Azure Security Center| |
-
-
-### Who can edit security policies?
-Security Center uses Role-Based Access Control (RBAC), which provides built-in roles that can be assigned to users, groups, and services in Azure. When users open Security Center, they see only information that's related to resources they have access to. Which means that users are assigned the role of owner, contributor, or reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two specific Security Center roles:
-
-- Security reader: Have view rights to Security Center, which includes recommendations, alerts, policy, and health, but they can't make changes.
-- Security admin: Have the same view rights as security reader, and they can also update the security policy and dismiss recommendations and alerts.
-
-
 
 ## Next steps
 In this article, you learned how to edit security policies in Azure Policy. To learn more about Security Center, see the following articles:
