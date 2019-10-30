@@ -33,7 +33,7 @@ For a simpler console daemon application, check out the [.NET Core daemon quicks
 
 Because the app is a multi-tenant app intended for use by any Microsoft business customer, it must provide a way for customers to "sign up" or "connect" the application to their company data.  During the connect flow, a company administrator first grants **application permissions** directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user.  The majority of the logic in this sample shows how to achieve this connect flow using the identity platform [admin consent](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) endpoint.
 
-![Topology](./media/quickstart-v2-aspnet-daemon-webapp/topology.png)
+![Topology](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 For more information on the concepts used in this sample, be sure to read the [identity platform endpoint client credentials protocol documentation](v2-oauth2-client-creds-grant-flow.md).
 
@@ -146,13 +146,13 @@ Clean the solution, rebuild the solution, and run  UserSync application, and beg
 
 When you sign in, the app will first ask you for permission to sign you in & read your user profile.  This consent allows the application to ensure that you are a business user.
 
-![User Consent](./media/quickstart-v2-aspnet-daemon-webapp/FirstConsent.PNG)
+![User Consent](./media/tutorial-v2-aspnet-daemon-webapp/FirstConsent.PNG)
 
 The application will then try to sync a list of users from your Azure AD tenant, via the Microsoft Graph.  If it is unable to do so, it will ask you (the tenant administrator) to connect your tenant to the application.
 
 The application will then ask for permission to read the list of users in your tenant.
 
-![Admin Consent](./media/quickstart-v2-aspnet-daemon-webapp/adminconsent.PNG)
+![Admin Consent](./media/tutorial-v2-aspnet-daemon-webapp/adminconsent.PNG)
 
 **You will be signed out from the app after granting permission**. This is done to ensure that any existing access tokens for Graph is removed from the token cache. Once you sign in again, the  fresh token obtained will have the necessary permissions to make calls to MS Graph.
 When you grant the permission, the application will then be able to query for users at any point.  You can verify this by clicking the **Sync Users** button on the users page, refreshing the list of users.  Try adding or removing a user and resyncing the list (but note that it only syncs the first page of users!).
