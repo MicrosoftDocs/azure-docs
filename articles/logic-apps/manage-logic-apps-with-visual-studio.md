@@ -1,6 +1,6 @@
 ---
 title: Manage logic apps by using Visual Studio - Azure Logic Apps
-description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
+description: Manage logic apps and other Azure assets by using Visual Studio with Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -109,7 +109,7 @@ You can download logic apps from the [Azure portal](https://portal.azure.com) an
 
 1. On the designer toolbar, select **Download**.
 
-   ![Select "Download"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
+   ![Download logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
 
 1. When you're prompted for a location, browse to that location and save the Resource Manager template for the logic app definition in JSON (.json) file format.
 
@@ -132,7 +132,7 @@ To build logic apps for business-to-business (B2B) enterprise integration scenar
 
 1. Make sure that the Logic App Designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Integration Account** property for your logic app.
 
-   ![Properties window shows the "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
+   ![Properties window - "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
    > [!TIP]
    > If the Properties window isn't already open, from the **View** menu, select **Properties Window**. (Keyboard: Press F4)
@@ -171,20 +171,20 @@ To change your logic app's location type or location, you have to open your logi
 
 1. Make sure that the Logic App Designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Choose Location Type** and **Location** properties for your logic app.
 
-   ![Properties window shows the "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
+   ![Properties window - "Choose Location Type" and "Location" properties](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
    > [!TIP]
    > If the Properties window isn't already open, from the **View** menu, select **Properties Window**. (Keyboard: Press F4)
 
    Your project's location type is set to either **Region** or **Integration Service Environment**.
 
-   ![Properties window shows the "Choose Location Type" and "Location" properties](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
+   ![Current "Choose Location Type" property value](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
 
-1. To change the location type, open the **Choose Location Type** property, and select the location type that you want.
+1. To change the location type, open the **Choose Location Type** property list, and select the location type that you want.
 
    For example, if the location type is **Integration Service Environment**, you can select **Region**.
 
-   ![Open "Choose Location Type" property list, select different location type](./media/manage-logic-apps-with-visual-studio/change-location-type.png)
+   !["Choose Location Type" property - change location type](./media/manage-logic-apps-with-visual-studio/change-location-type.png)
 
 1. To change the specific location, open the **Location** property list. Based on the location type, select the location that you want, for example:
 
@@ -194,7 +194,7 @@ To change your logic app's location type or location, you have to open your logi
 
    * Select a different ISE:
 
-     ![Open "Location" property list, select another integration service environment](./media/manage-logic-apps-with-visual-studio/change-integration-service-environment.png)
+     ![Open "Location" property list, select another ISE](./media/manage-logic-apps-with-visual-studio/change-integration-service-environment.png)
 
 1. When you're done, remember to save your Visual Studio solution.
 
@@ -218,13 +218,13 @@ If you edit your logic app in the Azure portal and want to keep those changes, m
 
 When you're ready to deploy your logic app updates from Visual Studio to Azure, on the Logic App Designer toolbar, select **Publish**.
 
-![Publish updated logic app](./media/manage-logic-apps-with-visual-studio/publish-logic-app.png)
+![Publish updated logic app to Azure portal](./media/manage-logic-apps-with-visual-studio/publish-logic-app.png)
 
 ## Manually run your logic app
 
 You can manually trigger a logic app deployed in Azure from Visual Studio. On the Logic App Designer toolbar, select **Run Trigger**.
 
-![Manually run logic app](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
+![Manually run trigger for your logic app](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
 ## Review run history
 
@@ -232,11 +232,11 @@ To check the status and diagnose problems with logic app runs, you can review th
 
 1. In Cloud Explorer, open your logic app's shortcut menu, and select **Open run history**.
 
-   ![Open run history](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
+   ![Open run history for your logic app](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
 1. To view the details for a specific run, double-click a run. For example:
 
-   ![Detailed run history](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
+   ![View information about specific run](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > To sort the table by property, select the column header for that property.
@@ -249,7 +249,7 @@ To check the status and diagnose problems with logic app runs, you can review th
 
 Without deleting your logic app, you can stop the trigger from firing the next time when the trigger condition is met. Disabling your logic app prevents the Logic Apps engine from creating and running future workflow instances for your logic app. In Cloud Explorer, open your logic app's shortcut menu, and select **Disable**.
 
-![Disable your logic app](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
+![Disable your logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
 > [!NOTE]
 > When you disable a logic app, no new runs are instantiated. All in-progress and pending runs 
@@ -257,13 +257,13 @@ Without deleting your logic app, you can stop the trigger from firing the next t
 
 To reactivate your logic app, in Cloud Explorer, open your logic app's shortcut menu, and select **Enable**.
 
-![Enable your logic app](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
+![Enable logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
 
 ## Delete your logic app
 
 To delete your logic app from the Azure portal, in Cloud Explorer, open your logic app's shortcut menu, and select **Delete**.
 
-![Delete your logic app](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+![Delete your logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
 
 > [!NOTE]
 > When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. 
