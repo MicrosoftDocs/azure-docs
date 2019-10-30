@@ -232,6 +232,8 @@
       href: backup-azure-restore-windows-server.md
     - name: Restore Windows Server System State
       href: backup-azure-restore-system-state.md
+    - name: Manage Windows Server files and folders backup
+      href: backup-azure-manage-mars.md
   - name: Recovery Services vault
     items:
     - name: Overview of Recovery Services vaults

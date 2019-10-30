@@ -92,12 +92,12 @@ When migrating an on-premises SQL Server Analysis Services tabular model to Azur
 
 **To specify a provider**
 
-1. In SSDT > **Tabular Model Explorer** > **Data Sources**, right-click a data source connection, and then click **Edit Data Source**.
+1. In Visual Studio > **Tabular Model Explorer** > **Data Sources**, right-click a data source connection, and then click **Edit Data Source**.
 2. In **Edit Connection**, click **Advanced** to open the Advance properties window.
 3. In **Set Advanced Properties** > **Providers**, then select the appropriate provider.
 
 ## Impersonation
-In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in Visual Studio (SSDT) or SSMS.
+In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in Visual Studio or SSMS.
 
 For on-premises data sources:
 
