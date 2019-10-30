@@ -1,10 +1,10 @@
 ---
-title: View and search your recent sign-in activity from the My Account portal - Azure Active Directory | Microsoft Docs
-description: Details about how to view and search your recent sign-in activity from the My Account portal.
+title: View and search your recent sign-in activity from the My Sign-in (preview) page - Azure Active Directory | Microsoft Docs
+description: Details about how to view and search your recent sign-in activity from the My Sign-ins page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: kasimpso
+ms.reviewer: jpettere
 
 ms.service: active-directory
 ms.workload: identity
@@ -15,7 +15,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# View and search your recent sign-in activity from the My Account portal
+# View and search your recent sign-in activity from the My Sign-ins (preview) page
 
 You can view all of your recent work or school account sign-in activity, from the **My Sign-ins** page of the **My Account** portal. Reviewing your sign-in history helps you to check for unusual activity by helping you to see:
 
@@ -25,7 +25,8 @@ You can view all of your recent work or school account sign-in activity, from th
 
 - What apps the attacker tried to access.
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
+    >[!Note]
+    >If you believe your account was compromised, or if you need to reset your password or unlock your account, see [How to access a compromised Microsoft account](https://support.microsoft.com/help/10494/microsoft-account-how-to-access-a-compromised-account).
 
 ## View your recent sign-in activity
 
@@ -38,9 +39,6 @@ You can view all of your recent work or school account sign-in activity, from th
 3. Expand and review each of the sign-in items, making sure that you recognize each one. If you find an sign-in item that doesn't look familiar, we highly recommend you change your password to help protect your account if it was compromised.
 
     ![Recent activity page with expanded sign-in details](media/my-account-portal/my-account-portal-sign-ins-page.png)
-
-    >[!Note]
-    >If you believe your account was compromised, see [How to access a compromised Microsoft account](https://support.microsoft.com/help/10494/microsoft-account-how-to-access-a-compromised-account) for more help with resetting your password or unblocking your account.
 
 ### If you see a Successful sign-in
 
