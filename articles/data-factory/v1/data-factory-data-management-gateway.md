@@ -496,7 +496,7 @@ This section describes how to create and register a gateway using Azure PowerShe
     **Example command and output**:
 
     ```
-    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description "gateway for walkthrough"
 
     Name              : MyGateway
     Description       : gateway for walkthrough
