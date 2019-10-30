@@ -5,19 +5,29 @@ author:  jpconnock
 
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 9/27/2019
+ms.date: 10/30/2019
 ms.author: jeconnoc
 ---
 
 # Launch your Spring Cloud application from source code
 
+Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure.
+
 Azure Spring Cloud allows you to launch your application directly from your java source code or from a pre-built JAR. This article walks you through required steps.
+
+Following this quickstart, you will learn how to:
+
+> [!div class="checklist"]
+> * Provision a service instance
+> * Set a configuration server for an instance
+> * Build a microservices application locally
+> * Deploy each microservice
+> * Assign public endpoint for your application
 
 ## Prerequisites
 
 >[!Note]
-> Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please [fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-).
+> Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please [fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u).  While Azure Spring Cloud is in preview, Microsoft offers limited support without an SLA.  For more information about support during previews, please refer to this [Support FAQ](https://azure.microsoft.com/support/faq/).
 
 Before you begin, ensure that your Azure subscription has the required dependencies:
 
