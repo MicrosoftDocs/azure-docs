@@ -81,7 +81,7 @@ To make a query control use this data source, use the **Query type** drop-down t
 
 ## Azure Data Explorer (Preview)
 
-Workbooks now have support for querying from [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/) clusters with the powerful [Kusto](https://docs.microsoft.com/azure/kusto/query/index) query language.   
+Workbooks now have support for querying from [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/) clusters with the powerful [Kusto](https://docs.microsoft.com/azure/kusto/query/index) query language.   
 
 ![Screenshot of Kusto query window](./media/workbooks-overview/data-explorer.png)
 
