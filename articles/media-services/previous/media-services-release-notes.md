@@ -451,13 +451,13 @@ The following Media Services PowerShell cmdlets are now included in [Azure SDK t
     For example: `Get-AzureMediaServicesAccount`
 * New-AzureMediaServicesAccount 
   
-    For example: `New-AzureMediaServicesAccount -Name “MediaAccountName” -Location “Region” -StorageAccountName “StorageAccountName”`
+    For example: `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
 * New-AzureMediaServicesKey 
   
-    For example: `New-AzureMediaServicesKey -Name “MediaAccountName” -KeyType Secondary -Force`
+    For example: `New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
 * Remove-AzureMediaServicesAccount 
   
-    For example: `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`
+    For example: `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
 
 ## <a id="june_changes_13"></a>June 2013 release
 ### <a name="june_13_general_changes"></a>Media Services changes
