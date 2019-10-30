@@ -60,7 +60,21 @@ In the application's `Program` class, create variables for your resource's key a
 
 Replace the application's `Main` method. You will define the methods called here later.
 
-[!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=main)]
+<!-- [!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=main)] -->
+
+```csharp
+static void Main(string[] args)
+{
+    var client = authenticateClient();
+
+    SentimentAnalysisExample(client);
+    languageDetectionExample(client);
+    entityRecognitionExample(client);
+    keyPhraseExtractionExample(client);
+    Console.Write("Press any key to exit.");
+    Console.ReadKey();
+}
+```
 
 ### Install the client library
 
@@ -90,7 +104,18 @@ Create a new `ApiKeyServiceClientCredentials` class to store the credentials and
 
 Create a method to instantiate the [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) object with your endpoint and a `ApiKeyServiceClientCredentials` object containing your key.
 
-[!code-csharp[Client authentication](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=authentication)]
+<!-- [!code-csharp[Client authentication](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=authentication)] -->
+```csharp
+static TextAnalyticsClient authenticateClient()
+{
+    ApiKeyServiceClientCredentials credentials = new ApiKeyServiceClientCredentials(subscriptionKey);
+    TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+    {
+        Endpoint = endpoint
+    };
+    return client;
+}
+```
 
 In your program's `main()` method, call the authentication method to instantiate the client.
 
