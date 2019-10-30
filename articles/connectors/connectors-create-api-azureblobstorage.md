@@ -119,7 +119,22 @@ This example only gets the contents for a blob. To view the contents, add anothe
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-[!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
+1. When you're prompted to created the connection, provide this information:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Connection Name** | Yes | <*connection-name*> | The name to create for your connection |
+   | **Storage Account** | Yes | <*storage-account*> | Select your storage account from the list. |
+   ||||
+
+   For example:
+
+   ![Create Azure Blob storage account connection](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+
+1. When you're ready, select **Create**
+
+1. After you create your connection, continue with [Add a trigger](#add-trigger) or 
+[Add an action](#add-action).
 
 ## Connector reference
 
