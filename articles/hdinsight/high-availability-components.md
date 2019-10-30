@@ -12,6 +12,8 @@ ms.date: 10/09/2019
 
  In order to provide you with optimal levels of availability for your analytics components, HDInsight has developed a unique architecture for ensuring high availability (HA) of critical services. Some components of this architecture were developed by HDInsight to provide automatic failover. Other components are standard Apache components which are deployed to support specific services. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to recover from other service interruptions.
 
+## High availability infrastructure
+
 HDInsight provides customized infrastructure to ensure that four primary services are high availability:
 
 - Apache Ambari server
@@ -32,9 +34,11 @@ There are also other high availability services which are supported by open sour
 - YARN Resource Manager
 - HBase Master
 
+The following sections will provide more detail about how these services work together.
+
 ## HDInsight High Availability Services
 
-Microsoft provides support for the four Apache services in the table below in HDInsight clusters. To distinguish them from HA services provided by Apache, they are called HDInsight HA services.
+Microsoft provides support for the four Apache services in the followin table in HDInsight clusters. To distinguish them from availability services provided by Apache, they are called HDInsight HA services.
 
 | Service | Cluster nodes | Cluster types | Purpose |
 |---|---|---|---|
@@ -43,7 +47,8 @@ Microsoft provides support for the four Apache services in the table below in HD
 | Job History Server | Active headnode | All except Kafka | Maintains debugging data for MapReduce jobs.|
 | Apache Livy | Active headnode | Spark | Enables easy interaction with a Spark cluster over a REST interface |
 
-HDInsight Enterprise Security Package (ESP) clusters currently only provide the Ambari server high availability.
+>[!Note]
+> HDInsight Enterprise Security Package (ESP) clusters currently only provide the Ambari server high availability.
 
 ### Architecture
 
