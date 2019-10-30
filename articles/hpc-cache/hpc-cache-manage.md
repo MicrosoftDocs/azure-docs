@@ -1,10 +1,10 @@
 ---
-title: Manage and update Azure HPC Cache (Preview)
+title: Manage and update Azure HPC Cache
 description: How to manage and update Azure HPC Cache using the Azure portal 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
