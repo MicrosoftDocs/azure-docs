@@ -45,7 +45,23 @@ Create variables for your resource's Azure endpoint and key, named `TEXT_ANALYTI
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 
-[!code-ruby[endpoint, key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
+<!-- [!code-ruby[endpoint, key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)] -->
+
+```ruby
+key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+if (!ENV[key_var])
+    raise "Please set/export the following environment variable: " + key_var
+else
+    subscription_key = ENV[key_var]
+end
+
+endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
+if (!ENV[endpoint_var])
+    raise "Please set/export the following environment variable: " + endpoint_var
+else
+    endpoint = ENV[endpoint_var]
+end
+```
 
 ## Object model 
 
