@@ -28,6 +28,9 @@ Create a basic WAF policy for Application Gateway by following the instructions 
 
 2. In the details page, under the **Manage rules** section, from the drop-down menu, select the check box for the bot Protection rule, and then select **Save**.
 
+> [!div class="mx-imgBorder"]
+> ![Bot protection](../media/bot-protection/bot-protection.png)
+
 ## Next steps
 
 For more information about custom rules, see [Custom rules for Web Application Firewall v2 on Azure Application Gateway](custom-waf-rules-overview.md).
