@@ -31,7 +31,7 @@
         href: api-management-get-started-revise-api.md
       - name: 8 - Add multiple versions
         href: api-management-get-started-publish-versions.md
-      - name: 9 - Customize the developer portal
+      - name: 9 - Customize developer portal
         href: api-management-howto-developer-portal-customize.md
 - name: Samples
   items:
