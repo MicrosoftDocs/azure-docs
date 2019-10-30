@@ -125,7 +125,7 @@ Service Bus fully integrates with the following Azure services:
 
 To get started using Service Bus messaging, see the following articles:
 
-* To compare Azure messaging services, see [Comparison of services](../event-grid/compare-messaging-services#comparison-of-services).
+* To compare Azure messaging services, see [Comparison of services](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json).
 * To learn more about Standard and Premium tiers and their pricing, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 * To learn about  performance and latency for the Premium tier, see [Premium Messaging](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722).
 * Try the quickstarts for [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), or [JMS](service-bus-java-how-to-use-jms-api-amqp.md).
