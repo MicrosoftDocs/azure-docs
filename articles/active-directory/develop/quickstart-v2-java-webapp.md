@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
-ms.custom: aaddev 
+ms.custom: aaddev, scenarios:getting-started, languages:Java 
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Java web app

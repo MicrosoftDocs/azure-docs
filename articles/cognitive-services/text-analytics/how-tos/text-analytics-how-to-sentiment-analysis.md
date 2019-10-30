@@ -129,20 +129,21 @@ The following example shows the response for the document collection in this art
 
 ## Sentiment Analysis v3 public preview
 
-The [next version of Sentiment Analysis](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) is now available for public preview. It provides significant improvements in the accuracy and detail of the API's text categorization and scoring.
+The [next version of Sentiment Analysis](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) is now available for public preview. It provides significant improvements in the accuracy and detail of the API's text categorization and scoring.
 
 > [!NOTE]
 > * The Sentiment Analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
 > * At this time, Sentiment Analysis v3:
->    * Currently supports English, French, Italian, Japanese, Simplified-Chinese, and Traditional-Chinese languages.
+>    * Currently supports the English (`en`), Japanese (`ja`), Chinese Simplified (`zh-Hans`),  Chinese Traditional (`zh-Hant`), French (`fr`), Italian (`it`), Spanish (`es`), Dutch (`nl`), Portuguese (`pt`), and German (`de`) languages.
 >    * Is available in the following regions: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`, and `West US 2`.
 
 |Feature |Description  |
 |---------|---------|
 |Improved accuracy     | Significant improvement in detecting positive, neutral, negative, and mixed sentiment in text documents over previous versions.           |
 |Document and sentence-level sentiment score     | Detect the sentiment of both a document and its individual sentences. If the document includes multiple sentences, each sentence is also assigned a sentiment score.         |
-|Sentiment category and score     | The API now returns sentiment categories for text, in addition to a sentiment score. The categories are `positive`, `negative`, `neutral`, and `mixed`.       |
+|Sentiment labeling and scoring     | The API now returns sentiment categories for text, in addition to a sentiment score. The categories are `positive`, `negative`, `neutral`, and `mixed`.       |
 | Improved output | Sentiment analysis now returns information for both an entire text document and its individual sentences. |
+| model-version parameter | An optional parameter for choosing which version of the Text Analytics model is used on your data. |
 
 ### Sentiment labeling
 
@@ -154,6 +155,23 @@ Sentiment Analysis v3 can return scores and labels at a sentence and document le
 | At least one negative sentence and the rest of the sentences are neutral.  | `negative`     |
 | At least one negative sentence and at least one positive sentence.         | `mixed`        |
 | All sentences are neutral.                                                 | `neutral`      |
+
+### Model versioning
+
+Starting in version 3.0, the Text Analytics API lets you choose the Text Analytics model used on your data. Use the optional `model-version` parameter to select a version of the model in your requests. If this parameter isn't specified the API will default to `latest`, the latest stable model version.
+
+Available model versions:
+* `2019-10-01` (`latest`)
+
+Each response from the v3 endpoints includes a `model-version` field specifying the model version that was used.
+
+```json
+{
+    "documents": […]
+    "errors": []
+    "model-version": "2019-10-01"
+}
+```
 
 ### Sentiment Analysis v3 example request
 

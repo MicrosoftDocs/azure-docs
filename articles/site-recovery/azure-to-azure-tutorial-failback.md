@@ -52,6 +52,9 @@ After VMs are reprotected, you can fail back to the primary region as needed.
 
     ![VM at primary and secondary regions](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
+> [!NOTE]
+> For machines running the Site Recovery extension version 9.28.x.x onwards [Update rollup 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery cleans up machines in the secondary disaster recovery region,nafter failback is complete and VMs are re-protected. There is no need to manually delete VMs and NICs.
+
 ## Next steps
 
 [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) about the reprotection flow.
