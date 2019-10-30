@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ---
 
-# Access and customize managed developer portal
+# Access and customize developer portal
 
 Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, and request access.
 
@@ -39,30 +39,32 @@ You can find more details on the developer portal in the [Azure API Management d
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## Step 1: access the portal as an administrator
+## Access the portal as an administrator
 
 Follow the steps below to access the managed version of the portal.
 
 1. Go to your API Management service instance in the Azure portal.
 1. Click on the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
 
-## Step 2: understand the portal's administrative interface
+## Understand the portal's administrative interface
 
 ### Default content 
 
-If you're accessing the portal for the first time, the default content will be automatically provisioned in the background. Default content has been designed to showcase portal's capabilities and minimize the amount of customizations needed to personalize your portal. You can learn more about what is included in the portal content by reading the [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
+If you're accessing the portal for the first time, the default content will be automatically provisioned in the background. Default content has been designed to showcase portal's capabilities and minimize the amount of customizations needed to personalize your portal. You can learn more about what is included in the portal content in the [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
 
 ### Visual editor
 
-You can customize the content of the portal with the visual editor. The menu sections on the left let you modify or create pages, media, layouts, menus, styles, or website settings. The menu items on the bottom lets you switch between viewports (for example, mobile or desktop), view the elements of the portal visible to authenticated or anonymous users, or save or undo actions.
+You can customize the content of the portal with the visual editor. The menu sections on the left let you create or modify pages, media, layouts, menus, styles, or website settings. The menu items on the bottom let you switch between viewports (for example, mobile or desktop), view the elements of the portal visible to authenticated or anonymous users, or save or undo actions.
+
+You can add rows to a page by clicking on a blue icon with a plus sign. Widgets (for example, text, images, or APIs list) can be added by pressing a grey icon with a plus sign. You can rearrange items in a page with the drag-and-drop interaction. 
 
 ### Layouts and pages
 
 ![Pages and layouts](media/api-management-howto-developer-portal-customize/pages-layouts.png)
 
-Layouts define how pages are displayed. For example, in the default content, there are two layouts with top navigation bars and footers - one applies to the landing page, and the other to all other pages.
+Layouts define how pages are displayed. For example, in the default content, there are two layouts - one applies to the home page, and the other to all remaining pages.
 
-A layout gets applied to a page by matching its URL template to the page's URL. For example, layout with a URL template of `/wiki/*` will be applied to every page with the `/wiki/` segment: `/wiki/getting-started`, `/wiki/styles`, etc.
+A layout gets applied to a page by matching its URL template to the page's URL. For example, layout with a URL template of `/wiki/*` will be applied to every page with the `/wiki/` segment in the URL: `/wiki/getting-started`, `/wiki/styles`, etc.
 
 In the image above, content belonging to the layout is marked in blue, while the page is marked in red. The menu sections are marked respectively.
 
@@ -70,7 +72,7 @@ In the image above, content belonging to the layout is marked in blue, while the
 
 ![Styling guide](media/api-management-howto-developer-portal-customize/styling-guide.png)
 
-Styling guide is a panel created with designers in mind. It allows for overseeing and styling all the visual elements in your portal. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background. If you'd like to change a button's color, you need to change the original color variant.
+Styling guide is a panel created with designers in mind. It allows for overseeing and styling all the visual elements in your portal. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background. To change a button's color, you need to change the original color variant.
 
 To edit a variant, click on it and select the pencil icon that appears on top of it. Once you make the changes in the pop-up window, close it.
 
@@ -78,18 +80,18 @@ To edit a variant, click on it and select the pencil icon that appears on top of
 
 ![Save button](media/api-management-howto-developer-portal-customize/save-button.png)
 
-Whenever you make a change in the portal, you need to save it manually by pressing the **Save** button (floppy disk) in the menu on the bottom before you navigate to another page. When you save your changes, the modified content is automatically uploaded to your API Management service.
+Whenever you make a change in the portal, you need to save it manually by pressing the **Save** button in the menu at the bottom. When you save your changes, the modified content is automatically uploaded to your API Management service.
 
-## Step 3: customize the default content
+## Customize the portal's content
 
-Before you make your portal available to the visitors, you should personalize the automatically generated content. The areas, which require the most changes are the landing page and the styling.
+Before you make your portal available to the visitors, you should personalize the automatically generated content. Recommended changes include the layouts, styles, and the content of the home page.
 
 > [!NOTE]
 > Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
 
 ### Home page
 
-The default **Home** page is filled with dummy content. You can either remove the whole sections with the content or adjust the elements one by one - replace the generated text and images. 
+The default **Home** page is filled with dummy content. You can either remove the whole sections with the content or keep the structure and adjust the elements one by one. Replace the generated text and images with your own and make sure the links point to desired locations.
 
 ### Layouts
 
@@ -97,7 +99,7 @@ Replace the automatically generated logo in the navigation bar with your own ima
 
 ### Styling
 
-Although you don't need to adjust any styles, you may consider adapting particular elements. For example, change the primary color to match your brand's color.
+Although you don't need to adjust any styles, you may consider adjusting particular elements. For example, change the primary color to match your brand's color.
 
 ### Customization example
 
@@ -105,15 +107,17 @@ In the video below we demonstrate how to edit the content of the portal, customi
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## Step 4: publish the portal
+## Publish the portal
 
-![Publish portal](media/api-management-howto-developer-portal-customize/publish-portal.png)
+To make your portal and its latest changes available to visitors, you need to publish it.
 
-To make your portal and its latest changes available to visitors, you need to publish it. Click on **Publish website** in the **Operations** section of the menu. This operation may take a few minutes.
+1. Make sure you saved your changes by clicking on the **Save** icon.
+1. Click on **Publish website** in the **Operations** section of the menu. This operation may take a few minutes.  
+    ![Publish portal](media/api-management-howto-developer-portal-customize/publish-portal.png)
 
-## Step 5: visit the portal
+## Visit the published portal
 
-After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.portal.azure-api.net`. Open it in a new browser tab to view it as a visitor.
+After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.portal.azure-api.net`. Open it in a new browser tab to view it as an external visitor.
 
 ## Next steps
 

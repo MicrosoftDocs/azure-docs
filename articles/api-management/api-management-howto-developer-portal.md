@@ -21,6 +21,9 @@ Developer portal is an automatically generated, fully customizable website with 
 
 This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture and provides answers to frequently asked questions.
 
+> [!WARNING]
+> Navigate to [](#preview-to-ga) Learn how to migrate from the preview version to generally available version of the developer portal.
+
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -63,15 +66,19 @@ The portal is based on an adapted fork of the [Paperbits framework](https://pape
 
 In this section, we answer common questions about the new developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### How can I migrate from the preview version of the developer portal?
+### <a id="preview-to-ga"/> How can I migrate from the preview version of the developer portal?
 
-By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been modified in the generally available version for better user experience and it now includes new widgets.
+By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been significantly modified in the generally available version for better user experience. It also includes new widgets.
 
-If you're using the managed version, you can reset the content of the portal by clicking **Reset content** in the **Operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content.
+If you're using the managed version, reset the content of the portal by clicking **Reset content** in the **Operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content.
 
 ![Reset portal content](media/api-management-howto-developer-portal/reset-content.png)
 
-If you're using the self-hosted version, you can use the `scripts/generate.bat` script from the GitHub repository to reset the content.
+If you're using the self-hosted version, use the `scripts/cleanup.bat` and `scripts/generate.bat` from the GitHub repository to remove existing content and provision new content.
+
+If you don't want to reset the content of the portal, you may consider using newly available widgets. Existing widgets have been automatically updated to the latest versions.
+
+If your portal was provisioned after the general availability announcement, it should feature the new default content.
 
 ### How can I migrate from the old developer portal to the new one?
 
