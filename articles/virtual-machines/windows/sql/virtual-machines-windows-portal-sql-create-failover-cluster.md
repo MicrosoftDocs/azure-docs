@@ -32,7 +32,7 @@ This diagram shows:
 - Two Azure virtual machines in a Windows Server Failover Cluster. When a virtual machine is in a failover cluster, it's also called a *cluster node* or *node*.
 - Each virtual machine has two or more data disks.
 - Storage Spaces Direct synchronizes the data on the data disks and presents the synchronized storage as a storage pool.
-- The storage pool presents a cluster shared volume (CSV) to the failover cluster.
+- The storage pool presents a Cluster Shared Volume (CSV) to the failover cluster.
 - The SQL Server FCI cluster role uses the CSV for the data drives.
 - An Azure load balancer to hold the IP address for the SQL Server FCI.
 - An Azure availability set holds all the resources.
@@ -245,7 +245,7 @@ To validate the cluster by using the UI, take the following steps on one of the 
 1. Select **Next**.
 1. Under **Confirmation**, select **Next**.
 
-The **Validate a Configuration Wizard** runs the validation tests.
+The Validate a Configuration Wizard runs the validation tests.
 
 To validate the cluster by using PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines:
 
@@ -303,105 +303,106 @@ The disks for Storage Spaces Direct need to be empty. They can't contain partiti
    Enable-ClusterS2D
    ```
 
-   In **Failover Cluster Manager**, you can now see the storage pool.
+   In Failover Cluster Manager, you can now see the storage pool.
 
 1. [Create a volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
-   One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates an 800 gigabyte (GB) CSV.
+   Storage Spaces Direct automatically creates a storage pool when you enable it. You're now ready to create a volume. The PowerShell cmndlet `New-Volume` automates the volume creation process. This process includes formatting, adding the volume to the cluster, and creating a Cluster Shared Volume (CSV). This example creates an 800-gigabyte (GB) CSV:
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
-   After this command completes, an 800 GB volume is mounted as a cluster resource. The volume is at `C:\ClusterStorage\Volume1\`.
+   After this command completes, an 800-GB volume is mounted as a cluster resource. The volume is at `C:\ClusterStorage\Volume1\`.
 
-   The following diagram shows a cluster shared volume with S2D:
+   This screenshot shows a Cluster Shared Volume with Storage Spaces Direct:
 
-   ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
+   ![Cluster Shared Volume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
 ## Step 3: Test failover cluster failover
 
-In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. If you can connect to the failover cluster with **Failover Cluster Manager** and move the storage from one node to the other, you are ready to configure the FCI.
+In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. If you can connect to the failover cluster by using Failover Cluster Manager and move the storage from one node to the other, you're ready to configure the FCI.
 
-## Step 4: Create SQL Server FCI
+## Step 4: Create the SQL Server FCI
 
-After you have configured the failover cluster and all cluster components including storage, you can create the SQL Server FCI.
+After you've configured the failover cluster and all cluster components, including storage, you can create the SQL Server FCI.
 
-1. Connect to the first virtual machine with RDP.
+1. Connect to the first virtual machine by using RDP.
 
-1. In **Failover Cluster Manager**, make sure all cluster core resources are on the first virtual machine. If necessary, move all resources to this virtual machine.
+1. In Failover Cluster Manager, make sure all core cluster resources are on the first virtual machine. If necessary, move all resources to that virtual machine.
 
-1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Click **Setup**.
+1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Select **Setup**.
 
-1. In the **SQL Server Installation Center**, click **Installation**.
+1. In **SQL Server Installation Center**, select **Installation**.
 
-1. Click **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
+1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on clustered storage. With S2D, it's not a shared disk, but a mount point to a volume on each server. S2D synchronizes the volume between both nodes. The volume is presented to the cluster as a cluster shared volume. Use the CSV mount point for the data directories.
+   The FCI data directories need to be on clustered storage. With Storage Spaces Direct, it's not a shared disk, but a mount point to a volume on each server. Storage Spaces Direct synchronizes the volume between both nodes. The volume is presented to the cluster as a Cluster Shared Volume. Use the CSV mount point for the data directories.
 
-   ![DataDirectories](./media/virtual-machines-windows-portal-sql-create-failover-cluster/20-data-dicrectories.png)
+   ![Data directories](./media/virtual-machines-windows-portal-sql-create-failover-cluster/20-data-dicrectories.png)
 
-1. After you complete the wizard, Setup will install a SQL Server FCI on the first node.
+1. After you complete the instructions in the wizard, Setup will install a SQL Server FCI on the first node.
 
-1. After Setup successfully installs the FCI on the first node, connect to the second node with RDP.
+1. After Setup installs the FCI on the first node, connect to the second node by using RDP.
 
-1. Open the **SQL Server Installation Center**. Click **Installation**.
+1. Open the SQL Server Installation Center. Select **Installation**.
 
-1. Click **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL server and add this server to the FCI.
+1. Select **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL Server and add the server to the FCI.
 
    >[!NOTE]
-   >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >If you used an Azure Marketplace gallery image that contains SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## Step 5: Create Azure load balancer
+## Step 5: Create the Azure load balancer
 
 On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI.
 
-[Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
+For more information, see [Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
 ### Create the load balancer in the Azure portal
 
 To create the load balancer:
 
-1. In the Azure portal, go to the Resource Group with the virtual machines.
+1. In the Azure portal, go to the resource group that contains the virtual machines.
 
-1. Click **+ Add**. Search the Marketplace for **Load Balancer**. Click **Load Balancer**.
+1. Select **Add**. Search the Azure Marketplace for **Load Balancer**. Select **Load Balancer**.
 
 1. Click **Create**.
 
 1. Configure the load balancer with:
 
    - **Subscription**: Your Azure subscription.
-   - **Resource Group**: Use the same resource group as your virtual machines.
+   - **Resource group**: The same resource group that your virtual machines are in.
    - **Name**: A name that identifies the load balancer.
-   - **Region**: Use the same Azure location as your virtual machines.
-   - **Type**: The load balancer can be either public or private. A private load balancer can be accessed from within the same VNET. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the Internet, use a public load balancer.
-   - **SKU**: The SKU for the your load balancer should be standard. 
-   - **Virtual Network**: The same network as the virtual machines.
-   - **IP address assignment**: The IP address assignment should be static. 
-   - **Private IP address**: The same IP address that you assigned to the SQL Server FCI cluster network resource.
-   See the following picture:
+   - **Region**: The same Azure location that your virtual machines are in.
+   - **Type**: Either public or private. A private load balancer can be accessed from within the virtual network. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the internet, use a public load balancer.
+   - **SKU**: Standard.
+   - **Virtual network**: The same network as the virtual machines.
+   - **IP address assignment**: Static. 
+   - **Private IP address**: The IP address that you assigned to the SQL Server FCI cluster network resource.
 
-   ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
+ The following screenshot shows the **Create load balancer** UI:
+
+   ![Set up the load balancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
 
 ### Configure the load balancer backend pool
 
-1. Return to the Azure Resource Group with the virtual machines and locate the new load balancer. You may have to refresh the view on the Resource Group. Click the load balancer.
+1. Return to the Azure resource group that contains the virtual machines and locate the new load balancer. You might need to refresh the view on the resource group. Select the load balancer.
 
-1. Click **Backend pools** and click **+ Add** to add a backend pool.
+1. Select **Backend pools**, and then select **Add**.
 
 1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Under **Target network IP configurations**, check **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI. 
+1. Under **Target network IP configurations**, select **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI.
 
-1. Click **OK** to create the backend pool.
+1. Select **OK** to create the backend pool.
 
 ### Configure a load balancer health probe
 
-1. On the load balancer blade, click **Health probes**.
+1. On the load balancer blade, select **Health probes**.
 
-1. Click **+ Add**.
+1. Select **Add**.
 
-1. On the **Add health probe** blade, <a name="probe"></a>Set the health probe parameters:
+1. On the **Add health probe** blade, <a name="probe"></a>set the health probe parameters.
 
    - **Name**: A name for the health probe.
    - **Protocol**: TCP.
@@ -409,19 +410,19 @@ To create the load balancer:
    - **Interval**: 5 Seconds.
    - **Unhealthy threshold**: 2 consecutive failures.
 
-1. Click OK.
+1. Select **OK**.
 
 ### Set load balancing rules
 
-1. On the load balancer blade, click **Load balancing rules**.
+1. On the load balancer blade, select **Load balancing rules**.
 
-1. Click **+ Add**.
+1. Select **Add**.
 
-1. Set the load balancing rules parameters:
+1. Set the load balancing rule parameters:
 
    - **Name**: A name for the load balancing rules.
    - **Frontend IP address**: Use the IP address for the SQL Server FCI cluster network resource.
-   - **Port**: Set for the SQL Server FCI TCP port. The default instance port is 1433.
+   - **Port**: The SQL Server FCI TCP port. The default instance port is 1433.
    - **Backend port**: This value uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
    - **Backend pool**: Use the backend pool name that you configured earlier.
    - **Health probe**: Use the health probe that you configured earlier.

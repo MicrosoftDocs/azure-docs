@@ -311,9 +311,9 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
    >[!NOTE]
    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## Step 6: Create an Azure load balancer
+## Step 6: Create the Azure load balancer
 
-On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI.
+On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI.
 
 For more information, see [Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
@@ -372,15 +372,15 @@ To create the load balancer:
 
 1. Select **OK**.
 
-### Set load-balancing rules
+### Set load balancing rules
 
-1. On the load balancer blade, select **Load-balancing rules**.
+1. On the load balancer blade, select **Load balancing rules**.
 
 1. Select **Add**.
 
 1. Set the load-balancing rule parameters:
 
-   - **Name**: A name for the load-balancing rules.
+   - **Name**: A name for the load balancing rules.
    - **Frontend IP address**: The IP address for the SQL Server FCI cluster network resource.
    - **Port**: The SQL Server FCI TCP port. The default instance port is 1433.
    - **Backend port**: Uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
