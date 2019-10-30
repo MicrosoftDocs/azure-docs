@@ -146,7 +146,37 @@ Use the steps below to provision roles for a user to your application. Note that
   
   ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/AppRoleAssignmentsComplex.PNG)
     
-  - **Example output:** loreIpsum
+  - **Example output:** 
+  
+```json
+  {
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+    ],
+    "externalId": "alias",
+    "userName": "alias@contoso.OnMicrosoft.com",
+    "active": true,
+    "displayName": "First Name Last Name",
+    "meta": {
+        "resourceType": "User"
+    },
+    "roles": [
+        {
+            "primary": false,
+            "type": "WindowsAzureActiveDirectoryRole",
+            "display": "Admin",
+            "value": "Admin"
+        },
+        {
+            "primary": false,
+            "type": "WindowsAzureActiveDirectoryRole",
+            "display": "User",
+            "value": "User"
+        }
+    ]
+}
+```
+
   - **Things to consider**
     - All roles will be provisioned as primary = false
     - The POST contains type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH.
