@@ -29,7 +29,7 @@ All of your users have a single *home* directory for authentication. Your users 
 > [!Important]
 > When you associate a subscription to a different directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/overview.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
 >
-> Moving your Azure Kubernetes Service (AKS) cluster to a different subscription or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principals rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
+> Moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principal's rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
 
 ## Before you begin
 
@@ -50,7 +50,9 @@ Before you can associate or add your subscription, do the following tasks:
 
 - Make sure you're not using an Azure Cloud Service Providers (CSP) subscription (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), a Microsoft Internal subscription (MS-AZR-0015P), or a Microsoft Imagine subscription (MS-AZR-0144P).
 
-## To associate an existing subscription to your Azure AD directory
+## Associate a subscription to a directory<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
+
+To associate an existing subscription to your Azure AD directory, follow these steps:
 
 1. Sign in and select the subscription you want to use from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
@@ -72,7 +74,7 @@ Use **Switch directory** to go to your new directory. It can take several hours 
 
 Changing the subscription directory is a service-level operation, so it doesn't affect subscription billing ownership. The Account Admin can still change the Service Admin from the [Account Center](https://account.azure.com/subscriptions). To delete the original directory, you must transfer the subscription billing ownership to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md).
 
-## Post association steps
+## Post-association steps
 
 After you associate a subscription to a different directory, you might need to do the following tasks to resume operations:
 
