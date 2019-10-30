@@ -14,7 +14,7 @@ ms.author: caya
 The instructions below assume Application Gateway Ingress Controller (AGIC) will be
 installed in an environment with no pre-existing components.
 
-### Required Command Line Tools
+## Required Command Line Tools
 
 We recommend the use of [Azure Cloud Shell](https://shell.azure.com/) for all command line operations below. Launch your shell from shell.azure.com or by clicking the link:
 
@@ -33,7 +33,7 @@ choose to use another environment, please ensure the following command line tool
 * `jq` - command-line JSON processor: [installation instructions](https://stedolan.github.io/jq/download/)
 
 
-### Create an Identity
+## Create an Identity
 
 Follow the steps below to create an Azure Active Directory (AAD) [service principal object](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). Please record the `appId`, `password`, and `objectId` values - these will be used in the following steps.
 
@@ -65,7 +65,7 @@ Follow the steps below to create an Azure Active Directory (AAD) [service princi
     ```
     To deploy an **RBAC** enabled cluster, set the `aksEnabledRBAC` field to `true`
 
-### Deploy Components
+## Deploy Components
 This step will add the following components to your subscription:
 
 - [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
@@ -280,7 +280,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
     helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure
     ```
 
-### Install a Sample App
+## Install a Sample App
 Now that we have Application Gateway, AKS, and AGIC installed we can install a sample app
 via [Azure Cloud Shell](https://shell.azure.com/):
 

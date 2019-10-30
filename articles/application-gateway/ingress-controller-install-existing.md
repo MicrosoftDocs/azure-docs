@@ -15,7 +15,7 @@ The Application Gateway Ingress Controller (AGIC) is a pod within your Kubernete
 AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 resources, and creates and applies Application Gateway config based on the status of the Kubernetes cluster.
 
-### Outline:
+## Outline:
 - [Prerequisites](#prerequisites)
 - [Azure Resource Manager Authentication (ARM)](#azure-resource-manager-authentication)
     - Option 1: [Set up aad-pod-identity](#set-up-aad-pod-identity) and create Azure Identity on ARMs
@@ -24,7 +24,7 @@ resources, and creates and applies Application Gateway config based on the statu
 - [Multi-cluster / Shared Application Gateway](#multi-cluster--shared-application-gateway): Install AGIC in an environment, where Application Gateway is
 shared between one or more AKS clusters and/or other Azure components.
 
-### Prerequisites
+## Prerequisites
 This document assumes you already have the following tools and infrastructure installed:
 - [AKS](https://azure.microsoft.com/services/kubernetes-service/) with [Advanced Networking](https://docs.microsoft.com/azure/aks/configure-azure-cni) enabled
 - [Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant) in the same virtual network as AKS
@@ -38,7 +38,7 @@ Please __backup your Application Gateway's configuration__ before installing AGI
 The zip file you downloaded will have JSON templates, bash, and PowerShell scripts you could use to restore App
 Gateway should that become necessary
 
-### Install Helm
+## Install Helm
 [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) is a package manager for
 Kubernetes. We will leverage it to install the `application-gateway-kubernetes-ingress` package.
 Use [Cloud Shell](https://shell.azure.com/) to install Helm:
@@ -65,12 +65,12 @@ Use [Cloud Shell](https://shell.azure.com/) to install Helm:
     helm repo update
     ```
 
-### Azure Resource Manager Authentication
+## Azure Resource Manager Authentication
 
 AGIC communicates with the Kubernetes API server and the Azure Resource Manager. It requires an identity to access
 these APIs.
 
-### Set up AAD Pod Identity
+## Set up AAD Pod Identity
 
 [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) is a controller, similar to AGIC, which also runs on your
 AKS. It binds Azure Active Directory identities to your Kubernetes pods. Identity is required for an application in a
@@ -119,7 +119,7 @@ look something like this: `/subscriptions/A/resourceGroups/B/providers/Microsoft
         --scope <App-Gateway-Resource-Group-ID>
     ```
 
-### Using a Service Principal
+## Using a Service Principal
 It is also possible to provide AGIC access to ARM via a Kubernetes secret.
 
 1. Create an Active Directory Service Principal and encode with base64. The base64 encoding is required for the JSON
