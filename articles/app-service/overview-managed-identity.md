@@ -365,9 +365,7 @@ $accessToken = $tokenResponse.access_token
 
 ---
 
-### <a name="asal"></a>Using the Azure SDK
-
-# [C#](#tab/csharp)
+### <a name="asal"></a>Using the Microsoft.Azure.Services.AppAuthentication library for .NET
 
 For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](/cli/azure), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
 
@@ -386,8 +384,6 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 ```
 
 To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
-
-# [Java](#tab/java)
 
 ### Using the Azure SDK for Java
 
@@ -415,8 +411,6 @@ Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.A
 Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
 
 ```
-
----
 
 
 ## <a name="remove"></a>Removing an identity
