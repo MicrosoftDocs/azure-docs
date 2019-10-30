@@ -127,44 +127,31 @@ Use the steps below to provision roles for a user to your application. Note that
 - Mapping an appRoleAsisgnment in Azure AD to a role in your application requires that you transform the attribute. The appRoleAssignment attribute **should not be mapped directly** in the attribute mappings without being transformed. Do not do the below:
 <image>
 
-- If your application expects a single app role name, you can use the [SingleAppRoleAssignment function](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data#singleapproleassignment) function. When using this function, ensure that users are only assigned one role per app. 
-<image - how to use the function>
+- **SingleAppRoleAssignment:** 
+  - **When to use:** Use the function to provisioning a single role for a user
+  - **How to configure:** 
+  
+  ![Add SingleAppRoleAssignment](./media/customize-application-attributes/SingleAppRoleAssignment.PNG)
 
-![Add SingleAppRoleAssignment](./media/customize-application-attributes/SingleAppRoleAssignmentToRoles.PNG)
-
-- The function described below allows you to provisionin two roles for a user and control what is sent as the display, type, and value. This gives you flexibility to mapp and transform attributes on a user to the display, type, and value properties of the role. 
-roles[primary eq "True"].display  ||
-roles[primary eq "True"].type ||
-roles[primary eq "True"].value
-
- ![Add roles](./media/customize-application-attributes/RoleDisplay.PNG)
-
-- If you need to provision more than two roles per user, you can add a custom role attribute to your configuration and use the expression "AppRoleAssignments([appRoleAssignments])" or "AppRoleAssignmentsComplex([appRoleAssignments])". AppRoleAssignmentsComplex provides the "id", "name", and "displayName" while the AppRoleAssignments function solely provides the name. Note that with this option, we do not specify the primary role value. 
-
-<need JSON for what it will look like when roles are sent out>
-
- ![Add roles](./media/customize-application-attributes/AddRoles.PNG)
- 
- 
- ![Map AppRoleAssignmentsToRolesCapture](./media/customize-application-attributes/AppRoleAssignmentsToRolesCapture.PNG)
-
-
-
-- **SingleAppRoleAssignment** - Provision a single role for a user
-  - **When to use:** loreIpsum
-  - **How to configure** lore ipsum
-  - **Example output:** loreIpsum
+  - **Example output:** 
   - **Things to consider**
     - Ensure that multiple roles are not assigned to a user. We cannot gaurantee which role will be provisioned.   
   
 - **AppRoleAssignmentsComplex -** Provision multiple roles per user
   - **When to use:** loreIpsum
   - **How to configure** lore ipsum
+  
+  ![Add roles](./media/customize-application-attributes/AddRoles.PNG)
+  
+  
+  ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/AppRoleAssignmentsComplex.PNG)
+    
   - **Example output:** loreIpsum
   - **Things to consider**
     - All roles will be provisioned as primary = false
     - The POST contains type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH.
-    
+  
+
 
 ## Provisioning a multi-value attribute
 Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression below for multi value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value.  Do you need to set it as multi-attribute?
