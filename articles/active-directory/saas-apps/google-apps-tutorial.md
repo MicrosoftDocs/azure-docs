@@ -247,7 +247,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create G Suite test user
 
-The objective of this section is to create a user called B.Simon in G Suite Software. G Suite supports auto provisioning, which is by default enabled. There is no action for you in this section. If a user doesn't already exist in G Suite Software, a new one is created when you attempt to access G Suite Software.
+The objective of this section is to [create a user in G Suite](https://support.google.com/a/answer/33310?hl=en) called B.Simon. After the user has manually been created in G Suite, the user will now be able to sign in using their Office 365 login credentials.
+
+G Suite also supports automatic user provisioning. To configure automatic user provisioning, you must first [configure G Suite for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 
 > [!NOTE]
 > Make sure that your user already exists in G Suite if provisioning in Azure AD has not been turned on before testing Single Sign-on.

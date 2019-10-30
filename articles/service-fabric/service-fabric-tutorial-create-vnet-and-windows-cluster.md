@@ -107,7 +107,6 @@ The following inbound traffic rules are enabled in the **Microsoft.Network/netwo
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
-* SMB: 445
 * Internodecommunication: 1025, 1026, 1027
 * Ephemeral port range: 49152 to 65534 (need a minimum of 256 ports).
 * Ports for application use: 80 and 443
