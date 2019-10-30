@@ -4,7 +4,7 @@ description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Ente
 keywords: 
 author: martincoetzer
 ms.author: martinco
-ms.date: 04/12/2018
+ms.date: 10/30/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
@@ -201,8 +201,6 @@ Use or enable password hash synchronization for whichever authentication method 
 
 3. **Identity protection**. One of the best ways to protect users in the cloud is Azure AD Identity Protection with Azure AD Premium P2. Microsoft continually scans the Internet for user and password lists that bad actors sell and make available on the dark web. Azure AD can use this information to verify if any of the usernames and passwords in your organization are compromised. So it's critical to enable password hash synchronization no matter what authentication method you use, whether that's federated or pass-through authentication. Leaked credentials are presented as a report. Use this information to block or force users to change their passwords when they try to sign in with leaked passwords.
 
-Lastly, according to [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html), Microsoft has the most full-featured set of identity and access management functions. Microsoft handles [450 billion authentication requests](https://www.microsoft.com/en-us/security/intelligence-report) every month to provide access to thousands of SaaS applications like Office 365 from virtually any device. 
-
 ## Conclusion
 
 This article outlines various authentication options that organizations can configure and deploy to support access to cloud apps. To meet various business, security, and technical requirements, organizations can choose between password hash synchronization, Pass-through Authentication, and federation. 
@@ -215,4 +213,4 @@ In today’s world, threats are present 24 hours a day and come from everywhere.
 
 [Get started](../../active-directory/fundamentals/get-started-azure-ad.md) with Azure AD and deploy the right authentication solution for your organization.
 
-If you're thinking about migrating from federated to cloud authentication, learn more about [changing the sign-in method](../../active-directory/hybrid/plan-connect-user-signin.md). To help you plan and implement the migration, use [these project deployment plans](https://aka.ms/deploymentplans).
+If you're thinking about migrating from federated to cloud authentication, learn more about [changing the sign-in method](../../active-directory/hybrid/plan-connect-user-signin.md). To help you plan and implement the migration, use [these project deployment plans](https://aka.ms/deploymentplans) or consider using the new [Staged Rollout](../../active-directory/hybrid/how-to-connect-staged-rollout.md) feature to migrate federated users to using cloud authentication in a staged approach.
