@@ -66,7 +66,7 @@ Azure Maps and the related features are now available in Azure Government cloud 
 
 | Azure Public        | Azure Government   | 
 | ------------------- | ------------------ | 
-| \*.atlas.microsoft.com | atlas.azure.us |
+| atlas.microsoft.com | atlas.azure.us |
 
 ## Next steps
 
