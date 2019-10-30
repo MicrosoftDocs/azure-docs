@@ -11,4 +11,3 @@ ms.author: apimpm
 > 
 > - [Azure API Management developer portal overview](..\articles\api-management\api-management-howto-developer-portal.md)
 > - [Access and customize the managed developer portal (tutorial)](..\articles\api-management\api-management-howto-developer-portal-customize.md)
-> - [Automate developer portal deployments](..\articles\api-management\api-management-howto-developer-portal-automate.md)
