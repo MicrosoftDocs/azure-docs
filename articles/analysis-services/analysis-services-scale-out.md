@@ -133,7 +133,7 @@ On your server's Overview page, there are two server names. If you haven't yet c
 
 For end-user client connections like Power BI Desktop, Excel, and custom apps, use **Server name**. 
 
-For SSMS, SSDT, and connection strings in PowerShell, Azure Function apps, and AMO, use **Management server name**. The management server name includes a special `:rw` (read-write) qualifier. All processing operations occur on the (primary) management server.
+For SSMS, Visual Studio, and connection strings in PowerShell, Azure Function apps, and AMO, use **Management server name**. The management server name includes a special `:rw` (read-write) qualifier. All processing operations occur on the (primary) management server.
 
 ![Server names](media/analysis-services-scale-out/aas-scale-out-name.png)
 
