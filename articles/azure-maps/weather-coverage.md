@@ -48,7 +48,7 @@ The following table provides information about what kind of weather information 
 | Colombia                                 | ✓ |   |  ✓| 
 | Costa Rica                               | ✓ |   |  ✓| 
 | Cuba                                     | ✓ |   |  ✓| 
-| Curacao                                  | ✓ |   |  ✓| 
+| Curaçao                                  | ✓ |   |  ✓| 
 | Dominica                                 | ✓ |   |  ✓| 
 | Dominican Republic                       | ✓ |   |  ✓| 
 | Ecuador                                  | ✓ |   |  ✓| 
@@ -62,7 +62,6 @@ The following table provides information about what kind of weather information 
 | Guyana                                   | ✓ |   |  ✓| 
 | Haiti                                    | ✓ |   |  ✓| 
 | Honduras                                 | ✓ |   |  ✓| 
-| Italy                                    | ✓ |   |  ✓| 
 | Jamaica                                  | ✓ |   |  ✓| 
 | Martinique                               | ✓ |   |  ✓| 
 | Mexico                                   | ✓ |   |  ✓| 
@@ -72,12 +71,14 @@ The following table provides information about what kind of weather information 
 | Paraguay                                 | ✓ |   |  ✓| 
 | Peru                                     | ✓ |   |  ✓| 
 | Puerto Rico                              | ✓ |   |  ✓| 
-| Saint Barthelemy                         | ✓ |   |  ✓| 
+| Saint Barthélemy                         | ✓ |   |  ✓| 
 | Saint Kitts and Nevis                    | ✓ |   |  ✓| 
 | Saint Lucia                              | ✓ |   |  ✓| 
 | Saint Martin                             | ✓ |   |  ✓| 
 | Saint Pierre and Miquelon                | ✓ |   |  ✓| 
 | Saint Vincent and the Grenadines         | ✓ |   |  ✓| 
+| Sint Eustatius                           | ✓ |   |  ✓|  
+| Sint Maarten                             | ✓ |   |  ✓| 
 | South Georgia and South Sandwich Islands | ✓ |   |  ✓| 
 | Suriname                                 | ✓ |   |  ✓| 
 | Trinidad and Tobago                      | ✓ |   |  ✓| 
@@ -102,13 +103,12 @@ The following table provides information about what kind of weather information 
 | Burkina Faso                | ✓               |                              |        ✓| 
 | Burundi                     | ✓               |                              |        ✓| 
 | Cameroon                    | ✓               |                              |        ✓| 
-| Cape Verde                  | ✓               |                              |        ✓| 
+| Cabo Verde                  | ✓               |                              |        ✓| 
 | Central African Republic    | ✓               |                              |        ✓| 
 | Chad                        | ✓               |                              |        ✓| 
 | Comoros                     | ✓               |                              |        ✓| 
-| Congo                       | ✓               |                              |        ✓| 
-| Congo                       | ✓               |                              |        ✓| 
-| Cote D'Ivoire               | ✓               |                              |        ✓| 
+| Congo (DRC)                 | ✓               |                              |        ✓|
+| Côte d’Ivoire               | ✓               |                              |        ✓| 
 | Djibouti                    | ✓               |                              |        ✓| 
 | Egypt                       | ✓               |                              |        ✓| 
 | Equatorial Guinea           | ✓               |                              |        ✓| 
@@ -143,11 +143,11 @@ The following table provides information about what kind of weather information 
 | Niger                       | ✓               |                              |        ✓| 
 | Nigeria                     | ✓               |                              |        ✓| 
 | Oman                        | ✓               |                              |        ✓| 
-| Palestine                   | ✓               |                              |        ✓| 
+| Palestinian Authority       | ✓               |                              |        ✓| 
 | Qatar                       | ✓               |                              |        ✓| 
 | Réunion                     | ✓               |                              |        ✓| 
 | Rwanda                      | ✓               |                              |        ✓| 
-| Saint Helena                | ✓               |                              |        ✓| 
+| St Helena, Ascension, Tristan da Cunha        | ✓               |                              |        ✓| 
 | São Tomé and Príncipe       | ✓               |                              |        ✓| 
 | Saudi Arabia                | ✓               |                              |        ✓| 
 | Senegal                     | ✓               |                              |        ✓| 
@@ -199,7 +199,7 @@ The following table provides information about what kind of weather information 
 | Korea                             | ✓ | ✓ |  ✓| 
 | Kyrgyzstan                        | ✓ |   |  ✓| 
 | Laos                              | ✓ |   |  ✓| 
-| Macau SAR                         | ✓ |   |  ✓| 
+| Macao SAR                         | ✓ |   |  ✓| 
 | Malaysia                          | ✓ |   |  ✓| 
 | Maldives                          | ✓ |   |  ✓| 
 | Marshall Islands                  | ✓ |   |  ✓| 
@@ -265,6 +265,7 @@ The following table provides information about what kind of weather information 
 | Hungary                | ✓ | ✓ |  ✓| 
 | Iceland                | ✓ |   |  ✓| 
 | Ireland                | ✓ | ✓ |  ✓| 
+| Italy                  | ✓ |   |  ✓|
 | Isle of Man            | ✓ |   |  ✓| 
 | Jersey                 | ✓ |   |  ✓| 
 | Kosovo                 | ✓ |   |  ✓| 
@@ -288,6 +289,7 @@ The following table provides information about what kind of weather information 
 | Slovakia               | ✓ | ✓ |  ✓| 
 | Slovenia               | ✓ | ✓ |  ✓| 
 | Spain                  | ✓ | ✓ |  ✓| 
+| Svalbard               | ✓ |   |  ✓|
 | Jan Mayen              | ✓ |   |  ✓| 
 | Sweden                 | ✓ | ✓ |  ✓| 
 | Switzerland            | ✓ | ✓ |  ✓| 
