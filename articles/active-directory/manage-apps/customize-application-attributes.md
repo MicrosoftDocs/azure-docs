@@ -135,7 +135,7 @@ roles[primary eq "True"].display  ||
 roles[primary eq "True"].type ||
 roles[primary eq "True"].value
 
-- If you need to provision more than two roles per user, you can add a custom role attribute to your configuration. Note that with this option, we do not specify the primary role value. 
+- If you need to provision more than two roles per user, you can add a custom role attribute to your configuration and use the expression "AppRoleAssignments([appRoleAssignments])" or "AppRoleAssignmentsComplex([appRoleAssignments])". AppRoleAssignmentsComplex provides the "id", "name", and "displayName" while the AppRoleAssignments function solely provides the name. Note that with this option, we do not specify the primary role value. 
 
 <need JSON for what it will look like when roles are sent out>
 
