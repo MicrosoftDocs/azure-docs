@@ -46,15 +46,15 @@ To learn more, see [Azure App Service static access restrictions](../app-service
 
 Private site access refers to making your app accessible only from a private network such as an Azure virtual network.
 
-* Private site access is available in the [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan), and [App Service](functions-scale.md#app-service-plan) plans when **Service Endpoints** are configured.
-    * Service endpoints can be configured on a per-app basis under **Platform features** > **Networking** > **Configure Access Restrictions** > **Add Rule**. Virtual networks can be selected now as a rule **type**.
+* Private site access is available in the [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan), and [App Service](functions-scale.md#app-service-plan) plans when service endpoints are configured.
+    * Service endpoints can be configured on a per-app basis under **Platform features** > **Networking** > **Configure Access Restrictions** > **Add Rule**. Virtual networks can now be selected as a rule type.
     * For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
         * Keep in mind that with service endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
 * Private site access is also available within an App Service Environment that's configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 ## Virtual network integration
 
-Virtual network integration allows your function app access resources inside a virtual network. This feature is available in both the Premium plan and the App Service plan. If your app is in an App Service Environment, it's already in a virtual network and doesn't require virtual network integration to reach resources in the same virtual network.
+Virtual network integration allows your function app to access resources inside a virtual network. This feature is available in both the Premium plan and the App Service plan. If your app is in an App Service Environment, it's already in a virtual network and doesn't require virtual network integration to reach resources in the same virtual network.
 
 You can use virtual network integration to enable access from apps to databases and web services running in your virtual network. With virtual network integration, you don't need to expose a public endpoint for applications on your VM. You can use private, non-internet routable addresses instead.
 
@@ -72,7 +72,7 @@ An app can use only one type of the VNet Integration feature at a time. Although
 | Want to reach RFC 1918 endpoints across ExpressRoute | Regional VNet integration |
 | Want to reach resources across service endpoints | Regional VNet integration |
 
-Neither feature lets you reach non-RFC 1918 addresses across ExpressRoute. To do that, you currently have to use an ASE.
+Neither feature lets you reach non-RFC 1918 addresses across ExpressRoute. To do that, you currently have to use an App Service Environment.
 
 Using the regional VNet integration doesn't connect your VNet to on-premises endpoints or configure service endpoints. That's a separate networking configuration. The regional VNet integration just enables your app to make calls across those connection types.
 
