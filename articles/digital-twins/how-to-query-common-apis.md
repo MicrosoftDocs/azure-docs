@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/27/2019
 ---
 
 # How to query Azure Digital Twins APIs for common tasks

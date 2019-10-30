@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/22/2019
 ---
 
 # Public preview service limits
@@ -65,7 +65,8 @@ The following limits set the total number of all user-defined function calls mad
 
 The following limits cap the total number of all messages your devices can send to your Azure Digital Twins instance:
 
-- 100 messages per second
+- 100 messages per second across all devices
+-	25 messages per second per device
 
 ## Next steps
 
