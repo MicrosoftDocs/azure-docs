@@ -110,7 +110,7 @@ The following samples show how to protect an Azure Function using HttpTrigger an
 | -------- | ------------------- |
 | ![This image shows the ASP.NET Core logo](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (service) Azure Function of [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
 | ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Web API (service) of [NodeJS and passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
-| ![This image shows the Python logo](media/sample-v2-code/logo-python.png)</p>Python | Web API (service) of [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
+| ![This image shows the Python logo](media/sample-v2-code/logo_python.png)</p>Python | Web API (service) of [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
 | ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Web API (service) of [NodeJS and passport-azure-ad using on behalf of](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
 
 
