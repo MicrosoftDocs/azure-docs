@@ -18,11 +18,11 @@ ms.author: pepogors
 
 ---
 # Service Fabric Guardrails 
-When deploying a Service Fabric cluster, guardrails are put in place, which will fail an ARM deployment in the case of an invalid cluster configuration. The following sections provide an overview of common cluster configuration issues and the steps required to mitigate these issues. 
+When deploying a Service Fabric cluster, guardrails are put in place, which will fail an Azure Resource Manager deployment in the case of an invalid cluster configuration. The following sections provide an overview of common cluster configuration issues and the steps required to mitigate these issues. 
 
 ## Durability Mismatch
 ### Overview
-The durability value for a Service Fabric node type are defined in two different sections of an ARM template. The Virtual Machine Scale Set extension section of the Virtual Machine Scale Set resource, and the Node Type section of the Service Fabric cluster resource. It is a requirement that the durability value in these sections match, otherwise the resource deployment will fail.
+The durability value for a Service Fabric node type is defined in two different sections of an Azure Resource Manager template. The Virtual Machine Scale Set extension section of the Virtual Machine Scale Set resource, and the Node Type section of the Service Fabric cluster resource. It is a requirement that the durability value in these sections match, otherwise the resource deployment will fail.
 
 The following section contains an example of a durability mismatch between the Virtual Machine Scale Set extension durability setting and the Service Fabric Node Type durability setting:  
 
@@ -67,7 +67,7 @@ The following section contains an example of a durability mismatch between the V
 ### Mitigation
 To fix a durability mismatch, which is indicated by any of the above error messages:
 1. Update the durability level in either the Virtual Machine Scale Set extension or Service Fabric Node Type section of the ARM template to ensure that the values match.
-2. Redeploy the ARM template with the updated values.
+2. Redeploy the Azure Resource Manager template with the updated values.
 
 ## Next steps
 * Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
