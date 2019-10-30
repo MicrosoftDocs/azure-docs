@@ -248,10 +248,15 @@ Next, open the `Function.java` file and replace the contents with the following 
 ```java
 package com.example;
 
-import com.microsoft.azure.functions.annotation.*;
-import com.microsoft.azure.functions.*;
 import com.example.TelemetryItem.status;
-import java.time.*;
+import com.microsoft.azure.functions.annotation.Cardinality;
+import com.microsoft.azure.functions.annotation.CosmosDBOutput;
+import com.microsoft.azure.functions.annotation.EventHubOutput;
+import com.microsoft.azure.functions.annotation.EventHubTrigger;
+import com.microsoft.azure.functions.annotation.FunctionName;
+import com.microsoft.azure.functions.annotation.TimerTrigger;
+import com.microsoft.azure.functions.ExecutionContext;
+import com.microsoft.azure.functions.OutputBinding;
 
 public class Function {
 
