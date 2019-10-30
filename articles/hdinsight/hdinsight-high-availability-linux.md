@@ -55,7 +55,7 @@ For information on using an edge node with other cluster types, see the [Use edg
 
 ## Accessing the nodes
 
-Access to the cluster over the internet is provided through a public gateway. Access is limited to connecting to the head nodes and (if one exists) the edge node. Access to services running on the head nodes isn't effected by having multiple head nodes. The public gateway routes requests to the head node that hosts the requested service. For example, if Apache Ambari is currently hosted on the secondary head node, the gateway routes incoming requests for Ambari to that node.
+Access to the cluster over the internet is provided through a public gateway. Access is limited to connecting to the head nodes and, if one exists, the edge node. Access to services running on the head nodes isn't affected by having multiple head nodes. The public gateway routes requests to the head node that hosts the requested service. For example, if Apache Ambari is currently hosted on the secondary head node, the gateway routes incoming requests for Ambari to that node.
 
 Access over the public gateway is limited to ports 443 (HTTPS), 22, and 23.
 
@@ -273,7 +273,7 @@ When creating a cluster, you can specify the size of the nodes. The following in
 
 ## Next steps
 
-Use the following links to learn more about things mentioned in this document.
+To learn more about the items discussed in this article, see:
 
 * [Apache Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Install and configure the Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
