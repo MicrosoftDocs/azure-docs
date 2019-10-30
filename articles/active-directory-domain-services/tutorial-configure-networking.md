@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 10/30/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create and configure a virtual network subnet or network peering for application workloads in an Azure Active Directory Domain Services managed domain
