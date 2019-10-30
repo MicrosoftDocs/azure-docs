@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
 #Customer intent: As a developer who works on subsystems of online streaming/multiscreen solutions that need to deliver protected content, I want to make sure that delivered content is protected with DRM or AES-128.
@@ -104,8 +104,6 @@ A security token service (STS) issues JWT as the access token for back-end resou
 * Claims, which are dependent on business requirements in content protection
 * Symmetric or asymmetric verification for signature verification
 * Key rollover support (if necessary)
-
-You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test the STS. It supports all three types of verification keys: symmetric, asymmetric, or Azure Active Directory (Azure AD) with key rollover. 
 
 ## Streaming protocols and encryption types
 
