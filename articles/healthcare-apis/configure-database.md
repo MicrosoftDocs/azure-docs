@@ -19,7 +19,7 @@ Throughput must be provisioned to ensure that sufficient system resources are av
 > [!NOTE]
 > As different operations consume different number of RU, we return the actual number of RUs consumed in every API call in response header. This way you can profile the number of RUs consumed by your application.
 
-To change this setting in the Azure portal, you can navigate to your Azure API for FHIR and open the Database blade, then change the throughput to the desired value depending on your performance needs. You can change the value up to a maximum of 10,000 RU/s.* If you need a higher value, contact Azure support.
+To change this setting in the Azure portal, you can navigate to your Azure API for FHIR and open the Database blade, then change the Provisioned throughput to the desired value depending on your performance needs. You can change the value up to a maximum of 10,000 RU/s.* If you need a higher value, contact Azure support.
 
 ***Note:** Higher value means higher Azure API for FHIR throughput and higher cost of the service.
 
