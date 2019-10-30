@@ -86,19 +86,17 @@ The email includes a link approvers can click on to go to Myaccess to approve or
 
 ![Approve request to access package email](./media/entitlement-management-shared/approver-request-email.png)
 
-### Alternate approver request emails
-
-If escalation is enabled, there will be an alternate approver added to the policy in the event that primary approvers are unable to make a decision before the configured half-life of the request.
-
-If a decision is not made by primary approvers before the duration specified in the policy, the alternate approver will receive a notification email to make a decision for the request. Here is a sample email of the notification the alternate approvers receive:
-
-![Alternate approver request email](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
-
 The primary approvers are also sent an email notification with a reminder to take action and make a decision for the request. Here is a sample email of the notification primary approvers receive to remind them to take action:
 
 ![Reminder access request email](./media/entitlement-management-process/approver-access-request-reminder-email.png)
 
-Either the the primary or alternate approvers can make a decision on the request during escalation.
+### Alternate approver request emails
+
+If forwarding to alternate approvers is enabled, per the forwarding policy, if the request is still pending, the request will be forwarded. The alternate approver will receive a notification email to approve or deny the request. Here is a sample email of the notification the alternate approvers receive:
+
+![Alternate approver request email](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
+
+Both, the primary approvers and the alternate approvers can approve or deny the request.
 
 ### Approved or denied emails
 
@@ -106,7 +104,7 @@ Requestors are notified when their access request is approved and available for 
 
 ![Review access request email](./media/entitlement-management-process/approver-request-email-approved.png)
 
-When an access request is approved, entitlement management starts the process of granting the requestor access to each of the resources in the access package. After the requestor has been granted access to every resource in the access package, an email notification is sent to the requestor that their access request was approved and that they now have access to the access package. Here is a sample email notification that is sent to a requestor when they are granted access to an access package:
+When an access request is approved, and their access is provisioned, an email notification is sent to the requestor that they now have access to the access package. Here is a sample email notification that is sent to a requestor when they are granted access to an access package:
 
 ![Expired access request email](./media/entitlement-management-process/requestor-email-approved.png)
 
@@ -116,9 +114,9 @@ When an access request is denied, an email notification is sent to the requestor
 
 ### Expired access request emails
 
-Access requests can expire before a user receives access to the access package. This occurs when a requestor submits an access request and there is no action from the approvers within the request duration.
+Access requests could expire if no approver has approved or denied the request. 
 
- When the request reaches its configured expiration date and expires, it can no longer be approved or denied by the approvers. Here is a sample email of the notification sent to all of the primary and alternate approvers:
+When the request reaches its configured expiration date and expires, it can no longer be approved or denied by the approvers. Here is a sample email of the notification sent to all of the primary and alternate approvers:
 
  ![Approvers expired access request email](./media/entitlement-management-process/approver-request-email-expired.png)
 
