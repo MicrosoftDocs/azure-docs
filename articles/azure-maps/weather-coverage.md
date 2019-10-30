@@ -12,10 +12,9 @@ manager: philmea
 
 # Azure Maps weather coverage
 
-The Azure Maps [Weather Service]() provides functionality to get radar tiles, current weather conditions, weather forecast, and weather along a route. This article coverage information for the Weather service.
+This article provides coverage information for Azure Maps [Weather services](https://aka.ms/AzureMapsWeatherService). Azure Maps  Weather data services can be return details such as radar tiles, current weather conditions, weather forecasts and weather along a route.
 
-> [!Note]
-> Azure Maps does not have the same level of information and accuracy for all countries and regions.
+Azure Maps does not have the same level of information and accuracy for all countries and regions.
 
 The following table provides information about what kind of weather information you can request from each country/region.
 
