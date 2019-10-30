@@ -55,7 +55,7 @@ With this preview feature, you can add your own *custom* initiatives. You'll the
 
 1. To see the resulting recommendations for your policy, click **Recommendations** from the sidebar to open the recommendations page. The recommendations will appear with a “Custom” label and be available for up to 30 minutes.
 
-    [![Click **Add a custom initiative**](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+    [![Custom recommendations](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
 
 ## Next steps
