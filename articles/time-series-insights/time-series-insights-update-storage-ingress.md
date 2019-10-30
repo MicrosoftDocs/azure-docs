@@ -31,7 +31,8 @@ Time Series Insights Preview supports a maximum of two event sources per instanc
   
 Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs.
 
-> [!WARNING] When attaching a new event source to your Time Series Insights Preview environment, depending on the number of events currently in your IoT Hub or Event Hub, you may experience high initial ingestion latency. As data is ingested, you should expect this high latency to subside, but if your experience indicates otherwise please contact us by submitting a support ticket through the Azure portal.
+> [!WARNING] 
+> When attaching a new event source to your Time Series Insights Preview environment, depending on the number of events currently in your IoT Hub or Event Hub, you may experience high initial ingestion latency. As data is ingested, you should expect this high latency to subside, but if your experience indicates otherwise please contact us by submitting a support ticket through the Azure portal.
 
 ## Ingress Best Practices
 
