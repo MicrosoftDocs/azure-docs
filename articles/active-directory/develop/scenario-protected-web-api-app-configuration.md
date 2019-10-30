@@ -137,6 +137,10 @@ The JwtBearer middleware, like the OpenID Connect middleware in web apps, is dir
 
 There can also be special validations. For example, it's possible to validate that signing keys (when embedded in a token) are trusted and that the token isn't being replayed. Finally, some protocols require specific validations.
 
+## Token validation in Azure Functions
+
+It is also possible to validate incoming access tokens in Azure functions. You can find examples of validating tokens in Azure functions in [Dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions), or [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)
+
 ### Validators
 
 The validation steps are captured in validators, which are all in the [Microsoft IdentityModel Extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) open-source library, in one source file: [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
