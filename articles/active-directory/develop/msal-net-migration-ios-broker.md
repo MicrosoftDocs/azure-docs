@@ -39,7 +39,7 @@ Brokers are applications provided by Microsoft on Android and iOS. (See the [Mic
 They enable:
 
 - Single sign-on.
-- Device identification, which is required by some [conditional access policies](../conditional-access/overview.md). For more information, see [Device management](../conditional-access/conditions.md#device-platforms).
+- Device identification, which is required by some [Conditional Access policies](../conditional-access/overview.md). For more information, see [Device management](../conditional-access/conditions.md#device-platforms).
 - Application identification verification, which is also required in some enterprise scenarios. For more information, see [Intune mobile application management (MAM)](https://docs.microsoft.com/intune/mam-faq).
 
 ## Migrate from ADAL to MSAL

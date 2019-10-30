@@ -79,4 +79,4 @@ You can create multiple versions of the device template. Over time, you will hav
 Now that you have learned how to use device template versions in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to create telemetry rules](howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [How to create telemetry rules](tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
