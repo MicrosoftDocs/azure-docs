@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 
-This quickstart uses a code sample to demonstrate how an Android application can sign in personal, work, or school accounts, and then get an access token and call the Microsoft Graph API.
+This quickstart uses a code sample to demonstrate how an Android application can sign in personal, work, or school accounts using the Microsoft identity platform, and then get an access token and call the Microsoft Graph API.
 
 ![Screenshoft of the sample app](media/quickstart-v2-android/android-intro.svg)
 

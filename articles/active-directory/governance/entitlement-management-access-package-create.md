@@ -1,6 +1,6 @@
 ---
-title: Create a new access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to create a new access package of resources you want to share in Azure Active Directory entitlement management (Preview).
+title: Create a new access package in Azure AD entitlement management - Azure Active Directory
+description: Learn how to create a new access package of resources you want to share in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about the options available when creating a new access package so that the access package can be managed with minimal effort.
 
 ---
-# Create a new access package in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Create a new access package in Azure AD entitlement management
 
 An access package enables you to do a one-time setup of resources and policies that automatically administers access for the life of the access package. This article describes how to create a new access package.
 

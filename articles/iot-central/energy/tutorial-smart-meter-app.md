@@ -12,6 +12,8 @@ manager: abjork
 
 # Tutorial: Create and walk-through the smart meter monitoring app template 
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial guides you through the process of creating the smart meter monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn:
 
 > [!div class="checklist"]
@@ -34,8 +36,8 @@ You can create this application in three simple steps:
 
 2. Select **Energy** tab and click **Create app** under **Smart meter monitoring** application tile.
 
-    > [!div class="mx-imgBorder"]
-    > ![Build App](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
+    [!div class="mx-imgBorder"]
+    ![Build App](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
     
 
 3. **Create app** will open the **New application** form. Fill in the requested details as shown in the figure below:
@@ -65,31 +67,31 @@ Adatum is a fictitious energy company, who monitors and manages smart meters. On
 * Track the total energy consumption for planning and billing purposes
 * Command and control operations such as reconnect meter and update firmware version. In the template, the command buttons show the possible functionalities and don't send real commands. 
 
-> [!div class="mx-imgBorder"]
-> ![Smart meter monitoring dashboard](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
+[!div class="mx-imgBorder"]
+![Smart meter monitoring dashboard](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
 
 ### Devices
 The app comes with a sample smart meter device. You can see the device details by clicking on the **Devices** tab.
 
-> [!div class="mx-imgBorder"]
-> ![Smart meter devices](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
+[!div class="mx-imgBorder"]
+![Smart meter devices](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
 
 Click on the sample device **SM0123456789** link to see the device details. You can update the writable properties of the device on the **Update Properties** page, and visualize the updated values on the dashboard.
 
-> [!div class="mx-imgBorder"]
-> ![Smart meter properties](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
+[!div class="mx-imgBorder"]
+![Smart meter properties](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
 
 ### Device Template
 Click on the **Device templates** tab to see the smart meter device model. The model has pre-define interface for Data, Property, Commands, and Views.
 
-> [!div class="mx-imgBorder"]
-> ![Smart meter device templates](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
+[!div class="mx-imgBorder"]
+![Smart meter device templates](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
 ## Clean up resources
 If you decide to not continue using this application, delete your application with the following these steps:
 
-1. From the left-hand menu, open Administration tab
+1. From the left pane, open Administration tab
 2. Select Application settings and click Delete button at the bottom of the page. 
 
     > [!div class="mx-imgBorder"]
