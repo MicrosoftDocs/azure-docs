@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: 
-ms.date: 10/23/2019
+ms.date: 10/30/2019
 ms.author: danlep
 
 ---
@@ -25,7 +25,7 @@ This article explains how to collect log data for an Azure container registry us
 
 * Provide a complete activity trail on registry artifacts such as pull and pull events so you can diagnose operational issues with your registry 
 
-Collecting resource log data using Azure Monitor incurs additional costs. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). 
+Collecting resource log data using Azure Monitor may incur additional costs. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). 
 
 
 > [!IMPORTANT]
