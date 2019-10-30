@@ -36,6 +36,17 @@ If you can't find answers to your questions in this document, check out [other s
 
 ## Debugging
 
+**Q: Where's my channel secret?**
+
+**A:** If you've used the preview version of Direct Line Speech or you're reading related documentation, you may expect to find a secret key on the Direct Line Speech channel registration page. The v1.7 `DialogServiceConfig` factory method `FromBotSecret` in the Speech SDK also expects this value.
+
+The latest version of Direct Line Speech simplifies the process of contacting your bot from a device. On the channel registration page, the drop-down at the top associates your Direct Line Speech channel registration with a speech resource. Once associated, the v1.8 Speech SDK includes a `BotFrameworkConfig::FromSubscription` factory method that will configure a `DialogServiceConnector` to contact the bot you've associated with your subscription.
+
+If you're still migrating your client application from v1.7 to v1.8, `DialogServiceConfig::FromBotSecret` may continue to work with a non-empty, non-null value for its channel secret parameter, e.g. the previous secret you used. It will simply be ignored when using a speech subscription associated with a newer channel registration. Please note that the value *must* be non-null and non-empty, as these are checked for on the device before the service-side association is relevant.
+
+
+For a more detailed guide, please see the [tutorial section](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) that walks through channel registration.
+
 **Q: I get a 401 error when connecting and nothing works. I know my speech subscription key is valid. What's going on?**
 
 **A:** When managing your subscription on the Azure portal, please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Also, please check [Speech service region support for voice assistants](regions.md#voice-assistants).
