@@ -135,7 +135,7 @@ MSAL introduces some token acquisition call changes:
 
 MSAL provides more clarity between errors that can be handled by your app and those that require intervention by the user. There are a limited number of errors developer must handle:
 
-* `MSALErrorInteractionRequired`: The user must do an interactive request. This can be caused for various reasons such as an expired authentication session, conditional access policy has changed, a refresh token expired or was revoked, there are no valid tokens in the cache, and so on.
+* `MSALErrorInteractionRequired`: The user must do an interactive request. This can be caused for various reasons such as an expired authentication session, Conditional Access policy has changed, a refresh token expired or was revoked, there are no valid tokens in the cache, and so on.
 * `MSALErrorServerDeclinedScopes`: The request wasn't fully completed and some scopes weren't granted access. This can be caused by a user declining consent to one or more scopes.
 
 Handling all other errors in the [`MSALError` list](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) is optional. You could use the information in those errors to improve the user experience.
@@ -144,7 +144,7 @@ See [Handling exceptions and errors using MSAL](msal-handling-exceptions.md) for
 
 ### Broker support
 
-MSAL, starting with version 0.3.0, provides support for brokered authentication using the Microsoft Authenticator app. Microsoft Authenticator also enables support for conditional access scenarios. Examples of conditional access scenarios include device compliance policies that require the user to enroll the device through Intune or register with AAD to get a token. And Mobile Application Management (MAM) conditional access policies, which require proof of compliance before your app can get a token.
+MSAL, starting with version 0.3.0, provides support for brokered authentication using the Microsoft Authenticator app. Microsoft Authenticator also enables support for Conditional Access scenarios. Examples of Conditional Access scenarios include device compliance policies that require the user to enroll the device through Intune or register with AAD to get a token. And Mobile Application Management (MAM) Conditional Access policies, which require proof of compliance before your app can get a token.
 
 To enable broker for your application:
 
@@ -208,7 +208,7 @@ On macOS, MSAL can achieve SSO with other MSAL for iOS and macOS based applicati
 MSAL on iOS also supports two other types of SSO:
 
 * SSO through the web browser. MSAL for iOS supports `ASWebAuthenticationSession`, which provides SSO through cookies shared between other apps on the device and specifically the Safari browser.
-* SSO through an Authentication broker. On an iOS device, Microsoft Authenticator acts as the Authentication broker. It can follow conditional access policies such as requiring a compliant device, and provides SSO for registered devices. MSAL SDKs starting with version 0.3.0 support a broker by default.
+* SSO through an Authentication broker. On an iOS device, Microsoft Authenticator acts as the Authentication broker. It can follow Conditional Access policies such as requiring a compliant device, and provides SSO for registered devices. MSAL SDKs starting with version 0.3.0 support a broker by default.
 
 ## Intune MAM SDK
 

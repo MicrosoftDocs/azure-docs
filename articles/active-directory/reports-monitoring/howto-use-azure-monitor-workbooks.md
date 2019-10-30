@@ -35,7 +35,7 @@ Do you want to:
 
 - Would you like the ability to review: sign-in log queries, the workbook 
 reports how many users were granted or denied access, as well as how many users bypassed 
-conditional access policies when accessing resources?
+Conditional Access policies when accessing resources?
 
 - Interested in developing a deeper understanding of: the workbook details per 
 condition so that the impact of a policy can be contextualized per condition, 
@@ -43,7 +43,7 @@ including device platform, device state, client app, sign-in risk, location, and
 
 - Gain deeper insights into sign-in log queries, the workbook 
 reports how many users were granted or denied access, as well as how many users bypassed 
-conditional access policies when accessing resources.
+Conditional Access policies when accessing resources.
 
 - To help you to address these questions, Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, analytics queries, metrics, and parameters into rich interactive reports.
 
@@ -73,7 +73,7 @@ To use Monitor workbooks, you need:
     - Global Admin
 
 ## Roles
-You must be in one of the following roles as well as have [access to underlying Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) workspace to manage the workbooks:
+You must be in one of the following roles as well as have [access to underlying Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) workspace to manage the workbooks:
 - 	Global Admin
 - 	Security Admin
 - 	Security Reader
@@ -190,7 +190,7 @@ For disabled sign-ins, you get a breakdown by the Conditional Access status.
 
 ### Overview
 
-Workbooks contain sign-in log queries that can help IT admins monitor the impact of Conditional Access policies in their tenant. You have the ability to report on how many users would have been granted or denied access. The workbook contains insights on how many users would have bypassed conditional access policies based on those users’ attributes at the time of sign-in. It contains details per condition so that the impact of a policy can be contextualized per condition, including device platform, device state, client app, sign-in risk, location, and application.
+Workbooks contain sign-in log queries that can help IT admins monitor the impact of Conditional Access policies in their tenant. You have the ability to report on how many users would have been granted or denied access. The workbook contains insights on how many users would have bypassed Conditional Access policies based on those users’ attributes at the time of sign-in. It contains details per condition so that the impact of a policy can be contextualized per condition, including device platform, device state, client app, sign-in risk, location, and application.
 
 ### Instructions 
 To access the workbook for Conditional Access Insights, select the **Conditional Access Insights** workbook in the Conditional Access section. 
