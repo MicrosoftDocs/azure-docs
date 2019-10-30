@@ -32,7 +32,7 @@ Templates are used to customize the content of system-generated developer portal
 
 ## Developer portal templates overview
 
-Editing templates is done from the **Developer portal** while being logged in as an administrator. To get there first open the Azure Portal and  click **Developer portal** from the service toolbar of your API Management instance.
+Editing templates is done from the **Developer portal** while being logged in as an administrator. To get there first open the Azure portal and  click **Developer portal** from the service toolbar of your API Management instance.
 
 To access the developer portal templates, click the customize icon on the left to display the customization menu, and click **Templates**.
 
