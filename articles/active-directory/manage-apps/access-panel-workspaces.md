@@ -1,5 +1,5 @@
 ---
-title: Create workspaces for end user My Apps portals  | Microsoft Docs
+title: Create workspaces for My Apps portals in Azure Active Directory  | Microsoft Docs
 description: Use My Apps workspaces to Customize My Apps pages for a simpler My Apps experience for your end users. Organize applications into groups with separate tabs.
 services: active-directory
 documentationcenter: ''
