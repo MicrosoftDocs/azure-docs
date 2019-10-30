@@ -60,4 +60,12 @@ If you're locked out of your device or have a fatal error, you can go to another
 
 ## Next steps
 
-- After viewing your connected devices, you can select to view or manage your [security info](user-help-security-info-overview.md), your [organizations](my-account-portal-organizations-page.md), or view how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+After viewing your connected devices, you can:
+
+- Select to view or manage your [security info](user-help-security-info-overview.md).
+
+-View and manage your [organizations](my-account-portal-organizations-page.md).
+
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+
+- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).

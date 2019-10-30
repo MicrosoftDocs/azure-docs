@@ -45,6 +45,7 @@ For detailed information and instructions about what's available from the **My A
 | [Change your work or school account password](my-account-change-password-page.md) | Instructions about how to change the password for your work or school account. |
 | [View or leave your connected organizations](my-account-portal-organizations-page.md) | Instructions about how to view and leave organizations connected to your work or school account.|
 | [View your privacy-related info](my-account-portal-privacy-page.md) | Instructions about how to view which online services are connected to your work or school account, along with your organization's terms of use statement.|
+| [View your recent sign-in activity](my-account-portal-sign-ins-page.md) | Instructions about how to view sign-in activity for your work or school account. |
 
 ## Related Office content
 

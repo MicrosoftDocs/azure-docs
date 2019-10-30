@@ -55,4 +55,12 @@ You can leave any organization that isn't your Home organization.
 
 ## Next steps
 
-- After viewing your organizations, you can select to view or manage your [security info](user-help-security-info-overview.md), connected [devices](my-account-portal-devices-page.md), or view how your organization [uses your data](my-account-portal-privacy-page.md).
+After viewing your organizations, you can:
+
+- View or manage your [security info](user-help-security-info-overview.md).
+
+- View or manage your connected [devices](my-account-portal-devices-page.md).
+
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+
+- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
