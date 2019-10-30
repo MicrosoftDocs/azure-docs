@@ -428,7 +428,7 @@ public static async Task Run(
 Dynamically generated proxies are also available for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-bindings.md#entity-client-usage) on the orchestration client binding.
 
 > [!NOTE]
-> Entity functions are currently only available in Durable Functions version 2.x and only for .NET projects.
+> Entity functions are currently only available in Durable Functions version 2.x.
 
 ## The technology
 
