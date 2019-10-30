@@ -24,14 +24,14 @@ In this tutorial, you'll:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Prerequisites
 
 * [Azure CLI](/cli/azure/install-azure-cli) if you prefer not to use Cloud Shell
 * [Java Developer Kit](https://aka.ms/azure-jdks), version 8
 * [Maven](https://maven.apache.org)
 * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools)
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create Azure resources
 
