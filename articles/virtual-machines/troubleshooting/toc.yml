@@ -65,10 +65,12 @@
     href: detailed-troubleshoot-ssh-connection.md
 - name: Common error messages
   href: error-messages.md
-- name: Performance issues with VMs
-  href: performance-diagnostics.md
-- name: Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows
-  href: troubleshoot-performance-virtual-machine-linux-windows.md
+- name: Troubleshoot Azure VM Performance issues
+  items:
+  - name: Performance issues on Linux or Windows
+    href: troubleshoot-performance-virtual-machine-linux-windows.md
+  - name: Performance diagnostics
+    href: performance-diagnostics.md
 - name: Support for 32-bit operating systems
   href: support-32-bit-operating-systems-virtual-machines.md
 - name: PerfInsights

@@ -1,6 +1,6 @@
 ---
-title: Quickstart: How to use Service Bus topics (Ruby)
-description: Quickstart: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications.
+title: How to use Service Bus topics (Ruby) | Microsoft Docs
+description: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications.
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -12,12 +12,12 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: quickstart
-ms.date: 10/24/2019
+ms.topic: article
+ms.date: 04/15/2019
 ms.author: aschhab
 
 ---
-# Quickstart: How to use Service Bus topics and subscriptions with Ruby
+# How to use Service Bus topics and subscriptions with Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
