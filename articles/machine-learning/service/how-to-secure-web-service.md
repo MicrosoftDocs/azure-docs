@@ -1,7 +1,7 @@
 ---
 title: Secure web services by using SSL
 titleSuffix: Azure Machine Learning
-description: Learn how to secure a web service that's deployed through Azure Machine Learning by enabling HTTPS. HTTPS secures data from by clients by using transport layer security (TLS), a replacement for secure socket layers (SSL). Clients also use HTTPS to verify the identity of the web service.
+description: Learn how to enable HTTPS in order too secure a web service that's deployed through Azure Machine Learning. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
