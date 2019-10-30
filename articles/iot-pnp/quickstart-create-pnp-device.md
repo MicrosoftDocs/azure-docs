@@ -108,7 +108,7 @@ In this quickstart, you prepare a development environment by installing the Azur
 1. Install Azure IoT C device SDK Vcpkg:
 
     ```cmd/sh
-    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]:x64-windows
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
 ## Author your model
