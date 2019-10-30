@@ -22,7 +22,7 @@ Your Azure Time Series Insights environment contains an Ingestion Engine to coll
 
 ### Ingress policies
 
-Time Series Insights Preview supports the same event sources that Time Series Insights currently supports:
+Time Series Insights Preview supports the following event sources:
 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
