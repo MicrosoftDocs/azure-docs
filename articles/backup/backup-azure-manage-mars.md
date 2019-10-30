@@ -2,12 +2,12 @@
 title: Manage & monitor Microsoft Azure Recovery Services Agent backups
 description: Learn how to manage and monitor Microsoft Azure Recovery Services Agent backups by using the Azure Backup service.
 ms.reviewer: srinathv
-author: srinathv
-manager: sivan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: srinathv
+ms.author: dacurwin
 ---
 # Manage Microsoft Azure Recovery Services Agent backups by using the Azure Backup service
 
