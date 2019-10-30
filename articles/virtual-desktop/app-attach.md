@@ -11,17 +11,12 @@ ms.author: helohr
 ---
 # Set up an MSIX app attach
 
-<!---Figure out what "MSIX" stands for-->
+> [!IMPORTANT]
+> MSIX app attach is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). You can also leave feedback for this feature at the [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback) or the [MSIX packaging tool feedback hub](../../../AppData/Roaming/Microsoft/Word/aka.ms/msixtoolfeedback).
 
 This document walks through prerequisite, tools, and configurations steps needed to evaluate MSIX app attach in a Windows Virtual Desktop environment.
-
->[!NOTE]
-> MSIX app attach is currently in preview, not a finished product. Because of this, Microsoft doesn't currently offer support for this feature. However, you can ask questions and leave feedback at the following community resources:
->
->- [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
->- [Windows Virtual Desktop feedback hub](https://aka.ms/MRSFeedbackHub)
->- [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback)
->- [MSIX packaging tool feedback hub](../../../AppData/Roaming/Microsoft/Word/aka.ms/msixtoolfeedback)
 
 ## Prerequisites
 
