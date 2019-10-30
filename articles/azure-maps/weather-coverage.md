@@ -25,7 +25,6 @@ The following table provides information about what kind of weather information 
 
 ## Americas
 
-
 | Country/region              |  Satellite Tiles | Minute Forecast | Other* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Anguilla                                 | ✓ |   |  ✓| 
@@ -296,8 +295,3 @@ The following table provides information about what kind of weather information 
 | Ukraine                | ✓ |   |  ✓| 
 | United Kingdom         | ✓ | ✓ |  ✓| 
 | Vatican City           | ✓ |   |  ✓| 
-
-
-
-
-
