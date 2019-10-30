@@ -70,7 +70,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
    ![Operation-type log entries](media/troubleshoot-latency-storage-analytics-logs/operation-type.png)
 
-5. During the time when the issue occured, the following values are important:
+5. During the time when the issue occurred, the following values are important:
 
    * Operation-type = GetBlob
    * request-status = SASNetworkError
@@ -96,7 +96,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
    |PutBlob|Yes|No|[**Put Operation:** RequestStatus = Success](#put-operation-requeststatus--success)|
    |PutBlob|No|Yes|[**Put Operation:** RequestStatus = (SAS)NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
-## Status Results
+## Status results
 
 ### GetBlob Operation: RequestStatus = Success
 
@@ -126,7 +126,7 @@ In a **GetBlob Operation** with **RequestStatus = (SAS)NetworkError**, if **Max 
 **Recommendation:**
 
 * Investigate the code in your client to understand why and when the client disconnects from the storage service.
-* se Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
+* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
 ### Put Operation: RequestStatus = Success
 
