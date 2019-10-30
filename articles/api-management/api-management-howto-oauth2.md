@@ -93,6 +93,8 @@ This guide shows you how to configure your API Management service instance to us
 
 ## <a name="step3"> </a>Legacy developer portal - test the OAuth 2.0 user authorization
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 Once you have configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the Developer Portal and calling an API. Click **Developer portal (legacy)** in the top menu from your Azure API Management instance **Overview** page.
 
 Click **APIs** in the top menu and select **Echo API**.
