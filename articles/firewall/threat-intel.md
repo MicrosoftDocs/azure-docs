@@ -5,18 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 11/04/2019
 ms.author: victorh
 ---
 
-# Azure Firewall threat intelligence-based filtering - Public Preview
+# Azure Firewall threat intelligence-based filtering
 
 Threat intelligence-based filtering can be enabled for your firewall to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
 
 ![Firewall threat intelligence](media/threat-intel/firewall-threat.png)
-
-> [!IMPORTANT]
-> Threat intelligence based filtering is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 If threat intelligence-based filtering is enabled, the associated rules are processed before any of the NAT rules, network rules, or application rules. During the preview, only highest confidence records are included.
 
