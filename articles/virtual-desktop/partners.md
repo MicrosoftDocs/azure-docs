@@ -148,6 +148,16 @@ When used with Windows Virtual Desktop, Cloudpaging further reduces costs by com
 
 - [Go to the partner website](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
 
+## RDPSoft
+
+![RDPSoft logo](./media/partners/rdpsoft.png)
+
+RDPSoft is a Windows Virtual Desktop partner that provides powerful and inexpensive monitoring, management, and reporting solutions. Their Remote Desktop Commander offerings allow IT professionals to gain insight into the health, performance, user activity, licensing, and security of their Windows Virtual Desktop deployments. 
+ 
+RDPSoft's Remote Desktop Commander solutions enhance Windows Virtual Desktop administration. Premium Management features simplify delegation of Windows Virtual Desktop management tasks to support desk staff by providing remote assistance, user session, and process management. At the same time, the Remote Desktop Commander Suite collects rich metrics about per-user performance and load, user activity and auditing, Windows Virtual Desktop connection quality (latency and bandwidth), licensing, and security into a central Azure SQL database instance for review. With RDPSoft, rich historic reporting and comprehensive dashboards are just a click away.
+
+- [Go to the partner website](https://www.rdpsoft.com/)
+
 ## ThinPrint
 
 ![ThinPrint Logo](./media/partners/thinprint.png)
