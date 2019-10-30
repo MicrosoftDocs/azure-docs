@@ -29,7 +29,7 @@
   - name: Sign up for password reset
     href: active-directory-passwords-reset-register.md
   - name: Reset your password
-    href: user-help-reset-password.md
+    href: active-directory-passwords-update-your-own-password.md
 - name: Microsoft Authenticator app help
   items:
   - name: Overview
