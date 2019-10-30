@@ -49,7 +49,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 ### Update rollup 40
 
-[Update rollup 40](hhttps://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) provides the following updates.
+[Update rollup 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) provides the following updates.
 
 **Update** | **Details**
 --- | ---
@@ -65,7 +65,7 @@ New features for Azure VM disaster recovery are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Cleanup after failback** | After failing over to the secondary Azure, and then failing back to the primary region, Site Recovery automatically cleans up machines in the secondary region. There's no need to manually delete VMS and NICs.
+**Cleanup after failback** | After failing over to the secondary Azure, and then failing back to the primary region, Site Recovery automatically cleans up machines in the secondary region. There's no need to manually delete VMs and NICs.
 **Test failover retains IP address** | You can now retain the IP address of the source VM during a disaster recovery drill, and pick a static IP address for a test failover.
 
 ### VMware/physical server disaster recovery
