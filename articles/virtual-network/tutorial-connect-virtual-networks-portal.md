@@ -50,7 +50,7 @@ Log in to the Azure portal at https://portal.azure.com.
     |Resource group| Select **Create new** and enter *myResourceGroup*.|
     |Region| Select **East US**.|
     |Name|myVirtualNetwork1|
-    ![Configure basic virtual network settings] (
+   
 4. On the **IP Addresses** page, enter 10.0.0.0/16 for the **Address Space** field. Click the **Add subnet** button below and enter Subnet1 for **Subnet Name** and 10.0.0.0/24 for **Subnet Address range**.
    
 5. Complete steps 1-3 again, with the following changes:

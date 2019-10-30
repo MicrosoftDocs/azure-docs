@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/07/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -43,13 +43,27 @@ Follow these steps to assign a user to the catalog creator role.
 
 1. Click **Edit**.
 
-    ![Settings to add catalog creators](./media/entitlement-management-delegate/settings-delegate.png)
+    ![Settings to add catalog creators](./media/entitlement-management-delegate-catalog/settings-delegate.png)
 
 1. In the **Delegate entitlement management** section, click **Add catalog creators** to select the users or groups that you want to delegate this entitlement management role to.
 
 1. Click **Select**.
 
 1. Click **Save**.
+
+## Allow delegated roles to access the Azure portal
+
+To allow delegated roles, such as catalog creators and access package managers, to access the Azure portal to manage access packages, you should check the administration portal setting.
+
+**Prerequisite role:** Global administrator or User administrator
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Users**.
+
+1. In the left menu, click **User settings**.
+
+1. Make sure **Restrict access to Azure AD administration portal** is set to **No**.
+
+    ![Azure AD user settings - Administration portal](./media/entitlement-management-delegate-catalog/user-settings.png)
 
 ## Next steps
 
