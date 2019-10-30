@@ -105,7 +105,7 @@ You can now find the state file in the Azure Storage Blob.
 
 Azure Storage blobs are automatically locked before any operation that writes state. This pattern prevents concurrent state operations, which can cause corruption. 
 
-For more information, see [State Locking][https://www.terraform.io/docs/state/locking.html] on the Terraform documentation.
+For more information, see [State Locking](https://www.terraform.io/docs/state/locking.html) on the Terraform documentation.
 
 The lock can be seen when examining the blob through the Azure portal or other Azure management tooling.
 
