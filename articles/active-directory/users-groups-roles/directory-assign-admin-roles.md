@@ -234,6 +234,10 @@ Users in this role can read settings and administrative information across Micro
 > These features are currently in development.
 >
 
+### [Group Administrator](#group-administrator)
+
+Users in this role can create/manage groups and its settings like naming and expiration policies. It is important to understand that assigning a user to this role gives them the ability to manage all groups in the tenant across various workloads like Teams, SharePoint, Yammer in addition to Outlook. Also the user will be able to manage the various groups settings across various admin portals like Microsoft Admin Center, Azure Portal, as well as workload specific ones like Teams and SharePoint Admin Centers.
+
 ### [Guest Inviter](#guest-inviter-permissions)
 
 Users in this role can manage Azure Active Directory B2B guest user invitations when the **Members can invite** user setting is set to No. More information about B2B collaboration at [About Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). It does not include any other permissions.
@@ -1058,6 +1062,28 @@ Can read everything that a Global Administrator can, but not edit anything.
 | microsoft.office365.usageReports/allEntities/read	| Read Office 365 usage reports. |
 | microsoft.office365.webPortal/allEntities/standard/read	| Read standard properties on all resources in microsoft.office365.webPortal. |
 
+### Group Administrator
+Can manage all aspects of groups and group settings like naming and expiration policies
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.directory/groups/basic/read | Read standard properties on Groups in Azure Active Directory.  |
+| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
+| microsoft.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/groups/delete | Delete groups in Azure Active Directory. |
+| microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
+| microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups/restore | Restore groups in Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+
 ### Guest Inviter permissions
 Can invite guest users independent of the ‘members can invite guests’ setting.
 
@@ -1634,6 +1660,7 @@ Directory Writers | Directory writers | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
 External Identity Provider Administrator | External Identity Provider Administrator | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Global Reader | Global reader | f2ef992c-3afb-46b9-b7cf-a126ee74c451
+Group Administrator | Group administrator | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Helpdesk Administrator | Password administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
