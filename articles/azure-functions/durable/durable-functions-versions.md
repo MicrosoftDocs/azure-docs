@@ -16,7 +16,9 @@ ms.author: azfuncdf
 > [!NOTE]
 > Durable Functions 1.x is generally available (GA). Durable Functions 2.0 is currently in public preview.
 
-## New features in 2.0
+## New features in 2.x
+
+This section describes the features of Durable Functions that are added in version 2.x.
 
 ### Durable entities
 
@@ -30,17 +32,19 @@ To learn more, see the [durable entities](durable-functions-entities.md) article
 
 In Durable Functions 2.0, we introduced a new [Durable HTTP](durable-functions-http-features.md#consuming-http-apis) feature that allows you to:
 
-* Call HTTP APIs directly from orchestration functions (with some documented limitations)
-* Implement automatic client-side HTTP 202 status polling
-* Built-in support for [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md)
+* Call HTTP APIs directly from orchestration functions (with some documented limitations).
+* Implement automatic client-side HTTP 202 status polling.
+* Built-in support for [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
 To learn more, see the [HTTP features](durable-functions-http-features.md#consuming-http-apis) article.
 
 ## Migrate from 1.x to 2.x
 
-### Durable Functions extension
+This section describes how to migrate your existing version 1.x Durable Functions to version 2.x to take advantage of the new features.
 
-Install the version of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) that matches the version you want to use. See [Register Azure Functions binding extensions](../functions-bindings-register.md) for more information.
+### Upgrade the extension
+
+Install version 2.x of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) in your project. See [Register Azure Functions binding extensions](../functions-bindings-register.md) for more information.
 
 ### Update your code
 
