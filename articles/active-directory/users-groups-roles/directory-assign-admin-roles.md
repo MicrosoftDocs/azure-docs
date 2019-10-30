@@ -234,6 +234,10 @@ Users in this role can read settings and administrative information across Micro
 > These features are currently in development.
 >
 
+### [Group Administrator](#group-administrator)
+
+Users in this role can create/manage groups and its settings like naming and expiration policies. It is important to understand that assigning a user to this role gives them the ability to manage all groups in the tenant across various workloads like Teams, SharePoint, Yammer in addition to Outlook. Also the user will be able to manage the various groups settings across various admin portals like Microsoft Admin Center, Azure Portal, as well as workload specific ones like Teams and SharePoint Admin Centers.
+
 ### [Guest Inviter](#guest-inviter-permissions)
 
 Users in this role can manage Azure Active Directory B2B guest user invitations when the **Members can invite** user setting is set to No. More information about B2B collaboration at [About Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). It does not include any other permissions.
@@ -284,6 +288,10 @@ Users in this role can monitor all notifications in the Message Center, includin
 ### [Message Center Reader](#message-center-reader-permissions)
 
 Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
+
+### [Office Apps Administrator](#office-apps-administrator-permissions)
+
+Users in this role can manage Office 365 apps' cloud settings. This includes managing cloud policies, self-service download management and the ability to view Office apps related report. This role additionally grants the ability to manage support tickets, and monitor service health within the main admin center. Users assigned to this role can also manage communication of new features in Office apps. 
 
 ### [Partner Tier1 Support](#partner-tier1-support-permissions)
 
@@ -1058,6 +1066,28 @@ Can read everything that a Global Administrator can, but not edit anything.
 | microsoft.office365.usageReports/allEntities/read	| Read Office 365 usage reports. |
 | microsoft.office365.webPortal/allEntities/standard/read	| Read standard properties on all resources in microsoft.office365.webPortal. |
 
+### Group Administrator
+Can manage all aspects of groups and group settings like naming and expiration policies
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.directory/groups/basic/read | Read standard properties on Groups in Azure Active Directory.  |
+| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
+| microsoft.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/groups/delete | Delete groups in Azure Active Directory. |
+| microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
+| microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups/restore | Restore groups in Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+
 ### Guest Inviter permissions
 Can invite guest users independent of the ‘members can invite guests’ setting.
 
@@ -1199,6 +1229,25 @@ Can read messages and updates for their organization in Office 365 Message Cente
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+
+### Office Apps Administrator permissions
+Can manage Office apps' cloud services, including policy and settings management, and manage the ability to select, unselect and publish "what's new" feature content to end-user’s devices.
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+>
+>
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+| microsoft.office365.userCommunication/allEntities/allTasks | Read and update What’s New messages visibility. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Partner Tier1 Support permissions
 
@@ -1634,6 +1683,7 @@ Directory Writers | Directory writers | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
 External Identity Provider Administrator | External Identity Provider Administrator | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Global Reader | Global reader | f2ef992c-3afb-46b9-b7cf-a126ee74c451
+Group Administrator | Group administrator | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Helpdesk Administrator | Password administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
@@ -1642,6 +1692,7 @@ License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569
 Lync Service Administrator | Skype for Business administrator | 75941009-915a-4869-abe7-691bff18279e
 Message Center Privacy Reader | Message center privacy reader | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Message Center Reader | Message center reader | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Office Apps Administrator | Office apps administrator | 2b745bdf-0803-4d80-aa65-822c4493daac
 Partner Tier1 Support | Partner tier1 support | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Partner Tier2 Support | Partner tier2 support | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Password Administrator | Password administrator | 966707d0-3269-4727-9be2-8c3a10f19b9d

@@ -35,7 +35,7 @@ These features should be taken into consideration prior to switching to cloud au
 
 -   You have decided to move to either Password Hash Sync + Seamless SSO **(Option A),** or Pass-through Authentication + Seamless SSO **(Option B).** Although seamless SSO is optional, we recommend enabling seamless SSO to achieve a silent sign-in experience for users using domain joined machines from inside corporate network.
 
--   You have configured all the appropriate tenant branding and conditional access policies you need for users who are being migrated over to cloud authentication.
+-   You have configured all the appropriate tenant branding and Conditional Access policies you need for users who are being migrated over to cloud authentication.
 
 -   If you plan to use Azure Multi-Factor Authentication, we recommend you use [converged registration for Self-service Password Reset (SSPR) and Azure MFA](../authentication/concept-registration-mfa-sspr-combined.md) to get your users to register their authentication methods once.
 
