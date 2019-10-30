@@ -44,7 +44,8 @@ Create variables for your resource's Azure endpoint and key, named `TEXT_ANALYTI
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-[!code-ruby[endpoint and key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
+
+[!code-ruby[endpoint, key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
 
 ## Object model 
 
