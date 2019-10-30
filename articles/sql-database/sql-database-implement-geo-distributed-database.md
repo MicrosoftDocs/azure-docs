@@ -52,35 +52,65 @@ To complete the tutorial, make sure you've installed the following items:
 
 Using Azure PowerShell, create [failover groups](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group.
 
+# [PowerShell](#tab/azure-powershell)
+
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
 To create a failover group, run the following script:
 
 ```powershell
-$adminlogin = "<your admin>"
-$password = "<your password>"
-$myresourcegroupname = "<your resource group name>"
-$mylocation = "<your resource group location>"
-$myservername = "<your existing server name>"
-$mydatabasename = "<your database name>"
-$mydrlocation = "<your disaster recovery location>"
-$mydrservername = "<your disaster recovery server name>"
-$myfailovergroupname = "<your globally unique failover group name>"
+$admin = "<adminName>"
+$password = "<password>"
+$resourceGroup = "<resourceGroupName>"
+$location = "<resourceGroupLocation>"
+$server = "<serverName>"
+$database = "<databaseName>"
+$drLocation = "<disasterRecoveryLocation>"
+$drServer = "<disasterRecoveryServerName>"
+$failoverGroup = "<globallyUniqueFailoverGroupName>"
 
 # create a backup server in the failover region
-New-AzSqlServer -ResourceGroupName $myresourcegroupname -ServerName $mydrservername `
-    -Location $mydrlocation -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-    -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+New-AzSqlServer -ResourceGroupName $resourceGroup -ServerName $drServer `
+    -Location $drLocation -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+    -ArgumentList $admin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
 # create a failover group between the servers
-New-AzSqlDatabaseFailoverGroup –ResourceGroupName $myresourcegroupname -ServerName $myservername `
-    -PartnerServerName $mydrservername –FailoverGroupName $myfailovergroupname –FailoverPolicy Automatic -GracePeriodWithDataLossHours 2
+New-AzSqlDatabaseFailoverGroup –ResourceGroupName $resourceGroup -ServerName $server `
+    -PartnerServerName $drServer –FailoverGroupName $failoverGroup –FailoverPolicy Automatic -GracePeriodWithDataLossHours 2
 
 # add the database to the failover group
-Get-AzSqlDatabase -ResourceGroupName $myresourcegroupname -ServerName $myservername -DatabaseName $mydatabasename | `
-    Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $myresourcegroupname -ServerName $myservername -FailoverGroupName $myfailovergroupname
+Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -DatabaseName $database | `
+    Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+> [!IMPORTANT]
+> Run `az login` to sign in to Azure.
+
+```powershell
+$admin = "<adminName>"
+$password = "<password>"
+$resourceGroup = "<resourceGroupName>"
+$location = "<resourceGroupLocation>"
+$server = "<serverName>"
+$database = "<databaseName>"
+$drLocation = "<disasterRecoveryLocation>" # must be different then $location
+$drServer = "<disasterRecoveryServerName>"
+$failoverGroup = "<globallyUniqueFailoverGroupName>"
+
+# create a backup server in the failover region
+az sql server create --admin-password $password --admin-user $admin `
+    --name $drServer --resource-group $resourceGroup --location $drLocation
+
+# create a failover group between the servers
+az sql failover-group create --name $failoverGroup --partner-server $drServer `
+    --resource-group $resourceGroup --server $server --add-db $database `
+    --failover-policy Automatic --grace-period 2
+```
+
+* * *
 
 Geo-replication settings can also be changed in the Azure portal, by selecting your database, then **Settings** > **Geo-Replication**.
 
@@ -281,11 +311,13 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
 
 Run the following scripts to simulate a failover and observe the application results. Notice how some inserts and selects will fail during the database migration.
 
-You can also check the role of the disaster recovery server during the test with the following command:
+# [PowerShell](#tab/azure-powershell)
+
+You can check the role of the disaster recovery server during the test with the following command:
 
 ```powershell
-(Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $myfailovergroupname `
-    -ResourceGroupName $myresourcegroupname -ServerName $mydrservername).ReplicationRole
+(Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $failoverGroup `
+    -ResourceGroupName $resourceGroup -ServerName $drServer).ReplicationRole
 ```
 
 To test a failover:
@@ -303,6 +335,10 @@ To test a failover:
    Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
     -ServerName $myservername -FailoverGroupName $myfailovergroupname
    ```
+
+# [Azure CLI](#tab/azure-cli)
+
+* * *
 
 ## Next steps
 

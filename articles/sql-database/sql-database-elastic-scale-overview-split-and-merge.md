@@ -224,11 +224,13 @@ $storageContext = New-AzStorageContext -StorageAccountName $storageName -Storage
 $configPath = "<filePath>\SplitMergeWebContent.diagnostics.xml"
 $serviceName = "<cloudServiceName>"
 
-Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $configPath `
-    -ServiceName $serviceName -Slot Production -Role "SplitMergeWeb"
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWeb"
 
-Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $configPath `
-    -ServiceName $serviceName -Slot Production -Role "SplitMergeWorker"
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWorker"
 ```
 
 You can find more information on how to configure and deploy diagnostics settings here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).

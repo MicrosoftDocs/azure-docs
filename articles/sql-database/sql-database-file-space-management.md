@@ -155,7 +155,8 @@ $userName = "<userName>"
 $password = "<password>"
 
 # get list of databases in elastic pool
-$databasesInPool = Get-AzSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
+$databasesInPool = Get-AzSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName -ElasticPoolName $poolName
 $databaseStorageMetrics = @()
 
 # for each database in the elastic pool, get space allocated in MB and space allocated unused in MB

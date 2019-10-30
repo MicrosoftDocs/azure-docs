@@ -22,7 +22,7 @@ You can import a SQL Server database into a database in Azure SQL Database using
 > [!IMPORTANT]
 > After importing your database, you can choose to operate the database at its current compatibility level (level 100 for the AdventureWorks2008R2 database) or at a higher level. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.
 
-## Import from a BACPAC file in the Azure portal
+## Using Azure portal
 
 The [Azure portal](https://portal.azure.com) *only* supports creating a single database in Azure SQL Database and *only* from a BACPAC file stored in Azure Blob storage.
 
@@ -49,7 +49,7 @@ Migrating a database into a [managed instance](sql-database-managed-instance.md)
 
 1. To verify the database is live on the database server, select **SQL databases** and verify the new database is **Online**.
 
-## Import from a BACPAC file using SqlPackage
+## Using SqlPackage
 
 To import a SQL Server database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [import parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage has the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). You can also download the latest [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) from the Microsoft download center.
 
@@ -70,7 +70,7 @@ This example shows how to import a database using SqlPackage with Active Directo
 sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## Import into a single database from a BACPAC file using PowerShell
+## Using PowerShell
 
 > [!NOTE]
 > [A managed instance](sql-database-managed-instance.md) does not currently support migrating a database into an instance database from a BACPAC file using Azure PowerShell. To import into a managed instance, use SQL Server Management Studio or SQLPackage.
@@ -87,8 +87,8 @@ Use the [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimp
 
 ```powershell
 $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>" `
-    -ServerName "<serverName>" -DatabaseName "<databaseName>" -DatabaseMaxSizeBytes "<databaseSizeInBytes>" `
-    -StorageKeyType "StorageAccessKey" `
+    -ServerName "<serverName>" -DatabaseName "<databaseName>" `
+    -DatabaseMaxSizeBytes "<databaseSizeInBytes>" -StorageKeyType "StorageAccessKey" `
     -StorageKey $(Get-AzStorageAccountKey `
         -ResourceGroupName "<resourceGroupName>" -StorageAccountName "<storageAccountName>").Value[0] `
         -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `

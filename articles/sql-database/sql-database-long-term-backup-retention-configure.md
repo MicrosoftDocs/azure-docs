@@ -21,7 +21,7 @@ In Azure SQL Database, you can configure a single or a pooled database with a [l
 > [!IMPORTANT]
 > [Azure SQL database managed instance](sql-database-managed-instance.md) does not currently support long-term backup retention.
 
-## Use the Azure portal to manage long-term backups
+## Using Azure portal
 
 The following sections show you how to use the Azure portal to configure the long-term retention, view backups in long-term retention, and restore backup from long-term retention.
 
@@ -42,7 +42,7 @@ You can configure SQL Database to [retain automated backups](sql-database-long-t
 > [!IMPORTANT]
 > When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and available to restore. For details of the LTR backup cadance, see [long-term backup retention](sql-database-long-term-retention.md).
 
-### View backups and restore from a backup using Azure portal
+### View backups and restore from a backup
 
 View the backups that are retained for a specific database with a LTR policy, and restore from those backups.
 
@@ -69,7 +69,7 @@ View the backups that are retained for a specific database with a LTR policy, an
 > [!NOTE]
 > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-## Use PowerShell to manage long-term backups
+## Using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
