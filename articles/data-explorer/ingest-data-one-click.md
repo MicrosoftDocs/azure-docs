@@ -29,8 +29,9 @@ This article shows how to use one-click ingestion for quick ingestion of a new t
 1. In the **Ingest new data (preview)** window, in **Source** tab, complete the **Project Details**:
 
     * **Table**: Select existing table name from drop-down or select **Create new** to make a new table.
-	* Select **Ingestion type** > **from storage**.
-	* Enter **Link to storage** Add url to storage. Use [Blob SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for private storage accounts. 
+	* Select **Ingestion type** > **from storage** or **from file**.
+	* If you selected **from storage**, enter **Link to storage** Add url to storage. Use [Blob SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for private storage accounts. 
+    * If you selected **from file**, select **Browse** and drag file into the box.
     * Select **Edit schema** to view and edit your table column configuration.
  
     ![one click ingestion source details](media/ingest-data-one-click/one-click-ingestion-source.png) 
@@ -56,7 +57,7 @@ This article shows how to use one-click ingestion for quick ingestion of a new t
 1. In **Editor**, select **V** on the right to open the editor. In the editor, you can view and copy the automatic queries generated from your inputs. 
 
 1.	In table: 
-    * Right-click on new column headers to **Change data type**, **Rename column**, **Delete column**, **Sort ascending**, or **Sort descending**. Existing columns are limited to sorting changes.
+    * Right-click on new column headers to **Change data type**, **Rename column**, **Delete column**, **Sort ascending**, or **Sort descending**. On existing columns only data sorting is available. 
     * Double-click on the new column name to edit.
 
 1. Select **Start ingestion** to create table, create mapping, and data ingestion.
