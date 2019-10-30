@@ -191,6 +191,9 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Delete | View <br/> Other dependencies:  View custom roles |
 | Full Control | View, Add, Delete <br/> Other dependencies:  View custom roles |
 
+> [!NOTE]
+> A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
+
 #### Customizing the app
 
 **Application dashboard permissions**
