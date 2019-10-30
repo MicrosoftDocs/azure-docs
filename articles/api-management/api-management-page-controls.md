@@ -58,7 +58,7 @@ For more information about working with templates, see [How to customize the API
   
 |Parameter|Description|  
 |---------------|-----------------|  
-|appId|The id of the application.|  
+|appId|The ID of the application.|  
   
 ### Developer portal templates  
  The `app-actions` control may be used in the following developer portal templates:  
@@ -202,7 +202,7 @@ For more information about working with templates, see [How to customize the API
   
 |Parameter|Description|  
 |---------------|-----------------|  
-|subscriptionId|The id of the subscription to cancel.|  
+|subscriptionId|The ID of the subscription to cancel.|  
 |cancelUrl|The subscription cancels URL.|  
   
 ### Developer portal templates  
