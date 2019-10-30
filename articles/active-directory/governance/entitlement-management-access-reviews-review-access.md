@@ -82,17 +82,16 @@ Once you have opened the access review, you will see the names of users for whic
 
 1. You may be required to provide a reason for your decision. Type in a reason and click **Submit**.
 
-1. You can change your decision at any time before the end of the review. To do so, select the user from the list and change the decision. 
- For example, you can approve access for a user you previously denied.
+1. You can change your decision at any time before the end of the review. To do so, select the user from the list and change the decision. For example, you can approve access for a user you previously denied.
 
-If there are multiple reviewers, the last submitted response is recorded. Consider an example where an administrator designates two reviewers – Alice and Bob. Alice opens the review first and approves access. Before the review ends, Bob opens the review and denies access. In this case, the last deny access is what gets recorded.
+If there are multiple reviewers, the last submitted response is recorded. Consider an example where an administrator designates two reviewers – Alice and Bob. Alice opens the review first and approves access. Before the review ends, Bob opens the review and denies access. In this case, the last deny access decision gets recorded.
 
 >[!NOTE]
 >If a user is denied access, they aren't removed from the access package immediately. The user will be removed from the access package when the review ends, or an administrator ends the review.
 
 ### Approve or deny access using the system generated recommendations
 
-To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
+To review access for multiple users more quickly, you can use the system-generated recommendations, accepting the recommendations with a single click. The recommendations are generated based on the user's sign-in activity.
 
 1.	In the bar at the top of the page, click **Accept recommendations**.
     

@@ -41,11 +41,11 @@ For more information, see [License requirements](entitlement-management-overview
 
 ## Create access reviews in an access package
 
-You can enable access reviews when [creating a new policy](entitlement-management-access-package-create.md) or [editing an existing access package]entitlement-management-access-package-request-policy.md) policy. Follow these steps to enable access reviews while creating a new policy in an access package:git
+You can enable access reviews when [creating a new policy](entitlement-management-access-package-create.md) or [editing an existing access package](entitlement-management-access-package-request-policy.md) policy. Follow these steps to enable access reviews while creating a new policy in an access package:
 
 1. Once you are in the **Lifecycle** section while creating a new policy, scroll down to **Access Reviews**.
-
-![Add the access review](./media/active-directory-entitlement-management-access-reviews/access-reviews-pane.png)
+    
+    ![Add the access review](./media/entitlement-management-access-reviews/access-reviews-pane.png)
 
 1. Move the **Require access reviews** toggle to **Yes**. 
 
@@ -58,14 +58,14 @@ This determines how often access reviews will occur.
 
 1. Next to **Reviewers**, select **Self-review** if you want users to perform their own access review or select **Specific reviewer(s)** if you want to designate a reviewer.
 
-![Select Add reviewers](./media/active-directory-entitlement-management-access-reviews/access-reviews-add-reviewer.png)
+    ![Select Add reviewers](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
 1. If you selected **Specific reviewer(s)**, specify which users will perform the access review:
     1. Select **Add reviewers**
     1. In the **Select reviewers** pane, search for and select the user(s) you want to be a reviewer.
     1. Once you have selected your reviewer(s), click the **Select** button.
 
-![Specify the reviewers](./media/active-directory-entitlement-management-access-reviews/access-reviews-select-reviewer.png)
+    ![Specify the reviewers](./media/entitlement-management-access-reviews/access-reviews-select-reviewer.png)
 
 ## Create access reviews in an existing access package
 
@@ -74,24 +74,30 @@ Follow these steps to enable access reviews to an existing access package:
 1. Sign in to the Azure portal and open the **Identity Governance** blade. 
 
 1. In the left menu, click on **Access packages** under **Entitlement management**. 
-
-![Select Access Packages](./media/active-directory-entitlement-management-access-reviews-edit/access-reviews-edit-select-access-package.png)
+    
+    ![Select Access Packages](./media/entitlement-management-access-reviews-edit/access-reviews-edit-select-access-package.png)
 
 1. In the right pane, select the access package for which you would like to create an access review.
  
 1. In the left menu, select **Policies**. 
+    ![Select Policies blade](./media/entitlement-management-access-reviews-edit/access-reviews-edit-access-package-overview.png)  
 
-1. Select the policy in which you want to create the access review. 
+
+1. Select the policy in which you want to create the access review.
+  
+      ![Select the policy](./media/entitlement-management-access-reviews-edit/access-reviews-edit-select-policy-blade.png)  
 
 1. Click **Edit** under **Policy details**. 
-
-![Select Edit Policy](./media/active-directory-entitlement-management-access-reviews-edit/access-reviews-edit-select-edit-policy.png)
+    
+    ![Select Edit policy](./media/entitlement-management-access-reviews-edit/access-reviews-edit-select-edit-policy.png)
 
 1. Click on **Lifecycle**. 
 
-1. Under **Access Reviews**, click **Yes** for Require access reviews. 
+    ![Select Lifecycle tab](./media/entitlement-management-access-reviews-edit/access-reviews-edit-lifecycle-tab.png)
 
-![Add the access review](./media/active-directory-entitlement-management-access-reviews-edit/access-reviews-edit-add-access-review.png)
+1. Under **Access Reviews**, click **Yes** for **Require access reviews**. 
+
+    ![Add the access review](./media/entitlement-management-access-reviews-edit/access-reviews-edit-add-access-review.png)
 
 1. Set the **Starting on** date. The review will begin at the end of day on this date. For example, if you select the start date as July 15, 2020, the review will begin on July 15 at 11:59PM.
 
@@ -104,19 +110,35 @@ Follow these steps to enable access reviews to an existing access package:
     1. **Self-review** if you want the access package assignees to review their own access, or 
     1. Select **Specific reviewer(s)** if you want to choose one or more specific individuals to be the reviewers
 
-![Add the reviewers and select update](./media/active-directory-entitlement-management-access-reviews-edit/access-reviews-edit-add-reviewers.png)
+    ![Add the reviewers and select update](./media/entitlement-management-access-reviews-edit/access-reviews-edit-add-reviewers.png)
 
 1. Click on **Update** at the bottom of the page.
 
 ## View the status of the review
 
-After the start date of the review, it will appear in the list with an indicator of its status: 
+After the start date of the review, it will appear in a list in **Access reviews** where you can view the status of the view. Use the following procedure to view the status of an access review: 
 
-![View review status](./media/entitlement-management-access-reviews-review-access/access-review-status.png)
+1. In **Identity Governance**, click on **Access packages** then select the access package with the access review status you'd like to check.   
+
+1. Once you are on the access package overview, click on **Access reviews** on the left menu.
+    
+    ![Select access reviews](./media/entitlement-management-access-reviews/access-review-status-access-package-overview.png)
+
+1. A list will appear that contains all of the policies that have access reviews associated with them. Click on the review to see its report.
+
+    ![List of access reviews](./media/entitlement-management-access-reviews/access-review-status-select-access-reviews.png)
+   
+1. When you view the report, it shows the number of users reviewed and the actions taken by the reviewer on them.
+
+    ![View review status](./media/entitlement-management-access-reviews/access-review-status.png)
  
-By default, Azure AD will send an email to reviewers shortly after the review starts. The email will contain instructions for how to review access to access packages. If the review is for users to review their own access, show them the instructions for how to review access for yourself to access packages.
+
+## Access reviews email notifications
+You can designate reviewers, or users can review their access themselves. By default, Azure AD will send an email to reviewers or self-reviewers shortly after the review starts. 
+
+The email will include instructions on how to review access to access packages. If the review is for users to review their access, show them the instructions on how to perform a self-review of their access packages.
   
-If you have assigned guests as reviewers who have not accepted their Azure AD guest invitation, they will not receive emails from Azure AD Access Reviews. They must first accept the invite and create an account with Azure AD prior to being able to receive emails.  
+If you have assigned guest users as reviewers, and they have not accepted their Azure AD guest invitation, they will not receive emails from Azure AD access reviews. They must first accept the invite and create an account with Azure AD before they can receive the emails.  
 
 ## Next steps
 
