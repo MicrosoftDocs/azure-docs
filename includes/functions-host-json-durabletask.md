@@ -13,7 +13,7 @@ ms.custom: include file
 
 Configuration settings for [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
-### Durable Functions 1.0
+### Durable Functions 1.x
 
 ```json
 {
@@ -41,7 +41,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 ```
 
 <a name="durable-functions-2-0-host-json">
-### Durable Functions 2.0
+### Durable Functions 2.x
 
 ```json
 {
