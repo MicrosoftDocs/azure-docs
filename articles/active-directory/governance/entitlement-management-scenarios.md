@@ -81,7 +81,7 @@ There are several ways that you can configure entitlement management for your or
 ### Administrator: Collaborate with an external partner organization
 
 1. [Read how access works for external users](entitlement-management-external-users.md#how-access-works-for-external-users)
-1. [Review lifecycle settings for external users](entitlement-management-external-users.md#manage-the-lifecycle-of-external-users)
+1. [Review settings for external users](entitlement-management-external-users.md#settings-for-external-users)
 1. [Add a connection to the external organization](entitlement-management-organization.md)
 
 ### Access package manager: Collaborate with an external partner organization
