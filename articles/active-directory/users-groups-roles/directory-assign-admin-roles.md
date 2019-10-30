@@ -289,6 +289,10 @@ Users in this role can monitor all notifications in the Message Center, includin
 
 Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
 
+### [Office Apps Administrator](#office-apps-administrator-permissions)
+
+Users in this role can manage Office 365 apps' cloud settings. This includes managing cloud policies, self-service download management and the ability to view Office apps related report. This role additionally grants the ability to manage support tickets, and monitor service health within the main admin center. Users assigned to this role can also manage communication of new features in Office apps. 
+
 ### [Partner Tier1 Support](#partner-tier1-support-permissions)
 
 Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
@@ -1226,6 +1230,25 @@ Can read messages and updates for their organization in Office 365 Message Cente
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 
+### Office Apps Administrator permissions
+Can manage Office apps' cloud services, including policy and settings management, and manage the ability to select, unselect and publish "what's new" feature content to end-user’s devices.
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+>
+>
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+| microsoft.office365.userCommunication/allEntities/allTasks | Read and update What’s New messages visibility. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+
 ### Partner Tier1 Support permissions
 
 Do not use - not intended for general use.
@@ -1669,6 +1692,7 @@ License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569
 Lync Service Administrator | Skype for Business administrator | 75941009-915a-4869-abe7-691bff18279e
 Message Center Privacy Reader | Message center privacy reader | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Message Center Reader | Message center reader | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Office Apps Administrator | Office apps administrator | 2b745bdf-0803-4d80-aa65-822c4493daac
 Partner Tier1 Support | Partner tier1 support | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Partner Tier2 Support | Partner tier2 support | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Password Administrator | Password administrator | 966707d0-3269-4727-9be2-8c3a10f19b9d
