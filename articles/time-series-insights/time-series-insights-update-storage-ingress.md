@@ -33,6 +33,27 @@ Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azur
 
 > [!WARNING] When attaching a new event source to your Time Series Insights Preview environment, depending on the number of events currently in your IoT Hub or Event Hub, you may experience high initial ingestion latency. As data is ingested, you should expect this high latency to subside, but if your experience indicates otherwise please contact us by submitting a support ticket through the Azure portal.
 
+## Ingress Best Practices
+
+We recommend that you employ the following best practies:
+
+* Configure TSI and IoT/Event Hub in the same region, this will reduce ingestion latency incurred due to the network.
+* Plan for your scale needs by calculating your anticipated ingestion rate and verifying that it falls within the supported rate listed below
+* Understand how JSON data is ingested and stored by reviewing the JSON shaping document.
+
+### Ingress scale and limitations in preview
+
+By default, the Time Series Insights Preview supports an initial ingress scale of up to 1 megabyte per second (MB/s) per environment. Up to 16 MB/s throughput is available if required, please contact us if this is needed. Additionally, there is a per-partition limit of 0.5 MB/s. This has implications for customers using IoT Hub specifically, given the affinity between an IoT Hub device an partition. In scenarios where one gateway device is forwarding messages to hub using it's own device ID and connection string, there is the danger of reaching the 0.5 MB/s limit given that messages will arrive in a single partition, even if the event payload specifies different TS IDs. In general, ingress rate is viewed as a factor of the number of devices that are in your organization, event emission frequency, and the size of an event. When calculating ingestion rate, IoT Hub users should use the number of hub connections in use, rather than total devices in the organization. Enhanced scaling support is ongoing. This documentation will be updated to reflect those improvements. 
+
+> [!WARNING]
+> For environments using IoT Hub as an event source, calculate ingestion rate using the number of hub devices in use.
+
+Please refer to the following links for more information on throughput units and partitions:
+
+IoT Hub Scale: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling
+Event Hub Scale:  https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-scalability#throughput-units
+IoT Hub/Event Hub Partitions: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#partitions
+
 ### Data storage
 
 When you create a Time Series Insights Preview pay-as-you-go SKU environment, you create two Azure resources:
@@ -52,15 +73,6 @@ Time Series Insights Preview partitions and indexes data for optimum query perfo
 
 > [!IMPORTANT]
 > The upcoming general availability (GA) release of Time Series Insights will make data available in 60 seconds after it's read from the event source. During the preview, you might experience a longer period before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
-
-### Scale
-
-By default, Time Series Insights Preview supports an initial ingress scale of up to 1 megabyte per second (MB/s) per environment. A throughput of up to 16 MB/s is available if you need it. If you need enhanced scaling support, please contact us by submitting a ticket through the Azure portal explaining your scenario and business needs.
-
-You can get additional ingress and scaling capabilities for the event source:
-
-* [IoT Hub](../iot-hub/iot-hub-scaling.md)
-* [Event Hubs](../event-hubs/event-hubs-scalability.md)
 
 ## Azure Storage
 
