@@ -63,7 +63,7 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 **Component** | **Requirement** 
 --- | ---
 VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the configuration server is running on a VMware VM.
-MYSQL | MySQL should be installed. You can install manually, or Azure Site Recovery can install it. (For more information, see [configure settings](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings).)
+MySQL | MySQL should be installed. You can install manually, or Azure Site Recovery can install it. (For more information, see [configure settings](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings).)
 
 ## Sizing and capacity requirements
 

@@ -119,7 +119,7 @@ If you want to add an additional NIC to the configuration server, add it before 
     |Scenario   |Steps to follow  |
     |---------|---------|
     |Can I download and install MySQL manually?     |  Yes. Download the MySQL application, place it in the folder **C:\Temp\ASRSetup**, and then install manually. After you accept the terms and select **Download and install**, the portal says *Already installed*. You can proceed to the next step.       |
-    |Can I avoid download of MySQL online?     |   Yes. Place your MySQL installer application in the folder **C:\Temp\ASRSetup**. Accept the terms, select **Download and install**, and the portal uses the installer added by you to install the application. After installation finishes, proceed to the next step.    |
+    |Can I avoid download of MySQL online?     |   Yes. Place your MySQL installer application in the folder **C:\Temp\ASRSetup**. Accept the terms, select **Download and install**, and the portal uses the installer you added to install the application. After installation finishes, proceed to the next step.    |
     |I want to download and install MySQL through Azure Site Recovery.    |  Accept the license agreement, and select **Download and install**. After installation finishes, proceed to the next step.       |
 
 5. On **Validate appliance configuration**, prerequisites are verified before you continue.
