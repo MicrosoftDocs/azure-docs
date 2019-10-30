@@ -13,7 +13,7 @@ ms.reviewer: sstein
 ms.date: 11/04/2019
 ---
 
-# Stream your data into SQL Database using Stream analytics integration (preview) in the Azure portal
+# Stream your data into SQL Database using Stream Analytics integration (preview) in the Azure portal
 
 Users can now ingest, process, view, and analyze real-time streaming data into a table directly from a SQL database in the Azure portal using [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md). This experience enables a wide variety of scenarios such as connected car, remote monitoring, fraud detection, and many more. In the Azure portal, you can select an events source (Event Hub/IoT Hub), view incoming real-time events, and select a table to store events. You can also write Stream Analytics Query Language queries in the portal to transform incoming events and store them in the selected table. This new entry point is in addition to the creation and configuration experiences that already exist in Stream Analytics. This experience starts from the context of your database, enabling you to quickly set up a Stream Analytics job and navigate seamlessly between the Azure SQL Database and Stream Analytics experiences.
 
@@ -35,7 +35,7 @@ To complete the steps in this article, you need the following resources:
 - A firewall rule allowing your computer to connect to the Azure SQL server. For details, see [Create a server-level firewall rule](sql-database-server-level-firewall-rule.md).
 
 
-## Configure your SQL database to receive streaming data
+## Configure SQL database with the Stream analytics integration (preview)
 
 1. Sign in to the Azure portal. 
 2. Navigate to your SQL database where you want to ingest your streaming data. Select **Stream analytics (preview)**. 
@@ -120,7 +120,7 @@ To complete the steps in this article, you need the following resources:
 
 
 
-### Next steps
+## Next steps
 
-- [Azure Stream Analytics documentation](https://docs.microsoft.com/azure/stream-analytics/).
+- [Azure Stream Analytics documentation](https://docs.microsoft.com/azure/stream-analytics/)
 - [Azure Stream Analytics solution patterns](../stream-analytics/stream-analytics-solution-patterns.md)
