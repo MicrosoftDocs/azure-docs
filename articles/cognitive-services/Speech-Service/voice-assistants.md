@@ -24,7 +24,7 @@ Applications connect to the voice assistant service with the Speech Software Dev
 
 ## Choosing an assistant solution
 
-The first step to creating a voice assistant is to decide what it should do. Azure Speech Services provide multiple, complementary solutions for crafting your assistant interactions. Whether your want the flexibility and versatility that the Bot Framework's [Direct Line Speech](direct-line-speech.md) channel provides or the simplicity of [Custom Commands (Preview)](custom-commands.md) for straightforward scenarios, selecting the right tools will get you started.
+The first step to creating a voice assistant is to decide what it should do. Azure Speech Services provide multiple, complementary solutions for crafting your assistant interactions. Whether you want the flexibility and versatility that the Bot Framework's [Direct Line Speech](direct-line-speech.md) channel provides or the simplicity of [Custom Commands (Preview)](custom-commands.md) for straightforward scenarios, selecting the right tools will get you started.
 
 | If you want... | Then consider... | For example... |
 |-------------------|------------------|----------------|
