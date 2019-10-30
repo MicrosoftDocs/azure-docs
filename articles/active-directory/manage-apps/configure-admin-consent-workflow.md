@@ -29,7 +29,7 @@ To approve requests, a reviewer must be a global administrator, cloud applicatio
 
 To enable the admin consent workflow and choose reviewers:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as one of the registered reviewers of the admin consent workflow.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 2. Click **All services** at the top of the left-hand navigation menu. The **Azure Active Directory Extension** opens.
 3. In the filter search box, type "**Azure Active Directory**" and select **the Azure Active Directory** item.
 4. From the navigation menu, click **Enterprise applications**. 
@@ -70,7 +70,7 @@ After the admin consent workflow is enabled, users can request admin approval fo
 
 To review the admin consent requests and take action:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as one of the registered reviewers of the admin consent workflow.
 2. Select **All services** at the top of the left-hand navigation menu. The **Azure Active Directory Extension** opens.
 3. In the filter search box, type "**Azure Active Directory**" and select the **Azure Active Directory** item.
 4. From the navigation menu, click **Enterprise applications**.
