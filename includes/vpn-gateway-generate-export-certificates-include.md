@@ -53,7 +53,7 @@ If you are creating additional client certificates, or are not using the same Po
 1. Identify the self-signed root certificate that is installed on the computer. This cmdlet returns a list of certificates that are installed on your computer.
 
    ```powershell
-   Get-ChildItem -Path “Cert:\CurrentUser\My”
+   Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
 2. Locate the subject name from the returned list, then copy the thumbprint that is located next to it to a text file. In the following example, there are two certificates. The CN name is the name of the self-signed root certificate from which you want to generate a child certificate. In this case, 'P2SRootCert'.
 

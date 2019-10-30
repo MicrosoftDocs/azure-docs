@@ -270,7 +270,7 @@ Use this process to conduct a layer 1 test. Ensure that each cross-connection is
    }
    ```
 
-   Use the same procedure to down the ports by using `AdminState = “Disabled”`.
+   Use the same procedure to down the ports by using `AdminState = "Disabled"`.
 
 ## <a name="circuit"></a>Create a circuit
 

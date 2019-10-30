@@ -67,6 +67,16 @@ deviceTRUST extends the value of Windows Virtual Desktop with their contextual s
 
 - [Go to the partner website](https://devicetrust.com/wvd).
 
+## Ivanti
+
+![Ivanti Logo](./media/partners/ivanti.png)
+
+Ivanti User Workspace Manager is a Windows Virtual Desktop value-added service that eases desktop deployment and management by separating user data from the desktop for seamless portability. With Ivanti, users can deliver complex projects like migrating to Windows 10, adopting Office 365, or moving services to the cloud faster. 
+
+When used with Windows Virtual Desktop, Ivanti User Workspace Manager provides simple contextual management of the user desktop experience, eliminating long sign in times and eradicating group policy nightmares. Ivanti User Workspace Manager out-of-the-box templates simplify installation for users through agents and the existing console. Ivanti User Workspace Manager delivers responsive, secure desktops that users love, saving money on servers, managing users more effectively, and reducing endpoint security risk. 
+
+- [Go to the partner website](https://www.ivanti.com/products/user-workspace-manager).
+
 ## Lakeside Software
 
 ![Lakeside Software Logo](./media/partners/lakeside.png)
@@ -128,6 +138,16 @@ Available as SaaS or as a web stack in your own private cloud, the PrinterLogic 
 
 - [Go to partner website](https://www.printerlogic.com).
 
+## Numecent
+
+![Numecent Logo](./media/partners/numecent.png)
+
+Numecent is a Windows Virtual Desktop value-added services provider that significantly reduces the total operating costs through rapid onboarding and migration of complicated or incompatible Windows apps in Windows Virtual Desktop environments. Numecent also minimizes the amount of configuration users need to do, reduces application updates, and simplifies complex processes. Because Numecent Cloudpaging supports more applications seamlessly than any other application delivery tool, it reduces time and IT workloads in environments with a diverse set of applications. 
+
+When used with Windows Virtual Desktop, Cloudpaging further reduces costs by completing software asset lifecycle from deployment to upgrading, metering, and removing applications. Cloudpaging simplifies image management by dynamically provisioning apps as needed in real-time to the Windows Virtual Desktop deployments. Cloudpaging helps applications run without administration or intervention through the periodic Windows 10 updates. Cloudpaging also reduces the licensing cost of expensive applications by enabling more efficient deployment and usage of these applications. 
+
+- [Go to the partner website](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+
 ## ThinPrint
 
 ![ThinPrint Logo](./media/partners/thinprint.png)
@@ -138,6 +158,16 @@ ThinPrint’s ezeep solution extends the value of Windows Virtual Desktop by ena
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas).
 - [Go to partner website](https://www.ezeep.com/wvd-printing).
+
+## Tricerat
+
+![Tricerat Logo](./media/partners/tricerat.png)
+
+Tricerat offers a superior print management solution for Windows Virtual Desktop and other desktop platforms. Tricerat software has robust functionality, offering a better experience for both users and administrators. Administrators gain efficiencies through complete driver management, simplified deployment of print queues, and consistent management across hybrid platforms. User experience improves with shorter sign in times, intelligent print queues based on user, device, and network location, and self-service options for quick printer selection. 
+
+With Tricerat, printing is seamless in Windows Virtual Desktop and beyond. Tricerat software allows administrators to easily connect on-premises printers to the cloud, extending enterprise print management from traditional environments to new, modern workspaces.
+
+- [Go to the partner website](https://www.tricerat.com/solutions/wvd-microsoft/).
 
 ## Workspot
 
