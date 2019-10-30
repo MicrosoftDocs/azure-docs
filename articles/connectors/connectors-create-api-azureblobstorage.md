@@ -165,13 +165,13 @@ To set up the exception and managed identity support, follow these general steps
 
 1. On your storage account, under **Settings**, select **Firewalls and virtual networks**. Under **Allow access from**, select the **Selected networks** option so that the related settings appear.
 
-1. Under **Exceptions**, select **Allow trusted Microsoft services to access this storage account**.
+1. Under **Exceptions**, select **Allow trusted Microsoft services to access this storage account**, and then select **Save**.
 
    ![Allow trusted services](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 
-1. On your logic app, [enable managed identity support](../logic-apps/create-managed-service-identity.md).
+1. In your logic app's settings, [enable support for the managed identity](../logic-apps/create-managed-service-identity.md).
 
-1. In your logic app, [use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) in an HTTP action or another action that supports managed identities for authenticating access to the storage account.
+1. In your logic app's workflow, add and set up the action that [supports managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
    > [!IMPORTANT]
    > For outgoing HTTP trigger or action calls to Azure Storage accounts, 
@@ -179,6 +179,8 @@ To set up the exception and managed identity support, follow these general steps
    > and the API version for the operation that you want to run on the storage account. 
    > For more information, see [Authenticate access with managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) and 
    > [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+
+1. On that action, [select the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) to use for authentication.
 
 <a name="access-api-management"></a>
 
