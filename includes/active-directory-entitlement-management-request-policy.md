@@ -128,7 +128,7 @@ Follow these steps to specify the approval settings for the users you previously
 
 In addition to specifying the primary approvers who can approve requests, you can specify alternate approvers. This will help ensure that the requests are approved or denied before they expire (timeout).
 
-By specifying alternate approver(s), in the event that the primary approver(s) havent been able to approve or deny the request, the pending request gets forwarded to the alternate approver(s), per the forwarding schedule you specified during policy set up. They receive an email to approve or deny the pending request.
+By specifying alternate approver(s), in the event that the primary approver(s) haven't been able to approve or deny the request, the pending request gets forwarded to the alternate approver(s), per the forwarding schedule you specified during policy set up. They receive an email to approve or deny the pending request.
 
 After the request is forwarded to the alternate approvers, the primary approvers can still approve or deny the request. Alternate approvers use the same My Access site, as the primary approvers, to approve or deny the pending request.
 
