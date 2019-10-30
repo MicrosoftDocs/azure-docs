@@ -188,4 +188,4 @@ In this tutorial, you learned how to connect an IoT Plug and Play device that wa
 To learn more about DCMs and how to create your own models, continue to the how-to guide:
 
 > [!div class="nextstepaction"]
-> [Set up and manage a device template](./howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Create a device group](./tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

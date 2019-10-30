@@ -17,7 +17,7 @@ The Microsoft Cloud Solution Provider (CSP) program is a Microsoft Reseller prog
 
 As a CSP, you can create and manage Microsoft Azure IoT Central applications on behalf of your customers through the [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). When Azure IoT Central applications are created on behalf of customers by CSPs, just like with other CSP managed Azure services, CSPs manage billing for customers. A charge for Azure IoT Central will appear in your total bill in the Microsoft Partner Center.
 
-To get started, sign-in to your account on the Microsoft Partner Portal and select a customer for whom you want to create an Azure IoT Central application. Navigate to Service management for the customer from the left nav.
+To get started, sign-in to your account on the Microsoft Partner Portal and select a customer for whom you want to create an Azure IoT Central application. Navigate to Service Management for the customer from the left nav.
 
 ![Microsoft Partner Center, customer view](media/howto-create-application-csp/image1.png)
 
@@ -29,7 +29,7 @@ You land on the Azure IoT Central Application Manager page. Azure IoT Central ke
 
 ![Create Manager for CSPs](media/howto-create-application-csp/image3.png)
 
-To create an Azure IoT Central application, select the **New Application** tile. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
+To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the idustry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
 
 ![Create Application Page for CSPs](media/howto-create-application-csp/image4.png)
 
