@@ -1,7 +1,8 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Encoding in the cloud with Media Services - Azure | Microsoft Docs
-description: This topic describes the encoding process when using Azure Media Services
+title: Encoding in the cloud with Media Services | Microsoft Docs
+titleSuffix: Azure Media Services
+description: Learn about the encoding process when using Azure Media Services
 services: media-services
 documentationcenter: ''
 author: Juliako
