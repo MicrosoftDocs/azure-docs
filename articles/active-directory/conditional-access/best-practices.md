@@ -86,7 +86,7 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 
 Yes, you can use Exchange ActiveSync in a Conditional Access policy.
 
-Some cloud apps like SharePoint Online and Exchange Online also support legacy authentication protocols. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a conditional access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps.
+Some cloud apps like SharePoint Online and Exchange Online also support legacy authentication protocols. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a Conditional Access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps.
 
 ### How should you configure Conditional Access with Office 365 apps?
 
