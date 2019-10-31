@@ -4,7 +4,7 @@ description: How to create and manage Blockchain Data Manager using the Azure po
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
