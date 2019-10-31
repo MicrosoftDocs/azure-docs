@@ -12,12 +12,12 @@ ms.author: v-umha
 
 Using Azure FarmBeats you can generate the following maps by using satellite imagery and sensor data inputs:
 
-1. **Sensor Placement Map** – To get recommendations on how many sensors to use and where to place them in a farm.
-2.	**Satellite indices Map** – To get vegetation index and water index for a farm.
-3.	**Soil Moisture Map** – To get soil moisture distribution by fusing satellite data and sensor data.
+1. **Sensor Placement Map** – gets recommendations on how many sensors to use and where to place them in a farm.
+2.	**Satellite indices Map** – gets vegetation index and water index for a farm.
+3.	**Soil Moisture Map** – gets soil moisture distribution by fusing satellite data and sensor data.
 
 
-## Sensor Placement Maps
+## Sensor placement maps
 
   FarmBeats sensor placement map assists you with the placement of soil moisture sensors. The map output consists a list of coordinates for sensor deployment. The inputs from these sensors are used along with satellite imagery to generate the Soil Moisture Heatmap.  
 
@@ -31,8 +31,8 @@ Using Azure FarmBeats you can generate the following maps by using satellite ima
 2. The number of cloud-free Sentinel scenes must be more than six for the selected date range.  
 3. At least six cloud-free Sentinel Scenes must have NDVI>=0.3
 
-> [!NOTE]
-> Sentinel allows only two concurrent threads per user. As a result, jobs will get queued and might take longer to complete.
+    > [!NOTE]
+    > Sentinel allows only two concurrent threads per user. As a result, jobs will get queued and might take longer to complete.
 
 ### Dependencies on sentinel  
 
@@ -48,7 +48,7 @@ Using Azure FarmBeats you can generate the following maps by using satellite ima
 > [!NOTE]
 > You can initiate Sensor Placement from the **Maps** page or from the  **Generate Precision Maps** drop-down menu from the **Farm Details** page.
 
-1. On the homepage, go to **Maps** from the left navigation menu.
+1. On the home page, go to **Maps** from the left navigation menu.
 2. Click **Create Maps** and select **Sensor Placement** from drop-down menu.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-1.png)
@@ -63,15 +63,15 @@ Using Azure FarmBeats you can generate the following maps by using satellite ima
 5. If you want to generate a map for the past one year, select **Recommended** option.
 6. If you want to generate a map for a custom date range, click **Select Date Range**, and provide the start and end date for which you want to generate the sensor placement map.
 7. Click **Generate Maps**.
-  A confirmation message displays about job creation.
+  A Confirmation message displays with the details about job created.
 
-- For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
+    - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
-- If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+    - If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download sensor placement map
 
-1. On the homepage, go to **Maps** from the left navigation menu.
+1. On the home page, go to **Maps** from the left navigation menu.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
@@ -83,7 +83,7 @@ Using Azure FarmBeats you can generate the following maps by using satellite ima
 3. Select **Type**, **Date** and **Name** from the drop-down menu and then **Apply** to search for the map you want to view.
   The date format *type_farmname_YYYY-MM-DD* is the date on which the job was created.
 4. Scroll through the list of maps available using the navigation bars at the end of the page.
-5. Click link (to be updated with the details about the link) in the **Name** column, a pop-up window displays with the preview of the map.
+5. Click the map you want to view, a pop-up window displays the preview for the selected map.
 6. Click **Download** drop-down menu to download the GeoJSON file of sensor coordinates.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-sensor-placement-map-1.png)
@@ -102,7 +102,7 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 
 ## Create satellite indices map
 
-1. On the homepage, go to **Maps** from the left navigation menu.
+1. On the home page, go to **Maps** from the left navigation menu.
 2. Click **Create Maps** and select **Satellite Indices** from drop-down menu.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-satellite-indices-1.png)
@@ -116,18 +116,19 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
    To search and select your farm, you can either scroll in the drop-down list or type the name of the farm.   
 5. If you want to generate a map for the past one week select **This Week** option.
 6. If you want to generate a map for custom date range, click **Select Date Range**, and provide the start and end date for which you want to generate the satellite indices map.
-7. Click **Generate Maps**. A confirmation message displays about job creation.
+7. Click **Generate Maps**.
+    A confirmation message displays with details about the  job created.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/successful-satellitte-indices-1.png)
 
-- For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
+    - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
-- If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+    - If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 
-### View and Download Map
+### View and download map
 
-1. On the homepage, go to **Maps** from the left navigation menu.
+1. On the home page, go to **Maps** from the left navigation menu.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
@@ -143,10 +144,10 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
   - NDVI
   - EVI
   - NDWI
-6. Click the link in the **Name** column, a pop-up window displays with the preview of the map.
+6. Click the map you want to view, a pop-up window displays the preview for the selected map.
 7. Click **Download** drop-down menu to select the download format and the map is downloaded and stored in your local folder on your computer.
 
-![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-satellite-indices-map-1.png)
+    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-satellite-indices-map-1.png)
 
 ## Get soil moisture Heatmap
 
@@ -159,13 +160,13 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 
   1. At least three soil moisture sensors must be deployed. Microsoft recommends that you do not try to create a Soil Moisture Map before sensors are deployed and associated with the farm.  
   2. At least one cloud free Sentinel Scene must be available in the last 120 days from the day for which the Soil Moisture Map is requested.
-  3. At least half of the sensors deployed on the farm must be online and have data streaming to the Datahub.
+  3. At least half of the sensors deployed on the farm must be online and have data streaming to the Data hub.
   4. Heatmap should be generated using sensor measures from the same provider.
 
 
 ## Create soil moisture heatmap
 
-1. On the homepage, go to **Maps** from the left navigation menu to view the Maps page.
+1. On the home page, go to **Maps** from the left navigation menu to view the Maps page.
 2. Click **Create Maps** and select **Soil Moisture** from drop-down menu.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-soil-moisture-1.png)
@@ -181,17 +182,17 @@ To find the sensor measure, go to **Sensors**, click any soil moisture sensor, u
 6. If you want to generate for **Today** or **This Week**, select one of the options.
 7.If you want to generate for a custom date range, click **Select Date Range**, and provide the start and end date for which you want to generate the soil moisture map.
 8. Click **Generate Maps**.
-  A Confirmation message displays details about job creation.
+  A Confirmation message displays with the details about job created.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/successful-soil-moisture-1.png)
 
  - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
- - If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+ - If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download map
 
-1. On the homepage, go to **Maps** from the left navigation menu.
+1. On the home page, go to **Maps** from the left navigation menu.
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
 2.  Click **Filter** from the left-navigation of the window, the filter window displays from where you can search for maps.
@@ -201,7 +202,7 @@ To find the sensor measure, go to **Sensors**, click any soil moisture sensor, u
 3.  Select **Type**, **Date** and **Name** from the drop down menu and then **Apply** to search for the map you want to view. The date format *type_farmname_YYYY-MM-DD* is the date on which the job was created.
 4. Click the **Sort** icon next to the table headers to sort according to Farm, Date, Created On, Job ID and Job Type.
 5. Scroll through the list of maps available using the navigation buttons at the end of the page.
-6. Click the link in the **Name** column, a pop-up window displays with the preview of the map
+6. Click the map you want to view, a pop-up window displays the preview for the selected map.
 7. Click **Download** drop-down menu to select the download format and the map is downloaded and stored in the local folder of your computer.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

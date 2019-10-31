@@ -3,7 +3,7 @@ title: Azure FarmBeats Architecture
 description: Describes the architecture of Azure FarmBeats
 author: uhabiba04
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
@@ -28,4 +28,4 @@ Once the data is available within your customers’ Azure FarmBeats instance, yo
 
 ## Next steps
 
-To know more, click [sensor data integration](sensor-partner-integration.md) or [imagery partner integration](imagery-partner-integration.md)
+For more information about sensor data integration and imagery partner integration see, [sensor data integration](sensor-partner-integration.md) and [imagery partner integration](imagery-partner-integration.md)

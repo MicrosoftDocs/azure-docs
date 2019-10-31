@@ -27,7 +27,7 @@
      href: get-sensor-data-from-sensor-partner.md
    - name: Generate maps
      href: generate-maps.md
-   - name: Configure rules and alerts
+   - name: Configure rules and manage alerts
      href: configure-rules-alerts.md
    - name: Get drone imagery
      href: get-drone-imagery.md

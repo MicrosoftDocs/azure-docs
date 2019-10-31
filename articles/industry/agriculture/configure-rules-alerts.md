@@ -1,6 +1,6 @@
 ---
-title: Configure rules and alerts
-description: Describes how to configure rules and alerts in FarmBeats
+title: Configure rules manage and alerts
+description: Describes how to configure rules and manage alerts in FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -8,14 +8,14 @@ ms.author: v-umha
 ---
 
 
-# Configure rules and alerts in FarmBeats
+# Configure rules and manage alerts in FarmBeats
 
 
 FarmBeats allows you to create rules based on the business logic, in addition to the sensor data that flows from the sensors and devices deployed in your farm. The rules trigger alerts in the system whenever sensor values cross a threshold value.
 
 ## Create Rule
 
-1. On the homepage, go to **Rules**.
+1. On the home page, go to **Rules**.
 2. Click **New Rule**, the New Rule window displays.
 
   ![Project Farm Beats](./media/configure-rules-and-alerts/new-rule-1.png)
@@ -58,7 +58,7 @@ The **Farm** list page displays the available rules. Select a **Rule Name** chec
 
 To edit the rule, follow these steps:
 
-1. On the homepage, select **Rules** from the left navigation menu.
+1. On the home page, select **Rules** from the left navigation menu.
    The rules window displays.
 2. Select the checkbox for the **Rule** that you want to edit.
 
@@ -87,7 +87,7 @@ To edit the rule, follow these steps:
 
 To change the status of a rule, follow these steps:
 
-1. On the homepage, select **Rules** from the left navigation menu. The rules window displays.
+1. On the home page, select **Rules** from the left navigation menu. The rules window displays.
 2. Select the checkbox for the **Rule** that you want to change the status.
 
   ![Project Farm Beats](./media/configure-rules-and-alerts/change-status-rule-action-bar-1.png)
@@ -104,7 +104,7 @@ To change the status of a rule, follow these steps:
 
 To delete a rule, follow these steps:
 
-1. On the homepage, select **Rules** from the left navigation menu. The rules window displays.
+1. On the home page, select **Rules** from the left navigation menu. The rules window displays.
 2. Select the checkbox for the **Rule** that you want to delete.
 
   ![Project Farm Beats](./media/configure-rules-and-alerts/delete-rule-action-bar-1.png)
