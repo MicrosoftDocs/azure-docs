@@ -8,9 +8,9 @@ ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: larryfr
-ms.author: tedway
-author: tedway
-ms.date: 07/25/2019
+ms.author: jordane
+author: jpe316
+ms.date: 10/25/2019
 ms.custom: seodec18
 ---
 

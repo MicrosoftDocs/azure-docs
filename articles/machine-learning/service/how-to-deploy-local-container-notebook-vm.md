@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
-ms.date: 08/08/2019
+ms.date: 10/25/2019
 ---
 
 # Deploy a model to Azure Machine Learning Notebook VMs
@@ -58,7 +58,8 @@ test_sample = json.dumps({'data': [
 test_sample = bytes(test_sample,encoding = 'utf8')
 access_token = "your bearer token"
 headers = {'Content-Type':'application/json', 'Authorization': 'Bearer ' + access_token}
-service_url = "https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score"
+service_url = "https://vm-name-6789.northcentralus.notebooks.azureml.net/score"
+# for a compute instance, the url would be https://vm-name-6789.northcentralus.instances.azureml.net/score
 resp = requests.post(service_url, test_sample, headers=headers)
 print("prediction:", resp.text)
 ```

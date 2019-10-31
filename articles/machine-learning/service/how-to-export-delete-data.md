@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens
-author: ph-com
-ms.author: pahusban
+author: lobrien
+ms.author: laobri
 ms.date: 05/02/2019
 ms.custom: seodec18
 ---
@@ -232,24 +232,23 @@ Data Sources can be obtained by:
 
 In the designer where you created your experiment, delete individual assets:
 
-1. On the left, select the type of asset you want to delete.
+1. Go to designer
 
     ![Delete assets](media/how-to-export-delete-data.md/delete-experiment.png)
 
-1. In the list, select the individual assets to delete.
+1. In the list, select the individual pipeline draft to delete.
 
 1. On the bottom, select **Delete**.
 
-## Export data in the designer
+## Unregister data in the designer
 
 In the designer where you created your experiment, export data you have added:
 
-1. On the left, select **Data**.
+1. On the left, select **Datasets**.
 
-1. On the top, select **My Datasets** or **Samples** to locate the data you want to export.
 
-    ![Download data](media/how-to-export-delete-data.md/download-data.png)
 
-1. In the list, select the individual datasets to export.
+    ![Download data](media/how-to-export-delete-data.md/unregister-dataset.png)
 
-1. On the bottom, select **Download**.
+1. In the list, select the individual dataset and click Unregister
+

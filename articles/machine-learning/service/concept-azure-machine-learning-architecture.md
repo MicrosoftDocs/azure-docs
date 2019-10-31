@@ -45,7 +45,7 @@ Use these tools for Azure Machine Learning:
 + Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
-+ Use [Azure Machine Learning designer (preview)](ui-concept-visual-interface.md) to perform the workflow steps without writing code.
++ Use [Azure Machine Learning designer (preview)](concept-designer.md) to perform the workflow steps without writing code.
 
 
 > [!NOTE]

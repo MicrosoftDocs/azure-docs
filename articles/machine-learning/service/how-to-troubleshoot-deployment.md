@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author:  clauren
 ms.reviewer: jmartens
-ms.date: 07/09/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
 ---
 
@@ -149,15 +149,15 @@ To avoid this problem, we recommend one of the following approaches:
 
 ## Debug locally
 
-If you encounter problems deploying a model to ACI or AKS, try deploying it as a local web service. Using a local web service makes it easier to troubleshoot problems. The Docker image containing the model is downloaded and started on your local system.
+If you encounter problems deploying a model to ACI or AKS, try deploying it as a local . Using a local  makes it easier to troubleshoot problems. The Docker image containing the model is downloaded and started on your local system.
 
 > [!IMPORTANT]
-> Local web service deployments require a working Docker installation on your local system. Docker must be running before you deploy a local web service. For information on installing and using Docker, see [https://www.docker.com/](https://www.docker.com/).
+> Local  deployments require a working Docker installation on your local system. Docker must be running before you deploy a local . For information on installing and using Docker, see [https://www.docker.com/](https://www.docker.com/).
 
 > [!WARNING]
-> Local web service deployments are not supported for production scenarios.
+> Local  deployments are not supported for production scenarios.
 
-To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the `model` variable) as a local web service:
+To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the `model` variable) as a local :
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -168,14 +168,14 @@ inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
-# Create a local deployment, using port 8890 for the web service endpoint
+# Create a local deployment, using port 8890 for the  endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
 service = Model.deploy(
     ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
-# Display the port that the web service is available on
+# Display the port that the  is available on
 print(service.port)
 ```
 
@@ -285,7 +285,7 @@ There are two things that can help prevent 503 status codes:
     > [!IMPORTANT]
     > This change does not cause replicas to be created *faster*. Instead, they are created at a lower utilization threshold. Instead of waiting until the service is 70% utilized, changing the value to 30% causes replicas to be created when 30% utilization occurs.
     
-    If the web service is already using the current max replicas and you are still seeing 503 status codes, increase the `autoscale_max_replicas` value to increase the maximum number of replicas.
+    If the  is already using the current max replicas and you are still seeing 503 status codes, increase the `autoscale_max_replicas` value to increase the maximum number of replicas.
 
 * Change the minimum number of replicas. Increasing the minimum replicas provides a larger pool to handle the incoming spikes.
 
@@ -321,7 +321,7 @@ In some cases, you may need to interactively debug the Python code contained in 
 > [!IMPORTANT]
 > This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) class. 
 >
-> Local web service deployments require a working Docker installation on your local system. Docker must be running before you deploy a local web service. For information on installing and using Docker, see [https://www.docker.com/](https://www.docker.com/).
+> Local  deployments require a working Docker installation on your local system. Docker must be running before you deploy a local . For information on installing and using Docker, see [https://www.docker.com/](https://www.docker.com/).
 
 ### Configure development environment
 

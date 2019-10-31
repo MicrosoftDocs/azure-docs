@@ -9,8 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.custom: seodec18
+ms.date: 11/04/2019
 
 ---
 # Known issues and troubleshooting Azure Machine Learning
@@ -85,6 +84,16 @@ Automated machine learning does not currently support tensor flow version 1.13. 
 
 Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering correctly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
+## Datasets and Data Preparation
+
+### Fail to read Parquet file from HTTP or ADLS Gen 2
+
+There is a known issue in AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. To fix this issue, please upgrade to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
+
 ## Databricks
 
 Databricks and Azure Machine Learning issues.
@@ -138,7 +147,15 @@ If you see a `FailToSendFeather` error when reading data on Azure Databricks clu
 * Add `azure-dataprep` version 1.1.8 or above.
 * Add `pyarrow` version 0.11 or above.
 
-## Azure Machine Learning studio
+
+## Datasets
+
+These are known issues for Azure Machine Learning Datasets.
+
++ **Failed to read parquet files on Azure Data Lake Storage Gen2**
+  Reading parquet files from Azure Data Lake Storage Gen2 datastores does not work if you have `azureml-dataprep==1.1.25` installed. It will fail with `Cannot seek once reading started.`. If you see this error, you can either install `azureml-dataprep<=1.1.24` or install `azureml-dataprep>=1.1.26`.
+
+## Azure portal
 
 If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
 
@@ -230,12 +247,12 @@ Based on general observation, here are Azure ML recommendations to fix some of t
 ### ModuleErrors (No module named)
 If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML will install the package in the environment used for your training. 
 
-If you are using [Estimators](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter.
+If you are using [Estimators](concept-azure-machine-learning-architecture.md#estimators) to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter.
 
 Azure ML also provides framework specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
  
  Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
-Framework specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+Framework specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
 >[Note!]
 > If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 

@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
 ---
 
@@ -36,7 +36,7 @@ This article also provides additional usage tips for the following tools:
 
 ## Prerequisites
 
-An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). A workspace is all you need to get started with your own [cloud-based notebook server](#notebookvm), a [DSVM](#dsvm), or [Azure Databricks](#aml-databricks).
+An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). A workspace is all you need to get started with your own [cloud-based notebook server](#compute-instance), a [DSVM](#dsvm), or [Azure Databricks](#aml-databricks).
 
 To install the SDK environment for your [local computer](#local), [Jupyter Notebook server](#jupyter) or [Visual Studio Code](#vscode) you also need:
 
@@ -55,24 +55,10 @@ The Azure Machine Learning Notebook VM is a secure, cloud-based Azure workstatio
 
 The Notebook VM is:
 
-+ **Secure**. Since VM and notebook access is secured with HTTPS and Azure Active Directory by default, IT Pros can easily enforce single sign-on and other security features such as multi-factor authentication.
-
-+ **Preconfigured**. This fully prepared Python ML environment draws its pedigree from the popular IaaS Data Science VM and includes:
-  + Azure ML Python SDK (latest)
-  + Azure ML R SDK (latest)
-  + Automatic configuration to work with your workspace
-  + A Jupyter notebook server
-  + JupyterLab notebook IDE
-  + RStudio
-  + Preconfigured GPU drivers
-  + A selection of deep learning frameworks
+There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
 
-  If you are into code, the VM includes tutorials and samples to help you explore and learn how to use Azure Machine Learning. The sample notebooks are stored in the Azure Blob Storage account of your workspace making them shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace.
-
-+ **Simple setup**: Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
-
-+ **Customizable**. While a managed and secure VM offering, you retain full access to the hardware capabilities and customize it to your heart’s desire. For example, quickly create the latest NVidia V100 powered VM to perform step-by-step debugging of novel Neural Network architecture.
+Learn more about [compute instances](concept-compute-instance.md).
 
 To stop incurring compute charges, [stop the Notebook VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
