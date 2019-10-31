@@ -14,7 +14,7 @@ ms.custom: na
 ---
 # Azure Functions Diagnostics overview
 
-When you’re running a serverless application, you want to be prepared for any issues that may arise, from 5xx errors to misconfiguration. Azure Functions diagnostics is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. When you do run into issues with your app, Azure Functions diagnostics points out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
+When you’re running a serverless application, you want to be prepared for any issues that may arise, from 4xx errors to trigger failures. Azure Functions diagnostics is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. When you do run into issues with your app, Azure Functions diagnostics points out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
 
 ## Open Azure Functions Diagnostics
 
@@ -22,9 +22,8 @@ To access Azure Functions Diagnostics:
 
 - Navigate to your function app in the [Azure portal](https://portal.azure.com).
 - Click **Platform features** tab at the top.
-- Click on **Diagnose and solve problems** under **Resource Management**, which opens AKS Diagnostics.
-- Choose a category that best describes the issue of your cluster by using the keywords in the homepage tile
-OR type a keyword that best describes your issue in the search bar, for example _Function Execution and Errors_.
+- Click on **Diagnose and solve problems** under **Resource Management**, which opens Azure Functions Diagnostics.
+- Choose a category that best describes the issue of your function app by using the keywords in the homepage tile OR type a keyword that best describes your issue in the search bar, for example _Function Execution and Errors_.
 
 ![Homepage](./media/functions-diagnostics/homepage.png)
 
@@ -34,17 +33,17 @@ Once you select a homepage category that best aligns with your function app's pr
 
 ![Genie](./media/functions-diagnostics/genie.png)
 
-After clicking on these tiles, you can see a list of topics related to the issue described in the tile. These topics provide snippets of notable information from the full report. You can click on any of these topics to investigate the issues further. Also, you can click on View Full Report to explore all the topics on a single page.
+After clicking on these topics, you can see a list of topics related to the issue described in the tile. These topics provide snippets of notable information from the full report. You can click on any of these topics to investigate the issues further. Also, you can click on **View Full Report** to explore all the topics on a single page.
 
 ![Preview](./media/functions-diagnostics/preview.png)
 
 ## View a diagnostic report
 
-After you click on a category, you can view a diagnostic report specific to your serverless app. Diagnostic report intelligently calls out if there is any issue in your cluster with status icons. You can drill down on each topic by clicking on _More Info_ to see detailed description of the issue, recommended actions, links to helpful docs, related-metrics, and logging data. Diagnostic reports are intelligently generated based on the current state of your function app after running variety of checks. Diagnostic reports can be a useful tool for pinpointing the problem of your function app and finding the next steps to resolve the issue.
+After you click on a topic, you can view a diagnostic report specific to your serverless app. Diagnostic report intelligently calls out if there is any issue in your app with status icons. You see detailed description of the issue, recommended actions, related-metrics, and helpful docs. Diagnostic reports are intelligently generated based on the current state of your function app after running variety of checks. Diagnostic reports can be a useful tool for pinpointing the problem of your function app and finding the next steps to resolve the issue.
 
 ## Pinpoint the line of code causing exceptions or errors for non-compiled functions
 
-For non-compiled functions like C# script functions, Azure Functions Diagnostics can actually narrow down on the line of code causing exceptions or errors. This can be a useful tool for getting to the root cause and fixing issues. Presented in tandem.
+For functions that are not precompiled like C# script functions, Azure Functions Diagnostics can actually narrow down on the line of code causing exceptions or errors. This can be a useful tool for getting to the root cause and fixing issues. 
 
 ![Preview](./media/functions-diagnostics/function-execution-errors.png)
 
