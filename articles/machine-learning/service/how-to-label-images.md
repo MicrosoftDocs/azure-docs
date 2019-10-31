@@ -51,7 +51,7 @@ Image classification tasks allow you to choose to present multiple images simult
 
 Here, the labeler has chosen a 2x2 layout and is about to apply the class label "Mammal" to the images of the bear and orca. The image with the shark has already been classified as "Cartilaginous fish" and the iguana has not yet been labeled.
 
-![Multiple image layouts and selection](tk)
+![Multiple image layouts and selection](media/how-to-label-images/layouts.png)
 
 Azure enables the **Submit** button when you have labeled all the images on the page. You must press **Submit** for your work to be saved. 
 
@@ -73,7 +73,7 @@ You must select the image which you desire to label and then select the class. T
 
 To correct a mistake, you may either click the `X` to clear individual labels or select the images, and choose the label, which will clear the label from all the selected images. This scenario is shown here, where clicking on "Land" will clear that label from the two selected images.
 
-![Screenshot showing multiple deselection](tk)
+![Screenshot showing multiple deselection](media/how-to-label-images/multiple_deselection.png)
 
 Azure will only enable the **Submit** button after you have applied at least one label to each image. You must press **Submit** for your work to be saved.
 
@@ -85,6 +85,8 @@ If your project is of type "Object Identification (Bounding Boxes)" then your ta
 1. Select the **Rectangular box** tool or press 'R' 
 1. Click and drag diagonally across your target to create a rough bounding box
     * Adjust the bounding box by clicking and dragging the edges or corners of the box
+
+![Screenshot of basic bounding box creation](media/how-to-label-images/bounding_box_sequence.png)
 
 If you wish to delete the bounding box, click the X-shaped target that appears beside the bounding box after creation.
 
