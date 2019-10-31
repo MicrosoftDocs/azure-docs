@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -63,9 +63,15 @@ Add your Facebook application's [App Secret](active-directory-b2c-setup-fb-app.m
 
 ## Register Identity Experience Framework applications
 
-Azure AD B2C requires you to register two applications that are used to sign up and sign in users: IdentityExperienceFramework (a web app), and ProxyIdentityExperienceFramework (a native app) with delegated permission from the IdentityExperienceFramework app. Local accounts exist only in your tenant. Your users sign up with a unique email address/password combination to access your tenant-registered applications.
+Azure AD B2C requires you to register two applications that it uses to sign up and sign in users with local accounts: *IdentityExperienceFramework*, a web API, and *ProxyIdentityExperienceFramework*, a native app with delegated permission to the IdentityExperienceFramework app. Your users can sign up with an email address or username and a password to access your tenant-registered applications, which creates a "local account." Local accounts exist only in your Azure AD B2C tenant.
+
+You need to register these two applications in your Azure AD B2C tenant only once.
 
 ### Register the IdentityExperienceFramework application
+
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+
+#### [Applications](#tab/applications/)
 
 1. Select **All services** in the top-left corner of the Azure portal.
 1. In the search box, enter `Azure Active Directory`.
@@ -77,7 +83,31 @@ Azure AD B2C requires you to register two applications that are used to sign up 
 1. For **Sign-on URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant domain name. All URLs should now be using [b2clogin.com](b2clogin.md).
 1. Select **Create**. After it's created, copy the application ID and save it to use later.
 
+#### [App registrations (Preview)](#tab/app-reg-preview/)
+
+1. Select **App registrations (Preview)**, and then select **New registration**.
+1. For **Name**, enter `IdentityExperienceFramework`.
+1. Under **Supported account types**, select **Accounts in this organizational directory only**.
+1. Under **Redirect URI**, select **Web**, and then enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant domain name.
+1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
+1. Select **Register**.
+1. Record the **Application (client) ID** for use in a later step.
+
+Next, expose the API by adding a scope:
+
+1. Under **Manage**, select **Expose an API**.
+1. Select **Add a scope**, then select **Save and continue** to accept the default application ID URI.
+1. Enter the following values to create a scope that allows custom policy execution in your Azure AD B2C tenant:
+    * **Scope name**: `user_impersonation`
+    * **Admin consent display name**: `Access IdentityExperienceFramework`
+    * **Admin consent description**: `Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
+1. Select **Add scope**
+
+* * *
+
 ### Register the ProxyIdentityExperienceFramework application
+
+#### [Applications](#tab/applications/)
 
 1. In **App registrations (Legacy)**, select **New application registration**.
 1. For **Name**, enter `ProxyIdentityExperienceFramework`.
@@ -88,6 +118,38 @@ Azure AD B2C requires you to register two applications that are used to sign up 
 1. Choose **Select an API**, search for and select **IdentityExperienceFramework**, and then click **Select**.
 1. Select the check box next to **Access IdentityExperienceFramework**, click **Select**, and then click **Done**.
 1. Select **Grant permissions**, and then confirm by selecting **Yes**.
+
+#### [App registrations (Preview)](#tab/app-reg-preview/)
+
+1. Select **App registrations (Preview)**, and then select **New registration**.
+1. For **Name**, enter `ProxyIdentityExperienceFramework`.
+1. Under **Supported account types**, select **Accounts in this organizational directory only**.
+1. Under **Redirect URI**, use the drop-down to select **Public client/native (mobile & desktop)**.
+1. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant.
+1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
+1. Select **Register**.
+1. Record the **Application (client) ID** for use in a later step.
+
+Next, specify that the application should be treated as a public client:
+
+1. Under **Manage**, select **Authentication**.
+1. Select **Try out the new experience** (if shown).
+1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**).
+1. Select **Save**.
+
+Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
+
+1. Under **Manage**, select **API permissions**.
+1. Under **Configured permissions**, select **Add a permission**.
+1. Select the **My APIs** tab, then select the **IdentityExperienceFramework** application.
+1. Under **Permission**, select the **user_impersonation** scope that you defined earlier.
+1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
+1. Select **Grant admin consent for (your tenant name)**.
+1. Select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
+1. Select **Accept**.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **STATUS** for both scopes. It might take a few minutes for the permissions to propagate.
+
+* * *
 
 ## Custom policy starter pack
 
