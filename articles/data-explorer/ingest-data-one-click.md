@@ -30,16 +30,18 @@ This article shows how to use one-click ingestion for quick ingestion of a new t
 
     * **Table**: Select existing table name from drop-down or select **Create new** to make a new table.
 	* Select **Ingestion type** > **from storage** or **from file**.
-	* If you selected **from storage**, enter **Link to storage** Add url to storage. Use [Blob SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for private storage accounts. 
-    * If you selected **from file**, select **Browse** and drag file into the box.
+	    * If you selected **from storage**, enter **Link to storage** Add url to storage. Use [Blob SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for private storage accounts. 
+        * If you selected **from file**, select **Browse** and drag file into the box.
     * Select **Edit schema** to view and edit your table column configuration.
  
     ![one click ingestion source details](media/ingest-data-one-click/one-click-ingestion-source.png) 
 
-    > [!NOTE]
+    > [!TIP]
     > If you select **Ingest new data (Preview)** on a *table* row, the selected table name will appear in the **Project Details**.
 
-1. If you selected an existing table, the **Map columns** window opens to map source data columns to target table columns. Use **Omit column** to remove a target column from the table. Use **New column** to add a new column to your table. 
+1. If you selected an existing table, the **Map columns** window opens to map source data columns to target table columns. 
+    * Use **Omit column** to remove a target column from the table. 
+    * Use **New column** to add a new column to your table. 
 
     ![Map columns window](media/ingest-data-one-click/one-click-map-columns-window.png)
 
@@ -47,8 +49,8 @@ This article shows how to use one-click ingestion for quick ingestion of a new t
 
     * Select **Compression type** from drop-down > **Uncompressed** or **GZip**.
     * Select **Data format** from drop-down > **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE**, or **PSV**. 
-    * When select **JSON** format, select **JSON levels**: 1-10. The levels affect the table column data depiction. 
-    * If select format (other than JSON): select checkbox **Include column names** to ignore heading row of file.    
+        * When select **JSON** format, select **JSON levels**: 1-10. The levels affect the table column data depiction. 
+        * If select format other than JSON: select checkbox **Include column names** to ignore heading row of file.    
     * **Mapping name** is set automatically but can be edited.
     * If you selected an existing table, you can select **Map columns** button to open the **Map columns** window.
 
