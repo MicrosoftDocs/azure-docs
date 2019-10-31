@@ -1,23 +1,24 @@
 ---
-title: 'C# Tutorial: Index data from Azure SQL databases - Azure Search'
-description: A C# code example showing how to connect to Azure SQL database, extract searchable data, and load it into an Azure Search index.
-author: HeidiSteen
+title: 'C# Tutorial: Index data from Azure SQL databases'
+titleSuffix: Azure Cognitive Search
+description: C# code example showing how to connect to Azure SQL database, extract searchable data, and load it into an Azure Cognitive Search index.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-#Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+#Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Cognitive Search.
 ---
 
-# C# Tutorial: Crawl an Azure SQL database using Azure Search indexers
+# C# Tutorial: Crawl an Azure SQL database using Azure Cognitive Search indexers
 
-Learn how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL Database is the most widely used. 
+Learn how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Cognitive Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL Database is the most widely used. 
 
 Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data and insert it into an index, and optionally run the indexer on a recurring schedule to pick up changes in the underlying source.
 
-In this tutorial, use the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application to perform the following tasks:
+In this tutorial, use the [Azure Cognitive Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application to perform the following tasks:
 
 > [!div class="checklist"]
 > * Add search service information to application settings
@@ -33,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following services, tools, and data are used in this quickstart. 
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
+[Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) stores the external data source used by an indexer. The sample solution provides a SQL data file to create the table. Steps for creating the service and database are provided in this tutorial.
 
@@ -42,11 +43,11 @@ The following services, tools, and data are used in this quickstart.
 [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) provides the sample solution, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute so that you can modify files.
 
 > [!Note]
-> If you are using the free Azure Search service, you are limited to three indexes, three indexers, and three data sources. This tutorial creates one of each. Make sure you have room on your service to accept the new resources.
+> If you are using the free Azure Cognitive Search service, you are limited to three indexes, three indexers, and three data sources. This tutorial creates one of each. Make sure you have room on your service to accept the new resources.
 
 ## Get a key and URL
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -63,7 +64,7 @@ Connection information to required services is specified in the **appsettings.js
 
 1. In Solution Explorer, open **appsettings.json** so that you can populate each setting.  
 
-The first two entries you can fill in right now, using the URL and admin keys for your Azure Search service. Given an endpoint of `https://mydemo.search.windows.net`, the service name to provide is `mydemo`.
+The first two entries you can fill in right now, using the URL and admin keys for your Azure Cognitive Search service. Given an endpoint of `https://mydemo.search.windows.net`, the service name to provide is `mydemo`.
 
 ```json
 {
@@ -77,7 +78,7 @@ The last entry requires an existing database. You'll create it in the next step.
 
 ## Prepare sample data
 
-In this step, create an external data source that an indexer can crawl. You can use the Azure portal and the *hotels.sql* file from the sample to create the dataset in Azure SQL Database. Azure Search consumes flattened rowsets, such as one generated from a view or query. The SQL file in the sample solution creates and populates a single table.
+In this step, create an external data source that an indexer can crawl. You can use the Azure portal and the *hotels.sql* file from the sample to create the dataset in Azure SQL Database. Azure Cognitive Search consumes flattened rowsets, such as one generated from a view or query. The SQL file in the sample solution creates and populates a single table.
 
 The following exercise assumes no existing server or database, and instructs you to create both in step 2. Optionally, if you have an existing resource, you can add the hotels table to it, starting at step 4.
 
@@ -155,7 +156,7 @@ In this tutorial, the indexer pulls data from one data source. In practice, you 
 
 The main program includes logic for creating a client, an index, a data source, and an indexer. The code checks for and deletes existing resources of the same name, under the assumption that you might run this program multiple times.
 
-The data source object is configured with settings that are specific to Azure SQL database resources, including [incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) for leveraging the built-in [change detection features](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Search index.
+The data source object is configured with settings that are specific to Azure SQL database resources, including [incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) for leveraging the built-in [change detection features](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -257,7 +258,7 @@ All indexers, including the one you just created programmatically, are listed in
 
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
+The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Cognitive Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Cognitive Search service.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
+title: Collect custom metrics for Linux VM with the InfluxData Telegraf agent
 description: Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
 author: anirudhcavale
 services: azure-monitor

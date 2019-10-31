@@ -1,19 +1,17 @@
 ---
-title: Create, manage, and secure admin and query api-keys - Azure Search
-description: api-keys control access to the service endpoint. Admin keys grant write access. Query keys can be created for read-only access.
-author: HeidiSteen
-manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: heidist
+title: Create, manage, and secure admin and query api-keys
+titleSuffix: Azure Cognitive Search
+description: An api-key controls access to the service endpoint. Admin keys grant write access. Query keys can be created for read-only access.
 
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Create and manage api-keys for an Azure Search service
+# Create and manage api-keys for an Azure Cognitive Search service
 
 All requests to a search service need a read-only api-key that was generated specifically for your service. The api-key is the sole mechanism for authenticating access to your search service endpoint and must be included on every request. In [REST solutions](search-get-started-postman.md), the api-key is typically specified in a request header. In [.NET solutions](search-howto-dotnet-sdk.md#core-scenarios), a key is often specified as a configuration setting and then passed as [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (admin key) or [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (query key) on [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
 
@@ -35,7 +33,7 @@ Two types of keys are used to access your search service: admin (read-write) and
  Visually, there is no distinction between an admin key or query key. Both keys are strings composed of 32 randomly generated alpha-numeric characters. If you lose track of what type of key is specified in your application, you can [check the key values in the portal](https://portal.azure.com) or use the [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to return the value and key type.  
 
 > [!NOTE]  
->  It is considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure Search only accepts a query key as an `api-key` in the query string, and you should avoid doing so unless the contents of your index should be publicly available. As a general rule, we recommend passing your `api-key` as a request header.  
+>  It is considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure Cognitive Search only accepts a query key as an `api-key` in the query string, and you should avoid doing so unless the contents of your index should be publicly available. As a general rule, we recommend passing your `api-key` as a request header.  
 
 ## Find existing keys
 
@@ -62,7 +60,7 @@ Restricting access and operations in client apps is essential to safeguarding th
    ![Create or use a query key](media/search-security-overview/create-query-key.png) 
 
 > [!Note]
-> A code example showing query key usage can be found in [Query an Azure Search index in C#](search-query-dotnet.md).
+> A code example showing query key usage can be found in [Query an Azure Cognitive Search index in C#](search-query-dotnet.md).
 
 <a name="regenerate-admin-keys"></a>
 
@@ -93,6 +91,6 @@ Members of the following roles can view and regenerate keys: Owner, Contributor,
 
 ## See also
 
-+ [Role-based access control in Azure Search](search-security-rbac.md)
++ [Role-based access control in Azure Cognitive Search](search-security-rbac.md)
 + [Manage using PowerShell](search-manage-powershell.md) 
 + [Performance and optimization article](search-performance-optimization.md)

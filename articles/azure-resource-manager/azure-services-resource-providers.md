@@ -40,7 +40,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Cache | [Azure Cache for Redis](/azure/azure-cache-for-redis/) |
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Content Delivery Network](../cdn/index.yml) |
-| Microsoft.CertificateRegistration | [App Service Certificates](../app-service/web-sites-purchase-ssl-web-site.md) |
+| Microsoft.CertificateRegistration | [App Service Certificates](../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) |
 | Microsoft.ChangeAnalysis | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
 | Microsoft.ClassicInfrastructureMigrate | Classic deployment model migration |

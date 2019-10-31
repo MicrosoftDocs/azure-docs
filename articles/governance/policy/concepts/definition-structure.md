@@ -3,7 +3,7 @@ title: Details of the policy definition structure
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 ---
@@ -90,14 +90,22 @@ a resource group should set **mode** to `all` and specifically target the
 `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
 tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/tag-support.md).
 
-### Resource Provider modes
+### <a name="resource-provider-modes" />Resource Provider modes (preview)
 
-The only Resource Provider mode supported currently is `Microsoft.ContainerService.Data` for
-managing admission controller rules on [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+The following Resource Provider modes are currently supported during preview:
+
+- `Microsoft.ContainerService.Data` for managing admission controller rules on
+  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Policies using this Resource
+  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect.
+- `Microsoft.Kubernetes.Data` for managing self-managed AKS Engine Kubernetes clusters on Azure.
+  Policies using this Resource Provider mode **must** use the
+  [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
+- `Microsoft.KeyVault.Data` for managing vaults and certificates in
+  [Azure Key Vault](../../../key-vault/key-vault-overview.md).
 
 > [!NOTE]
-> [Azure Policy for Kubernetes](rego-for-aks.md) is in Public Preview and only supports built-in
-> policy definitions.
+> Resource Provider modes only support built-in policy definitions and don't support initiatives
+> while in preview.
 
 ## Parameters
 
@@ -461,14 +469,16 @@ evaluation.
 
 Azure Policy supports the following types of effect:
 
-- **Deny**: generates an event in the activity log and fails the request
-- **Audit**: generates a warning event in activity log but doesn't fail the request
 - **Append**: adds the defined set of fields to the request
+- **Audit**: generates a warning event in activity log but doesn't fail the request
 - **AuditIfNotExists**: enables auditing if a resource doesn't exist
+- **Deny**: generates an event in the activity log and fails the request
 - **DeployIfNotExists**: deploys a resource if it doesn't already exist
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
-- **EnforceRegoPolicy**: configures the Open Policy Agent admissions controller in Azure Kubernetes
-  Service (preview)
+- **EnforceOPAConstraint**: configures the Open Policy Agent admissions controller with Gatekeeper
+  v3 for self-managed Kubernetes clusters on Azure (preview)
+- **EnforceRegoPolicy**: configures the Open Policy Agent admissions controller with Gatekeeper v2
+  in Azure Kubernetes Service (preview)
 - **Modify**: adds, updates, or removes the defined tags from a resource
 
 For **append**, you must provide the following details:

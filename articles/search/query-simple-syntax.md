@@ -1,13 +1,14 @@
 ---
-title: Simple query syntax - Azure Search
-description: Reference for the simple query syntax used for full text search queries in Azure Search.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
-author: "brjohnstmsft"
-ms.author: "brjohnst"
+title: Simple query syntax
+titleSuffix: Azure Cognitive Search
+description: Reference for the simple query syntax used for full text search queries in Azure Cognitive Search.
+
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,11 +21,13 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Simple query syntax in Azure Search
-Azure Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Search, the simple query syntax excludes the fuzzy/slop options.  
+
+# Simple query syntax in Azure Cognitive Search
+
+Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Cognitive Search, the simple query syntax excludes the fuzzy/slop options.  
 
 > [!NOTE]  
->  Azure Search provides an alternative [Lucene Query Syntax](query-lucene-syntax.md) for more complex queries. To learn more about query parsing architecture and benefits of each syntax, see [How full text search works in Azure Search](search-lucene-query-architecture.md).
+>  Azure Cognitive Search provides an alternative [Lucene Query Syntax](query-lucene-syntax.md) for more complex queries. To learn more about query parsing architecture and benefits of each syntax, see [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md).
 
 ## How to invoke simple parsing
 
@@ -32,9 +35,9 @@ Simple syntax is the default. Invocation is only necessary if you are resetting 
 
 ## Query behavior anomalies
 
-Any text with one or more terms is considered a valid starting point for query execution. Azure Search will match documents containing any or all of the terms, including any variations found during analysis of the text. 
+Any text with one or more terms is considered a valid starting point for query execution. Azure Cognitive Search will match documents containing any or all of the terms, including any variations found during analysis of the text. 
 
-As straightforward as this sounds, there is one aspect of query execution in Azure Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a `searchMode` parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. Given the default, `searchMode=Any`, and a NOT operator, the operation is computed as an OR action, such that `"New York" NOT Seattle` returns all cities that are not Seattle.  
+As straightforward as this sounds, there is one aspect of query execution in Azure Cognitive Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a `searchMode` parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. Given the default, `searchMode=Any`, and a NOT operator, the operation is computed as an OR action, such that `"New York" NOT Seattle` returns all cities that are not Seattle.  
 
 Typically, you're more likely to see these behaviors in user interaction patterns for applications that search over content, where users are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures. For more information, see [NOT operator](#not-operator). 
 
@@ -79,10 +82,10 @@ The precedence operator encloses the string in parentheses `( )`. For example, `
 - The suffix operator `*` needs to be escaped only if it's the last character before whitespace, not if it's in the middle of a term. For example, `wi*fi` is treated as a single token.
 
 > [!NOTE]  
->  Although escaping keeps tokens together, text analysis may split them up, depending on the analysis mode. See [Language support &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md) for details.  
+>  Although escaping keeps tokens together, text analysis may split them up, depending on the analysis mode. See [Language support &#40;Azure Cognitive Search REST API&#41;](index-add-language-analyzers.md) for details.  
 
 ## See also  
 
-+ [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
++ [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Lucene query syntax](query-lucene-syntax.md)
 + [OData expression syntax](query-odata-filter-orderby-syntax.md) 

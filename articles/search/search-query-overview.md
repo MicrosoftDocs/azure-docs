@@ -1,17 +1,18 @@
 ---
-title: Query types and composition - Azure Search
-description: Basics for building a search query in Azure Search, using parameters to filter, select, and sort results.
-author: HeidiSteen
-manager: nitinme
-ms.author: heidist
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
----
-# Query types and composition in Azure Search
+title: Query types and composition
+titleSuffix: Azure Cognitive Search
+description: Basics for building a search query in Azure Cognitive Search, using parameters to filter, select, and sort results.
 
-In Azure Search, a query is a full specification of a round-trip operation. Parameters on the request provide match criteria for finding documents in an index, which fields to include or exclude, execution instructions passed to the engine, and directives for shaping the response. Unspecified (`search=*`), a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+---
+# Query types and composition in Azure Cognitive Search
+
+In Azure Cognitive Search, a query is a full specification of a round-trip operation. Parameters on the request provide match criteria for finding documents in an index, which fields to include or exclude, execution instructions passed to the engine, and directives for shaping the response. Unspecified (`search=*`), a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
 The following example is a representative query constructed in the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents). This example targets the [hotels demo index](search-get-started-portal.md) and includes common parameters.
 
@@ -35,7 +36,7 @@ The following example is a representative query constructed in the [REST API](ht
 
 Responses are also shaped by the parameters you include in the query. In the example, the result set consists of fields listed in the **`select`** statement. Only fields marked as *retrievable* can be used in a $select statement. Additionally, only the **`top`** 10 hits are returned in this query, while **`count`** tells you how many documents match overall, which can be more than what are returned. In this query, rows are sorted by Rating in descending order.
 
-In Azure Search, query execution is always against one index, authenticated using an api-key provided in the request. In REST, both are provided in request headers.
+In Azure Cognitive Search, query execution is always against one index, authenticated using an api-key provided in the request. In REST, both are provided in request headers.
 
 ### How to run this query
 
@@ -45,7 +46,7 @@ You can paste this query string into the explorer's search bar: `search=+"New Yo
 
 ## How query operations are enabled by the index
 
-Index design and query design are tightly coupled in Azure Search. An essential fact to know up front is that the *index schema*, with attributes on each field, determines the kind of query you can build. 
+Index design and query design are tightly coupled in Azure Cognitive Search. An essential fact to know up front is that the *index schema*, with attributes on each field, determines the kind of query you can build. 
 
 Index attributes on a field set the allowed operations - whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example query string, `"$orderby": "Rating"` only works because the Rating field is marked as *sortable* in the index schema. 
 
@@ -68,7 +69,7 @@ Required elements on a query request include the following components:
 + **`queryType`**, either simple or full, which can be omitted if you are using the built-in default simple syntax.
 + **`search`** or **`filter`** provides the match criteria, which can be unspecified if you want to perform an empty search. Both query types are discussed in terms of the simple parser, but even advanced queries require the search parameter for passing complex query expressions.
 
-All other search parameters are optional. For the full list of attributes, see [Create Index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). For a closer look at how parameters are used during processing, see [How full-text search works in Azure Search](search-lucene-query-architecture.md).
+All other search parameters are optional. For the full list of attributes, see [Create Index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). For a closer look at how parameters are used during processing, see [How full-text search works in Azure Cognitive Search](search-lucene-query-architecture.md).
 
 ## Choose APIs and tools
 
@@ -77,13 +78,13 @@ The following table lists the APIs and tool-based approaches for submitting quer
 | Methodology | Description |
 |-------------|-------------|
 | [Search explorer (portal)](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. Recommended for exploration, testing, and validation. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
-| [Postman or other REST tools](search-get-started-postman.md) | Web testing tools are an excellent choice for formulating REST calls. The REST API supports every possible operation in Azure Search. In this article, learn how to set up an HTTP request header and body for sending requests to Azure Search.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client that can be used to query an Azure Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Postman or other REST tools](search-get-started-postman.md) | Web testing tools are an excellent choice for formulating REST calls. The REST API supports every possible operation in Azure Cognitive Search. In this article, learn how to set up an HTTP request header and body for sending requests to Azure Cognitive Search.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client that can be used to query an Azure Cognitive Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Search Documents (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET or POST methods on an index, using query parameters for additional input.  |
 
 ## Choose a parser: simple | full
 
-Azure Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Requests using the simple parser are formulated using the [simple query syntax](query-simple-syntax.md), selected as the default for its speed and effectiveness in free form text queries. This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
+Azure Cognitive Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Requests using the simple parser are formulated using the [simple query syntax](query-simple-syntax.md), selected as the default for its speed and effectiveness in free form text queries. This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 
 The [full Lucene query syntax](query-Lucene-syntax.md#bkmk_syntax), enabled when you add `queryType=full` to the request, exposes the widely adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Full syntax extends the simple syntax. Any query you write for the simple syntax runs under the full Lucene parser. 
 
@@ -103,14 +104,14 @@ queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=Ho
 
 ## Types of queries
 
-Azure Search supports a broad range of query types. 
+Azure Cognitive Search supports a broad range of query types. 
 
 | Query type | Usage | Examples and more information |
 |------------|--------|-------------------------------|
 | Free form text search | Search parameter and either parser| Full text search scans for one or more terms in all *searchable* fields in your index, and works the way you would expect a search engine like Google or Bing to work. The example in the introduction is full text search.<br/><br/>Full text search undergoes text analysis using the standard Lucene analyzer (by default) to lower-case all terms, remove stop words like "the". You can override the default with [non-English analyzers](index-add-language-analyzers.md#language-analyzer-list) or [specialized language-agnostic analyzers](index-add-custom-analyzers.md#AnalyzerTable) that modify text analysis. An example is [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) that treats the entire contents of a field as a single token. This is useful for data like zip codes, IDs, and some product names. | 
 | Filtered search | [OData filter expression](query-odata-filter-orderby-syntax.md) and either parser | Filter queries evaluate a boolean expression over all *filterable* fields in an index. Unlike search, a filter query matches the exact contents of a field, including case-sensitivity on string fields. Another difference is that filter queries are expressed in OData syntax. <br/>[Filter expression example](search-query-simple-examples.md#example-3-filter-queries) |
 | Geo-search | [Edm.GeographyPoint type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on the field, filter expression, and either parser | Coordinates stored in a field having an Edm.GeographyPoint are used for "find near me" or map-based search controls. <br/>[Geo-search example](search-query-simple-examples.md#example-5-geo-search)|
-| Range search | filter expression and simple parser | In Azure Search, range queries are built using the filter parameter. <br/>[Range filter example](search-query-simple-examples.md#example-4-range-filters) | 
+| Range search | filter expression and simple parser | In Azure Cognitive Search, range queries are built using the filter parameter. <br/>[Range filter example](search-query-simple-examples.md#example-4-range-filters) | 
 | [Fielded search](query-lucene-syntax.md#bkmk_fields) | Search parameter and Full parser | Build a composite query expression targeting a single field. <br/>[Fielded search example](search-query-lucene-examples.md#example-2-fielded-search) |
 | [fuzzy search](query-lucene-syntax.md#bkmk_fuzzy) | Search parameter and Full parser | Matches on terms having a similar construction or spelling. <br/>[Fuzzy search example](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [proximity search](query-lucene-syntax.md#bkmk_proximity) | Search parameter and Full parser | Finds terms that are near each other in a document. <br/>[Proximity search example](search-query-lucene-examples.md#example-4-proximity-search) |
@@ -138,22 +139,22 @@ Occasionally, the substance and not the structure of results are unexpected. Whe
 + Change the query technique if text or lexical analysis is necessary, but the query type precludes linguistic processing. In full text search, text or lexical analysis autocorrects for spelling errors, singular-plural word forms, and even irregular verbs or nouns. For some queries such as fuzzy or wildcard search, text analysis is not part of the query parsing pipeline. For some scenarios, regular expressions have been used as a workaround. 
 
 ### Paging results
-Azure Search makes it easy to implement paging of search results. By using the **`top`** and **`skip`** parameters, you can smoothly issue search requests that allow you to receive the total set of search results in manageable, ordered subsets that easily enable good search UI practices. When receiving these smaller subsets of results, you can also receive the count of documents in the total set of search results.
+Azure Cognitive Search makes it easy to implement paging of search results. By using the **`top`** and **`skip`** parameters, you can smoothly issue search requests that allow you to receive the total set of search results in manageable, ordered subsets that easily enable good search UI practices. When receiving these smaller subsets of results, you can also receive the count of documents in the total set of search results.
 
-You can learn more about paging search results in the article [How to page search results in Azure Search](search-pagination-page-layout.md).
+You can learn more about paging search results in the article [How to page search results in Azure Cognitive Search](search-pagination-page-layout.md).
 
 ### Ordering results
-When receiving results for a search query, you can request that Azure Search serves the results ordered by values in a specific field. By default, Azure Search orders the search results based on the rank of each document's search score, which is derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
+When receiving results for a search query, you can request that Azure Cognitive Search serves the results ordered by values in a specific field. By default, Azure Cognitive Search orders the search results based on the rank of each document's search score, which is derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-If you want Azure Search to return your results ordered by a value other than the search score, you can use the **`orderby`** search parameter. You can specify the value of the **`orderby`** parameter to include field names and calls to the [**`geo.distance()` function**](query-odata-filter-orderby-syntax.md) for geospatial values. Each expression can be followed by `asc` to indicate that results are requested in ascending order, and **`desc`** to indicate that results are requested in descending order. The default ranking ascending order.
+If you want Azure Cognitive Search to return your results ordered by a value other than the search score, you can use the **`orderby`** search parameter. You can specify the value of the **`orderby`** parameter to include field names and calls to the [**`geo.distance()` function**](query-odata-filter-orderby-syntax.md) for geospatial values. Each expression can be followed by `asc` to indicate that results are requested in ascending order, and **`desc`** to indicate that results are requested in descending order. The default ranking ascending order.
 
 
 ### Hit highlighting
-In Azure Search, emphasizing the exact portion of search results that match the search query is made easy by using the **`highlight`**, **`highlightPreTag`**, and **`highlightPostTag`** parameters. You can specify which *searchable* fields should have their matched text emphasized as well as specifying the exact string tags to append to the start and end of the matched text that Azure Search returns.
+In Azure Cognitive Search, emphasizing the exact portion of search results that match the search query is made easy by using the **`highlight`**, **`highlightPreTag`**, and **`highlightPostTag`** parameters. You can specify which *searchable* fields should have their matched text emphasized as well as specifying the exact string tags to append to the start and end of the matched text that Azure Cognitive Search returns.
 
 ## See also
 
-+ [How full text search works in Azure Search (query parsing architecture)](search-lucene-query-architecture.md)
++ [How full text search works in Azure Cognitive Search (query parsing architecture)](search-lucene-query-architecture.md)
 + [Search explorer](search-explorer.md)
 + [How to query in .NET](search-query-dotnet.md)
 + [How to query in REST](search-create-index-rest-api.md)

@@ -29,7 +29,7 @@ Regardless of the number of scaled-out instances, each app has a single inbound 
 
 - Delete an app and recreate it in a different resource group.
 - Delete the last app in a resource group _and_ region combination and recreate it.
-- Delete an existing SSL binding, such as during certificate renewal (see [Renew certificates](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
+- Delete an existing SSL binding, such as during certificate renewal (see [Renew certificate](configure-ssl-certificate.md#renew-certificate)).
 
 ## Find the inbound IP
 
@@ -41,7 +41,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## Get a static inbound IP
 
-Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to configure an [IP-based SSL binding](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). If you don't actually need SSL functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based SSL binding, the certificate is bound to the IP address itself, so App Service provisions a static IP address to make it happen. 
+Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to configure an [IP-based SSL binding](configure-ssl-bindings.md#secure-a-custom-domain). If you don't actually need SSL functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based SSL binding, the certificate is bound to the IP address itself, so App Service provisions a static IP address to make it happen. 
 
 ## When outbound IPs change
 
