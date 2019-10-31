@@ -303,7 +303,7 @@ The disks for Storage Spaces Direct need to be empty. They can't contain partiti
    Enable-ClusterS2D
    ```
 
-   In Failover Cluster Manager, you can now see the storage pool.
+   In **Failover Cluster Manager**, you can now see the storage pool.
 
 1. [Create a volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
@@ -321,7 +321,7 @@ The disks for Storage Spaces Direct need to be empty. They can't contain partiti
 
 ## Step 3: Test failover cluster failover
 
-In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. If you can connect to the failover cluster by using Failover Cluster Manager and move the storage from one node to the other, you're ready to configure the FCI.
+In **Failover Cluster Manager**, verify that you can move the storage resource to the other cluster node. If you can connect to the failover cluster by using **Failover Cluster Manager** and move the storage from one node to the other, you're ready to configure the FCI.
 
 ## Step 4: Create the SQL Server FCI
 
@@ -329,7 +329,7 @@ After you've configured the failover cluster and all cluster components, includi
 
 1. Connect to the first virtual machine by using RDP.
 
-1. In Failover Cluster Manager, make sure all core cluster resources are on the first virtual machine. If necessary, move all resources to that virtual machine.
+1. In **Failover Cluster Manager**, make sure all core cluster resources are on the first virtual machine. If necessary, move all resources to that virtual machine.
 
 1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Select **Setup**.
 
@@ -423,20 +423,20 @@ To create the load balancer:
    - **Name**: A name for the load balancing rules.
    - **Frontend IP address**: Use the IP address for the SQL Server FCI cluster network resource.
    - **Port**: The SQL Server FCI TCP port. The default instance port is 1433.
-   - **Backend port**: This value uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
-   - **Backend pool**: Use the backend pool name that you configured earlier.
-   - **Health probe**: Use the health probe that you configured earlier.
+   - **Backend port**: Uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
+   - **Backend pool**: The backend pool name that you configured earlier.
+   - **Health probe**: The health probe that you configured earlier.
    - **Session persistence**: None.
    - **Idle timeout (minutes)**: 4.
-   - **Floating IP (direct server return)**: Enabled
+   - **Floating IP (direct server return)**: Enabled.
 
-1. Click **OK**.
+1. Select **OK**.
 
-## Step 6: Configure cluster for probe
+## Step 6: Configure the cluster for the probe
 
 Set the cluster probe port parameter in PowerShell.
 
-To set the cluster probe port parameter, update variables in the following script with values from your environment. Remove the angle brackets `<>` from the script. 
+To set the cluster probe port parameter, update the variables in the following script with values from your environment. Remove the angle brackets (`<` and `>`) from the script.
 
    ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
@@ -449,20 +449,20 @@ To set the cluster probe port parameter, update variables in the following scrip
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-In the preceding script, set the values for your environment. The following list describes the values:
+The following list describes the values that you need to update:
 
-   - `<Cluster Network Name>`: Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click on the network and click **Properties**. The correct value is under **Name** on the **General** tab. 
+   - `<Cluster Network Name>`: The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.
 
-   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right click the IP address resource, and click **Properties**. The correct value is under **Name** on the **General** tab. 
+   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab. 
 
    - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
 
-   - `<nnnnn>`: Is the probe port you configured in the load balancer health probe. Any unused TCP port is valid. 
+   - `<nnnnn>`: The probe port you configured in the load balancer health probe. Any unused TCP port is valid.
 
 >[!IMPORTANT]
 >The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
 
-After you set the cluster probe you can see all of the cluster parameters in PowerShell. Run the following script:
+After you set the cluster probe, you can see all the cluster parameters in PowerShell. Run this script:
 
    ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
@@ -470,40 +470,40 @@ After you set the cluster probe you can see all of the cluster parameters in Pow
 
 ## Step 7: Test FCI failover
 
-Test failover of the FCI to validate cluster functionality. Do the following steps:
+Test failover of the FCI to validate cluster functionality. Take the following steps:
 
-1. Connect to one of the SQL Server FCI cluster nodes with RDP.
+1. Connect to one of the SQL Server FCI cluster nodes by using RDP.
 
-1. Open **Failover Cluster Manager**. Click **Roles**. Notice which node owns the SQL Server FCI role.
+1. Open **Failover Cluster Manager**. Select **Roles**. Notice which node owns the SQL Server FCI role.
 
 1. Right-click the SQL Server FCI role.
 
-1. Click **Move** and click **Best Possible Node**.
+1. Select **Move**, and then select **Best Possible Node**.
 
-**Failover Cluster Manager** shows the role and its resources go offline. The resources then move and come online on the other node.
+**Failover Cluster Manager** shows the role, and its resources go offline. The resources then move and come online on the other node.
 
 ### Test connectivity
 
-To test connectivity, log in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name.
+To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name.
 
 >[!NOTE]
->If necessary, you can [download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>If you need to, you can [download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Limitations
 
-Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on clustered shared volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
+Azure virtual machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
 
-On Azure virtual machines, MSDTC is not supported on Windows Server 2016 and earlier because:
+On Azure virtual machines, MSDTC isn't supported on Windows Server 2016 or earlier because:
 
-- The clustered MSDTC resource cannot be configured to use shared storage. With Windows Server 2016 if you create an MSDTC resource, it will not show any shared storage available for use, even if the storage is there. This issue has been fixed in Windows Server 2019.
-- The basic load balancer does not handle RPC ports.
+- The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if the storage is available. This issue has been fixed in Windows Server 2019.
+- The basic load balancer doesn't handle RPC ports.
 
-## See Also
+## See also
 
-[Setup S2D with remote desktop (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
+[Set up Storage Spaces Direct with remote desktop (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[Hyper-converged solution with storage spaces direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+[Hyper-converged solution with Storage Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 
-[Storage Space Direct Overview](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[Storage Spaces Direct Overview](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
-[SQL Server support for S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
+[SQL Server support for Storage Spaces Direct](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)

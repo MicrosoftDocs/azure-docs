@@ -278,7 +278,7 @@ Cloud Witness is a new type of cluster quorum witness that's stored in an Azure 
 
 ## Step 4: Test cluster failover
 
-Test failover of your cluster. In Failover Cluster Manager, right-click your cluster and select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you're able to successfully move the cluster to each node, then you're ready to install SQL Server.  
+Test failover of your cluster. In **Failover Cluster Manager**, right-click your cluster and select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you're able to successfully move the cluster to each node, then you're ready to install SQL Server.  
 
 :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
 
@@ -288,7 +288,7 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Connect to the first virtual machine by using RDP.
 
-1. In Failover Cluster Manager, make sure all the cluster's core resources are on the first virtual machine. If you need to, move all resources to this virtual machine.
+1. In **Failover Cluster Manager**, make sure all the cluster's core resources are on the first virtual machine. If you need to, move all resources to this virtual machine.
 
 1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Select **Setup**.
 
@@ -396,7 +396,7 @@ To create the load balancer:
 
 Set the cluster probe port parameter in PowerShell.
 
-To set the cluster probe port parameter, update variables in the following script with values from your environment. Remove the angle brackets (`<` and `>`) from the script.
+To set the cluster probe port parameter, update the variables in the following script with values from your environment. Remove the angle brackets (`<` and `>`) from the script.
 
    ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
@@ -411,13 +411,13 @@ To set the cluster probe port parameter, update variables in the following scrip
 
 The following list describes the values that you need to update:
 
-   - `<Cluster Network Name>`: The name of the Windows Server Failover Cluster for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.
+   - `<Cluster Network Name>`: The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.
 
    - `<SQL Server FCI IP Address Resource Name>`: The SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.
 
-   - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in Failover Cluster Manager on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
+   - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
 
-   - `<nnnnn>`: Is the probe port you configured in the load balancer health probe. Any unused TCP port is valid.
+   - `<nnnnn>`: The probe port you configured in the load balancer health probe. Any unused TCP port is valid.
 
 >[!IMPORTANT]
 >The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
@@ -434,17 +434,17 @@ Test failover of the FCI to validate cluster functionality. Take the following s
 
 1. Connect to one of the SQL Server FCI cluster nodes by using RDP.
 
-1. Open Failover Cluster Manager. Select **Roles**. Notice which node owns the SQL Server FCI role.
+1. Open **Failover Cluster Manager**. Select **Roles**. Notice which node owns the SQL Server FCI role.
 
 1. Right-click the SQL Server FCI role.
 
-1. Select **Move** and then select **Best Possible Node**.
+1. Select **Move**, and then select **Best Possible Node**.
 
-Failover Cluster Manager shows the role, and its resources go offline. The resources then move and come back online in the other node.
+**Failover Cluster Manager** shows the role, and its resources go offline. The resources then move and come back online in the other node.
 
 ### Test connectivity
 
-To test connectivity, sign in to another virtual machine in the same virtual network. Open SQL Server Management Studio and connect to the SQL Server FCI name.
+To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name.
 
 >[!NOTE]
 >If you need to, you can [download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
