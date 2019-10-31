@@ -14,7 +14,7 @@ ms.author: martinco
 
 # Azure Active Directory governance operations reference guide
 
-This section of the [Azure AD operations reference guide](azure-ad-ops-guide-aintro.md) describes the checks and actions you should take to assess and attest the access granted non-privileged and privileged identities, audit, and control changes to the environment.
+This section of the [Azure AD operations reference guide](active-directory-ops-guide-aintro.md) describes the checks and actions you should take to assess and attest the access granted non-privileged and privileged identities, audit, and control changes to the environment.
 
 > [!NOTE]
 > These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their governance practices as Microsoft products and services evolve over time.

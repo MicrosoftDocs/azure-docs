@@ -14,7 +14,7 @@ ms.author: martinco
 
 # Azure Active Directory Identity and access management operations reference guide
 
-This section of the [Azure AD operations reference guide](azure-ad-ops-guide-aintro.md) describes the checks and actions you should consider to secure and manage the lifecycle of identities and their assignments.
+This section of the [Azure AD operations reference guide](active-directory-ops-guide-aintro.md) describes the checks and actions you should consider to secure and manage the lifecycle of identities and their assignments.
 
 ## Key operational processes
 

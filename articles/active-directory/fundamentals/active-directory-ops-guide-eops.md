@@ -14,7 +14,7 @@ ms.author: martinco
 
 # Azure Active Directory general operations guide reference
 
-This section of the [Azure AD operations reference guide](azure-ad-ops-guide-aintro.md) describes the checks and actions you should take to optimize the general operations of Azure Active Directory (Azure AD).
+This section of the [Azure AD operations reference guide](active-directory-ops-guide-aintro.md) describes the checks and actions you should take to optimize the general operations of Azure Active Directory (Azure AD).
 
 > [!NOTE]
 > These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their operational practices as Microsoft products and services evolve over time.
@@ -154,7 +154,7 @@ If AD FS is only used for Azure AD federation, there are some endpoints that can
 
 Organizations should lock down access to the machines with on-premises hybrid components in the same way as your on-premises domain. For example, a backup operator or Hyper-V administrator should not be able to log in to the Azure AD Connect Server to change rules.
 
-The Active Directory administrative tier model was designed to protect identity systems using a set of buffer zones between full control of the Environment (Tier 0) and the high-risk workstation assets that attackers frequently compromise. ![Diagram showing the three layers of the Tier model](./media/active-directory-ops-guide/active-directory-ops-img18.jpg)
+The Active Directory administrative tier model was designed to protect identity systems using a set of buffer zones between full control of the Environment (Tier 0) and the high-risk workstation assets that attackers frequently compromise. ![Diagram showing the three layers of the Tier model](./media/active-directory-ops-guide/active-directory-ops-img18.png)
 
 The [tier model](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) is composed of three levels and only includes administrative accounts, not standard user accounts.
 
