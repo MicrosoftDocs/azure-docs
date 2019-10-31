@@ -60,7 +60,7 @@ landingContent:
           - text: Search your blob content
             url: search-blob-storage-integration.md
           - text: Store AI enrichments
-            url: knowledge-store-create-portal.md
+            url: knowledge-store-concept-intro.md
       - linkListType: tutorial
         links:
           - text: Index semi-structured blob data

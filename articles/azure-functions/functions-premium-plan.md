@@ -98,15 +98,18 @@ Below are the currently supported regions for each OS.
 
 |Region| Windows | Linux |
 |--| -- | -- |
+|Australia Central| ✔<sup>1</sup> | |
+|Australia Central 2| ✔<sup>1</sup> | |
 |Australia East| ✔ | |
 |Australia Southeast | ✔ | ✔ |
+|Brazil South| ✔<sup>2</sup> |  |
 |Canada Central| ✔ |  |
 |Central US| ✔ |  |
 |East Asia| ✔ |  |
-|East US | | ✔ |
+|East US | ✔ | ✔ |
 |East US 2| ✔ |  |
 |France Central| ✔ |  |
-|Japan East|  | ✔ |
+|Japan East| ✔ | ✔ |
 |Japan West| ✔ | |
 |Korea Central| ✔ |  |
 |North Central US| ✔ |  |
@@ -114,10 +117,15 @@ Below are the currently supported regions for each OS.
 |South Central US| ✔ |  |
 |South India | ✔ | |
 |Southeast Asia| ✔ | ✔ |
+|UK South| ✔ | |
 |UK West| ✔ |  |
 |West Europe| ✔ | ✔ |
 |West India| ✔ |  |
 |West US| ✔ | ✔ |
+
+<sup>1</sup>Maximum scale out limited to 20 instances.  
+<sup>2</sup>Maximum scale out limited to 60 instances.
+
 
 ## Next steps
 

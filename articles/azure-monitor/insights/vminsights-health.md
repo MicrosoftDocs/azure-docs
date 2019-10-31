@@ -1,18 +1,13 @@
 ---
 title: Understand the health of your Azure virtual machines | Microsoft Docs
 description: This article describes how to understand the health of virtual machines and underlying operating systems with Azure Monitor for VMs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 10/15/2019
+
 ---
 
 # Understand the health of your Azure virtual machines
@@ -340,7 +335,7 @@ To identify the *monitorId* for specific health criteria, the following example 
 2. Enter the following command to retrieve all the health criterion active on a specific VM and identify the value for *monitorId* property:
 
     ```
-    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview"
     ```
 
     The following example shows the output of the *armclient GET* command. Take note of the value of *MonitorId*. This value is required for the next step, where we must specify the ID of the health criteria and modify its property to create an alert.

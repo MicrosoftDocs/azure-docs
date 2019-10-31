@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure Key Vault in Resource Manager template deployment | Microsoft Docs
+title: Use Azure Key Vault in Resource Manager template
 description: Learn how to use Azure Key Vault to pass secure parameter values during Resource Manager template deployment
 services: azure-resource-manager
 documentationcenter: ''

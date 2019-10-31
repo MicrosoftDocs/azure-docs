@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 10/18/2019
 ms.author: spelluru
 
 ---
@@ -45,18 +45,11 @@ In this tutorial, you do the following actions:
     ![VM usage](../media/tutorial-track-usage/vm-usage.png)
 
 ## Manage student VMs 
-As you hover the mouse over a row in the list of virtual machine, you see controls to do the following tasks (as shown in the image in the previous section): 
-
-- Connect to a VM
-- Start a VM
-- Stop a VM
-- Delete a VM
-
+On this page, you can start, stop, or reset student VMs by using either drop-down list in the **Status** column or buttons on the toolbar. 
 
 ![VM controls](../media/tutorial-track-usage/vm-controls.png)
 
 You can also use toolbar buttons to start, stop, or delete a VM. 
-
 
 
 ## Next steps

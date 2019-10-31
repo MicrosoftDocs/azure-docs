@@ -74,23 +74,29 @@ On the **Devices** list page you can:
 
 ## Interact with a device
 
-On the **Devices** list page, select a value in the **Device ID** column to view the detail page for the registered device. For device there are two sections: **Device** and **Digital Twin**.
+On the **Devices** list page, select a value in the **Device ID** column to view the detail page for the registered device. For each device  there are two sections: **Device** and **Digital Twin**.
 
 ### Device
 
-This section includes the **Device Identity**,  **Device Twin**, and **Telemetry** tabs.
+This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, **Direct method** and **Cloud-to-device message** tabs.
 
 - You can view and update the [device identity](../iot-hub/iot-hub-devguide-identity-registry.md) information on the **Device identity** tab.
 - You can access the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) information on the **Device Twin** tab.
 - If a device is connected and actively sending data, you can view the [telemetry](../iot-hub/iot-hub-devguide-messages-read-builtin.md) on the **Telemetry** tab.
+- You can call a [direct method](../iot-hub/iot-hub-devguide-direct-methods.md) on the device on the **Direct method** tab.
+- You can send a [cloud-to-device message](../iot-hub/iot-hub-devguide-messages-c2d.md) on the **Cloud-to-device messages** tab.
 
 ### Digital twin
 
-You can use the tool to a view digital twin instance of the device. For an IoT Plug and Play device, all the interfaces associated with the device capability model are displayed in this article. Select an interface to expand its corresponding [IoT Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+You can use the tool to a view digital twin instance of the device. For an IoT Plug and Play device, all the interfaces associated with the device capability model are displayed in this section of the tool. Select an interface to expand its corresponding [IoT Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+
+### Interface
+
+On the **Interface** page, you can view the JSON definition of the interface.
 
 #### Properties
 
-You can view the read-only properties defined in an interface on the **Properties** page. You can update the writeable properties defined in an interface on the **Writeable properties** page.
+You can view the read-only properties defined in an interface on the **Non-writeable properties** page. You can update the writeable properties defined in an interface on the **Writeable properties** page:
 
 1. Go to the **Writable properties** page.
 1. Click the property you'd like to update.

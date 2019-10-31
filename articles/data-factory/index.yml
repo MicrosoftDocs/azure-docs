@@ -76,7 +76,7 @@ landingContent:
           - text: Copy data incrementally
             url: /azure/data-factory/tutorial-create-azure-ssis-runtime-portal
           - text: Load ADLS Gen2
-            url: /azure/data-factory/continuous-integration-deployment
+            url: /azure/data-factory/load-azure-data-lake-storage-gen2
           - text: Load SQL DW
             url: /azure/data-factory/load-azure-sql-data-warehouse
           - text: Load SAP BW

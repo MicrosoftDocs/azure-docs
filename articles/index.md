@@ -1,8 +1,6 @@
 ---
 layout: HubPage
 hide_bc: true
-experimental: true
-experiment_id: "81ba5f65-59fb-4d"
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
 ms.topic: hub-page
@@ -363,7 +361,7 @@ featureFlags:
                 <a href="#products">Products</a>
                 <ul id="products">
                     <li>
-                        <a href="#all">All</a>
+                        <a data-default="true" href="#all">All</a>
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
@@ -2666,7 +2664,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">Compute</a>
+                        <a href="#Compute">Compute</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -2783,7 +2781,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                <a href="/azure/cognitive-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2794,7 +2792,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
-                                                    <p>Use Azure Cognitive Services containers with Docker, Kubernetes, AKS, and Container Instances</p>
+                                                    <p>Infuse apps, websites, and bots with intelligence to see, hear, speak, and understand</p>
                                                 </div>
                                             </div>
                                         </div>
