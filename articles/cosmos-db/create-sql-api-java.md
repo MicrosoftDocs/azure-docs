@@ -84,23 +84,11 @@ This step is optional. If you're interested in learning how the database resourc
 
 * CosmosDatabase creation.
 
-    ```java
-    CosmosDatabase cosmosDatabae = client.createDatabaseIfNotExists(databaseId)
-                                         .getDatabase();
-    ```
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExistsRegion)]
 
 * CosmosContainer creation.
 
-    ```java
-    //  Create container if not exists
-    //  For our example, we are choosing lastName as our partition key for this container
-    CosmosContainerProperties containerProperties =
-        new CosmosContainerProperties(containerName, "/lastName");
-
-    //  Create container with 400 RU/s
-    CosmosContainer cosmosContainer = database.createContainerIfNotExists(containerProperties, 400)
-                                              .getContainer();
-    ```
+    [!code-csharp[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=createContainerIfNotExists)]
 
 * Item creation by using the `createItem` method.
 
