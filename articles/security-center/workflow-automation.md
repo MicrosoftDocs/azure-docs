@@ -18,16 +18,16 @@ Every security program includes multiple workflows for incident response. These 
 This article describes the Azure Security Center (preview) feature for automatically triggering Logic Apps on security alerts and recommendations. For example, you might want Security Center to email a specific user when an alert occurs. You'll also learn how to create Logic Apps using [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 > [!NOTE]
-> If you previously used the Playbooks (Preview) view on the sidebar, you'll find the same functionality inside the new  it has now been replaced with the expanded functionality of Workflow automation.
+> If you previously used the Playbooks (Preview) view on the sidebar, you'll find the same features together with the expanded functionality in the new Workflow automation (Preview) page.
 
 
 ## Requirements
 
 * To work with Azure Logic Apps workflows, you must have the following Logic Apps roles/permissions:
 
-    * For Logic App read/trigger access, [Logic App Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) permissions are required (this role can't create or edit logic apps; only *run* existing ones)
+    * [Logic App Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)
 
-    * For Logic App creation and modification, [Logic App Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) permissions are required
+    * [Logic App Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) permissions are required for Logic App creation and modification
 
 * If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)
 
@@ -77,7 +77,7 @@ This article describes the Azure Security Center (preview) feature for automatic
 
 ## Manually trigger a Logic App
 
-When you have a one or more Logic Apps, you can also run them manually from a security alert or recommendation page.
+You can also run Logic Apps manually when viewing a security alert or recommendation.
 
 To manually run a Logic App, open a recommendation and click Trigger Logic App (Preview):
 
