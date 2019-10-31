@@ -1,5 +1,5 @@
 ---
-title: Creating and using views
+title: Quickstart - Create and use views
 description: This section explains how to leverage views to wrap SQL on-demand queries so you can reuse your queries. Views are also needed if you want tools like Power BI to leverage SQL on-demand Query.
 services: sql-data-warehouse
 author: azaricstefan
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Creating and using views 
+# Quickstart: Create and use views
 
 This section explains how to leverage views to wrap SQL on-demand queries so you can reuse your queries. 
 
@@ -24,7 +24,7 @@ Before reading rest of the article, make sure to check following articles:
 - [First time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
-## Creating views
+## Create a view
 
 You can create views the same way you create regular SQL Server views. 
 
@@ -58,7 +58,7 @@ WITH (
 
 
 
-## Using views
+## Use a view
 
 You can use views in your queries the same way you use views in SQL Server queries. 
 
