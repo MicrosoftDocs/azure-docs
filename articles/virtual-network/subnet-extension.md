@@ -1,6 +1,6 @@
 ---
-title: Subnet extension on Azure overview | Microsoft Docs
-description: Learn about Subnet Extension on Azure.
+title: Subnet extension in Azure | Microsoft Docs
+description: Learn about subnet extension in Azure.
 services: virtual-network
 documentationcenter: na
 author: anupam-p
@@ -37,7 +37,7 @@ While extending your network isn't a good practice in general, below use cases c
 In the next section, we'll discuss how you can extend your subnets into Azure.
 
 
-## Extending your subnet to Azure
+## Extend your subnet to Azure
  You can extend your on-premises subnets to Azure using a layer-3 overlay network based solution. Most solutions use an overlay technology such as VXLAN to extend the layer-2 network using an layer-3 overlay network. The diagram below shows a generalized solution. In this solution, the same subnet exists on both sides that is, Azure and on-premises. 
 
 ![Subnet Extension Example](./media/subnet-extension/subnet-extension.png)
@@ -50,7 +50,3 @@ In the next section, you'll find details on subnet extension solutions we've tes
 
 ## Next steps 
 [Extend your subnet to Azure using vendor solutions.](https://github.com/microsoft/Azure-LISP)
-
- 
-
-
