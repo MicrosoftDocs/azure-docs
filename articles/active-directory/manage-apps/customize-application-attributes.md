@@ -155,7 +155,7 @@ Use the steps below to provision roles for a user to your application. Note that
 }
 ```
   - **Things to consider**
-    - Ensure that multiple roles are not assigned to a user. We cannot gaurantee which role will be provisioned.   
+    - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.   
   
 - **AppRoleAssignmentsComplex** 
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
