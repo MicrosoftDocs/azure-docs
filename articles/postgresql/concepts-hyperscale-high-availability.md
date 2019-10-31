@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/04/2019
 ---
 
 # High availability in Azure Database for PostgreSQL – Hyperscale (Citus)

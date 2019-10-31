@@ -5,7 +5,7 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 
 # Configure Hyperscale (Citus) high availability
