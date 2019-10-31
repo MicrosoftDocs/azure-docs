@@ -149,16 +149,13 @@ Use SockPerf. It is available from [https://github.com/mellanox/sockperf](https:
 #### For all distros, copy, compile and install SockPerf according to the following steps:
 ```bash
 #Bash - all distros
-
 #From bash command line (assumes git is installed)
 git clone https://github.com/mellanox/sockperf
 cd sockperf/
 ./autogen.sh
 ./configure --prefix=
-
 #make is slower, may take several minutes
 make
-
 #make install is fast
 sudo make install
 ```
