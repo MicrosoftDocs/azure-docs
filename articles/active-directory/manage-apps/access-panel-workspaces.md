@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 Your users can use the My Apps (preview) portal to view and start the cloud-based applications they have access to. By default, all the applications a user can access are listed together on a single page. To better organize this page for your users, if you have an Azure AD Premium P1 or P2 license you can set up workspaces. With a workspace, you can group together applications that are related (for example, by job role, task, or project) and display them on a separate tab. A workspace essentially applies a filter to the applications a user can already access, so the user sees only those applications in the workspace that have been assigned to them.
 
 > [!NOTE]
-> This article covers how an admin can enable and create workspaces. For information for the end user about how to use the My Apps portal and workspaces, see [Access and use workspaces](https://docs.microsoft.com/azure/active-directory/user-help/).
+> This article covers how an admin can enable and create workspaces. For information for the end user about how to use the My Apps portal and workspaces, see [Access and use workspaces](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
 
 ## Enable My Apps preview features
 
