@@ -103,4 +103,4 @@ FROM
 
 Advance to one of the following articles and learn how to query JSON files.
 > [!div class="nextstepaction"]
-> [Querying JSON files](querying-json-files.md)
+> [Querying JSON files](query-json-files.md)

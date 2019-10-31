@@ -192,7 +192,7 @@ Now you are ready to start with following quickstart articles:
 
 - [Querying Parquet nested types](querying-parquet-nested-types.md)
 
-- [Querying JSON files](querying-json-files.md)
+- [Querying JSON files](query-json-files.md)
 
 - [Creating and using views](create-use-views.md)
 

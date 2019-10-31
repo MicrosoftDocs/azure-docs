@@ -90,4 +90,4 @@ Advance to one of the following articles and learn how to query different files.
 > [Querying Parquet files](querying-parquet-files.md)
 
 > [!div class="nextstepaction"]
-> [Querying JSON files](querying-json-files.md)
+> [Querying JSON files](query-json-files.md)

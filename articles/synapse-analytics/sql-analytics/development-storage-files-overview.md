@@ -221,6 +221,6 @@ Now you are ready to start with following quickstart articles:
 
 5. [Creating and using views](create-use-views.md)
 
-6. [Querying JSON files](querying-json-files.md)
+6. [Querying JSON files](query-json-files.md)
 
 7. [Querying Parquet nested types](querying-parquet-nested-types.md)
