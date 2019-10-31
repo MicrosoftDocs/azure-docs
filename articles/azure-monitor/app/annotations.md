@@ -49,6 +49,9 @@ Create a separate API key for each of your Azure Pipelines release templates.
 1. Select **Add task**, and then select the **Application Insights Release Annotation** task from the menu.
    
    ![Select Add Task and select Application Insights Release Annotation.](./media/annotations/3-add-task.png)
+
+> [!NOTE]
+> The Release Annotation task only supports Windows-based agents at the moment and won't run on linux, macOS or other types or agents.
    
 1. Under **Application ID**, paste the Application Insights ID you copied from the **API Access** tab.
    
