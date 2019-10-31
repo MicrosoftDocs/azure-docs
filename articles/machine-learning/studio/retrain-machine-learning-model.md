@@ -1,5 +1,5 @@
 ---
-title: Retrain and deploy a web service
+title: Retrain a web service
 titleSuffix: ML Studio (classic) Azure
 description: Learn how to update a web service to use a newly trained machine learning model in Azure Machine Learning Studio (classic).
 services: machine-learning
