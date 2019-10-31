@@ -1,13 +1,14 @@
 ---
-title: Add language analyzers - Azure Search
-description: Multi-lingual lexical text analysis for non-English queries and indexes in Azure Search.
-ms.date: 02/14/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: "Yahnoosh"
-ms.author: "jlembicz"
+title: Add language analyzers to string fields in an index
+titleSuffix: Azure Cognitive Search
+description: Multi-lingual lexical text analysis for non-English queries and indexes in Azure Cognitive Search.
+
 manager: nitinme
+author: Yahnoosh
+ms.author: jlembicz
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,11 +21,11 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Add language analyzers to an Azure Search index
+# Add language analyzers to an Azure Cognitive Search index
 
 A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable field has an **analyzer** property. If your index contains translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.  
 
-Azure Search supports 35 analyzers backed by Lucene, and 50 analyzers backed by proprietary Microsoft natural language processing technology used in Office and Bing.
+Azure Cognitive Search supports 35 analyzers backed by Lucene, and 50 analyzers backed by proprietary Microsoft natural language processing technology used in Office and Bing.
 
 ## Comparing analyzers
 
@@ -46,7 +47,7 @@ Language analyzers are used as-is. For each field in the index definition, you c
 
 Use the **searchFields** query parameter to specify which language-specific field to search against in your queries. You can review query examples that include the analyzer property in [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-For more information about index properties, see [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). For more information about analysis in Azure Search, see [Analyzers in Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
+For more information about index properties, see [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). For more information about analysis in Azure Cognitive Search, see [Analyzers in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-analyzers).
 
 <a name="language-analyzer-list"></a>
 
@@ -115,7 +116,8 @@ For more information about index properties, see [Create Index &#40;Azure Search
  All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
 ## See also  
- [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
- [AnalyzerName Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
- [Video: module 7 of Azure Search MVA presentation](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07).  
+
++ [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+
++ [AnalyzerName Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
 
