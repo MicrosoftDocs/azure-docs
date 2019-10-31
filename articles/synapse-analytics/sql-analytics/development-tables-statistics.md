@@ -698,4 +698,4 @@ FROM OPENROWSET(
 
 ## Next steps
 
-For further query performance improvements, see [best practices.](best-practices.md#best-practices-for-sql-analytics-on-demand).
+For further query performance improvements, see [best practices.](best-practices.md#sql-on-demand).
