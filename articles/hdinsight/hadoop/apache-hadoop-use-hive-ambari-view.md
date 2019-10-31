@@ -2,13 +2,12 @@
 title: Use Apache Ambari Hive View with Apache Hadoop in Azure HDInsight
 description: Learn how to use the Hive View from your web browser to submit Hive queries. The Hive View is part of the Ambari Web UI provided with your Linux-based HDInsight cluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
+ms.date: 10/24/2019
 ---
 
 # Use Apache Ambari Hive View with Apache Hadoop in HDInsight
@@ -26,9 +25,9 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
 1. From the [Azure portal](https://portal.azure.com/), select your cluster.  See [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters) for instructions. The cluster is opened in a new portal blade.
 
-2. From **Cluster dashboards**, select **Ambari views**. When prompted to authenticate, use the cluster login (default `admin`) account name and password that you provided when you created the cluster.
+1. From **Cluster dashboards**, select **Ambari views**. When prompted to authenticate, use the cluster login (default `admin`) account name and password that you provided when you created the cluster. Alternatively, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/views` in your browser where `CLUSTERNAME` is the name of your cluster.
 
-3. From the list of views, select __Hive View__.
+1. From the list of views, select __Hive View__.
 
     ![Apache Ambari select Apache Hive view](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
@@ -36,7 +35,7 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
     ![Image of the query worksheet for the Hive view](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-4. From the __Query__ tab, paste the following HiveQL statements into the worksheet:
+1. From the __Query__ tab, paste the following HiveQL statements into the worksheet:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -50,8 +49,8 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
-        WHERE t4 = '[ERROR]' 
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs
+        WHERE t4 = '[ERROR]'
         GROUP BY t4;
     ```
 
@@ -71,9 +70,9 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
    > [!IMPORTANT]  
    > Leave the __Database__ selection at __default__. The examples in this document use the default database included with HDInsight.
 
-5. To start the query, select **Execute** below the worksheet. The button turns orange and the text changes to **Stop**.
+1. To start the query, select **Execute** below the worksheet. The button turns orange and the text changes to **Stop**.
 
-6. After the query has finished, the **Results** tab displays the results of the operation. The following text is the result of the query:
+1. After the query has finished, the **Results** tab displays the results of the operation. The following text is the result of the query:
 
         loglevel       count
         [ERROR]        3
@@ -129,7 +128,7 @@ Declare and save a set of UDFs by using the **UDF** tab at the top of the Hive V
 
 After you've added a UDF to the Hive View, an **Insert udfs** button appears at the bottom of the **Query Editor**. Selecting this entry displays a drop-down list of the UDFs defined in the Hive View. Selecting a UDF adds HiveQL statements to your query to enable the UDF.
 
-For example, if you have defined a UDF with the following properties:
+For example, if you've defined a UDF with the following properties:
 
 * Resource name: myudfs
 
@@ -139,7 +138,7 @@ For example, if you have defined a UDF with the following properties:
 
 * UDF class name: com.myudfs.Awesome
 
-Using the **Insert udfs** button displays an entry named **myudfs**, with another drop-down list for each UDF defined for that resource. In this case, it is **myawesomeudf**. Selecting this entry adds the following to the beginning of the query:
+Using the **Insert udfs** button displays an entry named **myudfs**, with another drop-down list for each UDF defined for that resource. In this case, it's **myawesomeudf**. Selecting this entry adds the following to the beginning of the query:
 
 ```hiveql
 add jar /myudfs.jar;

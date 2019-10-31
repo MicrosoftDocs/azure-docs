@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/22/2019
+ms.date: 10/30/2019
 ---
 
 # Tutorial: Migrate SQL Server on-premises Windows users and groups to Azure SQL Database managed instance using T-SQL DDL syntax
@@ -36,6 +36,8 @@ To complete this tutorial, the following prerequisites apply:
 - Access to Active Directory to create users/groups.
 - An existing SQL Server in your on-premises environment.
 - An existing managed instance. See [Quickstart: Create an Azure SQL Database managed instance](sql-database-managed-instance-get-started.md).
+  - A `sysadmin` in the managed instance must be used to create Azure AD logins.
+- [Create an Azure AD admin for managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 - You can connect to your managed instance within your network. See the following articles for additional information: 
     - [Connect your application to Azure SQL Database managed instance](sql-database-managed-instance-connect-app.md)
     - [Quickstart: Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md)
@@ -209,7 +211,7 @@ Follow our [Quickstart: Restore a database to a managed instance](sql-database-m
 
 Execute the ALTER USER command to complete the migration process on managed instance.
 
-1. Sign into your managed instance using the SQL Admin account for managed instance. Then create your Azure AD login in the managed instance using the following syntax:
+1. Sign into your managed instance using the SQL Admin account for managed instance. Then create your Azure AD login in the managed instance using the following syntax. For more information, see [Tutorial: Managed instance security in Azure SQL Database using Azure AD server principals (logins)](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 

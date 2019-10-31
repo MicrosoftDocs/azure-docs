@@ -105,8 +105,8 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
 
     ```azurepowershell-interactive
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
-    $erDirect.Links[0].AdminState = “Enabled”
-    $erDirect.Links[1].AdminState = “Enabled”
+    $erDirect.Links[0].AdminState = "Enabled"
+    $erDirect.Links[1].AdminState = "Enabled"
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
 
