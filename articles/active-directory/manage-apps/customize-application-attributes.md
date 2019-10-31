@@ -122,7 +122,7 @@ When editing the list of supported attributes, the following properties are prov
 
 To add a new attribute, scroll to the end of the list of supported attributes, populate the fields above using the provided inputs, and select **Add Attribute**. Select **Save** when finished adding attributes. You then need to reload the **Provisioning** tab for the new attributes to become available in the attribute-mapping editor.
 ## Provisioning a role to a SCIM app
-Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applicaitons. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
+Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
 - Mapping an AppRoleAsisgnment in Azure AD to a role in your application requires that you transform the attribute using an [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). The AppRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
 
@@ -132,7 +132,7 @@ Use the steps below to provision roles for a user to your application. Note that
   
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/SingleAppRoleAssignment.PNG)
 
-- **Example output:** 
+  - **Example output** 
   
 ```json
   {
@@ -167,7 +167,7 @@ Use the steps below to provision roles for a user to your application. Note that
   ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/AppRoleAssignmentsComplex.PNG)<br>
   Using the AppRoleAssignmentsComplex expression to mapp AppRoleAssignments to the roles attribute
   
-  - **Example output:** 
+  - **Example output** 
   
 ```json
   {
