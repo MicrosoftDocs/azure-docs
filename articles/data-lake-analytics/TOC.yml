@@ -128,10 +128,10 @@
       href: data-lake-analytics-understand-spark-code-concepts.md
   - name: Troubleshoot U-SQL jobs
     items:
-    - name: Troubleshoot U-SQL runtime changes
+    - name: Troubleshoot U-SQL runtime failures
       href: data-lake-analytics-runtime-troubleshoot.md
     - name: Troubleshoot a .NET upgrade
-      href: data-lake-analytics-dotnet-upgrade-troublehoot.md
+      href: data-lake-analytics-dotnet-upgrade-troubleshoot.md
 - name: Reference
   items:
   - name: Azure PowerShell

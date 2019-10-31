@@ -1,5 +1,5 @@
 ---
-title: How to troubleshoot the U-SQL job failures because of .NET 4.7.2 upgrade
+title: How to troubleshoot the Azure Data Lake Analytics U-SQL job failures because of .NET 4.7.2 upgrade
 description: 'Troubleshoot U-SQL job failures because of the upgrade to .NET 4.7.2.'
 services: data-lake-analytics
 author: guyhay
@@ -35,7 +35,7 @@ Check for the potential of backwards-compatibility breaking issues by running th
    1. Using the Visual Studio Extension at [.NET Portability Analyzer Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
    1. Downloading and using the standalone tool from [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instructions for running standalone tool are at [GitHub dotnetapiport breaking changes](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
    1. For 4.7.2. compatibility read isRetargeting == True are the breaking changes.
-2. If the tool indicates if your code may be impacted by any of the possible backwards-incompatibilities (some common examples of incompatibilites are listed below)  you can further check by
+2. If the tool indicates if your code may be impacted by any of the possible backwards-incompatibilities (some common examples of incompatibilities are listed below),  you can further check by
    1. Analyzing your code and identifying if your code is passing values to the impacted APIs
    1. Perform a runtime check. The runtime deployment isn't done side-by-side in ADLA. You can perform a runtime check before the upgrade, using VisualStudio’s local run with a local .NET Framework 4.7.2 against a representative data set.
 3. If you indeed are impacted by a backwards-incompatibility, take the necessary steps to fix it (such as fixing your data or code logic).
@@ -44,15 +44,15 @@ In most cases, you should not be impacted by backwards-incompatibility.
 
 ## Timeline
 
-You can check for the deployment of the new runtime here [Runtime troubleshoot](data-lake-analytics-runtime-troubleshoot.md), and by looking at any prior sucessfull job.
+You can check for the deployment of the new runtime here [Runtime troubleshoot](data-lake-analytics-runtime-troubleshoot.md), and by looking at any prior successful job.
 
-### What if I can't get my code reviewed in time?
+### What if I can't get my code reviewed in time
 
-You can submit your job against the old runtime version (which is built targeting 4.5.2), however due to the lack of .NET Framework side-by-side capabilities, it will still only run in 4.5.2 compatibility mode. This means you may still encounter some of the backwards-compatibility issues.
+You can submit your job against the old runtime version (which is built targeting 4.5.2), however due to the lack of .NET Framework side-by-side capabilities, it will still only run in 4.5.2 compatibility mode. You may still encounter some of the backwards-compatibility issues because of this behavior.
 
-### What are the most common backwards-compatibility issues you may encounter?
+### What are the most common backwards-compatibility issues you may encounter
 
-The most common backwards-incompatibilities that the checker is likely to identify are (we generated this list by running the checker on our own internal ADLA jobs), which libraries are impacted (note: that you may call the libraries only indirectly, thus it is important to take required action #1 to check if your jobs are impacted), and possible actions to remedy. Note that in almost all cases for our own jobs, the warnings turned out to be false positives due to the narrow natures of most breaking changes.
+The most common backwards-incompatibilities that the checker is likely to identify are (we generated this list by running the checker on our own internal ADLA jobs), which libraries are impacted (note: that you may call the libraries only indirectly, thus it is important to take required action #1 to check if your jobs are impacted), and possible actions to remedy. Note: In almost all cases for our own jobs, the warnings turned out to be false positives due to the narrow natures of most breaking changes.
 
 - IAsyncResult.CompletedSynchronously property must be correct for the resulting task to complete
   - When calling TaskFactory.FromAsync, the implementation of the IAsyncResult.CompletedSynchronously property must be correct for the resulting task to complete. That is, the property must return true if, and only if, the implementation completed synchronously. Previously, the property was not checked.
@@ -80,7 +80,7 @@ The most common backwards-incompatibilities that the checker is likely to identi
   - Suggested Action: Ensure you are handling the new expected behavior when there is null authorization policy
   
 - RSACng now correctly loads RSA keys of non-standard key size
-  - In .NET Framework versions prior to 4.6.2, customers with non-standard key sizes for RSA certificates are unable to access those keys via the `GetRSAPublicKey()` and `GetRSAPrivateKey()` extension methods. A `CryptographicException` with the message "The requested key size is not supported" is thrown. In .NET Framework 4.6.2 this issue has been fixed. Similarly, `RSA.ImportParameters()` and `RSACng.ImportParameters()` now work with non-standard key sizes without throwing `CryptographicException`'s.
+  - In .NET Framework versions prior to 4.6.2, customers with non-standard key sizes for RSA certificates are unable to access those keys via the `GetRSAPublicKey()` and `GetRSAPrivateKey()` extension methods. A `CryptographicException` with the message "The requested key size is not supported" is thrown. With the .NET Framework 4.6.2 this issue has been fixed. Similarly, `RSA.ImportParameters()` and `RSACng.ImportParameters()` now work with non-standard key sizes without throwing `CryptographicException`'s.
   - Impacted Libraries: mscorlib, System.Core
   - Suggested Action: Ensure RSA keys are working as expected
 

@@ -117,7 +117,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-         - text: Troubleshoot U-SQL runtime
+         - text: Troubleshoot U-SQL runtime failures
            url: data-lake-analytics-runtime-troubleshoot.md
          - text: Troubleshoot a .NET upgrade
-           url: data-lake-analytics-dotnet-upgrade-troublehoot.md
+           url: data-lake-analytics-dotnet-upgrade-troubleshoot.md

@@ -1,5 +1,5 @@
 ---
-title: How to troubleshoot the U-SQL runtime failures
+title: How to troubleshoot the Azure Data Lake Analytics U-SQL runtime failures
 description: 'Learn how to troubleshoot U-SQL runtime failures.'
 services: data-lake-analytics
 author: guyhay
@@ -34,13 +34,13 @@ You can see the history of which runtime version your past jobs have used in you
 3. Optionally, click **Filter** to help you find the jobs by **Time Range**, **Job Name**, and **Author** values.
 4. You can see the runtime used in the completed jobs.
 
-![Displaying the runtime version of a past job](./media/data-lake-analytics-runtime-troubleshoot/USQL-runtime-version.png)
+![Displaying the runtime version of a past job](./media/data-lake-analytics-runtime-troubleshoot/usql-runtime-version.png)
 
 The available runtime versions change over time. The default runtime is always called “default” and we keep at least the previous runtime available for some time as well as make special runtimes available for a variety of reasons. Explicitly named runtimes generally follow the following format (italics are used for variable parts and [] indicates optional parts):
 
 release_YYYYMMDD_adl_buildno[_modifier]
 
-For example, release_20190318_adl_3394512_2 means the 2nd version of the build 3394512 of the runtime release of March 18 2019 and release_20190318_adl_3394512_private means a private build of the same release. Note that the date is related to when the last check in has been taken for that release and not necessarily the official release date.
+For example, release_20190318_adl_3394512_2 means the second version of the build 3394512 of the runtime release of March 18 2019 and release_20190318_adl_3394512_private means a private build of the same release. Note: The date is related to when the last check-in has been taken for that release and not necessarily the official release date.
 
 The following are the currently available runtime versions.
 
@@ -54,10 +54,10 @@ There are two possible runtime version issues that you may encounter:
 
 1. A script or some user-code is changing behavior from one release to the next. Such breaking changes are normally communicated ahead of time with the publication of release notes. If you encounter such a breaking change, please contact Microsoft Support to report this breaking behavior (in case it has not been documented yet) and submit your jobs against the older runtime version.
 
-2. You have been using a non-default runtime either explicitly or implicitly when it has been pinned to your account, and that runtime has been removed after some time. If you encounter this, please upgrade your scripts to run with the current default runtime. If you need additional time, please contact Microsoft Support
+2. You have been using a non-default runtime either explicitly or implicitly when it has been pinned to your account, and that runtime has been removed after some time. If you encounter missing runtimes, please upgrade your scripts to run with the current default runtime. If you need additional time, please contact Microsoft Support
 
 ## See also
 
 - [Azure Data Lake Analytics overview](data-lake-analytics-overview.md)
 - [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
-- [Monitor jobs in Azure Data Lake Analytics using the Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Monitor jobs in Azure Data Lake Analytics using the Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
