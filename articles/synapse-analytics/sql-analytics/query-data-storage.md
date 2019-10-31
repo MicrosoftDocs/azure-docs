@@ -184,7 +184,7 @@ Now you are ready to start with following quickstart articles:
 
 - [Querying single CSV file](querying-single-csv-file.md)
 
-- [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md)
+- [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
 - [Querying specific files](querying-specific-files.md)
 

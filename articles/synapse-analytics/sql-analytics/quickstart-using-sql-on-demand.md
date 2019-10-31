@@ -228,7 +228,7 @@ Now you are ready to start with following quickstarts:
 
 1. [Querying single CSV file](querying-single-csv-file.md)
 
-2. [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md)
+2. [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
 3. [Querying specific files](querying-specific-files.md)
 

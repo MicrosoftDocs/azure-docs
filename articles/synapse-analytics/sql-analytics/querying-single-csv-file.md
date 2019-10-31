@@ -243,9 +243,9 @@ WITH (
 
 ## Next steps
 
-You can see more in [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md).
+You can see more in [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md).
 
 
 Advance to the next article to learn how query folders and multiple CSV files.
 > [!div class="nextstepaction"]
-> [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md)
+> [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)

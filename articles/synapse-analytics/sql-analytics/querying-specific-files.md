@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying specific files 
 
-SQL on-demand Query service can address multiple files and folders as described in [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md). Sometimes you may need to know which row in result set came from which file/folder. In such cases, you can use virtual columns to return file name and/or path in result set, or you can use them to filter data based on file name and/or folder path. These functions are described in syntax section - [filename function](development-storage-files-overview.md#filename-function) and [filepath function](development-storage-files-overview.md#filepath-function). You can find short descriptions along samples below.
+SQL on-demand Query service can address multiple files and folders as described in [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md). Sometimes you may need to know which row in result set came from which file/folder. In such cases, you can use virtual columns to return file name and/or path in result set, or you can use them to filter data based on file name and/or folder path. These functions are described in syntax section - [filename function](development-storage-files-overview.md#filename-function) and [filepath function](development-storage-files-overview.md#filepath-function). You can find short descriptions along samples below.
 
 
 In this quickstart, you will query a specific file.

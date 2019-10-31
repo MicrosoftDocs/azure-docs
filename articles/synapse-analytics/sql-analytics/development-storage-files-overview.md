@@ -50,7 +50,7 @@ Following rules apply:
 N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
 ```
 
-Check [Querying folders and multiple files](querying-folders-and-multiple-csv-files.md) in Samples section for usage examples.
+Check [Querying folders and multiple files](query-folders-multiple-csv-files.md) in Samples section for usage examples.
 
 ### PARQUET file format
 
@@ -213,7 +213,7 @@ Now you are ready to start with following quickstart articles:
 
 1. [Querying single CSV file](querying-single-csv-file.md)
 
-2. [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md)
+2. [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
 3. [Querying specific files](querying-specific-files.md)
 
