@@ -26,7 +26,7 @@ ms.author: v-umha
 
 ## Create a farm
 
-A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a Farm either using the [Farms API](http://aka.ms/FarmBeatsDatahubSwagger). Or you can [Create a Farm](manage-farms.md#create-farms) from the accelerator UI
+A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a Farm either using the [Farms API](https://aka.ms/FarmBeatsDatahubSwagger). Or you can [Create a Farm](manage-farms.md#create-farms) from the accelerator UI
 
 ## Deploy sensors
 
@@ -50,7 +50,7 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 2.	Click **MyFarm** and click **Add Devices**.
 3.	The **Add Devices** window displays. Select the device(s) that are linked to the soil moisture sensors for MyFarm.
 
-  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Click **Add Devices**.     
 
@@ -64,7 +64,6 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
   4.	From the drop-down menu, select **Soil Moisture**.
   5.	In the **Soil Moisture** window, select This Week.
   6.	In the **Select Soil Moisture** **Sensor Measure** drop-down, enter the soil moisture sensor measure(depth) for, which you want to generate the map.
-
   To find the sensor measure, go to Sensors, click any soil moisture sensor, under **Sensor Properties** section use the value listed against **Measure Name**
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
@@ -74,8 +73,8 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
   A confirmation message displaying the details about the job created.
   For more information, refer the section Job Status in Jobs.
 
-  >[!NOTE]
-  > The job should get completed in 3-4 hours
+    >[!NOTE]
+    > The job should get completed in 3-4 hours.
 
 
 ### Download the soil moisture Heatmap
@@ -87,7 +86,7 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 5.	Click **Download** drop-down menu to select the download format.
   The map is downloaded and stored to the local folder of your computer.
 
-  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
+    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 
 ## Next steps
 

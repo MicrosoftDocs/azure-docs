@@ -83,7 +83,7 @@ Using Azure FarmBeats you can generate the following maps by using satellite ima
 3. Select **Type**, **Date** and **Name** from the drop-down menu and then **Apply** to search for the map you want to view.
   The date format *type_farmname_YYYY-MM-DD* is the date on which the job was created.
 4. Scroll through the list of maps available using the navigation bars at the end of the page.
-5. Click the **Name** column, a pop-up window displays with the preview of the map.
+5. Click link (to be updated with the details about the link) in the **Name** column, a pop-up window displays with the preview of the map.
 6. Click **Download** drop-down menu to download the GeoJSON file of sensor coordinates.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-sensor-placement-map-1.png)
