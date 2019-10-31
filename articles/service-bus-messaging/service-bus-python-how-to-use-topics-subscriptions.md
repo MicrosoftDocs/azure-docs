@@ -117,7 +117,7 @@ With `AllMessages`, `HighMessages`, and `LowMessages` all in effect, messages se
 
 Applications use the `send_topic_message` method of the **ServiceBusService** object to send messages to a Service Bus topic.
 
-The following example sends five test messages to the `mytopic` topic. The custom `messageposition` property value depends on the iteration of the loop. The `messageposition` property determines which subscriptions receive the messages. 
+The following example sends five test messages to the `mytopic` topic. The custom `messageposition` property value depends on the iteration of the loop, and determines which subscriptions receive the messages. 
 
 ```python
 for i in range(5):
@@ -187,8 +187,8 @@ By default, topics and subscriptions are persistent, and exist until you delete 
 
 Now that you've learned the basics of Service Bus topics, follow these links to learn more:
 
-* [Queues, topics, and subscriptions][Queues, topics, and subscriptions].
-* [SqlFilter.SqlExpression][SqlFilter.SqlExpression] reference.
+* [Queues, topics, and subscriptions][Queues, topics, and subscriptions]
+* [SqlFilter.SqlExpression][SqlFilter.SqlExpression] reference
 
 [Azure portal]: https://portal.azure.com
 [Azure Python package]: https://pypi.python.org/pypi/azure
