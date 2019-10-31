@@ -51,66 +51,67 @@ Applications must be represented by an app object in Azure Active Directory so t
 > ### Step 3: Configure your project
 > 1. Extract and open the Project in Android Studio.
 > 2. Inside app > src > main > res > raw, open auth_config_multiple_account.json and replace it with the following code:
-```javascript 
-{
-  "client_id" : "Enter_the_Application_Id_Here",
-  "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "Enter_the_Redirect_Uri_Here",
-  "account_mode" : "MULTIPLE",
-  "broker_redirect_uri_registered": true,
-  "authorities" : [
-    {
-      "type": "AAD",
-      "audience": {
-        "type": "Enter_the_Audience_Info_Here",
-        "tenant_id": "Enter_the_Tenant_Info_Here"
-      }
-    }
-  ]
-}
-```
+> ```javascript 
+> {
+>   "client_id" : "Enter_the_Application_Id_Here",
+>   "authorization_user_agent" : "DEFAULT",
+>   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+>   "account_mode" : "MULTIPLE",
+>   "broker_redirect_uri_registered": true,
+>   "authorities" : [
+>     {
+>       "type": "AAD",
+>       "audience": {
+>         "type": "Enter_the_Audience_Info_Here",
+>         "tenant_id": "Enter_the_Tenant_Info_Here"
+>       }
+>     }
+>   ]
+> }
+> ```
+
 > [!div class="sxs-lookup" renderon="portal"]
 > 3. Inside app > src > main > res > raw, open auth_config_single_account.json and replace it with the following code:
-```javascript 
-{
-  "client_id" : "Enter_the_Application_Id_Here",
-  "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "Enter_the_Redirect_Uri_Here",
-  "account_mode" : "SINGLE",
-  "broker_redirect_uri_registered": true,
-  "authorities" : [
-    {
-      "type": "AAD",
-      "audience": {
-        "type": "Enter_the_Audience_Info_Here",
-        "tenant_id": "Enter_the_Tenant_Info_Here"
-      }
-    }
-  ]
-}
-```
+> ```javascript 
+> {
+>   "client_id" : "Enter_the_Application_Id_Here",
+>   "authorization_user_agent" : "DEFAULT",
+>   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+>   "account_mode" : "SINGLE",
+>   "broker_redirect_uri_registered": true,
+>   "authorities" : [
+>     {
+>       "type": "AAD",
+>       "audience": {
+>         "type": "Enter_the_Audience_Info_Here",
+>         "tenant_id": "Enter_the_Tenant_Info_Here"
+>       }
+>     }
+>   ]
+> }
+> ```
+
 > [!div class="sxs-lookup" renderon="portal"]
 > 4. Inside **app** > **src** > **main**, open  **AndroidManifest.xml**.
 > 5. In the **manifest\application** node, replace the **<activity android:name="com.microsoft.identity.client.BrowserTabActivity">** node with the following:	
-```xml
-<!--Intent filter to catch Microsoft's callback after Sign In-->
-<activity android:name="com.microsoft.identity.client.BrowserTabActivity">
-    <intent-filter>
-    <action android:name="android.intent.action.VIEW" />
-    <category android:name="android.intent.category.DEFAULT" />
-    <category android:name="android.intent.category.BROWSABLE" />
-        <!--
-            Add in your scheme/host from registered redirect URI 
-            note that the leading "/" is required for android:path
-        -->
-        <data android:scheme="msauth"
-            android:host="Enter_the_Package_Name"
-            android:path="/Enter_the_Signature_Hash"
-            android:scheme = "msauth" />
-    </intent-filter>
-</activity>
-```
-    
+> ```xml
+> <!--Intent filter to catch Microsoft's callback after Sign In-->
+> <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+>     <intent-filter>
+>     <action android:name="android.intent.action.VIEW" />
+>     <category android:name="android.intent.category.DEFAULT" />
+>     <category android:name="android.intent.category.BROWSABLE" />
+>         <!--
+>             Add in your scheme/host from registered redirect URI 
+>             note that the leading "/" is required for android:path
+>         -->
+>         <data android:scheme="msauth"
+>             android:host="Enter_the_Package_Name"
+>             android:path="/Enter_the_Signature_Hash"
+>             android:scheme = "msauth" />
+>     </intent-filter>
+> </activity>
+> ```
 > 6. Run the app!
 > The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
 >
