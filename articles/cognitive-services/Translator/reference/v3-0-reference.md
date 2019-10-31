@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 10/21/2019
+ms.date: 10/31/2019
 ms.author: swmachan
 ---
 
@@ -161,7 +161,11 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 503000| Service is temporarily unavailable. Please retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 
 ## Metrics 
-Below is a description of metrics to understand how you can monitor translation API calls
+Metris allow you to view the translator usage and availablity information in Azure portal, under metrics section as shown in the below screenshot. Refer https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-platform-metrics to learn about metrics in depth.
+
+![Translator Metrics](../media/TranslatorMetrics.png)
+
+Here is a description of metrics to understand how you can monitor translation API calls
 
 | Metrics | Description |
 |:----|:-----|
