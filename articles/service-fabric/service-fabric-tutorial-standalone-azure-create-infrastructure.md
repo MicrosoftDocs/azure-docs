@@ -85,18 +85,12 @@ Launch two more **Virtual Machines**, being sure to maintain the same settings o
  
 4. Open the RDP file, and when prompted enter the username and password you provided in the VM setup.
 
-5. Once you are connected to an instance, you need to validate that remote registry was running, enable SMB, and open the requisite ports for SMB and remote registry.
-
-   To enable SMB, this is the PowerShell command:
-
-   ```powershell
-   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
-   ```
+5. Once you are connected to an instance, you need to validate that remote registry was running and open the requisite ports.
 
 6. To open the ports in the firewall here is the PowerShell command:
 
    ```powershell
-   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
    ```
 
 7. Repeat this process for your other instances, again noting the private IP addresses.
@@ -112,15 +106,6 @@ Launch two more **Virtual Machines**, being sure to maintain the same settings o
    ```
 
    If your output looks like `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repeated four times then your connection between the instances is working.
-
-3. Now validate that your SMB sharing works with the following command:
-
-   ```
-   net use * \\172.31.20.163\c$
-   ```
-
-   It should return `Drive Z: is now connected to \\172.31.20.163\c$.` as the output.
-
 
    Now your instances are properly prepared for Service Fabric.
 
