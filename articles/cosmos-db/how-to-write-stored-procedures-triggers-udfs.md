@@ -4,7 +4,7 @@ description: Learn how to define stored procedures, triggers, and user-defined f
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
 ---
 
@@ -16,6 +16,9 @@ To call a stored procedure, trigger, and user-defined function, you need to regi
 
 > [!NOTE]
 > For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
+
+> [!Tip]
+> Cosmos supports deploying containers with stored procedures, triggers and user-defined functions. For more information see [Create an Azure Cosmos DB container with server-side functionality](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a id="stored-procedures"></a>How to write stored procedures
 
