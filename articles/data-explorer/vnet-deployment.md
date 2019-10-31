@@ -1,15 +1,15 @@
 ---
-title: Virtual Network architecture and deployment in Azure Data Explorer (Preview)
-description: Learn how to deploy your Virtual Network in Azure Data Explorer.
+title: Deploy Azure Data Explorer into your Virtual Network (Preview)
+description: Learn how to deploy Azure Data Explorer into your Virtual Network
 author: basaba
 ms.author: basaba
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/31/2019
 ---
 
-# Virtual Network architecture and deployment in Azure Data Explorer (Preview)
+# Deploy Azure Data Explorer into your Virtual Network (Preview)
 
 This article explains the resources that are present when you deploy an Azure Data Explorer cluster into a custom Azure Virtual Network. This information will help you deploy a cluster into a subnet in your Virtual Network (VNet). For more information on Azure Virtual Networks, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
@@ -20,6 +20,9 @@ Azure Data Explorer supports deploying a cluster into a subnet in your Virtual N
 * Enforce [Network Security Group](/azure/virtual-network/security-overview) (NSG) rules on your Azure Data Explorer cluster traffic.
 * Connect your on-premise network to Azure Data Explorer cluster's subnet.
 * Secure your data connection sources ([Event Hub](/azure/event-hubs/event-hubs-about) and [Event Grid](/azure/event-grid/overview)) with [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+
+> [!NOTE]
+> The Virtual Network integration and deployment is in preview mode. To enable this feature, contact the [VNet team](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6nDlY4aY3NAipxPJw0yfjhUNDRSOFpXQURZTFZDMEhEVk5HTzhJNjZYRi4u).
 
 ## Access your Azure Data Explorer cluster in your VNet
 
@@ -38,7 +41,8 @@ The following DNS records are created to access the service:
 
 The size of the subnet used to host an Azure Data Explorer cluster can't be altered after the subnet is deployed. In your VNet, Azure Data Explorer uses one private IP address for each VM and two private IP addresses for the internal load balancers (engine and data management). Azure networking also uses five IP addresses for each subnet. Azure Data Explorer provisions two VMs for the data management service. Engine service VMs are provisioned per user configuration scale capacity.
 
-The total number of IP addresses :
+The total number of IP addresses:
+
 | Use | Number of addresses |
 | --- | --- |
 | Engine service | 1 per instance |
@@ -59,7 +63,7 @@ Deploying Azure Data Explorer cluster into your subnet allows you to setup data 
 
 ### Network Security Groups configuration
 
-[Network Security Groups (NSG)](/azure/virtual-network/security-overview) provide the ability to control network access within a VNet. Azure Data Explorer's data plane service can be accessed using HTTPs (443) and TDS endpoint (1433). Inbound access must be allowed to work with these endpoints. The following NSG rules must be configured to allow traffic:
+[Network Security Groups (NSG)](/azure/virtual-network/security-overview) provide the ability to control network access within a VNet. Azure Data Explorer can be accessed using two endpoints: HTTPs (443) and TDS (1433). The following NSG rules must be configured to allow access to these endpoints for management, monitoring, and proper operation of your cluster.
 
 #### Inbound NSG configuration
 
@@ -79,8 +83,7 @@ Deploying Azure Data Explorer cluster into your subnet allows you to setup data 
 | EventHub ingestion and service monitoring  | ADX subnet  | EventHub:443,5671  | TCP  |
 | Publish Metrics  | ADX subnet  | AzureMonitor:443 | TCP  |
 | Azure Monitor configuration download  | ADX subnet  | [Azure Monitor configuration endpoint addresses](#azure-monitor-configuration-endpoint-addresses):443 | TCP  |
-| Active Directory (if applicable) | ADX subnet | AzureActiveDirectory:443 | TCP
-<#ifdef MICROSOFT>| dSTS (if applicable) | ADX subnet | Internet:443 | TCP<#endif>
+| Active Directory (if applicable) | ADX subnet | AzureActiveDirectory:443 | TCP |
 | Certificate authority | ADX subnet | Internet:80 | TCP |
 | Internal communication  | ADX subnet  | ADX Subnet:All Ports  | All  |
 | Ports that are used for `sql\_request` and `http\_request` plugins  | ADX subnet  | Internet:Custom  | TCP  |
@@ -250,4 +253,4 @@ For example, for **West US** region, the following UDRs must be defined:
 
 To deploy Azure Data Explorer cluster into your virtual network use the [Deploy Azure Data Explorer cluster into your VNet](https://azure.microsoft.com/resources/templates/101-kusto-vnet/) template.
 
-This template creates the cluster, virtual network, subnet, network security group, and public ip addresses.
+This template creates the cluster, virtual network, subnet, network security group, and public IP addresses.
