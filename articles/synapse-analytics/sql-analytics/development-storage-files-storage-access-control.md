@@ -31,11 +31,11 @@ User that logged into SQL Analytics on-demand must be authorized to access and q
 
 Depending on the user type, different authorization types are supported (or will be supported soon).
 
-| Authorization type                    | *SQL user*    | *AAD user*  |
-| ------------------------------------- | ------------- | ----------- |
-| [SAS](#shared-access-signature) | Supported     | Supported   |
-| [Managed Identity](#managed-identity) | Coming soon   | Coming soon |
-| [User Identity](#user-identity)       | Not supported | Supported   |
+| Authorization type                    | *SQL user*    | *AAD user*     |
+| ------------------------------------- | ------------- | -----------    |
+| [SAS](#shared-access-signature)       | Supported     | Supported      |
+| [Managed Identity](#managed-identity) | Not supported | Not supported  |
+| [User Identity](#user-identity)       | Not supported | Supported      |
 
 ### Shared access signature
 
@@ -95,11 +95,11 @@ GRANT ALTER ANY CREDENTIAL TO [user_name]
 
 You can use following combinations of authorization types and Azure Storage types:
 
-|                     | Blob Storage | ADLS Gen1      | ADLS Gen2   |
-| ------------------- | ------------ | -------------- | ----------- |
-| *SAS*               | Supported    | Not  supported | Supported   |
-| *Managed  Identity* | Coming soon  | Coming soon    | Coming soon |
-| *User  Identity*    | Supported    | Supported      | Supported   |
+|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+| ------------------- | ------------   | --------------   | -----------   |
+| *SAS*               | Supported      | Not  supported   | Supported     |
+| *Managed  Identity* | Not supported  | Not supported    | Not supported |
+| *User  Identity*    | Supported      | Supported        | Supported     |
 
 ### Examples
 

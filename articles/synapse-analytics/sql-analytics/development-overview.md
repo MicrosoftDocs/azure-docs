@@ -38,7 +38,7 @@ These articles highlight specific coding techniques, tips, and recommendations f
 
 |                                            | SQL Analytics pool | SQL Analytics on-demand |
 | ------------------------------------------ | ------------------ | ----------------------- |
-| [Stored procedures][stored procedures]     | Yes                | No (coming soon)        |
+| [Stored procedures][stored procedures]     | Yes                | No                      |
 | [Labels][labels]                           | Yes                | No                      |
 | [Views][views]                             | Yes                | Yes                     |
 | [Temporary tables][temporary tables]       | Yes                | Yes                     |

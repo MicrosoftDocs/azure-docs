@@ -17,7 +17,7 @@ This section contains sample queries you can use to try out SQL on-demand servic
 
 Currently supported files are: 
 - CSV
-- Parquet 
+- Parquet
 - JSON
 
 

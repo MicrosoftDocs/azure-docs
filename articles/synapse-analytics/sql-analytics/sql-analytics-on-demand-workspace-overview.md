@@ -143,9 +143,7 @@ A user that is logged into SQL Analytics on-demand service must be authorized to
 
 - **User Identity** (also known as “pass-through”) is authorization type where the identity of the AAD user that logged into SQL Analytics on-demand is used to authorize the access to data. Before accessing the data, Azure Storage administrator must grant permissions to AAD user for accessing the data. This authorization type uses AAD user that logged into SQL Analytics on-demand, therefore it’s not supported for SQL user type.
 
-- **Managed Identity (coming soon)**
 
-  
 
 ## Next steps
 
