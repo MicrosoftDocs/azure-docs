@@ -166,7 +166,7 @@ Use the steps below to provision roles for a user to your application. Note that
   Editing the list of supported attributes to include roles
   
   ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/AppRoleAssignmentsComplex.PNG)<br>
-  Using the AppRoleAssignmentsComplex expression to mapp AppRoleAssignments to the roles attribute
+  Using the AppRoleAssignmentsComplex expression to map AppRoleAssignments to the roles attribute
   
   - **Example output** 
   
