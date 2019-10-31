@@ -22,7 +22,7 @@ Azure Data Explorer supports deploying a cluster into a subnet in your Virtual N
 * Secure your data connection sources ([Event Hub](/azure/event-hubs/event-hubs-about) and [Event Grid](/azure/event-grid/overview)) with [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 > [!NOTE]
-> The Virtual Network integration and deployment is in preview mode. To enable this feature, contact the [VNet team](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6nDlY4aY3NAipxPJw0yfjhUNDRSOFpXQURZTFZDMEhEVk5HTzhJNjZYRi4u).
+> The Virtual Network integration and deployment is in preview mode. To enable this feature, open a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## Access your Azure Data Explorer cluster in your VNet
 
