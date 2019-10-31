@@ -1,5 +1,5 @@
 ---
-title: Tutorial - BI Professional | Azure Synapse Analytics
+title: Tutorial - Power BI Professional | Azure Synapse Analytics
 description: In this tutorial, we will go through steps how to connect SQL on-demand with Power BI desktop.
 services: sql-data-warehouse
 author: azaricstefan
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Tutorial: BI Professional 
+# Tutorial: Power BI Professional 
 
 In this tutorial, we will go through steps how to connect SQL on-demand with Power BI desktop.
 
@@ -39,16 +39,17 @@ Parameters:
 
 There are two steps prior to using samples:
 
-- Create database for your views
-- Create credentials to be used by SQL on-demand to access files in storage
+1. Create database for your views
+2. Create credentials to be used by SQL on-demand to access files in storage
 
 ### Create database
 
 Since you will use demo environment, you should create your own database for demo purposes. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
 
-> Please note that databases are used only for view metadata, not for actual data.
+> [!NOTES]
+> Note that databases are used only for view metadata, not for actual data.
 >
-> Please write down database name you use. you will need it later on.
+> Write down database name you use. you will need it later on.
 
 ```sql
 DROP DATABASE IF EXISTS demo
@@ -60,7 +61,8 @@ DROP DATABASE IF EXISTS demo
 
 We need to create credential before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
 
-> Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
+> [!NOTES]
+> Note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
 
 **Code snippet on how to create credentials for Census data containers**, run:
 
@@ -149,15 +151,15 @@ If you're not going to continue to use this report, delete resources with the fo
 
 1. Delete credential for storage account
 
-```sql
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-```
+    ```sql
+    DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+    ```
 
 2. Delete view
 
-```sql
-DROP VIEW usPopulationView
-```
+    ```sql
+    DROP VIEW usPopulationView
+    ```
 
 ## Next steps
 
