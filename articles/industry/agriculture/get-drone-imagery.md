@@ -64,8 +64,7 @@ ms.author: v-umha
   1. Click the farm to which your imagery has been uploaded to. The **Farm** details page displays.
   2. Scroll down to the latest **Precision Maps** section.
   3. You should be able to view the image in the **Drone Imagery** section.
-
-    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
+  ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
 
 ## Download drone imagery
 

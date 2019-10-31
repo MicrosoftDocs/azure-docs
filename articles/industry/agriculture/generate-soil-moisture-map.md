@@ -63,10 +63,9 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
   3.	In the **Farm Details** page, click **Generate Precision Map**.
   4.	From the drop-down menu, select **Soil Moisture**.
   5.	In the **Soil Moisture** window, select This Week.
-  6.	In the **Select Soil Moisture** **Sensor Measure** drop-down, enter the soil moisture sensor measure(depth) for, which you want to generate the map.
-  To find the sensor measure, go to Sensors, click any soil moisture sensor, under **Sensor Properties** section use the value listed against **Measure Name**
-
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+  6.	In the **Select Soil Moisture** **Sensor Measure** drop-down, enter the soil   moisture sensor measure(depth) for, which you want to generate the map.
+  To find the sensor measure, go to Sensors, click any soil moisture sensor, under **Sensor Properties** section use the value listed against **Measure Name**.
+![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.	Click **Generate Maps**.
