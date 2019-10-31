@@ -67,7 +67,7 @@ New features for Azure VM disaster recovery are summarized in the table.
 **Test failover settings** | When setting up a test failover, you can now configure settings for the test failover VM and network, including IP address, NSG, internal load balance, and the public IP address for each machine NIC. These settings are optional and don't change current behavior. If you don't configure these settings, you can choose an Azure VNet at the time of test failover. [Learn more](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/).
 **Recovery plans** | Recovery plans are now limited to 100 VMs, to ensure failover reliability.
 
-## VMware to Azure disaster recovery
+### VMware to Azure disaster recovery
 
 New features for VMware to Azure disaster recovery are summarized in the table.
 
