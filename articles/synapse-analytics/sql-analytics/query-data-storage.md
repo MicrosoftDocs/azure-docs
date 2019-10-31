@@ -182,21 +182,21 @@ Query above should return number: **8945574**.
 
 Now you are ready to start with following quickstart articles:
 
-- [Querying single CSV file](query-single-csv-file.md)
+- [Query single CSV file](query-single-csv-file.md)
 
-- [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
+- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
-- [Querying specific files](query-specific-files.md)
+- [Query specific files](query-specific-files.md)
 
-- [Querying Parquet files](query-parquet-files.md)
+- [Query Parquet files](query-parquet-files.md)
 
-- [Querying Parquet nested types](query-parquet-nested-types.md)
+- [Query Parquet nested types](query-parquet-nested-types.md)
 
-- [Querying JSON files](query-json-files.md)
+- [Query JSON files](query-json-files.md)
 
 - [Creating and using views](create-use-views.md)
 
 
 Advance to the next article to learn how to query single CSV file.
 > [!div class="nextstepaction"]
-> [Querying single CSV file](query-single-csv-file.md)
+> [Query single CSV file](query-single-csv-file.md)
