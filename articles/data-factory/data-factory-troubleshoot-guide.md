@@ -1,22 +1,22 @@
-    ---
-    title: Troubleshoot Azure Data Factory | Microsoft Docs
-    description: Learn how to troubleshoot external control activities in Azure Data Factory.
-    services: data-factory
-    author: nabhishek
-    ms.service: data-factory
-    ms.topic: troubleshooting
-    ms.date: 8/26/2019
-    ms.author: abnarain
-    ms.reviewer: craigg
-    ---
+---
+title: Troubleshoot Azure Data Factory | Microsoft Docs
+description: Learn how to troubleshoot external control activities in Azure Data Factory.
+services: data-factory
+author: nabhishek
+ms.service: data-factory
+ms.topic: troubleshooting
+ms.date: 8/26/2019
+ms.author: abnarain
+ms.reviewer: craigg
+---
 
-    # Troubleshoot Azure Data Factory
+# Troubleshoot Azure Data Factory
 
-    This article explores common troubleshooting methods for external control activities in Azure Data Factory.
+This article explores common troubleshooting methods for external control activities in Azure Data Factory.
 
-    ## Connector and copy activity
+## Connector and copy activity
 
-    For connector issues e.g. encounter error using copy activity, refer to [Troubleshoot Azure Data Factory Connectors](connector-troubleshoot-guide.md).
+For connector issues e.g. encounter error using copy activity, refer to [Troubleshoot Azure Data Factory Connectors](connector-troubleshoot-guide.md).
 
 ## Azure Databricks
 
