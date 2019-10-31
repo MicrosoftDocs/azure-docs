@@ -119,7 +119,7 @@ For more information, see [Understand Azure Policy's Guest Configuration](../../
 
 The Guest Configuration Agent logs for a **Connected Machine** are in the following locations:
 
-* Windows - `%ProgramFiles%\AzureHybridAgent\logs\dsc.log`
+* Windows - `%ProgramFiles%\AzureConnectedMachineAgent\logs\dsc.log`
 * Linux: - `/opt/logs/dsc.log`
 
 ## Log Analytics
