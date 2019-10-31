@@ -213,7 +213,7 @@ Use the steps below to provision roles for a user to your application. Note that
 
 
 ## Provisioning a multi-value attribute
-Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression below for multi value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value. 
+Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression below for multi-value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value. 
 
 * phoneNumbers[type eq "work"].value
 * phoneNumbers[type eq "mobile"].value
