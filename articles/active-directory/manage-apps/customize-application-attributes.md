@@ -127,7 +127,7 @@ Use the steps below to provision roles for a user to your application. Note that
 - Mapping an AppRoleAsisgnment in Azure AD to a role in your application requires that you transform the attribute using an [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). The AppRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
 
 - **SingleAppRoleAssignment** 
-  - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and / or specify the primary role. 
+  - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
   - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from (roles[primary eq "True"].display, roles[primary eq "True].type, and roles[primary eq "True"].value). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.  
   
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/SingleAppRoleAssignment.PNG)
