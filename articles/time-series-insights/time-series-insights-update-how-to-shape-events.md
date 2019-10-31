@@ -31,7 +31,7 @@ For the best query performance, do the following:
 * Don't use deep array nesting. Time Series Insights Preview supports up to two levels of nested arrays that contain objects. Time Series Insights Preview flattens arrays in messages into multiple events with property value pairs.
 * If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events and might improve query performance because fewer events need to be processed.
 
-During ingestion, payloads that contain nesting will be flattened, such that the column name is a single value with a delineator. Time Series Insights Preview uses underscores for delineation. Note that this is a change from the GA version of the product which used periods. During preview, there exist a caveot around flattening, which is illistrated in the second example below.
+During ingestion, payloads that contain nesting will be flattened, such that the column name is a single value with a delineator. Time Series Insights Preview uses underscores for delineation. Note that this is a change from the GA version of the product which used periods. During preview, there is a caveat around flattening, which is illustrated in the second example below.
 
 ## Examples
 
