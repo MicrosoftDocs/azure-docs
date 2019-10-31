@@ -122,24 +122,22 @@ When editing the list of supported attributes, the following properties are prov
 
 To add a new attribute, scroll to the end of the list of supported attributes, populate the fields above using the provided inputs, and select **Add Attribute**. Select **Save** when finished adding attributes. You then need to reload the **Provisioning** tab for the new attributes to become available in the attribute-mapping editor.
 ## Provisioning a role to a SCIM app
-Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applicaitons. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the role attribute to the format your application expects. You can learn more about building expressions [here](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applicaitons. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
-- Mapping an appRoleAsisgnment in Azure AD to a role in your application requires that you transform the attribute. The appRoleAssignment attribute **should not be mapped directly** in the attribute mappings without being transformed. Do not do the below:
-<image>
+- Mapping an appRoleAsisgnment in Azure AD to a role in your application requires that you transform the attribute using an [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). The appRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
 
-- **SingleAppRoleAssignment:** 
-  - **When to use:** Use the function to provisioning a single role for a user
-  - **How to configure:** 
+- **SingleAppRoleAssignment** 
+  - **When to use:** Use the SingleAppRoleAssignment function to provision a single role for a user and / or specify the primary role. 
+  - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment function to mape to the roles attribute. There are three role attributes to choose from (roles[primary eq "True"].display, roles[primary eq "True].type, and roles[primary eq "True"].value). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.  
   
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/SingleAppRoleAssignment.PNG)
 
-  - **Example output:** 
   - **Things to consider**
     - Ensure that multiple roles are not assigned to a user. We cannot gaurantee which role will be provisioned.   
   
-- **AppRoleAssignmentsComplex -** Provision multiple roles per user
-  - **When to use:** loreIpsum
-  - **How to configure** lore ipsum
+- **AppRoleAssignmentsComplex ** 
+  - **When to use:** Use the AppRoleAssignmentsComplex function to provision multiple roles for a user. 
+  - **How to configure:** Edit the list of supported customer attributes as rescribed above to include a new attribute for roles. Use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image below. 
   
   ![Add roles](./media/customize-application-attributes/AddRoles.PNG)
   
