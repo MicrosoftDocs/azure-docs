@@ -1,12 +1,11 @@
 ---
 title: Supported data stores in Azure Data Share
-description: Supported data stores in Azure Data Share
-author: joannapea
-
+description: Learn about the data stores that are supported for use Azure Data Share.
 ms.service: data-share
-ms.topic: overview
-ms.date: 10/30/2019
+author: joannapea
 ms.author: joanpo
+ms.topic: conceptual
+ms.date: 10/30/2019
 ---
 # Supported data stores in Azure Data Share
 
@@ -35,12 +34,11 @@ The below table details different combinations and choices that data consumers h
 
 |  | Azure Blob Storage | Azure SQL Data Lake Gen1 | Azure SQL Data Lake Gen2 | Azure SQL Database | Azure SQL Data Warehouse 
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| <b>Azure Blob storage |✓ ||✓|
-| <b>Azure Data Lake Storage Gen1 |✓ | |✓|
-| <b>Azure Data Lake Storage Gen2 |✓ | |✓|
-| <b>Azure SQL Database |✓ | |✓|✓|✓|
-| <b>Azure SQL Data Warehouse |✓ | |✓|✓|✓|
-
+| Azure Blob storage |✓ ||✓|
+| Azure Data Lake Storage Gen1 |✓ | |✓|
+| Azure Data Lake Storage Gen2 |✓ | |✓|
+| Azure SQL Database |✓ | |✓|✓|✓|
+| Azure SQL Data Warehouse |✓ | |✓|✓|✓|
 
 ## Next steps
 

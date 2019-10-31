@@ -1,13 +1,13 @@
 ---
 title: Revoke a share subscription in Azure Data Share 
-description: Revoke a share subscription
+description: Learn how to revoke a share subscription from a recipient using Azure Data Share.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ---
-# How to revoke a consumer's share subscription in Azure Data Share 
+# How to revoke a consumer's share subscription in Azure Data Share
 
 This article explains how to revoke a share subscription from one or more of your consumers using Azure Data Share. This prevents a consumer from triggering any more snapshots. If the consumer has not yet triggered a snapshot, they will never receive the data once the share subscription is revoked. If they have previously triggered a snapshot, the latest data that they have will stay in their account.
 

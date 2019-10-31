@@ -1,15 +1,15 @@
 ---
 title: Add recipients in Azure Data Share 
-description: Add recipients to an existing data share
+description: Learn how to add recipients to an existing data share in Azure Data Share.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ---
-# How to add a recipient to an existing data share in Azure Data Share 
+# How to add a recipient to an existing data share in Azure Data Share
 
-This article will show you how to add recipients to a pre-existing data share. 
+This article will show you how to add recipients to a pre-existing data share.
 
 For information on how to add recipients as you create a share, see the [Share data](share-your-data.md) tutorial.
 
