@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 ## Introduction
 
-You must use one of Microsoft's authentication brokers to participate in device-wide Single Sign-On (SSO) and to meet organizational conditional access policies. Integrating with a broker provides the following benefits:
+You must use one of Microsoft's authentication brokers to participate in device-wide Single Sign-On (SSO) and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
 
 - Device single sign-on
 - Conditional access for:
@@ -62,7 +62,7 @@ When a broker is installed on a device, all subsequent interactive token request
 Installing a broker does not require the user to sign in again. Only when the user needs to resolve an `MsalUiRequiredException` will the next request go to the broker. `MsalUiRequiredException` is thrown for a number of reasons, and needs to be resolved interactively. These are some common reasons:
 
 - The user changed the password associated with their account.
-- The user's account no longer meets a conditional access policy.
+- The user's account no longer meets a Conditional Access policy.
 - The user revoked their consent for the app to be associated with their account.
 
 ### When a broker is uninstalled

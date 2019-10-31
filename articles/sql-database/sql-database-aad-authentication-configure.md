@@ -463,7 +463,7 @@ For more information, see [SQL Server Security Blog](https://blogs.msdn.microsof
 
 ### sqlcmd
 
-The following statements, connect using version 13.1 of sqlcmd, which is available from the [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
+The following statements, connect using version 13.1 of sqlcmd, which is available from the [Download Center](https://www.microsoft.com/download/details.aspx?id=53591).
 
 > [!NOTE]
 > `sqlcmd` with the `-G` command does not work with system identities, and requires a user principal login.
