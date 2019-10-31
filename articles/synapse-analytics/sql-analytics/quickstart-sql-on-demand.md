@@ -49,9 +49,10 @@ There are two steps prior to using samples:
 
 Since you will use demo environment, you should create your own database for demo purposes. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
 
-> Please note that databases are used only for view metadata, not for actual data.
+> [!NOTE]
+> Note that databases are used only for view metadata, not for actual data.
 > 
-> Please write down database name you use. you will need it later on.
+> Write down database name you use. you will need it later on.
 
 ```sql
 CREATE DATABASE mydbname
@@ -63,7 +64,8 @@ CREATE DATABASE mydbname
 
 We need to create credentials before you can run queries. These credentials will be used by SQL on-demand service to access files in storage.
 
-> Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
+> [!NOTE]
+> Note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
 
 **Code snippet on how to create credentials for CSV, JSON and Parquet containers**, run:
 
@@ -163,7 +165,8 @@ Column names and data types will be automatically read from Parquet metadata if 
 
 This sample shows automatic schema inference capabilities for Parquet files. It returns number of rows in September 2017. without specifying schema. 
 
-> Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand service will utilize metadata in parquet file and bind columns by name.  
+> [!NOTE]
+> Note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand service will utilize metadata in parquet file and bind columns by name.  
 
 ```sql
 SELECT 
@@ -220,28 +223,29 @@ WHERE
 	JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
 ```
 
+> [!NOTE]
 > Note that we are reading entire JSON file as single row/column so FIELDTERMINATOR, FIELDQUOTE and ROWTERMINATOR are set to 0x0b as we do not expect to find it in the file.
 
 ## Next steps
 
 Now you are ready to start with following quickstarts:
 
-1. [Querying single CSV file](query-single-csv-file.md)
+- [Query single CSV file](query-single-csv-file.md)
 
-2. [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
+- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
-3. [Querying specific files](query-specific-files.md)
+- [Query specific files](query-specific-files.md)
 
-4. [Querying Parquet files](query-parquet-files.md)
+- [Query Parquet files](query-parquet-files.md)
 
-5. [Querying Parquet nested types](query-parquet-nested-types.md)
+- [Query Parquet nested types](query-parquet-nested-types.md)
 
-6. [Querying JSON files](query-json-files.md)
+- [Query JSON files](query-json-files.md)
 
-7. [Creating and using views](create-use-views.md)
+- [Creating and using views](create-use-views.md)
 
 
 Advance to the next article to learn how to query single CSV file.
 > [!div class="nextstepaction"]
-> [Querying single CSV file](query-single-csv-file.md)
+> [Query single CSV file](query-single-csv-file.md)
 
