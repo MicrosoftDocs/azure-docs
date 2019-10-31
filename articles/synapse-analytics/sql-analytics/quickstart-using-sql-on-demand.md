@@ -234,7 +234,7 @@ Now you are ready to start with following quickstarts:
 
 4. [Querying Parquet files](query-parquet-files.md)
 
-5. [Querying Parquet nested types](querying-parquet-nested-types.md)
+5. [Querying Parquet nested types](query-parquet-nested-types.md)
 
 6. [Querying JSON files](query-json-files.md)
 

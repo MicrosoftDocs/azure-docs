@@ -1,5 +1,5 @@
 ---
-title: Querying parquet nested types 
+title: Querying Parquet nested types 
 description: In this section, we will show how to query Parquet files.
 services: sql-data-warehouse
 author: azaricstefan 
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Querying parquet nested types 
+# Quickstart: Querying Parquet nested types 
 
 Reading this article you will learn how to write a query in SQL Analytics on-demand that will read Parquet nested types.
 

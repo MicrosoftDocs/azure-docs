@@ -153,7 +153,7 @@ To project data, simply run a SELECT statement over Parquet file that contains c
 	[AS alias]
 ```
 
-Check [Projecting nested and/or repeated data](querying-parquet-nested-types.md#projecting-nested-andor-repeated-data) in samples section for queries.
+Check [Projecting nested and/or repeated data](query-parquet-nested-types.md#projecting-nested-andor-repeated-data) in samples section for queries.
 
 #### Accessing elements from nested columns
 
@@ -178,7 +178,7 @@ By default, OPENROWSET function matches source field name and path with column n
 - If the property can't be found at the specified column_name, the function returns an error.
 - If the property can't be found at the specified column_path depending on [Path mode](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017#PATHMODE), the function returns an error (in strict mode) or null (in lax mode)
 
-Check [Accessing elements from nested columns](querying-parquet-nested-types.md#accessing-elements-from-nested-columns) in samples section for queries.
+Check [Accessing elements from nested columns](query-parquet-nested-types.md#accessing-elements-from-nested-columns) in samples section for queries.
 
 #### Accessing elements from repeated columns
 
@@ -205,7 +205,7 @@ See syntax fragment below:
 	[AS alias]
 ```
 
-Check [Accessing elements from repeated columns](querying-parquet-nested-types.md#accessing-elements-from-repeated-columns) in samples section for queries.
+Check [Accessing elements from repeated columns](query-parquet-nested-types.md#accessing-elements-from-repeated-columns) in samples section for queries.
 
 ## Next steps
 
@@ -223,4 +223,4 @@ Now you are ready to start with following quickstart articles:
 
 6. [Querying JSON files](query-json-files.md)
 
-7. [Querying Parquet nested types](querying-parquet-nested-types.md)
+7. [Querying Parquet nested types](query-parquet-nested-types.md)

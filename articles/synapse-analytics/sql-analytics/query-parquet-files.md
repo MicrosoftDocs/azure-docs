@@ -131,8 +131,8 @@ ORDER BY
 
 ## Next steps
 
-You can see more in [Querying Parquet nested types](querying-parquet-nested-types.md).
+You can see more in [Querying Parquet nested types](query-parquet-nested-types.md).
 
 Advance to the next article to learn how to query parquet nested types.
 > [!div class="nextstepaction"]
-> [Querying Parquet nested types](querying-parquet-nested-types.md)
+> [Querying Parquet nested types](query-parquet-nested-types.md)

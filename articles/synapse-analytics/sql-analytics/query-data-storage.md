@@ -190,7 +190,7 @@ Now you are ready to start with following quickstart articles:
 
 - [Querying Parquet files](query-parquet-files.md)
 
-- [Querying Parquet nested types](querying-parquet-nested-types.md)
+- [Querying Parquet nested types](query-parquet-nested-types.md)
 
 - [Querying JSON files](query-json-files.md)
 
