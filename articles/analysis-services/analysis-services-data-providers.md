@@ -12,7 +12,7 @@ ms.reviewer: minewiskan
 
 # Client libraries for connecting to Azure Analysis Services
 
-Client libraries are necessary for client applications and tools to connect to Analysis Services servers. Microsoft client applications like Power BI Desktop, Excel, SQL Server Management Studio (SSMS), and SQL Server Data Tools (SSDT) install all three client libraries and update them along with regular application updates. In some cases, you may need to install newer versions of the client libraries. Custom client applications also require client libraries are installed.
+Client libraries are necessary for client applications and tools to connect to Analysis Services servers. Microsoft client applications like Power BI Desktop, Excel, SQL Server Management Studio (SSMS), and Analysis Services projects extension for Visual Studio install all three client libraries and update them along with regular application updates. In some cases, you may need to install newer versions of the client libraries. Custom client applications also require client libraries are installed.
 
 ## Download the latest client libraries (Windows Installer)  
 
@@ -54,7 +54,7 @@ Client libraries for client connections are different from data providers requir
 
 ### AMO  
 
- AMO is a managed client library used for server administration and data definition. It's installed and used by tools and client applications. For example, SQL Server Management Studio (SSMS) uses AMO to connect to Analysis Services. A connection using AMO is typically minimal, consisting of `"data source=\<servername>"`. After a connection is established, you use the API to work with database collections and major objects. Both SSDT and SSMS use AMO to connect to an Analysis Services instance.  
+ AMO is a managed client library used for server administration and data definition. It's installed and used by tools and client applications. For example, SQL Server Management Studio (SSMS) uses AMO to connect to Analysis Services. A connection using AMO is typically minimal, consisting of `"data source=\<servername>"`. After a connection is established, you use the API to work with database collections and major objects. Both Visual Studio and SSMS use AMO to connect to an Analysis Services instance.  
 
   
 ### ADOMD

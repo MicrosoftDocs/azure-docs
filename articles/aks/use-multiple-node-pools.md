@@ -10,84 +10,38 @@ ms.date: 08/9/2019
 ms.author: mlearned
 ---
 
-# Preview - Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
+# Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 
 In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) are defined when you create an AKS cluster, which creates a *default node pool*. To support applications that have different compute or storage demands, you can create additional node pools. For example, use these additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
 
 > [!NOTE]
 > This feature enables higher control over how to create and manage multiple node pools. As a result, separate commands are required for  create/update/delete. Previously cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only option to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and require use of the `az aks nodepool` command set to execute operations on an individual node pool.
 
-This article shows you how to create and manage multiple node pools in an AKS cluster. This feature is currently in preview.
-
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
+This article shows you how to create and manage multiple node pools in an AKS cluster.
 
 ## Before you begin
 
-You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-### Install aks-preview CLI extension
-
-To use multiple node pools, you need the *aks-preview* CLI extension version 0.4.16 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register multiple node pool feature provider
-
-To create an AKS cluster that can use multiple node pools, first enable a feature flag on your subscription. Register the *MultiAgentpoolPreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
-
-> [!CAUTION]
-> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
-
-```azurecli-interactive
-az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-```
-
-> [!NOTE]
-> Any AKS cluster you create after you've successfully registered the *MultiAgentpoolPreview* use this preview cluster experience. To continue to create regular, fully-supported clusters, don't enable preview features on production subscriptions. Use a separate test or development Azure subscription for testing preview features.
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+You need the Azure CLI version 2.0.76 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Limitations
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
-* Multiple node pools are only available for clusters created after you've successfully registered the *MultiAgentpoolPreview* feature for your subscription. You can't add or manage node pools with an existing AKS cluster created before this feature was successfully registered.
 * You can't delete the default (first) node pool.
 * The HTTP application routing add-on can't be used.
 * You can't add or delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
 * The name of a node pool must start with a lowercase letter and can only contain alphanumeric characters. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
-
-While this feature is in preview, the following additional limitations apply:
-
 * The AKS cluster can have a maximum of eight node pools.
 * The AKS cluster can have a maximum of 400 nodes across those eight node pools.
 * All node pools must reside in the same subnet.
+* The AKS cluster must use virtual machine scale sets for the nodes.
 
 ## Create an AKS cluster
 
 To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.10* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
 
-It is highly recommended to use the Standard SKU load balancer when utilizing multiple node pools. Read [this document](load-balancer-standard.md) to learn more about using Standard Load Balancers with AKS.
+> [!NOTE]
+> The *Basic* load balanacer SKU is not supported when using multiple node pools. By default, AKS clusters are created with the *Standard* loadbalacer SKU.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -240,20 +194,20 @@ As a best practice, you should upgrade all node pools in an AKS cluster to the s
 
 An AKS cluster has two cluster resource objects with Kubernetes versions associated. The first is a control plane Kubernetes version. The second is an agent pool with a Kubernetes version. A control plane maps to one or many node pools. The behavior of an upgrade operation depends on which Azure CLI command is used.
 
-1. Upgrading the control plane requires using `az aks upgrade`
+* Upgrading the control plane requires using `az aks upgrade`
    * This upgrades the control plane version and all node pools in the cluster
-   * By passing `az aks upgrade` with the `--control-plane-only` flag only the cluster control plane gets upgraded and none of the associated node pools are changed. The `--control-plane-only` flag is available in **AKS-preview extension v0.4.16** or higher.
-1. Upgrading individual node pools requires using `az aks nodepool upgrade`
+   * By passing `az aks upgrade` with the `--control-plane-only` flag only the cluster control plane gets upgraded and none of the associated node pools are changed.
+* Upgrading individual node pools requires using `az aks nodepool upgrade`
    * This upgrades only the target node pool with the specified Kubernetes version
 
 The relationship between Kubernetes versions held by node pools must also follow a set of rules.
 
-1. You cannot downgrade the control plane nor a node pool Kubernetes version.
-1. If a node pool Kubernetes version is not specified, behavior depends on the client being used. For declaration in ARM template the existing version defined for the node pool is used, if none is set the control plane version is used.
-1. You can either upgrade or scale a control plane or node pool at a given time, you cannot submit both operations simultaneously.
-1. A node pool Kubernetes version must be the same major version as the control plane.
-1. A node pool Kubernetes version can be at most two (2) minor versions less than the control plane, never greater.
-1. A node pool can be any Kubernetes patch version less than or equal to the control  plane, never greater.
+* You cannot downgrade the control plane nor a node pool Kubernetes version.
+* If a node pool Kubernetes version is not specified, behavior depends on the client being used. For declaration in Resource Manager template the existing version defined for the node pool is used, if none is set the control plane version is used.
+* You can either upgrade or scale a control plane or node pool at a given time, you cannot submit both operations simultaneously.
+* A node pool Kubernetes version must be the same major version as the control plane.
+* A node pool Kubernetes version can be at most two (2) minor versions less than the control plane, never greater.
+* A node pool can be any Kubernetes patch version less than or equal to the control plane, never greater.
 
 ## Scale a node pool manually
 
@@ -309,7 +263,7 @@ It takes a few minutes for the scale operation to complete.
 
 ## Scale a specific node pool automatically by enabling the cluster autoscaler
 
-AKS offers a separate feature in preview to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). This feature is an AKS add-on that can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
+AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). This feature can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
 ## Delete a node pool
 
@@ -633,11 +587,6 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
-[azure-cli-install]: /cli/azure/install-azure-cli
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
@@ -655,7 +604,3 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
-[aks-support-policies]: support-policies.md
-[aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update

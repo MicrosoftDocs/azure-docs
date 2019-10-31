@@ -8,6 +8,8 @@
   items:
   - name: Create a site-to-site connection
     href: virtual-wan-site-to-site-portal.md
+  - name: Create point-to-site connections
+    href: virtual-wan-point-to-site-portal.md
   - name: Create an ExpressRoute connection
     href: virtual-wan-expressroute-portal.md
 - name: Concepts
@@ -24,13 +26,27 @@
       href: virtual-wan-office365-overview.md
 - name: How-to guides
   items:
+  - name: Upgrade a virtual WAN SKU
+    href: upgrade-virtual-wan.md
+  - name: Migrate to virtual WAN
+    href: migrate-from-hub-spoke-topology.md
+  - name: Create a VPN connection over ExpressRoute private peering
+    href: vpn-over-expressroute.md
+  - name: Connect a virtual network gateway to Virtual WAN
+    href: connect-virtual-network-gateway-vwan.md
+  - name: Configure custom IPsec policy
+    href: virtual-wan-custom-ipsec-portal.md
+  - name: Configure certificates for user VPN
+    href: certificates-point-to-site.md
   - name: Route traffic from a virtual hub to an NVA
     items:
       - name: Azure portal
         href: virtual-wan-route-table-portal.md
       - name: Azure PowerShell
         href: virtual-wan-route-table.md
-  - name: Virtual WAN partners - automation
+  - name: View virtual hub effective routes
+    href: effective-routes-virtual-hub.md
+  - name: Automation for Virtual WAN partners
     href: virtual-wan-configure-automation-providers.md
 - name: Reference
   items:
