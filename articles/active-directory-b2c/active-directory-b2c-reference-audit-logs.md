@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -85,8 +85,7 @@ Audit logs are published to the same pipeline as other activities for Azure Acti
 
 To allow script- or application-based access to the Azure AD reporting API, you need an Azure Active Directory application registered in your Azure AD B2C tenant with the following API permissions:
 
-* Microsoft Graph
-  * Application: Read all audit log data
+* Microsoft Graph > Application permissions > AuditLog.Read.All
 
 You can enable these permissions on an existing Azure Active Directory application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
 
@@ -98,6 +97,8 @@ Follow these steps register an application, grant it the required Microsoft Grap
 
 ### Assign API access permissions
 
+#### [Applications](#tab/applications/)
+
 1. On the **Registered app** overview page, select **Settings**.
 1. Under **API ACCESS**, select **Required permissions**.
 1. Select **Add**, and then **Select an API**.
@@ -105,6 +106,22 @@ Follow these steps register an application, grant it the required Microsoft Grap
 1. Under **APPLICATION PERMISSIONS**, select **Read all audit log data**.
 1. Select the **Select** button, and then select **Done**.
 1. Select **Grant permissions**, and then select **Yes**.
+
+#### [App registrations (Preview)](#tab/app-reg-preview/)
+
+1. Under **Manage**, select **API permissions**.
+1. Under **Configured permissions**, select **Add a permission**.
+1. Select the **Microsoft APIs** tab.
+1. Select **Microsoft Graph**.
+1. Select **Application permissions**.
+1. Expand **AuditLog** and then select the **AuditLog.Read.All** check box.
+1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
+1. Select **Grant admin consent for (your tenant name)**.
+1. Select your currently signed-in account if it's been assigned the *Global Administrator* role, or sign in with an account in your Azure AD B2C tenant that's been assigned the *Global Administrator* role.
+1. Select **Accept**.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **STATUS** for the *AuditLog.Read.All* permission. It might take a few minutes for the permissions to propagate.
+
+* * *
 
 ### Create client secret
 
@@ -124,15 +141,15 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 The following PowerShell script shows an example of how to query the Azure AD reporting API. After querying the API, it prints the logged events to standard output, then writes the JSON output to a file.
 
-You can try this script in the [Azure Cloud Shell](../cloud-shell/overview.md). Be sure to update it with your application ID, key, and the name of your Azure AD B2C tenant.
+You can try this script in the [Azure Cloud Shell](../cloud-shell/overview.md). Be sure to update it with your application ID, client secret, and the name of your Azure AD B2C tenant.
 
 ```powershell
 # This script requires the registration of a Web Application in Azure Active Directory:
 # https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a GUID (registered by Global Admin)
-$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client secret/key
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI
