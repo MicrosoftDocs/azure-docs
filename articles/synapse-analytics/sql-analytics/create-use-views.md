@@ -62,7 +62,7 @@ WITH (
 
 You can use views in your queries the same way you use views in SQL Server queries. 
 
-Following query shows how you can use *population_csv* view we created in [Creating views](#creating-views). It returns country names with their population in 2019 in descending order.
+Following query shows how you can use *population_csv* view we created in [Create a view](#create-a-view). It returns country names with their population in 2019 in descending order.
 
 > [!NOTE]
 > Change the first line in query below to use database you created. If you did not create database, please check [First-time setup](query-data-storage.md#first-time-setup).

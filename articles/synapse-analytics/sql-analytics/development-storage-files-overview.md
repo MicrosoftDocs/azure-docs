@@ -20,7 +20,7 @@ For querying, following T-SQL aspects are supported:
 - Full [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=sql-server-2017) surface area, including majority of SQL functions, operators, etc.
 - [CETAS](development-tables-cetas.md) - CREATE EXTERNAL TABLE AS SELECT -  creates an [external table](development-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
-For more information on what is supported and what is not, check [SQL Analytics on-demand overview](on-demand.md) document, section related to [supported T-SQL](on-demand.md#is-full-t-sql-supported).
+For more information on what is supported and what is not, check [SQL Analytics on-demand overview](on-demand.md) document.
 
 By default, for queries ran by AAD users, storage accounts will be accessed using AAD pass-through. This means that user will be impersonated and permissions checked on storage level. You can [control storage access](development-storage-files-storage-access-control.md) to suit your needs.
 
