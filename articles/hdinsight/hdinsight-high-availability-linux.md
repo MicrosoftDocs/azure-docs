@@ -45,7 +45,7 @@ Nimbus nodes are available with Apache Storm clusters. The Nimbus nodes provide 
 
 Worker nodes perform the actual data analysis when a job is submitted to the cluster. If a worker node fails, the task that it was performing is submitted to another worker node. By default, HDInsight creates four worker nodes. You can change this number to suit your needs both during and after cluster creation.
 
-### Edge node
+### edge node
 
 An edge node doesn't actively participate in data analysis within the cluster. It's used by developers or data scientists when working with Hadoop. The edge node lives in the same Azure Virtual Network as the other nodes in the cluster, and can directly access all other nodes. The edge node can be used without taking resources away from critical Hadoop services or analysis jobs.
 
@@ -124,7 +124,7 @@ The following alerts help monitor the availability of a cluster:
 | Spark2 Thrift Server                     | This host-level alert is triggered if the Spark2 Thrift Server can't be determined to be up.                                                                                                |
 | History Server Process                   | This host-level alert is triggered if the History Server process can't be established to be up and listening on the network.                                                                |
 | History Server Web UI                    | This host-level alert is triggered if the History Server Web UI is unreachable.                                                                                                              |
-| ResourceManager Web UI                   | This host-level alert is triggered if the ResourceManager Web UI is unreachable.                                                                                                             |
+| `ResourceManager` Web UI                   | This host-level alert is triggered if the `ResourceManager` Web UI is unreachable.                                                                                                             |
 | NodeManager Health Summary               | This service-level alert is triggered if there are unhealthy NodeManagers                                                                                                                    |
 | App Timeline Web UI                      | This host-level alert is triggered if the App Timeline Server Web UI is unreachable.                                                                                                         |
 | DataNode Health Summary                  | This service-level alert is triggered if there are unhealthy DataNodes                                                                                                                       |
@@ -134,7 +134,7 @@ The following alerts help monitor the availability of a cluster:
 | Oozie Server Status                      | This host-level alert is triggered if the Oozie server can't be determined to be up and responding to client requests.                                                                      |
 | Hive Metastore Process                   | This host-level alert is triggered if the Hive Metastore process can't be determined to be up and listening on the network.                                                                 |
 | HiveServer2 Process                      | This host-level alert is triggered if the HiveServer can't be determined to be up and responding to client requests.                                                                        |
-| WebHCat Server Status                    | This host-level alert is triggered if the templeton server status isn't healthy.                                                                                                            |
+| WebHCat Server Status                    | This host-level alert is triggered if the `templeton` server status isn't healthy.                                                                                                            |
 | Percent ZooKeeper Servers Available      | This alert is triggered if the number of down ZooKeeper servers in the cluster is greater than the configured critical threshold. It aggregates the results of ZooKeeper process checks.     |
 | Spark2 Livy Server                       | This host-level alert is triggered if the Livy2 Server can't be determined to be up.                                                                                                        |
 | Spark2 History Server                    | This host-level alert is triggered if the Spark2 History Server can't be determined to be up.                                                                                               |
@@ -267,7 +267,7 @@ When creating a cluster, you can specify the size of the nodes. The following in
 
     ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
 
-* **Azure CLI**: When using the [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headnode-size`, `--workernode-size`, and `--zookeepernode-size` parameters.
+* **Azure CLI**: When using the [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headnode-size`, `--workernode-size`, and `--zookeepernode-size` parameters.
 
 * **Azure PowerShell**: When using the [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet, you can set the size of the head, worker, and ZooKeeper nodes by using the `-HeadNodeSize`, `-WorkerNodeSize`, and `-ZookeeperNodeSize` parameters.
 
