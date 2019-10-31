@@ -1,3 +1,19 @@
+---
+title: Troubleshoot virtual machine deployment due to detached disks | Microsoft Docs
+description: Troubleshoot virtual machine deployment due to detached disks
+services: virtual-machines-windows
+documentationCenter: ''
+author: v-miegge
+manager: dcscontentpm
+editor: ''
+ms.service: virtual-machines-windows
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 10/31/2018
+ms.author: vaaga
+---
+
 # Troubleshoot virtual machine deployment due to detached disks
 
 ## Error “Cannot attach data disk < GUID > to virtual machine because the disk is currently being detached”
