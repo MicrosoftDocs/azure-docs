@@ -148,7 +148,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new tab in your browser, and sign in to your Netskope Administrator Console company site as an administrator.
 
-1. Click on the **Settings** tab from the left naviation pane.
+1. Click on the **Settings** tab from the left navigation pane.
 
     ![Netskope Administrator Console Configuration](./media/netskope-cloud-security-tutorial/config-settings.png)
 
@@ -166,7 +166,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. Copy **Assertion Consumer Service URL** value and paste it into the **Reply URL** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
-    b. Copy **Service Provider Entity Id** value and paste it into the **Identifier** textbox in the **Basic SAML Configuration** section in the Azure portal.
+    b. Copy **Service Provider Entity ID** value and paste it into the **Identifier** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click on the **EDIT SETTINGS** under the **SSO/SLO Settings** section.
 
@@ -194,7 +194,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new tab in your browser, and sign in to your Netskope Administrator Console company site as an administrator.
 
-1. Click on the **Settings** tab from the left naviation pane.
+1. Click on the **Settings** tab from the left navigation pane.
 
     ![Netskope Administrator Console User Creation](./media/netskope-cloud-security-tutorial/config-settings.png)
 
