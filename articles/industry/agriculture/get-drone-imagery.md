@@ -18,7 +18,7 @@ ms.author: v-umha
 
 ## Before you begin
 
-  - Make sure you have deployed Azure FarmBeats. To deploy, please visit *Deploy FarmBeats*
+  - Make sure you have deployed Azure FarmBeats. To deploy, visit [Deploy FarmBeats](prepare-for-deployment.md).
   - Deploy device/sensors from your device partner. Make sure you can access the data via your device partners’ solution.
 
 ## Enable drone imagery integration with FarmBeats   
@@ -30,22 +30,22 @@ ms.author: v-umha
     4. Client Secret  
 
 
-1. Download this script (add a link here. awaiting inputs from SMEs) and extract it in on your local drive. You will find two files inside this ZIP file.  
-2. Sign in to https://portal.azure.com/  and open CloudShell (This option is available on the top-right bar of the portal)   
+1. Download this [script](https://aka.ms/farmbeatspartnerscript) and extract it in on your local drive. You will find two files inside this ZIP file.  
+2. Sign in to [Azure portal](https://portal.azure.com/) and open Cloud Shell (This option is available on the top-right bar of the portal).   
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. Ensure the environment is set to “PowerShell”
+3. Ensure the environment is set to **PowerShell**
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/power-shell-new-1.png)
 
-4. Upload the two files that you downloaded (from step 1 above) in your CloudShell.  
+4. Upload the two files that you downloaded (from step 1 above) in your Cloud Shell.  
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory - *</home<username>*  
+5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory - </home/username/>  
 6. Run the script by using the following command:  
-  *<./generateCredentials.ps1>*  
+  <./generateCredentials.ps1>
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/power-shell-generate-credentials-1.png)
 
@@ -69,7 +69,7 @@ ms.author: v-umha
 
 ## Download drone imagery
 
-  If you click the drone Imagery section, a Popup opens, which show a high resolution image of the drone orthomosaic. Click **Download** option to download the different files associated with this particular scene.
+  If you click the drone Imagery section, a Popup opens, which show a high resolution image of the drone orthomosaic. Click **Download** to download the different files associated with this particular scene.
 
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
@@ -83,4 +83,4 @@ ms.author: v-umha
 
 ## Next steps
 
-Click [REST API](references-for-farmbeats.md#rest-api) to know more on REST API-based integration details
+For information on Rest API-based integration, see, [REST API](references-for-farmbeats.md#rest-api).
