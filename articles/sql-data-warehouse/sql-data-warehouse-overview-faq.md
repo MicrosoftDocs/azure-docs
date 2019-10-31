@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Warehouse Frequently Asked Questions | Microsoft Docs
-description: This article lists out frequently asked questions about Azure SQL Data Warehouse from customers and developers
+title: Azure Synapse Analytics (formerly SQL DW) Frequently Asked Questions | Microsoft Docs
+description: This article lists out frequently asked questions about Azure Synapse Analytics (formerly SQL DW) from customers and developers
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -12,15 +12,27 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# SQL Data Warehouse Frequently asked questions
+# Azure Synapse Analytics (formerly SQL DW) Frequently asked questions
 
 ## General
+
+Q. What is Azure Synapse Analytics?
+
+A. Azure Synapse is a limitless analytics service that brings together traditional data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources - at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+
+Q. What happened to Azure SQL Data Warehouse?
+
+A. Azure Synapse is Azure SQL Data Warehouse (SQL DW) evolved. We have taken the same industry leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production today with Azure Synapse and you will automatically benefit from the preview capabilities when they become generally available. Azure Synapse has four components, SQL Analytics is the component that includes data warehouses. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+
+Q. How do I get started with Azure Synapse Analytics?
+
+A. You can get started with an [Azure free account](https://azure.microsoft.com/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html). 
 
 Q. What does SQL DW offer for data security?
 
 A. SQL DW offers several solutions for protecting data such as TDE and auditing. For more information, see [Security].
 
-Q. Where can I find out what legal or business standards is SQL DW compliant with?
+Q. Where can I find out what legal or business standards SQL DW is compliant with?
 
 A. Visit the [Microsoft Compliance] page for various compliance offerings by product such as SOC and ISO. 
 First choose by Compliance title, then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure services are compliant.
@@ -29,7 +41,7 @@ Q. Can I connect PowerBI?
 
 A. Yes! Though PowerBI supports direct query with SQL DW, it’s not intended for large number of users or real-time data. For production use of PowerBI, we recommend using PowerBI on top of Azure Analysis Services or Analysis Service IaaS. 
 
-Q. What are SQL Data Warehouse Capacity Limits?
+Q. What are SQL Analytics Capacity Limits?
 
 A. See our current [capacity limits] page. 
 
@@ -45,7 +57,7 @@ A. If you have a feature request, submit it on our [UserVoice] page
 
 Q. How can I do x?
 
-A. For help in developing with SQL Data Warehouse, you can ask questions on our [Stack Overflow] page. 
+A. For help in developing with Azure Synapse Analytics, you can ask questions on our [Stack Overflow] page. 
 
 Q. How do I submit a support ticket?
 
@@ -53,24 +65,24 @@ A. [Support Tickets] can be filed through Azure portal.
 
 ## SQL language/feature support 
 
-Q. What datatypes does SQL Data Warehouse support?
+Q. What datatypes are supported?
 
-A. See SQL Data Warehouse [data types].
+A. See  [data types].
 
 Q. What table features do you support?
 
-A. While SQL Data Warehouse supports many features, some are not supported and are documented in [Unsupported Table Features].
+A. Many features are supported, the ones that are not supported and are documented in [Unsupported Table Features].
 
 ## Tooling and administration
 
 Q. Do you support Database projects in Visual Studio.
 
-A. We currently do not support Database projects in Visual Studio for SQL Data Warehouse. If you'd like to cast a vote to get this feature, visit our User Voice 
+A. We currently do not support Database projects in Visual Studio. If you'd like to cast a vote to get this feature, visit our User Voice 
 [Database projects feature request].
 
-Q. Does SQL Data Warehouse support REST APIs?
+Q. Does SQL Analytics support REST APIs?
 
-A. Yes. Most REST functionality that can be used with SQL Database is also available with SQL Data Warehouse. You can find API information within REST documentation pages or
+A. Yes. Most REST functionality that can be used with SQL Database is also available with SQL Analytics. You can find API information within REST documentation pages or
 [MSDN].
 
 
@@ -80,24 +92,24 @@ Q. What client drivers do you support?
 
 A. Driver support for DW can be found on the [Connection Strings] page
 
-Q: What file formats are supported by PolyBase with SQL Data Warehouse?
+Q: What file formats are supported by PolyBase?
 
 A: Orc, RC, Parquet, and flat delimited text
 
-Q: What can I connect to from SQL DW using PolyBase? 
+Q: What data sources can I connect to using PolyBase? 
 
 A: [Azure Data Lake Store] and [Azure Storage Blobs]
 
-Q: Is computation pushdown possible  when connecting to Azure Storage Blobs or ADLS? 
+Q: Is computation pushdown possible when connecting to Azure Storage Blobs or ADLS? 
 
-A: No, SQL DW PolyBase only interacts the storage components. 
+A: No, PolyBase only interacts with the storage components. 
 
 Q: Can I connect to HDI?
 
 A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, then you can load that data into SQL DW. However, you cannot generate pushdown computation to the HDI instance. 
 
 ## Next steps
-For more information on SQL Data Warehouse as a whole, see our [Overview] page.
+For more information on Azure Synapse Analytics as a whole, see our [Overview] page.
 
 
 <!-- Article references -->
