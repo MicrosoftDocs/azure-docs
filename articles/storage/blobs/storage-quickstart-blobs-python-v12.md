@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Azure Blob storage client library version 12 for Python"
+title: "Quickstart: Azure Blob storage library v12 - Python"
 description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: mhopkins-msft
 
@@ -10,11 +10,11 @@ ms.subservice: blobs
 ms.topic: quickstart
 ---
 
-# Quickstart: Azure Blob storage client library version 12 for Python
+# Quickstart: Azure Blob storage client library v12 for Python
 
-Get started with the Azure Blob Storage client library v12 for Python. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob storage client library v12 for Python. Azure Blob storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob Storage client library v12 for Python to:
+Use the Azure Blob storage client library to:
 
 * Create a container
 * Create a blob in Azure Storage
@@ -186,11 +186,11 @@ Create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azu
 Add this code to the end of the `try` block:
 
 ```python
-# Create a unique name for the container
-container_name = "quickstartblobs" + str(uuid.uuid4())
-
 # Create the BlobServiceClient object which will be used to create a container client
 blob_service_client = BlobServiceClient.from_connection_string(connect_str)
+
+# Create a unique name for the container
+container_name = "quickstart" + str(uuid.uuid4())
 
 # Create the container
 container_client = blob_service_client.create_container(container_name)
@@ -209,7 +209,7 @@ Add this code to the end of the `try` block:
 ```python
 # Create a file in local Documents directory to upload and download
 local_path = "./data"
-local_file_name = "QuickStart" + str(uuid.uuid4()) + ".txt"
+local_file_name = "quickstart" + str(uuid.uuid4()) + ".txt"
 upload_file_path = os.path.join(local_path, local_file_name)
 
 # Write text to the file
@@ -222,7 +222,7 @@ blob_client = blob_service_client.get_blob_client(container=container_name, blob
 
 print("\nUploading to Azure storage as blob:\n\t" + local_file_name)
 
-# Upload the created file, use local_file_name for the blob name
+# Upload the created file
 with open(upload_file_path, "rb") as data:
     blob_client.upload_blob(data)
 ```
@@ -244,7 +244,7 @@ for blob in blob_list:
 
 ### Download blobs
 
-Download the blob created previously by calling the [download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#download-blob-offset-none--length-none----kwargs-) method. The example code adds a suffix of "DOWNLOAD" to the file name so that you can see both files in local file system.
+Download the previously created blob by calling the [download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#download-blob-offset-none--length-none----kwargs-) method. The example code adds a suffix of "DOWNLOAD" to the file name so that you can see both files in local file system.
 
 Add this code to the end of the `try` block:
 

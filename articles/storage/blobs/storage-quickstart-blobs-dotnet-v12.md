@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Azure Blob storage client library version 12 for .NET"
+title: "Quickstart: Azure Blob storage library v12 - .NET"
 description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: mhopkins-msft
 
@@ -10,7 +10,7 @@ ms.subservice: blobs
 ms.topic: quickstart
 ---
 
-# Quickstart: Azure Blob storage client library version 12 for .NET
+# Quickstart: Azure Blob storage client library v12 for .NET
 
 Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
@@ -251,7 +251,7 @@ await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
 
 ### Download blobs
 
-Download the blob created previously by calling the [​Download​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) method. The example code adds a suffix of "DOWNLOADED" to the file name so that you can see both files in local file system.
+Download the previously created blob by calling the [​Download​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) method. The example code adds a suffix of "DOWNLOADED" to the file name so that you can see both files in local file system.
 
 Add this code to the end of the `Main` method:
 

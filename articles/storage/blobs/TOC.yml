@@ -45,11 +45,11 @@
             href: storage-quickstart-blobs-python.md
       - name: JavaScript
         items:
-          - name: Javascript (v12 for Node.js)
+          - name: JavaScript (v12 for Node.js)
             href: storage-quickstart-blobs-nodejs-v12.md
-          - name: Javascript (v10 for Node.js)
+          - name: JavaScript (v10 for Node.js)
             href: storage-quickstart-blobs-nodejs-v10.md
-          - name: Javascript (v10 for browser)
+          - name: JavaScript (v10 for browser)
             href: storage-quickstart-blobs-javascript-client-libraries-v10.md
       - name: Go
         href: storage-quickstart-blobs-go.md
@@ -400,9 +400,9 @@
         href: storage-xamarin-blob-storage.md
       - name: Prior SDK versions
         items:
-        - name: Javascript (Node.js) (Storage SDK v2)
+        - name: JavaScript (Node.js) (Storage SDK v2)
           href: storage-quickstart-blobs-nodejs.md
-        - name: Javascript (browser) (Storage SDK v2)
+        - name: JavaScript (browser) (Storage SDK v2)
           href: storage-quickstart-blobs-javascript-client-libraries.md
     - name: Manage blobs
       items:
