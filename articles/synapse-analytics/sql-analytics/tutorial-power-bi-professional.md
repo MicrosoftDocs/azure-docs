@@ -167,4 +167,3 @@ If you're not going to continue to use this report, delete resources with the fo
 Advance to the next article to learn how to query storage files using SQL Analytics.
 > [!div class="nextstepaction"]
 > [Query storage files](development-storage-files-overview.md)
--
