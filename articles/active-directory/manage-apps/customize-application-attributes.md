@@ -200,7 +200,7 @@ Use the steps below to provision roles for a user to your application. Note that
 ```
 
   - **Things to consider**
-    - All roles will be provisioned as primary = false
+    - All roles will be provisioned as primary = false.
     - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
   
 
