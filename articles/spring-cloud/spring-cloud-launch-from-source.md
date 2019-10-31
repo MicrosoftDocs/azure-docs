@@ -27,7 +27,7 @@ Following this quickstart, you will learn how to:
 ## Prerequisites
 
 >[!Note]
-> Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please [fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u).  While Azure Spring Cloud is in preview, Microsoft offers limited support without an SLA.  For more information about support during previews, please refer to this [Support FAQ](https://azure.microsoft.com/support/faq/).
+> > Azure Spring Cloud is currently offered as a public preview. While Azure Spring Cloud is in preview, Microsoft offers limited support without an SLA.  For more information about support during previews, please file a [Support request](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request)..
 
 Before you begin, ensure that your Azure subscription has the required dependencies:
 
