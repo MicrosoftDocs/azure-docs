@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/31/2019
 ---
 
 # Use one-click ingestion to ingest data into Azure Data Explorer
@@ -30,8 +30,8 @@ This article shows how to use one-click ingestion for quick ingestion of a new t
 
     * **Table**: Select existing table name from drop-down or select **Create new** to make a new table.
 	* Select **Ingestion type** > **from storage** or **from file**.
-	    * If you selected **from storage**, enter **Link to storage** Add url to storage. Use [Blob SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for private storage accounts. 
-        * If you selected **from file**, select **Browse** and drag file into the box.
+	    * If you selected **from storage**, enter **Link to storage** to add the url to storage. Use [Blob SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for private storage accounts. 
+        * If you selected **from file**, select **Browse** and drag the file into the box.
     * Select **Edit schema** to view and edit your table column configuration.
  
     ![one click ingestion source details](media/ingest-data-one-click/one-click-ingestion-source.png) 
@@ -49,8 +49,8 @@ This article shows how to use one-click ingestion for quick ingestion of a new t
 
     * Select **Compression type** from drop-down > **Uncompressed** or **GZip**.
     * Select **Data format** from drop-down > **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE**, or **PSV**. 
-        * When select **JSON** format, select **JSON levels**: 1-10. The levels affect the table column data depiction. 
-        * If select format other than JSON: select checkbox **Include column names** to ignore heading row of file.    
+        * When you select **JSON** format, select **JSON levels**: 1-10. The levels affect the table column data depiction. 
+        * If you select a format other than JSON: select checkbox **Include column names** to ignore heading row of file.    
     * **Mapping name** is set automatically but can be edited.
     * If you selected an existing table, you can select **Map columns** button to open the **Map columns** window.
 
