@@ -50,6 +50,7 @@ There are two steps prior to using samples:
 
 Create your own database. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
 
+> [!NOTE]
 > Note that databases are used only for view metadata, not for actual data.
 > 
 > Write down database name you use. you will need it later on.
@@ -66,6 +67,7 @@ We need to create credential before you can run queries. This credential will be
 
 For more information on how to manage storage access control check this [link](development-storage-files-storage-access-control.md).
 
+> [!NOTE]
 > Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
 
 **Code snippet on how to create credentials for CSV, JSON and Parquet containers**, run:
@@ -133,6 +135,7 @@ Demo data contains following data sets:
 
 Execute following three queries and check if credentials are created correctly.
 
+> [!NOTE]
 > Note that all URIs in sample queries are using storage account located in North Europe Azure region. 
 > 
 > Make sure that you created appropriate credential. Run this query and make sure storage account is listed:
@@ -179,19 +182,19 @@ Query above should return number: **8945574**.
 
 Now you are ready to start with following quickstart articles:
 
-1. [Querying single CSV file](querying-single-csv-file.md)
+- [Querying single CSV file](querying-single-csv-file.md)
 
-2. [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md)
+- [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md)
 
-3. [Querying specific files](querying-specific-files.md)
+- [Querying specific files](querying-specific-files.md)
 
-4. [Querying Parquet files](querying-parquet-files.md)
+- [Querying Parquet files](querying-parquet-files.md)
 
-5. [Querying Parquet nested types](querying-parquet-nested-types.md)
+- [Querying Parquet nested types](querying-parquet-nested-types.md)
 
-6. [Querying JSON files](querying-json-files.md)
+- [Querying JSON files](querying-json-files.md)
 
-7. [Creating and using views](create-use-views.md)
+- [Creating and using views](create-use-views.md)
 
 
 Advance to the next article to learn how to query single CSV file.
