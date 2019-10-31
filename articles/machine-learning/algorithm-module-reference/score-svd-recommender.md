@@ -47,7 +47,7 @@ When you predict ratings, the model calculates how a user will react to a partic
 
    For the model to predict ratings, the input dataset must contain user-item pairs.
 
-   The dataset can contain an optional third column of ratings for the user-item pair in the first and second columns, but the third column will be ignored during prediction.
+   The dataset can contain an optional third column of ratings for the user-item pair in the first and second columns. But the third column will be ignored during prediction.
 
 4. Run the pipeline.
 
@@ -55,7 +55,7 @@ When you predict ratings, the model calculates how a user will react to a partic
 
 The output dataset contains three columns: users, items, and the predicted rating for each input user and item.
 
-###  Recommendation 
+###  Recommendations for users 
 
 To recommend items for users, you provide a list of users and items as input. From this data, the model uses its knowledge about existing items and users to generate a list of items with probable appeal to each user. You can customize the number of recommendations returned. And you can set a threshold for the number of previous recommendations that are required to generate a recommendation.
 
@@ -77,19 +77,19 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
       The dataset can include an extra two columns of item identifiers and ratings, but these two columns are ignored. 
 
-    - For **From Rated Items (for model evaluation)**, the input dataset should consist of **user-item pairs**. The first column should contain the **user** identifier. The second column should contain the corresponding **item** identifiers.
+    - For **From Rated Items (for model evaluation)**, the input dataset should consist of user-item pairs. The first column should contain the user identifier. The second column should contain the corresponding item identifiers.
 
       The dataset can include a third column of user-item ratings, but this column is ignored.
 
-    - For **From Unrated Items (to suggest new items to users)**, the input dataset should consist of **user-item pairs**. The first column should contain the **user** identifier. The second column should contain the corresponding **item** identifiers.
+    - For **From Unrated Items (to suggest new items to users)**, the input dataset should consist of user-item pairs. The first column should contain the user identifier. The second column should contain the corresponding item identifiers.
 
-      The dataset can include a third column of user-item ratings, but this column is ignored.
+     The dataset can include a third column of user-item ratings, but this column is ignored.
 
-5. **Maximum number of items to recommend to a user**: Enter the number of items to return for each user. By default, five items are recommended.
+5. **Maximum number of items to recommend to a user**: Enter the number of items to return for each user. By default, the module recommends five items.
 
-6. **Minimum size of the recommendation pool per user**: Enter a value that indicates how many prior recommendations are required. By default, this parameter is set to 2, meaning the item must have been recommended by at least two other users.
+6. **Minimum size of the recommendation pool per user**: Enter a value that indicates how many prior recommendations are required. By default, this parameter is set to **2**, meaning at least two other users have recommended the item.
 
-    This option should be used only if you are scoring in evaluation mode. The option is not available if you select **From All Items** or **From Unrated Items (to suggest new items to users)**.
+   Use this option only if you're scoring in evaluation mode. The option is not available if you select **From All Items** or **From Unrated Items (to suggest new items to users)**.
 
 7.  For **From Unrated Items (to suggest new items to users)**, use the third input port, named **Training Data**, to remove items that have already been rated from the prediction results.
 
@@ -99,24 +99,24 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
 ### Results of item recommendation
 
-The scored dataset returned by **Score SVD Recommender** lists the recommended items for each user:
+The scored dataset returned by Score SVD Recommender lists the recommended items for each user:
 
 - The first column contains the user identifiers.
-- A number of additional columns are generated, depending on the value you set for **Maximum number of items to recommend to a user**. Each column contains a recommended item (by identifier). The recommendations are ordered by user-item affinity, with the item with highest affinity put in column, **Item 1**.
+- A number of additional columns are generated, depending on the value that you set for **Maximum number of items to recommend to a user**. Each column contains a recommended item (by identifier). The recommendations are ordered by user-item affinity. The item with highest affinity is put in column **Item 1**.
 
 > [!WARNING]
-> This scored dataset can't be evaluated through the [Evaluate Recommender](evaluate-recommender.md) module.
+> You can't evaluate this scored dataset by using the [Evaluate Recommender](evaluate-recommender.md) module.
 
 
 ##  Technical notes
 
-If you have a pipeline with the SVD recommender, and move the model to production, be aware that there are key differences when using the recommender in evaluation mode and in production mode.
+If you have a pipeline with the SVD recommender, and you move the model to production, be aware that there are key differences between using the recommender in evaluation mode and using it in production mode.
 
-Evaluation, by definition, requires predictions that can be verified against the *ground truth* in a test set. Therefore, when you evaluate the recommender, it must predict only items that have been rated in the test set. This necessarily restricts the possible values that are predicted.
+Evaluation, by definition, requires predictions that can be verified against the *ground truth* in a test set. When you evaluate the recommender, it must predict only items that have been rated in the test set. This restricts the possible values that are predicted.
 
-However, when you operationalize the model, you typically change the prediction mode to make recommendations based on all possible items, in order to get the best predictions. For many of these predictions, there is no corresponding ground truth, so the accuracy of the recommendation cannot be verified in the same way as during pipelineation.
+When you operationalize the model, you typically change the prediction mode to make recommendations based on all possible items, in order to get the best predictions. For many of these predictions, there's no corresponding ground truth. So the accuracy of the recommendation can't be verified in the same way as during pipeline operations.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
