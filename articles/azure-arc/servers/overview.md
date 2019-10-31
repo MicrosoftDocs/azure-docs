@@ -1,32 +1,32 @@
 ---
-title: Azure Arc for Servers Overview
-description: Learn how to use Azure Arc for Servers to automate the lifecycle of infrastructure and applications.
+title: Azure Arc for servers Overview
+description: Learn how to use Azure Arc for servers to automate the lifecycle of infrastructure and applications.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: bobbytreed
 ms.author: robreed
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 08/25/2019
+ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
 ---
 
-# What is Azure Arc for Servers
+# What is Azure Arc for servers
 
-Azure Arc for Servers allows you to manage machines which are outside of Azure.
+Azure Arc for servers allows you to manage machines which are outside of Azure.
 When a non-Azure machine is connected to Azure, it becomes a **Connected Machine** and is treated as a resource in Azure. Each **Connected Machine**
 has a Resource ID, is managed as part of a Resource Group inside a subscription, and benefits from standard Azure constructs such as Azure Policy and tagging.
 
 An agent package needs to be installed on each machine to connect it to Azure. The rest of this document explains the process in more detail.
 
-Machines will have a status of **Connected** or **Disconnected** based on how recently the agent has checked in. Each check-in is called a heartbeat. If a machine has not checked-in within the past 5 minutes, it will show as offline until connectivity is restored.  <!-- For more information on troubleshooting agent connectivity, see [Troubleshooting Azure Arc for Servers](troubleshoot/arc-for-servers.md). -->
+Machines will have a status of **Connected** or **Disconnected** based on how recently the agent has checked in. Each check-in is called a heartbeat. If a machine has not checked-in within the past 5 minutes, it will show as offline until connectivity is restored.  <!-- For more information on troubleshooting agent connectivity, see [Troubleshooting Azure Arc for servers](troubleshoot/arc-for-servers.md). -->
 
-![Connected Servers](./media/overview/arc-for-servers-onboarded-servers.png)
+![Connected servers](./media/overview/arc-for-servers-onboarded-servers.png)
 
 ## Clients
 
-### Supported Client Operating Systems
+### Supported Operating Systems
 
 In Public Preview, we support:
 
@@ -63,7 +63,7 @@ These DNS Names are provided in addition to the Service Tag IP range information
 
 ### Installation Network Requirements
 
-Download the **Azure Connected Machine Agent package** from our official distribution servers the below sites must be accessible from your environment. You may choose to download the package to a file share and have the agent installed from there. In this case, the onboarding script generated from the Azure portal may need to be modified.
+Download the [Azure Connected Machine Agent package](https://aka.ms/AzureConnectedMachineAgent) from our official distribution servers the below sites must be accessible from your environment. You may choose to download the package to a file share and have the agent installed from there. In this case, the onboarding script generated from the Azure portal may need to be modified.
 
 Windows:
 
@@ -111,14 +111,32 @@ After you register a node you can start managing your nodes using other Azure se
 
 In Public Preview, the following scenarios are supported for **Connected Machines**.
 
-* [Guest Configuration](../../governance/policy/concepts/guest-configuration.md)
-* [Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+## Guest Configuration
 
-<!-- MMA agent version 10.20.18011 and later --> 
+After connect the machine to Azure, you can assign Azure policies to **Connected Machines** using the same experience as policy assignment to Azure virtual machines.
+
+For more information, see [Understand Azure Policy's Guest Configuration](../../governance/policy/concepts/guest-configuration.md).
+
+The Guest Configuration Agent logs for a **Connected Machine** are in the following locations:
+
+* Windows - `%ProgramFiles%\AzureConnectedMachineAgent\logs\dsc.log`
+* Linux: - `/opt/logs/dsc.log`
+
+## Log Analytics
+
+Log data collected by the [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) and stored in Log Analytics workspace will now contain properties specific to the machine such as **ResourceId**, which can be used for the Resource centric log access.
+
+- Machines that already have the MMA agent installed, will have **Azure Arc** functionality enabled via updated Management Packs.
+- [MMA agent version 10.20.18011 or above](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version) is required for Azure Arc for servers integration.
+- When querying for log data in [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#log-queries), the returned data schema will contain the Hybrid **ResourceId** in the form `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
+
+For more information, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+
+<!-- MMA agent version 10.20.18011 and later -->
 
 ## Next Steps
 
-There are two methods to connect machines using Azure Arc for Servers.
+There are two methods to connect machines using Azure Arc for servers.
 
 * **Interactively** - Follow the [Portal Quickstart](quickstart-onboard-portal.md) to generate a script from the portal and execute it on the machine. This is the best option if you are connecting one machine at a time.
 * **At Scale** - Follow the [PowerShell Quickstart](quickstart-onboard-powershell.md) to create a Service Principal to connect machines non-interactively.
