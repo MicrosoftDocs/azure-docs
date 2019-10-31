@@ -51,9 +51,9 @@ By default, Time Series Insights Preview supports an initial ingress scale of up
 
 Please refer to the following links for more information on throughput units and partitions:
 
-IoT Hub Scale: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling
-Event Hub Scale:  https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-scalability#throughput-units
-IoT Hub/Event Hub Partitions: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#partitions
+IoT Hub Scale: https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling  
+Event Hub Scale:  https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units  
+IoT Hub/Event Hub Partitions: https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions
 
 ### Data storage
 
