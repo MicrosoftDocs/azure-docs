@@ -119,6 +119,19 @@ To switch to another classroom lab from the current, select the drop-down list o
 
 You can also create a new lab using the **New lab** in this drop-down list. 
 
+## Az.LabServices module (preview)
+Az.LabServices is a PowerShell module that simplifies the management of Azure Lab services. It provides composable functions to create, query, update and delete lab accounts, labs, VMs, and Images.
+
+Here is an example that showcases using the library to stop all the running VMs in all labs.
+
+```powershell
+Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
+```
+
+For more information, see the following articles:
+
+- [Tutorial](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/HowTo.md).
+- [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library). 
 
 ## Next steps
 See the following articles:

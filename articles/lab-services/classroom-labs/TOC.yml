@@ -80,6 +80,8 @@
   items:
   - name: REST API
     href: https://docs.microsoft.com/rest/api/labservices/
+  - name: Az.LabServices PowerShell module (preview)
+    href: https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library
 - name: Resources
   items:
   - name: Azure updates

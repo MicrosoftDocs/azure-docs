@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 10/31/2019
 ms.author: spelluru
 
 ---
@@ -92,6 +92,19 @@ Follow instructions from the previous section that displays lab accounts in a li
 
     ![Delete lab account - confirmation](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
+## Az.LabServices module (preview)
+Az.LabServices is a PowerShell module that simplifies the management of Azure Lab services. It provides composable functions to create, query, update and delete lab accounts, labs, VMs, and Images.
+
+Here is an example that showcases using the library to stop all the running VMs in all labs.
+
+```powershell
+Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
+```
+
+For more information, see the following articles:
+
+- [Tutorial](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/HowTo.md).
+- [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library). 
 
 ## Next steps
 See the following article: [How to configure lab accounts](how-to-configure-lab-accounts.md).
