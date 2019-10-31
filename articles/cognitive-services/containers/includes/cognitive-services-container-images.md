@@ -37,3 +37,4 @@ The Container Preview registry hosts all of the publicly available "gated" conta
 | [Form recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
 | [Speech Service API](../../speech-service/speech-container-howto.md) | Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
 | [Speech Service API](../../speech-service/speech-container-howto.md) | Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
+| [Translator Text](../../translator/how-to-install-containers.md) | Translator Text | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` |

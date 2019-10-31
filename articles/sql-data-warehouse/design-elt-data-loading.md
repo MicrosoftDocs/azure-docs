@@ -118,7 +118,7 @@ To load data with PolyBase, you can use any of these loading options:
 - [PolyBase with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions. 
 - [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
 - [PolyBase with Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) is another orchestration tool.  It defines a pipeline and schedules jobs. 
-- [PolyBase with Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfers data from a SQL Data Warehouse table to a Databricks dataframe and/or writes data from a Databricks dataframe to a SQL Data Warehouse table using PolyBase.
+- [PolyBase with Azure Databricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfers data from a SQL Data Warehouse table to a Databricks dataframe and/or writes data from a Databricks dataframe to a SQL Data Warehouse table using PolyBase.
 
 ### Non-PolyBase loading options
 
