@@ -318,6 +318,8 @@
           href: app/opencensus-python.md
         - name: Dependencies 
           href: app/opencensus-python-dependency.md
+        - name: Requests 
+          href: app/opencensus-python-request.md
       - name: Web pages
         items:
         - name: Client-side JavaScript
