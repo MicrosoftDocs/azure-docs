@@ -239,12 +239,22 @@ Scenarios for using an access token include:
 
 ### Authentication using token
 
-Use a token name as a user name and one of its associated passwords to authenticate with the target registry. Token credentials can be used in the following authentication flows:
+Use a token name as a user name and one of its associated passwords to authenticate with the target registry. The authentication method depends on the configured actions.
 
-* Docker authentication using `docker login`
-* Container registry authentication using the [az acr login][az-acr-login] command in the Azure CLI
+### content/read or content/write
+
+If the token permits only `content/read` or `content/write` actions, provide token credentials in either of the following authentication flows:
+
+* Authenticate with Docker using `docker login`
+* Authenticate with the registry using the [az acr login][az-acr-login] command in the Azure CLI
 
 Following authentication, the token permits the configured actions on the scoped repository or repositories. For example, if the token permits the `content/read` action on a repository, `docker pull` operations are permitted on images in that repository.
+
+#### metadata/read, metadata/write, or content/delete
+
+If the token permits `metadata/read`, `metadata/write`, or `content/delete` actions on a repository, token credentials must be provided as parameters with the related [az acr repository][az-acr-repository] commands in the Azure CLI.
+
+For example, if `metadata/read` actions are permitted on a repository, pass the token credentials when running the [az acr repository show-tags][az-acr-repository-show-tags] command to list tags.
 
 ## Next steps
 
@@ -257,6 +267,8 @@ Following authentication, the token permits the configured actions on the scoped
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-repository]: /cli/azure/acr/repository/
+[az-acr-repository-show-tags]: /cli/azure/acr/repository/#az-acr-repository-show-tags
 [az-acr-scope-map]: /cli/azure/acr/scope-map/
 [az-acr-scope-map-create]: /cli/azure/acr/scope-map/#az-acr-scope-map-create
 [az-acr-scope-map-update]: /cli/azure/acr/scope-map/#az-acr-scope-map-update
