@@ -15,25 +15,41 @@ ms.author: jeconnoc
 
 # How to use persistent storage in Azure Spring Cloud
 
-Azure Spring Cloud provides two types of storage for your application:  persistent and temporary.  Azure Spring Cloud enables temporary storage by default for each application instance. Temporary storage is limited to 5GB and its default mount path is `/tmp`.
+Azure Spring Cloud provides two types of storage for your application:  persistent and temporary.  Azure Spring Cloud enables temporary storage by default for each application instance. Temporary storage is limited to 5GB with a default mount path: `/tmp`.
 
 > [!WARNING]
-> Restarting an application instance will delete its associated temporary storage permanently.
+> Restarting an application instance will permanently delete its associated temporary storage..
 
-Persistent storage is a file share container managed by Azure that is allocated on a per application scope. Data stored in persistent storage is shared across all of the application's instances. An Azure Spring Cloud service instance can have a maximum of 10 applications with persistent disk enabled and each application is given 50GB of persistent storage. The default mount path for persistent storage is `/persistent`.
-
-## Enable persistent storage using the Azure portal
-
-1. In your Azure Spring Cloud service page, select **Application Dashboard**, then select the application that requires persistent storage.
-1. In the **Overview** tab, locate the **Persistent Storage** attribute and select **Disabled**.
-1. Click **Enable** to enable persistent storage, and select **OK** button to apply the change.
-
-When persistent storage is enabled, its size and path are shown in the **Persistent Storage** attribute of the **Overview** page.
+Persistent storage is a file share container managed by Azure allocated per application. Data stored in persistent storage is shared across all of the application's instances. An Azure Spring Cloud service instance can have a maximum of 10 applications with persistent disk enabled. Each application receives 50GB of persistent storage. The default mount path for persistent storage is `/persistent`.
 
 > [!WARNING]
 > *Disabling* persistent storage will deallocate the storage for that application.  All data in that storage account will be lost. 
 
-## Enable persistent storage using the Azure CLI
+## Enable persistent storage using the Azure portal
+
+1. From the Home screen of your Azure portal, select **All Resources**.
+
+     >![Locate the All Resources icon](media/portal-all-resources.jpg)
+
+1. Find and select the Azure Spring Cloud resource that needs persistent storage.  In this example, the application is called *jpspring*.
+
+    > ![Locate your applicationb](media/select-service.jpg)
+
+1. Under the **Settings** heading, select **Apps**.
+
+1. Your Spring Cloud services will appear in table.  Select the service to which you want to add persistent storage.  In this example, we will select our **gateway** service.
+
+    > ![Select your service](media/select-gateway.jpg)
+
+1. From the service's configuration blade, select **Configuration**
+
+1. Select the **Persistent Storage** tab and enable persistent storage.
+
+    > ![Enable persistent storage](media/enable-persistent-storage.jpg)
+
+When persistent storage is enabled, its size and path are shown both on this page.
+
+## Use the Azure CLI to modify persistent storage
 
 Create an app with persistent disk enabled:
  
@@ -45,7 +61,7 @@ Enable persistent storage in an existing app:
 
 ```azurecli
 az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
-```
+``` 
 
 Disable persistent storage in an existing app:
 
