@@ -1579,6 +1579,8 @@
         href: insight4grc-provisioning-tutorial.md
       - name: iPass SmartConnect
         href: ipass-smartconnect-provisioning-tutorial.md
+      - name: iProva
+        href: iProva-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
