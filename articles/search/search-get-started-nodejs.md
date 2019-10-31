@@ -3,9 +3,9 @@ title: 'Quickstart: Create a search index in Node.js using REST APIs'
 titleSuffix: Azure Cognitive Search
 description: Node.js sample for Azure Cognitive Search, demonstrating how to create, load data into, and query from JavaScript.
 
-author: lobrien
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
