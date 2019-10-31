@@ -106,8 +106,8 @@ Applications must be represented by an app object in Azure Active Directory so t
 >             note that the leading "/" is required for android:path
 >         -->
 >         <data android:scheme="msauth"
->             android:host="Enter_the_Package_Name"
->             android:path="/Enter_the_Signature_Hash"
+>             android:host="Enter_the_Package_Name_here"
+>             android:path="Enter_the_Signature_Hash_here"
 >             android:scheme = "msauth" />
 >     </intent-filter>
 > </activity>
@@ -148,7 +148,6 @@ Applications must be represented by an app object in Azure Active Directory so t
 > 
 > > [!Note]
 > > KeyTool.exe is installed as part of the Java Development Kit (JDK). You must also install the OpenSSL tool to execute the KeyTool command.  You'll need keytool, and the OpenSSL\bin directory, in your path.
-> 
 > 1. Run the keytool command you copied from the portal in a terminal window.
 > 1. Enter the generated signature hash into the Portal under **Signature hash**.
 > 1. Click `Configure` and make a copy of the **MSAL Configuration**. You'll copy and paste this into a config file in the next step. Click **Done**.
