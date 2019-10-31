@@ -40,7 +40,7 @@
       href: sql-analytics/quickstart-sql-on-demand.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Tutorials
   items:
-  - name: BI Professional
+  - name: Power BI Professional
     href: sql-analytics/tutorial-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Data Scientist
     items:
@@ -268,7 +268,7 @@
       items:
     #  - name: What is SQL Analytics pool and SQL on demand
     #    href: 
-      - name: SQL Analytics on-demand 
+      - name: SQL Analytics on-demand
         href: sql-analytics/on-demand.md
       - name: SQL Analytics pool 
         href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -360,7 +360,7 @@
           href: sql-analytics/development-storage-files-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Storage Access Control
           href: sql-analytics/development-storage-files-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Spark Tables
+        - name: Spark tables
           href: sql-analytics/development-storage-files-spark-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Workload management
       items:
@@ -522,22 +522,22 @@
         items:
         - name: Overview
           href: sql-analytics/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Querying single CSV file
+        - name: Query single CSV file
           href: sql-analytics/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Querying folders and multiple CSV files
+        - name: Query folders and multiple CSV files
           href: sql-analytics/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Querying specific files
+        - name: Query specific files
           href: sql-analytics/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Querying Parquet files
+        - name: Query Parquet files
           href: sql-analytics/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Querying Parquet nested types
+        - name: Query Parquet nested types
           href: sql-analytics/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Querying JSON files
+        - name: Query JSON files
           href: sql-analytics/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Creating and using views
+        - name: Create and use views
           href: sql-analytics/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-#         - name: Querying Spark tables
-#           href: querying-spark-tables.md
+#         - name: Query Spark tables
+#           href: query-spark-tables.md
 #       - name: Best practices
 #         href: article-template.md
     - name: Spark
@@ -948,11 +948,11 @@
       items:
       - name: Overview
         href: sql-analytics/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Query with ADS
+      - name: Query with Azure Data Studio
         href: sql-analytics/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connection strings
         href: sql-analytics/connection-strings.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: sqlcmd
+      - name: Query with sqlcmd
         href: sql-analytics/get-started-connect-sqlcmd.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with SSMS
         href: sql-analytics/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
