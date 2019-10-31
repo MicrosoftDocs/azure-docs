@@ -385,8 +385,8 @@
     },
     {
       "path_to_root": "azure-cosmosdb-java-v4-getting-started",
-      "url": "https://github.com/kushagraThapar/azure-cosmos-java-getting-started/",
-      "branch": "code_region_update"
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
+      "branch": "master"
     }
   ],
   "branch_target_mapping": {
