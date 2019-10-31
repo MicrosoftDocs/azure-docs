@@ -81,7 +81,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
 ## Clone and build the sample application repository
 
-1. Launch the [Azure Cloudshell](https://shell.azure.com).
+1. Launch the [Azure Cloud Shell](https://shell.azure.com).
 
 1. Clone the Git repository by running the following command:
 
@@ -116,7 +116,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
         </pluginRepositories>
     ```
 
-1. Return to the [Azure Cloudshell](https://shell.azure.com) and generate a configuration by running the following command:
+1. Return to the [Azure Cloud Shell](https://shell.azure.com) and generate a configuration by running the following command:
 
     ```azurecli
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:config
