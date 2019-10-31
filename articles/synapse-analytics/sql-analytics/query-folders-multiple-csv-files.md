@@ -87,7 +87,8 @@ ORDER BY
 	YEAR(pickup_datetime) 
 ```
 
-> Please note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
+> [!NOTE]
+> Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
 
 
 
@@ -128,7 +129,8 @@ ORDER BY payment_type
 
 ```
 
-> Please note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
+> [!NOTE]
+> Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
 
  
 
@@ -141,7 +143,9 @@ Path that you provide to OPENROWSET can be path to folder also. Following sectio
 Although we can read all files in folder using file level wildcard as shown in [Read all files in folder](#read-all-files-in-folder), there is a way to query to folder and it will consume all files from particular folder. 
 
 If path provided in OPENROWSET points to folder, all files in that folder will be used as source for our query.  Following query will read all files in *csv/taxi* folder.
-> Please note existence of / at the end of path in query below. It denotes folder. If / is omitted, query will target file named *taxi* instead.
+
+> [!NOTE]
+> Note existence of / at the end of path in query below. It denotes folder. If / is omitted, query will target file named *taxi* instead.
 
 ```sql
 SELECT 
@@ -178,13 +182,15 @@ ORDER BY
 	YEAR(pickup_datetime)
 ```
 
-> Please note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
+> [!NOTE]
+> Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
 
 ### Read all files from multiple folders
 
 It is possible to read files from multiple folders with usage of wildcard. Following query will read all files from all folders located in *csv* folder, which names start with *t* and end with *i*.
 
-> Please note existence of / at the end of path in query below. It denotes folder. If / is omitted, query will target files named *t&ast;i* instead.
+> [!NOTE]
+> Note existence of / at the end of path in query below. It denotes folder. If / is omitted, query will target files named *t&ast;i* instead.
 
 ```sql
 SELECT 
@@ -221,7 +227,8 @@ ORDER BY
 	YEAR(pickup_datetime)
 ```
 
-> Please note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
+> [!NOTE]
+> Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
 
 Since we have only one folder that matches criteria, the result of this query is the same as in [Read all files in folder](#read-all-files-in-folder).
 
@@ -229,9 +236,9 @@ Since we have only one folder that matches criteria, the result of this query is
 
 We can use multiple wildcards on different levels of path. For example, we can enrich previous query to read files with 2017 data only, from all folders which names start with *t* and end with *i*.
 
-> Please note existence of / at the end of path in query below. It denotes folder. If / is omitted, query will target files named *t&ast;i* instead.
-
-> Please note that there is a limit of maximum 10 wildcards per query.
+> [!NOTE]
+> Note existence of / at the end of path in query below. It denotes folder. If / is omitted, query will target files named *t&ast;i* instead.
+> Note that there is a limit of maximum 10 wildcards per query.
 
 
 ```sql
@@ -269,7 +276,8 @@ ORDER BY
 	YEAR(pickup_datetime)
 ```
 
-> Please note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
+> [!NOTE]
+> Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
 
 Since we have only one folder that matches criteria, the result of this query is the same as in [Read subset of files in folder](#read-subset-of-files-in-folder) and [Read all files from specific folder](#read-all-files-from-specific-folder). More complex scenarios of wildcard usage are covered in [Querying Parquet files](querying-parquet-files.md).
 
