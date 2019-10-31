@@ -1,7 +1,7 @@
 ---
 title: Deploy models with a custom Docker base image
 titleSuffix: Azure Machine Learning
-description: 'Learn how to use a custom Docker base image when deploying your Azure Machine Learning models. When deploying a trained model, a base container image is deployed to run your model for inference. While Azure Machine Learning provides a default base image for you, you can also use your own base image.'
+description: 'Learn how to use a custom Docker base image when deploying your Azure Machine Learning models. While Azure Machine Learning provides a default base image for you, you can also use your own base image.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
