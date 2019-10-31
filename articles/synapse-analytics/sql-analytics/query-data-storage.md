@@ -188,7 +188,7 @@ Now you are ready to start with following quickstart articles:
 
 - [Querying specific files](querying-specific-files.md)
 
-- [Querying Parquet files](querying-parquet-files.md)
+- [Querying Parquet files](query-parquet-files.md)
 
 - [Querying Parquet nested types](querying-parquet-nested-types.md)
 

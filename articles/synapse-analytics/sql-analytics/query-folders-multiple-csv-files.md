@@ -279,7 +279,7 @@ ORDER BY
 > [!NOTE]
 > Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
 
-Since we have only one folder that matches criteria, the result of this query is the same as in [Read subset of files in folder](#read-subset-of-files-in-folder) and [Read all files from specific folder](#read-all-files-from-specific-folder). More complex scenarios of wildcard usage are covered in [Querying Parquet files](querying-parquet-files.md).
+Since we have only one folder that matches criteria, the result of this query is the same as in [Read subset of files in folder](#read-subset-of-files-in-folder) and [Read all files from specific folder](#read-all-files-from-specific-folder). More complex scenarios of wildcard usage are covered in [Querying Parquet files](query-parquet-files.md).
 
 
 

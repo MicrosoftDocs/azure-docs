@@ -232,7 +232,7 @@ Now you are ready to start with following quickstarts:
 
 3. [Querying specific files](querying-specific-files.md)
 
-4. [Querying Parquet files](querying-parquet-files.md)
+4. [Querying Parquet files](query-parquet-files.md)
 
 5. [Querying Parquet nested types](querying-parquet-nested-types.md)
 

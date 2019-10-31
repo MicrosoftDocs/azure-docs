@@ -87,7 +87,7 @@ Advance to one of the following articles and learn how to query different files.
 > [Querying single CSV file](querying-single-csv-file.md)
 
 > [!div class="nextstepaction"]
-> [Querying Parquet files](querying-parquet-files.md)
+> [Querying Parquet files](query-parquet-files.md)
 
 > [!div class="nextstepaction"]
 > [Querying JSON files](query-json-files.md)

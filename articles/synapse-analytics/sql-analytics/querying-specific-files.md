@@ -199,9 +199,9 @@ ORDER BY
 
 ## Next steps
 
-You can see more in [Querying Parquet files](querying-parquet-files.md).
+You can see more in [Querying Parquet files](query-parquet-files.md).
 
 
 Advance to the next article to learn how to query Parquet files.
 > [!div class="nextstepaction"]
-> [Querying Parquet files](querying-parquet-files.md)
+> [Querying Parquet files](query-parquet-files.md)

@@ -68,7 +68,7 @@ AS table_alias(column_alias,...n)
 [ , FORMAT = {'CSV' | 'PARQUET'} ] 
 ```
 
-Check [Querying Parquet files](querying-parquet-files.md) in Samples section for usage examples.
+Check [Querying Parquet files](query-parquet-files.md) in Samples section for usage examples.
 
 ### Additional options for working with delimited text
 
@@ -217,7 +217,7 @@ Now you are ready to start with following quickstart articles:
 
 3. [Querying specific files](querying-specific-files.md)
 
-4. [Querying Parquet files](querying-parquet-files.md)
+4. [Querying Parquet files](query-parquet-files.md)
 
 5. [Creating and using views](create-use-views.md)
 
