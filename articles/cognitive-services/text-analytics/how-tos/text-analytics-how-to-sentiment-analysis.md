@@ -29,104 +29,6 @@ Text Analytics uses a machine learning classification algorithm to generate a se
 
 Sentiment analysis is performed on the entire document, as opposed to extracting sentiment for a particular entity in the text. In practice, there's a tendency for scoring accuracy to improve when documents contain one or two sentences rather than a large block of text. During an objectivity assessment phase, the model determines whether a document as a whole is objective or contains sentiment. A document that's mostly objective doesn't progress to the sentiment detection phase, which results in a 0.50 score, with no further processing. For documents that continue in the pipeline, the next phase generates a score above or below 0.50. The score depends on the degree of sentiment detected in the document.
 
-## Preparation
-
-Sentiment analysis produces a higher-quality result when you give it smaller chunks of text to work on. This is opposite from key phrase extraction, which performs better on larger blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
-
-You must have JSON documents in this format: ID, text, and language.
-
-Document size must be under 5,120 characters per document. You can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following sample is an example of content you might submit for sentiment analysis:
-
-```json
-    {
-        "documents": [
-            {
-                "language": "en",
-                "id": "1",
-                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
-            },
-            {
-                "language": "en",
-                "id": "2",
-                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
-            },
-            {
-                "language": "en",
-                "id": "3",
-                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
-            },
-            {
-                "language": "en",
-                "id": "4",
-                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },
-            {
-                "language": "en",
-                "id": "5",
-                "text": "This is my favorite trail. It has beautiful views and many places to stop and rest"
-            }
-        ]
-    }
-```
-
-## Step 1: Structure the request
-
-For more information on request definition, see [Call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
-
-+ Create a POST request. To review the API documentation for this request, see the [Sentiment Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
-
-+ Set the HTTP endpoint for sentiment analysis by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include `/text/analytics/v2.1/sentiment` in the URL. For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
-
-+ Set a request header to include the [access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
-
-+ In the request body, provide the JSON documents collection you prepared for this analysis.
-
-> [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) to structure the request and post it to the service.
-
-## Step 2: Post the request
-
-Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the [data limits](../overview.md#data-limits) section in the overview.
-
-Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
-
-
-## Step 3: View the results
-
-The sentiment analyzer classifies text as predominantly positive or negative. It assigns a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. A score of 0.5 indicates neutrality. When a string can't be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
-
-Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data.
-
-The following example shows the response for the document collection in this article:
-
-```json
-    {
-        "documents": [
-            {
-                "score": 0.9999237060546875,
-                "id": "1"
-            },
-            {
-                "score": 0.0000540316104888916,
-                "id": "2"
-            },
-            {
-                "score": 0.99990355968475342,
-                "id": "3"
-            },
-            {
-                "score": 0.980544924736023,
-                "id": "4"
-            },
-            {
-                "score": 0.99996328353881836,
-                "id": "5"
-            }
-        ],
-        "errors": []
-    }
-```
-
 ## Sentiment Analysis v3 public preview
 
 The [next version of Sentiment Analysis](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) is now available for public preview. It provides significant improvements in the accuracy and detail of the API's text categorization and scoring.
@@ -158,20 +60,10 @@ Sentiment Analysis v3 can return scores and labels at a sentence and document le
 
 ### Model versioning
 
-Starting in version 3.0, the Text Analytics API lets you choose the Text Analytics model used on your data. Use the optional `model-version` parameter to select a version of the model in your requests. If this parameter isn't specified the API will default to `latest`, the latest stable model version.
+> [!NOTE]
+> Model versioning for sentiment analysis is available starting in version `v3.0-preview.1`.
 
-Available model versions:
-* `2019-10-01` (`latest`)
-
-Each response from the v3 endpoints includes a `model-version` field specifying the model version that was used.
-
-```json
-{
-    "documents": […]
-    "errors": []
-    "model-version": "2019-10-01"
-}
-```
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
 ### Sentiment Analysis v3 example request
 
@@ -271,6 +163,104 @@ While the request format is the same as the previous version, the response forma
 ### Example C# code
 
 You can find an example C# application that calls this version of Sentiment Analysis on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
+
+## Preparation
+
+Sentiment analysis produces a higher-quality result when you give it smaller chunks of text to work on. This is opposite from key phrase extraction, which performs better on larger blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
+
+You must have JSON documents in this format: ID, text, and language.
+
+Document size must be under 5,120 characters per document. You can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following sample is an example of content you might submit for sentiment analysis:
+
+```json
+    {
+        "documents": [
+            {
+                "language": "en",
+                "id": "1",
+                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
+            },
+            {
+                "language": "en",
+                "id": "2",
+                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
+            },
+            {
+                "language": "en",
+                "id": "3",
+                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
+            },
+            {
+                "language": "en",
+                "id": "4",
+                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
+            },
+            {
+                "language": "en",
+                "id": "5",
+                "text": "This is my favorite trail. It has beautiful views and many places to stop and rest"
+            }
+        ]
+    }
+```
+
+## Step 1: Structure the request
+
+For more information on request definition, see [Call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
+
++ Create a POST request. To review the API documentation for this request, see the [Sentiment Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
+
++ Set the HTTP endpoint for sentiment analysis by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include `/text/analytics/v2.1/sentiment` in the URL. For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
+
++ Set a request header to include the [access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
+
++ In the request body, provide the JSON documents collection you prepared for this analysis.
+
+> [!Tip]
+> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) to structure the request and post it to the service.
+
+## Step 2: Post the request
+
+Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the [data limits](../overview.md#data-limits) section in the overview.
+
+Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
+
+
+## Step 3: View the results
+
+The sentiment analyzer classifies text as predominantly positive or negative. It assigns a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. A score of 0.5 indicates neutrality. When a string can't be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
+
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data.
+
+The following example shows the response for the document collection in this article:
+
+```json
+    {
+        "documents": [
+            {
+                "score": 0.9999237060546875,
+                "id": "1"
+            },
+            {
+                "score": 0.0000540316104888916,
+                "id": "2"
+            },
+            {
+                "score": 0.99990355968475342,
+                "id": "3"
+            },
+            {
+                "score": 0.980544924736023,
+                "id": "4"
+            },
+            {
+                "score": 0.99996328353881836,
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
+```
 
 ## Summary
 
