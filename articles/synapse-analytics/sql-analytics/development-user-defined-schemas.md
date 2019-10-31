@@ -1,6 +1,6 @@
 ---
-title: Using user-defined schemas in SQL analytics | Microsoft Docs
-description: Tips for using T-SQL user-defined schemas in Azure SQL analytics for developing solutions.
+title: Using user-defined schemas in SQL Analytics | Microsoft Docs
+description: Tips for using T-SQL user-defined schemas in Azure SQL Analytics for developing solutions.
 services: sql-data-warehouse 
 author: azaricstefan 
 ms.service: sql-data-warehouse
@@ -12,34 +12,34 @@ ms.reviewer: jrasnick
 ---
 
 
-# Using user-defined schemas in SQL analytics
-Tips for using T-SQL user-defined schemas in Azure SQL analytics for developing solutions.
+# Using user-defined schemas in SQL Analytics
+Tips for using T-SQL user-defined schemas in Azure SQL Analytics for developing solutions.
 
-## Schemas for application boundaries in SQL analytics pool
+## Schemas for application boundaries in SQL Analytics pool
 
-Traditional analytics often use separate databases to create application boundaries based on either workload, domain or security. For example, a traditional SQL Server analytics might include a staging database, an analytics database, and some data mart databases. In this topology, each database operates as a workload and security boundary in the architecture.
+Traditional analytics often use separate databases to create application boundaries based on either workload, domain or security. For example, a traditional SQL Server Analytics might include a staging database, an analytics database, and some data mart databases. In this topology, each database operates as a workload and security boundary in the architecture.
 
-By contrast, SQL analytics runs the entire analytics workload within one database. Cross database joins are not permitted. Therefore SQL analytics expects all tables used by the warehouse to be stored within the one database.
+By contrast, SQL Analytics runs the entire analytics workload within one database. Cross database joins are not permitted. Therefore SQL Analytics expects all tables used by the warehouse to be stored within the one database.
 
 > [!NOTE]
-> SQL analytics does not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised.
+> SQL Analytics does not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised.
 > 
 > 
 
 ## Recommendations
 These are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas
 
-1. Use one SQL analytics database to run your entire analytics workload
-2. Consolidate your existing analytics environment to use one SQL analytics database
-3. Leverage **user-defined schemas** to provide the boundary previously implemented using databases.
+- Use one SQL Analytics database to run your entire analytics workload
+- Consolidate your existing analytics environment to use one SQL Analytics database
+- Leverage **user-defined schemas** to provide the boundary previously implemented using databases.
 
 If user-defined schemas have not been used previously, then you have a clean slate. Use the old database name as the basis for your user-defined schemas in the SQL analytics database.
 
 If schemas have already been used, then you have a few options:
 
-1. Remove the legacy schema names and start fresh
-2. Retain the legacy schema names by pre-pending the legacy schema name to the table name
-3. Retain the legacy schema names by implementing views over the table in an extra schema to re-create the old schema structure.
+- Remove the legacy schema names and start fresh
+- Retain the legacy schema names by pre-pending the legacy schema name to the table name
+- Retain the legacy schema names by implementing views over the table in an extra schema to re-create the old schema structure.
 
 > [!NOTE]
 > On first inspection option 3 may seem like the most appealing option. However, the devil is in the detail. Views are read only in SQL analytics. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are using views in your architecture already.
