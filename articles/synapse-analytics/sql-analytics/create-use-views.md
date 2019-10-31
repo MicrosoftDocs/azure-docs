@@ -30,6 +30,7 @@ You can create views the same way you create regular SQL Server views.
 
 Following query creates view that reads *population.csv* file.
 
+> [!NOTE]
 > Please change the first line in query below to use database you created. If you did not create database, please check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ```sql
@@ -63,6 +64,7 @@ You can use views in your queries the same way you use views in SQL Server queri
 
 Following query shows how you can use *population_csv* view we created in [Creating views](#creating-views). It returns country names with their population in 2019 in descending order.
 
+> [!NOTE]
 > Please change the first line in query below to use database you created. If you did not create database, please check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ```sql
