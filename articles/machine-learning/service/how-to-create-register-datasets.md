@@ -76,7 +76,7 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
-#### Create tabular datasets
+#### Create TabularDatasets
 
 Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation.
 
@@ -90,7 +90,7 @@ datastore_paths = [
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-By default, when you create a tabular dataset, column data types are inferred automatically. If the inferred types don't match your expectations, you can specify column types by using the following code. You can also [learn more about supported data types](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+By default, when you create a TabularDataset, column data types are inferred automatically. If the inferred types don't match your expectations, you can specify column types by using the following code. You can also [learn more about supported data types](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
 
 ```Python
 from azureml.data.dataset_factory import DataType
@@ -120,7 +120,7 @@ sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
 
-In a tabular dataset, you can specify a timestamp from a column in the data or from wherever the path pattern data is stored to enable a time series trait. This specification allows for easy and efficient filtering by time.
+In TabularDatasets, you can specify a timestamp from a column in the data or from wherever the path pattern data is stored to enable a time series trait. This specification allows for easy and efficient filtering by time.
 
 Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on the`TabularDataset` class to specify your timestamp column and to enable filtering by time. For more information, see [Tabular time series-related API demo with NOAA weather data](https://aka.ms/azureml-tsd-notebook).
 
@@ -141,9 +141,9 @@ data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### Create file datasets
+#### Create FileDatasets
 
-Use the [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method on the `FileDatasetFactory` class to load files in any format and to create an unregistered file dataset:
+Use the [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method on the `FileDatasetFactory` class to load files in any format and to create an unregistered FileDataset:
 
 ```Python
 # create a FileDataset from multiple paths in datastore
@@ -164,7 +164,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 
 ### Using the workspace landing page
 
-Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset through the web experience. The workspace landing page supports the creation of both tabular datasets and file datasets.
+Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset through the web experience. The workspace landing page supports the creation of both TabularDatasets and FileDatasets.
 
 The following animation shows how to create a dataset in the workspace landing page:
 
@@ -232,5 +232,5 @@ df = titanic_ds.to_pandas_dataframe()
 ## Next steps
 
 * Learn [how to train with datasets](how-to-train-with-datasets.md).
-* Use automated machine learning to [train with tabular datasets](https://aka.ms/automl-dataset).
+* Use automated machine learning to [train with TabularDatasets](https://aka.ms/automl-dataset).
 * For more dataset training examples, see the [sample notebooks](https://aka.ms/dataset-tutorial).
