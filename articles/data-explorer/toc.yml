@@ -164,8 +164,8 @@
         href: dealing-with-duplicates.md
     - name: Deploy
       items:
-      - name: Deploy into your virtual network
-        href: vnet-deployment  
+      - name: Deploy your cluster into your virtual network
+        href: vnet-deployment.md  
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor ingestion
