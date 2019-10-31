@@ -19,7 +19,7 @@ This article helps you verify and troubleshoot ExpressRoute connectivity. Expres
 -  	Microsoft Datacenter
 
 > [!NOTE]
-> In the ExpressRoute direct connectivity model (offered at 10/100 Gbps bandwidth), cusomters can directly buyout MSEE ports. Therefore, in the direct connectivity model, there are only customer and Microsoft network zones.
+> In the ExpressRoute direct connectivity model (offered at 10/100 Gbps bandwidth), cusomters can directly buy Microsoft Enterprise Edge (MSEE) routers' port. Therefore, in the direct connectivity model, there are only customer and Microsoft network zones.
 >
 
 
@@ -34,7 +34,7 @@ The purpose of this document is to help user to identify if and where a connecti
 The following diagram shows the logical connectivity of a customer network to Microsoft network using ExpressRoute.
 [![1]][1]
 
-In the preceding diagram, the numbers indicate key network points. These network points are referenced in this article at times by their associated number. Depending on the ExpressRoute connectivity model (Cloud Exchange Co-location, Point-to-Point Ethernet Connection, or Any-to-any (IPVPN)) the network points 3 and 4 may be switches (Layer 2 devices) or routers (Layer 3 devices). In the direct connectivity model, there are no network points 3 and 4; instead CEs (2) are directly connected to MSEEs via dark fiber. The key network points illustrated are as follows:
+In the preceding diagram, the numbers indicate key network points. These network points are referenced in this article at times by their associated number. Depending on the ExpressRoute connectivity model--Cloud Exchange Co-location, Point-to-Point Ethernet Connection, or Any-to-any (IPVPN)--the network points 3 and 4 may be switches (Layer 2 devices) or routers (Layer 3 devices). In the direct connectivity model, there are no network points 3 and 4; instead CEs (2) are directly connected to MSEEs via dark fiber. The key network points illustrated are as follows:
 
 1.	Customer compute device (for example, a server or PC)
 2.	CEs: Customer edge routers 
@@ -152,7 +152,7 @@ In the Azure portal, status of an ExpressRoute circuit peering can be checked un
 
 ![5][5]
 
-In the preceding example, as noted Azure private peering is provisioned, whereas Azure public and Microsoft peerings are not provisioned. A successfully provisoned peering context would also have the primary and secondary point-to-point subnets listed. The /30 subnets are used for the interface IP address of the MSEEs and CEs/PE-MSEEs. For the peerings that are provisioned, the listing also indicate who last modified the configuration. 
+In the preceding example, as noted Azure private peering is provisioned, whereas Azure public and Microsoft peerings are not provisioned. A successfully provisioned peering context would also have the primary and secondary point-to-point subnets listed. The /30 subnets are used for the interface IP address of the MSEEs and CEs/PE-MSEEs. For the peerings that are provisioned, the listing also indicates who last modified the configuration. 
 
 > [!NOTE]
 > If enabling a peering fails, check if the primary and secondary subnets assigned match the configuration on the linked CE/PE-MSEE. Also check if the correct *VlanId*, *AzureASN*, and *PeerASN* are used on MSEEs and if these values maps to the ones used on the linked CE/PE-MSEE. If MD5 hashing is chosen, the shared key should be same on MSEE and PE-MSEE/CE pair. Previously configured shared key would not be displayed for security reasons. Should you need to change any of these configuration on an MSEE router, refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering].  
