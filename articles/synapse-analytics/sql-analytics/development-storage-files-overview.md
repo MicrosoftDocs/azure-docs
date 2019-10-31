@@ -211,16 +211,16 @@ Check [Accessing elements from repeated columns](query-parquet-nested-types.md#a
 
 Now you are ready to start with following quickstart articles:
 
-1. [Querying single CSV file](query-single-csv-file.md)
+- [Query single CSV file](query-single-csv-file.md)
 
-2. [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
+- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
-3. [Querying specific files](query-specific-files.md)
+- [Query specific files](query-specific-files.md)
 
-4. [Querying Parquet files](query-parquet-files.md)
+- [Query Parquet files](query-parquet-files.md)
 
-5. [Creating and using views](create-use-views.md)
+- [Create and use views](create-use-views.md)
 
-6. [Querying JSON files](query-json-files.md)
+- [Query JSON files](query-json-files.md)
 
-7. [Querying Parquet nested types](query-parquet-nested-types.md)
+- [Query Parquet nested types](query-parquet-nested-types.md)

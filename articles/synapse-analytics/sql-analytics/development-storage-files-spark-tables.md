@@ -195,3 +195,10 @@ Following example stops synchronization for specified connector and drops it.
 exec sys.sp_metadata_sync_connector_drop @unique_name = 'ConnectorForMYSpark'
 ```
 
+
+
+## Next steps
+
+Advance to the next article to learn more about storage access control.
+> [!div class="nextstepaction"]
+> [Storage Access Control](development-storage-files-storage-access-control.md)
