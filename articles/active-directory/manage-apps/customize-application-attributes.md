@@ -168,13 +168,7 @@ Use the steps below to provision roles for a user to your application. Note that
 
     ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.PNG)<br>
 
-  
-  ![Add roles](./media/customize-application-attributes/AddRoles.PNG)<br>
-  Editing the list of supported attributes to include roles
-  
-  ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/AppRoleAssignmentsComplex.PNG)<br>
-  Using the AppRoleAssignmentsComplex expression to map AppRoleAssignments to the roles attribute
-  
+    
   - **Example output** 
   
 ```json
