@@ -18,8 +18,8 @@ Use the Azure Blob Storage client library v12 for .NET to:
 
 * Create a container
 * Create a blob in Azure Storage
-* Download the blob to your local computer
 * List all of the blobs in a container
+* Download the blob to your local computer
 * Delete a container
 
 [API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)

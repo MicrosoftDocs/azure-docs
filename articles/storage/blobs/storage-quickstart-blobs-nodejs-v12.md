@@ -18,8 +18,8 @@ Use the Azure Blob Storage client library v12 for JavaScript to:
 
 * Create a container
 * Create a blob in Azure Storage
-* Download the blob to your local computer
 * List all of the blobs in a container
+* Download the blob to your local computer
 * Delete a container
 
 [API reference documentation](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob/v/12.0.0-preview.5) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
@@ -85,25 +85,23 @@ npm install
 
 From the project directory:
 
-1. Open a new text file in your code editor
-1. Add `import` statements
+1. Open another new text file in your code editor
+1. Add `require` calls to load Azure and Node.js modules
 1. Create the structure for the program, including very basic exception handling
 
     Here's the code:
 
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
-    const path = require('path');
-    const fs = require('fs');
     const uuidv1 = require('uuid/v1');
     
     async function main() {
         console.log('Azure Blob Storage v12 - Javascript quickstart sample');
-
+        // Quick start code goes here
     }
     
     main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
-        ```
+    ```
 
 1. Save the new file as *blob-quickstart-v12.js* in the *blob-quickstart-v12* directory.
 
@@ -224,7 +222,7 @@ await containerClient.create();
 The following code snippet:
 
 1. Creates a text string to upload to a blob.
-1. Gets a reference to a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object by calling the [getBlockBlobClient](/javascript/api/@azure/storage-blob/containerclient#getblockblobclient-string-) method on the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) from the [Create a container](#create-a-container) section.
+1. Gets a reference to a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object by calling the [getBlockBlobClient](/javascript/api/@azure/storage-blob/containerclient#getblockblobclient-string-) method on the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) from the [Create a container](#create-a-container) section.
 1. Uploads the text string data to the blob by calling the [upload](/javascript/api/@azure/storage-blob/blockblobclient#upload-httprequestbody--number--blockblobuploadoptions-) method.
 
 Add this code to the end of the `main` function:
@@ -273,7 +271,7 @@ console.log('\nDownloaded blob content...');
 console.log('\t', await streamToString(downloadBlockBlobResponse.readableStreamBody));
 ```
 
-Add this helper function after the `main` function:
+Add this helper function *after* the `main` function:
 
 ```javascript
 // A helper function used to read a Node.js readable stream into a string
@@ -295,8 +293,6 @@ async function streamToString(readableStream) {
 
 The following code cleans up the resources the app created by removing the entire container using the [​delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) method. You can also delete the local files, if you like.
 
-<!-- The app pauses for user input by calling `input()` before it deletes the blob and container. This is a good chance to verify that the resources were actually created correctly, before they are deleted. -->
-
 Add this code to the end of the `main` function:
 
 ```javascript
@@ -308,9 +304,9 @@ await containerClient.delete();
 
 ## Run the code
 
-This app creates a test file in your local folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
+This app creates a text string and uploads it to Blob storage. The example then lists the blob(s) in the container, downloads the blob, and displays the downloaded data.
 
-Navigate to the directory containing the *blob-quickstart-v12.py* file, then execute the following `node` command to run the app.
+From a console prompt, navigate to the directory containing the *blob-quickstart-v12.py* file, then execute the following `node` command to run the app.
 
 ```console
 node blob-quickstart-v12.js
@@ -337,7 +333,7 @@ Deleting container...
 Done
 ```
 
-Before you begin the clean up process, check your Azure portal for the newly created container. You can open the blob inside the container and view the contents. After you've verified the blob, press the **Enter** key to delete the container and finish the demo.
+Step through the code in your debugger and check your Azure portal throughout the process. Check to see that the container is being created. You can open the blob inside the container and view the contents.
 
 ## Next steps
 

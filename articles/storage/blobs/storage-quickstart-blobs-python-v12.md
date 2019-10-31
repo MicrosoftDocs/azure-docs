@@ -18,8 +18,8 @@ Use the Azure Blob storage client library to:
 
 * Create a container
 * Create a blob in Azure Storage
-* Download the blob to your local computer
 * List all of the blobs in a container
+* Download the blob to your local computer
 * Delete a container
 
 [API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
