@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 10/31/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -97,7 +97,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Name | Source Attribute|
 	| ---------------| --------- |
 	| Name identifier value | user.userprincipalname |
-	| emailaddress | user.mail |
 
 	> [!NOTE]
 	> Client admins can add/change attributes as per their need.
