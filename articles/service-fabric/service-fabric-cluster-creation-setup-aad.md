@@ -110,6 +110,16 @@ Select "App registrations" in AAD page, select your cluster application, and the
 
 ![Web application reply url][web-application-reply-url]
 
+### Connecting to the cluster using Azure AD authentication via Powershell gives an error when you sign in: "AADSTS50011":
+#### Problem
+When you try to connect to a Service Fabric cluster using Azure AD via Powershell, the login page returns a failure: "AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: &lt;guid&gt;."
+
+#### Reason
+Similar to above, Powershell attempts to authenticate against Azure AD, which provides a redirect URL which is not listed in the Azure AD application **Reply URLs** list.  
+
+#### Solution
+Same process as above, but the URL must be set to "urn:ietf:wg:oauth:2.0:oob", which is a special redirect for command line authentication.
+
 ### Connect the cluster by using Azure AD authentication via PowerShell
 To connect the Service Fabric cluster, use the following PowerShell command example:
 
