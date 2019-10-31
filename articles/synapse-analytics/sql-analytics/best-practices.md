@@ -1,5 +1,5 @@
 ---
-title: Best practices for SQL Analytics | Microsoft Docs
+title: Best practices for Synapse SQL Analytics | Microsoft Docs
 description: Recommendations and best practices you should know as you work with SQL Analytics. 
 services: sql-data-warehouse
 author: mlee3gsd
@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Best practices for Azure SQL Analytics
+# Best practices for SQL Analytics
 This article is a collection of best practices to help you to achieve optimal performance from your Azure SQL Analytics.  Some of the concepts in this article are basic and easy to explain, other concepts are more advanced and we just scratch the surface in this article.  The purpose of this article is to give you some basic guidance and to raise awareness of important areas to focus as you build your solution.  Each section introduces you to a concept and then point you to more detailed articles that cover the concept in more depth.
 
 If you are just getting started with Azure SQL Analytics, do not let this article overwhelm you.  The sequence of the topics is mostly in the order of importance.  If you start by focusing on the first few concepts, you'll be in good shape.  As you get more familiar and comfortable with using SQL Analytics, come back and look at a few more concepts.  It won't take long for everything to make sense.
 
-## Best practices for SQL Analytics pool
+## SQL pool
 
 For SQL Analytics pool loading guidance, see [Guidance for loading data](../../sql-data-warehouse/guidance-for-loading-data.md).
 
@@ -162,7 +162,7 @@ Finally, please do use the [Azure SQL Analytics pool Feedback][Azure SQL Analyti
 
 
 
-## Best practices for SQL Analytics on-demand
+## SQL on-demand
 
 ### General considerations
 
