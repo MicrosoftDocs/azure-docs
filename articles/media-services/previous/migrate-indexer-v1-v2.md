@@ -18,7 +18,7 @@ ms.author: juliako
 ---
 # Migrate from Media Indexer and Media Indexer 2 to Video Indexer
 
-The [Azure Media Indexer v1](media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer v2 Preview](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020.  [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
+The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020.  [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
 
 Azure Media Services Video Indexer is built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models. To see what scenarios Video Indexer can be used in, what features it offers, and how to get started, see [Video Indexer video and audio models](../video-indexer/video-indexer-overview.md). 
 
@@ -73,9 +73,9 @@ Some known differences include:
 * Audio Indexing Blob (AIB) files will no longer be supported. This feature was specific to the Indexer 1 technology and is no longer offered.  
 * Cognitive Services Speech Services does not support keyword extraction. However, Video Indexer and Media Services v3 AudioAnalyzerPreset both offer a more robust set of keywords in JSON file format. 
 
-## Contact us 
+## Need help?
 
-If you have questions on the deprecation of Azure Media Indexer 1 and Azure Media Indexer 2 or on migrating to any of the other services, please reach out to us via amshelp@microsoft.com 
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## Next steps
 

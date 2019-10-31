@@ -1,12 +1,12 @@
 ---
 title: Analytics for the Commercial Marketplace in Partner Center
 description: Learn how to access analytic reports to monitor sales, evaluate performance, and optimize your marketplace offers.
-author: chjenk
+author: ChJenk
 manager: evansma
-ms.author: shthota
+ms.author: v-chjen
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/14/2019
 ---
 
 # Analytics for the Commercial Marketplace in Partner Center
@@ -21,6 +21,7 @@ To access the Partner Center analytics tools, open the **[Analyze](https://partn
 |[Orders](#orders-dashboard)|Information about your orders in a graphical and downloadable format|
 |[Customers](#customer-dashboard)|Information about your customers, including growth trends, presented in a  graphical and downloadable format|
 |[Downloads](#downloads-dashboard)|A list of your download requests over the last 30 days|
+|[Ratings and reviews](#ratings-and-reviews)| Information about ratings and reviews your customers leave for the offers they've acquired.
 
 ## Summary dashboard
 
@@ -239,7 +240,7 @@ You will receive a pop-up notification and email containing a link to the **Down
 | Cloud Instance Name: Azure Government | Order| Government-specific Microsoft clouds for one of the following governments: China, Germany, or The United States of America.| |
 | Customer City| Customer| The city name provided by the customer. City could be different than the city in a customer’s Azure Subscription.||
 | Customer Communication Language  | Customer| The language preferred by the customer for communication.||
-| Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the name in a customer’s Azure Subscription.|  |
+| Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the city in a customer’s Azure Subscription.|  |
 | Customer Country | Customer, Order | The country name provided by the customer. Country could be different than the country in a customer’s Azure Subscription.|  |
 | Customer Email| Customer| The e-mail address provided by the end customer. Email could be different than the e-mail address in a customer’s Azure Subscription.||
 | Customer First Name| Customer| The name provided by the customer. Name could be different than the name provided in a customer’s Azure Subscription.| |
@@ -280,3 +281,59 @@ You will receive a pop-up notification and email containing a link to the **Down
 | Provider Name| Customer| The name of the provider involved in the relationship between Microsoft and end customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP.|
 | SKU| Order| SKU name as defined during publishing. An offer may have many SKUs, but a SKU can only be associated with a single offer.||
 | Trial End Date| Order| The date the trial period for this order will end or has ended.||
+
+## Ratings and reviews
+
+As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired. They're able to submit new ratings or reviews, and update or delete ratings or reviews they've already submitted. Reviews are posted in Azure marketplace or AppSource on the Reviews tab of the offer’s product display page. Customers can include their names for ratings or reviews, or they can post anonymously.  
+
+> [!NOTE]
+> Customers can make changes only to the ratings and reviews they own.
+
+The **Ratings & review dashboard** displays the trends and insights of customer activities. It provides graphical representations of:
+
+- Ratings & reviews  
+- Review comments
+
+### Marketplace storefront tabs
+
+Publishers can view their offer metrics separately in the AppSource & Azure Marketplace tabs. To view specific offer metrics, select **Offer** from the dropdown:
+
+![Partner Center analyze offer dropdown](./media/analyze-offer-dropdown.png)
+
+### Ratings and reviews summary
+
+The ratings & reviews summary section displays the metrics below for a selected date range:
+
+- **Average rating:** Weighted average star rating of all the ratings submitted by customers for the selected offer.
+- **Rating breakdown:** Breakdown of star rating by the count of customers who submitted ratings. The bar chart is stacked with actual and revised ratings (updated rating count).
+- **Total ratings:** Overall count of ratings submitted. This count also includes ratings with and without reviews.
+- **Ratings with reviews:** Count of reviews submitted.
+
+![Partner Center analyze ratings and reviews summary](./media/analyze-ratings-summary.png)
+
+### Review comments
+
+Reviews are displayed in chronological order for when they were posted. The default view displays all reviews. You can filter through the reviews by star rating using the **Filter** in the dropdown menu. You can also search for keywords that appear in the review.  
+
+![Partner Center analyze review comments](./media/analyze-reviews.png)
+
+## Frequently Asked Questions
+
+This section provides answers to commonly asked questions about **No Analytics Available Yet** messages in Partner Center.
+
+**I am unable to view my analytics data in Partner Center. When I access these pages, I see the message below. Why is this?**
+
+![No data for your offers yet](./media/analytics-faq-no-data.png)
+
+Why you may be getting this message:
+
+- Your offers listed in the marketplace are not SaaS offers. Currently, Partner Center reports analytics for SaaS offers only. Dynamics 365 offers can be published in partner center, but analytics for these offers are not yet enabled in partner center.
+- No acquisitions currently exist for your published offers in marketplace. This can mean that your offers are live in marketplace and gaining views from customers in the product display pages, but customers haven’t yet taken action to purchase and deploy them.
+- The publishing of your offer might be in process and isn’t live yet. Only live offers can be acquired by customers. To check the status of your offers, see Overview in the [Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). For more information, see [Summary dashboard](#summary-dashboard) in this article.
+- Your offers may be listed as **Contact Me**, which are list-only offers and cannot be purchased by customers in the marketplace. Although these offers generate leads and are shared with you, orders aren't created for these offers as they cannot be purchased. To check your offer listing type, go to setup page.
+
+**I know I have analytics data, but the message below is appearing:**
+
+![No data for given date range](./media/analytics-faq-data-range.png)
+
+If you're receiving this message, it means  you have analytics data but there isn't data for the date range you selected. Select a different date range or custom date range to view any data since 2010. For more information, see [Date range](#date-range).

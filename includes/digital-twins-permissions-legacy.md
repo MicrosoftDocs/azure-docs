@@ -2,13 +2,16 @@
  title: include file
  description: include file
  services: digital-twins
+ ms.author: alinast
  author: alinamstanciu
+ manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 08/16/2019
- ms.author: alinast
+ ms.date: 10/03/2019
  ms.custom: include file
 ---
+
+## Azure Active Directory legacy registration
 
 1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **Properties** pane. Copy the **Directory ID** to a temporary file. You'll use this value to configure a sample application in the next section.
 

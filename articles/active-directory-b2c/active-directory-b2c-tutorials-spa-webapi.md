@@ -40,14 +40,9 @@ In this tutorial, you learn how to:
 
 Scopes provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define both read and write permissions for the web API.
 
-1. Select **Applications**, and then select *webapi1* to open its properties page if it's not already open.
-1. Select **Published scopes**.
-1. For **SCOPE**, enter `Hello.Read`, and for **DESCRIPTION**, enter `Read access to hello`.
-1. For **SCOPE**, enter `Hello.Write`, and for **DESCRIPTION**, enter `Write access to hello`.
-1. Select **Save**.
-1. Record the **FULL SCOPE VALUE** for the `Hello.Read` scope to use in a later step when you configure the single-page application. The full scope value is similar to `https://yourtenant.onmicrosoft.com/api/Hello.Read`.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-The published scopes can be used to grant a client app permission to the web API.
+Record the value under **SCOPES** for the `demo.read` scope to use in a later step when you configure the single-page application. The full scope value is similar to `https://contosob2c.onmicrosoft.com/api/demo.read`.
 
 ## Grant permissions
 
@@ -55,12 +50,7 @@ To call a protected web API from another application, you need to grant that app
 
 In the prerequisite tutorial, you created a web application named *webapp1*. In this tutorial, you configure that application to call the web API you created in a previous section, *webapi1*.
 
-1. Navigate to your B2C tenant in Azure portal
-1. Select **Applications**, and then select *webapp1*.
-1. Select **API access**, and then select **Add**.
-1. In the **Select API** dropdown, select *webapi1*.
-1. In the **Select Scopes** dropdown, select the **Hello.Read** and **Hello.Write** scopes that you previously defined.
-1. Click **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 Your single-page web application is registered to call the protected web API. A user authenticates with Azure AD B2C to use the single-page application. The single-page app obtains an authorization grant from Azure AD B2C to access the protected web API.
 
@@ -76,7 +66,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 ### Configure the web API
 
-1. Open the *B2C-WebApi/**appsettings.json*** file in Visual Studio or Visual Studio Code.
+1. Open the <em>B2C-WebApi/**appsettings.json**</em> file in Visual Studio or Visual Studio Code.
 1. Modify the `AzureAdB2C` block to reflect your tenant name, the application ID of the web API application, the name of your sign-up/sign-in policy, and the scopes you defined earlier. The block should look similar to the following example (with appropriate `Tenant` and `ClientId` values):
 
     ```json
@@ -85,8 +75,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
       "ClientId": "<webapi-application-ID>",
       "Policy": "B2C_1_signupsignin1",
 
-      "ScopeRead": "Hello.Read",
-      "ScopeWrite": "Hello.Write"
+      "ScopeRead": "demo.read",
+      "ScopeWrite": "demo.write"
     },
     ```
 
@@ -138,16 +128,16 @@ In this section, you update the single-page application to call the ASP.NET Core
 To change the settings in the SPA:
 
 1. Open the *index.html* file in the [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] project you downloaded or cloned in the previous tutorial.
-1. Configure the sample with the URI for the *Hello.Read* scope you created earlier and the URL of the web API.
-    1. In the `appConfig` definition, replace the `b2cScopes` value with the full URI for the scope (the **FULL SCOPE VALUE** you recorded earlier).
-    1. Change the `webApi` value to the `applicationURL` value you specified in the previous section.
+1. Configure the sample with the URI for the *demo.read* scope you created earlier and the URL of the web API.
+    1. In the `appConfig` definition, replace the `b2cScopes` value with the full URI for the scope (the **SCOPE** value you recorded earlier).
+    1. Change the `webApi` value to the redirect URI you added when you registered the web API application in an earlier step.
 
     The `appConfig` definition should look similar to the following code block (with your tenant name in the place of `<your-tenant-name>`):
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
     var appConfig = {
-      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/Hello.Read"],
+      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
       webApi: "http://localhost:5000/"
     };
     ```

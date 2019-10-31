@@ -9,13 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/31/2019
 ms.author: iainfou
 
 ---
 # Administer Group Policy in an Azure AD Domain Services managed domain
 
 Settings for user and computer objects in Azure Active Directory Domain Services (Azure AD DS) are often managed using Group Policy Objects (GPOs). Azure AD DS includes built-in GPOs for the *AADDC Users* and *AADDC Computers* containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the *Azure AD DC administrators* group have Group Policy administration privileges in the Azure AD DS domain, and can also create custom GPOs and organizational units (OUs). More more information on what Group Policy is and how it works, see [Group Policy overview][group-policy-overview].
+
+In a hybrid environment, group policies configured in an on-premises AD DS environment aren't synchronized to Azure AD DS. To define configuration settings for users or computers in Azure AD DS, edit one of the default GPOs or create a custom GPO.
 
 This article shows you how to install the Group Policy Management tools, then edit the built-in GPOs and create custom GPOs.
 
@@ -34,6 +36,9 @@ To complete this article, you need the following resources and privileges:
 * A Windows Server management VM that is joined to the Azure AD DS managed domain.
     * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+
+> [!NOTE]
+> As there's [no access to domain controllers in Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), you can't create and use a Central Store for group policy administrative templates in a managed domain. [Sysvol isn't included in on-premises Azure AD Connect synchronization](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), so you also can't create an on-premises Central Store and synchronize it to Azure AD DS through Azure AD.
 
 ## Install Group Policy Management tools
 
@@ -73,7 +78,7 @@ There are two built-in Group Policy Objects (GPOs) in an Azure AD DS managed dom
 
     ![Built-in GPOs applied to the default 'AADDC Computers' and 'AADDC Users' containers](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
-1. These built-in GPOs can be customized to configure specific group policies on your Azure AD DS managed domain. Right-select one of the GPOs, such as *AADDC Computers GPO*, then select **Edit...**.
+1. These built-in GPOs can be customized to configure specific group policies on your Azure AD DS managed domain. Right-select one of the GPOs, such as *AADDC Computers GPO*, then choose **Edit...**.
 
     ![Choose the option to 'Edit' one of the built-in GPOs](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Move logic app resources between subscriptions, resource groups, or regions - Azure Logic Apps
+title: Move logic apps across subscriptions, resource groups, or regions - Azure Logic Apps
 description: Migrate logic apps or integration accounts to other Azure subscriptions, resource groups, or locations (regions)
 services: logic-apps
 ms.service: logic-apps
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ---
 
-# Migrate logic app resources to other Azure subscriptions, resource groups, or regions
+# Move logic app resources to other Azure subscriptions, resource groups, or regions
 
 To move your logic app or related resources to another Azure subscription, resource group, or region, you have various ways to complete these tasks, such as the Azure portal, Azure PowerShell, Azure CLI, and REST API. Before you move resources, review these considerations: 
 

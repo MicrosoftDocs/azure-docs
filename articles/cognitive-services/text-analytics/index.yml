@@ -135,7 +135,7 @@ landingContent:
         - text: Go client library
           url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
         - text: Azure PowerShell 
-          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services"
+          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
         - text: Azure CLI 
           url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
 

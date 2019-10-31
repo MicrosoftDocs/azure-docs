@@ -1,6 +1,6 @@
 ---
 title: Get Azure Cosmos DB metrics from Azure Monitor
-description: 
+description: Learn how to view different categories of Azure Cosmos DB metrics from Azure Monitor using Azure portal.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db

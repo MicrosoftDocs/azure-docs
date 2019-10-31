@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
-manager: carmonm
 ---
 # Quickstart: Define and assign a blueprint in the portal
 

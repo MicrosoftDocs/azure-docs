@@ -171,6 +171,7 @@ The following example shows you how remove a system-assigned managed identity fr
     "location": "[resourceGroup().location]",
     "identity": { 
         "type": "None"
+        },
 }
 ```
 
@@ -323,6 +324,7 @@ To remove a user-assigned identity from a VM, your account needs the [Virtual Ma
       "location": "[resourceGroup().location]",
       "identity": { 
           "type": "None"
+          },
     }
    ```
    

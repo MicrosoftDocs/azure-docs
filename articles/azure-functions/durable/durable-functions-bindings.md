@@ -368,62 +368,62 @@ Any state changes made to an entity during its execution will be automatically p
 
 Every entity function has a parameter type of `IDurableEntityContext`, which has the following members:
 
-* **EntityName**: Gets the name of the currently executing entity.
-* **EntityKey**: Gets the key of the currently executing entity.
-* **EntityId**: Gets the ID of the currently executing entity.
-* **OperationName**: gets the name of the current operation.
-* **IsNewlyConstructed**: returns `true` if the entity did not exist prior to the operation.
-* **GetState\<TState>()**: gets the current state of the entity. The `TState` parameter must be a primitive or JSON-serializeable type.
-* **SetState(object)**: updates the state of the entity. The `object` parameter must be a primitive or JSON-serializeable object.
-* **GetInput\<TInput>()**: gets the input for the current operation. The `TInput` type parameter must represent a primitive or JSON-serializeable type.
-* **Return(object)**: returns a value to the orchestration that called the operation. The `object` parameter must be a primitive or JSON-serializeable object.
-* **DestructOnExit()**: deletes the entity after finishing the current operation.
-* **SignalEntity(EntityId, string, object)**: sends a one-way message to an entity. The `object` parameter must be a primitive or JSON-serializeable object.
+* **EntityName**: the name of the currently executing entity.
+* **EntityKey**: the key of the currently executing entity.
+* **EntityId**: the ID of the currently executing entity.
+* **OperationName**: the name of the current operation.
+* **HasState**: whether the entity exists, that is, has some state. 
+* **GetState\<TState>()**: gets the current state of the entity. If it does not already exist, it is created and initialized to `default<TState>`. The `TState` parameter must be a primitive or JSON-serializeable type. 
+* **GetState\<TState>(initfunction)**: gets the current state of the entity. If it does not already exist, it is created by calling the provided `initfunction` parameter. The `TState` parameter must be a primitive or JSON-serializeable type. 
+* **SetState(arg)**: creates or updates the state of the entity. The `arg` parameter must be a JSON-serializeable object or primitive.
+* **DeleteState()**: deletes the state of the entity. 
+* **GetInput\<TInput>()**: gets the input for the current operation. The `TInput` type parameter must be a primitive or JSON-serializeable type.
+* **Return(arg)**: returns a value to the orchestration that called the operation. The `arg` parameter must be a primitive or JSON-serializeable object.
+* **SignalEntity(EntityId, operation, input)**: sends a one-way message to an entity. The `operation` parameter must be a non-null string, and the `input` parameter must be a primitive or JSON-serializeable object.
+* **CreateNewOrchestration(orchestratorFunctionName, input)**: starts a new orchestration. The `input` parameter must be a primitive or JSON-serializeable object.
 
-When using the class-based entity programming mode, the `IDurableEntityContext` object can be referenced using the `Entity.Current` thread-static property.
+The `IDurableEntityContext` object passed to the entity function can be accessed using the `Entity.Current` async-local property. This approach is convenient when using the class-based programming model.
 
-### Trigger sample - entity function
+### Trigger sample (function-based syntax)
 
-The following code is an example of a simple *Counter* entity implemented as a standard function. This function defines three *operations*, `add`, `reset`, and `get`, each of which operate on an integer state value, `currentValue`.
+The following code is an example of a simple *Counter* entity implemented as a durable function. This function defines three operations, `add`, `reset`, and `get`, each of which operate on an integer state.
 
 ```csharp
-[FunctionName(nameof(Counter))]
+[FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
-    int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
-            int amount = ctx.GetInput<int>();
-            currentValue += operand;
+            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(currentValue);
+            ctx.Return(ctx.GetState<int>()));
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-### Trigger sample - entity class
+For more information on the function-based syntax and how to use it, see [Function-Based Syntax](durable-functions-dotnet-entities.md#function-based-syntax).
 
-The following example is an equivalent implementation of the previous `Counter` entity using .NET classes and methods.
+### Trigger sample (class-based syntax)
+
+The following example is an equivalent implementation of the `Counter` entity using classes and methods.
 
 ```csharp
+[JsonObject(MemberSerialization.OptIn)]
 public class Counter
 {
     [JsonProperty("value")]
     public int CurrentValue { get; set; }
 
     public void Add(int amount) => this.CurrentValue += amount;
-    
+
     public void Reset() => this.CurrentValue = 0;
-    
+
     public int Get() => this.CurrentValue;
 
     [FunctionName(nameof(Counter))]
@@ -432,10 +432,14 @@ public class Counter
 }
 ```
 
+The state of this entity is an object of type `Counter`, which contains a field that stores the current value of the counter. To persist this object in storage, it is serialized and deserialized by the [Json.NET](https://www.newtonsoft.com/json) library. 
+
+For more information on the class-based syntax and how to use it, see [Defining entity classes](durable-functions-dotnet-entities.md#defining-entity-classes).
+
 > [!NOTE]
 > The function entry point method with the `[FunctionName]` attribute *must* be declared `static` when using entity classes. Non-static entry point methods may result in multiple object initialization and potentially other undefined behaviors.
 
-Entity classes have special mechanisms for interacting with bindings and .NET dependency injection. For more information, see the [Durable Entities](durable-functions-entities.md) article.
+Entity classes have special mechanisms for interacting with bindings and .NET dependency injection. For more information, see [Entity construction](durable-functions-dotnet-entities.md#entity-construction).
 
 ## Entity client
 
@@ -468,17 +472,15 @@ If you're using scripting languages (for example, *.csx* or *.js* files) for dev
 
 In .NET functions, you typically bind to `IDurableEntityClient`, which gives you full access to all client APIs supported by Durable Entities. You can also bind to the `IDurableClient` interface, which provides access to client APIs for both entities and orchestrations. APIs on the client object include:
 
-* **ReadEntityStateAsync\<T>**: reads the state of an entity.
+* **ReadEntityStateAsync\<T>**: reads the state of an entity. It returns a response that indicates whether the target entity exists, and if so, what its state is.
 * **SignalEntityAsync**: sends a one-way message to an entity, and waits for it to be enqueued.
-* **SignalEntityAsync\<TEntityInterface>**: same as `SignalEntityAsync` but uses a generated proxy object of type `TEntityInterface`.
-* **CreateEntityProxy\<TEntityInterface>**: dynamically generates a dynamic proxy of type `TEntityInterface` for making type-safe calls to entities.
+
+There is no need to create the target entity before sending a signal - the entity state can be created from within the entity function that handles the signal.
 
 > [!NOTE]
-> It's important to understand that the previous "signal" operations are all asynchronous. It is not possible to invoke an entity function and get back a return value from a client. Similarly, the `SignalEntityAsync` may return before the entity starts executing the operation. Only orchestrator functions can invoke entity functions synchronously and process return values.
+> It's important to understand that the "signals" sent from the client are simply enqueued, to be processed asynchronously at a later time. In particular, the `SignalEntityAsync` usually returns before the entity even starts the operation, and it is not possible to get back the return value or observe exceptions. If stronger guarantees are required (e.g. for workflows), *orchestrator functions* should be used, which can wait for entity operations to complete, and can process return values and observe exceptions.
 
-The `SignalEntityAsync` APIs require specifying the unique identifier of the entity as an `EntityId`. These APIs also optionally take the name of the entity operation as a `string` and the payload of the operation as a JSON-serializeable `object`. If the target entity does not exist, it will be created automatically with the specified entity ID.
-
-### Client sample (untyped)
+### Example: client signals entity directly
 
 Here is an example queue-triggered function that invokes a "Counter" entity.
 
@@ -495,16 +497,16 @@ public static Task Run(
 }
 ```
 
-### Client sample (typed)
+### Example: client signals entity via interface
 
-It's possible to generate a proxy object for type-safe access to entity operations. To generate a type-safe proxy, the entity type must implement an interface. For example, suppose the `Counter` entity mentioned earlier implemented an `ICounter` interface, defined as follows:
+Where possible, we recommend [accessing entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking. For example, suppose the `Counter` entity mentioned earlier implemented an `ICounter` interface, defined as follows:
 
 ```csharp
 public interface ICounter
 {
     void Add(int amount);
     void Reset();
-    int Get();
+    Task<int> Get();
 }
 
 public class Counter : ICounter
@@ -513,7 +515,7 @@ public class Counter : ICounter
 }
 ```
 
-Client code could then use `SignalEntityAsync<TEntityInterface>` and specify the `ICounter` interface as the type parameter to generate a type-safe proxy. This use of type-safe proxies is demonstrated in the following code sample:
+Client code can then use `SignalEntityAsync<ICounter>` to generate a type-safe proxy:
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -527,23 +529,14 @@ public static async Task AddValueClient(
 }
 ```
 
-In the previous example, the `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Add` into the equivalent (untyped) call to `SignalEntityAsync`.
-
-There are a few rules for defining entity interfaces:
-
-* The type parameter `TEntityInterface` in `SignalEntityAsync<TEntityInterface>` must be an interface.
-* Entity interfaces must only define methods.
-* Entity interface methods must not define more than one parameter.
-* Entity interface methods must return `void`, `Task`, or `Task<T>` where `T` is some return value.
-* Entity interfaces must have exactly one concrete implementation class within the same assembly (that is, the entity class).
-
-If any of these rules are violated, an `InvalidOperationException` will be thrown at runtime. The exception message will explain which rule was broken.
+The `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Add` into the equivalent (untyped) call to `SignalEntityAsync`.
 
 > [!NOTE]
 > The `SignalEntityAsync` APIs represent one-way operations. If an entity interfaces returns `Task<T>`, the value of the `T` parameter will always be null or `default`.
 
-<a name="host-json"></a>
+In particular, it does not make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation. 
 
+<a name="host-json"></a>
 ## host.json settings
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]

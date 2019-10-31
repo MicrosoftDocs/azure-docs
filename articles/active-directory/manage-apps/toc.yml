@@ -68,6 +68,8 @@
           href: end-user-experiences.md
     - name: Automatic user provisioning
       items:
+       - name: Plan an automatic user provisioning deployment
+         href: plan-auto-user-provisioning.md
        - name: Automatic provisioning for SCIM-enabled apps
          href: use-scim-to-provision-users-and-groups.md
     - name: Application Proxy for on-premises apps
@@ -129,10 +131,14 @@
         items:
         - name: Configure user consent
           href: configure-user-consent.md
+        - name: Configure admin consent workflow (preview)
+          href: configure-admin-consent-workflow.md
         - name: Methods for assigning users and groups to an app
           href: methods-for-assigning-users-and-groups.md
         - name: Assign a user to an app
           href: assign-user-or-group-access-portal.md
+        - name: Create workspaces on My Apps (preview)
+          href: access-panel-workspaces.md
         - name: Use self-service app access
           href: access-panel-manage-self-service-access.md
         - name: Methods for removing a user's access to an app
@@ -153,6 +159,8 @@
           href: migration-resources.md
         - name: Migrate an ADFS app to Azure
           href: migrate-adfs-apps-to-azure.md
+        - name: Use the AD FS application activity report (preview)
+          href: migrate-adfs-application-activity.md
       - name: Troubleshoot
         items:
         - name: Troubleshoot adding apps
@@ -241,6 +249,8 @@
         items:
         - name: Troubleshoot user provisioning
           href: application-provisioning-config-problem.md
+        - name: Quarantine status
+          href: application-provisioning-quarantine-status.md
         - name: Provisioning logs
           href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Sync an attribute for mapping - gallery app
@@ -357,6 +367,8 @@
          href: provisioning-agent-release-version-history.md
     - name: Application Proxy for on-premises apps
       items:
+       - name: Application Proxy FAQ
+         href: application-proxy-faq.md
        - name: Application Proxy version history
          href: application-proxy-release-version-history.md
   - name: Resources

@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: overview
 ms.date: 07/01/2019
-ms.author: v-erkell 
+ms.author: rohogue 
 ---
 
 # What is Azure FXT Edge Filer hybrid storage cache?

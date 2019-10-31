@@ -1,20 +1,15 @@
 ---
 title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/23/2016
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 11/23/2016
 
 ---
+
 # Filtering and preprocessing telemetry in the Application Insights SDK
 
 You can write and configure plug-ins for the Application Insights SDK to customize how telemetry can be enriched and processed before it's sent to the Application Insights service.
@@ -26,7 +21,7 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 
 Before you start:
 
-* Install the appropriate SDK for you application. [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) or [Non HTTP/Worker for .NET/.NET Core](worker-service.md) or [Java](../../azure-monitor/app/java-get-started.md) in your app.
+* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), or [Java](../../azure-monitor/app/java-get-started.md).
 
 <a name="filtering"></a>
 

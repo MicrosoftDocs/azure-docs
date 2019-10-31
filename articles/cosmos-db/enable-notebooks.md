@@ -11,6 +11,9 @@ ms.author: dech
 
 # Enable notebooks for Azure Cosmos DB accounts
 
+> [!IMPORTANT]
+> Built-in notebooks for Azure Cosmos DB are currently available in the following Azure regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe and West US 2. To use notebooks, [create a new account with notebooks](#enable-notebooks-in-a-new-cosmos-account) or [enable notebooks on an existing account](#enable-notebooks-in-an-existing-cosmos-account) in one of these regions.
+
 Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to enable this feature for your Azure Cosmos DB account.
 
 ## Enable notebooks in a new Cosmos account
@@ -63,4 +66,3 @@ You can also select **New Notebook** to create a new notebook or upload an exist
 ## Next steps
 
 - Learn about the benefits of [Azure Cosmos DB Jupyter notebooks](cosmosdb-jupyter-notebooks.md)
-- Learn about [how to use notebook features and commands](use-notebook-features-and-commands.md)

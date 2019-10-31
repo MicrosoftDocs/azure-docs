@@ -52,7 +52,7 @@ The limits for the count are the same whether used with a resource, variable, or
 
 ## Resource iteration
 
-When you must decide during deployment to create one or more instances of a resource, add a `copy` element to the resource type. In the copy element, specify the number of iterations and a name for this loop.
+If you want to create more than one instance of a resource in a deployment, add a `copy` element to the resource type. In the copy element, specify the number of iterations and a name for this loop.
 
 The resource to create several times takes the following format:
 
