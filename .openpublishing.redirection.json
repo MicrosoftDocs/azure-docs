@@ -41940,7 +41940,12 @@
     },
     {
       "source_path": "articles/iot-central/howto-use-device-groups-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-device-groups-pnp/",
+      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-use-device-groups-pnp.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups-pnp/",
       "redirect_document_id": true
     },
     {

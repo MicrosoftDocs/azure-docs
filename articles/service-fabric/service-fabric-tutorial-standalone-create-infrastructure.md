@@ -77,7 +77,7 @@ Service Fabric requires a number of ports open between the hosts in your cluster
 
 To avoid opening these ports to the world, you instead open them only for hosts in the same security group. Take note of the security group ID, in the example it's **sg-c4fb1eba**.  Then select **Edit**.
 
-Next, add four rules to the security group for service dependencies, and then three more for Service Fabric itself. The first rule is to allow ICMP traffic, for basic connectivity checks. The others rules open the required ports to enable SMB and Remote Registry.
+Next, add four rules to the security group for service dependencies, and then three more for Service Fabric itself. The first rule is to allow ICMP traffic, for basic connectivity checks. The others rules open the required ports to enable Remote Registry.
 
 For the first rule select **Add Rule**, then from the dropdown menu selects **All ICMP - IPv4**. Select the entry box next to custom and enter your security group ID from above.
 
@@ -113,30 +113,18 @@ To validate that basic connectivity works, use the ping command.
 ping 172.31.20.163
 ```
 
-If your output looks like `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repeated four times then your connection between the instances is working.  Now validate that your SMB sharing works with the following command:
-
-```
-net use * \\172.31.20.163\c$
-```
-
-It should return `Drive Z: is now connected to \\172.31.20.163\c$.` as the output.
+If your output looks like `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repeated four times then your connection between the instances is working.  
 
 ## Prep instances for Service Fabric
 
-If you were creating this from scratch, you'd need to take a couple extra steps.  Namely, you'd need to validate that remote registry was running, enable SMB, and open the requisite ports for SMB and remote registry.
+If you were creating this from scratch, you'd need to take a couple extra steps.  Namely, you'd need to validate that remote registry was running and open the requisite ports.
 
 To make it easier you embedded all of this work when you bootstrapped the instances with your user data script.
-
-To enable SMB, this is the PowerShell command you used:
-
-```powershell
-netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
-```
 
 To open the ports in the firewall here is the PowerShell command:
 
 ```powershell
-New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
+New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
 ```
 
 ## Next steps
