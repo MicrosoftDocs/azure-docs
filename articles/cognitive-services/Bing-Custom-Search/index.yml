@@ -13,7 +13,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: bing-custom-search
   ms.topic: landing-page
-  ms.date: 07/25/2019
+  ms.date: 10/31/2019
   ms.author: aahill
 
 landingContent:
@@ -25,7 +25,7 @@ landingContent:
           url: overview.md
         - text: Compare the Bing Search applications
           url: ../bing-web-search/bing-api-comparison.md
-- title: Use and integrate your custom view of the web
+- title: Integrate your custom view of the web
   linkLists:
     - linkListType: how-to-guide
       links:
@@ -33,7 +33,7 @@ landingContent:
           url: define-your-custom-view.md
         - text: Get image search results 
           url: get-images-from-instance.md
-        - text: Get videos search results 
+        - text: Get video search results 
           url: get-videos-from-instance.md
         - text: Call your custom search instance 
           url: search-your-custom-view.md
