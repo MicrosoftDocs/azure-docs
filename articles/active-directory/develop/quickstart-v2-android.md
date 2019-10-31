@@ -26,7 +26,8 @@ This quickstart uses a code sample to demonstrate an Android application that si
 
 Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can share tokens with your application.
 
-As a convenience, the code sample comes with a default `redirect_uri` preconfigured in the `AndroidManifest.xml` file so that you don't have to first register your own app object. A `redirect_uri` is partly based on your app's signing key. The sample project is preconfigured with a signing key so that the provided `redirect_uri` will work. To learn more about registering an app object and integrating it with your application, see the [Sign in users and call the Microsoft Graph from an Android app](tutorial-v2-android.md) tutorial.
+> [!div renderon="docs"]
+> As a convenience, the code sample comes with a default `redirect_uri` preconfigured in the `AndroidManifest.xml` file so that you don't have to first register your own app object. A `redirect_uri` is partly based on your app's signing key. The sample project is preconfigured with a signing key so that the provided `redirect_uri` will work. To learn more about registering an app object and integrating it with your application, see the [Sign in users and call the Microsoft Graph from an Android app](tutorial-v2-android.md) tutorial.
 
 ![Screenshot of the sample app](media/quickstart-v2-android/android-intro.svg)
 
@@ -35,26 +36,111 @@ As a convenience, the code sample comes with a default `redirect_uri` preconfigu
 > * Android Studio 
 > * Android 16+
 
-## Step 1: Get the sample app
+> [!div class="sxs-lookup" renderon="portal"]
+> ### Step 1: Configure your application in the Azure portal 
+>  For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Make these changes for me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Already configured](media/quickstart-v2-android/green-check.png) Your application is configured with these attributes
+>
+> ### Step 2: Download the project 
+> * [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java)
+>
+> ### Step 3: Configure your project
+> 1. Extract and open the Project in Android Studio.
+> 2. Inside app > src > main > res > raw, open auth_config_multiple_account.json and replace it with the following code:
+```javascript 
+{
+  "client_id" : "Enter_the_Application_Id_Here",
+  "authorization_user_agent" : "DEFAULT",
+  "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+  "account_mode" : "MULTIPLE",
+  "broker_redirect_uri_registered": true,
+  "authorities" : [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "Enter_the_Audience_Info_Here",
+        "tenant_id": "Enter_the_Tenant_Info_Here"
+      }
+    }
+  ]
+}
+```
+> [!div class="sxs-lookup" renderon="portal"]
+> 3. Inside app > src > main > res > raw, open auth_config_single_account.json and replace it with the following code:
+```javascript 
+{
+  "client_id" : "Enter_the_Application_Id_Here",
+  "authorization_user_agent" : "DEFAULT",
+  "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+  "account_mode" : "SINGLE",
+  "broker_redirect_uri_registered": true,
+  "authorities" : [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "Enter_the_Audience_Info_Here",
+        "tenant_id": "Enter_the_Tenant_Info_Here"
+      }
+    }
+  ]
+}
+```
+> [!div class="sxs-lookup" renderon="portal"]
+> 4. Inside **app** > **src** > **main**, open  **AndroidManifest.xml**.
+> 5. In the **manifest\application** node, replace the **<activity android:name="com.microsoft.identity.client.BrowserTabActivity">** node with the following:	
+```xml
+<!--Intent filter to catch Microsoft's callback after Sign In-->
+<activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+    <intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+        <!--
+            Add in your scheme/host from registered redirect URI 
+            note that the leading "/" is required for android:path
+        -->
+        <data android:scheme="msauth"
+            android:host="Enter_the_Package_Name"
+            android:path="/Enter_the_Signature_Hash"
+            android:scheme = "msauth" />
+    </intent-filter>
+</activity>
+```
+    
+> 6. Run the app! 
+    
 
-[Clone the code](https://github.com/Azure-Samples/ms-identity-android-java.git).
 
-## Step 2: Run the sample app
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
-Select your emulator, or physical device, from Android Studio's **available devices** dropdown and run the app.
+> [!div renderon="docs"]
+> ## Step 1: Get the sample app
+>
+> [Clone the code](https://github.com/Azure-Samples/ms-identity-android-java.git).
+>
+> ## Step 2: Run the sample app
+>
+> Select your emulator, or physical device, from Android Studio's **available devices** dropdown and run the app.
+>
+> The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
+>
+> ![MSAL sample app showing single and multiple account usage](./media/quickstart-v2-android/quickstart-sample-app.png)
+>
+> Use the app menu to change between single and multiple account modes.
+>
+> In single account mode, sign in using a work or home account:
+>
+> 1. Select **Get graph data interactively** to prompt the user for their credentials. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
+> 2. Once signed in, select **Get graph data silently** to make a call to the Microsoft Graph API without prompting the user for credentials again. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
+>
+> In multiple account mode, you can repeat the same steps.  Additionally, you can remove the signed-in account, which also removes the cached tokens for that account.
 
-The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
-
-![MSAL sample app showing single and multiple account usage](./media/quickstart-v2-android/quickstart-sample-app.png)
-
-Use the app menu to change between single and multiple account modes.
-
-In single account mode, sign in using a work or home account:
-
-1. Select **Get graph data interactively** to prompt the user for their credentials. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
-2. Once signed in, select **Get graph data silently** to make a call to the Microsoft Graph API without prompting the user for credentials again. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
-
-In multiple account mode, you can repeat the same steps.  Additionally, you can remove the signed-in account, which also removes the cached tokens for that account.
 
 ## How the sample works
 
