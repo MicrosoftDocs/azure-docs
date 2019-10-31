@@ -364,7 +364,13 @@
         href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
   - name: Troubleshoot
     items:
-    - name: Device disconnections
+    - name: Troubleshoot errors
+      href: iot-hub-troubleshoot-errors.md
+      -name: Problem resolution
+      items:
+        - name: 401002 AuthenticationFailed
+          href: iot-hub-troubleshoot-error-401002-authenticationfailed.md
+    - name: Device disconnections TO BE REMOVED
       href: iot-hub-troubleshoot-connectivity.md
 - name: Reference
   items:
