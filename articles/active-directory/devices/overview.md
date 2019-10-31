@@ -29,7 +29,7 @@ To protect these assets, IT staff need to first manage the device identities. IT
 - Your users get access to your organization's assets they need. 
 - Your IT staff get the controls they need to secure your organization.
 
-Device identity management is the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access policies, you can ensure that access to resources in your environment is only possible with managed devices.
+Device identity management is the foundation for [device-based Conditional Access](../conditional-access/require-managed-devices.md). With device-based Conditional Access policies, you can ensure that access to resources in your environment is only possible with managed devices.
 
 ## Getting devices in Azure AD
 
@@ -93,4 +93,4 @@ With device identity management in Azure AD, you can:
 - Learn more about [Azure AD joined devices](concept-azure-ad-join.md)
 - Learn more about [hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
 - To get an overview of how to manage device identities in the Azure portal, see [Managing device identities using the Azure portal](device-management-azure-portal.md).
-- To learn more about device-based conditional access, see [Configure Azure Active Directory device-based conditional access policies](../conditional-access/require-managed-devices.md).
+- To learn more about device-based Conditional Access, see [Configure Azure Active Directory device-based Conditional Access policies](../conditional-access/require-managed-devices.md).

@@ -8,7 +8,7 @@ ms.author: lugoldbe
 
 ## Azure Resource Manager template
 
-In this article, an Azure Resource Manager template is used to create all the azure resources, a storage account, a container, an event hub, an azure data explorer cluster, and a database. Save the following content into a file with name `template.json`, which will be used to run the code example.
+In this article, an Azure Resource Manager template is used to create a resource group, a storage account and container, an Event Hub, and an Azure Data Explorer cluster and database. Save the following content into a file with name `template.json`, which will be used to run the code example.
 
 ```json
 {
@@ -47,13 +47,6 @@ In this article, an Azure Resource Manager template is used to create all the az
             "defaultValue": "[concat('storagecontainer', uniqueString(resourceGroup().id))]",
             "metadata": {
                 "description": "Name of the container in storage account to create"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Specifies the Azure location for all resources."
             }
         },
         "eventHubSku": {

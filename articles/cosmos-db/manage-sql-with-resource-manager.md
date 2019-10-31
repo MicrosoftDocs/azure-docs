@@ -4,7 +4,7 @@ description: Use Azure Resource Manager templates to create and configure Azure 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/28/2019
 ms.author: mjbrown
 ---
 
@@ -16,7 +16,6 @@ Create Azure Cosmos DB resources using an Azure Resource Manager template. This 
 
 > [!NOTE]
 >
-> - Currently you cannot deploy User Defined Functions(UDFs), stored procedures, and triggers by using Resource Manager templates.
 > - You cannot simultaneously add or remove locations to an Azure Cosmos account and modify other properties. These must be done as separate operations.
 > - Account names must be lower case and < 31 characters.
 
@@ -78,6 +77,64 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 ```
 
 The `az cosmosdb show` command shows the newly created Azure Cosmos account after it has been provisioned. If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) article.
+
+## Create an Azure Cosmos DB container with server-side functionality <a id="create-sproc"></a>
+
+Create an Azure Cosmos DB container with a stored procedure, trigger and user-defined function using an Azure Resource Manager template. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
+
+[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+
+### Deploy stored procedure template via PowerShell
+
+To deploy the Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
+
+```azurepowershell-interactive
+
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$location = Read-Host -Prompt "Enter the location (i.e. westus2)"
+$primaryRegion = Read-Host -Prompt "Enter the primary region (i.e. westus2)"
+$secondaryRegion = Read-Host -Prompt "Enter the secondary region (i.e. eastus2)"
+$databaseName = Read-Host -Prompt "Enter the database name"
+$containerName = Read-Host -Prompt "Enter the container name"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json" `
+    -accountName $accountName `
+    -location $location `
+    -primaryRegion $primaryRegion `
+    -secondaryRegion $secondaryRegion `
+    -databaseName $databaseName `
+    -containerName $containerName
+
+ (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
+```
+
+If you choose to use a locally installed version of PowerShell instead of from the Azure Cloud shell, you have to [install](/powershell/azure/install-az-ps) the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version.
+
+### Deploy stored procedure template via Azure CLI
+
+To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the location (i.e. westus2): ' location
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
+read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the container name: ' containerName
+
+az group create --name $resourceGroupName --location $location
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json \
+   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion databaseName=$databaseName \
+   containerName=$containerName
+
+az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
+```
 
 ## Update throughput (RU/s) on a database <a id="database-ru-update"></a>
 
