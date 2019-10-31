@@ -39,9 +39,6 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 In this example, replace the placeholders in the resource with your subscription ID, and resource group. The output is the role assignment credentials that provide access to your resource. Copy this JSON object, which you can use to authenticate from GitHub.
 
-> [!IMPORTANT]
-> It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific resource and not the entire resource group.
-
 ## Configure the GitHub secret
 
 The below example uses user-level credentials i.e. Azure Service Principal for deployment. Follow the steps to configure the secret:
@@ -52,20 +49,12 @@ The below example uses user-level credentials i.e. Azure Service Principal for d
 
 2. Paste the contents of the above `az cli` command as the value of secret variable. For example, `AZURE_CREDENTIALS`.
 
-3. Now in the workflow file in your branch: `.github/workflows/workflow.yml` replace the secret in Azure login action with your secret.
-
-    ```yaml
-        - uses: azure/actions/login@v1
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-    ```
-
-4. Similarly, define the following additional secrets for the container registry credentials and set them in Docker login action. 
+3. Similarly, define the following additional secrets for the container registry credentials and set them in Docker login action. 
 
     - REGISTRY_USERNAME
     - REGISTRY_PASSWORD
 
-5. You will see the secrets as shown below once defined.
+4. You will see the secrets as shown below once defined.
 
     ![k8s-secrets](media/k8s-action/k8s-secrets.png)
 
@@ -166,3 +155,5 @@ You can find our set of Actions grouped into different repositories on GitHub, e
 - [k8s-create-secret](https://github.com/Azure/k8s-create-secret)
 
 - [k8s-deploy](https://github.com/Azure/k8s-deploy)
+
+- [webapps-container-deploy](https://github.com/Azure/webapps-container-deploy)
