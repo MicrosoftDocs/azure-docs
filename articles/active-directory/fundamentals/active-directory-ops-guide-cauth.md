@@ -1,4 +1,18 @@
-# Authentication management
+---
+title: Azure Active Directory authentication management operations reference guide
+description: This operations reference guide describes the checks and actions you should take to secure authentication management
+services: active-directory
+author: martincoetzer
+manager: mtillman
+tags: azuread
+ms.service: active-directory
+ms.topic: conceptual
+ms.workload: identity
+ms.date: 10/31/2019
+ms.author: martinco
+---
+
+# Azure Active Directory authentication management operations reference guide
 
 This section of the [Azure AD operations reference guide](azure-ad-ops-guide-aintro.md) describes the checks and actions you should take to secure and manage credentials, define authentication experience, delegate assignment, measure usage, and define access policies based on enterprise security posture.
 

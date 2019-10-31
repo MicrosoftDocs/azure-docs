@@ -1,4 +1,18 @@
-# Governance
+---
+title: Azure Active Directory governance operations reference guide
+description: This operations reference guide describes the checks and actions you should take to secure governance management
+services: active-directory
+author: martincoetzer
+manager: mtillman
+tags: azuread
+ms.service: active-directory
+ms.topic: conceptual
+ms.workload: identity
+ms.date: 10/31/2019
+ms.author: martinco
+---
+
+# Azure Active Directory governance operations reference guide
 
 This section of the [Azure AD operations reference guide](azure-ad-ops-guide-aintro.md) describes the checks and actions you should take to assess and attest the access granted non-privileged and privileged identities, audit, and control changes to the environment.
 

@@ -1,4 +1,18 @@
-# Azure Active Directory operations guide reference
+---
+title: Azure Active Directory general operations guide reference
+description: This operations reference guide describes the checks and actions you should take to secure general operations
+services: active-directory
+author: martincoetzer
+manager: mtillman
+tags: azuread
+ms.service: active-directory
+ms.topic: conceptual
+ms.workload: identity
+ms.date: 10/31/2019
+ms.author: martinco
+---
+
+# Azure Active Directory general operations guide reference
 
 This section of the [Azure AD operations reference guide](azure-ad-ops-guide-aintro.md) describes the checks and actions you should take to optimize the general operations of Azure Active Directory (Azure AD).
 
