@@ -1,13 +1,14 @@
 ---
-title: OData filter reference - Azure Search
-description: OData language reference for filter syntax in Azure Search queries.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
+title: OData filter reference
+titleSuffix: Azure Cognitive Search
+description: OData language reference for filter syntax in Azure Cognitive Search queries.
+
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,9 +21,10 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData $filter syntax in Azure Search
 
-Azure Search uses [OData filter expressions](query-odata-filter-orderby-syntax.md) to apply additional criteria to a search query besides full-text search terms. This article describes the syntax of filters in detail. For more general information about what filters are and how to use them to realize specific query scenarios, see [Filters in Azure Search](search-filters.md).
+# OData $filter syntax in Azure Cognitive Search
+
+Azure Cognitive Search uses [OData filter expressions](query-odata-filter-orderby-syntax.md) to apply additional criteria to a search query besides full-text search terms. This article describes the syntax of filters in detail. For more general information about what filters are and how to use them to realize specific query scenarios, see [Filters in Azure Cognitive Search](search-filters.md).
 
 ## Syntax
 
@@ -47,27 +49,27 @@ variable ::= identifier | field_path
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 The types of Boolean expressions include:
 
-- Collection filter expressions using `any` or `all`. These apply filter criteria to collection fields. For more information, see [OData collection operators in Azure Search](search-query-odata-collection-operators.md).
-- Logical expressions that combine other Boolean expressions using the operators `and`, `or`, and `not`. For more information, see [OData logical operators in Azure Search](search-query-odata-logical-operators.md).
-- Comparison expressions, which compare fields or range variables to constant values using the operators `eq`, `ne`, `gt`, `lt`, `ge`, and `le`. For more information, see [OData comparison operators in Azure Search](search-query-odata-comparison-operators.md). Comparison expressions are also used to compare distances between geo-spatial coordinates using the `geo.distance` function. For more information, see [OData geo-spatial functions in Azure Search](search-query-odata-geo-spatial-functions.md).
+- Collection filter expressions using `any` or `all`. These apply filter criteria to collection fields. For more information, see [OData collection operators in Azure Cognitive Search](search-query-odata-collection-operators.md).
+- Logical expressions that combine other Boolean expressions using the operators `and`, `or`, and `not`. For more information, see [OData logical operators in Azure Cognitive Search](search-query-odata-logical-operators.md).
+- Comparison expressions, which compare fields or range variables to constant values using the operators `eq`, `ne`, `gt`, `lt`, `ge`, and `le`. For more information, see [OData comparison operators in Azure Cognitive Search](search-query-odata-comparison-operators.md). Comparison expressions are also used to compare distances between geo-spatial coordinates using the `geo.distance` function. For more information, see [OData geo-spatial functions in Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
 - The Boolean literals `true` and `false`. These constants can be useful sometimes when programmatically generating filters, but otherwise don't tend to be used in practice.
 - Calls to Boolean functions, including:
-  - `geo.intersects`, which tests whether a given point is within a given polygon. For more information, see [OData geo-spatial functions in Azure Search](search-query-odata-geo-spatial-functions.md).
-  - `search.in`, which compares a field or range variable with each value in a list of values. For more information, see [OData `search.in` function in Azure Search](search-query-odata-search-in-function.md).
-  - `search.ismatch` and `search.ismatchscoring`, which execute full-text search operations in a filter context. For more information, see [OData full-text search functions in Azure Search](search-query-odata-full-text-search-functions.md).
+  - `geo.intersects`, which tests whether a given point is within a given polygon. For more information, see [OData geo-spatial functions in Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
+  - `search.in`, which compares a field or range variable with each value in a list of values. For more information, see [OData `search.in` function in Azure Cognitive Search](search-query-odata-search-in-function.md).
+  - `search.ismatch` and `search.ismatchscoring`, which execute full-text search operations in a filter context. For more information, see [OData full-text search functions in Azure Cognitive Search](search-query-odata-full-text-search-functions.md).
 - Field paths or range variables of type `Edm.Boolean`. For example, if your index has a Boolean field called `IsEnabled` and you want to return all documents where this field is `true`, your filter expression can just be the name `IsEnabled`.
 - Boolean expressions in parentheses. Using parentheses can help to explicitly determine the order of operations in a filter. For more information on the default precedence of the OData operators, see the next section.
 
 ### Operator precedence in filters
 
-If you write a filter expression with no parentheses around its sub-expressions, Azure Search will evaluate it according to a set of operator precedence rules. These rules are based on which operators are used to combine sub-expressions. The following table lists groups of operators in order from highest to lowest precedence:
+If you write a filter expression with no parentheses around its sub-expressions, Azure Cognitive Search will evaluate it according to a set of operator precedence rules. These rules are based on which operators are used to combine sub-expressions. The following table lists groups of operators in order from highest to lowest precedence:
 
 | Group | Operator(s) |
 | --- | --- |
@@ -97,7 +99,7 @@ This error happens because the operator is associated with just the `Rating` fie
 
 ### Filter size limitations
 
-There are limits to the size and complexity of filter expressions that you can send to Azure Search. The limits are based roughly on the number of clauses in your filter expression. A good guideline is that if you have hundreds of clauses, you are at risk of exceeding the limit. We recommend designing your application in such a way that it doesn't generate filters of unbounded size.
+There are limits to the size and complexity of filter expressions that you can send to Azure Cognitive Search. The limits are based roughly on the number of clauses in your filter expression. A good guideline is that if you have hundreds of clauses, you are at risk of exceeding the limit. We recommend designing your application in such a way that it doesn't generate filters of unbounded size.
 
 > [!TIP]
 > Using [the `search.in` function](search-query-odata-search-in-function.md) instead of long disjunctions of equality comparisons can help avoid the filter clause limit, since a function call counts as a single clause.
@@ -190,7 +192,7 @@ Find hotels where the terms "hotel" and "airport" are no more than five words ap
 
 ## Next steps  
 
-- [Filters in Azure Search](search-filters.md)
-- [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filters in Azure Cognitive Search](search-filters.md)
+- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

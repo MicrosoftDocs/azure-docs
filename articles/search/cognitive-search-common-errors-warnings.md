@@ -1,20 +1,19 @@
 ---
-title: Common Errors and Warnings - Azure Search
-description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Search.
-services: search
-manager: heidist
-author: amotley
+title: Common Errors and Warnings
+titleSuffix: Azure Cognitive Search
+description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
 
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
+manager: nitinme
+author: amotley
 ms.author: abmotley
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Common errors and warnings of the AI enrichment pipeline in Azure Search
+# Common errors and warnings of the AI enrichment pipeline in Azure Cognitive Search
 
-This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Search.
+This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
 
 ## Errors
 Indexing stops when the error count exceeds ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -127,7 +126,11 @@ The document was read and processed, but due to a mismatch in the configuration 
 | An unknown type was discovered in the source document. | Unknown type '_unknown_' cannot be indexed |
 | An incompatible notation for geography points was used in the source document. | WKT POINT string literals are not supported. Please use GeoJson point literals instead |
 
-In all these cases, refer to [Supported Data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers in Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
+In all these cases, refer to [Supported Data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
+
+### Could not process document within indexer max run time
+
+This error occurs when the indexer is unable to finish processing a single document from the data source within the allowed execution time. [Maximum running time](search-limits-quotas-capacity.md#indexer-limits) is shorter when skillsets are used. When this error occurs, if you have maxFailedItems set to a value other than 0, the indexer bypasses the document on future runs so that indexing can progress. If you cannot afford to skip any document, or if you are seeing this error consistently, consider breaking documents into smaller documents so that partial progress can be made within a single indexer execution.
 
 ##  Warnings
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.

@@ -1,36 +1,37 @@
 ---
-title: Upgrade to the latest Azure Search Service REST API version - Azure Search
-description: Review differences in API versions and learn which actions are required to migrate existing code to the newest Azure Search Service REST API version.
-author: brjohnstmsft
-manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: brjohnst
+title: Upgrade to the latest Azure Cognitive Search service REST API version
+titleSuffix: Azure Cognitive Search
+description: Review differences in API versions and learn which actions are required to migrate existing code to the newest Azure Cognitive Search service REST API version.
 
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# Upgrade to the latest Azure Search Service REST API version
-If you're using a previous version of the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the newest generally available API version, 2019-05-06.
+
+# Upgrade to the latest Azure Cognitive Search service REST API version
+
+If you're using a previous version of the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the newest generally available API version, 2019-05-06.
 
 Version 2019-05-06 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. [Steps to upgrade](#UpgradeSteps) outlines the code changes required for using new features.
 
 > [!NOTE]
-> An Azure Search service instance supports a range of REST API versions, including earlier ones. You can continue to use those API versions, but we recommend migrating your code to the newest version so that you can access new capabilities.
+> An Azure Cognitive Search service instance supports a range of REST API versions, including earlier ones. You can continue to use those API versions, but we recommend migrating your code to the newest version so that you can access new capabilities.
 
 <a name="WhatsNew"></a>
 
 ## What's new in version 2019-05-06
-Version 2019-05-06 is the newest generally available release of the Azure Search Service REST API. Features that have transitioned to generally available status in this API version include:
+Version 2019-05-06 is the newest generally available release of the REST API. Features that have transitioned to generally available status in this API version include:
 
 * [Autocomplete](index-add-suggesters.md) is a typeahead feature that completes a partially specified term input.
 
-* [Complex types](search-howto-complex-data-types.md) provides native support for structured object data in an Azure Search index.
+* [Complex types](search-howto-complex-data-types.md) provides native support for structured object data in search index.
 
 * [JsonLines parsing modes](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.
 
-* [Cognitive search](cognitive-search-concept-intro.md) provides indexing that leverages the AI enrichment engines of Cognitive Services.
+* [AI enrichment](cognitive-search-concept-intro.md) provides indexing that leverages the AI enrichment engines of Cognitive Services.
 
 Several preview feature releases coincide with this generally available update. To review the list of new preview features, see [Search REST api-version 2019-05-06-Preview](search-api-preview.md).
 
@@ -48,7 +49,7 @@ The error structure for indexer execution previously had a `status` element. Thi
 
 ### Indexer data source API no longer returns connection strings
 
-From API versions 2019-05-06 and 2019-05-06-Preview onwards, the data source API no longer returns connection strings in the response of any REST operation. In previous API versions, for data sources created using POST, Azure Search returned **201** followed by the OData response, which contained the connection string in plain text.
+From API versions 2019-05-06 and 2019-05-06-Preview onwards, the data source API no longer returns connection strings in the response of any REST operation. In previous API versions, for data sources created using POST, Azure Cognitive Search returned **201** followed by the OData response, which contained the connection string in plain text.
 
 ### Named Entity Recognition cognitive skill is now discontinued
 
@@ -85,7 +86,7 @@ If your code uses complex types with the older preview API versions 2017-11-11-P
 
 + There is a new limit in api-version 2019-05-06 on the number of elements of complex collections per document. If you created indexes with documents that exceed these limits using the preview api-versions, any attempt to reindex that data using api-version 2019-05-06 will fail. If this applies to you, you will need to reduce the number of complex collection elements per document before reindexing your data.
 
-For more information, see [Service limits for Azure Search](search-limits-quotas-capacity.md).
+For more information, see [Service limits for Azure Cognitive Search](search-limits-quotas-capacity.md).
 
 ### How to upgrade an old complex type structure
 
@@ -139,7 +140,7 @@ You can update "flat" indexes to the new format with the following steps using A
 
 ## Next steps
 
-Review the Azure Search Service REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
+Review the Search REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)

@@ -1,13 +1,14 @@
 ---
-title: OData collection operator reference - Azure Search
-description: OData collection operators, any and all, and lambda expressions in Azure Search queries.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
+title: OData collection operator reference
+titleSuffix: Azure Cognitive Search
+description: OData collection operators, any and all, and lambda expressions in Azure Cognitive Search queries.
+
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,9 +21,10 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData collection operators in Azure Search - `any` and `all`
 
-When writing an [OData filter expression](query-odata-filter-orderby-syntax.md) to use with Azure Search, it is often useful to filter on collection fields. You can achieve this using the `any` and `all` operators.
+# OData collection operators in Azure Cognitive Search - `any` and `all`
+
+When writing an [OData filter expression](query-odata-filter-orderby-syntax.md) to use with Azure Cognitive Search, it is often useful to filter on collection fields. You can achieve this using the `any` and `all` operators.
 
 ## Syntax
 
@@ -42,10 +44,10 @@ lambda_expression ::= identifier ':' boolean_expression
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 There are three forms of expression that filter collections.
 
@@ -82,13 +84,13 @@ Match documents where for all rooms, the `rooms/amenities` field contains "tv" a
 
 Not every feature of filter expressions is available inside the body of a lambda expression. The limitations differ depending on the data type of the collection field that you want to filter. The following table summarizes the limitations.
 
-[!INCLUDE [Limitations on OData lambda expressions in Azure Search](../../includes/search-query-odata-lambda-limitations.md)]
+[!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
 
-For more details on these limitations as well as examples, see [Troubleshooting collection filters in Azure Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why these limitations exist, see [Understanding collection filters in Azure Search](search-query-understand-collection-filters.md).
+For more details on these limitations as well as examples, see [Troubleshooting collection filters in Azure Cognitive Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why these limitations exist, see [Understanding collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md).
 
 ## Next steps  
 
-- [Filters in Azure Search](search-filters.md)
-- [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filters in Azure Cognitive Search](search-filters.md)
+- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
