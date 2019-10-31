@@ -1,10 +1,10 @@
 ---
 title: Azure Analysis Services scale-out| Microsoft Docs
-description: Replicate Azure Analysis Services servers with scale-out
+description: Replicate Azure Analysis Services servers with scale-out. Client queries can then be distributed among multiple query replicas in a scale-out query pool.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
