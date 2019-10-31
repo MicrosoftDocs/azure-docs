@@ -34,7 +34,7 @@ You can see the history of which runtime version your past jobs have used in you
 3. Optionally, click **Filter** to help you find the jobs by **Time Range**, **Job Name**, and **Author** values.
 4. You can see the runtime used in the completed jobs.
 
-![Displaying the runtime version of a past job](./media/data-lake-analytics-runtime-troubleshoot/usql-runtime-version.png)
+![Displaying the runtime version of a past job](./media/data-lake-analytics-runtime-troubleshoot/prior-job-usql-runtime-version.png)
 
 The available runtime versions change over time. The default runtime is always called “default” and we keep at least the previous runtime available for some time as well as make special runtimes available for a variety of reasons. Explicitly named runtimes generally follow the following format (italics are used for variable parts and [] indicates optional parts):
 
