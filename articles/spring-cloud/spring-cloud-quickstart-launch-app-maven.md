@@ -43,7 +43,8 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 1. In a web browser, open the [Azure portal](https://portal.azure.com), and sign in to your account.
 
-1. Search for and then select **Azure Spring Cloud**. 
+1. Navigate to [this page](https://ms.portal.azure.com/#create/Microsoft.AppPlatform) then select **Azure Spring Cloud**. 
+
 1. On the overview page, select **Create**, and then do the following:  
 
     a. In the **Service Name** box, specify the name of your service instance. The name must be from 4 to 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter, and the last character must be either a letter or a number.  
