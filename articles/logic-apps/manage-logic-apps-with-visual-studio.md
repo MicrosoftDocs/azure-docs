@@ -109,7 +109,7 @@ You can download logic apps from the [Azure portal](https://portal.azure.com) an
 
 1. On the designer toolbar, select **Download**.
 
-   ![Download logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
+   ![Download logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/download-logic-app-from-portal.png)
 
 1. When you're prompted for a location, browse to that location and save the Resource Manager template for the logic app definition in JSON (.json) file format.
 
@@ -186,7 +186,7 @@ To change your logic app's location type or location, you have to open your logi
 
    * Select a different Azure region:
 
-     ![Open "Location" property list, select another Azure region](./media/manage-logic-apps-with-visual-studio/change-azure-region.png)
+     ![Open "Location" property list, select another Azure region](./media/manage-logic-apps-with-visual-studio/change-azure-resource-group-region.png)
 
    * Select a different ISE:
 
@@ -208,13 +208,13 @@ If you edit your logic app in the Azure portal and want to keep those changes, m
 
 * In Visual Studio Cloud Explorer, open your logic app's shortcut menu, and select **Refresh**.
 
-![Refresh logic app with updates](./media/manage-logic-apps-with-visual-studio/refresh-logic-app.png)
+![Refresh logic app with updates](./media/manage-logic-apps-with-visual-studio/refresh-logic-app-with-updates-from-portal.png)
 
 ## Publish logic app updates
 
 When you're ready to deploy your logic app updates from Visual Studio to Azure, on the Logic App Designer toolbar, select **Publish**.
 
-![Publish updated logic app to Azure portal](./media/manage-logic-apps-with-visual-studio/publish-logic-app.png)
+![Publish updated logic app to Azure portal](./media/manage-logic-apps-with-visual-studio/publish-logic-app-to-azure-portal.png)
 
 ## Manually run your logic app
 
@@ -228,7 +228,7 @@ To check the status and diagnose problems with logic app runs, you can review th
 
 1. In Cloud Explorer, open your logic app's shortcut menu, and select **Open run history**.
 
-   ![Open run history for your logic app](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
+   ![Open run history for your logic app](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
 1. To view the details for a specific run, double-click a run. For example:
 
@@ -239,13 +239,13 @@ To check the status and diagnose problems with logic app runs, you can review th
 
 1. Expand the steps whose inputs and outputs you want to review, for example:
 
-   ![View inputs and outputs for each step](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
+   ![View inputs and outputs for each step](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
 
 ## Disable or enable logic app
 
 Without deleting your logic app, you can stop the trigger from firing the next time when the trigger condition is met. Disabling your logic app prevents the Logic Apps engine from creating and running future workflow instances for your logic app. In Cloud Explorer, open your logic app's shortcut menu, and select **Disable**.
 
-![Disable your logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
+![Disable your logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
 
 > [!NOTE]
 > When you disable a logic app, no new runs are instantiated. All in-progress and pending runs 
@@ -253,13 +253,13 @@ Without deleting your logic app, you can stop the trigger from firing the next t
 
 To reactivate your logic app, in Cloud Explorer, open your logic app's shortcut menu, and select **Enable**.
 
-![Enable logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
+![Enable logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
 
 ## Delete your logic app
 
 To delete your logic app from the Azure portal, in Cloud Explorer, open your logic app's shortcut menu, and select **Delete**.
 
-![Delete your logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+![Delete your logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
 > [!NOTE]
 > When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. 
