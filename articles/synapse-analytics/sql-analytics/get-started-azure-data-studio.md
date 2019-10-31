@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 # Connect to Azure SQL analytics with Azure Data Studio
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
-> * [Power BI](tutorial-bi-professional.md)
+> * [Power BI](tutorial-power-bi-professional.md)
 > * [Visual Studio](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)

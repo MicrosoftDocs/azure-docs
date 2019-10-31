@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 # Connect to SQL analytics with SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
-> * [Power BI](tutorial-bi-professional.md)
+> * [Power BI](tutorial-power-bi-professional.md)
 > * [Visual Studio](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
@@ -121,7 +121,7 @@ To configure your environment for Azure Active Directory authentication, see [Au
 [Connect to SQL analytics]: connect-overview.md
 [Create a SQL analytics]: ../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md
 [Authenticate to SQL analytics]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md
-[visualizing the data with PowerBI]: tutorial-bi-professional.md 
+[visualizing the data with PowerBI]: tutorial-power-bi-professional.md 
 
 <!--Other-->
 [Azure portal]: https://portal.azure.com

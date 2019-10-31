@@ -41,7 +41,7 @@
 - name: Tutorials
   items:
   - name: BI Professional
-    href: sql-analytics/tutorial-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: sql-analytics/tutorial-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Data Scientist
     items:
     - name: Predict food inspection results
