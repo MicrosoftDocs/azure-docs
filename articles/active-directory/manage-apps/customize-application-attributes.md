@@ -157,15 +157,16 @@ Use the steps below to provision roles for a user to your application. Note that
   - **Things to consider**
     - Ensure that multiple roles are not assigned to a user. We cannot gaurantee which role will be provisioned.   
   
-- **AppRoleAssignmentsComplex ** 
-  - **When to use:** Use the AppRoleAssignmentsComplex function to provision multiple roles for a user. 
-  - **How to configure:** Edit the list of supported customer attributes as rescribed above to include a new attribute for roles. Use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image below. 
+- **AppRoleAssignmentsComplex** 
+  - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
+  - **How to configure:** Edit the list of supported attributes as rescribed above to include a new attribute for roles. Use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image below. 
   
-  ![Add roles](./media/customize-application-attributes/AddRoles.PNG)
+  ![Add roles](./media/customize-application-attributes/AddRoles.PNG)<br>
+  Editing the list of supported attributes to include roles
   
+  ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/AppRoleAssignmentsComplex.PNG)<br>
+  Using the AppRoleAssignmentsComplex expression to mapp AppRoleAssignments to the roles attribute
   
-  ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/AppRoleAssignmentsComplex.PNG)
-    
   - **Example output:** 
   
 ```json
@@ -204,7 +205,7 @@ Use the steps below to provision roles for a user to your application. Note that
 
 
 ## Provisioning a multi-value attribute
-Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression below for multi value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value.  Do you need to set it as multi-attribute?
+Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression below for multi value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value. 
 
 * phoneNumbers[type eq "work"].value
 * phoneNumbers[type eq "mobile"].value
