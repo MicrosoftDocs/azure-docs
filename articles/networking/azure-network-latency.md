@@ -18,21 +18,21 @@ ms.author: kumud
 
 # Azure Network Round Trip Latency Statistics
 
-Azure continuously monitors the latency (speed) of core areas of its network using measurements collected by [ThousandEyes](https://thousandeyes.com), a third-party synthetic monitoring service.
+Azure continuously monitors the latency (speed) of core areas of its network using internal monitoring tools as well as measurements collected by [ThousandEyes](https://thousandeyes.com), a third-party synthetic monitoring service.
 
 ## How are the measurements collected?
 
-Measurements are collected from ThousandEyes agents hosted in Azure cloud regions world-wide, which continuously send network probes between themselves, in 1-minute intervals. Monthly latency statistics are derived from averaging collected samples from the previous month.
+Measurements are collected from ThousandEyes agents hosted in Azure cloud regions world-wide, which continuously send network probes between themselves, in 1-minute intervals. Monthly latency statistics are derived from averaging collected samples for the month.
 
 ## October 2019 latency figures
 
-For the 30 days ending on **October 24, 2019**, monthly latency figures (aggregated by region) are as follows:
+For the 30 days ending on **October 30, 2019**, monthly latency figures (aggregated by region) are as follows:
 
 - **36ms or less** for inter-region round trips within **North America**.
 - **46ms or less** for inter-region round trips within **Europe**.
 - **82ms or less** for inter-region round trips within **Asia**.
 
-The following inter-region latency measurements are powered by [ThousandEyes](https://thousandeyes.com).
+The following inter-region latency measurements are powered by [ThousandEyes](https://thousandeyes.com). The measurement unit in the table below is in milliseconds(ms)
 
 ![Azure inter-region latency statistics](./media/azure-network-latency/azure-inter-region-latency.png)
 
