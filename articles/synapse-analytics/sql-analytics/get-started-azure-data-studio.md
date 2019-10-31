@@ -74,7 +74,7 @@ For more about details about the options available in sqlcmd see [sqlcmd documen
 
 <!--Image references-->
 [1]: media/sql-analytics-query-ads/1-start.png
-[2]: media/sql-analytics-query-ads/2-db-details.png
+[2]: media/sql-analytics-query-ads/2-database-details.png
 [3]: media/sql-analytics-query-ads/3-windows-auth.png
 [4]: media/sql-analytics-query-ads/4-dashboard.png
 [5]: media/sql-analytics-query-ads/5-new-query.png
