@@ -65,7 +65,7 @@ It will take around 15 minutes for changes to be reflected in the portal. For a 
 
 ## Register a master target server
 
-To register master target server residing on configuration server or scale-out process server with configuration server, navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on command prompt:
+Master target server resides on configuration server and scale-out process servers. It must be registered with configuration server. In case there is a failure in this registration, it can impact the health of protected items. To register master target server with configuration server, login to the specific configuration server/scale-out process server on which the registration is required. Navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on administrator command prompt.
 
    ```
    cmd
