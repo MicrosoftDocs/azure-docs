@@ -24,18 +24,29 @@ landingContent:
         - text: What is the Bing Custom Search API?
           url: overview.md
         - text: Compare the Bing Search applications
-          url: ../bing-web-search/bing-api-comparison
-- title: Integrate and share your custom view of the web
+          url: ../bing-web-search/bing-api-comparison.md
+- title: Use and integrate your custom view of the web
   linkLists:
     - linkListType: how-to-guide
       links:
+        - text: Configure your custom search instance
+          url: define-your-custom-view.md
+        - text: Get image search results 
+          url: get-images-from-instance.md
+        - text: Get videos search results 
+          url: get-videos-from-instance.md
+        - text: Call your custom search instance 
+          url: search-your-custom-view.md
+        - text: Paging search results 
+          url: paging-search-results.md
+        - text: Handle hit highlighting
+          url: ../bing-web-search/hit-highlighting.md
         - text: Configure and integrate a hosted UI
           url: hosted-ui.md
         - text: Define custom autosuggestions 
           url: define-custom-suggestions.md
         - text: Share your custom search instance
           url: share-your-custom-search.md
- 
 - title: SDK reference
   linkLists:
     - linkListType: reference
@@ -76,20 +87,6 @@ landingContent:
       links:
         - text: Build a custom search web page
           url: tutorials/custom-search-web-page.md
-    - linkListType: how-to-guide
-      links:
-        - text: Configure your custom search instance
-          url: define-your-custom-view
-        - text: Get image search results 
-          url: get-images-from-instance.md
-        - text: Get videos search results 
-          url: get-videos-from-instance.md
-        - text: Call your custom search instance 
-          url: search-your-custom-view.md
-        - text: Paging search results 
-          url: paging-search-results.md
-        - text: Handle hit highlighting
-          url: ../bing-web-search/hit-highlighting.md
 - title: REST API Reference
   linkLists:
     - linkListType: reference
