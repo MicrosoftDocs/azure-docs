@@ -1,5 +1,5 @@
 ---
-title: Subnet Extension Overview | Microsoft Docs
+title: Subnet extension on Azure overview | Microsoft Docs
 description: Learn about Subnet Extension on Azure.
 services: virtual-network
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 9/30/2019
+ms.date: 10/31/2019
 ms.author: anupand
 
 ---
-# Subnet Extension
+# Subnet extension
 Workload migration to the public cloud requires careful planning and coordination. One of the key considerations can be the ability to retain your IP addresses. Which can be important especially if your applications have IP address dependency or you have compliance requirements to use specific IP addresses. Azure Virtual Network solves this problem for you by allowing you to create VNet and Subnets using an IP address range of your choice.
 
 Migrations can get a bit challenging when the above requirement is coupled with an additional requirement to keep some applications on-premises. In such as a situation, you'll have to split the applications between Azure and on-premises, without renumbering the IP addresses on either side. Additionally, you'll have to allow the applications to communicate as if they are in the same network.
@@ -37,7 +37,7 @@ While extending your network isn't a good practice in general, below use cases c
 In the next section, we'll discuss how you can extend your subnets into Azure.
 
 
-## Extending your Subnet to Azure
+## Extending your subnet to Azure
  You can extend your on-premises subnets to Azure using a layer-3 overlay network based solution. Most solutions use an overlay technology such as VXLAN to extend the layer-2 network using an layer-3 overlay network. The diagram below shows a generalized solution. In this solution, the same subnet exists on both sides that is, Azure and on-premises. 
 
 ![Subnet Extension Example](./media/subnet-extension/subnet-extension.png)
@@ -49,7 +49,8 @@ In the above example, the Azure NVA and the on-premises NVA communicate and lear
 In the next section, you'll find details on subnet extension solutions we've tested on Azure.
 
 ## Next steps 
-[Extend your subnet to Azure using vendor solution.](https://github.com/microsoft/Azure-LISP)
+[Extend your subnet to Azure using vendor solutions.](https://github.com/microsoft/Azure-LISP)
 
  
+
 
