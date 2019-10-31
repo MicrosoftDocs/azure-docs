@@ -27,7 +27,7 @@ Azure Synapse Analytics has four components:
 - Studio : Unified user experience.  (Preview)
 
 > [!NOTE]
-> To access the preview features of Azure Synapse Analytics request access[here](https://aka.ms/synapsepreview). Microsoft will triage all requests and respond as soon as possible.
+> To access the preview features of Azure Synapse Analytics request access [here](https://aka.ms/synapsepreview). Microsoft will triage all requests and respond as soon as possible.
 
 
 
