@@ -79,7 +79,7 @@
     href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
-  - name: Server protection with Microsoft Defender ATP
+  - name: Protect your servers with Microsoft Defender ATP
     href: security-center-wdatp.md
   - name: Use advanced data security for SQL on Azure VMs
     href: security-center-iaas-advanced-data.md
@@ -107,19 +107,21 @@
     href: windows-admin-center-integration.md
   - name: Compare baselines using File Integrity Monitoring
     href: security-center-file-integrity-monitoring-baselines.md
+  - name: Automate responses to alerts and recommencations
+    href: workflow-automation.md
   - name: Export alerts and recommendations
     href: continuous-export.md
-  - name: Data collection
+  - name: Configure your data collection
     href: security-center-enable-data-collection.md
   - name: Set up advanced threat protection for Azure Key Vault
     href: advanced-threat-protection-key-vault.md
   - name: Automatically protect your AWS EC2 instances
     href: workload-protection-aws-ec2-instances.md
-  - name: Email notifications
+  - name: Set up email notifications
     href: security-center-provide-security-contact-details.md
   - name: Pricing
     href: security-center-pricing.md
-  - name: Tenant-wide visibility
+  - name: Gain tenant-wide visibility
     href: security-center-management-groups.md
   - name: Implement security recommendations
     items:
@@ -189,7 +191,7 @@
   - name: Manage user data
     href: security-center-privacy.md
   - name: Azure Security Center for IoT documentation
-    href: https://docs.microsoft.com/en-us/azure/asc-for-iot/
+    href: https://docs.microsoft.com/azure/asc-for-iot/
   - name: FAQ
     href: security-center-faq.md
   - name: Azure security documentation
