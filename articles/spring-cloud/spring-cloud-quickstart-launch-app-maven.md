@@ -2,14 +2,14 @@
 title: "Quickstart: Launch an application by using Maven - Azure Spring Cloud"
 description: Launch a sample application by using Maven
 services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
+author: jpconnock
+manager: barbkess
 editor: ''
 
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/05/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 
 ---
 
