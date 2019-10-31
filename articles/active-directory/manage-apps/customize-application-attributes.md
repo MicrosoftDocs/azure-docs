@@ -124,7 +124,7 @@ To add a new attribute, scroll to the end of the list of supported attributes, p
 ## Provisioning a role to a SCIM app
 Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
-- Mapping an AppRoleAsisgnment in Azure AD to a role in your application requires that you transform the attribute using an [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). The AppRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
+- Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). The appRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
 
 - **SingleAppRoleAssignment** 
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
