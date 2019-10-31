@@ -33,7 +33,7 @@ Before you begin this tutorial, you must have the following items:
 
 ## Install Microsoft Hive ODBC driver
 
-Download and install the [Microsoft Hive ODBC Driver](https://go.microsoft.com/fwlink/?LinkID=286698).
+Download and install the [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886).
 
 ## Create Apache Hive ODBC data source
 
