@@ -39,7 +39,7 @@ To enable reviews of access packages, you must meet the prerequisites for creati
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
 
-## Create access review of an access package
+## Create an access review of an access package
 
 You can enable access reviews when [creating a new policy](entitlement-management-access-package-create.md) or [editing an existing access package](entitlement-management-access-package-request-policy.md) policy. Follow these steps to enable access reviews while creating a new policy in an access package:
 
@@ -52,7 +52,7 @@ You can enable access reviews when [creating a new policy](entitlement-managemen
 1. Specify the date the reviews will start next to **Starting on**. 
 
 1. Next, set the **Review frequency** to **Annually**, **Bi-annually**, **Quarterly** or **Monthly**. 
-This determines how often access reviews will occur.
+This setting determines how often access reviews will occur.
 
 1. Set the **Duration** to define how many days each review of the recurring series will be open for input from reviewers. For example, you might schedule an Annual review that starts on January 1 and is open for input for 30 days so that reviewers have until the end of the month to respond.
 
@@ -60,14 +60,14 @@ This determines how often access reviews will occur.
 
     ![Select Add reviewers](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
-1. If you selected **Specific reviewer(s)**, specify which users will perform the access review:
+1. If you selected **Specific reviewer(s)**, specify which users will do the access review:
     1. Select **Add reviewers**
     1. In the **Select reviewers** pane, search for and select the user(s) you want to be a reviewer.
-    1. Once you have selected your reviewer(s), click the **Select** button.
+    1. When you've selected your reviewer(s), click the **Select** button.
 
     ![Specify the reviewers](./media/entitlement-management-access-reviews/access-reviews-select-reviewer.png)
 
-## Create access reviews of an existing access package
+## Create an access review of an existing access package
 
 Follow these steps to enable access reviews to an existing access package:
 
@@ -80,12 +80,8 @@ Follow these steps to enable access reviews to an existing access package:
 1. In the right pane, select the access package for which you would like to create an access review.
  
 1. In the left menu, select **Policies**. 
-    ![Select Policies blade](./media/entitlement-management-access-reviews-edit/access-reviews-edit-access-package-overview.png)  
 
-
-1. Select the policy in which you want to create the access review.
-  
-      ![Select the policy](./media/entitlement-management-access-reviews-edit/access-reviews-edit-select-policy-blade.png)  
+1. Select the policy in which you want to create the access review. 
 
 1. Click **Edit** under **Policy details**. 
     
@@ -114,7 +110,7 @@ Follow these steps to enable access reviews to an existing access package:
 
 1. Click on **Update** at the bottom of the page.
 
-## View the status of the review
+## View the status of the access review
 
 After the start date of the review, it will appear in a list in **Access reviews** where you can view the status of the view. Use the following procedure to view the status of an access review: 
 
@@ -138,7 +134,7 @@ You can designate reviewers, or users can review their access themselves. By def
 
 The email will include instructions on how to review access to access packages. If the review is for users to review their access, show them the instructions on how to perform a self-review of their access packages.
   
-If you have assigned guest users as reviewers, and they have not accepted their Azure AD guest invitation, they will not receive emails from Azure AD access reviews. They must first accept the invite and create an account with Azure AD before they can receive the emails.  
+If you've assigned guest users as reviewers, and they haven't accepted their Azure AD guest invitation, they won't receive emails from Azure AD access reviews. They must first accept the invite and create an account with Azure AD before they can receive the emails.  
 
 ## Next steps
 

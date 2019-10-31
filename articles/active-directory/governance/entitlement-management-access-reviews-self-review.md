@@ -28,19 +28,19 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure AD Entitlement Management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how a user performs a self-review of their assigned access package(s).
+Azure AD Entitlement Management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how a user does a self-review of their assigned access package(s).
 
 ## Open the access review
 
-To perform an access review, you must first open the access review. Use the following procedure to find and open the access review:
+To do an access review, you must first open the access review. Use the following procedure to find and open the access review:
 
 1. You may receive an email from Microsoft that asks you to review access. Locate the email to open the access review. Here is an example of an email requesting a review of access: 
     
-    ![Access Review Email](./media/entitlement-management-access-reviews-review-access/review-access-email.png)
+    ![Access review self-reviewer email](./media/entitlement-management-access-reviews-review-access/self-review-reviewer-email.png)
 
 1. Click the **Review access** link.
 
-1. You can also go directly to https://myaccess.microsoft.com to find your pending access reviews if you do not receive an email.
+1. You can also go directly to https://myaccess.microsoft.com to find your pending access reviews if you don't receive an email.
 
 1. Click on **Access reviews** on the left navigation bar to see a list of pending access reviews assigned to you.
 
@@ -49,9 +49,9 @@ To perform an access review, you must first open the access review. Use the foll
 
 ## Perform the access review
 
-Once you have opened the access review, you can see your access. Use the following procedure to perform the access review:
+Once you open the access review, you can see your access. Use the following procedure to do the access review:
 
-1.	Decide whether you still need access to the access package. For example, the project you are working on isn't complete, so you still need access to continue working on the project.
+1.	Decide whether you still need access to the access package. For example, the project you're working on isn't complete, so you still need access to continue working on the project.
 
 1.	Click **Yes** to keep your access or click **No** to remove your access.
     >[!NOTE]
