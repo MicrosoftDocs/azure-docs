@@ -4,7 +4,7 @@ description: Learn how to code asynchronous refresh by using REST API.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 

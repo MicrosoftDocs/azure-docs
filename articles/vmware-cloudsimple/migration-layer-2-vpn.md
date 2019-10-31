@@ -132,7 +132,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 ## Fetch the logical-switch ID needed for L2VPN
 
 1. Sign in to [NSX-T Manager](https://nsx-t-manager-ip-address).
-2. Select **Networking** > **Switching** > **Switches** > **<\Logical switch\> ** > **Overview**.
+2. Select **Networking** > **Switching** > **Switches** > **<\Logical switch\>** > **Overview**.
 3. Make a note of the UUID of the stretch logical switch, which is required when configuring the L2VPN.
 
     ![get logical-router output](media/l2vpn-fetch-switch01.png)

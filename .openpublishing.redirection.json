@@ -5862,7 +5862,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-configure-ssl-certificate.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-ssl",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate",
       "redirect_document_id": false
     },
     {
@@ -6527,7 +6527,12 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-tutorial-custom-ssl.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-ssl",
+      "redirect_url": "/azure/app-service/configure-ssl-bindings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-tutorial-custom-ssl.md",
+      "redirect_url": "/azure/app-service/configure-ssl-bindings",
       "redirect_document_id": false
     },
     {
@@ -6692,7 +6697,17 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-purchase-ssl-web-site.md",
-      "redirect_url": "/azure/app-service/web-sites-purchase-ssl-web-site",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-purchase-ssl-web-site.md",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-ssl-cert-load.md",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate-in-code",
       "redirect_document_id": false
     },
     {
@@ -7322,7 +7337,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-app-powershell-ssl-binding.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-ssl",
+      "redirect_url": "/azure/app-service/configure-ssl-bindings",
       "redirect_document_id": false
     },
     {
@@ -15876,11 +15891,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-wan/virtual-wan-point-to-site-portal.md",
-      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
       "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
@@ -19196,8 +19206,13 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-passwords.md",
-      "redirect_url": "active-directory-passwords-update-your-own-password",
+      "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-reset-password.md",
+      "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
+      "redirect_document_id": false      
     },
     {
       "source_path": "articles/active-directory/active-directory-protocols-oauth-code.md",
@@ -41935,7 +41950,12 @@
     },
     {
       "source_path": "articles/iot-central/howto-use-device-groups-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-device-groups-pnp/",
+      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-use-device-groups-pnp.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups-pnp/",
       "redirect_document_id": true
     },
     {
@@ -43296,6 +43316,11 @@
     {
       "source_path": "articles/terraform/terraform-vm-msi.md",
       "redirect_url": "/azure/terraform/terraform-vm-managed-identities-for-azure-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/msal-acquire-token-interactively.md",
+      "redirect_url": "/azure/active-directory/develop/msal-acquire-cache-tokens",
       "redirect_document_id": true
     }
   ]
