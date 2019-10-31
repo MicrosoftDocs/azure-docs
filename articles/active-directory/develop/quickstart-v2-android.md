@@ -26,6 +26,9 @@ This quickstart uses a code sample to demonstrate an Android application that si
 
 Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can share tokens with your application.
 
+> [!div renderon="docs"]
+> As a convenience, the code sample comes with a default `redirect_uri` preconfigured in the `AndroidManifest.xml` file so that you don't have to first register your own app object. A `redirect_uri` is partly based on your app's signing key. The sample project is preconfigured with a signing key so that the provided `redirect_uri` will work. To learn more about registering an app object and integrating it with your application, see the [Sign in users and call the Microsoft Graph from an Android app](tutorial-v2-android.md) tutorial.
+
 ![Screenshot of the sample app](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
@@ -33,111 +36,111 @@ Applications must be represented by an app object in Azure Active Directory so t
 > * Android Studio 
 > * Android 16+
 
-## Step 1: Get the sample app
-
-[Clone the code](https://github.com/Azure-Samples/ms-identity-android-java.git).
-
------------------------------------------------------------
-
-> [!div renderon="portal" class="sxs-lookup"]
-> ## Step 2: Register your application
-> 
-> To register an application object, and add that application object's registration information to the sample project manually, follow these steps:
-> 
-> 1. Go to the [Azure portal](https://aka.ms/MobileAppReg).
-> 1. Open the [App registrations blade](https://portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and click **+New registration**.
-> 1. Enter a **Name** for your app registration and then, without setting a Redirect URI, click **Register**.
-> 1. In the **Manage** section, select **Authentication** > **+ Add a platform** > **Android**. (You may have to select **Try out the new experience** near the top of the blade to see this screen)
-> 1. Enter your project's **Package Name**, which is `com.azuresamples.msalandroidapp`.
-> 1. In the **Signature hash** section of the **Configure your Android app** page, click **Generating a development Signature Hash**, and copy the KeyTool command to use for the platform you're using to develop your Android app.
-
- >  > [!Note]
- >  > KeyTool.exe is installed as part of the Java Development Kit (JDK). You must also install the OpenSSL tool to execute the KeyTool command.  You'll need keytool, and the OpenSSL\bin directory, in your path.
-
-> 1. Run the keytool command you copied from the portal in a terminal window.
-> 1. Enter the generated signature hash into the Portal under **Signature hash**.
-> 1. Click `Configure` and make a copy of the **MSAL Configuration**. You'll copy and paste this into a config file in the next step. Click **Done**.
-> 
-> ## Step 3: Add your app registration
-> 
-> 1. Open the sample project in Android Studio.
-> 1. Inside **app** > **res** > **raw**, open **auth_config_multiple_account.json**.  Paste the contents of the MSAL Configuration. This adds the client ID, tenant ID, and redirect_uri from the portal. It will look something like this, but with the values filled in for the client ID, tenant ID, and redirect_uri:
-> 
->     ```json
->     {
->       "client_id" : "<your_client_id_here>",
->       "authorization_user_agent" : "DEFAULT",
->       "redirect_uri" : "<your_redirect_uri_here>",
->       "account_mode" : "MULTIPLE",
->       "broker_redirect_uri_registered": true,
->       "authorities" : [
->         {
->           "type": "AAD",
->           "audience": {
->             "type": "AzureADandPersonalMicrosoftAccount",
->             "tenant_id": "common"
->           }
->         }
->       ]
->     }
->     ```
-> 
-> 1. Open **app** > **res** > **raw**, open **auth_config_single_account.json**, and paste the contents of the MSAL Configuration. It will look like the **auth_config_multiple_account.json** file above.
-> 1. In **app** > **manifests** > **AndroidManifest.xml**, find the `BrowserTabActivity` activity. This entry allows Microsoft to call back to your application after it completes the authentication:
-> 
->     ```xml
->     ...
->     <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
->                 <intent-filter>
->                     <action android:name="android.intent.action.VIEW" />
->     
->                     <category android:name="android.intent.category.DEFAULT" />
->                     <category android:name="android.intent.category.BROWSABLE" />
->     
->                     <!--
->                         Add in your scheme/host from registered redirect URI
->                         note that the leading "/" is required for android:path
->                         For Example:
->                         <data
->                             android:host="com.azuresamples.msalandroidapp"
->                             android:path="/1wIqXSqBj7w+h11ZifsnqwgyKrY="
->                             android:scheme="msauth" />
->                     -->
->     
->                     <data
->                         android:host="YOUR_PACKAGE_NAME - must be registered at https://aka.ms/MobileAppReg"
->                         android:path="/YOUR_DECODED_SIGNATURE_HASH - must be registered at https://aka.ms/MobileAppReg"
->                         android:scheme="msauth" />
->                 </intent-filter>
->             </activity>
->     ```
->     
-> 1. Substitute the package name with what you registered in the Azure portal for the `android:host=` value.  In this case, it will be: `com.azuresamples.msalandroidapp`.
-> 
->     > [!IMPORTANT]
->     > The **android:path** value **must** have a leading "/" character, or you'll get a red line beneath the value and the sample app won't run.
->      
-> 1. Substitute the key hash you got by running keytool earlier and entered in the Azure portal, for the `android:path=` value. The Signature Hash should not be URL encoded.
-
-------------------------------------------------------------
+> [!div class="sxs-lookup" renderon="portal"]
+> ### Step 1: Configure your application in the Azure portal 
+>  For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Make these changes for me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Already configured](media/quickstart-v2-android/green-check.png) Your application is configured with these attributes
+>
+> ### Step 2: Download the project 
+> * [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java)
+>
+> ### Step 3: Configure your project
+> 1. Extract and open the Project in Android Studio.
+> 2. Inside app > src > main > res > raw, open auth_config_multiple_account.json and replace it with the following code:
+```javascript 
+{
+  "client_id" : "Enter_the_Application_Id_Here",
+  "authorization_user_agent" : "DEFAULT",
+  "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+  "account_mode" : "MULTIPLE",
+  "broker_redirect_uri_registered": true,
+  "authorities" : [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "Enter_the_Audience_Info_Here",
+        "tenant_id": "Enter_the_Tenant_Info_Here"
+      }
+    }
+  ]
+}
+```
+> [!div class="sxs-lookup" renderon="portal"]
+> 3. Inside app > src > main > res > raw, open auth_config_single_account.json and replace it with the following code:
+```javascript 
+{
+  "client_id" : "Enter_the_Application_Id_Here",
+  "authorization_user_agent" : "DEFAULT",
+  "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+  "account_mode" : "SINGLE",
+  "broker_redirect_uri_registered": true,
+  "authorities" : [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "Enter_the_Audience_Info_Here",
+        "tenant_id": "Enter_the_Tenant_Info_Here"
+      }
+    }
+  ]
+}
+```
+> [!div class="sxs-lookup" renderon="portal"]
+> 4. Inside **app** > **src** > **main**, open  **AndroidManifest.xml**.
+> 5. In the **manifest\application** node, replace the **<activity android:name="com.microsoft.identity.client.BrowserTabActivity">** node with the following:	
+```xml
+<!--Intent filter to catch Microsoft's callback after Sign In-->
+<activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+    <intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+        <!--
+            Add in your scheme/host from registered redirect URI 
+            note that the leading "/" is required for android:path
+        -->
+        <data android:scheme="msauth"
+            android:host="Enter_the_Package_Name"
+            android:path="/Enter_the_Signature_Hash"
+            android:scheme = "msauth" />
+    </intent-filter>
+</activity>
+```
+    
+> 6. Run the app! 
+    
 
 
-## Step 4: Run the sample app
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
-Select your emulator, or physical device, from Android Studio's **available devices** dropdown and run the app.
+> [!div renderon="docs"]
+> ## Step 1: Get the sample app
+>
+> [Clone the code](https://github.com/Azure-Samples/ms-identity-android-java.git).
+>
+> ## Step 2: Run the sample app
+>
+> Select your emulator, or physical device, from Android Studio's **available devices** dropdown and run the app.
+>
+> The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
+>
+> ![MSAL sample app showing single and multiple account usage](./media/quickstart-v2-android/quickstart-sample-app.png)
+>
+> Use the app menu to change between single and multiple account modes.
+>
+> In single account mode, sign in using a work or home account:
+>
+> 1. Select **Get graph data interactively** to prompt the user for their credentials. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
+> 2. Once signed in, select **Get graph data silently** to make a call to the Microsoft Graph API without prompting the user for credentials again. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
+>
+> In multiple account mode, you can repeat the same steps.  Additionally, you can remove the signed-in account, which also removes the cached tokens for that account.
 
-The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
-
-![MSAL sample app showing single and multiple account usage](./media/quickstart-v2-android/quickstart-sample-app.png)
-
-Use the app menu to change between single and multiple account modes.
-
-In single account mode, sign in using a work or home account:
-
-1. Select **Get graph data interactively** to prompt the user for their credentials. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
-2. Once signed in, select **Get graph data silently** to make a call to the Microsoft Graph API without prompting the user for credentials again. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
-
-In multiple account mode, you can repeat the same steps.  Additionally, you can remove the signed-in account, which also removes the cached tokens for that account.
 
 ## How the sample works
 
