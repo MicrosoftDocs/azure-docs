@@ -84,7 +84,7 @@ ORDER BY
 
 Advance to one of the following articles and learn how to query different files.
 > [!div class="nextstepaction"]
-> [Querying single CSV file](querying-single-csv-file.md)
+> [Querying single CSV file](query-single-csv-file.md)
 
 > [!div class="nextstepaction"]
 > [Querying Parquet files](query-parquet-files.md)

@@ -182,7 +182,7 @@ Query above should return number: **8945574**.
 
 Now you are ready to start with following quickstart articles:
 
-- [Querying single CSV file](querying-single-csv-file.md)
+- [Querying single CSV file](query-single-csv-file.md)
 
 - [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
@@ -199,4 +199,4 @@ Now you are ready to start with following quickstart articles:
 
 Advance to the next article to learn how to query single CSV file.
 > [!div class="nextstepaction"]
-> [Querying single CSV file](querying-single-csv-file.md)
+> [Querying single CSV file](query-single-csv-file.md)

@@ -226,7 +226,7 @@ WHERE
 
 Now you are ready to start with following quickstarts:
 
-1. [Querying single CSV file](querying-single-csv-file.md)
+1. [Querying single CSV file](query-single-csv-file.md)
 
 2. [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
@@ -243,5 +243,5 @@ Now you are ready to start with following quickstarts:
 
 Advance to the next article to learn how to query single CSV file.
 > [!div class="nextstepaction"]
-> [Querying single CSV file](querying-single-csv-file.md)
+> [Querying single CSV file](query-single-csv-file.md)
 

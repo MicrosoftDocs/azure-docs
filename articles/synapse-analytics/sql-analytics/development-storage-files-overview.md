@@ -107,7 +107,7 @@ OPENROWSET
 { FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } } 
 ) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 ```
-Check [Read CSV files without specifying all columns](querying-single-csv-file.md#read-csv-file---without-specifying-all-columns) for samples.
+Check [Read CSV files without specifying all columns](query-single-csv-file.md#read-csv-file---without-specifying-all-columns) for samples.
 
 ### Schema inference
 
@@ -211,7 +211,7 @@ Check [Accessing elements from repeated columns](query-parquet-nested-types.md#a
 
 Now you are ready to start with following quickstart articles:
 
-1. [Querying single CSV file](querying-single-csv-file.md)
+1. [Querying single CSV file](query-single-csv-file.md)
 
 2. [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
