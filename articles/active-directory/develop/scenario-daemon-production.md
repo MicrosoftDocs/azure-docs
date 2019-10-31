@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -60,11 +60,10 @@ Here are a few links to learn more:
 
 # [Python](#tab/python)
 
-MSAL Python is currently in public preview.
-For more info, see [MSAL Python's in-repository samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](./quickstart-v2-python-daemon.md).
 
 # [Java](#tab/java)
 
-msal4j (MSAL.Java) is currently in public preview. For more info, see [MSAL Java in-repository samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
+MSAL Java is currently in public preview. For more info, see [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
 
 ---

@@ -131,10 +131,14 @@
         items:
         - name: Configure user consent
           href: configure-user-consent.md
+        - name: Configure admin consent workflow (preview)
+          href: configure-admin-consent-workflow.md
         - name: Methods for assigning users and groups to an app
           href: methods-for-assigning-users-and-groups.md
         - name: Assign a user to an app
           href: assign-user-or-group-access-portal.md
+        - name: Create workspaces on My Apps (preview)
+          href: access-panel-workspaces.md
         - name: Use self-service app access
           href: access-panel-manage-self-service-access.md
         - name: Methods for removing a user's access to an app
@@ -155,6 +159,8 @@
           href: migration-resources.md
         - name: Migrate an ADFS app to Azure
           href: migrate-adfs-apps-to-azure.md
+        - name: Use the AD FS application activity report (preview)
+          href: migrate-adfs-application-activity.md
       - name: Troubleshoot
         items:
         - name: Troubleshoot adding apps

@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign in to Windows 10 devices (preview)
 
-This document focuses on enabling security key based passwordless authentication for Windows 10 devices. At the end of this article, you will be able to sign in to both web-based applications and your Azure AD joined Windows 10 devices with your Azure AD account using a FIDO2 security key.
+This document focuses on enabling FIDO2 security key based passwordless authentication with Windows 10 devices. At the end of this article, you will be able to sign in to both web-based applications and your Azure AD joined Windows 10 devices with your Azure AD account using a FIDO2 security key.
 
 |     |
 | --- |
@@ -31,7 +31,7 @@ This document focuses on enabling security key based passwordless authentication
 | [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Combined security information registration preview](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
-| WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher | X | X |
+| WebAuthN requires Windows 10 version 1809 or higher | X | X |
 | [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1809 or higher | X |   |
 | [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 Insider Build 18945 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |

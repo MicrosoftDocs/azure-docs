@@ -68,7 +68,7 @@ If you're using a public IP address as an endpoint, you'll find the IP and DNS i
 
 ### Does the IP or DNS name change over the lifetime of the application gateway?
 
-The VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway.
+In Application Gateway V1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway V2 SKU, you can set the IP address as static, so IP and DNS name will not change over the lifetime of the application gateway. 
 
 ### Does Application Gateway support static IP?
 
