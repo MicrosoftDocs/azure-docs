@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use Java with Azure Functions to update a Cosmos DB in response to Event Hub events'
+title: 'Tutorial: Use Java functions with Azure Cosmos DB and Event Hubs'
 description: This tutorial shows you how to consume events from Event Hubs to make updates in Azure Cosmos DB using a function written in Java.
 author: KarlErickson
 manager: barbkess
@@ -11,25 +11,30 @@ ms.author: karler
 #Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Azure Cosmos DB.
 ---
 
-# Tutorial: Create a function in Java with an Event Hub trigger an Azure Cosmos DB output binding
+# Tutorial: Create a function in Java with an Event Hub trigger and an Azure Cosmos DB output binding
 
 This tutorial shows you how to use Azure Functions to create a Java function that analyzes a continuous stream of temperature and pressure data. Event hub events that represent sensor readings trigger the function. The function processes the event data, then adds status entries to an Azure Cosmos DB.
 
 In this tutorial, you'll:
 
 > [!div class="checklist"]
-> * Create and configure Azure resources using the Azure CLI
-> * Create and test Java functions that interact with these resources
-> * Deploy your functions to Azure and monitor them with Application Insights
+> * Create and configure Azure resources using the Azure CLI.
+> * Create and test Java functions that interact with these resources.
+> * Deploy your functions to Azure and monitor them with Application Insights.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* [Azure CLI](/cli/azure/install-azure-cli) if you prefer not to use Cloud Shell
+To complete this tutorial, you must have the following installed:
+
 * [Java Developer Kit](https://aka.ms/azure-jdks), version 8
-* [Maven](https://maven.apache.org)
-* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools)
+* [Apache Maven](https://maven.apache.org), version 3.0 or above
+* [Azure CLI](/cli/azure/install-azure-cli) if you prefer not to use Cloud Shell
+* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 or above
+
+> [!IMPORTANT]
+> The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
 
 If you prefer to use the code for this tutorial directly, see the [java-functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) sample repo.
 
@@ -102,7 +107,7 @@ az eventhubs eventhub authorization-rule create \
 
 The Event Hubs namespace contains the actual event hub and its authorization rule. The authorization rule enables your functions to send messages to the hub and listen for the corresponding events. One function sends messages that represent telemetry data. Another function listens for events, analyzes the event data, and stores the results in Azure Cosmos DB.
 
-### Create a Azure Cosmos DB
+### Create an Azure Cosmos DB
 
 Next, create an Azure Cosmos DB account, database, and collection using the following commands:
 
@@ -141,7 +146,7 @@ az functionapp create \
     --runtime java
 ```
 
-When the `az functionapp create` command creates your functions app, it also creates an Application Insights resource with the same name. The function app is automatically configured with a setting named `APPINSIGHTS_INSTRUMENTATIONKEY` that connects it to Application Insights. You can view app telemetry after you deploy your functions to Azure, as described later in this tutorial.
+When the `az functionapp create` command creates your function app, it also creates an Application Insights resource with the same name. The function app is automatically configured with a setting named `APPINSIGHTS_INSTRUMENTATIONKEY` that connects it to Application Insights. You can view app telemetry after you deploy your functions to Azure, as described later in this tutorial.
 
 ## Configure your function app
 
@@ -275,7 +280,7 @@ public class Function {
         final ExecutionContext context) {
 
         context.getLogger().info("Java Timer trigger function executed at: "
-            + LocalDateTime.now());
+            + java.time.LocalDateTime.now());
         double temperature = Math.random() * 100;
         double pressure = Math.random() * 50;
         return new TelemetryItem(temperature, pressure);
@@ -419,7 +424,7 @@ Deploy your project to Azure using the following command:
 mvn azure-functions:deploy
 ```
 
-Your functions now runs in Azure, and continues to accumulate data in your Azure Cosmos DB. You can view your deployed function app in the Azure portal, and view app telemetry through the connected Application Insights resource, as shown in the following screenshots:
+Your functions now run in Azure, and continue to accumulate data in your Azure Cosmos DB. You can view your deployed function app in the Azure portal, and view app telemetry through the connected Application Insights resource, as shown in the following screenshots:
 
 **Live Metrics Stream:**
 
