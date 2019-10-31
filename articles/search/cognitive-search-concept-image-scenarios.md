@@ -1,21 +1,20 @@
 ---
-title: Process and extract text from images in cognitive search - Azure Search
-description: Process and extract text and other information from images in cognitive search pipelines in Azure Search.
-services: search
+title: Process and extract text from images in an enrichment pipeline
+titleSuffix: Azure Cognitive Search
+description: Process and extract text and other information from images in Azure Cognitive Search pipelines.
+
 manager: nitinme
-author: luiscabrer
-
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: LuisCabrer
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-#  How to process and extract information from images in cognitive search scenarios
+# How to process and extract information from images in AI enrichment scenarios
 
-Cognitive search has several capabilities for working with images and image files. During document cracking, you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
+Azure Cognitive Search has several capabilities for working with images and image files. During document cracking, you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
 
-This article covers image processing in more detail and provides guidance for working with images in a cognitive search pipeline.
+This article covers image processing in more detail and provides guidance for working with images in an AI enrichment pipeline.
 
 <a name="get-normalized-images"></a>
 
@@ -27,12 +26,12 @@ You cannot turn off image normalization. Skills that iterate over images expect 
 
 | Configuration Parameter | Description |
 |--------------------|-------------|
-| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. <br/>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking.<br/>Set to "generateNormalizedImagePerPage" to generate an array of normalized images where for PDFs in your data source, each page is rendered to one output image.  The functionality is the same as "generateNormalizedImages" for non-PDF file types.<br/>For any option that is not "none", the images will be exposed in the *normalized_images* field. <br/>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata." <br/>A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. |
+| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. <br/>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking.<br/>Set to "generateNormalizedImagePerPage" to generate an array of normalized images where, for PDFs in your data source, each page is rendered to one output image.  The functionality is the same as "generateNormalizedImages" for non-PDF file types.<br/>For any option that is not "none", the images will be exposed in the *normalized_images* field. <br/>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata." <br/>A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. |
 |  normalizedImageMaxWidth | The maximum width (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000. | 
 |  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000.|
 
 > [!NOTE]
-> If you set the *imageAction* property to anything other than "none", you will not be able to set the *parsingMode* property to anything other than "default".  You may only set one of these two properties to a non-default value in your indexer configuration.
+> If you set the *imageAction* property to anything other than "none", you'll not be able to set the *parsingMode* property to anything other than "default".  You may only set one of these two properties to a non-default value in your indexer configuration.
 
 Set the **parsingMode** parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain JSON arrays and you need each element of an array to be treated as a separate document).
 

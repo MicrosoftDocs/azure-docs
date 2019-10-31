@@ -1,13 +1,14 @@
 ---
-title: Add custom analyzers - Azure Search
-description: Modify text tokenizers and character filters used in Azure Search full text search queries.
-ms.date: 08/08/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: "Yahnoosh"
-ms.author: "jlembicz"
+title: Add custom analyzers to string fields in an index
+titleSuffix: Azure Cognitive Search
+description: Configure text tokenizers and character filters used in Azure Cognitive Search full text search queries.
+
 manager: nitinme
+author: Yahnoosh
+ms.author: jlembicz
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Add custom analyzers to an Azure Search index
+# Add custom analyzers to an Azure Cognitive Search index
 
 A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) that consists of a user-defined combination of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
 
@@ -30,7 +31,7 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
  The role of a [full-text search engine](search-lucene-query-architecture.md), in simple terms, is to process and store documents in a way that enables efficient querying and retrieval. At a high level, it all comes down to extracting important words from documents, putting them in an index, and then using the index to find documents that match words of a given query. The process of extracting words from documents and search queries is called *lexical analysis*. Components that perform lexical analysis are called *analyzers*.
 
- In Azure Search, you can choose from a set of predefined language-agnostic analyzers in the [Analyzers](#AnalyzerTable) table or language-specific analyzers listed in [Language analyzers &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md). You also have an option to define your own custom analyzers.  
+ In Azure Cognitive Search, you can choose from a set of predefined language-agnostic analyzers in the [Analyzers](#AnalyzerTable) table or language-specific analyzers listed in [Language analyzers &#40;Azure Cognitive Search service REST API&#41;](index-add-language-analyzers.md). You also have an option to define your own custom analyzers.  
 
  A custom analyzer allows you to take control over the process of converting text into indexable and searchable tokens. It’s a user-defined configuration consisting of a single predefined tokenizer, one or more token filters, and one or more char filters. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Char filters are applied for to prepare input text before it is processed by the tokenizer. For instance, char filter can replace certain characters or symbols.
 
@@ -46,13 +47,13 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
 - ASCII folding. Add the Standard ASCII folding filter to normalize diacritics like ö or ê in search terms.  
 
-  This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/6_0_0/core/org/apache/lucene/codecs/lucene60/package-summary.html). For examples of analyzer configurations, see [Add analyzers in Azure Search](search-analyzers.md#examples).
+  This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Cognitive Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/6_0_0/core/org/apache/lucene/codecs/lucene60/package-summary.html). For examples of analyzer configurations, see [Add analyzers in Azure Cognitive Search](search-analyzers.md#examples).
 
 ## Validation rules  
  Names of analyzers, tokenizers, token filters, and char filters have to be unique and cannot be the same as any of the predefined analyzers, tokenizers, token filters, or char filters. See the [Property Reference](#PropertyReference) for names already in use.
 
 ## Create custom analyzers
- You can define custom analyzers at index creation time. The syntax for specifying a custom analyzer is described in this section. You can also familiarize yourself with the syntax by reviewing sample definitions in [Add analyzers in Azure Search](search-analyzers.md#examples).  
+ You can define custom analyzers at index creation time. The syntax for specifying a custom analyzer is described in this section. You can also familiarize yourself with the syntax by reviewing sample definitions in [Add analyzers in Azure Cognitive Search](search-analyzers.md#examples).  
 
  An analyzer definition includes a name, a type, one or more char filters, a maximum of one tokenizer, and one or more token filters for post-tokenization processing. Char filers are applied before tokenization. Token filters and char filters are applied from left to right.
 
@@ -377,6 +378,6 @@ In the table below, the token filters that are implemented using Apache Lucene a
 
 
 ## See also  
- [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Analyzers in Azure Search > Examples](search-analyzers.md#examples)    
- [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/)   
+ [Analyzers in Azure Cognitive Search > Examples](search-analyzers.md#examples)    
+ [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
