@@ -42,6 +42,10 @@ Although App Configuration provides hardened security, Key Vault is still the be
 
 Yes. App Configuration encrypts all key values it holds, and it encrypts network communication. Key names are used as indexes for retrieving configuration data and aren't encrypted.
 
+## Are there any size limitations on keys and values stored in App Configuration?
+
+There is a limit of 10KB for a single key-value item.
+
 ## How should I store configurations for multiple environments (test, staging, production, and so on)?
 
 Currently you can control who has access to App Configuration at a per-store level. Use a separate store for each environment that requires different permissions. This approach gives you the best security isolation.
@@ -53,6 +57,10 @@ See [best practices](./howto-best-practices.md).
 ## How much does App Configuration cost?
 
 The service is free to use during the public preview.
+
+## How can I receive announcements on new releases and other information related to App Configuration?
+
+Subscribe to our [GitHub announcements repo](https://github.com/Azure/AppConfiguration-Announcements).
 
 ## How can I report an issue or give a suggestion?
 
