@@ -54,9 +54,14 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 ### Create and config Azure SQL Database for the custom metastore
 
-During cluster creation, you can point the cluster to a previously created Azure SQL Database. Learn how to create an Azure SQL Database [here]().
+You need to create or have an existing Azure SQL Database before setting up costom Hive metastore for HDInsight cluster. Learn how to create an Azure SQL Database [here](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
-
+>[!IMPORTANT]
+>To make sure HDInsight cluster could access the connected Azure SQL Database, you need to configure Azure SQL Database firewall rules to allow Azure services and resources to access the Azure SQL Database. 
+>
+>You can configure that in Azure Portal through **Set server firewall**, turn on **Allow Azure services and resources to access this server** for the Azure SQL Database.
+>![Configure Azure SQL Database Firewall](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall.png)
+>
 
 ### Select a custom metastore during cluster creation
 
