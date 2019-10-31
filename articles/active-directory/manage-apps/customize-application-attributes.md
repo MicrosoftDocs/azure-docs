@@ -152,6 +152,7 @@ Use the steps below to provision roles for a user to your application. Note that
             "type": "WindowsAzureActiveDirectoryRole",
             "value": "Admin"
         }
+    ]
 }
 ```
   - **Things to consider**
