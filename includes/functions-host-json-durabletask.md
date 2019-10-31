@@ -47,17 +47,15 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 {
   "durableTask": {
     "hubName": "MyTaskHub",
-    "provider": {
-      "azureStorage": {
-        "controlQueueBatchSize": 32,
-        "partitionCount": 4,
-        "controlQueueVisibilityTimeout": "00:05:00",
-        "workItemQueueVisibilityTimeout": "00:05:00",
-        "maxQueuePollingInterval": "00:00:30",
-        "connectionStringName": "AzureWebJobsStorage",
-        "trackingStoreConnectionStringName": "TrackingStorage",
-        "trackingStoreNamePrefix": "DurableTask"
-      }
+    "storageProvider": {
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "connectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask"
     },
     "tracing": {
       "traceInputsAndOutputs": false,
