@@ -64,7 +64,7 @@ This article shows how to use one-click ingestion for quick ingestion of a new t
 
 1. Select **Start ingestion** to create table, create mapping, and data ingestion.
 
-![one click ingestion json format schema](media/ingest-data-one-click/one-click-json-format.png) 
+    ![one click ingestion json format schema](media/ingest-data-one-click/one-click-json-format.png) 
  
 ## Query data
 
