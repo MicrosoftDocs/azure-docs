@@ -1,5 +1,5 @@
 ---
-title: Tutorial&#58; Use the Video Indexer API
+title: Use the Video Indexer API
 titlesuffix: Azure Media Services
 description: A tutorial for getting started with Azure Media Services Video Indexer API.
 services: media-services
