@@ -44,7 +44,7 @@ For example, let’s say the existing NSG rule is to allow traffic from 140.20.3
 
 2. From the **Unhealthy resources** tab, select a VM to view it’s alerts and the recommended hardening rules to apply.
 
-    ![hardening alerts](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![hardening alerts](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
 
 ## Review and apply Adaptive Network Hardening recommended rules
@@ -126,9 +126,9 @@ You can add an “allow” rule that was not recommended by Security Center.
 
 ### Delete a rule <a name ="delete-rule"> </a>
 
-When necessary, you can delete a recommended rule. For example, you may determine that applying a suggested rule could block legitimate traffic.
+When necessary, you can delete a recommended rule for the current session. For example, you may determine that applying a suggested rule could block legitimate traffic.
 
-*To delete an Adaptive Network Hardening rule:*
+*To delete an Adaptive Network Hardening rule for your current session:*
 
 1. In the **Rules** tab, click on the three dots (...) at the end of the rule’s row, and click **Delete**.  
 

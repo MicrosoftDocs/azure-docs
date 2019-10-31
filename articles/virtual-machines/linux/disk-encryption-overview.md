@@ -20,7 +20,7 @@ If you use [Azure Security Center](../../security-center/index.yml), you're aler
 ![Azure Security Center disk encryption alert](media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
-> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
+> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue to use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
 
 You can learn the fundamentals of Azure Disk Encryption for Linux in just a few minutes with the [Create and encrypt a Linux VM with Azure CLI quickstart](disk-encryption-cli-quickstart.md) or the [Create and encrypt a Linux VM with Azure Powershell quickstart](disk-encryption-powershell-quickstart.md).
@@ -29,7 +29,7 @@ You can learn the fundamentals of Azure Disk Encryption for Linux in just a few 
 
 ### Supported VM sizes
 
-Linux VMs are available in a [range of sizes](sizes.md). Azure Disk Encryption is not available on [Basic, A-series VMs](/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
+Linux VMs are available in a [range of sizes](sizes.md). Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
 
 | Virtual machine | Minimum memory requirement |
 |--|--|
@@ -54,6 +54,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Ubuntu | 18.04| OS and data disk |
 | Ubuntu | 16.04| OS and data disk |
 | Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | OS and data disk |
+| RHEL | 7.7 | OS and data disk (see note below) |
 | RHEL | 7.6 | OS and data disk (see note below) |
 | RHEL | 7.5 | OS and data disk (see note below) |
 | RHEL | 7.4 | OS and data disk (see note below) |
@@ -61,6 +62,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | RHEL | 7.2 | OS and data disk (see note below) |
 | RHEL | 6.8 | Data disk (see note below) |
 | RHEL | 6.7 | Data disk (see note below) |
+| CentOS | 7.7 | OS and data disk |
 | CentOS | 7.6 | OS and data disk |
 | CentOS | 7.5 | OS and data disk |
 | CentOS | 7.4 | OS and data disk |

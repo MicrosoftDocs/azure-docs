@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 08/29/2019
+ms.date: 10/21/2019
 ---
 # Resource limits for single databases using the vCore-based purchasing model
 
@@ -40,8 +40,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |Memory (GB)|7|14|21|28|35|42|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (GB)|1024|1024|1024|1536|1536|1536|
-|Max log size (GB)|307|307|307|461|461|461|
+|Max data size (GB)|1024|1024|1536|1536|1536|3072|
+|Max log size (GB)|307|307|461|461|461|922|
 |TempDB max data size (GB)|32|64|96|128|160|192|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
@@ -63,8 +63,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |Memory (GB)|49|56|63|70|112|168|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (GB)|1536|3072|3072|3072|4096|4096|
-|Max log size (GB)|461|922|922|922|1229|1229|
+|Max data size (GB)|3072|3072|3072|3072|4096|4096|
+|Max log size (GB)|922|922|922|922|1229|1229|
 |TempDB max data size (GB)|224|256|288|320|384|384|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)
@@ -87,7 +87,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Max log size (GB)|307|307|307|461|461|461|461|
+|Max log size (GB)|307|307|461|461|461|922|922|
 |TempDB max data size (GB)|64|128|192|256|320|384|384|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
@@ -190,8 +190,8 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1|2|3|4|5|6|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (GB)|650|650|650|650|650|650|
-|Max log size (GB)|195|195|195|195|195|195|
+|Max data size (GB)|1024|1024|1024|1024|1024|1024|
+|Max log size (GB)|307|307|307|307|307|307|
 |TempDB max data size (GB)|32|64|96|128|160|192|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
@@ -214,8 +214,8 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|7|8|9.5|11|20|36|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (GB)|650|650|650|650|1024|1024|
-|Max log size (GB)|195|195|195|195|307|307|
+|Max data size (GB)|1024|1024|1024|1024|1024|1024|
+|Max log size (GB)|307|307|307|307|307|307|
 |TempDB max data size (GB)|224|256|288|320|384|384|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
@@ -238,7 +238,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |Max data size (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Max log size (GB)|307|307|307|461|461|922|922|
+|Max log size (GB)|307|307|461|461|461|922|922|
 |TempDB max data size (GB)|64|128|192|256|320|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
@@ -285,27 +285,32 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|8|16|24|32|40|80|
 |Memory (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
+|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB max data size (GB)|64|128|256|384|384|384|384|384|
-|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data IOPS (64 KB)| [Note 1](#note-1) |[Note 1](#note-1)|[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) | [Note 1](#note-1) |
-|IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
+|Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) | [Note 1](#notes) |
+|Max data IOPS (64 KB)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
+|IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage |7|7|7|7|7|7|7|7|
+|Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-### Note 1
+#### Notes
 
-Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload.
+**Note 1**: Hyperscale is a multi-tiered architecture with separate compute and storage components: [Hyperscale Service Tier Architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
-### Next steps
+**Note 2**: Hyperscale multi-tiered architecture has caching at multiple levels. Effective IOPS will depend on the workload.
+
+**Note 3**: Latency is 1-2 ms for data in the RBPEX SSD-based cache on compute replicas, which caches most used data pages. Higher latency for data retrieved from page servers.
+
+## Next steps
 
 - For DTU resource limits for a single database, see [resource limits for single databases using the DTU-based purchasing model](sql-database-dtu-resource-limits-single-databases.md)
 - For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore-based purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)

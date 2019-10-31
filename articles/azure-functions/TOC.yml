@@ -15,7 +15,7 @@
   items:
   - name: Create function - C#
     href: functions-create-your-first-function-visual-studio.md
-  - name: Create function - Java/Maven
+  - name: Create function - Java
     href: functions-create-first-java-maven.md
   - name: Create function - JavaScript
     href: functions-create-first-function-vs-code.md
@@ -27,6 +27,8 @@
     items:
     - name: Storage - C#
       href: functions-add-output-binding-storage-queue-vs.md
+    - name: Storage - Java
+      href: functions-add-output-binding-storage-queue-java.md
     - name: Storage - JavaScript
       href: functions-add-output-binding-storage-queue-vs-code.md
     - name: Storage - Python
@@ -73,15 +75,17 @@
     href: functions-cli-samples.md    
 - name: Concepts
   items:
-  - name: Compare versions 1.x and 2.x
+  - name: Compare runtime versions
     href: functions-versions.md
-    displayName: migrate, migration
+    displayName: migrate, migration, v3
   - name: Premium plan
     href: functions-premium-plan.md
   - name: Deployments
     href: functions-deployment-technologies.md
   - name: Events and messaging
     items:
+    - name: Reliable event processing
+      href: functions-reliable-event-processing.md
     - name: Designing for identical input
       href: functions-idempotent.md
   - name: Triggers and bindings
@@ -241,8 +245,12 @@
     - name: Disable a function 
       href: disable-function.md
   - name: Monitor
-    href: functions-monitoring.md
-    displayName: App Insights, Application Insights, logs, logging
+    items: 
+      - name: Monitor functions
+        href: functions-monitoring.md
+        displayName: App Insights, Application Insights, logs, logging
+      - name: Analyze logs
+        href: functions-monitor-log-analytics.md
   - name: Secure
     items:
     - name: Buy SSL cert

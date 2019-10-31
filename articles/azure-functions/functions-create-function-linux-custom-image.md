@@ -3,7 +3,7 @@ title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
 author: ggailey777
 ms.author: glenga
-ms.date: 06/25/2019
+ms.date: 09/27/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
@@ -29,6 +29,8 @@ In this tutorial, you learn how to:
 > * Deploy a function app from Docker Hub.
 > * Add application settings to the function app.
 > * Enable continuous deployment.
+> * Enable SSH connections to the container.
+> * Add a Queue storage output binding. 
 > * Add Application Insights monitoring.
 
 The following steps are supported on a Mac, Windows, or Linux computer. 
@@ -46,7 +48,9 @@ You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create the local function app project
+[!INCLUDE [functions-cloud-shell-note](../../includes/functions-cloud-shell-note.md)]
+
+## Create the local project
 
 Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. For a Python project, you [must be running in a virtual environment](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
 
@@ -62,15 +66,6 @@ When prompted, choose a worker runtime from the following languages:
 * `node`: creates a JavaScript project.
 * `python`: creates a Python project.  
 
-When the command executes, you see something like the following output:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Writing Dockerfile
-```
-
 Use the following command to navigate to the new `MyFunctionProj` project folder.
 
 ```bash
@@ -81,7 +76,7 @@ cd MyFunctionProj
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
-## Build the image from the Docker file
+## Build from the Docker file
 
 Take a look at the _Dockerfile_ in the root folder of the project. This file describes the environment that is required to run the function app on Linux. The following example is a Dockerfile that creates a container that runs a function app on the JavaScript (Node.js) worker runtime: 
 
@@ -96,38 +91,16 @@ COPY . /home/site/wwwroot
 > The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 ### Run the `build` command
+
 In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `mydockerimage`, and tag, `v1.0.0`. Replace `<docker-id>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-When the command executes, you see something like the following output, which in this case is for a JavaScript worker runtime:
+When the command completes, you can run the new container locally.
 
-```bash
-Sending build context to Docker daemon  17.41kB
-Step 1/3 : FROM mcr.microsoft.com/azure-functions/node:2.0
-2.0: Pulling from azure-functions/node
-802b00ed6f79: Pull complete
-44580ea7a636: Pull complete
-73eebe8d57f9: Pull complete
-3d82a67477c2: Pull complete
-8bd51cd50290: Pull complete
-7bd755353966: Pull complete
-Digest: sha256:480e969821e9befe7c61dda353f63298f2c4b109e13032df5518e92540ea1d08
-Status: Downloaded newer image for mcr.microsoft.com/azure-functions/node:2.0
- ---> 7c71671b838f
-Step 2/3 : ENV AzureWebJobsScriptRoot=/home/site/wwwroot
- ---> Running in ed1e5809f0b7
-Removing intermediate container ed1e5809f0b7
- ---> 39d9c341368a
-Step 3/3 : COPY . /home/site/wwwroot
- ---> 5e196215935a
-Successfully built 5e196215935a
-Successfully tagged <docker-id>/mydockerimage:v1.0.0
-```
-
-### Test the image locally
+### Run the image locally
 Verify that the image you built works by running the Docker image in a local container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
 
 ```bash
@@ -136,14 +109,14 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 With the custom image running in a local Docker container, verify the function app and container are functioning correctly by browsing to <http://localhost:8080>.
 
-![Test the function app locally.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
+![Run the function app locally.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
 > [!NOTE]
 > At this point, when you try to call your specific HTTP function, you get an HTTP 401 error response. This is because your function runs in the local container as it would in Azure, which means that the function key is required. Because the container hasn't yet been published to a function app, there is no function key available. You'll see later that when you use Core Tools to publish your container, the function keys are shown to you. If you want to test your function running in the local container, you can change the [authorization key](functions-bindings-http-webhook.md#authorization-keys) to `anonymous`. 
 
 After you have verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
 
-## Push the custom image to Docker Hub
+## Push to Docker Hub
 
 A registry is an application that hosts images and provides services image and container services. To share your image, you must push it to a registry. Docker Hub is a registry for Docker images that allows you to host your own repositories, either public or private.
 
@@ -159,19 +132,7 @@ A "login succeeded" message confirms that you're logged in. After you have signe
 docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
-Verify that the push succeeded by examining the command's output.
-
-```bash
-The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
-24d81eb139bf: Pushed
-fd9e998161c9: Mounted from <docker-id>/mydockerimage
-e7796c35add2: Mounted from <docker-id>/mydockerimage
-ae9a05b85848: Mounted from <docker-id>/mydockerimage
-45c86e20670d: Mounted from <docker-id>/mydockerimage
-v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 1796
-```
-
-Now, you can use this image as the deployment source for a new function app in Azure.
+After the push succeeds, you can use the image as the deployment source for a new function app in Azure.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -188,7 +149,7 @@ az functionapp plan create --resource-group myResourceGroup --name myPremiumPlan
 --location WestUS --number-of-workers 1 --sku EP1 --is-linux
 ```
 
-## Create and deploy the custom image
+## Create an app from the image
 
 The function app manages the execution of your functions in your hosting plan. Create a function app from a Docker Hub image by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command.
 
@@ -225,13 +186,37 @@ AzureWebJobsStorage=$storageConnectionString
 >
 > You will have to stop and then start your function app for these values to be picked up
 
-You can now test your functions running on Linux in Azure.
+## Verify your functions
 
-[!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+<!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
+
+The HTTP-triggered function you created requires a [function key](functions-bindings-http-webhook.md#authorization-keys) when calling the endpoint. At this time, the easiest way to get your function URL, including the key, is from the [Azure portal]. 
+
+> [!TIP]
+> You can also obtain your function keys by using the [Key management APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), which requires you to present a [bearer token for authentication](/cli/azure/account#az-account-get-access-token).
+
+Locate your new function app in the [Azure portal] by typing your function app name in the **Search** box at the top of the page and selecting the **App Service** resource.
+
+Select the **MyHttpTrigger** function, select **</> Get function URL** > **default (Function key)** > **Copy**.
+
+![Copy the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)
+
+In this URL, the function key is the `code` query parameter. 
+
+> [!NOTE]  
+> Because your function app is deployed as a container, you can't make changes to your function code in the portal. You must instead update the project in local container and republish it to Azure.
+
+Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser.
+
+The following example shows the response in the browser:
+
+![Function response in the browser.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
+
+The request URL includes a key that is required, by default, to access your function over HTTP. 
 
 ## Enable continuous deployment
 
-One of the benefits of using containers is being able to automatically deploy updates when containers are updated in the registry. Enable continuous deployment with the [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) command.
+One of the benefits of using containers is support for continuous deployment. Functions lets you automatically deploy updates when your container is updated in the registry. Enable continuous deployment with the [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) command.
 
 ```azurecli-interactive
 az functionapp deployment container config --enable-cd \
@@ -243,36 +228,150 @@ This command returns the deployment webhook URL after continuous deployment is e
 
 Copy the deployment URL and browse to your DockerHub repo, choose the **Webhooks** tab, type a **Webhook name** for the webhook, paste your URL in **Webhook URL**, and then choose the plus sign (**+**).
 
-![Add the webhook in your DockerHub repo](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
+![Add the webhook in your DockerHub repo](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
 With the webhook set, any updates to the linked image in DockerHub result in the function app downloading and installing the latest image.
 
-## Enable Application Insights
+## Enable SSH connections
 
-The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app by using the Azure CLI, the integration in your function app in Azure isn't done.
+SSH enables secure communication between a container and a client. With SSH enabled, you can connect to your container using App Service Advanced Tools (Kudu). To make it easy to connect to your container using SSH, Functions provide a base image that has SSH already enabled. 
 
-To enable Application Insights for your function app:
+### Change the base image
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+In your dockerfile, append the string `-appservice` to the base image in your `FROM` instruction, which for a JavaScript project looks like the following.
 
-To learn more, see [Monitor Azure Functions](functions-monitoring.md).
+```docker
+FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
+```
+
+The differences in the two base images enable SSH connections into your container. These differences are detailed in [this App Services tutorial](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
+
+### Rebuild and redeploy the image
+
+In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command again, as before, replace `<docker-id>` with your Docker Hub account ID. 
+
+```bash
+docker build --tag <docker-id>/mydockerimage:v1.0.0 .
+```
+
+Push the updated image back to Docker Hub.
+
+```bash
+docker push <docker-id>/mydockerimage:v1.0.0
+```
+
+The updated image is redeployed to your function app.
+
+### Connect to your container in Azure
+
+In the browser, navigate to the following Advanced Tools (Kudu) `scm.` endpoint for your function app container, replacing `<app_name>` with the name of your function app.
+
+```
+https://<app_name>.scm.azurewebsites.net/
+```
+
+Sign in to your Azure account, and then select the **SSH** tab to create an SSH connection into your container.
+
+After the connection is established, run the `top` command to view the currently running processes. 
+
+![Linux top command running in an SSH session.](media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png)
+
+## Write to Queue storage
+
+Functions lets you connect Azure services and other resources to functions without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+
+This section shows you how to integrate your function with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
+
+### Download the function app settings
+
+[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
+
+### Enable extension bundles
+
+Because you are using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project. 
+
+
+# [JavaScript / Python](#tab/nodejs+python)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+# [C\#](#tab/csharp)
+
+With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
+
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+```
+
+> [!TIP]
+> When using Visual Studio, you can also use the NuGet package manager to add this package.
+
+---
+
+Now, you can add a Storage output binding to your project.
+
+### Add an output binding
+
+In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
+
+# [JavaScript / Python](#tab/nodejs+python)
+
+[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
+
+# [C\#](#tab/csharp)
+
+[!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
+
+---
+
+### Add code that uses the output binding
+
+After the binding is defined, you can use the `name` of the binding to access it as an attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
+
+# [JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+
+# [Python](#tab/python)
+
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
+
+# [C\#](#tab/csharp)
+
+[!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+
+---
+
+### Update the hosted container
+
+In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command again, and this time update the version in the tag to `v1.0.2`. As before, replace `<docker-id>` with your Docker Hub account ID. 
+
+```bash
+docker build --tag <docker-id>/mydockerimage:v1.0.0 .
+```
+
+Push the updated image back to the repository.
+
+```bash
+docker push <docker-id>/mydockerimage:v1.0.0
+```
+
+### Verify the updates in Azure
+
+Use the same URL as before from the browser to trigger your function. You should see the same response. However, this time the string that you pass as the `name` parameter is written to the `outqueue` storage queue.
+
+[!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
+
+[!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 ## Next steps
 
-In this tutorial, you learned how to:
+Now that you have successfully deployed your custom container to a function app in Azure, consider reading more about the following topics:
 
-> [!div class="checklist"]
-> * Create a function app and Dockerfile using Core Tools.
-> * Build a custom image using Docker.
-> * Publish a custom image to a container registry.
-> * Create an Azure Storage account.
-> * Create a Linux Premium plan.
-> * Deploy a function app from Docker Hub.
-> * Add application settings to the function app.
-> * Enable continuous deployment.
-> * Add Application Insights monitoring.
++ [Monitoring functions](functions-monitoring.md)
++ [Scale and hosting options](functions-scale.md)
++ [Kubernetes-based serverless hosting](functions-kubernetes-keda.md)
 
-> [!div class="nextstepaction"] 
-> [Learn more about options for deploying functions to Azure](functions-deployment-technologies.md)
+[Azure portal]: https://portal.azure.com

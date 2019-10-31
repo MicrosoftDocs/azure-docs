@@ -70,7 +70,7 @@ Here's an example application that uses stateless services:
 ![Application that uses stateless services][Image1]
 
 Here's an example application that uses stateful services:
-![Application that uses stateless services][Image2]
+![Application that uses stateful services][Image2]
 
 ## Next steps
 

@@ -41,6 +41,10 @@
       href: ./hdinsight-streaming-at-scale-overview.md  
     - name: Apache Hadoop architecture in HDInsight
       href: ./hdinsight-hadoop-architecture.md
+    - name: HDInsight supported VM sizes
+      href: ./hdinsight-supported-node-configuration.md
+    - name: Select the right VM size
+      href: ./hdinsight-selecting-vm-size.md
     - name: Cluster capacity planning
       href: ./hdinsight-capacity-planning.md
     - name: Availability and reliability
@@ -136,7 +140,9 @@
       - name: Autoscale clusters
         href: ./hdinsight-autoscale-clusters.md
       - name: Use external metadata stores
-        href: ./hdinsight-use-external-metadata-stores.md     
+        href: ./hdinsight-use-external-metadata-stores.md
+      - name: Custom Ambari DB
+        href: ./hdinsight-custom-ambari-db.md          
       - name: Manage logs for an HDInsight cluster
         href: ./hdinsight-log-management.md
       - name: Add storage accounts
@@ -580,7 +586,7 @@
   - name: Quickstarts
     items:
     - name: Query Apache HBase - Apache Phoenix
-      href: ./hbase/apache-hbase-phoenix-squirrel-linux.md
+      href: ./hbase/apache-hbase-query-with-phoenix.md
     - name: Query Apache HBase - HBase Shell
       href: ./hbase/query-hbase-with-hbase-shell.md
   - name: Tutorials
@@ -595,6 +601,8 @@
         href: ./hbase/apache-hbase-rest-sdk.md
       - name: Develop Java applications
         href: ./hbase/apache-hbase-build-java-maven-linux.md
+      - name: Apache Phoenix with Apache Zeppelin
+        href: ./hbase/apache-hbase-phoenix-zeppelin.md
       - name: Apache Phoenix in HDInsight
         href: ./hdinsight-phoenix-in-hdinsight.md
       - name: Use the Apache Phoenix Query Server REST SDK

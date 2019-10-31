@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Blockchain Workbench messages integration overview
 description: Overview of using messages in Azure Blockchain Workbench Preview.
 services: azure-blockchain
@@ -60,7 +60,7 @@ Blockchain Workbench returns a response with the following fields:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | Client supplied GUID |
 | userId                | ID of the user that was created |
-| userChainIdentifier   | Address of the user that was created on the blockchain network. In Ethereum, the address is the user's **on-chain** address. |
+| userChainIdentifier   | Address of the user that was created on the blockchain network. In Ethereum, the address is the user's **on-chain** address. |
 | connectionId          | Unique identifier for the blockchain connection|
 | messageSchemaVersion  | Messaging schema version |
 | messageName           | **CreateUserUpdate** |
@@ -712,7 +712,7 @@ Example of an *EventMessage ApplicationIngestion* from Blockchain Workbench:
     "applicationId": 31,
     "applicationName": "AssetTransfer",
     "applicationDisplayName": "Asset Transfer",
-    "applicationVersion": “1.0”,
+    "applicationVersion": "1.0",
     "applicationDefinitionLocation": "http://url",
     "contractCodes": [
         {
@@ -791,14 +791,14 @@ Example of an *EventMessage ApplicationIngestion* from Blockchain Workbench:
                     "id": 879,
                     "name": "Description",
                     "type": {
-                                "name": "string"
+                        "name": "string"
                      }
                 },
                 {
                     "id": 880,
                     "name": "Price",
                     "type": {
-                                "name": "int"
+                        "name": "int"
                      }
                 }
             ]
@@ -878,7 +878,7 @@ Example of an *EventMessage RoleAssignment* from Blockchain Workbench:
     "applicationId": 31,
     "applicationName": "AssetTransfer",
     "applicationDisplayName": "Asset Transfer",
-    "applicationVersion": “1.0”,
+    "applicationVersion": "1.0",
     "applicationRole": {
         "id": 134,
         "name": "Buyer"
