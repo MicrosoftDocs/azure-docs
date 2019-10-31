@@ -379,7 +379,11 @@
     - name: High availability
       href: manage-availability.md
     - name: Create a proximity placement group
-      href: proximity-placement-groups.md 
+      items: 
+      - name: CLI
+        href: proximity-placement-groups.md 
+      - name: Portal
+        href: ../windows/proximity-placement-groups-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json 
     - name: Create VM in availability zone
       href: create-cli-availability-zone.md
   - name: Use automation tools

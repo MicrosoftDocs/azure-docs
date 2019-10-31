@@ -1,5 +1,5 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Microsoft Docs
+title: Create interactive reports Azure Monitor for VMs with workbooks | Microsoft Docs
 description: Simplify complex reporting with predefined and custom parameterized workbooks for Azure Monitor for VMs.
 ms.service:  azure-monitor
 ms.subservice: 
@@ -10,7 +10,7 @@ ms.date: 10/15/2019
 
 ---
 
-# Create interactive reports with Azure Monitor workbooks
+# Create interactive reports Azure Monitor for VMs with workbooks
 
 Workbooks combine text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 

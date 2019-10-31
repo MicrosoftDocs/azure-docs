@@ -35,7 +35,7 @@ These features should be taken into consideration prior to switching to cloud au
 
 -   You have decided to move to either Password Hash Sync + Seamless SSO **(Option A),** or Pass-through Authentication + Seamless SSO **(Option B).** Although seamless SSO is optional, we recommend enabling seamless SSO to achieve a silent sign-in experience for users using domain joined machines from inside corporate network.
 
--   You have configured all the appropriate tenant branding and conditional access policies you need for users who are being migrated over to cloud authentication.
+-   You have configured all the appropriate tenant branding and Conditional Access policies you need for users who are being migrated over to cloud authentication.
 
 -   If you plan to use Azure Multi-Factor Authentication, we recommend you use [converged registration for Self-service Password Reset (SSPR) and Azure MFA](../authentication/concept-registration-mfa-sspr-combined.md) to get your users to register their authentication methods once.
 
@@ -76,6 +76,8 @@ These scenarios are not supported for staged rollout:
 ## Get started with staged rollout
 
 If you want to test Password Hash Sync (PHS) sign-in using staged rollout, please complete the below pre-work to enable Password Hash Sync staged rollout.
+
+For more information on the PowerShell cmdlets used, see [AzureAD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)
 
 ## Pre-work for Password Hash Sync
 
@@ -235,3 +237,6 @@ Here is how you can track user sign-ins still happening on AD FS for selected st
 -   **Q: Can we use PowerShell to perform staged rollout?**
 
 -   A: Yes, Please find the documentation to use PowerShell to perform staged rollout here.
+
+## Next Steps
+- [AzureAD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

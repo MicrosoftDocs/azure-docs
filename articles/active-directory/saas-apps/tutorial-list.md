@@ -52,6 +52,7 @@ To find more tutorials, use the table of contents on the left.
 
 | Logo | Application tutorial for single sign-on |        |
 | :--- | :--- | :--- |
+| ![logo](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|      |
 | ![logo](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|      |
 | ![logo](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|      |
 | ![logo](./media/tutorial-list/active-directory-saas-amplitude-tutorial.png)| [Amplitude](amplitude-tutorial.md)|      |
@@ -59,6 +60,7 @@ To find more tutorials, use the table of contents on the left.
 | ![logo](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|     |
+| ![logo](./media/tutorial-list/active-directory-saas-cakehr-tutorial.png)| [CakeHR](cakehr-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-deskradar-tutorial.png)| [Deskradar](deskradar-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Displayr](displayr-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-dmarcian-tutorial.png)| [dmarcian](dmarcian-tutorial.md)|     |
@@ -74,7 +76,9 @@ To find more tutorials, use the table of contents on the left.
 | ![logo](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-harness-tutorial.png)| [Harness](harness-tutorial.md)|     |
+| ![logo](./media/tutorial-list/active-directory-saas-helpscout-tutorial.png)| [Help Scout](helpscout-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|     |
+| ![logo](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|     |
@@ -83,6 +87,8 @@ To find more tutorials, use the table of contents on the left.
 | ![logo](./media/tutorial-list/active-directory-saas-nuclino-tutorial.png)| [Nuclino](nuclino-tutorial.md)|       |
 | ![logo](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [People](people-tutorial.md)|       |
 | ![logo](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|       |
+| ![logo](./media/tutorial-list/active-directory-saas-ringcentral-tutorial.png)| [RingCentral](ringcentral-tutorial.md)|       |
+| ![logo](./media/tutorial-list/active-directory-saas-scalex-enterprise-tutorial.png)| [ScaleX Enterprise](scalex-enterprise-tutorial.md)|       |
 | ![logo](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|       |
 | ![logo](./media/tutorial-list/active-directory-saas-target-process-tutorial.png)| [TargetProcess](target-process-tutorial.md)|       |
 | ![logo](./media/tutorial-list/active-directory-saas-teamphoria-tutorial.png)| [Teamphoria](teamphoria-tutorial.md)|       |
