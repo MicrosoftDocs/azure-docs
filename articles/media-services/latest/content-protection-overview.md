@@ -108,11 +108,8 @@ A security token service (STS) issues JWT as the access token for back-end resou
 * Symmetric or asymmetric verification for signature verification.
 * Key rollover support (if necessary).
 
-<<<<<<< HEAD
 You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test the STS. It supports all three types of verification keys: symmetric, asymmetric, or Azure Active Directory (Azure AD) with key rollover.
 
-=======
->>>>>>> 1e997afe41b7a636e144fb62c0b852b9186681cb
 ## Streaming protocols and encryption types
 
 You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HLS, MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods.
