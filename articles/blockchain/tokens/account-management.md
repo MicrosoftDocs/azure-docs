@@ -4,7 +4,7 @@ description: Using Azure Blockchain Tokens account management, you can create gr
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
