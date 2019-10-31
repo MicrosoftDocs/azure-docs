@@ -6,7 +6,7 @@ author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 07/24/2019
+ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
@@ -44,6 +44,10 @@ Additionally, you need the following in your local development environment:
 
 In the second tutorial that you completed as part of the prerequisites, you registered a web application in Azure AD B2C. To enable communication with the sample in the tutorial, you need to add a redirect URI to the application in Azure AD B2C.
 
+You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to update the application. [Learn more about the preview experience](http://aka.ms/b2cappregintro).
+
+#### [Applications](#tab/applications/)
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 1. Select **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
@@ -51,6 +55,19 @@ In the second tutorial that you completed as part of the prerequisites, you regi
 1. Under **Reply URL**, add `http://localhost:6420`.
 1. Select **Save**.
 1. On the properties page, record the **Application ID**. You use the app ID in a later step when you update the code in the single-page web application.
+
+#### [App registrations (Preview)](#tab/app-reg-preview/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Select **App registrations (Preview)**, select the **Owned applications** tab, and then select the *webapp1* application.
+1. Select **Authentication**, then select **Try out the new experience** (if shown).
+1. Under **Web**, select the **Add URI** link, enter `http://localhost:6420`, and then select **Save**.
+1. Select **Overview**.
+1. Record the **Application (client) ID** for use in a later step when you update the code in the single-page web application.
+
+* * *
 
 ## Get the sample code
 
@@ -120,7 +137,7 @@ The sample supports sign-up, sign-in, profile editing, and password reset. This 
 
     Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
-    ![Sign-up page presented by the sign-in/sign-up user flow](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![Sign-up page presented by the sign-in/sign-up user flow](./media/active-directory-b2c-tutorials-spa/azure-ad-b2c-sign-up-workflow.png)
 
 1. Select **Create** to create a local account in the Azure AD B2C directory.
 
