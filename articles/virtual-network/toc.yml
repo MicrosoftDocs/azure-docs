@@ -35,6 +35,8 @@
     href: policy-samples.md
 - name: Concepts
   items:
+  - name: NAT gateway
+    href: nat-service-overview.md
   - name: Security groups
     href: security-overview.md
   - name: Routing
@@ -93,6 +95,20 @@
       href: virtual-network-tcpip-performance-tuning.md
   - name: Deploy
     items:
+    - name: NAT gateway
+      items:
+        - name: Create a NAT gateway - Portal
+          href: quickstart-create-nat-gateway-portal.md
+        - name: Create a NAT gateway - PowerShell
+          href: quickstart-create-nat-gateway-powershell.md
+        - name: Create a NAT gateway - Azure CLI
+          href: quickstart-create-nat-gateway-cli.md
+        - name: Create and validate a NAT gateway - Portal
+          href: tutorial-create-validate-nat-gateway-portal.md
+        - name: Create and validate a NAT gateway - PowerShell
+          href: tutorial-create-validate-nat-gateway-powershell.md
+        - name: Create and validate a NAT gateway - Azure CLI
+          href: tutorial-create-validate-nat-gateway-cli.md
     - name: IPv6 for VNet
       items:
       - name: Basic Public Load Balancer
@@ -244,8 +260,6 @@
       items:
       - name: Subnets
         href: virtual-network-manage-subnet.md
-      - name: Subnet delegation
-        href: manage-subnet-delegation.md
       - name: Peerings
         href: virtual-network-manage-peering.md
       - name: DDoS protection

@@ -1,16 +1,17 @@
 ---
-title: Map cognitive search enriched input fields to output fields - Azure Search
-description: Extract and enrich source data fields, and map to output fields in an Azure Search index.
+title: Map AI-enriched input fields to output fields
+titleSuffix: Azure Cognitive Search
+description: Extract and enrich source data fields, and map to output fields in an Azure Cognitive Search index.
+
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# How to map enriched fields to a searchable index
+# How to map AI-enriched fields to a searchable index
 
 In this article, you learn how to map enriched input fields to output fields in a searchable index. Once you have [defined a skillset](cognitive-search-defining-skillset.md), you must map the output fields of any skill that directly contributes values to a given field in your search index. Field mappings are required for moving content from enriched documents into the index.
 
@@ -67,4 +68,4 @@ The path in a sourceFieldName can represent one element or multiple elements. In
 ## Next steps
 Once you have mapped your enriched fields to searchable fields, you can set the field attributes for each of the searchable fields [as part of the index definition](search-what-is-an-index.md).
 
-For more information about field mapping, see [Field mappings in Azure Search indexers](search-indexer-field-mappings.md).
+For more information about field mapping, see [Field mappings in Azure Cognitive Search indexers](search-indexer-field-mappings.md).
