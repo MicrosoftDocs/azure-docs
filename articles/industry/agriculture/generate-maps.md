@@ -148,7 +148,7 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 6. Click the map you want to view, a pop-up window displays the preview for the selected map.
 7. Click **Download** drop-down menu to select the download format and the map is downloaded and stored in your local folder on your computer.
 
-![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-satellite-indices-map-1.png)
+    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-satellite-indices-map-1.png)
 
 ## Get soil moisture Heatmap
 
