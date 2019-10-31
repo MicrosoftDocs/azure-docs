@@ -92,6 +92,6 @@ To connect and query with Visual Studio, see [Query with Visual Studio][Query wi
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-analytics-connect-overview/server-connect.PNG
+[1]: media/sql-analytics-connect-overview/server-connect.png
 
 
