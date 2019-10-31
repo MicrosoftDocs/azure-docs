@@ -32,6 +32,7 @@ To register your SQL Server VM with the resource provider, you'll need the follo
 - An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
 - The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
+- The latest version of [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0.
 
 ## Getting started
 
@@ -223,6 +224,7 @@ When you register SQL Server VMs with the resource provider using the provided s
 
 For the full script on GitHub, see [Bulk register SQL VMs with Az PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
 
+Copy the full script and save it as `RegisterSqLVMs.psm1`.
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
 
