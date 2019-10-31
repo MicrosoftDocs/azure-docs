@@ -65,14 +65,13 @@ ms.author: v-umha
   2. Scroll down to the latest **Precision Maps** section.
   3. You should be able to view the image in the **Drone Imagery** section.
 
-  ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
+    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
 
 ## Download drone imagery
 
   If you click the drone Imagery section, a Popup opens, which show a high resolution image of the drone orthomosaic. Click **Download** to download the different files associated with this particular scene.
 
-
-    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
+![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
 
 
 ## View all drone maps
