@@ -46,6 +46,8 @@ Use the links in this section for more information about managed cloud networkin
 
 [KINX](https://www.kinx.net/service/cloud/?lang=en)
 
+[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/microsoft-azure.html)
+
 [Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)
 
 [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
@@ -59,6 +61,8 @@ Use the links in this section for more information about managed cloud networkin
 [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
 
 [Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
+
+[TCTS](https://www.tatacommunications-ts.com/index.php)
 
 [Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
 
