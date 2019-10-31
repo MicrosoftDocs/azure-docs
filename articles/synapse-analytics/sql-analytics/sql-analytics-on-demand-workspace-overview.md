@@ -46,7 +46,7 @@ SQL Analytics on-demand endpoint is provided within every Azure Synapse workspac
 
 ## Client tools
 
-SQL Analytics on-demand enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can [connect to and query SQL Analytics](sql-analytics-connect-overview.md) on-demand. You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes. 
+SQL Analytics on-demand enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can [connect to and query SQL Analytics](connect-overview.md) on-demand. You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes. 
 
 At this moment, latest version of Azure Data Studio is fully supported. Latest version of SSMS can be used to connect and query but is not supported yet. It will be fully supported until GA. Please make sure you use latest versions of tools.
 
@@ -149,5 +149,5 @@ A user that is logged into SQL Analytics on-demand service must be authorized to
 
 ## Next steps
 
-- [Connect to your endpoint](sql-analytics-connect-overview.md)
+- [Connect to your endpoint](connect-overview.md)
 - [Query your files](development-storage-files-overview.md)

@@ -947,7 +947,7 @@
     - name: SQL Analytics
       items:
       - name: Overview
-        href: sql-analytics/sql-analytics-connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with ADS
         href: sql-analytics/sql-analytics-query-ads.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connection strings

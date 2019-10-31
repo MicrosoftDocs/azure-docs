@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure SQL analytics | Microsoft Docs
-description: Get connected to Azure SQL analytics.
+title: Connect to Azure SQL Analytics | Microsoft Docs
+description: Get connected to Azure SQL Analytics.
 services: sql-data-warehouse 
 author: azaricstefan 
 ms.service: sql-data-warehouse 
@@ -11,10 +11,10 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to Azure SQL analytics
+# Connect to Azure SQL Analytics
 Get connected to Azure SQL analytics.
 
-## Supported tools for SQL analytics on-demand
+## Supported tools for SQL Analytics on-demand
 Fully supported tool is Azure Data Studio.
 SQL Server Management Studio is supported partially from version 18.4 with limited feature like connecting and querying, keep in mind that it's not fully supported.
 
@@ -22,14 +22,14 @@ SQL Server Management Studio is supported partially from version 18.4 with limit
 The server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
 
 1. Go to the [Azure portal][Azure portal].
-2. Click on **SQL analytics**.
-3. Click on the analytics you want to connect to.
+2. Click on **SQL Analytics**.
+3. Click on the Analytics you want to connect to.
 4. Locate the full server name.
    
     ![Full server name][1]
 
 ## Supported drivers and connection strings
-Azure SQL analytics supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
+Azure SQL Analytics supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
 
 > [!NOTE]
 > Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.
@@ -57,7 +57,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ```
 
 ## Connection settings
-SQL analytics standardizes some settings during connection and object creation. These settings cannot be overridden and include:
+SQL Analytics standardizes some settings during connection and object creation. These settings cannot be overridden and include:
 
 | Database Setting | Value |
 |:--- |:--- |
@@ -68,15 +68,15 @@ SQL analytics standardizes some settings during connection and object creation. 
 
 ## Recommendations
 
-For executing **SQL analytics on-demand** queries, recommended tools are [Azure Data Studio](sql-analytics-query-ads.md) and Azure Synapse Studio.
+For executing **SQL Analytics on-demand** queries, recommended tools are [Azure Data Studio](sql-analytics-query-ads.md) and Azure Synapse Studio.
 
 
 ## Next steps
-To connect and query with Visual Studio, see [Query with Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL analytics][Authentication to Azure SQL analytics].
+To connect and query with Visual Studio, see [Query with Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Analytics][Authentication to Azure SQL Analytics].
 
 <!--Articles-->
 [Query with Visual Studio]: ../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md
-[Authentication to Azure SQL analytics]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md
+[Authentication to Azure SQL Analytics]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx

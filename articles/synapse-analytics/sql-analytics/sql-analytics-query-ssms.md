@@ -118,7 +118,7 @@ Now that you can connect and query, try [visualizing the data with PowerBI][visu
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL analytics][Authenticate to SQL analytics].
 
 <!--Arcticles-->
-[Connect to SQL analytics]: sql-analytics-connect-overview.md
+[Connect to SQL analytics]: connect-overview.md
 [Create a SQL analytics]: ../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md
 [Authenticate to SQL analytics]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md
 [visualizing the data with PowerBI]: tutorial-bi-professional.md 
