@@ -54,9 +54,9 @@ You can find your _company model repository connection string_ in the [Azure Cer
 
 ## Prepare an IoT hub
 
-You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you're using the Azure CLI locally, the `az` version should be **2.0.73** or later, the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
+If you're using the Azure CLI locally, the `az` version should be **2.0.75** or later, the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
 
 Add the Microsoft Azure IoT Extension for Azure CLI:
 
@@ -64,7 +64,7 @@ Add the Microsoft Azure IoT Extension for Azure CLI:
 az extension add --name azure-cli-iot-ext
 ```
 
-The steps in this quickstart require version **0.8.3** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
+The steps in this quickstart require version **0.8.5** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
 
 If don't have an IoT hub, create one using the following commands, replacing `{YourIoTHubName}` with a unique name of your choice. If you're running these commands locally, first sign in to your Azure subscription using `az login`. If you're running these commands in the Azure cloud shell, you're signed in automatically:
 
@@ -85,36 +85,24 @@ Run the following command to create a device identity for a device called `mypnp
 az iot hub device-identity create --hub-name {YourIoTHubName} --device-id mypnpdevice
 ```
 
-Run the following commands to get the _device connection string_ for the device you just registered:
+Run the following commands to get the _device connection string_ for the device you just registered. You need this connection string later in this quickstart:
 
 ```azurecli-interactive
 az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id mypnpdevice --output table
 ```
 
-## Prepare the development environment
-
-In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT C device SDK.
-
-1. Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
-
-    ```bash
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
-    ```
-
-    You should expect this operation to take several minutes to complete.
-
-1. Create a `pnp_app` subdirectory in the root of the local clone of the repository. You use this folder for the device model files and device code stub.
-
-    ```bash
-    cd azure-iot-sdk-c
-    mkdir pnp_app
-    ```
-
 ## Author your model
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
 
-1. Download the device capability model and interface sample to the `pnp_app` folder.
+1. Create a `pnp_app` directory in your home directory. You use this folder for the device model files and device code stub.
+
+    ```bash
+    cd ~
+    mkdir pnp_app
+    ```
+
+1. Download the device capability model and interface sample files to the `pnp_app` folder.
 
     ```bash
     cd pnp_app
@@ -143,35 +131,37 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 
 1. Choose **ANSI C** as your language.
 
-1. Choose **CMake Project** as your project type.
-
 1. Choose **Via IoT Hub device connection string** as connection method.
+
+1. Choose **CMake Project on Linux** as your project template.
+
+1. Choose **Via Source Code** as the way to include the SDK.
 
 1. VS Code opens a new window with generated device code stub files.
     ![Device code](media/quickstart-create-pnp-device-linux/device-code.png)
 
-## Build the code
+## Build and run the code
 
-You use the device SDK to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+You use the device SDK source code to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In VS Code, open `CMakeLists.txt` in the device SDK root folder.
+1. Run the following commands to download the device SDK source code:
 
-1. Add the line below at the bottom of the `CMakeLists.txt` file to include the device code stub folder when compiling:
-
-    ```txt
-    add_subdirectory(pnp_app/sample_device)
+    ```bash
+    cd ~/pnp_app/sample_device
+    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
     ```
 
-1. Create a cmake subdirectory in the device SDK root folder, and navigate to that folder:
+1. Create a **CMake** build folder for the **sample_device** application:
 
-    ```sh
+    ```bash
+    cd ~/pnp_app/sample_device
     mkdir cmake
     cd cmake
     ```
 
-1. Run the following commands to build the device SDK and the generated code stub:
+1. Run CMake to build your app with the SDK:
 
-    ```sh
+    ```bash
     cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -Dskip_samples:BOOL=ON
     cmake --build .
     ```
@@ -179,7 +169,7 @@ You use the device SDK to build the generated device code stub. The application 
 1. After the build completes successfully, run your application passing the IoT hub device connection string as parameter.
 
     ```sh
-    cd ~/azure-iot-sdk-c/cmake/pnp_app/sample_device
+    cd ~/pnp_app/sample_device/cmake
     ./sample_device "{IoT Hub device connection string}"
     ```
 
@@ -214,7 +204,7 @@ After the device client sample starts, you can check it's working with the Azure
 Use the following command to view the telemetry the sample device is sending. You may need to wait a minute or two before you see any telemetry in the output:
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name {your IoT hub} --device-id mypnpdevice  --source private --repo-login "{your company model repository connection string}"
+az iot dt monitor-events --hub-name {your IoT hub} --device-id mypnpdevice
 ```
 
 Use the following command to view all the properties sent by the device:

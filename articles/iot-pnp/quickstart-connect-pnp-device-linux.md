@@ -53,7 +53,7 @@ Add the Microsoft Azure IoT Extension for Azure CLI:
 az extension add --name azure-cli-iot-ext
 ```
 
-The steps in this quickstart require version **0.8.3** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
+The steps in this quickstart require version **0.8.5** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
 
 If you're using CLI locally, sign in to your Azure subscription with the following command:
 
@@ -153,7 +153,7 @@ After the device client sample starts, verify it's working with the Azure CLI.
 Use the following command to view the telemetry the sample device is sending. You may need to wait a minute or two before you see any telemetry in the output:
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name {your IoT hub} --device-id mydevice  --source private --repo-login "{your company model repository connection string}"
+az iot dt monitor-events --hub-name {your IoT hub} --device-id mydevice
 ```
 
 Use the following command to view the properties sent by the device:
