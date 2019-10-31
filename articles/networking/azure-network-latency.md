@@ -34,7 +34,7 @@ For the 30 days ending on **October 30, 2019**, monthly latency figures (aggrega
 
 The following inter-region latency measurements are powered by [ThousandEyes](https://thousandeyes.com). The measurement unit in the table below is in milliseconds(ms)
 
-![Azure inter-region latency statistics](./media/azure-network-latency/azure-inter-region-latency.png)
+[ ![Azure inter-region latency statistics](media/azure-network-latency/azure-inter-region-latency.png)](media/contribute-how-to-use-lightboxes/azure-inter-region-latency-expanded.png#lightbox)
 
 
 <a href="https://www.thousandeyes.com"><img src="https://te-logo.s3-us-west-2.amazonaws.com/ThousandEyes-Main-Logo-150.png"></a>
