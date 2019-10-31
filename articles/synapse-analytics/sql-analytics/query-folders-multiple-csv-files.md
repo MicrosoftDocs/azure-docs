@@ -285,8 +285,8 @@ Since we have only one folder that matches criteria, the result of this query is
 
 ## Next steps
 
-You can see more in [Querying specific files](querying-specific-files.md).
+You can see more in [Querying specific files](query-specific-files.md).
 
 Advance to the next article to learn how to query specific files.
 > [!div class="nextstepaction"]
-> [Querying specific files](querying-specific-files.md)
+> [Querying specific files](query-specific-files.md)

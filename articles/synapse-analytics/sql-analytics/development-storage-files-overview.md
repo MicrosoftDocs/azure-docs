@@ -126,7 +126,7 @@ BULK N'path_to_file(s)', FORMAT='PARQUET');
 
 This function returns file name that row originates from.
 
-Check [filename function](querying-specific-files.md#filename) in samples section for queries.
+Check [filename function](query-specific-files.md#filename) in samples section for queries.
 
 ### filepath function
 
@@ -135,7 +135,7 @@ This function returns full path or part of path:
 - When called without parameter, returns full file path that row originates from. 
 - When called with parameter, it returns part of path that matches wildcard on position specified in parameter. For example, parameter value 1 would return part of path that matches first wildcard.
 
-Check [filepath function](querying-specific-files.md#filepath) in samples section for queries.
+Check [filepath function](query-specific-files.md#filepath) in samples section for queries.
 
 ### Working with complex types and nested or repeated data structures
 
@@ -215,7 +215,7 @@ Now you are ready to start with following quickstart articles:
 
 2. [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
-3. [Querying specific files](querying-specific-files.md)
+3. [Querying specific files](query-specific-files.md)
 
 4. [Querying Parquet files](query-parquet-files.md)
 

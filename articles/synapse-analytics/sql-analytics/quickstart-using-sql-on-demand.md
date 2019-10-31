@@ -230,7 +230,7 @@ Now you are ready to start with following quickstarts:
 
 2. [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
-3. [Querying specific files](querying-specific-files.md)
+3. [Querying specific files](query-specific-files.md)
 
 4. [Querying Parquet files](query-parquet-files.md)
 

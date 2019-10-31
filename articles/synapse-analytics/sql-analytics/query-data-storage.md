@@ -186,7 +186,7 @@ Now you are ready to start with following quickstart articles:
 
 - [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
-- [Querying specific files](querying-specific-files.md)
+- [Querying specific files](query-specific-files.md)
 
 - [Querying Parquet files](query-parquet-files.md)
 

@@ -188,7 +188,7 @@ If possible, you can prepare files for better performance:
 
 ### Use fileinfo and filepath functions to target specific partitions
 
-Data is often organized in partitions - you can instruct SQL Analytics on-demand to query particular folders and files. You will reduce number of files and amount of data query needs to read and process. As a consequence you will get better performance. For more information, check [filename](development-storage-files-overview.md#filename-function) and [filepath](development-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](querying-specific-files.md).
+Data is often organized in partitions - you can instruct SQL Analytics on-demand to query particular folders and files. You will reduce number of files and amount of data query needs to read and process. As a consequence you will get better performance. For more information, check [filename](development-storage-files-overview.md#filename-function) and [filepath](development-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
 
 If your data in storage is not partitioned, consider partitioning it so you could use these functions to optimize queries targeting those files.
 
