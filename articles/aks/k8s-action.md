@@ -34,13 +34,10 @@ For a workflow targeting AKS, the file has three sections:
 You can create a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 
-In this example, replace the placeholders in the resource with your subscription ID, resource group and, web app name. The output is the role assignment credentials that provide access to your Web App. Copy this JSON object, which you can use to authenticate from GitHub.
-
-> [!NOTE]
-> You do not need to create a service principal if you decide to use publish profile for authentication.
+In this example, replace the placeholders in the resource with your subscription ID, and resource group. The output is the role assignment credentials that provide access to your resource. Copy this JSON object, which you can use to authenticate from GitHub.
 
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific resource and not the entire resource group.
