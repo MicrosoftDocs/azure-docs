@@ -33,7 +33,7 @@ The following diagram shows transforms/jobs workflow:
 1. Create a Transform.
 2. Submit Jobs under that Transform.
 3. List Transforms.
-4. Delete a Transform, if you are not planning to use it in the future.
+4. Delete a Transform, if you aren't planning to use it in the future.
 
 #### Example
 
@@ -63,7 +63,7 @@ You can create Transforms using REST, CLI, or any of the published SDKs. The Med
 
 ### Updating Transforms
 
-If you need to update your [Transform](https://docs.microsoft.com/rest/api/media/transforms), use the **Update** operation. It's intended for making changes to the description, or the priorities of the underlying TransformOutputs. It's recommended that such updates be performed when all in-progress jobs have completed. If you intend to rewrite the recipe, you need to create a new Transform.
+If you need to update your [Transform](https://docs.microsoft.com/rest/api/media/transforms), use the **Update** operation. It's intended for making changes to the description, or the priorities of the underlying TransformOutputs. It's recommended that such updates be done when all in-progress jobs have completed. If you intend to rewrite the recipe, you need to create a new Transform.
 
 ### Transform object diagram
 
