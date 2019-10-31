@@ -36,11 +36,11 @@ Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azur
 
 ## Ingress Best Practices
 
-We recommend that you employ the following best practies:
+We recommend that you employ the following best practices:
 
 * Configure TSI and IoT/Event Hub in the same region, this will reduce ingestion latency incurred due to the network.
 * Plan for your scale needs by calculating your anticipated ingestion rate and verifying that it falls within the supported rate listed below
-* Understand how to optimize and shape your JSON data, as well as the current limitions in preview, by reading [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
+* Understand how to optimize and shape your JSON data, as well as the current limitations in preview, by reading [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
 ### Ingress scale and limitations in preview
 
