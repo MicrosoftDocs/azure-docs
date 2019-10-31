@@ -91,7 +91,9 @@
       - name: Virtual network
         href: concepts-data-access-and-security-vnet.md
       - name: Connectivity architecture
-        href: concepts-connectivity-architecture.md      
+        href: concepts-connectivity-architecture.md
+      - name: Azure AD authentication
+        href: concepts-aad-authentication.md
     - name: Business continuity
       items:
       - name: Business continuity intro
@@ -169,8 +171,12 @@
   items:
   - name: Single server
     items:
-    - name: Create users 
-      href: howto-create-users.md
+    - name: Authentication
+      items:
+        - name: Create users
+          href: howto-create-users.md
+        - name: Configure Azure AD integration
+          href: howto-configure-sign-in-aad-authentication.md
     - name: Optimize
       items: 
         - name: Bulk inserts
