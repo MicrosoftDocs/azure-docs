@@ -33,6 +33,10 @@ It's easy to disable an enterprise application so no users can sign in to it in 
 1. On the ***appname*** - **Properties** pane, select **No** for **Enabled for users to sign-in?**.
 1. Select the **Save** command.
 
+## Disable unlisted Enterprise apps
+
+To disable apps that uses OAuth2 implicit flow, the tenant admin must manually create and disable the ServicePrincipal in their tenant using the [AzureAD PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0). For e.g. if the tenant admin wants to disable a public client app (SPA, mobile, etc.) that calls Microsoft Graph, then the Service Principal would need to be created and disabled using PowerShell.
+
 ## Next steps
 
 * [See all my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
