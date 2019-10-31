@@ -71,16 +71,8 @@ This step is optional. If you're interested in learning how the database resourc
 ](#run-the-app). 
 
 * `CosmosClient` initialization. The `CosmosClient` provides client-side logical representation for the Azure Cosmos database service. This client is used to configure and execute requests against the service.
-
-    ```java
-    //  Create sync client
-    client = new CosmosClientBuilder()
-        .setEndpoint(AccountSettings.HOST)
-        .setKey(AccountSettings.MASTER_KEY)
-        .setConnectionPolicy(ConnectionPolicy.getDefaultPolicy())
-        .setConsistencyLevel(ConsistencyLevel.EVENTUAL)
-        .buildClient();
-    ```
+    
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClientRegion)]
 
 * CosmosDatabase creation.
 
@@ -88,66 +80,19 @@ This step is optional. If you're interested in learning how the database resourc
 
 * CosmosContainer creation.
 
-    [!code-csharp[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=createContainerIfNotExists)]
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
 * Item creation by using the `createItem` method.
 
-    ```java
-    // Any Java object within your code
-    // can be serialized into JSON and written to Azure Cosmos DB
-    Family andersenFamily = new Family();
-    andersenFamily.setId("Andersen.1");
-    andersenFamily.setLastName("Andersen");
-    // More properties
-
-    //  Create item using container that we created using sync client
-    
-    //  Use lastName as partitionKey for cosmos item
-    //  Using appropriate partition key improves the performance of database operations
-    CosmosItemRequestOptions cosmosItemRequestOptions = new CosmosItemRequestOptions(andersenFamily.getLastName());
-    CosmosItemResponse item = container.createItem(andersenFamily, cosmosItemRequestOptions);
-
-    ```
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateItem)]
+   
 * Point reads are performed using `getItem` and `read` method
 
-    ```java
-      //  We can re-use the andersonFamily object that we created above in createItem call. 
-      CosmosItem cosmosItem = container.getItem(andersonFamily.getId(), andersonFamily.getLastName());
-      CosmosItemResponse cosmosItemResponse = cosmosItem.read(new CosmosItemRequestOptions(andersenFamily.getLastName()));
-      
-      //  Using this response to get more information on read operation. 
-      cosmosItemResponse.getRequestLatency();
-      cosmosItemResponse.getRequestCharge();
-      //  More information can be accessed using cosmosItemResponse
-    ```
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=ReadItem)]
 
 * SQL queries over JSON are performed using the `queryItems` method.
 
-    ```java
-    // Set some common query options
-    FeedOptions queryOptions = new FeedOptions();
-    queryOptions.maxItemCount(10);
-    queryOptions.setEnableCrossPartitionQuery(true);
-    //  Set populate query metrics to get metrics around query executions
-    queryOptions.populateQueryMetrics(true);
-  
-  Iterator<FeedResponse<CosmosItemProperties>> feedResponseIterator = container.queryItems(
-              "SELECT * FROM Family WHERE Family.lastName IN ('Andersen', 'Wakefield', 'Johnson')", queryOptions);
-
-    feedResponseIterator.forEachRemaining(cosmosItemPropertiesFeedResponse -> {
-                System.out.println("Got a page of query result with " +
-                    cosmosItemPropertiesFeedResponse.getResults().size() + " items(s)"
-                    + " and request charge of " + cosmosItemPropertiesFeedResponse.getRequestCharge());
-    
-                System.out.println("Item Ids " + cosmosItemPropertiesFeedResponse
-                    .getResults()
-                    .stream()
-                    .map(Resource::getId)
-                    .collect(Collectors.toList()));
-            });
-
-    
-    ```    
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
 
 ## Run the app
 
