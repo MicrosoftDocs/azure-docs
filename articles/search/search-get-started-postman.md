@@ -1,17 +1,18 @@
 ---
-title: 'Quickstart: Create a search index in Postman using REST APIs - Azure Search'
-description: Learn how to call the Azure Search REST APIs using Postman and sample data and definitions.
+title: 'Quickstart: Create a search index in Postman using REST APIs'
+titleSuffix: Azure Cognitive Search
+description: Learn how to call the Azure Cognitive Search REST APIs using Postman and sample data and definitions.
+
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: heidist
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.devlang: rest-api
+ms.date: 11/04/2019
 ---
 
-# Quickstart: Create an Azure Search index in Postman using REST APIs
+# Quickstart: Create an Azure Cognitive Search index in Postman using REST APIs
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
@@ -20,7 +21,7 @@ ms.author: heidist
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-One of the easiest ways to explore the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice) is using Postman or another web testing tool to formulate HTTP requests and inspect the responses. With the right tools and these instructions, you can send requests and view responses before writing any code.
+One of the easiest ways to explore the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice) is using Postman or another web testing tool to formulate HTTP requests and inspect the responses. With the right tools and these instructions, you can send requests and view responses before writing any code.
 
 This article explains how to formulate requests interactively. Alternatively, you can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) to use predefined requests.
 
@@ -30,13 +31,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following services and tools are required for this quickstart. 
 
-+ [Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Search.
++ [Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Cognitive Search.
 
-+ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Get a key and URL
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -46,9 +47,9 @@ REST calls require the service URL and an access key on every request. A search 
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## Connect to Azure Search
+## Connect to Azure Cognitive Search
 
-In this section, use your web tool of choice to set up connections to Azure Search. Each tool persists request header information for the session, which means you only have to enter the api-key and Content-Type once.
+In this section, use your web tool of choice to set up connections to Azure Cognitive Search. Each tool persists request header information for the session, which means you only have to enter the api-key and Content-Type once.
 
 For either tool, you need to choose a command (GET, POST, PUT, and so forth), provide a URL endpoint, and for some tasks, provide JSON in the body of the request. Replace the search service name (YOUR-SEARCH-SERVICE-NAME)  with a valid value. Add `$select=name` to return just the name of each index. 
 
@@ -56,18 +57,18 @@ For either tool, you need to choose a command (GET, POST, PUT, and so forth), pr
 
 Notice the HTTPS prefix, the name of the service, the name of an object (in this case, the indexes collection), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as `?api-version=2019-05-06` for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
 
-Request header composition includes two elements, content type, plus the api-key used to authenticate to Azure Search. Replace the admin API key (YOUR-AZURE-SEARCH-ADMIN-API-KEY) with a valid value. 
+Request header composition includes two elements, content type, plus the api-key used to authenticate to Azure Cognitive Search. Replace the admin API key (YOUR-AZURE-SEARCH-ADMIN-API-KEY) with a valid value. 
 
     api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
     Content-Type: application/json
 
-In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the verb, provide the URL, and click **Send**. This command connects to Azure Search, reads the indexes collection, and returns HTTP status code 200 on a successful connection. If your service has indexes already, the response will also include index definitions.
+In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the verb, provide the URL, and click **Send**. This command connects to Azure Cognitive Search, reads the indexes collection, and returns HTTP status code 200 on a successful connection. If your service has indexes already, the response will also include index definitions.
 
 ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
 
 ## 1 - Create an index
 
-In Azure Search, you usually create the index before loading it with data. The [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) is used for this task. 
+In Azure Cognitive Search, you usually create the index before loading it with data. The [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) is used for this task. 
 
 The URL is extended to include the `hotels` index name.
 
@@ -121,7 +122,7 @@ When you submit this request, you should get an HTTP 201 response, indicating th
 
 ## 2 - Load documents
 
-Creating the index and populating the index are separate steps. In Azure Search, the index contains all searchable data, which you can provide as JSON documents. The [Add, Update, or Delete Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
+Creating the index and populating the index are separate steps. In Azure Cognitive Search, the index contains all searchable data, which you can provide as JSON documents. The [Add, Update, or Delete Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
 
 The URL is extended to include the `docs` collections and `index` operation.
 
@@ -296,4 +297,4 @@ If you are using a free service, remember that you are limited to three indexes,
 Now that you know how to perform core tasks, you can move forward with additional REST API calls for more advanced features, such as indexers or [setting up a cognitive search pipeline](cognitive-search-tutorial-blob.md). For your next step, we recommend the following link:
 
 > [!div class="nextstepaction"]
-> [REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search](search-semi-structured-data.md)
+> [REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md)

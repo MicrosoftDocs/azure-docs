@@ -46,7 +46,7 @@ In this tutorial, you learn how to:
 * A Power BI service account. If you don't have one already, you can [create a free trial account for Power BI service](https://app.powerbi.com/). If you haven't used Power BI before, it might be helpful to go through [Get started with Power BI](https://docs.microsoft.com/power-bi/service-get-started).
 
 ## Set up a continuous data export to Azure Event Hubs
-You will first need to set up a continuous data export from your Azure IoT Central app template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](https://docs.microsoft.com/azure/iot-central/howto-export-data-event-hubs-service-bus-pnp). You will only need to export for the telemetry for the purposes of this tutorial.
+You will first need to set up a continuous data export from your Azure IoT Central app template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp). You will only need to export for the telemetry for the purposes of this tutorial.
 
 ## Create a Power BI streaming dataset
 
@@ -86,7 +86,7 @@ At the end of this step, your Logic App Designer should look like this:
 ## Stream data to Power BI from your Logic App
 The next step will be to parse the data coming from your Event Hub to stream it into the Power BI datasets that you have previously created.
 
-1. Before you can do this, you will need to understand the JSON payload that is being sent from your device to your Event Hub. You can do so by looking at this [sample schema](https://docs.microsoft.com/azure/iot-central/howto-export-data-event-hubs-service-bus-pnp#telemetry) and modifying it to match your schema or using [Service Bus explorer](https://github.com/paolosalvatori/ServiceBusExplorer) to inspect the messages. If you are using the continuous patient monitoring applications, your messages will look like this:
+1. Before you can do this, you will need to understand the JSON payload that is being sent from your device to your Event Hub. You can do so by looking at this [sample schema](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp#telemetry) and modifying it to match your schema or using [Service Bus explorer](https://github.com/paolosalvatori/ServiceBusExplorer) to inspect the messages. If you are using the continuous patient monitoring applications, your messages will look like this:
 
 **Smart Vitals Patch telemetry**
 

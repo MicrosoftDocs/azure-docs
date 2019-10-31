@@ -79,6 +79,8 @@ landingContent:
             url: concepts-hyperscale-distributed-data.md
           - text: Configure performance options
             url: concepts-hyperscale-configuration-options.md
+          - text: High availability
+            url: concepts-hyperscale-high-availability.md
 # Card
   - title: Connect to a single server
     linkLists:

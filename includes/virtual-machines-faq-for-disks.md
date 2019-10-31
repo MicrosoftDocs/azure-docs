@@ -354,6 +354,18 @@ No. But if you export a VHD to an encrypted storage account from an encrypted ma
 
 ## Premium disks: Managed and unmanaged
 
+**What regions support bursting capability for applicable premium SSD disk size?**
+
+The bursting capability is currently supported in Azure West Central US.
+
+**What regions are 4/8/16 GiB Managed Disk sizes (P1/P2/P3, E1/E2/E3) supported in?**
+
+These new disk sizes are currently supported in Azure West Central US.
+
+**Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?**
+
+No, it is only supported on Premium SSD Managed Disks. 
+
 **If a VM uses a size series that supports Premium SSD disks, such as a DSv2, can I attach both premium and standard data disks?** 
 
 Yes.

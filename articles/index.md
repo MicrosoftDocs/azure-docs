@@ -1,8 +1,6 @@
 ---
 layout: HubPage
 hide_bc: true
-experimental: true
-experiment_id: "81ba5f65-59fb-4d"
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
 ms.topic: hub-page
@@ -190,9 +188,10 @@ featureFlags:
                                                 <h3>Manage data and AI</h3>
                                                 <h4>Relational Databases</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">SQL database as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">SQL Database as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database-edge/">SQL Database for the edge</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server on an Azure VM</a></li>
-                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">Synapse Analytics (formerly SQL DW)</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL database as a service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL database as a service</a></li>
                                                 </ul>
@@ -620,8 +619,8 @@ featureFlags:
                                     <ul>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
+                                                <img src="media/index/azure_synapse_icon.svg" alt="" />
+                                                <p>Azure Synapse Analytics (formerly SQL DW)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -895,6 +894,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/sql-database-edge/">
+                                                <img src="media/index/sqldatabaseedge.svg" alt="" />
+                                                <p>Azure SQL Database Edge</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
                                                 <p>Azure Cosmos DB</p>
@@ -902,8 +907,8 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
+                                                <img src="media/index/azure_synapse_icon.svg" alt="" />
+                                                <p>Azure Synapse Analytics (formerly SQL DW)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1661,6 +1666,12 @@ featureFlags:
                                                 <p>Azure Private Link</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/internet-analyzer/">
+                                                <img src="media/index/internet-analyzer.svg" alt="" />
+                                                <p>Azure Internet Analyzer</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Security</h3>
                                     <ul>
@@ -2247,12 +2258,12 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                        <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
-                                                    <p>Elastic data warehouse as a service with enterprise-class features</p>
+                                                    <h3>Azure Synapse Analytics (formerly SQL DW)</h3>
+                                                    <p>Limitless analytics service with unmatched time to insight</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3192,6 +3203,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/sql-database-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sqldatabaseedge.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure SQL Database Edge</h3>
+                                                    <p>Relational database engine optimized for IoT and edge deployments.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3217,12 +3247,12 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
-                                                    <p>Elastic data warehouse as a service with enterprise-class features</p>
+                                                    <h3>Azure Synapse Analytics (formerly SQL DW)</h3>
+                                                    <p>Limitless analytics service with unmatched time to insight</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5578,6 +5608,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Private Link</h3>
                                                     <p>Privately access services hosted on the Azure platform, keeping your data within the Microsoft network</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/internet-analyzer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/internet-analyzer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Internet Analyzer</h3>
+                                                    <p>Test how application and content delivery architectures in Azure impact your customers’ performance with this client-side measurement platform</p>
                                                 </div>
                                             </div>
                                         </div>
