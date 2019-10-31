@@ -175,7 +175,7 @@ After you've created *myVm1*, connect to the internet.
 1. To allow *myVm2* to ping *myVm1* in a later step, enter this command:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     This command allows ICMP inbound through the Windows firewall:
