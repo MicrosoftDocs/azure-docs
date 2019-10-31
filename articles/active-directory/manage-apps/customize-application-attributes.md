@@ -124,14 +124,36 @@ To add a new attribute, scroll to the end of the list of supported attributes, p
 ## Provisioning a role to a SCIM app
 Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applicaitons. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
-- Mapping an appRoleAsisgnment in Azure AD to a role in your application requires that you transform the attribute using an [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). The appRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
+- Mapping an AppRoleAsisgnment in Azure AD to a role in your application requires that you transform the attribute using an [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). The AppRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
 
 - **SingleAppRoleAssignment** 
-  - **When to use:** Use the SingleAppRoleAssignment function to provision a single role for a user and / or specify the primary role. 
-  - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment function to mape to the roles attribute. There are three role attributes to choose from (roles[primary eq "True"].display, roles[primary eq "True].type, and roles[primary eq "True"].value). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.  
+  - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and / or specify the primary role. 
+  - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from (roles[primary eq "True"].display, roles[primary eq "True].type, and roles[primary eq "True"].value). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.  
   
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/SingleAppRoleAssignment.PNG)
 
+- **Example output:** 
+  
+```json
+  {
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+    ],
+    "externalId": "alias",
+    "userName": "alias@contoso.OnMicrosoft.com",
+    "active": true,
+    "displayName": "First Name Last Name",
+    "meta": {
+        "resourceType": "User"
+    },
+    "roles": [
+        {
+            "primary": true,
+            "type": "WindowsAzureActiveDirectoryRole",
+            "value": "Admin"
+        }
+}
+```
   - **Things to consider**
     - Ensure that multiple roles are not assigned to a user. We cannot gaurantee which role will be provisioned.   
   
@@ -177,7 +199,7 @@ Use the steps below to provision roles for a user to your application. Note that
 
   - **Things to consider**
     - All roles will be provisioned as primary = false
-    - The POST contains type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH.
+    - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
   
 
 
