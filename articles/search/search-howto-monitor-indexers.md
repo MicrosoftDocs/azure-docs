@@ -23,7 +23,7 @@ Indexer monitoring is useful when you want to:
 * Review the results of ongoing or previous indexer run.
 * Identify top-level indexer errors, and errors or warnings about individual documents being indexed.
 
-## Find indexer status and history details
+## Get status and history
 
 You can access indexer monitoring information in various ways, including:
 
@@ -41,7 +41,7 @@ Indexers that process large volumes of data can take a long time to run. For exa
 
 <a name="portal"></a>
 
-## Monitor indexers in the portal
+## Monitor using the portal
 
 You can see the current status of all of your indexers in the **Indexers** list on your search service Overview page.
 
@@ -75,7 +75,7 @@ For more information about investigating indexer errors and warnings, see [Troub
 
 <a name="restapi"></a>
 
-## Monitor indexers using the REST API
+## Monitor using REST APIs
 
 You can retrieve the status and execution history of an indexer using the [Get Indexer Status command](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
@@ -122,7 +122,7 @@ For more details about status codes and indexer monitoring data, see [GetIndexer
 
 <a name="dotnetsdk"></a>
 
-## Monitor indexers using the .NET SDK
+## Monitor using the .NET SDK
 
 You can define the schedule for an indexer using the Azure Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
 

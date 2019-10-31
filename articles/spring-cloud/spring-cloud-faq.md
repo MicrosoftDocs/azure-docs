@@ -27,12 +27,10 @@ Azure Spring Cloud enhances the application diagnostics experience for the devel
 
 ### What service plans does Azure Spring Cloud offer?
 
-Azure Spring Cloud is free during the preview period.
+Azure Spring Cloud offers one service plan during the preview period.  A Spring Cloud deployment contains 16 vCPU cores and 32GB of memory.  The upper bound for each microservice instance within a deployment is 4 vCPU cores with 8GB of memory.
 
 Resource | Amount
 ------- | -------
-vCPU | 4
-Memory | 8 GBytes
 App instances per Spring application | 20
 Total app instances per Azure Spring Cloud service instance | 50*
 Azure Spring Cloud service instances per region per subscription | 2*
@@ -65,13 +63,13 @@ Here are the known limitations of Azure Spring Cloud while the service is in pre
 
 ### How can I provide feedback and report issues?
 
-If you have created your Spring service instances in Azure Spring Cloud, you can create an [Azure Support Request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). If you have not yet onboarded to Azure Spring Cloud, you can go to [Azure Feedback](https://feedback.azure.com/) to request features or provide feedback.
+If you encounter any issues with Azure Spring Cloud, please create an [Azure Support Request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). For feature requests, please go to  [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback) to request features or to provide feedback.
 
 ## Development
 
 ### I am a Spring developer but new to Azure, what is the quickest way for me to learn how to develop aAzure Spring Cloud application?
 
-The quickest way to get started with Azure Spring Cloud is to follow [this quick start](spring-cloud-quickstart-launch-app-portal.md).
+The quickest way to get started with Azure Spring Cloud is to follow [this quickstart](spring-cloud-quickstart-launch-app-portal.md).
 
 ### What Java runtime does Azure Spring Cloud support?
 

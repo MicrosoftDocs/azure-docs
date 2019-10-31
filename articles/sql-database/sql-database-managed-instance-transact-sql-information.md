@@ -533,7 +533,7 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
 
 ### Error logs
 
@@ -545,9 +545,9 @@ A managed instance places verbose information in error logs. There are many inte
 
 **Date:** Oct 2019
 
-Business Critical tier in some cases will not correctly apply [max memory limits for memory-optimized objects](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space). Managed instance may enable workoad to use more memory for In-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediatelly. This issue will be fixed soon. The queries that use more In-memory OLTP memory will fail sooner if they reach the [limits](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
+Business Critical service-tier will not correctly apply [max memory limits for memory-optimized objects](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) in some cases. Managed instance may enable workoad to use more memory for In-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediatelly. This issue will be fixed soon. The queries that use more In-memory OLTP memory will fail sooner if they reach the [limits](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
 
-**Workaround:** [Monitor usage for in-memory objects](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
+**Workaround:** [Monitor In-memory OLTP storage usage](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) using [SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
 
 ### Wrong error returned while trying to remove a file that is not empty
 

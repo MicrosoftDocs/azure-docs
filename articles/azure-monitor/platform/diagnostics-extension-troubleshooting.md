@@ -1,14 +1,15 @@
 ---
 title: Troubleshooting Azure Diagnostics extension
 description: Troubleshoot problems when using Azure diagnostics in Azure Virtual Machines, Service Fabric, or Cloud Services.
-services: azure-monitor
-author: rboucher
-ms.service: azure-monitor
+ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 05/08/2019
+author: rboucher
 ms.author: robb
+ms.date: 05/08/2019
+
 ---
+
 # Azure Diagnostics troubleshooting
 This article describes troubleshooting information that's relevant to using Azure Diagnostics. For more information about Azure diagnostics, see [Azure Diagnostics overview](diagnostics-extension-overview.md).
 
@@ -203,10 +204,10 @@ This code generates four tables:
 
 | Event | Table name |
 | --- | --- |
-| provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent+MD5(“prov1”)+”1” |
-| provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
-| provider=”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
-| provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
+| provider="prov1" &lt;Event id="1" /&gt; |WADEvent+MD5("prov1")+"1" |
+| provider="prov1" &lt;Event id="2" eventDestination="dest1" /&gt; |WADdest1 |
+| provider="prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
+| provider="prov2" &lt;DefaultEvents eventDestination="dest2" /&gt; |WADdest2 |
 
 ## References
 

@@ -162,7 +162,6 @@ However, Maps does not have the same level of information and accuracy for all r
 | China                     |   | Ø |
 | Cocos (Keeling) Islands   |   | Ø |
 | Democratic People's Republic of Korea |   | Ø |
-| Dokdo and Takeshima       |   | Ø |
 | Hong Kong SAR             | ✓ | ✓ |
 | India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |

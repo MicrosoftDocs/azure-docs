@@ -120,6 +120,8 @@
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Built-in security controls
         href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use Azure Private Endpoints
+        href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json  
     - name: Data redundancy
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
@@ -248,6 +250,16 @@
         href: storage-blob-containers-list.md
       - name: Manage properties and metadata (.NET)
         href: storage-blob-container-properties-metadata.md
+    - name: Create and manage blobs
+      items:
+      - name: List blobs (.NET)
+        href: storage-blobs-list.md
+      - name: Manage blob properties and metadata (.NET)
+        href: storage-blob-properties-metadata.md
+      - name: Copy a blob (.NET)
+        href: storage-blob-copy.md
+      - name: Create and manage blob snapshots (.NET)
+        href: storage-blob-snapshots.md
     - name: Secure blob data
       items:
       - name: Authorize access to blob data
@@ -384,6 +396,10 @@
         href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Troubleshoot
+      items:
+      - name: Latency issues
+        href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
     - name: Azure PowerShell
@@ -431,33 +447,39 @@
     - name: AzCopy v10
       items:
       - name: azcopy
-        href: ../common/storage-ref-azcopy.md
+        href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy bench
+        href: ../common/storage-ref-azcopy-bench.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy copy
-        href: ../common/storage-ref-azcopy-copy.md
+        href: ../common/storage-ref-azcopy-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy doc
-        href: ../common/storage-ref-azcopy-doc.md
+        href: ../common/storage-ref-azcopy-doc.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy env
-        href: ../common/storage-ref-azcopy-env.md
+        href: ../common/storage-ref-azcopy-env.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs
-        href: ../common/storage-ref-azcopy-jobs.md
+        href: ../common/storage-ref-azcopy-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy jobs clean
+        href: ../common/storage-ref-azcopy-jobs-clean.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs list
-        href: ../common/storage-ref-azcopy-jobs-list.md
+        href: ../common/storage-ref-azcopy-jobs-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy jobs remove
+        href: ../common/storage-ref-azcopy-jobs-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs resume
-        href: ../common/storage-ref-azcopy-jobs-resume.md
+        href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs show
-        href: ../common/storage-ref-azcopy-jobs-show.md
+        href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy list
-        href: ../common/storage-ref-azcopy-list.md
+        href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy login
-        href: ../common/storage-ref-azcopy-login.md
+        href: ../common/storage-ref-azcopy-login.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy logout
-        href: ../common/storage-ref-azcopy-logout.md
+        href: ../common/storage-ref-azcopy-logout.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy make
-        href: ../common/storage-ref-azcopy-make.md
+        href: ../common/storage-ref-azcopy-make.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy remove
-        href: ../common/storage-ref-azcopy-remove.md
+        href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy sync
-        href: ../common/storage-ref-azcopy-sync.md
+        href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
@@ -611,7 +633,7 @@
     items:
     - name: Create and manage storage accounts
       items:
-      - name: Create a general-purpose storage account
+      - name: Create a storage account for your Data Lake
         href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage a storage account
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

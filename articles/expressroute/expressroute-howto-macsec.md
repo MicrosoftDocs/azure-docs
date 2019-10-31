@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ms.author: cherylmc
 
 ---
@@ -94,10 +94,10 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
     $erDirect.Links[0]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[0]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[0]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[0]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.Links[1]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[1]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[1]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[1]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.identity = $erIdentity
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
@@ -105,8 +105,8 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
 
     ```azurepowershell-interactive
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
-    $erDirect.Links[0].AdminState = “Enabled”
-    $erDirect.Links[1].AdminState = “Enabled”
+    $erDirect.Links[0].AdminState = "Enabled"
+    $erDirect.Links[1].AdminState = "Enabled"
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
 

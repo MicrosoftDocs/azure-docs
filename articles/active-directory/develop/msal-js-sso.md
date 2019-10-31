@@ -1,5 +1,6 @@
 ---
-title: Single sign-on (Microsoft Authentication Library for JavaScript) | Azure
+title: Single sign-on (Microsoft Authentication Library for JavaScript) 
+titleSuffix: Microsoft identity platform
 description: Learn about building single sign-on experiences using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name
@@ -36,7 +37,7 @@ By default, MSAL.js uses `sessionStorage` which does not allow the session to be
 ```javascript
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     },
     cache: {
         cacheLocation: 'localStorage'
@@ -158,7 +159,7 @@ var authContext = new AuthenticationContext(config);
 // In latest MSAL.js version
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     },
     cache: {
         cacheLocation: 'localStorage'

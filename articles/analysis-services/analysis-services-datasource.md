@@ -4,7 +4,7 @@ description: Describes data sources supported for data models in Azure Analysis 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -15,7 +15,7 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 
 ## Azure data sources
 
-|Datasource  |In-memory  |DirectQuery  |
+|Data source  |In-memory  |DirectQuery  |
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Yes      |    Yes      |
 |Azure SQL Data Warehouse     |   Yes      |   Yes       |
@@ -42,7 +42,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 
 ### In-memory and DirectQuery
 
-|Datasource | In-memory provider | DirectQuery provider |
+|Data source | In-memory provider | DirectQuery provider |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
@@ -52,7 +52,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 
 ### In-memory only
 
-|Datasource  |  
+|Data source  |  
 |---------|
 |Access Database     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
@@ -92,12 +92,12 @@ When migrating an on-premises SQL Server Analysis Services tabular model to Azur
 
 **To specify a provider**
 
-1. In SSDT > **Tabular Model Explorer** > **Data Sources**, right-click a data source connection, and then click **Edit Data Source**.
+1. In Visual Studio > **Tabular Model Explorer** > **Data Sources**, right-click a data source connection, and then click **Edit Data Source**.
 2. In **Edit Connection**, click **Advanced** to open the Advance properties window.
 3. In **Set Advanced Properties** > **Providers**, then select the appropriate provider.
 
 ## Impersonation
-In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in Visual Studio (SSDT) or SSMS.
+In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in Visual Studio or SSMS.
 
 For on-premises data sources:
 

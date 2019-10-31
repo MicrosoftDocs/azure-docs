@@ -21,7 +21,10 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Sign in users and call the Microsoft Graph from an Android app
 
-In this tutorial, you'll learn how to:
+> [!NOTE]
+> This tutorial has not yet been updated to work with MSAL for Android version 1.0 library. It works with an earlier version, as configured in this tutorial.
+
+In this tutorial, you'll learn how to integrate an Android app with the Microsoft identity platform. Your app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.  
 
 > [!div class="checklist"]
 > * Integrate an Android app with the Microsoft identity platform
@@ -181,7 +184,7 @@ This tutorial will create a new project. If you want to download the completed t
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.microsoft.identity.client:msal:1.0.+'
+    implementation 'com.microsoft.identity.client:msal:0.3+'
     ```
 
 ### Use MSAL
