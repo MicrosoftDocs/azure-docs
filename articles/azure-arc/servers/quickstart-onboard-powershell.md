@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Connect machines to Azure using Azure Arc for Servers - PowerShell
-description: In this quickstart you learn how to connect machines to Azure using Azure Arc for Servers using PowerShell
+title: Quickstart - Connect machines to Azure using Azure Arc for servers - PowerShell
+description: In this quickstart you learn how to connect machines to Azure using Azure Arc for servers using PowerShell
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -11,17 +11,17 @@ ms.date: 08/25/2019
 ms.custom: mvc
 ms.topic: quickstart
 ---
-# Quickstart: Connect machines to Azure using Azure Arc for Servers - PowerShell
+# Quickstart: Connect machines to Azure using Azure Arc for servers - PowerShell
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-Review the supported clients and required network configuration in the [Azure Arc for Servers Overview](overview.md).
+Review the supported clients and required network configuration in the [Azure Arc for servers Overview](overview.md).
 
 ## Create a Service Principal for Onboarding At Scale
 
-A Service Principal as a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure. This is safer than using a more powerful account like a Tenant Administrator. The Service Principal is only used during onboarding. You can safely delete the Service Principal after you connect your desired servers.
+A Service Principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure. This is safer than using a more powerful account like a Tenant Administrator. The Service Principal is only used during onboarding. You can safely delete the Service Principal after you connect your desired servers.
 
 > [!NOTE]
 > This step is recommended, but not required.
@@ -35,13 +35,13 @@ The `Azure Connected Machine Onboarding` role contains only the permissions requ
 You must store the output of the [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet, or you will not be able to retrieve the password to use in a later step.
 
 ```azurepowershell-interactive
-$sp = New-AzADServicePrincipal -DisplayName "Arc-for-Servers" -Role "Azure Connected Machine Onboarding"
+$sp = New-AzADServicePrincipal -DisplayName "Arc-for-servers" -Role "Azure Connected Machine Onboarding"
 $sp
 ```
 
 ```output
 Secret                : System.Security.SecureString
-ServicePrincipalNames : {ad9bcd79-be9c-45ab-abd8-80ca1654a7d1, http://Arc-for-Servers}
+ServicePrincipalNames : {ad9bcd79-be9c-45ab-abd8-80ca1654a7d1, http://Arc-for-servers}
 ApplicationId         : ad9bcd79-be9c-45ab-abd8-80ca1654a7d1
 ObjectType            : ServicePrincipal
 DisplayName           : Hybrid-RP
@@ -188,7 +188,7 @@ Restart-Service -Name himds
 
 ## Clean up
 
-To disconnect a machine from Azure Arc for Servers, you need to perform two steps.
+To disconnect a machine from Azure Arc for servers, you need to perform two steps.
 
 1. Select the machine in [Portal](https://aka.ms/hybridmachineportal), click the ellipsis (`...`) and select **Delete**.
 1. Uninstall the agent from the machine.

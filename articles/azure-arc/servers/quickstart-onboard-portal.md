@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Connect machines to Azure using Azure Arc for Servers - Portal
-description: In this quickstart you learn how to connect machines to Azure using Azure Arc for Servers from the portal
+title: Quickstart - Connect machines to Azure using Azure Arc for servers - Portal
+description: In this quickstart you learn how to connect machines to Azure using Azure Arc for servers from the portal
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -11,13 +11,13 @@ ms.date: 08/25/2019
 ms.custom: mvc
 ms.topic: quickstart
 ---
-# Quickstart: Connect machines to Azure using Azure Arc for Servers - Portal
+# Quickstart: Connect machines to Azure using Azure Arc for servers - Portal
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-Review the supported clients and required network configuration in the [Azure Arc for Servers Overview](overview.md).
+Review the supported clients and required network configuration in the [Azure Arc for servers Overview](overview.md).
 
 ## Generate the agent install script using the Azure portal
 
@@ -54,7 +54,7 @@ Log in to each Node and execute the script you generated from the portal. After 
 
 ## Clean up
 
-To disconnect a machine from Azure Arc for Servers, you need to perform two steps.
+To disconnect a machine from Azure Arc for servers, you need to perform two steps.
 
 1. Select the machine in [Portal](https://aka.ms/hybridmachineportal), click the ellipsis (`...`) and select **Delete**.
 1. Uninstall the agent from the machine.
