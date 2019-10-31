@@ -147,7 +147,7 @@ Use SockPerf. It is available from [https://github.com/mellanox/sockperf](https:
 ```
 
 #### For all distros, copy, compile and install SockPerf according to the following steps:
-``bash
+```bash
 #Bash - all distros
 
 #From bash command line (assumes git is installed)
