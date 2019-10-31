@@ -15,10 +15,10 @@ This article explains the resources that are present when you deploy an Azure Da
 
    ![vnet diagram](media/vnet-deployment/vnet-diagram.png)
 
-Azure Data Explorer supports deploying a cluster into a subnet in your Virtual Network (VNet). This enables you to:
+Azure Data Explorer supports deploying a cluster into a subnet in your Virtual Network (VNet). This capability enables you to:
 
 * Enforce [Network Security Group](/azure/virtual-network/security-overview) (NSG) rules on your Azure Data Explorer cluster traffic.
-* Connect your on-premise network to Azure Data Explorer cluster's subnet.
+* Connect your on-premises network to Azure Data Explorer cluster's subnet.
 * Secure your data connection sources ([Event Hub](/azure/event-hubs/event-hubs-about) and [Event Grid](/azure/event-grid/overview)) with [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 > [!NOTE]
@@ -29,7 +29,7 @@ Azure Data Explorer supports deploying a cluster into a subnet in your Virtual N
 You can access your Azure Data Explorer cluster using the following IP addresses for each service (engine and data management services):
 
 * **Private IP**: Used for accessing the cluster inside the VNet.
-* **Public IP**: Used for accessing the cluster from outside the VNet for management and monitoring, and as a source address for outbound connections initiated from the cluster.
+* **Public IP**: Used for accessing the cluster from outside the VNet for management and monitoring, and as a source address for outbound connections started from the cluster.
 
 The following DNS records are created to access the service: 
 
@@ -249,8 +249,8 @@ For example, for **West US** region, the following UDRs must be defined:
 | ADX_Management | 13.64.38.225/32 | Internet |
 | ADX_Monitoring | 23.99.5.162/32 | Internet |
 
-## Deploy Azure Data Explorer cluster into your VNet using an ARM template
+## Deploy Azure Data Explorer cluster into your VNet using an Azure Resource Manager template
 
-To deploy Azure Data Explorer cluster into your virtual network use the [Deploy Azure Data Explorer cluster into your VNet](https://azure.microsoft.com/resources/templates/101-kusto-vnet/) template.
+To deploy Azure Data Explorer cluster into your virtual network, use the [Deploy Azure Data Explorer cluster into your VNet](https://azure.microsoft.com/resources/templates/101-kusto-vnet/) Azure Resource Manager template.
 
 This template creates the cluster, virtual network, subnet, network security group, and public IP addresses.
