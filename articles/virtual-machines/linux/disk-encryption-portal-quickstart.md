@@ -50,8 +50,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the New page, under Popular, select **Ubuntu Server 18.04 LTS**.
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected.
-1. For **Resource group**, select the resource group you created when making your key vault above (e.g., **myResourceGroup**)
-1. For **Virtual machine name** enter *MyVM*, and choose 
+1. For **Resource group**, select the resource group you created when making your key vault above (e.g., **myResourceGroup**).
+1. For **Virtual machine name**, enter *MyVM*.
 1. For **Region**, select the same region you used when making your key vault above (e.g., **East US**).
 1. Make sure the **Size** is *Standard D2s v3*.
 1. Under **Administrator account**, select **Password**. Enter a user name and a password.
