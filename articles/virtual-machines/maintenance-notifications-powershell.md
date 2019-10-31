@@ -19,7 +19,7 @@ ms.author: shants
 
 # Handling planned maintenance notifications for Windows virtual machines
 
-[!INCLUDE [maintenance-notifications-common.md](maintenance-notifications-common.md)]
+[!INCLUDE [virtual-machines-maintenance-notifications-common.md](../../includes/virtual-machines-maintenance-notifications-common.md)]
 
 You can also handle planned maintenance using the [Azure CLI](maintenance-notifications-cli.md) or [portal](maintenance-notifications-portal.md).
 
@@ -106,7 +106,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ```
 
 
-[!INCLUDE [maintenance-notifications-common-faq.md](maintenance-notifications-common-faq.md)]
+[!INCLUDE [virtual-machines-maintenance-notifications-common-faq.md](../../includes/virtual-machines-maintenance-notifications-common-faq.md)]
 
 
 

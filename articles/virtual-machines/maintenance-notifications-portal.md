@@ -19,7 +19,7 @@ ms.author: shants
 # Handling planned maintenance notifications using the portal
 
 
-[!INCLUDE [maintenance-notifications-common.md](maintenance-notifications-common.md)]
+[!INCLUDE [virtual-machines-maintenance-notifications-common.md](../../includes/virtual-machines-maintenance-notifications-common.md)]
 
 You can also handle planned maintenance using the [Azure CLI](maintenance-notifications-cli.md) or [PowerShell](maintenance-notifications-powershell.md).
 
@@ -75,7 +75,7 @@ Once you start maintenance, your virtual machine will be maintained and the main
 If you missed the self-service window, you will still be able to see the window when your VM will be maintained by Azure. 
 
 
-[!INCLUDE [maintenance-notifications-common-faq.md](maintenance-notifications-common-faq.md)]
+[!INCLUDE [virtual-machines-maintenance-notifications-common-faq.md](../../includes/virtual-machines-maintenance-notifications-common-faq.md)]
 
 
 ## Next steps

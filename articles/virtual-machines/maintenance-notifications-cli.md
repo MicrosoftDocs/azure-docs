@@ -19,7 +19,7 @@ ms.author: shants
 
 **This article applies to virtual machines running both Windows and Linux.**
 
-[!INCLUDE [maintenance-notifications-common.md](maintenance-notifications-common.md)]
+[!INCLUDE [virtual-machines-maintenance-notifications-common.md](../../includes/virtual-machines-maintenance-notifications-common.md)]
 
 You can also handle planned maintenance using the [Azure PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
 
@@ -66,7 +66,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 ```
 
 
-[!INCLUDE [maintenance-notifications-common-faq.md](maintenance-notifications-common-faq.md)]
+[!INCLUDE [virtual-machines-maintenance-notifications-common-faq.md](../../includes/virtual-machines-maintenance-notifications-common-faq.md)]
 
 
 
