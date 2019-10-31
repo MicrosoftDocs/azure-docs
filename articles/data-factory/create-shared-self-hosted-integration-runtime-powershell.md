@@ -16,7 +16,11 @@ ms.author: abnarain
 ---
 # Create a shared self-hosted integration runtime in Azure Data Factory
 
-## Create a shared self-hosted integration runtime in Azure Data Factory with Azure Data Factory UI
+This guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory. Then you can use the shared self-hosted integration runtime in another data factory.
+
+## Create a shared self-hosted IR using Azure Data Factory UI
+
+To create a shared self-hosted IR using Azure Data Factory UI, you can take following steps:
 
 1. In the self-hosted IR to be shared, grant permission to the data factory in which you want to create the linked IR.
       
@@ -34,10 +38,9 @@ ms.author: abnarain
       
     ![Boxes for name and resource ID](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
-## Create a shared self-hosted integration runtime in Azure Data Factory with Azure PowerShell
+## Create a shared self-hosted IR using Azure PowerShell
 
-This step-by-step guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory by using Azure PowerShell. Then you can use the shared self-hosted integration runtime in another data factory. In this tutorial, you take the following steps: 
-
+To create a shared self-hosted IR using Azure PowerShell, you can take following steps: 
 1. Create a data factory. 
 1. Create a self-hosted integration runtime.
 1. Share the self-hosted integration runtime with other data factories.
@@ -122,7 +125,7 @@ $SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -Description $SharedIntegrationRuntimeDescription
 ```
 
-- **Get the integration runtime authentication key and register a node**
+#### Get the integration runtime authentication key and register a node
 
 Run the following command to get the authentication key for the self-hosted integration runtime:
 
@@ -135,7 +138,7 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
 
 The response contains the authentication key for this self-hosted integration runtime. You use this key when you register the integration runtime node.
 
-- **Install and register the self-hosted integration runtime**
+#### Install and register the self-hosted integration runtime
 
 1. Download the self-hosted integration runtime installer from [Azure Data Factory Integration Runtime](https://aka.ms/dmg).
 
@@ -145,7 +148,7 @@ The response contains the authentication key for this self-hosted integration ru
 
 ### Share the self-hosted integration runtime with another data factory
 
-- **Create another data factory**
+#### Create another data factory
 
 > [!NOTE]  
 > This step is optional. If you already have the data factory that you want to share with, skip this step.
@@ -155,7 +158,7 @@ $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
-- **Grant permission**
+#### Grant permission
 
 Grant permission to the data factory that needs to access the self-hosted integration runtime you created and registered.
 
