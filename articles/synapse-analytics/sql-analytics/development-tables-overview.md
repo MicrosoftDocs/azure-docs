@@ -45,7 +45,6 @@ This document is related to key concepts for designing tables in Azure SQL Analy
 - [Data types](development-tables-data-types.md)
 - [Statistics](development-tables-statistics.md)
 - [Temporary tables](development-tables-temporary.md)
-- 
 
 ## Determine table category 
 
