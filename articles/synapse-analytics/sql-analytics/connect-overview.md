@@ -68,7 +68,7 @@ SQL Analytics standardizes some settings during connection and object creation. 
 
 ## Recommendations
 
-For executing **SQL Analytics on-demand** queries, recommended tools are [Azure Data Studio](sql-analytics-query-ads.md) and Azure Synapse Studio.
+For executing **SQL Analytics on-demand** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
 
 
 ## Next steps

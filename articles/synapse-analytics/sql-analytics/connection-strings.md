@@ -1,6 +1,6 @@
 ---
-title: Connection strings for Azure SQL analytics | Microsoft Docs
-description: Connection strings for SQL analytics
+title: Connection strings for Azure SQL Analytics | Microsoft Docs
+description: Connection strings for SQL Analytics
 services: sql-data-warehouse 
 author: azaricstefan 
 ms.service: sql-data-warehouse 
@@ -11,8 +11,8 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connection strings for Azure SQL analytics
-You can connect to SQL analytics with several different application protocols such as, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] and [JDBC][JDBC]. Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
+# Connection strings for Azure SQL Analytics
+You can connect to SQL Analytics with several different application protocols such as, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] and [JDBC][JDBC]. Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
 
 ## Sample ADO.NET connection string
 ```csharp
@@ -41,7 +41,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Recommendations
 
-For executing **SQL analytics on-demand** queries, recommended tools are [Azure Data Studio](sql-analytics-query-ads.md) and Azure Synapse Studio.
+For executing **SQL Analytics on-demand** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
 
 ## Next steps
 To start querying your analytics with Visual Studio and other applications, see [Query with Visual Studio][Query with Visual Studio].

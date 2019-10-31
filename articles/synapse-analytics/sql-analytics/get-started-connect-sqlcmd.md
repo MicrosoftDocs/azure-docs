@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure SQL analytics sqlcmd | Microsoft Docs
-description: Use sqlcmd command-line utility to connect to and query an Azure SQL analytics.
+title: Connect to Azure SQL Analytics sqlcmd | Microsoft Docs
+description: Use sqlcmd command-line utility to connect to and query an Azure SQL Analytics.
 services: sql-data-warehouse
 author: azaricstefan 
 ms.service: sql-data-warehouse
@@ -11,24 +11,24 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL analytics with sqlcmd
+# Connect to SQL Analytics with sqlcmd
 > [!div class="op_single_selector"]
-> * [Azure Data Studio](sql-analytics-query-ads.md)
+> * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](tutorial-bi-professional.md)
 > * [Visual Studio](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-analytics-get-started-connect-sqlcmd.md) 
-> * [SSMS](sql-analytics-query-ssms.md)
+> * [sqlcmd](get-started-connect-sqlcmd.md)
+> * [SSMS](get-started-ssms.md)
 > 
 > 
 
-Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL analytics.  
+Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Analytics.  
 
 ## 1. Connect
-To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL analytics database. The connection string requires the following parameters:
+To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Analytics database. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 * **Database (-d):** Database name.
-* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL analytics instance.
+* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Analytics instance.
 
 To use SQL Server Authentication, you need to add the username/password parameters:
 

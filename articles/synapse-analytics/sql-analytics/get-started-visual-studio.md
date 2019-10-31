@@ -13,11 +13,11 @@ ms.reviewer: jrasnick
 
 # Connect to SQL Pool with Visual Studio and SSDT
 > [!div class="op_single_selector"]
-> * [Azure Data Studio](sql-analytics-query-ads.md)
+> * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](tutorial-bi-professional.md)
-> * [Visual Studio](sql-analytics-get-started-visual-studio.md)
-> * [sqlcmd](sql-analytics-get-started-connect-sqlcmd.md) 
-> * [SSMS](sql-analytics-query-ssms.md)
+> * [Visual Studio](get-started-visual-studio.md)
+> * [sqlcmd](get-started-connect-sqlcmd.md) 
+> * [SSMS](get-started-ssms.md)
 > 
 > 
 
