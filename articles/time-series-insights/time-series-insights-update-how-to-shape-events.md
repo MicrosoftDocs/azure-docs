@@ -126,7 +126,7 @@ In the preceding example, note the following points:
 > Instance fields aren't stored with telemetry. They're stored with metadata in the Time Series Model.
 > The preceding table represents the query view.
 
-## Example 2:
+### Example 2:
 
 Consider the following JSON:
 
