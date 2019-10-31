@@ -141,9 +141,9 @@ WHERE
 
 ## Next steps
 
-You can see more in [Creating and using views](creating-and-using-views.md).
+You can see more in [Creating and using views](create-use-views.md).
 
 
 Advance to the next article to learn how create and use views.
 > [!div class="nextstepaction"]
-> [Creating and using views](creating-and-using-views.md)
+> [Creating and using views](create-use-views.md)

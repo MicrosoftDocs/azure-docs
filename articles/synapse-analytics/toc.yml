@@ -535,7 +535,7 @@
         - name: Querying JSON files
           href: sql-analytics/querying-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Creating and using views
-          href: sql-analytics/creating-and-using-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 #         - name: Querying Spark tables
 #           href: querying-spark-tables.md
 #       - name: Best practices

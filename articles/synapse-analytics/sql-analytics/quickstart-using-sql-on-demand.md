@@ -238,7 +238,7 @@ Now you are ready to start with following quickstarts:
 
 6. [Querying JSON files](querying-json-files.md)
 
-7. [Creating and using views](creating-and-using-views.md)
+7. [Creating and using views](create-use-views.md)
 
 
 Advance to the next article to learn how to query single CSV file.
