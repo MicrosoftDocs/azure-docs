@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 10/31/2019
 ms.custom: seodec18
 ---
 
@@ -43,66 +43,69 @@ The Time Series Instance contains device metadata. This metadata doesn't change 
 
 ```JSON
 [
-    {
-        "deviceId": "FXXX",
-        "timestamp": "2018-01-17T01:17:00Z",
-        "series": [
-            {
-                "Flow Rate ft3/s": 1.0172575712203979,
-                "Engine Oil Pressure psi ": 34.7
-            },
-            {
-                "Flow Rate ft3/s": 2.445906400680542,
-                "Engine Oil Pressure psi ": 49.2
-            }
-        ]
-    },
-    {
-        "deviceId": "FYYY",
-        "timestamp": "2018-01-17T01:18:00Z",
-        "series": [
-            {
-                "Flow Rate ft3/s": 0.58015072345733643,
-                "Engine Oil Pressure psi ": 22.2
-            }
-        ]
-    }
+  {
+    "deviceId":"FXXX",
+    "timestamp":"2018-01-17T01:17:00Z",
+    "series":[
+      {
+        "Flow Rate ft3/s":1.0172575712203979,
+        "Engine Oil Pressure psi ":34.7
+      },
+      {
+        "Flow Rate ft3/s":2.445906400680542,
+        "Engine Oil Pressure psi ":49.2
+      }
+    ]
+  },
+  {
+    "deviceId":"FYYY",
+    "timestamp":"2018-01-17T01:18:00Z",
+    "series":[
+      {
+        "Flow Rate ft3/s":0.58015072345733643,
+        "Engine Oil Pressure psi ":22.2
+      }
+    ]
+  }
 ]
 ```
 
 ### Time Series Instance 
+
 > [!NOTE]
 > The Time Series ID is *deviceId*.
 
 ```JSON
-{
-    "timeSeriesId": [
+[
+  {
+    "timeSeriesId":[
       "FXXX"
     ],
-    "typeId": "17150182-daf3-449d-adaf-69c5a7517546",
-    "hierarchyIds": [
+    "typeId":"17150182-daf3-449d-adaf-69c5a7517546",
+    "hierarchyIds":[
       "b888bb7f-06f0-4bfd-95c3-fac6032fa4da"
     ],
-    "description": null,
-    "instanceFields": {
-      "L1": "REVOLT SIMULATOR",
-      "L2": "Battery System",
+    "description":null,
+    "instanceFields":{
+      "L1":"REVOLT SIMULATOR",
+      "L2":"Battery System"
     }
   },
   {
-    "timeSeriesId": [
+    "timeSeriesId":[
       "FYYY"
     ],
-    "typeId": "17150182-daf3-449d-adaf-69c5a7517546",
-    "hierarchyIds": [
+    "typeId":"17150182-daf3-449d-adaf-69c5a7517546",
+    "hierarchyIds":[
       "b888bb7f-06f0-4bfd-95c3-fac6032fa4da"
     ],
-    "description": null,
-    "instanceFields": {
-      "L1": "COMMON SIMULATOR",
-      "L2": "Battery System",
+    "description":null,
+    "instanceFields":{
+      "L1":"COMMON SIMULATOR",
+      "L2":"Battery System"
     }
-  },
+  }
+]
 ```
 
 Time Series Insights Preview joins a table (after flattening) during query time. The table includes additional columns, such as **Type**. The following example demonstrates how you can [shape](./time-series-insights-send-events.md#supported-json-shapes) your telemetry data.
