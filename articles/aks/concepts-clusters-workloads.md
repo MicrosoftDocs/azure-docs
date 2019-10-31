@@ -72,7 +72,7 @@ If you need to use a different host OS, container runtime, or include custom pac
 
 ### Resource reservations
 
-Node resources are utilized by AKS to make the node function as part of your cluster. This can create a discrepency between your node's total resources and the resources allocatable when used in AKS. This is important to note when setting requests and limits for user deployed pods.
+Node resources are utilized by AKS to make the node function as part of your cluster. This can create a discrepancy between your node's total resources and the resources allocatable when used in AKS. This is important to note when setting requests and limits for user deployed pods.
 
 To find a node's allocatable resources run:
 ```kubectl
@@ -106,7 +106,7 @@ For associated best practices, see [Best practices for basic scheduler features 
 
 ### Node pools
 
-Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes. Multiple node pool support is currently in preview in AKS.
+Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes.
 
 > [!NOTE]
 > To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.

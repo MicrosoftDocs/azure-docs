@@ -120,7 +120,7 @@ A reservation discount only applies to resources associated with Enterprise, Mic
 
 ## When the reservation term expires
 
-At the end of the reservation term, the billing discount expires. The virtual machine, SQL database, Azure Cosmos DB, or other resource is billed at the pay-as-you go price. Azure Reservations don't automatically renew. To continue getting the billing discount, you must buy a new reservation for eligible services and software.
+At the end of the reservation term, the billing discount expires, and the resources are billed at the pay-as-you go price. By default, the reservations are not set to renew automatically. You can choose to enable automatic renewal of a reservation by selecting the option in the renewal settings. With automatic renewal, a replacement reservation will be purchased upon expiry of the existing reservation. By default, the replacement reservation has the same attributes as the expiring reservation, optionally you change the billing frequency, term or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can setup renewal.  
 
 ## Discount applies to different sizes
 
