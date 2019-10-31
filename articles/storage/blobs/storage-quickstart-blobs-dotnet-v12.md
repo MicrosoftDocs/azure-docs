@@ -12,9 +12,9 @@ ms.topic: quickstart
 
 # Quickstart: Azure Blob storage client library v12 for .NET
 
-Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob storage client library v12 for .NET. Azure Blob storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob Storage client library v12 for .NET to:
+Use the Azure Blob storage client library v12 for .NET to:
 
 * Create a container
 * Create a blob in Azure Storage
@@ -27,12 +27,12 @@ Use the Azure Blob Storage client library v12 for .NET to:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 * Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for .NET.
+This section walks you through preparing a project to work with the Azure Blob storage client library v12 for .NET.
 
 ### Create the project
 
@@ -58,7 +58,7 @@ Create a .NET Core application named *BlobQuickstartV12*.
 
 ### Install the package
 
-While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
+While still in the application directory, install the Azure Blob storage client library for .NET package by using the `dotnet add package` command.
 
 ```console
 dotnet add package Azure.Storage.Blobs --version 12.0.0-preview.4
@@ -147,7 +147,7 @@ The following diagram shows the relationship between these resources.
 
 Use the following .NET classes to interact with these resources:
 
-* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers.
+* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
 * [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
 * [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
 * [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): The `BlobDownloadInfo` class represents the properties and content returned from downloading a blob.
@@ -170,7 +170,7 @@ The code below retrieves the connection string for the storage account from the 
 Add this code inside the `Main` method:
 
 ```csharp
-Console.WriteLine("Azure Blob Storage v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Blob storage v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -310,7 +310,7 @@ dotnet run
 The output of the app is similar to the following example:
 
 ```output
-Azure Blob Storage v12 - .NET quickstart sample
+Azure Blob storage v12 - .NET quickstart sample
 
 Uploading to Blob storage as blob:
          https://mystorageacct.blob.core.windows.net/quickstartblobs60c70d78-8d93-43ae-954d-8322058cfd64/quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31.txt

@@ -12,9 +12,9 @@ ms.topic: quickstart
 
 # Quickstart: Azure Blob storage client library v12 for JavaScript
 
-Get started with the Azure Blob Storage client library v12 for JavaScript. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob storage client library v12 for JavaScript. Azure Blob storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob Storage client library v12 for JavaScript to:
+Use the Azure Blob storage client library v12 for JavaScript to:
 
 * Create a container
 * Create a blob in Azure Storage
@@ -27,12 +27,12 @@ Use the Azure Blob Storage client library v12 for JavaScript to:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 * Current [Node.js](https://nodejs.org/en/download/) for your operating system.
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for JavaScript.
+This section walks you through preparing a project to work with the Azure Blob storage client library v12 for JavaScript.
 
 ### Create the project
 
@@ -75,7 +75,7 @@ Create a JavaScript application named *blob-quickstart-v12*.
    
 ### Install the package
 
-While still in the *blob-quickstart-v12* directory, install the Azure Blob Storage client library for JavaScript package by using the `npm install` command. This command reads the *package.json* file and installs the Azure Blob storage client library v12 for JavaScript package and all the libraries on which it depends.
+While still in the *blob-quickstart-v12* directory, install the Azure Blob storage client library for JavaScript package by using the `npm install` command. This command reads the *package.json* file and installs the Azure Blob storage client library v12 for JavaScript package and all the libraries on which it depends.
 
 ```console
 npm install
@@ -96,7 +96,7 @@ From the project directory:
     const uuidv1 = require('uuid/v1');
     
     async function main() {
-        console.log('Azure Blob Storage v12 - Javascript quickstart sample');
+        console.log('Azure Blob storage v12 - Javascript quickstart sample');
         // Quick start code goes here
     }
     
@@ -158,7 +158,7 @@ The following diagram shows the relationship between these resources.
 
 Use the following JavaScript classes to interact with these resources:
 
-* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers.
+* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
 * [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
 * [BlobClient](/javascript/api/@azure/storage-blob/blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
 
@@ -234,7 +234,7 @@ const blobName = 'quickstart' + uuidv1() + '.txt';
 // Get a block blob client
 const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
-console.log('\nUploading to Azure storage as blob:\n\t', blobName);
+console.log('\nUploading to Azure Storage as blob:\n\t', blobName);
 
 // Upload data to the blob
 const data = 'Hello, World!';
@@ -315,12 +315,12 @@ node blob-quickstart-v12.js
 The output of the app is similar to the following example:
 
 ```output
-Azure Blob Storage v12 - JavaScript quickstart sample
+Azure Blob storage v12 - JavaScript quickstart sample
 
 Creating container...
          quickstart4a0780c0-fb72-11e9-b7b9-b387d3c488da
 
-Uploading to Azure storage as blob:
+Uploading to Azure Storage as blob:
          quickstart4a3128d0-fb72-11e9-b7b9-b387d3c488da.txt
 
 Listing blobs...

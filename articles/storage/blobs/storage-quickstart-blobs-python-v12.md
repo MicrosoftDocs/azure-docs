@@ -27,12 +27,12 @@ Use the Azure Blob storage client library to:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 * Current [Python](https://www.python.org/downloads/) for your operating system.
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for Python.
+This section walks you through preparing a project to work with the Azure Blob storage client library v12 for Python.
 
 ### Create the project
 
@@ -58,13 +58,13 @@ Create a Python application named *blob-quickstart-v12*.
 
 ### Install the package
 
-While still in the application directory, install the Azure Blob Storage client library for Python package by using the `pip install` command.
+While still in the application directory, install the Azure Blob storage client library for Python package by using the `pip install` command.
 
 ```console
 pip install azure-storage-blob --pre
 ```
 
-This command installs the Azure Blob Storage client library for Python package and all the libraries on which it depends. In this case, that is just the Azure core library for Python.
+This command installs the Azure Blob storage client library for Python package and all the libraries on which it depends. In this case, that is just the Azure core library for Python.
 
 ### Set up the app framework
 
@@ -81,7 +81,7 @@ From the project directory:
     from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
     try:
-        print("Azure Blob Storage v12 - Python quickstart sample")
+        print("Azure Blob storage v12 - Python quickstart sample")
         # Quick start code goes here
     except Exception as ex:
         print('Exception:')
@@ -143,7 +143,7 @@ The following diagram shows the relationship between these resources.
 
 Use the following Python classes to interact with these resources:
 
-* [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers.
+* [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
 * [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
 * [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
 
@@ -220,7 +220,7 @@ file.close()
 # Create a blob client using the local file name as the name for the blob
 blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
 
-print("\nUploading to Azure storage as blob:\n\t" + local_file_name)
+print("\nUploading to Azure Storage as blob:\n\t" + local_file_name)
 
 # Upload the created file
 with open(upload_file_path, "rb") as data:
@@ -294,9 +294,9 @@ python blob-quickstart-v12.py
 The output of the app is similar to the following example:
 
 ```output
-Azure Blob Storage v12 - Python quickstart sample
+Azure Blob storage v12 - Python quickstart sample
 
-Uploading to Azure storage as blob:
+Uploading to Azure Storage as blob:
         quickstartcf275796-2188-4057-b6fb-038352e35038.txt
 
 Listing blobs...
