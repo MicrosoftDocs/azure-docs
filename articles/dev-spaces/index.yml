@@ -63,3 +63,14 @@ landingContent:
             url: how-to/run-dev-spaces-windows-containers.md
           - text: Use traefik for custom ingress and HTTPS
             url: how-to/ingress-https-traefik.md
+
+
+  # Card
+  - title: Preview features
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use GitHub Actions with Azure Dev Spaces
+            url: how-to/github-actions.md
+          - text: Use Azure Dev Spaces Connect
+            url: how-to/connect.md
