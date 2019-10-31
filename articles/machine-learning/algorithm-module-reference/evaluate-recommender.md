@@ -43,7 +43,7 @@ The test dataset contains the "ground truth" data in the form of user-item-ratin
 
 The scored dataset contains the predictions that the recommendation model generated.  
   
-The columns in this second dataset depend on the kind of prediction you were performing during scoring. For example, the scored dataset might contain either of the following:
+The columns in this second dataset depend on the kind of prediction that you performed during the scoring process. For example, the scored dataset might contain either of the following:
 
 - Users, items, and the ratings that the user would likely give for the item
 - A list of users and items recommended for them 

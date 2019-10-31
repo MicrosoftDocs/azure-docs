@@ -31,7 +31,7 @@ Cross Validate Model also returns predicted results and probabilities for the da
 
 3.  During testing of the model for each fold, the module evaluates multiple accuracy statistics. Which statistics the module uses depends on the type of model that you're evaluating. Different statistics are used to evaluate classification models versus regression models.  
 
-4.  When the building and evaluation process is complete for all folds, Cross Validate Model generates a set of performance metrics and scored results for all the data. You should review these metrics to see whether any single fold has high or low accuracy. 
+4.  When the building and evaluation process is complete for all folds, Cross Validate Model generates a set of performance metrics and scored results for all the data. Review these metrics to see whether any single fold has high or low accuracy. 
 
 ### Advantages of cross-validation
 
@@ -65,7 +65,7 @@ In this scenario, you both train and test the model by using Cross Validate Mode
 
 4.  In the **Properties** pane of Cross Validate Model, select **Launch column selector**. Choose the single column that contains the class label, or the predictable value. 
 
-5. Set a value for the **Random seed** parameter if you want to be able to repeat the results of cross-validation across successive runs on the same data.  
+5. Set a value for the **Random seed** parameter if you want to repeat the results of cross-validation across successive runs on the same data.  
 
 6. Run the pipeline.
 

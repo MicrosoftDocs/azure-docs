@@ -25,7 +25,7 @@ This module implements the one-versus-all method, in which a binary model is cre
 
 In essence, the module creates an ensemble of individual models and then merges the results, to create a single model that predicts all classes. Any binary classifier can be used as the basis for a one-versus-all model.  
 
-For example, let’s say you configure a [Two-Class Support Vector Machine](two-class-support-vector-machine.md) model and provide that as input to the One-vs-All Multiclass module. The module would create two-class support vector machine models for all members of the output class and then apply the one-versus-all method to combine the results for all classes.  
+For example, let’s say you configure a [Two-Class Support Vector Machine](two-class-support-vector-machine.md) model and provide that as input to the One-vs-All Multiclass module. The module would create two-class support vector machine models for all members of the output class. It would then apply the one-versus-all method to combine the results for all classes.  
 
 ## How to configure the One-vs-All Multiclass classifier  
 

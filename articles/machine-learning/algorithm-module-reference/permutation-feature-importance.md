@@ -60,7 +60,7 @@ Permutation Feature Importance works by randomly changing the values of each fea
 
 The rankings that the module provides are often different from the ones you get from [Filter Based Feature Selection](filter-based-feature-selection.md). Filter Based Feature Selection calculates scores *before* a model is created. 
 
-The reason for the difference is that Prmutation Feature Importance doesn't measure the association between a feature and a target value. Instead, it captures how much influence each feature has on predictions from the model.
+The reason for the difference is that Permutation Feature Importance doesn't measure the association between a feature and a target value. Instead, it captures how much influence each feature has on predictions from the model.
   
 ## Next steps
 

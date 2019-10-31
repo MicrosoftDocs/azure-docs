@@ -81,7 +81,7 @@ You choose a standard statistical metric. The module computes the correlation be
 
     - The minimum number of features that you can specify is one, but we recommend that you increase this value.  
 
-    - If the specified number of desired features is greater than the number of columns in the dataset, then all features are returned. Eeven features with zero scores are returned.  
+    - If the specified number of desired features is greater than the number of columns in the dataset, then all features are returned. Even features with zero scores are returned.  
 
     - If you specify fewer result columns than there are feature columns, the features are ranked by descending score. Only the top features are returned. 
 

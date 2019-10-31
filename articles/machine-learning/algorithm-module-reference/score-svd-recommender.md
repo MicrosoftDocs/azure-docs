@@ -17,9 +17,9 @@ This article describes how to use the Score SVD Recommender module in the Azure 
 
 The SVD recommender can generate two different kinds of predictions:
 
-- [Predict ratings for a given user and item](#predict-ratings)
+- [Predict ratings for a given user and item](#prediction-of-ratings)
 
-- [Recommend items to a user](#recommend)
+- [Recommend items to a user](#recommendations-for-users)
 
 When you're creating the second type of predictions, you can operate in one of these modes:
 
