@@ -101,7 +101,7 @@
         href: luis-nodejs-tutorial-bf-v4.md
       - name: 2. Add telemetry to Application Insights
         displayName: Application insight, kusto
-        href: luis-tutorial-bot-nodejs-appinsights.md      
+        href: luis-tutorial-bot-nodejs-appinsights.md
 - name: Concepts
   items:
   - name: Best practices
@@ -115,7 +115,7 @@
     href: luis-how-plan-your-app.md
   - name: Authoring and runtime keys
     displayName: shared, transfer, ownership, author, access, import
-    href: luis-concept-keys.md    
+    href: luis-concept-keys.md
   - name: Author app's model
     items:
     - name: Authoring cycle
@@ -207,7 +207,7 @@
     items:
     - name: Using the dashboard
       displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
-      href: luis-how-to-use-dashboard.md        
+      href: luis-how-to-use-dashboard.md
     - name: Add Phrase list
       displayName: synonym, interchange
       href: luis-how-to-add-features.md
@@ -235,7 +235,7 @@
       href: luis-how-to-azure-subscription.md
     - name: Migrate to authoring key
       items: 
-        - name: Overview   
+        - name: Overview
           href: luis-migration-authoring.md
         - name: How to Migrate
           href: luis-migration-authoring-steps.md
@@ -252,7 +252,7 @@
     - name: Migrate to V2 REST API
       href: luis-migration-api-v1-to-v2.md
     - name: Migrate to V3 REST API
-      href: luis-migration-api-v3.md 
+      href: luis-migration-api-v3.md
       displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
   - name: Use containers
     items:
@@ -263,6 +263,9 @@
       href: luis-container-configuration.md
     - name: Use container instances
       href: deploy-luis-on-container-instances.md
+    - name: Container limitations
+      href: luis-container-limitations.md
+      displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
 - name: Reference
   items:
   - name: User privacy
@@ -300,7 +303,7 @@
     - name: Ordinal entity
       href: luis-reference-prebuilt-ordinal.md
     - name: Ordinal V2 entity
-      href: luis-reference-prebuilt-ordinal-v2.md      
+      href: luis-reference-prebuilt-ordinal-v2.md
     - name: Percentage entity
       href: luis-reference-prebuilt-percentage.md
     - name: PersonName entity
@@ -323,7 +326,7 @@
     - name: Pattern.any entity
       href: reference-entity-pattern-any.md
     - name: Regular expression entity
-      href: reference-entity-regular-expression.md      
+      href: reference-entity-regular-expression.md
     - name: Simple entity
       href: reference-entity-simple.md
   - name: Developer resources
@@ -414,7 +417,7 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Language and region support
     href: luis-language-support.md
-    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092089
   - name: Glossary

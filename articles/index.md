@@ -1,8 +1,6 @@
 ---
 layout: HubPage
 hide_bc: true
-experimental: true
-experiment_id: "81ba5f65-59fb-4d"
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
 ms.topic: hub-page
@@ -363,7 +361,7 @@ featureFlags:
                 <a href="#products">Products</a>
                 <ul id="products">
                     <li>
-                        <a href="#all">All</a>
+                        <a data-default="true" href="#all">All</a>
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
@@ -1661,13 +1659,14 @@ featureFlags:
                                                 <p>Azure Private Link</p>
                                             </a>
                                         </li>
-<li> 
                                             <a href="/azure/firewall-manager/">
                                                 <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
                                                 <p>Azure Firewall Manager</p>
+                                        <li>
+                                                <img src="media/index/internet-analyzer.svg" alt="" />
+                                                <p>Azure Internet Analyzer</p>
                                             </a>
                                         </li>
-                                    </ul>
                                     <h3>Security</h3>
                                     <ul>
                                         <li>
@@ -2672,7 +2671,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">Compute</a>
+                        <a href="#Compute">Compute</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -5591,62 +5590,17 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/firewall-manager/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
                                                         <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
-                                                    </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Firewall Manager</h3>
                                                     <p>A globally distributed security management service</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#security">Security</a>
-                        <ul id="security" class="cardsA">
-                            <li>
-                                <a href="/azure/security/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Security Information</h3>
-                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/security-center">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
                                                         <img src="media/index/SecurityCenter.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
                                                     <p>Unify security management and enable advanced threat protection across hybrid cloud workloads</p>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

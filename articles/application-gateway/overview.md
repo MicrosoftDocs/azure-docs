@@ -49,6 +49,13 @@ Web applications are increasingly targets of malicious attacks that exploit comm
 
 For more information, see [Web application firewall (WAF) in Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview).
 
+## Ingress Controller for AKS
+Application Gateway Ingress Controller (AGIC) allows you to use Application Gateway as the ingress for an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. 
+
+The ingress controller runs as a pod within the AKS cluster and consumes [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) and converts them to an Application Gateway configuration which allows the gateway to load-balance traffic to the Kubernetes pods. The ingress controller only supports Application Gateway V2 SKU. 
+
+For more information, see [Application Gateway Ingress Controller (AGIC)](ingress-controller-overview.md).
+
 ## URL-based routing
 
 URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. 
@@ -93,12 +100,6 @@ Application Gateway provides native support for the WebSocket and HTTP/2 protoco
 The WebSocket and HTTP/2 protocols enable full duplex communication between a server and a client over a long running TCP connection. This allows for a more interactive communication between the web server and the client, which can be bidirectional without the need for polling as required in HTTP-based implementations. These protocols have low overhead, unlike HTTP, and can reuse the same TCP connection for multiple request/responses resulting in a more efficient resource utilization . These protocols are designed to work over traditional HTTP ports of 80 and 443.
 
 For more information, see [WebSocket support](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) and [HTTP/2 support](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
-
-## Azure Kubernetes Service (AKS) Ingress controller preview 
-
-The Application Gateway Ingress controller runs as a pod within the AKS cluster and allows Application Gateway to act as ingress for an AKS cluster. This is supported with Application Gateway v2 only.
-
-For more information, see [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/).
 
 ## Connection draining
 
