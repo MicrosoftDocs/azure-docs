@@ -107,7 +107,7 @@
     href: windows-admin-center-integration.md
   - name: Compare baselines using File Integrity Monitoring
     href: security-center-file-integrity-monitoring-baselines.md
-  - name: Automate responses to alerts and recommencations
+  - name: Automate responses to alerts and recommendations
     href: workflow-automation.md
   - name: Export alerts and recommendations
     href: continuous-export.md
