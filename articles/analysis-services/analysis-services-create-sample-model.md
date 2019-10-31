@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Add a sample model- Azure Analysis Services | Microsoft Docs
+title: Tutorial - Add a sample model- Azure Analysis Services | Microsoft Docs
 description: In this tutorial lesson, learn how to add a sample model in Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
