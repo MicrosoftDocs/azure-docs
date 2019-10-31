@@ -35,6 +35,29 @@ landingContent:
           url: define-custom-suggestions.md
         - text: Share your custom search instance
           url: share-your-custom-search.md
+ 
+- title: SDK reference
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: .NET 
+          url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
+        - text: Python
+          url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python
+        - text: Go - Custom Search
+          url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
+        - text: Go - Custom Image
+          url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch
+        - text: Java - Custom Search
+          url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
+        - text: Java - Custom Image Search
+          url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable
+        - text: Node.js 
+          url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-customsearch?view=azure-node-latest
+        - text: Azure PowerShell
+          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+        - text: Azure CLI
+          url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 - title: Get custom search results from the web
   linkLists:
     - linkListType: get-started
@@ -66,29 +89,7 @@ landingContent:
         - text: Paging search results 
           url: paging-search-results.md
         - text: Handle hit highlighting
-          url: ../bing-web-search/hit-highlighting.md 
-- title: SDK reference
-  linkLists:
-    - linkListType: reference
-      links:
-        - text: .NET 
-          url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
-        - text: Python
-          url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python
-        - text: Go - Custom Search
-          url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
-        - text: Go - Custom Image
-          url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch
-        - text: Java - Custom Search
-          url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
-        - text: Java - Custom Image Search
-          url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable
-        - text: Node.js 
-          url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-customsearch?view=azure-node-latest
-        - text: Azure PowerShell
-          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
-        - text: Azure CLI
-          url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+          url: ../bing-web-search/hit-highlighting.md
 - title: REST API Reference
   linkLists:
     - linkListType: reference
