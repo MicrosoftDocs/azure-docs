@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 11/04/2019
 ms.author: aahi
 ---
 # Language and region support for the Text Analytics API
