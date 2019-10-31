@@ -10,7 +10,7 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/31/2018
+ms.date: 10/31/2019
 ms.author: vaaga
 ---
 
