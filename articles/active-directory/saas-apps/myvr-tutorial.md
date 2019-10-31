@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/31/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -99,9 +99,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    | Name | Source attribute|
    | ---------------| --------------- |
-   | givenname | user.givenname |
-   | surname | user.surname |
-   | emailaddress | user.mail |
    | employeeid | user.employeeid |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
