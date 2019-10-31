@@ -1,13 +1,14 @@
 ---
-title: OData comparison operator reference - Azure Search
-description: OData comparison operators, eq, ne, gt, lt, ge, and le, in Azure Search queries.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
+title: OData comparison operator reference
+titleSuffix: Azure Cognitive Search
+description: OData comparison operators, eq, ne, gt, lt, ge, and le, in Azure Cognitive Search queries.
+
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,9 +21,9 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData comparison operators in Azure Search - `eq`, `ne`, `gt`, `lt`, `ge`, and `le`
+# OData comparison operators in Azure Cognitive Search - `eq`, `ne`, `gt`, `lt`, `ge`, and `le`
 
-The most basic operation in an [OData filter expression](query-odata-filter-orderby-syntax.md) in Azure Search is to compare a field to a given value. Two types of comparison are possible -- equality comparison, and range comparison. You can use the following operators to compare a field to a constant value:
+The most basic operation in an [OData filter expression](query-odata-filter-orderby-syntax.md) in Azure Cognitive Search is to compare a field to a given value. Two types of comparison are possible -- equality comparison, and range comparison. You can use the following operators to compare a field to a constant value:
 
 Equality operators:
 
@@ -60,10 +61,10 @@ comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 There are two forms of comparison expressions. The only difference between them is whether the constant appears on the left- or right-hand-side of the operator. The expression on the other side of the operator must be a **variable** or a function call. A variable can be either a field name, or a range variable in the case of a [lambda expression](search-query-odata-collection-operators.md).
 
@@ -83,7 +84,7 @@ The data types on both sides of a comparison operator must be compatible. For ex
 | `Edm.Int32` | `Edm.Int64` | n/a |
 | `Edm.Int32` | `Edm.Int32` | n/a |
 
-For comparisons that are not allowed, such as comparing a field of type `Edm.Int64` to `NaN`, the Azure Search REST API will return an "HTTP 400: Bad Request" error.
+For comparisons that are not allowed, such as comparing a field of type `Edm.Int64` to `NaN`, the Azure Cognitive Search REST API will return an "HTTP 400: Bad Request" error.
 
 > [!IMPORTANT]
 > Even though numeric type comparisons are flexible, we highly recommend writing comparisons in filters so that the constant value is of the same data type as the variable or function to which it is being compared. This is especially important when mixing floating-point and integer values, where implicit conversions that lose precision are possible.
@@ -92,7 +93,7 @@ For comparisons that are not allowed, such as comparing a field of type `Edm.Int
 
 ### Special cases for `null` and `NaN`
 
-When using comparison operators, it's important to remember that all non-collection fields in Azure Search can potentially be `null`. The following table shows all the possible outcomes for a comparison expression where either side can be `null`:
+When using comparison operators, it's important to remember that all non-collection fields in Azure Cognitive Search can potentially be `null`. The following table shows all the possible outcomes for a comparison expression where either side can be `null`:
 
 | Operator | Result when only the field or variable is `null` | Result when only the constant is `null` | Result when both the field or variable and the constant are `null` |
 | --- | --- | --- | --- |
@@ -105,7 +106,7 @@ When using comparison operators, it's important to remember that all non-collect
 
 In summary, `null` is equal only to itself, and is not less or greater than any other value.
 
-If your index has fields of type `Edm.Double` and you upload `NaN` values to those fields, you will need to account for that when writing filters. Azure Search implements the IEEE 754 standard for handling `NaN` values, and comparisons with such values produce non-obvious results, as shown in the following table.
+If your index has fields of type `Edm.Double` and you upload `NaN` values to those fields, you will need to account for that when writing filters. Azure Cognitive Search implements the IEEE 754 standard for handling `NaN` values, and comparisons with such values produce non-obvious results, as shown in the following table.
 
 | Operator | Result when at least one operand is `NaN` |
 | --- | --- |
@@ -150,7 +151,7 @@ Match documents for hotels where at least one room has type "Deluxe Room", where
 
 ## Next steps  
 
-- [Filters in Azure Search](search-filters.md)
-- [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filters in Azure Cognitive Search](search-filters.md)
+- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

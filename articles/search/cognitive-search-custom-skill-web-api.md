@@ -1,20 +1,19 @@
 ---
-title: Custom cognitive search skill - Azure Search
-description: Extend capabilities of cognitive search skillsets by calling out to Web APIs
-services: search
+title: Custom Web API skill in an enrichment pipeline
+titleSuffix: Azure Cognitive Search
+description: Extend capabilities of Azure Cognitive Search skillsets by calling out to Web APIs. Use the Custom Web API skill to integrate your custom code.
+
 manager: nitinme
 author: luiscabrer
-
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Custom Web API skill
+# Custom Web API skill in an Azure Cognitive Search enrichment pipeline
 
-The **Custom Web API** skill allows you to extend cognitive search by calling out to a Web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
+The **Custom Web API** skill allows you to extend AI enrichment by calling out to a Web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
 
 The structure of the JSON payloads are described further down in this document.
 
@@ -199,7 +198,6 @@ For cases when the Web API is unavailable or returns a HTTP error, a friendly er
 
 ## See also
 
-+ [Power Skills: a repository of custom skills](https://aka.ms/powerskills)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Add custom skill to cognitive search](cognitive-search-custom-skill-interface.md)
-+ [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)
++ [Add custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
++ [Example: Creating a custom skill for AI enrichment(cognitive-search-create-custom-skill-example.md)
