@@ -84,10 +84,10 @@ ORDER BY
 
 Advance to one of the following articles and learn how to query different files.
 > [!div class="nextstepaction"]
-> [Querying single CSV file](query-single-csv-file.md)
+> [Query single CSV file](query-single-csv-file.md)
 
 > [!div class="nextstepaction"]
-> [Querying Parquet files](query-parquet-files.md)
+> [Query Parquet files](query-parquet-files.md)
 
 > [!div class="nextstepaction"]
-> [Querying JSON files](query-json-files.md)
+> [Query JSON files](query-json-files.md)
