@@ -61,7 +61,7 @@ Create a Python application named *blob-quickstart-v12*.
 While still in the application directory, install the Azure Blob storage client library for Python package by using the `pip install` command.
 
 ```console
-pip install azure-storage-blob --pre
+pip install azure-storage-blob
 ```
 
 This command installs the Azure Blob storage client library for Python package and all the libraries on which it depends. In this case, that is just the Azure core library for Python.

@@ -22,7 +22,7 @@ Use the Azure Blob storage client library v12 for JavaScript to:
 * Download the blob to your local computer
 * Delete a container
 
-[API reference documentation](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob/v/12.0.0-preview.5) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+[API reference documentation](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob/v/12.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ Create a JavaScript application named *blob-quickstart-v12*.
         "author": "Your Name",
         "license": "MIT",
         "dependencies": {
-            "@azure/storage-blob": "^12.0.0-preview.5",
+            "@azure/storage-blob": "^12.0.0",
             "@types/dotenv": "^4.0.3",
             "dotenv": "^6.0.0"
         }
