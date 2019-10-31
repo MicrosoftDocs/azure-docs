@@ -41,13 +41,9 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 4. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
 
-### Node.js
-
-To use Live Metrics with Node.js, you must update to version 1.30 or greater of the SDK. By default Live Metrics is disabled in the Node.js SDK. To enable Live Metrics, add `setSendLiveMetrics(true)` to your [configuration methods](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) as you initialize the SDK.
-
 ### No data? Check your server firewall
 
-Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) are open in the firewall of your servers. 
+Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
 ## How does Live Metrics Stream differ from Metrics Explorer and Analytics?
 
@@ -96,14 +92,6 @@ See the details of an item in the live feed by clicking it. You can pause the fe
 If you want to monitor a particular server role instance, you can filter by server.
 
 ![Sampled live failures](./media/live-stream/live-stream-filter.png)
-
-## SDK Requirements
-
-### .NET
-Custom Live Metrics Stream is available with version 2.4.0-beta2 or newer of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Remember to select "Include Prerelease" option from NuGet package manager.
-
-### Node.js
-Live Metrics Stream is available with version 1.3.0 or newer of the [Application Insights SDK for Node.JS](https://npmjs.com/package/applicationinsights). Remember to use `setSendLiveMetrics(true)` while configuring the SDK in your code.
 
 ## Secure the control channel
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
@@ -191,14 +179,14 @@ However, if you recognize and trust all the connected servers, you can try the c
 
 ## Supported features table
 
-| Language                         | Basic Metrics       | Performance metrics | Custom filtering | Sample telemetry    | CPU split by process |
-|----------------------------------|:--------------------|:--------------------|:-----------------|:--------------------|:---------------------|
-| .NET                             | Supported           | Supported           | Supported        | Supported           | Supported            |
-| .NET Core (target=.NET Framework)| Supported           | Supported           | Supported        | Supported           | Supported            |
-| .NET Core (target=.NET Core)     | Supported           | Supported*          | Supported        | Supported           | **Not Supported**    |
-| Azure Functions v2               | Supported           | Supported           | Supported        | Supported           | **Not Supported**    |
-| Java                             | Supported (V1.0.7+) | Supported (V1.0.7+) | **Not Supported**| **Not Supported**   | **Not Supported**    |
-| Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**| Supported (V1.3.0+) | **Not Supported**    |
+| Language                         | Basic Metrics       | Performance metrics | Custom filtering    | Sample telemetry    | CPU split by process |
+|----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
+| .NET                             | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+)  |
+| .NET Core (target=.NET Framework)| Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+)  |
+| .NET Core (target=.NET Core)     | Supported (V2.4.1+) | Supported*          | Supported (V2.4.1+) | Supported (V2.4.1+) | **Not Supported**    |
+| Azure Functions v2               | Supported           | Supported           | Supported           | Supported           | **Not Supported**    |
+| Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not Supported**   | **Not Supported**   | **Not Supported**    |
+| Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**   | Supported (V1.3.0+) | **Not Supported**    |
 
 Basic metrics include request, dependency, and exception rate. Performance metrics (performance counters) include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.
 
@@ -207,6 +195,8 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 - PerfCounters metrics are supported when running in Azure App Service for Windows. (AspNetCore SDK Version 2.4.0 or higher)
 - PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or On-prem etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core 2.0 or higher.
 - PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest beta (i.e AspNetCore SDK Version 2.8.0-beta1 or higher), but for apps targeting .NET Core 2.0 or higher.
+
+By default Live Metrics is disabled in the Node.js SDK. To enable Live Metrics, add `setSendLiveMetrics(true)` to your [configuration methods](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) as you initialize the SDK.
 
 ## Troubleshooting
 
