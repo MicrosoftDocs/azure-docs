@@ -40,8 +40,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 }
 ```
 
-<a name="durable-functions-2-0-host-json">
-### Durable Functions 2.x
+### <a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
 
 ```json
 {
