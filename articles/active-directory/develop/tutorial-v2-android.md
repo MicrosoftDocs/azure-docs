@@ -60,7 +60,7 @@ This sample uses the Microsoft Authentication library for Android (MSAL) to impl
 
 ## Create a project
 
-This tutorial will create a new project. If you want to download the completed tutorial instead, [download the code](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
+This tutorial will create a new project. If you want to download the completed tutorial instead, [download the code](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 
 1. Open Android Studio, and select **Start a new Android Studio project**.
 2. Select **Basic Activity** and select **Next**.
