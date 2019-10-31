@@ -1,8 +1,6 @@
 ---
 layout: HubPage
 hide_bc: true
-experimental: true
-experiment_id: "81ba5f65-59fb-4d"
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
 ms.topic: hub-page
@@ -1659,6 +1657,12 @@ featureFlags:
                                             <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
                                                 <img src="media/index/private-link.svg" alt="" />
                                                 <p>Azure Private Link</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/internet-analyzer/">
+                                                <img src="media/index/internet-analyzer.svg" alt="" />
+                                                <p>Azure Internet Analyzer</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -5578,6 +5582,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Private Link</h3>
                                                     <p>Privately access services hosted on the Azure platform, keeping your data within the Microsoft network</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/internet-analyzer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/internet-analyzer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Internet Analyzer</h3>
+                                                    <p>Test how application and content delivery architectures in Azure impact your customers’ performance with this client-side measurement platform</p>
                                                 </div>
                                             </div>
                                         </div>
