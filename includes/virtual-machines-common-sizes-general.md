@@ -24,7 +24,7 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
   Example D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
 
-- The Da-series and Dasv3-series are new sizes utilizing AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452V processor in a multi-threaded configuration with up to 256 GB L3 cache dedicating 8 GB of that L3 cache to every 8 cores increasing customer options for running their general purpose workloads. The Da-series and Dasv3-series have the same memory and disk configurations as the D & Dsv3-series.
+- The Dav4-series and Dasv4-series are new sizes utilizing AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452 processor in a multi-threaded configuration with up to 256 GB L3 cache dedicating 8 GB of that L3 cache to every 8 cores increasing customer options for running their general purpose workloads. The Dav4-series and Dasv4-series have the same memory and disk configurations as the D & Dsv3-series.
   
 ## B-series
 
@@ -75,25 +75,27 @@ Dsv3-series sizes run on the Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon
 
 <sup>1</sup> Dsv3-series VM’s feature Intel® Hyper-Threading Technology
 
-## Dasv3-series (Preview)
+## Dasv4-series
+
+ACU:  230-250
 
 Premium Storage: Supported
 
 Premium Storage caching: Supported
 
-Dasv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Dasv3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
+Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium SSD. The Dasv4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
 
-[Click here to sign up for the preview](http://aka.ms/azureamdpreview).
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
-|---|---|---|---|
-| Standard_D2as_v3  | 2  | 8   | 16  |
-| Standard_D4as_v3  | 4  | 16  | 32  |
-| Standard_D8as_v3  | 8  | 32  | 64  |
-| Standard_D16as_v3 | 16 | 64  | 128 |
-| Standard_D32as_v3 | 32 | 128 | 256 |
-| Standard_D48as_v3 | 48 | 192 | 384 |
-| Standard_D64as_v3 | 64 | 256 | 512 |
+**Size**|**vCPU**|**Memory: GiB**|**Temp storage (SSD) GiB**|**Max data disks**|**Max cached and temp storage throughput: IOPS / MBps (cache size in GiB)**|**Max uncached disk throughput: IOPS / MBps**|**Max NICs / Expected network bandwidth (MBps)**
+:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
+Standard\_D2as\_v4|2|8|16|4|4000 / 32 (50)|3200 / 48|2 / 1000
+Standard\_D4as\_v4|4|16|32|8|8000 / 64 (100)|6400 / 96|2 / 2000
+Standard\_D8as\_v4|8|32|64|16|16000 / 128 (200)|12800 / 192|4 / 4000
+Standard\_D16as\_v4|16|64|128|32|32000 / 255 (400)|25600 / 384|8 / 8000
+Standard\_D32as\_v4|32|128|256|32|64000 / 510 (800)|51200 / 768|8 / 16000
+Standard\_D48as\_v4|48|192|384|32|96000 / 1020 (1200)|76800 / 1148|8 / 24000
+Standard\_D64as\_v4|64|256|512|32|128000 / 1020 (1600)|80000 / 1200|8 / 30000
+Standard\_D96as\_v4|96|384|768|32|192000 / 1020 (2400)|80000 / 1200|8 / 30000
 
 ## Dv3-series <sup>1</sup>
 
@@ -120,25 +122,27 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 <sup>1</sup> Dv3-series VM’s feature Intel® Hyper-Threading Technology
 
-## Dav3-series (Preview)
+## Dav4-series
+
+ACU: 230-250
 
 Premium Storage: Not Supported
 
 Premium Storage caching: Not Supported
 
-Dav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz. The Dav3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dasv3 sizes. The pricing and billing meters for Dasv3 sizes are the same as the Dav3-series.
+Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz. The Dav4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Dasv4 sizes. The pricing and billing meters for Dasv4 sizes are the same as the Dav4-series.
 
-[Click here to sign up for the preview](http://aka.ms/azureamdpreview).
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
-|---|---|---|---|
-| Standard_D2a_v3  | 2  | 8   | 50   |
-| Standard_D4a_v3  | 4  | 16  | 100  |
-| Standard_D8a_v3  | 8  | 32  | 200  |
-| Standard_D16a_v3 | 16 | 64  | 400  |
-| Standard_D32a_v3 | 32 | 128 | 800  |
-| Standard_D48a_v3 | 48 | 192 | 1200 |
-| Standard_D64a_v3 | 64 | 256 | 1600 |
+**Size**|**vCPU**|**Memory: GiB**|**Temp storage (SSD) GiB**|**Max data disks**|**Max temp storage throughput: IOPS / Read MBps / Write MBps**|**Max NICs / Expected network bandwidth (MBps)**
+:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
+Standard\_D2a\_v4|2|8|50|4|3000 /48|2 / 1000
+Standard\_D4a\_v4|4|16|100|8|6000 / 96|2 / 2000
+Standard\_D8a\_v4|8|32|200|16|12000 / 192|4 / 4000
+Standard\_D16a\_v4|16|64|400|32|24000 / 384|8 / 8000
+Standard\_D32a\_v4|32|128|800|32|48000 / 768|8 / 16000
+Standard\_D48a\_v4|48|192|1200|32|96000  / 1020|8 / 24000
+Standard\_D64a\_v4|64|256|1600|32|96000  / 1020|8 / 30000
+Standard\_D96a\_v4|96|384|2400|32|96000  / 1020|8 / 30000
 
 ## DSv2-series
 
