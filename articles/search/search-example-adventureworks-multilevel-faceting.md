@@ -1,22 +1,23 @@
 ---
-title: 'Example: Multi-level facets - Azure Search'
+title: 'Example: Multi-level facets'
+titleSuffix: Azure Cognitive Search
 description: Learn how to build faceting structures for multi-level taxonomies, creating a nested navigation structure that you can include on application pages.
+
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-
 ---
-# Example: Multi-level facets in Azure Search
 
-Azure Search schemas do not explicitly support multi-level taxonomy categories, but you can approximate them by manipulating content prior to indexing and then applying some special handling to the results. 
+# Example: Multi-level facets in Azure Cognitive Search
+
+Azure Cognitive Search schemas do not explicitly support multi-level taxonomy categories, but you can approximate them by manipulating content prior to indexing and then applying some special handling to the results. 
 
 ## Start with the data
 
-The example in this article builds on a previous example, [Model the AdventureWorks Inventory database](search-example-adventureworks-modeling.md), to demonstrate multi-level faceting in Azure Search.
+The example in this article builds on a previous example, [Model the AdventureWorks Inventory database](search-example-adventureworks-modeling.md), to demonstrate multi-level faceting in Azure Cognitive Search.
 
 AdventureWorks has a simple two-level taxonomy with a parent-child relationship. For fixed-length taxonomy depths of this structure, a simple SQL join query can be used to group the taxonomy:
 
@@ -34,7 +35,7 @@ LEFT JOIN
 
 ## Indexing to a Collection field
 
-In the index containing this structure, create a **Collection(Edm.String)** field in the Azure Search schema to store this data, making sure that field attributes include searchable, filterable, facetable, and retrievable.
+In the index containing this structure, create a **Collection(Edm.String)** field in the Azure Cognitive Search schema to store this data, making sure that field attributes include searchable, filterable, facetable, and retrievable.
 
 Now, when indexing content that refers to a specific taxonomy category, submit the taxonomy as an array containing text from each level of the taxonomy. For example, for an entity with `ProductCategoryId = 5 (Mountain Bikes)`, submit the field as `[ "Bikes", "Bikes|Mountain Bikes"]`
 
@@ -95,4 +96,4 @@ This technique will scale to cover more complex scenarios like deeper taxonomy t
 
 ## See also
 
-[Example: Model the AdventureWorks Inventory database for Azure Search](search-example-adventureworks-modeling.md)
+[Example: Model the AdventureWorks Inventory database for Azure Cognitive Search](search-example-adventureworks-modeling.md)

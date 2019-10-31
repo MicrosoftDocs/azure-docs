@@ -167,6 +167,8 @@ In this experiment context, **VotingEnsemble** is considered the best model, bas
     
 Now you have an operational web service to generate predictions.
 
+Proceed to the [**Next Steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learning support.
+
 ## Clean up resources
 
 Deployment files are larger than data and experiment files, so they cost more to store. Delete only the deployment files to minimize costs to your account, or if you want to keep your workspace and experiment files. Otherwise, delete the entire resource group, if you don't plan to use any of the files.  
@@ -190,7 +192,7 @@ Delete just the deployment instance from the Azure portal, if you want to keep t
 In this automated machine learning tutorial, you used the workspace landing page to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](how-to-consume-web-service.md)
+> [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
 + Learn more about [data profiling](how-to-create-portal-experiments.md#profile).

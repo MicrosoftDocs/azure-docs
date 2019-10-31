@@ -125,7 +125,7 @@ You can set the service tier, compute size, and storage amount for a single data
 
 ## General Purpose service tier for serverless compute
 
-The [serverless compute tier](sql-database-serverless.md) is in preview.
+For more information, see [serverless compute tier](sql-database-serverless.md).
 
 ### Gen5 compute generation (part 1)
 

@@ -1,18 +1,13 @@
 ---
 title: Using Log Analytics Alert REST API
 description: The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics, which is part of Log Analytics.  This article provides details of the API and several examples for performing different operations.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
-ms.service: log-analytics
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/29/2018
+author: bwren
 ms.author: bwren
+ms.date: 07/29/2018
+
 ---
 
 # Create and manage alert rules in Log Analytics with REST API

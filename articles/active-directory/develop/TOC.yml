@@ -34,7 +34,7 @@
       - name: ASP .NET Core
         href: quickstart-v2-aspnet-core-webapp.md
       - name: NodeJS
-        href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
+        href: quickstart-v2-nodejs-webapp.md
       - name: Java
         href: quickstart-v2-java-webapp.md
       - name: Python
@@ -42,7 +42,7 @@
     - name: Web APIs
       items:
       - name: ASP .NET
-        href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
+        href: quickstart-v2-dotnet-native-aspnet.md
       - name: ASP .NET Core
         href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
     - name: Mobile and desktop apps
@@ -59,6 +59,8 @@
       items:
       - name: .NET Core console (daemon)
         href: quickstart-v2-netcore-daemon.md
+      - name: Python console daemon
+        href: quickstart-v2-python-daemon.md
       - name: ASP.NET daemon web app
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
@@ -520,7 +522,7 @@
       items:
       - name: Android
         href: quickstart-v1-android.md
-      - name: iOS and MacOS
+      - name: iOS
         href: quickstart-v1-ios.md
       - name: Windows Desktop .NET
         href: quickstart-v1-dotnet.md
@@ -644,7 +646,7 @@
       items:
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
-      - name: Create service principal
+      - name: Create a service principal
         items:
         - name: Using Azure PowerShell
           href: howto-authenticate-service-principal-powershell.md

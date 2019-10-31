@@ -4,7 +4,7 @@ description: Learn how to monitor Analysis Services server metrics an in Azure p
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -22,7 +22,7 @@ To perform more in-depth diagnostics, track performance, and identify trends acr
 
     ![Monitor in Azure portal](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. In **Available metrics**, select the metrics to include in your chart. 
+2. In **Metric**, select the metrics to include in your chart. 
 
     ![Monitor chart](./media/analysis-services-monitor/aas-monitor-chart.png)
 
