@@ -3,7 +3,7 @@ title: Manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (.NET
 description: Use the Azure Storage client library to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 author: normesta
 ms.service: storage
-ms.date: 06/28/2019
+ms.date: 10/31/2019
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
@@ -12,443 +12,260 @@ ms.reviewer: prishet
 
 # Manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (.NET)
 
-This article shows you how to use .NET to work with directories, files, and POSIX [access control lists](data-lake-storage-access-control.md) (ACLs) in storage accounts that have a hierarchical namespace.
+This article shows you how to use .NET to work with directories, files, and POSIX [access control lists](data-lake-storage-access-control.md) (ACLs) in storage accounts that have a hierarchical namespace. 
+
+## Set up your project
+
+To get started, install the **Azure.Storage.Files.DataLake** NuGet package.
+
+Then, add these using statements to the top of your code file.
+
+```csharp
+using Azure.Storage.Files.DataLake;
+using Azure.Storage.Files.DataLake.Models;
+using System.IO;
+using Azure;
+```
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a [CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet) instance that represents the storage account. The easiest way to get one is to use a connection string. 
-
-This example parses a connection string by calling the [CloudStorageAccount.TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) method, and then creates a [CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet) instance by calling the [CloudStorageAccount.CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet) method.
+To use the snippets in this article, you'll need to create a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet) instance that represents the storage account. The easiest way to get one is to use a connection string. This example creates an instance of the [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet) by using a connection string.
 
 ```cs
-public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageConnectionString)
+public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
+    string accountName, string accountKey)
 {
-    if (CloudStorageAccount.TryParse
-        (storageConnectionString, out CloudStorageAccount storageAccount))
-        {
-            cloudBlobClient = storageAccount.CreateCloudBlobClient();
+    StorageSharedKeyCredential sharedKeyCredential =
+        new StorageSharedKeyCredential(accountName, accountKey);
 
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
+
+    dataLakeServiceClient = new DataLakeServiceClient
+        (new Uri(dfsUri), sharedKeyCredential, new DataLakeClientOptions());
 }
 ```
 
 ## Create a directory
 
-Create a directory reference by calling the **GetDirectoryReference** method.
-
-Create a directory by using the **CloudBlobDirectory.CreateAsync** method. 
+Create a directory reference by calling the **FileSystemClient.CreateDirectoryAsync** method.
 
 This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory`. 
 
 ```cs
-public async Task CreateDirectory(CloudBlobClient cloudBlobClient,
-    string containerName)
+public async Task<DataLakeDirectoryClient> CreateDirectory
+    (DataLakeServiceClient serviceClient, string fileSystemName)
 {
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
+    DataLakeFileSystemClient fileSystemClient =
+        serviceClient.GetFileSystemClient(fileSystemName);
 
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
+    DataLakeDirectoryClient directoryClient =
+        await fileSystemClient.CreateDirectoryAsync("my-directory");
 
-        if (cloudBlobDirectory != null)
-        {
-            await cloudBlobDirectory.CreateAsync();
-
-            await cloudBlobDirectory.GetDirectoryReference("my-subdirectory").CreateAsync();
-        }
-    }
+    return await directoryClient.CreateSubDirectoryAsync("my-subdirectory");
 }
 ```
 
 ## Rename a directory
 
-Rename a directory by calling the **CloudBlobDirectory.MoveAsync** method. Pass the uri of the desired directory location as a parameter. 
+Rename a directory by calling the **DirectoryClient.RenameAsync** method. Pass the path of the desired directory a parameter. 
 
-This example renames a sub-directory to the name `my-directory-renamed`.
+This example renames a sub-directory to the name `my-subdirectory-renamed`.
 
 ```cs
-public async Task RenameDirectory(CloudBlobClient cloudBlobClient,
-    string containerName)
+public async Task<DataLakeDirectoryClient> 
+    RenameDirectory(DataLakeFileSystemClient fileSystemClient)
 {
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.GetDirectoryClient("my-directory/my-subdirectory");
 
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory-2/my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            await cloudBlobDirectory.MoveAsync(new Uri(cloudBlobContainer.Uri.AbsoluteUri + 
-                "/my-directory-2/my-directory-renamed"));
-
-        }
-    }
-
+    return await directoryClient.RenameAsync("my-directory/my-subdirectory-renamed");
 }
 ```
 ## Move a directory
 
-You can also use the **CloudBlobDirectory.MoveAsync** method to move a directory. Pass the uri of the desired directory location as a parameter to this method. 
+You can also use the **DirectoryClient.RenameAsync** method to move a directory. Pass the path of the desired directory location as a parameter to this method. 
 
-This example moves a directory named `my-directory` to a sub-directory of a directory named `my-directory-2`. 
+This example moves a directory named `my-subdirectory-renamed` to a sub-directory of a directory named `my-directory-2`. 
 
 ```cs
-public async Task MoveDirectory(CloudBlobClient cloudBlobClient,
-    string containerName)
+public async Task<DataLakeDirectoryClient> MoveDirectory
+    (DataLakeFileSystemClient fileSystemClient)
 {
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+            fileSystemClient.GetDirectoryClient("my-directory/my-subdirectory-renamed");
 
-    if (cloudBlobContainer != null)
-    {
-        // Get source directory
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            // Get destination directory
-            CloudBlobDirectory cloudBlobDestinationDirectory =
-                cloudBlobContainer.GetDirectoryReference("my-directory-2");
-
-            if (cloudBlobDestinationDirectory != null)
-            {
-                await cloudBlobDirectory.MoveAsync(new Uri(cloudBlobDestinationDirectory.Uri.AbsoluteUri + "my-directory/"));
-            }
-
-        }
-    }
-
+    return await directoryClient.RenameAsync("my-directory-2/my-subdirectory-renamed");                
 }
 ```
 
 ## Delete a directory
 
-Delete a directory by calling the **CloudBlobDirectory.Delete** method.
+Delete a directory by calling the **DirectoryClient.Delete** method.
 
 This example deletes a directory named `my-directory`.  
 
 ```cs
-public void DeleteDirectory(CloudBlobClient cloudBlobClient,
-    string containerName)
+public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient)
 {
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.GetDirectoryClient("my-directory");
 
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory-2/my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            cloudBlobDirectory.Delete();
-        }
-    }
-
+    directoryClient.Delete();
 }
 ```
 
-## Get the ACL of a directory
+## Manage a directory ACL
 
-Get the ACL of a directory by calling the **cloudBlobDirectory.FetchAccessControlsAsync** method. 
+Get the access control list (ACL) of a directory by calling the **directoryClient.GetAccessControlAsync** method and set the ACL by calling the **DirectoryClient.SetAccessControl** method.
 
-This populates the **CloudBlobDirectory.PathProperties** property with the ACL of the directory. 
-
-You can use the **CloudBlobDirectory.PathProperties.ACL** property to get a collection of ACL entries. 
-
-This example gets the ACL of a directory named `my-directory`, and then prints the short form of ACL to the console.
+This example gets and sets the ACL of a directory named `my-directory`. The string `user::rwx,group::r-x,other::rw-` gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read and write permission.
 
 ```cs
-public async Task GetDirectoryACLs(CloudBlobClient cloudBlobClient,
-    string containerName)
+public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 {
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.GetDirectoryClient("my-directory");
 
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
+    PathAccessControl directoryAccessControl =
+        await directoryClient.GetAccessControlAsync();
 
-        if (cloudBlobDirectory != null)
-        {
-            await cloudBlobDirectory.FetchAccessControlsAsync();
+    Console.WriteLine(directoryAccessControl.Acl);
 
-            string ACL = "";
+    PathAccessControl updatedAccessControl = 
+        DataLakeModelFactory.PathAccessControl
+        (null, null, null, "user::rwx,group::r-x,other::rw-");
 
-            foreach (PathAccessControlEntry entry in cloudBlobDirectory.PathProperties.ACL)
-            {
-                ACL = ACL + entry.ToString() + " ";
-            }
+    directoryClient.SetAccessControl(updatedAccessControl);
 
-            Console.WriteLine(ACL);
-        }
-    }
+    Console.WriteLine(updatedAccessControl.Acl);
+
 }
 
-```
-
-The short form of an ACL might look something like the following:
-
-`user::rwx group::r-x other::--`
-
-This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions.
-
-## Set the ACL of a directory
-
-Set the **Execute**, **Read**, and **Write** property for the owning user, owning group, or other users. Then, call the **CloudBlobDirectory.SetAcl** method to commit the setting. 
-
-This example gives read access to all users.
-
-```cs
-public async Task SetDirectoryACLs(CloudBlobClient cloudBlobClient,
-    string containerName)
-{
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
-
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            await cloudBlobDirectory.FetchAccessControlsAsync();
-
-
-            foreach (PathAccessControlEntry entry in cloudBlobDirectory.PathProperties.ACL)
-            {
-                switch (entry.AccessControlType)
-                {
-                    case AccessControlType.Other:
-                        entry.Permissions.Read = true;
-                        break;
-
-                    case AccessControlType.Group:
-                        // set permissions for the owning group.
-                        break;
-
-                    case AccessControlType.User:
-                        // set permissions for the owning user.
-                        break;
-                }
-  
-            }
-
-            cloudBlobDirectory.SetAcl();
-        }
-    }
-}
 ```
 
 ## Upload a file to a directory
 
-First, create a blob reference in the target directory by calling the **CloudBlobDirectory.GetBlockBlobReference** method. That method returns a **CloudBlockBlob** object. Upload a file by calling the **UploadFromFileAsync** method of a **CloudBlockBlob** object.
+First, create a file reference in the target directory by creating an instance of the **DataLakeFileClient** class. Upload a file by calling the **FileClient.AppendAsync** method. Make sure to complete the upload by calling the **FileClient.FlushAsync** method.
 
-This example uploads a file to a directory named `my-directory`.    
-
-```cs
-public async Task UploadFileToDirectory(CloudBlobClient cloudBlobClient,
-    string sourceFilePath, string containerName, string blobName)
-{
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
-
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            CloudBlockBlob cloudBlockBlob =
-                cloudBlobDirectory.GetBlockBlobReference(blobName);
-
-            await cloudBlockBlob.UploadFromFileAsync(sourceFilePath);
-        }
-    }
-}
-```
-
-## Get the ACL of a file
-
-Get the ACL of a file by calling the **CloudBlockBlob.FetchAccessControlsAsync** method. 
-
-This populates the **CloudBlockBlob.PathProperties** property with the ACL of the file. 
-
-You can use the **CloudBlockBlob.PathProperties.ACL** property to get a list of ACL entries. 
-
-This example gets the ACL of a file and then prints the short form of ACL to the console.
+This example uploads a text file to a directory named `my-directory`.    
 
 ```cs
-public async Task GetFileACL(CloudBlobClient cloudBlobClient,
-    string containerName, string blobName)
+public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
 {
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.GetDirectoryClient("my-directory");
 
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
+    DataLakeFileClient fileClient = await directoryClient.CreateFileAsync("uploaded-file.txt");
 
-        if (cloudBlobDirectory != null)
-        {
-            CloudBlockBlob cloudBlockBlob =
-                cloudBlobDirectory.GetBlockBlobReference(blobName);
+    FileStream fileStream = 
+        File.OpenRead("C:\\file-to-upload.txt");
 
-            await cloudBlockBlob.FetchAccessControlsAsync();
+    long fileSize = fileStream.Length;
 
-            string ACL = "";
+    await fileClient.AppendAsync(fileStream, offset: 0);
 
-            foreach (PathAccessControlEntry entry in cloudBlockBlob.PathProperties.ACL)
-            {
-                ACL = ACL + entry.ToString() + " ";
-            }
-
-            Console.WriteLine(ACL);
-        }
-    }
+    await fileClient.FlushAsync(position: fileSize);
 
 }
 ```
 
-## Set the ACL of a file
+## Manage a file ACL
 
-Set the **Execute**, **Read**, and **Write** property for the owning user, owning group, or other users. Then, call the **CloudBlockBlob.SetAcl** method to commit the setting. 
+Get the access control list (ACL) of a file by calling the **DataLakeFileClient.GetAccessControlAsync** method and set the ACL by calling the **FileClient.SetAccessControl** method.
 
-This example gives read access to all users.
+This example gets and sets the ACL of a file named `my-file.txt`. The string `user::rwx,group::r-x,other::rw-` gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read and write permission.
 
 ```cs
-public async Task SetFileACL(CloudBlobClient cloudBlobClient,
-    string containerName, string blobName)
+public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
 {
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.GetDirectoryClient("my-directory");
 
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
+    DataLakeFileClient fileClient = 
+        directoryClient.GetFileClient("my-file.txt");
 
-        if (cloudBlobDirectory != null)
-        {
-            CloudBlockBlob cloudBlockBlob =
-                cloudBlobDirectory.GetBlockBlobReference(blobName);
+    PathAccessControl FileAccessControl =
+        await fileClient.GetAccessControlAsync();
 
-            await cloudBlockBlob.FetchAccessControlsAsync();
+    Console.WriteLine(FileAccessControl.Acl);
 
+    PathAccessControl updatedAccessControl =
+        DataLakeModelFactory.PathAccessControl
+        (null, null, null, "user::rwx,group::r-x,other::rw-");
 
-            foreach (PathAccessControlEntry entry in cloudBlockBlob.PathProperties.ACL)
-            {
-                switch (entry.AccessControlType)
-                {
-                    case AccessControlType.Other:
-                        entry.Permissions.Read = true;
-                        break;
+    fileClient.SetAccessControl(updatedAccessControl);
 
-                    case AccessControlType.Group:
-                        // set permissions for the owning group.
-                        break;
-
-                    case AccessControlType.User:
-                        // set permissions for the owning user.
-                        break;
-                }
-
-            }
-
-            cloudBlockBlob.SetAcl();
-
-        }
-    }
+    Console.WriteLine(updatedAccessControl.Acl);
 
 }
 ```
 
 ## Download from a directory 
 
-First, create a blob reference in the source directory by calling the **CloudBlobDirectory.GetBlockBlobReference** method. That method returns a **CloudBlockBlob** object. Download that blob by calling the **DownloadToFileAsync** method of a **CloudBlockBlob** object.
+First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **FileClient.ReadAsync** method, and parse the return value to obtain a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream) object. Use any .NET file processing API to save bytes from the stream to a file. 
 
-This example downloads a file from a directory named `my-directory`.
+This example uses a [BinaryReader](https://docs.microsoft.com/dotnet/api/system.io.binaryreader) and a [FileStream](https://docs.microsoft.com/dotnet/api/system.io.filestream) to save bytes to a file. 
 
 ```cs
-public async Task DownloadFileFromDirectory(CloudBlobClient cloudBlobClient,
-    string containerName, string blobName, string destinationFile)
+public async Task DownloadFile(DataLakeFileSystemClient fileSystemClient)
 {
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.GetDirectoryClient("my-directory");
 
-    if (cloudBlobContainer != null)
+    DataLakeFileClient fileClient = 
+        directoryClient.GetFileClient("my-image.png");
+
+    Response<FileDownloadInfo> downloadResponse = await fileClient.ReadAsync();
+
+    BinaryReader reader = new BinaryReader(downloadResponse.Value.Content);
+
+    FileStream fileStream = 
+        File.OpenWrite("C:\\\my-image-downloaded.png");
+
+    int bufferSize = 4096;
+
+    byte[] buffer = new byte[bufferSize];
+
+    int count;
+
+    while ((count = reader.Read(buffer, 0, buffer.Length)) != 0)
     {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            CloudBlockBlob cloudBlockBlob =
-                    cloudBlobDirectory.GetBlockBlobReference(blobName);
-
-            await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
-        }
-
-
+        fileStream.Write(buffer, 0, count);
     }
+
+    await fileStream.FlushAsync();
+
+    fileStream.Close();
 }
 ```
 
 ## List directory contents
 
-To list containers in your storage account, call one of the following methods of a **CloudBlobDirectory** object:
+List directory contents by calling the **FileSystemClient.ListPathsAsync** method, and then enumerating through the results.
 
-- **ListBlobsSegmented**
-- **ListBlobsSegmentedAsync**
-
-The overloads for these methods provide additional options for managing how the contents of a directory are returned by the listing operation. To learn more about these listing options, see [Understand container listing options](storage-blob-containers-list.md#understand-container-listing-options).
-
-This example asynchronously lists the contents of a directory by calling the **CloudBlobDirectory.ListBlobsSegmentedAsync** method. This example uses the continuation token to get the next segment of result.
+This example, prints the names of each file that is located in a directory named `my-directory`.
 
 ```cs
-public async Task ListFilesInDirectory(CloudBlobClient cloudBlobClient, string containerName)
+public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient)
 {
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
+    Azure.AsyncPageable<PathItem> items = fileSystemClient.ListPathsAsync("my-directory");
 
-    if (cloudBlobContainer != null)
+    IAsyncEnumerator<PathItem> enumerator = items.GetAsyncEnumerator(new System.Threading.CancellationToken());
+
+    await enumerator.MoveNextAsync();
+
+    PathItem item = enumerator.Current;
+
+    while (item != null)
     {
+        Console.WriteLine(item.Name);
 
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null)
+        if (!await enumerator.MoveNextAsync())
         {
-            BlobContinuationToken blobContinuationToken = null;
-            do
-            {
-                var resultSegment = await cloudBlobDirectory.ListBlobsSegmentedAsync(blobContinuationToken);
-
-                // Get the value of the continuation token returned by the listing call.
-                blobContinuationToken = resultSegment.ContinuationToken;
-                foreach (IListBlobItem item in resultSegment.Results)
-                {
-                    Console.WriteLine(item.Uri);
-                }
-            } while (blobContinuationToken != null);
-            // Loop while the continuation token is not null.
+            break;
         }
-
+                
+        item = enumerator.Current;
     }
 
 }
