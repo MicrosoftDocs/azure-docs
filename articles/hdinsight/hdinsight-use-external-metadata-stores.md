@@ -52,6 +52,12 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 ![HDInsight Hive Metadata Store Use Case](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
 
+### Create and config Azure SQL Database for the custom metastore
+
+During cluster creation, you can point the cluster to a previously created Azure SQL Database. Learn how to create an Azure SQL Database [here]().
+
+
+
 ### Select a custom metastore during cluster creation
 
 You can point your cluster to a previously created Azure SQL Database during cluster creation, or you can configure the SQL Database after the cluster is created. This option is specified with the **Storage > Metastore settings** while creating a new Hadoop, Spark, or interactive Hive cluster from Azure portal.
