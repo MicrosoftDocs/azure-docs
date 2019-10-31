@@ -63,7 +63,20 @@ Move the entire workload handled by a process server to a different process serv
 
 It will take around 15 minutes for changes to be reflected in the portal. For a quicker effect, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
+## Register a master target server
 
+To register master target server residing on configuration server or scale-out process server with configuration server, navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on command prompt:
+
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## Reregister a process server
 
