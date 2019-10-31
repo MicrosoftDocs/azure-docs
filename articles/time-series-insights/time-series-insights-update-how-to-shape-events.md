@@ -142,7 +142,8 @@ Consider the following JSON:
 ```
 In the example above, the flattened `data_flow` property would present a naming collision with the `data_flow` property. In this case, the *latest* property value would overwrite the earlier one. If this behavior present a challenge for your business scenarios please contact the TSI team.
 
-> [!WARNING] In cases where duplicate properties are present in the same event payload due to flattening or
+> [!WARNING] 
+> In cases where duplicate properties are present in the same event payload due to flattening or
 > another mechanism, the latest property value is stored, overwritting any previous values.
 
 
