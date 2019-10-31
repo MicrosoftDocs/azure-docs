@@ -358,13 +358,13 @@ Network rules help to create a secure environment for connections between your a
 
 ### Trusted Microsoft services
 
-Some Microsoft services operate from networks that can't be included in your network rules. You can allow a subset of such trusted Microsoft services to access the storage account, while maintaining network rules for other apps. These services can then use strong authentication to connect to your storage account securely. We enable two types of trusted access for Microsoft services.
+Some Microsoft services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Microsoft services access to the storage account, while maintaining network rules for other apps. These trusted services can then use strong authentication to connect to your storage account securely. We enable two types of trusted access for Microsoft services.
 
-- Resources of some services can be granted access for select operations, such as writing logs or for backup.
-- A particular instance of some services can be granted access by [assigning an RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the resource instance.
+- Resources of some services, if registered in your subscription, can access storage accounts in the same subscription for only select operations, such as writing logs or for backup.
+- A particular instance of some services can be explicitly granted access by [assigning an RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the resource instance.
 
 
-When you enable the **Allow trusted Microsoft services...** exception, the following services (when registered in your subscription) are granted access to the storage account for select operations as described:
+When you enable the **Allow trusted Microsoft services...** exception, the following services (if registered in your subscription) are granted access to the storage account for select operations as described:
 
 | Service                  | Resource Provider Name     | Purpose                            |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -380,12 +380,13 @@ When you enable the **Allow trusted Microsoft services...** exception, the follo
 | Azure Networking         | Microsoft.Network          | Store and analyze network traffic logs. [Learn more](/azure/network-watcher/network-watcher-packet-capture-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-The **Allow trusted Microsoft services...** exception enables particular instances of these services to access the storage account, if the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the instance is assigned an RBAC role.
+The **Allow trusted Microsoft services...** exception enables the particular instance of the below services to access the storage account, if you explicitly assign an RBAC role to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance.
 
 | Service                  | Resource Provider Name          | Purpose                            |
 | :----------------------- | :------------------------------ | :--------------------------------- |
 | Azure Data Factory       | Microsoft.DataFactory/factories | Allows access to storage accounts through the ADF runtime. |
 | Azure Logic Apps         | Microsoft.Logic/workflows       | Enables logic apps to access storage accounts. |
+| Azure Machine Learning Service | Microsoft.MachineLearningServices | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse | Microsoft.Sql                   | Allows import and export of data from specific SQL Database instances using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics   | Microsoft.StreamAnalytics       | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
 
