@@ -42,24 +42,24 @@ A **ServiceBusService** object lets you work with topics and subscriptions to to
 from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-The following code creates a **ServiceBusService** object. Replace `<mynamespace>`, `<sharedaccesskeyname>`, and `<sharedaccesskeyvalue>` with your Service Bus namespace name, Shared Access Signature (SAS) key name, and primary key value. You can find these values under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
+The following code creates a **ServiceBusService** object. Replace `<namespace>`, `<sharedaccesskeyname>`, and `<sharedaccesskeyvalue>` with your Service Bus namespace name, Shared Access Signature (SAS) key name, and primary key value. You can find these values under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
 
 ```python
 bus_service = ServiceBusService(
-    service_namespace='<mynamespace>',
+    service_namespace='<namespace>',
     shared_access_key_name='<sharedaccesskeyname>',
     shared_access_key_value='<sharedaccesskeyvalue>')
 ```
 
 ## Create a topic
 
-The following code uses the `create_topic` method to create a Service Bus topic called `mytopic` with default settings:
+The following code uses the `create_topic` method to create a Service Bus topic called `mytopic`, with default settings:
 
 ```python
 bus_service.create_topic('mytopic')
 ```
 
-You can use topic options to override default topic settings, such as message time to live (TTL) or maximum topic size. The following example creates a topic named `mytopic` topic with maximum topic size of 5 GB and default message TTL of one minute:
+You can use topic options to override default topic settings, such as message time to live (TTL) or maximum topic size. The following example creates a topic named `mytopic` with a maximum topic size of 5 GB and default message TTL of one minute:
 
 ```python
 topic_options = Topic()
@@ -111,13 +111,13 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-When `AllMessages`, `HighMessages`, and `LowMessages` are all in effect, messages sent to `mytopic` are always delivered to receivers of the `AllMessages` subscription. Messages are also selectively delivered to the `HighMessages` or `LowMessages` subscription, depending on the message's `messageposition` property value. 
+With `AllMessages`, `HighMessages`, and `LowMessages` all in effect, messages sent to `mytopic` are always delivered to receivers of the `AllMessages` subscription. Messages are also selectively delivered to the `HighMessages` or `LowMessages` subscription, depending on the message's `messageposition` property value. 
 
 ## Send messages to a topic
 
 Applications use the `send_topic_message` method of the **ServiceBusService** object to send messages to a Service Bus topic.
 
-The following example sends five test messages to the `mytopic` topic. The custom `messageposition` property value depends on the iteration of the loop. The `messageposition` property determines which subscriptions receive the message. 
+The following example sends five test messages to the `mytopic` topic. The custom `messageposition` property value depends on the iteration of the loop. The `messageposition` property determines which subscriptions receive the messages. 
 
 ```python
 for i in range(5):
@@ -178,7 +178,7 @@ Deleting a topic deletes all subscriptions to the topic. You can also delete sub
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-By default, topics and subscriptions are persistent, and exist until you delete them. To automatically delete subscriptions after a certain time period elapses, you can set the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) property. 
+By default, topics and subscriptions are persistent, and exist until you delete them. To automatically delete subscriptions after a certain time period elapses, you can set the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) parameter on the subscription. 
 
 > [!TIP]
 > You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality and the ability to test topics, queues, subscriptions, relay services, notification hubs, and event hubs. 
