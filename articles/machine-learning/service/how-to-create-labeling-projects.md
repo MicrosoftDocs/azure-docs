@@ -9,7 +9,7 @@ ms.date: 11/04/2019
 
 ---
 
-# How to create a labeling project for machine learning
+# Create a labeling project for machine learning
 
 Azure Machine Learning Studio gives you a central location to create, manage, and monitor labeling projects.  Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. Labeling projects coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling task.
 
@@ -26,9 +26,8 @@ In this article, you'll learn how to:
 > * Describe the labeling task
 > * Initialize the labeling project
 > * Manage teams and people
-> * Communicating with the labelers
-> * Running and monitoring the project
-> * Exporting the labels
+> * Run and monitor the project
+> * Export the labels
 
 If you don't have a Studio account, go to the [Studio homepage](https://studio.azureml.net) and select **Sign up here** to create a free account. The free workspace will have all the features you need for this article.
 
@@ -70,29 +69,29 @@ Although choosing direct upload of local files is fine for many use-cases, [Azur
 
 To create a dataset from data that you've already stored in Azure blob storage:
 
-* Choose **Create a dataset** and **From datastore**
-* Assign a **Name** for your dataset
-* You must choose "File" as the **Dataset type**  
-* Select the datastore 
-* If your data are in a subfolder within the blob storage, choose **Browse** to select the path. 
+1. Choose **Create a dataset** and **From datastore**
+1. Assign a **Name** for your dataset
+1. You must choose "File" as the **Dataset type**  
+1. Select the datastore 
+1. If your data are in a subfolder within the blob storage, choose **Browse** to select the path. 
     * You may additionally append `/**` after the path to include all the files in subfolders of the selected path
     * Use `**/*.*` to include all the data in the current container and subfolders
-* Provide a description of your dataset
-* Choose **Next** 
-* Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
+1. Provide a description of your dataset
+1. Choose **Next** 
+1. Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
 
 ### Create a dataset by uploading data
 
 If you wish to directly upload your data:
 
-* Choose **Create a dataset** and **From local files**
-* Assign a **Name** for your dataset
-* You must choose "File" as the **Dataset type**
-* If you choose **Advanced settings**, you may customize the datastore, container, and path to your data
-* Choose **Browse** to select local files for upload
-* Provide a description of your dataset
-* Choose **Next** 
-* Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
+1. Choose **Create a dataset** and **From local files**
+1. Assign a **Name** for your dataset
+1. You must choose "File" as the **Dataset type**
+1. If you choose **Advanced settings**, you may customize the datastore, container, and path to your data
+1. Choose **Browse** to select local files for upload
+1. Provide a description of your dataset
+1. Choose **Next** 
+1. Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
 
 ## Specify your label classes
 
@@ -134,7 +133,7 @@ Once you've added a person, you can assign them to one or more teams. Navigate t
 
 If you ever wish to send an email to everyone on the team, you can do so by choosing the team to bring up the **Team details** page. On this page, the **Email team** button will open your email editor with the addresses of everyone on the team.
 
-## Running and monitoring the project
+## Run and monitor the project
 
 Once the project is initialized, Azure will begin running it. If, on the main **Labeling** page, you click on the project, you'll be taken to **Project details**. The **Dashboard** tab will show you progress on the labeling task. 
 
@@ -146,7 +145,7 @@ If you wish to take the project offline or online, choose the **Pause**/**Start*
 
 You can label data directly from the **Project details** page by selecting **Label data**. You may only label data when the project is running. 
 
-## Exporting the labels
+## Export the labels
 
 At any time, you may export the label data for machine learning experimentation. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure ML dataset. You will find the **Export** button on the **Project details** page of your labeling project.
 
