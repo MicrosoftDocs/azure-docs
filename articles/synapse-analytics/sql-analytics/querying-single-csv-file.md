@@ -27,8 +27,8 @@ In this article, we will cover all these variations.
 ## Prerequisites
 
 Before reading rest of the article, make sure to check following articles:
-- [First time setup](query-data-in-storage.md#first-time-setup)
-- [Prerequisites](query-data-in-storage.md#prerequisites)
+- [First time setup](query-data-storage.md#first-time-setup)
+- [Prerequisites](query-data-storage.md#prerequisites)
 
 
 ## Read CSV file - no header row, Windows style new line

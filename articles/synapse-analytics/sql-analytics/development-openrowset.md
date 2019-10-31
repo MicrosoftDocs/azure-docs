@@ -163,4 +163,4 @@ FROM
 
 ## Next steps
 
-For more samples, go to [quickstarts](query-data-in-storage.md) or save results of your query to Azure Storage using [CETAS](development-tables-cetas.md).
+For more samples, go to [quickstarts](query-data-storage.md) or save results of your query to Azure Storage using [CETAS](development-tables-cetas.md).

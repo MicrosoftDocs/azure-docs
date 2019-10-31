@@ -22,8 +22,8 @@ We will show how to query folders and multiple CSV files in following sections.
 ## Prerequisites
 
 Before reading rest of the article make sure to check following articles:
-- [First time setup](query-data-in-storage.md#first-time-setup)
-- [Prerequisites](query-data-in-storage.md#prerequisites)
+- [First time setup](query-data-storage.md#first-time-setup)
+- [Prerequisites](query-data-storage.md#prerequisites)
 
 
 ## Read multiple files in folder
