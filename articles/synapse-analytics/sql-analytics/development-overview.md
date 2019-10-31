@@ -2,7 +2,7 @@
 title: Resources for developing with Azure SQL Analytics | Microsoft Docs
 description: Development concepts, design decisions, recommendations and coding techniques for SQL Analytics.
 services: sql-data-warehouse
-author: fipopovi
+author: filippopovic
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -18,19 +18,19 @@ Take a look through these development articles to better understand key design d
 ## Key design decisions
 The following articles highlight concepts and design decisions for developing using SQL Analytics:
 
-|                                                       |   SQL Analytics pool   | SQL Analytics on-demand |
-| ----------------------------------------------------- | ---- | ---- |
-| [Connections][connections]                            | Yes | Yes |
-| [Resource classes and concurrency][concurrency] | Yes | No |
-| [Transactions][transactions]                          | Yes | No |
-| [User-defined schemas][user-defined schemas]          | Yes | Yes |
-| [Table distribution][table distribution]              | Yes | No |
-| [Table indexes][table indexes]                        | Yes | No |
-| [Table partitions][table partitions]                  | Yes | No |
-| [Statistics][statistics]                              | Yes | Yes |
-| [CTAS][CTAS]                                          | Yes | No |
-| [External tables](development-tables-external-tables) | Yes | Yes |
-| [CETAS](development-tables-cetas)                     | Yes | Yes |
+|                                                          |   SQL Analytics pool   | SQL Analytics on-demand |
+| -----------------------------------------------------    | ---- | ---- |
+| [Connections][connections]                               | Yes | Yes |
+| [Resource classes and concurrency][concurrency] | Yes    | No |
+| [Transactions][transactions]                             | Yes | No |
+| [User-defined schemas][user-defined schemas]             | Yes | Yes |
+| [Table distribution][table distribution]                 | Yes | No |
+| [Table indexes][table indexes]                           | Yes | No |
+| [Table partitions][table partitions]                     | Yes | No |
+| [Statistics][statistics]                                 | Yes | Yes |
+| [CTAS][CTAS]                                             | Yes | No |
+| [External tables](development-tables-external-tables.md) | Yes | Yes |
+| [CETAS](development-tables-cetas.md)                     | Yes | Yes |
 
 
 ## Development recommendations and coding techniques

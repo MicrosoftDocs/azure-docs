@@ -1,5 +1,5 @@
 ---
-title: BI Professional
+title: Tutorial - BI Professional | Azure Synapse Analytics
 description: In this tutorial, we will go through steps how to connect SQL on-demand with Power BI desktop.
 services: sql-data-warehouse
 author: azaricstefan
@@ -90,10 +90,9 @@ Demo data contains following data sets:
 | /release/us_population_county/                               | US population data files in Parquet format, partitioned by year using Hive/Hadoop partitioning scheme. |
 
 
-## Preparing View for Power BI Desktop
+## Preparing view for Power BI Desktop
 
-View is needed because that's the only way Power BI can get data from a SQL on-demand query.
-Databases are used only for View metadata.
+It is required to expose data as views or external tables for Power BI to consume it.
 Following query is going to create a view called "usPopulationView" inside a database with name "demo".
 
 ```sql
@@ -112,27 +111,27 @@ FROM
 
 ## Creating Power BI desktop report
 Open Power BI desktop application and select "Get data" option.
-![Open Power BI desktop application and select get data.](./media/tutorial-bi-professional/step_0_open_powerbi.png)
+![Open Power BI desktop application and select get data.](./media/tutorial-bi-professional/step-0-open-powerbi.png)
 
 ### Step 1 - Select data source
 Select "Azure" in the menu and then "Azure SQL Database".
-![Select data source.](./media/tutorial-bi-professional/step_1_select_data_source.png)
+![Select data source.](./media/tutorial-bi-professional/step-1-select-data-source.png)
 
 ### Step 2 - Select database
 Write URL for the database and name of the database where view is residing.
-![Select database on the endpoint.](./media/tutorial-bi-professional/step_2_db.png)
+![Select database on the endpoint.](./media/tutorial-bi-professional/step-2-db.png)
 
 ### Step 3 - Select view
 Select view "usPopulationView"
-![Select a View on the database that is selected.](./media/tutorial-bi-professional/step_3_select_view.png)
+![Select a View on the database that is selected.](./media/tutorial-bi-professional/step-3-select-view.png)
 
 ### Step 4 - Apply changes
 After few seconds popup will show, click "Apply changes".
-![Click apply changes.](./media/tutorial-bi-professional/step_4_apply_changes.png)
+![Click apply changes.](./media/tutorial-bi-professional/step-4-apply-changes.png)
 
 ### Step 5 - Wait for a query to finish
 After clicking "Apply changes", we should wait for a query to finish.
-![Wait for a query to finish.](./media/tutorial-bi-professional/step_5_wait_for_query_to_finish.png)
+![Wait for a query to finish.](./media/tutorial-bi-professional/step-5-wait-for-query-to-finish.png)
 
 ### Step 6 - Select columns of interest
 After loading finishes, we should select following columns (with this order):
@@ -141,7 +140,7 @@ After loading finishes, we should select following columns (with this order):
 2. population
 3. stateName
 
-![Select columns of interest to generate a map report.](./media/tutorial-bi-professional/step_6_select_columns_of_interest.png)
+![Select columns of interest to generate a map report.](./media/tutorial-bi-professional/step-6-select-columns-of-interest.png)
 
 
 ## Clean up resources
@@ -159,3 +158,11 @@ DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdataco
 ```sql
 DROP VIEW usPopulationView
 ```
+
+## Next steps
+
+
+Advance to the next article to learn how to query storage files using SQL Analytics.
+> [!div class="nextstepaction"]
+> [Query storage files](development-storage-files-overview.md)
+-

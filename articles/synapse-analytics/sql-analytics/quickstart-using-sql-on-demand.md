@@ -198,7 +198,7 @@ Files are stored in *json* container, folder *books*, and contain single book en
 
 #### Querying JSON files using JSON_VALUE
 
-Following query shows how to use [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+Following query shows how to use [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```mssql
 SELECT 

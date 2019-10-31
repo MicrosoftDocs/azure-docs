@@ -1,13 +1,13 @@
 ---
-title: Using external tables in SQL Analytics #Required; update as needed page title displayed in search results. Include the brand.
-description: #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: julieMSFT #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 09/10/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: jrasnick #Required; update with your microsoft alias of author; optional team alias.
+title: Using external tables in SQL Analytics
+description:
+services: sql-data-warehouse
+author: julieMSFT
+ms.service: sql-data-warehouse
+ms.topic: overview
+ms.subservice: design
+ms.date: 09/10/2019
+ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
@@ -168,7 +168,7 @@ Encoding = {'UTF8' | 'UTF16'}
 SQL Analytics on-demand can read UTF8 and UTF16 encoded delimited text files.
 
 DATA_COMPRESSION = *data_compression_method*
-This argument is ignored when reading from external tables. It is used only when writing to external tables using [CETAS](development-tables-cetas.md). It specifies the data compression method for the external data. 
+This argument is ignored when reading from external tables. It is used only when writing to external tables using [CETAS](development-tables-cetas.md). It specifies the data compression method for the external data.
 
 The PARQUET file format type supports the following compression methods:
 
@@ -217,19 +217,19 @@ column_name <data_type>
 
 The one to three-part name of the table to create. For an external table, SQL Analytics on-demand stores only the table metadata. No actual data is moved or stored in SQL Analytics on-demand.
 
-<column_definition> [ ,...*n* ]
+<column_definition>, ...*n* ]
 
-CREATE EXTERNAL TABLE supports the ability to configure column name, data type, nullability and collation. You can't use the DEFAULT CONSTRAINT on external tables.
+CREATE EXTERNAL TABLE supports the ability to configure column name, data type, nullability, and collation. You can't use the DEFAULT CONSTRAINT on external tables.
 
 The column definitions, including the data types and number of columns, must match the data in the external files. If there's a mismatch, the file rows will be rejected when querying the actual data.
 
-In case of reading from Parquet files you can specify only columns you want to read and skip the rest.
+In case of reading from Parquet files, you can specify only columns you want to read and skip the rest.
 
 LOCATION = '*folder_or_filepath*'
 
 Specifies the folder or the file path and file name for the actual data in Azure blob storage. The location starts from the root folder. The root folder is the data location specified in the external data source.
 
-If you specify LOCATION to be a folder, a SQL Analytics on-demand query that selects from the external table will retrieve files from the folder. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It also return files for which the file name begins with an underline (_) or a period (.).
+If you specify LOCATION to be a folder, a SQL Analytics on-demand query that selects from the external table will retrieve files from the folder. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It also returns files for which the file name begins with an underline (_) or a period (.).
 
 In this example, if LOCATION='/webdata/', a SQL Analytics on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in subfolder.
 
@@ -290,4 +290,4 @@ SELECT TOP 1 * FROM census_external_table
 ## Next steps
 
 
-Check [CETAS](development-tables-cetas.md) to save the result of query to external table in Azure Storage, or start querying [Spark tables](development-storage-spark-tables.md).
+Check [CETAS](development-tables-cetas.md) to save the result of query to external table in Azure Storage, or start querying [Spark tables](development-storage-files-spark-tables.md).

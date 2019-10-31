@@ -138,7 +138,7 @@ If possible, you can prepare files for better performance:
 - If query targets single large file you will benefit from splitting it to multiple smaller files.
 - Try keeping your CSV file size below 10GB.
 - It is preferred to have equally sized files for single OPENROWSET path or external table LOCATION
-- Partition your data by storing partitions to different folders or file names - check [use filename and filepath functions to target specific partitions](use-fileinfo-and-filepath-functions-to-target-specific-partitions)
+- Partition your data by storing partitions to different folders or file names - check [use filename and filepath functions to target specific partitions](#use-fileinfo-and-filepath-functions-to-target-specific-partitions)
 
 ### Use fileinfo and filepath functions to target specific partitions
 
