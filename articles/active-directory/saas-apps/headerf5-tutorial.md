@@ -40,19 +40,19 @@ To get started, you need the following items:
 
 1. Deploying the joint solution requires the following license:
 
-	•	F5 BIG-IP® Best bundle (or) 
+	* F5 BIG-IP® Best bundle (or) 
 
-	•	F5 BIG-IP Access Policy Manager™ (APM) standalone license 
+	* F5 BIG-IP Access Policy Manager™ (APM) standalone license 
 
-	•	F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM).
+	* F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM).
 
-	•	In addition to the above license, the F5 system may also be licensed with: 
+	* In addition to the above license, the F5 system may also be licensed with: 
 
-	*	A URL Filtering subscription to use the URL category database
+		* A URL Filtering subscription to use the URL category database
 
-	*	An F5 IP Intelligence subscription to detect and block known attackers and malicious traffic
+		* An F5 IP Intelligence subscription to detect and block known attackers and malicious traffic
 	 
-	*	A network hardware security module (HSM) to safeguard and manage digital keys for strong authentication
+		* A network hardware security module (HSM) to safeguard and manage digital keys for strong authentication
 
 2.	F5 BIG-IP system is provisioned with APM modules (LTM is optional)
 
@@ -220,7 +220,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
 1. Additionally, you will require **SSL Certificate for the Application Hostname. Navigate to System > Certificate Management > Traffic Certificate Management > SSL Certificate List**. Select **Import** from the right-hand corner. **Import Type** will be **PKCS 12(IIS)**. Specify a **Key Name** (will be referenced Later in the config) and the specify the PFX file. Specify the **Password** for the PFX. Click **Import**.
 
-	>![NOTE]
+	>[!NOTE]
 	>In the example our app name is `Headerapp.superdemo.live`, we are using a Wild Card Certificate our keyname is `WildCard-SuperDemo.live`.
 
 	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure13.png)
@@ -237,7 +237,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In this example we are creating a new Virtual Server as 192.168.30.20 with port 443.	Specify the Virtual Server IP address in the **Destination Address**. Select the Client **SSL Profile**, select Create new. Specify previously uploaded application certificate, (the wild card certificate in this example) and the associated key, and then click **Save & Next**.
 
-	>![NOTE]
+	>[!NOTE]
 	>in this example our Internal webserver is running on port 888 and we want to publish it with 443.
 
 	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure04.png) 
@@ -260,7 +260,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	Refer Appendix for complete list of variables and values. You can add more headers as required.
 
-	>![NOTE]
+	>[!NOTE]
 	>Account Name Is the F5 Delegation Account Created (Check F5 Documentation).
 
 	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure07.png) 
