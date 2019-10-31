@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure SQL Pool - VSTS | Microsoft Docs
+title: Connect to Azure SQL Pool - Visual Studio Team Services | Microsoft Docs
 description: Query SQL Pool with Visual Studio.
 services: sql-data-warehouse
 author: azaricstefan 

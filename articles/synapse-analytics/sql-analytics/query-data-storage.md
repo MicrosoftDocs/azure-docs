@@ -39,7 +39,7 @@ Parameters:
 | Username and password for endpoint access | Will be used to access endpoint                               |
 | Database you will use to create views     | This database will be used as starting point in samples       |
 
-## First time setup
+## First-time setup
 
 There are two steps prior to using samples:
 
@@ -160,7 +160,7 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/json'
 ```
 
-If you can't find appropriate credential, check [First time setup](#first-time-setup).
+If you can't find appropriate credential, check [First-time setup](#first-time-setup).
 
 ### Sample query
 

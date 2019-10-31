@@ -35,7 +35,7 @@ Parameters:
 | Username and password for endpoint access | Will be used to access endpoint                               |
 | Database you will use to create views     | This database will be used as starting point in samples       |
 
-## First time setup
+## First-time setup
 
 There are two steps prior to using samples:
 

@@ -22,7 +22,7 @@ We will show how to query folders and multiple CSV files in following sections.
 ## Prerequisites
 
 Before reading rest of the article make sure to check following articles:
-- [First time setup](query-data-storage.md#first-time-setup)
+- [First-time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
