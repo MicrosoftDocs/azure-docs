@@ -1,5 +1,5 @@
 ---
-title: Managing tokens (Microsoft Authentication Library) 
+title: Acquire and cache tokens using MSAL
 titleSuffix: Microsoft identity platform
 description: Learn about acquiring and caching tokens using the Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -22,7 +22,8 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Acquiring and caching tokens using MSAL
+# Acquire and cache tokens using the Microsoft authentication library (MSAL)
+
 [Access tokens](access-tokens.md) enable clients to securely call web APIs protected by Azure. There are many ways to acquire a token using Microsoft Authentication Library (MSAL). Some ways require user interactions through a web browser. Some don't require any user interactions. In general, the way to acquire a token depends on if the application is a public client application (desktop or mobile app) or a confidential client application (Web App, Web API, or daemon application like a Windows service).
 
 MSAL caches a token after it has been acquired.  Application code should try to get a token silently (from the cache), first, before acquiring a token by other means.
