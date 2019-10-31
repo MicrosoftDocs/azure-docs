@@ -1,5 +1,5 @@
 ---
-title: Create an FSLogix profile container for a host pool using a virtual machine-based file share  - Azure
+title: Create FSLogix profile container host pool file share - Azure
 description: How to set up an FSLogix profile container for a Windows Virtual Desktop host pool using a virtual machine-based file share.
 services: virtual-desktop
 author: Heidilohr

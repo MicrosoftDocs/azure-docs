@@ -1,5 +1,5 @@
 ---
-title: Session host virtual machine configuration - Azure
+title: Troubleshoot Windows Virtual Desktop session host - Azure
 description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
 services: virtual-desktop
 author: Heidilohr
