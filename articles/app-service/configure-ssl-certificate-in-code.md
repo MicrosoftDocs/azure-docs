@@ -1,65 +1,51 @@
 ---
-title: Use client SSL certificate in application code - Azure App Service | Microsoft Docs
+title: Use SSL certificate in application code - Azure App Service | Microsoft Docs
 description: Learn how to use client certificates to connect to remote resources that require them.
-services: app-service\web
+services: app-service
 documentationcenter: 
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 
-ms.service: app-service-web
+ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 10/16/2019
 ms.author: cephalin
+ms.reviewer: yutlin
 ms.custom: seodec18
 
 ---
 
 # Use an SSL certificate in your application code in Azure App Service
 
-This how-to guide shows how to use public or private certificates in your application code. An example of the use case is that your app accesses an external service that requires certificate authentication.
+Your App Service app code may act as a client and access an external service that requires certificate authentication. This how-to guide shows how to use public or private certificates in your application code.
 
 This approach to using certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above. Alternatively, you can [include the certificate file in your app repository](#load-certificate-from-file), but it's not a recommended practice for private certificates.
 
 When you let App Service manage your SSL certificates, you can maintain the certificates and your application code separately and safeguard your sensitive data.
 
-## Upload a private certificate
+## Prerequisites
 
-Before uploading a private certificate, make sure [it satisfies all the requirements](app-service-web-tutorial-custom-ssl.md#prepare-a-private-certificate), except that it doesn't need to be configured for Server Authentication.
+To follow this how-to guide:
 
-When you're ready to upload, run the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+- [Create an App Service app](/azure/app-service/)
+- [Add a certificate to your app](configure-ssl-certificate.md)
 
-```azurecli-interactive
-az webapp config ssl upload --name <app-name> --resource-group <resource-group-name> --certificate-file <path-to-PFX-file> --certificate-password <PFX-password> --query thumbprint
-```
+## Find the thumbprint
 
-Copy the certificate thumbprint and see [Make the certificate accessible](#make-the-certificate-accessible).
+In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from the left menu, select **App Services** > **\<app-name>**.
 
-## Upload a public certificate
+From the left navigation of your app, select **TLS/SSL settings**, then select **Private Key Certificates (.pfx)** or **Public Key Certificates (.cer)**.
 
-Public certificates are supported in the *.cer* format. To upload a public certificate, the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, and navigate to your app.
+Find the certificate you want to use and copy the thumbprint.
 
-Click **SSL settings** > **Public Certificates (.cer)** > **Upload Public Certificate** from the left navigation of your app.
+![Copy the certificate thumbprint](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
-In **Name**, type a name for the certificate. In **CER Certificate file**, select your CER file.
+## Load the certificate
 
-Click **Upload**.
-
-![Upload public certificate](./media/app-service-web-ssl-cert-load/private-cert-upload.png)
-
-Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](#make-the-certificate-accessible).
-
-## Import an App Service certificate
-
-See [Buy and configure an SSL certificate for Azure App Service](web-sites-purchase-ssl-web-site.md).
-
-Once the certificate is imported, copy the certificate thumbprint and see [Make the certificate accessible](#make-the-certificate-accessible).
-
-## Make the certificate accessible
-
-To use an uploaded or imported certificate in your app code, make its thumbprint accessible with the `WEBSITE_LOAD_CERTIFICATES` app setting, by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+To use a certificate in your app code, add its thumbprint to the `WEBSITE_LOAD_CERTIFICATES` app setting, by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
@@ -68,12 +54,8 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 To make all your certificates accessible, set the value to `*`.
 
 > [!NOTE]
-> This setting places the specified certificates in the [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store for most pricing tiers, but if your app is running on the **Isolated** tier (i.e. app runs in an [App Service Environment](environment/intro.md)), you may need to check in the [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store instead.
+> This setting places the specified certificates in the [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store for most pricing tiers, but in the **Isolated** tier (i.e. app runs in an [App Service Environment](environment/intro.md)), it places the certificates in the [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store.
 >
-
-![Configure app setting](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
-
-When finished, click **Save**.
 
 The configured certificates are now ready to be used by your code.
 
@@ -128,3 +110,10 @@ string certPath = Server.MapPath("~/certs/mycert.pfx");
 X509Certificate2 cert = GetCertificate(certPath, signatureBlob.Thumbprint);
 ...
 ```
+
+## More resources
+
+* [Secure a custom DNS name with an SSL binding](configure-ssl-bindings.md)
+* [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
+* [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
+* [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
