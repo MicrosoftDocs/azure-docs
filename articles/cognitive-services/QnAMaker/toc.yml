@@ -148,6 +148,10 @@
     href: limits.md    
   - name: Troubleshooting
     href: troubleshooting.md
+  - name: File formats
+    items: 
+    - name: Batch testing TSV
+      href: reference-tsv-format-batch-testing.md
   - name: REST API Reference
     items: 
     - name: Authoring APIs
@@ -157,6 +161,7 @@
     - name: Train API
       href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train
     href: https://go.microsoft.com/fwlink/?linkid=2092179 
+
   - name: Samples
     items: 
     - name: QnA Maker help bot
