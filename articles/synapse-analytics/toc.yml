@@ -343,7 +343,7 @@
         - name: User-defined schemas
           href: sql-analytics/development-user-defined-schemas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Variable assignment
-          href: sql-analytics/sql-analytics-develop-variable-assignment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-variable-assignment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Views
           href: sql-analytics/development-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Querying
