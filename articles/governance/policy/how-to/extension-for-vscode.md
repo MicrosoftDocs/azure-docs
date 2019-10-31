@@ -106,7 +106,7 @@ The Azure Policy extension lists resources in the selected subscriptions by Reso
 resource group in the **Resources** pane. The treeview includes the following groupings of resources
 within the selected subscription or at the subscription level:
 
-- **Provider Resources**
+- **Resource Providers**
   - Each registered Resource Provider with resources and related child resources that have policy
     aliases
 - **Resource Groups**
