@@ -489,6 +489,8 @@
           href: service-fabric-application-secret-management-windows.md
         - name: Set up an encryption certificate and encrypt secrets on Linux
           href: service-fabric-application-secret-management-linux.md
+        - name: Securely store secrets with KeyVaultReference (preview)
+          href: service-fabric-keyvault-references.md
       - name: Configure reverse proxy for secure communication
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Run a service startup script as a local user or system account
