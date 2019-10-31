@@ -128,7 +128,7 @@ Without the `--repo-login` parameter, this command uses the public model reposit
 Invoke a command:
 
 ```cmd/sh
-az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --command-name {CommandName} --command-payload {CommandPayload or FilePath}
+az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --cn {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
 #### Digital twin events
@@ -136,13 +136,13 @@ az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} 
 Monitor all IoT Plug and Play digital twin events from a specific device and interface going to the **$Default** event hub consumer group:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID}
 ```
 
 Monitor all IoT Plug and Play digital twin events from a specific device and interface going a specific consumer group:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString} --consumer-group {YourConsumerGroup}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --consumer-group {YourConsumerGroup}
 ```
 
 ### Manage interfaces in a model repository
