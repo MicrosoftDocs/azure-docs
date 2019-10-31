@@ -64,6 +64,7 @@ FROM
     ) AS [r]
 ```
 
+> [!NOTE]
 > Note that we are reading entire JSON file as single row/column so FIELDTERMINATOR, FIELDQUOTE and ROWTERMINATOR are set to 0x0b.
 
 
