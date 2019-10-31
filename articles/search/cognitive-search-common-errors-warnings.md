@@ -221,3 +221,5 @@ It is possible to override this behavior, enabling incremental progress and supp
 
 ### Truncated extracted text to X characters
 Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, and 4 million for Standard, Standard S2 and Standard S3 tiers. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
+
+[More information about indexer limits.](https://go.microsoft.com/fwlink/?linkid=2109692)
