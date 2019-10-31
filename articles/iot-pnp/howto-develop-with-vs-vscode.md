@@ -161,7 +161,15 @@ To build the device code together with the device C SDK on Windows using CMake a
 
 1. In the **CMake Settings**, add a new configuration and select **x86-Debug** as target.
 
-1. Save the file and switch to **x86-Debug** in the **Configurations** dropdown. It needs a few seconds for the CMake to generate the cache for it. View the Output window to see the progress.
+1. In **CMake Command Arguments**, add following line:
+
+    ```txt
+    -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
+    ```
+
+1. Save the file.
+
+1. Switch to **x86-Debug** in the **Configurations** dropdown. It needs a few seconds for the CMake to generate the cache for it. View the Output window to see the progress.
 
     ![CMake Output](media/howto-develop-with-vs-vscode/vs-cmake-output.png)
 
