@@ -705,7 +705,7 @@
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/
-  - name: SQL Data Warehouse
+  - name: Synapse Analytics
     tocHref: /azure/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/
   - name: SQL Database
