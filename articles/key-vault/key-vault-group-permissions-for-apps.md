@@ -158,7 +158,7 @@ Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys
 
 You can create an Azure AD group, add applications and users to the group, and give the group access to your key vault.  This allows you to add a number of applications to a key vault as a single access policy entry, and eliminates the need to give users direct access to your key vault (which we discourage). For more details, see [Manage app and resource access using Azure Active Directory groups](../active-directory/fundamentals/active-directory-manage-groups.md).
 
-### Addition prerequisites
+### Additional prerequisites
 
 In addition to the [prerequisites above](#prerequisites), you will need permissions to create/edit groups in your Azure Active Directory tenant. If you don't have permissions, you may need to contact your Azure Active Directory administrator.
 
