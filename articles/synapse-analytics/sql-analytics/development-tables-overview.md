@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 
 This document is related to key concepts for designing tables in Azure SQL Analytics pool. 
 
-[SQL Analytics on-demand](sql-analytics-on-demand.md) is a query service over the data in your data lake. It has no local storage that you can ingest data to. Therefore some topics described in this document do not apply to SQL Analytics on-demand. Table below shows which topics are related to SQL Analytics pool and on-demand:
+[SQL Analytics on-demand](on-demand.md) is a query service over the data in your data lake. It has no local storage that you can ingest data to. Therefore some topics described in this document do not apply to SQL Analytics on-demand. Table below shows which topics are related to SQL Analytics pool and on-demand:
 
 | Topic                                                        | SQL Analytics pool | SQL Analytics on-demand |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |

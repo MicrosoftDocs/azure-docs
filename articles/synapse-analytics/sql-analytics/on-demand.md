@@ -1,5 +1,5 @@
 ---
-title: What is SQL Analytics on-demand #Required; update as needed page title displayed in search results. Include the brand.
+title: What is SQL Analytics on-demand
 description: SQL Analytics on-demand overview
 services: sql-data-warehouse
 author: filippopovic
@@ -37,7 +37,7 @@ Different professional roles can benefit from SQL Analytics on-demand:
 - Data Analysts can explore data and Spark tables created by Data Scientists or Data Engineers using familiar T-SQL language or their favorite tools that can connect to SQL on-demand
 - BI Professionals can quickly create Power BI reports on top of data in the lake and Spark tables 
 
-
-
 ## Next steps
 
+- [Connect to your endpoint](connect-overview.md)
+- [Query your files](development-storage-files-overview.md)
