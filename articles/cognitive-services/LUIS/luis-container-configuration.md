@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/04/2019
 ms.author: dapine
 ---
 
@@ -59,12 +59,9 @@ This setting can be found in the following places:
 * Azure portal: **Cognitive Services** Overview, labeled `Endpoint`
 * LUIS portal: **Keys and Endpoint settings** page, as part of the endpoint URI.
 
-Remember to include the `luis/v2.0` routing in the URL as shown in the following table:
-
-
-|Required| Name | Data type | Description |
-|--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+| Required | Name | Data type | Description |
+|----------|------|-----------|-------------|
+| Yes      | `Billing` | string | Billing endpoint URI. |
 
 ## Eula setting
 
@@ -74,7 +71,7 @@ Remember to include the `luis/v2.0` routing in the URL as shown in the following
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## Http proxy credentials settings
+## HTTP proxy credentials settings
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -104,8 +101,6 @@ The following examples use the configuration settings to illustrate how to write
 * These examples use the directory off the `C:` drive to avoid any permission conflicts on Windows. If you need to use a specific directory as the input directory, you may need to grant the docker service permission. 
 * Do not change the order of the arguments unless you are very familiar with docker containers.
 * If you are using a different operating system, use the correct console/terminal, folder syntax for mounts, and line continuation character for your system. These examples assume a Windows console with a line continuation character `^`. Because the container is a Linux operating system, the target mount uses a Linux-style folder syntax.
-
-Remember to include the `luis/v2.0` routing in the URL as shown in the following table.
 
 Replace {_argument_name_} with your own values:
 

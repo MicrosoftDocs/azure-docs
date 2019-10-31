@@ -124,6 +124,8 @@
         href: point-to-site-how-to-vpn-client-install-azure-cert.md
       - name: Create and install VPN client configuration files
         href: point-to-site-vpn-client-configuration-azure-cert.md
+      - name: About the client VPN profile download file
+        href: about-vpn-profile-download.md
     - name: RADIUS authentication
       items:
       - name: Configure a P2S VPN
@@ -138,6 +140,14 @@
         href: vpn-gateway-howto-openvpn.md
       - name: Configure OpenVPN clients
         href: vpn-gateway-howto-openvpn-clients.md
+      - name: Open VPN - Azure Active Directory Authentication
+        items:
+        - name: Configure an Azure AD tenant
+          href: openvpn-azure-ad-tenant.md
+        - name: Configure a VPN client - Azure AD
+          href: openvpn-azure-ad-client.md
+    - name: Transition to a public CA gateway certificate for P2S
+      href: vpn-gateway-point-to-site-gateway-public-ca.md
     - name: Configure an Always On VPN device tunnel
       href: vpn-gateway-howto-always-on-device-tunnel.md
     - name: Configure an Always On VPN user tunnel
@@ -187,7 +197,11 @@
     - name: Set up alerts based on metrics
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
     - name: Set up alerts based on diagnostic log
-      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md    
+      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md 
+  - name: Configure packet captures 
+    href: packet-capture.md
+  - name: Configure custom traffic selectors
+    href: custom-traffic-selectors.md  
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:
@@ -203,6 +217,8 @@
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
       - name: Point-to-Site connection problems - Mac OS X VPN client
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
+      - name: Point-to-Site - Azure AD authentication
+        href: troubleshoot-ad-vpn-client.md
     - name: Site-to-Site connection issues
       items:
       - name: Site-to-Site connections

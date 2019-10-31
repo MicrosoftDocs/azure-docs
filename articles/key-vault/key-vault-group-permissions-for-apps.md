@@ -79,7 +79,7 @@ You can add multiple applications and users to an Azure AD group, and then give 
 To find the objectId of an Azure AD group with the Azure CLI, use the [az ad group list](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) command. Because of the large number of groups that may be in your organization, you should also provide a search string to the `--display-name` parameter.
 
 ```azurecli-interactive
-az ad group list --displayname <search-string>
+az ad group list --display-name <search-string>
 ```
 The objectId will be returned in the JSON:
 
