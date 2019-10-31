@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Arc
-summary: Azure Arc extends Azure Resource Manager capabilities to Linux and Windows servers,as well as Kubernetes clusters on any infrastructure across on-premises, multi-cloud and edge. With Azure Arc, customers can also run Azure data services anywhere, realizing the benefits of cloud innovation, including always up-to-date data capabilities, deployment in seconds (rather than hours), and dynamic scalability on any infrastructure. Azure Arc server management is currently in public preview.
+summary: Azure Arc extends Azure Resource Manager capabilities to Linux and Windows servers, as well as Kubernetes clusters on any infrastructure across on-premises, multi-cloud, and edge. With Azure Arc, customers can also run Azure data services anywhere, realizing the benefits of cloud innovation, including always up-to-date data capabilities, deployment in seconds (rather than hours), and dynamic scalability on any infrastructure. Azure Arc server management is currently in public preview.
 
 metadata:
   title: Azure Arc for servers
