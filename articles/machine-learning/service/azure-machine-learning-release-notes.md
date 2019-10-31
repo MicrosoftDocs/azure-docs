@@ -471,7 +471,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Fixed transformations argument for LIME explainer for raw feature importance in azureml-contrib-explain-model package
     + added segmentations to image explanations in image explainer for AzureML-contrib-explain-model package
     + add scipy sparse support for LimeExplainer
-    + add batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
+    + added `batch_size` to mimic explainer when `include_local=False`, for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
   + **azureml-contrib-featureengineering**
     + Fix for calling set_featurizer_timeseries_params(): dict value type change and null check - Add notebook for timeseries featurizer
     + Update NimbusML dependency to 1.2.0 version (current latest).
@@ -500,7 +500,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + for mimic explainer in explain model library, fixed error when include_local=False for sparse data input
     + add expected values to automl output
     + fixed permutation feature importance when transformations argument supplied to get raw feature importance
-    + add batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
+    + added `batch_size` to mimic explainer when `include_local=False`, for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
     + for model explainability library, fixed blackbox explainers where pandas dataframe input is required for prediction
     + Fixed a bug where `explanation.expected_values` would sometimes return a float rather than a list with a float in it.
   + **azureml-mlflow**
