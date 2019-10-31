@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Bing Autosuggest Documentation 
-summary: The Bing Autosuggest API lets you send partial search queries term to Bing, and get a list of suggestions that others have searched for. Call the API to populate search boxes and drop-down lists in your app with suggestions, as your users type.
+summary: The Bing Autosuggest API lets you send partial search queries terms to Bing, and get a list of suggestions that others have searched for. Call the API to populate search boxes and drop-down lists in your app with suggestions, as your users type.
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
   title: Bing Autosuggest Documentation - Tutorials, quickstarts, API references
@@ -46,7 +46,7 @@ landingContent:
       links:
         - text: Using suggested terms
           url: concepts/get-suggestions.md
-        - text: sending API requests
+        - text: Sending API requests
           url: quickstarts/csharp.md
 
 - title: Reference
