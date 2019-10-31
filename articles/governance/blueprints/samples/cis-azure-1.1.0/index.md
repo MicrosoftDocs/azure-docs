@@ -1,6 +1,6 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark blueprint sample - Overview
-description: Overview of the CIS Microsoft Azure Foundations Benchmark blueprint sample. This blueprint sample helps customers asses specific controls.
+description: Overview of the CIS Microsoft Azure Foundations Benchmark blueprint sample. This blueprint sample helps customers assess specific controls.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/09/2019
