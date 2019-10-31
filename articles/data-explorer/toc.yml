@@ -162,10 +162,10 @@
         href: delete-data.md
       - name: Deal with duplicate data
         href: dealing-with-duplicates.md
-    - name: Deploy
-      items:
-      - name: Deploy your cluster into your virtual network
-        href: vnet-deployment.md  
+  - name: Deploy
+    items:
+    - name: Deploy your cluster into your VNet
+      href: vnet-deployment.md  
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor ingestion
