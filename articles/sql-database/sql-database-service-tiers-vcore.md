@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database service - vCore purchasing model | Microsoft Docs'
+title: 'Azure SQL Database service - vCore model overview | Microsoft Docs'
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price.
 services: sql-database
 ms.service: sql-database
@@ -10,9 +10,9 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/04/2019
 ---
-# vCore purchasing model
+# vCore model overview
 
-The virtual core (vCore) purchasing model provides several benefits:
+The virtual core (vCore) model provides several benefits:
 
 - Higher compute, memory, IO, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
@@ -67,7 +67,7 @@ Hardware generation options in the vCore model include Gen 4/5, M-series (previe
 
 - Gen4/Gen5 hardware provides balanced compute and memory resources, and is suitable for most database workloads that do not have higher memory, higher vCore, or faster single vCore requirements as provided by Fsv2-series or M-series.
 
-For regions where Gen4/Gen5 is available, see [Gen4/Gen5](#gen4gen5).
+For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5-1).
 
 ### Fsv2-series (preview)
 
@@ -75,7 +75,7 @@ For regions where Gen4/Gen5 is available, see [Gen4/Gen5](#gen4gen5).
 - Depending on the workload, Fsv2-series can deliver more CPU performance per vCore than Gen5, and the 72 vCore size can provide more CPU performance for less cost than 80 vCores on Gen5. 
 - Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.  
 
-For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series-availability).
+For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series).
 
 
 ### M-series (preview)
@@ -83,7 +83,7 @@ For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2
 - M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
 - M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
 
-To enable M-series hardware for a subscription and region, a support request must be open. If the support request is approved, creating or scaling databases as M-series follows the same process as working with other hardware generations. For regions where M-series is available, see [M-series availability](#m-series-availability).
+To enable M-series hardware for a subscription and region, a support request must be open. If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
 
 
 ### Compute and memory specifications
@@ -101,9 +101,9 @@ For more information on resource limits, see [Resource limits for single databas
 
 ### Selecting a hardware generation
 
-In the Azure portal, you can select the hardware generation for a SQL database at the time of creation, or you can change the hardware generation of an existing SQL database.
+In the Azure portal, you can select the hardware generation for a SQL database or pool at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
 
-**To select a hardware generation when creating a SQL database**
+**To select a hardware generation when creating a SQL database or pool**
 
 For detailed information, see [Create a SQL database](sql-database-single-database-get-started.md).
 
@@ -116,11 +116,13 @@ Select the desired hardware generation:
   ![select hardware](media/sql-database-service-tiers-vcore/select-hardware.png)
 
 
-**To change the hardware generation of an existing SQL database**
+**To change the hardware generation of an existing SQL database or pool**
 
-On the database's Overview page, select the **Pricing tier** link:
+For a database, on the Overview page, select the **Pricing tier** link:
 
   ![change hardware](media/sql-database-service-tiers-vcore/change-hardware.png)
+
+For a pool, on the Overview page, select **Configure**.
 
 Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
 
@@ -132,13 +134,13 @@ New Gen4 databases are no longer supported in the Australia East or Brazil South
 
 Gen5 is available in most regions worldwide.
 
-#### Fsv2-series availability
+#### Fsv2-series
 
 Fsv2-series is available in the following regions:
 Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, East Asia, East Us, France Central, India Central, India West, Korea Central, Korea South, North Europe, South Africa North, Southeast Asia, UK South, UK West, West Europe, West Us 2.
 
 
-#### M-series availability
+#### M-series
 
 M-series is available in the following regions:
 East US, North Europe, West Europe, West US 2.
@@ -164,12 +166,14 @@ On the **Details** page, provide the following:
 5. In the **PROBLEM DETAILS** section select the **Provide details** link. 
 6. For **SQL Database quota type** select **M-series**.
 7. For **Region**, select the region to enable M-series.
-    For regions where M-series is available, see [M-series availability](#m-series-availability).
+    For regions where M-series is available, see [M-series availability](#m-series).
 
 Approved support requests are typically fulfilled within 5 business days.
 
 
 ## Next steps
 
+- To create a SQL database, see [Creating a SQL database using the Azure portal](sql-database-single-database-get-started.md).
 - For the specific compute sizes and storage size choices available for single databases, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md).
 - For the specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
+- For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).
