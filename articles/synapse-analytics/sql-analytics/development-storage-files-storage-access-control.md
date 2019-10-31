@@ -45,7 +45,7 @@ over the type of access you grant to clients who have the SAS: validity interval
 > **Note**
 >
 > You can get a SAS token by navigating to Azure Portal -> Storage Account -> Shared access signature -> Configure permissions -> Generate SAS and connection string. **Note that when SAS token is generated it includes the '?' in the beginning of the token. To use the token in SQL Analytics on-demand, you must remove the '?' when creating a credential.**
->
+> [!NOTE]
 > Example: 
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 >
@@ -55,7 +55,7 @@ over the type of access you grant to clients who have the SAS: validity interval
 **User Identity** (also known as “pass-through”) is authorization type where the identity of the AAD user that logged into
 SQL Analytics on-demand is used to authorize the access to data. Before accessing the data, Azure Storage administrator must grant permissions to AAD user for accessing the data. This authorization type uses AAD user that logged into SQL Analytics on-demand, therefore it’s not supported for SQL user type.
 
->**Note**
+> [!NOTE]
 > 
 >To be able to user your identity to access the data you need to have Storage Blob Data Owner/Contributor/Reader role.
 > Even if you are an Owner of a Storage Account, you will still need to add yourself into one of the Storage Blob Data roles.
@@ -187,11 +187,11 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public]
 
 When authorizing queries, lookup of credential to be used to access storage account will be based on following rules:
 
-1. If user is logged in as AAD login
+- If user is logged in as AAD login
 
    - if UserIdentity credential exists and user has reference permissions on it, AAD pass-through will be used, otherwise [lookup credential by path](#lookup-credential-by-path)
 
-2. If user is logged in as SQL login
+- If user is logged in as SQL login
 
    - [lookup credential by path](#lookup-credential-by-path)
 
