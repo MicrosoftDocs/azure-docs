@@ -17,7 +17,7 @@ Get started with the Azure Blob storage client library v12 for .NET. Azure Blob 
 Use the Azure Blob storage client library v12 for .NET to:
 
 * Create a container
-* Create a blob in Azure Storage
+* Upload a blob to Azure Storage
 * List all of the blobs in a container
 * Download the blob to your local computer
 * Delete a container

@@ -17,7 +17,7 @@ Get started with the Azure Blob storage client library v12 for Python. Azure Blo
 Use the Azure Blob storage client library to:
 
 * Create a container
-* Create a blob in Azure Storage
+* Upload a blob to Azure Storage
 * List all of the blobs in a container
 * Download the blob to your local computer
 * Delete a container
@@ -28,7 +28,7 @@ Use the Azure Blob storage client library to:
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Current [Python](https://www.python.org/downloads/) for your operating system.
+* [Python](https://www.python.org/downloads/) for your operating system - 2.7, 3.5 or above
 
 ## Setting up
 
@@ -255,7 +255,7 @@ download_file_path = os.path.join(local_path, str.replace(local_file_name ,'.txt
 print("\nDownloading blob to \n\t" + download_file_path)
 
 with open(download_file_path, "wb") as download_file:
-    download_file.writelines(blob_client.download_blob())
+    download_file.write(blob_client.download_blob().readall())
 ```
 
 ### Delete a container
