@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 06/05/2019
+ms.date: 11/01/2019
 ms.custom: seodec18
 ---
 
@@ -93,12 +93,12 @@ The "Bek volume" is a local data volume that securely stores the encryption keys
 
 ## What encryption method does Azure Disk Encryption use?
 
-Azure Disk Encryption uses the strongest encryption method available in BitLocker for each version of Windows as follows:
+Azure Disk Encryption selects the encryption method in BitLocker based on the version of Windows as follows:
 
 | Windows Versions                 | Version | Encryption Method        |
 |----------------------------------|--------|--------------------------|
 | Windows Server 2012, Windows 10, or greater  | >=1511 |XTS-AES 256 bit           |
-| Windows Server 2012 or Windows 8 | < 1511 |AES 256 bit *              |
+| Windows Server 2012, Windows 8, 8.1, 10 | < 1511 |AES 256 bit *              |
 | Windows Server 2008R2            |        |AES 256 bit with Diffuser |
 
 \* AES 256 bit with Diffuser isn't supported in Windows 2012 and later.
