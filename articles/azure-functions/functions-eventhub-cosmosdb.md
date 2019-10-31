@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Use Java with Azure Functions to update a Cosmos DB in response to Event Hub events'
-description: This tutorial shows you how to consume Event Hub events and produce Cosmos DB updates using an Azure Function written in Java
+description: This tutorial shows you how to consume events from Event Hubs to make updates in Azure Cosmos DB using a function written in Java.
 author: KarlErickson
 manager: barbkess
 ms.service: azure-functions
@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: karler
-#Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Cosmos DB.
+#Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Azure Cosmos DB.
 ---
 
-# Tutorial: Create an Azure function in Java with an Event Hub trigger and Cosmos DB output binding
+# Tutorial: Create a function in Java with an Event Hub trigger an Azure Cosmos DB output binding
 
-This tutorial shows you how to create an Azure Function in Java that analyzes a continuous stream of temperature and pressure data. Event Hub events that represent sensor readings trigger the function. The function processes the event data, then adds status entries to a Cosmos DB.
+This tutorial shows you how to use Azure Functions to create a Java function that analyzes a continuous stream of temperature and pressure data. Event hub events that represent sensor readings trigger the function. The function processes the event data, then adds status entries to an Azure Cosmos DB.
 
 In this tutorial, you'll:
 
@@ -100,9 +100,9 @@ az eventhubs eventhub authorization-rule create \
     --rights Listen Send
 ```
 
-The Event Hubs namespace contains the actual event hub and its authorization rule. The authorization rule enables your functions to send messages to the hub and listen for the corresponding events. One function will send messages that represent telemetry data. Another function will listen for events, then analyze the event data and store the results in a Cosmos DB.
+The Event Hubs namespace contains the actual event hub and its authorization rule. The authorization rule enables your functions to send messages to the hub and listen for the corresponding events. One function sends messages that represent telemetry data. Another function listens for events, analyzes the event data, and stores the results in Azure Cosmos DB.
 
-### Create a Cosmos DB
+### Create a Azure Cosmos DB
 
 Next, create an Azure Cosmos DB account, database, and collection using the following commands:
 
@@ -126,7 +126,7 @@ The `partition-key-path` value partitions your data based on the `temperatureSta
 
 ### Create a storage account and function app
 
-Next, create an Azure Storage account to host your Azure Functions app, then create the function app. Use the following commands:
+Next, create an Azure Storage account, which is required by Azure Functions, then create the function app. Use the following commands:
 
 ```azurecli-interactive
 az storage account create \
@@ -141,7 +141,7 @@ az functionapp create \
     --runtime java
 ```
 
-When the `az functionapp create` command creates your Azure Functions app, it also creates an Application Insights resource with the same name. The function app is automatically configured with a setting named `APPINSIGHTS_INSTRUMENTATIONKEY` that connects it to Application Insights. You can view app telemetry after you deploy your functions to Azure, as described later in this tutorial.
+When the `az functionapp create` command creates your functions app, it also creates an Application Insights resource with the same name. The function app is automatically configured with a setting named `APPINSIGHTS_INSTRUMENTATIONKEY` that connects it to Application Insights. You can view app telemetry after you deploy your functions to Azure, as described later in this tutorial.
 
 ## Configure your function app
 
@@ -237,7 +237,7 @@ rm -r src/test
 
 ### Retrieve your function app settings for local use
 
-For local testing, your function project will need the connection strings that you added to your Azure Functions account earlier in this tutorial. Use the following Azure Functions Core Tools command to retrieve all the function app settings stored in the cloud, and add them to your `local.settings.json` file:
+For local testing, your function project will need the connection strings that you added to your function app in Azure earlier in this tutorial. Use the following Azure Functions Core Tools command, which retrieves all the function app settings stored in the cloud and adds them to your `local.settings.json` file:
 
 ```bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
@@ -320,7 +320,7 @@ public class Function {
 
 As you can see, this file contains two functions, `generateSensorData` and `processSensorData`. The `generateSensorData` function simulates a sensor that sends temperature and pressure readings to the event hub. A timer trigger runs the function every 10 seconds, and an event hub output binding sends the return value to the event hub.
 
-When the event hub receives the message, it generates an event. The `processSensorData` function runs when it receives the event. It then processes the event data and uses a Cosmos DB output binding to send the results to Cosmos DB.
+When the event hub receives the message, it generates an event. The `processSensorData` function runs when it receives the event. It then processes the event data and uses an Azure Cosmos DB output binding to send the results to Azure Cosmos DB.
 
 The data used by these functions is stored using a class called `TelemetryItem`, which you'll need to implement. Create a new file called `TelemetryItem.java` in the same location as `Function.java` and add the following code:
 
@@ -383,7 +383,7 @@ public class TelemetryItem {
 
 ### Run locally
 
-You can now build and run the functions locally and see data appear in your Cosmos DB.
+You can now build and run the functions locally and see data appear in your Azure Cosmos DB.
 
 Use the following Maven commands to build and run the functions:
 
@@ -405,7 +405,7 @@ After some build and startup messages, you'll see output similar to the followin
 [10/22/19 4:01:38 AM] Executed 'Functions.processSensorData' (Succeeded, Id=1cf0382b-0c98-4cc8-9240-ee2a2f71800d)
 ```
 
-You can then go to the Azure portal and navigate to your Cosmos DB account. Select **Data Explorer**, expand **TelemetryInfo**, then select **Items** to view your data when it arrives.
+You can then go to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Select **Data Explorer**, expand **TelemetryInfo**, then select **Items** to view your data when it arrives.
 
 ![Cosmos DB Data Explorer](media/functions-eventhub-cosmosdb/data-explorer.png)
 
@@ -419,7 +419,7 @@ Deploy your project to Azure using the following command:
 mvn azure-functions:deploy
 ```
 
-Your functions will now run in Azure, and continue to accumulate data in your Cosmos DB. You can view your deployed function app in the Azure portal, and view app telemetry through the connected Application Insights resource, as shown in the following screenshots:
+Your functions now runs in Azure, and continues to accumulate data in your Azure Cosmos DB. You can view your deployed function app in the Azure portal, and view app telemetry through the connected Application Insights resource, as shown in the following screenshots:
 
 **Live Metrics Stream:**
 
