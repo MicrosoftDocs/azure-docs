@@ -7,7 +7,7 @@ ms.subservice: azure-arc-servers
 author: bobbytreed
 ms.author: robreed
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid, onboard
-ms.date: 08/25/2019
+ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
 ---
@@ -41,7 +41,7 @@ $sp
 
 ```output
 Secret                : System.Security.SecureString
-ServicePrincipalNames : {ad9bcd79-be9c-45ab-abd8-80ca1654a7d1, http://Arc-for-servers}
+ServicePrincipalNames : {ad9bcd79-be9c-45ab-abd8-80ca1654a7d1, https://Arc-for-servers}
 ApplicationId         : ad9bcd79-be9c-45ab-abd8-80ca1654a7d1
 ObjectType            : ServicePrincipal
 DisplayName           : Hybrid-RP
@@ -103,7 +103,7 @@ bash ~/Install_linux_azcmagent.sh--proxy "{proxy-url}"
 
 #### Windows
 
-For **Windows**, the agent is packaged in a Windows Installer (`.MSI`) file and can be downloaded from [http://aka.ms/AzureConnectedMachineAgent](http://aka.ms/AzureConnectedMachineAgent), which is hosted on [https://download.microsoft.com](https://download.microsoft.com).
+For **Windows**, the agent is packaged in a Windows Installer (`.MSI`) file and can be downloaded from [https://aka.ms/AzureConnectedMachineAgent](https://aka.ms/AzureConnectedMachineAgent), which is hosted on [https://download.microsoft.com](https://download.microsoft.com).
 
 ```powershell
 # Download the package
@@ -169,7 +169,7 @@ Upon successful completion, your machine is connected to Azure. You can view you
 For **Linux**, if the server requires a proxy server, you can either:
 
 * Run the `install_linux_hybrid_agent.sh` script from the [Install the Agent](#download-and-install-the-agent) section above, with `--proxy`.
-* If you have already installed the agent, execute the command `/opt/azcmagent/bin/hybridrp_proxy add http://{proxy-url}:{proxy-port}`, which configures the proxy and restarts the agent.
+* If you have already installed the agent, execute the command `/opt/azcmagent/bin/hybridrp_proxy add https://{proxy-url}:{proxy-port}`, which configures the proxy and restarts the agent.
 
 #### Windows
 
@@ -177,7 +177,7 @@ For **Windows**, if the server requires proxy server for access to internet reso
 
 ```powershell
 # If a proxy server is needed, execute these commands with actual proxy URL
-[Environment]::SetEnvironmentVariable("https_proxy", "{http:\\proxy-url:proxyport}", "Machine")
+[Environment]::SetEnvironmentVariable("https_proxy", "{https:\\proxy-url:proxyport}", "Machine")
 $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
 # The agent service needs to be restarted after the proxy environment variable is set in order for the changes to take effect.
 Restart-Service -Name himds

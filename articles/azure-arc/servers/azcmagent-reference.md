@@ -7,7 +7,7 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
 ms.topic: reference
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.author: robreed
 ---
 # Azure Connected Machine Agent CLI interface
@@ -17,7 +17,7 @@ The `Azcmagent` (Azure Connected Machine Agent) tool is used to configure and tr
 The agent itself is a daemon process called `himdsd` on Linux, and a Windows Service called `himds` on Windows.
 
 In normal usage, `azcmagent connect` is used to establish a connection between this machine and Azure, and
-'azcmagent disconnect' if you decide you no longer want that connection. The other commands are for troubleshooting
+`azcmagent disconnect` if you decide you no longer want that connection. The other commands are for troubleshooting
 or other special cases.
 
 ## Options

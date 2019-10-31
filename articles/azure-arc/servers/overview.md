@@ -7,7 +7,7 @@ ms.subservice: azure-arc-servers
 author: bobbytreed
 ms.author: robreed
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 08/25/2019
+ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
 ---
@@ -63,7 +63,7 @@ These DNS Names are provided in addition to the Service Tag IP range information
 
 ### Installation Network Requirements
 
-Download the [Azure Connected Machine Agent package](http://aka.ms/AzureConnectedMachineAgent) from our official distribution servers the below sites must be accessible from your environment. You may choose to download the package to a file share and have the agent installed from there. In this case, the onboarding script generated from the Azure portal may need to be modified.
+Download the [Azure Connected Machine Agent package](https://aka.ms/AzureConnectedMachineAgent) from our official distribution servers the below sites must be accessible from your environment. You may choose to download the package to a file share and have the agent installed from there. In this case, the onboarding script generated from the Azure portal may need to be modified.
 
 Windows:
 
