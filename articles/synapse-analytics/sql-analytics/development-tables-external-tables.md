@@ -6,7 +6,7 @@ author: julieMSFT
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 09/10/2019
+ms.date: 10/21/2019
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
