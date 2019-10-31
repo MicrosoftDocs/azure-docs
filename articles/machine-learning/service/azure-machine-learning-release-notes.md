@@ -565,11 +565,10 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Improved NoaaIsdWeather enrich performance in non-SPARK version significantly.
   + **azureml-explain-model**
     + Updated online documentation for interpretability objects.
-    + Added batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel.
+    + Added `batch_size` to mimic explainer when `include_local=False`, for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel for model explainability library.
     + Fixed the issue where `explanation.expected_values` would sometimes return a float rather than a list with a float in it.
     + Added expected values to automl output for mimic explainer in explain model library.
     + Fixed permutation feature importance when transformations argument supplied to get raw feature importance.
-    + Added batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel for model explainability library.
   + **azureml-core**
     + Added the ability to attach DBFS datastores in the AzureML CLI.
     + Fixed the issue with datastore upload where an empty folder is created if `target_path` started with `/`.
@@ -582,7 +581,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Fixed the issue where mlflow.log_artifacts("my_dir") would save artifacts under "my_dir/artifact-paths" instead of "artifact-paths".
   + **azureml-pipeline-core**
     + Parameter hash_paths for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore)
-    + Continuing improving Module and ModuleStep to support compute type specific modules, in preparation for RunConfiguration integration and further changes to unlock their usage in pipelines.
+    + Continued improving Module and ModuleStep to support compute type specific modules, to prepare for RunConfiguration integration and other changes to unlock compute type specific module usage in pipelines.
   + **azureml-pipeline-steps**
     + AzureBatchStep: Improved documentation with regards to inputs/outputs.
     + AzureBatchStep: Changed delete_batch_job_after_finish default value to true.
