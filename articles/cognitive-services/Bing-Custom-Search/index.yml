@@ -38,7 +38,7 @@ landingContent:
         - text: Call your custom search instance 
           url: search-your-custom-view.md
         - text: Paging search results 
-          url: paging-search-results.md
+          url: ../bing-web-search/paging-search-results.md
         - text: Handle hit highlighting
           url: ../bing-web-search/hit-highlighting.md
         - text: Configure and integrate a hosted UI
