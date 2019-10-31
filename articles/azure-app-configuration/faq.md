@@ -3,7 +3,7 @@ title: Azure App Configuration FAQ | Microsoft Docs
 description: Frequently asked questions about Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: maiye
 editor: ''
 
@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
 ---
 
