@@ -52,7 +52,7 @@ With pay-as-you-go licensing, a failover cluster instance (FCI) of SQL Server on
 
 If you have Enterprise Agreement with Software Assurance, you can use one free passive FCI node for each active node. To take advantage of this benefit in Azure, use BYOL VM images, and use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-To compare pay-as-you-go and BYOL licensing for SQL Server on Azure virtual machines see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+To compare pay-as-you-go and BYOL licensing for SQL Server on Azure virtual machines, see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
 For complete information about licensing SQL Server, see [Pricing](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -70,7 +70,7 @@ You should have an operational understanding of these technologies:
 - [Windows cluster technologies](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server Failover Cluster Instances](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-One thing to be aware of is that on an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network, but you can ignore this warning on Azure IaaS VM guest failover clusters.
+One thing to be aware of is that on an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure IaaS VM guest failover clusters.
 
 You should also have a general understanding of these technologies:
 
@@ -186,7 +186,7 @@ With these prerequisites in place, you can start building your failover cluster.
       >[!NOTE]
       >If you attach NTFS-formatted disks, you can enable Storage Spaces Direct only without a disk eligibility check.  
 
-   Attach a minimum of two premium SSDs to each VM. We recommend at least P30 (1 TB) disks.
+   Attach a minimum of two premium SSDs to each VM. We recommend at least P30 (1-TB) disks.
 
    Set host caching to **Read-only**.
 
@@ -262,7 +262,7 @@ To create the failover cluster, you need:
 - A name for the failover cluster
 - An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
 
-#### Windows Server 2008 through Windows Sever 2016
+#### Windows Server 2008 through Windows Server 2016
 
 The following PowerShell script creates a failover cluster for Windows Server 2008 through Windows Server 2016. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
 
@@ -289,11 +289,11 @@ Cloud Witness is a new type of cluster quorum witness that's stored in an Azure 
 
 1. Save the access keys and the container URL.
 
-1. Configure the failover cluster quorum witness. See, [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
+1. Configure the failover cluster quorum witness. See [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
 
 ### Add storage
 
-The disks for Storage Spaces Direct need to be empty. They can't contain partitions or other data. To clean the disks, follow [the steps in this guide](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
+The disks for Storage Spaces Direct need to be empty. They can't contain partitions or other data. To clean the disks, follow [the steps in this guide](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
 
 1. [Enable Store Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
@@ -307,7 +307,7 @@ The disks for Storage Spaces Direct need to be empty. They can't contain partiti
 
 1. [Create a volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
-   Storage Spaces Direct automatically creates a storage pool when you enable it. You're now ready to create a volume. The PowerShell cmndlet `New-Volume` automates the volume creation process. This process includes formatting, adding the volume to the cluster, and creating a Cluster Shared Volume (CSV). This example creates an 800-gigabyte (GB) CSV:
+   Storage Spaces Direct automatically creates a storage pool when you enable it. You're now ready to create a volume. The PowerShell cmdlet `New-Volume` automates the volume creation process. This process includes formatting, adding the volume to the cluster, and creating a Cluster Shared Volume (CSV). This example creates an 800-gigabyte (GB) CSV:
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -345,7 +345,7 @@ After you've configured the failover cluster and all cluster components, includi
 
 1. After Setup installs the FCI on the first node, connect to the second node by using RDP.
 
-1. Open the SQL Server Installation Center. Select **Installation**.
+1. Open **SQL Server Installation Center**. Select **Installation**.
 
 1. Select **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL Server and add the server to the FCI.
 
@@ -366,14 +366,14 @@ To create the load balancer:
 
 1. Select **Add**. Search the Azure Marketplace for **Load Balancer**. Select **Load Balancer**.
 
-1. Click **Create**.
+1. Select **Create**.
 
 1. Configure the load balancer with:
 
    - **Subscription**: Your Azure subscription.
-   - **Resource group**: The same resource group that your virtual machines are in.
+   - **Resource group**: The resource group that contains your virtual machines.
    - **Name**: A name that identifies the load balancer.
-   - **Region**: The same Azure location that your virtual machines are in.
+   - **Region**: The Azure location that contains your virtual machines.
    - **Type**: Either public or private. A private load balancer can be accessed from within the virtual network. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the internet, use a public load balancer.
    - **SKU**: Standard.
    - **Virtual network**: The same network as the virtual machines.
@@ -421,7 +421,7 @@ To create the load balancer:
 1. Set the load balancing rule parameters:
 
    - **Name**: A name for the load balancing rules.
-   - **Frontend IP address**: Use the IP address for the SQL Server FCI cluster network resource.
+   - **Frontend IP address**: The IP address for the SQL Server FCI cluster network resource.
    - **Port**: The SQL Server FCI TCP port. The default instance port is 1433.
    - **Backend port**: Uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
    - **Backend pool**: The backend pool name that you configured earlier.
@@ -453,7 +453,7 @@ The following list describes the values that you need to update:
 
    - `<Cluster Network Name>`: The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.
 
-   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab. 
+   - `<SQL Server FCI IP Address Resource Name>`: The SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab. 
 
    - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
 
@@ -495,14 +495,14 @@ Azure virtual machines support Microsoft Distributed Transaction Coordinator (MS
 
 On Azure virtual machines, MSDTC isn't supported on Windows Server 2016 or earlier because:
 
-- The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if the storage is available. This issue has been fixed in Windows Server 2019.
+- The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
 - The basic load balancer doesn't handle RPC ports.
 
 ## See also
 
 [Set up Storage Spaces Direct with remote desktop (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[Hyper-converged solution with Storage Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+[Hyper-converged solution with Storage Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 
 [Storage Spaces Direct Overview](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 

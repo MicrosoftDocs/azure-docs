@@ -32,7 +32,7 @@ You should have an operational understanding of these technologies:
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-One thing to be aware of is that on an Azure IaaS VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy that makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network, but you can ignore this warning on Azure IaaS VM failover clusters.
+One thing to be aware of is that on an Azure IaaS VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy that makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure IaaS VM failover clusters.
 
 You should also have a general understanding of these technologies:
 
@@ -46,7 +46,7 @@ You should also have a general understanding of these technologies:
 
 Premium file shares provide IOPS and throughout capacities that will meet the needs of many workloads. For IO-intensive workloads, consider [SQL Server Failover Cluster Instances with Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md), based on managed premium disks or ultra disks.  
 
-Check the IOPS activity of your environment and verify that premium file shares will provide the IOPS you need before starting a deployment or migration. Use Windows Performance Monitor disk counters to monitor the total IOPS (disk transfers/second) and throughput (disk bytes/second) required for SQL Server Data, Log, and Temp DB files.
+Check the IOPS activity of your environment and verify that premium file shares will provide the IOPS you need before you start a deployment or migration. Use Windows Performance Monitor disk counters to monitor the total IOPS (disk transfers/second) and throughput (disk bytes/second) required for SQL Server Data, Log, and Temp DB files.
 
 Many workloads have bursting IO, so it's a good idea to check during heavy usage periods and note both the maximum IOPS and the average IOPS. Premium file shares provide IOPS based on the size of the share. Premium file shares also provide complimentary bursting that allows you to burst your IO to triple the baseline amount for up to one hour.
 
@@ -213,7 +213,7 @@ For further reference about the next steps, see the instructions under Step 3 of
 
 ### Validate the cluster
 
-Validate the cluster by in the UI or by using PowerShell.
+Validate the cluster in the UI or by using PowerShell.
 
 To validate the cluster by using the UI, take the following steps on one of the virtual machines:
 
@@ -278,7 +278,7 @@ Cloud Witness is a new type of cluster quorum witness that's stored in an Azure 
 
 ## Step 4: Test cluster failover
 
-Test failover of your cluster. In **Failover Cluster Manager**, right-click your cluster and select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you're able to successfully move the cluster to each node, then you're ready to install SQL Server.  
+Test failover of your cluster. In **Failover Cluster Manager**, right-click your cluster and select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you can successfully move the cluster to each node, you're ready to install SQL Server.  
 
 :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
 
@@ -292,11 +292,11 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Select **Setup**.
 
-1. In the SQL Server Installation Center, select **Installation**.
+1. In **SQL Server Installation Center**, select **Installation**.
 
 1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this form: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This is expected. Ensure that the account you persisted the file share with is the same account that the SQL Server service uses to avoid possible failures.
+   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this form: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the account you persisted the file share with is the same account that the SQL Server service uses to avoid possible failures.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Use file share as SQL data directories":::
 
@@ -304,7 +304,7 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. After Setup installs the FCI on the first node, connect to the second node by using RDP.
 
-1. Open the SQL Server Installation Center. Select **Installation**.
+1. Open the **SQL Server Installation Center**. Select **Installation**.
 
 1. Select **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL Server and add the server to the FCI.
 
@@ -330,9 +330,9 @@ To create the load balancer:
 1. Set up the load balancer by using the following values.
 
    - **Subscription**: Your Azure subscription.
-   - **Resource group**: The same resource group that your virtual machines are in.
+   - **Resource group**: The resource group that contains your virtual machines.
    - **Name**: A name that identifies the load balancer.
-   - **Region**: The Azure location that your virtual machines are in.
+   - **Region**: The Azure location that contains your virtual machines.
    - **Type**: Either public or private. A private load balancer can be accessed from within the virtual network. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the internet, use a public load balancer.
    - **SKU**: Standard.
    - **Virtual network**: The same network as the virtual machines.
@@ -378,7 +378,7 @@ To create the load balancer:
 
 1. Select **Add**.
 
-1. Set the load-balancing rule parameters:
+1. Set the load balancing rule parameters:
 
    - **Name**: A name for the load balancing rules.
    - **Frontend IP address**: The IP address for the SQL Server FCI cluster network resource.
@@ -455,7 +455,7 @@ Azure virtual machines support Microsoft Distributed Transaction Coordinator (MS
 
 On Azure virtual machines, MSDTC isn't supported on Windows Server 2016 or earlier because:
 
-- The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if the storage is available. This issue has been fixed in Windows Server 2019.
+- The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
 - The basic load balancer doesn't handle RPC ports.
 
 ## See also
