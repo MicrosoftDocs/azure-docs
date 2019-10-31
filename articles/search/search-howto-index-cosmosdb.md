@@ -27,7 +27,7 @@ The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items
 
 * [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 
-You can use the [portal](#cosmos-indexer-portal) or REST API to set up an indexer to index content available through the following Cosmos DB APIs:
+You can use the [portal](#cosmos-indexer-portal) or the [REST API version 2019-05-06-Preview](search-api-preview.md) to set up an indexer to index content available through the following Cosmos DB APIs:
 * [MongoDB API (preview)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 * [Gremlin API (preview)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)
 
@@ -67,7 +67,7 @@ In the **data source** page, the source must be **Cosmos DB**, with the followin
 
 + **Name** is the name of the data source object. Once created, you can choose it for other workloads.
 
-+ **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB, with an `AccountEndpoint` and an `AccountKey`. For MongoDB collections, add **ApiKind=MongoDb** to the end of the connection string and separate it from the connection string with a semicolon. For Gremlin graphs, add **ApiKind=Gremlin** to the end of the connection string and separate it from the connection string with a semicolon.
++ **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB, with an `AccountEndpoint` and an `AccountKey`. For MongoDB collections, add **ApiKind=MongoDb** to the end of the connection string and separate it from the connection string with a semicolon. For Gremlin graphs sign up for the [indexer preview](https://aka.ms/azure-cognitive-search/indexer-preview) to get access and information about how to format the credentials.
 
 + **Database** is an existing database from the account. 
 
