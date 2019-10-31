@@ -90,7 +90,7 @@ There are some things that VNet Integration doesn't support, including:
 * AD integration
 * NetBios
 
-Virtual network integration in functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration see:
+Virtual network integration in Azure Functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration see:
 
 * [Regional VNET Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [Gateway required VNet Integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
