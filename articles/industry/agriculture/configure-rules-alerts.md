@@ -13,7 +13,7 @@ ms.author: v-umha
 
 FarmBeats allows you to create rules based on the business logic, in addition to the sensor data that flows from the sensors and devices deployed in your farm. The rules trigger alerts in the system whenever sensor values cross a threshold value.
 
-## Create Rule
+## Create rule
 
 1. On the home page, go to **Rules**.
 2. Click **New Rule**, the New Rule window displays.
@@ -40,7 +40,7 @@ FarmBeats allows you to create rules based on the business logic, in addition to
 
 ## View rule
 
-The **Farm** list page displays the available rules. Select a **Rule Name** check box, the window displays the following details applicable for that rule:
+The **Farm** page displays the list of available rules. Select a **Rule Name**, a window displays the following details that are applicable for the selected rule:
 
 1. Rule Name
 2. Link to the Farm to which the Rule is associated
@@ -56,7 +56,7 @@ The **Farm** list page displays the available rules. Select a **Rule Name** chec
 
 ## Edit rule
 
-To edit the rule, follow these steps:
+To edit a rule, follow these steps:
 
 1. On the home page, select **Rules** from the left navigation menu.
    The rules window displays.
@@ -83,7 +83,7 @@ To edit the rule, follow these steps:
     You can view the number of devices that will be affected by this rule.
 13. Click **Apply** to edit the rule.
 
-## Change status for rule
+## Change rule status
 
 To change the status of a rule, follow these steps:
 
@@ -98,7 +98,7 @@ To change the status of a rule, follow these steps:
 
 3. Change the rule status using the **Change Status** toggle button.
    You can view the number of devices that will be affected by the Rule.
-4. Click **Apply** to change the rule.
+4. Click **Apply** to change the rule status.
 
 ## Delete rule
 

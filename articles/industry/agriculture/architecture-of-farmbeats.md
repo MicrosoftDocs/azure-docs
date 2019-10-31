@@ -17,7 +17,7 @@ The following sections describe the integration pattern for Azure FarmBeats.
 
 ## Why integrate with Azure FarmBeats?
 
-This section is focused on Partners who want to integrate their data systems (like sensors, drones, weather stations) into Azure FarmBeats.
+This section is focused on partners who want to integrate their data systems (like sensors, drones, weather stations) into Azure FarmBeats.
 
 Azure FarmBeats is an extensible offering, which enables agriculture businesses to add their different historical and real-time agriculture datasets into a single platform. Azure FarmBeats helps an agriculture business to normalize, contextualize, and aggregate the data in the context of a farm.
 

@@ -10,7 +10,7 @@ ms.author: v-umha
 
 # Generate maps
 
-Using Azure FarmBeats you can generate the following maps by using satellite imagery and sensor data inputs:
+Using Azure FarmBeats, you can generate the following maps by using satellite imagery and sensor data inputs:
 
 1. **Sensor Placement Map** – gets recommendations on how many sensors to use and where to place them in a farm.
 2.	**Satellite indices Map** – gets vegetation index and water index for a farm.
@@ -75,7 +75,7 @@ Using Azure FarmBeats you can generate the following maps by using satellite ima
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2. Click **Filter** from the left-navigation of the window.
+2. Click **Filter** from the left navigation of the window.
   The filter window displays from where you can search for maps.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
@@ -133,7 +133,7 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2. Click **Filter** from the left-navigation of the window, the filter window displays from where you can search for maps.
+2. Click **Filter** from the left navigation of the window, the filter window displays from where you can search for maps.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
@@ -195,9 +195,10 @@ To find the sensor measure, go to **Sensors**, click any soil moisture sensor, u
 ### View and download map
 
 1. On the home page, go to **Maps** from the left navigation menu.
+
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2.  Click **Filter** from the left-navigation of the window, the filter window displays from where you can search for maps.
+2.  Click **Filter** from the left navigation of the window, the filter window displays from where you can search for maps.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
