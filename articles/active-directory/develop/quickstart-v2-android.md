@@ -111,9 +111,19 @@ Applications must be represented by an app object in Azure Active Directory so t
 </activity>
 ```
     
-> 6. Run the app! 
-    
-
+> 6. Run the app!
+> The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
+>
+> ![MSAL sample app showing single and multiple account usage](./media/quickstart-v2-android/quickstart-sample-app.png)
+>
+> Use the app menu to change between single and multiple account modes.
+>
+> In single account mode, sign in using a work or home account:
+>
+> 1. Select **Get graph data interactively** to prompt the user for their credentials. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
+> 2. Once signed in, select **Get graph data silently** to make a call to the Microsoft Graph API without prompting the user for credentials again. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
+>
+> In multiple account mode, you can repeat the same steps.  Additionally, you can remove the signed-in account, which also removes the cached tokens for that account.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
