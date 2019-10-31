@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 # What is SQL Analytics on-demand? 
 SQL Analytics on-demand is a query service over the data in your data lake. It enables you to democratize access to all your data by providing a familiar T-SQL syntax to query data in place, without a need to copy or load data into a specialized store. In addition, the T-SQL interface enables seamless connectivity from the widest range of business intelligence and ad-hoc querying tools, as well as the most popular drivers. 
 
-SQL Analytics on-demand is a distributed data processing system, built for very large scale of data and compute, enabling you to analyze your Big Data in seconds to minutes, depending on the workload. Thanks to built-in query execution fault-tolerance, the system provides high reliability and success rates even for long-running queries involving vert large data sets.
+SQL Analytics on-demand is a distributed data processing system, built for large scale of data and compute, enabling you to analyze your Big Data in seconds to minutes, depending on the workload. Thanks to built-in query execution fault-tolerance, the system provides high reliability and success rates even for long-running queries involving vert large data sets.
 
 SQL Analytics on-demand is serverless, hence there is no infrastructure to setup or clusters to maintain. A default endpoint for this service is provided within every Azure Synapse workspace, so you can start querying data as soon as the workspace is created. There is no charge for resources reserved, you are only being charged for the data scanned by queries you run, hence this is a true pay-per-use model. 
 
@@ -27,8 +27,8 @@ In the initial version of SQL Analytics on-demand, the service is able to query 
 If you need to explore data in the data lake, gain insights from it or optimize your existing data transformation pipeline, you can benefit from using SQL Analytics on-demand. It is suitable for the following scenarios:
 
 - Basic discovery and exploration - Quickly reason about the data in various formats (Parquet, CSV, JSON) in your data lake, so you can plan how to extract insights from it.
-- Logical data warehouse – Provide a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up to date view of your data.
-- Data transformation - Simple, scalable and performant way to transform data in the lake using T-SQL, so it can fed to BI and other tools, or loaded into a relational data store (SQL Analytics databases, Azure SQL Database, etc.).
+- Logical data warehouse – Provide a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data.
+- Data transformation - Simple, scalable, and performant way to transform data in the lake using T-SQL, so it can fed to BI and other tools, or loaded into a relational data store (SQL Analytics databases, Azure SQL Database, etc.).
 
 Different professional roles can benefit from SQL Analytics on-demand:
 
