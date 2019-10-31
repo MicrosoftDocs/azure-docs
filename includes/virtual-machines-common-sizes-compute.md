@@ -5,16 +5,16 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/02/2019
+ ms.date: 11/04/2019
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
 
 <!-- F-series, Fs-series* -->
 
-Compute optimized VM sizes have a high CPU-to-memory ratio and are good for medium traffic web servers, network appliances, batch processes, and application servers. This article provides information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping.
+Compute optimized VM sizes have a high CPU-to-memory ratio. These sizes are good for medium traffic web servers, network appliances, batch processes, and application servers. This article provides information about the number of vCPUs, data disks, and NICs. It also includes information about storage throughput and network bandwidth for each size in this grouping.
 
-Fsv2-series is based on the Intel® Xeon® Platinum 8168 processor, featuring a sustained all core Turbo clock speed of 3.4GHz and a maximum single-core turbo frequency of 3.7 GHz. Intel® AVX-512 instructions, which are new on Intel Scalable Processors, will provide up to a 2X performance boost to vector processing workloads on both single and double precision floating point operations. In other words, they are really fast for any computational workload. 
+Fsv2-series is based on the Intel® Xeon® Platinum 8168 processor. It features a sustained all core Turbo clock speed of 3.4 GHz and a maximum single-core turbo frequency of 3.7 GHz. Intel® AVX-512 instructions are new on Intel Scalable Processors. These instructions provide up to a 2X performance boost to vector processing workloads on both single and double precision floating point operations. In other words, they're really fast for any computational workload.
 
 At a lower per-hour list price, the Fsv2-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU.
 
@@ -37,8 +37,8 @@ Premium Storage caching:  Supported
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 / 1024 (1024)     | 80000 / 1100             | 8 / 28000              |
 | Standard_F72s_v2<sup>2, 3</sup> | 72 | 144 | 576         | 32             | 144000 / 1152 (1520)     | 80000 / 1100             | 8 / 30000              |
 
-<sup>1</sup> Fsv2-series VM’s feature Intel® Hyper-Threading Technology
+<sup>1</sup> Fsv2-series VMs feature Intel® Hyper-Threading Technology
 
-<sup>2</sup> More than 64 vCPU’s require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3, or Oracle Linux 7.3 with LIS 4.2.1
+<sup>2</sup> More than 64 vCPU’s require one of these supported guest operating systems: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3, or Oracle Linux 7.3 with LIS 4.2.1
 
 <sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
