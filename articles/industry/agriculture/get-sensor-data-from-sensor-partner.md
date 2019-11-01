@@ -59,12 +59,11 @@ ms.author: v-umha
 
   5. Go to the directory where the files were uploaded (Usually it gets uploaded to the home directory - \</home/username\>
   6. Run the script by writing the following command:
-    ./generateCredentials.ps1  
 
-    ```
-    PS /home/username> ./generateCredentials.ps1
+        ```
+        PS /home/username> ./generateCredentials.ps1
 
-    ```
+        ```
 
   Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String)
 
@@ -155,7 +154,7 @@ Follow these steps:
   1. On the home page, select **Devices** from the menu to view the devices page.  
   2. Select the device you want to delete and select **Delete** from the confirmation window.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
+![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
 
 ## Next steps
 
