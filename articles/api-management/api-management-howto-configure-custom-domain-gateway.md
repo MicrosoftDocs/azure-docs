@@ -15,12 +15,12 @@ ms.date: 10/31/2019
 ms.author: apimpm
 ---
 
-> [!NOTE]
-> Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
-
 # Configure a custom domain name
 
 When you provision a [self-hosted Azure API Management gateway](self-hosted-gateway-overview.md) it is not assigned host name and has to be referenced by its IP address. This article shows how to map an existing custom DNS name (also referred to as hostname) a self-hosted gateway.
+
+> [!NOTE]
+> Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
 
 ## Prerequisites
 

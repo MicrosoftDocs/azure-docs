@@ -15,12 +15,12 @@ ms.date: 10/31/2019
 ms.author: apimpm
 ---
 
-> [!NOTE]
-> Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
-
 # Self-hosted API Management gateway overview
 
 This article explains how self-hosted gateway feature enables hybrid and multi-cloud API management, presents its high-level architecture, and highlights its fundamental capabilities.
+
+> [!NOTE]
+> Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
 
 ## Hybrid and multi-cloud API management
 

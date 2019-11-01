@@ -16,12 +16,12 @@ ms.author: apimpm
 
 ---
 
-> [!NOTE]
-> Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
-
 # Deploy an Azure API Management self-hosted gateway to Docker
 
 This article provides the steps for deploying self-hosted Azure API Management gateway into a Docker environment.
+
+> [!NOTE]
+> Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
 
 ## Prerequisites
 
