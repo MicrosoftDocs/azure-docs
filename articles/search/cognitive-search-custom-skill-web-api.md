@@ -53,7 +53,7 @@ There are no "predefined" outputs for this skill. Depending on the response your
 ```json
   {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "A custom skill that can count the number of words or characters or lines in text and in addition look at a list of 'phrases' and find their ordinal occurrence position in the text",
+        "description": "A custom skill that can identifies positions of different phrases in the source text",
         "uri": "https://contoso.count-things.com",
         "batchSize": 4,
         "context": "/document",
@@ -67,19 +67,11 @@ There are no "predefined" outputs for this skill. Depending on the response your
             "source": "/document/languageCode"
           },
           {
-            "name": "countOf",
-            "source": "/document/propertyToCount"
-          },
-          {
             "name": "phraseList",
             "source": "/document/keyphrases"
           }
         ],
         "outputs": [
-          {
-            "name": "count",
-            "targetName": "countOfThings"
-          },
           {
             "name": "hitPositions"
           }
@@ -105,7 +97,6 @@ It will always follow these constraints:
            {
              "text": "Este es un contrato en Inglés",
              "language": "es",
-             "countOf": "words",
              "phraseList": ["Este", "Inglés"]
            }
       },
@@ -115,17 +106,15 @@ It will always follow these constraints:
            {
              "text": "Hello world",
              "language": "en",
-             "countOf": "characters",
-             "phraseList": []
+             "phraseList": ["Hi"]
            }
       },
       {
         "recordId": "2",
         "data":
            {
-             "text": "Hello world, Hi World",
+             "text": "Hello world, Hi world",
              "language": "en",
-             "countOf": "lines",
              "phraseList": ["world"]
            }
       },
@@ -135,7 +124,6 @@ It will always follow these constraints:
            {
              "text": "Test",
              "language": "es",
-             "countOf": null,
              "phraseList": []
            }
       }
@@ -165,7 +153,7 @@ The "output" corresponds to the response returned from your Web API. The Web API
             },
             "errors": [
               {
-                "message" : "Cannot understand what needs to be counted"
+                "message" : "'phraseList' should not be null or empty"
               }
             ],
             "warnings": null
@@ -173,8 +161,7 @@ The "output" corresponds to the response returned from your Web API. The Web API
         {
             "recordId": "2",
             "data": {
-                "count": 2,
-                "hitPositions": [1, 3]
+                "hitPositions": [6, 16]
             },
             "errors": null,
             "warnings": null
@@ -182,8 +169,7 @@ The "output" corresponds to the response returned from your Web API. The Web API
         {
             "recordId": "0",
             "data": {
-                "count": 6,
-                "hitPositions": [0, 5]
+                "hitPositions": [0, 23]
             },
             "errors": null,
             "warnings": null
@@ -191,11 +177,12 @@ The "output" corresponds to the response returned from your Web API. The Web API
         {
             "recordId": "1",
             "data": {
-                "count": 11,
                 "hitPositions": []
             },
             "errors": null,
-            "warnings": null
+            "warnings": {
+                "message": "No occurrences of 'Hi' were found in the input text"
+            }
         },
     ]
 }
