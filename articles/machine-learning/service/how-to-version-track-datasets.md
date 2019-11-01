@@ -22,8 +22,8 @@ In this how-to, you learn how to version and track Azure Machine Learning datase
 
 Typical scenarios to consider for versioning:
 
-* When new data is available for retraining.
-* When you are applying different data preparation or feature engineering approaches.
+* When new data is available for retraining
+* When you are applying different data preparation or feature engineering approaches
 
 ## Prerequisites
 

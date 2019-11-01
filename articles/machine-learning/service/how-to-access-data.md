@@ -100,7 +100,7 @@ Create a new datastore in a few steps in Azure Machine Learning studio.
 1. Select **+ New datastore**.
 1. Complete the New datastore form. The form intelligently updates based on the Azure storage type and authentication type selections.
   
-The information you need to populate the form can be found via [Azure Machine Learning studio](https://ml.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left .
+The information you need to populate the form can be found via [Azure Machine Learning studio](https://ml.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left.
 
 The following example demonstrates what the form would look like for creating an Azure blob datastore. 
     
@@ -161,7 +161,7 @@ datastore.upload(src_dir='your source directory',
                  show_progress=True)
 ```
 
-The `target_path` parameter specifies the location in the file share (or blob container) to upload. It defaults to `None`, in which case the data gets uploaded to root. When `overwrite=True` any existing data at `target_path` is overwritten.
+The `target_path` parameter specifies the location in the file share (or blob container) to upload. It defaults to `None`, in which case the data gets uploaded to root. Otherwise, if `overwrite=True` any existing data at `target_path` is overwritten.
 
 Or upload a list of individual files to the datastore via the `upload_files()` method.
 
