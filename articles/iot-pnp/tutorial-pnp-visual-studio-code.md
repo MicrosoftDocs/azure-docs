@@ -40,7 +40,7 @@ To work with the device capability model in this tutorial, you need:
 
 To build the generated C code on Windows in this tutorial, you need:
 
-* [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16).
+* [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16). Or if you already have [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 or 2015 installed with **NuGet package manager component** and the **Desktop Development with C++** workloads.
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
 
@@ -168,7 +168,7 @@ To create an interface file that defines the capabilities of your IoT device in 
           "commandType": "synchronous"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/Interface.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 

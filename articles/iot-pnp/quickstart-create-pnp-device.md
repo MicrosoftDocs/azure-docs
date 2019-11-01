@@ -20,7 +20,7 @@ A _device capability model_ (DCM) describes the capabilities of an IoT Plug and 
 
 To complete this quickstart, you need to install the following software on your local machine:
 
-* [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16).
+* [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16). Or if you already have [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 or 2015 installed with **NuGet package manager component** and the **Desktop Development with C++** workloads.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 * [Visual Studio Code](https://code.visualstudio.com/).
@@ -161,23 +161,24 @@ You build the generated device code stub together with the device SDK. The appli
     cd cmake
     ```
 
+1. Specify the CMake generator based on the build tools you are using:
+
+    ```cmd\sh
+    # Either
+    cmake .. -G "Visual Studio 14 2015" ## For Visual Studio 2015
+    # or
+    cmake .. -G "Visual Studio 15 2017" ## For Visual Studio 2017
+    # or
+    cmake .. -G "Visual Studio 16 2019" -A Win32
+    ```
+
 1. Run the following commands to build generated code stub:
 
     ```cmd\sh
-    cmake .. -G "Visual Studio 16 2019" -A "Win32" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
 
     cmake --build .
     ```
-
-    > [!NOTE]
-    > If you are using Visual Studio 2017 or 2015, you can specify the CMake generator by:
-    >
-    > ```cmd\sh
-    > # Either
-    > cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
-    > # or
-    > cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
-    > ```
 
     > [!NOTE]
     > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
