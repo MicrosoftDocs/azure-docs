@@ -5,7 +5,7 @@
     items:
      - name: What is cloud app management and single sign-on?
        href: what-is-application-management.md
-     - name: What is automatic user provisioning?
+     - name: What is application provisioning?
        href: user-provisioning.md
      - name: What is Application Proxy for on-premises apps?
        href: what-is-application-proxy.md
@@ -66,7 +66,7 @@
           href: howto-saml-token-encryption.md
         - name: End-user portals
           href: end-user-experiences.md
-    - name: Automatic user provisioning (SCIM)
+    - name: Application provisioning (SCIM)
       items:
        - name: Automatic provisioning for SCIM-enabled apps
          href: use-scim-to-provision-users-and-groups.md
@@ -223,7 +223,7 @@
             href: access-panel-extension-problem-installing.md
           - name: Error using self-service app access
             href: access-panel-troubleshoot-self-service-access.md
-    - name: Automatic user provisioning (SCIM)
+    - name: Application provisioning (SCIM)
       items:
       - name: Configure user provisioning
         items:
@@ -355,7 +355,7 @@
           href: application-proxy-understand-cors-issues.md
   - name: Reference
     items:
-    - name: Automatic user provisioning (SCIM)
+    - name: Application provisioning (SCIM)
       items:
         - name: Write expressions for attribute mappings
           href: functions-for-customizing-application-data.md
