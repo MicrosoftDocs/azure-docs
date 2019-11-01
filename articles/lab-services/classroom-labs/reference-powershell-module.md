@@ -16,11 +16,11 @@ ms.date: 11/01/2019
 ms.author: spelluru
 
 ---
-# Az.LabServices module (preview)
+# Az.LabServices PowerShell module (preview)
 Az.LabServices is a PowerShell module that simplifies the management of Azure Lab services. It provides composable functions to create, query, update and delete lab accounts, labs, VMs, and Images. For more information about this module, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 > [!NOTE]
-> This module is preview module. 
+> This module is in **preview**. 
 
 ## Example command
 Here is an example of using a PowerShell command to stop all the running VMs in all labs.
