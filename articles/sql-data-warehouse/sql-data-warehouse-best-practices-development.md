@@ -15,7 +15,7 @@ ms.reviewer: igorstan
 # Development best practices for Azure SQL Data Warehouse
 This article describes guidance and best practices as you develop your data warehouse solution. 
 
-## Leverage the latest product enhancements in improving query performance 
+## Check query performance tuning guidance articles 
 
 - [Performance tuning with materialized views](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-materialized-views)
 - [Performance tuning with ordered clustered columnstore index](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-ordered-cci)
