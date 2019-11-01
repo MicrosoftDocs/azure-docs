@@ -20,7 +20,7 @@ In this article, you'll learn by example how to connect to and explore a knowled
 
 ## Prerequisites
 
-+ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) or [Create an Azure Cognitive Search knowledge store by using REST](https://docs.microsoft.com/azure/search/knowledge-store-create-rest) to create the sample knowledge store used in this walkthrough.
++ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) or [Create an Azure Cognitive Search knowledge store by using REST](knowledge-store-create-rest.md) to create the sample knowledge store used in this walkthrough.
 
 + You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
