@@ -119,6 +119,9 @@ To switch to another classroom lab from the current, select the drop-down list o
 
 You can also create a new lab using the **New lab** in this drop-down list. 
 
+> [!NOTE]
+> You can also use the Az.LabServices PowerShell module (preview) to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+
 ## Next steps
 See the following articles:
 

@@ -92,6 +92,8 @@ Follow instructions from the previous section that displays lab accounts in a li
 
     ![Delete lab account - confirmation](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
+> [!NOTE]
+> You can also use the Az.LabServices PowerShell module (preview) to manage lab accounts. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 ## Next steps
 See the following article: [How to configure lab accounts](how-to-configure-lab-accounts.md).
