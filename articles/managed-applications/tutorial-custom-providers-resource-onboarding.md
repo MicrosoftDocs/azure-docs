@@ -256,7 +256,7 @@ Resource group with "Show hidden types":
 
 ## Deploy additional associations
 
-Once we have the custom provider infrastructure set up, we can easily deploy additional "associations". The resource group of the additional "associations" does not have to be the same as the resource group the custom provider infrastructure was deployed to. In order to create an association, "Microsoft.CustomProviders/resourceproviders/write" permissions are needed on the specified "Custom Resource Provider Id".
+Once we have the custom provider infrastructure set up, we can easily deploy additional "associations". The resource group for additional "associations" does not have to be the same as the resource group the custom provider infrastructure was deployed to. In order to create an association, "Microsoft.CustomProviders/resourceproviders/write" permissions are needed on the specified "Custom Resource Provider Id".
 
 1. Navigate to the custom provider "Microsoft.CustomProviders/resourceProviders" resource in the resource group of the previous deployment. The "Show hidden types" checkbox will need to be selected.
 
