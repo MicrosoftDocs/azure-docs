@@ -28,10 +28,10 @@ In this tutorial, you create .NET Core console applications to send messages to 
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue.
 
-  - Read the quick **overview** of Service Bus **queues**.
-  - Create a Service Bus **namespace**.
-  - Get the **connection string**.
-  - Create a Service Bus **queue**.
+  - Read the quick overview of Service Bus queues.
+  - Create a Service Bus namespace.
+  - Get the connection string.
+  - Create a Service Bus queue.
 
 ## Send messages to the queue
 
@@ -124,7 +124,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     }
     ```
 
-Here is what your Program.cs file should look like.
+Here is what your *Program.cs* file should look like.
 
 ```csharp
 namespace CoreSenderApp
@@ -197,11 +197,11 @@ Select the name of your queue in the namespace **Overview** window to display qu
 
 ![Messages received with count and size][queue-message]
 
-The **Active message count** value for the queue is now **10**. Each time you run the sender application without retrieving the messages, this value increases by 10.
+The **Active message count** value for the queue is now **10**. Each time you run this sender app without retrieving the messages, this value increases by 10.
 
 The current size of the queue increments the **CURRENT** value in **Essentials**  each time the app adds messages to the queue.
 
-The next section describes how to retrieve messages.
+The next section describes how to retrieve these messages.
 
 ## Receive messages from the queue
 
@@ -254,7 +254,7 @@ To receive the messages you sent, create another **Console App (.NET Core)** app
     }
     ```
 
-1. Directly after the `MainAsync()` method, add the following method that registers the message handler and receives the messages sent by the sender application:
+1. Directly after the `MainAsync()` method, add the following method, which registers the message handler and receives the messages sent by the sender application:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -310,7 +310,7 @@ To receive the messages you sent, create another **Console App (.NET Core)** app
     }
     ```
 
-Here is what your Program.cs file should look like:
+Here is what your *Program.cs* file should look like:
 
 ```csharp
 namespace CoreReceiverApp
@@ -396,14 +396,14 @@ namespace CoreReceiverApp
 }
 ```
 
-Run the program, and check the portal again. Notice that the **Active message count** and **CURRENT** values are now **0**.
-   
+Run the program, and check the portal again. The **Active message count** and **CURRENT** values are now **0**.
+
 ![Queue after messages have been received][queue-message-receive]
 
 Congratulations! You've now created a queue, sent a set of messages to that queue, and received those messages from the same queue.
 
 > [!NOTE]
-> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs.
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to easily connect to a Service Bus namespace and administer messaging entities. The tool provides advanced features like import/export functionality or the ability to test topics, queues, subscriptions, relay services, notification hubs, and event hubs.
 
 ## Next steps
 
