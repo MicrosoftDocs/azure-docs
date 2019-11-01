@@ -25,7 +25,8 @@ ms.custom: seodec18
 *   Added Remote Conversation Java API to do Conversation Transcription in asynchronous batches. 
 
 **Breaking changes**
-*   Conversation Transcriber is being moved to new Conversation class, and AddParticipantAsync is now on the Conversation Class.
+*   Conversation Transcriber is being under Microsoft.CognitiveServices.Speech.Transcription.
+*   Part of the Conversation Transcriber methods are moved to new Conversation class.
 
 **Bug fixes**
 *   Fix for crash if local KeywordRecognizer is used without a valid speech service subscription key
