@@ -39,7 +39,7 @@ The table in this article provides information on the Peering Service connectivi
 | Liquid Telecom | Africa  |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Asia |
 | PCCW |Asia |
-| Singtel |Asia |
+| [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asia |
 
 > [!Note]
 >For more information about enlisting to Peering Service Partner program, reach out to peeringservice@microsoft.com.
