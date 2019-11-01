@@ -273,8 +273,8 @@
       href: search-query-lucene-examples.md
     - name: Use Search Explorer (portal)
       href: search-explorer.md
-    - name: Find exact matches
-      href: search-query-exact-values.md
+    - name: Partial matching on terms
+      href: search-query-partial-matching.md
     - name: Reference
       items:
       - name: Simple query syntax
