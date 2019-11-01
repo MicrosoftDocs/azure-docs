@@ -19,17 +19,17 @@ This article introduces the Azure portal, identifies portal page elements, and h
 
 The Azure portal is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription using a graphical user interface. You can build, manage, and monitor everything from simple web apps to complex cloud deployments. Create custom dashboards for an organized view of resources. Configure accessibility options for an optimal experience.
 
-The Azure portal is designed for resiliency and continuous availability. It has a presence in every Azure datacenter. This makes the Azure portal resilient to individual datacenter failures and avoids network slow-downs by being close to users. The Azure portal updates continuously and requires no downtime for maintenance activities.
+The Azure portal is designed for resiliency and continuous availability. It has a presence in every Azure datacenter. This configuration makes the Azure portal resilient to individual datacenter failures and avoids network slow-downs by being close to users. The Azure portal updates continuously and requires no downtime for maintenance activities.
 
 ## Azure portal menu
 
 You can choose the default mode for the portal menu. It can be docked or it can act as a flyout panel.
 
-When the portal menu is in flyout mode, it is hidden until you need it. Select the menu icon to open or close the menu.
+When the portal menu is in flyout mode, it's hidden until you need it. Select the menu icon to open or close the menu.
 
 ![Azure portal menu in flyout mode](./media/azure-portal-overview/azure-portal-overview-portal-menu-flyout.png)
 
-If you choose docked mode for the portal menu it will always be visible. You can collapse the menu to provide more working space.
+If you choose docked mode for the portal menu, it will always be visible. You can collapse the menu to provide more working space.
 
 ![Azure portal menu in docked mode](./media/azure-portal-overview/azure-portal-overview-portal-menu-expandcollapse.png)
 
@@ -66,7 +66,7 @@ The figure below labels the basic elements of the Azure portal, each of which ar
 |3|Global controls. Like all global elements, these features persist across the portal and include: Cloud Shell, subscription filter, notifications, portal settings, help and support, and send us feedback.|
 |4|Your account. View information about your account, switch directories, sign out, or sign in with a different account.|
 |5|Portal menu. The portal menu is a global element that helps you to navigate between services. Sometimes referred to as the sidebar, the portal menu mode can be changed in **Portal settings**.|
-|6|Service menu. Many services include a service menu to help you manage the service. You may see this referred to as the left pane.|
+|6|Service menu. Many services include a service menu to help you manage the service. You may see this element referred to as the left pane.|
 |7|Command bar. The controls on the command bar are contextual to your current focus.|
 |8|Working pane.  Displays the details about the resource that is currently in focus.|
 |9|Breadcrumb. You can use the breadcrumb links to move back a level in your workflow.|
