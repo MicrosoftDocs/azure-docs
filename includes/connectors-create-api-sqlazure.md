@@ -29,7 +29,7 @@ When the SQL trigger or action prompts you for connection information, follow th
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Create Azure SQL Database connection](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   ![Create connection to Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
 
 1. When you're done, select **Create**.
 
@@ -54,7 +54,7 @@ When the SQL trigger or action prompts you for connection information, follow th
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Create SQL Server connection](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   ![Create connection to SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
 
 1. If your SQL server uses Windows or Basic authentication, select the **Authentication Type**.
 

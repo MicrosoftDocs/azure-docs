@@ -20,7 +20,7 @@ Azure Disk Encryption can also be applied to Windows and Linux virtual machine s
 - OS and data volumes in Windows scale sets.
 - Data volumes in Linux scale sets. OS disk encryption is NOT supported at present for Linux scale sets.
 
-You can learn the fundamentals of Azure Disk Encryption for virtual machine scale sets in just a few minutes with the [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md) or the [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-powershell.md) tutorials.
+You can learn the fundamentals of Azure Disk Encryption for virtual machine scale sets in just a few minutes with the [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md) or the [Encrypt a virtual machine scale sets using the Azure PowerShell](disk-encryption-powershell.md) tutorials.
 
 ## Next steps
 

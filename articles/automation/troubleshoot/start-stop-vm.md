@@ -23,7 +23,7 @@ Account already exists in another resourcegroup in a subscription. ResourceGroup
 ```
 
 ```error
-Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]".
 ```
 
 ```error

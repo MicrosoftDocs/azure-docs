@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 08/2/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
@@ -17,6 +17,7 @@ ms.custom: seodec18
 ---
 
 # Access data in Azure storage services
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to easily access your data in Azure storage services via Azure Machine Learning datastores. Datastores are used to store connection information, like your subscription ID and token authorization. Using datastores allows you to access your storage without having to hard code connection information in your scripts. You can create datastores from these [Azure storage solutions](#matrix). For unsupported storage solutions, to save data egress cost during machine learning experiments, we recommend you move your data to our supported Azure storage solutions. [Learn how to move your data](#move). 
 
@@ -33,7 +34,7 @@ This how-to shows examples of the following tasks:
 
 - An Azure storage account with an [Azure Blob Container](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) or [Azure File Share](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
-- The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or access to your [workspace landing page (preview)](https://ml.azure.com/).
+- The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
 - An Azure Machine Learning workspace. 
     - Either [Create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an existing one using the Python SDK.
@@ -49,13 +50,13 @@ This how-to shows examples of the following tasks:
 
 ## Create and register datastores
 
-When you register an Azure storage solution as a datastore, you automatically create that datastore in a specific workspace. You can create and register datastores to a workspace using the Python SDK or the workspace landing page.
+When you register an Azure storage solution as a datastore, you automatically create that datastore in a specific workspace. You can create and register datastores to a workspace using the Python SDK or Azure Machine Learning studio.
 
 ### Using the Python SDK
 
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*.
 
-The information you need to populate the register() method can be found via the [Azure portal](https://ms.portal.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication information, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left. 
+The information you need to populate the register() method can be found via  [Azure Machine Learning studio](https://ml.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication information, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left. 
 
 The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
 
@@ -90,16 +91,16 @@ The following examples show you to register an Azure Blob Container or an Azure 
 
 We recommend Azure Blob Container. Both standard and premium storage are available for blobs. Although more expensive, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, particularly if you train against a large data set. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) for storage account cost information.
 
-### Using the workspace landing page 
+### Using Azure Machine Learning studio 
 
-Create a new datastore in a few steps in the workspace landing page.
+Create a new datastore in a few steps in Azure Machine Learning studio.
 
-1. Sign in to the [workspace landing page](https://ml.azure.com/).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datastores** in the left pane under **Manage**.
 1. Select **+ New datastore**.
 1. Complete the New datastore form. The form intelligently updates based on the Azure storage type and authentication type selections.
   
-The information you need to populate the form can be found via the [Azure portal](https://ms.portal.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left .
+The information you need to populate the form can be found via [Azure Machine Learning studio](https://ml.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left .
 
 The following example demonstrates what the form would look like for creating an Azure blob datastore. 
     
@@ -279,10 +280,10 @@ For situations where the SDK doesn't provide access to datastores, you may be ab
 <a name="move"></a>
 ## Move data to supported Azure storage solutions
 
-Azure machine learning service supports accessing data from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. For unsupported storage, to save data egress cost during machine learning experiments, we recommend you move your data to our supported Azure storage solutions using Azure Data Factory. Azure Data Factory provides efficient and resilient data transfer with more than 80 prebuilt connectors—including Azure data services, on-premises data sources, Amazon S3 and Redshift, and Google BigQuery—at no additional cost. [Follow step by step guide to move your data using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
+Azure Machine Learning supports accessing data from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. For unsupported storage, to save data egress cost during machine learning experiments, we recommend you move your data to our supported Azure storage solutions using Azure Data Factory. Azure Data Factory provides efficient and resilient data transfer with more than 80 prebuilt connectors—including Azure data services, on-premises data sources, Amazon S3 and Redshift, and Google BigQuery—at no additional cost. [Follow step by step guide to move your data using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ## Next steps
 
-* [Train a model](how-to-train-ml-models.md)
+* [Train a model](how-to-train-ml-models.md).
 
-* [Deploy a model](how-to-deploy-and-where.md)
+* [Deploy a model](how-to-deploy-and-where.md).

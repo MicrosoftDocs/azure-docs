@@ -37,7 +37,7 @@ To complete this tutorial:
 Create the vault in any region, except the source region.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
+2. On the Azure portal menu or from the **Home** page, select **Create a resource**. Then select **Management Tools** > **Backup and Site Recovery**.
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group or select an existing one. Specify an Azure region. To check supported
@@ -53,8 +53,7 @@ Create the vault in any region, except the source region.
 ## Verify target resource settings
 
 1. Verify that your Azure subscription allows you to create VMs in the target region. Contact support to enable the required quota.
-2. Make sure your subscription has enough resources to support VM sizes that match your source
-   VMs. Site Recovery picks the same size, or the closest possible size, for the target VM.
+2. Make sure your subscription has enough resources to support VM sizes that match your source VMs. Site Recovery picks the same size, or the closest possible size, for the target VM.
 
 ## Set up outbound network connectivity for VMs
 
