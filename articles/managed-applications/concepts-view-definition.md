@@ -289,7 +289,6 @@ In this view you can extend existing Azure resources based on the `targetResourc
 |version|No|The version of the platform used to render the view.|
 |targetResourceType|Yes|The target resource type. This is the resource type that will be displayed for resource onboarding.|
 |createUIDefinition|No|Create UI Definition schema for create association resource command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md)|
-|columns|No|The array of additional columns for the association resource.|
 
 ## Looking for help
 
