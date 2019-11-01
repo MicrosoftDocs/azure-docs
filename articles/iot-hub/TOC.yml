@@ -382,6 +382,14 @@
         href: iot-hub-troubleshoot-error-404001-devicenotfound.md
       - name: 404003 DeviceNotOnline
         href: iot-hub-troubleshoot-error-404103-devicenotonline.md
+      - name: 404104 DeviceConnectionClosedRemotely
+        href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md
+      - name: 409002 LinkCreationConflict
+        href: iot-hub-troubleshoot-error-409002-linkcreationconflict.md
+      - name: 429001 ThrottlingException
+        href: iot-hub-troubleshoot-error-429001-throttlingexception.md
+      - name: 500xxx Internal errors
+        href: iot-hub-troubleshoot-error-500xxx-internal-errors.md
     - name: Device disconnections TO BE REMOVED
       href: iot-hub-troubleshoot-connectivity.md
 - name: Reference
