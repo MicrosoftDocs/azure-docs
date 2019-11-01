@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 **New Features**
 *   Added a FromHost() API.
-*   Added Automatic Source Language Detection for Speech Recognition (in Java and C++)
+*   Added [Automatic Source Language Detection](how-to-automatic-language-detection.md) for Speech Recognition (in Java and C++)
 *   Added SourceLanguageConfig object for Speech Recognition, used to specify expected source languages
 *   Added KeywordRecognizer support on Windows (UWP), Android and iOS through the Nuget (Xamarin) and Unity packages
 *   Added Remote Conversation Java API to do Conversation Transcription in asynchronous batches. 
