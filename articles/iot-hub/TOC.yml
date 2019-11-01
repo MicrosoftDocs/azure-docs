@@ -390,6 +390,12 @@
         href: iot-hub-troubleshoot-error-429001-throttlingexception.md
       - name: 500xxx Internal errors
         href: iot-hub-troubleshoot-error-500xxx-internal-errors.md
+      - name: DeliveryCountExceeded (no error code)
+        href: iot-hub-troubleshoot-error-no-code-deliverycountexceeded.md
+      - name: MessageExpired (no error code)
+        href: iot-hub-troubleshoot-error-no-code-messageexpired.md
+      - name: Unauthorized (no error code)
+        href: iot-hub-troubleshoot-error-no-code-unauthorized.md
     - name: Device disconnections TO BE REMOVED
       href: iot-hub-troubleshoot-connectivity.md
 - name: Reference
