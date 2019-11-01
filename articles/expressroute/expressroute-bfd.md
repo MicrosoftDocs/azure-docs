@@ -61,7 +61,7 @@ An example CE/PE (using Cisco IOS XE) configuration is shown below.
 Between BFD peers, the slower of the two peers determine the transmission rate. MSEEs BFD transmission/receive intervals are set to 300 milliseconds. In certain scenarios, the interval may be set at a higher value of 750 milliseconds. By configuring higher values, you can force these intervals to be longer; but, not shorter.
 
 >[!NOTE]
->If you have configured Geo-redundant ExpressRoute circuits or use Site-to-Site IPSec VPN connectivity as backup for ExpressRoute private peering; enabling BFD would help failover quicker following an ExpressRoute connectivity failure. 
+>If you have configured Geo-redundant ExpressRoute circuits or use Site-to-Site IPSec VPN connectivity as backup; enabling BFD would help failover quicker following an ExpressRoute connectivity failure. 
 >
 
 ## Next Steps
