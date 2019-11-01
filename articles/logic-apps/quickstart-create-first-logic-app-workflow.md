@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
 1. From the Azure home page, in the search box, find and select **Logic Apps**.
 
-   ![Find and select "logic apps"](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
+   ![Find and select "Logic Apps"](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
 
 1. On the **Logic Apps** page, select **Add**.
 
