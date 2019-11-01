@@ -2,10 +2,10 @@
 title: Azure portal overview | Microsoft Docs 
 description: Learn how to navigate the Azure portal and use it to manage services
 services: azure-portal
-keywords: 
+keywords: portal
 author: kfollis
 ms.author: kfollis
-ms.date: 05/24/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 
 ms.service: azure-portal
@@ -17,9 +17,9 @@ This article introduces the Azure portal, identifies portal page elements, and h
 
 ## What is the Azure portal?
 
-The Azure portal is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription using a graphical user interface. You can build, manage, and monitor everything from simple web apps to complex cloud deployments, create custom dashboards for an organized view of resources, and configure accessibility options for the best experience.
+The Azure portal is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription using a graphical user interface. You can build, manage, and monitor everything from simple web apps to complex cloud deployments. Create custom dashboards for an organized view of resources. Configure accessibility options for an optimal experience.
 
-The Azure portal is designed for resiliency and continuous availability. It has a presence in every Azure datacenter thereby making it resilient to individual datacenter failures and also avoids network slow-downs by being close to users. The Azure portal updates continuously and requires no downtime for maintenance activities.
+The Azure portal is designed for resiliency and continuous availability. It has a presence in every Azure datacenter. This makes the Azure portal resilient to individual datacenter failures and avoids network slow-downs by being close to users. The Azure portal updates continuously and requires no downtime for maintenance activities.
 
 ## Azure Home
 
