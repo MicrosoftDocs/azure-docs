@@ -116,10 +116,10 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
 
-[ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
-[cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
-[fa-containers]: face/face-how-to-install-containers.md
+[ad-containers]: anomaly-Detector/Anomaly-detector-container-howto.md
+[cv-containers]: Computer-vision/computer-vision-how-to-install-containers.md
+[fa-containers]: Face/face-how-to-install-containers.md
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
-[lu-containers]: luis/luis-container-howto.md
-[sp-containers]: speech-service/speech-container-howto.md
+[lu-containers]: LUIS/luis-container-howto.md
+[sp-containers]: Speech-Service/speech-container-howto.md
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
