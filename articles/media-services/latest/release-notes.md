@@ -35,7 +35,7 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ### Media Services v2
 
-#### Media processors retirement plans
+#### Media processors' retirement plans
 
 The following legacy media processors are going to be retired in 2020, see details in the following table. 
 
