@@ -77,3 +77,12 @@ This class of errors indicates that there was a internal server error
 | Error code | Error SubCode | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Internal Server Error | 50000 | SubCode=50000. Internal Server Error| Can happen for various reasons. Some of the symptoms are - <ul> <li> Client request/body is corrupt and leads to an error. </li> <li> The client request timed out due to processing issues on the service. </li> </ul> | To resolve this <ul> <li> Ensure that the requests parameters are not null or malformed. </li> <li> Retry the request. </li> </ul> |
+
+## Error code: Unauthorized
+
+This class of errors indicates the absence of authorization to run the command.
+
+| Error code | Error SubCode | Error message | Description | Recommendation |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Unauthorized | none | Invalid operation on the Secondary namespace. Secondary namespace is read-only. | The operation was performed against the secondary namespace which is setup as a readonly namespace. | Retry the command against the primary namespace. Learn more about [secondary namespace](service-bus-geo-dr.md) |
+| Unauthorized | none | MissingToken: The authorization header was not found. | This occurs when the authorization has null or incorrect values. | Ensure that the token value mentioned in the authorization header is correct and not null. |
