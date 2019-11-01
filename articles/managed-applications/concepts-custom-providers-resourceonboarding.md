@@ -31,7 +31,7 @@ Similar to [Azure Custom Provider custom resources](./custom-providers-resources
 
 ## Resource onboarding basics
 
-Resource onboarding is configured through Azure Custom Providers using "Microsoft.CustomProviders/resourceProviders" and "Microsoft.CustomProviders/associations" resource types. To enable resource onboarding for a custom provider, during the configuration process create a **resourceType** called "associations" with a **routingType** that includes "Extension". 
+Resource onboarding is configured through Azure Custom Providers using "Microsoft.CustomProviders/resourceProviders" and "Microsoft.CustomProviders/associations" resource types. To enable resource onboarding for a custom provider, during the configuration process create a **resourceType** called "associations" with a **routingType** that includes "Extension". In addition, the "Microsoft.CustomProviders/associations" and "Microsoft.CustomProviders/resourceProviders" do not need to belong to the same resource group.
 
 Sample Azure Custom Provider:
 
@@ -141,6 +141,8 @@ X-MS-CustomProviders-ExtendedResource: /subscriptions/{subscriptionId}/resourceG
   }
 }
 ```
+
+The endpoint should respond with "application/json" `Content-Type` and valid JSON. Fields that are returned under the "properties" object of the JSON will be added to the association return response.
 
 ## Looking for help
 

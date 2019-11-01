@@ -206,7 +206,7 @@ The first part of the template is deploying the custom provider infrastructure. 
 
 Let's deploy the custom provider infrastructure, either copy, save, and deploy the above template or follow along and deploy through the Azure portal.
 
-1. Open the Azure portal from (https://portal.azure.com)[https://portal.azure.com].
+1. Open the Azure portal from https://portal.azure.com.
 
 2. Search "templates" in `All Services` or the middle search bar. 
 
@@ -232,8 +232,6 @@ Let's deploy the custom provider infrastructure, either copy, save, and deploy t
 
 8. Input the setting parameters for the required fields and select the subscription and resource group. The "Custom Resource Provider Id" can be left empty.
 
-![Input template parameters](media/custom-providers-resource-onboarding/templatescustomprovider.png)
-
 | Setting Name | Required | Description |
 | ------------ | -------- | ----------- |
 | Location | *yes* | The location for the resources in the template. |
@@ -242,12 +240,18 @@ Let's deploy the custom provider infrastructure, either copy, save, and deploy t
 | Custom Resource Provider Id | *no* | An existing custom resource provider that supports the "association" resource. Specifying this will skip the logic app and custom provider deployment. |
 | Association Name | *no* | The name of the association resource. |
 
+Sample parameters:
+
+![Input template parameters](media/custom-providers-resource-onboarding/templatescustomprovider.png)
+
 9. Navigate to the deployment and wait for it to finish. It should display success and output the new "association" resource.
 
 Deployment success:
+
 ![Custom provider deployment](media/custom-providers-resource-onboarding/customproviderdeployment.png)
 
 Resource group with "Show hidden types":
+
 ![Custom provider deployment](media/custom-providers-resource-onboarding/showhidden.png)
 
 10. Explore the logic app "Run History" tab to see the calls for the "association" create.
