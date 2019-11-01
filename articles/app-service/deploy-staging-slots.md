@@ -215,7 +215,7 @@ You can also customize the warm-up behavior with one or both of the following [a
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. An example is `200,202` . If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
 
 > [!NOTE]
-> `<applicationInitialization>` is part each app start-up, where as these two app settings apply only to slot swaps.
+> The `<applicationInitialization>` configuration element is part of each app start-up, whereas the two warm-up behavior app settings apply only to slot swaps.
 
 If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
