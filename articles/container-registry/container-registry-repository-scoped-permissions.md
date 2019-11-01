@@ -52,7 +52,7 @@ az acr token create --name MyToken --registry myregistry \
   --repository samples/nginx content/read --status enabled
 ```
 
-The output shows details about the token, including generated passwords and scope map. It's recommended to save the passwords in a safe place to use later with `docker login`.
+The output shows details about the token, including generated passwords and scope map. It's recommended to save the passwords in a safe place to use later with `docker login`. The passwords can't be retrieved again but new ones can be generated.
 
 The output also shows that a scope map is automatically created, named `MyToken-scope-map`. You can use the scope map to apply the same repository actions to other tokens. Or, update the scope map later to change the token permissions.
 
@@ -124,7 +124,7 @@ Run [az acr token create][az-acr-token-create] to create a token associated with
 az acr token create --name MyToken --registry myregistry --scope-map MyScopeMap --status enabled
 ```
 
-The output shows details about the token, including generated passwords and the scope map you applied. It's recommended to save the passwords in a safe place to use later with `docker login`.
+The output shows details about the token, including generated passwords and the scope map you applied. It's recommended to save the passwords in a safe place to use later with `docker login`. The passwords can't be retrieved again but new ones can be generated.
 
 ## Generate passwords for token
 
@@ -166,7 +166,7 @@ docker pull myregistry.azurecr.io/samples/hello-world:v1
 docker pull myregistry.azurecr.io/samples/nginx:v1
 ```
 
-Because the example token only allows the `content/write` action on the `samples/hello-world` repository, `docker push` only succeeds to that repository:
+Because the example token allows the `content/write` action only on the `samples/hello-world` repository, `docker push` succeeds to that repository but fails for `samples/nginx`:
 
 ```console
 # docker push succeeds
@@ -185,6 +185,8 @@ az acr scope-map update --name MyScopeMap --registry myregistry \
   --remove samples/hello-world content/write
 ```
 
+If the scope map is associated with more than one token, the command updates the permission of all associated tokens.
+
 If you want to update a token with a different scope map, run [az acr token update][az-acr-token-update]. For example:
 
 ```azurecli
@@ -192,7 +194,7 @@ az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-After updating a token, or a scope map associated with a token, the permission changes take effect at the next `docker login` with the token.
+After updating a token, or a scope map associated with a token, the permission changes take effect at the next `docker login` or other authentication using the token.
 
 After updating a token, you might want to generate new passwords to access the registry. Run [az acr token credential generate][az-acr-token-credential-generate]. For example:
 
@@ -205,9 +207,7 @@ az acr token credential generate \
 
 ### Concepts
 
-To configure repository-scoped permissions, you need to be a registry administrator or individual with at least the Contributor role on the registry. 
-
-To configure the permissions, you create an *access token* using commands in the Azure CLI.
+To configure repository-scoped permissions, you create an *access token* and an associated *scope map* using commands in the Azure CLI.
 
 * An **access token** is a credential used with a password to authenticate with the registry. Associated with each token are permitted *actions* scoped to one or more repositories. You can set an expiration time for each token. 
 
@@ -215,11 +215,11 @@ To configure the permissions, you create an *access token* using commands in the
 
   |Action  |Description  |
   |---------|---------|
-  |`content/read`     |  Read data from the repository. For example, pull an artifact.      |
-  |`metadata/read`    | Read metadata from the repository    |
+  |`content/read`     |  Read data from the repository. For example, pull an artifact.  |
+  |`metadata/read`    | Read metadata from the repository. For example, list tags or show manifest metadata.   |
   |`content/write`     |  Write data to the repository. Use with `content/read` to push an artifact.    |
-  |`metadata/write`     |  Write metadata to the repository       |
-  |`content/delete`    | Remove data from the repository |
+  |`metadata/write`     |  Write metadata to the repository. For example, update manifest attributes.  |
+  |`content/delete`    | Remove data from the repository. For example, delete a repository or a manifest. |
 
 * A **scope map** is a registry object that groups repository permissions you apply to a token, or can reapply to other tokens. If you don't apply a scope map when creating a token, a scope map is automatically created for you, to save the permission settings. 
 
