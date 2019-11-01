@@ -22,10 +22,6 @@ Azure IoT Central is an IoT application platform that reduces the burden and cos
 
 The web UI lets you monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications.
 
-The following video presents an overview of Azure IoT Central:
-
->[!VIDEO https://azure.microsoft.com/resources/videos/iot-central-updates/]
-
 This article outlines, for Azure IoT Central:
 
 - The typical personas associated with a project.

@@ -69,7 +69,7 @@ Next you set up the predictive experiment from which you deploy your web service
 9. In the **Data table name field**, type dbo.ScoredLabels. If the table does not exist, it is created when the experiment is run or the web service is called.
 10. In the **Comma separated list of datatable columns** field, type ScoredLabels.
 
-When you write an application that calls the final web service, you may want to specify a different input query or destination table at run time. To configure these inputs and outputs, use the Web Service Parameters feature to set the *Import Data* module *Data source* property and the *Export Data* mode data destination property.  For more information on Web Service Parameters, see the [Azure Machine Learning studio Web Service Parameters entry](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) on the Cortana Intelligence and Machine Learning Blog.
+When you write an application that calls the final web service, you may want to specify a different input query or destination table at run time. To configure these inputs and outputs, use the Web Service Parameters feature to set the *Import Data* module *Data source* property and the *Export Data* mode data destination property.  For more information on Web Service Parameters, see the [Azure Machine Learning Studio Web Service Parameters entry](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) on the Cortana Intelligence and Machine Learning Blog.
 
 To configure the Web Service Parameters for the import query and the destination table:
 

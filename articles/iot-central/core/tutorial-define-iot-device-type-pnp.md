@@ -426,4 +426,4 @@ In this tutorial, you learned how to:
 Here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Add Edge device](tutorial-add-edge-as-leaf-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Connect a device](tutorial-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

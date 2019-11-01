@@ -174,7 +174,7 @@ When the save finishes, the dataset will be available for use within any experim
 
 ## Next steps
 
-[Deploying Azure Machine Learning studio web services that use Data Import and Data Export modules](web-services-that-use-import-export-modules.md)
+[Deploying Azure Machine Learning Studio web services that use Data Import and Data Export modules](web-services-that-use-import-export-modules.md)
 
 
 <!-- Module References -->

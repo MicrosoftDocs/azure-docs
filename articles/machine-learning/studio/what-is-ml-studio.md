@@ -28,7 +28,7 @@ The classic version of Azure Machine Learning Studio  gives you an interactive, 
 
 There is no programming required, visually connect datasets and modules to construct your predictive analysis model.
 
-![Azure Machine Learning studio diagram: Create experiments, read data for many sources, write scored data, write models.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
+![Azure Machine Learning Studio diagram: Create experiments, read data for many sources, write scored data, write models.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 <a name="compare"></a>
 ## How does Machine Learning Studio (classic) differ from Azure Machine Learning?

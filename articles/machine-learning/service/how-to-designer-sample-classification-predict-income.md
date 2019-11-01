@@ -52,7 +52,7 @@ Follow these steps to create the pipeline:
 1. Add **Score Model** module and connect the **Train Model** module to it. Then add the test set (the output of Apply Transformation module which apply feature selection to test set too) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
 
 
-    This pipeline has two score modules, the one on the right has excluded label column before make the prediction. This is prepared for deploy a real-time endpoint, because the web service input will expect only features not label. 
+    This pipeline has two score modules, the one on the right has excluded label column before make the prediction. This is prepared to deploy a real-time endpoint, because the web service input will expect only features not label. 
 
 1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
 

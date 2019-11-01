@@ -94,7 +94,7 @@ In every automated machine learning experiment, your data is automatically scale
 
 Additional advanced preprocessing and featurization are also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
 
-+ Studio : Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](how-to-create-portal-experiments.md).
++ Azure Machine Learning studio : Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](how-to-create-portal-experiments.md).
 
 + Python SDK: Specifying `"feauturization": auto' / 'off' / FeaturizationConfig` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 

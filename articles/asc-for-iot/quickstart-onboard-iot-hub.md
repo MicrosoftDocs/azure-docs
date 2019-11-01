@@ -42,7 +42,7 @@ To enable security on your IoT Hub:
 
 1. Open your **IoT Hub** in Azure portal. 
 1. Under the **Security** menu, click **Secure your IoT solution**.    
-1. Click **Save**. 
+
 
 Congratulations! You've completed enabling Azure Security Center for IoT on your IoT Hub. 
 

@@ -7,10 +7,12 @@ ms.date: 10/22/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: [iot-p0-scenario]
 ---
 
 # Building retail solutions with Azure IoT Central
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 Azure IoT Central is an Internet of Things (IoT) app platform for solution builders that simplifies the challenges of building & managing scalable applications. In this article, we will highlight several retail-specific application templates within IoT Central. Solution builders can leverage published templates to build IoT solutions to optimize supply chain, improve in-store experience for customers, and track inventory more efficiently.
 
 > [!div class="mx-imgBorder"]
