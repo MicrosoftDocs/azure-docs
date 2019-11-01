@@ -1,5 +1,5 @@
 ---
-title: 'Use Azure Service Bus queues with Python'
+title: Use Azure Service Bus queues with Python
 description: Learn how to use Azure Service Bus queues with Python.
 services: service-bus-messaging
 documentationcenter: python
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 10/31/2019
 ms.author: aschhab
 ms.custom: seo-python-october2019
 ---
@@ -23,22 +23,22 @@ ms.custom: seo-python-october2019
 
 This article shows you how to use Python to create, send messages to, and receive messages from Azure Service Bus queues. 
 
-For more information about the Service Bus Python SDK, see [Service Bus libraries for Python](/python/api/overview/azure/servicebus?view=azure-python).
+For more information about the Python Azure Service Bus libraries, see [Service Bus libraries for Python](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## Prerequisites
 - An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- A Service Bus namespace, created by following the steps at [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md). Copy the primary connection string from **Shared access policies** to use later in this article. 
+- A Service Bus namespace, created by following the steps at [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md). Copy the primary connection string from the **Shared access policies** screen to use later in this article. 
 - Python 3.4x or above, with the [Python Azure Service Bus][Python Azure Service Bus package] package installed. For more information, see the [Python Installation Guide](/azure/python/python-sdk-azure-install). 
 
 ## Create a queue
 
-The **ServiceBusClient** object lets you work with queues. To programmatically access Service Bus, add the following line near the top of your Python file:
+A **ServiceBusClient** object lets you work with queues. To programmatically access Service Bus, add the following line near the top of your Python file:
 
 ```python
 from azure.servicebus import ServiceBusClient
 ```
 
-The following code creates a **ServiceBusClient** object. Replace `<connectionstring>` with your Service Bus primary connection string value. You can find this value under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
+Add the following code to create a **ServiceBusClient** object. Replace `<connectionstring>` with your Service Bus primary connection string value. You can find this value under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<connectionstring>')
@@ -100,9 +100,9 @@ with queue_client.get_receiver() as queue_receiver:
 
 The optional `peek_lock` parameter of `get_receiver` determines whether Service Bus deletes messages from the queue as they're read. The default mode for message receiving is *PeekLock*, or `peek_lock` set to **True**, which reads (peeks) and locks messages without deleting them from the queue. Each message must then be explicitly completed to remove it from the queue.
 
-To delete messages from the queue as they're read, you can set the `peek_lock` parameter of `get_receiver` to **False**. Deleting messages as part of the receive operation is the simplest model, and works fine if the application can tolerate missing messages if there's a failure. To understand this behavior, consider a scenario in which the consumer issues a receive request and then crashes before processing it. If the message was deleted on being received, when the application restarts and begins consuming messages again, it has missed the message it received before the crash.
+To delete messages from the queue as they're read, you can set the `peek_lock` parameter of `get_receiver` to **False**. Deleting messages as part of the receive operation is the simplest model, but only works if the application can tolerate missing messages if there's a failure. To understand this behavior, consider a scenario in which the consumer issues a receive request and then crashes before processing it. If the message was deleted on being received, when the application restarts and begins consuming messages again, it has missed the message it received before the crash.
 
-If your application can't tolerate missed messages, the receive becomes a two-stage operation. PeekLock finds the next message to be consumed, locks it to prevent other consumers from receiving it, and returns it to the application. After processing or storing the message, the application completes the second stage of the receive process by calling the `complete` method on the **Message** object.  The `complete` method marks the message as being consumed and removes it from the queue.
+If your application can't tolerate missed messages, receive is a two-stage operation. PeekLock finds the next message to be consumed, locks it to prevent other consumers from receiving it, and returns it to the application. After processing or storing the message, the application completes the second stage of the receive process by calling the `complete` method on the **Message** object.  The `complete` method marks the message as being consumed and removes it from the queue.
 
 ## Handle application crashes and unreadable messages
 

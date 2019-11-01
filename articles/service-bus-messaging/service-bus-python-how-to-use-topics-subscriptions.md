@@ -1,5 +1,5 @@
 ---
-title: Use Azure Service Bus topics with Python
+title: Use Azure Service Bus topics and subscriptions with Python
 description: Learn how to use Azure Service Bus topics and subscriptions from Python.
 services: service-bus-messaging
 documentationcenter: python
@@ -31,7 +31,7 @@ This article describes how to use Python with Azure Service Bus topics and subsc
 
 ## Prerequisites
 - An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- A Service Bus namespace, created by following the steps at [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md). Copy the namespace name, shared access key name, and primary key value from **Shared access policies** to use later in this quickstart. 
+- A Service Bus namespace, created by following the steps at [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md). Copy the namespace name, shared access key name, and primary key value from the **Shared access policies** screen to use later in this quickstart. 
 - Python 3.4x or above, with the [Azure Python SDK][Azure Python package] package installed. For more information, see the [Python Installation Guide](/azure/python/python-sdk-azure-install).
 
 ## Create a ServiceBusService object
@@ -42,7 +42,7 @@ A **ServiceBusService** object lets you work with topics and subscriptions to to
 from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-The following code creates a **ServiceBusService** object. Replace `<namespace>`, `<sharedaccesskeyname>`, and `<sharedaccesskeyvalue>` with your Service Bus namespace name, Shared Access Signature (SAS) key name, and primary key value. You can find these values under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
+Add the following code to create a **ServiceBusService** object. Replace `<namespace>`, `<sharedaccesskeyname>`, and `<sharedaccesskeyvalue>` with your Service Bus namespace name, Shared Access Signature (SAS) key name, and primary key value. You can find these values under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
 
 ```python
 bus_service = ServiceBusService(
