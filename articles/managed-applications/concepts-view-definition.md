@@ -275,15 +275,10 @@ In this view you can extend existing Azure resources based on the `targetResourc
 {
     "kind": "Associations",
     "properties": {
-        "displayName": "Test custom resource type",
+        "displayName": "Test association resource type",
         "version": "1.0.0",
         "targetResourceType": "Microsoft.Compute/virtualMachines",
-        "createUIDefinition": { },
-        "columns": [
-            {"key": "name", "displayName": "Name"},
-            {"key": "properties.myProperty1", "displayName": "Property 1"},
-            {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
-        ]
+        "createUIDefinition": { }
     }
 }
 ```
@@ -293,10 +288,8 @@ In this view you can extend existing Azure resources based on the `targetResourc
 |displayName|Yes|The displayed title of the view. The title should be **unique** for each Associations view in your **viewDefinition.json**.|
 |version|No|The version of the platform used to render the view.|
 |targetResourceType|Yes|The target resource type. This is the resource type that will be displayed for resource onboarding.|
-|createUIDefinition|No|Create UI Definition schema for create custom resource command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md)|
-|columns|No|The array of columns of the custom resource. If not defined the `name` column will be shown by default. The column must have `"key"` and `"displayName"`. For key, provide the key of the property to display in a view. If nested, use dot as delimiter, for example, `"key": "name"` or `"key": "properties.property1"`. For display name, provide the display name of the property to display in a view. You can also provide an `"optional"` property. When set to true, the column is hidden in a view by default.|
-
-![CustomResources](./media/view-definition/customresources.png)
+|createUIDefinition|No|Create UI Definition schema for create association resource command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md)|
+|columns|No|The array of additional columns for the association resource.|
 
 ## Looking for help
 
