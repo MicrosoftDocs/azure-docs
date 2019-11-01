@@ -384,3 +384,7 @@ For information about the integration capabilities of stream processing in Azure
 ### Is there a way to dynamically terminate the head node of the cluster when the cluster is idle for a specific period?
 
 You can't do this with HDInsight clusters. You can use Azure Data Factory for these scenarios.
+
+### What compliance offerings does HDInsight offer?
+
+For compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).

@@ -1,6 +1,6 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark blueprint sample - Overview
-description: Overview of the CIS Microsoft Azure Foundations Benchmark blueprint sample. This blueprint sample helps customers asses specific controls.
+description: Overview of the CIS Microsoft Azure Foundations Benchmark blueprint sample. This blueprint sample helps customers assess specific controls.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/09/2019
@@ -30,7 +30,7 @@ Next, visit the following article to learn about the recommendation mapping:
 > [!div class="nextstepaction"]
 > [CIS Microsoft Azure Foundations Benchmark blueprint - Recommendation mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
