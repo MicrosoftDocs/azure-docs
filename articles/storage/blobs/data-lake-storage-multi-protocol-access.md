@@ -49,6 +49,7 @@ The items that appear in this table will change over time as support for Blob st
 |Blob SDKs |Generally available|
 |[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) (data plane operations)|Generally available|
 |[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) (data plane operations)|Generally available|
+|[blobfuse](storage-how-to-mount-container-linux.md)|Not yet supported|
 |[Immutable storage](storage-blob-immutable-storage.md)|Not yet supported|
 |[Snapshots](storage-blob-snapshots.md)|Not yet supported|
 |[Soft delete](storage-blob-soft-delete.md)|Not yet supported|
