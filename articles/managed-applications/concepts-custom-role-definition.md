@@ -62,5 +62,5 @@ A role is composed of either a `$.properties.roleName` or `id`.
 
 |Property|Required|Description|
 |---------|---------|---------|
-|id|*yes*|The id of the built-in role. This property can be the full id or just the GUID.|
+|ID|*yes*|The ID of the built-in role. This property can be the full ID or just the GUID.|
 |roleName|*yes*|The name of the built-in role.|
