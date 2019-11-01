@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts (MSAs). 
 
 > [!NOTE]
-> Google federation is designed specifically for Gmail users. To federate with G Suite domains, use the [direct federation feature](direct-federation.md) instead.
+> Google federation is designed specifically for Gmail users. To federate with G Suite domains, use the [direct federation feature](direct-federation.md).
 
 ## What is the experience for the Google user?
 When you send an invitation to a Google Gmail user, the guest user should access your shared apps or resources using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
@@ -35,16 +35,16 @@ If the guest user sees a "header too long" error, they can try clearing their co
 
 ## Limitations
 
-Google guest users are fully supported on Teams and can use the Teams common endpoint `https://teams.microsoft.com`.
+Google guest users are fully supported on Teams and can use the Teams common endpoint: `https://teams.microsoft.com`.
 
-For other common endpoints like My Apps or the Azure portal, your Google guest users must sign in using a link that includes your tenant information. The following are examples:
+For the My Apps or the Azure portal common endpoints, Google guest users must sign in using a link that includes your tenant information. The following are examples:
   * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
   * `https://portal.azure.com/<your tenant id>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
 
    If Google guest users try to use a link such as `https://myapps.microsoft.com` or `https://portal.azure.com`, they'll get an error.
 
-You can give Google guest users a direct link to an application or resource, as long as this link includes your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
+You can also give Google guest users a direct link to an application or resource, as long as this link includes your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 
 ## Step 1: Configure a Google developer project
 First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure AD. 
