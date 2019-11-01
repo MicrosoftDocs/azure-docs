@@ -78,16 +78,22 @@ from azureml.core import Workspace, Dataset, Datastore
 
 # get workspace object
 ws = Workspace.from_config()
+
 # get datastore object 
 dstore = Datastore.get(ws, 'your datastore name')
+
 # specify datastore paths
 dstore_paths = [(dstore, 'weather/*/*/*/*/data.parquet')]
+
 # specify partition format
 partition_format = 'weather/{state}/{date:yyyy/MM/dd}/data.parquet'
+
 # create the Tabular dataset with 'state' and 'date' as virtual columns 
 dset = Dataset.Tabular.from_parquet_files(path=dstore_paths, partition_format=partition_format)
+
 # assign the timestamp attribute to a real or virtual column in the dataset
 dset = dset.with_timestamp_columns('date')
+
 # register the dataset as the target dataset
 dset = dset.register(ws, 'target')
 ```
@@ -178,12 +184,16 @@ from datetime import datetime
 
 # get the workspace object
 ws = Workspace.from_config()
+
 # get the target dataset
 dset = Dataset.get_by_name(ws, 'target')
+
 # set the baseline dataset
 baseline = target.time_before(datetime(2019, 2, 1))
+
 # set up feature list
 features = ['latitude', 'longitude', 'elevation', 'windAngle', 'windSpeed', 'temperature', 'snowDepth', 'stationName', 'countryOrRegion']
+
 # setup data drift detector
 monitor = DataDriftDetector.create_from_datasets(ws, 'drift-monitor', baseline, target, 
                                                       compute_target='cpu-cluster', 
@@ -191,16 +201,22 @@ monitor = DataDriftDetector.create_from_datasets(ws, 'drift-monitor', baseline, 
                                                       feature_list=None, 
                                                       drift_threshold=.6, 
                                                       latency=24)
+
 # get data drift detector by name
 monitor = DataDriftDetector.get_by_name(ws, 'drift-monitor')
+
 # update data drift detector
 monitor = monitor.update(feature_list=features)
+
 # run a backfill for January through May
 backfill1 = monitor.backfill(datetime(2019, 1, 1), datetime(2019, 5, 1))
+
 # run a backfill for May through today
 backfill1 = monitor.backfill(datetime(2019, 5, 1), datetime.today())
+
 # disable the pipeline schedule for the data drift detector
 monitor = monitor.disable_schedule()
+
 # enable the pipeline schedule for the data drift detector
 monitor = monitor.enable_schedule()
 ```
@@ -261,6 +277,30 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 
 ![Feature details categorical](media/how-to-monitor-datasets/feature-details2.png)
 
+## Metrics, alerts, and events
+
+Metrics can be queried in the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with your machine learning workspace, giving access to all features of Application Insights including setting up custom alert rules and action groups to trigger an action such as an Email/SMS/Push/Voice or Azure Function. Please refer to the complete Application Insights documentation for details. 
+
+To get started, navigate to the associated Application Insights resource from the Azure Portal:
+
+![Azure portal overview](media/how-to-monitor-datasets/ap-overview.png)
+
+Then click on Logs (Analytics):
+
+![Application insights overview](media/how-to-monitor-datasets/ai-overview.png)
+
+The dataset monitor metrics are stored as `customMetrics`. You can run a simple query after setting up a dataset monitor to view them:
+
+![Log analytics query](media/how-to-monitor-datasets/simple-query.png)
+
+After identifying metrics to setup alert rules, create a new alert rule:
+
+![New alert rule](media/how-to-monitor-datasets/alert-rule.png)
+
+You can use an existing action group, or create a new one to define the action to be taken when the set conditions are met:
+
+![New action group](media/how-to-monitor-datasets/action-group.png)
+
 ## Troubleshooting
 
 Limitations and known issues:
@@ -268,6 +308,7 @@ Limitations and known issues:
 * Time range of backfill jobs are limited to 31 intervals of the monitor's frequency setting. 
 * Limitation of 200 features, unless a feature list is not specified (all features used).
 * Compute size must be large enough to handle the data. 
+* Ensure your dataset has data within the start and end date for a given monitor run.
 
 Columns, or features, in the dataset are classified as categorical or numeric based on the conditions in the table below. If the feature does not meet these conditions - for instance, a column of type string with >100 unique values - the feature is dropped from our data drift algorithm, but is still profiled. 
 
