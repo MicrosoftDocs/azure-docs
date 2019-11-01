@@ -11,7 +11,7 @@
      href: ingest-historical-telemetry-data.md
 - name: Concepts
   items:
-   - name: Architecture
+   - name: Integration patterns
      href: architecture-of-farmbeats.md
    - name: Sensor partner integration
      href: sensor-partner-integration.md
