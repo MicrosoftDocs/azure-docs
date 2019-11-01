@@ -69,3 +69,11 @@ This class of errors indicates that the resource was not found.
 | Not found | none | Not Found. The Operation doesn't exist. | The operation you are trying to perform does not exist. | Check the operation and try again. |
 | Not found | none | The incoming request is not recognized as a namespace policy put request. | The incoming request body is null and hence cannot be executed as a put request. | Please check the request body to ensure that it is not null. | 
 | Not found | none | The messaging entity *'entity name'* could not be found. | The entity that you are trying to execute the operation against could not be found. | PLease check whether the entity exists and try the operation again. |
+
+## Error code: Internal Server Error
+
+This class of errors indicates that there was a internal server error
+
+| Error code | Error SubCode | Error message | Description | Recommendation |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Internal Server Error | 50000 | SubCode=50000. Internal Server Error| Can happen for various reasons. Some of the symptoms are - <ul> <li> Client request/body is corrupt and leads to an error. </li> <li> The client request timed out due to processing issues on the service. </li> </ul> | To resolve this <ul> <li> Ensure that the requests parameters are not null or malformed. </li> <li> Retry the request. </li> </ul> |
