@@ -522,7 +522,7 @@
       items:
       - name: Android
         href: quickstart-v1-android.md
-      - name: iOS and MacOS
+      - name: iOS
         href: quickstart-v1-ios.md
       - name: Windows Desktop .NET
         href: quickstart-v1-dotnet.md

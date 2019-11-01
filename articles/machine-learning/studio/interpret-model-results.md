@@ -1,6 +1,6 @@
 ---
 title: Interpret model results
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
 ---
-# Interpret model results in Azure Machine Learning Studio
-This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
+# Interpret model results in Azure Machine Learning Studio (classic)
+This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio (classic). After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
 
 
-There are four major kinds of machine learning models in Azure Machine Learning Studio:
+There are four major kinds of machine learning models in the classic version of Azure Machine Learning Studio:
 
 * Classification
 * Clustering
@@ -30,11 +30,11 @@ The modules used for prediction on top of these models are:
 * [Assign to Clusters][assign-to-clusters] module for clustering
 * [Score Matchbox Recommender][score-matchbox-recommender] for recommendation systems
 
-This document explains how to interpret prediction results for each of these modules. For an overview of these modules, see [How to choose parameters to optimize your algorithms in Azure Machine Learning Studio](algorithm-parameters-optimize.md).
+This document explains how to interpret prediction results for each of these modules. For an overview of these modules, see [How to choose parameters to optimize your algorithms in Azure Machine Learning Studio (classic)](algorithm-parameters-optimize.md).
 
-This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning Studio](evaluate-model-performance.md).
+This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning Studio (classic)](evaluate-model-performance.md).
 
-If you are new to Azure Machine Learning Studio and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md) in Azure Machine Learning Studio.
+If you are new to the classic version of Azure Machine Learning Studio and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio (classic)](create-experiment.md).
 
 ## Classification
 There are two subcategories of classification problems:
@@ -42,12 +42,12 @@ There are two subcategories of classification problems:
 * Problems with only two classes (two-class or binary classification)
 * Problems with more than two classes (multi-class classification)
 
-Azure Machine Learning Studio has different modules to deal with each of these types of classification, but the methods for interpreting their prediction results are similar.
+Azure Machine Learning Studio (classic) has different modules to deal with each of these types of classification, but the methods for interpreting their prediction results are similar.
 
 ### Two-class classification
 **Example experiment**
 
-An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning Studio is a subset of the popular [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
+An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in the classic version of Azure Machine Learning Studio is a subset of the popular [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
 
 ![Screenshot of iris experiment](./media/interpret-model-results/1.png)
 
@@ -221,7 +221,7 @@ For recommender systems, you can use the restaurant recommendation problem as an
 * Customer feature data
 * Restaurant feature data
 
-There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in Azure Machine Learning Studio:
+There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in the classic version of Azure Machine Learning Studio:
 
 * Predict ratings for a given user and item
 * Recommend items to a given user
@@ -232,7 +232,7 @@ You can choose what you want to do by selecting from the four options in the **R
 
 ![Matchbox recommender](./media/interpret-model-results/19_1.png)
 
-A typical Azure Machine Learning Studio experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
+A typical Azure Machine Learning Studio (classic) experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
 
 ![Recommender system experiment](./media/interpret-model-results/20.png)
 
