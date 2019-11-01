@@ -94,15 +94,10 @@ Sample JSON for view definition:
         {
             "kind": "Associations",
             "properties": {
-                "displayName": "Test custom resource type",
+                "displayName": "Test association resource type",
                 "version": "1.0.0",
                 "targetResourceType": "Microsoft.Compute/virtualMachines",
-                "createUIDefinition": { },
-                "columns": [
-                    {"key": "name", "displayName": "Name"},
-                    {"key": "properties.myProperty1", "displayName": "Property 1"},
-                    {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
-                ]
+                "createUIDefinition": { }
             }
         }
     ]

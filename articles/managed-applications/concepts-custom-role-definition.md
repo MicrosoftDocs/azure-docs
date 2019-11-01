@@ -17,7 +17,7 @@ This article provides an overview of custom role definition artifact and its cap
 
 ## Custom role definition artifact
 
-The custom role definition artifact must be named **customRoleDefinition.json** and placed at the same level as **createUiDefinition.json** and **mainTemplate.json** in the .zip package that creates a managed application definition. To learn how to create the .zip package and publish a managed application definition, see [Publish a managed application definition](publish-managed-app-definition-quickstart.md)
+The custom role definition artifact must be named **customRoleDefinition.json** and placed at the same level as **createUiDefinition.json** and **mainTemplate.json** in the .zip package that creates a managed application definition. To learn how to create the .zip package and publish a managed application definition, see [Publish a managed application definition.](publish-managed-app-definition-quickstart.md)
 
 ## Custom role definition schema
 
@@ -62,5 +62,5 @@ A role is composed of either a `$.properties.roleName` or `id`.
 
 |Property|Required|Description|
 |---------|---------|---------|
-|ID|Yes*|The ID of the built-in role. This property can be the full ID or just the GUID.|
-|roleName|Yes*|The name of the built-in role.|
+|id|*yes*|The id of the built-in role. This property can be the full id or just the GUID.|
+|roleName|*yes*|The name of the built-in role.|
