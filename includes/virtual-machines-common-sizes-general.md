@@ -77,7 +77,7 @@ Dsv3-series sizes run on the Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon
 
 ## Dasv4-series
 
-ACU:  230-250
+ACU:  230-260
 
 Premium Storage: Supported
 
@@ -124,7 +124,7 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 ## Dav4-series
 
-ACU: 230-250
+ACU: 230-260
 
 Premium Storage: Not Supported
 
@@ -132,17 +132,17 @@ Premium Storage caching: Not Supported
 
 Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz. The Dav4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Dasv4 sizes. The pricing and billing meters for Dasv4 sizes are the same as the Dav4-series.
 
-
 **Size**|**vCPU**|**Memory: GiB**|**Temp storage (SSD) GiB**|**Max data disks**|**Max temp storage throughput: IOPS / Read MBps / Write MBps**|**Max NICs / Expected network bandwidth (MBps)**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-Standard\_D2a\_v4|2|8|50|4|3000 /48|2 / 1000
-Standard\_D4a\_v4|4|16|100|8|6000 / 96|2 / 2000
-Standard\_D8a\_v4|8|32|200|16|12000 / 192|4 / 4000
-Standard\_D16a\_v4|16|64|400|32|24000 / 384|8 / 8000
-Standard\_D32a\_v4|32|128|800|32|48000 / 768|8 / 16000
-Standard\_D48a\_v4|48|192|1200|32|96000  / 1020|8 / 24000
-Standard\_D64a\_v4|64|256|1600|32|96000  / 1020|8 / 30000
-Standard\_D96a\_v4|96|384|2400|32|96000  / 1020|8 / 30000
+Standard\_D2a\_v4|2|8|50|4|3000 / 46 / 46|2 / 1000
+Standard\_D4a\_v4|4|16|100|8|6000 / 93 / 93|2 / 2000
+Standard\_D8a\_v4|8|32|200|16|12000 / 186 / 186|4 / 4000
+Standard\_D16a\_v4|16|64|400|32|24000 / 373 / 373|8 / 8000
+Standard\_D32a\_v4|32|128|800|32|48000 / 747 / 747|8 / 16000
+Standard\_D48a\_v4|48|192|1200|32|96000  / 1120 / 1120|8 / 24000
+Standard\_D64a\_v4|64|256|1600|32|96000  / 1167 / 1167|8 / 30000
+Standard\_D96a\_v4|96|384|2400|32|96000 / tbd / tbd|8 / 30000
+
 
 ## DSv2-series
 
