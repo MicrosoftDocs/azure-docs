@@ -1,6 +1,7 @@
 ---
 title: Create a labeling project for machine learning
-description: Create and administer a data-labeling project for machine learning.
+titleSuffix: Azure Machine Learning
+description: This article shows you how to create and run labeling projects that allow you to crowd-source tagging data for machine learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
@@ -11,7 +12,7 @@ ms.date: 11/04/2019
 
 # Create a labeling project for machine learning
 
-Azure Machine Learning Studio gives you a central location to create, manage, and monitor labeling projects.  Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. Labeling projects coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling task.
+Azure Machine Learning studio gives you a central location to create, manage, and monitor labeling projects.  Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. Labeling projects coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling task.
 
 A labeling project allows you to create, administer, and monitor a labeling task. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes. Azure tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't require an Azure account to participate. Once authenticated with their Microsoft Account (MSA) or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much or as little labeling as their time allows. They can assign and change labels using keyboard shortcuts. 
 
@@ -22,14 +23,12 @@ In this article, you'll learn how to:
 > [!div class="checklist"]
 > * Create a labeling project
 > * Specify data to be labeled
-> * Specify your label classes
+> * Specify label classes
 > * Describe the labeling task
 > * Initialize the labeling project
 > * Manage teams and people
 > * Run and monitor the project
 > * Export the labels
-
-If you don't have a Studio account, go to the [Studio homepage](https://studio.azureml.net) and select **Sign up here** to create a free account. The free workspace will have all the features you need for this article.
 
 ## Prerequisites
 
@@ -39,13 +38,9 @@ If you don't have a Studio account, go to the [Studio homepage](https://studio.a
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-## Sign in to Azure Machine Learning Studio
-
-Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
-
 ## Create a labeling project
 
-The **Labeling projects** page allows you to manage your projects, teams, and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it. 
+Labeling projects are administered from [Azure Machine Learning studio](https://ml.azure.com/). The **Labeling projects** page allows you to manage your projects, teams, and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it. 
 
 If your data are already stored in Azure blob storage, you should make them available as a datastore before creating your labeling project. For information, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores). 
 
@@ -65,7 +60,7 @@ If you've already created a dataset containing your data, you can select it from
 
 ### Create a dataset from an Azure datastore
 
-Although choosing direct upload of local files is fine for many use-cases, [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is both more robust and faster for transferring significant amounts of data. We recommend using Azure Storage Explorer as your preferred way to transfer data.
+Although choosing direct upload of local files is fine for many use-cases, [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is both more robust and faster for transferring significant amounts of data. We recommend Azure Storage Explorer as the default way to move files.
 
 To create a dataset from data that you've already stored in Azure blob storage:
 
@@ -93,11 +88,11 @@ If you wish to directly upload your data:
 1. Choose **Next** 
 1. Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
 
-## Specify your label classes
+## Specify label classes
 
 On the **Label classes** page, you specify the set of classes used to categorize your data. Give thought to these classes, as your labelers' accuracy and speed will be affected by the ease with which they can properly choose among them. For instance, rather than spelling out the full genus and species for plants or animals it might be better to use field codes or abbreviate the genus. 
 
-Enter one label per row, using the **+** button to add a new row.
+Enter one label per row, using the **+** button to add a new row. If you have more than 3 or 4 labels, but fewer than 10, consider prefixing them with "1: ", "2: ", etc. to provide some guidance to labelers using the number keys to accelerate their work. 
 
 ## Describe the labeling task
 
