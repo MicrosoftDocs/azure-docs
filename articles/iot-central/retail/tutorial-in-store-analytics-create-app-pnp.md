@@ -4,7 +4,7 @@ description: This tutorial shows how to create an in-store analytics retail appl
 services: iot-central
 ms.service: iot-central
 ms.topic: tutorial
-ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
+ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 ms.author: timlt
 author: timlt
 ms.date: 10/03/2019

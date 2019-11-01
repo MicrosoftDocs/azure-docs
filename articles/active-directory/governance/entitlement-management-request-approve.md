@@ -33,7 +33,7 @@ The first step to approve or deny access requests is to find and open the access
 
 1. Look for an email from Microsoft Azure that asks you to approve or deny a request. Here is an example email:
 
-    ![Approve request to access package email](./media/entitlement-management-shared/email-approve-request.png)
+    ![Approve request to access package email](./media/entitlement-management-shared/approver-request-email.png)
 
 1. Click the **Approve or deny request** link to open the access request.
 
