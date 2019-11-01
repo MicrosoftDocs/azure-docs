@@ -293,7 +293,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 
 ## Business critical - provisioned compute - Gen5
 
-### Gen5 compute compute (part 1)
+### Gen5 compute generation (part 1)
 
 |Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |

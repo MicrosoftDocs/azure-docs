@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
-title: Azure Data Share (preview) documentation # < 60 chars
-summary: Azure Data Share Preview is a safe and secure service for sharing data with third-party organizations. # < 160 chars
+title: Azure Data Share documentation # < 60 chars
+summary: Azure Data Share is a safe and secure service for sharing data with third-party organizations. # < 160 chars
 
 metadata:
-  title: Azure Data Share (preview)  # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Data Share (preview) is a safe and secure service for sharing data with third-party organizations. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Data Share  # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Data Share is a safe and secure service for sharing data with third-party organizations. # Required; article description that is displayed in search results. < 160 chars.
   services: data-share
   ms.service: data-share #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: subservice
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: joannapea #Required; your GitHub user alias, with correct capitalization.
-  ms.author: joanpo #Required; microsoft alias of author; optional team alias.
+  author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.
+  ms.author: hrasheed #Required; microsoft alias of author; optional team alias.
   ms.date: 09/13/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
