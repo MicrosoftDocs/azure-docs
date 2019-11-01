@@ -35,7 +35,7 @@ This article provides the steps to deploy the Event Grid module with persistence
 ```
 
 >[!IMPORTANT]
->Do not change the second part of the bind value. It points to a specific location within the module. For the Event Grid module on Linux, it has to be **/app/metadata**.
+>Do not change the second part of the bind value. It points to a specific location within the module. For the Event Grid module on Linux, it has to be **/app/metadataDb**.
 
 For example, the following configuration will result in the creation of the volume **egmetadataDbVol** where metadata will be persisted.
 
