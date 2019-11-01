@@ -9,74 +9,60 @@ ms.service: resource-graph
 ---
 # Tutorial: Create and share an Azure Resource Graph query in Azure portal
 
-Azure Resource Graph Explorer lets you save your Resource Graph queries right in Azure portal. There
-are two types of queries, _Private_ and _Shared_. A _Private_ query is saved in your Azure portal
-settings, but a _Shared_ query is a Resource Manager resource that can be managed with role-based
+Azure Resource Graph Explorer lets you save your Resource Graph queries directly in the Azure portal. There are two types of queries: _Private_ and _Shared_. A Private query is saved in your Azure portal settings. Whereas a Shared query is a Resource Manager resource that can be managed with role-based
 access controls (RBAC) and protected with resource locks.
 
-Saving queries in Azure portal saves your time spent looking for your favorite or commonly used
-queries. When sharing queries, you enable your team to be consistent and repeatable. In this
-tutorial, you'll complete these steps:
+By saving queries in the Azure portal, you save the time you might otherwise spend looking for your favorite or commonly used queries. When you share queries, you help your team realize goals of consistency and repetition. 
+
+In this tutorial, you'll complete the following tasks:
 
 > [!div class="checklist"]
 > - Create and delete a _Private_ query
-> - Create a _Shared_ query
-> - Discover _Shared_ queries
-> - Delete a _Shared_ query
+> - Create a Shared query
+> - Discover Shared queries
+> - Delete a Shared query
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure subscription. If you don't have an Azure subscription,
-create a [free account](https://azure.microsoft.com/free/) before you begin.
+To complete this tutorial, you need an Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create and delete a Private query
 
-_Private_ queries are only accessible or visible to the account that creates them. As they're saved
-in an account's Azure portal settings, they can only be created, used, and deleted from inside Azure
-portal. A _Private_ query isn't a Resource Manager resource. Create a new _Private_ query by
-following these steps:
+Private queries are accessible and visible only to the account that creates them. As they're saved in an account's Azure portal settings, they can only be created, used, and deleted from inside Azure portal. A Private query isn't a Resource Manager resource. Create a new Private query by following these steps:
 
-1. From the portal menu, select 'All services' or use the Azure search box at the top of all pages.
-   Search for and select 'Resource Graph Explorer'.
+1. From the portal menu, select **All services** or use the Azure search box at the top of all pages. Search for and thebn select **Resource Graph Explorer**.
 
-1. In the 'Query 1' tab on the Azure Resource Graph Explorer page, enter the following query. For
-   information about this query, see
-   [Samples - Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
-   Select **Run query** to see the query results in th lower pane.
+1. On the **Query 1** tab in Azure Resource Graph Explorer, enter the following query:
 
    ```kusto
    Resources
    | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
+    Select **Run query** to see the query results in the bottom pane.
 
-1. Select **Save** or **Save as**, enter the _Name_ as 'Count VMs by OS', leave _Type_ as 'Private
-   query', then select **Save** at the bottom of the _Save query_ pane. The title of the tab changes
-   from 'Query 1' to 'Count VMs by OS'.
+   For more information about this query, see
+   [Samples - Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
 
-1. Browse away from Azure Resource Graph Explorer in Azure portal and then return to it. The saved
-   query is no longer displayed and the 'Query 1' tab has returned.
 
-1. Select **Open a query**. Check that _Type_ is 'Private query'. The saved 'Count VMs by OS' now
-   appears in the _Query Name_ list. Select the title link of the saved query and it's loaded into a
-   new tab with that queries name.
+1. Select **Save** or **Save as**, enter **Count VMs by OS** as the name, leave the type as **Private
+   query**, and then select **Save** at the bottom of the **Save query** pane. The tab title changes from **Query 1** to **Count VMs by OS**.
+
+1. Move away from Azure Resource Graph Explorer in the Azure portal and then return to it. The saved query is no longer displayed and the **Query 1** tab has returned.
+
+1. Select **Open a query**. Make sure that the type is **Private query**. The saved name **Count VMs by OS** now
+   appears in the **Query Name** list. When you select the title link of the saved query, it's loaded into a
+   new tab with that query's name.
 
    > [!NOTE]
-   > When a saved query is open and the tab shows it's _Name_, the **Save** button updates it with
-   > any changes made. To create a new saved query, use **Save as** and follow the steps as if it
-   > was a brand new saved query.
+   > When a saved query is open and the tab shows its name, the **Save** button updates it with any changes that have been made. To create a new saved query, use **Save as** and follow the steps as if it was a brand new saved query.
 
-1. To delete the saved query, select **Open a query** again, and check that _Type_ is 'Private
-   query'. On the row of the saved 'Count VMs by OS' query, select the trash can icon. On the
-   confirmation dialog, select **Yes** to complete the deletion of the query. Then close the _Open a
-   query_ pane.
+1. To delete the saved query, select **Open a query** again, and verify that the **Type** field is set to **Private
+   query**. On the row of the saved `Count VMs by OS` query, select **Delete** (Recycle bin). In the confirmation dialog box, select **Yes** to finish deleting the query. Then, close the **Open a query** pane.
 
 ## Create a Shared query
 
-Unlike a _Private_ query, a _Shared_ query is a Resource Manager resource. This fact means the query
-gets saved to a resource group, can be managed and controlled with RBAC, and even protected with
-resource locks. As a resource, anyone with appropriate permissions can see and use it. Create a new
-_Shared_ query by following these steps:
+Unlike a Private query, a Shared query is a Resource Manager resource. This fact means the query gets saved to a resource group, can be managed and controlled with RBAC, and can even be protected with resource locks. As a resource, anyone who has the appropriate permissions can see and use it. To create a new Shared query, follow these steps:
 
 1. From the portal menu, select 'All services' or use the Azure search box at the top of all pages.
    Search for and select 'Resource Graph Explorer'.
