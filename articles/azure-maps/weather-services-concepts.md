@@ -13,12 +13,12 @@ manager: philmea
 This article introduces concepts that apply to the [Azure Maps Weather Services](https://aka.ms/AzureMapsWeatherService). We recommend going through this article before starting out with the weather APIs. 
 
 
-## Radar and satellite Imagery color scale
+# Radar and satellite Imagery color scale
 
 The latest radar and infrared satellite images can be requested via the **Get Map Tiles API**. The table below helps interpret colors used for the radar and satellite tiles.
 
 | Hex color code | Color sample | Weather condition | Threshold |
 |----------------|--------------|-------------------|-----------|
-| #93c701        | ![](weather-services-concepts/color-93c701.png) | Rain-Light | | 
-| #ffd701        | ![](weather-services-concepts/color-ffd701.png) | Rain | |
+| #93c701        | ![](./weather-services-concepts/color-93c701.png) | Rain-Light | | 
+| #ffd701        | ![](./weather-services-concepts/color-ffd701.png) | Rain | |
 
