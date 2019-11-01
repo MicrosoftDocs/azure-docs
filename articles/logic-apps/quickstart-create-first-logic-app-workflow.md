@@ -112,7 +112,7 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
    * For Azure work or school accounts, select Office 365 Outlook.
    * For personal Microsoft accounts, select Outlook.com.
 
-1. If asked for credentials, sign in to your email account so that logic apps creates a connection to your email account.
+1. If asked for credentials, sign in to your email account so that Logic Apps creates a connection to your email account.
 
 1. In the **Send an email** action, specify the data that you want the email to include.
 
