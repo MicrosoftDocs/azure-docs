@@ -19216,11 +19216,11 @@
     },
     {
       "source_path": "articles/active-directory/user-help/myprofile-portal-overview.md",
-      "redirect_url": "/azure/active-directory/user-help/my-account-portal-overview-page",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/user-help/myprofile-portal-orgaizations-page.md",
+      "source_path": "articles/active-directory/user-help/myprofile-portal-organizations-page.md",
       "redirect_url": "/azure/active-directory/user-help/my-account-portal-organizations-page",
       "redirect_document_id": false
     },
