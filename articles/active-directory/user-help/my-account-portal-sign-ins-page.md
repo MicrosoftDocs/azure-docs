@@ -4,7 +4,7 @@ description: Details about how to view and search your recent sign-in activity f
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: jpettere
+ms.reviewer: rhicock
 
 ms.service: active-directory
 ms.workload: identity
@@ -24,9 +24,6 @@ You can view all of your recent work or school account sign-in activity, from th
 - If an attacker successfully signed in to your account, and from what location.
 
 - What apps the attacker tried to access.
-
-    >[!Note]
-    >If you believe your account was compromised, or if you need to reset your password or unlock your account, see [How to access a compromised Microsoft account](https://support.microsoft.com/help/10494/microsoft-account-how-to-access-a-compromised-account).
 
 ## View your recent sign-in activity
 
@@ -50,7 +47,7 @@ Before you determine something is incorrect, make sure you're not seeing a false
 
 An unsuccessful sign-in, with no session activity, means that your primary authentication method (username/password) failed. This could mean that you mistyped your username or password, but it could also mean that an attacker was trying to guess your password. If you think it was attacker trying unsuccessfully to guess your password, you don't have to change your password, but we strongly suggest that you register for Azure Multi-Factor Authentication (MFA). With MFA, even if the hacker eventually guesses your password, it won't be enough to access your account.
 
-If you see an unsuccessful sign-in, with a note under Session activity that says, **Additional verification failed, invalid code**, it means that your primary authentication (username/password) succeeded, but MFA failed. If this was an attacker, they correctly guessed your password but were still unable to pass the MFA challenge. In this case, we recommend that you still change your password, since the attacker got that part right, and then go  should still change their password (since the attacker got it right) and then go to the [Security info](https://mysignins.microsoft.com/security-info) page to update your security settings.
+If you see an unsuccessful sign-in, with a note under Session activity that says, **Additional verification failed, invalid code**, it means that your primary authentication (username/password) succeeded, but MFA failed. If this was an attacker, they correctly guessed your password but were still unable to pass the MFA challenge. In this case, we recommend that you still change your password, since the attacker got that part right, and then go to the [Security info](https://mysignins.microsoft.com/security-info) page to update your security settings.
 
 ## Search for specific sign-in activity
 
