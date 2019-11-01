@@ -56,7 +56,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    Or, you can find and select your logic app by typing the name in the search box.
 
-   The logic apps Designer opens and shows a page with an introduction video and commonly used triggers. Under **Templates**, select **Blank logic app**.
+   The logic apps Designer opens and shows a page with an introduction video and commonly used triggers. Under **Templates**, select **Blank Logic App**.
 
    ![Select blank template for logic app](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
