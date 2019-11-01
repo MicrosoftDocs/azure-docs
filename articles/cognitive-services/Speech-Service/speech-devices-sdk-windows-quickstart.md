@@ -85,14 +85,14 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contains the files used for the wake word "Computer".
+1. The default keyword (keyword) is "Computer". You can also try one of the other provided keywords, like "Machine" or "Assistant". The resource files for these alternate keywords are in the Speech Devices SDK, in the keyword folder. For example, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contains the files used for the keyword "Computer".
 
    > [!TIP]
-   > You can also [create a custom wake word](speech-devices-sdk-create-kws.md).
+   > You can also [create a custom keyword](speech-devices-sdk-create-kws.md).
 
-    To use a new wake word, update the following two lines in `FunctionsList.java`, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package `kws-machine.zip`:
+    To use a new keyword, update the following two lines in `FunctionsList.java`, and copy the keyword package to your app. For example, to use the keyword 'Machine' from the keyword package `kws-machine.zip`:
 
-   * Copy the wake word package into the project folder **target/classes**.
+   * Copy the keyword package into the project folder **target/classes**.
 
    * Update the `FunctionsList.java` with the keyword and the package name:
 
