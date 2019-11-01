@@ -49,7 +49,7 @@ Using Azure FarmBeats, you can generate the following maps by using satellite im
 > You can initiate Sensor placement from the **Maps** page or from the  **Generate Precision Maps** drop-down menu on the **Farm Details** page.
 
 1. On the home page, go to **Maps** from the left navigation menu.
-2. Click **Create Maps** and select **Sensor Placement** from drop-down menu.
+2. Select **Create Maps** and select **Sensor Placement** from drop-down menu.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-1.png)
 
@@ -61,8 +61,8 @@ Using Azure FarmBeats, you can generate the following maps by using satellite im
 4. Select a farm from the **Farm** drop-down menu.  
    To search and select your farm, you can either scroll in the drop-down list or type the name of the farm in the text box.
 5. If you want to generate a map for the past one year, select **Recommended** option.
-6. If you want to generate a map for a custom date range, click **Select Date Range**, and provide the start and end date for which you want to generate the sensor placement map.
-7. Click **Generate Maps**.
+6. If you want to generate a map for a custom date range, select **Select Date Range**, and provide the start and end date for which you want to generate the sensor placement map.
+7. Select **Generate Maps**.
   A Confirmation message displays with the details about job created.
 
     - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
@@ -75,7 +75,7 @@ Using Azure FarmBeats, you can generate the following maps by using satellite im
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2. Click **Filter** from the left navigation of the window.
+2. Select **Filter** from the left navigation of the window.
   The filter window displays from where you can search for maps.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
@@ -83,8 +83,8 @@ Using Azure FarmBeats, you can generate the following maps by using satellite im
 3. Select **Type**, **Date** and **Name** from the drop-down menu and then **Apply** to search for the map you want to view.
   The date format *type_farmname_YYYY-MM-DD* is the date on which the job was created.
 4. Scroll through the list of maps available using the navigation bars at the end of the page.
-5. Click the map you want to view, a pop-up window displays the preview for the selected map.
-6. Click **Download** drop-down menu to download the GeoJSON file of sensor coordinates.
+5. Select the map you want to view, a pop-up window displays the preview for the selected map.
+6. Select **Download** drop-down menu to download the GeoJSON file of sensor coordinates.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-sensor-placement-map-1.png)
 
@@ -103,7 +103,7 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 ## Create satellite indices map
 
 1. On the home page, go to **Maps** from the left navigation menu.
-2. Click **Create Maps** and select **Satellite Indices** from drop-down menu.
+2. Select **Create Maps** and select **Satellite Indices** from drop-down menu.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-satellite-indices-1.png)
 
@@ -115,8 +115,8 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 4. Select a farm from the drop-down menu.  
    To search and select your farm, you can either scroll in the drop-down list or type the name of the farm.   
 5. If you want to generate a map for the past one week select **This Week** option.
-6. If you want to generate a map for custom date range, click **Select Date Range**, and provide the start and end date for which you want to generate the satellite indices map.
-7. Click **Generate Maps**.
+6. If you want to generate a map for custom date range, select **Select Date Range**, and provide the start and end date for which you want to generate the satellite indices map.
+7. Select **Generate Maps**.
     A confirmation message displays with details about the job created.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/successful-satellitte-indices-1.png)
@@ -133,7 +133,7 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2. Click **Filter** from the left navigation of the window, the filter window displays from where you can search for maps.
+2. Select **Filter** from the left navigation of the window, the filter window displays from where you can search for maps.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
@@ -145,8 +145,8 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
       - NDVI
       - EVI
       - NDWI
-6. Click the map you want to view, a pop-up window displays the preview for the selected map.
-7. Click **Download** drop-down menu to select the download format and the map is downloaded and stored in your local folder on your computer.
+6. Select the map you want to view, a pop-up window displays the preview for the selected map.
+7. Select **Download** drop-down menu to select the download format and the map is downloaded and stored in your local folder on your computer.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-satellite-indices-map-1.png)
 
@@ -168,7 +168,7 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 ## Create soil moisture heatmap
 
 1. On the home page, go to **Maps** from the left navigation menu to view the Maps page.
-2. Click **Create Maps** and select **Soil Moisture** from drop-down menu.
+2. Select **Create Maps** and select **Soil Moisture** from drop-down menu.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-soil-moisture-1.png)
 
@@ -180,10 +180,10 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 4. Select a farm from the **Farm** drop-down menu.  
    To search and select your farm, you can either scroll from the drop-down list or type the name of the farm in the Select Farm drop-down menu.
 5. In the **Select Soil Moisture Sensor Measure** drop-down menu, select the soil moisture sensor measure(depth) for which you want to generate the map.
-To find the sensor measure, go to **Sensors**, click any soil moisture sensor, under ‘Sensor Properties’ section use the value listed against ‘Measure Name’
+To find the sensor measure, go to **Sensors**, select any soil moisture sensor, under ‘Sensor Properties’ section use the value listed against ‘Measure Name’
 6. If you want to generate for **Today** or **This Week**, select one of the options.
-7. If you want to generate for a custom date range, click **Select Date Range**, and provide the start and end date for which you want to generate the soil moisture map.
-8. Click **Generate Maps**.
+7. If you want to generate for a custom date range, select **Select Date Range**, and provide the start and end date for which you want to generate the soil moisture map.
+8. Select **Generate Maps**.
   A Confirmation message displays with the details about job created.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/successful-soil-moisture-1.png)
@@ -198,14 +198,14 @@ To find the sensor measure, go to **Sensors**, click any soil moisture sensor, u
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2.  Click **Filter** from the left navigation of the window, the filter window displays from where you can search for maps.
+2.  Select **Filter** from the left navigation of the window, the filter window displays from where you can search for maps.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
 3.  Select **Type**, **Date** and **Name** from the drop down menu and then **Apply** to search for the map you want to view. The date format *type_farmname_YYYY-MM-DD* is the date on which the job was created.
-4. Click the **Sort** icon next to the table headers to sort according to Farm, Date, Created On, Job ID and Job Type.
+4. Select the **Sort** icon next to the table headers to sort according to Farm, Date, Created On, Job ID and Job Type.
 5. Scroll through the list of maps available using the navigation buttons at the end of the page.
-6. Click the map you want to view, a pop-up window displays the preview for the selected map.
-7. Click **Download** drop-down menu to select the download format and the map is downloaded and stored in the local folder of your computer.
+6. Select the map you want to view, a pop-up window displays the preview for the selected map.
+7. Select **Download** drop-down menu to select the download format and the map is downloaded and stored in the local folder of your computer.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
