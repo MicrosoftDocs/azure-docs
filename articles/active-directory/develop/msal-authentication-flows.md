@@ -228,7 +228,7 @@ Although this is useful in some cases (DevOps scenarios), if you want to use use
 
 Apart from the [Integrated Windows Authentication constraints](#integrated-windows-authentication), the following constraints also apply:
 
-- The username/password flow isn't compatible with conditional access and multi-factor authentication. As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
+- The username/password flow isn't compatible with Conditional Access and multi-factor authentication. As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
 - It works only for work and school accounts (not Microsoft accounts).
 - The flow is available on .NET desktop and .NET Core, but not on Universal Windows Platform.
 
