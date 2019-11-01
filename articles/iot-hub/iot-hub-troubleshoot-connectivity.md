@@ -10,7 +10,7 @@ ms.date: 07/19/2018
 ms.author: jlian
 # As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
 ---
-# Detect and troubleshoot disconnects with Azure IoT Hub
+# Detect and troubleshoot disconnects with Azure IoT Hub -- TO BE REMOVED
 
 Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failure. Device-side application logic, physical networks, protocols, hardware, and Azure IoT Hub can all cause problems. This article provides recommendations on how to detect and troubleshoot device connectivity issues from the cloud side (as opposed to device side).
 

@@ -368,8 +368,6 @@
       href: iot-hub-troubleshoot-errors.md
     - name: Problem resolution
       items:
-      - name: Reference template
-        href: iot-hub-troubleshoot-error-reference-template.md
       - name: 401002 AuthenticationFailed
         href: iot-hub-troubleshoot-error-401002-authenticationfailed.md
       - name: 401003 IoTHubUnauthorized
