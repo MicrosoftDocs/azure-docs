@@ -308,6 +308,7 @@ Limitations and known issues:
 * Time range of backfill jobs are limited to 31 intervals of the monitor's frequency setting. 
 * Limitation of 200 features, unless a feature list is not specified (all features used).
 * Compute size must be large enough to handle the data. 
+* Ensure your dataset has data within the start and end date for a given monitor run.
 
 Columns, or features, in the dataset are classified as categorical or numeric based on the conditions in the table below. If the feature does not meet these conditions - for instance, a column of type string with >100 unique values - the feature is dropped from our data drift algorithm, but is still profiled. 
 
