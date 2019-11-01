@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    ![Add new logic app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. Under **Create logic app**, provide details about your logic app as shown below. After you're done, select **Create**.
+1. Under **Create logic app**, on the **Logic App** pane, provide details about your logic app as shown below. After you're done, select **Create**.
 
    ![Provide details for new logic app](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
