@@ -44,7 +44,7 @@ You can now remove an item directly from the **Favorites** list.
 
    ![Screenshot showing hover behavior in Favorites](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
 
-2. Select the star so that it changes from filled to unfilled. The service is removed from the **Favorites** list.
+2. On the information card, select the star so that it changes from filled to unfilled. The service is removed from the **Favorites** list.
 
 ## Sort favorites
 
