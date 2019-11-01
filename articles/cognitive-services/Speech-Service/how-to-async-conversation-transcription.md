@@ -158,7 +158,6 @@ PollerFlux<RemoteConversationTranscriptionOperation, RemoteConversationTranscrip
 // Subscribe to PollerFlux to get the remote operation status
 remoteTranscriptionOperation.subscribe(
         pollResponse -> {
-            PrintTime("Remote operation callback: ");
             System.out.println("Poll response status : " + pollResponse.getStatus());
             System.out.println("Poll response status : " + pollResponse.getValue().getServiceStatus());
         }
