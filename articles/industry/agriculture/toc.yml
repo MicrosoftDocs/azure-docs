@@ -12,7 +12,7 @@
 - name: Concepts
   items:
    - name: Integration patterns
-     href: architecture-of-farmbeats.md
+     href: integration-patterns.md
    - name: Sensor partner integration
      href: sensor-partner-integration.md
    - name: Imagery partner integration

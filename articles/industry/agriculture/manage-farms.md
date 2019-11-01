@@ -28,7 +28,7 @@ Follow the steps:
 
   There are two ways to define farm boundary:
 
-    1.	**Mark on Map**: Use the map control tool to draw and mark the boundary of the farm. To mark the boundaries, click ![Project Farm Beats](./media/create-farms/pencil-icon.png) and mark the exact boundaries.
+    1.	**Mark on Map**: Use the map control tool to draw and mark the boundary of the farm. To mark the boundaries,  ![Project Farm Beats](./media/create-farms/pencil-icon-1.png) and mark the exact boundaries.
 
       ![Project Farm Beats](./media/create-farms/create-farm-mark-on-map-1.png)
 
@@ -37,7 +37,7 @@ Follow the steps:
       ![Project Farm Beats](./media/create-farms/create-new-farm-1.png)
 
     3.	Use the tooltips to help fill in the information.
-    4.	Click **Submit** to create a farm. A new farm is created and displayed in the Farms page.
+    4.	Select **Submit** to create a farm. A new farm is created and displayed in the Farms page.
 
 ## View farm
 
@@ -46,25 +46,24 @@ Follow the steps:
   1.	**Device count** — displays the number and status of devices deployed within the farm.
   2.	**Map** — map of the farm with the devices deployed in the farm.
   3.	**Telemetry** — displays the telemetry from the sensors deployed in the farm.
-  4.	**Latest Precision Maps** — displays the latest Satellite Indices (EVI, NDWI), soil moisture
-  and sensor placement map.
+  4.	**Latest Precision Maps** — displays the latest Satellite Indices (EVI, NDWI), soil moisture and sensor placement map.
 
 
 ## Edit farm
 
   The **Farms** page displays a list of created farms.
   1.	Select a farm to view and edit the farm.
-  2.	Click **Edit Farm** to edit the farm information. In the **Farm Details** window, you can edit **Name**, **Crops**, **Address**, and **Farm Boundary** fields.
+  2.	Select **Edit Farm** to edit the farm information. In the **Farm Details** window, you can edit **Name**, **Crops**, **Address**, and **Farm Boundary** fields.
 
     ![Project Farm Beats](./media/create-farms/edit-farm-1.png)
 
-  3.	Click **Submit** to save the details edited.
+  3.	Select **Submit** to save the details edited.
 
 ## Delete farm
 
   The **Farms** page displays a list of created farms.
   1.	Select a farm from the list to delete farm details.
-  2.	Click **Delete Farm** to delete the farm.
+  2.	Select **Delete Farm** to delete the farm.
 
     ![Project Farm Beats](./media/create-farms/delete-farm-1.png)
 
