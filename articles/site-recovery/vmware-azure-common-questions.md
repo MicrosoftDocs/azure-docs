@@ -1,11 +1,11 @@
 ---
-title: 'Common questions about VMware to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+title: Common questions about VMware to Azure disaster recovery with Azure Site Recovery 
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 06/27/2019
+ms.date: 10/29/2019
 ms.topic: conceptual
 ms.author: raynew
 ---

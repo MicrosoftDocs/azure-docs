@@ -79,6 +79,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Networking](#networking-limits)
   * [Application Gateway](#application-gateway-limits)
+  * [Azure Bastion](#azure-bastion-limits)
   * [Azure DNS](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure Firewall](#azure-firewall-limits)
@@ -174,6 +175,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### Azure Bastion limits
+[!INCLUDE [Azure Bastion limits](../includes/bastion-limits.md)]
 
 #### Azure DNS limits
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]

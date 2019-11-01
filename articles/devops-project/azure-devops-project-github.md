@@ -44,7 +44,11 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can creat
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the left pane, select **+Create a resource** in the left navigation bar, and then search for **DevOps Projects**, select **Create**.
+2. From the Azure portal menu, select **Create a resource**.
+
+   ![Azure portal menu - Create a resource](_img/azure-devops-project-github/createaresource.png)
+
+3. Select **DevOps > DevOps Project**.
 
    ![The DevOps Projects dashboard](_img/azure-devops-project-github/azuredashboard.png)
 
@@ -52,7 +56,7 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can creat
 
 ## Configure access to your GitHub repo and choose a framework
 
-1. Select either **GitHub** or an external **Git** code repository. For this tutorial select **GitHub**. You may be required to Authenticate with GitHub the first time to allow Azure access your GitHub repository.
+1. Select either **GitHub** or an external **Git** code repository. For this tutorial select **GitHub**. You may be required to Authenticate with GitHub the first time to allow Azure to access your GitHub repository.
 
 2. Finish by selecting the **Repository** and **Branch**, select **Next**.
 

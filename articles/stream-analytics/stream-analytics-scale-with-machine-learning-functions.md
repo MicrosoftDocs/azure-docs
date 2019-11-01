@@ -9,7 +9,7 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ---
-# Scale your Stream Analytics job with Azure Machine Learning Studio functions
+# Scale your Stream Analytics job with Azure Machine Learning Studio (classic) functions
 
 This article discusses how to efficiently scale Azure Stream Analytics jobs that use Azure Machine Learning functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
 
@@ -17,7 +17,7 @@ This article discusses how to efficiently scale Azure Stream Analytics jobs that
 
 A Machine Learning function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. Behind the scenes, however, these function calls are actually Azure Machine Learning Web Service requests.
 
-You can improve the throughput of Machine Learning web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Azure Machine Learning Studio Web Services](../machine-learning/studio/consume-web-services.md). Support for Azure Machine Learning Studio in Stream Analytics is in preview.
+You can improve the throughput of Machine Learning web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Azure Machine Learning Studio (classic) Web Services](../machine-learning/studio/consume-web-services.md). Support for Azure Machine Learning Studio (classic) in Stream Analytics is in preview.
 
 ## Configure a Stream Analytics job with Machine Learning functions
 

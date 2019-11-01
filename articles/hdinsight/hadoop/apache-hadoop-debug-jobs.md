@@ -1,5 +1,5 @@
 ---
-title: 'Debug Apache Hadoop: View logs and interpret error messages - Azure HDInsight'
+title: 'Debug Apache Hadoop: Logs and error messages in Azure HDInsight'
 description: Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.
 ms.reviewer: jasonh
 author: ashishthaps

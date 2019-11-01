@@ -1,17 +1,19 @@
 ---
-title: C# tutorial on search results pagination - Azure Search
-description: This tutorial builds on the "Create your first app - Azure Search" project, with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to its lower limit.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: C# tutorial on search results pagination
+titleSuffix: Azure Cognitive Search
+description: This tutorial builds on the "Create your first app - Azure Cognitive Search" project, with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to its lower limit.
+
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
 ---
 
-# C# tutorial: Search results pagination - Azure Search
+# C# tutorial: Search results pagination - Azure Cognitive Search
 
-Learn how to implement two different paging systems, the first based on page numbers and the second on infinite scrolling. Both systems of paging are widely used, and selecting the right one depends on the user experience you would like with the results. This tutorial builds the paging systems into the project created in the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) tutorial.
+Learn how to implement two different paging systems, the first based on page numbers and the second on infinite scrolling. Both systems of paging are widely used, and selecting the right one depends on the user experience you would like with the results. This tutorial builds the paging systems into the project created in the [C# Tutorial: Create your first app - Azure Cognitive Search](tutorial-csharp-create-first-app.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -22,7 +24,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) project up and running. This project can either be your own version, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Have the [C# Tutorial: Create your first app - Azure Cognitive Search](tutorial-csharp-create-first-app.md) project up and running. This project can either be your own version, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## Extend your app with numbered paging
 
@@ -356,7 +358,7 @@ Have the basic search page solution open.
     ```
 
     > [!Note]
-    > There is a performance hit, though not usually much of one, by setting **IncludeTotalResultCount** to true, as this total needs to be calculated by Azure Search. With complex data sets there is a warning that the value returned is an _approximation_. For our hotel data, it will be accurate.
+    > There is a performance hit, though not usually much of one, by setting **IncludeTotalResultCount** to true, as this total needs to be calculated by Azure Cognitive Search. With complex data sets there is a warning that the value returned is an _approximation_. For our hotel data, it will be accurate.
 
 ### Compile and run the app
 
@@ -469,7 +471,7 @@ There are only three actions that need to be sent to the controller: the first r
 
 1. Open the home controller file and delete the **RunQueryAsync** method from the original tutorial.
 
-2. Replace the **Index(model)** action with the following code. It now handles the **paging** field when it is null, or set to "next", and handles the call to Azure Search.
+2. Replace the **Index(model)** action with the following code. It now handles the **paging** field when it is null, or set to "next", and handles the call to Azure Cognitive Search.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -595,4 +597,4 @@ Consider the following takeaways from this project:
 Paging is fundamental to internet searches. With paging well covered, the next step is to improve the user experience further, by adding type-ahead searches.
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Add autocompletion and suggestions - Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)
+> [C# Tutorial: Add autocompletion and suggestions - Azure Cognitive Search](tutorial-csharp-type-ahead-and-suggestions.md)
