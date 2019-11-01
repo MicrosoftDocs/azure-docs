@@ -39,7 +39,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 In this example, replace the placeholders in the resource with your subscription ID, and resource group. The output is the role assignment credentials that provide access to your resource. The command should output a JSON object similar to this:
 
-```
+```json
   {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
