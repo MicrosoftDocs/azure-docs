@@ -22,17 +22,17 @@ Azure continuously monitors the latency (speed) of core areas of its network usi
 
 ## How are the measurements collected?
 
-Measurements are collected from ThousandEyes agents hosted in Azure cloud regions world-wide, which continuously send network probes between themselves, in 1-minute intervals. Monthly latency statistics are derived from averaging collected samples for the month.
+The latency measurements are collected from ThousandEyes agents hosted in Azure cloud regions world-wide, which continuously send network probes between themselves, in 1-minute intervals. The monthly latency statistics are derived from averaging the collected samples for the month.
 
 ## October 2019 latency figures
 
-For the 30 days ending on **October 30, 2019**, monthly latency figures (aggregated by region) are as follows:
+For the 31 days ending on October 31, 2019, monthly min and max round trip latency times within aggregated regions are:
 
-- **36 ms or less** for inter-region round trips within **North America**.
-- **46 ms or less** for inter-region round trips within **Europe**.
-- **82 ms or less** for inter-region round trips within **Asia**.
+- **5 ms** to **72 ms** for round trips within **North America** regions.
+- **3 ms** to **28 ms** for round trips within **Europe** regions.
+- **4 ms** to **134 ms** for round trips within **Asia** regions.
 
-The following inter-region latency measurements are powered by [ThousandEyes](https://thousandeyes.com). The measurement unit in the table below is in milliseconds(ms)
+The following inter-region latency measurements are powered by [ThousandEyes](https://thousandeyes.com). The measurement unit in the table below is in milliseconds(ms).
 
 ![Azure inter-region latency statistics](media/azure-network-latency/azure-inter-region-latency.png)
 
@@ -41,4 +41,4 @@ The following inter-region latency measurements are powered by [ThousandEyes](ht
 
 
 ## Next steps
-- Learn how to monitor your Azure services using [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/).
+- Learn about [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
