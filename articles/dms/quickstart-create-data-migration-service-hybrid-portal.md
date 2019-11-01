@@ -138,9 +138,9 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 
 Currently, uninstalling Azure Database Migration Service hybrid mode is supported only via the Azure Database Migration Service hybrid worker installer on your on-premises server, by using the following command:
 
-    ```
-    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a uninstall -IAcceptDMSLicenseTerms
-    ```
+```
+<drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a uninstall -IAcceptDMSLicenseTerms
+```
 
 ## Next steps
 
