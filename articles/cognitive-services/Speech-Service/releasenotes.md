@@ -15,13 +15,14 @@ ms.custom: seodec18
 
 # Release notes
 
-## Speech SDK 1.7.0: 2019-September release
+## Speech SDK 1.8.0: 2019-November release
 
 **New Features**
 *   Added a FromHost() API.
 *   Added Automatic Source Language Detection for Speech Recognition (in Java and C++)
 *   Added SourceLanguageConfig object for Speech Recognition, used to specify expected source languages
 *   Added KeywordRecognizer support on Windows (UWP), Android and iOS through the Nuget (Xamarin) and Unity packages
+*   Added Remote Conversation Java API to do Conversation Transcription in asynchronous batches. 
 
 
 **Bug fixes**
@@ -31,6 +32,7 @@ ms.custom: seodec18
 **Samples**
 *   Xamarin sample for KeywordRecognizer
 *   Unity sample for KeywordRecognizer
+*   C++ and Java samples for Language ID review.
 
 
 ## Speech SDK 1.7.0: 2019-September release
