@@ -35,9 +35,9 @@ If the guest user sees a "header too long" error, they can try clearing their co
 
 ## Limitations
 
-Google guest users are fully supported on Teams and can use the Teams common endpoint: `https://teams.microsoft.com`.
+Teams fully supports Google guest users on all devices. Google users can sign in to Teams from a common endpoint like `https://teams.microsoft.com`.
 
-For the My Apps or the Azure portal common endpoints, Google guest users must sign in using a link that includes your tenant information. The following are examples:
+Other applications' common endpoints might not support Google users. Google guest users must sign in using a link that includes your tenant information. The following are examples:
   * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
   * `https://portal.azure.com/<your tenant id>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
