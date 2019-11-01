@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To run the Azure Marketplace offering to provision a new host pool:
 
-1. Select **+** or **+ Create a resource**.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Enter **Windows Virtual Desktop** in the Marketplace search window.
 3. Select **Windows Virtual Desktop - Provision a host pool**, and then select **Create**.
 

@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 # [Python](#tab/python)
 
-In MSAL.Python, the configuration file would look like the following code snippet:
+In MSAL Python, the configuration file would look like the following code snippet:
 
 ```Json
 {
@@ -112,8 +112,6 @@ if not result:
 if "access_token" in result:
     # Call a protected API with the access token
     print(result["token_type"])
-    print(result["expires_in"])  # You don't normally need to care about this.
-                                 # It will be good for at least 5 minutes.
 else:
     print(result.get("error"))
     print(result.get("error_description"))
@@ -121,6 +119,8 @@ else:
 ```
 
 # [Java](#tab/java)
+
+This is an extract from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
 
 ```Java
 ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
