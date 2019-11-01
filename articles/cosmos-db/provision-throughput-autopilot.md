@@ -21,6 +21,8 @@ You no longer need to manually manage the provisioned throughput or handle rate-
 
 When configuring containers and databases in autopilot mode, you need to specify the maximum throughput `Tmax`  not to be exceeded. Containers can then scale instantly based on the workload needs within the `0.1*Tmax < T < Tmax` range. In other words, containers and databases scale instantly based on the workload needs, from as low as 10% of the configured throughput value, up to the specified maximum configured value. You can change the maximum throughput (Tmax) setting on autopilot database or container at any point in time.
 
+For the specified maximum throughput on the container or the database, the system allows operating within the calculated storage limit. If the storage limit is exceeded, then the maximum throughput is automatically adjusted to a higher value. When using database level throughput with autopilot mode, the number of containers allowed within a database is calculated as: (0.1 * Max throughput ) / 100. For example, if you provision 20,000 autopilot RU/s, then the database can have 20 containers.
+
 ## Benefits of autopilot mode
 
 Azure Cosmos containers that are configured in autopilot mode have the following benefits:
@@ -56,7 +58,7 @@ Solutions to the previous problems not only require an enormous amount of time i
 |  | Containers configured in manual mode  | Containers configured in autopilot mode |
 |---------|---------|---------|
 | **Provisioned throughput** | Manually provisioned | Proactively and reactively scaled based on the workload usage patterns. |
-| **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen.  |
+| **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen if the throughput consumed is within the max throughput that you choose with autopilot mode.   |
 | **Capacity planning** |  You have to do an initial capacity planning and provision of the throughput you need. |    You don’t have to worry about capacity planning. The system automatically takes care of capacity planning and capacity management. |
 | **Pricing** | Manually provisioned RU/s per hour. | For single write region accounts, you pay for the throughput used on an hourly basis, by using the autopilot RU/s per hour rate. <br/><br/>For accounts with multiple write regions, there is no extra charge for autopilot. You pay for the throughput used on hourly basis using the same multi-master RU/s per hour rate. |
 | **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
@@ -69,13 +71,13 @@ You can configure autopilot for databases or containers while creating them. Use
 
 1. Navigate to your Azure Cosmos account and open the **Data Explorer** tab.
 
-1. Select **New Database**, enter a name for your database. For **Autopilot** option, choose **Enabled** and specify the maximum throughput that the database cannot exceed when using the autopilot option.
+1. Select **New Container**, enter a name for your container, a partition key. Select the **Autopilot** option, and choose the maximum throughput that the container cannot exceed when using the autopilot option.
 
-   ![Create a database in autopilot mode](./media/provision-throughput-autopilot/create-database-autopilot-mode.png)
+   ![Create a container in autopilot mode](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. Select **OK**
 
-With similar steps, you can also create a container with provisioned throughput in autopilot mode.
+With similar steps, you can also create a database with provisioned throughput in autopilot mode.
 
 ## Next steps
 
