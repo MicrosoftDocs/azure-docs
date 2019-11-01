@@ -107,11 +107,11 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar. 
 
     ![Add schedule button on the Schedules page](../media/how-to-create-schedules/add-schedule-button.png)
-2. Confirm that **Standard** is selected the **Event type**. You select **Start only** to specify only the start time for the VMs. You select **Stop only** to specify only the stop time for the VMs. 
-7. In the **Repeat** section, select the current schedule. 
+2. Confirm that **Standard** is selected as the **Event type**. You select **Start only** to specify only the start time for the VMs. You select **Stop only** to specify only the stop time for the VMs. 
+3. In the **Repeat** section, select the current schedule. 
 
     ![Add schedule button on the Schedules page](../media/how-to-create-schedules/select-current-schedule.png)
-5. On the **Repeat** dialog box, do the following steps:
+4. Selecting the schedule will open the **Repeat** dialog box. In this dialog box, do the following steps:
     1. Confirm that **every week** is set for the **Repeat** field. 
     3. Specify the **start date**.
     4. Specify the **start time** at which you want the VMs to be started.
@@ -120,10 +120,8 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
     2. Select the days on which you want the schedule to take effect. In the following example, Monday-Thursday is selected. 
     8. Select **Save**. 
 
-        ![Set repeat schedule](../media/how-to-create-schedules/set-repeat-schedule.png)
-
-3. Now, on the **Add scheduled event** page, for **Notes (optional)**, enter any description or notes for the schedule. 
-4. On the **Add scheduled event** page, select **Save**. 
+5. Now, on the **Add scheduled event** page, for **Notes (optional)**, enter any description or notes for the schedule. 
+6. On the **Add scheduled event** page, select **Save**. 
 
     ![Weekly schedule](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
