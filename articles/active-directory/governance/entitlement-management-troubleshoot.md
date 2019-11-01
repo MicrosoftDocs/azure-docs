@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management (Preview).
+title: Troubleshoot Azure AD entitlement management - Azure Active Directory
+description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want checklists and tips to help troubleshoot entitlement management to unblock users from performing their job.
 
 ---
-# Troubleshoot Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Troubleshoot Azure AD entitlement management
 
 This article describes some items you should check to help you troubleshoot Azure Active Directory (Azure AD) entitlement management.
 

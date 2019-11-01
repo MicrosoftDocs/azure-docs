@@ -163,7 +163,7 @@ The following table highlights the parameters supported by setup.
 To silently install the gateway and configure it with a specific proxy address, port number, type the following:
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 LicenseAccepted=1 
 ```
 
 Using the /qn command-line option hides setup, /qb shows setup during silent install.  
@@ -171,7 +171,7 @@ Using the /qn command-line option hides setup, /qb shows setup during silent ins
 If you need to provide credentials to authenticate with the proxy, type the following:
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
 After installation, you can confirm the settings are accepted (exlcuding the username and password) using the following PowerShell cmdlets:

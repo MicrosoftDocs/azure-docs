@@ -19,6 +19,8 @@ In this tutorial, add prebuilt intents and entities to a Human Resources tutoria
 
 Prebuilt models (domains, intents, and entities) help you build your model quickly.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]

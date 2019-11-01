@@ -121,9 +121,6 @@ az spring-cloud app create --name auth-service
 az spring-cloud app create --name account-service
 ```
 
->[!NOTE]
-> The application names must match the names of the JARS exactly for the provided configuration server to work properly.
-
 ## Deploy applications and set environment variables
 
 We need to actually deploy our applications to Azure. Use the following commands to deploy all three applications:

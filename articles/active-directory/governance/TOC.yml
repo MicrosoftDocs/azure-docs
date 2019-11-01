@@ -5,7 +5,7 @@
   items:
   - name: What is Identity Governance?
     href: identity-governance-overview.md
-  - name: What is entitlement management? (Preview)
+  - name: What is entitlement management?
     href: entitlement-management-overview.md
   - name: What are access reviews?
     href: access-reviews-overview.md
