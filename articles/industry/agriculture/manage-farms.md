@@ -3,7 +3,7 @@ title: Manage Farms
 description: Describes how to manage farms
 author: uhabiba04
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
@@ -21,27 +21,30 @@ Follow the steps:
     > [!NOTE]
     > The Farms page displays the list of farms in case they have already been created in subscription.
 
+    Here is the sample image:
+
     ![Project Farm Beats](./media/create-farms/create-farm-main-page-1.png)
 
   2. Select **Create Farm** and provide **Name**, **Crops** and **Address**.
   3. In the **Define Farm Boundary**, select either **Mark on Map** or **Paste GeoJSON code**, which is a mandatory field.
 
-  There are two ways to define farm boundary:
+There are two ways to define farm boundary:
 
-    1.	**Mark on Map**: Use the map control tool to draw and mark the boundary of the farm. To mark the boundaries,  ![Project Farm Beats](./media/create-farms/pencil-icon-1.png) and mark the exact boundaries.
+1.	**Mark on Map**: Use the map control tool to draw and mark the boundary of the farm. To mark the boundaries,  ![Project Farm Beats](./media/create-farms/pencil-icon-1.png) and mark the exact boundaries.
 
-      ![Project Farm Beats](./media/create-farms/create-farm-mark-on-map-1.png)
 
-    2.	**Paste GeoJson Code**: The GeoJSON is a format for encoding geographical data structures, using JavaScript Object Notation (JSON). This option displays a text box where a GeoJSON string can be entered to mark the farm boundaries. You can also create GeoJSON code from GeoJSON.io.
+![Project Farm Beats](./media/create-farms/create-farm-mark-on-map-1.png)
 
-      ![Project Farm Beats](./media/create-farms/create-new-farm-1.png)
+2.	**Paste GeoJson Code**: The GeoJSON is a format for encoding geographical data structures, using JavaScript Object Notation (JSON). This option displays a text box where a GeoJSON string can be entered to mark the farm boundaries. You can also create GeoJSON code from GeoJSON.io.
 
-    3.	Use the tooltips to help fill in the information.
-    4.	Select **Submit** to create a farm. A new farm is created and displayed in the Farms page.
+ ![Project Farm Beats](./media/create-farms/create-new-farm-1.png)
+
+3.	Use the tooltips to help fill in the information.
+4.	Select **Submit** to create a farm. A new farm is created and displayed in the Farms page.
 
 ## View farm
 
-  The Farm list page displays a list of created farms. Select a farm to view the list of:
+ The Farm list page displays a list of created farms. Select a farm to view the list of:
 
   1.	**Device count** — displays the number and status of devices deployed within the farm.
   2.	**Map** — map of the farm with the devices deployed in the farm.
@@ -55,7 +58,7 @@ Follow the steps:
   1.	Select a farm to view and edit the farm.
   2.	Select **Edit Farm** to edit the farm information. In the **Farm Details** window, you can edit **Name**, **Crops**, **Address**, and **Farm Boundary** fields.
 
-    ![Project Farm Beats](./media/create-farms/edit-farm-1.png)
+![Project Farm Beats](./media/create-farms/edit-farm-1.png)
 
   3.	Select **Submit** to save the details edited.
 
@@ -65,7 +68,7 @@ Follow the steps:
   1.	Select a farm from the list to delete farm details.
   2.	Select **Delete Farm** to delete the farm.
 
-    ![Project Farm Beats](./media/create-farms/delete-farm-1.png)
+![Project Farm Beats](./media/create-farms/delete-farm-1.png)
 
     > [!NOTE]
     > All the associated devices and maps with the farm will not be deleted. However, the farm details on these devices and maps are invalid. The devices, telemetry and the maps can still be viewed from the application.
@@ -73,4 +76,4 @@ Follow the steps:
 
 ## Next steps
 
-You have created your Farm now. See how you can get sensor data flowing into your farm
+You have created your Farm now. See, how you can [get sensor data](get-sensor-data-from-sensor-partner.md) flowing into your farm,
