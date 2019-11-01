@@ -124,7 +124,7 @@ It takes a few minutes to create an Azure Data Explorer cluster and database.
     $resourceGroupName = "${projectName}rg"
     $clusterName = "${projectName}cluster"
     $parameters = @{}
-    $parameters.Add(“clusters_kustocluster_name”, $clusterName)
+    $parameters.Add("clusters_kustocluster_name", $clusterName)
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-kusto-cluster-database/azuredeploy.json"
     New-AzResourceGroup -Name $resourceGroupName -Location $location
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -TemplateParameterObject $parameters

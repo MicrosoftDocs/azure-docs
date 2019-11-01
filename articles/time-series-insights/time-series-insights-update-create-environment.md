@@ -8,7 +8,11 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
+<<<<<<< HEAD
 ms.date: 10/31/2019
+=======
+ms.date: 10/22/2019
+>>>>>>> aa0d955347cdf54cd853bea654460700e3270da5
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create a Time Series Insights Preview environment so that I can use Time Series Insights queries to understand device behavior.
 ---

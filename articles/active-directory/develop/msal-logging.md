@@ -135,7 +135,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “<Enter your client id>”,
+        clientId: "<Enter your client id>",
     },
      system: {
     		 logger: new Msal.Logger(

@@ -80,9 +80,9 @@
       items:
       - name: Copy Data tool
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-  - name: Transform data using mapping data flow
+  - name: Transform data with mapping data flow
     href: tutorial-data-flow.md
-  - name: Transform data in cloud
+  - name: External transformations
     items:
     - name: HDInsight Spark
       items:
@@ -94,7 +94,7 @@
       items:
       - name: User interface (UI)
         href: transform-data-using-databricks-notebook.md
-  - name: Transform data in virtual network
+  - name: Hive transformation in virtual network
     items:
     - name: User interface (UI)
       href: tutorial-transform-data-hive-virtual-network-portal.md
@@ -622,6 +622,8 @@
     items:
     - name: Process fixed-width text files
       href: how-to-fixed-width.md
+    - name: Error row handling
+      href: how-to-data-flow-error-rows.md
   - name: SSIS migration from on-premises
     items:
     - name: SSIS migration overview

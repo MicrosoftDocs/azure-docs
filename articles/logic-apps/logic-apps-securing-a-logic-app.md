@@ -264,11 +264,11 @@ Many triggers and actions have settings to hide inputs, outputs, or both from a 
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-   ![Open sample logic app](./media/logic-apps-securing-a-logic-app/sample-logic-app.png)
+   ![Open logic app in Logic App Designer](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
 1. On the trigger or action where you want to secure data, select the ellipses (**...**) button, and then select **Settings**.
 
-   ![Open "Settings"](./media/logic-apps-securing-a-logic-app/open-settings.png)
+   ![Open trigger or action settings](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
 1. Turn on either **Secure Inputs**, **Secure Outputs**, or both. When you're finished, select **Done**.
 
@@ -276,11 +276,11 @@ Many triggers and actions have settings to hide inputs, outputs, or both from a 
 
    The action or trigger now shows a lock icon in the title bar.
 
-   ![Lock icon on title bar](./media/logic-apps-securing-a-logic-app/title-bar-lock-icon.png)
+   ![Action or trigger title bar shows lock icon](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar.png)
 
    Tokens that represent secured outputs from previous actions also show lock icons. For example, when you select such an output from the dynamic content list to use in an action, that token shows a lock icon.
 
-   ![Select output](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
+   ![Select token for secured output](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
 
 1. After the logic app runs, you can view the history for that run.
 
@@ -290,7 +290,7 @@ Many triggers and actions have settings to hide inputs, outputs, or both from a 
 
       If you chose to secure both inputs and outputs, those values now appear hidden.
 
-      ![Hidden data in run history](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
+      ![Hidden inputs and outputs in run history](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
 <a name="secure-data-code-view"></a>
 
@@ -347,7 +347,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
   When you manually turn on **Secure Inputs** in a trigger or action, Logic Apps secures these inputs in the run history. If a downstream action explicitly uses the visible outputs from that trigger or action as inputs, Logic Apps hides this downstream action's inputs in the run history, but *doesn't enable* **Secure Inputs** in this action and doesn't hide this action's outputs.
 
-  ![Secured inputs and downstream impact on most actions](./media/logic-apps-securing-a-logic-app/secure-inputs-flow.png)
+  ![Secured inputs and downstream impact on most actions](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
   If the Compose, Parse JSON, and Response actions explicitly use the visible outputs from the trigger or action that has the secured inputs, Logic Apps hides these actions' inputs and outputs, but *doesn't enable* these action's **Secure Inputs** setting. If a downstream action explicitly uses the hidden outputs from the Compose, Parse JSON, or Response actions as inputs, Logic Apps *doesn't hide this downstream action's inputs or outputs*.
 
@@ -681,7 +681,7 @@ For more information about securing services by using client certificate authent
 * [Secure back-end services using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
 * [Secure your RESTfuL service by using client certificates](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 * [Certificate credentials for application authentication](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Use an SSL certificate in your application code in Azure App Service](../app-service/app-service-web-ssl-cert-load.md)
+* [Use an SSL certificate in your application code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -774,9 +774,9 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
 
 1. Before your logic app can use the system-assigned identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
-1. Before an Azure function can use the system-assigned identity, first [enable authentication for Azure functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
+2. Before an Azure function can use the system-assigned identity, first [enable authentication for Azure functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
 
-1. In the trigger or action where you want to use the managed identity, specify these property values:
+3. In the trigger or action where you want to use the managed identity, specify these property values:
 
    | Property (designer) | Property (JSON) | Required | Value | Description |
    |---------------------|-----------------|----------|-------|-------------|
