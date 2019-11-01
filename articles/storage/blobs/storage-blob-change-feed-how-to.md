@@ -12,12 +12,22 @@ ms.reviewer: sadodd
 
 # Process change feed in Azure Blob Storage (Preview)
 
-Change feed provides transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. This article shows you how to read change feed records by using the blob change feed processor library that is provided with the SDK.
+Change feed provides transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. This article shows you how to read change feed records by using the blob change feed processor library.
 
 To learn more about the change feed, see [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md).
 
 > [!NOTE]
 > The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To learn more about this feature along with known issues and limitations, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md).
+
+## Get the blob change feed processor library
+
+1. In Visual Studio, add the URL `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` to your NuGet package sources. 
+
+   To learn how, see [package sources](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
+
+2. In the NuGet Package Manager, Find the **Microsoft.Azure.Storage.Changefeed** package, and install it to your project. 
+
+   To learn how, see [Find and install a package](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 ## Connect to the storage account
 
