@@ -41,10 +41,10 @@ The following legacy media processors are going to be retired in 2020, see detai
 
 |Media processor name|Retirement date|Additional notes|
 |---|---|
-|[Azure Media Face Detector](media-services-face-and-emotion-detection.md)|February 1, 2020|This Media Analytics Preview processor  will be retired and will not be moved to general availability. We will be evaluating its scenarios and use-cases with customers for future investments.|
-|[Azure Media Motion Detector](media-services-motion-detection.md)|February 1, 2020|This Media Analytics Preview processor  will be retired and will not be moved to general availability. We will be evaluating its scenarios and use-cases with customers for future investments.|
-|[Azure Media OCR](media-services-video-optical-character-recognition.md)|February 1, 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) and the [Azure Media Services v3 API Video Analyzer Preset](../latest/analyzing-video-audio-files-concept.md).|
-|[Azure Media Video Thumbnails](media-services-video-summarization.md)|February 1, 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) and the [Azure Media Services v3 API Video Analyzer Preset](../latest/analyzing-video-audio-files-concept.md).|
+|[Azure Media Face Detector](../previous/media-services-face-and-emotion-detection.md)|February 1, 2020|This Media Analytics Preview processor  will be retired and will not be moved to general availability. We will be evaluating its scenarios and use-cases with customers for future investments.|
+|[Azure Media Motion Detector](../previous/media-services-motion-detection.md)|February 1, 2020|This Media Analytics Preview processor  will be retired and will not be moved to general availability. We will be evaluating its scenarios and use-cases with customers for future investments.|
+|[Azure Media OCR](../previous/media-services-video-optical-character-recognition.md)|February 1, 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) and the [Azure Media Services v3 API Video Analyzer Preset](analyzing-video-audio-files-concept.md).|
+|[Azure Media Video Thumbnails](../previous/media-services-video-summarization.md)|February 1, 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) and the [Azure Media Services v3 API Video Analyzer Preset](analyzing-video-audio-files-concept.md).|
 
 ## September 2019
 
