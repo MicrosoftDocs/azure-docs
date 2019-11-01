@@ -68,7 +68,7 @@
   - name: DDoS protection
     href: ddos-protection-overview.md
   - name: Subnet extension 
-    href: subnet.extension.md
+    href: subnet-extension.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
