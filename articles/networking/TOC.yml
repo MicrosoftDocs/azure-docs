@@ -103,8 +103,6 @@
       href: network-monitoring-overview.md
     - name: Check resource usage against Azure limits
       href: check-usage-against-limits.md
-    - name: Test VM network latency
-      href: virtual-network-test-latency.md
     - name: View network topology
       href: ../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Sample scripts
