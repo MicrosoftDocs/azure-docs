@@ -14,16 +14,18 @@ ms.date: 10/31/2019
 ms.author: iainfou
 
 ---
-# Enable Security Audits for Azure AD Domain Services (Preview)
+# Enable security audits for Azure Active Directory Domain Services (preview)
 
-Azure AD Domain Service (Azure AD DS) security audits lets Azure stream security events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource. Security audit events let you archive events into Azure storage. You can also stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
+Azure Active Directory Domain Services (Azure AD DS) security audits lets Azure stream security events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource. You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
 
 > [!IMPORTANT]
 > Azure AD DS security audits are only available for Azure Resource Manager-based instances. For information on how to migrate, see [Migrate Azure AD DS from the Classic virtual network model to Resource Manager][migrate-azure-adds].
 
 ## Audit event categories
 
-Azure AD DS security audits align with traditional auditing for traditional AD DS domain controllers. In hybrid environments, you can reuse existing audit patterns so the same logic may be used when analyzing the events. The following audit event categories are available:
+Azure AD DS security audits align with traditional auditing for traditional AD DS domain controllers. In hybrid environments, you can reuse existing audit patterns so the same logic may be used when analyzing the events. Depending on the scenario you need to troubleshoot or analyze, the different audit event categories need to be targeted.
+
+The following audit event categories are available:
 
 | Audit Category Name | Description |
 |:---|:---|
@@ -55,10 +57,12 @@ Azure AD DS security audits align with traditional auditing for traditional AD D
 
 ## Security audit destinations
 
-You can use any combination of Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces as a target resource for Azure AD DS security audits. Consider the following table for the best resource for your use case.
+You can use any combination of Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces as a target resource for Azure AD DS security audits. You may use Azure Storage for archiving security audit events, but an Azure Log Analytics workspace to analyze and report on the information in the short-term.
+
+The following table outlines scenarios for each destination resource type.
 
 > [!IMPORTANT]
-> You need to create the target resource before you enable Azure AD Domain Services security audits.
+> You need to create the target resource before you enable Azure AD Domain Services security audits. You can create these resources using the Azure portal, Azure PowerShell, or the Azure CLI.
 
 | Target Resource | Scenario |
 |:---|:---|
@@ -86,9 +90,16 @@ To enable Azure AD DS security audit events using the Azure portal, complete the
 
     ![Enable the required destination and type of audit events to capture](./media/security-audit-events/diagnostic-settings-page.png)
 
-    * **Azure storage** - Select **Archive to a storage account**, then choose **Configure**. Select the **Subscription** and the **Storage account** you want to use to archive security audit events. When ready, choose **OK**.
-    * **Azure event hubs**- Select **Stream to an event hub**, then choose **Configure**. Select the **Subscription** and the **Event hub namespace**. If needed, also choose an **Event hub name** and then **Event hub policy name**. When ready, choose **OK**.
-    * **Azure Log Analytic workspaces** - Select **Send to Log Analytics**, then choose the **Subscription** and **Log Analytics Workspace** you want to use to store security audit events.
+    * **Azure storage**
+        * Select **Archive to a storage account**, then choose **Configure**.
+        * Select the **Subscription** and the **Storage account** you want to use to archive security audit events.
+        * When ready, choose **OK**.
+    * **Azure event hubs**
+        * Select **Stream to an event hub**, then choose **Configure**.
+        * Select the **Subscription** and the **Event hub namespace**. If needed, also choose an **Event hub name** and then **Event hub policy name**.
+        * When ready, choose **OK**.
+    * **Azure Log Analytic workspaces**
+        * Select **Send to Log Analytics**, then choose the **Subscription** and **Log Analytics Workspace** you want to use to store security audit events.
 
 1. Select the log categories you want included for the particular target resource. If you send the audit events to an Azure Storage account, you can also configure a retention policy that defines the number of days to retain data. A default setting of *0* retains all data and doesn't rotate events after a period of time.
 
