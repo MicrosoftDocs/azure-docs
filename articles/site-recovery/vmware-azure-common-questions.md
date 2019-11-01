@@ -1,11 +1,11 @@
 ---
-title: 'Common questions about VMware to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+title: Common questions about VMware to Azure disaster recovery with Azure Site Recovery 
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 06/27/2019
+ms.date: 10/29/2019
 ms.topic: conceptual
 ms.author: raynew
 ---
@@ -225,7 +225,7 @@ Review the [prerequisites](vmware-azure-deploy-configuration-server.md#prerequis
 
 ### Can I manually set up the configuration server instead of using a template?
 
-We recommend that you [create the configuration server VM](vmware-azure-deploy-configuration-server.md) by using the latest version of the Open Virtual Machine Format (OVF) template. If you can't use the template (for example, if you don't have access to the VMware server), [download](physical-azure-set-up-source.md) the setup file from the portal and set up the configuration server.
+We recommend that you [create the configuration server VM](vmware-azure-deploy-configuration-server.md) by using the latest version of the Open Virtualization Format (OVF) template. If you can't use the template (for example, if you don't have access to the VMware server), [download](physical-azure-set-up-source.md) the setup file from the portal and set up the configuration server.
 
 ### Can a configuration server replicate to more than one region?
 

@@ -2,10 +2,9 @@
 title: Install On-premises data gateway for Azure Analysis Services | Microsoft Docs
 description: Learn how to install and configure an On-premises data gateway.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 

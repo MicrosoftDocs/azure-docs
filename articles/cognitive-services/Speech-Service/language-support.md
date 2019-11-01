@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/15/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -19,11 +19,15 @@ Different languages are supported for different Speech Services functions. The f
 
 ## Speech-to-text
 
-Both the Microsoft speech recognition SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences.  Pronunciation customization is currently only available for en-US and de-DE. Learn more about customization [here](how-to-custom-speech.md).
+Both the Microsoft Speech SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences.  Pronunciation customization is currently only available for en-US and de-DE. Learn more about customization [here](how-to-custom-speech.md).
 
-  Code | Language | Supported | Customizable
+  Locale | Language | Supported | Customizable
  ------|----------|---------------------|---------------------
  ar-EG | Arabic (Egypt), modern standard | Yes | Yes
+ ar-SA | Arabic (Saudi Arabia) | Yes | Yes
+ ar-AE | Arabic (UAE) | Yes | Yes
+ ar-KW | Arabic (Kuwait) | Yes | Yes
+ ar-QA | Arabic (Qatar) | Yes | Yes
  ca-ES | Catalan | Yes | No
  da-DK | Danish (Denmark) | Yes | No
  de-DE | German (Germany) | Yes | Yes
@@ -38,10 +42,12 @@ Both the Microsoft speech recognition SDK and the REST API support the following
  fi-FI | Finnish (Finland) | Yes | No
  fr-CA | French (Canada) | Yes | Yes
  fr-FR | French (France) | Yes | Yes
+ gu-IN | Gujarati (Indian) | Yes | Yes
  hi-IN | Hindi (India) | Yes | Yes
  it-IT | Italian (Italy) | Yes | Yes
  ja-JP | Japanese (Japan) | Yes | Yes
  ko-KR | Korean (Korea) | Yes | Yes
+ mr-IN | Marathi (India) | Yes | Yes
  nb-NO | Norwegian (Bokmål) (Norway) | Yes | No
  nl-NL | Dutch (Netherlands) | Yes | Yes
  pl-PL | Polish (Poland) | Yes | No
@@ -49,15 +55,18 @@ Both the Microsoft speech recognition SDK and the REST API support the following
  pt-PT | Portuguese (Portugal) | Yes | Yes
  ru-RU | Russian (Russia) | Yes | Yes
  sv-SE | Swedish (Sweden) | Yes | No
+ ta-IN | Tamil (India) | Yes | Yes
+ te-IN | Telugu (India) | Yes | Yes
  zh-CN | Chinese (Mandarin, simplified) | Yes | Yes
  zh-HK | Chinese (Cantonese, Traditional) | Yes | Yes
  zh-TW | Chinese (Taiwanese Mandarin) | Yes | Yes
- th-TH | Thai (Thailand) | Yes | No 
+ th-TH | Thai (Thailand) | Yes | No
+ tr-TR | Turkey | Yes | Yes |
 
 
 ## Text-to-speech
 
-The text-to-speech REST API supports these voices, each of which supports a specific language and dialect, identified by locale.
+Both the Microsoft Speech SDK and the REST API supports these voices, each of which supports a specific language and dialect, identified by locale.
 
 > [!IMPORTANT]
 > Pricing varies for standard, custom and neural voices. Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
@@ -66,7 +75,7 @@ The text-to-speech REST API supports these voices, each of which supports a spec
 
 Neural text-to-speech is a new type of speech synthesis powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.
 
-Neural voices can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
+Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
 For a full list of neural voices and regional availability, see [regions](regions.md#standard-and-neural-voices).
 
@@ -256,4 +265,4 @@ The **Speech Translation** API supports different languages for speech-to-speech
 ## Next steps
 
 * [Get your Speech Services trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* [See how to recognize speech in c#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

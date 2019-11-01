@@ -5,7 +5,6 @@ services: security-center
 documentationcenter: na
 author: pipposera
 manager: dsavage
-editor: ''
 
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
 ms.service: security-center

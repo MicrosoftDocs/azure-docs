@@ -114,7 +114,7 @@ Validate that you're ready by performing the following steps:
 
 To configure UI customization, you copy the **ContentDefinition** and its child elements from the base file to the extensions file.
 
-1. Open the base file of your policy. For example, *`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`***. This is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. This is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Search for and copy the entire contents of the **ContentDefinitions** element.
 1. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 1. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element.
@@ -142,7 +142,7 @@ To configure UI customization, you copy the **ContentDefinition** and its child 
 
 ## Upload your updated custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity Experience Framework**.
 1. Click **All Policies**.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
@@ -57,7 +57,7 @@ Applications that acquire a token for their own identities:
 For developers, the end-to-end experience for this scenario has the following aspects:
 
 - Daemon applications can only work in Azure AD tenants. It wouldn't make sense to build a daemon application that attempts to manipulate Microsoft personal accounts. If you're a line-of-business (LOB) app developer, you'll create your daemon app in your tenant. If you're an ISV, you might want to create a multi-tenant daemon application. It will need to be consented by each tenant admin.
-- During the [Application registration](./scenario-daemon-app-registration.md), the **Reply URI** isn't needed. You need to share secrets or certificates with Azure AD, and you need to request applications permissions and grant admin consent to use those app permissions.
+- During the [Application registration](./scenario-daemon-app-registration.md), the **Reply URI** isn't needed. You need to share secrets or certificates or signed assertions with Azure AD, and you need to request applications permissions and grant admin consent to use those app permissions.
 - The [Application configuration](./scenario-daemon-app-configuration.md) needs to provide client credentials as shared with Azure AD during the application registration.
 - The [scope](scenario-daemon-acquire-token.md#scopes-to-request) used to acquire a token with the client credentials flow needs to be a static scope.
 

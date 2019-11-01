@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Apache Kafka with Enterprise Security Package in Azure HDInsight
+title: Tutorial - Apache Kafka & Enterprise Security - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
 ---
@@ -31,7 +31,7 @@ A [HDInsight Kafka cluster with Enterprise Security Package](./apache-domain-joi
 
 2. Sign in using your Azure Active Directory (AD) admin credentials. The Azure AD admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials.
 
-   ![Apache Ranger Admin UI](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   ![HDInsight Apache Ranger Admin UI](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
 
 ## Create domain users
 
@@ -178,7 +178,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
 9. View the audit access events from the Ranger UI.
 
-   ![Ranger UI Policy Audit](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   ![Ranger UI policy audit access events ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
 ## Clean up resources
 

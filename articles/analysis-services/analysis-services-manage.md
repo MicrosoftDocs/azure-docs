@@ -2,10 +2,9 @@
 title: Manage Azure Analysis Services | Microsoft Docs
 description: Learn how to manage an Analysis Services server in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 

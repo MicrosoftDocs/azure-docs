@@ -28,9 +28,15 @@ When you create a Media Services account, a **default** Streaming Endpoint is cr
 
 ## Naming convention
 
-For the default endpoint: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+The host name format of the streaming URL is: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`, where 
+`servicename` = the streaming endpoint name or the live event name. 
 
-For any additional endpoints: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+When using the default streaming endpoint, `servicename` is omitted so the URL is: `{accountname}-{regionname}.streaming.azure.net`. 
+
+### Limitations
+
+* The streaming endpoint name has a max value of 24 characters.
+* The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## Types  
 
@@ -125,7 +131,7 @@ In most cases, you should have CDN enabled. However, if you are anticipating max
 
 ### Considerations
 
-* The Streaming Endpoint `hostname` and the streaming URL remains the same whether or not you enable CDN.
+* The Streaming Endpoint `hostname` and the streaming URL remain the same whether or not you enable CDN.
 * If you need the ability to test your content with or without CDN, you can create another Streaming Endpoint that isn't CDN enabled.
 
 ### Detailed explanation of how caching works

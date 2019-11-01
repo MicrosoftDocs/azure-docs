@@ -14,7 +14,7 @@ ms.author: mlearned
 
 As part of the lifecycle of an AKS cluster, you often need to upgrade to the latest Kubernetes version. It is important you apply the latest Kubernetes security releases, or upgrade to get the latest features. This article shows you how to upgrade the master components or a single, default node pool in an AKS cluster.
 
-For AKS clusters that use multiple node pools or Windows Server nodes (both currently in preview in AKS), see [Upgrade a node pool in AKS][nodepool-upgrade].
+For AKS clusters that use multiple node pools or Windows Server nodes (currently in preview in AKS), see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 ## Before you begin
 
@@ -42,6 +42,10 @@ The following example output shows that the cluster can be upgraded to versions 
 Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
 -------  ----------------  ---------------  -----------------  ---------------
 default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
+```
+If no upgrade is available, you will get:
+```console
+ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
 ## Upgrade an AKS cluster

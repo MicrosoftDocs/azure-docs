@@ -32,12 +32,12 @@ Microsoft provides the following utilities to scale clusters:
 |[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<Target Instance Count> |
 |[Azure portal](https://portal.azure.com)|Open your HDInsight cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save.|  
 
-![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
+![Azure portal scale cluster option](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
 Using any of these methods, you can scale your HDInsight cluster up or down within minutes.
 
 > [!IMPORTANT]  
-> * The Aure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * The Azure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
 > * The PowerShell AzureRM module is deprecated.  Please use the [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) whenever possible.
 
 ## Impact of scaling operations
@@ -107,7 +107,7 @@ To see a list of pending and running jobs, you can use the YARN **Resource Manag
 3. From the Ambari UI, select **YARN** on the list of services on the left-hand menu.  
 4. From the YARN page, select **Quick Links** and hover over the active head node, then select **ResourceManager UI**.
 
-    ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    ![Apache Ambari quick links ResourceManager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
 You may directly access the ResourceManager UI with `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 

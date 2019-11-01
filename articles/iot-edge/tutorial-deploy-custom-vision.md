@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/25/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -73,7 +73,7 @@ Once your image classifier is built and trained, you can export it as a Docker c
    | ----- | ----- |
    | Name | Provide a name for your project, like **EdgeTreeClassifier**. |
    | Description | Optional project description. |
-   | Resource Group | Select one of your Azure Resource Groups that includes a Custom Vision Service Resource or **create new** if you haven't yet added one. |
+   | Resource | Select one of your Azure resource groups that includes a Custom Vision Service resource or **create new** if you haven't yet added one. |
    | Project Types | **Classification** |
    | Classification Types | **Multiclass (single tag per image)** |
    | Domains | **General (compact)** |
@@ -139,8 +139,6 @@ Now you have the files for a container version of your image classifier on your 
 
 A solution is a logical way of developing and organizing multiple modules for a single IoT Edge deployment. A solution contains code for one or more modules as well as the deployment manifest that declares how to configure them on an IoT Edge device. 
 
-1. In Visual Studio Code, select **View** > **Terminal** to open the VS Code integrated terminal.
-
 1. Select **View** > **Command Palette** to open the VS Code command palette. 
 
 1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
@@ -151,7 +149,7 @@ A solution is a logical way of developing and organizing multiple modules for a 
    | Provide a solution name | Enter a descriptive name for your solution, like **CustomVisionSolution**, or accept the default. |
    | Select module template | Choose **Python Module**. |
    | Provide a module name | Name your module **classifier**.<br><br>It's important that this module name be lowercase. IoT Edge is case-sensitive when referring to modules, and this solution uses a library that formats all requests in lowercase. |
-   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. The final string looks like \<registry name\>.azurecr.io/classifier. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal.<br><br>The final string looks like **\<registry name\>.azurecr.io/classifier**. |
  
    ![Provide Docker image repository](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -216,7 +214,7 @@ In this section, you add a new module to the same CustomVisionSolution and provi
    | Select deployment template file | Select the deployment.template.json file in the CustomVisionSolution folder. |
    | Select module template | Select **Python Module** |
    | Provide a module name | Name your module **cameraCapture** |
-   | Provide Docker image repository for the module | Replace **localhost:5000** with the login server value for your Azure container registry. The final string looks like **\<registryname\>.azurecr.io/cameracapture**. |
+   | Provide Docker image repository for the module | Replace **localhost:5000** with the login server value for your Azure container registry.<br><br>The final string looks like **\<registryname\>.azurecr.io/cameracapture**. |
 
    The VS Code window loads your new module in the solution workspace, and updates the deployment.template.json file. Now you should see two module folders: classifier and cameraCapture. 
 
@@ -234,35 +232,22 @@ In this section, you add a new module to the same CustomVisionSolution and provi
     import os
     import requests
     import json
-
-    import iothub_client
-    # pylint: disable=E0611
-    from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransportProvider
-    from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError
-    # pylint: disable=E0401
-
-    # messageTimeout - the maximum time in milliseconds until a message times out.
-    # The timeout period starts at IoTHubModuleClient.send_event_async.
-    MESSAGE_TIMEOUT = 10000
-
-    # Choose HTTP, AMQP or MQTT as transport protocol.  
-    PROTOCOL = IoTHubTransportProvider.MQTT
+    from azure.iot.device import IoTHubModuleClient, Message
 
     # global counters
-    SEND_CALLBACKS = 0
+    SENT_IMAGES = 0
+
+    # global client
+    CLIENT = None
 
     # Send a message to IoT Hub
     # Route output1 to $upstream in deployment.template.json
     def send_to_hub(strMessage):
-        message = IoTHubMessage(bytearray(strMessage, 'utf8'))
-        hubManager.send_event_to_output("output1", message, 0)
-
-    # Callback received when the message that we send to IoT Hub is processed.
-    def send_confirmation_callback(message, result, user_context):
-        global SEND_CALLBACKS
-        SEND_CALLBACKS += 1
-        print ( "Confirmation received for message with result = %s" % result )
-        print ( "   Total calls confirmed: %d \n" % SEND_CALLBACKS )
+        message = Message(bytearray(strMessage, 'utf8'))
+        CLIENT.send_message_to_output(message, "output1")
+        global SENT_IMAGES
+        SENT_IMAGES += 1
+        print( "Total images sent: {}".format(SENT_IMAGES) )
 
     # Send an image to the image classifying server
     # Return the JSON response from the server with the prediction result
@@ -279,28 +264,15 @@ In this section, you add a new module to the same CustomVisionSolution and provi
 
         return json.dumps(response.json())
 
-    class HubManager(object):
-        def __init__(self, protocol, message_timeout):
-            self.client_protocol = protocol
-            self.client = IoTHubModuleClient()
-            self.client.create_from_environment(protocol)
-            # set the time until a message times out
-            self.client.set_option("messageTimeout", message_timeout)
-            
-        # Sends a message to an output queue, to be routed by IoT Edge hub. 
-        def send_event_to_output(self, outputQueueName, event, send_context):
-            self.client.send_event_async(
-                outputQueueName, event, send_confirmation_callback, send_context)
-
     def main(imagePath, imageProcessingEndpoint):
         try:
             print ( "Simulated camera module for Azure IoT Edge. Press Ctrl-C to exit." )
 
             try:
-                global hubManager 
-                hubManager = HubManager(PROTOCOL, MESSAGE_TIMEOUT)
-            except IoTHubError as iothub_error:
-                print ( "Unexpected error %s from IoTHub" % iothub_error )
+                global CLIENT
+                CLIENT = IoTHubModuleClient.create_from_edge_environment()
+            except Exception as iothub_error:
+                print ( "Unexpected error {} from IoTHub".format(iothub_error) )
                 return
 
             print ( "The sample is now sending images for processing and will indefinitely.")

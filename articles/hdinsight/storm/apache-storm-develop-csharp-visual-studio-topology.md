@@ -130,7 +130,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
 2. From the **New Project** window, expand **Installed** > **Templates**, and select **Azure Data Lake**. From the list of templates, select **Storm Application**. At the bottom of the screen, enter **WordCount** as the name of the application.
 
-    ![Screenshot of New Project window](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
+    ![Screenshot of New Project window](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
 3. After you have created the project, you should have the following files:
 
@@ -333,7 +333,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
 Spouts and bolts are arranged in a graph, which defines how the data flows between components. For this topology, the graph is as follows:
 
-![Diagram of how components are arranged](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![Diagram of how components are arranged](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
 
 Sentences are emitted from the spout, and are distributed to instances of the Splitter bolt. The Splitter bolt breaks the sentences into words, which are distributed to the Counter bolt.
 
@@ -456,7 +456,6 @@ For an example of a hybrid topology, create a project and select **Storm Hybrid 
   > [!NOTE]  
   > This version also demonstrates how to use Clojure code from a text file as a Java component.
 
-
 To switch the topology that is used when the project is submitted, move the `[Active(true)]` statement to the topology you want to use, before submitting it to the cluster.
 
 > [!NOTE]  
@@ -566,15 +565,15 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
    > [!NOTE]
    > Remember to change the **Output type** back to **Class Library** before you deploy the topology to a cluster.
 
-2. In **Solution Explorer**, right-click the project, and then select **Add** > **New Item**. Select **Class**, and enter **LocalTest.cs** as the class name. Finally, click **Add**.
+1. In **Solution Explorer**, right-click the project, and then select **Add** > **New Item**. Select **Class**, and enter **LocalTest.cs** as the class name. Finally, click **Add**.
 
-3. Open **LocalTest.cs**, and add the following **using** statement at the top:
+1. Open **LocalTest.cs**, and add the following **using** statement at the top:
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. Use the following code as the contents of the **LocalTest** class:
+1. Use the following code as the contents of the **LocalTest** class:
 
     ```csharp
     // Drives the topology components
@@ -676,9 +675,9 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
     Console.ReadKey();
     ```
 
-2. Save the changes, and then click **F5** or select **Debug** > **Start Debugging** to start the project. A console window should appear, and log status as the tests progress. When **Tests finished** appears, press any key to close the window.
+1. Save the changes, and then click **F5** or select **Debug** > **Start Debugging** to start the project. A console window should appear, and log status as the tests progress. When **Tests finished** appears, press any key to close the window.
 
-3. Use **Windows Explorer** to locate the directory that contains your project. For example: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In this directory, open **Bin**, and then click **Debug**. You should see the text files that were produced when the tests ran: sentences.txt, counter.txt, and splitter.txt. Open each text file and inspect the data.
+1. Use **Windows Explorer** to locate the directory that contains your project. For example: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In this directory, open **Bin**, and then click **Debug**. You should see the text files that were produced when the tests ran: sentences.txt, counter.txt, and splitter.txt. Open each text file and inspect the data.
 
    > [!NOTE]  
    > String data persists as an array of decimal values in these files. For example, \[[97,103,111]] in the **splitter.txt** file is the word *and*.

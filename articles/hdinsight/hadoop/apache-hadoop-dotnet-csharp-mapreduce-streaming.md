@@ -8,8 +8,8 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-
 ---
+
 # Use C# with MapReduce streaming on Apache Hadoop in HDInsight
 
 Learn how to use C# to create a MapReduce solution on HDInsight.
@@ -157,7 +157,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
    * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **mapper** project. Finally, select the **mapper.exe** file and click **Ok**.
 
-        ![upload icon](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
+        ![HDInsight upload icon for mapper](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
     
    * If using __Azure Data Lake Storage__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **mapper.exe** file and click **Open**.
 

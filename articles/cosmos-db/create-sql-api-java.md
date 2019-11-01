@@ -14,7 +14,8 @@ ms.custom: seo-java-august2019, seo-java-september2019
 
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -186,7 +187,7 @@ Now go back to the Azure portal to get your connection string information and la
 
 7. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources).  from your account so that you don't incur charges.
 
-    ![Console output](./media/create-sql-api-java/rxjava-console-output.png)
+    ![View the output in the console window](./media/create-sql-api-java/rxjava-console-output.png)
 
 
 ## Review SLAs in the Azure portal

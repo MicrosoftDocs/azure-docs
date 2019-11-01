@@ -1,10 +1,10 @@
 ---
-title: Azure Resource Manager complete mode deletion by resource type
+title: Azure Resource Manager complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/27/2019
 ms.author: tomfitz
 ---
 
@@ -38,7 +38,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
@@ -57,7 +56,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
@@ -121,6 +119,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
@@ -149,6 +148,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
@@ -271,6 +271,7 @@ Jump to a resource provider namespace:
 > | dataAliases | No |
 > | denyAssignments | No |
 > | elevateAccess | No |
+> | findOrphanRoleAssignments | No |
 > | locks | No |
 > | permissions | No |
 > | policyAssignments | No |
@@ -388,8 +389,10 @@ Jump to a resource provider namespace:
 > | billingAccounts/createBillingRoleAssignment | No |
 > | billingAccounts/createInvoiceSectionOperations | No |
 > | billingAccounts/customers | No |
+> | billingAccounts/customers/billingPermissions | No |
 > | billingAccounts/customers/billingSubscriptions | No |
 > | billingAccounts/customers/initiateTransfer | No |
+> | billingAccounts/customers/policies | No |
 > | billingAccounts/customers/products | No |
 > | billingAccounts/customers/transactions | No |
 > | billingAccounts/customers/transfers | No |
@@ -438,19 +441,13 @@ Jump to a resource provider namespace:
 > | mapApis | Yes |
 > | updateCommunicationPreference | No |
 
-## Microsoft.BizTalkServices
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | BizTalk | Yes |
-
 ## Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | blockchainMembers | Yes |
+> | cordaMembers | Yes |
 > | watchers | Yes |
 
 ## Microsoft.Blueprint
@@ -631,24 +628,24 @@ Jump to a resource provider namespace:
 > | diskEncryptionSets | Yes |
 > | disks | Yes |
 > | galleries | Yes |
-> | galleries/applications | Yes |
-> | galleries/applications/versions | Yes |
-> | galleries/images | Yes |
-> | galleries/images/versions | Yes |
+> | galleries/applications | No |
+> | galleries/applications/versions | No |
+> | galleries/images | No |
+> | galleries/images/versions | No |
 > | hostGroups | Yes |
 > | hostGroups/hosts | Yes |
 > | images | Yes |
 > | proximityPlacementGroups | Yes |
 > | restorePointCollections | Yes |
 > | restorePointCollections/restorePoints | No |
+> | sharedVMExtensions | Yes |
+> | sharedVMExtensions/versions | No |
 > | sharedVMImages | Yes |
-> | sharedVMImages/versions | Yes |
+> | sharedVMImages/versions | No |
 > | snapshots | Yes |
 > | virtualMachines | Yes |
 > | virtualMachines/extensions | Yes |
 > | virtualMachines/metricDefinitions | No |
-> | virtualMachines/scriptJobs | No |
-> | virtualMachines/softwareUpdateDeployments | No |
 > | virtualMachineScaleSets | Yes |
 > | virtualMachineScaleSets/extensions | No |
 > | virtualMachineScaleSets/networkInterfaces | No |
@@ -702,6 +699,7 @@ Jump to a resource provider namespace:
 > | registries/buildTasks | Yes |
 > | registries/buildTasks/steps | No |
 > | registries/eventGridFilters | No |
+> | registries/generateCredentials | No |
 > | registries/getBuildSourceUploadUrl | No |
 > | registries/GetCredentials | No |
 > | registries/importImage | No |
@@ -712,7 +710,9 @@ Jump to a resource provider namespace:
 > | registries/runs | No |
 > | registries/runs/cancel | No |
 > | registries/scheduleRun | No |
+> | registries/scopeMaps | No |
 > | registries/tasks | Yes |
+> | registries/tokens | No |
 > | registries/updatePolicies | No |
 > | registries/webhooks | Yes |
 > | registries/webhooks/getCallbackConfig | No |
@@ -726,14 +726,6 @@ Jump to a resource provider namespace:
 > | containerServices | Yes |
 > | managedClusters | Yes |
 > | openShiftManagedClusters | Yes |
-
-## Microsoft.ContentModerator
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | applications | Yes |
-> | updateCommunicationPreference | No |
 
 ## Microsoft.CortanaAnalytics
 
@@ -823,8 +815,6 @@ Jump to a resource provider namespace:
 > | datacatalogs/datasources/scans | No |
 > | datacatalogs/datasources/scans/datasets | No |
 > | datacatalogs/datasources/scans/triggers | No |
-> | datacatalogs/scantargets | No |
-> | datacatalogs/scantargets/datasets | No |
 
 ## Microsoft.DataFactory
 
@@ -865,7 +855,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | services | Yes |
 > | services/projects | Yes |
-> | slots | Yes |
 
 ## Microsoft.DataShare
 
@@ -890,6 +879,9 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | servers | Yes |
 > | servers/advisors | No |
+> | servers/privateEndpointConnectionProxies | No |
+> | servers/privateEndpointConnections | No |
+> | servers/privateLinkResources | No |
 > | servers/queryTexts | No |
 > | servers/recoverableServers | No |
 > | servers/topQueryStatistics | No |
@@ -903,6 +895,9 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | servers | Yes |
 > | servers/advisors | No |
+> | servers/privateEndpointConnectionProxies | No |
+> | servers/privateEndpointConnections | No |
+> | servers/privateLinkResources | No |
 > | servers/queryTexts | No |
 > | servers/recoverableServers | No |
 > | servers/topQueryStatistics | No |
@@ -917,6 +912,10 @@ Jump to a resource provider namespace:
 > | serverGroups | Yes |
 > | servers | Yes |
 > | servers/advisors | No |
+> | servers/keys | No |
+> | servers/privateEndpointConnectionProxies | No |
+> | servers/privateEndpointConnections | No |
+> | servers/privateLinkResources | No |
 > | servers/queryTexts | No |
 > | servers/recoverableServers | No |
 > | servers/topQueryStatistics | No |
@@ -943,6 +942,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | applicationgroups | Yes |
 > | applicationgroups/applications | No |
+> | applicationgroups/desktops | No |
 > | applicationgroups/startmenuitems | No |
 > | hostpools | Yes |
 > | hostpools/sessionhosts | No |
@@ -1088,6 +1088,7 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | autoManagedVmConfigurationProfiles | Yes |
+> | configurationProfileAssignments | No |
 > | guestConfigurationAssignments | No |
 > | software | No |
 > | softwareUpdateProfile | No |
@@ -1129,6 +1130,7 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | machines | Yes |
+> | machines/extensions | Yes |
 
 ## Microsoft.HybridData
 
@@ -1197,6 +1199,7 @@ Jump to a resource provider namespace:
 > | clusters/databases | No |
 > | clusters/databases/dataconnections | No |
 > | clusters/databases/eventhubconnections | No |
+> | clusters/sharedidentities | No |
 
 ## Microsoft.LabServices
 
@@ -1234,6 +1237,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | workspaces | Yes |
 > | workspaces/computes | No |
+> | workspaces/eventGridFilters | No |
 
 ## Microsoft.ManagedIdentity
 
@@ -1321,6 +1325,7 @@ Jump to a resource provider namespace:
 > | mediaservices/liveEvents | Yes |
 > | mediaservices/liveEvents/liveOutputs | No |
 > | mediaservices/liveOutputOperations | No |
+> | mediaservices/mediaGraphs | No |
 > | mediaservices/streamingEndpointOperations | No |
 > | mediaservices/streamingEndpoints | Yes |
 > | mediaservices/streamingLocators | No |
@@ -1361,11 +1366,13 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | netAppAccounts | Yes |
+> | netAppAccounts/backupPolicies | Yes |
 > | netAppAccounts/capacityPools | Yes |
 > | netAppAccounts/capacityPools/volumes | Yes |
+> | netAppAccounts/capacityPools/volumes/backups | No |
 > | netAppAccounts/capacityPools/volumes/mountTargets | Yes |
 > | netAppAccounts/capacityPools/volumes/snapshots | Yes |
-
+> | netAppAccounts/vaults | No |
 ## Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1436,7 +1443,6 @@ Jump to a resource provider namespace:
 > | publicIPPrefixes | Yes |
 > | routeFilters | Yes |
 > | routeTables | Yes |
-> | secureGateways | Yes |
 > | serviceEndpointPolicies | Yes |
 > | trafficManagerGeographicHierarchies | No |
 > | trafficmanagerprofiles | Yes |
@@ -1458,6 +1464,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | namespaces | Yes |
 > | namespaces/notificationHubs | Yes |
+
+## Microsoft.ObjectStore
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | osNamespaces | Yes |
 
 ## Microsoft.OffAzure
 
@@ -1510,6 +1523,7 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | policyEvents | No |
+> | policyMetadata | No |
 > | policyStates | No |
 > | policyTrackedResources | No |
 > | remediations | No |
@@ -1600,6 +1614,8 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | deployments | No |
 > | deployments/operations | No |
+> | deploymentScripts | Yes |
+> | deploymentScripts/logs | No |
 > | links | No |
 > | notifyResourceJobs | No |
 > | providers | No |
@@ -1612,7 +1628,6 @@ Jump to a resource provider namespace:
 > | subscriptions/resources | No |
 > | subscriptions/tagnames | No |
 > | subscriptions/tagNames/tagValues | No |
-> | tags | No |
 > | tenants | No |
 
 ## Microsoft.SaaS
@@ -1650,6 +1665,7 @@ Jump to a resource provider namespace:
 > | applicationWhitelistings | No |
 > | assessmentMetadata | No |
 > | assessments | No |
+> | automations | Yes |
 > | AutoProvisioningSettings | No |
 > | Compliances | No |
 > | dataCollectionAgents | No |
@@ -1676,6 +1692,7 @@ Jump to a resource provider namespace:
 > | securityStatusesSummaries | No |
 > | serverVulnerabilityAssessments | No |
 > | settings | No |
+> | subAssessments | No |
 > | tasks | No |
 > | topologies | No |
 > | workspaceSettings | No |
@@ -1817,6 +1834,7 @@ Jump to a resource provider namespace:
 > | servers/restorableDroppedDatabases | No |
 > | servers/serviceobjectives | No |
 > | servers/tdeCertificates | No |
+> | virtualClusters | No |
 
 ## Microsoft.SqlVirtualMachine
 

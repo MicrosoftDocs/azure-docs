@@ -42,7 +42,7 @@ A read replica server can be created using the following steps:
     ![Azure Database for MariaDB - Replica location](./media/howto-read-replica-portal/replica-location.png)
 
    > [!NOTE]
-   > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
+   > Cross region replication is in preview. To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
 
 7. Select **OK** to confirm creation of the replica.
 

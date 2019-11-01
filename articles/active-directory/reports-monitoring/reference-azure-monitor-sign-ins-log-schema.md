@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory sign-in log schema in Azure Monitor | Microsoft Docs
+title: Sign-in log schema in Azure Monitor | Microsoft Docs
 description: Describe the Azure AD sign in log schema for use in Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -167,4 +167,4 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 ## Next steps
 
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Read more about Azure diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Read more about Azure diagnostic logs](../../azure-monitor/platform/resource-logs-overview.md)

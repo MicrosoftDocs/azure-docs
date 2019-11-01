@@ -85,7 +85,7 @@ Create an ASP.NET Core web app by following these steps:
 
    [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-1. For to **Hosting Plan**, select **New**.
+1. For the **Hosting Plan**, select **New**.
 
 1. In the **Configure Hosting Plan** dialog, enter the values from the following table, and then select **OK**.
 
@@ -136,17 +136,19 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
 ## Manage the Azure app
 
-1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app.
+To manage the web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
-1. From the left menu, select **App Services**, and then select the name of your Azure app.
+![Select App Services](./media/app-service-web-get-started-dotnet/app-services.png)
 
-   ![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
+On the **App Services** page, select the name of your web app.
 
-   You see your web app's Overview page. Here, you can do basic management like browse, stop, start, restart, and delete.
+![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-   ![App Service in Azure portal](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+You see your web app's Overview page. Here, you can do basic management like browse, stop, start, restart, and delete.
 
-   The left menu provides different pages for configuring your app.
+![App Service in Azure portal](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+
+The left menu provides different pages for configuring your app.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

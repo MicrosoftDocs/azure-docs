@@ -8,13 +8,13 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 # Manage threats to resources and data in Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C has built-in features that can help you protect against threats to your resources and data. These threats include denial-of-service attacks and password attacks. Denial-of-service attacks might make resources unavailable to intended users. Password attacks lead to unauthorized access to resources.
+Azure Active Directory B2C (Azure AD B2C) has built-in features that can help you protect against threats to your resources and data. These threats include denial-of-service attacks and password attacks. Denial-of-service attacks might make resources unavailable to intended users. Password attacks lead to unauthorized access to resources.
 
 ## Denial-of-service attacks
 
@@ -32,10 +32,10 @@ The first 10 lockout periods are one minute long. The next 10 lockout periods ar
 
 To manage password protection settings, including the lockout threshold:
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** filter in the top-right menu of the portal, then select your Azure AD B2C tenant.
-1. Select **Azure Active Directory** in the left-hand menu (or select **All services** in the upper-left section of the portal, then search for and select *Azure Active Directory*).
-1. Under **Security**, select **Authentication methods**, then select **Password protection**.
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Under **Security**, select **Authentication methods (Preview)**, then select **Password protection**.
 1. Enter your desired password protection settings, then select **Save**.
 
     ![Azure portal Password protection page in Azure AD settings](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)

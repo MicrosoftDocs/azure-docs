@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database serverless (preview) | Microsoft Docs
+title: Azure SQL Database serverless | Microsoft Docs
 description: This article describes the new serverless compute tier and compares it with the existing provisioned compute tier
 services: sql-database
 ms.service: sql-database
@@ -10,11 +10,11 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 09/06/2019
+ms.date: 11/04/2019
 ---
-# Azure SQL Database serverless (preview)
+# Azure SQL Database serverless
 
-Azure SQL Database serverless (preview) is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
+Azure SQL Database serverless is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
 
 ## Serverless compute tier
 
@@ -126,7 +126,7 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Auditing|Viewing auditing records.<br>Updating or viewing auditing policy.|
 |Data masking|Adding, modifying, deleting, or viewing data masking rules|
 |Transparent data encryption|View state or status of transparent data encryption|
-|Query (performance) data store|Modifying or viewing query store settings; automatic tuning|
+|Query (performance) data store|Modifying or viewing query store settings|
 |Autotuning|Application and verification of autotuning recommendations such as auto-indexing|
 |Database copying|Create database as copy.<br>Export to a BACPAC file.|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
@@ -154,12 +154,18 @@ Creating a new database or moving an existing database into a serverless compute
    |GP_S_Gen5_1|General Purpose|Gen5|1|
    |GP_S_Gen5_2|General Purpose|Gen5|2|
    |GP_S_Gen5_4|General Purpose|Gen5|4|
+   |GP_S_Gen5_6|General Purpose|Gen5|6|
+   |GP_S_Gen5_8|General Purpose|Gen5|8|
+   |GP_S_Gen5_10|General Purpose|Gen5|10|
+   |GP_S_Gen5_12|General Purpose|Gen5|12|
+   |GP_S_Gen5_14|General Purpose|Gen5|14|
+   |GP_S_Gen5_16|General Purpose|Gen5|16|
 
 2. Optionally, specify the min vCores and autopause delay to change their default values. The following table shows the available values for these parameters.
 
    |Parameter|Value choices|Default value|
    |---|---|---|---|
-   |Min vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
+   |Min vCores|Depends on max vCores configured - see [resource limits](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0.5 vCores|
    |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|60 minutes|
 
 > [!NOTE]
@@ -276,7 +282,7 @@ Get-AzSqlDatabase `
 
 ## Resource limits
 
-For resource limits, see [Serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+For resource limits, see [serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
 
 ## Billing
 
@@ -314,9 +320,9 @@ Suppose the compute unit price is $0.000073/vCore/second.  Then the compute bill
 
 ## Available regions
 
-The serverless compute tier is available worldwide except the following regions: Australia Central, China East, China North, France South, Germany Central, Germany Northeast, India West, Korea South, South Africa West, UK North, UK South, UK West, and West Central US.
+The serverless compute tier is available worldwide except the following regions: China East, China North, Germany Central, Germany Northeast, UK North, UK South 2, West Central US, and US Gov Central (Iowa).
 
 ## Next steps
 
 - To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
-- For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+- For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

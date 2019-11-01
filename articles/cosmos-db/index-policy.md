@@ -21,8 +21,11 @@ In some situations, you may want to override this automatic behavior to better s
 
 Azure Cosmos DB supports two indexing modes:
 
-- **Consistent**: If a container's indexing policy is set to Consistent, the index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the account](consistency-levels.md).
-- **None**: If a container's indexing policy is set to None, indexing is effectively disabled on that container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also help speeding up bulk insert operations.
+- **Consistent**: The index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the account](consistency-levels.md).
+- **None**: Indexing is disabled on the container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also be used to improve the performance of bulk operations. After the bulk operations are complete, the index mode can be set to Consistent and then monitored using the [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) until complete.
+
+> [!NOTE]
+> Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. Additionally, using Lazy indexing in place of 'None' for bulk operations also provides no benefit as any change to the Index Mode will cause the index to be dropped and recreated. For these reasons we recommend against customers using it. To improve performance for bulk operations, set index mode to None, then return to Consistent mode and monitor the `IndexTransformationProgress` property on the container until complete.
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
 
@@ -112,7 +115,7 @@ When defining a composite index, you specify:
 - The order (ascending or descending).
 
 > [!NOTE]
-> When adding a composite index, as with other index types, queries may return inconsistent results as the index is being updated.
+> When you add a composite index, the query will utilize existing range indexes until the new composite index addition is complete. Therefore, when you add a composite index, you may not immediately observe performance improvements. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
 ### ORDER BY queries on multiple properties:
 
@@ -230,7 +233,7 @@ The following considerations are used when creating composite indexes to optimiz
 A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The old policy's index is efficiently transformed to the new policy without affecting the write availability or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
 
 > [!NOTE]
-> While re-indexing is in progress, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
+> While adding a range or spatial index, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
 If the new indexing policy's mode is set to Consistent, no other indexing policy change can be applied while the index transformation is in progress. A running index transformation can be canceled by setting the indexing policy's mode to None (which will immediately drop the index).
 
