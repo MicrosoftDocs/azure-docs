@@ -9,10 +9,12 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/05/2019
+ms.date: 11/04/2019
 ---
 
 # Build & use an Azure Machine Learning pipeline for batch scoring
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you use a pipeline in Azure Machine Learning to run a batch scoring job. The example uses the pretrained [Inception-V3](https://arxiv.org/abs/1512.00567) convolutional neural network Tensorflow model to classify unlabeled images. After you build and publish a pipeline, you configure a REST endpoint that you can use to trigger the pipeline from any HTTP library on any platform.
 
@@ -461,7 +463,7 @@ df.head(10)
 
 ## Publish and run from a REST endpoint
 
-Run the following code to publish the pipeline to your workspace. In your workspace in the Azure portal, you can see metadata for the pipeline, including run history and durations. You can also run the pipeline manually from the portal.
+Run the following code to publish the pipeline to your workspace. In your workspace in Azure Machine Learning studio, you can see metadata for the pipeline, including run history and durations. You can also run the pipeline manually from the studio.
 
 Publishing the pipeline enables a REST endpoint that you can use to run the pipeline from any HTTP library on any platform.
 
@@ -485,7 +487,7 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Get the REST URL from the `endpoint` property of the published pipeline object. You can also find the REST URL in your workspace in the Azure portal. 
+Get the REST URL from the `endpoint` property of the published pipeline object. You can also find the REST URL in your workspace in Azure Machine Learning studio. 
 
 Build an HTTP POST request to the endpoint. Specify your authentication header in the request. Add a JSON payload object that has the experiment name and the batch size parameter. As noted earlier in the tutorial, `param_batch_size` is passed through to your `batch_scoring.py` script because you defined it as a `PipelineParameter` object in the step configuration.
 
@@ -518,14 +520,9 @@ RunDetails(published_pipeline_run).show()
 
 Don't complete this section if you plan to run other Azure Machine Learning tutorials.
 
-### Stop the notebook VM
+### Stop the compute instance
 
-If you used a cloud notebook server, to reduce costs, stop the VM when your'e not using it:
-
-1. In your workspace, select **Notebook VMs**.
-1. In the list of VMs, select the VM you want to stop.
-1. Select **Stop**.
-1. When you're ready to use the server again, select **Start**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### Delete everything
 
