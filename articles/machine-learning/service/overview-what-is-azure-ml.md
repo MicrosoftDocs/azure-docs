@@ -64,9 +64,9 @@ For code-free or low-code training and deployment, try:
 
 + **Azure Machine Learning designer (preview)**
 
-  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](ui-tutorial-automobile-price-train-score.md).
+  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
-  Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
+  Learn more in [the Azure Machine Learning designer overview article](concept-designer.md). 
 
   ![Azure Machine Learning designer example](/media/concept-ml-pipelines/visual-design-surface.gif)
 
@@ -112,9 +112,9 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 - Create your first experiment with your preferred method:
   + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown to train & deploy ML models]( tutorial-1st-r-experiment.md) 
+  + [Use R Markdown to train & deploy ML models](tutorial-1st-r-experiment.md) 
   + [Use automated machine learning to train & deploy ML models](  tutorial-first-experiment-automated-ml.md) 
-  + [Use the designer's drag & drop capabilities to train & deploy](ui-tutorial-automobile-price-train-score.md) 
+  + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 
   + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.

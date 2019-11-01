@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 11/04/2019
 ---
 
 # Auto-train a time-series forecast model

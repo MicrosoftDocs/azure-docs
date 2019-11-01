@@ -1,5 +1,5 @@
 ---
-title: Install your own custom Apache Hadoop applications on Azure HDInsight 
+title: Install your custom Apache Hadoop applications on Azure HDInsight
 description: Learn how to install HDInsight applications for Apache Hadoop clusters in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh

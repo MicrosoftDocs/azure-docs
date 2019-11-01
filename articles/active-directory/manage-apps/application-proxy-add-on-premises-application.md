@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
@@ -137,7 +137,7 @@ To confirm the connector installed and registered correctly:
 1. In the left navigation panel, select **Azure Active Directory**, and then select **Application Proxy** under the **Manage** section. All of your connectors and connector groups appear on this page.
 1. View a connector to verify its details. The connectors should be expanded by default. If the connector you want to view isn't expanded, expand the connector to view the details. An active green label indicates that your connector can connect to the service. However, even though the label is green, a network issue could still block the connector from receiving messages.
 
-    ![Azure AD Application Proxy Connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
+    ![Azure AD Application Proxy Connectors](./media/application-proxy-add-on-premises-application/app-proxy-connectors.png)
 
 For more help with installing a connector, see [Problem installing the Application Proxy Connector](application-proxy-connector-installation-problem.md).
 
@@ -150,7 +150,7 @@ To confirm the connector installed and registered correctly:
    - **Microsoft AAD Application Proxy Connector** enables connectivity.
    - **Microsoft AAD Application Proxy Connector Updater** is an automated update service. The updater checks for new versions of the connector and updates the connector as needed.
 
-     ![App Proxy Connector services - screenshot](./media/application-proxy-enable/app_proxy_services.png)
+     ![App Proxy Connector services - screenshot](./media/application-proxy-add-on-premises-application/app_proxy_services.png)
 
 1. If the status for the services isn't **Running**, right-click to select each service and choose **Start**.
 
@@ -159,10 +159,10 @@ To confirm the connector installed and registered correctly:
 Now that you've prepared your environment and installed a connector, you're ready to add on-premises applications to Azure AD.  
 
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
-1. In the left navigation panel, select **Azure Active Directory**.
-1. Select **Enterprise applications**, and then select **New application**.
-1. Select **On-premises application**.  
-1. In the **Add your own on-premises application** section, provide the following information about your application:
+2. In the left navigation panel, select **Azure Active Directory**.
+3. Select **Enterprise applications**, and then select **New application**.
+4. In the **On-premises applications** section, select **Add an on-premises application**.
+5. In the **Add your own on-premises application** section, provide the following information about your application:
 
     | Field | Description |
     | :---- | :---------- |
@@ -172,7 +172,7 @@ Now that you've prepared your environment and installed a connector, you're read
     | **Pre Authentication** | How Application Proxy verifies users before giving them access to your application.<br><br>**Azure Active Directory** - Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application. We recommend keeping this option as the default so that you can take advantage of Azure AD security features like Conditional Access and Multi-Factor Authentication. **Azure Active Directory** is required for monitoring the application with Microsoft Cloud Application Security.<br><br>**Passthrough** - Users don't have to authenticate against Azure AD to access the application. You can still set up authentication requirements on the backend. |
     | **Connector Group** | Connectors process the remote access to your application, and connector groups help you organize connectors and apps by region, network, or purpose. If you don't have any connector groups created yet, your app is assigned to **Default**.<br><br>If your application uses WebSockets to connect, all connectors in the group must be version 1.5.612.0 or later.|
 
-1. If necessary, configure **Additional settings**. For most applications, you should keep these settings in their default states. 
+6. If necessary, configure **Additional settings**. For most applications, you should keep these settings in their default states. 
 
     | Field | Description |
     | :---- | :---------- |
@@ -183,7 +183,7 @@ Now that you've prepared your environment and installed a connector, you're read
     | **Translate URLs in Headers** | Keep this value as **Yes** unless your application required the original host header in the authentication request. |
     | **Translate URLs in Application Body** | Keep this value as **No** unless you have hardcoded HTML links to other on-premises applications and don't use custom domains. For more information, see [Link translation with Application Proxy](application-proxy-configure-hard-coded-link-translation.md).<br><br>Set this value to **Yes** if you plan to monitor this application with Microsoft Cloud App Security (MCAS). For more information, see [Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
 
-1. Select **Add**.
+7. Select **Add**.
 
 ## Test the application
 
@@ -196,11 +196,11 @@ Before adding a user to the application, verify the user account already has per
 To add a test user:
 
 1. Select **Enterprise applications**, and then select the application you want to test.
-1. Select **Getting started**, and then select **Assign a user for testing**.
-1. Under **Users and groups**, select **Add user**.
-1. Under **Add assignment**, select **Users and groups**. The **User and groups** section appears.
-1. Choose the account you want to add.
-1. Choose **Select**, and then select **Assign**.
+2. Select **Getting started**, and then select **Assign a user for testing**.
+3. Under **Users and groups**, select **Add user**.
+4. Under **Add assignment**, select **Users and groups**. The **User and groups** section appears.
+5. Choose the account you want to add.
+6. Choose **Select**, and then select **Assign**.
 
 ### Test the sign-on
 

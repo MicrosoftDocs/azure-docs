@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create your first ML experiment: Setup"
 titleSuffix: Azure Machine Learning
-description: In this tutorial series, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks.  Part one covers creating a cloud notebook server environment as well as creating a workspace to manage your experiments and machine learning models.
+description: In this tutorial, you'll to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks.  In Part 1, you create a workspace in which you'll manage experiments and ML models. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -23,6 +23,7 @@ In this tutorial, you:
 > * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in the next tutorial.
 > * Clone the tutorials notebook to your folder in the workspace.
 > * Create a cloud-based compute instance with Azure Machine Learning Python SDK installed and pre-configured.
+
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
@@ -83,6 +84,9 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Once the VM is available it will be displayed in the top toolbar.  You can now run the notebook either by using **Run all** in the toolbar, or by using **Shift+Enter** in the code cells of the notebook.
 
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can use either a Notebook VM or a compute instance to run your notebook.
 
 ## Next steps
 

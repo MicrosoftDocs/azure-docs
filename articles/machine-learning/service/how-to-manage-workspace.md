@@ -7,10 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-ms.reviewer: jmartens
-ms.author: shipatel
-author: shivp950
-ms.date: 05/10/2019
+ms.author: sgilley
+author: sdgilley
+ms.date: 11/04/2019
 ms.custom: seodec18
 
 ---
@@ -89,9 +88,9 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 
 1. In top left corner of the portal, select **All services**.
 
-1. In the **All services** filter field, type **machine learning service**.  
+1. In the **All services** filter field, type **machine learning**.  
 
-1. Select **Machine Learning service workspaces**.
+1. Select **Azure Machine Learning**.
 
    ![Search for Azure Machine Learning workspace](media/how-to-manage-workspace/all-services.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Run batch inference on large amounts of data 
 titleSuffix: Azure Machine Learning
-description: Learn how to get inferences asynchronously on large amounts of data by using batch inference in Azure Machine Learning Batch inference provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
+description: Learn how to get inferences asynchronously on large amounts of data by using batch inference in Azure Machine Learning. Batch inference provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.reviewer: trbye, jmartens, larryfr
 ms.author: tracych
 author: tracych
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.custom: Ignite2019
 ---
 
@@ -19,11 +19,10 @@ ms.custom: Ignite2019
 
 In this how-to, you learn how to get inferences on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The batch inference capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
 
-With batch inference, it's straightforward to scale fire-and-forget inference to large clusters of machines on terabytes of production data. The result is increased development productivity and lowered development cost.
+With batch inference, it's straightforward to scale offline inferences to large clusters of machines on terabytes of production data resulting in improved productivity and optimized cost.
 
 In this how-to, you learn the following tasks:
 
-> [!div class="checklist"]
 > * Create a remote compute resource.
 > * Write a custom inference script.
 > * Create a [machine learning pipeline](concept-ml-pipelines.md) to register a pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
@@ -43,7 +42,7 @@ The following actions set up the resources that you need to run a batch inferenc
 
 - Create a datastore that points to a blob container that has images to inference.
 - Set up data references as inputs and outputs for the batch inference pipeline step.
-- Set up a compute cluster where the batch inference step will run.
+- Set up a compute cluster to run the batch inference step.
 
 ### Create a datastore with sample images
 
@@ -67,8 +66,7 @@ mnist_blob = Datastore.register_azure_blob_container(ws,
 
 Next, specify the workspace default datastore as the output datastore. You'll use it for inference output.
 
-When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure Files is the default datastore for a workspace, but you can also use Blob storage as a datastore. For more information, see [Azure storage
-options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure Files is the default datastore for a workspace, but you can also use Blob storage as a datastore. For more information, see [Azure storage options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -88,7 +86,7 @@ Now you need to configure data inputs and outputs, including:
 > [!NOTE] 
 > `FileDataset` support in batch inference is restricted to Azure Blob storage for now. 
 
-You can also use `Dataset` as side input to your script. For example, you can use it to access labels in your script for labeling images.
+You can also reference other datasets in your custom inference script. For example, you can use it to access labels in your script for labeling images by using `Dataset.register` and `Dataset.get_by_name`.
 
 For more information about Azure Machine Learning datasets, see [Create and access datasets (preview)](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets).
 
@@ -99,7 +97,7 @@ from azureml.core.dataset import Dataset
 
 mnist_ds_name = 'mnist_sample_data'
 
-path_on_datastore = mnist_blob.path('mnist/*.png')
+path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 registered_mnist_ds = input_mnist_ds.register(ws, mnist_ds_name, create_new_version=True)
 named_mnist_ds = registered_mnist_ds.as_named_input(mnist_ds_name)
@@ -111,30 +109,40 @@ output_dir = PipelineData(name="inferences",
 
 ### Set up a compute target
 
-In Azure Machine Learning, *compute* (or *compute target*) refers to the machines or clusters that perform the computational steps in your machine learning pipeline. Run the following code to create or reuse a GPU-enabled [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) target.
+In Azure Machine Learning, *compute* (or *compute target*) refers to the machines or clusters that perform the computational steps in your machine learning pipeline. Run the following code to create a CPU based [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) target.
 
 ```python
-# Choose a name for your cluster
-aml_compute_name = os.environ.get("AML_COMPUTE_NAME", "gpu-cluster")
-cluster_min_nodes = os.environ.get("AML_COMPUTE_MIN_NODES", 0)
-cluster_max_nodes = os.environ.get("AML_COMPUTE_MAX_NODES", 4)
-vm_size = os.environ.get("AML_COMPUTE_SKU", "STANDARD_NC6")
-    
-try:
-    gpu_cluster = AmlCompute(ws, aml_compute_name)
-    if gpu_cluster and type(gpu_cluster) is AmlCompute:
-        print('found compute target: ' + aml_compute_name)
-except ComputeTargetException:
+from azureml.core.compute import AmlCompute, ComputeTarget
+from azureml.core.compute_target import ComputeTargetException
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpu-cluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
+
+# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
+
+
+if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('found compute target. just use it. ' + compute_name)
+else:
     print('creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                vm_priority = 'lowpriority', # Optional
-                                                                min_nodes = cluster_min_nodes, 
-                                                                max_nodes = cluster_max_nodes)
-    gpu_cluster = ComputeTarget.create(ws, aml_compute_name, provisioning_config)
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
+                                                                min_nodes = compute_min_nodes, 
+                                                                max_nodes = compute_max_nodes)
+
+    # create the cluster
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
     
-    # You can poll for a minimum number of nodes and for a specific timeout 
-    # If no minimum node count is provided, it will use the scale settings for the cluster
-    gpu_cluster.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    # can poll for a minimum number of nodes and for a specific timeout. 
+    # if no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
 ```
 
 ## Prepare the model
@@ -176,10 +184,9 @@ model = Model.register(model_path="models/",
 
 The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object.
-- `run(input_data, arguments)`: This function will run for each `mini_batch` instance.
-    - `input_data`: This is an array of locally accessible file paths or a Pandas dataframe. A subset of files or rows is specified in the inputs list.
-    - `arguments`: Arguments passed during the pipeline run will be passed to this function. 
-    - `run method response`: The `run()` method should return an array.
+-  `run(mini_batch)`: The function will run for each `mini_batch` instance.
+    -  `mini_batch`: Batch inference will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in min_batch will be - a filepath if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
+    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful inference of input element in the input mini-batch. User should make sure that enough data is included in inference result to map input to inference. Inference output will be written in output file and not guaranteed to be in order, user should use some key in the output to map it to input.
 
 ```python
 # Snippets from a sample script.
@@ -203,7 +210,7 @@ def init():
     # Construct a graph to execute
     tf.reset_default_graph()
     saver = tf.train.import_meta_graph(os.path.join(model_path, 'mnist-tf.model.meta'))
-    g_tf_sess = tf.Session(config=tf.ConfigProto(device_count={'GPU': 0}))
+    g_tf_sess = tf.Session()
     saver.restore(g_tf_sess, os.path.join(model_path, 'mnist-tf.model'))
 
 
@@ -239,13 +246,12 @@ from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow", "azure.storage.blob", "pandas"])
+batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
 batch_env.docker.enabled = True
-batch_env.docker.gpu_support = True
-batch_env.docker.base_image = DEFAULT_GPU_IMAGE
+batch_env.docker.base_image = DEFAULT_CPU_IMAGE
 batch_env.spark.precache_packages = False
 ```
 
@@ -255,11 +261,10 @@ batch_env.spark.precache_packages = False
 - `entry_script`: A user script as a local file path that will be run in parallel on multiple nodes. If `source_directly` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
 - `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (Optional; the default value is `1`.)
     - For `FileDataset`, it's the number of files with a minimum value of `1`. You can combine multiple files into one mini-batch.
-    - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The minimum value is `1MB`. Note that the mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
+    - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The recommended value is `1MB`. Note that the mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
 - `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be stopped. The error threshold is for the entire input and not for individual mini-batches sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
 - `output_action`: One of the following values indicates how the output will be organized:
     - `summary_only`: The user script will store the output. `ParallelRunStep` will use the output only for the error threshold calculation.
-    - `file`: For each input file, a corresponding file with the same name will be in the output folder.
     - `append_row`: For all input files, only one file will be created in the output folder to append all outputs separated by line. The file name will be parallel_run_step.txt.
 - `source_directory`: Paths to folders that contain all files to execute on the compute target (optional).
 - `compute_target`: Only `AmlCompute` is supported.
@@ -267,7 +272,7 @@ batch_env.spark.precache_packages = False
 - `process_count_per_node`: The number of processes per node.
 - `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment for the experiment. The definition is also responsible for setting the required application dependencies (optional).
 - `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. The default is `INFO` (optional).
-- `run_invocation_timeout`: The `run()` method invocation timeout in seconds. The default value is `30`.
+- `run_invocation_timeout`: The `run()` method invocation timeout in seconds. The default value is `60`.
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
@@ -275,12 +280,11 @@ from azureml.contrib.pipeline.steps import ParallelRunConfig
 parallel_run_config = ParallelRunConfig(
     source_directory=scripts_folder,
     entry_script="digit_identification.py",
-    input_format="file",
-    mini_batch_size="5kb",
+    mini_batch_size="5",
     error_threshold=10,
     output_action="append_row",
     environment=batch_env,
-    compute_target=gpu_cluster,
+    compute_target=compute_target,
     node_count=4)
 ```
 

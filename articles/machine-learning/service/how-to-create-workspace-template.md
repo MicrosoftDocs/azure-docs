@@ -40,7 +40,7 @@ The following Resource Manager template can be used to create an Azure Machine L
     "workspaceName": {
       "type": "string",
       "metadata": {
-        "description": "Specifies the name of the Azure Machine Learning service workspace."
+        "description": "Specifies the name of the Azure Machine Learning workspace."
       }
     },
     "location": {
@@ -61,8 +61,13 @@ The following Resource Manager template can be used to create an Azure Machine L
     },
     "sku":{
       "type": "string",
+      "defaultValue": "basic",
+        "allowedValues": [
+          "basic",
+          "enterprise"
+        ],
         "metadata": {
-          "description": "Specifies the sku, also referred as 'edition' of the Azure Machine Learning service workspace."
+          "description": "Specifies the sku, also referred as 'edition' of the Azure Machine Learning workspace."
         }
     }
   },
@@ -245,7 +250,7 @@ Most resource creation operations through templates are idempotent, but Key Vaul
 
 To avoid this problem, we recommend one of the following approaches:
 
-*  Do not deploy the template more than once for the same parameters. Or delete the existing resources before using the template to recreate them.
+* Do not deploy the template more than once for the same parameters. Or delete the existing resources before using the template to recreate them.
   
 * Examine the Key Vault access policies and then use these policies to set the accessPolicies property of the template.
 * Check if the Key Vault resource already exists. If it does, do not recreate it through the template. For example, add a parameter that allows you to disable the creation of the Key Vault resource if it already exists.

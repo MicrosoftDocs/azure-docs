@@ -58,10 +58,10 @@ To modify the device administrator role, configure **Additional local administra
 >[!NOTE]
 > This option requires an Azure AD Premium tenant. 
 
-Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. For the devices, a user is already signed into, the privilege update takes place:
+Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege update takes place when *both* the below actions happen:
 
-- When a user signs out.
-- After 4 hours, when a new Primary Refresh Token is issued. 
+- 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
+- User signs out and signs back in, not lock/unlock, to refresh their profile.
 
 ## Manage regular users
 

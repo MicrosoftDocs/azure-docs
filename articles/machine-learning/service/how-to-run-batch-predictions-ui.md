@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
-ms.date: 10/21/2019
+ms.date: 11/04/2019
 ms.custom: Ignite2019
 ---
 
@@ -35,7 +35,7 @@ In this how-to, you learn the following tasks:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 
-This how-to assumes basic knowledge of building a simple pipeline in the designer. For a guided introduction to the designer, complete the [tutorial](ui-tutorial-automobile-price-train-score.md). 
+This how-to assumes basic knowledge of building a simple pipeline in the designer. For a guided introduction to the designer, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ## Create a pipeline
 
@@ -103,4 +103,4 @@ The **Consume** tab contains the REST endpoint for rerunning your pipeline. To m
 
 ## Next steps
 
-Follow the Designer [tutorial](ui-tutorial-automobile-price-train-score.md) to train and deploy a regression model.
+Follow the Designer [tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.

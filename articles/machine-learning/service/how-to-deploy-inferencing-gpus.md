@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 07/24/2019
+ms.date: 10/25/2019
 ---
 
 # Deploy a deep learning model for inference with GPU

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
+ms.date: 10/25/2019
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
