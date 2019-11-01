@@ -121,7 +121,7 @@ Not at this time, however you can scale your compute and number of replicas down
 
 ### Can I provision a compute replica with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
+No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5).
 
 ### Can I provision multiple compute replicas of different sizes
 

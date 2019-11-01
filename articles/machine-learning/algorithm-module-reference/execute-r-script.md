@@ -1,7 +1,7 @@
 ---
 title: "Execute R Script: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Execute R Script module in Azure Machine Learning service to run R code.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Execute R Script module in Azure Machine Learning to run R code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,16 +14,16 @@ ms.date: 06/01/2019
 
 # Execute R Script
 
-This article describes how to use the **Execute R Script** module to run R code in your visual interface pipeline.
+This article describes how to use the **Execute R Script** module to run R code in your Azure Machine Learning designer (preview) pipeline.
 
 With R, you can perform tasks that aren't currently supported by existing modules such as: 
 - Create custom data transformations
 - Use your own metrics to evaluate predictions
-- Build models using algorithms that aren't implemented as standalone modules in visual interface
+- Build models using algorithms that aren't implemented as standalone modules in the designer
 
 ## R version support
 
-The Azure Machine Learning service visual interface uses the CRAN (Comprehensive R Archive Network) distribution of R. The currently used version is CRAN 3.5.1.
+Azure Machine Learning designer uses the CRAN (Comprehensive R Archive Network) distribution of R. The currently used version is CRAN 3.5.1.
 
 ## Supported R packages
 
@@ -69,7 +69,7 @@ The **Execute R Script** module contains sample code that you can use as a start
 
 ![R-module](media/module/execute-r-script.png)
 
-Datasets stored in visual interface are automatically converted to an R data frame when loaded with this module.
+Datasets stored in the designer are automatically converted to an R data frame when loaded with this module.
 
 1.  Add the **Execute R Script** module to your pipeline.
 
@@ -112,10 +112,10 @@ azureml_main <- function(dataframe1, dataframe2){
  * The entry point function can contain up to two input arguments: `Param<dataframe1>` and `Param<dataframe2>`
  
    > [!NOTE]
-    > The data passed to the **Execute R Script** module is referenced as `dataframe1` and `dataframe2`, which is different from Azure Machine Learning Studio (Studio reference as `dataset1`, `dataset2`). Please check to make sure input data is referneced correctly in your script.  
+    > The data passed to the **Execute R Script** module is referenced as `dataframe1` and `dataframe2`, which is different from Azure Machine Learning designer (the designer reference as `dataset1`, `dataset2`). Please check to make sure input data is referneced correctly in your script.  
  
     > [!NOTE]
-    >  Existing R code may need minor changes to run in a visual interface pipeline. For example, input data that you provide in CSV format should be explicitly converted to a dataset before you can use it in your code. Data and column types used in the R language also differ in some ways from the data and column types used in the visual interface.
+    >  Existing R code may need minor changes to run in a designer pipeline. For example, input data that you provide in CSV format should be explicitly converted to a dataset before you can use it in your code. Data and column types used in the R language also differ in some ways from the data and column types used in the designer.
 
 1.  **Random Seed**: Type a value to use inside the R environment as the random seed value. This parameter is equivalent to calling `set.seed(value)` in R code.  
 
@@ -123,7 +123,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## Results
 
-The **Execute R Script** modules can return multiple outputs, but they must be provided as R data frames. Data frames are automatically converted to visual interface datasets for compatibility with other modules.
+The **Execute R Script** modules can return multiple outputs, but they must be provided as R data frames. Data frames are automatically converted to datasets in the designer for compatibility with other modules.
 
 Standard messages and errors from R are returned to the module's log.
 
@@ -231,7 +231,7 @@ You can pass R objects between instances of the **Execute R Script** module by u
     }
     ```
 
-    The explicit conversion to integer type is done because the serialization function outputs data in the R `Raw` format, which isn't supported by the visual interface.
+    The explicit conversion to integer type is done because the serialization function outputs data in the R `Raw` format, which isn't supported by the designer.
 
 1. Add a second instance of the **Execute R Script** module, and connect it to the output port of the previous module.
 
@@ -398,4 +398,4 @@ The current list of pre-installed R Packages available to use:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
