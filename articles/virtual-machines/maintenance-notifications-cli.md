@@ -43,7 +43,6 @@ az vm perform-maintenance -g myResourceGroup -n myVM
 
 ## Classic deployments
 
-<!-- https://docs.microsoft.com/en-us/previous-versions/azure/virtual-machines/windows/classic/planned-maintenance-schedule-classic -->
 
 If you still have legacy VMs that were deployed using the classic deployment model, you can use the Azure classic CLI to query for VMs and initiate maintenance.
 
@@ -72,4 +71,4 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 ## Next steps
 
-Learn how you can register for maintenance events from within the VM using [Scheduled Events](scheduled-events.md).
+Learn how you can register for maintenance events from within the VM using [Scheduled Events](/linux/scheduled-events.md).

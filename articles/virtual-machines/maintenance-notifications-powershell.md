@@ -112,4 +112,4 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 ## Next steps
 
-Learn how you can register for maintenance events from within the VM using [Scheduled Events](./windows/scheduled-events.md).
+Learn how you can register for maintenance events from within the VM using [Scheduled Events](/windows/scheduled-events.md).
