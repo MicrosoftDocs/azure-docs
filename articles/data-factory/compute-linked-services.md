@@ -22,7 +22,8 @@ The following table provides a list of compute environments supported by Data Fa
 | [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
-| [Azure Machine Learning Service](#azure-machine-learning-service-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
@@ -386,11 +387,11 @@ You create an Azure Machine Learning Studio linked service to register a Machine
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
 | connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
 
-## Azure Machine Learning Service linked service
-You create an Azure Machine Learning Service linked service to connect an Azure Machine Learning service workspace to a data factory.
+## Azure Machine Learning linked service
+You create an Azure Machine Learning linked service to connect an Azure Machine Learning workspace to a data factory.
 
 > [!NOTE]
-> Currently only service principal authentication is supported for the Azure Machine Learning Service linked service.
+> Currently only service principal authentication is supported for the Azure Machine Learning linked service.
 
 ### Example
 
@@ -424,7 +425,7 @@ You create an Azure Machine Learning Service linked service to connect an Azure 
 | Type                   | The type property should be set to: **AzureMLService**. | Yes                                      |
 | subscriptionId         | Azure subscription ID              | Yes                                      |
 | resourceGroupName      | name | Yes                                      |
-| mlWorkspaceName        | Azure Machine Learning Service workspace name | Yes  |
+| mlWorkspaceName        | Azure Machine Learning workspace name | Yes  |
 | servicePrincipalId     | Specify the application's client ID.     | No |
 | servicePrincipalKey    | Specify the application's key.           | No |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified | No |
