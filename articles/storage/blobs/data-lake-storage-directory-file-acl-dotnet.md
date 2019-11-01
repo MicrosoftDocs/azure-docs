@@ -31,9 +31,9 @@ using Azure;
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet) instance that represents the storage account. The easiest way to get one is to use a connection string. 
+To use the snippets in this article, you'll need to create a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet) instance that represents the storage account. The easiest way to get one is to use an account key. 
 
-This example creates an instance of the [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet) by using a connection string.
+This example creates an instance of the [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet) by using an account key.
 
 ```cs
 public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
@@ -49,11 +49,25 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 }
 ```
 
+## Create a file system
+
+A file system acts as a container for your files. You can create one by calling the **FileSystemClient.CreateFileSystemAsync** method.
+
+This example creates a file system named `my-file-system`. 
+
+```cs
+public async Task<DataLakeFileSystemClient> CreateFileSystem
+    (DataLakeServiceClient serviceClient)
+{
+        return await serviceClient.CreateFileSystemAsync("my-file-system");
+}
+```
+
 ## Create a directory
 
 Create a directory reference by calling the **FileSystemClient.CreateDirectoryAsync** method.
 
-This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory`. 
+This example adds a directory named `my-directory` to a file system, and then adds a sub-directory named `my-subdirectory`. 
 
 ```cs
 public async Task<DataLakeDirectoryClient> CreateDirectory
