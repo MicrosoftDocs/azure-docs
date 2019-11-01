@@ -188,6 +188,9 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
    * `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
 
+The gateway device name passed into those scripts should not be the same as the "hostname" parameter in config.yaml. The scripts help you avoid any issues by appending a ".ca" string to the gateway device name to prevent the name collision in case a user sets up IoT Edge using the same name in both places. However, it's good practice to avoid using the same name.
+
+
 ### Linux
 
 1. Navigate to the working directory that has the certificate generation scripts and root CA certificate.
@@ -202,6 +205,9 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
    
    * `<WRKDIR>/certs/iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-MyEdgeDeviceCA.key.pem`
+
+The gateway device name passed into those scripts should not be the same as the "hostname" parameter in config.yaml. The scripts help you avoid any issues by appending a ".ca" string to the gateway device name to prevent the name collision in case a user sets up IoT Edge using the same name in both places. However, it's good practice to avoid using the same name.
+
 
 ## Create X.509 certs for downstream devices
 
