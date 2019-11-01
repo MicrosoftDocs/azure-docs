@@ -20,7 +20,7 @@ ms.author: vaaga
 
 ### In the current scenario:
 
-The user creates a virtual machine with data disk named "Disk1". The user wants to detach "Disk1" and calls **PutVM** with "Disk1" not in the payload, but this call fails.
+The user creates a virtual machine with a data disk named "Disk1". The user wants to detach "Disk1" and calls **PutVM** with "Disk1" not in the payload. This call fails.
 
 If the client calls **GetVM()**, they receive a virtual machine Model having "Disk1" returned by CRP (where the virtual machine's pre-provisioning state fails) since its detach operation failed, and the client must be informed.
 
@@ -28,15 +28,15 @@ If the client wishes to attach another disk (e.g. "Disk2"), they make the call *
 
 1. Cx updates the virtual machine "VM1" by detaching data disk "Disk1".
 2. This **PutVMOperation** call fails because of an unknown issue.
-3. Cx calls **GetVM** through Powershell, which gives the payload for "VM1" with the data disk set to "Disk1". 
-4. The client performs a virtual machine update, say add tags in the above payload.
+3. Cx calls **GetVM** through PowerShell, which gives the payload for "VM1" with the data disk set to "Disk1". 
+4. The client performs a virtual machine update, such as adding tags in the above payload.
 
    > ![NOTE:]
    > Cx need not remove "Disk1" from the payload.
 
-5. This update operation fails with AttachDisksWhileBeingDetached for disk1.
+5. This update operation fails with **AttachDisksWhileBeingDetached** for "Disk1".
 
-In cases like above, the PutVM() request payload will have Disk1, which Cx tried to detach before and failed. When the newer update payload has this disk, CRP assumes that the client is trying to reattach the failed detached disk1. Consequently, CRP throws  an error “AttachDiskWhileBeingDetached” and fails the valid PutVM() call that was trying to attach Disk2. 
+In cases such as the one above, the **PutVM()** request payload will include Disk1, which Cx tried to detach before and failed. When the newer update payload has this disk, CRP assumes that the client is trying to reattach the failed detached "Disk1". Consequently, CRP throws the error **AttachDiskWhileBeingDetached**”** and fails the valid **PutVM()** call that was trying to attach "Disk2". 
 
 ### Current Scenario with the **toBeDetached** data disk flag. (This feature flag is already GA)
 
@@ -46,7 +46,7 @@ In the new scenario:
 
 1. Cx updates the virtual machine "VM1" by detaching data disk "Disk1".
 2. This **PutVMOperation** call fails because of an unknown issue.
-3. Cx calls **GetVM** through Powershell, which gives the payload for "VM1" with the data disk set to "Disk1". In this case, the data disk "Disk1" will have the **toBeDetached** property set to "true".
+3. Cx calls **GetVM** through PowerShell, which gives the payload for "VM1" with the data disk set to "Disk1". In this case, the data disk "Disk1" will have the **toBeDetached** property set to "true".
 4. The client performs a virtual machine update, adding tags in the above payload.
 
 > ![NOTE:]
@@ -90,7 +90,10 @@ toBeDetached : False
 
 ### Step 2: Set the flag for failing disks to "true".
 
-Get the array index of the failing disk and set the toBeDetached flag for the failing disk (for which AttachDiskWhileBeingDetached error occurred) to "true", which implies detaching the disk from the virtual machine. The failing disk name can be found in the errorMessage. Please Note: The API version specified for Get and Put call needs to be 2019-03-01 or greater.
+Get the array index of the failing disk and set the **toBeDetached** flag for the failing disk (for which **AttachDiskWhileBeingDetached** error occurred) to "true". This setting implies detaching the disk from the virtual machine. The failing disk name can be found in the **errorMessage**.
+
+> !Note:
+> The API version specified for Get and Put calls needs to be 2019-03-01 or greater.
 
 ```azurepowershell-interactive
 PS D:> $vm.StorageProfile.DataDisks[0].ToBeDetached = $true 
@@ -102,7 +105,7 @@ Alternately, you can also detach this disk using the command below, which will b
 PS D:> Remove-AzureRmVMDataDisk -VM $vm -Name "f94901ef-75ee-4477-9ad6-1c74da50e7ef" 
 ```
 
-Step 3: Update the virtual machine
+### Step 3: Update the virtual machine
 
 ```azurepowershell-interactive
 PS D:> Update-AzureRmVM -ResourceGroupName "mc_acse-jhub_acsejhub_westeurope" -VM $vm 
@@ -118,7 +121,7 @@ GET https://management.azure.com/subscriptions/11ceafd0-fa99-4f18-a6b7-ced6ad02e
 
 ### Step 2: Set the flag for failing disks to "true".
 
-Set the toBeDetached for failing disk to true in the payload returned in Step 1. Please Note: The API version specified for Get and Put call needs to be 2019-03-01 or greater.
+Set the **toBeDetached** for failing disk to true in the payload returned in Step 1. Please Note: The API version specified for Get and Put calls needs to be 2019-03-01 or greater.
 
 **Sample Request Body**
 
@@ -178,7 +181,7 @@ Set the toBeDetached for failing disk to true in the payload returned in Step 1.
 }
 ```
 
-Alternately you can also remove the failing data disk from the above payload, which will be helpful for users using API versions before 2019-03-01
+Alternately you can also remove the failing data disk from the above payload, which is helpful for users using API versions before 2019-03-01
 
 ### Step 3: Update the virtual machine
 
@@ -264,3 +267,9 @@ PATCH https://management.azure.com/subscriptions/11ceafd0-fa99-4f18-a6b7-ced6ad0
   "location": "westus"
 }
 ```
+
+## Next Steps
+
+If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md).
+
+For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md).
