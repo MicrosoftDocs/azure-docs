@@ -46,7 +46,7 @@ All types of redundancy are supported for reservations. For more information abo
 
 ### Security requirements for purchase
 
-To purchase reserved capacity (???are these requirements true for storage???):
+To purchase reserved capacity:
 
 - You must be in the **Owner** role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the EA portal. Or, if that setting is disabled, you must be an EA Admin on the subscription.
@@ -91,8 +91,6 @@ Follow these steps to purchase reserved capacity:
     ![Screenshot showing how to purchase a reservation](media/storage-blob-reserved-capacity/purchase-reservations.png)
 
 After you purchase a reservation, it is automatically applied to any existing Azure Storage block blob or Azure Data Lake Storage Gen2 resources that matches the terms of the reservation. If you haven't created any Azure Storage resources yet, the reservation will apply whenever you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
-
-If the purchase is made in the middle of the month, the reserved amount is pro-rated for that month (???to check with Yash here - i don't see this in any of the other service docs???).
 
 ## Exchange or refund a reservation
 

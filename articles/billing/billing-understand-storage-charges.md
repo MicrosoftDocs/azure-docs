@@ -13,6 +13,8 @@ ms.author: tamram
 
 After you purchase Azure Storage reserved capacity, the reservation discount is automatically applied to block blob and Azure Data Lake Storage Gen2 resources that match the terms of the reservation. The reservation discount applies to storage capacity only. Bandwidth and request rate are charged at pay-as-you-go rates.
 
+For more information about Azure Storage reserved capacity, see [Optimize costs for Blob storage with reserved capacity](../storage/blobs/storage-blob-reserved-capacity.md).
+
 For information about Azure Storage reservation pricing, see [Block blob pricing](/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](/pricing/details/storage/data-lake/).
 
 ## How the reservation discount is applied
@@ -49,7 +51,5 @@ If you have questions or need help, [create a support request](https://go.micros
 
 To learn more about Azure Reservations, see the following articles:
 
+- [Optimize costs for Blob storage with reserved capacity](../storage/blobs/storage-blob-reserved-capacity.md)
 - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-- [View reservation transactions](billing-view-reservations.md)
-- [Get reservation transactions and utilization through API](billing-reservation-apis.md)
-- [Manage reservations](billing-manage-reserved-vm-instance.md)
