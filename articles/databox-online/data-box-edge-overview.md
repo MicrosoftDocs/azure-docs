@@ -13,7 +13,7 @@ ms.author: alkohli
 ---
 # What is Azure Stack Edge? 
 
-!INCLUDE [data-box-edge-gateway-rename-note](../../includes/data-box-edge-gateway-rename-note.md)
+!INCLUDE [data-box-edge-gateway-rename-note](/includes/data-box-edge-gateway-rename-note.md)
 
 Azure Stack Edge is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device. 
 
