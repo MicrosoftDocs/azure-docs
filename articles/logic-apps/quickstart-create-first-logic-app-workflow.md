@@ -19,7 +19,7 @@ This quickstart introduces how to build your first automated workflow with [Azur
 
 ![High-level example Logic App workflow](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-To follow this quickstart, you need an email account from a provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/). This Logic App uses an Office 365 Outlook account. If you use another email account, the overall steps are the same, but your UI might slightly differ.
+To follow this quickstart, you need an email account from a provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/). This Logic App uses an Office 365 Outlook account. If you use another email account, the overall steps are the same, but your user interface might slightly differ.
 
 Also, if you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
