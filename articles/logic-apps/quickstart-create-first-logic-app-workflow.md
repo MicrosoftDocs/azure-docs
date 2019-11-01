@@ -66,7 +66,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 ## Check RSS feed with a trigger
 
-1. In the **Logic app Designer**, under the search box, select **All**.
+1. In the **Logic App Designer**, under the search box, select **All**.
 
 1. In the search box, enter `rss`. From the triggers list, select this trigger: **When a feed item is published**
 
