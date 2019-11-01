@@ -22,7 +22,7 @@ Verify that you have met the following criteria:
 * The cross-region VNet (spoke) is not connected to another Virtual WAN hub. A spoke can only be connected to one virtual hub.
 * The VNet (spoke) does not contain a virtual network gateway (for example, an Azure VPN Gateway or ExpressRoute virtual network gateway). If the VNet contains a virtual network gateway, you must remove the gateway before connecting the spoke VNet to the hub.
 
-## <a name="register"></a>1. Register this feature
+## <a name="register"></a>Register this feature
 
 You can register for this feature using PowerShell. If you select "Try It" from the example below, Azure Cloud-Shell opens and you won't need to install the PowerShell cmdlets locally to your computer. If necessary, you can change subscriptions using the 'Select-AzSubscription -SubscriptionId <subid>' cmdlet.
 
@@ -31,13 +31,13 @@ Register-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNa
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Network'
 ```
 
-## <a name="verify"></a>2. Verify registration
+## <a name="verify"></a>Verify registration
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="hub"></a>3. Connect a VNet to the hub
+## <a name="hub"></a>Connect a VNet to the hub
 
 In this step, you create the peering connection between your hub and the cross-region VNet. Repeat these steps for each VNet that you want to connect.
 
