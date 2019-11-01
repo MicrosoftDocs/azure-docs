@@ -64,7 +64,7 @@ After viewing your connected devices, you can:
 
 - Select to view or manage your [security info](user-help-security-info-overview.md).
 
--View and manage your [organizations](my-account-portal-organizations-page.md).
+- View and manage your [organizations](my-account-portal-organizations-page.md).
 
 - View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
