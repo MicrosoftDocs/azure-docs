@@ -93,4 +93,4 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 
 ## Next steps
 
-Now that you have successfully generated soil moisture map, learn how to [generate sensor placement](generate-maps.md#sensor-placement-maps) and [ingest historical telemetry data](ingest-historical-telemetry-data.md).  
+Now that you have successfully generated soil moisture map, learn how to [generate sensor placement](generate-maps.md#sensor-placement-maps) and [ingest historical telemetry data](ingest-historical-telemetry-data.md). 
