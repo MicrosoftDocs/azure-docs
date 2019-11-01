@@ -41,9 +41,9 @@ Q. Where can I find out what legal or business standards Azure Synapse is compli
 A. Visit the [Microsoft Compliance] page for various compliance offerings by product such as SOC and ISO. 
 First choose by Compliance title, then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
 
-Q. Can I connect PowerBI?
+Q. Can I connect Power BI?
 
-A. Yes! Though PowerBI supports direct query with Azure Synapse, it’s not intended for large number of users or real-time data. For production use of PowerBI, we recommend using PowerBI on top of Azure Analysis Services or Analysis Service IaaS. 
+A. Yes! Though Power BI supports direct query with Azure Synapse, it’s not intended for large number of users or real-time data. For production use of Power BI, we recommend using Power BI on top of Azure Analysis Services or Analysis Service IaaS. 
 
 Q. What are SQL Analytics capacity limits?
 
