@@ -196,7 +196,7 @@ If the gateway subnet is /27 or larger and the virtual network is connected via 
         Remove-AzureVNetGateway –VnetName MyAzureVNET
 3. Export the virtual network schema. Use the following PowerShell cmdlet, replacing the values with your own.
    
-        Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”
+        Get-AzureVNetConfig –ExportToFile "C:\NetworkConfig.xml"
 4. Edit the network configuration file schema so that the gateway subnet is /27 or a shorter prefix (such as /26 or /25). See the following example. 
    
    > [!NOTE]

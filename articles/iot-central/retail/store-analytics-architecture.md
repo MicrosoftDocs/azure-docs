@@ -12,6 +12,8 @@ manager: eliotgra
 
 # In-store analytics architecture
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 In-store analytics solutions allow you to monitor various conditions within the retail store environment. These solutions can be built by leveraging one of the application templates within IoT Central and the architecture below as guidance.
 
 

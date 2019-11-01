@@ -286,7 +286,7 @@ In a later step, you'll use the trace route tool to test routing. Trace route us
 1. Enter this command:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     You're using trace route to test routing in this tutorial. For production environments, we don't recommend allowing ICMP through the Windows Firewall.
@@ -321,7 +321,7 @@ You [turned on IP forwarding](#turn-on-ip-forwarding) for the VM's network inter
 1. Enable ICMP through the Windows firewall by entering this command:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
 ## Test the routing of network traffic

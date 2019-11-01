@@ -81,13 +81,13 @@ To try an example, follow these steps by using the Logic App Designer. Or, if yo
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and several **Initialize variable** actions. These actions are set up for creating two string variables and an integer variable. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
 
-   ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
+   ![Starting sample logic app for "Compose" action](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
 
 1. In your logic app where you want to create the output, follow one of these steps: 
 
    * To add an action under the last step, select **New step**.
 
-     ![Add action](./media/logic-apps-perform-data-operations/add-compose-action.png)
+     ![Select "New step" for "Compose" action](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -99,11 +99,11 @@ To try an example, follow these steps by using the Logic App Designer. Or, if yo
 
    For this example, when you click inside the **Inputs** box, the dynamic content list appears so you can select the previously created variables:
 
-   ![Select inputs to compose](./media/logic-apps-perform-data-operations/configure-compose-action.png)
+   ![Select inputs to use for "Compose" action](./media/logic-apps-perform-data-operations/configure-compose-action.png)
 
    Here is the finished example **Compose** action: 
 
-   ![Finished "Compose" action](./media/logic-apps-perform-data-operations/finished-compose-action.png)
+   ![Finished example for "Compose" action](./media/logic-apps-perform-data-operations/finished-compose-action.png)
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
@@ -119,7 +119,7 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    This example uses the **Send an email** action and includes the **Output** fields in the email's body and subject:
 
-   !["Output" fields in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
+   !["Output" fields for the "Compose" action](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
 
 1. Now, manually run your logic app. On the designer toolbar, select **Run**.
 
@@ -139,13 +139,13 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is an array that has some properties and values in JSON format. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
 
-   ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   ![Starting sample logic app for "Create CSV table" action](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
 1. In your logic app where you want to create the CSV table, follow one of these steps: 
 
    * To add an action under the last step, select **New step**.
 
-     ![Add action](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     ![Select "New step" for "Create CSV table" action](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -166,7 +166,7 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    Here is the finished example **Create CSV table** action: 
 
-   ![Finished "Create CSV table" action](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
+   ![Finished example for "Create CSV table" action](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
@@ -206,17 +206,17 @@ In the action, keep the **Header** column empty. On each row in the **Value** co
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   ![Expression to dereference property](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+   ![Dereference "Description" for "Create CSV table"](./media/logic-apps-perform-data-operations/csv-table-expression.png)
 
 1. Repeat the previous steps for each array property that you want. When you're done, your action looks like this example:
 
-   ![Finished expressions](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+   !["item()" function in "Create CSV table"](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
 
 1. To resolve expressions into more descriptive versions, switch to code view and back to designer view, and then reopen the collapsed action:
 
    The **Create CSV table** action now appears like this example:
 
-   !["Create CSV table" action with resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+   !["Create CSV table" - resolved expressions, no headers](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 #### Work in code view
 
@@ -258,7 +258,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
    The **Create CSV table** action now appears like this example, and the expressions have resolved to more descriptive versions:
 
-   !["Create CSV table" action with resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+   !["Create CSV table" - resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 For more information about this action in your underlying workflow definition, see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -272,7 +272,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
    This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
 
-   !["Output" fields in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
+   !["Output" fields for the "Create CSV table" action](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
 1. Now, manually run your logic app. On the designer toolbar, select **Run**.
 
@@ -292,13 +292,13 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is an array that has some properties and values in JSON format. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
 
-   ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   ![Starting sample logic app for "Create HTML table"](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
 1. In your logic app where you want to create an HTML table, follow one of these steps:
 
    * To add an action under the last step, select **New step**.
 
-     ![Add action](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     ![Select "New step" for "Create HTML table" action](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -319,7 +319,7 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    Here is the finished example **Create HTML table** action:
 
-   ![Finished "Create HTML table" action](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
+   ![Finished example for "Create HTML table"](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
@@ -359,17 +359,17 @@ In the action, keep the **Header** column empty. On each row in the **Value** co
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   ![Expression to dereference property](./media/logic-apps-perform-data-operations/html-table-expression.png)
+   ![Dereference property in "Create HTML table" action](./media/logic-apps-perform-data-operations/html-table-expression.png)
 
 1. Repeat the previous steps for each array property that you want. When you're done, your action looks like this example:
 
-   ![Finished expressions](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+   !["item()" function in "Create HTML table"](./media/logic-apps-perform-data-operations/finished-html-expression.png)
 
 1. To resolve expressions into more descriptive versions, switch to code view and back to designer view, and then reopen the collapsed action:
 
    The **Create HTML table** action now appears like this example:
 
-   !["Create HTML table" action with resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+   !["Create HTML table" - resolved expressions,  no headers](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 #### Work in code view
 
@@ -411,7 +411,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
    The **Create HTML table** action now appears like this example, and the expressions have resolved to more descriptive versions:
 
-   !["Create HTML table" action with resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+   !["Create HTML table" - resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 For more information about this action in your underlying workflow definition, see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -425,8 +425,8 @@ To confirm whether the **Create HTML table** action creates the expected results
 
    This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
 
-   !["Output" fields in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
-   
+   !["Output" fields for "Create HTML table"](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
+
    > [!NOTE]
    > When including the HTML table output in an email action, make sure that you set the **Is HTML** property to **Yes** 
    > in the email action's advanced options. That way, the email action correctly formats the HTML table.
@@ -435,7 +435,7 @@ To confirm whether the **Create HTML table** action creates the expected results
 
    Based on the email connector you used, here are the results you get:
 
-   ![Email with "Create HTML table" action results](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
+   ![Email with "Create HTML table" results](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
 
 <a name="filter-array-action"></a>
 
@@ -459,13 +459,13 @@ If you prefer working in the code view editor, you can copy the example **Filter
    > Although this example uses a simple integer array, this action is especially useful for JSON 
    > object arrays where you can filter based on the objects' properties and values.
 
-   ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
+   ![Starting sample logic app for "Filter array" action](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
 
 1. In your logic app where you want to create the filtered array, follow one of these steps: 
 
    * To add an action under the last step, select **New step**.
 
-     ![Add action](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
+     ![Select "New step" for "Filter array" action](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -482,8 +482,8 @@ If you prefer working in the code view editor, you can copy the example **Filter
 1. For the condition, specify the array items to compare, select the comparison operator, and specify the comparison value.
 
    This example uses the `item()` function for accessing each item in the array while the **Filter array** action searches for array items whose value is greater than one:
-   
-   ![Finished "Filter array" action](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
+
+   ![Finished example for "Filter array" action](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
@@ -501,7 +501,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
    This example uses the Office 365 Outlook **Send an email** action and includes the outputs from the **actionBody('Filter_array')** expression in the email's body:
 
-   ![Action outputs in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
+   ![Action outputs from "Filter array" action](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
 
 1. Now, manually run your logic app. On the designer toolbar, select **Run**.
 
@@ -521,19 +521,19 @@ If you prefer working in the code view editor, you can copy the example **Join**
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. This action is set up for creating a variable whose initial value is an array that has some sample integers. When you test your logic app later, you can manually run your app without waiting for the trigger to fire.
 
-   ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
+   ![Starting sample logic app for "Join" action](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
 
 1. In your logic app where you want to create the string from an array, follow one of these steps:
 
    * To add an action under the last step, select **New step**.
 
-     ![Add action](./media/logic-apps-perform-data-operations/add-join-action.png)
+     ![SSelect "New step" for "Join" action](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
 1. In the search box, enter `join` as your filter. From the actions list, select this action: **Join**
 
-   ![Select "Join" action](./media/logic-apps-perform-data-operations/select-join-action.png)
+   ![Select "Join" action](./media/logic-apps-perform-data-operations/select-join-operation-action.png)
 
 1. In the **From** box, provide the array that has the items you want to join as a string.
 
@@ -561,13 +561,13 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
    This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
 
-   !["Output" fields in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-join-action.png)
+   !["Output" fields for the "Join" action](./media/logic-apps-perform-data-operations/send-email-join-action.png)
 
 1. Now, manually run your logic app. On the designer toolbar, select **Run**.
 
    Based on the email connector you used, here are the results you get:
 
-   ![Email with "Join" action results](./media/logic-apps-perform-data-operations/join-email-results.png)
+   ![Email with "Join" action results](./media/logic-apps-perform-data-operations/join-send-email-results.png)
 
 <a name="parse-json-action"></a>
 
@@ -581,13 +581,13 @@ If you prefer working in the code view editor, you can copy the example **Parse 
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is a JSON object that has properties and values. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
 
-   ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
+   ![Starting sample logic app for "Parse JSON" action](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
 
 1. In your logic app where you want to parse the JSON content, follow one of these steps:
 
    * To add an action under the last step, select **New step**.
 
-     ![Add action](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
+     ![Select "New step" for "Parse JSON" action](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -633,13 +633,13 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
    Here is the finished email action:
 
-   ![Finished email action](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
+   ![Finished example for email action](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
 
 1. Now, manually run your logic app. On the designer toolbar, select **Run**. 
 
    Based on the email connector you used, here are the results you get:
 
-   ![Email with "Join" action results](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
+   ![Email with "Parse JSON" action results](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
 
 <a name="select-action"></a>
 
@@ -657,13 +657,13 @@ If you prefer working in the code view editor, you can copy the example **Select
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is an array that has some sample integers. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
 
-   ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
+   ![Starting sample logic app for "Select" action](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
 
 1. In your logic app where you want to create the array, follow one of these steps: 
 
    * To add an action under the last step, select **New step**.
 
-     ![Add action](./media/logic-apps-perform-data-operations/add-select-action.png)
+     ![Select "New step" for "Select" action](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -681,11 +681,11 @@ If you prefer working in the code view editor, you can copy the example **Select
 
    This example specifies "Product_ID" as the property name to assign each value in the integer array by using the `item()` function in an expression that accesses each array item. 
 
-   ![Specify the JSON object property and values for the array you want to create](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
+   ![Specify JSON object property and values to create array](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 
    Here is the finished action:
 
-   ![Finished Select action](./media/logic-apps-perform-data-operations/finished-select-action.png)
+   ![Finished example for "Select" action](./media/logic-apps-perform-data-operations/finished-select-action.png)
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
@@ -703,7 +703,7 @@ To confirm whether the **Select** action creates the expected results, send your
 
    This example uses the Office 365 Outlook **Send an email** action and includes the outputs from the `@actionBody('Select')` expression in the email's body:
 
-   ![Action outputs in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-select-action.png)
+   ![Action outputs from "Select" action](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 
 1. Now, manually run your logic app. On the designer toolbar, select **Run**.
 
