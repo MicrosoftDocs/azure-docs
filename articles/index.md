@@ -1672,13 +1672,14 @@ featureFlags:
                                                 <p>Azure Private Link</p>
                                             </a>
                                         </li>
+                                            <a href="/azure/firewall-manager/">
+                                                <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
+                                                <p>Azure Firewall Manager</p>
                                         <li>
-                                            <a href="/azure/internet-analyzer/">
                                                 <img src="media/index/internet-analyzer.svg" alt="" />
                                                 <p>Azure Internet Analyzer</p>
                                             </a>
                                         </li>
-                                    </ul>
                                     <h3>Security</h3>
                                     <ul>
                                         <li>
@@ -5640,62 +5641,17 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/internet-analyzer/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/internet-analyzer.svg" alt="" />
-                                                    </div>
+                                                        <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Internet Analyzer</h3>
-                                                    <p>Test how application and content delivery architectures in Azure impact your customers’ performance with this client-side measurement platform</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#security">Security</a>
-                        <ul id="security" class="cardsA">
-                            <li>
-                                <a href="/azure/security/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Security Information</h3>
-                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/security-center">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
+                                                    <h3>Azure Firewall Manager</h3>
+                                                    <p>A globally distributed security management service</p>
                                                         <img src="media/index/SecurityCenter.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
                                                     <p>Unify security management and enable advanced threat protection across hybrid cloud workloads</p>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
