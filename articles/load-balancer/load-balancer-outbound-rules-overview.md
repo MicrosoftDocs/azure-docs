@@ -81,7 +81,7 @@ Use the following parameter to allocate 10,000 SNAT ports per VM (NIC IP configu
 
 Each public IP address from all frontends of an outbound rule contributes up to 64,000 ephemeral ports for use as SNAT ports.  Load Balancer allocates SNAT ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected.  If you attempt to allocate more SNAT ports than are available based on the number of public IP addresses, the configuration operation is rejected.  For example, if you allocate 10,000 ports per VM and 7 VMs in a backend pool would share a single public IP address, the configuration is rejected (7 x 10,000 SNAT ports > 64,000 SNAT ports).  You can add more public IP addresses to the frontend of the outbound rule to enable the scenario.
 
-You can revert back to [automatic SNAT port allocation based on backend pool size](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for number of ports.
+You can revert back to [automatic SNAT port allocation based on backend pool size](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for number of ports. In that case the first 50 VM instances will get 1024 ports, 51-100 VM instances will get 512 and so on according to the table. Having more than one frontend with a public IP associated to the outbound rule does not increase the number of ports allocated to each VM instance.
 
 ### <a name="idletimeout"></a> Control outbound flow idle timeout
 

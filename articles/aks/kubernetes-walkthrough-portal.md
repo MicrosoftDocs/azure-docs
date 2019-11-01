@@ -36,7 +36,7 @@ To create an AKS cluster, complete the following steps:
 1. On the **Basics** page, configure the following options:
    - *PROJECT DETAILS*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*. Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
    - *CLUSTER DETAILS*: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
-   - **PRIMARY NODE POOL**: select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed. 
+   - *PRIMARY NODE POOL*: Select a VM size for the AKS nodes. The VM size of the primary node pool **cannot** be changed once an AKS cluster has been deployed. You can add additional node pools with different VM sizes using the Azure CLI after the AKS cluster has been deployed.
        - Select the number of nodes to deploy into the cluster. For this quickstart, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
     
      ![Create AKS cluster - provide basic information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
