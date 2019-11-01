@@ -20,12 +20,12 @@ ms.custom: seodec18
 **New Features**
 *   Added a FromHost() API.
 *   Added [Automatic Source Language Detection](how-to-automatic-language-detection.md) for Speech Recognition (in Java and C++)
-*   Added SourceLanguageConfig object for Speech Recognition, used to specify expected source languages
-*   Added KeywordRecognizer support on Windows (UWP), Android and iOS through the Nuget (Xamarin) and Unity packages
+*   Added SourceLanguageConfig object for Speech Recognition, used to specify expected source languages (in Java and C++)
+*   Added KeywordRecognizer support on Windows (UWP), Android and iOS through the Nuget and Unity packages
 *   Added Remote Conversation Java API to do Conversation Transcription in asynchronous batches. 
 
 **Breaking changes**
-*   Conversation Transcriber is being under Microsoft.CognitiveServices.Speech.Transcription.
+*   Conversation Transcriber functionalities moved under amespace Microsoft.CognitiveServices.Speech.Transcription.
 *   Part of the Conversation Transcriber methods are moved to new Conversation class.
 
 **Bug fixes**
@@ -34,7 +34,7 @@ ms.custom: seodec18
 **Samples**
 *   Xamarin sample for KeywordRecognizer
 *   Unity sample for KeywordRecognizer
-*   C++ and Java samples for Language ID review.
+*   C++ and Java samples for Automatic Source Language Detection.
 
 
 ## Speech SDK 1.7.0: 2019-September release
