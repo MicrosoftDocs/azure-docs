@@ -279,7 +279,7 @@ In this section, you apply a model to structure your data. To complete the model
    | Parameter | Action |
    | --- | ---|
    | **Name** | Enter **Location Hierarchy**. |
-   |**Levels**| Enter **Country** as the name of the first level <br> Select **+ Add Level** <br> Enter **City** for the second level, then select **+ Add Level** <br> Enter **Building** as the name of the thrid and final level |
+   |**Levels**| Enter **Country** as the name of the first level <br> Select **+ Add Level** <br> Enter **City** for the second level, then select **+ Add Level** <br> Enter **Building** as the name of the third and final level |
 
    Select **Save**.
 
