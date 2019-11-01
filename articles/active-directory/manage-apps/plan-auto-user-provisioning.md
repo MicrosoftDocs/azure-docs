@@ -278,7 +278,7 @@ After a successful [initial cycle](https://docs.microsoft.com/azure/active-direc
 
 To review these events, and all other activities performed by the provisioning service, refer to Azure AD [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
-To understand how long the provisioning cycles take and monitor the progress of the provisioning job, erfer to the following [document](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+To understand how long the provisioning cycles take and monitor the progress of the provisioning job, you can [check the status of user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
 
 ### Gain insights from reports
 
