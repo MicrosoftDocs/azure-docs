@@ -105,7 +105,7 @@ Apart from Azure Active Directory native integration support for modern authenti
 
  Kerberos authentication apps
 
- Anonymous auth or no inbuilt authentication apps
+ Anonymous authentication or no inbuilt authentication apps
 
  NTLM authentication apps (protection with dual prompts for the user)
 
