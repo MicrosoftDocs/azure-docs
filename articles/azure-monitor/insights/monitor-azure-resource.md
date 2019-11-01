@@ -80,7 +80,7 @@ Diagnostic settings define where resource logs and metrics for a particular reso
 - [Event hubs](../platform/resource-logs-stream-event-hubs.md) to stream data to external systems such as third-party SIEMs and other log analytics solutions. 
 - [Azure storage account](../platform/resource-logs-collect-storage.md) which is useful for audit, static analysis, or backup.
 
-Follow the procedure in [Create diagnostic setting to collect platform logs and metrics in Azure](../platform/diagnostic-settings.md) to create and manage diagnostic settings through the Azure portal. See [Create diagnostic setting in Azure using a Resource Manager template](../platform/diagnostic-settings-template.md) to defined them in a template and enable complete monitoring for a resource when it's created.
+Follow the procedure in [Create diagnostic setting to collect platform logs and metrics in Azure](../platform/diagnostic-settings.md) to create and manage diagnostic settings through the Azure portal. See [Create diagnostic setting in Azure using a Resource Manager template](../platform/diagnostic-settings-template.md) to define them in a template and enable complete monitoring for a resource when it's created.
 
 
 ## Monitoring in the Azure portal
@@ -96,8 +96,6 @@ Many services will include monitoring data on their **Overview** page as a quick
 Some services will provide tools beyond the standard features of Azure Monitor. [Insights](../insights/insights-overview.md) provide a customized monitoring experience built on the Azure Monitor data platform and standard features. [Solutions](../insights/solutions.md) provide predefined monitoring logic built on Azure Monitor Logs. 
 
 If a service has an Azure Monitor insight, you can access it from **Monitoring** in each resource's menu. Access all insights and solutions from the **Azure Monitor** menu.
-
-- See the monitoring documentation for each service to determine if there are insights or solutions available.
 
 ![Insights](media/monitor-azure-resource/insights.png)
 
