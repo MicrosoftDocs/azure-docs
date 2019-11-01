@@ -6,37 +6,38 @@ ms.service: logic-apps
 ms.workload: integration
 author: ecfan
 ms.author: klam
-ms.reviewer: jehollan, klam, LADocs
-manager: carmonm
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 03/31/2017
+ms.date: 11/04/2019
 ---
 
 # Call, trigger, or nest logic apps by using HTTP endpoints in Azure Logic Apps
 
-You can natively expose synchronous HTTP endpoints as triggers on logic apps so that you can trigger or call your logic apps through a URL. You can also nest workflows in your logic apps by using a pattern of callable endpoints.
+To make your logic app callable through a URL so that your logic app can receive incoming requests from other services, you can natively expose a synchronous HTTP endpoint as a trigger on that logic app. When you set up this capability, you can nest your logic app inside other callable logic apps, which creates a pattern of callable endpoints.
 
-To create HTTP endpoints, you can add these triggers so that your logic apps can receive incoming requests:
+To set up this kind of endpoint, you can use these triggers, which enable logic apps to receive incoming requests:
 
 * [Request](../connectors/connectors-native-reqres.md)
-
-* [API Connection Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
-
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
+* A managed connector [API Connection Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
-   > [!NOTE]
-   > Although these examples use the **Request** trigger, 
-   > you can use any of the listed request-based triggers, 
-   > and all principles identically apply to the other trigger types.
+> [!NOTE]
+> These examples use the Request trigger, but you can use any request-based trigger that's 
+> in the previous list. All principles identically apply to these other trigger types.
 
-## Set up an HTTP endpoint for your logic app
+## Prerequisites
+
+* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
+* The logic app where you want to set up the HTTP endpoint as the trigger. You can either start with a blank logic app or an existing logic app where you want to replace the current trigger.
+
+  If you're new to logic apps, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## Set up HTTP endpoint
 
 To create an HTTP endpoint, add a trigger that can receive incoming requests.
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
-Go to your logic app, and open Logic App Designer.
+1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app, or open your existing app in the Logic App Designer.
 
 1. Add a trigger that lets your logic app receive incoming requests. 
 For example, add the **Request** trigger to your logic app.
