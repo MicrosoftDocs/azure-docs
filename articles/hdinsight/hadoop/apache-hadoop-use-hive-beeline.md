@@ -68,7 +68,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 Replace `clustername` with the name of your HDInsight cluster. Replace `<username>` with the cluster login account for your cluster. Note for ESP clusters use the full UPN (e.g. user@domain.com). Replace `password` with the password for the cluster login account.
 
-Private endpoints point to a basic load balancer which can only be accessed from the VNETs peered in the same region. See [this](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use `curl` command with `-v` option to troubleshoot any connectivity problem to with public or private endpoints before using beeline.
+Private endpoints point to a basic load balancer which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
 
 ---
 
@@ -92,7 +92,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 Replace `clustername` with the name of your HDInsight cluster. Replace `<username>` with the cluster login account for your cluster. Note for ESP clusters use the full UPN (e.g. user@domain.com). Replace `password` with the password for the cluster login account.
 
-Private endpoints point to a basic load balancer which can only be accessed from the VNETs peered in the same region. See [this](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use `curl` command with `-v` option to troubleshoot any connectivity problem to with public or private endpoints before using beeline.
+Private endpoints point to a basic load balancer which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
 
 ---
 
