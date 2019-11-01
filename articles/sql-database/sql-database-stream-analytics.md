@@ -95,8 +95,8 @@ To complete the steps in this article, you need the following resources:
  
 7. After you are done authoring & testing the query, select **Save query**. Select **Start Stream Analytics job** to start ingesting transformed data into the SQL table. Once you finalize the following fields, **start** the job. 
    - Output start time: This defines the time of the first output of the job 
-          - Now: The job will start now.
-          - Custom: The job will start now. Schedule which data to process. For more information, see [How to start an Azure Stream Analytics job](../stream-analytics/start-job.md).
+          - Now: The job will start now and process new incoming data.
+          - Custom: The job will start now but will process data from a specific point in time (that can be in the past or the future). For more information, see [How to start an Azure Stream Analytics job](../stream-analytics/start-job.md).
    - Throughput: This defines the throughput performance when you're loading data into SQL Azure Database using Azure Stream Analytics. For more information, see [Azure Stream Analytics output to Azure SQL Database](../stream-analytics/stream-analytics-sql-output-perf.md). 
    - Output data error handling:
           - Retry: When an error occurs, Azure Stream Analytics retries writing the event indefinitely until the write succeeds. There is no timeout for retries. Eventually all subsequent events are blocked from processing by the event that is retrying. This option is the default output error handling policy. 
