@@ -1,6 +1,6 @@
 ---
-title: Azure networking | Microsoft Docs
-description: Learn about networking services in Azure and their capabilities.
+title: Azure network round-trip latency statistics | Microsoft Docs
+description: Learn about round-trip latency statistics between Azure regions.
 services: networking
 documentationcenter: na
 author: KumudD
@@ -16,7 +16,7 @@ ms.author: kumud
 ---
 
 
-# Azure Network Round Trip Latency Statistics
+# Azure network round-trip latency statistics
 
 Azure continuously monitors the latency (speed) of core areas of its network using internal monitoring tools as well as measurements collected by [ThousandEyes](https://thousandeyes.com), a third-party synthetic monitoring service.
 
@@ -28,9 +28,9 @@ Measurements are collected from ThousandEyes agents hosted in Azure cloud region
 
 For the 30 days ending on **October 30, 2019**, monthly latency figures (aggregated by region) are as follows:
 
-- **36ms or less** for inter-region round trips within **North America**.
-- **46ms or less** for inter-region round trips within **Europe**.
-- **82ms or less** for inter-region round trips within **Asia**.
+- **36 ms or less** for inter-region round trips within **North America**.
+- **46 ms or less** for inter-region round trips within **Europe**.
+- **82 ms or less** for inter-region round trips within **Asia**.
 
 The following inter-region latency measurements are powered by [ThousandEyes](https://thousandeyes.com). The measurement unit in the table below is in milliseconds(ms)
 
