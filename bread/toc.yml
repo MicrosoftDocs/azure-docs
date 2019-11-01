@@ -457,6 +457,9 @@
   - name: Firewall
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Firewall Manager
+    tocHref: /azure/firewall-manager
+    topicHref: /azure/firewall-manager
   - name: Front Door Service
     tocHref: /azure/frontdoor/
     topicHref: /azure/frontdoor/
@@ -791,6 +794,9 @@
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
+  - name: Web Application Firewall
+    tocHref: /azure/web-application-firewall/
+    topicHref: /azure/web-application-firewall/
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
