@@ -13,7 +13,7 @@ ms.reviewer: sergkanz
 
 # Telemetry correlation in Application Insights
 
-In the world of microservices, every logical operation requires work to be done in various components of the service. Each of these components can be monitored separately by [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). The web-app component communicates with the authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component can query data from other services and use cache-provider components to notify the billing component about this call. Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
+In the world of microservices, every logical operation requires work to be done in various components of the service. Each of these components can be monitored separately by [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
 
 This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers context-propagation techniques and protocols. It also covers the implementation of correlation concepts on different languages and platforms.
 
@@ -217,7 +217,7 @@ OpenCensus Python follows the `OpenTracing` data model specifications outlined a
 
 ### Incoming request correlation
 
-OpenCensus Python correlates W3C Trace Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will do this automatically with integrations for popular web application frameworks such as `flask`, `django` and `pyramid`. The W3C Trace Context headers simply need to be populated with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)and sent with the request. Below is an example `flask` application demonstrating this.
+OpenCensus Python correlates W3C Trace Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will do this automatically with integrations for the following popular web application frameworks: `flask`, `django` and `pyramid`. The W3C Trace Context headers simply need to be populated with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) and sent with the request. Below is an example `flask` application demonstrating this.
 
 ```python
 from flask import Flask
@@ -250,7 +250,7 @@ Looking at the [Trace Context Header Format](https://www.w3.org/TR/trace-context
 `parent-id/span-id`: `00f067aa0ba902b7`
 `trace-flags`: `01`
 
-If we take a look at the request entry that was sent to Azure Monitor, we can see fields populated with the trace header information.
+If we take a look at the request entry that was sent to Azure Monitor, we can see fields populated with the trace header information. You can find this data under Logs(Analytics) in Azure Monitor Application Insights resource.
 
 ![Screenshot of request telemetry in Logs(Analytics) with trace header fields highlighted in red box](./media/opencensus-python/0011-correlation.png)
 
@@ -287,6 +287,8 @@ When this code is run, we get the following in the console:
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
 Observe how there is a spanId present for the log message that is within the span, which is the same spanId that belongs to the span named `hello`.
+
+You can export the log data using the `AzureLogHandler`. More information can be found [here](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)
 
 ## Telemetry correlation in .NET
 

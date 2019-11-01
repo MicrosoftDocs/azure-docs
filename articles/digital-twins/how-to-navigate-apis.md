@@ -105,7 +105,7 @@ The following list depicts several queries with valid OData syntax:
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
 - `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,'space')`
 - `YOUR_MANAGEMENT_API_URL/devices?$filter=TypeId eq 2`
-- `YOUR_MANAGEMENT_API_URL/resources?$filter=StatusId eq 2`
+- `YOUR_MANAGEMENT_API_URL/resources?$filter=StatusId ne 1`
 - `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,'k')&$orderby=LastName`
 - `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor',Name)`
  

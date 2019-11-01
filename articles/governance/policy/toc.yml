@@ -28,6 +28,9 @@
   - name: Create a custom policy definition
     displayName: disabled, parameters, rule, mode
     href: ./tutorials/create-custom-policy-definition.md
+  - name: Manage tag governance
+    displayName: modify, append, effects
+    href: ./tutorials/govern-tags.md
   - name: Hands-on Labs - Exploring Azure Policy
     displayName: create, policy, training, learn
     href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
@@ -263,14 +266,25 @@
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md
+  - name: Design Policy as Code workflows
+    displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
+    href: ./concepts/policy-as-code.md
   - name: Azure Policy for Kubernetes
-    displayName: aks, rego, k8s, opa, open policy agent, gatekeeper
-    href: ./concepts/rego-for-aks.md
+    items:
+    - name: Policy for AKS
+      displayName: aks, rego, k8s, opa, open policy agent, gatekeeper, v2
+      href: ./concepts/rego-for-aks.md
+    - name: Policy for AKS Engine
+      displayName: aks, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints
+      href: ./concepts/aks-engine.md
   - name: Audit VMs with Guest Configuration
     displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
 - name: How-to guides
   items:
+  - name: Azure Policy extension for VSCode
+    displayName: visual studio code
+    href: ./how-to/extension-for-vscode.md
   - name: Programmatically create policies
     displayName: assign, definition
     href: ./how-to/programmatically-create.md
