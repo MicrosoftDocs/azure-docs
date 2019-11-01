@@ -19,6 +19,6 @@ The latest radar and infrared satellite images can be requested via the **Get Ma
 
 | Hex color code | Color sample | Weather condition | Threshold |
 |----------------|--------------|-------------------|-----------|
-| #93c701        | ![](./weather-services-concepts/color-93c701.png) | Rain-Light | | 
-| #ffd701        | ![](./weather-services-concepts/color-ffd701.png) | Rain | |
+| #93c701        | ![](./media/weather-services-concepts/color-93c701.png) | Rain-Light | | 
+| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) | Rain | |
 
