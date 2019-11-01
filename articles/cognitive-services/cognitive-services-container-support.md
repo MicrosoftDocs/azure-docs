@@ -7,8 +7,8 @@ author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.topic: article 
-ms.date: 8/21/2019
+ms.topic: article
+ms.date: 10/07/2019
 ms.author: dapine
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -45,8 +45,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | Service | Supported Pricing Tier | Container | Description |
 |---------|----------|----------|-------------|
 |[Anomaly detector][ad-containers] |F0, S0|**Anomaly-Detector** |The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.<br>[Request access](https://aka.ms/adcontainer)|
-|[Computer Vision][cv-containers] |F0, S1|**Read** |Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The Read container also detects *handwritten text* in images and provides PDF/TIFF/multi-page support.<br/><br/>**Important:** The Read container currently works only with English.<br>[Request access](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
-|[Computer Vision][cv-containers] |F0, S1|**Recognize Text** |Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.<br/><br/>**Important:** The Recognize Text container currently works only with English.<br>[Request access](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
+|[Computer Vision][cv-containers] |F0, S1|**Read** |Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The Read container also detects *handwritten text* in images and provides PDF/TIFF/multi-page support.<br/><br/>**Important:** The Read container currently works only with English.|
 |[Face][fa-containers] |F0, S0|**Face** |Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.<br>[Request access](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Form recognizer][fr-containers] |F0, S0|**Form Recognizer** |Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms.<br>[Request access](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS][lu-containers] |F0, S0|**LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Loads a trained or published Language Understanding model, also known as a LUIS app, into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the [LUIS portal](https://www.luis.ai) to improve the app's prediction accuracy.|
@@ -76,7 +75,7 @@ Azure Cognitive Services containers are publicly available through your Azure su
 > * [Anomaly detector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Face](Face/face-how-to-install-containers.md)
 > * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
-> * [Recognize Text](Computer-vision/computer-vision-how-to-install-containers.md)
+> * [Read](computer-vision/computer-vision-how-to-install-containers.md)
 > * [Speech-to-text and Text-to-speech](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]

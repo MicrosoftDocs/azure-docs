@@ -192,7 +192,7 @@ As part of the _details.policy_ property in the policy definition, Azure Policy 
 rego policy to the add-on. Rego is the language that OPA and GateKeeper support to validate or
 mutate a request to the Kubernetes cluster. By supporting an existing standard for Kubernetes
 management, Azure Policy makes it possible to reuse existing rules and pair them with Azure Policy
-for a unified cloud compliance reporting experience. For more information, see [What is Rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego).
+for a unified cloud compliance reporting experience. For more information, see [What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
 ## Built-in policies
 

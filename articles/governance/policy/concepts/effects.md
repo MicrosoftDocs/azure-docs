@@ -530,7 +530,7 @@ not, then a deployment to enable is executed.
 ## EnforceRegoPolicy
 
 This effect is used with a policy definition *mode* of `Microsoft.ContainerService.Data`. It's used
-to pass admission control rules defined with [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)
+to pass admission control rules defined with [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)
 to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
