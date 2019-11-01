@@ -54,7 +54,7 @@ To complete the steps in this article, you need the following resources:
    - **Event Hub namespace**: Name for namespace 
    - **Event Hub name**: Name of event hub within selected namespace 
    - **Event Hub policy name** (Default to create new): Give a policy name 
-   - **Event Hub consumer group** (Default to create new): Give a consumer group name
+   - **Event Hub consumer group** (Default to create new): Give a consumer group name  
      - We recommend that you create a consumer group and a policy for each new Azure Stream Analytics job that you create from here. Consumer groups allow only five concurrent readers, so providing a dedicated consumer group for each job will avoid any errors that might arise from exceeding that limit. A dedicated policy allows you to rotate your key or revoke permissions without impacting other resources.
 
     ![create Stream Analytics job](media/sql-database-stream-analytics/create-job-output.png)
@@ -94,11 +94,11 @@ To complete the steps in this article, you need the following resources:
     - Use existing: If you selected this option in step 5, you will see the schema of selected table. 
  
 7. After you are done authoring & testing the query, select **Save query**. Select **Start Stream Analytics job** to start ingesting transformed data into the SQL table. Once you finalize the following fields, **start** the job. 
-   - Output start time: This defines the time of the first output of the job.
+   - Output start time: This defines the time of the first output of the job.  
      - Now: The job will start now and process new incoming data.
      - Custom: The job will start now but will process data from a specific point in time (that can be in the past or the future). For more information, see [How to start an Azure Stream Analytics job](../stream-analytics/start-job.md).
    - Throughput: This defines the throughput performance when you're loading data into SQL Azure Database using Azure Stream Analytics. For more information, see [Azure Stream Analytics output to Azure SQL Database](../stream-analytics/stream-analytics-sql-output-perf.md). 
-   - Output data error handling:
+   - Output data error handling:  
      - Retry: When an error occurs, Azure Stream Analytics retries writing the event indefinitely until the write succeeds. There is no timeout for retries. Eventually all subsequent events are blocked from processing by the event that is retrying. This option is the default output error handling policy. 
      - Drop: Azure Stream Analytics will drop any output event that results in a data conversion error. The dropped events cannot be recovered for reprocessing later. All transient errors (for example, network errors) are retried regardless of the output error handling policy configuration. 
     
