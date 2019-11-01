@@ -1,6 +1,7 @@
 ---
-title: Label images in a labeling project
-description: Use labeling tools to rapidly prepare data for machine learning.
+title: How to use Azure Machine Learning's data labeling tool
+title.suffix: Azure Machine Learning
+description: This article teaches you how to use the data tagging tools in an Azure Machine Learning labeling project.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
@@ -20,6 +21,7 @@ Once your project administrator has [created a labeling project](how-to-create-l
 > * Tagging images for multi-class identification
 > * Tagging images for multi-label identification
 > * Tagging bounding boxes for object detection
+> * Finishing up 
 
 ## Prerequisites
 
@@ -108,6 +110,13 @@ If you wish to delete _all_ bounding boxes in the current image, you can choose 
 
 Once you've created the bounding boxes for the image, press **Submit** to save your work. Your work in progress won't be saved unless you press the **Submit** button. 
 
+## Finishing up 
+
+When you submit a page of tagged data, Azure assigns you new unlabelled data from a work queue. If there are no more unlabelled data, you'll see a message to that effect, with a link back to the portal home page. 
+
+If you know you're not going to do more labeling, choose your name in the upper right corner of the labeling portal and choose **Signout**. If you sign out, Azure will immediately return the unlabelled data to the work queue. If you don't sign out, eventually Azure will "time you out" and assign your data to another labeler. 
+
 ## Next steps
 
-* Learn more about [Azure Machine Learning and studio](../compare-azure-ml-to-studio-classic.md)
+* Learn to [train image classification models in Azure](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+* Read about [object detection using Azure and the Faster R-CNN technique](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/)
