@@ -66,7 +66,7 @@
           href: howto-saml-token-encryption.md
         - name: End-user portals
           href: end-user-experiences.md
-    - name: Automatic user provisioning
+    - name: Automatic user provisioning (SCIM)
       items:
        - name: Plan an automatic user provisioning deployment
          href: plan-auto-user-provisioning.md
@@ -223,23 +223,21 @@
             href: access-panel-extension-problem-installing.md
           - name: Error using self-service app access
             href: access-panel-troubleshoot-self-service-access.md
-    - name: Automatic user provisioning
+    - name: Automatic user provisioning (SCIM)
       items:
       - name: Configure user provisioning
         items:
-        - name: User provisioning for gallery apps
+        - name: Manual vs. automatic provisioning 
           href: application-provisioning-config-how-to.md
-        - name: Enable automatic user provisioning for multi-tenant apps
-          href: isv-automatic-provisioning-multi-tenant-apps.md
         - name: Configure automatic user provisioning
           href: configure-automatic-user-provisioning-portal.md
-        - name: Customize application attributes
+        - name: Customize attribute mappings
           href: Customize-application-attributes.md
-        - name: Scoping filters
+        - name: Scoping users or groups to be provisioned 
           href: define-conditional-rules-for-provisioning-user-accounts.md
         - name: Skip deletion for out-of-scope users
           href: skip-out-of-scope-deletions.md
-        - name: Check provisioning status
+        - name: Monitor provisioning status and performance
           href: application-provisioning-when-will-provisioning-finish-specific-user.md
         - name: Report on automatic user provisioning
           href: check-status-user-account-provisioning.md
@@ -249,20 +247,20 @@
         items:
         - name: Troubleshoot user provisioning
           href: application-provisioning-config-problem.md
-        - name: Quarantine status
+        - name: Authorization issue (unable to save admin credentials)
+          href: application-provisioning-config-problem-storage-limit.md
+        - name: Users are not provisioned 
+          href: application-provisioning-config-problem-no-users-provisioned.md
+        - name: Wrong users provisioned
+          href: application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: Provisioning job in quarantine
           href: application-provisioning-quarantine-status.md
+        - name: Missing source attribute
+          href: user-provisioning-sync-attributes-for-mapping.md
+        - name: Provisioning job is slow
+          href: application-provisioning-when-will-provisioning-finish.md
         - name: Provisioning logs
           href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-        - name: Sync an attribute for mapping - gallery app
-          href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Taking hours - gallery app
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: Problem saving administrator credentials while configuring user provisioning gallery app
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: Users are not provisioned - gallery app
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Wrong users provisioned - gallery app
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
     - name: Application Proxy for on-premises apps
       items:
       - name: Configure connectors
@@ -357,10 +355,13 @@
           href: application-proxy-understand-cors-issues.md
   - name: Reference
     items:
-    - name: Automatic user provisioning
+    - name: Automatic user provisioning (SCIM)
       items:
         - name: Write expressions for attribute mappings
           href: functions-for-customizing-application-data.md
+        - name: Choosing a provisioning method
+          href: isv-automatic-provisioning-multi-tenant-apps.md
+
     - name: Azure AD Connect Provisioning Agent
       items:
        - name: Provisioning Agent version history
