@@ -165,6 +165,10 @@
       href: concepts-data-flow-expression-builder.md
     - name: Expression language
       href: data-flow-expression-functions.md
+  - name: Wrangling data flows
+    items:
+    - name: Wrangling data flow overview
+      href: concepts-data-flow-overview.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Understanding pricing
