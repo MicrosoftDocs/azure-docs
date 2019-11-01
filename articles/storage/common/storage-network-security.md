@@ -258,7 +258,7 @@ Each storage account supports up to 100 IP network rules.
 
 To grant access from your on-premises networks to your storage account with an IP network rule, you must identify the internet facing IP addresses used by your network. Contact your network administrator for help.
 
-If you are using [ExpressRoute](/azure/expressroute/expressroute-introduction) from your premises, for public peering or Microsoft peering, you will need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP address(es) that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
+If you are using [ExpressRoute](/azure/expressroute/expressroute-introduction) from your premises, for public peering or Microsoft peering, you will need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### Managing IP network rules
 
@@ -358,13 +358,13 @@ Network rules help to create a secure environment for connections between your a
 
 ### Trusted Microsoft services
 
-Some Microsoft services operate from networks that can't be included in your network rules. You can allow a subset of such trusted Microsoft services to access the storage account, while maintaining network rules for other apps. These services can then use strong authentication to connect to your storage account securely. We enable two types of trusted access for Microsoft services.
+Some Microsoft services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Microsoft services access to the storage account, while maintaining network rules for other apps. These trusted services can then use strong authentication to connect to your storage account securely. We enable two types of trusted access for Microsoft services.
 
-- Resources of some services can be granted access for select operations, such as writing logs or for backup.
-- A particular instance of some services can be granted access by [assigning an RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the resource instance.
+- Resources of some services, **if registered in your subscription**, can access storage accounts **in the same subscription** for only select operations, such as writing logs or for backup.
+- Resource instances of some services can be granted explicit access to your storage account by [**assigning an RBAC role**](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the resource instance.
 
 
-When you enable the **Allow trusted Microsoft services...** exception, the following services (when registered in your subscription) are granted access to the storage account for select operations as described:
+When you enable the **Allow trusted Microsoft services...** exception, these services (if registered in your subscription) are granted access to the storage account for select operations as described:
 
 | Service                  | Resource Provider Name     | Purpose                            |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -375,19 +375,20 @@ When you enable the **Allow trusted Microsoft services...** exception, the follo
 | Azure Event Hubs         | Microsoft.EventHub         | Archive data with Event Hubs Capture. [Learn More](/azure/event-hubs/event-hubs-capture-overview). |
 | Azure File Sync          | Microsoft.StorageSync      | Enables you to transform your on-prem file server to a cache for Azure File shares. Allowing for multi-site sync, fast disaster-recovery, and cloud-side backup. [Learn more](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Provision the initial contents of the default file system for a new HDInsight cluster. [Learn more](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/). |
-| Azure Machine Learning Service | Microsoft.MachineLearningServices | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure Machine Learning | Microsoft.MachineLearningServices | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace).   
 | Azure Monitor            | Microsoft.Insights         | Allows writing of monitoring data to a secured storage account [Learn more](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
 | Azure Networking         | Microsoft.Network          | Store and analyze network traffic logs. [Learn more](/azure/network-watcher/network-watcher-packet-capture-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-The **Allow trusted Microsoft services...** exception enables particular instances of these services to access the storage account, if the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the instance is assigned an RBAC role.
+The **Allow trusted Microsoft services...** exception enables a particular instance of the below services to access the storage account, if you explicitly assign an RBAC role to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance.
 
-| Service                  | Resource Provider Name          | Purpose                            |
-| :----------------------- | :------------------------------ | :--------------------------------- |
-| Azure Data Factory       | Microsoft.DataFactory/factories | Allows access to storage accounts through the ADF runtime. |
-| Azure Logic Apps         | Microsoft.Logic/workflows       | Enables logic apps to access storage accounts. |
-| Azure SQL Data Warehouse | Microsoft.Sql                   | Allows import and export of data from specific SQL Database instances using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics   | Microsoft.StreamAnalytics       | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
+| Service                        | Resource Provider Name          | Purpose                            |
+| :----------------------------- | :------------------------------ | :--------------------------------- |
+| Azure Data Factory             | Microsoft.DataFactory/factories | Allows access to storage accounts through the ADF runtime. |
+| Azure Logic Apps               | Microsoft.Logic/workflows       | Enables logic apps to access storage accounts. |
+| Azure Machine Learning Service | Microsoft.MachineLearningServices | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure SQL Data Warehouse       | Microsoft.Sql                   | Allows import and export of data from specific SQL Database instances using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics       | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
 
 
 ### Storage analytics data access
