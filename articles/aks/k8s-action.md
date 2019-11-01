@@ -12,7 +12,7 @@ ms.author: atulmal
 
 # GitHub Actions for deploying to Kubernetes service
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. The Kubernetes actions facilitate deployments to Azure Kubernetes Service clusters and associated actions such as setting context and creating secrets.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. The Kubernetes action [azure/aks-set-context@v1]((https://github.com/Azure/aks-set-context)) facilitate deployments to Azure Kubernetes Service clusters. The action sets the target AKS cluster context which could be used by other actions like [azure/k8s-deploy](https://github.com/Azure/k8s-deploy/tree/master), [azure/k8s-create-secret](https://github.com/Azure/k8s-create-secret/tree/master) etc. or run any kubectl commands.
 
 > [!IMPORTANT]
 > GitHub Actions is currently in beta. You must first [sign-up to join the preview](https://github.com/features/actions) using your GitHub account.
@@ -39,9 +39,9 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 In this example, replace the placeholders in the resource with your subscription ID, and resource group. The output is the role assignment credentials that provide access to your resource. Copy this JSON object, which you can use to authenticate from GitHub.
 
-## Configure the GitHub secret
+## Configure the GitHub secrets
 
-The below example uses user-level credentials i.e. Azure Service Principal for deployment. Follow the steps to configure the secret:
+Follow the steps to configure the secret:
 
 1. In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
@@ -57,30 +57,6 @@ The below example uses user-level credentials i.e. Azure Service Principal for d
 4. You will see the secrets as shown below once defined.
 
     ![k8s-secrets](media/k8s-action/k8s-secrets.png)
-
-## Build the Container Image
-
-Here is an example of a workflow, that builds and pushes a container image to Container Registry.
-
-```yaml
-on: [push]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    
-    - uses: Azure/docker-login@v1
-      with:
-        login-server: contoso.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-    
-    - run: |
-        docker build . -t contoso.azurecr.io/k8sdemo:${{ github.sha }}
-        docker push contoso.azurecr.io/k8sdemo:${{ github.sha }}
-```
 
 ## Deploy the Container Image
 
@@ -144,7 +120,7 @@ jobs:
 
 ## Next
 
-You can find our set of Actions grouped into different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
+You can find our set of Actions in different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
 
 - [setup-kubectl](https://github.com/Azure/setup-kubectl)
 
@@ -157,3 +133,5 @@ You can find our set of Actions grouped into different repositories on GitHub, e
 - [k8s-deploy](https://github.com/Azure/k8s-deploy)
 
 - [webapps-container-deploy](https://github.com/Azure/webapps-container-deploy)
+
+- [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples)
