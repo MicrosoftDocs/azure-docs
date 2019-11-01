@@ -55,7 +55,7 @@ The Request cookies match condition identifies requests based on cookie informat
 
 Cookie Name | Operator | Cookie Value | Case Transform
 ------------|----------|--------------|---------------
-String | [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+String | [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
 Key information
 - Wildcard values, including asterisks (*), are not supported when specifying a cookie name, only exact cookie name matches are eligible for comparison.
@@ -71,7 +71,7 @@ Key information
 
 Argument Name | Operator | Argument Value | Case Transform
 --------------|----------|----------------|---------------
-String | [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+String | [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
 ### Query String
 
@@ -81,7 +81,7 @@ The Query String match conditions identifies requests containing a specified que
 
 Operator | Query String | Case Transform
 ---------|--------------|---------------
-[Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
 ### Remote Address
 
@@ -114,14 +114,14 @@ Key information:
 
 Operator | Request Body | Case Transform
 ---------|--------------|---------------
-[Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
 ### Request Header
 
 **Required fields**
 Header Name | Operator | Header Value | Case Transform
 ------------|----------|--------------|---------------
-String | [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+String | [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
 ### Request Method
 
@@ -149,7 +149,7 @@ Equals, Not equals | HTTP, HTTPS
 
 Operator | Request URL | Case Transform
 ---------|-------------|---------------
-[Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
 Key information:
 
@@ -161,7 +161,7 @@ Key information:
 
 Operator | Extension | Case Transform
 ---------|-----------|---------------
-[Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
 Key information:
 
@@ -173,7 +173,7 @@ Key information:
 
 Operator | File name | Case Transform
 ---------|-----------|---------------
-[Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
 Key information:
 
@@ -185,7 +185,7 @@ Key information:
 
 Operator | Value | Case Transform
 ---------|-------|---------------
-[Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
 Key information:
 
