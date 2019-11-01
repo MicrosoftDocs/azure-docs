@@ -50,9 +50,7 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## Provision a service instance on the Azure portal
 
-1. In a web browser, open the [Azure portal](https://portal.azure.com), and sign in to your account.
-
-1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud).
+1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud), and sign in to your account.
 
     ![Search for and select Azure Spring Cloud](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
 
@@ -96,30 +94,12 @@ It takes about 5 minutes for the service to be deployed. After the service is de
     mvn clean package -DskipTests
     ```
 
-## Generate and deploy the Azure Spring Cloud configuration
+## Generate configurations and deploy to the Azure Spring Cloud
 
-1. To enable Maven to work with Azure Spring Cloud, add the following code to your *pom.xml* or *settings.xml* file.
-
-    ```xml
-        <pluginRepositories>
-          <pluginRepository>
-            <id>maven.snapshots</id>
-            <name>Maven Central Snapshot Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <releases>
-              <enabled>false</enabled>
-            </releases>
-            <snapshots>
-              <enabled>true</enabled>
-            </snapshots>
-          </pluginRepository>
-        </pluginRepositories>
-    ```
-
-1. Return to the [Azure Cloud Shell](https://shell.azure.com) and generate a configuration by running the following command:
+1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM:
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
     a. Select the modules `gateway`,`auth-service`, and `account-service`.
@@ -130,13 +110,13 @@ It takes about 5 minutes for the service to be deployed. After the service is de
     
     d. Confirm the configuration.
 
-1. Deploy the apps by using the following command:
+1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command:
 
    ```azurecli
-   mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:deploy
+   mvn azure-spring-cloud:deploy
    ```
 
-1. You can access PiggyMetrics by using the URL that's provided in the output from the preceding command.
+1. Once the deployment has fnished, you can access PiggyMetrics  using the URL provided in the output from the preceding command.
 
 ## Next steps
 
@@ -144,3 +124,4 @@ In this quickstart, you've deployed a Spring Cloud application from a Maven repo
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
+> [Learn more about Maven plug-ins for Azure](https://github.com/microsoft/azure-maven-plugin)
