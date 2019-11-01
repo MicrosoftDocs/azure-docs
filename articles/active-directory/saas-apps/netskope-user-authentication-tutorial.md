@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Netskope User Authentication Configuration](./media/netskope-user-authentication-tutorial/config-addaccount.png)
 
-1. On the **Add SAML Acount** page, perform the following steps:
+1. On the **Add SAML Account** page, perform the following steps:
 
     ![Netskope User Authentication Configuration](./media/netskope-user-authentication-tutorial/config-settings1.png)
 
