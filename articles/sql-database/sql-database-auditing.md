@@ -42,7 +42,8 @@ You can use SQL database auditing to:
 > - All storage replication configurations are supported.
 > - **Premium storage** is currently **not supported**.
 > - **Storage in VNet** is currently **not supported**.
-> - **Storage behind a Firewall** is currently **not supported**
+> - **Storage behind a Firewall** is currently **not supported**.
+> - **Hierarchical namespace** for **Azure Data Lake Storage Gen2 storage account** is currently **not supported**.
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 
@@ -91,7 +92,8 @@ The following section describes the configuration of auditing using the Azure po
 6. To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
 
    > [!IMPORTANT]
-   > The default value for retention period is 0 (unlimited retention). You can change this value by moving the **Retention (Days)** slider in **Storage settings** when configuring the storage account for auditing.
+   > - The default value for retention period is 0 (unlimited retention). You can change this value by moving the **Retention (Days)** slider in **Storage settings** when configuring the storage account for auditing.
+   > - If you change retention period from 0 (unlimited retention) to any other value, please note that retention will only apply to logs written after retention value was changed (logs written during the period when retention was set to unlimited are preserved, even after retention is enabled)
 
     ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 

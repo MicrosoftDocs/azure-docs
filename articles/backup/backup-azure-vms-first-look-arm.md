@@ -1,7 +1,6 @@
 ---
-title: Back up an Azure VM from the VM settings with the Azure Backup service
+title: Back up an Azure VM from the VM settings with Azure Backup
 description: Learn how to back up an Azure VM with the Azure Backup service
-
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -16,8 +15,6 @@ This article explains how to back up Azure VMs with the [Azure Backup](backup-ov
 - Single Azure VM: The instructions in this article describe how to back up an Azure VM directly from the VM settings.
 - Multiple Azure VMs: You can set up a Recovery Services vault and configure backup for multiple Azure VMs. Follow the instructions in [this article](backup-azure-arm-vms-prepare.md) for this scenario.
 
-
-
 ## Before you start
 
 1. [Learn](backup-architecture.md#how-does-azure-backup-work) how backup works, and [verify](backup-support-matrix.md#azure-vm-backup-support) support requirements.
@@ -31,7 +28,6 @@ In order to back up Azure VMs, Azure Backup installs an extension on the VM agen
 - After the agent is installed, when you enable backup, Azure Backup installs the backup extension to the agent. It updates and patches the extension without user intervention.
 
 ## Back up from Azure VM settings
-
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **All services** and in the Filter, type **Virtual machines**, and then click **Virtual machines**.
@@ -64,11 +60,9 @@ In order to back up Azure VMs, Azure Backup installs an extension on the VM agen
     - Until the initial backup completes, the **Last backup status** shows as **Warning (Initial backup pending)**.
     - To see when the next scheduled backup will run, click the backup policy name.
 
-
 > [!NOTE]
 > Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in “Retain instant recovery snapshot” section of the Azure Virtual Machine Backup policy. Applying a lock to this resource group can cause backup failures.<br>
 This resource group should also be excluded from any name/tag restrictions as a restriction policy would block creation of Resource Point collections in it again causing backup failures.
-
 
 ## Run a backup immediately
 
@@ -81,9 +75,6 @@ This resource group should also be excluded from any name/tag restrictions as a 
     ![Backup retention day](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
 3. Portal notifications let you know the backup job has been triggered. To monitor backup progress, click **View all jobs**.
-
-
-
 
 ## Back up from the Recovery Services vault
 

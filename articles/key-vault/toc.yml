@@ -54,6 +54,8 @@
     href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
   - name: Set up key rotation and auditing
     href: key-vault-key-rotation-log-monitoring.md
+  - name: Monitor Key Vault events with Event Grid
+    href: event-grid-overview.md
 - name: Samples
   items:
   - name: Code samples
@@ -74,6 +76,8 @@
         href: key-vault-security-controls.md
   - name: Soft-delete
     href: key-vault-ovw-soft-delete.md
+  - name: Monitoring Key Vault events
+    href: event-grid-overview.md  
   - name: Throttling
     href: key-vault-ovw-throttling.md
   - name: Virtual Network Service Endpoints
@@ -104,6 +108,8 @@
       href: managed-identity.md
     - name: Use an access control policy
       href: key-vault-group-permissions-for-apps.md
+  - name: Route key vault notifications with Event Grid
+    href: event-grid-tutorial.md      
   - name: Azure Key Vault logging
     href: key-vault-logging.md
   - name: Access behind firewalls

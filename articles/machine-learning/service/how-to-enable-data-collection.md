@@ -6,14 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
-ms.date: 07/15/2019
+ms.reviewer: laobri
+ms.author: copeters
+author: lostmygithubaccount
+ms.date: 10/15/2019
 ms.custom: seodec18
 
 ---
 # Collect data for models in production
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > This SDK is retiring soon. This SDK is still appropriate for developers monitoring data drift in models but most developers should use the simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
@@ -43,9 +44,13 @@ The output gets saved in an Azure Blob. Since the data gets added into an Azure 
 The path to the output data in the blob follows this syntax:
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
+
+>[!Note]
+> In versions of the SDK prior to `0.1.0a16` the `designation` argument was named `identifier`. If your code was
+> developed with an earlier version, you will need to update accordingly.
 
 ## Prerequisites
 
@@ -76,8 +81,8 @@ To enable it, you need to:
 
     ```python
     global inputs_dc, prediction_dc
-    inputs_dc = ModelDataCollector("best_model", identifier="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
-    prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
+    inputs_dc = ModelDataCollector("best_model", designation="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
+    prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
     *CorrelationId* is an optional parameter, you do not need to set it up if your model doesn’t require it. Having a correlationId in place does help you for easier mapping with other data. (Examples include: LoanNumber, CustomerId, etc.)
@@ -108,7 +113,7 @@ To enable it, you need to:
 
 If you already have a service with the dependencies installed in your **environment file** and **scoring file**, enable data collection by:
 
-1. Go to  [Azure portal](https://portal.azure.com).
+1. Go to [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Open your workspace.
 
@@ -126,10 +131,10 @@ If you already have a service with the dependencies installed in your **environm
 
 
 ## Disable data collection
-You can stop collecting data any time. Use Python code or the Azure portal to disable data collection.
+You can stop collecting data any time. Use Python code or Azure Machine Learning studio to disable data collection.
 
-+ Option 1 - Disable in the Azure portal: 
-  1. Sign in to [Azure portal](https://portal.azure.com).
++ Option 1 - Disable in Azure Machine Learning studio: 
+  1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
   1. Open your workspace.
 
@@ -143,7 +148,7 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Select **Update** to apply the change.
 
-  You can also access these settings in your [workspace landing page (preview)](https://ml.azure.com).
+  You can also access these settings in your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 
 + Option 2 - Use Python to disable data collection:
 
@@ -153,10 +158,10 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
   ```
 
 ## Validate your data and analyze it
-You can choose any tool of your preference to analyze the data collected into your Azure Blob. 
+You can choose any tool of your preference to analyze the data collected into your Azure Blob.
 
 To quickly access the data from your blob:
-1. Sign in to [Azure portal](https://portal.azure.com).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Open your workspace.
 1. Click on **Storage**.
@@ -166,7 +171,7 @@ To quickly access the data from your blob:
 1. Follow the path to the output data in the blob with this syntax:
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
@@ -186,7 +191,7 @@ To quickly access the data from your blob:
 
     [![PBI Navigator](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
-1. In the query editor, click under “Name” column and add your Storage account 1. Model path into the filter. Note: if you want to only look into files from a specific year or month, just expand the filter path. For example, just look into March data: /modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3
+1. In the query editor, click under “Name” column and add your Storage account 1. Model path into the filter. Note: if you want to only look into files from a specific year or month, just expand the filter path. For example, just look into March data: /modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/designation>/year>/3
 
 1. Filter the data that is relevant to you based on **Name**. If you stored **predictions** and **inputs**, you'll need to create a query for each.
 
