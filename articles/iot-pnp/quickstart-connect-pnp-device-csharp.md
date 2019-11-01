@@ -1,6 +1,6 @@
 ---
 title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microsoft Docs
-description: Using C#, build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+description: Using C# (.NET), build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: baanders
 ms.author: baanders
 ms.date: 10/24/2019
@@ -23,7 +23,7 @@ ms.custom: mvc
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C#, and is included in the Microsoft Azure IoT Hub device SDK for C#. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C# (with .NET), and is included in the Microsoft Azure IoT Hub device SDK for C#. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ dotnet --version
 
 ### Install the Azure IoT explorer
 
-Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page.
+Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -93,7 +93,7 @@ The device application starts sending data to IoT Hub.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
-4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ New** and then **On the connected device** to add it.
+4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 

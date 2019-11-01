@@ -18,19 +18,19 @@ ms.date: 10/24/2019
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - interface, properties, commands, and telemetry.
+1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
 
 1. Select the **Telemetry** page to view the telemetry data the device is sending.
 
-1. Select the **Properties(non-writable)** page to view the non-writable properties reported by the device.
+1. Select the **Properties (non-writable)** page to view the non-writable properties reported by the device.
 
-1. Select the **Properties(writable)** page to view the writable properties you can update.
+1. Select the **Properties (writable)** page to view the writable properties you can update.
 
 1. Expand property **name**, update with a new name and select **update writable property**. 
 
 1. To see the new name show up in the **Reported Property** column, select the **Refresh** button on top of the page.
 
-1. Select the **Command** page to view all the commands the device supports.
+1. Select the **Commands** page to view all the commands the device supports.
 
 1. Expand the **blink** command and set a new blink time interval. Select **Send Command** to call the command on the device.
 
