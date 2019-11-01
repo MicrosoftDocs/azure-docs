@@ -29,7 +29,7 @@ Updates rarely affect the hosted VMs. When updates do have an effect, Azure choo
 
 This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](./windows/manage-availability.md) or the corresponding article for [Linux](./linux/manage-availability.md).
 
-Within a VM, you can get notifications about upcoming maintenance by [using Scheduled Events for Windows](./windows/scheduled-events.md) or for [Linux](./linux/scheduled-events.md).
+Within a VM, you can get notifications about upcoming maintenance by [using Scheduled Events for Windows](/windows/scheduled-events.md) or for [Linux](/linux/scheduled-events.md).
 
 
 
