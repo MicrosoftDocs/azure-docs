@@ -1,23 +1,22 @@
 ---
-title: Index JSON blobs from Azure Blob indexer for full text search - Azure Search
-description: Crawl Azure JSON blobs for text content using the Azure Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
+title: Index JSON blobs from Azure Blob indexer for full text search
+titleSuffix: Azure Cognitive Search
+description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
 
-ms.date: 05/02/2019
-author: HeidiSteen
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 11/04/2019
 ---
 
-# How to index JSON blobs using Azure Search Blob indexer
-This article shows you how to configure an Azure Search blob [indexer](search-indexer-overview.md) to extract structured content from JSON documents in Azure Blob storage and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with existing text extracted from JSON blobs. 
+# How to index JSON blobs using a Blob indexer in Azure Cognitive Search
 
-You can use the [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest), or [.NET SDK](#json-indexer-dotnet) to index JSON content. Common to all approaches is that JSON documents are located in a blob container in an Azure Storage account. For guidance on pushing JSON documents from other non-Azure platforms, see [Data import in Azure Search](search-what-is-data-import.md).
+This article shows you how to configure an Azure Cognitive Search blob [indexer](search-indexer-overview.md) to extract structured content from JSON documents in Azure Blob storage and make it searchable in Azure Cognitive Search. This workflow creates an Azure Cognitive Search index and loads it with existing text extracted from JSON blobs. 
+
+You can use the [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest), or [.NET SDK](#json-indexer-dotnet) to index JSON content. Common to all approaches is that JSON documents are located in a blob container in an Azure Storage account. For guidance on pushing JSON documents from other non-Azure platforms, see [Data import in Azure Cognitive Search](search-what-is-data-import.md).
 
 JSON blobs in Azure Blob storage are typically either a single JSON document (parsing mode is `json`) or a collection of JSON entities. For collections, the blob could have an **array** of well-formed JSON elements (parsing mode is `jsonArray`). Blobs could also be composed of multiple individual JSON entities separated by a newline (parsing mode is `jsonLines`). The **parsingMode** parameter on the request determines the output structures.
 
@@ -30,7 +29,7 @@ JSON blobs in Azure Blob storage are typically either a single JSON document (pa
 
 The easiest method for indexing JSON documents is to use a wizard in the [Azure portal](https://portal.azure.com/). By parsing metadata in the Azure blob container, the [**Import data**](search-import-data-portal.md) wizard can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
 
-We recommend using the same Azure subscription for both Azure Search and Azure storage, preferably in the same region.
+We recommend using the same Azure subscription for both Azure Cognitive Search and Azure storage, preferably in the same region.
 
 ### 1 - Prepare source data
 
@@ -40,7 +39,7 @@ You will need the storage account name, container name, and an access key to ret
 
 ### 2 - Start Import data wizard
 
-In the Overview page of your Azure Search service, you can [start the wizard](search-import-data-portal.md) from the command bar.
+In the Overview page of your search service, you can [start the wizard](search-import-data-portal.md) from the command bar.
 
    ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
 
@@ -64,7 +63,7 @@ In the **data source** page, the source must be **Azure Blob Storage**, with the
 
 ### 4 - Skip the "Add cognitive search" page in the wizard
 
-Adding cognitive skills is not necessary for JSON document import. Unless you have a specific need to [include Cognitive Services APIs and transformations](cognitive-search-concept-intro.md) to your indexing pipeline, you should skip this step.
+Adding cognitive skills is not necessary for JSON document import. Unless you have a specific need to [add AI enrichment](cognitive-search-concept-intro.md) to your indexing pipeline, you should skip this step.
 
 To skip the step, first go to the next page.
 
@@ -88,9 +87,9 @@ Take a moment to review your selections. Once you run the wizard, physical data 
 
 ### 6 - Create indexer
 
-Fully specified, the wizard creates three distinct objects in your search service. A data source object and index object are saved as named resources in your Azure Search service. The last step creates an indexer object. Naming the indexer allows it to exist as a standalone resource, which you can schedule and manage independently of the index and data source object, created in the same wizard sequence.
+Fully specified, the wizard creates three distinct objects in your search service. A data source object and index object are saved as named resources in your Azure Cognitive Search service. The last step creates an indexer object. Naming the indexer allows it to exist as a standalone resource, which you can schedule and manage independently of the index and data source object, created in the same wizard sequence.
 
-If you are not familiar with indexers, an *indexer* is a resource in Azure Search that crawls an external data source for searchable content. The output of the **Import data** wizard is an indexer that crawls your JSON data source, extracts searchable content, and imports it into an index on Azure Search.
+If you are not familiar with indexers, an *indexer* is a resource in Azure Cognitive Search that crawls an external data source for searchable content. The output of the **Import data** wizard is an indexer that crawls your JSON data source, extracts searchable content, and imports it into an index on Azure Cognitive Search.
 
    ![Blob indexer definition](media/search-howto-index-json/import-wizard-json-indexer.png)
 
@@ -107,7 +106,7 @@ When indexing is complete, you can use [Search explorer](search-explorer.md) to 
 
 ## Use REST APIs
 
-You can use the REST API to index JSON blobs, following a three-part workflow common to all indexers in Azure Search: create a data source, create an index, create an indexer. Data extraction from blob storage occurs when you submit the Create Indexer request. After this request is finished, you will have a queryable index. 
+You can use the REST API to index JSON blobs, following a three-part workflow common to all indexers in Azure Cognitive Search: create a data source, create an index, create an indexer. Data extraction from blob storage occurs when you submit the Create Indexer request. After this request is finished, you will have a queryable index. 
 
 You can review [REST example code](#rest-example) at the end of this section that shows how to create all three objects. This section also contains details about [JSON parsing modes](#parsing-modes), [single blobs](#parsing-single-blobs), [JSON arrays](#parsing-arrays), and [nested arrays](#nested-json-arrays).
 
@@ -119,28 +118,28 @@ For code-based JSON indexing, use [Postman](search-get-started-postman.md) and t
 
 Order of operations requires that you create and call objects in this order. In contrast with the portal workflow, a code approach requires an available index to accept the JSON documents sent through the **Create Indexer** request.
 
-JSON blobs in Azure Blob storage are typically either a single JSON document or a JSON "array". The blob indexer in Azure Search can parse either construction, depending on how you set the **parsingMode** parameter on the request.
+JSON blobs in Azure Blob storage are typically either a single JSON document or a JSON "array". The blob indexer in Azure Cognitive Search can parse either construction, depending on how you set the **parsingMode** parameter on the request.
 
 | JSON document | parsingMode | Description | Availability |
 |--------------|-------------|--------------|--------------|
-| One per blob | `json` | Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single Azure Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Search document.  | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Multiple per blob | `jsonLines` | Parses a blob which contains multiple JSON entities (an "array") separated by a newline, where each entity becomes a separate Azure Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| One per blob | `json` | Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single Azure Cognitive Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Cognitive Search document.  | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Multiple per blob | `jsonLines` | Parses a blob which contains multiple JSON entities (an "array") separated by a newline, where each entity becomes a separate Azure Cognitive Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
 ### 1 - Assemble inputs for the request
 
-For each request, you must provide the service name and admin key for Azure Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-get-started-postman.md) to send HTTP requests to Azure Search.
+For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-get-started-postman.md) to send HTTP requests to Azure Cognitive Search.
 
 Copy the following four values into Notepad so that you can paste them into a request:
 
-+ Azure Search service name
-+ Azure Search admin key
++ Azure Cognitive Search service name
++ Azure Cognitive Search admin key
 + Azure storage account name
 + Azure storage account key
 
 You can find these values in the portal:
 
-1. In the portal pages for Azure Search, copy the search service URL from the Overview page.
+1. In the portal pages for Azure Cognitive Search, copy the search service URL from the Overview page.
 
 2. In the left navigation pane, click **Keys** and then copy either the primary or secondary key (they are equivalent).
 
@@ -148,13 +147,13 @@ You can find these values in the portal:
 
 ### 2 - Create a data source
 
-This step provides data source connection information used by the indexer. The data source is a named object in Azure Search that persists the connection information. The data source type, `azureblob`, determines which data extraction behaviors are invoked by the indexer. 
+This step provides data source connection information used by the indexer. The data source is a named object in Azure Cognitive Search that persists the connection information. The data source type, `azureblob`, determines which data extraction behaviors are invoked by the indexer. 
 
 Substitute valid values for service name, admin key, storage account, and account key placeholders.
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
-    api-key: [admin key for Azure Search]
+    api-key: [admin key for Azure Cognitive Search]
 
     {
         "name" : "my-blob-datasource",
@@ -167,13 +166,13 @@ Substitute valid values for service name, admin key, storage account, and accoun
 
 Indexers are paired with an index schema. If you are using the API (rather than the portal), prepare an index in advance so that you can specify it on the indexer operation.
 
-The index stores searchable content in Azure Search. To create an index, provide a schema that specifies the fields in a document, attributes, and other constructs that shape the search experience. If you create an index that has the same field names and data types as the source, the indexer will match the source and destination fields, saving you the work of having to explicitly map the fields.
+The index stores searchable content in Azure Cognitive Search. To create an index, provide a schema that specifies the fields in a document, attributes, and other constructs that shape the search experience. If you create an index that has the same field names and data types as the source, the indexer will match the source and destination fields, saving you the work of having to explicitly map the fields.
 
 The following example shows a [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) request. The index will have a searchable `content` field to store the text extracted from blobs:   
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
-    api-key: [admin key for Azure Search]
+    api-key: [admin key for Azure Cognitive Search]
 
     {
           "name" : "my-target-index",
@@ -186,11 +185,11 @@ The following example shows a [Create Index](https://docs.microsoft.com/rest/api
 
 ### 4 - Configure and run the indexer
 
-As with an index and a data source, and indexer is also a named object that you create and reuse on an Azure Search service. A fully specified request to create an indexer might look as follows:
+As with an index and a data source, and indexer is also a named object that you create and reuse on an Azure Cognitive Search service. A fully specified request to create an indexer might look as follows:
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
-    api-key: [admin key for Azure Search]
+    api-key: [admin key for Azure Cognitive Search]
 
     {
       "name" : "my-json-indexer",
@@ -200,7 +199,7 @@ As with an index and a data source, and indexer is also a named object that you 
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-Indexer configuration is in the body of the request. It requires a data source and an empty target index that already exists in Azure Search. 
+Indexer configuration is in the body of the request. It requires a data source and an empty target index that already exists in Azure Cognitive Search. 
 
 Schedule and parameters are optional. If you omit them, the indexer runs immediately, using `json` as the parsing mode.
 
@@ -217,7 +216,7 @@ All indexers require a data source object that provides connection information t
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
-    api-key: [admin key for Azure Search]
+    api-key: [admin key for Azure Cognitive Search]
 
     {
         "name" : "my-blob-datasource",
@@ -233,7 +232,7 @@ All indexers require a target index that receives the data. The body of the requ
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
-    api-key: [admin key for Azure Search]
+    api-key: [admin key for Azure Cognitive Search]
 
     {
           "name" : "my-target-index",
@@ -248,11 +247,11 @@ All indexers require a target index that receives the data. The body of the requ
 
 This request shows a fully-specified indexer. It includes field mappings, which were omitted in previous examples. Recall that "schedule", "parameters", and "fieldMappings" are optional as long as there is an available default. Omitting "schedule" causes the indexer to run immediately. Omitting "parsingMode" causes the index to use the "json" default.
 
-Creating the indexer on Azure Search triggers data import. It runs immediately, and thereafter on a schedule if you've provided one.
+Creating the indexer on Azure Cognitive Search triggers data import. It runs immediately, and thereafter on a schedule if you've provided one.
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
-    api-key: [admin key for Azure Search]
+    api-key: [admin key for Azure Cognitive Search]
 
     {
       "name" : "my-json-indexer",
@@ -283,27 +282,27 @@ The .NET SDK has full parity with the REST API. We recommend that you review the
 
 ## Parsing modes
 
-JSON blobs can assume multiple forms. The **parsingMode** parameter on the JSON indexer determines how JSON blob content is parsed and structured in an Azure Search index:
+JSON blobs can assume multiple forms. The **parsingMode** parameter on the JSON indexer determines how JSON blob content is parsed and structured in an Azure Cognitive Search index:
 
 | parsingMode | Description |
 |-------------|-------------|
 | `json`  | Index each blob as a single document. This is the default. |
-| `jsonArray` | Choose this mode if your blobs consist of JSON arrays, and you need each element of the array to become a separate document in Azure Search. |
-|`jsonLines` | Choose this mode if your blobs consist of multiple JSON entities, that are separated by a new line, and you need each entity to become a separate document in Azure Search. |
+| `jsonArray` | Choose this mode if your blobs consist of JSON arrays, and you need each element of the array to become a separate document in Azure Cognitive Search. |
+|`jsonLines` | Choose this mode if your blobs consist of multiple JSON entities, that are separated by a new line, and you need each entity to become a separate document in Azure Cognitive Search. |
 
 You can think of a document as a single item in search results. If you want each element in the array to show up in search results as an independent item, then use the `jsonArray` or `jsonLines` option as appropriate.
 
 Within the indexer definition, you can optionally use [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For `jsonArray` parsing mode, if the array exists as a lower-level property, you can set a document root indicating where the array is placed within the blob.
 
 > [!IMPORTANT]
-> When you use `json`, `jsonArray` or `jsonLines` parsing mode, Azure Search assumes that all blobs in your data source contain JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+> When you use `json`, `jsonArray` or `jsonLines` parsing mode, Azure Cognitive Search assumes that all blobs in your data source contain JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 
 
 <a name="parsing-single-blobs"></a>
 
 ## Parse single JSON blobs
 
-By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want to preserve the structure of your JSON documents. For example, assume you have the following JSON document in Azure Blob storage:
+By default, [Azure Cognitive Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want to preserve the structure of your JSON documents. For example, assume you have the following JSON document in Azure Blob storage:
 
     {
         "article" : {
@@ -313,7 +312,7 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
         }
     }
 
-The blob indexer parses the JSON document into a single Azure Search document. The indexer loads an index by matching "text", "datePublished", and "tags" from the source against identically named and typed target index fields.
+The blob indexer parses the JSON document into a single Azure Cognitive Search document. The indexer loads an index by matching "text", "datePublished", and "tags" from the source against identically named and typed target index fields.
 
 As noted, field mappings are not required. Given an index with "text", "datePublished, and "tags" fields, the blob indexer can infer the correct mapping without a field mapping present in the request.
 
@@ -321,7 +320,7 @@ As noted, field mappings are not required. Given an index with "text", "datePubl
 
 ## Parse JSON arrays
 
-Alternatively, you can use the JSON array option. This option is useful when blobs contain an *array of well-formed JSON objects*, and you want each element to become a separate Azure Search document. For example, given the following JSON blob, you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.  
+Alternatively, you can use the JSON array option. This option is useful when blobs contain an *array of well-formed JSON objects*, and you want each element to become a separate Azure Cognitive Search document. For example, given the following JSON blob, you can populate your Azure Cognitive Search index with three separate documents, each with "id" and "text" fields.  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -370,7 +369,7 @@ Use this configuration to index the array contained in the `level2` property:
 
 ## Parse blobs separated by newlines
 
-If your blob contains multiple JSON entities separated by a newline, and you want each element to become a separate Azure Search document, you can opt for the JSON lines option. For example, given the following blob (where there are three different JSON entities), you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.
+If your blob contains multiple JSON entities separated by a newline, and you want each element to become a separate Azure Cognitive Search document, you can opt for the JSON lines option. For example, given the following blob (where there are three different JSON entities), you can populate your Azure Cognitive Search index with three separate documents, each with "id" and "text" fields.
 
     { "id" : "1", "text" : "example 1" }
     { "id" : "2", "text" : "example 2" }
@@ -396,7 +395,7 @@ Again, notice that field mappings can be omitted, similar to the `jsonArray` par
 
 When source and target fields are not perfectly aligned, you can define a field mapping section in the request body for explicit field-to-field associations.
 
-Currently, Azure Search cannot index arbitrary JSON documents directly because it supports only primitive data types, string arrays, and GeoJSON points. However, you can use **field mappings** to pick parts of your JSON document and "lift" them into top-level fields of the search document. To learn about field mappings basics, see [Field mappings in Azure Search indexers](search-indexer-field-mappings.md).
+Currently, Azure Cognitive Search cannot index arbitrary JSON documents directly because it supports only primitive data types, string arrays, and GeoJSON points. However, you can use **field mappings** to pick parts of your JSON document and "lift" them into top-level fields of the search document. To learn about field mappings basics, see [Field mappings in Azure Cognitive Search indexers](search-indexer-field-mappings.md).
 
 Revisiting our example JSON document:
 
@@ -429,7 +428,7 @@ You can also refer to individual array elements by using a zero-based index. For
 
 ## See also
 
-+ [Indexers in Azure Search](search-indexer-overview.md)
-+ [Indexing Azure Blob Storage with Azure Search](search-howto-index-json-blobs.md)
-+ [Indexing CSV blobs with Azure Search blob indexer](search-howto-index-csv-blobs.md)
++ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
++ [Indexing Azure Blob Storage with Azure Cognitive Search](search-howto-index-json-blobs.md)
++ [Indexing CSV blobs with Azure Cognitive Search blob indexer](search-howto-index-csv-blobs.md)
 + [Tutorial: Search semi-structured data from Azure Blob storage](search-semi-structured-data.md)
