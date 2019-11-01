@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 10/23/2019
 ms.author: diberry
 #Customer intent:  As a python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
 ---
@@ -77,7 +77,7 @@ File descriptions:
 
 ## Configure Personalizer resource
 
-In the Azure portal, configure your [Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) with the **update model frequency** set to 15 seconds and a **reward wait time** of 15 seconds. These settings are found on the **[Settings](how-to-settings.md#configure-service-settings-in-the-azure-portal)** page. 
+In the Azure portal, configure your [Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) with the **update model frequency** set to 15 seconds and a **reward wait time** of 15 seconds. These values are found on the **[Configuration](how-to-settings.md#configure-service-settings-in-the-azure-portal)** page. 
 
 |Setting|Value|
 |--|--|
@@ -166,7 +166,7 @@ def get_last_updated(currentModifiedDate):
 
 Validate the state of the service with these two REST calls.
 
-These cells have no output. The function does output the service settings when called.
+These cells have no output. The function does output the service values when called.
 
 ```python
 def get_service_settings():
@@ -570,11 +570,11 @@ This chart shows the success of the model for the current default learning polic
 ![This chart shows the success of the current learning policy for the duration of the test.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
 
-The ideal target that by the end of the test, the loop is averaging a success rate that is close to 100 percent minus the exploration. The default setting of exploration is 20%. 
+The ideal target that by the end of the test, the loop is averaging a success rate that is close to 100 percent minus the exploration. The default value of exploration is 20%. 
 
 `100-20=80`
 
-This exploration setting is found in the Azure portal, for the Personalizer resource, on the **Settings** page. 
+This exploration value is found in the Azure portal, for the Personalizer resource, on the **Configuration** page. 
 
 In order to find a better learning policy, based on your data to the Rank API, run an [offline evaluation](how-to-offline-evaluation.md) in the portal for your Personalizer loop.
 
@@ -594,7 +594,7 @@ In order to find a better learning policy, based on your data to the Rank API, r
 
 ## Change update model frequency to 5 minutes
 
-1. In the Azure portal, still on the Personalizer resource, select the **Settings** page. 
+1. In the Azure portal, still on the Personalizer resource, select the **Configuration** page. 
 1. Change the **model update frequency** and **reward wait time** to 5 minutes and select **Save**.
 
 Learn more about the [reward wait time](concept-rewards.md#reward-wait-time) and [model update frequency](how-to-settings.md#model-update-frequency).
