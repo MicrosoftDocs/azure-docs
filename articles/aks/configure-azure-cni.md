@@ -67,10 +67,12 @@ The maximum number of pods per node in an AKS cluster is 250. The *default* maxi
 
 You're able to configure the maximum number of pods per node *only at cluster deployment time*. If you deploy with the Azure CLI or with a Resource Manager template, you can set the maximum pods per node value as high as 250.
 
+A minimum value for maximum pods per node is enforced to guarantee space for system pods critical to cluster health. The minimum value that can be set for maximum pods per node is 10 if and only if the configuration of each node pool has space for a minimum of 30 pods. For example, setting the maximum pods per node to the minimum of 10 requires each individual node pool to have a minimum of 3 nodes. This requirement applies for each new node pool created as well, so if 10 is defined as maximum pods per node each subsequent node pool added must have at least 3 nodes.
+
 | Networking | Minimum | Maximum |
 | -- | :--: | :--: |
-| Azure CNI | 30 | 250 |
-| Kubenet | 30 | 110 |
+| Azure CNI | 10 | 250 |
+| Kubenet | 10 | 110 |
 
 > [!NOTE]
 > The minimum value in the table above is strictly enforced by the AKS service. You can not set a maxPods value lower than the minimum shown as doing so can prevent the cluster from starting.
