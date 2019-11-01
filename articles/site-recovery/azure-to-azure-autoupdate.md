@@ -26,7 +26,7 @@ When you use Site Recovery to manage updates, it deploys a global runbook (used 
 The default runbook schedule recurs daily at 12:00 AM in the time zone of the replicated VM's geo. You can also change the runbook schedule via the automation account.
 
 > [!NOTE]
-> Starting with Update Rollup 35, you can choose an existing automation account to use for updates. Prior to this update, Site Recovery created this account by default. This option is available when you enable replication for a VM. If you change the setting, it will apply for all Azure VMs protected in the same vault.
+> Starting with Update Rollup 35, you can choose an existing automation account to use for updates. Prior to this update, Site Recovery created this account by default. Note that you can only select this option when you enable replication for a VM. It isn't available for a replicating VM. The setting you select will apply for all Azure VMs protected in the same vault.
  
 > Turning on automatic updates doesn't require a restart of your Azure VMs or affect ongoing replication.
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
 ---
@@ -81,17 +81,17 @@ This is a bug fix release and only affecting the native/managed SDK. It is not a
 **Bug fixes**
 
 * Fix FromSubscription when used with Conversation Transcription.
-* Fix bug in keyword spotting for voice-first virtual assistant.
+* Fix bug in keyword spotting for voice assistants.
 
 
 ## Speech SDK 1.5.0: 2019-May release
 
 **New features**
 
-* Wake word (Keyword spotting/KWS) functionality is now available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
+* Keyword spotting (KWS) is now available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
 * Phrase hint functionality is available through the SDK. For more information, see [here](how-to-phrase-lists.md).
 * Conversation transcription functionality is available through the SDK. See [here](conversation-transcription-service.md).
-* Add support for voice-first virtual assistants using the Direct Line Speech channel.
+* Add support for voice assistants using the Direct Line Speech channel.
 
 **Samples**
 
@@ -158,7 +158,7 @@ This is a bug fix release and only affecting the native/managed SDK. It is not a
 **New Features**
 
 * The Speech SDK supports selection of the input microphone through the AudioConfig class. This allows you to stream audio data to the Speech Services from a non-default microphone. For more information, see the documentation describing [audio input device selection](how-to-select-audio-input-devices.md). This feature is not yet available from JavaScript.
-* The Speech SDK now supports Unity in a beta version. Provide feedback through the issue section in the [GitHub sample repository](https://aka.ms/csspeech/samples). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](quickstart-csharp-unity.md).
+* The Speech SDK now supports Unity in a beta version. Provide feedback through the issue section in the [GitHub sample repository](https://aka.ms/csspeech/samples). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity).
 * The file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated into the core SDK.
 
 
@@ -299,7 +299,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 
 **New features**
 
-* Support for Objective-C on iOS. Check out our [Objective-C quickstart for iOS](quickstart-objectivec-ios.md).
+* Support for Objective-C on iOS. Check out our [Objective-C quickstart for iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 * Support for JavaScript in browser. Check out our [JavaScript quickstart](quickstart-js-browser.md).
 
 **Breaking changes**
@@ -312,10 +312,10 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 **New features**
 
 * UWP apps built with the Speech SDK now can pass the Windows App Certification Kit (WACK).
-  Check out the [UWP quickstart](quickstart-csharp-uwp.md).
+  Check out the [UWP quickstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp&tabs=uwp).
 * Support for .NET Standard 2.0 on Linux (Ubuntu 16.04 x64).
 * Experimental: Support Java 8 on Windows (64-bit) and Linux (Ubuntu 16.04 x64).
-  Check out the [Java Runtime Environment quickstart](quickstart-java-jre.md).
+  Check out the [Java Runtime Environment quickstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre).
 
 **Functional change**
 
@@ -337,10 +337,10 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 
 **New features**
 
-* Support Android platform (API 23: Android 6.0 Marshmallow or higher). Check out the [Android quickstart](quickstart-java-android.md).
-* Support .NET Standard 2.0 on Windows. Check out the [.NET Core quickstart](quickstart-csharp-dotnetcore-windows.md).
+* Support Android platform (API 23: Android 6.0 Marshmallow or higher). Check out the [Android quickstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android).
+* Support .NET Standard 2.0 on Windows. Check out the [.NET Core quickstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 * Experimental: Support UWP on Windows (version 1709 or later).
-  * Check out the [UWP quickstart](quickstart-csharp-uwp.md).
+  * Check out the [UWP quickstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp).
   * Note: UWP apps built with the Speech SDK do not yet pass the Windows App Certification Kit (WACK).
 * Support long-running recognition with automatic reconnection.
 
