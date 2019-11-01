@@ -222,13 +222,13 @@ Let's deploy the custom provider infrastructure, either copy, save, and deploy t
 
 5. Fill in the "ARM Template" under "ARM Template" by copying the JSON template from the "Getting started with resource onboarding"
 
-![Fill in ARM template](media/custom-providers-resource-onboarding/templatesarmtemplates.png)
+![Fill in ARM template](media/custom-providers-resource-onboarding/templatesarmtemplate.png)
 
 6. Hit the `Add` button to create a new Template. If the new Template doesn't show up, hit `Refresh`.
 
 7. Select the newly created Template and hit the `Deploy` button.
 
-![Select the newly created Template and deploy](media/custom-providers-resource-onboarding/templatesselectspecific.png)
+![Select the newly created Template and deploy](media/custom-providers-resource-onboarding/templateselectspecific.png)
 
 8. Input the setting parameters for the required fields and select the subscription and resource group. The "Custom Resource Provider Id" can be left empty.
 
@@ -270,7 +270,7 @@ Once we have the custom provider infrastructure set up, we can easily deploy add
 
 4. Select the previously created Template and hit the `Deploy` button.
 
-![Select the previously created Template and deploy](media/custom-providers-resource-onboarding/templatesselectspecific.png)
+![Select the previously created Template and deploy](media/custom-providers-resource-onboarding/templateselectspecific.png)
 
 5. Input the setting parameters for the required fields and select the subscription and a different resource group. For the "Custom Resource Provider Id" setting, input the copied "Resource Id" of the previously deployed custom provider.
 
