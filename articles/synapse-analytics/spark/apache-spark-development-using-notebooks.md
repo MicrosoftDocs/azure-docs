@@ -1,6 +1,6 @@
 ---
-title: Using Azure Synapse Analytics Studio Notebook 
-description: Introduction of how to use synapse analytics studio notebook  
+title: Using Azure Synapse Analytics studio notebook 
+description: Introduction of how to use Azure Synapse Analytics studio notebook  
 services: sql-data-warehouse 
 author: ruixinxu 
 ms.service: sql-data-warehouse 
@@ -24,34 +24,32 @@ With Azure Synapse Analytics studio notebook you will:
 
 This document describes how to use notebook in Azure Synapse Analytics Studio. 
 
-## New a notebook
+## Create a notebook
 You can either create a new notebook or import an existing notebook to Azure Synapse Analytics workspace from the Object Explorer. Azure Synapse Analytics Studio notebook can recognize standard Jupyter Notebook IPYNB files. 
 
+[!div class="mx-imgBorder"]
 <img src="../media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png" alt="import_notebook" width="350"/>
-
-
-[back to top](#using-azure-synapse-analytics-studio-notebook)
 
 ## Develop notebooks 
 ### Add a cell
 There are a couple ways to add a cell:
 
-Expand the upper left `+ Cell` button, and select `Add code cell` or `Add text cell`.
+Expand the upper left **+ Cell** button, and select **Add code cell** or **Add text cell**.
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-add-cell-1.png" alt="add-cell-1" width="200"/>
 
-Hover over the space between two cells and click `Add code` or `Add text`.
+Hover over the space between two cells and click **Add code** or **Add text**.
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-add-cell-2.png" alt="add-cell-2" width="400"/>
 
-Access the notebook cell menu at the far right, click the `...` , and select `Insert code cell above` or `Insert code cell below` or `Insert text cell above` or `Insert code text cell below`.
+Access the notebook cell menu at the far right, click the **...** , and select **Insert code cell above** or **Insert code cell below** or **Insert text cell above** or **Insert code text cell beloW**.
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-add-cell-3.png" alt="add-cell-3" width="200"/>
 
-Use [shortcut keyboards](#shortcut-keys-under-command-mode).
+Use [Shortcut keys](#shortcut-keys-under-command-mode).
 
 ### Primary language 
-Azure Synapse Analytic studio notebook supports four spark languages: `pyspark (python)`, `spark (Scala)`, `sparkSQL` , and `Spark.NET (C#)`. You can set the primary language for new added cells from the dropdown list in the top command bar.
+Azure Synapse Analytic studio notebook supports four spark languages: **pyspark (python)**, **spark (Scala)**, **sparkSQL**, and **Spark.NET (C#)**. You can set the primary language for new added cells from the dropdown list in the top command bar.
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-default-language.png" alt="default_language" width="200"/>
 
@@ -60,12 +58,12 @@ You can write mixed languages in one notebook by specifying the language magic c
 
 |Magic Commands |Language | Description |  
 |---|------|-----|
-|%%pyspark| Python | Execute `Python` query against Spark Context.  |
-|%%spark| Scala | Execute `Scala` query against Spark Context.  |  
-|%%sql| SparkSQL | Execute `SparkSQL` query against Spark Context.  |
-|%%csharp | Spark.NET C# | Execute `Spark.NET C#` query against Spark Context. |
+|%%pyspark| Python | Execute **Python** query against Spark Context.  |
+|%%spark| Scala | Execute **Scala** query against Spark Context.  |  
+|%%sql| SparkSQL | Execute **SparkSQL** query against Spark Context.  |
+|%%csharp | Spark.NET C# | Execute **Spark.NET C#** query against Spark Context. |
 
-For example, you can write Scala query with `%%spark` or SparkSQL query with `%%sql` in a `pyspark` notebook:
+For example, you can write Scala query with **%%spark** or SparkSQL query with **%%sql** in a **pyspark** notebook:
 ![spark_magic](../media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 You cannot reference data or variables directly cross different languages in Synapse Analytics Studio Notebook. In Spark, a temporary table can be referenced across languages. Here is an example of reading a `Scala` DataFrame in `PySpark` and `SparkSQL` using Spark Temp Table as a workaround.
@@ -92,11 +90,11 @@ Cell 3, use data in PySpark
 myNewPythonDataFrame = spark.sql(“SELECT * FROM mydataframetable”)
 ```
 
-### IDE-style intellisense
+### IDE-style intelliSense
 
-Azure Synapse Analytic Studio notebook integrates with the Monaco editor to bring IDE-style intellisense to cell editor. Syntax highlight, error maker, and auto code completions will help you to write code faster and figure out issues quicker. 
+Azure Synapse Analytic Studio notebook integrates with the Monaco editor to bring IDE-style intelliSense to cell editor. Syntax highlight, error maker, and auto code completions will help you to write code faster and figure out issues quicker. 
 
-The intellisense are at different levels of maturity for different languages, check the table below for details. 
+The intelliSense are at different levels of maturity for different languages, check the table below for details. 
 
 |Languages| Syntax Highlight | Syntax Error Marker  | Syntax Code Completion | Variable Code Completion| System Function Code Completion| User Function Code Completion| Smart Indent | Code Folding|
 |--|--|--|--|--|--|--|--|--|
@@ -106,21 +104,18 @@ The intellisense are at different levels of maturity for different languages, ch
 |Spark.NET (C#)|Y|-|-|-|-|-|-|-|
 
 
-[back to top](#using-azure-synapse-analytics-studio-notebook)
-
-
 ## Run notebooks
 
 ### Run cells
-To run a cell, hover on the cell you want to run and click the Run Cell button or press `Ctrl+Enter`.
+To run a cell, hover on the cell you want to run and click the **Run Cell** button or press **Ctrl+Enter**.
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-run-cell.png" alt="run-cell" width="80"/> 
 
-Access the notebook cell menu at the far right, click the `...` , and select `Run cell`
+Access the notebook cell menu at the far right, click the **...** , and select **Run cell**
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-add-cell-3.png" alt="run-cell-2" width="200"/>
 
-Click the Run All button to run all the cells in current notebook in sequence. 
+Click the **Run All** button to run all the cells in current notebook in sequence. 
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-run-all.png" alt="run-all-cell" width="80"/>
 
@@ -136,10 +131,9 @@ Azure Synapse Analytics studio notebook is purely Spark based. Code cells will b
 ![spark_progress_indicator](../media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
 
 ### Spark session config
-You can specify the number and the size of executors to give to current Spark session in `spark session configuration`. Restarting of spark session is required for the changes to take effect. All cached notebook variables will be cleared.
+You can specify the number and the size of executors to give to current Spark session in **spark session configuration**. Restarting of spark session is required for the changes to take effect. All cached notebook variables will be cleared.
 
 ![spark_session_config](../media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
-[back to top](#using-azure-synapse-analytics-studio-notebook)
 
 
 ## Bring data to a notebook
@@ -188,24 +182,22 @@ df = spark.read.option("header", "true") \
 
 ### Bring data from primary storage account
 
-You can access data in the primary storage account directly. No need to provide the secret keys. In data explorer, right click on a file and click `New notebook`, you will see a new notebook with data extractor auto generated.
+You can access data in the primary storage account directly. No need to provide the secret keys. In data explorer, right click on a file and click **New notebook**, you will see a new notebook with data extractor auto generated.
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-data-to-cell.png" alt="data-to-cell" width="800"/>
-
-[back to top](#using-azure-synapse-analytics-studio-notebook)
 
 
 ## Visualize data in notebook
 
 ### Display()
- A tabular results view is provided with built-in bar chart, line chart, pie chart, scatter chart, and area chart. You can visualize your data without having to write code. The charts can be customized in the Chart Options. The output of `%%sql` magic commands will appear in the rendered table view by default. You can call the `display(<DataFrame name>)` on Spark DataFrames or RDDs function to produce the rendered table view.
+ A tabular results view is provided with built-in bar chart, line chart, pie chart, scatter chart, and area chart. You can visualize your data without having to write code. The charts can be customized in the Chart Options. The output of **%%sql** magic commands will appear in the rendered table view by default. You can call the **display(`<DataFrame name>`)** on Spark DataFrames or RDDs function to produce the rendered table view.
 
 ![builtin-charts](../media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
 
 ### DisplayHTML()
-You can also use `displayHTML()` function to render HTML or interactive libraries like `bokeh`.
+You can also use **displayHTML()** function to render HTML or interactive libraries like **bokeh**.
 
-Here is an example of using `bokeh` to show the passengers drop off density of New York City green taxi data.
+Here is an example of using **bokeh** to show the passengers drop off density of New York City green taxi data.
  
 
 ![bokeh example](../media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
@@ -269,33 +261,18 @@ displayHTML(html)
 
 ```
 
-[back to top](#using-azure-synapse-analytics-studio-notebook)
-
-
 ## Save notebooks 
-To save your changes of current notebook, click the Publish button on the notebook command bar. 
+To save your changes of current notebook, click the **Publish** button on the notebook command bar. 
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-publish-notebook.png" alt="publish-notebook" width="80"/> 
 
-Click the Publish all button on the workspace command bar to save all the changes on current workspace.  
+Click the **Publish all** button on the workspace command bar to save all the changes on current workspace.  
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-publish-all.png" alt="publish-all" width="120"/> 
 
 In the notebook properties, you can config whether to include the cell output when saving. 
 
 <img src="../media/apache-spark-development-using-notebooks/synapse-notebook-properties.png" alt="notebook-properties" width="300"/> 
-
-
-[back to top](#using-azure-synapse-analytics-studio-notebook)
-
-
-## Orchestrate a notebook
-
-coming soon
-
-
-
-[back to top](#using-azure-synapse-analytics-studio-notebook)
 
 
 ## Shortcut keys
@@ -346,9 +323,3 @@ Same with Jupyter Notebook, Synapse Analytics Studio Notebook has a modal user i
 |Indent| Ctrl + ]|
 |Dedent|Ctrl + [|
 |Switch to command mode| Esc |
-
-[back to top](#using-azure-synapse-analytics-studio-notebook)
-
-## Next steps
-
-Check this sample notebook for more details: links to be added.
