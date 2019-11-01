@@ -103,7 +103,7 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
 
 1. Under **Choose an action** and the search box, select **All**.
 
-1. In the search box, enter `send an email`. From the actions list, select the "send an email" action for the email provider that you would like.
+1. In the search box, enter `send an email`. From the actions list, select the "send an email" action for the email provider that you want.
 
    ![Select the "Send an email" action for Office 365 Outlook](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
