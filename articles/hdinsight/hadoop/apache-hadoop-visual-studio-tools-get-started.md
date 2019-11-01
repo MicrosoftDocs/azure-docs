@@ -31,17 +31,23 @@ To complete this article and use Data Lake Tools for Visual Studio, you need the
 
 ## Install Data Lake Tools for Visual Studio  
 
-- For Visual Studio 2017 or Visual Studio 2019:\
-  During Visual Studio installation, make sure you include the **Azure development** workload or the **Data storage and processing** workload.  
+Follow the appropriate instructions to install Data Lake Tools for your version of Visual Studio:
 
-  For existing Visual Studio installations, go to the IDE menu bar, and select **Tools** > **Get Tools and Features** to open Visual Studio Installer. In the **Workloads** tab, select at least the **Azure development** workload (under **Web & Cloud**) or the **Data storage and processing** workload (under **Other Toolsets**).
+- For Visual Studio 2017 or Visual Studio 2019:
+
+    During Visual Studio installation, make sure you include the **Azure development** workload or the **Data storage and processing** workload.  
+
+    For existing Visual Studio installations, go to the IDE menu bar, and select **Tools** > **Get Tools and Features** to open Visual Studio Installer. In the **Workloads** tab, select at least the **Azure development** workload (under **Web & Cloud**) or the **Data storage and processing** workload (under **Other Toolsets**).
 
   ![Workload selection, Visual Studio Installer](./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png)
 
-- For Visual Studio 2015\
-  [Download Data Lake Tools](https://www.microsoft.com/download/details.aspx?id=49504). Choose the version of Data Lake Tools that matches your version of Visual Studio.  
+- For Visual Studio 2015:
+
+    [Download Data Lake Tools](https://www.microsoft.com/download/details.aspx?id=49504). Choose the version of Data Lake Tools that matches your version of Visual Studio.
 
 ## Update Data Lake Tools for Visual Studio  
+
+Next, make sure you update Data Lake Tools to the most recent version.
 
 1. Open Visual Studio.
 
@@ -184,7 +190,7 @@ You have two options for creating and running Hive queries:
 
 #### Create an ad-hoc query
 
-To create and run ad-hoc queries:
+To create and run an ad-hoc query:
 
 1. Right-click the cluster where you want to run the query, and select **Write a Hive Query**.  
 
@@ -267,7 +273,7 @@ Even if Tez is specified as the execution engine, the job graph may not appear i
 
 ![Apache Hive job graph, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png)
 
-### Task Execution Detail
+### Task execution detail
 
 From the job graph, you can select **Task Execution Detail** to get structured and visualized information for Hive jobs. You may also get more job details. If performance issues occur, you can use the view to get more details about the issue. For example, you may retrieve information about how each task operates and detailed information about each task
 (data read/write, schedule/start/end time, and more). Use the information to tune job configurations or system architecture based on the visualized information.
