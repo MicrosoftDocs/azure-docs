@@ -4,7 +4,7 @@ description: Learn how to manage database roles and users on an Analysis Service
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -20,14 +20,14 @@ Role permissions include:
 *  **Process** - Users can connect to and perform process operations on the database, and analyze model database data.
 *  **Read** -  Users can use a client application to connect to and analyze model database data.
 
-When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in SQL Server Data Tools (SSDT). When deployed to a server, you use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) to add or remove roles and user members.
+When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in Visual Studio with Analysis Services projects. When deployed to a server, you use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) to add or remove roles and user members.
 
 **Security groups** must be [mail-enabled](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) with the `MailEnabled` property set to `True`. When specifying a group by email address use `obj:groupid@tenantid`.
 
 
-## To add or manage roles and users in SSDT  
+## To add or manage roles and users in Visual Studio  
   
-1.  In SSDT > **Tabular Model Explorer**, right-click **Roles**.  
+1.  In **Tabular Model Explorer**, right-click **Roles**.  
   
 2.  In **Role Manager**, click **New**.  
   
