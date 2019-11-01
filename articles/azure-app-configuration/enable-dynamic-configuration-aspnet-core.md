@@ -3,8 +3,8 @@ title: Tutorial for using Azure App Configuration dynamic configuration in an AS
 description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
 
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
