@@ -26,25 +26,45 @@ Use the links in this section for more information about managed cloud networkin
 
 [ANS Group UK](https://www.ans.co.uk/)
 
-[Aryaka Networks](https://www.aryaka.com/)
+[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)
 
 [BT](https://www.globalservices.bt.com/en/aboutus/news-press/bt-named-one-of-the-first-global-managed-service-providers-for-a-new-microsoft-azure-networking-virtual-wan-services/)
+
+[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)
 
 [Dimension Data](https://www.dimensiondata.com/)
 
 [Equinix](https://www.equinix.com/)
 
-[InterCloud](https://www.intercloud.com/)
+[InterCloud](https://intercloud.com/partners/microsoft-azure/)
 
-[IIJ](https://www.iij.ad.jp/en/)
+[IIJ](https://www.iij.ad.jp/biz/cloudex/)
+
+[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
 
 [ixreach](https://www.ixreach.com/)
 
-[Megaport](https://www.megaport.com/)
+[KINX](https://www.kinx.net/service/cloud/?lang=en)
+
+[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)
+
+[Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+
+[OmniClouds](https://omniclouds.com/services/)
 
 [Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
-[Tata Communications](https://www.tatacommunications.com/)
+[Orixcom]( https://www.orixcom.com/cloud-solutions/)
+
+[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
+
+[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
+
+[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
+
+[Vandis](https://www.vandis.com/microsoft-azure-practice/)
+
+[Vigilant IT](https://vigilant.it/manage-cloud-service/)
 
 ## <a name="expressroute"></a>ExpressRoute partners
 

@@ -6,7 +6,7 @@ manager: evansma
 ms.author: jenhayes 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/04/2019
 ---
 
 # Create a new Dynamics 365 for Customer Engagement & PowerApps offer
@@ -16,6 +16,9 @@ This topic explains how to create a new Dynamics 365 for Customer Engagement & P
 To begin creating Dynamics 365 for Customer Engagement & PowerApps offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
+
+>[!Note]
+> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Please ensure that you submit the offer for publication after you make changes.
 
 ## Create a new offer
 
@@ -77,27 +80,11 @@ Select from the following options:
 
 ## Connect lead management
 
-Connect with customers directly by hooking up your Customer Relationship Management (CRM) system. When you do so, you'll receive customer contact information when a customer expresses interest or deploys your product.
+[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-To connect your CRM system, select **Connect**.
+See [Lead management overview](./commercial-marketplace-get-customer-leads.md) for more information.
 
-### Choose a lead destination
-
-After you select **Connect**, you'll see a drop-down menu where you can select your CRM system, then provide connection details.
-
-Partner Center supports the following CRM systems for lead management. Select the link for setup instructions.
-
-- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – Provide your storage account connection string. 
-- [Dynamics 365 for Customer Engagement (formerly Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – Provide your Dynamics 365 Instance URL and authentication mode (Office 365 or Azure Active Directory).
-- [HTTPS Endpoint](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – Provide your HTTPS endpoint URL. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – Provide your server ID, Munchkin account ID, and form ID.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -  Provide your organization ID. 
-
-#### Additional lead management resources
-
-- [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+Remember to **Save** before moving on to the next section!
 
 ## Properties
 
@@ -109,7 +96,7 @@ Select a minimum of one and a maximum of three categories. These will be used to
 
 ### Industry
 
-You can optionally select up to two industries to help categorize your offer in the marketplace. If your offer is not specific to an industry, leave this section blank. Be sure to call out how your offer supports the selected industries in the offer description. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### Applicable Dynamics 365 products
 
@@ -297,7 +284,7 @@ A deployment template that contains all the Azure resources that comprise your s
 
 - **Test drive Azure Resource Manager template**: Upload the .zip containing your Azure Resource Manager template.  Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active, in # of hours. The Test Drive terminates automatically after this time period ends. This duration may only bet set by a whole number of hours (e.g. "2" hours, "1.5" is not valid).
+- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active, in # of hours. The Test Drive terminates automatically after this time period ends. This duration may only be set by a whole number of hours (e.g. "2" hours, "1.5" is not valid).
 
 ### Technical configuration for Dynamics 365 test drive
 
@@ -305,7 +292,7 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 - **Max concurrent test drives** (required): Set the maximum number of customers that can use your test drive at one time. Each concurrent user will consume a Dynamics 365 license while the test drive is active, so you will need to ensure that you have enough licenses available to support the maximum limit set. Recommended value of 3-5.
 
-- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active by defining the number of hours. After this many hours, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only bet set by a whole number of hours (e.g. "2" hours, "1.5" is not valid).  The user can request a new session if they run out of time and want to access the test drive again.
+- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active by defining the number of hours. After this many hours, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only be set by a whole number of hours (e.g. "2" hours, "1.5" is not valid).  The user can request a new session if they run out of time and want to access the test drive again.
 
 - **Instance URL** (required): The URL where the customer will begin their test drive. Typically the URL of your Dynamics 365 instance running your app with sample data installed (e.g. https://testdrive.crm.dynamics.com).
 
@@ -364,7 +351,7 @@ The **Marketplace listing** option found under the **Test drive** tab displays t
 
 ## Supplemental content
 
-This page lets you provide additional required information about your offer.
+This page lets you provide additional information about your offer to help us validate your offer. This information is not shown to customers or published to the marketplace.
 
 ### Key usage scenario
 

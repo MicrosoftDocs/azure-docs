@@ -149,6 +149,8 @@
             href: plan-migrate-adfs-password-hash-sync.md
           - name: Migrate from federation to PTA
             href: plan-migrate-adfs-pass-through-authentication.md
+          - name: Cloud authentication - Staged Rollout (Public Preview)
+            href: how-to-connect-staged-rollout.md
     - name: Hybrid Identity Design Considerations
       items:
           - name: Hybrid Identity Design Considerations Overview
@@ -354,3 +356,7 @@
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools Reference
     href: reference-connect-adconnectivitytools.md
+  - name: msExchUserHoldPolicies and cloudMSExchUserHoldPolicies
+    href: reference-connect-msexchuserholdpolicies.md
+  - name: Understanding Azure AD Connect 1.4.xx.x device disappearance
+    href: reference-connect-device-disappearance.md

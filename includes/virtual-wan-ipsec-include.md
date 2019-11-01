@@ -5,10 +5,14 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 05/28/2019
+ ms.date: 10/07/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
+
+>[!NOTE]
+>When working with Default policies, Azure can act as both initiator and responder during an IPsec tunnel setup. There is no support for Azure as a responder only.
+>
 
 ### Initiator
 

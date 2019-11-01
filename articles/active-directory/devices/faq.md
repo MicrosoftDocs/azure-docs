@@ -60,6 +60,8 @@ For more information, see [Require managed devices for cloud app access with Con
 - User disables the device from the My Apps portal. 
 - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
 - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
+- Upgrading AAD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+
 
 See below on how these actions can be rectified.
 
@@ -130,11 +132,11 @@ See below on how these actions can be rectified.
 
 ### Q: Why are there devices marked as "Pending" under the REGISTERED column in the Azure portal?
 
-**A**:  Pending indicates the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from on-premises AD and is ready for device registration. These device have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
+**A**:  Pending indicates that the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from an on-premises AD and is ready for device registration. These devices have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
 
 >[!NOTE]
 >A device can also change from having a registered state to "Pending"
->* If a device is deleted and from Azure AD first and re-synchronized from on-premises AD.
+>* If a device is deleted from Azure AD first and re-synchronized from an on-premises AD.
 >* If a device is removed from a sync scope on Azure AD Connect and added back.
 >
 >In both cases, you must re-register the device manually on each of these devices. To review whether the device was previously registered, you can [troubleshoot devices using the dsregcmd command](troubleshoot-device-dsregcmd.md).
@@ -282,12 +284,20 @@ If a password is changed outside the corporate network (for example, by using Az
 
 ## Azure AD register FAQ
 
-### Q: How do I remove an Azure AD registered device locally on the device?
+### Q: How do I remove an Azure AD registered state for a device locally?
 
 **A:** 
 - For Windows 10 Azure AD registered devices, Go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Device registration is per user profile on Windows 10.
 - For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
 - For macOS, you can use the Microsoft Intune Company Portal application to un-enroll the device from management and remove any registration. 
+
+---
+### Q: How can I block users from adding additional work accounts (Azure AD registered) on my corporate Windows 10 devices?
+
+**A:**
+Enable the following registry to block your users from adding additional work accounts to your corporate domain joined, Azure AD joined or hybrid Azure AD joined Windows 10 devices. This policy can also be used to block domain joined machines from inadvertently getting Azure AD registered with the same user account. 
+
+`HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
 ---
 ### Q: Can I register Android or iOS BYOD devices?

@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The **RelyingParty** element specifies the user journey to enforce for the current request to Azure Active Directory (Azure AD) B2C. It also specifies the list of claims that the relying party (RP) application needs as part of the issued token. An RP application, such as a web, mobile, or desktop application, calls the RP policy file. The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. Multiple applications can use the same RP policy and a single application can use multiple policies. All RP applications receive the same token with claims, and the user goes through the same user journey.
+The **RelyingParty** element specifies the user journey to enforce for the current request to Azure Active Directory B2C (Azure AD B2C). It also specifies the list of claims that the relying party (RP) application needs as part of the issued token. An RP application, such as a web, mobile, or desktop application, calls the RP policy file. The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. Multiple applications can use the same RP policy and a single application can use multiple policies. All RP applications receive the same token with claims, and the user goes through the same user journey.
 
 The following example shows a **RelyingParty** element in the *B2C_1A_signup_signin* policy file:
 

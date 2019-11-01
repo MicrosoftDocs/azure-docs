@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 08/20/2019
 ---
 
 # Delete Activity in Azure Data Factory
@@ -39,6 +39,7 @@ Here are some recommendations for using the Delete activity:
 -   [Azure Blob storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+-   [Azure File Storage](connector-azure-file-storage.md)
 
 ### File system data stores
 
@@ -46,6 +47,7 @@ Here are some recommendations for using the Delete activity:
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Google Cloud Storage](connector-google-cloud-storage.md)
 
 ## Syntax
 

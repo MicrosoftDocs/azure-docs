@@ -1,11 +1,19 @@
 - name: User Help Documentation
-  href: index.md
+  href: index.yml
 - name: Two-step verification help
   items:
   - name: Overview
     href: user-help-two-step-verification-overview.md
-  - name: Set up my account
-    href: multi-factor-authentication-end-user-first-time.md
+  - name: Set up your two-factor verification methods
+    items:
+    - name: Overview
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Set up an authenticator app 
+      href: multi-factor-authentication-setup-auth-app.md
+    - name: Set up a mobile device
+      href: multi-factor-authentication-setup-phone-number.md
+    - name: Set up an office phone        
+      href: multi-factor-authentication-setup-office-phone.md      
   - name: Manage your settings
     href: multi-factor-authentication-end-user-manage-settings.md
   - name: Get help
@@ -21,7 +29,7 @@
   - name: Sign up for password reset
     href: active-directory-passwords-reset-register.md
   - name: Reset your password
-    href: user-help-reset-password.md
+    href: active-directory-passwords-update-your-own-password.md
 - name: Microsoft Authenticator app help
   items:
   - name: Overview
@@ -108,3 +116,13 @@
     href: my-apps-portal-end-user-access-reviews.md
   - name: Troubleshoot issues
     href: my-apps-portal-end-user-troubleshoot.md
+- name: My Apps (preview) portal help
+  items:
+  - name: Overview
+    href: my-applications-portal-overview.md
+  - name: Access and use the My Apps portal
+    href: my-applications-portal-access.md
+  - name: Access and use workspaces
+    href: my-applications-portal-workspaces.md
+  - name: Edit or revoke app permissions
+    href: my-applications-portal-permissions-saved-accounts.md

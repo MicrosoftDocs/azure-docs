@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ---
 
 
-# Quickstart: Scale compute in Azure SQL Data Warehouse in PowerShell
+# Quickstart: Scale compute in Azure SQL Data Warehouse in Azure PowerShell
 
-Scale compute in Azure SQL Data Warehouse in PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
+Scale compute in Azure SQL Data Warehouse using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This quickstart assumes you already have a SQL data warehouse that you can scale. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
+This quickstart assumes you already have a SQL Data Warehouse that you can scale. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
 
 ## Log in to Azure
 
@@ -119,4 +119,4 @@ $database | Select-Object DatabaseName,Status
 You have now learned how to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
->[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

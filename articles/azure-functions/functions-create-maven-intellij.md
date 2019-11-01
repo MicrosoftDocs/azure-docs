@@ -7,7 +7,6 @@ author: jeffhollan
 manager: jpconnock
 keywords: azure functions, functions, event processing, compute, serverless architecture, java
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.devlang: java
 ms.date: 07/01/2018

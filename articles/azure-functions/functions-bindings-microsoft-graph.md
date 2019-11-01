@@ -6,7 +6,6 @@ author: craigshoemaker
 manager: gwallace
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
@@ -1084,11 +1083,11 @@ module.exports = function (context) {
 
 ### Webhook trigger - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs) attribute.
 
 ### Webhook trigger - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebHookTrigger` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebhookTrigger` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
@@ -1236,11 +1235,11 @@ module.exports = function (context, req) {
 
 ### Webhook input - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) attribute.
 
 ### Webhook input - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebHookSubscription` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebhookSubscription` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
@@ -1377,11 +1376,11 @@ module.exports = function (context, req) {
 
 ### Webhook output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) attribute.
 
 ### Webhook output - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebHookSubscription` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebhookSubscription` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|

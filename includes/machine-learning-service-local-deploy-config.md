@@ -10,10 +10,10 @@ The entries in the `deploymentconfig.json` document map to the parameters for [L
 
 | JSON entity | Method parameter | Description |
 | ----- | ----- | ----- |
-| `computeType` | NA | The compute target. For local, the value must be `local`. |
+| `computeType` | NA | The compute target. For local targets, the value must be `local`. |
 | `port` | `port` | The local port on which to expose the service's HTTP endpoint. |
 
-The following JSON is an example deployment configuration for use with the CLI:
+This JSON is an example deployment configuration for use with the CLI:
 
 ```json
 {

@@ -33,6 +33,9 @@ A user needs the following permissions to complete replication of a new virtual 
 > [!IMPORTANT]
 >Ensure that relevant permissions are added per the deployment model (Resource Manager/ Classic) used for resource deployment.
 
+> [!NOTE]
+> If you are enabling replication for an Azure VM and want to allow Site Recovery to manage updates, then while enabling replication you may also want to create a new Automation account in which case you would need permission to create an automation account in the same subscription as the vault as well.
+
 | **Resource Type** | **Deployment Model** | **Permission** |
 | --- | --- | --- |
 | Compute | Resource Manager | Microsoft.Compute/availabilitySets/read |

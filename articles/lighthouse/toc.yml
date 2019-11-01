@@ -19,7 +19,7 @@
     displayName: scenarios
     href: ./concepts/cross-tenant-management-experience.md
   - name: Managed services offers in Azure Marketplace
-    displayName: managed services offer, azure marketplace
+    displayName: azure marketplace, marketplace, managed service, private, plan
     href: ./concepts/managed-services-offers.md
   - name: Recommended security practices
     displayName: mfa, authentication, secure, group
@@ -27,6 +27,9 @@
   - name: Cloud Solution Provider program considerations
     displayName: csp, aobo, partner
     href: ./concepts/cloud-solution-provider.md
+  - name: Azure Lighthouse in enterprise scenarios
+    displayName: corporation, IT, consolidate
+    href: ./concepts/enterprise.md
 - name: How-to guides
   items:
   - name: Onboard a customer to Azure delegated resource management
@@ -41,6 +44,8 @@
   - name: View and manage service providers 
     displayName: managed services offer, azure marketplace, publish
     href: ./how-to/view-manage-service-providers.md
+  - name: Deploy a policy that can be remediated
+    href: ./how-to/deploy-policy-remediation.md
 - name: Reference
   items:
   - name: Azure CLI

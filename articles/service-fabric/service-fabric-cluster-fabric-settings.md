@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/12/2019
+ms.date: 08/30/2019
 ms.author: atsenthi
 
 ---
@@ -127,14 +127,14 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AppEtwTraceDeletionAgeInDays |Int, default is 3 | Dynamic |Number of days after which we delete old ETL files containing application ETW traces. |
 |ApplicationLogsFormatVersion |Int, default is 0 | Dynamic |Version for application logs format. Supported values are 0 and 1. Version 1 includes more fields from the ETW event record than version 0. |
 |AuditHttpRequests |Bool, default is false | Dynamic | Turn HTTP auditing on or off. The purpose of auditing is to see the activities that have been performed against the cluster; including who initiated the request. Note that this is a best attempt logging; and trace loss may occur. HTTP requests with "User" authentication is not recorded. |
-|CaptureHttpTelemetry|Bool, default is false | Dynamic | Turn HTTP telemetry on or off. The purpose of telemetry is for Service Fabric to be able to capture telemetry data to help plan future work and identify problem areas. Telemetry does not record any personal data or the request body. Telemetry captures all HTTP requests unless otherwise configured. |
+|CaptureHttpTelemetry|Bool, default is true | Dynamic | Turn HTTP telemetry on or off. The purpose of telemetry is for Service Fabric to be able to capture telemetry data to help plan future work and identify problem areas. Telemetry does not record any personal data or the request body. Telemetry captures all HTTP requests unless otherwise configured. |
 |ClusterId |String | Dynamic |The unique id of the cluster. This is generated when the cluster is created. |
 |ConsumerInstances |String | Dynamic |The list of DCA consumer instances. |
 |DiskFullSafetySpaceInMB |Int, default is 1024 | Dynamic |Remaining disk space in MB to protect from use by DCA. |
 |EnableCircularTraceSession |Bool, default is false | Static |Flag indicates whether circular trace sessions should be used. |
 |EnablePlatformEventsFileSink |Bool, default is false | Static |Enable/Disable platform events being written to disk |
 |EnableTelemetry |Bool, default is true | Dynamic |This is going to enable or disable telemetry. |
-|FailuresOnlyHttpTelemetry | Bool, default is true | Dynamic | If HTTP telemetry capture is enabled; capture only failed requests. This is to help cut down on the number of events generated for telemetry. |
+|FailuresOnlyHttpTelemetry | Bool, default is false | Dynamic | If HTTP telemetry capture is enabled; capture only failed requests. This is to help cut down on the number of events generated for telemetry. |
 |HttpTelemetryCapturePercentage | int, default is 50 | Dynamic | If HTTP telemetry capture is enabled; capture only a random percentage of requests. This is to help cut down on the number of events generated for telemetry. |
 |MaxDiskQuotaInMB |Int, default is 65536 | Dynamic |Disk quota in MB for Windows Fabric log files. |
 |ProducerInstances |String | Dynamic |The list of DCA producer instances. |
@@ -181,6 +181,9 @@ The following is a list of Fabric settings that you can customize, organized by 
 |EnableRestartManagement |Bool, default is false |Dynamic|This is to enable server restart. |
 |EnableServiceFabricAutomaticUpdates |Bool, default is false |Dynamic|This is to enable fabric automatic update via Windows Update. |
 |EnableServiceFabricBaseUpgrade |Bool, default is false |Dynamic|This is to enable base update for server. |
+|FailureReportingExpeditedReportingIntervalEnabled | Bool, default is true | Static | Enables faster uploading rates in DCA when FabricHost is in Failure Reporting mode. |
+|FailureReportingTimeout | TimeSpan, default is Common::TimeSpan::FromSeconds(60) | Static |Specify timespan in seconds. Timeout for DCA failure reporting in the case FabricHost encounters an early stage startup failure. | 
+|RunDCAOnStartupFailure | Bool, default is true | Static |Determines whether to launch DCA to upload logs when facing startup issues in FabricHost. | 
 |StartTimeout |Time in seconds, default is 300 |Dynamic|Specify timespan in seconds. Time out for fabricactivationmanager startup. |
 |StopTimeout |Time in seconds, default is 300 |Dynamic|Specify timespan in seconds. The timeout for hosted service activation; deactivation and upgrade. |
 
@@ -232,6 +235,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |UserMaxStandByReplicaCount |Int, default is 1 |Dynamic|The default max number of StandBy replicas that the system keeps for user services. |
 |UserReplicaRestartWaitDuration |Time in seconds, default is 60.0 \* 30 |Dynamic|Specify timespan in seconds. When a persisted replica goes down; Windows Fabric waits for this duration for the replica to come back up before creating new replacement replicas (which would require a copy of the state). |
 |UserStandByReplicaKeepDuration |Time in seconds, default is 3600.0 \* 24 \* 7 |Dynamic|Specify timespan in seconds. When a persisted replica come back from a down state; it may have already been replaced. This timer determines how long the FM will keep the standby replica before discarding it. |
+|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(60 * 10)|Dynamic|Specify timespan in seconds. Configuration entry for the optional WaitForInBuildReplica safety check timeout. This configuration defines the timeout for the WaitForInBuildReplica safety check for node deactivations and upgrades. This safety check fails if any of the below are true: - A primary is being created and the ft target replica set size > 1 - If the current replica is in build and is persisted - If this is the current primary and a new replica is being built This safety check will be skipped if the timeout expires even if one of the previous conditions is still true. |
+|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(60.0 * 10)|Dynamic|Specify timespan in seconds. Configuration entry for the optional WaitForReconfiguration safety check timeout. This configuration defines the timeout of the WaitForReconfiguration safety check for node deactivations and upgrades. This safety check fails if the replica being checked is part of a partition that is under reconfiguration. The safety check will be skipped after this timeout expires even if the partition is still under reconfiguration.|
 
 ## FaultAnalysisService
 
@@ -305,7 +310,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, default is false |Static|Cluster health evaluation policy: enable per application type health evaluation. |
-|MaxSuggestedNumberOfEntityHealthReports|Int, default is 500 |Dynamic|The maximum number of health reports that an entity can have before raising concerns about the watchdog's health reporting logic. Each health entity is supposed to have a relatively small number of health reports. If the report count goes above this number; there may be issues with the watchdog's implementation. An entity with too many reports is flagged through a Warning health report when the entity is evaluated. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, default is 100 |Dynamic|The maximum number of health reports that an entity can have before raising concerns about the watchdog's health reporting logic. Each health entity is supposed to have a relatively small number of health reports. If the report count goes above this number; there may be issues with the watchdog's implementation. An entity with too many reports is flagged through a Warning health report when the entity is evaluated. |
 
 ## HealthManager/ClusterHealthPolicy
 
@@ -341,11 +346,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DefaultContainerRepositoryAccountName|string, default is ""|Static|Default credentials used instead of credentials specified in ApplicationManifest.xml |
 |DefaultContainerRepositoryPassword|string, default is ""|Static|Default password credentials used instead of credentials specified in ApplicationManifest.xml|
 |DefaultContainerRepositoryPasswordType|string, default is ""|Static|When not empty string, the value can be “Encrypted” or “SecretsStoreRef”.|
+|DefaultDnsSearchSuffixEmpty|bool, default is FALSE|Static|By default the service name is appended to the SF DNS name for container services. This feature stops this behavior so that nothing is appended to the SF DNS name by default in the resolution pathway.|
 |DeploymentMaxFailureCount|int, default is 20| Dynamic|Application deployment will be retried for DeploymentMaxFailureCount times before failing the deployment of that application on the node.| 
 |DeploymentMaxRetryInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(3600)|Dynamic| Specify timespan in seconds. Max retry interval for the deployment. On every continuous failure the retry interval is calculated as Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(10)|Dynamic|Specify timespan in seconds. Back-off interval for the deployment failure. On every continuous deployment failure the system will retry the deployment for up to the MaxDeploymentFailureCount. The retry interval is a product of continuous deployment failure and the deployment backoff interval. |
 |DisableContainers|bool, default is FALSE|Static|Config for disabling containers - used instead of DisableContainerServiceStartOnContainerActivatorOpen which is deprecated config |
 |DisableDockerRequestRetry|bool, default is FALSE |Dynamic| By default SF communicates with DD (docker dameon) with a timeout of 'DockerRequestTimeout' for each http request sent to it. If DD does not responds within this time period; SF resends the request if top level operation still has remaining time.  With hyperv container; DD sometimes take much more time to bring up the container or deactivate it. In such cases DD request times out from SF perspective and SF retries the operation. Sometimes this seems to adds more pressure on DD. This config allows to disable this retry and wait for DD to respond. |
+|DnsServerListTwoIps | Bool, default is FALSE | Static | This flags adds the local dns server twice to help alleviate intermittent resolve issues. |
 |EnableActivateNoWindow| bool, default is FALSE|Dynamic| The activated process is created in the background without any console. |
 |EnableContainerServiceDebugMode|bool, default is TRUE|Static|Enable/disable logging for docker containers.  Windows only.|
 |EnableDockerHealthCheckIntegration|bool, default is TRUE|Static|Enables integration of docker HEALTHCHECK events with Service Fabric system health report |
@@ -527,7 +534,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DetailedNodeListLimit | Int, default is 15 |Dynamic| Defines the number of nodes per constraint to include before truncation in the Unplaced Replica reports. |
 |DetailedPartitionListLimit | Int, default is 15 |Dynamic| Defines the number of partitions per diagnostic entry for a constraint to include before truncation in Diagnostics. |
 |DetailedVerboseHealthReportLimit | Int, default is 200 | Dynamic|Defines the number of times an unplaced replica has to be persistently unplaced before detailed health reports are emitted. |
-|EnforceUserServiceMetricCapacities|bool, default is FALSE | Static |Enables fabric services protection All user services are under one job object/cgroup and limited to specified amount of resources This needs to be static (requires restart of FabricHost) as creation/removal of user job object and setting limits in done during open of Fabric Host |
+|EnforceUserServiceMetricCapacities|bool, default is FALSE | Static |Enables fabric services protection. All user services are under one job object/cgroup and limited to specified amount of resources. This needs to be static (requires restart of FabricHost) as creation/removal of user job object and setting limits in done during open of Fabric Host. |
 |FaultDomainConstraintPriority | Int, default is 0 |Dynamic| Determines the priority of fault domain constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |GlobalMovementThrottleCountingInterval | Time in seconds, default is 600 |Static| Specify timespan in seconds. Indicate the length of the past interval for which to track per domain replica movements (used along with GlobalMovementThrottleThreshold). Can be set to 0 to ignore global throttling altogether. |
 |GlobalMovementThrottleThreshold | Uint, default is 1000 |Dynamic| Maximum number of movements allowed in the Balancing Phase in the past interval indicated by GlobalMovementThrottleCountingInterval. |
@@ -643,6 +650,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AADClusterApplication|string, default is ""|Static|Web API application name or ID representing the cluster |
 |AADLoginEndpoint|string, default is ""|Static|AAD Login Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us" |
 |AADTenantId|string, default is ""|Static|Tenant ID (GUID) |
+|AcceptExpiredPinnedClusterCertificate|bool, default is FALSE|Dynamic|Flag indicating whether to accept expired cluster certificates declared by thumbprint Applies only to cluster certificates; so as to keep the cluster alive. |
 |AdminClientCertThumbprints|string, default is ""|Dynamic|Thumbprints of certificates used by clients in admin role. It is a comma-separated name list. |
 |AADTokenEndpointFormat|string, default is ""|Static|AAD Token Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|string, default is ""|Dynamic|All possible claims expected from admin clients; the same format as ClientClaims; this list internally gets added to ClientClaims; so no need to also add the same entries to ClientClaims. |

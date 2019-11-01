@@ -6,7 +6,6 @@ author: laurenhughes
 manager: gwallace
 
 ms.service: batch
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh

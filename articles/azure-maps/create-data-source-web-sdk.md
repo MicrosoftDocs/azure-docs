@@ -17,7 +17,11 @@ The Azure Maps Web SDK stores data in data sources that optimizes the data for q
 
 **GeoJSON data source**
 
-A GeoJSON based data source can load and store data locally using the `DataSource` class. GeoJSON data can be manually created or created using the helper classes in the [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) namespace. The `DataSource` class provides functions for importing local or remote GeoJSON files. Remote GeoJSON files must be hosted on a CORs enabled endpoint. The `DataSource` class provides functionality for clustering point data. 
+A GeoJSON based data source can load and store data locally using the `DataSource` class. GeoJSON data can be manually created or created using the helper classes in the [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) namespace. The `DataSource` class provides functions for importing local or remote GeoJSON files. Remote GeoJSON files must be hosted on a CORs enabled endpoint. The `DataSource` class provides functionality for clustering point data. Data can easily be added, removed, and updated with the `DataSource` class.
+
+
+> [!TIP]
+> If you want to overwrite all data in a `DataSource`, if you make calls to the `clear` then `add` functions, the map will try to re-render twice which might cause a bit of a delay. Instead use the `setShapes` function which will remove and replace all data in the data source and only trigger a single re-render of the map.
 
 **Vector tile source**
 

@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
 #Customer intent: As a developer who works on subsystems of online streaming/multiscreen solutions that need to deliver protected content, I want to make sure that delivered content is protected with DRM or AES-128.
@@ -105,8 +105,6 @@ A security token service (STS) issues JWT as the access token for back-end resou
 * Symmetric or asymmetric verification for signature verification
 * Key rollover support (if necessary)
 
-You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test the STS. It supports all three types of verification keys: symmetric, asymmetric, or Azure Active Directory (Azure AD) with key rollover. 
-
 ## Streaming protocols and encryption types
 
 You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HTTP Live Streaming (HLS), MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods.
@@ -168,7 +166,7 @@ An open-restricted content key policy may be used when you want to issue license
 
 With a token-restricted content key policy, the content key is sent only to a client that presents a valid JWT token or a simple web token (SWT) in the license/key request. This token must be issued by an STS. 
 
-You can use Azure AD as an STS or deploy a custom STS. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services license/key delivery service returns the requested license or key to the client if both of these conditions exist:
+You can use Azure AD as an STS or deploy a [custom STS](#using-a-custom-sts). The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services license/key delivery service returns the requested license or key to the client if both of these conditions exist:
 
 * The token is valid. 
 * The claims in the token match those configured for the license or key.
@@ -255,4 +253,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 * [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
 * [Storage side encryption](storage-account-concept.md#storage-side-encryption)
 * [Frequently asked questions](frequently-asked-questions.md)
-
+* [JSON Web Token Handler](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

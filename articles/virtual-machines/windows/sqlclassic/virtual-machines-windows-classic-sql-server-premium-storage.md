@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -210,7 +210,7 @@ New-AzureService $destcloudsvc -Location $location
 #check exisitng reserved VIP
 Get-AzureReservedIP
 
-$reservedVIPName = “sqlcloudVIP”
+$reservedVIPName = "sqlcloudVIP"
 New-AzureReservedIP –ReservedIPName $reservedVIPName –Label $reservedVIPName –Location $location
 ```
 
@@ -382,7 +382,7 @@ $availabilitySet = "cloudmigAVAMS3"
 
 #Machine User Credentials
 $userName = "myadmin"
-$pass = "theM)stC0mplexP@ssw0rd!”
+$pass = "theM)stC0mplexP@ssw0rd!"
 
 
 #Create VM Config
@@ -797,7 +797,7 @@ Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
 ##Building Existing Data Disk Configuration
 $file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
 $datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
-Add-Content $file “lun, vhdname, hostcaching, disklabel, diskName”
+Add-Content $file "lun, vhdname, hostcaching, disklabel, diskName"
 foreach ($disk in $datadisks)
 {
     $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"
@@ -1030,7 +1030,7 @@ Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
 #Building Existing Data Disk Configuration
 $file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
 $datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
-Add-Content $file “lun, vhdname, hostcaching, disklabel, diskName”
+Add-Content $file "lun, vhdname, hostcaching, disklabel, diskName"
 foreach ($disk in $datadisks)
 {
     $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"

@@ -4,6 +4,8 @@
   items:
   - name: About the Azure portal
     href: azure-portal-overview.md
+  - name: Get started with Azure Quickstart Center
+    href: azure-portal-quickstart-center.md
   - name: Supported browsers and devices
     href: azure-portal-supported-browsers-devices.md 
 - name: Concepts
@@ -25,7 +27,7 @@
   - name: Export or delete user settings
     href: azure-portal-export-delete-settings.md
   - name: Azure portal how-to video series
-    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
+    href: azure-portal-video-series.md
 - name: Reference
   items:
   - name: Keyboard shortcuts

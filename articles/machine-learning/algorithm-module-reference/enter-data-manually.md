@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
 ---
 # Enter Data Manually module
 
@@ -28,7 +27,7 @@ This module can be helpful in scenarios such as these:
 
 ## Enter Data Manually 
   
-1.  Add the [Enter Data Manually](./enter-data-manually.md) module to your experiment. You can find this module in the **Data Input and Output** category in Azure Machine Learning. 
+1.  Add the [Enter Data Manually](./enter-data-manually.md) module to your pipeline. You can find this module in the **Data Input and Output** category in Azure Machine Learning. 
   
 2.  For **DataFormat**, select one of the following options. These options determine how the data that you provide should be parsed. The requirements for each format differ greatly, so be sure to read the related topics.  
   

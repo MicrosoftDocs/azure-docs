@@ -1,21 +1,13 @@
 ---
 title: Get started guide for Azure IT operators | Microsoft Docs
 description: Get started guide for Azure IT operators
-services:
-documentationcenter:
-author: themichaelbender-ms
-manager: timlt
-editor: tysonn
+author: RicksterCDN
+ms.author: rclaus
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: azure
-ms.devlang:
 ms.topic: overview
-ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.author: mibender
 ---
 
 # Get started for Azure IT operators
@@ -464,7 +456,6 @@ An Azure virtual network, by default, is accessible only to resources stored in 
 ### Hybrid virtual networks
 
 You can connect an on-premises network to an Azure virtual network by using ExpressRoute or a site-to-site VPN connection. In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
-![Hybrid Virtual Network using VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Because the Azure virtual network is connected to your on-premises network, cross-premises virtual networks must use a unique portion of the address space that your organization uses. In the same way that different corporate locations are assigned a specific IP subnet, Azure becomes another location as you extend your network.
 There are several options for deploying a virtual network.

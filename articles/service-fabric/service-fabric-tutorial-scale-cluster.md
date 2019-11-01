@@ -383,20 +383,6 @@ In the *template.json* file, add new network security group and virtual machine 
     "properties": {
         "securityRules": [
             {
-                "name": "allowSvcFabSMB",
-                "properties": {
-                    "access": "Allow",
-                    "destinationAddressPrefix": "*",
-                    "destinationPortRange": "445",
-                    "direction": "Inbound",
-                    "priority": 3950,
-                    "protocol": "*",
-                    "sourceAddressPrefix": "VirtualNetwork",
-                    "sourcePortRange": "*",
-                    "description": "allow SMB traffic within the net, used by fabric to move packages around"
-                }
-            },
-            {
                 "name": "allowSvcFabCluser",
                 "properties": {
                     "access": "Allow",

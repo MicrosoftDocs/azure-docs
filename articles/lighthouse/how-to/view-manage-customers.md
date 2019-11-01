@@ -1,10 +1,10 @@
 ---
-title: View and manage customers and delegated resources in the Azure portal
+title: View and manage customers and delegated resources
 description: As a service provider using Azure delegated resource management, you can view all of your delegated customer resources and subscriptions by going to My customers in the Azure portal. 
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 10/23/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -15,7 +15,7 @@ Service providers using [Azure delegated resource management](../concepts/azure-
 
 To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “My customers” in the search box near the top of the Azure portal.
 
-Keep in mind that the **My customers** page only shows info about customers who have delegated subscriptions or resource groups. If you work with other customers (such as through the [Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-overview), you won’t see info about those customers here unless you onboard their resources for delegated resource management.
+Keep in mind that the top section of the **My customers** page only shows info about customers who have delegated subscriptions or resource groups. If you work with other customers (such as through the [Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-overview), you won’t see info about those customers here unless you onboard their resources for delegated resource management. Lower on the page, the **Cloud Solution Provider (Preview)** section shows billing info and resources for your CSP customers who have [signed the Microsoft Customer Agreement (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) and are under the Azure plan, whether or not they have been onboarded for Azure delegated resource management. For more info, see [Get started with your Microsoft Partner Agreement billing account](https://docs.microsoft.com/azure/billing/mpa-overview).
 
 > [!NOTE]
 > Your customers can view info about service providers by navigating to **Service providers** in the Azure portal. For more info, see [View and manage service providers](view-manage-service-providers.md).
@@ -32,7 +32,7 @@ You can view the following info from this page:
 
 - To see all of the subscriptions, offers, and delegations associated with a customer, select the customer's name.
 - To see more details about an offer and its delegations, select the offer name.
-- To view more details about acrolecess assignments for delegated subscriptions or resource groups, select the entry in the **Delegations** column.
+- To view more details about role assignments for delegated subscriptions or resource groups, select the entry in the **Delegations** column.
 
 ## View delegations
 

@@ -1,13 +1,13 @@
 ---
 title: 'Understand how to use Azure Digital Twins reference Swagger | Microsoft Docs'
 description: Understanding how to use Azure Digital Twins Swagger reference documentation.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/29/2019
-ms.author: v-adgera
+ms.date: 10/03/2019
 ms.custom: seodec18
 ---
 

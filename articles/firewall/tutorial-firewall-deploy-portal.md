@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 4/9/2019
+ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -63,6 +63,9 @@ The resource group contains all the resources for the tutorial.
 
 This VNet will contain three subnets.
 
+> [!NOTE]
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.
 4. For **Name**, type **Test-FW-VN**.
@@ -71,11 +74,8 @@ This VNet will contain three subnets.
 7. For **Resource group**, select **Test-FW-RG**.
 8. For **Location**, select the same location that you used previously.
 9. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-10. For **Address range**, type **10.0.1.0/24**.
+10. For **Address range**, type **10.0.1.0/26**.
 11. Accept the other default settings, and then select **Create**.
-
-> [!NOTE]
-> The minimum size of the AzureFirewallSubnet subnet is /26.
 
 ### Create additional subnets
 
@@ -210,8 +210,10 @@ This is the network rule that allows outbound access to two IP addresses at port
 7. For **Protocol**, select **UDP**.
 8. For **Source Addresses**, type **10.0.2.0/24**.
 9. For Destination address, type **209.244.0.3,209.244.0.4**
-10. For **Destination Ports**, type **53**.
-11. Select **Add**.
+
+   These are public DNS servers operated by CenturyLink.
+1. For **Destination Ports**, type **53**.
+2. Select **Add**.
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 

@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -33,19 +33,19 @@ Information on Red Hat support policies for all versions of RHEL can be found on
 
 * RHEL SAP PAYG images in Azure (RHEL for SAP, RHEL for SAP HANA, and RHEL for SAP Business Applications) are connected to dedicated RHUI channels that remain on the specific RHEL minor version as required for SAP certification.
 
-* Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you're proxying all VM traffic via an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI.
+* Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you're proxying all VM traffic via an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI. If that is the case, user-defined routes will need to be added for _all_ RHUI IP addresses.
 
 ## Image update behavior
 
-As of April 2019, Azure offers RHEL images that are connected to Extended Update Support (EUS) repositories by default and RHEL images that come connected to the regular (non-EUS) repositories by default. More details on RHEL EUS are available in [Red Hat's documentation](https://access.redhat.com/support/policy/updates/errata). The default behavior of `sudo yum update` will vary depending which RHEL image you provisioned from, as different images are connected to different repositories.
+As of April 2019, Azure offers RHEL images that are connected to Extended Update Support (EUS) repositories by default and RHEL images that come connected to the regular (non-EUS) repositories by default. More details on RHEL EUS are available in Red Hat's [version lifecycle documentation](https://access.redhat.com/support/policy/updates/errata) and [EUS documentation](https://access.redhat.com/articles/rhel-eus). The default behavior of `sudo yum update` will vary depending which RHEL image you provisioned from, as different images are connected to different repositories.
 
-For a full image list, run `az vm image list --publisher redhat --all` from the Azure CLI.
+For a full image list, run `az vm image list --publisher redhat --all` using the Azure CLI.
 
 ### Images connected to non-EUS repositories
 
 If you provision a VM from a RHEL image that is connected to non-EUS repositories, you will be upgraded to the latest RHEL minor version when you run `sudo yum update`. For example, if you provision a VM from an RHEL 7.4 PAYG image and run `sudo yum update`, you end up with an RHEL 7.7 VM (the latest minor version in the RHEL7 family).
 
-Images that are connected to non-EUS repositories will not contain a minor version number in the SKU. For example, all of the following images come attached to non-EUS repositories:
+Images that are connected to non-EUS repositories will not contain a minor version number in the SKU. The SKU is the third element in the URN (full name of the image). For example, all of the following images come attached to non-EUS repositories:
 
 ```text
 RedHat:RHEL:7-LVM:7.4.2018010506
@@ -55,6 +55,8 @@ RedHat:RHEL:7-RAW:7.4.2018010506
 RedHat:RHEL:7-RAW:7.5.2018081518
 RedHat:RHEL:7-RAW:7.6.2019062120
 ```
+
+Note that the SKUs are either 7-LVM or 7-RAW. The minor version is indicated in the version (fourth element in the URN) of these images.
 
 ### Images connected to EUS repositories
 
