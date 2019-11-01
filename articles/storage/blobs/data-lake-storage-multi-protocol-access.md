@@ -41,14 +41,14 @@ The items that appear in this table will change over time as support for Blob st
 
 |Blob storage feature | Support level |
 |---|---|
-|[Diagnostic logs](../common/storage-analytics-logging.md)| Preview|
-|[Lifecycle management policies](storage-lifecycle-management-concepts.md)| Preview|
-|[Notifications via Azure Event Grid](data-lake-storage-events.md)|Preview|
-|[Archive access tier](storage-blob-storage-tiers.md)| Preview|
 |[Cool access tier](storage-blob-storage-tiers.md)|Generally available|
 |Blob SDKs |Generally available|
 |[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Generally available|
 |[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Generally available|
+|[Diagnostic logs](../common/storage-analytics-logging.md)| Preview|
+|[Lifecycle management policies](storage-lifecycle-management-concepts.md)| Preview|
+|[Notifications via Azure Event Grid](data-lake-storage-events.md)|Preview|
+|[Archive access tier](storage-blob-storage-tiers.md)| Preview|
 |[blobfuse](storage-how-to-mount-container-linux.md)|Not yet supported|
 |[Immutable storage](storage-blob-immutable-storage.md)|Not yet supported|
 |[Snapshots](storage-blob-snapshots.md)|Not yet supported|
@@ -68,11 +68,11 @@ Just like the list of supported Blob storage features, the items that appear in 
 
 |Azure service | Support level |
 |---|---|
-|[Azure Search](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|Preview|
 |[Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|Generally available|
 |[Azure Event Hubs capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Generally available|
 |[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Generally available|
 |[IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Generally available|
+|[Azure Search](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|Preview|
 
 For the complete list of Azure ecosystem support for Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
 
