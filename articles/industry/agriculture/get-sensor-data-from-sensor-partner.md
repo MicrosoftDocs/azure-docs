@@ -22,8 +22,8 @@ ms.author: v-umha
   1.	You have installed FarmBeats from the Azure Marketplace.
   2.	You have decided on the sensors and devices that you want to install on your farm.
 
-    > [!NOTE]
-    > If you are planning to use soil moisture sensors, you can use FarmBeats Soil Moisture Sensor Placement map to get a recommendation on the number of sensors and where exactly should place the sensors. For more information, see, [Generate Maps](generate-maps.md).
+        > [!NOTE]
+        > If you are planning to use soil moisture sensors, you can use FarmBeats Soil Moisture Sensor Placement map to get a recommendation on the number of sensors and where exactly should place the sensors. For more information, see, [Generate Maps](generate-maps.md).
 
   3. Purchase and deploy device/sensors from your device partner in your farm. Make sure you can access the sensor data via your device partners’ solution.
 
@@ -47,24 +47,24 @@ ms.author: v-umha
   1. Download the [ZIP file](https://aka.ms/farmbeatspartnerscript) and extract to your local drive. You will find two files inside the ZIP file.
   2. Sign in to https://portal.azure.com/ and open Cloud Shell (This option is available on the top right bar of the portal)  
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/navigation-bar-1.png)
+        ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/navigation-bar-1.png)
 
   3. Ensure the environment is set to **PowerShell** - by default it is set to Bash.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
+        ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
   4. Upload the 2 files (from step 1 above) in your Cloud Shell.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+        ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
   5. Go to the directory where the files were uploaded (Usually it gets uploaded to the home directory - \</home/username\>
   6. Run the script by writing the following command:
     ./generateCredentials.ps1  
 
-```
-PS /home/username> ./generateCredentials.ps1
+    ```
+    PS /home/username> ./generateCredentials.ps1
 
-```
+    ```
 
   Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String)
 
@@ -96,7 +96,7 @@ PS /home/username> ./generateCredentials.ps1
   Devices page displays the device type, model, its status, the farm it is placed in and the last metadata updated date. By default, the  farm column is set to NULL. You can choose to assign a device to a farm. For more information, see, [Assign devices](#assign-ddevices).
   2. Select the device to view the device properties, telemetry and child devices connected to the device.  
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
+        ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
 
 ### View sensors
 
@@ -106,7 +106,7 @@ Use the following steps:
   A Sensors page displays with details about type of sensor, the farm it is connected to, the parent device, port name, port type and the last updated status.
   2. Select the sensor to view sensor properties, active alerts and telemetry from the sensor.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
+        ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
 
 ## Assign devices  
 
@@ -116,7 +116,7 @@ Use the following steps:
   2. Select the Farm to which you want to assign the device and select **Add Devices**.  
   3. The **Add Devices** window displays. Select the device(s) you want to assign to the farm.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+        ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
   4. Select **Add Devices**.   
     Alternatively, go to the **Devices** menu, select the devices you want to assign to a farm and select **Associate Devices**.  
@@ -135,7 +135,7 @@ Follow these steps:
   2. Select the **Farm** for which you want to see the sensor data.  
   3. On the **Farm** dashboard, you can view telemetry data. You can choose to view live telemetry or use **Custom Range** to view in a specific date range.
 
-  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/telemetry-data-1.png)
+    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/telemetry-data-1.png)
 
 ## Delete sensor(s)
 
@@ -144,7 +144,7 @@ Follow these steps:
   1. On the home page, select **Sensors** from the menu to view the sensors page.  
   2. Select the device you want to delete and select **Delete** from confirmation window.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+        ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
   A confirmation message displays that the sensor is successfully deleted.  
 
@@ -155,7 +155,7 @@ Follow these steps:
   1. On the home page, select **Devices** from the menu to view the devices page.  
   2. Select the device you want to delete and select **Delete** from the confirmation window.
 
-  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
+    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
 
 ## Next steps
 
