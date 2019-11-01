@@ -101,6 +101,8 @@ If the hub uses message routing, you have two choices.
 
 ## Steps for migrating the hub to another region
 
+<!--robin-->
+<!-- action=prepare -->
 This section provides specific instructions for migrating the hub.
 
 ### Find the original hub and export it to a resource template.
@@ -341,6 +343,8 @@ If you want to move the routing resources, you must manually set up the resource
 
 Now you have a template that will create a new hub that looks almost exactly like the old hub, depending on how you decided to handle the routing.
 
+<!--robin-->
+<!-- action=move -->
 ### Create a new hub in the new region by loading the template
 
 Create the new hub in the new location using the template. If you have routing resources that are going to move, the resources should be set up in the new location and the references in the template updated to match. If you are not moving the routing resources, they should be in the template with the updated keys.
@@ -351,7 +355,7 @@ Create the new hub in the new location using the template. If you have routing r
 
 1. In the search box, put in "template deployment" and select Enter.
 
-1. Select **template deployment (deploy using custom**. This takes you to a screen for the Template deployment. Select **Create**. You see this screen:
+1. Select **template deployment (deploy using custom templates)**. This takes you to a screen for the Template deployment. Select **Create**. You see this screen:
 
    ![Screenshot showing the command for building your own template](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -379,6 +383,9 @@ Create the new hub in the new location using the template. If you have routing r
 
 The portal now validates your template and deploys your cloned hub. If you have routing configuration data, it will be included in the new hub, but will point at the resources in the prior location.
 
+<!--robin-->
+<!-- action=discard could you discard the hub here and still be where you were? --> 
+<!-- if you discard the hub, does it discard the devices? --> 
 ## Managing the devices registered to the IoT hub
 
 Now that you have your clone up and running, you need to copy all of the devices from the original hub to the clone. To do this, you can use the C# Import/Export sample app. 
@@ -516,6 +523,11 @@ Now you have the environment variables in a file with the SET commands, and you 
    ```
 
 1. Select F5 to run the application. 
+<!--robin-->
+<!-- action = commit -- we don't have this, the changes are already committed at this point -->
+<!-- or is it good until they change their apps to point at the new hub and change whatever needs to be
+     changed to point at the new devices? -->
+<!-- action = cleanup -- honestly, this is pretty complicated and you can really do some damage, so I wouldn't delete the original resources until I was 110% sure they were working in the new location -->
 
 ### View the results 
 
