@@ -58,8 +58,6 @@ The Notebook VM is:
 There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
 
-Learn more about [compute instances](concept-compute-instance.md).
-
 To stop incurring compute charges, [stop the Notebook VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
