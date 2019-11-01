@@ -25,42 +25,10 @@ abstract:
 sections:
 - title: 5-Minute Quickstarts
   items:
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: https://docs.microsoft.com/media/logos/logo_nodejs.svg
-      - image:
-          src: https://docs.microsoft.com/media/logos/logo_NET.svg
-      - image:
-          src: https://docs.microsoft.com/media/logos/logo_java.svg
-      - image:
-          src: https://docs.microsoft.com/media/logos/logo_c.svg
-    rows:
-      - title: Use a device capability model to create a device
-        values: 
-        - href:
-        - href:
-        - href:
-        - href: /azure/iot-pnp/quickstart-create-pnp-device
-      - title: Connect a device to IoT Hub
-        values: 
-        - href: /azure/iot-pnp/quickstart-connect-pnp-device-node
-        - href: /azure/iot-pnp/quickstart-connect-pnp-device-csharp
-        - href: /azure/iot-pnp/quickstart-connect-pnp-device-java
-        - href: /azure/iot-pnp/quickstart-connect-pnp-device-c
-      - title: Connect a device to IoT Central
-        values: 
-        - href:
-        - href:
-        - href: 
-        - href: /azure/iot-central/quick-create-pnp-device-pnp
-      - title: Connect to a device in your solution
-        values: 
-        - href: /azure/iot-pnp/quickstart-connect-pnp-device-solution-node
-        - href: /azure/iot-pnp/quickstart-connect-pnp-device-solution-csharp
-        - href: /azure/iot-pnp/quickstart-connect-pnp-device-solution-java
-        - href: 
+  - type: paragraph
+    text: Learn how to <a href="quickstart-create-pnp-device">use a device capability model to create a device</a>.
+  - type: paragraph
+    text: Learn how to <a href="quickstart-connect-pnp-device-solution">connect a device to your solution</a>.
 - title: Step-by-Step Tutorials
   items:
   - type: list
