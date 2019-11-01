@@ -13,9 +13,9 @@ ms.author: v-vasuke
 
 ---
 
-# Quickstart: Launch an Azure Spring Cloud app by using the Maven plug-in
+# Quickstart: Launch an Azure Spring Cloud app by using the Maven plugin
 
-With the Azure Spring Cloud Maven plug-in, you can easily create and update your Azure Spring Cloud service applications. By predefining a configuration, you can deploy applications to your existing Azure Spring Cloud service. In this article, you use a sample application called PiggyMetrics to demonstrate this feature.
+With the Azure Spring Cloud Maven plugin, you can easily create and update your Azure Spring Cloud service applications. By predefining a configuration, you can deploy applications to your existing Azure Spring Cloud service. In this article, you use a sample application called PiggyMetrics to demonstrate this feature.
 
 >[!Note]
 > Before you begin this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud. As a preview service, we invite you to reach out to us so that we can add your subscription to our allow list. If you want to explore the capabilities of Azure Spring Cloud, fill out and submit the [Azure Spring Cloud (Private Preview) - Interest Form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u). While Azure Spring Cloud is in preview, Microsoft offers limited support without an SLA.  For more information about support during previews, please refer to this [Support FAQ](https://azure.microsoft.com/support/faq/).
@@ -31,13 +31,6 @@ To complete this quickstart:
 4. [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 5. [Sign up for a free Azure subscription](https://azure.microsoft.com/free/).
 
-## Install the Azure CLI extension
-
-Install the Azure Spring Cloud extension for the Azure CLI by using the following command:
-
-```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
-```
 
 ## Provision a service instance on the Azure portal
 
@@ -76,30 +69,12 @@ It takes about 5 minutes for the service to be deployed. After the service is de
     mvn clean package -DskipTests
     ```
 
-## Generate and deploy the Azure Spring Cloud configuration
+## Generate configurations and deploy to Azure Spring Cloud
 
-1. To enable Maven to work with Azure Spring Cloud, add the following code to your *pom.xml* or *settings.xml* file.
-
-    ```xml
-    <pluginRepositories>
-      <pluginRepository>
-        <id>maven.snapshots</id>
-        <name>Maven Central Snapshot Repository</name>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        <releases>
-          <enabled>false</enabled>
-        </releases>
-        <snapshots>
-          <enabled>true</enabled>
-        </snapshots>
-      </pluginRepository>
-    </pluginRepositories>
-    ```
-
-1. Generate a configuration by running the following command:
+1. Generate configurations by running the following command in the root folder of PiggyMetrics with parent pom:
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
     a. Select the modules `gateway`,`auth-service`, and `account-service`.
@@ -110,13 +85,13 @@ It takes about 5 minutes for the service to be deployed. After the service is de
     
     d. Confirm the configuration.
 
-1. Deploy the apps by using the following command:
+1. Command above wrote plugin dependencies and configurations to your pom.xml. Now, you can deploy the apps by using the following command:
 
    ```azurecli
-   mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:deploy
+   mvn azure-spring-cloud:deploy
    ```
 
-1. You can access PiggyMetrics by using the URL that's provided in the output from the preceding command.
+1. After deployment is done. You can access PiggyMetrics by using the URL that's provided in the output from the preceding command.
 
 ## Next steps
 
@@ -124,3 +99,4 @@ In this quickstart, you've deployed a Spring Cloud application from a Maven repo
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
+> [Learn More about Maven Plugins for Azure](https://github.com/microsoft/azure-maven-plugins)
