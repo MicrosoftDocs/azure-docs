@@ -116,7 +116,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
    mvn azure-spring-cloud:deploy
    ```
 
-1. Once the deployment has fnished, you can access PiggyMetrics  using the URL provided in the output from the preceding command.
+1. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
 
 ## Next steps
 
