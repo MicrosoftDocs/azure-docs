@@ -378,6 +378,10 @@
         href: iot-hub-troubleshoot-error-403004-devicemaximumqueuedepthexceeded.md
       - name: 403006 Number of active file upload requests exceeded limit
         href: iot-hub-troubleshoot-error-403006-number-of-active-file-upload-requests-exceeded-limit.md
+      - name: 404001 DeviceNotFound
+        href: iot-hub-troubleshoot-error-404001-devicenotfound.md
+      - name: 404003 DeviceNotOnline
+        href: iot-hub-troubleshoot-error-404103-devicenotonline.md
     - name: Device disconnections TO BE REMOVED
       href: iot-hub-troubleshoot-connectivity.md
 - name: Reference
