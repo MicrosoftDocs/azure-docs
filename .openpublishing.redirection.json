@@ -16311,27 +16311,27 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/text-analytics/quickstarts/csharp",
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/csharp.md",
       "redirect_url": "azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cognitive-services/text-analytics/quickstarts/python-sdk",
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/python-sdk.md",
       "redirect_url": "azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk",
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
       "redirect_url": "azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk",
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
       "redirect_url": "azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk",
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk.md",
       "redirect_url": "azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
