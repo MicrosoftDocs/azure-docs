@@ -1,17 +1,14 @@
 ---
-title: Use Terraform modules to create a VM cluster on Azure
+title: Tutorial - Create an Azure VM cluster with Terraform using the Module Registry
 description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure
-services: terraform
-ms.service: azure
-keywords: terraform, devops, virtual machine, network, modules
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/26/2019
 ---
 
-# Create a VM cluster with Terraform using the Module Registry
+# Tutorial: Create an Azure VM cluster with Terraform using the Module Registry
 
 This article walks you through creating a small VM cluster with the Terraform [Azure compute module](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). In this tutorial you learn how to: 
 
@@ -99,5 +96,5 @@ Run `terraform apply` to provision the VMs on Azure.
 
 ## Next steps
 
-- Browse the list of [Azure Terraform modules](https://registry.terraform.io/modules/Azure)
-- Create a [virtual machine scale set with Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+> [!div class="nextstepaction"] 
+> [Browse the list of Azure Terraform modules](https://registry.terraform.io/modules/Azure)

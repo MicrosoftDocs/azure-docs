@@ -10,6 +10,8 @@ ms.date: 10/20/2019
 
 # Architecture of IoT Central connected logistics application template
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 Partners & customer can leverage the app template & following guidance to develop end to end **connected logistics solutions**.
 
 > [!div class="mx-imgBorder"]

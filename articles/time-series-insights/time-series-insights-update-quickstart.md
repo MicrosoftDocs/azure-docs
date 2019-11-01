@@ -3,14 +3,13 @@ title: 'Quickstart: Explore the Azure Time Series Insights Preview demo environm
 description: Quickstart to understand the Azure Time Series Insights Preview demo environment.
 ms.service: time-series-insights 
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 09/23/2019
+ms.date: 10/24/2019
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment
@@ -36,14 +35,14 @@ The Time Series Insights Preview explorer demonstrates historical data and root 
 
 1. In **Contoso Plant 1**, look at wind turbine **W7**.  
 
-   1. Change the view range to **1/1/17 20:00 to 3/10/17 20:00 (UTC)**.
+   1. Change the view range to **1/1/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
    1. To select a sensor, select **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Then, review the values that are shown.
 
       [![W7 in Contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Time Series Insights, we can see that the fire alert sensor was activated during the fire.
 
-   1. Change the view range to **3/9/17 20:00 to 3/10/17 20:00 (UTC)**.
+   1. Change the view range to **3/9/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
    1. Select **Safety System** > **FireAlert**.
 
       [![Contoso found a fire in wind turbine W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
@@ -57,7 +56,7 @@ The Time Series Insights Preview explorer demonstrates historical data and root 
 
 1. The oil pressure and active warning sensors spiked right before the fire. Expand the displayed time series to see other signs that were evident leading up to the fire. Both sensors fluctuated consistently over time. The fluctuations indicate a persistent and worrisome pattern.
 
-    * Change the view range to **2/24/17 20:00 to 3/10/17 20:00 (UTC)**.
+    * Change the view range to **2/24/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
 
       [![Oil pressure and active warning sensors also spiked](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
@@ -77,7 +76,7 @@ Using Time Series Insights and our sensor telemetry, we've discovered a long-ter
 
 1. Some scenarios require sophisticated analysis to uncover subtle clues in data. Select the windmill **W6** on date **6/25**.
 
-    1. Change the view range to **6/1/17 20:00 to 7/1/17 20:00 (UTC)**.
+    1. Change the view range to **6/1/17 20:00:00.00 to 7/1/17 20:00:00.00 (UTC)**.
     1. Select **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning**.
 
        [![Change the view range and select W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)

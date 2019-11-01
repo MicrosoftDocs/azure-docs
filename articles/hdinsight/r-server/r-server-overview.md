@@ -19,7 +19,7 @@ ML Services on HDInsight provides the latest capabilities for R-based analytics 
 
 The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of ScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Apache Spark compute contexts.
 
-The models or predictions that result from analysis can be downloaded for on-premises use. They can also be operationalized elsewhere in Azure, in particular through [Azure Machine Learning Studio](https://studio.azureml.net) [web service](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
+The models or predictions that result from analysis can be downloaded for on-premises use. They can also be operationalized elsewhere in Azure, in particular through [Azure Machine Learning Studio (classic)](https://studio.azureml.net) [web service](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
 
 ## Get started with ML Services on HDInsight
 

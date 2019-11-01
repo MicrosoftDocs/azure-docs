@@ -50,7 +50,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Use device groups
-            url: howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+            url: tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
           - text: Manage your devices

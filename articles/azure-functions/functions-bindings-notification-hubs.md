@@ -250,8 +250,8 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type** |n/a| Must be set to "notificationHub". |
-|**direction** |n/a| Must be set to "out". | 
+|**type** |n/a| Must be set to `notificationHub`. |
+|**direction** |n/a| Must be set to `out`. | 
 |**name** |n/a| Variable name used in function code for the notification hub message. |
 |**tagExpression** |**TagExpression** | Tag expressions allow you to specify that notifications be delivered to a set of devices that have registered to receive notifications that match the tag expression.  For more information, see [Routing and tag expressions](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Name of the notification hub resource in the Azure portal. |
