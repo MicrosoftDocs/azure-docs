@@ -88,10 +88,16 @@ datastore_paths = [
                   (datastore, 'weather/2019/*.csv')
                  ]
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
+```
 
-# create a TabularDataset from a delimited file behind a public web url
+By default, when creating TabularDataset, column data types are inferred automatically. If the inferred types are not as expected, you can specify column types using the following code. Learn more about supported data types [here](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+
+```Python
+from azureml.data.dataset_factory import DataType
+
+# create a TabularDataset from a delimited file behind a public web url and convert column "Survived" to boolean
 web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
-titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_types={'Survived': DataType.to_bool()})
 
 # preview the first 3 rows of titanic_ds
 titanic_ds.take(3).to_pandas_dataframe()
@@ -99,9 +105,9 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 | |PassengerId|Survived|Pclass|Name|Sex|Age|SibSp|Parch|Ticket|Fare|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|0|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
-1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|1|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
+1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
+2|3|True|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 Use the [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) method on `TabularDatasetFactory` class to read from Azure SQL Database.
 

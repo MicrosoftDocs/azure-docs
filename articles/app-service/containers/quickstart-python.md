@@ -23,7 +23,7 @@ experiment_id: 1e304dc9-5add-4b
 
 In this quickstart, you deploy a Python web app to [App Service on Linux](app-service-linux-intro.md), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
-If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Service from Visual Studio Code](/python/tutorial-deploy-app-service-on-linux-01).
+If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Service from Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
 ## Prerequisites
 
@@ -172,7 +172,7 @@ Once deployment has completed, switch back to the browser window open to `http:/
 ![Run an updated sample Python app in Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
 > [!TIP]
-> Visual Studio Code provides powerful extensions for Python and Azure App Service, which simplify the process of deploying Python web apps to App Service. For more information, see [Deploy Python apps to App Service from Visual Studio Code](/python/tutorial-deploy-app-service-on-linux-01).
+> Visual Studio Code provides powerful extensions for Python and Azure App Service, which simplify the process of deploying Python web apps to App Service. For more information, see [Deploy Python apps to App Service from Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
 ## Stream logs
 

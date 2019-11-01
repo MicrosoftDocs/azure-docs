@@ -1,7 +1,6 @@
 ---
 title: Azure Quickstart - Back up a VM with Resource Manager template
 description: Learn how to back up your virtual machines with Azure Resource Manager template
-
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -54,7 +53,7 @@ To monitor the backup job, see [Monitor the backup job](./quick-backup-vm-powers
 
 If you no longer need to back up the VM, you can clean it up.
 
-- If you want to try out restoring the VM, skip the clean up.
+- If you want to try out restoring the VM, skip the cleanup.
 - If you used an existing VM, you can skip the final [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to leave the resource group and VM in place.
 
 Disable protection, remove the restore points and vault. Then delete the resource group and associated VM resources, as follows:

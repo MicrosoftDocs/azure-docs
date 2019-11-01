@@ -23,7 +23,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    ```powershell
    Connect-AzAccount 
 
-   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
 2. List all locations where ExpressRoute Direct is supported.
   
@@ -160,10 +160,10 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Links[0] is the primary port and Links[1] is the secondary port.
 
    ```powershell
-   $ERDirect.Links[0].AdminState = “Enabled”
+   $ERDirect.Links[0].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-   $ERDirect.Links[1].AdminState = “Enabled”
+   $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
    **Example output:**
@@ -215,7 +215,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Circuits                   : []
    ```
 
-   Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
+   Use the same procedure with `AdminState = "Disabled"` to turn down the ports.
 
 ## <a name="circuit"></a>Create a circuit
 

@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: PatAltimore
   ms.author: patricka
-  ms.date: 09/18/2019
+  ms.date: 11/04/2019
 
 landingContent:
   - title: About Azure Blockchain Service
@@ -28,7 +28,6 @@ landingContent:
             url: data-security.md
           - text: Development tools
             url: develop.md
-
   - title: Get started
     linkLists:
       - linkListType: deploy
@@ -63,12 +62,22 @@ landingContent:
             url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
   - title: Integrate
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Send blockchain data to other Azure services using Blockchain Data Manager
+            url: data-manager.md
       - linkListType: how-to-guide
         links:
-            - text: Integrate blockchain using Azure Logic Apps
-              url: ethereum-logic-app.md
+          - text: Configure Blockchain Data Manager using the Azure portal
+            url: data-manager-portal.md
+          - text: Configure Blockchain Data Manager using Azure CLI
+            url: data-manager-cli.md
+          - text: Integrate blockchain using Azure Logic Apps
+            url: ethereum-logic-app.md
       - linkListType: video
         links:
+          - text: Introduction to Blockchain Data Manager
+            url: https://aka.ms/BTDataManager
           - text: Use Ethereum Blockchain connector with Azure Logic Apps
             url: https://channel9.msdn.com/Shows/Blocktalk/Logic-Apps-Connector-to-Ethereum-Blockchain-Networks?term=logic%20apps%20blockchain&lang-en=true
           - text: Common scenarios connecting blockchain using Azure Logic Apps

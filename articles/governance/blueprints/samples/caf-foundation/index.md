@@ -61,7 +61,7 @@ You've reviewed the overview and architecture of the CAF Foundation blueprint sa
 > [!div class="nextstepaction"]
 >  [CAF Foundation blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

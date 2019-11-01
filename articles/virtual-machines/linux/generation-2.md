@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 10/29/2019
 ms.author: lahugh
 ---
 
@@ -62,6 +62,7 @@ Generation 2 VMs support the following Marketplace images:
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
+* Ubuntu Server 16.04+
 
 ## On-premises vs. Azure generation 2 VMs
 
