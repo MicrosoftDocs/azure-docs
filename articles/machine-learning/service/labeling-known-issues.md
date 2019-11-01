@@ -1,10 +1,11 @@
 ---
-title: #Required; page title displayed in search results. You should include "troubleshooting" in the title and description.
-description: #Required; article description that is displayed in search results.
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; Microsoft alias of author; optional team alias.
-ms.topic: troubleshooting #Required
-ms.date: #Required; mm/dd/yyyy format.
+title: Troubleshooting labeling projects
+title.suffix: Azure Machine Learning
+description: Troubleshooting and known issues for labeling projects
+author: lobrien
+ms.author: laobri
+ms.topic: troubleshooting 
+ms.date: 11/4/2019
 ---
 
 <!---General troubleshooting articles are written when a specific error 
@@ -12,12 +13,10 @@ message isn't known. The customer has encountered an issue that needs to
 be resolved without being clear about what is causing the issue.
 --->
 
-# Troubleshooting <some feature>
-<!---Required:
-Include the word troubleshooting.
---->
+# Troubleshooting labeling projects
 
-Introductory paragraph.
+This article describes known issues and troubleshooting tips for labeling projects. You create and administer in [Azure Machine Learning studio](https://ml.azure.com). Labelers sign on to a labeling portal, which provides access to the project and labeling tools. 
+
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language,
 what the customer should expect to see in the article. The information 
