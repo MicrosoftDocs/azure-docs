@@ -42,7 +42,7 @@ The telemetry data is mapped to a canonical message that is published on Azure E
 **API Development**
 
 The APIs contain swagger technical documentation. Refer swagger for information on all the APIs and their corresponding requests/responses.
-The Swagger is available at http://aka.ms/FarmBeatsDatahubSwagger .
+The Swagger is available at https://aka.ms/FarmBeatsDatahubSwagger .
 Authentication
 FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure App Service provides built-in authentication and authorization support. For more information, see, [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 

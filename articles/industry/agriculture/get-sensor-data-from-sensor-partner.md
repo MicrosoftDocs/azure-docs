@@ -93,7 +93,7 @@ ms.author: v-umha
   Use the following steps to view devices:
 
   1. On the home page, select **Devices** from the menu.
-  Devices page displays the device type, model, its status, the farm it is placed in and the last metadata updated date. By default, the  farm column is set to NULL. You can choose to assign a device to a farm. For more information, see, [Assign devices](#assign-ddevices).
+  Devices page displays the device type, model, its status, the farm it is placed in and the last metadata updated date. By default, the  farm column is set to NULL. You can choose to assign a device to a farm. For more information, see, [Assign devices](#assign-devices).
   2. Select the device to view the device properties, telemetry and child devices connected to the device.  
 
         ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)

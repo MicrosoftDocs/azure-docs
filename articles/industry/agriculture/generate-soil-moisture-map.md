@@ -10,15 +10,17 @@ ms.author: v-umha
 
 # Generate soil moisture map
 
-  This article describes the process of generating a soil moisture heatmap for your farm, through the Azure FarmBeats Accelerator. In this article, you will learn how to:
+Soil moisture is the water that is held in the spaces between soil particles. The Soil Moisture Heatmap helps you understand the soil moisture data at any depth, at high resolution within your farms. To generate an accurate and usable soil moisture heatmap, a uniform deployment of sensors is required, wherein all the sensors are from the same provider. Different providers will have differences in the way soil moisture is measured along with differences in calibration. The Heatmap is generated for a particular depth using the sensors deployed at that depth.
 
-1. [Create Farms](manage-farms.md#create-farms)
-2. [Assign devices to Farms](get-sensor-data-from-sensor-partner.md#assign-devices)
-3. [Generate Soil Moisture Heatmap](generate-maps.md#get-soil-moisture-heatmap)
+ This article describes the process of generating a soil moisture heatmap for your farm, through the Azure FarmBeats Accelerator. In this article, you will learn how to:
+
+1. [Create Farms](#create-a-farms)
+2. [Assign sensors to Farms](#get-soil-moisture-sensor-data-from-partner-into-azure-farmbeats)
+3. [Generate Soil Moisture Heatmap](#generate-soil-moisture-heatmap)
 
 ## Before you begin
 
-  Ensure the following:  
+    Ensure the following:  
 
 1. An azure subscription.
 2. Running instance of Azure FarmBeats.
@@ -40,37 +42,39 @@ For example, if you have purchased Davis sensors, you will log into your weather
 
 To get the required credentials, follow the instructions from [Get sensor data](get-sensor-data-from-sensor-partner.md#get-sensor-data-from-sensor-partners)
 
-Once you enter your credentials and click **Submit** on the partner application, you can have the data flowing into Azure FarmBeats
+Once you enter your credentials and select **Submit** on the partner application, you can have the data flowing into Azure FarmBeats
 
 ### Assign soil moisture sensors to the farm
 
 Once you have linked your sensor account into Azure FarmBeats, you need to assign the soil moisture sensors to the farm of interest.
 
-1.	In the Home page, click on Farms from the menu, the Farms list page is displayed.
-2.	Click **MyFarm** and click **Add Devices**.
+1.	In the home page, select Farms from the menu, the Farms list page is displayed.
+2.	Select **MyFarm** and select **Add Devices**.
 3.	The **Add Devices** window displays. Select the device(s) that are linked to the soil moisture sensors for MyFarm.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
-4. Click **Add Devices**.     
+4. Select **Add Devices**.     
 
 ## Generate soil moisture Heatmap
 
   This step is to create a job or a long running operation that will generate the soil moisture heatmap for MyFarm.
 
   1.	On the home page, go to **Farms** from the left navigation menu to view the farms page.
-  2.	Click **MyFarm**
-  3.	In the **Farm Details** page, click **Generate Precision Map**.
+  2.	Select **MyFarm**
+  3.	In the **Farm Details** page, select **Generate Precision Map**.
   4.	From the drop-down menu, select **Soil Moisture**.
   5.	In the **Soil Moisture** window, select This Week.
   6.	In the **Select Soil Moisture** **Sensor Measure** drop-down, enter the soil   moisture sensor measure(depth) for, which you want to generate the map.
-  To find the sensor measure, go to Sensors, click any soil moisture sensor, under **Sensor Properties** section use the value listed against **Measure Name**.
-![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+  To find the sensor measure, go to Sensors, select any soil moisture sensor, under **Sensor Properties** section use the value listed against **Measure Name**.
+
+  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
-7.	Click **Generate Maps**.
+7.	 **Generate Maps**.
+
   A confirmation message displaying the details about the job created.
-  For more information, refer the section Job Status in Jobs.
+  For more information, see, Job Status in Jobs.
 
     >[!NOTE]
     > The job should get completed in 3-4 hours.
@@ -81,8 +85,8 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 1.	In the Jobs page, check the Job Status for the job that was created in the previous section.
 2.	Once the status changes to *Succeeded*, go to **Maps** from the menu to view the maps page.
 3.	Search the map you want to view by searching with the format *<soil-moisture_MyFarm_YYYY-MM-DD>* where YYYY-MM-DD is the date on which the job was created.
-4.	Click a map in the **Name** column, a pop-up window displays with the preview of the selected map.
-5.	Click **Download** drop-down menu to select the download format.
+4. Select a map in the **Name** column, a pop-up window displays with the preview of the selected map.
+5. Select **Download** drop-down menu to select the download format.
   The map is downloaded and stored to the local folder of your computer.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

@@ -30,6 +30,8 @@ ms.author: v-umha
     4. Client Secret  
 
 
+Use the following steps:
+
 1. Download this [script](https://aka.ms/farmbeatspartnerscript) and extract it in on your local drive. You will find two files inside this ZIP file.  
 2. Sign in to [Azure portal](https://portal.azure.com/) and open Cloud Shell (This option is available on the top-right bar of the portal).   
 
@@ -47,7 +49,9 @@ ms.author: v-umha
 6. Run the script by using the following command:  
   <./generateCredentials.ps1>
 
-    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/power-shell-generate-credentials-1.png)
+  ```
+  PS /home/username> ./generateCredentials.ps1
+  ```
 
 7. Follow the onscreen instructions to capture the above values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String)
 
