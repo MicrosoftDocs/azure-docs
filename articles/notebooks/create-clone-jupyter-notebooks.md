@@ -120,4 +120,4 @@ To clone a project:
 - [How to: Present a slide show](present-jupyter-notebooks-slideshow.md)
 - [How to: Work with data files](work-with-project-data-files.md)
 - [How to: Access data resources](access-data-resources-jupyter-notebooks.md)
-- [How to: Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [How to: Use Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
