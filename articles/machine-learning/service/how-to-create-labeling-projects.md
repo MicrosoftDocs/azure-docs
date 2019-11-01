@@ -1,7 +1,7 @@
 ---
-title: Create a labeling project for machine learning
+title: Creating crowd-sourced data labeling projects
 titleSuffix: Azure Machine Learning
-description: This article shows you how to create and run labeling projects that allow you to crowd-source tagging data for machine learning.
+description: This article shows you how to create and run labeling projects to crowd-source tagging data for machine learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
@@ -12,9 +12,11 @@ ms.date: 11/04/2019
 
 # Create a labeling project for machine learning
 
-Azure Machine Learning studio gives you a central location to create, manage, and monitor labeling projects.  Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. Labeling projects coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling task.
+Azure Machine Learning studio gives you a central location to create, manage, and monitor labeling projects.  Labeling projects coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling task.
 
-A labeling project allows you to create, administer, and monitor a labeling task. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes. Azure tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't require an Azure account to participate. Once authenticated with their Microsoft Account (MSA) or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much or as little labeling as their time allows. They can assign and change labels using keyboard shortcuts. 
+A labeling project allows you to create, administer, and monitor a labeling task. Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes. 
+
+Azure tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't require an Azure account to participate. Once authenticated with their Microsoft Account (MSA) or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much or as little labeling as their time allows. They can assign and change labels using keyboard shortcuts. 
 
 You can start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in either COCO format or as an Azure ML dataset. 
 
