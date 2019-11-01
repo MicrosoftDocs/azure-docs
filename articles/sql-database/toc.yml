@@ -21,29 +21,34 @@
       items: 
       - name: Overview 
         href: sql-database-purchase-models.md
-      - name: vCore-based model
-        href: sql-database-service-tiers-vcore.md
+      - name: vCore model
         items:
-        - name: Serverless compute tier
+        - name: vCore model overview
+          href: sql-database-service-tiers-vcore.md
+        - name: Serverless
           href: sql-database-serverless.md
-        - name: Prepay for reserved capacity
+        - name: Azure Hybrid Benefit
+          href: sql-database-azure-hybrid-benefit.md
+        - name: Reserved capacity
           href: sql-database-reserved-capacity.md
-      - name: DTU service tiers
+      - name: DTU model overview
         href: sql-database-service-tiers-dtu.md
+      - name: Migrate from DTU to vCore
+        href: sql-database-dtu-to-vcore.md
     - name: Compute & storage
       items:
       - name: Overview
         href: sql-database-service-tiers-general-purpose-business-critical.md
         displayName: provisioned compute tier  
-      - name: General purpose / Standard service tiers
+      - name: General purpose / Standard
         href: sql-database-service-tier-general-purpose.md
-      - name: Business critical / Premium service tiers
+      - name: Business critical / Premium
         href: sql-database-service-tier-business-critical.md
-      - name: Hyperscale service tier
+      - name: Hyperscale
         href: sql-database-service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: sql-database-service-tier-hyperscale-faq.md
-      - name: Migrate from Premium RS service tier
+      - name: Migrate from Premium RS
         href: sql-database-service-tiers-prs.md
 
 - name: Quickstarts
@@ -529,18 +534,18 @@
 
       - name: Single database resources
         items:    
-        - name: vCore-based resource limits
+        - name: vCore resource limits
           href: sql-database-vcore-resource-limits-single-databases.md  
-        - name: DTU-based resource limits
+        - name: DTU resource limits
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: Scale resources
           href: sql-database-single-database-scale.md
 
       - name: Elastic pool resources
         items:
-        - name: vCore-based resource limits
+        - name: vCore resource limits
           href: sql-database-vcore-resource-limits-elastic-pools.md  
-        - name: DTU-based resource limits
+        - name: DTU resource limits
           href: sql-database-dtu-resource-limits-elastic-pools.md  
         - name: Scale resources
           href: sql-database-elastic-pool-scale.md

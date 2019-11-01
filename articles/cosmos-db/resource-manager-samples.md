@@ -4,7 +4,7 @@ description: Use Azure Resource Manager templates to create and configure Azure 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 10/28/2019
 ms.author: mjbrown
 ---
 
@@ -15,8 +15,9 @@ The following tables include links to Azure Resource Manager templates for Azure
 ## SQL (Core) API
 
 |**Template**|**Description**|
-|---| ---|
+|---|---|
 |[Create an Azure Cosmos account, database, container](manage-sql-with-resource-manager.md#create-resource) | This template creates a SQL (Core) API account in two regions with multi-master enabled. The Azure Cosmos account will have two containers that share database-level throughput. |
+|[Create an Azure Cosmos account, database and container with a stored procedure, trigger and UDF](manage-sql-with-resource-manager.md#create-sproc) | This template creates a SQL (Core) API account in two regions with a stored procedure, trigger and UDF for a container. |
 |[Update throughput (RU/s) for a database](manage-sql-with-resource-manager.md#database-ru-update) | This template updates the throughput for a database in a SQL (Core) API account. |
 |[Update throughput (RU/s) for a container](manage-sql-with-resource-manager.md#container-ru-update) | This template updates the throughput for a container in a SQL (Core) API account. |
 
