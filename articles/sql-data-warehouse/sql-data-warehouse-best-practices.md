@@ -1,6 +1,6 @@
 ---
-title: Best practices for SQL Analytics | Microsoft Docs
-description: Recommendations and best practices you should know as you develop solutions for your Synapse SQL pool (data warehouse). 
+title: Best practices for SQL Analytics in Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+description: Recommendations and best practices for developing solutions for SQL Analytics in Azure Synapse Analytics (formerly SQL DW). 
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -12,18 +12,17 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Best practices for SQL Analytics
+# Best practices for SQL Analytics in Azure Synapse Analytics (formerly SQL DW)
 
-This article is a collection of best practices to help you to achieve optimal performance from your [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pools) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth. The sequence of topics is in the order of importance. 
+This article is a collection of best practices to help you to achieve optimal performance from your [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pools-in-azure-synapse) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth. The sequence of topics is in the order of importance. 
 
 ## Reduce cost with pause and scale
 
 For more information about reducing costs through pausing and scaling, see the [Manage compute](sql-data-warehouse-manage-compute-overview.md). 
 
-
 ## Maintain statistics
 
-Unlike SQL Server, which automatically detects and creates or updates statistics on columns, SQL Analytics requires manual maintenance of statistics.  While we do plan to change this in the future, for now you will want to maintain your statistics to ensure that the warehouse plans are optimized.  The plans created by the optimizer are only as good as the available statistics.  **Creating sampled statistics on every column is an easy way to get started with statistics.**  
+Unlike SQL Server, which automatically detects and creates or updates statistics on columns, SQL Analytics requires manual maintenance of statistics.  For now you will want to maintain your statistics to ensure that the warehouse plans are optimized.  The plans created by the optimizer are only as good as the available statistics.  **Creating sampled statistics on every column is an easy way to get started with statistics.**  
 
 It's equally important to update statistics as significant changes happen to your data.  A conservative approach may be to update your statistics daily or after each load.  There are always trade-offs between performance and the cost to create and update statistics. 
 
@@ -44,7 +43,7 @@ See also [INSERT][INSERT]
  
   Azure Data Factory also supports PolyBase loads and can achieve similar performance as CTAS.  PolyBase supports a variety of file formats including Gzip files.  **To maximize throughput when using gzip text files, break up files into 60 or more files to maximize parallelism of your load.**  For faster total throughput, consider loading data concurrently.
 
-See also [Load data][Load data], [Guide for using PolyBase][Guide for using PolyBase], [Synapse SQL pool loading patterns and strategies][Azure SQL Data Warehouse loading patterns and strategies], [Load Data with Azure Data Factory][Load Data with Azure Data Factory], [Move data with Azure Data Factory][Move data with Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [Create table as select (CTAS)][Create table as select (CTAS)]
+See also [Load data][Load data], [Guide for using PolyBase][Guide for using PolyBase], [SQL pool loading patterns and strategies][Azure SQL Data Warehouse loading patterns and strategies], [Load Data with Azure Data Factory][Load Data with Azure Data Factory], [Move data with Azure Data Factory][Move data with Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [Create table as select (CTAS)][Create table as select (CTAS)]
 
 ## Load then query external tables
 While Polybase, also known as external tables, can be the fastest way to load data, it is not optimal for queries. Polybase tables currently only support Azure blob files and Azure Data Lake storage. These files do not have any compute resources backing them.  
@@ -134,11 +133,11 @@ See also [Monitor your workload using DMVs][Monitor your workload using DMVs], [
 ## Other resources
 Also see our [Troubleshooting][Troubleshooting] article for common issues and solutions.
 
-If you didn't find what you are looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure Synapse Analytics documents.  The [Azure Synapse Analytics Forum][Azure SQL Data Warehouse MSDN Forum] is a place for you to ask questions to other users and to the Synapse Analytics Product Group. 
+If you didn't find what you are looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure Synapse documents.  The [Azure Synapse Forum][Azure SQL Data Warehouse MSDN Forum] is a place for you to ask questions to other users and to the Azure Synapse Product Group. 
 
-We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum][Azure SQL Data Warehouse Stack Overflow Forum].
+We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Stack Overflow Forum][Azure SQL Data Warehouse Stack Overflow Forum].
 
-Finally, please do use the [Azure Synapse Analytics Feedback][Azure SQL Data Warehouse Feedback] page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.
+Finally, please do use the [Azure Synapse Feedback][Azure SQL Data Warehouse Feedback] page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.
 
 <!--Image references-->
 
