@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 11/01/2019
 ---
 
 # Use Azure storage with Azure HDInsight clusters
@@ -89,38 +89,99 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 > [!NOTE]  
 > Most HDFS commands (for example, `ls`, `copyFromLocal` and `mkdir`) still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as `fschk` and `dfsadmin`, show different behavior in Azure storage.
 
-## Address files in Azure storage
+## Access files from the cluster
 
-The URI scheme for accessing files in Azure storage from HDInsight is:
+There are several ways you can access the files in Data Lake Storage from an HDInsight cluster. The URI scheme provides unencrypted access (with the *wasb:* prefix) and SSL encrypted access (with *wasbs*). We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same region in Azure.
 
-```config
-wasbs://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
-```
+* **Using the fully qualified name**. With this approach, you provide the full path to the file that you want to access.
 
-The URI scheme provides unencrypted access (with the *wasb:* prefix) and SSL encrypted access (with *wasbs*). We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same region in Azure.
+    ```
+    wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
+    wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
+    ```
 
-The `<BlobStorageContainerName>` identifies the name of the blob container in Azure storage.
-The `<StorageAccountName>` identifies the Azure Storage account name. A fully qualified domain name (FQDN) is required.
+* **Using the shortened path format**. With this approach, you replace the path up to the cluster root with:
 
-If neither `<BlobStorageContainerName>` nor `<StorageAccountName>` has been specified, the default file system is used. For the files on the default file system, you can use a relative path or an absolute path. For example, the *hadoop-mapreduce-examples.jar* file that comes with HDInsight clusters can be referred to by using one of the following:
+    ```
+    wasb:///<file.path>/
+    wasbs:///<file.path>/
+    ```
 
-```config
-wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-wasbs:///example/jars/hadoop-mapreduce-examples.jar
-/example/jars/hadoop-mapreduce-examples.jar
-```
+* **Using the relative path**. With this approach, you only provide the relative path to the file that you want to access.
 
-> [!NOTE]  
-> The file name is `hadoop-examples.jar` in HDInsight versions 2.1 and 1.6 clusters.
+    ```
+    /<file.path>/
+    ```
 
-The path is the file or directory HDFS path name. Because containers in Azure storage are key-value stores, there is no true hierarchical file system. A slash character ( / ) inside a blob key is interpreted as a directory separator. For example, the blob name for *hadoop-mapreduce-examples.jar* is:
+### Data access examples
 
-```bash
-example/jars/hadoop-mapreduce-examples.jar
-```
+Examples are based on an [ssh connection](./hdinsight-hadoop-linux-use-ssh-unix.md) to the head node of the cluster. The examples use all three URIs scheme. Replace `CONTAINERNAME` and `STORAGEACCOUNT` with the relevant values
+
+#### A few hdfs commands
+
+1. Create a simple file on local storage.
+
+    ```bash
+    touch testFile.txt
+    ```
+
+1. Create directories on cluster storage.
+
+    ```bash
+    hdfs dfs -mkdir wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/sampledata1/
+    hdfs dfs -mkdir wasbs:///sampledata2/
+    hdfs dfs -mkdir /sampledata3/
+    ```
+
+1. Copy data from local storage to cluster storage.
+
+    ```bash
+    hdfs dfs -copyFromLocal testFile.txt  wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/sampledata1/
+    hdfs dfs -copyFromLocal testFile.txt  wasbs:///sampledata2/
+    hdfs dfs -copyFromLocal testFile.txt  /sampledata3/
+    ```
+
+1. List directory contents on cluster storage.
+
+    ```bash
+    hdfs dfs -ls wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/sampledata1/
+    hdfs dfs -ls wasbs:///sampledata2/
+    hdfs dfs -ls /sampledata3/
+    ```
 
 > [!NOTE]  
 > When working with blobs outside of HDInsight, most utilities do not recognize the WASB format and instead expect a basic path format, such as `example/jars/hadoop-mapreduce-examples.jar`.
+
+#### Creating a Hive table
+
+Three file locations are shown for illustrative purposes. For actual execution, use only one of the `LOCATION` entries.
+
+```hql
+DROP TABLE myTable;
+CREATE EXTERNAL TABLE myTable (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+STORED AS TEXTFILE
+LOCATION 'wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/example/data/';
+LOCATION 'wasbs:///example/data/';
+LOCATION '/example/data/';
+```
+
+## Identify storage path from Abmari
+
+* To identify the complete path to the configured default store, navigate to:
+
+    **HDFS** > **Configs** and enter `fs.defaultFS` in the filter input box.
+
+* To check if wasb store is configured as secondary storage, navigate to:
+
+    **HDFS** > **Configs** and enter `blob.core.windows.net` in the filter input box.
 
 ## Blob containers
 
@@ -160,6 +221,6 @@ For more information, see:
 * [Get started with Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Upload data to HDInsight](hdinsight-upload-data.md)
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
 * [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Tutorial: Extract, transform, and load data using Interactive Query in Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
