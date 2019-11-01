@@ -64,39 +64,6 @@ Open `quickstart.go` in your favorite IDE or text editor. Then add the package n
 
 [!code-go[Import statements](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=imports)]
 
-<!--
-Add the following functions to your project as most of the parameters and properties for this quickstart expect string and bool pointers.
-
-```golang
-// returns a pointer to the string value passed in.
-func StringPointer(v string) *string {
-    return &v
-}
-
-// returns a pointer to the bool value passed in.
-func BoolPointer(v bool) *bool {
-    return &v
-}
-```
-
-In your application's `main` function, create variables for your resource's Azure endpoint and subscription key. Obtain these values from the environment variables TEXT_ANALYTICS_SUBSCRIPTION_KEY and TEXT_ANALYTICS_ENDPOINT. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
-
-[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
-
-```golang
-var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if "" == os.Getenv(subscriptionKeyVar) {
-    log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-}
-var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-if "" == os.Getenv(endpointVar) {
-    log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-}
-var endpoint string = os.Getenv(endpointVar)
-```
--->
-
 ## Object model 
 
 The Text Analytics client is a [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch. 

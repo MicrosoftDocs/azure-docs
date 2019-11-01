@@ -162,7 +162,10 @@ Run your code with `node index.js` in your console window.
 
 ```console
 [
-    { id: '1', keyPhrases: [ 'cat', 'veterinarian' ] }
+    { id: '1', keyPhrases: [ '幸せ' ] }
+    { id: '2', keyPhrases: [ 'Stuttgart', "hotel", "Fahrt", "Fu" ] }
+    { id: '3', keyPhrases: [ 'cat', 'veterinarian' ] }
+    { id: '3', keyPhrases: [ 'fútbol' ] }
 ]
 ```
 
