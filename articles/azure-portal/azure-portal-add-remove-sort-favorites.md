@@ -18,7 +18,7 @@ Add or remove items from your **Favorites** list so that you can quickly go to t
 
 ## Add a favorite
 
-Items that are listed under **Favorites** are selected from **All services**. Hover over a service name to display information and resources related to the service. A filled star icon ![Filled star icon](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) next to the service name indicates that the item appears on the **Favorites** list. Select the star icon to add or remove a service from the **Favorites** list.
+Items that are listed under **Favorites** are selected from **All services**. Hover over a service name to display information and resources related to the service. A filled star icon ![Filled star icon](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) next to the service name indicates that the item appears on the **Favorites** list. Select the star icon to add a service to the **Favorites** list.
 
 ### Add Cost Management + Billing to Favorites
 
