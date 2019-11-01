@@ -56,7 +56,7 @@ The Azure CDN Standard Rules Engine allows you to customize how HTTP requests ar
 6. Select **Save** to save the new rule.  The new rule will now be deployed.
    
    > [!IMPORTANT]
-   > Rules changes can take up to 10 minutes to propagate through Azure CDN.
+   > Rules changes can take up to 15 minutes to propagate through Azure CDN.
    >
    
 

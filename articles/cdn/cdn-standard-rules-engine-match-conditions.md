@@ -30,6 +30,7 @@ For example, you can use a match condition to:
 The Device type match condition identifies requests made from a mobile or desktop device based on its properties.  
 
 **Required fields**
+
 Operator | Supported Value
 ---------|----------------
 Equals, Not equals | Mobile, Desktop
@@ -40,6 +41,7 @@ Equals, Not equals | Mobile, Desktop
 The HTTP Version match condition identifies requests based on the HTTP version the request arrives with.
 
 **Required fields**
+
 Operator | Supported Value
 ---------|----------------
 Equals, Not equals | 2.0, 1.1, 1.0, 0.9, All
@@ -50,6 +52,7 @@ Equals, Not equals | 2.0, 1.1, 1.0, 0.9, All
 The Request cookies match condition identifies requests based on cookie information in the incoming request.
 
 **Required fields**
+
 Cookie Name | Operator | Cookie Value | Case Transform
 ------------|----------|--------------|---------------
 String | [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
@@ -65,6 +68,7 @@ Key information
 ### Post Argument
 
 **Required fields**
+
 Argument Name | Operator | Argument Value | Case Transform
 --------------|----------|----------------|---------------
 String | [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
@@ -74,6 +78,7 @@ String | [Standard operator list](###standard-operator-list) | String, Int | No 
 The Query String match conditions identifies requests containing a specified query string parameter. This parameter is set to a value that matches a specified pattern. Query string parameters (for example, parameter=value) in the request URL determine whether this condition is met. This match condition identifies a query string parameter by its name and accepts one or more values for the parameter value.
 
 **Required fields**
+
 Operator | Query String | Case Transform
 ---------|--------------|---------------
 [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
@@ -83,6 +88,7 @@ Operator | Query String | Case Transform
 The Remote address match condition identify requests based on the requester's location or IP address.
 
 **Required fields**
+
 Operator | Supported Values
 ---------|-----------------
 Any | N/A
@@ -105,6 +111,7 @@ Key information:
 ### Request Body
 
 **Required fields**
+
 Operator | Request Body | Case Transform
 ---------|--------------|---------------
 [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
@@ -119,6 +126,7 @@ String | [Standard operator list](###standard-operator-list) | String, Int | No 
 ### Request Method
 
 **Required fields**
+
 Operator | Supported Value
 ---------|----------------
 Equals, Not equals | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
@@ -130,6 +138,7 @@ Key information:
 ### Request Protocol
 
 **Required fields**
+
 Operator | Supported Value
 ---------|----------------
 Equals, Not equals | HTTP, HTTPS
@@ -137,6 +146,7 @@ Equals, Not equals | HTTP, HTTPS
 ### Request URL
 
 **Required fields**
+
 Operator | Request URL | Case Transform
 ---------|-------------|---------------
 [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
@@ -148,6 +158,7 @@ Key information:
 ### URL File Extension
 
 **Required fields**
+
 Operator | Extension | Case Transform
 ---------|-----------|---------------
 [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
@@ -159,6 +170,7 @@ Key information:
 ### URL File Name
 
 **Required fields**
+
 Operator | File name | Case Transform
 ---------|-----------|---------------
 [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
@@ -170,6 +182,7 @@ Key information:
 ### URL Path
 
 **Required fields**
+
 Operator | Value | Case Transform
 ---------|-------|---------------
 [Standard operator list](###standard-operator-list) | String, Int | No transform, to uppercase, to lowercase

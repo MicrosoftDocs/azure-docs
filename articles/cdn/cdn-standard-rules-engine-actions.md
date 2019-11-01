@@ -24,13 +24,15 @@ The second part of a rule is an action. An action defines the behavior that is a
 This action allows you to overwrite the TTL of the endpoint for requests specified by the rules match conditions.
 
 **Required fields**
-Cache Behavior | 
+
+Cache Behavior |                
 ---------------|----------------
 Bypass Cache | When this option is selected and the rule matches, the content will not be cached.
 Override | When this option is selected and the rule matches, the TTL value returned from origin will be overwritten with the value specified in the action.
 Set if missing | When this option is selected and the rule matches, if there was no TTL value returned from origin, the rule will set the TTL to the value specified in the action.
 
 **Additonal fields**
+
 Days | Hours | Minutes | Seconds
 -----|-------|---------|--------
 Int | Int | Int | Int 
@@ -40,6 +42,7 @@ Int | Int | Int | Int
 This action allows you to modify the cache key based on query strings.
 
 **Required fields**
+
 Behavior | Description
 ---------|------------
 Include | When this option is selected and the rule matches, query strings specified in the parameters will be included when generating the cache key. 
@@ -52,6 +55,7 @@ Ignore query strings | When this option is selected and the rule matches, query 
 This action allows you to modify headers present in requests sent to your origin.
 
 **Required fields**
+
 Action | HTTP Header Name | Value
 -------|------------------|------
 Append | When this option is selected and the rule matches, the header specified in Header name will be added to the request with the specified Value. If the header is already present, the Value will be appended to the existing value. | String
@@ -63,6 +67,7 @@ Delete | When this option is selected and the rule matches, and the header speci
 This action allows you to modify headers present in responses returned to your end clients
 
 **Required fields**
+
 Action | HTTP Header Name | Value
 -------|------------------|------
 Append | When this option is selected and the rule matches, the header specified in Header name will be added to the response with the specified Value. If the header is already present, the Value will be appended to the existing value. | String
@@ -74,6 +79,7 @@ Delete | When this option is selected and the rule matches, and the header speci
 This action allows you to redirect end clients to a new URL. 
 
 **Required fields**
+
 Field | Description 
 ------|------------
 Type | Select the response type that will be returned to the requestor. Options are - 302 Found, 301 Moved, 307 Temporary redirect, and 308 Permanent redirect
@@ -90,6 +96,7 @@ It is highly recommended to use an absolute URL. The use of a relative URL may r
 This action allows you to rewrite the path of a request en route to your origin.
 
 **Required fields**
+
 Field | Description 
 ------|------------
 Source Pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use “/” as the source pattern value.
