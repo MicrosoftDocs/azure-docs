@@ -21,7 +21,7 @@ You no longer need to manually manage the provisioned throughput or handle rate-
 
 When configuring containers and databases in autopilot mode, you need to specify the maximum throughput `Tmax`  not to be exceeded. Containers can then scale instantly based on the workload needs within the `0.1*Tmax < T < Tmax` range. In other words, containers and databases scale instantly based on the workload needs, from as low as 10% of the configured throughput value, up to the specified maximum configured value. You can change the maximum throughput (Tmax) setting on autopilot database or container at any point in time.
 
-For the specified maximum throughput on the container or the database, the system allows operating within the calculated storage limit. If the storage limit is exceeded, then the maximum throughput is automatically adjusted to a higher value. When using database level throughput with autopilot mode, the number of containers allowed within a database is calculated as: (0.1 * Max throughput ) / 100. For example, if you provision 20,000 autopilot RU/s, then the database can have 20 containers.
+During the preview of autopilot, for the specified maximum throughput on the container or the database, the system allows operating within the calculated storage limit. If the storage limit is exceeded, then the maximum throughput is automatically adjusted to a higher value. When using database level throughput with autopilot mode, the number of containers allowed within a database is calculated as: (0.001 * Max throughput ). For example, if you provision 20,000 autopilot RU/s, then the database can have 20 containers.
 
 ## Benefits of autopilot mode
 
