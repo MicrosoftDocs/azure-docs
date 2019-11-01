@@ -8,9 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: tamram
 ---
+
 # Understand how the reservation discount is applied to Azure Storage
 
 After you purchase Azure Storage reserved capacity, the reservation discount is automatically applied to block blob and Azure Data Lake Storage Gen2 resources that match the terms of the reservation. The reservation discount applies to storage capacity only. Bandwidth and request rate are charged at pay-as-you-go rates.
+
+For information about Azure Storage reservation pricing, see [Block blob pricing](/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](/pricing/details/storage/data-lake/).
 
 ## How the reservation discount is applied
 
@@ -32,11 +35,11 @@ For these examples, assume that you have signed up for a monthly reservation pay
 
 ### Underusing your capacity
 
-Suppose that in a given month within the reservation period, you used only 80 TiB of your 100 TiB reserved capacity. In this scenario, you are billed the full monthly payment of $1,545 for your reservation, even though you did not use it all in that month.
+Suppose that in a given hour within the reservation period, you used only 80 TiB of your 100 TiB reserved capacity. The remaining 20 TiB is not applied for that hour and does not carry over.
 
 ### Overusing your capacity
 
-Suppose that in a given month within the reservation period, you used 101 TiB of storage capacity. Your bill for the month will include $1,545 for the 100 TiB of reserved capacity and $18.80 for an additional 1 TiB at pay-as-you-go prices. Your total bill for that month is $1563.80.
+Suppose that in a given hour within the reservation period, you used 101 TiB of storage capacity. The reservation discount applies to 100 TiB of your data, and the remaining 1 TiB is charged at pay-as-you-go rates for that hour. If in the next hour your usage changes to 100 TiB, then all usage is covered by the reservation.
 
 ## Need help? Contact us
 
