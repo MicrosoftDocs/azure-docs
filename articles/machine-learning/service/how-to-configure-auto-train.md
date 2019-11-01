@@ -2,18 +2,19 @@
 title: Create automated ML experiments
 titleSuffix: Azure Machine Learning
 description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
 ---
 
 # Configure automated ML experiments in Python
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this guide, learn how to define various configuration settings of your automated machine learning experiments with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments.
 
@@ -29,7 +30,7 @@ Configuration options available in automated machine learning:
 * Explore model metrics
 * Register and deploy model
 
-If you prefer a no code experience, you can also [Create your automated machine learning experiments in Azure portal](how-to-create-portal-experiments.md).
+If you prefer a no code experience, you can also [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-create-portal-experiments.md).
 
 ## Select your experiment type
 
@@ -67,7 +68,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**.  [Learn more about datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**.  [Learn more about datasets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
 
 Requirements for training data:
 - Data must be in tabular form.
@@ -140,26 +141,24 @@ There are several options that you can use to configure your automated machine l
 
 Some examples include:
 
-1.	Classification experiment using AUC weighted as the primary metric with a max time of 12,000 seconds per iteration, with the experiment to end after 50 iterations and 2 cross-validation folds.
+1.	Classification experiment using AUC weighted as the primary metric with experiment timeout minutes set to 30 minutes and 2 cross-validation folds.
 
     ```python
     automl_classifier=AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        max_time_sec=12000,
-        iterations=50,
+        experiment_timeout_minutes=30,
         blacklist_models='XGBoostClassifier',
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.	Below is an example of a regression experiment set to end after 100 iterations, with each iteration lasting up to 600 seconds with 5 validation cross folds.
+2.	Below is an example of a regression experiment set to end after 60 minutes with 5 validation cross folds.
 
     ```python
     automl_regressor = AutoMLConfig(
         task='regression',
-        max_time_sec=600,
-        iterations=100,
+        experiment_timeout_minutes=60,
         whitelist_models='kNN regressor'
         primary_metric='r2_score',
         training_data=train_data,
@@ -167,7 +166,7 @@ Some examples include:
         n_cross_validations=5)
     ```
 
-The three different `task` parameter values (the third task-type is `forecasting`, and uses the same algorithm pool as `regression` tasks) determine the list of models to apply. Use the `whitelist` or `blacklist` parameters to further modify iterations with the available models to include or exclude. The list of supported models can be found on [SupportedModels Class](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
+The three different `task` parameter values (the third task-type is `forecasting`, and uses the same algorithm pool as `regression` tasks) determine the list of models to apply. Use the `whitelist` or `blacklist` parameters to further modify iterations with the available models to include or exclude. The list of supported models can be found on [SupportedModels Class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### Primary Metric
 The primary metric determines the metric to be used during model training for optimization. The available metrics you can select is determined by the task type you choose, and the following table shows valid primary metrics for each task type.
@@ -223,7 +222,7 @@ time_series_settings = {
 automl_config = AutoMLConfig(task = 'forecasting',
                              debug_log='automl_oj_sales_errors.log',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=20,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -260,7 +259,7 @@ ensemble_settings = {
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=5,
@@ -274,7 +273,7 @@ Ensemble training is enabled by default, but it can be disabled by using the `en
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=data_train,
         label_column_name=label,
         n_cross_validations=5,
@@ -312,7 +311,6 @@ run = experiment.submit(automl_config, show_output=True)
 ### Exit Criteria
 There are a few options you can define to end your experiment.
 1. No Criteria: If you do not define any exit parameters the experiment will continue until no further progress is made on your primary metric.
-1. Number of iterations: You define the number of iterations for the experiment to run. You can optionally add `iteration_timeout_minutes` to define a time limit in minutes per each iteration.
 1. Exit after a length of time: Using `experiment_timeout_minutes` in your settings allows you to define how long in minutes should an experiment continue in run.
 1. Exit after a score has been reached: Using `experiment_exit_score` will complete the experiment after a primary metric score has been reached.
 
@@ -336,7 +334,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### Automated feature engineering
 
-See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when preprocess=True.
+See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when feauturization =auto.
 
 Consider this example:
 + There are 4 input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
@@ -405,6 +403,32 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
    |Dropped|Indicates if the input feature was dropped or used.|
    |EngineeringFeatureCount|Number of features generated through automated feature engineering transforms.|
    |Transformations|List of transformations applied to input features to generate engineered features.|
+   
+### Customize feature engineering
+To customize feature engineering, specify `"feauturization":FeaturizationConfig`.
+
+Supported customization includes:
+
+|Customization|Definition|
+|--|--|
+|Column purpose update|Override feature type for the specified column.|
+|Transformer parameter update |Update parameters for the specified transformer. Currently supports Imputer and HashOneHotEncoder.|
+|Drop columns |Columns to drop from being featurized.|
+|Block transformers| Block transformers to be used on featurization process.|
+
+Create the FeaturizationConfig object using API calls:
+```python
+featurization_config = FeaturizationConfig()
+featurization_config.blocked_transformers = ['LabelEncoder']
+featurization_config.drop_columns = ['aspiration', 'stroke']
+featurization_config.add_column_purpose('engine-size', 'Numeric')
+featurization_config.add_column_purpose('body-style', 'CategoricalHash')
+#default strategy mean, add transformer param for for 3 columns
+featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
+featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
 
 ### Scaling/Normalization and algorithm with hyperparameter values:
 
@@ -465,78 +489,13 @@ LogisticRegression
 
 <a name="explain"></a>
 
-## Explain the model (interpretability)
+## Model interpretability
 
-Automated machine learning allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You must provide a validation dataset (validation_data) to get feature importance.
+Model interpretability allows you to understand why your models made predictions, and the underlying feature importance values. The SDK includes various packages for enabling model interpretability features, both at training and inference time, for local and deployed models.
 
-There are two ways to generate feature importance.
+See the [how-to](how-to-machine-learning-interpretability-automl.md) for code samples on how to enable interpretability features specifically within automated machine learning experiments.
 
-*	Once an experiment is complete, you can use `explain_model` method on any iteration.
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        explain_model(fitted_model, train_data, test_data)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-*	To view feature importance for all iterations, set `model_explainability` flag to `True` in AutoMLConfig.
-
-    ```python
-    automl_config = AutoMLConfig(task='classification',
-                                 debug_log='automl_errors.log',
-                                 primary_metric='AUC_weighted',
-                                 max_time_sec=12000,
-                                 iterations=10,
-                                 verbosity=logging.INFO,
-                                 training_data=train_data,
-                                 label_column_name=y_train,
-                                 validation_data=test_data,
-                                 model_explainability=True,
-                                 path=project_folder)
-    ```
-
-    Once done, you can use retrieve_model_explanation method to retrieve feature importance for a specific iteration.
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        retrieve_model_explanation(best_run)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-Display the URL to view feature importance using the run object:
-
-```
-automl_run.get_portal_url()
-```
-
-You can visualize the feature importance chart in your workspace in the Azure portal or from your [workspace landing page (preview)](https://ml.azure.com). The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
-
-```Python
-from azureml.widgets import RunDetails
-RunDetails(automl_run).show()
-```
-
-![feature importance graph](./media/how-to-configure-auto-train/feature-importance.png)
-
-For more information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](machine-learning-interpretability-explainability.md) article on interpretability.
+For general information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](how-to-machine-learning-interpretability.md) article on interpretability.
 
 ## Next steps
 
