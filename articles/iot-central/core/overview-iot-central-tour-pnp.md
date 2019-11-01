@@ -133,7 +133,7 @@ To learn more, see the [Monitor your devices](tutorial-monitor-devices.md?toc=/a
 > [!div class="mx-imgBorder"]
 > ![Device groups page](media/overview-iot-central-tour-pnp/device-groups-pnp.png)
 
-Device group are a collection of related devices. A *solution builder* defines a query to identify the devices that are included in a device group. You use device groups to perform bulk operations in your application. To learn more, see the [Use device groups in your Azure IoT Central application](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
+Device group are a collection of related devices. A *solution builder* defines a query to identify the devices that are included in a device group. You use device groups to perform bulk operations in your application. To learn more, see the [Use device groups in your Azure IoT Central application](tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 ### Rules
 > [!div class="mx-imgBorder"]
@@ -146,7 +146,7 @@ The rules page lets you define rules based on devices' telemetry, state, or even
 > [!div class="mx-imgBorder"]
 > ![Analytics page](media/overview-iot-central-tour-pnp/analytics-pnp.png)
 
-The analytics lets you create custom views on top of device data to derive insights from your application. To learn more, see the [Create custom analytics for your Azure IoT Central application](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
+The analytics lets you create custom views on top of device data to derive insights from your application. To learn more, see the [Create analytics for your Azure IoT Central application](howto-create-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 ### Jobs
 

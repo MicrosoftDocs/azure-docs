@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,6 +32,7 @@ More information about emergency access accounts and why they are important can 
 
 * [Require MFA for administrators](howto-conditional-access-policy-admin-mfa.md)
 * [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)
+* [Require MFA for all users](howto-conditional-access-policy-all-users-mfa.md)
 * [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
 * [Risk-based Conditional Access (Requires Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Require trusted location for MFA registration](howto-conditional-access-policy-registration.md)

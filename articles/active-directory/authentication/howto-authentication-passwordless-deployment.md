@@ -101,18 +101,27 @@ Security keys enable access to your resources, and you should plan the managemen
 
 Enabling Windows 10 sign in using FIDO2 security keys requires enabling the credential provider functionality in Windows 10. Enable it in one of two ways:
 
-- [Enable credential provider via targeted Intune deployment](howto-authentication-passwordless-security-key.md#enable-targeted-intune-deployment)
-   - Intune deployment is the recommended option for Azure Active Directory joined machines.
-- [Enable credential provider via provisioning package](howto-authentication-passwordless-security-key.md#enable-credential-provider-via-provisioning-package)
+- [Enable credential provider with Intune](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
+   - Intune deployment is the recommended option.
+- [Enable credential provider with a provisioning package](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - If Intune deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
       - Group Policy or System Center Configuration Manager (SCCM)
       - Local installation on a Windows 10 machine
+- [Enable credential provider with Group Policy](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
+   - Only supported for hybrid Azure AD joined devices.
+
+#### Enable on-premises integration
+
+Follow the steps in the article [Enable passwordless security key sign in to on-premises resources (preview)](howto-authentication-passwordless-security-key-on-premises.md) to enable access to on-premises resources.
+
+> [!IMPORTANT]
+> These steps must also be completed for any hybrid Azure AD joined devices to utilize FIDO2 security keys for Windows 10 sign in.
 
 ### Register security keys
 
 Users must register their security key on each of their Azure Active Directory Joined Windows 10 machines.
 
-For more information, see [User registration and management of FIDO2 security keys](howto-authentication-passwordless-security-key.md).
+For more information, see [User registration and management of FIDO2 security keys](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys).
 
 ### Licensing for passwordless authentication
 
@@ -255,7 +264,7 @@ Follow the steps in the article, [Enable passwordless sign-in with the Microsoft
 ### Deploy FIDO2 security key sign in
 
 Follow the steps in the article, [Enable passwordless security key sign in for Azure AD](howto-authentication-passwordless-security-key.md) to enable FIDO2 security keys as passwordless authentication methods in your organization.
- 
+
 ### Troubleshoot phone sign in
 
 | Scenario | Solution |
