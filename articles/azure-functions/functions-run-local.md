@@ -151,8 +151,8 @@ In version 2.x, when you run the command you must choose a runtime for your proj
 Select a worker runtime:
 dotnet
 node
-python (preview)
-powershell (preview)
+python 
+powershell
 ```
 
 Use the up/down arrow keys to choose a language, then press Enter. If you plan to develop JavaScript or TypeScript functions, choose **node**, and then select the language. TypeScript has [some additional requirements](functions-reference-node.md#typescript). 

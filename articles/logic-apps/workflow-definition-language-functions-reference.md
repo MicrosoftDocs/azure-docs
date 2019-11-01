@@ -2099,7 +2099,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Yes | Integer | The number of specified time units to subtract |
+| <*interval*> | Yes | Integer | The number of specified time units to add |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||

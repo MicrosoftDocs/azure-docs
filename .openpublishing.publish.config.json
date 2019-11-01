@@ -298,6 +298,16 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-dotnet-v4-getting-started",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-v4-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cosmos-dotnet-bulk-import",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-cosmosdb-dotnet-web-app",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
       "branch": "master"
@@ -377,6 +387,11 @@
       "url": "https://github.com/microsoft/immersive-reader-sdk",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmosdb-java-v2",
+      "url": "https://github.com/Azure/azure-cosmosdb-java",
+      "branch": "master"
     }
   ],
   "branch_target_mapping": {

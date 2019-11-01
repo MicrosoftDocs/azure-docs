@@ -129,10 +129,16 @@
         href: ../aks/tutorial-kubernetes-prepare-app.md
       - name: Service Fabric
         href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+  - name: Monitor
+    items:
+      - name: Diagnostic and audit logs (preview)
+        href: container-registry-diagnostics-audit-logs.md   
   - name: Troubleshoot
     items:
-      - name: Diagnose common issues
+      - name: Detect common issues
         href: container-registry-check-health.md
+      - name: FAQ
+        href: container-registry-faq.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -176,5 +182,3 @@
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-  - name: FAQ
-    href: container-registry-faq.md

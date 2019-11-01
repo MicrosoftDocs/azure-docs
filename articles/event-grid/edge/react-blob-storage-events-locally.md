@@ -12,10 +12,7 @@ services: event-grid
 ---
 
 # Tutorial: React to Blob Storage events on IoT Edge (Preview)
-
-This article shows you how to locally react to Blob creation and Blob deletion events on IoT Edge using Event Grid.
-
-Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
+This article shows you how to deploy the Azure Blob Storage on IoT module, which would act as an Event Grid publisher to send events on Blob creation and Blob deletion to Event Grid.  
 
 For an overview of the Azure Blob Storage on IoT Edge, see [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
 
@@ -165,7 +162,10 @@ This section shows you how to deploy the Azure Blob Storage module, which would 
 5. Click **Save**
 6. Click **Next** to continue to the routes section
 
- ### Setup routes
+    > [!NOTE]
+    > If you are using an Azure VM as the edge device, add an inbound port rule to allow inbound traffic on the host ports used in this tutorial: 4438, 5888, 8080, and 11002. For instructions on adding the rule, see [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
+
+### Setup routes
 
 Keep the default routes, and select **Next** to continue to the review section
 
@@ -182,7 +182,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
    It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 
-## Publish created and deleted Events
+## Publish BlobCreated and BlobDeleted events
 
 1. This module automatically creates topic **MicrosoftStorage**. Verify that it exists
     ```sh

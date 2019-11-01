@@ -58,7 +58,7 @@ logs a Service Bus queue message:
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
     string myQueueItem,
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
@@ -71,12 +71,6 @@ public static void Run(
     log.LogInformation($"MessageId={messageId}");
 }
 ```
-
-This example is for Azure Functions version 1.x. To make this code work for 2.x:
-
-- [omit the access rights parameter](#trigger---configuration)
-- change the type of the log parameter from `TraceWriter` to `ILogger`
-- change `log.Info` to `log.LogInformation`
 
 ### Trigger - C# script example
 
