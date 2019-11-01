@@ -19,7 +19,7 @@ ms.date: 11/04/2019
 
 In this article, learn how to connect to and explore a knowledge store using Power Query in the Power BI Desktop app. You can get started faster with templates, or build a custom dashboard from scratch.
 
-+ Follow the steps in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md) or [Create an Azure CognitiveSearch knowledge store by using REST](https://docs.microsoft.com/azure/search/knowledge-store-create-rest) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
++ Follow the steps in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md) or [Create an Azure Cognitive Search knowledge store by using REST](https://docs.microsoft.com/azure/search/knowledge-store-create-rest) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
 + [Install Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
