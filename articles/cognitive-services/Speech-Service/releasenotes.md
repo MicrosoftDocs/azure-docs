@@ -24,10 +24,11 @@ ms.custom: seodec18
 *   Added KeywordRecognizer support on Windows (UWP), Android and iOS through the Nuget (Xamarin) and Unity packages
 *   Added Remote Conversation Java API to do Conversation Transcription in asynchronous batches. 
 
+**Breaking changes**
+*   Conversation Transcriber is being moved to new Conversation class, and AddParticipantAsync is now on the Conversation Class.
 
 **Bug fixes**
 *   Fix for crash if local KeywordRecognizer is used without a valid speech service subscription key
-*   (Breaking change to CTS preivew) Conversation Transcriber is being moved to new Conversation class, and AddParticipantAsync is now on the Conversation Class.
 
 **Samples**
 *   Xamarin sample for KeywordRecognizer
