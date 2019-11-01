@@ -3,7 +3,7 @@ title: Extend Azure IoT Central with custom rules and notifications | Microsoft 
 description: As a solution developer, configure an IoT Central application to send email notifications when a device stops sending telemetry. This solution uses Azure Stream Analytics, Azure Functions, and SendGrid.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/30/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -46,6 +46,8 @@ Create an IoT Central application on the [Azure IoT Central application manager]
 | Region | Your nearest region |
 
 The examples and screenshots in this article use the **United States** region. Choose a location close to you and make sure you create all your resources in the same region.
+
+This application template includes two simulated thermostat devices that send telemetry.
 
 ### Resource group
 
@@ -304,7 +306,7 @@ This solution uses a Stream Analytics query to detect when a device stops sendin
 
 On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
-1. Navigate to the **Continuous Data Export** page, select **+ New**, and then **Azure Event Hubs**.
+1. Navigate to the **Data Export** page, select **+ New**, and then **Azure Event Hubs**.
 1. Use the following settings to configure the export, then select **Save**:
 
     | Setting | Value |
@@ -325,15 +327,15 @@ Wait until the export status is **Running** before you continue.
 
 To test the solution, you can disable the continuous data export from IoT Central to simulated stopped devices:
 
-1. In your IoT Central application, navigate to the **Continuous Data Export** page and select the **Export to Event Hubs** export configuration.
+1. In your IoT Central application, navigate to the **Data Export** page and select the **Export to Event Hubs** export configuration.
 1. Set **Enabled** to **Off** and choose **Save**.
 1. After at least two minutes, the **To** email address receives one or more emails that look like the following example content:
 
     ```txt
     The following device(s) have stopped sending telemetry:
 
-    Device ID	Time
-    7b169aee-c843-4d41-9f25-7a02671ee659	2019-05-09T14:28:59.954Z
+    Device ID         Time
+    Thermostat-Zone1  2019-11-01T12:45:14.686Z
     ```
 
 ## Tidy up
@@ -350,4 +352,4 @@ In this how-to guide, you learned how to:
 * Create a Stream Analytics query that detects when a device has stopped sending data.
 * Send an email notification using the Azure Functions and SendGrid services.
 
-Now that you know how to create custom rules and notifications, the suggested next step is to learn how to [Extend Azure IoT Central with custom analytics](howto-create-custom-analytics-pnp.md).
+Now that you know how to create custom rules and notifications, the suggested next step is to learn how to [Extend Azure IoT Central with custom analytics](howto-create-custom-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
