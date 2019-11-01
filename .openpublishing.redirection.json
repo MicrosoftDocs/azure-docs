@@ -43634,6 +43634,11 @@
       "source_path": "articles/active-directory/develop/msal-acquire-token-interactively.md",
       "redirect_url": "/azure/active-directory/develop/msal-acquire-cache-tokens",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-live-logs.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-livedata-overview",
+      "redirect_document_id": false
     }
   ]
 }
