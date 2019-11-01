@@ -6,7 +6,7 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 11/01/2019
 ms.author: jlian
 # As a developer or operator for Azure IoT Hub, I want to resolve 401002 AuthenticationFailed errors.
 ---

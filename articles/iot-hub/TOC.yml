@@ -372,6 +372,12 @@
         href: iot-hub-troubleshoot-error-reference-template.md
       - name: 401002 AuthenticationFailed
         href: iot-hub-troubleshoot-error-401002-authenticationfailed.md
+      - name: 401003 IoTHubUnauthorized
+        href: iot-hub-troubleshoot-error-401003-iothubunauthorized.md
+      - name: 403004 DeviceMaximumQueueDepthExceeded
+        href: iot-hub-troubleshoot-error-403004-devicemaximumqueuedepthexceeded.md
+      - name: 403006 Number of active file upload requests exceeded limit
+        href: iot-hub-troubleshoot-error-403006-number-of-active-file-upload-requests-exceeded-limit.md
     - name: Device disconnections TO BE REMOVED
       href: iot-hub-troubleshoot-connectivity.md
 - name: Reference
