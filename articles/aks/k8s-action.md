@@ -38,7 +38,7 @@ You can create a [service principal](https://docs.microsoft.com/azure/active-dir
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 
-In this example, replace the placeholders in the resource with your subscription ID, and resource group. The output is the role assignment credentials that provide access to your resource. The command should output a JSON object similar to this.
+In the above command, replace the placeholders with your subscription ID, and resource group. The output is the role assignment credentials that provide access to your resource. The command should output a JSON object similar to this.
 
 ```json
   {
@@ -53,9 +53,9 @@ Copy this JSON object, which you can use to authenticate from GitHub.
 
 ## Configure the GitHub secrets
 
-Follow the steps to configure the secret:
+Follow the steps to configure the secrets:
 
-1. In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
+1. In [GitHub](https://github.com/), browse to your repository, select **Settings > Secrets > Add a new secret**.
 
     ![secrets](media/k8s-action/secrets.png)
 
@@ -72,7 +72,7 @@ Follow the steps to configure the secret:
 
 ##  Build a Container Image and Deploy to Azure Kubernetes Service cluster
 
-The Build & push of container images is done using `Azure/docker-login@v1` action. To deploy a container image to AKS, you will need to use the `Azure/k8s-deploy@v1` action. This action has five parameters:
+The Build & push of the container images is done using `Azure/docker-login@v1` action. To deploy a container image to AKS, you will need to use the `Azure/k8s-deploy@v1` action. This action has five parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
