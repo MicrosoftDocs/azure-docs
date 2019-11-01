@@ -289,7 +289,7 @@ The following are different situations and outcomes when you use Private Link in
 
 * If no public traffic or service endpoint is configured and private endpoints are created, then the Azure Cosmos account is only accessible through the private endpoints.
 
-## Adding or removing Azure Cosmos DB regions
+## Update private endpoint when you add or remove a region
 
 Adding or removing regions to an Azure Cosmos account requires you to add or remove DNS entries for that account. These changes should be updated accordingly in the private endpoint. Currently you should manually make this change by using the following steps:
 
@@ -297,11 +297,27 @@ Adding or removing regions to an Azure Cosmos account requires you to add or rem
 
 1. After this operation, the subnet's private DNS also has to be updated to reflect the added or removed DNS entries and their corresponding private IP addresses.
 
+For example, if you deploy an Azure Cosmos account in 3 regions: "West US", "Central US", and "West Europe". When you create a private endpoint for your account, 4 private IPs are reserved in the subnet. One for each region, which counts to a total of 3, and one for the global/region-agnostic endpoint.
+
+Later if you add a new region, for example "East US" to the Azure Cosmos account. By default, the new region is not accessible from the existing private endpoint. The Azure Cosmos account administrator should refresh the private endpoint connection before accessing it form the new region.
+
+When you run the ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` command, the output of the command contains the `ActionRequired` parameter, which is set to "Recreate". This value indicates that the private endpoint should be refreshed. Next the Azure Cosmos account administrator runs the `Set-AzPrivateEndpoint` command to trigger the private endpoint refresh.
+
+```powershell
+$pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>
+
+Set-AzPrivateEndpoint -PrivateEndpoint $pe
+```
+
+A new private IP is automatically reserved in the subnet under this private endpoint, and the value `ActionRequired` becomes `None`. If you don’t have any private DNZ zone integration (in other words, if you are using a custom private DNS), you have to configure your private DNS to add a new DNS record for the private IP corresponding to the new region.
+
+You can use the same steps when you remove a region. The private IP of the removed region is automatically reclaimed, and the `ActionRequired` flag becomes `None`. If you don’t have any private DNZ zone integration, you must configure your private DNS to remove the DNS record for the removed region.
+
 ## Current limitations
 
 The following limitations apply when using the Private Link with an Azure Cosmos account:
 
-* When using Private Links with Azure Cosmos account using Direct mode support, you can only use TCP protocol. HTTP protocol is not yet supported
+* When using Private Links with Azure Cosmos account using Direct mode connection, you can only use TCP protocol. HTTP protocol is not yet supported
 
 * When using Azure Cosmos DB’s API for MongoDB accounts, private endpoint is supported for accounts on server version 3.6 only (that is accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to new version.
 
@@ -315,7 +331,7 @@ The following limitations apply when using the Private Link with an Azure Cosmos
 
 * An Azure Cosmos account can't be failed over to a region that's not mapped to all private endpoints attached to it. For more information, see Adding or removing regions in the previous section.
 
-* A network administrator should be granted at least the "*/PrivateEndpointConnectionsApproval" permission at the Azure Cosmos account scope by an administrator to create private endpoints.
+* A network administrator should be granted at least the "*/PrivateEndpointConnectionsApproval" permission at the Azure Cosmos account scope by an administrator to create automatically-approved private endpoints.
 
 ## Next steps
 
