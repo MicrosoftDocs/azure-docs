@@ -68,7 +68,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 1. In the **Logic App Designer**, under the search box, select **All**.
 
-1. In the search box, enter `rss`. From the triggers list, select this trigger: **When a feed item is published**
+1. In the search box, enter `rss`. From the triggers list, select this trigger: **When a feed item is published**.
 
    ![Select "When a feed item is published" trigger](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
