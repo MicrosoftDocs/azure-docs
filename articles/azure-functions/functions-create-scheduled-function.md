@@ -37,7 +37,7 @@ Next, you create a function in the new function app.
 
 ## Create a timer triggered function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step three.
+1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step 3.
 
    ![Functions quickstart page in the Azure portal](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
