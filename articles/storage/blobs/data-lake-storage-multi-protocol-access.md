@@ -45,7 +45,7 @@ The items that appear in this table will change over time as support for Blob st
 |[Archive access tier](storage-blob-storage-tiers.md)| Preview|
 |[Lifecycle management policies](storage-lifecycle-management-concepts.md)| Preview|
 |[Diagnostic logs](../common/storage-analytics-logging.md)| Preview|
-|Blob SDKs ([.NET](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet), [Java](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java), and [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)) |Generally available|
+|Blob SDKs |Generally available|
 |[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) (data plane operations)|Generally available|
 |[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) (data plane operations)|Generally available|
 |[Notifications via Azure Event Grid](data-lake-storage-events.md)|Preview|
