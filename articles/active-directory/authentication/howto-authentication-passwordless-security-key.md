@@ -31,9 +31,9 @@ This document focuses on enabling security key based passwordless authentication
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
-- WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher**
+- WebAuthN requires Windows 10 version 1809 or higher**
 
-**Other vendors are also working to support WebAuthN in their browsers.
+To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. These include Microsoft Edge, Chrome, Firefox, and Safari.
 
 ## Prepare devices for preview
 
@@ -64,13 +64,13 @@ Registration features for passwordless authentication methods rely on the combin
 1. Add a FIDO2 Security key by clicking **Add method** and choosing **Security key**.
 1. Choose **USB device** or **NFC device**.
 1. Have your key ready and choose **Next**.
-1. A box will appear and ask you to create/enter a PIN for your security key, then perform the required gesture for your key either biometric or touch.
-1. You will be returned to the combined registration experience and asked to provide a meaningful name for your token so you can identify which one if you have multiple. Click **Next**.
+1. A box will appear and ask the user to create/enter a PIN for your security key, then perform the required gesture for the key, either biometric or touch.
+1. The user will be returned to the combined registration experience and asked to provide a meaningful name for the key so the user can identify which one if they have multiple. Click **Next**.
 1. Click **Done** to complete the process.
 
 ## Sign in with passwordless credential
 
-In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of the Microsoft Edge browser on Windows 10 version 1809 or higher.
+In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of a supported browser on Windows 10 version 1809 or higher.
 
 ![Security key sign-in Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 

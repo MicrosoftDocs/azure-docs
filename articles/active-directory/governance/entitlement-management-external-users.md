@@ -1,5 +1,5 @@
 ---
-title: Govern access for external users in Azure AD entitlement management (Preview) - Azure Active Directory
+title: Govern access for external users in Azure AD entitlement management - Azure Active Directory
 description: Learn about the settings you can specify to govern access for external users in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -22,12 +22,7 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Govern access for external users in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Govern access for external users in Azure AD entitlement management
 
 Azure AD entitlement management utilizes [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) to collaborate with people outside your organization in another directory. With Azure AD B2B, external users authenticate to their home directory, but have a representation in your directory. The representation in your directory enables the user to be assigned access to your resources.
 

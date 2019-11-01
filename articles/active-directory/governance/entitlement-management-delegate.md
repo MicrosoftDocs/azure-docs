@@ -1,5 +1,5 @@
 ---
-title: Delegation and roles in Azure AD entitlement management (Preview) - Azure Active Directory
+title: Delegation and roles in Azure AD entitlement management - Azure Active Directory
 description: Learn how to delegate access governance from IT administrators to department managers and project managers so that they can manage access themselves.
 services: active-directory
 documentationCenter: ''
@@ -22,12 +22,7 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Delegation and roles in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Delegation and roles in Azure AD entitlement management
 
 By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the situations where access packages are required. Typically it is users within the respective departments, teams, or projects who know who they are collaborating with, using what resources, and for how long. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to perform their job and avoid creating conflicting or inappropriate access rights.
 

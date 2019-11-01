@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 
 ---
@@ -75,9 +75,9 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 If you have a VPN gateway and you want to use a different gateway SKU, your options are to either resize your gateway SKU, or to change to another SKU. When you change to another gateway SKU, you delete the existing gateway entirely and build a new one. A gateway can take up to 45 minutes to build. In comparison, when you resize a gateway SKU, there is not much downtime because you do not have to delete and rebuild the gateway. If you have the option to resize your gateway SKU, rather than change it, you will want to do that. However, there are rules regarding resizing:
 
-1. You can resize between VpnGw1, VpnGw2, and VpnGw3 SKUs.
+1. With the exception of the Basic SKU, you can resize a VPN gateway SKU to another VPN gateway SKU within the same generation (Generation1 or Generation2). For example, VpnGw1 of Generation1 can be resized to VpnGw2 of Generation1 but not to VpnGw2 of Generation2.
 2. When working with the old gateway SKUs, you can resize between Basic, Standard, and HighPerformance SKUs.
-3. You **cannot** resize from Basic/Standard/HighPerformance SKUs to the new VpnGw1/VpnGw2/VpnGw3 SKUs. You must instead, [change](#change) to the new SKUs.
+3. You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
 
 #### <a name="resizegwsku"></a>To resize a gateway
 

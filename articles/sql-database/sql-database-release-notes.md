@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 11/04/2019
 ms.author: sstein
 ---
 # SQL Database release notes
@@ -20,6 +20,7 @@ This article lists SQL Database features that are currently in public preview. F
 
 | Feature | Details |
 | ---| --- |
+| New Fsv2-series and M-series hardware generations| For information, see [Hardware generations](sql-database-service-tiers-vcore.md#hardware-generations).|
 | [Azure private link](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link simplifies the network architecture and secures the connection between endpoints in Azure by keeping data on the Azure network, thus eliminating exposure to the internet. Private Link also enables you to create and render your own services on Azure. |
 | Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](sql-database-accelerated-database-recovery.md).|
 |Approximate Count Distinct|For information, see [Approximate Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
@@ -31,7 +32,6 @@ This article lists SQL Database features that are currently in public preview. F
 |Memory Grant Feedback (Row Mode) (under compatibility level 150)|For information, see [Memory Grant Feedback (Row Mode)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Query editor in the Azure portal |For information, see [Use the Azure portal's SQL query editor to connect and query data](sql-database-connect-query-portal.md).|
 | R services / machine learning with single databases and elastic pools |For information, see [Machine Learning Services in Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
-| Serverless compute tier | For information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
 |SQL Analytics|For information, see [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
 |Table Variable Deferred Compilation (under compatibility level 150)|For information, see [Table Variable Deferred Compilation](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | &nbsp; |

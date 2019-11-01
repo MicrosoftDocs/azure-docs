@@ -36,7 +36,7 @@ Use the links in this section for more information about managed cloud networkin
 
 [Equinix](https://www.equinix.com/)
 
-[InterCloud](https://intercloud.com/partners/get-to-azure-via-expressroute/)
+[InterCloud](https://intercloud.com/partners/microsoft-azure/)
 
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 
@@ -45,6 +45,8 @@ Use the links in this section for more information about managed cloud networkin
 [ixreach](https://www.ixreach.com/)
 
 [KINX](https://www.kinx.net/service/cloud/?lang=en)
+
+[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/microsoft-azure.html)
 
 [Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)
 
@@ -59,6 +61,8 @@ Use the links in this section for more information about managed cloud networkin
 [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
 
 [Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
+
+[TCTS](https://www.tatacommunications-ts.com/index.php)
 
 [Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
 

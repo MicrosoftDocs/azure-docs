@@ -1,6 +1,6 @@
 ---
-title: View requests for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to view requests for an access package in Azure Active Directory entitlement management (Preview).
+title: View requests for an access package in Azure AD entitlement management - Azure Active Directory
+description: Learn how to view requests for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an access package manager, I want detailed information about requests for access packages so that I can view the status and troubleshoot any issues.
 
 ---
-# View requests for an access package in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# View requests for an access package in Azure AD entitlement management
 
 In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view requests for an access packages.
 

@@ -72,7 +72,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 ## Create a new method for the prediction
 
-Create a new method, `GetPrediction` to send the query to the query prediction endpoint. The method will create and configure all necessary objects then return a `Task` with the [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) prediction results. 
+Create a new method, `GetPrediction` to send the query to the query prediction endpoint. The method will create and configure all necessary objects then return a `Task` with the [`LuisResult`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-python) prediction results. 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {
