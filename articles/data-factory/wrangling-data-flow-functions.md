@@ -1,6 +1,6 @@
 ---
 title: Wrangling data flow transformation functions in Azure Data Factory | Microsoft Docs
-description: An overview of available wrangling data flow fucntions in Azure Data Factory
+description: An overview of available wrangling data flow functions in Azure Data Factory
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: gamal
@@ -13,9 +13,9 @@ ms.date: 11/01/2019
 
 Wrangling data flow in Azure Data Factory allows you to do code-free agile data preparation and wrangling at cloud scale. Wrangling data flow integrates with [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) and makes Power Query M functions available for data wrangling via spark execution. 
 
-Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your wrangling data flows, you will be prompted with the following error message if a function is not supported:
+Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your wrangling data flows, you'll be prompted with the following error message if a function isn't supported:
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression`
+`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
 
 Below is a list of supported Power Query M functions.
 
@@ -44,7 +44,7 @@ The following M functions add or transform columns: [Table.AddColumn](https://do
 * Numeric arithmetic
 * Text concatenation
 * Date andTime Arithmetic (Arithmetic operators, [Date.AddDays](https://docs.microsoft.com/powerquery-m/date-adddays), [Date.AddMonths](https://docs.microsoft.com/powerquery-m/date-addmonths), [Date.AddQuarters](https://docs.microsoft.com/powerquery-m/date-addquarters), [Date.AddWeeks](https://docs.microsoft.com/powerquery-m/date-addweeks), [Date.AddYears](https://docs.microsoft.com/powerquery-m/date-addyears))
-* Durations can be used for date and time arithmetic, but must be transformed into some other type before being written to a sink (Arithmetic operators, [#duration](https://docs.microsoft.com/powerquery-m/sharpduration), [Duration.Days](https://docs.microsoft.com/powerquery-m/duration-days), [Duration.Hours](https://docs.microsoft.com/powerquery-m/duration-hours), [Duration.Minutes](https://docs.microsoft.com/powerquery-m/duration-minutes), [Duration.Seconds](https://docs.microsoft.com/powerquery-m/duration-seconds), [Duration.TotalDays](https://docs.microsoft.com/powerquery-m/duration-totaldays), [Duration.TotalHours](https://docs.microsoft.com/powerquery-m/duration-totalhours), [Duration.TotalMinutes](https://docs.microsoft.com/powerquery-m/duration-totalminutes), [Duration.TotalSeconds](https://docs.microsoft.com/powerquery-m/duration-totalseconds))    
+* Durations can be used for date and time arithmetic, but must be transformed into another type before written to a sink (Arithmetic operators, [#duration](https://docs.microsoft.com/powerquery-m/sharpduration), [Duration.Days](https://docs.microsoft.com/powerquery-m/duration-days), [Duration.Hours](https://docs.microsoft.com/powerquery-m/duration-hours), [Duration.Minutes](https://docs.microsoft.com/powerquery-m/duration-minutes), [Duration.Seconds](https://docs.microsoft.com/powerquery-m/duration-seconds), [Duration.TotalDays](https://docs.microsoft.com/powerquery-m/duration-totaldays), [Duration.TotalHours](https://docs.microsoft.com/powerquery-m/duration-totalhours), [Duration.TotalMinutes](https://docs.microsoft.com/powerquery-m/duration-totalminutes), [Duration.TotalSeconds](https://docs.microsoft.com/powerquery-m/duration-totalseconds))    
 * Most standard, scientific, and trigonometric numeric functions (All functions under [Operations](https://docs.microsoft.com/powerquery-m/number-functions#operations), [Rounding](https://docs.microsoft.com/powerquery-m/number-functions#rounding), and [Trigonometry](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry) *except* Number.Factorial, Number.Permutations, and Number.Combinations)
 * Replacement ([Replacer.ReplaceText](https://docs.microsoft.com/powerquery-m/replacer-replacetext), [Replacer.ReplaceValue](https://docs.microsoft.com/powerquery-m/replacer-replacevalue), [Text.Replace](https://docs.microsoft.com/powerquery-m/text-replace), [Text.Remove](https://docs.microsoft.com/powerquery-m/text-remove))
 * Positional text extraction ([Text.PositionOf](https://docs.microsoft.com/powerquery-m/text-positionof), [Text.Length](https://docs.microsoft.com/powerquery-m/text-length), [Text.Start](https://docs.microsoft.com/powerquery-m/text-start), [Text.End](https://docs.microsoft.com/powerquery-m/text-end), [Text.Middle](https://docs.microsoft.com/powerquery-m/text-middle), [Text.ReplaceRange](https://docs.microsoft.com/powerquery-m/text-replacerange), [Text.RemoveRange](https://docs.microsoft.com/powerquery-m/text-removerange))
@@ -64,9 +64,9 @@ Merging/Joining tables
     (Table.ExpandTableColumn, not supported in any other context).
 * The M function
     [Table.Join](https://docs.microsoft.com/powerquery-m/table-join) can
-    be manually written directly to avoid the need for an additional expansion
+    be written directly to avoid the need for an additional expansion
     step, but the user must ensure that there are no duplicate column names
-    amongst the joined tables (because ADF does not support them).
+    among the joined tables
 * Supported Join Kinds:
     [Inner](https://docs.microsoft.com/powerquery-m/joinkind-inner),
     [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter),
@@ -110,7 +110,7 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 
 ## Known unsupported functionality
 
-Below are functions that are not supported. This list isn't exhaustive and is subject to change.
+Below are functions that aren't supported. This list isn't exhaustive and is subject to change.
 * Merge columns (can be achieved with AddColumn)
 * Split column
 * Append queries
