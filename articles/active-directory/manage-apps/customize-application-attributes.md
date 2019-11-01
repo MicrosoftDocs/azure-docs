@@ -1,5 +1,5 @@
 ---
-title: Customizing Azure AD Attribute Mappings | Microsoft Docs
+title: Customizing Azure AD attribute mappings | Microsoft Docs
 description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
 services: active-directory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---
-# Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory
+# Customizing user provisioning attribute-mappings for SaaS applications in Azure Active Directory
 
 Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
 
@@ -131,9 +131,11 @@ Use the steps below to provision roles for a user to your application. Note that
   - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from: (roles[primary eq "True"].display, roles[primary eq "True].type, and roles[primary eq "True"].value). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.  
   
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
-
+  - **Things to consider**
+    - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.
+    
   - **Example output** 
-  
+
 ```json
   {
     "schemas": [
@@ -155,8 +157,6 @@ Use the steps below to provision roles for a user to your application. Note that
     ]
 }
 ```
-  - **Things to consider**
-    - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.   
   
 - **AppRoleAssignmentsComplex** 
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
@@ -167,7 +167,9 @@ Use the steps below to provision roles for a user to your application. Note that
     Then use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image below:
 
     ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.PNG)<br>
-
+  - **Things to consider**
+    - All roles will be provisioned as primary = false.
+    - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
     
   - **Example output** 
   
@@ -200,9 +202,6 @@ Use the steps below to provision roles for a user to your application. Note that
 }
 ```
 
-  - **Things to consider**
-    - All roles will be provisioned as primary = false.
-    - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
   
 
 
