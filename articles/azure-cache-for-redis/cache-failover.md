@@ -44,7 +44,7 @@ The Azure Cache for Redis service regularly updates your cache with the latest p
 
 1. The management service selects one node to be patched.
 1. If the selected node is a master node, the corresponding replica node cooperatively promotes itself. This promotion is considered a planned failover.
-1. The selected node reboots to take the new changes and comes back up as a replica node. 
+1. The selected node reboots to take the new changes and comes back up as a replica node.
 1. The replica node connects to the master node and synchronizes data.
 1. When the data sync is complete, the patching process repeats for the remaining nodes.
 
