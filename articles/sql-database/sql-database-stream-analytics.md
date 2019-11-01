@@ -19,7 +19,7 @@ Users can now ingest, process, view, and analyze real-time streaming data into a
 
 ![Stream Analytics flow](media/sql-database-stream-analytics/stream-analytics-flow.png)
 
-**Key benefits**:
+## Key benefits
 
 - Minimum context switching: You can start from a SQL Database in the portal and start ingesting real-time data into a table without switching to any other service. 
 - Reduced number of steps: The context of your database and table is used to pre-configure a Stream Analytics job.
@@ -93,7 +93,7 @@ To complete the steps in this article, you need the following resources:
     - Create new: If you selected this option in step 5, you won’t see the schema yet until you start the streaming job. When creating a new table, select the appropriate table index. For more information about table indexing, see [Clustered and Nonclustered Indexes Described](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described/).
     - Use existing: If you selected this option in step 5, you will see the schema of selected table. 
  
-7. After you are done authoring & testing the query, select **Start Stream Analytics job** to start ingesting transformed data into the SQL table. Once you finalize the following fields, **start** the job. 
+7. After you are done authoring & testing the query, select **Save query**. Select **Start Stream Analytics job** to start ingesting transformed data into the SQL table. Once you finalize the following fields, **start** the job. 
    - Output start time: This defines the time of the first output of the job 
           - Now: The job will start now.
           - Custom: The job will start now. Schedule which data to process. For more information, see [How to start an Azure Stream Analytics job](../stream-analytics/start-job.md).
