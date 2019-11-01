@@ -1,6 +1,7 @@
 ---
-title: Create a labeling project for machine learning
-description: Create and administer a data-labeling project for machine learning.
+title: Creating crowd-sourced data labeling projects
+titleSuffix: Azure Machine Learning
+description: This article shows you how to create and run labeling projects to crowd-source tagging data for machine learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
@@ -9,11 +10,13 @@ ms.date: 11/04/2019
 
 ---
 
-# How to create a labeling project for machine learning
+# Create a labeling project for machine learning
 
-Azure Machine Learning Studio gives you a central location to create, manage, and monitor labeling projects.  Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. Labeling projects coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling task.
+Azure Machine Learning studio gives you a central location to create, manage, and monitor labeling projects.  Labeling projects coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling task.
 
-A labeling project allows you to create, administer, and monitor a labeling task. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes. Azure tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't require an Azure account to participate. Once authenticated with their Microsoft Account (MSA) or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much or as little labeling as their time allows. They can assign and change labels using keyboard shortcuts. 
+A labeling project allows you to create, administer, and monitor a labeling task. Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes. 
+
+Azure tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't require an Azure account to participate. Once authenticated with their Microsoft Account (MSA) or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much or as little labeling as their time allows. They can assign and change labels using keyboard shortcuts. 
 
 You can start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in either COCO format or as an Azure ML dataset. 
 
@@ -22,15 +25,12 @@ In this article, you'll learn how to:
 > [!div class="checklist"]
 > * Create a labeling project
 > * Specify data to be labeled
-> * Specify your label classes
+> * Specify label classes
 > * Describe the labeling task
 > * Initialize the labeling project
 > * Manage teams and people
-> * Communicating with the labelers
-> * Running and monitoring the project
-> * Exporting the labels
-
-If you don't have a Studio account, go to the [Studio homepage](https://studio.azureml.net) and select **Sign up here** to create a free account. The free workspace will have all the features you need for this article.
+> * Run and monitor the project
+> * Export the labels
 
 ## Prerequisites
 
@@ -40,13 +40,9 @@ If you don't have a Studio account, go to the [Studio homepage](https://studio.a
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-## Sign in to Azure Machine Learning Studio
-
-Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
-
 ## Create a labeling project
 
-The **Labeling projects** page allows you to manage your projects, teams, and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it. 
+Labeling projects are administered from [Azure Machine Learning studio](https://ml.azure.com/). The **Labeling projects** page allows you to manage your projects, teams, and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it. 
 
 If your data are already stored in Azure blob storage, you should make them available as a datastore before creating your labeling project. For information, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores). 
 
@@ -66,39 +62,39 @@ If you've already created a dataset containing your data, you can select it from
 
 ### Create a dataset from an Azure datastore
 
-Although choosing direct upload of local files is fine for many use-cases, [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is both more robust and faster for transferring significant amounts of data. We recommend using Azure Storage Explorer as your preferred way to transfer data.
+Although choosing direct upload of local files is fine for many use-cases, [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is both more robust and faster for transferring significant amounts of data. We recommend Azure Storage Explorer as the default way to move files.
 
 To create a dataset from data that you've already stored in Azure blob storage:
 
-* Choose **Create a dataset** and **From datastore**
-* Assign a **Name** for your dataset
-* You must choose "File" as the **Dataset type**  
-* Select the datastore 
-* If your data are in a subfolder within the blob storage, choose **Browse** to select the path. 
+1. Choose **Create a dataset** and **From datastore**
+1. Assign a **Name** for your dataset
+1. You must choose "File" as the **Dataset type**  
+1. Select the datastore 
+1. If your data are in a subfolder within the blob storage, choose **Browse** to select the path. 
     * You may additionally append `/**` after the path to include all the files in subfolders of the selected path
     * Use `**/*.*` to include all the data in the current container and subfolders
-* Provide a description of your dataset
-* Choose **Next** 
-* Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
+1. Provide a description of your dataset
+1. Choose **Next** 
+1. Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
 
 ### Create a dataset by uploading data
 
 If you wish to directly upload your data:
 
-* Choose **Create a dataset** and **From local files**
-* Assign a **Name** for your dataset
-* You must choose "File" as the **Dataset type**
-* If you choose **Advanced settings**, you may customize the datastore, container, and path to your data
-* Choose **Browse** to select local files for upload
-* Provide a description of your dataset
-* Choose **Next** 
-* Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
+1. Choose **Create a dataset** and **From local files**
+1. Assign a **Name** for your dataset
+1. You must choose "File" as the **Dataset type**
+1. If you choose **Advanced settings**, you may customize the datastore, container, and path to your data
+1. Choose **Browse** to select local files for upload
+1. Provide a description of your dataset
+1. Choose **Next** 
+1. Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
 
-## Specify your label classes
+## Specify label classes
 
 On the **Label classes** page, you specify the set of classes used to categorize your data. Give thought to these classes, as your labelers' accuracy and speed will be affected by the ease with which they can properly choose among them. For instance, rather than spelling out the full genus and species for plants or animals it might be better to use field codes or abbreviate the genus. 
 
-Enter one label per row, using the **+** button to add a new row.
+Enter one label per row, using the **+** button to add a new row. If you have more than 3 or 4 labels, but fewer than 10, consider prefixing them with "1: ", "2: ", etc. to provide some guidance to labelers using the number keys to accelerate their work. 
 
 ## Describe the labeling task
 
@@ -134,7 +130,7 @@ Once you've added a person, you can assign them to one or more teams. Navigate t
 
 If you ever wish to send an email to everyone on the team, you can do so by choosing the team to bring up the **Team details** page. On this page, the **Email team** button will open your email editor with the addresses of everyone on the team.
 
-## Running and monitoring the project
+## Run and monitor the project
 
 Once the project is initialized, Azure will begin running it. If, on the main **Labeling** page, you click on the project, you'll be taken to **Project details**. The **Dashboard** tab will show you progress on the labeling task. 
 
@@ -146,7 +142,7 @@ If you wish to take the project offline or online, choose the **Pause**/**Start*
 
 You can label data directly from the **Project details** page by selecting **Label data**. You may only label data when the project is running. 
 
-## Exporting the labels
+## Export the labels
 
 At any time, you may export the label data for machine learning experimentation. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure ML dataset. You will find the **Export** button on the **Project details** page of your labeling project.
 
