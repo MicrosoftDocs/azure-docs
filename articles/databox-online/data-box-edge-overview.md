@@ -11,10 +11,9 @@ ms.date: 11/04/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
-
 # What is Azure Stack Edge? 
 
-> [!IMPORTANT] Azure Data Box Edge is rebranded as Azure Stack Edge.
+>[!IMPORTANT] Azure Data Box Edge is rebranded as Azure Stack Edge.
 
 Azure Stack Edge is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device. 
 
