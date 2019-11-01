@@ -216,7 +216,7 @@ Dataset names can only contain alpha-numeric characters. The following data stor
 * DelimitedText dataset in Azure Blob Storage using account key authentication
 * DelimitedText dataset in Azure Data Lake Storage gen2 using account key or service principal authentication
 * DelimitedText dataset in Azure Data Lake Storage gen1 using service principal authentication
-* Azure SQL Database and Data Warehouse using sql authentication. See [Supported SQL types](wrangling-data-flow-overview.md#supported-sql-types). There is no PolyBase or staging support for data warehouse.
+* Azure SQL Database and Data Warehouse using sql authentication. See supported SQL types below. There is no PolyBase or staging support for data warehouse.
 
 At this time, linked service Key Vault integration is not supported in wrangling data flows.
 
