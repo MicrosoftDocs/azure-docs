@@ -2,14 +2,14 @@
 title: Resources for Azure Spring Cloud | Microsoft Docs
 description: Azure Spring Cloud resource list
 services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
+author: jpconnock
+manager: barbkess
 editor: ''
 
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/7/2019
-ms.author: v-vasuke
+ms.date: 11/1/2019
+ms.author: jeconnoc
 
 ---
 # Resources
