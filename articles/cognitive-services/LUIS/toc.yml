@@ -37,17 +37,7 @@
     - name: Get intent
       href: luis-get-started-get-intent-from-rest.md
     - name: Change model
-      items:
-      - name: C#
-        href: luis-get-started-cs-add-utterance.md
-      - name: Go
-        href: luis-get-started-go-add-utterance.md
-      - name: Java
-        href: luis-get-started-java-add-utterance.md
-      - name: Node.js
-        href: luis-get-started-node-add-utterance.md
-      - name: Python
-        href: luis-get-started-python-add-utterance.md
+      href: get-started-get-model-rest-apis.md
 - name: Tutorials
   items:
   - name: Build app
@@ -101,52 +91,50 @@
         href: luis-nodejs-tutorial-bf-v4.md
       - name: 2. Add telemetry to Application Insights
         displayName: Application insight, kusto
-        href: luis-tutorial-bot-nodejs-appinsights.md      
+        href: luis-tutorial-bot-nodejs-appinsights.md
 - name: Concepts
   items:
-  - name: Best practices
-    href: luis-concept-best-practices.md
-    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
-  - name: Using LUIS and QnA Maker
-    href: choose-natural-language-processing-service.md
-    displayName: nlp, qna maker
+  - name: Development lifecycle
+    href: luis-concept-app-iteration.md
   - name: Plan your app
     displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
-  - name: Authoring and runtime keys
-    displayName: shared, transfer, ownership, author, access, import
-    href: luis-concept-keys.md    
-  - name: Author app's model
-    items:
-    - name: Authoring cycle
-      href: luis-concept-app-iteration.md
-    - name: Versioning
-      href: luis-concept-version.md
-      displayName: import
-  - name: Design Model
-    items:
+  - name: App models
+    items: 
+    - name: Types  
+      href: luis-concept-model.md
     - name: Intents
       href: luis-concept-intent.md
+    - name: Utterances
+      href: luis-concept-utterance.md      
     - name: Entities
       displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
-    - name: Entity roles
-      href: luis-concept-roles.md
-    - name: Utterances
-      href: luis-concept-utterance.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
-  - name: Improve app performance
-    items:
-    - name: Prediction score
-      href: luis-concept-prediction-score.md
-    - name: Review endpoint utterances
-      href: luis-concept-review-endpoint-utterances.md
-    - name: Phrase lists
-      href: luis-concept-feature.md
     - name: Patterns
       href: luis-concept-patterns.md
       displayName: roles
+    - name: Features
+      href: luis-concept-feature.md
+  - name: Prediction score
+    href: luis-concept-prediction-score.md
+  - name: Best practices
+    href: luis-concept-best-practices.md
+    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
+  - name: Improve app performance
+    items:
+    - name: Review endpoint utterances
+      href: luis-concept-review-endpoint-utterances.md
+  - name: Test
+    items:
+    - name: Interactive testing
+      href: luis-concept-test.md
+    - name: Batch testing
+      href: luis-concept-batch-test.md
+  - name: Authoring and runtime keys
+    displayName: shared, transfer, ownership, author, access, import
+    href: luis-concept-keys.md    
   - name: Data management
     items:
     - name: Altering data
@@ -158,12 +146,9 @@
       displayName: roles
     - name: Data Storage
       href: luis-concept-data-storage.md
-  - name: Test
-    items:
-    - name: Interactive testing
-      href: luis-concept-test.md
-    - name: Batch testing
-      href: luis-concept-batch-test.md
+  - name: Using LUIS and QnA Maker
+    href: choose-natural-language-processing-service.md
+    displayName: nlp, qna maker
   - name: Enterprise
     items:
     - name: Design strategies
@@ -184,13 +169,7 @@
       href: luis-how-to-add-entities.md
       displayName: roles, import
     - name: Use prebuilt models
-      items:
-      - name: Use domains
-        href: luis-prebuilt-domains.md
-      - name: Use intents
-        href: luis-prebuilt-intent.md
-      - name: Use entities
-        href: luis-prebuilt-entities.md
+      href: howto-add-prebuilt-models.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
@@ -207,7 +186,7 @@
     items:
     - name: Using the dashboard
       displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
-      href: luis-how-to-use-dashboard.md        
+      href: luis-how-to-use-dashboard.md
     - name: Add Phrase list
       displayName: synonym, interchange
       href: luis-how-to-add-features.md
@@ -219,6 +198,7 @@
       href: luis-how-to-model-intent-pattern.md
   - name: Train
     href: luis-how-to-train.md
+    displayName: negative sampling, nondeterministic, non-deterministic, UseAllTrainingData
   - name: Test
     items:
     - name: Interactive testing
@@ -235,7 +215,7 @@
       href: luis-how-to-azure-subscription.md
     - name: Migrate to authoring key
       items: 
-        - name: Overview   
+        - name: Overview
           href: luis-migration-authoring.md
         - name: How to Migrate
           href: luis-migration-authoring-steps.md
@@ -247,13 +227,17 @@
       diplayName: import, export, container
     - name: With Traffic Manager
       href: luis-traffic-manager.md
-  - name: Migrate API
+  - name: Use APIs
     items: 
-    - name: Migrate to V2 REST API
-      href: luis-migration-api-v1-to-v2.md
-    - name: Migrate to V3 REST API
+    - name: For Developers
+      href: developer-reference-resource.md
+    - name: Authoring APIs
+      href: luis-migration-api-authoring.md
+    - name: Migrate to V3 API
       href: luis-migration-api-v3.md 
-      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
+      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override  
+    - name: Migrate to V2 API
+      href: luis-migration-api-v1-to-v2.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -263,6 +247,9 @@
       href: luis-container-configuration.md
     - name: Use container instances
       href: deploy-luis-on-container-instances.md
+    - name: Container limitations
+      href: luis-container-limitations.md
+      displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
 - name: Reference
   items:
   - name: User privacy
@@ -300,7 +287,7 @@
     - name: Ordinal entity
       href: luis-reference-prebuilt-ordinal.md
     - name: Ordinal V2 entity
-      href: luis-reference-prebuilt-ordinal-v2.md      
+      href: luis-reference-prebuilt-ordinal-v2.md
     - name: Percentage entity
       href: luis-reference-prebuilt-percentage.md
     - name: PersonName entity
@@ -323,9 +310,11 @@
     - name: Pattern.any entity
       href: reference-entity-pattern-any.md
     - name: Regular expression entity
-      href: reference-entity-regular-expression.md      
+      href: reference-entity-regular-expression.md
     - name: Simple entity
       href: reference-entity-simple.md
+  - name: Sentiment 
+    href: luis-reference-prebuilt-sentiment.md
   - name: Developer resources
     href: developer-reference-resource.md
     displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
@@ -335,9 +324,15 @@
     href: https://go.microsoft.com/fwlink/?linkid=2092157
   - name: REST APIs
     items:
-    - name: Authoring V2 REST APIs
+    - name: V3 Authoring REST APIs (Preview)
+      href: https://aka.ms/luis-apim-v3-authoring
+    - name: V3 Prediction REST APIs
+      href: https://aka.ms/luis-apim-v3-prediction
+    - name: V2 Authoring REST APIs
       href: https://go.microsoft.com/fwlink/?linkid=2092087
-    - name: Endpoint V2 REST API
+    - name: V2 Prediction REST APIs
+      href: https://go.microsoft.com/fwlink/?linkid=2092356
+    - name: Endpoint V3 REST API
       href: https://go.microsoft.com/fwlink/?linkid=2092356
     - name: HTTP codes
       displayName: 400, 401, 403, 409, 410, 414, 429
@@ -414,7 +409,7 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Language and region support
     href: luis-language-support.md
-    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092089
   - name: Glossary
