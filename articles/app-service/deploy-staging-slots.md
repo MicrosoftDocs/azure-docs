@@ -330,7 +330,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## Automate with ARM templates
 
-[ARM Templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots using ARM templates, you will set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
+[ARM Templates](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots using ARM templates, you will set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
 
 - `buildVersion`: this is a string property which represents the current version of the app deployed in the slot. For example: "v1", "1.0.0.1", or "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: this is a string property that specifies what `buildVersion` the slot should have. If the targetBuildVersion does not equal the current `buildVersion`, then this will trigger the swap operation by finding the slot which has the specified `buildVersion`.
