@@ -19,7 +19,7 @@ This article helps you verify and troubleshoot ExpressRoute connectivity. Expres
 -  	Microsoft Datacenter
 
 > [!NOTE]
-> In the ExpressRoute direct connectivity model (offered at 10/100 Gbps bandwidth), cusomters can directly buy Microsoft Enterprise Edge (MSEE) routers' port. Therefore, in the direct connectivity model, there are only customer and Microsoft network zones.
+> In the ExpressRoute direct connectivity model (offered at 10/100 Gbps bandwidth), cusomters can directly connect to Microsoft Enterprise Edge (MSEE) routers' port. Therefore, in the direct connectivity model, there are only customer and Microsoft network zones.
 >
 
 
@@ -54,18 +54,16 @@ If the Any-to-any (IPVPN) connectivity model is used, PE-MSEEs (4) establish BGP
 >
 
 The following are the logical steps, in troubleshooting ExpressRoute circuit:
-- [Verifying ExpressRoute connectivity](#verifying-expressroute-connectivity)
-	- [Overview](#overview)
-	- [Verify circuit provisioning and state](#verify-circuit-provisioning-and-state)
-		- [Verification via the Azure portal](#verification-via-the-azure-portal)
-		- [Verification via PowerShell](#verification-via-powershell)
-	- [Validate Peering Configuration](#validate-peering-configuration)
-		- [Verification via the Azure portal](#verification-via-the-azure-portal-1)
-		- [Verification via PowerShell](#verification-via-powershell-1)
-	- [Validate ARP](#validate-arp)
-	- [Validate BGP and routes on the MSEE](#validate-bgp-and-routes-on-the-msee)
-	- [Confirm the traffic flow](#confirm-the-traffic-flow)
-	- [Next Steps](#next-steps)
+
+* [Verify circuit provisioning and state](#verify-circuit-provisioning-and-state)
+  
+* [Validate Peering Configuration](#validate-peering-configuration)
+  
+* [Validate ARP](#validate-arp)
+  
+* [Validate BGP and routes on the MSEE](#validate-bgp-and-routes-on-the-msee)
+  
+* [Confirm the traffic flow](#confirm-the-traffic-flow)
 
 
 ## Verify circuit provisioning and state
