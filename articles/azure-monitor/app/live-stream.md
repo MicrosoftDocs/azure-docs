@@ -192,7 +192,7 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
  \* PerfCounters support varies slightly across versions of .NET Core that do not target the .NET Framework:
 
-- PerfCounters metrics are supported when running in Azure App Service for Windows. (AspNetCore SDK Version 2.4.0 or higher)
+- PerfCounters metrics are supported when running in Azure App Service for Windows. (AspNetCore SDK Version 2.4.1 or higher)
 - PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or On-prem etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core 2.0 or higher.
 - PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest beta (i.e AspNetCore SDK Version 2.8.0-beta1 or higher), but for apps targeting .NET Core 2.0 or higher.
 
