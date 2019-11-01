@@ -49,7 +49,5 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-To learn more about Azure Reservations, see the following articles:
-
 - [Optimize costs for Blob storage with reserved capacity](../storage/blobs/storage-blob-reserved-capacity.md)
 - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
