@@ -6,14 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
+ms.reviewer: laobri
+ms.author: copeters
+author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
 
 ---
 # Collect data for models in production
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > This SDK is retiring soon. This SDK is still appropriate for developers monitoring data drift in models but most developers should use the simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
@@ -112,7 +113,7 @@ To enable it, you need to:
 
 If you already have a service with the dependencies installed in your **environment file** and **scoring file**, enable data collection by:
 
-1. Go to  [Azure portal](https://portal.azure.com).
+1. Go to [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Open your workspace.
 
@@ -130,10 +131,10 @@ If you already have a service with the dependencies installed in your **environm
 
 
 ## Disable data collection
-You can stop collecting data any time. Use Python code or the Azure portal to disable data collection.
+You can stop collecting data any time. Use Python code or Azure Machine Learning studio to disable data collection.
 
-+ Option 1 - Disable in the Azure portal: 
-  1. Sign in to [Azure portal](https://portal.azure.com).
++ Option 1 - Disable in Azure Machine Learning studio: 
+  1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
   1. Open your workspace.
 
@@ -147,7 +148,7 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Select **Update** to apply the change.
 
-  You can also access these settings in your [workspace landing page (preview)](https://ml.azure.com).
+  You can also access these settings in your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 
 + Option 2 - Use Python to disable data collection:
 
@@ -157,10 +158,10 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
   ```
 
 ## Validate your data and analyze it
-You can choose any tool of your preference to analyze the data collected into your Azure Blob. 
+You can choose any tool of your preference to analyze the data collected into your Azure Blob.
 
 To quickly access the data from your blob:
-1. Sign in to [Azure portal](https://portal.azure.com).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Open your workspace.
 1. Click on **Storage**.
