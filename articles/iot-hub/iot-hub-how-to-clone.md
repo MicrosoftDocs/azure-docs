@@ -29,7 +29,7 @@ To clone a hub, you need a subscription with administrative access to the origin
 
 ## Things to consider
 
-There are several things to consider when cloning an IoT hub.
+There are several things to consider before cloning an IoT hub.
 
 * Make sure that all of the features available in the original location are also available in the new location. Some services are in preview, and not all features are available everywhere.
 
@@ -78,7 +78,6 @@ For example, say you have a hub in West US that is routing messages to a storage
 You can move a hub that uses message routing pretty easily if you do not also move the resources used for the routing endpoints. 
 
 If the hub uses message routing, you have two choices. 
-<!--robin -- reword 'move' ? -->
 
 1. Move the resources used for the routing endpoints to the new location.
 
@@ -99,9 +98,8 @@ If the hub uses message routing, you have two choices.
 > [!NOTE]
 > If your hub uses [message enhancements](iot-hub-message-enrichments-overview.md), you will have to set them up manually on the new IoT hub, as they are not exported with the Resource Manager template.
 
-## Steps for migrating the hub to another region
+## Prepare to migrate the hub to another region
 
-<!--robin-->
 <!-- action=prepare -->
 This section provides specific instructions for migrating the hub.
 
@@ -343,9 +341,7 @@ If you want to move the routing resources, you must manually set up the resource
 
 Now you have a template that will create a new hub that looks almost exactly like the old hub, depending on how you decided to handle the routing.
 
-<!--robin-->
-<!-- action=move -->
-### Create a new hub in the new region by loading the template
+## Move -- create the new hub in the new region by loading the template
 
 Create the new hub in the new location using the template. If you have routing resources that are going to move, the resources should be set up in the new location and the references in the template updated to match. If you are not moving the routing resources, they should be in the template with the updated keys.
 
@@ -529,21 +525,54 @@ Now you have the environment variables in a file with the SET commands, and you 
      changed to point at the new devices? -->
 <!-- action = cleanup -- honestly, this is pretty complicated and you can really do some damage, so I wouldn't delete the original resources until I was 110% sure they were working in the new location -->
 
+<!-- rajani proposed putting 'commit' here -->
 ### View the results 
 
-After the application finishes running, you can view the results in the [Azure portal](https://portal.azure.com).
+After the application finishes running, you can view the resources in the [Azure portal](https://portal.azure.com) and verify they are in the new location.,
 
 1. Go to the new hub using the [Azure portal](https://portal.azure.com). Select your hub, then select **IoT Devices**. You see the devices you just copied from the old hub to the cloned hub. You can also view the properties for the cloned hub.
 
 1. To check for errors, go to the Azure storage account in the [Azure portal](https://portal.azure.com) and look in the `devicefiles` container for the `ImportErrors.log`. If this file is empty (the size is 0), there were no errors. If you try to import the same device more than once, it rejects the device the second time and adds an error message to the log file.
 
-At this point, you have copied your hub to the new location and migrated the devices to the new clone. Make the changes needed to make sure the devices work with the cloned hub, and you should be finished.
+At this point, you have copied your hub to the new location and migrated the devices to the new clone. Now you need to make changes so the devices work with the cloned hub.
+
+## Committing the changes
+
+To commit the changes, here are the steps you need to perform: 
+
+* Update the connection string in each device to point to the new hub.
+
+* Anything you have that refers to the old hub will need to be updated to point to the new hub.
+
+* After these two things are done, the new hub should be up and running and the old hub should have no active devices and be in a disconnected state. 
+
+## Rolling back the changes
+
+If you decide you would rather roll back the changes than keep them, here are the steps you need to perform:
+
+* Update the connection string in each device to point to the old hub.
+
+* Anything you have that refers to the new hub will need to be updated to point to the old hub. 
+
+* Remove the devices from the new hub. You can use the Import/Export program to do this.
+
+* Delete the new hub. 
 
 ## Checking the results 
 
 To check the results, change your IoT solution to point to your new hub in its new location and run it. In other words, perform the same actions with the new hub that you performed with the previous hub and make sure they work correctly. 
 
 If you have implemented routing, test and make sure your messages are routed to the resources correctly.
+
+## Clean-up
+
+Don't clean up until you are really certain the new hub is up and running and the devices are working correctly. Also be sure to test the routing if you are using that feature. When you're ready, clean up the old resources by performing these steps:
+
+* Remove the devices from the old hub. You can use the Import/Export program to do this.
+
+* Delete the old hub. 
+
+* If you have routing resources, the configuration on the old hub should still point to the correct routing configuration, and should work with those resources after the hub is restarted.
 
 ## Next steps
 
