@@ -85,7 +85,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
    Together, the interval and frequency define the schedule for your logic app's trigger. This logic app checks the feed every minute.
 
-1. To hide the trigger details, for now, click inside the trigger's title bar.
+1. To hide the trigger details for now, click inside the trigger's title bar.
 
    ![Collapse logic app shape to hide details](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
