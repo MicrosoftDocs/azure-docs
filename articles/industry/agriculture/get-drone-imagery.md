@@ -19,7 +19,7 @@ ms.author: v-umha
 ## Before you begin
 
   - Make sure you have deployed Azure FarmBeats. To deploy, visit [Deploy FarmBeats](prepare-for-deployment.md).
-  - Deploy device/sensors from your device partner. Make sure you can access the data via your device partners’ solution.
+  - Ensure you have the farm (for which you want drone imagery) defined in your FarmBeats system.
 
 ## Enable drone imagery integration with FarmBeats   
 
@@ -52,7 +52,8 @@ Use the following steps:
     PS /home/username> ./generateCredentials.ps1
     ```
 
-7. Follow the onscreen instructions to capture the above values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String)
+7. Follow the onscreen instructions to capture the values of {API Endpoint}, {Tenant ID, {Client ID, Client Secret} and {EventHub Connection String}
+
 
   Once you enter the required credentials into the partner’s drone software system, you will be able to import all farms from the FarmBeats system and use the Farm details to do your flight path planning and drone image collection.
 
@@ -67,6 +68,7 @@ Use the following steps:
   1. Select the farm to which your imagery has been uploaded to. The **Farm** details page displays.
   2. Scroll down to the latest **Precision Maps** section.
   3. You should be able to view the image in the **Drone Imagery** section.
+
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
 
 ## Download drone imagery
@@ -84,4 +86,4 @@ Use the following steps:
 
 ## Next steps
 
-For information on Rest API-based integration, see, [REST API](references-for-farmbeats.md#rest-api).
+Know how to use the FarmBeats data hub {[PIs](references-for-farmbeats.md#rest-api) to get your drone imagery.

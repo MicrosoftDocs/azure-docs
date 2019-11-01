@@ -50,7 +50,7 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 
 1.	In the home page, select Farms from the menu, the Farms list page is displayed.
 2.	Select **MyFarm** and select **Add Devices**.
-3.	The **Add Devices** window displays. Select the device(s) that are linked to the soil moisture sensors for MyFarm.
+3.	The **Add Devices** window displays. Select the device(s) that are linked to the soil moisture sensors for your farm.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
@@ -58,14 +58,14 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 
 ## Generate soil moisture Heatmap
 
-  This step is to create a job or a long running operation that will generate the soil moisture heatmap for MyFarm.
+  This step is to create a job or a long running operation that will generate the soil moisture heatmap for your farm.
 
   1.	On the home page, go to **Farms** from the left navigation menu to view the farms page.
   2.	Select **MyFarm**
   3.	In the **Farm Details** page, select **Generate Precision Map**.
   4.	From the drop-down menu, select **Soil Moisture**.
   5.	In the **Soil Moisture** window, select This Week.
-  6.	In the **Select Soil Moisture** **Sensor Measure** drop-down, enter the soil   moisture sensor measure(depth) for, which you want to generate the map.
+  6.	In the **Select Soil Moisture** **Sensor Measure** drop-down, enter the soil   moisture sensor measure for, which you want to generate the map.
   To find the sensor measure, go to Sensors, select any soil moisture sensor, under **Sensor Properties** section use the value listed against **Measure Name**.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
@@ -76,8 +76,8 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
     A confirmation message displaying the details about the job created.
     For more information, see, Job Status in Jobs.
 
->[!NOTE]
-> The job should get completed in 3-4 hours.
+    >[!NOTE]
+    > The job should get completed in 3-4 hours.
 
 
 ### Download the soil moisture Heatmap
@@ -93,4 +93,4 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 
 ## Next steps
 
-For more information about sensor placement, see, [sensor placement](generate-maps.md#sensor-placement-maps) and about ingest historical telemetry data, see, [ingest historical telemetry data](ingest-historical-telemetry-data.md).
+Now that you have successfully generated soil moisture map, learn how to [generate sensor placement](generate-maps.md#sensor-placement-maps) and [ingest historical telemetry data](ingest-historical-telemetry-data.md).  

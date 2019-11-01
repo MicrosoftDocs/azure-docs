@@ -30,14 +30,6 @@ You must use the following credentials in the drone partner software for linking
 2. Tenant ID
 3. Client ID
 4. Client Secret
-5. Translator Development
-6. Rest API-based integration
-
-Sensor data integration capabilities of FarmBeats are exposed via the REST API. Capabilities include metadata definition, device/sensor provisioning, device, and sensor management.
-
-**Telemetry Ingestion**
-
-The telemetry data is mapped to a canonical message that is published on Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications.
 
 **API Development**
 
@@ -119,11 +111,11 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 
 ```
 
-Data Format
+## Data Format
 
 JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see, JSON.org
 
-Steps to integrate the partner with FarmBeats:
+## Ingesting imagery into FarmBeats
 
 Once the partner has the required credentials to make the connect to the FarmBeats Data hub, the partner must enable the following in their translator component.
 1.	Create new extended type for the following fields to suit the imagery they are planning to upload:
@@ -146,23 +138,185 @@ Step 1: ExtendedType
 Check in the ExtendedType API, if the type and file source are available on FarmBeats. You can do this by calling a GET on the /ExtendedType API.
 
 Following are the system defined values:
+
 ```
-"key": "SceneFileContentType",       "value": [         "image/tiff",         "image/
-png",         "image/jpeg",         "text/csv",         "text/plain",         "text/tab-separated-values",         
-"application/json",         "application/octet-stream"       ]
-
-"key": "SceneFileType",       "value": [         "evi",         "ndvi",         "ndwi",         
-"tci",         "soil-moisture",         "sensor-placement",         "sentinel-b01",        
-"sentinel-b02",         "sentinel-b03",         "sentinel-b04",         "sentinel-b05",         "sentinel-b06",         "sentinel-b07",         "sentinel-b08",
-"sentinel-b8a",         "sentinel-b09",         "sentinel-b10",         
-"sentinel-b11",         "sentinel-b12",         "cloud-mask",         "farm-mask"       ],
-
-"key": "SceneType",       "value": [         "base-bands",         "sensor-placement",         
-"soil-moisture",         "evi",         "ndwi",         "ndvi",         "drone"       ]
-
-"key": "SceneSource",       "value": [         "sentinel-l1c",         "sentinel-l2a",         
-"farmbeats-model",         "dji"       ]
-
+{
+  "items": [
+    {
+      "id": "ae2aa527-7d27-42e2-8fcf-841937c651d7",
+      "createdAt": "2019-06-17T07:32:30.1135716Z",
+      "lastModifiedAt": "2019-10-25T09:47:42.5910344Z",
+      "key": "SceneFileType",
+      "value": [
+        "evi",
+        "ndvi",
+        "ndwi",
+        "tci",
+        "soil-moisture",
+        "sensor-placement",
+        "sentinel-b01",
+        "sentinel-b02",
+        "sentinel-b03",
+        "sentinel-b04",
+        "sentinel-b05",
+        "sentinel-b06",
+        "sentinel-b07",
+        "sentinel-b08",
+        "sentinel-b8a",
+        "sentinel-b09",
+        "sentinel-b10",
+        "sentinel-b11",
+        "sentinel-b12",
+        "cloud-mask",
+        "farm-mask",
+        "image/tiff",
+        "orthomosaic"
+      ],
+      "description": "List of scene file types available in system. User can add more values."
+    },
+    {
+      "id": "b7824d2e-3e43-46d3-8fd4-ec7ba8918d84",
+      "createdAt": "2019-06-17T07:32:30.1135716Z",
+      "lastModifiedAt": "2019-10-25T09:45:44.8914691Z",
+      "key": "SceneFileContentType",
+      "value": [
+        "image/tiff",
+        "image/png",
+        "image/jpeg",
+        "text/csv",
+        "text/plain",
+        "text/tab-separated-values",
+        "application/json",
+        "application/octet-stream",
+        "orthomosaic"
+      ],
+      "description": "List of scene file content types available in system. User can add more values."
+    },
+    {
+      "id": "21d2924d-8b3e-4ce4-a7f8-318e85c0f7f2",
+      "createdAt": "2019-06-17T07:32:30.1135716Z",
+      "lastModifiedAt": "2019-10-25T09:45:37.5096445Z",
+      "key": "SceneSource",
+      "value": [
+        "sentinel-l1c",
+        "sentinel-l2a",
+        "farmbeats-model",
+        "dji",
+        "SlantRange-3P",
+        "DJI"
+      ],
+      "description": "List of scene sources available in system. User can add more values."
+    },
+    {
+      "id": "6e09ca69-cacf-4b53-b63a-53c659aae4a4",
+      "createdAt": "2019-06-17T07:32:30.1135716Z",
+      "lastModifiedAt": "2019-10-25T09:45:34.7483899Z",
+      "key": "SceneType",
+      "value": [
+        "base-bands",
+        "sensor-placement",
+        "soil-moisture",
+        "evi",
+        "ndwi",
+        "ndvi",
+        "drone",
+        "orthomosaic-drone"
+      ],
+      "description": "List of scene types available in system. User can add more values."
+    },
+    {
+      "id": "55d8436b-3a86-4bea-87ab-e1b51226525f",
+      "createdAt": "2019-06-17T07:32:30.1135716Z",
+      "lastModifiedAt": "2019-06-17T07:32:30.1135716Z",
+      "key": "SensorMeasureType",
+      "value": [
+        "AmbientTemperature",
+        "CO2",
+        "Depth",
+        "ElectricalConductivity",
+        "LeafWetness",
+        "Length",
+        "LiquidLevel",
+        "Nitrate",
+        "O2",
+        "PH",
+        "Phosphate",
+        "PointInTime",
+        "Potassium",
+        "Pressure",
+        "RainGauge",
+        "RelativeHumidity",
+        "Salinity",
+        "SoilMoisture",
+        "SoilTemperature",
+        "SolarRadiation",
+        "State",
+        "TimeDuration",
+        "UVRadiation",
+        "UVIndex",
+        "Volume",
+        "WindDirection",
+        "WindRun",
+        "WindSpeed",
+        "Evapotranspiration",
+        "PAR"
+      ],
+      "description": "List of sensor measure types available in system. User can add more values."
+    },
+    {
+      "id": "0dfd6e6b-df58-428f-9ab8-a0674bfdcbe5",
+      "createdAt": "2019-06-17T07:32:30.1135716Z",
+      "lastModifiedAt": "2019-06-17T07:32:30.1135716Z",
+      "key": "SensorMeasureUnit",
+      "value": [
+        "NoUnit",
+        "Celsius",
+        "Fahrenheit",
+        "Kelvin",
+        "Rankine",
+        "Pascal",
+        "Mercury",
+        "PSI",
+        "MilliMeter",
+        "CentiMeter",
+        "Meter",
+        "Inch",
+        "Feet",
+        "Mile",
+        "KiloMeter",
+        "MilesPerHour",
+        "MilesPerSecond",
+        "KMPerHour",
+        "KMPerSecond",
+        "MetersPerHour",
+        "MetersPerSecond",
+        "Degree",
+        "WattsPerSquareMeter",
+        "KiloWattsPerSquareMeter",
+        "MilliWattsPerSquareCentiMeter",
+        "MilliJoulesPerSquareCentiMeter",
+        "VolumetricWaterContent",
+        "Percentage",
+        "PartsPerMillion",
+        "MicroMol",
+        "MicroMolesPerLiter",
+        "SiemensPerSquareMeterPerMole",
+        "MilliSiemensPerCentiMeter",
+        "Centibar",
+        "DeciSiemensPerMeter",
+        "KiloPascal",
+        "VolumetricIonContent",
+        "Liter",
+        "MilliLiter",
+        "Seconds",
+        "UnixTimestamp",
+        "MicroMolPerMeterSquaredPerSecond",
+        "InchesPerHour"
+      ],
+      "description": "List of sensor measure units available in system. User can add more values."
+    }
+  ]
+}
 ```
 This will be a one-time setup, and the scope of this new scenetype is limited to the subscription in which FarmBeats project is deployed.
 

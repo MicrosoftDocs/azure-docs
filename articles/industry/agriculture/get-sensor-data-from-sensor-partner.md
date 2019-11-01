@@ -10,7 +10,7 @@ ms.author: v-umha
 # Get sensor data from sensor partners
 
 
-  FarmBeats helps you to bring streaming data from your IoT devices and sensors into datahub. Currently the following Sensor device partners are supported:
+  FarmBeats helps you to bring streaming data from your IoT devices and sensors into data hub. Currently the following Sensor device partners are supported:
 
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
@@ -19,7 +19,7 @@ ms.author: v-umha
 
   To start sensor data streaming, ensure the following:
 
-  1.	You have installed FarmBeats from the Azure Marketplace.
+  1.	You have installed FarmBeats from Azure Marketplace.
   2.	You have decided on the sensors and devices that you want to install on your farm.
 
         > [!NOTE]
@@ -37,8 +37,6 @@ ms.author: v-umha
   3. Client ID  
   4. Client Secret  
   5. EventHub Connection String
-
-### Generate the credentials
 
   The above information is provided to you by your System Integrator. For any issues while enabling the device integrations, contact your System Integrator.
 
@@ -65,7 +63,7 @@ ms.author: v-umha
 
         ```
 
-  Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String)
+7. Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String)
 
 **Integrate device data using the generated credentials**
 
@@ -117,8 +115,7 @@ Use the following steps:
 
         ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
-  4. Select **Add Devices**.   
-    Alternatively, go to the **Devices** menu, select the devices you want to assign to a farm and select **Associate Devices**.  
+  4. Select **Add Devices**. Alternatively, go to the **Devices** menu, select the devices you want to assign to a farm and select **Associate Devices**.  
   5. In the **Associate Devices** window, select the farm from drop-down and select **Apply to All** to associate the farm to all the selected devices.
 
       ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
