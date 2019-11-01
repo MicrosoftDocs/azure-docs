@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern.any entity to improve predictions. 
 ---
@@ -17,6 +17,8 @@ ms.author: diberry
 # Tutorial: Extract free-form data with Pattern.any entity
 
 In this tutorial, use the pattern.any entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In this tutorial, you learn how to:**
 
