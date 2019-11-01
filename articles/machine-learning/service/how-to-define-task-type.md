@@ -3,7 +3,7 @@ title: Define a machine learning task for an automated machine learning run
 titleSuffix: Azure Machine Learning
 description: Learn how to define a machine learning task for an automated machine learning run
 services: machine-learning
-author: rakellam
+author: RachelKellam
 ms.author: rakellam
 ms.reviewer: nibaccam
 ms.service: machine-learning
@@ -20,12 +20,12 @@ In this article, you learn the supported machine learning tasks and how to defin
 
 ## <a name="What is a machine learning task?"></a> What is a machine learning task?
 
-A machine learning task represents the type of problem being solved by creating a predictive model. Automated ML supports three different types of tasks including classification, regression, and timeseries forecasting.
+A machine learning task represents the type of problem being solved by creating a predictive model. Automated ML supports three different types of tasks including classification, regression, and time series forecasting.
 
 Task type| Description| Example
 ----|----|----
 Classification | Task for predicting the category of a particular row in a dataset. | Fraud detection on a credit card. The target column would be **Fraud Detected** with categories of *True* or *False*. In this case, we are classifying each row in the data as either true or false.
-Regression | Task for predicting a continuous quantity output. | Autombile cost based on it's features, the target column would be **price**.
+Regression | Task for predicting a continuous quantity output. | Automobile cost based on its features, the target column would be **price**.
 Forecasting |Task for making informed estimates in determining the direction of future trends.| Forecasting energy demand for them next 48 hours. The target column would be **demand** and the predicted values would be used to show patterns in the energy demand.
 
 Automated ML supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
@@ -59,15 +59,17 @@ from azureml.train.automl import AutoMLConfig
 automl_config = AutoMLConfig(task="classification")
 ```
 
-You can set the task as part of your automated ML experiment run creation in the Azure Machine Leanring studio. 
+You can set the task as part of your automated ML experiment run creation in the Azure Machine Learning studio. 
 
-![Task type selection](./task_sample.png)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
+
+![Task type selection](./media/how-to-define-task-type/task-type.png)
 
 
 ## Next steps
 
 + Learn more about [automated ml](concept-automated-ml.md) in Azure Machine Learning.
-+ Learn more about [auto-training a time-series forecast model](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-auto-train-forecast) in Azure Machine Learning
++ Learn more about [auto-training a time-series forecast model](how-to-auto-train-forecast.md) in Azure Machine Learning
 + Try the [Automated Machine Learning Classification](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) tutorial.
 + Try the [Automated Machine Learning Regression](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) sample notebook.
 
