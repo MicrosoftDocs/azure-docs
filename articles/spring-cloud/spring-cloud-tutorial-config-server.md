@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.reviewer: jeconnoc
 ms.author: v-vasuke
 author: v-vasuke
-ms.date: 08/08/2019
+ms.date: 10/18/2019
 ---
 
 # Tutorial: Set up a Spring Cloud Config Server for your service
@@ -47,7 +47,7 @@ When using a public repository, your configurable properties will be more limite
 All configurable properties used to set up the public `Git` repository are listed below.
 
 > [!NOTE]
-> Using a hyphen ("-") to separate words is the only naming convention that is currently supported. For example, use `default-label` not `defaultLabel`.
+> Using a hyphen ("-") to separate words is the only naming convention that is currently supported. For example, you can use `default-label`, but not `defaultLabel`.
 
 | Property        | Required | Feature                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
@@ -62,7 +62,7 @@ All configurable properties used to set up the public `Git` repository are liste
 All configurable properties used to set up private `Git` repository with `Ssh` are listed below.
 
 > [!NOTE]
-> Using a hyphen ("-") to separate words is the only naming convention that is currently supported. For example, use `default-label` not `defaultLabel`.
+> Using a hyphen ("-") to separate words is the only naming convention that is currently supported. For example, you can use `default-label`, but not `defaultLabel`.
 
 | Property                   | Required | Feature                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
@@ -116,10 +116,6 @@ All configurable properties used to set up Git repositories with pattern are lis
 | `repos."host-key-algorithm"`       | `no`             | The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Only __required__ if `host-key` exists. |
 | `repos."strict-host-key-checking"` | `no`             | Indicates whether the config server will fail to start when leveraging the private `host-key`. Should be `true` (default value) or `false`. |
 
-### Import `application.yml` file from Spring Cloud Config
-
-You can import some default config server settings directly from the [Spring Cloud Config](https://spring.io/projects/spring-cloud-config) website. You can do this directly from the Azure portal, so you don't need to take any steps now to prepare your config server files or repository.
-
 ## Attaching your Config Server repository to Azure Spring Cloud
 
 Now that you have your configuration files saved in a repository, you need to connect Azure Spring Cloud to it.
@@ -130,19 +126,60 @@ Now that you have your configuration files saved in a repository, you need to co
 
 1. Go to the **Config Server** tab under the **Settings** heading in the menu on the left side.
 
-### Public repository
+![window screenshot](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 
-If your repository is public, simply click the **Public** button and paste the URL.
+### Input repository information directly to the Azure portal
 
-### Private repository
+#### Default repository
 
-Azure Spring Cloud supports SSH authentication. Follow the instructions on the Azure portal for adding the public key to your repository. Then, be sure to include your private key in the configuration file.
+* Public repository: In the **Default repository** section, paste the repository URI in the **Uri** section and ensure the **Authentication** setting is **Public**. Then click **Apply** to finish. 
 
-Click **Apply** to finish setting up your Config Server.
+* Private repository: Azure Spring Cloud supports basic password/token based authentication and SSH.
+
+    * Basic Authentication: In the **Default repository** section, paste the repository's URI in the **Uri** section, then click the **Authentication**. Select **Basic** as your **Authentication type** and enter your username and password/token to grant access to Azure Spring Cloud. Click **OK** and **Apply** to finish setting up your Config Server.
+
+    ![window screenshot](media/spring-cloud-tutorial-config-server/basic-auth.png)
+    
+    > [!CAUTION]
+    > Some Git repository servers like GitHub use a `personal-token` or a `access-token` like a password for **Basic Authentication**. You can use that kind of token as password in Azure Spring Cloud, as it will never expire. But for other Git repository servers such as BitBucket and Azure DevOps, the `access-token` will expire in one or two hours. This means that option not viable when using those repository servers with Azure Spring Cloud.]
+
+    * SSH: In the **Default repository** section, paste the repository's URI in the **Uri** section, then click the **Authentication**. Select **SSH** as your **Authentication type** and enter your **Private key**. You can optionally specify your **Host key** and **Host key algorithm**. Be sure to include your public key in your config server repository. Click **OK** and **Apply** to finish setting up your Config Server.
+
+    ![window screenshot](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+
+#### Pattern repository
+
+If you want to use an optional **Pattern repository** to configure your service, specify the **URI** and **Authentication** the same way as the **Default repository**. Be sure to include a **Name** for your pattern, then click **Apply** to attach it to your instance. 
+
+### Enter repository information into a YAML file
+
+If you have written a YAML file with your repository settings, you can import your YAML file directly from your local machine to Azure Spring Cloud. A simple YAML file for a private repository with basic authentication would look like this:
+
+```yml
+spring:
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/azure-spring-cloud-samples/config-server-repository.git
+                    username: <username>
+                    password: <password/token>
+
+```
+
+Click the **Import settings** button, then select the `.yml` file from your project directory. Click **Import**, then an `async` operation from your **Notifications** will pop up. After 1-2 minutes, it should report success.
+
+![window screenshot](media/spring-cloud-tutorial-config-server/local-yml-success.png)
+
+
+You should see the information from your YAML file displayed in the Azure portal. Click **Apply** to finish. 
+
 
 ## Delete your app configuration
 
 Once you've saved a configuration file, the **Delete app configuration** button will appear in the **Configuration** tab. This will erase your existing settings completely. You should do this if you wish to connect your config server to another source, such as moving from GitHub to Azure DevOps.
+
+
 
 ## Next steps
 

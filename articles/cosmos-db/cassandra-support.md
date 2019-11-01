@@ -146,7 +146,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
         { 
             byte[] valueInBytes = customPayload[key]; 
             double value = Encoding.UTF8.GetString(valueInBytes); 
-            Console.WriteLine($“CustomPayload:  {key}: {value}”); 
+            Console.WriteLine($"CustomPayload:  {key}: {value}"); 
         } 
 ```
 
