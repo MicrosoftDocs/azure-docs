@@ -24,10 +24,11 @@ For a workflow targeting AKS, the file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1. Define a service principal |
-|                   | 2. Create a GitHub secret     |
-|**Build** | 1. Build the container image |
-|**Deploy** | 1. Deploy to the K8s cluster |
+|**Authentication** | Login to a private container registry (ACR) |
+|**Build** | Build & push the container image  |
+|**Deploy** | 1. Set the target AKS cluster |
+| |2. Create a generic/docker-registry secret in k8s cluster  |
+||3. Deploy to the K8s cluster|
 
 ## Create a service principal
 
