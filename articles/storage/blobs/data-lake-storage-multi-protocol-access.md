@@ -41,14 +41,18 @@ The items that appear in this table will change over time as support for Blob st
 
 |Blob storage feature | Support level |
 |---|---|
-|[Cool access tier](storage-blob-storage-tiers.md)|Generally available|
-|[Archive access tier](storage-blob-storage-tiers.md)| Preview|
-|[Lifecycle management policies](storage-lifecycle-management-concepts.md)| Preview|
 |[Diagnostic logs](../common/storage-analytics-logging.md)| Preview|
+|[Lifecycle management policies](storage-lifecycle-management-concepts.md)| Preview|
+|[Notifications via Azure Event Grid](data-lake-storage-events.md)|Preview|
+|[Archive access tier](storage-blob-storage-tiers.md)| Preview|
+|[Cool access tier](storage-blob-storage-tiers.md)|Generally available|
 |Blob SDKs |Generally available|
 |[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) (data plane operations)|Generally available|
 |[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) (data plane operations)|Generally available|
-|[Notifications via Azure Event Grid](data-lake-storage-events.md)|Preview|
+|[Immutable storage](storage-blob-immutable-storage.md)|Not yet supported|
+|[Snapshots](storage-blob-snapshots.md)|Not yet supported|
+|[Soft delete](storage-blob-soft-delete.md)|Not yet supported|
+|[Static websites](storage-blob-static-website.md)|Not yet supported|
 
 To learn more about general known issues and limitations with Azure Data Lake Storage Gen2, see [Known issues](data-lake-storage-known-issues.md).
 
@@ -63,11 +67,11 @@ Just like the list of supported Blob storage features, the items that appear in 
 
 |Azure service | Support level |
 |---|---|
-|[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Preview|
-|[Azure Event Hubs capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Preview|
-|[IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Preview|
-|[Azure Search](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|Preview|
 |[Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|Preview|
+|[Azure Event Hubs capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Preview|
+|[Azure Search](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|Preview|
+|[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Preview|
+|[IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Preview|
 
 For the complete list of Azure ecosystem support for Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
 
