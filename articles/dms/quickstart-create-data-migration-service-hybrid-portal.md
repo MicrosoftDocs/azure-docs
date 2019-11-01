@@ -53,7 +53,7 @@ Register the Microsoft.DataMigration resource provider before you create your fi
     - Choose the **Location** that is closest to your source or target server.
 
     > [!IMPORTANT]
-    > During preview, hybrid mode is supported only in the Central US. Since the hybrid worker is installed in your on-premises network, there is little or no impact on performance even if you are migrating to a target in a different region.
+    > During preview, hybrid mode is supported only in the East US. Since the hybrid worker is installed in your on-premises network, there is little or no impact on performance even if you are migrating to a target in a different region.
 
     - For **Service mode**, select **Hybrid (Preview)**.
 
