@@ -151,7 +151,7 @@ To see this managed domain in action, create and join a virtual machine to the d
 > [!div class="nextstepaction"]
 > [Join a Windows Server virtual machine to your managed domain](join-windows-vm.md)
 
-<!-- INTERNAL LINKS -->
+<!-- INTERNAL LINKS --> 
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md

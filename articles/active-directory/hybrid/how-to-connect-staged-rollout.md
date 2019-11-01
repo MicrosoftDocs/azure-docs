@@ -77,6 +77,8 @@ These scenarios are not supported for staged rollout:
 
 If you want to test Password Hash Sync (PHS) sign-in using staged rollout, please complete the below pre-work to enable Password Hash Sync staged rollout.
 
+For more information on the PowerShell cmdlets used, see [AzureAD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)
+
 ## Pre-work for Password Hash Sync
 
 1. Enable Password Hash Sync from the [Optional features](how-to-connect-install-custom.md#optional-features) page in Azure AD Connect. 
@@ -235,3 +237,6 @@ Here is how you can track user sign-ins still happening on AD FS for selected st
 -   **Q: Can we use PowerShell to perform staged rollout?**
 
 -   A: Yes, Please find the documentation to use PowerShell to perform staged rollout here.
+
+## Next Steps
+- [AzureAD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
