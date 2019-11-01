@@ -60,7 +60,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    ![Select blank template for logic app](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
-Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) that fires when a new RSS feed item appears. Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the logic apps engine creates a logic app instance that starts and runs your workflow.
+Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) that fires when a new RSS feed item appears. Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Azure Logic Apps engine creates a logic app instance that starts and runs your workflow.
 
 <a name="add-rss-trigger"></a>
 
@@ -157,7 +157,7 @@ For example, here is a sample email that this logic app sends.
 
 ![Sample email sent when new RSS feed item appears](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Technically, when the trigger checks the RSS feed and finds new items, the trigger fires, and the logic apps engine creates an instance of your logic app workflow that runs the actions in the workflow. If the trigger doesn't find new items, the trigger doesn't fire and "skips" instantiating the workflow.
+Technically, when the trigger checks the RSS feed and finds new items, the trigger fires, and the Azure Logic Apps engine creates an instance of your logic app workflow that runs the actions in the workflow. If the trigger doesn't find new items, the trigger doesn't fire and "skips" instantiating the workflow.
 
 Congratulations, you've now successfully built and run your first logic app with the Azure portal.
 
