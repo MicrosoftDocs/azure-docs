@@ -11,7 +11,7 @@ ms.author: v-umha
 # Configure rules and manage alerts in FarmBeats
 
 
-FarmBeats allows you to create rules based on the business logic, in addition to the sensor data that flows from the sensors and devices deployed in your farm. The rules trigger alerts in the system whenever sensor values cross a threshold value.
+FarmBeats allows you to create rules based on the business logic, in addition to the sensor data that flows from the sensors and devices deployed in your farm. The rules trigger alerts in the system whenever sensor values cross a threshold value. By viewing and analyzing the alerts created after the threshold values, you can quickly act on any issues and get required solutions.
 
 ## Create rule
 
@@ -42,14 +42,14 @@ FarmBeats allows you to create rules based on the business logic, in addition to
 
 The **Farm** page displays the list of available rules. Select a **Rule Name**, a window displays the following details that are applicable for the selected rule:
 
-1. Rule Name
-2. Link to the Farm to which the Rule is associated
-3. Created Date
-4. Last Updated Date
-5. Severity Level
-6. Rule Status
-7. List of Conditions  
-8. Number of Devices affected by the Rule
+  - Rule Name
+  - Link to the Farm to which the Rule is associated
+  - Created Date
+  - Last Updated Date
+  - Severity Level
+  - Rule Status
+  - List of Conditions  
+  - Number of Devices affected by the Rule
 
     ![Project Farm Beats](./media/configure-rules-and-alerts/view-rule-1.png)
 

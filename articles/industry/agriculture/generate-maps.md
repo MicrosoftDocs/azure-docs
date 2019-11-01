@@ -10,11 +10,11 @@ ms.author: v-umha
 
 # Generate maps
 
-Using Azure FarmBeats, you can generate the following maps by using satellite imagery and sensor data inputs:
+Using Azure FarmBeats, you can generate the following maps by using satellite imagery and sensor data inputs. Maps help you in viewing the geographical location of your farm and identify the appropriate location for your devices.
 
-1. **Sensor Placement Map** – gets recommendations on how many sensors to use and where to place them in a farm.
-2.	**Satellite indices Map** – gets vegetation index and water index for a farm.
-3.	**Soil Moisture Map** – gets soil moisture distribution by fusing satellite data and sensor data.
+  -  **Sensor Placement Map** – gets recommendations on how many sensors to use and where to place them in a farm.
+  - **Satellite indices Map** – gets vegetation index and water index for a farm.
+  - **Soil Moisture Map** – gets soil moisture distribution by fusing satellite data and sensor data.
 
 
 ## Sensor placement maps
@@ -23,7 +23,7 @@ Using Azure FarmBeats, you can generate the following maps by using satellite im
 
   This map is derived by segmenting the canopy as seen over multiple dates throughout the year, even bare soil and buildings are part of the canopy. You can remove sensors that are not required on the location. This map is for guidance and you can alter the position and numbers slightly based on your custom knowledge (adding sensors will not regress soil moisture heat map results but there is possibility of deterioration in heat map accuracy if sensor number is reduced).  
 
-## Before you begin  
+### Before you begin  
 
   Ensure the following before you attempt to generate a sensor placement map:
 

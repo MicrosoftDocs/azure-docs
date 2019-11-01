@@ -18,12 +18,13 @@ Follow the steps:
 
   1.	Login to the Farm Accelerator, the **Farms** page displays.
 
-    > [!NOTE]
-    > The Farms page displays the list of farms in case they have already been created in subscription.
+> [!NOTE]
+> The Farms page displays the list of farms in case they have already been created in subscription.
 
-    Here is the sample image:
 
-    ![Project Farm Beats](./media/create-farms/create-farm-main-page-1.png)
+Here is the sample image:
+
+![Project Farm Beats](./media/create-farms/create-farm-main-page-1.png)
 
   2. Select **Create Farm** and provide **Name**, **Crops** and **Address**.
   3. In the **Define Farm Boundary**, select either **Mark on Map** or **Paste GeoJSON code**, which is a mandatory field.
@@ -32,12 +33,11 @@ There are two ways to define farm boundary:
 
 1.	**Mark on Map**: Use the map control tool to draw and mark the boundary of the farm. To mark the boundaries,  ![Project Farm Beats](./media/create-farms/pencil-icon-1.png) and mark the exact boundaries.
 
-
-![Project Farm Beats](./media/create-farms/create-farm-mark-on-map-1.png)
+        ![Project Farm Beats](./media/create-farms/create-farm-mark-on-map-1.png)
 
 2.	**Paste GeoJson Code**: The GeoJSON is a format for encoding geographical data structures, using JavaScript Object Notation (JSON). This option displays a text box where a GeoJSON string can be entered to mark the farm boundaries. You can also create GeoJSON code from GeoJSON.io.
 
- ![Project Farm Beats](./media/create-farms/create-new-farm-1.png)
+    ![Project Farm Beats](./media/create-farms/create-new-farm-1.png)
 
 3.	Use the tooltips to help fill in the information.
 4.	Select **Submit** to create a farm. A new farm is created and displayed in the Farms page.
@@ -58,7 +58,7 @@ There are two ways to define farm boundary:
   1.	Select a farm to view and edit the farm.
   2.	Select **Edit Farm** to edit the farm information. In the **Farm Details** window, you can edit **Name**, **Crops**, **Address**, and **Farm Boundary** fields.
 
-![Project Farm Beats](./media/create-farms/edit-farm-1.png)
+  ![Project Farm Beats](./media/create-farms/edit-farm-1.png)
 
   3.	Select **Submit** to save the details edited.
 
@@ -68,12 +68,13 @@ There are two ways to define farm boundary:
   1.	Select a farm from the list to delete farm details.
   2.	Select **Delete Farm** to delete the farm.
 
-![Project Farm Beats](./media/create-farms/delete-farm-1.png)
+  ![Project Farm Beats](./media/create-farms/delete-farm-1.png)
 
-    > [!NOTE]
-    > All the associated devices and maps with the farm will not be deleted. However, the farm details on these devices and maps are invalid. The devices, telemetry and the maps can still be viewed from the application.
+
+> [!NOTE]
+> All the associated devices and maps with the farm will not be deleted. However, the farm details on these devices and maps are invalid. The devices, telemetry and the maps can still be viewed from the application.
 
 
 ## Next steps
 
-You have created your Farm now. See, how you can [get sensor data](get-sensor-data-from-sensor-partner.md) flowing into your farm,
+You have created your Farm now. See how you can [get sensor data](get-sensor-data-from-sensor-partner.md) flowing into your farm,
