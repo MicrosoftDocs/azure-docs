@@ -25,6 +25,8 @@
   items:
   - name: Use smart contracts
     href: send-transaction.md
+  - name: Send data with Data Manager
+    href: data-manager-cosmosdb.md
 - name: Concepts
   items:
   - name: Consortium

@@ -1,20 +1,20 @@
 ---
-title: Use Blockchain Data Manager to update an off-chain database
+title: Use Blockchain Data Manager to update Azure Cosmos DB
 description: Use Blockchain Data Manager to send blockchain data to Azure Cosmos DB
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
 ms.date: 11/04/2019
-ms.topic: article
+ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chroyal
 #Customer intent: As a developer, I want to use Blockchain Data Manager to send blockchain data to Azure Cosmos DB
 ---
-# Tutorial: Use Blockchain Data Manager to update a Cosmos DB database
+# Tutorial: Use Blockchain Data Manager to send data to Azure Cosmos DB
 
-In this tutorial, you use Blockchain Data Manager for Azure Blockchain Service to send blockchain data to Azure Cosmos DB. Blockchain Data Manager captures, transforms, and delivers blockchain ledger data to Azure Event Grid Topics. From Azure Event Grid, you use a Azure Logic App connector to create documents in Azure Cosmos DB. When finished with tutorial, you will be able to explore transaction data in Azure Cosmos DB Data Explorer.
+In this tutorial, you use Blockchain Data Manager for Azure Blockchain Service to record blockchain transaction data in Azure Cosmos DB. Blockchain Data Manager captures, transforms, and delivers blockchain ledger data to Azure Event Grid Topics. From Azure Event Grid, you use a Azure Logic App connector to create documents in an Azure Cosmos DB database. When finished with tutorial, you will be able to explore transaction data in Azure Cosmos DB Data Explorer.
 
-![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)
+[![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
 In this tutorial, you:
 
@@ -174,7 +174,7 @@ You can use the Data Explorer in the Azure portal to create a database and conta
     |---------|-------------|
     | Database ID | Enter **blockchain-data** as the name for the new database. |
     | Throughput | Leave the throughput at **400** request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.|
-    | Container ID | Enter **Transactions** as the name for your new container. |
+    | Container ID | Enter **Messages** as the name for your new container. |
     | Partition key | Use **/MessageType** as the partition key. |
 
 1. Select **OK**. The Data Explorer displays the new database and the container that you created.
@@ -368,13 +368,9 @@ Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you
 
     Data Explorer lists the blockchain data messages that were created in the Cosmos DB database.
 
-1. For this example, filter on the transactions that used gas. Also sort by the block number to list the most recent transactions first. Select **Apply filter** and enter the clause `WHERE c.body.data.GasUsed > 0 ORDER BY c.body.data.BlockNumber DESC`.
-
-    ![Apply a database filter](./media/data-manager-cosmosdb/apply-filter.png)
-
 1. Browse through the messages by selecting item ID and find the message with the matching transaction hash.
 
-    ![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)
+    [![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
     The raw transaction message contains detail about the transaction. However, event and property information is encrypted. Since you added the HelloBlockchain smart contract to the Blockchain Data Manager instance, xxxx message types are also sent. xxxx messages contain decoded event and property information.
 
