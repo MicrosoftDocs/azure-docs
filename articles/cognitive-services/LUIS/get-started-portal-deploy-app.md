@@ -8,12 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint. 
 ---
 
 # Quickstart: Deploy an app in the LUIS portal
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 
 When your LUIS app is ready to return utterance predictions to a client application (for example, a chat bot), you need to deploy the app to the prediction endpoint.
 
@@ -73,60 +76,67 @@ Train the app when you're ready to test it. Publish the app when you want the cu
 
 1. If the app is untrained, select **Train** from the menu in the upper right.
 
-1. Select **Publish** from the top menu. Accept the default environment settings, and select **Publish**.
+1. Select **Publish** from the top menu. Select the production slot, and publish.
 
-1. When the green success notification bar appears at the top of the browser window, select **Refer to the list of endpoints**.
+1. When the notification bar appears, publishing is complete.
 
-   ![Successfully published app notification bar in browser](./media/get-started-portal-deploy-app/successfully-published-notification.png)
+1. On the Manage section's **Azure resources** page, find the list of assigned resources and corresponding endpoint URLs.
 
-1. On the **Keys and Endpoint settings** page, find the list of assigned resources and corresponding endpoint URLs at the bottom.
-
-1. Select the endpoint URL associated with your new resource name. This action opens a web browser with a correctly constructed URL to make a `GET` request to the prediction endpoint runtime.
+1. Copy the example query into a browser window and add your user utterance as the `query` parameter.
 
 ## Prediction endpoint request
 
-<!-- V3FIX -->
-
-The `q=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `q=`, enter the same user utterance used at the end of the previous quickstart:
+The `query=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `query=`, enter the same user utterance used at the end of the previous quickstart:
 
 ```Is there a form named hrf-234098```
 
-The browser shows the response, which is the same JSON your client application will receive:
+Make sure the query string includes the following pairs:
+
+* `show-all-intents=true`
+* `verbose=true`
+
+The browser shows the response:
 
 ```JSON
 {
-"query": "Is there a form named hrf-234098",
-"topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.9768753
-},
-"intents": [
-    {
-    "intent": "FindForm",
-    "score": 0.9768753
-    },
-    {
-    "intent": "None",
-    "score": 0.0216071066
+    "query": "Is there a form named hrf-234098",
+    "prediction": {
+        "topIntent": "FindForm",
+        "intents": {
+            "FindForm": {
+                "score": 0.9768753
+            },
+            "None": {
+                "score": 0.0216071177
+            }
+        },
+        "entities": {
+            "Human Resources Form Number": [
+                "hrf-234098"
+            ],
+            "$instance": {
+                "Human Resources Form Number": [
+                    {
+                        "type": "Human Resources Form Number",
+                        "text": "hrf-234098",
+                        "startIndex": 22,
+                        "length": 10,
+                        "modelTypeId": 8,
+                        "modelType": "Regex Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
     }
-],
-"entities": [
-    {
-    "entity": "hrf-234098",
-    "type": "Human Resources Form Number",
-    "startIndex": 22,
-    "endIndex": 31
-    }
-    ]
 }
 ```
 
-This response gives you more information than the default test pane in the previous tutorial. To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare the current app you're working on with an app that is published to the endpoint.
+To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare the current app you're working on with an app that is published to the endpoint.
 
 [![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
-
-
-
 
 ## Clean up resources
 

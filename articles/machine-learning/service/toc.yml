@@ -6,6 +6,9 @@
   - name: What is Azure Machine Learning?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
+  - name: Azure Machine Learning vs Studio
+    displayName: AML, Studio, designer
+    href: ../compare-azure-ml-to-studio-classic.md
   - name: Architecture & terms
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
@@ -33,15 +36,22 @@
         displayName: automl, automated, auto ml,
         href: tutorial-auto-train-models.md
     - name: Machine Learning pipelines (advanced)
-      href: tutorial-pipeline-batch-scoring-classification.md
-  - name: Visual interface
+      items:
+      - name: Batch score a classification model
+        displayName: pipelines
+        href: tutorial-pipeline-batch-scoring-classification.md
+  - name: R SDK
+    items:
+    - name: Create first ML experiment (R)
+      href: tutorial-1st-r-experiment.md
+  - name: Designer
     items:
     - name: 1. Train regression model
       displayName: studio
-      href: ui-tutorial-automobile-price-train-score.md
+      href: tutorial-designer-automobile-price-train-score.md
     - name: 2. Deploy regression model
       displayName: studio
-      href: ui-tutorial-automobile-price-deploy.md
+      href: tutorial-designer-automobile-price-deploy.md
   - name: Automated ML (interface)
     displayName: automl, automated, auto ml, portal, ui
     href: tutorial-first-experiment-automated-ml.md
@@ -58,42 +68,51 @@
   items:
   - name: Workspace
     href: concept-workspace.md
-  - name: Compute target
-    displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-    href: concept-compute-target.md
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
-  - name: Visual interface
-    displayName: studio
-    href: ui-concept-visual-interface.md
-  - name: Automated machine learning
-    displayName: automl, auto ml
-    href: concept-automated-ml.md
   - name: Model management (MLOps)
     displayName: deploy, deployment, publish, production, operationalize, operationalization
     href: concept-model-management-and-deployment.md
+  - name: Interpretability
+    displayName: explainability
+    href: how-to-machine-learning-interpretability.md
+  - name: 'Designer: no-code ML'
+    displayName: studio
+    href: concept-designer.md
+  - name: Algorithm cheat sheet
+    href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/service/context/ml-context   
+  - name: Automated machine learning
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
+  - name: Compute instance
+    displayName: resource, dsvm, Data Science Virtual Machine
+    href: concept-compute-instance.md
+  - name: Compute target
+    displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+    href: concept-compute-target.md
   - name: ML pipelines
     href: concept-ml-pipelines.md
-  - name: Model interpretability
-    displayName: explainability
-    href: machine-learning-interpretability-explainability.md
   - name: ONNX
     href: concept-onnx.md
-  - name: Security
+  - name: Enterprise readiness & security
     items:
-    - name: Enterprise security overview
-      displayName: authorization authentication encryption aad azure active directory
-      href: concept-enterprise-security.md
-    - name: Manage users and roles
-      href: how-to-assign-roles.md
-    - name: Use virtual networks
-      displayName: vnet
-      href: how-to-enable-virtual-network.md
-    - name: Secure web services with SSL
-      href: how-to-secure-web-service.md
-    - name: Regenerate storage access keys
-      href: how-to-change-storage-access-key.md
+      - name: Enterprise security
+        items:
+        - name: Enterprise security overview
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
+        - name: Manage users and roles
+          href: how-to-assign-roles.md
+        - name: Use virtual networks
+          displayName: vnet
+          href: how-to-enable-virtual-network.md
+        - name: Secure web services with SSL
+          href: how-to-secure-web-service.md
+        - name: Regenerate storage access keys
+          href: how-to-change-storage-access-key.md
+      - name: Monitor Azure Machine Learning
+        href: monitor-azure-machine-learning.md
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
@@ -139,32 +158,38 @@
     - name: Train with datasets
       displayName: data, dataset
       href: how-to-train-with-datasets.md
+    - name: Detect drift on datasets
+      displayName: data, dataset
+      href: how-to-monitor-datasets.md
     - name: Version & track datasets
       displayName: data, data set
       href: how-to-version-track-datasets.md      
   - name: Train models
     items:
-    - name: Use visual interface
-      displayName: sample visual interface experiments
+    - name: Use the designer
+      displayName: sample designer experiments
       items:
       - name: "Predict price"
         displayName: regression, studio
-        href:  how-to-ui-sample-regression-predict-automobile-price-basic.md
+        href:  how-to-designer-sample-regression-automobile-price-basic.md
       - name: "Predict price (advanced)"
         displayName: regression, studio
-        href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
-      - name: "Predict credit risk"
+        href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
+      - name: "Predict income"
         displayName: classification, studio
-        href:  how-to-ui-sample-classification-predict-credit-risk-basic.md
+        href:  how-to-designer-sample-classification-predict-income.md
       - name: "Predict credit risk (advanced)"
         displayName: classification, studio
-        href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
+        href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
       - name: "Predict churn"
         displayName: classification, studio
-        href:  how-to-ui-sample-classification-predict-churn.md
+        href:  how-to-designer-sample-classification-churn.md
       - name: "Predict flight delays"
         displayName: classification, studio
-        href:  how-to-ui-sample-classification-predict-flight-delay.md
+        href:  how-to-designer-sample-classification-flight-delay.md
+      - name: "Test classification"
+        displayName: classification, studio
+        href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
       items:
       - name: Create estimators in training
@@ -188,6 +213,15 @@
       href: how-to-train-pytorch.md
     - name: Chainer
       href: how-to-train-chainer.md
+  - name: Interpret models
+    displayName: interpretability
+    items:
+    - name: Interpret local and remote models
+      displayName: SDK, interpret
+      href: how-to-machine-learning-interpretability-aml.md
+    - name: Interpret automated ML models
+      displayName: SDK, interpret, automl
+      href: how-to-machine-learning-interpretability-automl.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
@@ -237,7 +271,7 @@
     - name: Azure App Service
       displayName: web app
       href: how-to-deploy-app-service.md
-    - name: Notebook VMs
+    - name: Compute instances
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
       href: how-to-deploy-custom-docker-image.md
@@ -254,6 +288,9 @@
     - name: Run batch predictions
       displayName: score scoring asynchronous consume pipeline
       href: how-to-run-batch-predictions.md
+    - name: Use the designer for batch predictions
+      displayName: score scoring asynchronous consume pipeline
+      href: how-to-run-batch-predictions-ui.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data
@@ -263,18 +300,18 @@
       href: how-to-monitor-data-drift.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
-  - name: Create reusable workflows
+  - name: Build & use ML pipelines
     displayName: pipelines
     items:
-    - name: Create ML pipelines in Python
+    - name: Create ML pipelines (Python)
       href: how-to-create-your-first-pipeline.md
-    - name: Debug and troubleshoot ML pipelines
+    - name: Schedule a pipeline (Python)
+      href: how-to-schedule-pipelines.md
+    - name: Debug & troubleshoot pipelines
       href: how-to-debug-pipelines.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: Schedule ML pipelines in Python
-      href: how-to-schedule-pipelines.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -283,15 +320,20 @@
     href: how-to-export-delete-data.md
 - name: Reference
   items:
-  - name: Machine learning SDK
+  - name: ML SDK (Python)
     displayName: api, core, package, python, class
     href: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
+  - name: ML SDK (R)
+    displayName: api, core, package, R, class
+    href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
   - name: Machine Learning CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
+  - name: Monitor data reference
+    href: monitor-resource-reference.md
   - name: Machine learning pipeline YAML reference
     href: reference-pipeline-yaml.md
-  - name: Visual interface modules
+  - name: Designer modules
     displayName: module, reference, algorithm, studio
     items:
     - name: Module reference overview
@@ -300,18 +342,14 @@
       items:
       - name: Convert to CSV
         href: ../algorithm-module-reference/convert-to-csv.md
+      - name: Convert to Dataset
+        href: ../algorithm-module-reference/convert-to-dataset.md
     - name: Data input & output
       items:
       - name: Import Data
         items: 
         - name: Import Data
           href: ../algorithm-module-reference/import-data.md
-        - name: Import from Web URL via HTTP
-          href: ../algorithm-module-reference/import-from-web-url-via-http.md
-        - name: Import from Azure Blob Storage module
-          href: ../algorithm-module-reference/import-from-azure-blob-storage.md
-        - name: Import from Azure SQL Database
-          href: ../algorithm-module-reference/import-from-azure-sql-database.md
       - name: Export Data
         href: ../algorithm-module-reference/export-data.md
       - name: Enter Data Manually
@@ -320,12 +358,18 @@
       items:
       - name: Select Columns in Dataset
         href: ../algorithm-module-reference/select-columns-in-dataset.md
+      - name: Select Columns Transform
+        href: ../algorithm-module-reference/select-columns-transform.md
       - name: Edit Metadata
         href: ../algorithm-module-reference/edit-metadata.md
       - name: Clean Missing Data
         href: ../algorithm-module-reference/clean-missing-data.md
       - name: Feature Hashing
         href: ../algorithm-module-reference/feature-hashing.md
+      - name: Permutation Feature Importance
+        href: ../algorithm-module-reference/permutation-feature-importance.md
+      - name: Filter Based Feature Selection
+        href: ../algorithm-module-reference/filter-based-feature-selection.md
       - name: Extract N-Gram Features from Text
         href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
       - name: Add Columns
@@ -342,6 +386,8 @@
         href: ../algorithm-module-reference/split-data.md
       - name: Normalize Data
         href: ../algorithm-module-reference/normalize-data.md
+      - name: SMOTE
+        href: ../algorithm-module-reference/smote.md
       - name: Partition and Sample
         href: ../algorithm-module-reference/partition-and-sample.md
       - name: Clip Values
@@ -352,14 +398,24 @@
       items:
       - name: Score Model
         href: ../algorithm-module-reference/score-model.md
+      - name: Score SVD Recommender
+        href: ../algorithm-module-reference/score-svd-recommender.md
       - name: Assign Data To Clusters
         href: ../algorithm-module-reference/assign-data-to-clusters.md
       - name: Train Model
         href: ../algorithm-module-reference/train-model.md
       - name: Train Clustering Model
         href: ../algorithm-module-reference/train-clustering-model.md
+      - name: Train SVD Recommender
+        href: ../algorithm-module-reference/train-svd-recommender.md
+      - name: Tune Model Hyperparameters
+        href: ../algorithm-module-reference/tune-model-hyperparameters.md
+      - name: Cross Validate Model
+        href: ../algorithm-module-reference/cross-validate-model.md
       - name: Evaluate Model
         href: ../algorithm-module-reference/evaluate-model.md
+      - name: Evaluate Recommender
+        href: ../algorithm-module-reference/evaluate-recommender.md
       - name: Apply Transformation
         href: ../algorithm-module-reference/apply-transformation.md
       - name: Linear Regression
@@ -382,6 +438,8 @@
         href: ../algorithm-module-reference/multiclass-decision-forest.md
       - name: Multiclass Boosted Decision Tree
         href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
+      - name: One vs. All Multiclass
+        href: ../algorithm-module-reference/one-vs-all-multiclass.md
       - name: Two-Class Averaged Perceptron
         href: ../algorithm-module-reference/two-class-averaged-perceptron.md
       - name: Two-Class Decision Forest
