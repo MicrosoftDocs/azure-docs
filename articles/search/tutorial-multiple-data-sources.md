@@ -1,22 +1,23 @@
 ---
-title: 'C# Tutorial: Index multiple data sources - Azure Search'
-description: Learn how to import data from multiple data sources into a single Azure Search index.
-author: RobDixon22
+title: 'C# Tutorial: Index multiple data sources'
+titleSuffix: Azure Cognitive Search
+description: Learn how to import data from multiple data sources into a single Azure Cognitive Search index.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 06/21/2019
+author: HeidiSteen
 ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# C# Tutorial: Combine data from multiple data sources in one Azure Search index
+# C# Tutorial: Combine data from multiple data sources in one Azure Cognitive Search index
 
-Azure Search can import, analyze, and index data from multiple data sources into a single combined search index. This supports situations where structured data is aggregated with less-structured or even plain text data from other sources, like text, HTML, or JSON documents.
+Azure Cognitive Search can import, analyze, and index data from multiple data sources into a single combined search index. This supports situations where structured data is aggregated with less-structured or even plain text data from other sources, like text, HTML, or JSON documents.
 
 This tutorial describes how to index hotel data from an Azure Cosmos DB data source and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing complex data types.
 
-This tutorial uses C#, the .NET SDK for Azure Search, and the Azure portal to do the following tasks:
+This tutorial uses C#, the .NET SDK for Azure Cognitive Search, and the Azure portal to do the following tasks:
 
 > [!div class="checklist"]
 > * Upload sample data and create data sources
@@ -29,7 +30,7 @@ This tutorial uses C#, the .NET SDK for Azure Search, and the Azure portal to do
 
 The following services, tools, and data are used in this quickstart. 
 
-- [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
+- [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
 - [Create an Azure Cosmos DB account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample hotel data.
 
@@ -41,7 +42,7 @@ The following services, tools, and data are used in this quickstart.
 
 1. Locate the sample repository on GitHub: [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Select **Clone or download** and make your private local copy of the repository.
-1. Open Visual Studio and install the Microsoft Azure Search NuGet package, if not already installed. In the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. Select the **Browse** tab then type "Azure Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list (version 9.0.1, or later). You will have to click through additional dialogs to complete the installation.
+1. Open Visual Studio and install the Microsoft Azure Cognitive Search NuGet package, if not already installed. In the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. In the **Browse** tab, find and then install **Microsoft.Azure.Search** (version 9.0.1, or later). You will have to click through additional dialogs to complete the installation.
 
     ![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
@@ -49,7 +50,7 @@ The following services, tools, and data are used in this quickstart.
 
 ## Get a key and URL
 
-To interact with your Azure Search service, you need the service URL and an access key. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+To interact with your Azure Cognitive Search service, you need the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -116,17 +117,17 @@ Connection information for the search service and the data sources is specified 
 }
 ```
 
-The first two entries use the URL and admin keys for your Azure Search service. Given an endpoint of `https://mydemo.search.windows.net`, for example, the service name to provide is `mydemo`.
+The first two entries use the URL and admin keys for your Azure Cognitive Search service. Given an endpoint of `https://mydemo.search.windows.net`, for example, the service name to provide is `mydemo`.
 
 The next entries specify account names and connection string information for the Azure Blob Storage and Azure Cosmos DB data sources.
 
 ### Identify the document key
 
-In Azure Search, the key field uniquely identifies each document in the index. Every search index must have exactly one key field of type `Edm.String`. That key field must be present for each document in a data source that is added to the index. (In fact, it's the only required field.)
+In Azure Cognitive Search, the key field uniquely identifies each document in the index. Every search index must have exactly one key field of type `Edm.String`. That key field must be present for each document in a data source that is added to the index. (In fact, it's the only required field.)
 
 When indexing data from multiple data sources, each data source key value must map to the same key field in the combined index. It often requires some up-front planning to identify a meaningful document key for your index, and make sure it exists in every data source.
 
-Azure Search indexers can use field mappings to rename and even reformat data fields during the indexing process, so that source data can be directed to the correct index field.
+Azure Cognitive Search indexers can use field mappings to rename and even reformat data fields during the indexing process, so that source data can be directed to the correct index field.
 
 For example, in our sample Azure Cosmos DB data, the hotel identifier is called **HotelId**. But in the JSON blob files for the hotel rooms, the hotel identifier is  named **Id**. The program handles this by mapping the **Id** field from the blobs to the **HotelId** key field in the index.
 
@@ -138,7 +139,7 @@ For example, in our sample Azure Cosmos DB data, the hotel identifier is called 
 Once the data and configuration settings are in place, the sample program in **AzureSearchMultipleDataSources.sln** should be ready to build and run.
 
 This simple C#/.NET console app performs the following tasks:
-* Creates a new Azure Search index based on the data structure of the C# Hotel class (which also references the Address and Room classes).
+* Creates a new Azure Cognitive Search index based on the data structure of the C# Hotel class (which also references the Address and Room classes).
 * Creates an Azure Cosmos DB data source and an indexer that maps Azure Cosmos DB data to index fields.
 * Runs the Azure Cosmos DB indexer to load Hotel data.
 * Creates an Azure Blob Storage data source and an indexer that maps JSON blob data to index fields.
@@ -147,11 +148,11 @@ This simple C#/.NET console app performs the following tasks:
  Before running the program, take a minute to study the code and the index and indexer definitions for this sample. The relevant code is in two files:
 
   + **Hotel.cs** contains the schema that defines the index
-  + **Program.cs** contains functions that create the Azure Search index, data sources, and indexers, and load the combined results into the index.
+  + **Program.cs** contains functions that create the Azure Cognitive Search index, data sources, and indexers, and load the combined results into the index.
 
 ### Define the index
 
-This sample program uses the .NET SDK to define and create an Azure Search index. It takes advantage of the [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) class to generate an index structure from a C# data model class.
+This sample program uses the .NET SDK to define and create an Azure Cognitive Search index. It takes advantage of the [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) class to generate an index structure from a C# data model class.
 
 The data model is defined by the Hotel class, which also contains references to the Address and Room classes. The FieldBuilder drills down through multiple class definitions to generate a complex data structure for the index. Metadata tags are used to define the attributes of each field, such as whether it is searchable or sortable.
 
@@ -332,22 +333,22 @@ You can explore the populated search index after the program has run, using the 
 
 In Azure portal, open the search service **Overview** page, and find the **hotel-rooms-sample** index in the **Indexes** list.
 
-  ![List of Azure Search indexes](media/tutorial-multiple-data-sources/index-list.png "List of Azure Search indexes")
+  ![List of Azure Cognitive Search indexes](media/tutorial-multiple-data-sources/index-list.png "List of Azure Cognitive Search indexes")
 
 Click on the hotel-rooms-sample index in the list. You will see a Search Explorer interface for the index. Enter a query for a term like "Luxury". You should see at least one document in the results, and this document should show a list of room objects in its rooms array.
 
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of the Azure Search service.
+The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Cognitive Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of the Azure Cognitive Search service.
 
 ## Next steps
 
 There are several approaches and multiple options for indexing JSON blobs. If your source data includes JSON content, you can review these options to see what works best for your scenario.
 
 > [!div class="nextstepaction"]
-> [How to index JSON blobs using Azure Search Blob indexer](search-howto-index-json-blobs.md)
+> [How to index JSON blobs using Azure Cognitive Search Blob indexer](search-howto-index-json-blobs.md)
 
-You might want to augment structured index data from one data source with cognitively enriched data from unstructured blobs or full-text content. The following tutorial shows how to use Cognitive Services together with Azure Search, using the .NET SDK.
+You might want to augment structured index data from one data source with cognitively enriched data from unstructured blobs or full-text content. The following tutorial shows how to use Cognitive Services together with Azure Cognitive Search, using the .NET SDK.
 
 > [!div class="nextstepaction"]
-> [Call Cognitive Services APIs in an Azure Search indexing pipeline](cognitive-search-tutorial-blob-dotnet.md)
+> [Call Cognitive Services APIs in an Azure Cognitive Search indexing pipeline](cognitive-search-tutorial-blob-dotnet.md)

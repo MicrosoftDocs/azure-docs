@@ -22,8 +22,6 @@ This topic provides instructions on how to:
 * access intermediate datasets from experiments
 * use the Python client library to enumerate datasets, access metadata, read the contents of a dataset, create new datasets and update existing datasets
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 ## <a name="prerequisites"></a>Prerequisites
 The Python client library has been tested under the following environments:
 
@@ -60,7 +58,7 @@ From the Studio web interface, you can generate code snippets that include all t
 ### <a name="security"></a>Security for data access
 The code snippets provided by Studio for use with the Python client library includes your workspace id and authorization token. These provide full access to your workspace and must be protected, like a password.
 
-For security reasons, the code snippet functionality is only available to users that have their role set as **Owner** for the workspace. Your role is displayed in Azure Machine Learning Studio on the **USERS** page under **Settings**.
+For security reasons, the code snippet functionality is only available to users that have their role set as **Owner** for the workspace. Your role is displayed in Azure Machine Learning Studio (classic) on the **USERS** page under **Settings**.
 
 ![Security][security]
 
@@ -187,7 +185,7 @@ Others are values assigned by Azure ML:
 See the `SourceDataset` class for more on the available metadata.
 
 ### Read contents
-The code snippets provided by Machine Learning Studio automatically download and deserialize the dataset to a pandas DataFrame object. This is done with the `to_dataframe` method:
+The code snippets provided by Machine Learning Studio (classic) automatically download and deserialize the dataset to a pandas DataFrame object. This is done with the `to_dataframe` method:
 
     frame = ds.to_dataframe()
 

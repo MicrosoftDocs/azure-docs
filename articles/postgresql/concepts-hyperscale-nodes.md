@@ -1,5 +1,5 @@
 ---
-title: Nodes in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+title: Nodes in Azure Database for PostgreSQL – Hyperscale (Citus)
 description: Learn about the two types of nodes, coordinator and workers, in a server group in Azure Database for PostgreSQL.
 author: jonels-msft
 ms.author: jonels
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ---
 
-# Nodes in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+# Nodes in Azure Database for PostgreSQL – Hyperscale (Citus)
 
-The Hyperscale (Citus) (preview) hosting type allows Azure Database for
+The Hyperscale (Citus) hosting type allows Azure Database for
 PostgreSQL servers (called nodes) to coordinate with one another in a "shared
 nothing" architecture. The nodes in a server group collectively hold more data
 and use more CPU cores than would be possible on a single server. The

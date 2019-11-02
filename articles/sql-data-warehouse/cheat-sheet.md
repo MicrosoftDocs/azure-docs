@@ -1,19 +1,20 @@
 ---
-title: Cheat sheet for Azure SQL Data Warehouse | Microsoft Docs
-description: Find links and best practices to quickly build your Azure SQL Data Warehouse solutions.
+title: Cheat sheet for Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+description: Find links and best practices to quickly build your Azure Synapse Analytics (formerly SQL DW) solutions.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 08/23/2019
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Cheat sheet for Azure SQL Data Warehouse
-This cheat sheet provides helpful tips and best practices for building your Azure SQL Data Warehouse solutions. Before you get started, learn more about each step in detail by reading [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns), which explains what SQL Data Warehouse is and what it is not.
+# Cheat sheet for Azure Synapse Analytics (formerly SQL DW)
+
+This cheat sheet provides helpful tips and best practices for building Azure Synapse solutions. 
 
 The following graphic shows the process of designing a data warehouse:
 
@@ -30,7 +31,7 @@ Knowing the types of operations in advance helps you optimize the design of your
 
 ## Data migration
 
-First, load your data into [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) or Azure Blob storage. Next, use PolyBase to load your data into SQL Data Warehouse in a staging table. Use the following configuration:
+First, load your data into [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) or Azure Blob Storage. Next, use PolyBase to load your data into staging tables. Use the following configuration:
 
 | Design | Recommendation |
 |:--- |:--- |
@@ -93,28 +94,28 @@ Learn more about [partitions].
 
 If you're going to incrementally load your data, first make sure that you allocate larger resource classes to loading your data.  This is particularly important when loading into tables with clustered columnstore indexes.  See [resource classes](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) for further details.  
 
-We recommend using PolyBase and ADF V2 for automating your ELT pipelines into SQL Data Warehouse.
+We recommend using PolyBase and ADF V2 for automating your ELT pipelines into your data warehouse.
 
 For a large batch of updates in your historical data, consider using a [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) to write the data you want to keep in a table rather than using INSERT, UPDATE, and DELETE.
 
 ## Maintain statistics
- Until auto-statistics are generally available, SQL Data Warehouse requires manual maintenance of statistics. It's important to update statistics as *significant* changes happen to your data. This helps optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics. 
+ Until auto-statistics are generally available, manual maintenance of statistics is required. It's important to update statistics as *significant* changes happen to your data. This helps optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics. 
 
 You can also define the frequency of the updates. For example, you might want to update date columns, where new values might be added, on a daily basis. You gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
 Learn more about [statistics].
 
 ## Resource class
-SQL Data Warehouse uses resource groups as a way to allocate memory to queries. If you need more memory to improve query or loading speed, you should allocate higher resource classes. On the flip side, using larger resource classes impacts concurrency. You want to take that into consideration before moving all of your users to a large resource class.
+Resource groups are used as a way to allocate memory to queries. If you need more memory to improve query or loading speed, you should allocate higher resource classes. On the flip side, using larger resource classes impacts concurrency. You want to take that into consideration before moving all of your users to a large resource class.
 
 If you notice that queries take too long, check that your users do not run in large resource classes. Large resource classes consume many concurrency slots. They can cause other queries to queue up.
 
-Finally, by using Gen2 of SQL Data Warehouse, each resource class gets 2.5 times more memory than Gen1.
+Finally, by using Gen2 of [SQL pool](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse), each resource class gets 2.5 times more memory than Gen1.
 
 Learn more how to work with [resource classes and concurrency].
 
 ## Lower your cost
-A key feature of SQL Data Warehouse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause the data warehouse when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](pause-and-resume-compute-portal.md) or [PowerShell](pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](pause-and-resume-compute-portal.md) or [PowerShell](pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Autoscale now at the time you want with Azure Functions:
 
@@ -126,9 +127,9 @@ Autoscale now at the time you want with Azure Functions:
 
 We recommend considering SQL Database and Azure Analysis Services in a hub-and-spoke architecture. This solution can provide workload isolation between different user groups while also using advanced security features from SQL Database and Azure Analysis Services. This is also a way to provide limitless concurrency to your users.
 
-Learn more about [typical architectures that take advantage of SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Learn more about [typical architectures that take advantage of Azure Synapse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
-Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
+Deploy in one click your spokes in SQL databases from SQL pool:
 
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
