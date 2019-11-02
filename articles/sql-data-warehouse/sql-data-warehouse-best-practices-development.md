@@ -15,7 +15,7 @@ ms.reviewer: igorstan
 # Development best practices for Azure SQL Data Warehouse
 This article describes guidance and best practices as you develop your data warehouse solution. 
 
-## Performance tuning with materialized views, result set caching, and ordered clustered columnstore index
+## Tune query performance with new product enhancements  
 - [Performance tuning with materialized views](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-materialized-views)
 - [Performance tuning with ordered clustered columnstore index](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-ordered-cci)
 - [Performance tuning with result set caching](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-result-set-caching)
