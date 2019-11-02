@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 11/01/2019
 ---
 
 # Deploy and manage Apache Storm topologies on Azure HDInsight 
@@ -18,62 +18,60 @@ In this document, learn the basics of managing and monitoring [Apache Storm](htt
 
 * An Apache Storm cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Storm** for **Cluster type**.
 
+* (Optional) Familiarity with Secure Shell (SSH) and Secure Copy (SCP): For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Optional) Familiarity with SSH and SCP: For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* (Optional) Visual Studio: Azure SDK 2.5.1 or newer and the Data Lake Tools for Visual Studio. For more information, see [Get started using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
-
-    One of the following versions of Visual Studio:
-
-  * Visual Studio 2012 with Update 4
-
-  * Visual Studio 2013 with Update 4 or [Visual Studio 2013 Community](https://go.microsoft.com/fwlink/?LinkId=517284)
-  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
-
-  * Visual Studio 2015 (any edition)
-
-  * Visual Studio 2017 (any edition). Data Lake Tools for Visual Studio 2017 are installed as part of the Azure Workload.
+* (Optional) Visual Studio: Azure SDK 2.5.1 or newer and the Data Lake Tools for Visual Studio. For more information, see [Apache Hadoop & Visual Studio Data Lake Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 ## Submit a topology: Visual Studio
 
 The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm cluster. The following steps use a sample application. For information about creating on using the HDInsight Tools, see [Develop C# topologies using the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
-1. If you have not already installed the latest version of the Data Lake tools for Visual Studio, see [Get started using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+1. If you have not already installed the latest version of the Data Lake tools for Visual Studio, see [Use Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     > [!NOTE]  
     > The Data Lake Tools for Visual Studio were formerly called the HDInsight Tools for Visual Studio.
     >
-    > Data Lake Tools for Visual Studio are included in the __Azure Workload__ for Visual Studio 2017.
+    > Data Lake Tools for Visual Studio are included in the **Azure Workload** for Visual Studio 2019.
 
-2. Open Visual Studio, select **File** > **New** > **Project**.
+2. Open Visual Studio.
 
-3. In the **New Project** dialog box, expand **Installed** > **Templates**, and then select **HDInsight**. From the list of templates, select **Storm Sample**. At the bottom of the dialog box, type a name for the application.
+3. In the **Start** window, select **Create a new project**.
+
+4. In the **Create a new project** window, select the search box and enter *Storm*. Then choose **Storm Sample** from the result list and select **Next**.
+
+5. In the **Configure your new project** window, enter a **Project name**, and go to or create a **Location** to save the new project in. Then select **Create**.
 
     ![image](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
-4. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
+6. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
 
    > [!NOTE]  
    > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
 
-5. Select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor whether the submission is successful by using the **Output** window.
+7. In the **Submit Topology** dialog box, select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor whether the submission is successful by using the **Output** window.
 
 ## Submit a topology: SSH and the Storm command
 
-1. Use SSH to connect to the HDInsight cluster. Replace **USERNAME** the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
+To submit a topology to Storm using SSH:
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+1. Use SSH to connect to the HDInsight cluster. Replace *USERNAME* the name of your SSH login. Replace *CLUSTERNAME* with your HDInsight cluster name:
 
-    For more information on using SSH to connect to your HDInsight cluster, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    ```shell
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+    For more information on using SSH to connect to your HDInsight cluster, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following command to start an example topology:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
+    ```shell
+    storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
+    ```
 
     This command starts the example WordCount topology on the cluster. This topology randomly generates sentences, and then counts the occurrence of each word in the sentences.
 
    > [!NOTE]  
-   > When submitting topology to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. To copy the file to the cluster, you can use the `scp` command. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+   > When submitting topology to the cluster, you must first copy the .jar file containing the cluster before using the `storm` command. To copy the file to the cluster, you can use the `scp` command. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
    >
    > The WordCount example, and other storm starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
