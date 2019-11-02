@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 11/01/2019
 ms.author: normesta
 
 ---
@@ -24,7 +24,7 @@ The following table lists the Azure services that support Azure Data Lake Storag
 |Azure Event Hubs capture| [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
 |Azure Logic Apps | [Overview - What is Azure Logic Apps?](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)|
 |Azure Machine Learning|[Access data in Azure storage services](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data)|
-|Azure Search | [Searching Blob storage with Azure Search](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|
+|Azure Search (Preview)| [Searching Blob storage with Azure Search](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|
 |Azure Stream Analytics| [Quickstart: Create a Stream Analytics job by using the Azure portal](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Egress to Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2) |
 |Data Box|  [Use Azure Data Box to migrate data from an on-premises HDFS store to Azure Storage](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
 |HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Using the HDFS CLI with Data Lake Storage Gen2](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[Tutorial: Extract, transform, and load data by using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md) |
