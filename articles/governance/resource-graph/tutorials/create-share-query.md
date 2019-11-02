@@ -7,7 +7,7 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: resource-graph
 ---
-# Tutorial: Create and share an Azure Resource Graph query in Azure portal
+# Tutorial: Create and share an Azure Resource Graph query in the Azure portal
 
 Azure Resource Graph Explorer lets you save your Resource Graph queries directly in the Azure portal. There are two types of queries: _Private_ and _Shared_. A Private query is saved in your Azure portal settings. Whereas a Shared query is a Resource Manager resource that can be managed with role-based
 access controls (RBAC) and protected with resource locks.
@@ -113,7 +113,7 @@ Because a Shared query is a Resource Manager resource, there are several ways to
 
 ### View Resource Graph queries
 
-In Azure portal, the Resource Graph queries page displays Shared queries that the logged-in account has access to. This page enables filtering by name, subscription, resource group, and other properties of the Resource Graph query. You can also tag, export, and delete Resource Graph queries by using this interface.
+In the Azure portal, the Resource Graph queries page displays Shared queries that the logged-in account has access to. This page enables filtering by name, subscription, resource group, and other properties of the Resource Graph query. You can also tag, export, and delete Resource Graph queries by using this interface.
 
 Selecting one of the queries opens the Resource Graph query page. Like other Resource Manager resources, this page offers an interactive overview along with the Activity log, access control, and tags. You can also apply a resource lock directly from this page.
 
@@ -150,7 +150,7 @@ When you're finished with this tutorial, delete the Private and Shared queries y
 
 ## Next steps
 
-- Run your first query by using [Azure portal](../first-query-portal.md).
+- Run your first query by using the [Azure portal](../first-query-portal.md).
 - Get more information about the [query language](../concepts/query-language.md).
 - Learn more about how to [explore resources](../concepts/explore-resources.md).
 - See samples of [Starter queries](../samples/starter.md).
