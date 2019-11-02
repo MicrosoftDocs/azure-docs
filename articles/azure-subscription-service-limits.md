@@ -51,7 +51,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
-* [Azure Machine Learning Service](#azure-machine-learning-service-limits)
+* [Azure Machine Learning](#azure-machine-learning-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -79,6 +79,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Networking](#networking-limits)
   * [Application Gateway](#application-gateway-limits)
+  * [Azure Bastion](#azure-bastion-limits)
   * [Azure DNS](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure Firewall](#azure-firewall-limits)
@@ -149,7 +150,7 @@ The following table details the features and limits of the Basic, Standard, and 
 ### Azure Kubernetes Service limits
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### Azure Machine Learning Service limits
+### Azure Machine Learning limits
 The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../articles/machine-learning/service/how-to-manage-quotas.md)
 
 ### Networking limits
@@ -174,6 +175,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### Azure Bastion limits
+[!INCLUDE [Azure Bastion limits](../includes/bastion-limits.md)]
 
 #### Azure DNS limits
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
