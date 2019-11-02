@@ -13,7 +13,7 @@ This article describes the implementation of the Translator component to send im
 
 Data, once available, can be visualized through the FarmBeats Accelerator and potentially be used for data fusion and ML/AI model building by the Agribusiness or the customer’s System Integrator.
 
-FarmBeats provides the ability to
+FarmBeats provides the ability to:
 
 1.	Define custom image types, source, file format using Extended Type APIs
 2.	Ingest imagery data from various sources via the Scene & SceneFile APIs.
@@ -26,23 +26,24 @@ Drone Partners need to enable customers to link their account with their FarmBea
 
 You must use the following credentials in the drone partner software for linking FarmBeats:
 
-1. API Endpoint
-2. Tenant ID
-3. Client ID
-4. Client Secret
+ - API Endpoint
+ - Tenant ID
+ - Client ID
+ - Client Secret
 
 **API Development**
 
-The APIs contain swagger technical documentation. Refer swagger for information on all the APIs and their corresponding requests/responses.
-The Swagger is available at https://aka.ms/FarmBeatsDatahubSwagger .
-Authentication
-FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure App Service provides built-in authentication and authorization support. For more information, see, [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+The APIs contain swagger technical documentation. Refer [swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information on all the APIs and their corresponding requests/responses.
 
-FarmBeats Data hub uses Bearer Authentication, which needs the following credentials:
+**Authentication**
 
-1. Client ID
-2. Client Secret
-3. Tenant ID
+FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure App Service provides built-in authentication and authorization support. For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+
+FarmBeats Data hub uses bearer authentication, which needs the following credentials:
+
+ - Client ID
+ - Client Secret
+ - Tenant ID
 
 Using the above credentials, the caller can request for an access token, which needs to be sent in the subsequent API requests, in the header section as follows:
 
@@ -113,16 +114,19 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 
 ## Data Format
 
-JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see, JSON.org
+JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see [JSON org](https://JSON.org).
 
 ## Ingesting imagery into FarmBeats
 
 Once the partner has the required credentials to make the connect to the FarmBeats Data hub, the partner must enable the following in their translator component.
+
 1.	Create new extended type for the following fields to suit the imagery they are planning to upload:
+
   - Scene Source: For example, <drone_partner_name>
   - Scene Type: For example, <drone>
   - Scene File Type: For example, <chlorophyll index>
   - Scene File Content Type: For example, <image/tiff>
+
 2.	Call the Farms API to get the list of Farms from within the Azure FarmBeats system
 3.	Provide the customer with an ability to choose a single farm from the list of Farms.
 
@@ -133,7 +137,7 @@ Once the partner has the required credentials to make the connect to the FarmBea
 
 Here is a detailed flow on the API calls:
 
-Step 1: ExtendedType
+**Step 1**: ExtendedType
 
 Check in the ExtendedType API, if the type and file source are available on FarmBeats. You can do this by calling a GET on the /ExtendedType API.
 
@@ -323,34 +327,71 @@ This will be a one-time setup, and the scope of this new scenetype is limited to
 Example: To add SceneSource: “SlantRange”, you do PUT on the ID of the /ExtendedType with key: “SceneSource” Input payload:
 
 ```
-{   "key": "SceneSource",       "value": [         "sentinel-l1c",         "sentinel-l2a",         "farmbeats-model",         "dji",         "SlantRange"
-      ]   "description": "List of scene sources available in system. User can add more values. Added dinamica-generale" }
+{
+
+      "key": "SceneSource",
+      "value": [
+        "sentinel-l1c",
+        "sentinel-l2a",
+        "farmbeats-model",
+        "dji",
+        "SlantRange-3P"
+      ],
+      "description": "List of scene sources available in system. User can add more values."
+}
 
 ```
 
 Green field is the new addition to the system-defined scene source values.
 
-Step 2: Get FarmDetails
+**Step 2**: Get FarmDetails
 
 The scenes (tiff or .csv files) will be in the context of a farm. You need to get the farm details by doing a get on /Farm API. The API will return you the list of farms available in FarmBeats, and you can select the farm you want to ingest the data for.
 
 Get /Farm response:
 
 ```
-{   "items  [     {       "id": "d41a33e7-b73e-480e-9279-0fcb3207332b",      
- "createdAt": "2019-10-04T11:33:35.01619Z",       "lastModifiedAt":
- "2019-10-04T11:33:35.01619Z",       
- "geometry": {         "type": "Polygon",         
- "coordinates": [           [             [               
- 78.33494849794374,               
- 17.427459159016905             ],             
- [               78.33470873178663,               17.429174852000685             ],             [               78.3370736978917,               
- 17.43074495690408             ],             [               78.33494849794374,               
- 17.427459159016905             ]           
- ]         ]       },       
- "name": "MicrosoftBuilding3",      
-  "properties": {         "crops": "Others",         "address": "Microsoft Gachibowli"       }     }   ] }
-
+{
+  "id": "07f3e09c-89aa-4619-8d50-e57fb083d8f9",
+  "createdAt": "2019-11-01T13:55:41.8804663Z",
+  "lastModifiedAt": "2019-11-01T13:55:41.8804663Z",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.34252251428694,
+          17.402556352862675
+        ],
+        [
+          78.34278000635095,
+          17.407920852463022
+        ],
+        [
+          78.34883106989963,
+          17.40878079576528
+        ],
+        [
+          78.3498181228054,
+          17.403539173730607
+        ],
+        [
+          78.34805859369493,
+          17.39977166504127
+        ],
+        [
+          78.34252251428694,
+          17.402556352862675
+        ]
+      ]
+    ]
+  },
+  "name": "Samplefarm",
+  "properties": {
+    "crops": "Corn",
+    "address": "Sample street"
+  }
+}
  ```
 
 Step 3: Create a /Scene ID (Post call)
@@ -413,4 +454,4 @@ The Post call to /SceneFile API returns a SAS upload URL, which can be used to u
 
 ## Next steps
 
-For more information on Rest API-based integration details, see, [REST API](references-for-farmbeats.md#rest-api).
+For more information on Rest API-based integration details, see [REST API](references-for-farmbeats.md#rest-api).
