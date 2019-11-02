@@ -13,7 +13,8 @@ A common usage scenario is to ingest historical data from Internet of Things (Io
 
 This article describes the process of ingesting historical sensor data into FarmBeats. To proceed, make sure you have historical sensor data that you have collected from your IoT devices/sensors .
 
-  >[!NOTE] Ensure you have deployed FarmBeats.
+  > [!NOTE]
+  > Ensure you have deployed FarmBeats.
 
 ## Enable partner access to Azure FarmBeats
 
@@ -31,17 +32,17 @@ Follow the below steps to generate these:
 > You must be an administrator to do the following steps.
 
 1. Download this [script](https://aka.ms/farmbeatspartnerscript) and extract it in on your local drive. You will find two files inside the ZIP file.
-2. Sign in to https://portal.azure.com/ and open Cloud Shell (This option is available on the top-right bar of the portal)  
+2. Sign in to [Azure portal](https://portal.azure.com/) and open Cloud Shell (This option is available on the top-right bar of the portal)  
 
-  ![Project Farm Beats](./media/for-tutorials/navigation-bar-1.png)
+    ![Project Farm Beats](./media/for-tutorials/navigation-bar-1.png)
 
 3. Ensure the environment is set to **PowerShell**.
 
-  ![Project Farm Beats](./media/for-tutorials/power-shell-new-1.png)
+    ![Project Farm Beats](./media/for-tutorials/power-shell-new-1.png)
 
 4. Upload the two files that you downloaded (from step 1 above) in your Cloud Shell.  
 
-  ![Project Farm Beats](./media/for-tutorials/power-shell-two-1.png)
+    ![Project Farm Beats](./media/for-tutorials/power-shell-two-1.png)
 
 5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory *</home<username>*
 6. Run the script by using the command:  
@@ -60,17 +61,14 @@ Follow the below steps to generate these:
 
  FarmBeats Data hub has the following APIs that enable creation and management of device/sensor metadata.   
 
- /**DeviceModel** - Device Model corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.  
-
- /**Device** - Device corresponds to a physical device present in the farm.  
-
- /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
-
- /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device id.  
+- /**DeviceModel** - Device Model corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.  
+- /**Device** - Device corresponds to a physical device present in the farm.  
+- /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
+- /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device id.  
 
 
-|        Device Mode   |  Suggestions                            |
-| :------------------- | -------------------        :             |
+|        Device Mode   |  Suggestions   |
+| ------- | -------             |
 |     Type (Node, Gateway)        |          1 Star      |
 |          Manufacturer            |         2 Star     |
 |  ProductCode                    |  Device product code Or Model Name/Number. For example, EnviroMonitor#6800  |
@@ -161,6 +159,7 @@ Here are the most common request headers that need to be specified when making a
 }
 
 Device
+```json
 {
   "deviceModelId": "string",
   "hardwareId": "string",
@@ -180,9 +179,11 @@ Device
     "additionalProp3": {}
   }
 }
+```
 
 SensorModel
 
+```json
 {
   "type": "Analog",
   "manufacturer": "string",
@@ -210,7 +211,7 @@ SensorModel
 ```
 Sensor
 
-```
+```json
 {
   "hardwareId": "string",
   "sensorModelId": "string",

@@ -24,13 +24,13 @@ You will be able to:
 
 Azure FarmBeats provides you robust and easy way to do the following actions
 
-•	Create a map for the farm by using GeoJSON file
-•	Assess farm health using vegetation index and water index based on satellite imagery
-•	Get recommendations on how many sensors to use and where to place them
-•	Track farm condition by visualizing ground data collected by sensors from various sensor vendors
-•	Get soil moisture map based on the fusion of satellite and sensor data
-•	Gain actionable insights by building AI/ML models on top of aggregated datasets
-•	Build or augment your digital agriculture solution by providing farm health advisories
+- Create a map for the farm by using GeoJSON file
+- Assess farm health using vegetation index and water index based on satellite imagery
+- Get recommendations on how many sensors to use and where to place them
+- Track farm condition by visualizing ground data collected by sensors from various sensor vendors
+- Get soil moisture map based on the fusion of satellite and sensor data
+- Gain actionable insights by building AI/ML models on top of aggregated datasets
+- Build or augment your digital agriculture solution by providing farm health advisories
 
 Azure FarmBeats consists of the following components:
 
