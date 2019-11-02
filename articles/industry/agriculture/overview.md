@@ -1,5 +1,5 @@
 ---
-title: About Azure FarmBeats
+title: Overview of Azure FarmBeats
 description: Provides an overview of Azure FarmBeats
 author: uhabiba04
 ms.topic: overview
@@ -8,7 +8,7 @@ ms.author: v-umha
 ---
 
 
-# About Azure FarmBeats
+# Overview of Azure FarmBeats
 
 Azure FarmBeats is a collection of Azure services and capabilities, designed to help you rapidly build intelligent data-driven solutions in agriculture. Azure FarmBeats is an Azure marketplace, offering that allows you to acquire, aggregate, and process agriculture-related data from various sources such as sensors, drones, cameras, satellite, without investing in deep data engineering resources.
 
@@ -25,17 +25,11 @@ You will be able to:
 Azure FarmBeats provides you robust and easy way to do the following actions
 
 •	Create a map for the farm by using GeoJSON file
-
 •	Assess farm health using vegetation index and water index based on satellite imagery
-
 •	Get recommendations on how many sensors to use and where to place them
-
 •	Track farm condition by visualizing ground data collected by sensors from various sensor vendors
-
 •	Get soil moisture map based on the fusion of satellite and sensor data
-
 •	Gain actionable insights by building AI/ML models on top of aggregated datasets
-
 •	Build or augment your digital agriculture solution by providing farm health advisories
 
 Azure FarmBeats consists of the following components:
