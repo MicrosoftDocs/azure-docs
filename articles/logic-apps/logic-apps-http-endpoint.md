@@ -13,103 +13,115 @@ ms.date: 11/04/2019
 
 # Call, trigger, or nest logic apps by using HTTP endpoints in Azure Logic Apps
 
-To make your logic app callable through a URL so that your logic app can receive incoming requests from other services, you can natively expose a synchronous HTTP endpoint as a trigger on that logic app. When you set up this capability, you can nest your logic app inside other callable logic apps, which creates a pattern of callable endpoints.
+To make your logic app callable through a URL so that your logic app can receive incoming requests from other services, you can natively expose a synchronous HTTP endpoint as a trigger on that logic app. When you set up this capability, you can also nest your logic app inside other logic apps, which lets you create a pattern of callable endpoints.
 
-To set up this kind of endpoint, you can use these triggers, which enable logic apps to receive incoming requests:
+To set up an HTTP endpoint, you can use any of these trigger types, which enable logic apps to receive incoming requests:
 
 * [Request](../connectors/connectors-native-reqres.md)
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
-* A managed connector [API Connection Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
+* Managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive incoming HTTP requests
 
 > [!NOTE]
-> These examples use the Request trigger, but you can use any request-based trigger that's 
+> These examples use the Request trigger, but you can use any HTTP request-based trigger that's 
 > in the previous list. All principles identically apply to these other trigger types.
+
+If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The logic app where you want to set up the HTTP endpoint as the trigger. You can either start with a blank logic app or an existing logic app where you want to replace the current trigger.
+* The logic app where you want to set up the HTTP endpoint as the trigger. You can start with either a blank logic app or an existing logic app where you want to replace the current trigger.
 
-  If you're new to logic apps, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## Create a callable endpoint
 
-## Set up HTTP endpoint
+1. Sign in to the [Azure portal](https://portal.azure.com). Find and open your logic app in the Logic App Designer.
 
-To create an HTTP endpoint, add a trigger that can receive incoming requests.
+1. Add a trigger that lets your logic app receive incoming requests.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app, or open your existing app in the Logic App Designer.
+   This example uses the Request trigger, but you can use any trigger that can receive incoming HTTP requests. All principles identically apply to these triggers.
 
-1. Add a trigger that lets your logic app receive incoming requests. 
-For example, add the **Request** trigger to your logic app.
+   1. For the Request trigger, in the **Request Body JSON Schema** box, you can optionally enter a JSON schema that describes the payload or data that you expect the trigger to receive.
 
-1. Under **Request Body JSON Schema**, you can optionally enter a JSON schema for the payload (data) that you expect the trigger to receive.
+      The designer uses this schema for generating tokens that represent trigger outputs. You can then easily reference these outputs throughout your logic app's workflow. Learn more about [tokens generated from JSON schemas](#generated-tokens).
 
-   The designer uses this schema for generating tokens that your logic app can use to consume, parse, and pass data from the trigger through your workflow. Learn more about [tokens generated from JSON schemas](#generated-tokens).
+      For this example, enter this schema:
 
-   For this example, enter this schema as shown in the designer:
-
-   ```json
-   {
-      "type": "object",
-      "properties": {
-         "address": {
-            "type": "string"
-         }
-      },
-      "required": [
-        "address"
-      ]
-    }
-    ```
-
-   ![Provide JSON schema for the Request action](./media/logic-apps-http-endpoint/manual-request-trigger-schema.png)
-
-   > [!TIP]
-   >
-   > You can generate a schema for a sample JSON payload from a tool like [jsonschema.net](https://jsonschema.net/) 
-   > or in the **Request** trigger by choosing **Use sample payload to generate schema**. Enter your sample payload, and choose **Done**.
-
-   For example, this sample payload:
-
-   ```json
-   {
-      "address": "21 2nd Street, New York, New York"
-   }
-   ```
-
-   Generates this schema:
-
-   ```json
-   {
-      "type": "object",
-      "properties": {
-         "address": {
-            "type": "string"
+      ```json
+      {
+         "type": "object",
+         "properties": {
+            "address": {
+               "type": "object",
+               "properties": {
+                  "streetNumber": {
+                     "type": "string"
+                  },
+                  "streetName": {
+                     "type": "string"
+                  },
+                  "city": {
+                     "type": "string"
+                  },
+                  "postalCode": {
+                     "type": "string"
+                  }
+               }
+            }
          }
       }
-   }
-   ```
+       ```
 
-1. Save your logic app. Under **HTTP POST to this URL**, you should now find a generated callback URL, like this example:
+      ![Provide JSON schema for the Request action](./media/logic-apps-http-endpoint/manual-request-trigger-schema.png)
+
+   1. Optionally, to generate the JSON schema by providing a sample payload, follow these steps:
+
+      1. In the **Request** trigger, select **Use sample payload to generate schema**.
+
+      1. In the **Enter or paste a sample JSON payload** box, enter your sample payload, for example:
+
+         ```json
+         {
+            "address": {
+               "streetNumber": "00000",
+               "streetName": "AnyStreet",
+               "city": "AnyTown",
+               "postalCode": "11111-1111"
+            }
+         }
+         ```
+
+      1. When you're ready, select **Done**.
+
+         The **Request Body JSON Schema** box now shows the generated schema.
+
+1. Save your logic app.
+
+   The **HTTP POST to this URL** box now shows the generated callback URL that other services can use to call and trigger your logic app. This URL includes a Shared Access Signature (SAS) key, which is used for authentication, in the query parameters, for example:
 
    ![Generated callback URL for endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-   This URL contains a Shared Access Signature (SAS) key in the query parameters that are used for authentication. You can also get the HTTP endpoint URL from your logic app overview in the Azure portal. Under **Trigger History**, select your trigger:
+   You can also get the HTTP endpoint URL from your logic app's **Overview** pane.
 
-   ![Get HTTP endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+   1. On your logic app's menu, select **Overview**.
 
-   Or you can get the URL by making this call:
+   1. In the **Summary** section, select **See trigger history**.
 
-    ```http
-    POST https://management.azure.com/{logic-app-resource-ID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
-    ```
+      ![Get HTTP endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-## Change the HTTP method for your trigger
+   1. Under **Callback url [POST]**, copy the URL:
 
-By default, the **Request** trigger expects an HTTP POST request, but you can use a different HTTP method.
+      ![Copy HTTP endpoint URL from Azure portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url.png)
 
-> [!NOTE]
-> You can specify only one method type.
+      Or you can get the URL by making this call:
+
+      ```http
+      POST https://management.azure.com/{logic-app-resource-ID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
+      ```
+
+## Change your trigger's HTTP method
+
+By default, the Request trigger expects an HTTP POST request, but you can use a different HTTP method. You can specify only one method type.
 
 1. On your **Request** trigger, choose **Show advanced options**.
 
