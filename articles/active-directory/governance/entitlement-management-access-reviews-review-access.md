@@ -1,5 +1,5 @@
 ---
-title: Review access of an entitlement management access package using Azure AD access reviews (Preview) - Azure Active Directory
+title: Review access of an access package in Azure AD entitlement management
 description: Learn how to complete an access review of entitlement management access packages in Azure Active Directory access reviews (Preview).
 services: active-directory
 documentationCenter: ''
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/23/2019
+ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -21,15 +21,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want to review the active assignments of my users to ensure everyone has the appropriate access.
 
 ---
-# Review access of an access package in Azure AD entitlement management (Preview)
+# Review access of an access package in Azure AD entitlement management
 
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-Azure AD Entitlement Management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how to perform access reviews for other users that are assigned to an access package as a designated reviewer.
+Azure AD entitlement management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how to perform access reviews for other users that are assigned to an access package as a designated reviewer.
 
 ## Prerequisites
 
@@ -45,13 +39,13 @@ For more information, see [License requirements](entitlement-management-overview
 
 Use the following steps to find and open the access review:
 
-1. You may receive an email from Microsoft that asks you to review access. Locate the email to open the access review. Here is an example email to review access: 
+1. You may receive an email from Microsoft that asks you to review access. Locate the email to open the access review. Here is an example email to review access:
     
     ![Access review reviewer email](./media/entitlement-management-access-reviews-review-access/review-access-reviewer-email.png)
 
 1. Click the **Review access** link to open the access review. 
 
-1. If you don’t have the email, you can find your pending access reviews by navigating directly to https://myaccess.microsoft.com.  
+1. If you don’t have the email, you can find your pending access reviews by navigating directly to https://myaccess.microsoft.com.
 
 1. Click on **Access reviews** on the left navigation bar to see a list of pending access reviews assigned to you.
     
@@ -72,13 +66,13 @@ Once you open the access review, you will see the names of users for which you n
 
     ![List of users to review](./media/entitlement-management-access-reviews-review-access/review-access-list-of-users.png)
 
-1. To approve or deny access, select the radio button to the left of the user’s name. 
+1. To approve or deny access, select the radio button to the left of the user’s name.
 
 1. Select **Approve** or **Deny** in the bar above the user names.
 
     ![Select the user](./media/entitlement-management-access-reviews-review-access/review-access-select-users.png)
 
-1. If you aren't sure, you can click the **Don’t know** button. 
+1. If you aren't sure, you can click the **Don’t know** button.
 
     If you make this selection, the user maintains access, and this selection goes in the audit logs. The log shows any other reviewers that you still completed the review.
 
