@@ -39,14 +39,14 @@ FarmBeats allows you to create rules based on the business logic, in addition to
 ## View rule
 
 The **Farm** page displays the list of available rules. Select a **Rule Name**, a window displays the following details that are applicable for the selected rule:
-  - Rule Name
-  - Link to the Farm to which the Rule is associated
-  - Created Date
-  - Last Updated Date
-  - Severity Level
-  - Rule Status
-  - List of Conditions  
-  - Number of Devices affected by the Rule
+ - Rule Name
+ - Link to the Farm to which the Rule is associated
+ - Created Date
+ - Last Updated Date
+ - Severity Level
+ - Rule Status
+ - List of Conditions  
+ - Number of Devices affected by the Rule
 
     ![Project Farm Beats](./media/configure-rules-and-alerts/view-rule-1.png)
 

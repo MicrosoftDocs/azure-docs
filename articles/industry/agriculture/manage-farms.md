@@ -31,11 +31,11 @@ Use the following steps:
 
 Here are the two ways to define a farm boundary:
 
-1.	**Mark on Map**: Use the map control tool to draw and mark the boundary of the farm. To mark the boundaries,  ![Project Farm Beats](./media/create-farms/pencil-icon-1.png) and mark the exact boundaries.
+1. **Mark on Map**: Use the map control tool to draw and mark the boundary of the farm. To mark the boundaries,  ![Project Farm Beats](./media/create-farms/pencil-icon-1.png) and mark the exact boundaries.
 
     ![Project Farm Beats](./media/create-farms/create-farm-mark-on-map-1.png)
 
-2.	**Paste GeoJson Code**: The GeoJSON is a format for encoding geographical data structures, using JavaScript Object Notation (JSON). This option displays a text box where a GeoJSON string can be entered to mark the farm boundaries. You can also create GeoJSON code from GeoJSON.io.
+2. **Paste GeoJson Code**: The GeoJSON is a format for encoding geographical data structures, using JavaScript Object Notation (JSON). This option displays a text box where a GeoJSON string can be entered to mark the farm boundaries. You can also create GeoJSON code from GeoJSON.io.
 
     ![Project Farm Beats](./media/create-farms/create-new-farm-1.png)
 
@@ -46,10 +46,10 @@ Here are the two ways to define a farm boundary:
 
 The Farm list page displays a list of created farms. Select a farm to view the list of:
 
-  - **Device count** — displays the number and status of devices deployed within the farm.
-  - **Map** — map of the farm with the devices deployed in the farm.
-  - **Telemetry** — displays the telemetry from the sensors deployed in the farm.
-  - **Latest Precision Maps** — displays the latest Satellite Indices (EVI, NDWI), soil moisture and sensor placement map.
+ - **Device count** — displays the number and status of devices deployed within the farm.
+ - **Map** — map of the farm with the devices deployed in the farm.
+ - **Telemetry** — displays the telemetry from the sensors deployed in the farm.
+ - **Latest Precision Maps** — displays the latest Satellite Indices (EVI, NDWI), soil moisture and sensor placement map.
 
 ## Edit farm
 
@@ -60,7 +60,7 @@ The **Farms** page displays a list of created farms.
 
     ![Project Farm Beats](./media/create-farms/edit-farm-1.png)
 
-3.	Select **Submit** to save the details edited.
+3. Select **Submit** to save the details edited.
 
 ## Delete farm
 

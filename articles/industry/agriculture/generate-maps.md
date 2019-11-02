@@ -95,7 +95,7 @@ Use the following steps:
 
 The following sections explain you the procedures involved in creating and viewing satellite indices.
 
->[!NOTE]
+> [!NOTE]
 > You can initiate Satellite Indices from the **Maps** page or from the  **Generate Precision Maps** drop-down menu on the **Farm Details** page.
 
 FarmBeats provides you with the ability to generate Normalized Difference Vegetation Index (NDVI), Enhanced Vegetation Index (EVI) and Normalized Difference Water Index (NDWI) maps for their farms. These indices help determine how the crop is currently growing or has grown over the past and the representative water levels were in the ground.
@@ -208,7 +208,7 @@ Use the following steps:
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2.  Select **Filter** from the left navigation of the window, the filter window displays from where you can search for maps.
+2. Select **Filter** from the left navigation of the window, the filter window displays from where you can search for maps.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
