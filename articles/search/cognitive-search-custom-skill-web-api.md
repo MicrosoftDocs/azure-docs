@@ -53,7 +53,7 @@ There are no "predefined" outputs for this skill. Depending on the response your
 ```json
   {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "A custom skill that can identifies positions of different phrases in the source text",
+        "description": "A custom skill that can identify positions of different phrases in the source text",
         "uri": "https://contoso.count-things.com",
         "batchSize": 4,
         "context": "/document",
