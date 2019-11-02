@@ -55,7 +55,7 @@ Private queries are accessible and visible only to the account that creates them
    new tab with that query's name.
 
    > [!NOTE]
-   When a saved query is open and the tab shows its name, selecting the **Save** button updates it with any changes that have been made. To create a new saved query from this open query, select **Save as** and proceed as if you were saving a brand new query.
+   > When a saved query is open and the tab shows its name, selecting the **Save** button updates it with any changes that have been made. To create a new saved query from this open query, select **Save as** and proceed as if you were saving a brand new query.
 
 1. To delete the saved query, select **Open a query** again, and verify that the **Type** field is set to **Private
    query**. On the row of the saved `Count VMs by OS` query, select **Delete** (Recycle bin icon). In the confirmation dialog box, select **Yes** to finish deleting the query. Then, close the **Open a query** pane.
@@ -91,7 +91,7 @@ Unlike a Private query, a Shared query is a Resource Manager resource. This fact
    ![Save the new query as a Shared query](../media/create-share-query/save-shared-query-window.png)
 
    > [!NOTE]
-   You can clear the **Publish to resource-graph-queries resource group** check box if you want to provide the name of an existing resource group to save the shared query into. Using the default named resource group for queries makes Shared queries easier to discover. It also makes the purpose of that resource group more apparent. However, you might opt to select an existing resource group for security reasons based on existing permissions.
+   > You can clear the **Publish to resource-graph-queries resource group** check box if you want to provide the name of an existing resource group to save the shared query into. Using the default named resource group for queries makes Shared queries easier to discover. It also makes the purpose of that resource group more apparent. However, you might opt to select an existing resource group for security reasons based on existing permissions.
 
 1. Move away from Azure Resource Graph Explorer in the Azure portal and then return to it. Notice that the saved query is no longer displayed and the **Query 1** tab has returned.
 
@@ -100,7 +100,7 @@ Unlike a Private query, a Shared query is a Resource Manager resource. This fact
    ![Show the Shared Query with icon](../media/create-share-query/show-saved-shared-query.png)
 
    > [!NOTE]
-   When a saved query is open and the tab shows its name, the **Save** button updates it with any changes that have been made. To create a new saved query, select **Save as** and proceed as if you were saving a brand new query.
+   > When a saved query is open and the tab shows its name, the **Save** button updates it with any changes that have been made. To create a new saved query, select **Save as** and proceed as if you were saving a brand new query.
 
 ## Discover Shared queries
 
