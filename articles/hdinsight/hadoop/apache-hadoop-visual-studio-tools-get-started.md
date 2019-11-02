@@ -87,7 +87,7 @@ To connect to your Azure subscription:
 
 4. In **Server Explorer**, right-click **Azure**, select **Connect to Microsoft Azure Subscription**, and complete the authentication process. From **Server Explorer**, expand **Azure** > **HDInsight** to view a list of existing HDInsight clusters.
 
-5. If you don't have any clusters, create one by using the Azure portal, Azure PowerShell, or the HDInsight SDK. For more information, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).
+5. If you don't have any clusters, create one by using the Azure portal, Azure PowerShell, or the HDInsight SDK. For more information, see [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
    ![HDInsight cluster list, Server Explorer, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png)
 
