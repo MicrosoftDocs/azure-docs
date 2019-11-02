@@ -267,7 +267,7 @@ In most cases, this exception means there was an underlying exception in one of 
 
 Known issues with labeling projects.
 
-### Only blob datastores can be used for the dataset
+### Only datasets created on blob datastores can be used
 
 This is a known limitation of the current release. 
 
@@ -275,10 +275,10 @@ This is a known limitation of the current release.
 
 Manually refresh the page. Initialization should proceed at roughly 20 datapoints per second. The lack of autorefresh is a known issue. 
 
-### Bounding box cannot be drawn all the way to edge of image 
+### Bounding box cannot be drawn all the way to right edge of image 
 
 Try resizing the browser window. We are investigating to determine the cause of this behavior. 
 
-### When reviewing images, newly submitted images are not shown
+### When reviewing images, newly labeled images are not shown
 
-To load fresh images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all submitted data.
+To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.
