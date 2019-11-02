@@ -15,7 +15,7 @@ ms.author: memildin
 
 Every security program includes multiple workflows for incident response. These processes might include notifying relevant stakeholders, launching a change management process, and applying specific remediation steps. Security experts recommend that you automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
 
-This article describes the Azure Security Center (preview) feature for automatically triggering Logic Apps on security alerts and recommendations. For example, you might want Security Center to email a specific user when an alert occurs. You'll also learn how to create Logic Apps using [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+This article describes the Workflow automation feature (preview) of Azure Security Center. This preview feature can trigger Logic Apps on security alerts and recommendations. For example, you might want Security Center to email a specific user when an alert occurs. You'll also learn how to create Logic Apps using [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 > [!NOTE]
 > If you previously used the Playbooks (Preview) view on the sidebar, you'll find the same features together with the expanded functionality in the new Workflow automation (Preview) page.
@@ -77,7 +77,7 @@ This article describes the Azure Security Center (preview) feature for automatic
 
 ## Manually trigger a Logic App
 
-You can also run Logic Apps manually when viewing a security alert or recommendation.
+You can also run Logic Apps manually when viewing a security recommendation.
 
 To manually run a Logic App, open a recommendation and click Trigger Logic App (Preview):
 
