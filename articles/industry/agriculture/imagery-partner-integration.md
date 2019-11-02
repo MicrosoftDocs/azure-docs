@@ -403,23 +403,36 @@ This creates a new SceneID, which will be associated with the farm. Once the Sce
 Example input payload for the Post call on/Scene API
 
 ```
-{   "type": "nirsensordata",   "source": "dinamica-generale",   "farmId": "<farmid
-from step 2>",   "date": "2019-10-04T16:13:39.064Z",   "sequence": 5,   
-"name": "test scene",   "description": "test scene description",   "properties": {     "additionalProp1": {},     "additionalProp2": {},     "additionalProp3": {}   } }
+{
+  "sceneId": "a0505928-c480-491b-ba31-d38285a28c1d",
+  "type": "newtype",
+  "contentType": "image/tiff",
+  "name": "test scene file",
+  "description": "test scene file description",
+  "properties": {
+    "additionalProp1": {},
+    "additionalProp2": {},
+    "additionalProp3": {}
+  }
+}
 ```
-
-Green fields: defined as part of the /ExtendedType API above
 
 API Response:
 
 ```
-{   "id": "a0505928-c480-491b-ba31-d38285a28c1d",   "createdAt":
-"2019-10-04T16:19:12.4838584Z",   "lastModifiedAt":
-"2019-10-04T16:19:12.4838584Z",   "type": "nirsensordata",   
-"source": "dinamica-generale",   
-"farmId": "d41a33e7-b73e-480e-9279-0fcb3207332b",  
- "date": "2019-10-04T16:13:39.064Z",   "sequence": 5,  
- "name": "test scene",   "description": "test scene description",   "properties": {} }
+{
+  "id": "a0505928-c480-491b-ba31-d38285a28c1d",
+  "createdAt": "2019-10-04T16:19:12.4838584Z",
+  "lastModifiedAt": "2019-10-04T16:19:12.4838584Z",
+  "type": "new type",
+  "source": "SlantRange-3P",
+  "farmId": "d41a33e7-b73e-480e-9279-0fcb3207332b",
+  "date": "2019-10-04T16:13:39.064Z",
+  "sequence": 5,
+  "name": "test scene",
+  "description": "test scene description",
+  "properties": {}
+}
 
 ```
 
@@ -429,23 +442,38 @@ The Sceneid returned from step 3 would be the input for the SceneFile, which wil
 
 If the user requires a programmatic way of uploading a stream of images, the blob storage SDK can be used to define a method using the Scenefile ID, location & URL.
 
-Example input payload for the Post call on /Scene API :
+Example input payload for the Post call on /Scenefive API :
 
 ```
-{   "sceneId": "a0505928-c480-491b-ba31-d38285a28c1d",   "type": "mobile-sensor-data",   "contentType": "image/tiff",   "name": "test scene file",   
-"description": "test scene file description",   "properties": {     
-    "additionalProp1": {},     "additionalProp2": {},     "additionalProp3": {}   } }
+{
+  "sceneId": "a0505928-c480-491b-ba31-d38285a28c1d",
+  "type": "newtype",
+  "contentType": "image/tiff",
+  "name": "test scene file",
+  "description": "test scene file description",
+  "properties": {
+    "additionalProp1": {},
+    "additionalProp2": {},
+    "additionalProp3": {}
+  }
+}
 ```
 API Response:
 ```
-{   "uploadSASUrl": "https://storagej2lho.blob.core.windows.net/farm-scene/2019/a0505928-c480-491bba31-d38285a28c1d/e91139a7-4ebd-4e2f-b17c-c677822dc840?sv=2018-0328&sr=b&sig=%2F1426JkDcIFE5g3d%2BjOevCVMIn%2FJo9YKwBn3La5zL8Y%3D&se=2019-1005T16%3A23%3A57Z&sp=w",   
-"id": "e91139a7-4ebd-4e2f-b17c-c677822dc840",   
-"createdAt": "2019-10-04T16:23:57.1192916Z",   "lastModifiedAt": "2019-10-04T16:23:57.1192916Z",   
-"blobUrl": "https://storagej2lho.blob.core.windows.net/farm-scene/2019/a0505928-c480-491b-ba31d38285a28c1d/e91139a7-4ebd-4e2f-b17c-c677822dc840",   
-"sceneId": "a0505928-c480-491b-ba31-d38285a28c1d",   
-"type": "mobile-sensor-data",   "contentType":
- "image/tiff",   "name": "test scene file",   
- "description": "test scene file description",   "properties": {} }
+{
+  "uploadSASUrl": "https://storagej2lho.blob.core.windows.net/farm-scene/2019/a0505928-c480-491b-ba31-d38285a28c1d/e91139a7-4ebd-4e2f-b17c-c677822dc840?sv=2018-03-28&sr=b&sig=%2F1426JkDcIFE5g3d%2BjOevCVMIn%2FJo9YKwBn3La5zL8Y%3D&se=2019-10-05T16%3A23%3A57Z&sp=w",
+  "id": "e91139a7-4ebd-4e2f-b17c-c677822dc840",
+  "createdAt": "2019-10-04T16:23:57.1192916Z",
+  "lastModifiedAt": "2019-10-04T16:23:57.1192916Z",
+  "blobUrl": "https://storagej2lho.blob.core.windows.net/farm-scene/2019/a0505928-c480-491b-ba31-d38285a28c1d/e91139a7-4ebd-4e2f-b17c-c677822dc840",
+  "sceneId": "a0505928-c480-491b-ba31-d38285a28c1d",
+  "type": "newtype",
+  "contentType": "image/tiff",
+  "name": "test scene file",
+  "description": "test scene file description",
+  "properties": {}
+}
+
 
 ```
 
