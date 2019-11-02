@@ -174,6 +174,6 @@ Cloud properties are the device metadata associated with the device, such as cit
 Now that you've learned how to manage devices in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to use device sets](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [How to use device groups](tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 <!-- Next how-tos in the sequence -->

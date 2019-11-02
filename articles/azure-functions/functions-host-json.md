@@ -66,6 +66,9 @@ The following sample *host.json* files have all possible options specified.
             }
         }
     },
+    "managedDependency": {
+        "enabled": true
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -73,10 +76,7 @@ The following sample *host.json* files have all possible options specified.
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ],
-    "managedDependency": {
-        "enabled": true
-    }
+    "watchDirectories": [ "Shared", "Test" ]
 }
 ```
 
@@ -242,6 +242,18 @@ This setting is a child of [logging](#logging). It controls the console logging 
 |---------|---------|---------| 
 |isEnabled|false|Enables or disables console logging.| 
 
+## managedDependency
+
+Managed dependency is a feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the `enabled` property is set to `true`, the `requirements.psd1` file is processed. Dependencies are updated when any minor versions are released. For more information, see [Managed dependency](functions-reference-powershell.md#dependency-management) in the PowerShell article.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
+
 ## queues
 
 Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue.md#host-json).  
@@ -289,18 +301,6 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
-}
-```
-
-## managedDependency
-
-Managed dependency is a preview feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the enabled property is set to true, the [requirements.psd1](functions-reference-powershell.md#dependency-management) file will be processed. Dependencies will be updated when any minor versions are released.
-
-```json
-{
-    "managedDependency": {
-        "enabled": true
-    }
 }
 ```
 

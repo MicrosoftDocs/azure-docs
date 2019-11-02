@@ -1,6 +1,6 @@
 ---
 title: Explore data in a SQL Server virtual machine - Team Data Science Process
-description: Explore data and generate features in a SQL Server virtual machine on Azure
+description: Explore + process data and generate features using Python or SQL in a SQL Server virtual machine on Azure.
 services: machine-learning
 author: marktab
 manager: cgronlun

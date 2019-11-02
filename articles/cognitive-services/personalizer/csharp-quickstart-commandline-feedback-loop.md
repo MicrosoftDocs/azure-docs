@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/24/2019
 ms.author: diberry
 #Customer intent: As a developer, I want implement a Personalizer loop so that I can understand how to use the Rank and Reward calls.
 
@@ -35,29 +35,28 @@ Get started with the Personalizer client library for .NET. Follow these steps to
 There are several steps to use this quickstart:
 
 * In the Azure portal, create a Personalizer resource
-* In the Azure portal, for the Personalizer resource, on the **Settings** page, change the model update frequency
+* In the Azure portal, for the Personalizer resource, on the **Configuration** page, change the model update frequency
 * In a code editor, create a code file and edit the code file
 * In the command line or terminal, install the SDK from the command line
 * In the command line or terminal, run the code file
 
 ## Create a Personalizer Azure resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Personalizer using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
+Create a resource for Personalizer using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services) valid for 7 days for free. After signing up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure portal](https://portal.azure.com/).
 
-<!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
 After you get a key from your trial subscription or resource, create two [environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
 * `PERSONALIZER_RESOURCE_KEY` for the resource key.
 * `PERSONALIZER_RESOURCE_ENDPOINT` for the resource endpoint.
 
-In the Azure portal, both the key and endpoint values are available from the **Quick start** page.
+In the Azure portal, both the key and endpoint values are available from the **quickstart** page.
 
 ## Change the model update frequency
 
-In the Azure portal, in the Personalizer resource on the **Settings** page, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
+In the Azure portal, in the Personalizer resource on the **Configuration** page, change the **Model update frequency** to 10 seconds. This short duration will train the service rapidly, allowing you to see how the top action changes for each iteration.
 
 ![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -107,11 +106,11 @@ To ask for a rank of the content, create a [RankRequest](https://docs.microsoft.
 
 To send a reward to Personalizer, create a [RewardRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview), then pass it to the [client.Reward](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview) method. 
 
-Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This should be one of the primary design decisions in your Personalizer architecture. 
+Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture. 
 
 ## Code examples
 
-These code snippets show you how to do the following with the Personalizer client library for .NET:
+These code snippets show you how to do the following tasks with the Personalizer client library for .NET:
 
 * [Create a Personalizer client](#create-a-personalizer-client)
 * [Request a rank](#request-a-rank)
