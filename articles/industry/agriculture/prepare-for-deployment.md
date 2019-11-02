@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Prepare for deployment
+# Deploy FarmBeats
 
 This article describes how to set up Azure FarmBeats. Azure FarmBeats is an industry-specific, extensible solution for data-driven farming that enables seamless provisioning and sensor devices connectivity to Azure cloud, telemetry data collection, and aggregation from various sensors such as cameras, drones, soil sensors, and management of devices from the cloud, which includes infrastructure and services in Azure for the IoT-ready (Internet of Things) devices to an extendible web and mobile app to provide visualization, alerts, and insights.
 
@@ -121,8 +121,7 @@ Use these steps to create Azure FarmBeats offer on the marketplace:
    - Enter an existing Resource group name (empty resource group only) or create a new resource group for deploying Azure FarmBeats. Make note of this resource group to enter within the input.json file at a later stage.
    - Enter the Region you want to install Azure FarmBeats into. **Locations**: Central US, West Europe, East US 2, North Europe, West US, Southeast Asia, East US, Australia East, West US 2.
 
-
-   ![Project Farm Beats](./media/prepare-for-deployment/create-farm-beats-on-market-place-1.png)
+    ![Project Farm Beats](./media/prepare-for-deployment/create-farm-beats-on-market-place-1.png)
 
 4. Select **OK**, which redirects you to the Terms of use page. Review the standard marketplace terms or review the Azure FarmBeats specific Terms of Use hyperlink.
 5. Select **Close**, then the "I agree" checkbox and then select **Create**.
@@ -262,8 +261,8 @@ The script automatically downloads all dependencies, builds the deployer. Then y
 
    Then you'll be prompted to enter an access token for the deployment. Copy the code generated and sign in to https://microsoft.com/devicelogin with your Azure credentials.
 
-  > [!NOTE]
-  > The code expires in the next 60 minutes. When it expires, you can restart by typing the deployment command again.
+   > [!NOTE]
+   > The code expires in the next 60 minutes. When it expires, you can restart by typing the deployment command again.
 
 8. On the next prompt, enter Sentinel password and FarmBeats App password.
 9. The installer will now validate and start creating the resources, which can take about 20
@@ -274,8 +273,8 @@ The script automatically downloads all dependencies, builds the deployer. Then y
    - **Accelerator URL**: User Interface to explore FarmBeats Smart Farm Accelerator.
    - **Deployer log file**- saves logs during deployment and can be used for troubleshooting.
 
-   > [!NOTE]
-   > Make note of these and keep the deployment log file path handy for future use.
+    > [!NOTE]
+    > Make note of these and keep the deployment log file path handy for future use.
 
 #### Deployment scenario 2- Existing Azure Active Directory app registration used to deploy
 
@@ -294,27 +293,27 @@ The script automatically downloads all dependencies, builds the deployer. Then y
 
 4. Type or paste the *Deployment Command* into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.
 
-```json
-{
-"sku":"both",
-"subscriptionId":"daxx9xxx-d18f-4xxc-9c21-5xx3exxxxx45",
-"datahubResourceGroup":"dummy-test-dh1",  
-"location":"westus2",  
-"datahubWebsiteName":"dummy-test-dh1",  
-"acceleratorResourceGroup":"dummy-test-acc1",  
-"acceleratorWebsiteName":"dummy-test-acc1",  
-"sentinelUsername":"dummy-dev",
-"notificationEmailAddress":"dummyuser@org1.com",
-"updateIfExists": true,
-"aadAppClientId": "lmtlemlemylmylkmerkywmkm823",
-"aadAppClientSecret": "Kxxxqxxxxu*kxcxxx3Yxxu5xx/db[xxx"
-}
+    ```json
+    {
+    "sku":"both",
+    "subscriptionId":"daxx9xxx-d18f-4xxc-9c21-5xx3exxxxx45",
+    "datahubResourceGroup":"dummy-test-dh1",  
+    "location":"westus2",  
+    "datahubWebsiteName":"dummy-test-dh1",  
+    "acceleratorResourceGroup":"dummy-test-acc1",  
+    "acceleratorWebsiteName":"dummy-test-acc1",  
+    "sentinelUsername":"dummy-dev",
+    "notificationEmailAddress":"dummyuser@org1.com",
+    "updateIfExists": true,
+    "aadAppClientId": "lmtlemlemylmylkmerkywmkm823",
+    "aadAppClientSecret": "Kxxxqxxxxu*kxcxxx3Yxxu5xx/db[xxx"
+    }
 
-```
+    ```
 5.	Make note of the path to your input.json file (on your local computer).
 6.	Go to Azure CloudShell once again and once you are successfully authenticated, select **Upload** (see highlighted icon in below snip) and upload the input.json file to     CloudShell  storage.
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-screnario-1-1-1.png)
+    ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-screnario-1-1-1.png)
 
 7. The script automatically downloads all dependencies, builds the deployer.
 8. You'll be prompted to read and agree to the Azure FarmBeats End-user license agreement (EULA).
@@ -324,12 +323,12 @@ The script automatically downloads all dependencies, builds the deployer. Then y
 
 9. You'll be prompted to enter an access token for the deployment. Copy the code generated and sign in to https://microsoft.com/devicelogin with your Azure credentials.
 
-```
-wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
+    ```
+    wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
 
-```
-> [!NOTE]
-> The code expires in the next 60 minutes. When it expires you can restart by typing the deployment command again.
+    ```
+    > [!NOTE]
+    > The code expires in the next 60 minutes. When it expires you can restart by typing the deployment command again.
 
 10. The installer will now validate and start creating the resources, which can take about 20 minutes. (Please keep the session active on Cloud Shell during this time).
 
@@ -388,8 +387,8 @@ The steps for upgrade are similar to the first-time installation. Follow these s
 
 9. Type or paste the "Deployment Command" into the Cloud Shell. Make sure to modify the path to input. json file and press enter.
 
-    > [!NOTE]
-    > wget -N -O farmbeats-installer.sh https://aka.ms/FB_1.2.0 && bash farmbeats-installer.sh> /home/dummyuser/input.json
+        > [!NOTE]
+        > wget -N -O farmbeats-installer.sh https://aka.ms/FB_1.2.0 && bash farmbeats-installer.sh> /home/dummyuser/input.json
 
 10. The Installer automatically prompts the required inputs on run-time:
 

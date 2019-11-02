@@ -64,7 +64,7 @@ Following are the common error scenarios while deleting a device:
 3. Delete the specific device  
 
     > [!NOTE]
-    > You cannot delete a device if sensors are associated with it. See [Delete Sensors](get-sensor-data-from-sensor-partner.md#delete-sensor(s)) in Get Sensor Data chapter for more information on how to delete associated sensors.
+    > You cannot delete a device if sensors are associated with it. See [Delete Sensors](get-sensor-data-from-sensor-partner.md) in Get Sensor Data chapter for more information on how to delete associated sensors.
 
 
 ## Running Jobs
