@@ -166,7 +166,7 @@ Use the steps below to provision roles for a user to your application. Note that
 
     Then use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image below:
 
-    ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.PNG)<br>
+    ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Things to consider**
     - All roles will be provisioned as primary = false.
     - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
