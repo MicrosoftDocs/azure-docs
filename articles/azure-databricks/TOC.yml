@@ -1309,7 +1309,7 @@
         href: /azure/databricks/kb/jobs/job-fails-maxresultsize-exception
         maintainContext: true
       - name: Ensure idempotency
-        href: kb/jobs/jobs-idempotency.md
+        href: /azure/databricks/kb/jobs/jobs-idempotency
         maintainContext: true
     - name: Libraries
       items:
