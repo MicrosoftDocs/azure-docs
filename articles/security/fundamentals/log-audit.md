@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2019
+ms.date: 11/1/2019
 ms.author: terrylan
 
 ---
 # Azure security logging and auditing
 
-Azure provides a wide array of configurable security auditing and logging options to help you identify gaps in your security policies and mechanisms. This article discusses generating, collecting, and analyzing security logs from services hosted on Azure.
+Azure provides a wide array of configurable security auditing and logging options. These options help you identify gaps in your security policies and mechanisms. This article discusses generating, collecting, and analyzing security logs from services hosted on Azure.
 
 > [!Note]
 > Certain recommendations in this article might result in increased data, network, or compute resource usage, and increase your license or subscription costs.
@@ -37,7 +37,7 @@ Cloud applications are complex with many moving parts. Logging data can provide 
 Azure logs are categorized into the following types:
 * **Control/management logs** provide information about Azure Resource Manager CREATE, UPDATE, and DELETE operations. For more information, see [Azure activity logs](../../azure-monitor/platform/activity-logs-overview.md).
 
-* **Data plane logs** provide information about events raised as part of Azure resource usage. Examples of this type of log are the Windows event system, security, and application logs in a virtual machine (VM) and the [diagnostics logs](../../azure-monitor/platform/resource-logs-overview.md) that are configured through Azure Monitor.
+* **Data plane logs** provide information about events raised as part of Azure resource usage. Examples of this type of log are the Windows event system, security, and application logs in a virtual machine (VM) and the [diagnostics logs](../../azure-monitor/platform/resource-logs-overview.md) that you configure through Azure Monitor.
 
 * **Processed events** provide information about analyzed events/alerts that have been processed on your behalf. Examples of this type are [Azure Security Center alerts](../../security-center/security-center-managing-and-responding-alerts.md) where [Azure Security Center](../../security-center/security-center-intro.md) has processed and analyzed your subscription and provides concise security alerts.
 
