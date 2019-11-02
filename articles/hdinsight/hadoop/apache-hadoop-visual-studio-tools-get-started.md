@@ -13,11 +13,11 @@ ms.date: 10/29/2019
 
 # Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries
 
-Learn how to use Microsoft Azure Data Lake and Stream Analytics Tools for Visual Studio (also called Data Lake Tools) to connect to Apache Hadoop clusters in [Azure HDInsight](apache-hadoop-introduction.md) and submit Hive queries.  
+Learn how to use Microsoft Azure Data Lake and Stream Analytics Tools for Visual Studio (also called Data Lake Tools) to connect to [Apache Hadoop clusters in Azure HDInsight](apache-hadoop-introduction.md) and submit Hive queries.  
 
 For more information about using HDInsight, see [Get started with HDInsight](apache-hadoop-linux-tutorial-get-started.md).  
 
-For more information about connecting to an Apache Storm cluster, see [Develop C# topologies for Apache Storm by using Data Lake tools](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+For more information about connecting to an Apache Storm cluster, see [Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 You can use Data Lake Tools for Visual Studio to access Azure Data Lake Analytics and HDInsight. For information about Data Lake Tools, see [Develop U-SQL scripts by using Data Lake Tools for Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
@@ -113,10 +113,10 @@ To ask questions and/or provide feedback from Visual Studio:
 
 ## Link to or edit a cluster
 
-To link an HDInsight cluster:
-
-> [!NOTE]  
+> [!NOTE]
 > Currently the only type of HDInsight cluster you can link to is a Hive type.
+
+To link an HDInsight cluster:
 
 1. Right-click **HDInsight**, and then select **Link a HDInsight Cluster** to display the **Link a HDInsight Cluster** dialog box.
 
@@ -142,7 +142,7 @@ Right-click a container and select **View Container** to view the container's co
 ## Run interactive Apache Hive queries
 [Apache Hive](https://hive.apache.org) is a data warehouse infrastructure that's built on Hadoop. Hive is used for data summarization, queries, and analysis. You can use Data Lake Tools for Visual Studio to run Hive queries from Visual Studio. For more information about Hive, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md).
 
-[Interactive Query](../interactive-query/apache-interactive-query-get-started.md) uses [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brings interactivity to complex, data warehouse-style queries on large, stored datasets. Running Hive queries on Interactive Query is much faster compared to traditional Hive batch jobs. 
+[Interactive Query in Azure HDInsight](../interactive-query/apache-interactive-query-get-started.md) uses [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brings interactivity to complex, data warehouse-style queries on large, stored datasets. Running Hive queries on Interactive Query is much faster than traditional Hive batch jobs. 
 
 > [!NOTE]  
 > You can run interactive Hive queries only when you connect to an [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md) cluster.
@@ -233,7 +233,7 @@ To create and run an ad-hoc query:
         ![Submit Script dialog box, Hive ad-hoc query, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png)
 
       > [!NOTE]  
-      > You can not submit batches to Interactive Query clusters.  You must use interactive mode.
+      > You can't submit batches to Interactive Query clusters.  You must use interactive mode.
 
 #### Create a Hive application
 
@@ -273,7 +273,7 @@ Even if Tez is specified as the execution engine, the job graph may not appear i
 
 ![Apache Hive job graph, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png)
 
-### Task execution detail
+### View task execution detail
 
 From the job graph, you can select **Task Execution Detail** to get structured and visualized information for Hive jobs. You may also get more job details. If performance issues occur, you can use the view to get more details about the issue. For example, you may retrieve information about how each task operates and detailed information about each task
 (data read/write, schedule/start/end time, and more). Use the information to tune job configurations or system architecture based on the visualized information.
@@ -284,7 +284,7 @@ From the job graph, you can select **Task Execution Detail** to get structured a
 
 You can view job queries, job output, job logs, and Yarn logs for Hive jobs.
 
-In the most recent release of the tools, you can see what’s inside your Hive jobs by collecting and surfacing Yarn logs. A Yarn log can help you investigating performance issues. For more information about how HDInsight collects Yarn logs, see [Access HDInsight application logs programmatically](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+In the most recent release of the tools, you can see what’s inside your Hive jobs by collecting and surfacing Yarn logs. A Yarn log can help you investigating performance issues. For more information about how HDInsight collects Yarn logs, see [Access Apache Hadoop YARN application logs](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 To view Hive jobs:
 
