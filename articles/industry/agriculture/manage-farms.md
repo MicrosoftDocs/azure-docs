@@ -9,11 +9,9 @@ ms.author: v-umha
 
 
 # Manage farms
-
-  You can manage your farms in the FarmBeats project. This article provides the information create farms, install devices, sensors, and drones to the individual farms.
+You can manage your farms in the FarmBeats project. This article provides the information create farms, install devices, sensors, and drones to the individual farms.
 
 ## Create farms
-
 Follow the steps:
 
  1.	Login to the Farm Accelerator, the **Farms** page displays.
@@ -43,18 +41,16 @@ There are two ways to define farm boundary:
 4.	Select **Submit** to create a farm. A new farm is created and displayed in the Farms page.
 
 ## View farm
-
- The Farm list page displays a list of created farms. Select a farm to view the list of:
+The Farm list page displays a list of created farms. Select a farm to view the list of:
 
   - **Device count** — displays the number and status of devices deployed within the farm.
   - **Map** — map of the farm with the devices deployed in the farm.
   - **Telemetry** — displays the telemetry from the sensors deployed in the farm.
   - **Latest Precision Maps** — displays the latest Satellite Indices (EVI, NDWI), soil moisture and sensor placement map.
 
-
 ## Edit farm
+The **Farms** page displays a list of created farms.
 
-  The **Farms** page displays a list of created farms.
   1.	Select a farm to view and edit the farm.
   2.	Select **Edit Farm** to edit the farm information. In the **Farm Details** window, you can edit **Name**, **Crops**, **Address**, and **Farm Boundary** fields.
 
@@ -63,8 +59,7 @@ There are two ways to define farm boundary:
   3.	Select **Submit** to save the details edited.
 
 ## Delete farm
-
-  The **Farms** page displays a list of farms created. Use the following steps to delete a farm:
+The **Farms** page displays a list of farms created. Use the following steps to delete a farm:
 
   1.	Select a farm from the list to delete farm details.
   2.	Select **Delete Farm** to delete the farm.
@@ -77,5 +72,4 @@ There are two ways to define farm boundary:
 
 
 ## Next steps
-
 You have created your Farm now. See how you can [get sensor data](get-sensor-data-from-sensor-partner.md) flowing into your farm,
