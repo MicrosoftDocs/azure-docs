@@ -118,5 +118,5 @@ Keys created for a region are valid only in that region. Attempting to use them 
 Complete one of our 10-minute quickstarts or check out our SDK samples:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+> [Quickstart: Recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
 > [Speech SDK samples](speech-sdk.md#get-the-samples)

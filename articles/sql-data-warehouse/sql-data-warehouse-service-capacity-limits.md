@@ -1,28 +1,29 @@
 ---
-title: Capacity limits - Azure SQL Data Warehouse | Microsoft Docs
-description: Maximum values allowed for various components of Azure SQL Data Warehouse.
+title: Capacity limits - Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+description: Maximum values allowed for various components of SQL Analytics in Azure Synapse.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/14/2018
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# SQL Data Warehouse capacity limits
-Maximum values allowed for various components of Azure SQL Data Warehouse.
+# Azure Synapse Analytics (formerly SQL DW) capacity limits
+
+Maximum values allowed for various components of Azure Synapse.
 
 ## Workload management
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU for a single SQL Data Warehouse | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU for a single SQL pool (data warehouse) unit | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Default DTU per server |54,000<br></br>By default, each SQL server (for example, myserver.database.windows.net) has a DTU Quota of 54,000, which allows up to 9 DW6000c. This quota is simply a safety limit. You can increase your quota by [creating a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) and selecting *Quota* as the request type.  To calculate your DTU needs, multiply the 7.5 by the total DWU needed, or multiply 9.0 by the total cDWU needed. For example:<br></br>DW6000 x 7.5 = 45,000 DTUs<br></br>DW6000c x 9.0 = 54,000 DTUs.<br></br>You can view your current DTU consumption from the SQL server option in the portal. Both paused and unpaused databases count toward the DTU quota. |
 | Database connection |Maximum Concurrent open sessions |1024<br/><br/>The number of concurrent open sessions will vary based on the selected DWU. DWU600c and above support a maximum of 1024 open sessions. DWU500c and below, support a maximum concurrent open session limit of 512. Note, there are limits on the number of queries that can execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
-| [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |128<br/><br/> SQL Data Warehouse can execute a maximum of 128 concurrent queries and queues remaining queries.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when SQL Data Warehouse has a lower [data warehouse unit](memory-and-concurrency-limits.md) setting. Some queries, like DMV queries, are always allowed to run and do not impact the concurrent query limit. For more details on concurrent query execution, see the [concurrency maximums](memory-and-concurrency-limits.md#concurrency-maximums) article. |
+| [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |128<br/><br/>  A maximum of 128 concurrent queries will execute and remaining queries will be queued.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when the [data warehouse unit](memory-and-concurrency-limits.md) setting is lowered. Some queries, like DMV queries, are always allowed to run and do not impact the concurrent query limit. For more details on concurrent query execution, see the [concurrency maximums](memory-and-concurrency-limits.md#concurrency-maximums) article. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100. Therefore at DWU1000, tempdb is sized to 3.99 TB. |
 
 ## Database objects
@@ -33,7 +34,7 @@ Maximum values allowed for various components of Azure SQL Data Warehouse.
 | Table |Tables per database | 100,000 |
 | Table |Columns per table |1024 columns |
 | Table |Bytes per column |Dependent on column [data type](sql-data-warehouse-tables-data-types.md). Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
-| Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, SQL Data Warehouse supports row-overflow storage, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see [Row-Overflow Data Exceeding 8-KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, row-overflow storage is supported, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see [Row-Overflow Data Exceeding 8-KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Table |Partitions per table |15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance. |
 | Table |Characters per partition boundary value. |4000 |
 | Index |Non-clustered indexes per table. |50<br/><br/>Applies to rowstore tables only. |
@@ -64,8 +65,8 @@ Maximum values allowed for various components of Azure SQL Data Warehouse.
 | SELECT |Columns per JOIN |1024 columns<br/><br/>You can never have more than 1024 columns in the JOIN. There is no guarantee that you can always have 1024. If the JOIN plan requires a temporary table with more columns than the JOIN result, the 1024 limit applies to the temporary table. |
 | SELECT |Bytes per GROUP BY columns. |8060<br/><br/>The columns in the GROUP BY clause can have a maximum of 8060 bytes. |
 | SELECT |Bytes per ORDER BY columns |8060 bytes<br/><br/>The columns in the ORDER BY clause can have a maximum of 8060 bytes |
-| Identifiers  per statement |Number of referenced identifiers |65,535<br/><br/>SQL Data Warehouse limits the number of identifiers that can be contained in a single expression of a query. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| String literals | Number of string literals in a statement | 20,000 <br/><br/>SQL Data Warehouse limits the number of string constants in a single expression of a query. Exceeding this number results in SQL Server error 8632.|
+| Identifiers  per statement |Number of referenced identifiers |65,535<br/><br/> The number of identifiers that can be contained in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
+| String literals | Number of string literals in a statement | 20,000 <br/><br/>The number of string constants in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632.|
 
 ## Metadata
 | System view | Maximum rows |
@@ -81,4 +82,4 @@ Maximum values allowed for various components of Azure SQL Data Warehouse.
 | sys.dm_pdw_sql_requests |The most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
 
 ## Next steps
-For recommendations on using SQL Data Warehouse, see the [Cheat Sheet](cheat-sheet.md).
+For recommendations on using Azure Synapse, see the [Cheat Sheet](cheat-sheet.md).
