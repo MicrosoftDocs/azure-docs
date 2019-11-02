@@ -660,9 +660,9 @@ Full access to manage devices in Azure AD.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
-### Global Administrator / Company Administrator permissions
+### Company Administrator permissions
 
-Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
+Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities. This role is also known as the Global Administrator role. 
 
 > [!NOTE]
 > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
