@@ -66,7 +66,7 @@ Currently supported resources include:
 - Azure Networking resources
 - Web app with in-guest file tracking and environment variables changes
 
-For any feedback, please use the send feedback button in the blade or email *changeanalysisteam@microsoft.com*
+For any feedback, please use the send feedback button in the blade or email changeanalysisteam@microsoft.com. 
 
 ![Screenshot of feedback button in Change Analysis blade](./media/change-analysis/change-analysis-feedback.png)
 
