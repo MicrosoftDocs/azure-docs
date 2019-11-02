@@ -151,6 +151,14 @@ You can modify the column data types in a down-stream derived-column transformat
 
 Datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset. Therefore, you will be able to click the "Import Schema" button the Projection tab for these types of sources.
 
+## CosmosDB specific settings
+
+When using CosmosDB as a source type, there are a few options to consider:
+
+* Include system columns: If you check this, ```id```, ```_ts```, and other system columns will be included in your data flow metadata from CosmosDB. When updating collections, it is important to include this so that you can grab the existing row id.
+* Page size: The number of documents per page of the query result. Default is "-1" which uses the service dynamic page up to 1000.
+* Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow during the read operation. Minimum is 400.
+
 ## Optimize the source transformation
 
 On the **Optimize** tab for the source transformation, you might see a **Source** partition type. This option is available only when your source is Azure SQL Database. This is because Data Factory tries to make connections parallel to run large queries against your SQL Database source.
