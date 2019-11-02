@@ -15,7 +15,7 @@ ms.author: adsasine
 
 # Failover and patching for Azure Cache for Redis
 
-To build resilient and successful client applications, it's critical to understand failover in the context of the Azure Cache for Redis service. A common use of cache failover comes when the management service patches the Azure Cache for Redis binaries. This article covers what a failover is, how it occurs during patching, and how to build a resilient client application.
+To build resilient and successful client applications, it's critical to understand failover in the context of the Azure Cache for Redis service. A failover can be a part of planned management operations, or might be caused by unplanned hardware or network failures. A common use of cache failover comes when the management service patches the Azure Cache for Redis binaries. This article covers what a failover is, how it occurs during patching, and how to build a resilient client application.
 
 ## What is a failover?
 
@@ -23,7 +23,7 @@ Let's start with an overview of failover for Azure Cache for Redis.
 
 ### A quick summary of cache architecture
 
-A cache is constructed of multiple virtual machines with separate, private IP addresses. Each virtual machine, also known as a node, is connected to a shared load balancer with a single virtual IP address. Each node runs the Azure Cache for Redis server process and is accessible by means of the host name and the Redis ports. Each node is considered either a master or a replica node. When a client application connects to a cache, its traffic goes through this load balancer and is automatically routed to the master node.
+A cache is constructed of multiple virtual machines with separate, private IP addresses. Each virtual machine, also known as a node, is connected to a shared load balancer with a single virtual IP address. Each node runs the Redis server process and is accessible by means of the host name and the Redis ports. Each node is considered either a master or a replica node. When a client application connects to a cache, its traffic goes through this load balancer and is automatically routed to the master node.
 
 In a Basic cache, the single node is always a master. In a Standard or Premium cache, there are two nodes: one is chosen as the master and the other is the replica. Because Standard and Premium caches have multiple nodes, one node might be unavailable while the other continues to process requests. Clustered caches are made of many shards, each with distinct master and replica nodes. One shard might be down while the others remain available.
 
