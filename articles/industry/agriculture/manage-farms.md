@@ -14,15 +14,15 @@ You can manage your farms in the Azure FarmBeats. This article provides the info
 ## Create farms
 Use the following steps:
 
-1.	Login to the Farm Accelerator, the **Farms** page displays.
+1. Login to the Farm Accelerator, the **Farms** page displays.
 
- > [!NOTE]
- > The Farms page displays the list of farms in case they have already been created in subscription.
+    > [!NOTE]
+    > The Farms page displays the list of farms in case they have already been created in subscription.
 
+    Here is the sample image:
 
-Here is the sample image:
+    ![Project Farm Beats](./media/create-farms/create-farm-main-page-1.png)
 
-![Project Farm Beats](./media/create-farms/create-farm-main-page-1.png)
 
 2. Select **Create Farm** and provide **Name**, **Crops** and **Address**.
 3. In the **Define Farm Boundary**, select either **Mark on Map** or **Paste GeoJSON code**, which is a mandatory field.
@@ -54,7 +54,7 @@ The **Farms** page displays a list of created farms.
 1.	Select a farm to view and edit the farm.
 2.	Select **Edit Farm** to edit the farm information. In the **Farm Details** window, you can edit **Name**, **Crops**, **Address**, and **Farm Boundary** fields.
 
-  ![Project Farm Beats](./media/create-farms/edit-farm-1.png)
+    ![Project Farm Beats](./media/create-farms/edit-farm-1.png)
 
 3.	Select **Submit** to save the details edited.
 
@@ -64,10 +64,10 @@ The **Farms** page displays a list of farms created. Use the following steps to 
 1.	Select a farm from the list to delete farm details.
 2.	Select **Delete Farm** to delete the farm.
 
-  ![Project Farm Beats](./media/create-farms/delete-farm-1.png)
+    ![Project Farm Beats](./media/create-farms/delete-farm-1.png)
 
-  > [!NOTE]
-  > All the associated devices and maps with the farm will not be deleted. However, the farm details on these devices and maps are invalid. The devices, telemetry and the maps can still be viewed from the application.
+    > [!NOTE]
+    > All the associated devices and maps with the farm will not be deleted. However, the farm details on these devices and maps are invalid. The devices, telemetry and the maps can still be viewed from the application.
 
 
 ## Next steps
