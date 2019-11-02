@@ -21,7 +21,7 @@ This article is a collection of best practices to help you to achieve optimal pe
 For more information about reducing costs through pausing and scaling, see the [Manage compute](sql-data-warehouse-manage-compute-overview.md). 
 
 ## Maintain statistics
-Azure SQL Data Warehouse can be ocnfigured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up to date. 
+Azure SQL Data Warehouse can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up-to-date. 
 
 If you find it is taking too long to update all of your statistics, you may want to try to be more selective about which columns need frequent statistics updates. For example, you might want to update date columns, where new values may be added, daily. **You will gain the most benefit by having updated statistics on columns involved in joins, columns used in the WHERE clause and columns found in GROUP BY.**
 
@@ -69,7 +69,7 @@ When loading a distributed table, be sure that your incoming data is not sorted 
 See also [Table overview][Table overview], [Table distribution][Table distribution], [Selecting table distribution][Selecting table distribution], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
 ## Do not over-partition
-While partitioning data can be very effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy, which may work well on SQL Server may not work well in SQL Analytics.  
+While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy, which may work well on SQL Server may not work well in SQL Analytics.  
 
 Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows.  Keep in mind that behind the scenes, SQL Analytics partitions your data for you into 60 databases, so if you create a table with 100 partitions, this actually results in 6000 partitions.  
 
@@ -89,7 +89,7 @@ For unpartitioned tables, consider using a CTAS to write the data you want to ke
 See also [Understanding transactions][Understanding transactions], [Optimizing transactions][Optimizing transactions], [Table partitioning][Table partitioning], [TRUNCATE TABLE][TRUNCATE TABLE], [ALTER TABLE][ALTER TABLE], [Create table as select (CTAS)][Create table as select (CTAS)]
 
 ## Reduce query result sizes  
-This helps you avoid client-side issues caused by large query result.  You can edit your query to reduce the number of rows returned. Some query generation tools allow you to add “top N” syntax to each query.  You can also CETAS the query result to a temporary table and then use PolyBase export for the downlevel processing.
+This step helps you avoid client-side issues caused by large query result.  You can edit your query to reduce the number of rows returned. Some query generation tools allow you to add “top N” syntax to each query.  You can also CETAS the query result to a temporary table and then use PolyBase export for the downlevel processing.
 
 ## Use the smallest possible column size
 When defining your DDL, using the smallest data type that will support your data will improve query performance.  This is especially important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  In addition, define columns as VARCHAR when that is all that is needed rather than use NVARCHAR.
@@ -108,7 +108,7 @@ Clustered columnstore indexes are one of the most efficient ways you can store y
 
 When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality][Causes of poor columnstore index quality] in the [Table indexes][Table indexes] article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  
 
-Because high-quality columnstore segments are important, it's a good idea to use users IDs which are in the medium or large resource class for loading data. Using lower [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) means you want to assign a larger resource class to your loading user.
+Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) means you want to assign a larger resource class to your loading user.
 
 Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table and each SQL Analytics table is partitioned into 60 tables, as a rule of thumb, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For table with less than 60 million rows, it may not make any sense to have a columnstore index.  It also may not hurt.  
 
@@ -123,12 +123,12 @@ See also [Table indexes][Table indexes], [Columnstore indexes guide][Columnstore
 ## Use larger resource class to improve query performance
 SQL Analytics uses resource groups as a way to allocate memory to queries.  Out of the box, all users are assigned to the small resource class, which grants 100 MB of memory per distribution.  Since there are always 60 distributions and each distribution is given a minimum of 100 MB, system wide the total memory allocation is 6,000 MB, or just under 6 GB.  
 
-Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, like pure scans, will see no benefit.  On the flip side, utilizing larger resource classes impacts concurrency, so you will want to take this into consideration before moving all of your users to a large resource class.
+Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, like pure scans, will see no benefit.  On the flip side, utilizing larger resource classes reduces concurrency, so you will want to take this impact into consideration before moving all of your users to a large resource class.
 
 See also [Resource classes for workload management](resource-classes-for-workload-management.md)
 
 ## Use Smaller Resource Class to Increase Concurrency
-If you are noticing that user queries seem to have a long delay, it could be that your users are running in larger resource classes and are consuming a lot of concurrency slots causing other queries to queue up.  To see if users queries are queued, run `SELECT * FROM sys.dm_pdw_waits` to see if any rows are returned.
+If you are noticing that user queries seem to have a long delay, it could be that your users are running in larger resource classes and are consuming many concurrency slots causing other queries to queue up.  To see if users queries are queued, run `SELECT * FROM sys.dm_pdw_waits` to see if any rows are returned.
 
 See also [Resource classes for workload management](resource-classes-for-workload-management.md), [sys.dm_pdw_waits][sys.dm_pdw_waits]
 
