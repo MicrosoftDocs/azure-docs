@@ -14,7 +14,7 @@ The following section details the possible issues and corrective actions for Azu
 
 ## Deployment issues
 
-If you are facing challenges during deployment see the below list of known issues and their resolution to troubleshoot at your end. In case if you need further help, write to us at farmbeatssupport@microsoft.com include deployer.log file on this email.
+If you are facing challenges during deployment, see the below list of known issues and their resolution to troubleshoot at your end. In case if you need further help, write to us at farmbeatssupport@microsoft.com include deployer.log file on this email.
 
 **Downloading the deployer.log file**
 
@@ -22,7 +22,7 @@ If you are facing challenges during deployment see the below list of known issue
 
   ![Project Farm Beats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
 
-2. On the next screen enter the path to your deployer.log file. For example farmbeats-deployer.log.
+2. On the next screen, enter the path to your deployer.log file. For example, farmbeats-deployer.log.
 
 ## Known issues
 
@@ -107,7 +107,7 @@ Following are the common error scenarios while deleting a device:
 3. Delete the specific device  
 
 > [!NOTE]
-> You cannot delete a device if sensors are associated with it. See [Delete Sensors](get-sensor-data-from-sensor-partner#delete-sensor) in Get Sensor Data chapter for more information on how to delete associated sensors.
+> You cannot delete a device if sensors are associated with it. See [Delete Sensors](get-sensor-data-from-sensor-partner.md#delete-sensor) in Get Sensor Data chapter for more information on how to delete associated sensors.
 
 
 ## Running Jobs
@@ -150,7 +150,7 @@ If the error still persists, add the error in a post on the FarmBeats forum or c
 **Corrective Action** – This happens because of service worker persistence in the browser.
 Close all browser tabs that have the Accelerator open and close the browser window. Start a new instance of the browser and load the Accelerator URI again. This will load the new version of the Accelerator.
 
-## Sentinel imagery related issues
+## Sentinel imagery-related issues
 
 ### Sentinel wrong Username or Password
 
@@ -213,13 +213,13 @@ This issue can occur if any maintenance activities are being done on Sentinel Se
 Install and connect to Azure Storage Explorer according to the instructions listed in https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows
 
 ### How to Collect data hub ADF job ogs
-1. Log in to www.portal.azure.com
+1. Log in to https://portal.azure.com
 2. In the **Search** text box, search for FarmBeats Data hub resource group.
 
 > [!NOTE]
 > Select the data hub resource group that was specified at the time of FarmBeats deployment.
 
-In the resource group dashboard, search for the (datahublogs….) storage account. For example – datahublogsmvxmq  
+In the resource group dashboard, search for the (datahublogs….) storage account. For example, datahublogsmvxmq  
 
 1.	Select the storage account in the **Name** column to view the **Storage Account** dashboard.
 2.	In the (datahubblogs….) page, select **Open in Explorer** to view **Open Azure Storage Explorer** application.
@@ -232,13 +232,13 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 
 ### How to collect accelerator ADF job sogs
 
-1.	Log in to www.portal.azure.com
+1.	Log in to https://portal.azure.com
 2.	In the **Search** text box, search for FarmBeats Accelerator resource group.
 
 > [!NOTE]
 > Select the Accelerator resource group that was specified at the time of FarmBeats deployment.
 
-3.	In the resource group dashboard, search for storage…. storage account. For example – storagedop4k
+3.	In the resource group dashboard, search for storage…. storage account. For example, storagedop4k
 4.	Select the storage account in the **Name** column to view the Storage Account dashboard.
 5.	In the (storage….) page, select **Open in Explorer** to view Open Azure Storage Explorer application.
 6.	In the left panel, <storage….), **Blob Containers**, select **job-logs**.
@@ -249,13 +249,13 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 
 ### How to collect data hub app service sogs
 
-1.	Log in to www.portal.azure.com
+1.	Log in to https://portal.azure.com
 2.	In the **Search** text box, search for FarmBeats Data hub resource group.
 
 > [!NOTE]
 > Select the data hub resource group that was specified at the time of FarmBeats deployment.
 
-3.	In the resource group, search for (datahublogs….) storage account. For example – datahublogsmvxmq
+3.	In the resource group, search for (datahublogs….) storage account. For example, datahublogsmvxmq
 4.	Select the storage account in the **Name** column to view the **Storage Account** dashboard.
 5.	In the (datahubblogs….) page, select **Open in Explorer** to view **Open Azure Storage Explorer** application.
 6.	In the left panel, (datahubblogs….), **Blob Containers**, select appinsights-logs.
@@ -265,13 +265,13 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 
 ### How to collect accelerator app service logs
 
-1.	Log in to www.portal.azure.com
+1.	Log in to http://portal.azure.com
 2.	In the **Search**, search for FarmBeats Accelerator resource group.
 
 > [!NOTE]
 > Select the Farmbeats accelerator resource group that is provided at the time of FarmBeats deployment.
 
-3.	In the resource group, search for (storage….) storage account. For example – storagedop4k
+3.	In the resource group, search for (storage….) storage account. For example, storagedop4k
 4.	Select the storage account in the **Name** column to view the **Storage Account** dashboard.
 5.	In the (storage….) page, select **Open in Explorer** to view **Open Azure Storage Explorer** application.
 6.	In the left panel, (storage….), **Blob Containers**, select appinsights-logs.
