@@ -11,10 +11,7 @@ ms.author: v-umha
 
 A common usage scenario is to ingest historical data from Internet of Things (IoT) such as, devices/sensors into your Azure FarmBeats instance. This can be done by creating the metadata for your devices/sensors and then ingest the historical sensor data in a canonical format to FarmBeats.
 
-This article describes the process of ingesting historical sensor data into FarmBeats. To proceed, make sure you have historical sensor data that you have collected from your IoT devices/sensors .
-
-  > [!NOTE]
-  > Ensure you have deployed FarmBeats.
+This article describes the process of ingesting historical sensor data into FarmBeats. To proceed, make sure you have FarmBeats installed and have historical sensor data that you have collected from your IoT devices/sensors.
 
 ## Enable partner access to Azure FarmBeats
 
@@ -85,9 +82,9 @@ Follow the below steps to generate these:
 |    Name            | Name to identify resource. Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats|
 |     Description       |      Provide a meaningful description  |
 |     Properties    |  Additional properties from the manufacturer
-|     **Sensor Model**        |   the manufacturer of the sensor       |
-|       Type (Analog, Digital)          |                    |
-|          manufacturer            |                     |
+|     **Sensor Model**        |          |
+|       Type (Analog, Digital)          |      type of sensor whether analog or digital       |
+|          manufacturer            |       the manufacturer of the sensor     |
 |     productCode| Product code or Model Name/Number. For example, RS-CO2-N01 |
 |       TsensorMeasures > Name	    | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry d              |
 |          sensorMeasures > DataType	   |Telemetry Data Type. Currently Double is supported|
@@ -107,7 +104,7 @@ Follow the below steps to generate these:
 |    description	  | Provide a meaningful description |
 |    properties        |Additional properties from the manufacturer |
 
-  For more information on each of the objects, see the Swagger.
+See [swagger](http://aka.ms/FarmBeatsDatahubSwagger) for information each of the objects.
 
 **API request to create metadata**
 
