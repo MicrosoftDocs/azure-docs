@@ -15,6 +15,7 @@ ms.custom: seodec18
 ---
 
 # Create and run machine learning pipelines with Azure Machine Learning SDK
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Use **ML pipelines** to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with others.  ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others. 
 
@@ -32,7 +33,11 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
 
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Notebook VM](tutorial-1st-experiment-sdk-setup.md#azure) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
+
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
 
 Start by attaching your workspace:
 
@@ -406,21 +411,21 @@ response = requests.post(published_pipeline1.endpoint,
 ### View results of a published pipeline
 
 See the list of all your published pipelines and their run details:
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
 1. [View your workspace](how-to-manage-workspace.md#view) to find the list of pipelines.
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Select a specific pipeline to see the run results.
 
-These results are also available in your [workspace landing page (preview)](https://ml.azure.com).
+These results are also available in your workspace in [Azure Machine Learning studio]](https://ml.azure.com).
 
 ### Disable a published pipeline
 
 To hide a pipeline from your list of published pipelines, you disable it:
 
 ```
-# Get the pipeline by using its ID from the Azure portal
+# Get the pipeline by using its ID from Azure Machine Learning studio
 p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```

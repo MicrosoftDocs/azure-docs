@@ -47,6 +47,17 @@
       href: ./samples/cis-azure-1.1.0/index.md
     - name: Recommendation mapping
       href: ./samples/cis-azure-1.1.0/control-mapping.md
+  - name: FedRAMP Moderate
+    items:
+    - name: Overview
+      displayName: standards, fedramp, moderate
+      href: ./samples/fedramp-m/index.md
+    - name: Control mapping
+      displayName: standards, fedramp, moderate
+      href: ./samples/fedramp-m/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, fedramp, moderate
+      href: ./samples/fedramp-m/deploy.md
   - name: IRS 1075
     items:
     - name: Overview
