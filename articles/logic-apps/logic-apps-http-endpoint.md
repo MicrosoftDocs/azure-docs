@@ -161,9 +161,9 @@ When you want your endpoint URL to accept parameters, specify the relative path 
 
    For example, suppose that you want the Response action to return `Location: {postalCode}`.
 
-   1. In the **Body** property, enter `Postal Code: ` with a trailing space. From the dynamic content list that appears, select the **postalCode** token.
+   In the **Body** property, enter `Postal Code: ` with a trailing space. From the dynamic content list that appears, select the **postalCode** token.
 
-      ![Add the specified parameter to response body](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+   ![Add the specified parameter to response body](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
    The **Body** property now includes the selected parameter:
 
