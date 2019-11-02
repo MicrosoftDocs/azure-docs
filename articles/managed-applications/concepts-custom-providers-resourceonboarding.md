@@ -142,7 +142,7 @@ X-MS-CustomProviders-ExtendedResource: /subscriptions/{subscriptionId}/resourceG
 }
 ```
 
-The endpoint should respond with "application/json" `Content-Type` and valid JSON. Fields that are returned under the "properties" object of the JSON will be added to the association return response.
+The endpoint should respond with "application/json" `Content-Type` and valid JSON response body. Fields that are returned under the "properties" object of the JSON will be added to the association return response.
 
 ## Looking for help
 
