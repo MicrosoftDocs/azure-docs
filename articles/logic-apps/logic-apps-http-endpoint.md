@@ -159,7 +159,7 @@ When you want your endpoint URL to accept parameters, specify the relative path 
 
 1. In the Response action's **Body** property, include the token that represents the parameter that you specified in your trigger's relative path.
 
-   For example, suppose that you want the Response action to return `Location: {postalCode}`.
+   For example, suppose that you want the Response action to return `Postal Code: {postalCode}`.
 
    In the **Body** property, enter `Postal Code: ` with a trailing space. From the dynamic content list that appears, select the **postalCode** token.
 
@@ -179,7 +179,7 @@ When you want your endpoint URL to accept parameters, specify the relative path 
 
 1. To test your HTTP endpoint, copy and paste the updated URL into another browser window, but replace `{postalCode}` with `123456`, and press Enter.
 
-   Your browser shows this text: `Location: 123456`
+   Your browser shows this text: `Postal Code: 123456`
 
 ## Call logic app through HTTP endpoint
 
