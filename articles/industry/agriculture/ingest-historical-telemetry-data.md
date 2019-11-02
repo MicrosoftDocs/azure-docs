@@ -104,7 +104,7 @@ Follow the below steps to generate these:
 |    description	  | Provide a meaningful description |
 |    properties        |Additional properties from the manufacturer |
 
-See [swagger](http://aka.ms/FarmBeatsDatahubSwagger) for information each of the objects.
+See [swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information each of the objects.
 
 **API request to create metadata**
 
