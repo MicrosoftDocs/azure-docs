@@ -10,62 +10,19 @@ ms.author: v-umha
 
 # Troubleshooting
 
-The following section details the possible issues and corrective actions for Azure FarmBeats.
+The following sections detail the possible issues and corrective actions for Azure FarmBeats.
 
-## Deployment issues
+## Deployment
 
 If you are facing challenges during deployment, see the below list of known issues and their resolution to troubleshoot at your end. In case if you need further help, write to us at farmbeatssupport@microsoft.com include deployer.log file on this email.
 
 **Downloading the deployer.log file**
 
-1.  the highlighted icon and select **Download** option from the drop-down.
+1. The highlighted icon and select **Download** option from the drop-down.
 
-  ![Project Farm Beats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
+    ![Project Farm Beats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
 
 2. On the next screen, enter the path to your deployer.log file. For example, farmbeats-deployer.log.
-
-## Known issues
-
-**Batch-related issues**
-
-**Error**: The regional account quota of Batch Accounts for the specified subscription has been reached.
-
-**Corrective action**: increase the quota or delete unused batch accounts and re-run the deployment.
-
-**Azure Active Directory related issues**
-
-**Error**: Could not update required settings to AAD App d41axx40-xx21-4fbd-8xxf-97xxx9e2xxc0: Insufficient privileges to complete the operation. Ensure that above settings are configured properly for the AAD App.
-
-**Meaning**: The AAD app registration configuration didn’t happen properly.  
-
-**Corrective action**: ask the IT admin (having tenant read access) to use our [script](https://aka.ms/PPCreateAADappregistration) for generating creating the Azure Active Directory app registration. This script will automatically take care of the configuration steps as well. as  
-
-**Error**: Could not create new Active Directory Application “dummyname” in this tenant: Another object with the same value for property identifier URIs already exists
-
-**Meaning**: AAD app registration with the same name already exists.
-
-**Corrective action**: Delete the existing AAD app registration or reuse it for installation. If you are reusing the existing AAD pass the Application ID and client secret to the installer and redeploy.
-
-**Batch-related issues**
-
-**Input.json related issues**
-
-**Error** reading input from input.json file
-
-**Corrective action**: This issue mostly arises due to miss in specifying the correct input json path or name to the installer. Make appropriate corrections and retry redploying.
-
-**Error parsing json input**
-
-**Corrective action**: This issue mostly arises due to incorrect values within the input json file. Make appropriate corrections and retry deploying.
-
-**High CPU usage**
-
-**Error**: You get an email alert referring to High CPU Usage Alert. 
-
-**Corrective Action**: 
-1.	Go to your FarmBeats Data hub Resource Group.
-2.	Select the App service.  
-3.	Go to Scale up (App Service plan) and select an appropriate pricing tier, for more information [see](https://azure.microsoft.com/pricing/details/app-service/windows/) 
 
 ## Sensor telemetry
 
@@ -106,8 +63,8 @@ Following are the common error scenarios while deleting a device:
 2. Delete the devices associated with the specific device  
 3. Delete the specific device  
 
-> [!NOTE]
-> You cannot delete a device if sensors are associated with it. See [Delete Sensors](get-sensor-data-from-sensor-partner.md#delete-sensor) in Get Sensor Data chapter for more information on how to delete associated sensors.
+    > [!NOTE]
+    > You cannot delete a device if sensors are associated with it. See [Delete Sensors](get-sensor-data-from-sensor-partner.md#delete-sensor(s)) in Get Sensor Data chapter for more information on how to delete associated sensors.
 
 
 ## Running Jobs
@@ -216,8 +173,8 @@ Install and connect to Azure Storage Explorer according to the instructions list
 1. Log in to https://portal.azure.com
 2. In the **Search** text box, search for FarmBeats Data hub resource group.
 
-> [!NOTE]
-> Select the data hub resource group that was specified at the time of FarmBeats deployment.
+    > [!NOTE]
+    > Select the data hub resource group that was specified at the time of FarmBeats deployment.
 
 In the resource group dashboard, search for the (datahublogs….) storage account. For example, datahublogsmvxmq  
 
@@ -228,15 +185,15 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 5.	Select the location to download the logs to a local folder on your machine.
 6.	Email the downloaded zip file to farmbeatssupport@microsoft.com
 
-![Project Farm Beats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
+    ![Project Farm Beats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
 
 ### How to collect accelerator ADF job sogs
 
 1.	Log in to https://portal.azure.com
 2.	In the **Search** text box, search for FarmBeats Accelerator resource group.
 
-> [!NOTE]
-> Select the Accelerator resource group that was specified at the time of FarmBeats deployment.
+    > [!NOTE]
+    > Select the Accelerator resource group that was specified at the time of FarmBeats deployment.
 
 3.	In the resource group dashboard, search for storage…. storage account. For example, storagedop4k
 4.	Select the storage account in the **Name** column to view the Storage Account dashboard.
@@ -252,8 +209,8 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 1.	Log in to https://portal.azure.com
 2.	In the **Search** text box, search for FarmBeats Data hub resource group.
 
-> [!NOTE]
-> Select the data hub resource group that was specified at the time of FarmBeats deployment.
+    > [!NOTE]
+    > Select the data hub resource group that was specified at the time of FarmBeats deployment.
 
 3.	In the resource group, search for (datahublogs….) storage account. For example, datahublogsmvxmq
 4.	Select the storage account in the **Name** column to view the **Storage Account** dashboard.
@@ -265,11 +222,11 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 
 ### How to collect accelerator app service logs
 
-1.	Log in to http://portal.azure.com
+1.	Log in to https://portal.azure.com
 2.	In the **Search**, search for FarmBeats Accelerator resource group.
 
-> [!NOTE]
-> Select the Farmbeats accelerator resource group that is provided at the time of FarmBeats deployment.
+    > [!NOTE]
+    > Select the Farmbeats accelerator resource group that is provided at the time of FarmBeats deployment.
 
 3.	In the resource group, search for (storage….) storage account. For example, storagedop4k
 4.	Select the storage account in the **Name** column to view the **Storage Account** dashboard.
@@ -278,6 +235,49 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 7.	In the appinsights-logs tab, select **Download**.
 8.	Select the location to download the logs to a local folder on your machine.
 9.	Email the downloaded folder to farmbeatssupport@microsoft.com
+
+## Known issues
+
+**Batch-related issues**
+
+**Error**: The regional account quota of Batch Accounts for the specified subscription has been reached.
+
+**Corrective action**: increase the quota or delete unused batch accounts and re-run the deployment.
+
+**Azure Active Directory related issues**
+
+**Error**: Could not update required settings to AAD App d41axx40-xx21-4fbd-8xxf-97xxx9e2xxc0: Insufficient privileges to complete the operation. Ensure that above settings are configured properly for the AAD App.
+
+**Meaning**: The AAD app registration configuration didn’t happen properly.  
+
+**Corrective action**: ask the IT admin (having tenant read access) to use our [script](https://aka.ms/PPCreateAADappregistration) for generating creating the Azure Active Directory app registration. This script will automatically take care of the configuration steps as well. as  
+
+**Error**: Could not create new Active Directory Application “dummyname” in this tenant: Another object with the same value for property identifier URIs already exists
+
+**Meaning**: AAD app registration with the same name already exists.
+
+**Corrective action**: Delete the existing AAD app registration or reuse it for installation. If you are reusing the existing AAD pass the Application ID and client secret to the installer and redeploy.
+
+**Batch-related issues**
+
+**Input.json related issues**
+
+**Error** reading input from input.json file
+
+**Corrective action**: This issue mostly arises due to miss in specifying the correct input json path or name to the installer. Make appropriate corrections and retry redploying.
+
+**Error parsing json input**
+
+**Corrective action**: This issue mostly arises due to incorrect values within the input json file. Make appropriate corrections and retry deploying.
+
+**High CPU usage**
+
+**Error**: You get an email alert referring to High CPU Usage Alert. 
+
+**Corrective Action**: 
+1.	Go to your FarmBeats Data hub Resource Group.
+2.	Select the App service.  
+3.	Go to Scale up (App Service plan) and select an appropriate pricing tier, for more information [see](https://azure.microsoft.com/pricing/details/app-service/windows/)
 
 ## Next steps
 
