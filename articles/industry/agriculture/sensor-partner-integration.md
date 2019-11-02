@@ -13,7 +13,7 @@ This article explains the implementation of the Sensor data integration (also ca
 
 ## Link FarmBeats account
 
-Once the customers have purchased and deployed Devices/Sensors, they can access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device Partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are require to fill in by customer/SI:
+Once the customers have purchased and deployed Devices/Sensors, they can access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device Partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by customer/SI:
 
 - Display Name (An optional field for user to define a name for this integration)
 - API Endpoint
@@ -50,9 +50,9 @@ The customer has the ability to view the timestamp of *Last Telemetry Sent*, is 
 
 ## Translator development
 
-**Rest API based integration**
+**Rest API-based integration**
 
-Sensor data integration capabilities of FarmBeats are exposed via the REST API. Capabilities include metadata definition, device/sensor provisioning, device and sensor management.
+Sensor data integration capabilities of FarmBeats are exposed via the REST API. Capabilities include metadata definition, device/sensor provisioning, device, and sensor management.
 
 **Telemetry Ingestion**
 
@@ -60,7 +60,7 @@ The telemetry data is mapped to a canonical message that is published on Azure E
 
 **API Development**
 
-The APIs contain swagger technical documentation. See [swagger](http://aka.ms/FarmBeatsDatahubSwagger) for information on all the APIs and their corresponding requests/responses.
+The APIs contain swagger technical documentation. See [swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information on all the APIs and their corresponding requests/responses.
 
 **Authentication**
 
@@ -104,14 +104,14 @@ access_token = token_response.get('accessToken') 
 
 **HTTP Request Headers**
 
-Here are the most common request headers that needs to be specified when making an API call to FarmBeats Data hub:
+Here are the most common request headers that need to be specified when making an API call to FarmBeats Data hub:
 
 
 **Header** | **Description and Example**
 --- | ---
 Content-Type | The request format (Content-Type: application/<format>) For FarmBeats Data hub APIs format is json. Content-Type: application/json
 Authorization | Specifies the access token required to make an API call Authorization: Bearer <Access-Token>
-Accept | The response format. For FarmBeats Data hub APIs the format is json Accept: application/json
+Accept | The response format. For FarmBeats Data hub API's the format is json Accept: application/json
 
 **API Requests**
 
@@ -126,7 +126,7 @@ curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-T
 ```
 Most GET, POST, and PUT calls require a JSON request body.
 
-The below sample request is to create a Device (This has an input json with the request body).
+The below sample request is to create a device (This sample has an input json with the request body).
 
 ```
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
@@ -134,7 +134,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 
 ## Data Format
 
-JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see [jason.org](json.org)
+JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see [jason.org](http://json.org)
 
 ## Metadata Specifications
 
@@ -169,8 +169,8 @@ parentDeviceId | id of the parent device to which this device is connected to. E
   productCode  | Product code or Model Name/Number. eg: RS-CO2-N01  |
   sensorMeasures > Name  | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. Eg. soil_moisture_15cm This name has to be consistent with the telemetry data. |
   sensorMeasures > DataType  | Telemetry Data Type. Currently Double is supported  |
-  sensorMeasures > Type  | Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more refer to /ExtendedType API
-  sensorMeasures > Unit | Unit of sensor telemetry data. Following are the system-defined  units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more refer to /ExtendedType API
+  sensorMeasures > Type  | Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to /ExtendedType API
+  sensorMeasures > Unit | Unit of sensor telemetry data. Following are the system-defined  units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to /ExtendedType API
   sensorMeasures > aggregationType  | Either of None, Average, Maximum, Minimum, StandardDeviation
   SensorMeasures > depth  | The depth of the sensor in centimeters (eg. Measure of moisture 10 cm under the ground)
   sensorMeasures > description  | Provide a meaningful description of the measure
@@ -187,7 +187,7 @@ parentDeviceId | id of the parent device to which this device is connected to. E
   description  | Provide a meaningful description
   properties  | Additional properties from the manufacturer
 
- See [swagger](http://aka.ms/FarmBeatsDatahubSwagger) for information more on each of the objects and their properties.
+ See [swagger](httpa://aka.ms/FarmBeatsDatahubSwagger) for information more on each of the objects and their properties.
 
  > [!NOTE]
  > The APIs return unique ids for each instance created. This id needs to be retained by the Translator for device management and metadata sync.
@@ -195,7 +195,7 @@ parentDeviceId | id of the parent device to which this device is connected to. E
 
 **Metadata sync**
 
-The Translator should send updates on the metadata. Examples of update scenarios are – Change of Device/Sensor name, Change of Device/Sensor location.
+The Translator should send updates on the metadata. For example, of update scenarios are – Change of Device/Sensor name, Change of Device/Sensor location.
 
 The Translator should have the ability to add new Devices and/or Sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corresponding Device/Sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.
 
@@ -214,7 +214,7 @@ The telemetry data is mapped to a canonical message that is published on Azure E
 
 ## Send telemetry data to FarmBeats
 
-To send telemetry data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. To know more about see [sending telemetry to event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+To send telemetry data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. To know more about telemetry data, see [sending telemetry to event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
 
 Here is a sample Python code that sends telemetry as a client to a specified Event Hub:
 
@@ -262,7 +262,7 @@ The canonical message format is as below:
 
 All key names in the telemetry json should be lower case eg. deviceid, sensordata etc.
 
-Example Telemetry message:
+For example, Telemetry message:
 
 
 ```json
@@ -318,7 +318,7 @@ In the event of an error that affects the device/sensor metadata/data integratio
 
 **Connection Checklist**
 
-Device Manufacturers/Partners can have the following sanity test/checklist to ensure that the credentials provided by the customer is accurate.
+Device Manufacturers/Partners can have the following sanity test/checklist to ensure that the credentials provided by the customer are accurate.
 
 1. Check if an access token is received with the credentials provided
 2. Check if an API call succeeds with the access token received

@@ -9,9 +9,11 @@ ms.author: v-umha
 
 # References
 
+Below are a collection of notes and instructions that outline the Azure FarmBeats APIs.
+
 ## REST API
 
-Below are a collection of notes and instructions that outline the Azure FarmBeats APIs of the Public Preview version. The Azure FarmBeats APIs provide Agribusiness with a standardized RESTful interface with JSON-based responses and this it will help you leverage Azure FarmBeats capabilities:
+The Azure FarmBeats APIs provide Agribusiness with a standardized REST ful interface with JSON-based responses and this it will help you leverage Azure FarmBeats capabilities:
 
 - API's to get sensor, camera, drone, weather, satellite, and curated ground data
 - Normalization/contextualization of data across common data providers
@@ -22,7 +24,7 @@ Below are a collection of notes and instructions that outline the Azure FarmBeat
 
 ## Application Development
 
-The APIs contain swagger technical documentation. See [Swagger](http://aka.ms/FarmBeatsDatahubSwagger) for information on all the APIs and their corresponding requests/responses.
+The APIs contain swagger technical documentation. See [Swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information on all the APIs and their corresponding requests/responses.
 
 This is a summary of all objects/resources in FarmBeats Data hub:
 
@@ -137,31 +139,35 @@ Example: When creating a Farm, a mandatory field “Name” was not specified in
 
 ## Adding users or app registrations to Azure Active Directory
 
- Azure FarmBeats APIs can be accessed by a user or an app registration in the Azure Active Directory. To create an app registration on your Azure Active Directory, perform the below steps:  
+ Azure FarmBeats APIs can be accessed by a user or an app registration in the Azure Active Directory. To create an app registration on your Azure Active Directory, do the below steps:  
 
-1. Go to www.portal.azure.com, **Azure Active Directory, App registrations**, + **New registration**. Alternatively, you can use an existing account.
+1. Go to [Azure portal](https://portal.azure.com) **Azure Active Directory, App registrations**, > **New registration**. Alternatively, you can use an existing account.
 2. For a new account, ensure to complete the following:
 
- - Enter a name
- - Select **Accounts in this organizational directory only (Single tenant)**
- - The default values in the rest of the fields
- - Click **Register**
+- Enter a name
+- Select **Accounts in this organizational directory only (Single tenant)**
+- The default values in the rest of the fields
+- Select **Register**
 
 3. From the new/existing app registration, **Overview**, complete the following
 
- - Capture the **Client ID** and **Tenant ID**.
- - Go to **Certificates and Secrets** to generate a new client secret and capture the **Client-Secret**.
- - Go back to Overview and Click the link next to **Manage Application in local directory**
- - Go to **Properties** to capture the **Object ID**
+- Capture the **Client ID** and **Tenant ID**.
+- Go to **Certificates and Secrets** to generate a new client secret and capture the **Client-Secret**.
+- Go back to Overview and Click the link next to **Manage Application in local directory**
+- Go to **Properties** to capture the **Object ID**
 
 4. Go to your Data hub swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) and perform the following steps:
- - Navigate to **RoleAssignment API**
- - Perform a **POST** to create a RoleAssignment for the **Object ID** you just created. – The input json is:
+- Navigate to **RoleAssignment API**
+- Perform a **POST** to create a RoleAssignment for the **Object ID** you just created. – The input json is:
 
   > [!NOTE]
-  > For more information on the above steps [see](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) .
+  > For more information on the above steps, see [Azure active directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) .
 
 
 After completing the above steps, your app registration (client) can call the Azure FarmBeats APIs using an access token via Bearer Authentication.  
+
 Use the access token to send it in subsequent API requests in the header section as:
+
+```
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
+```
