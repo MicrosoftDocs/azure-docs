@@ -212,22 +212,22 @@ Certain attributes such as phoneNumbers and emails are multi-value attributes wh
 * phoneNumbers[type eq "mobile"].value
 * phoneNumbers[type eq "fax"].value
 
-```json
-  "phoneNumbers": [
-    {
-      "value": "555-555-5555",
-      "type": "work"
-    },
-    {
-      "value": "555-555-5555",
-      "type": "mobile"
-    },
-    {
-      "value": "555-555-5555",
-      "type": "fax"
-    }
-  ]
-```
+   ```json
+   "phoneNumbers": [
+       {
+         "value": "555-555-5555",
+         "type": "work"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "mobile"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "fax"
+      }
+   ]
+   ```
 
 ## Restoring the default attributes and attribute-mappings
 
