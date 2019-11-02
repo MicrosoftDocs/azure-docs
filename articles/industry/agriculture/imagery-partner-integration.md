@@ -91,11 +91,10 @@ Optionally, you can include query parameters on GET calls to filter, limit the s
 
 The below sample request is to get the list of devices:
 
-```J
+```
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
-
 ```
 
 Most GET, POST, and PUT calls require a JSON request body.
@@ -109,7 +108,6 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
 "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  
 \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
-
 ```
 
 ## Data Format
@@ -394,7 +392,7 @@ Get /Farm response:
 }
  ```
 
-Step 3: Create a /Scene ID (Post call)
+**Step 3**: Create a /Scene ID (Post call)
 
 Create a new scene (tiff or .csv file) with the given information, providing the Date, sequence & FarmID to which the scene will be associated. The meta-data associated with the scene can be defined here in the “properties” bag (including details of duration, type of measure, etc.)
 

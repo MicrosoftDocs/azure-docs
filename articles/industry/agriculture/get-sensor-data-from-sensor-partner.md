@@ -142,7 +142,7 @@ Follow these steps:
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
- A confirmation message displays that the sensor is successfully deleted.  
+A confirmation message displays that the sensor is successfully deleted.  
 
 ## Delete device(s)
 
