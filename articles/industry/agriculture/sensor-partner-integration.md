@@ -111,7 +111,7 @@ Here are the most common request headers that need to be specified when making a
 --- | ---
 Content-Type | The request format (Content-Type: application/<format>) For FarmBeats Data hub APIs format is json. Content-Type: application/json
 Authorization | Specifies the access token required to make an API call Authorization: Bearer <Access-Token>
-Accept | The response format. For FarmBeats Data hub API's the format is json Accept: application/json
+Accept | The response format. For FarmBeats Data hub APIs, the format is json Accept: application/json
 
 **API Requests**
 
@@ -142,16 +142,16 @@ FarmBeats Data hub has the following APIs that enable device partners to create 
 
 - /**DeviceModel** - Device Model corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.  
 - /**Device** - Device corresponds to a physical device present in the farm.
-- /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.
+- /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
 - /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device id.
 
   **Device Model** | **DeviceModel corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.**
   --- | ---
   Type (Node, Gateway)  | 1 Star |
   Manufacturer  | 2 Star |
-  ProductCode  | Device product code Or Model Name/Number. eg: EnviroMonitor#6800 |
+  ProductCode  | Device product code Or Model Name/Number. For example, EnviroMonitor#6800 |
   Ports  | Port Name and Type (Digital/Analog)  |
-  Name  | Name to identify resource. Eg. Model Name/Product Name |
+  Name  | Name to identify resource. For example, Model Name/Product Name |
   Description  | Provide a meaningful description of the model |
   Properties  | Additional properties from the manufacturer |
   **Device** | **Device corresponds to a physical device present in the farm. Each device has a unique device id** |
@@ -159,22 +159,22 @@ DeviceModelId  |id of the associated Device Model. |
 HardwareId   |Unique Id for the device such as MAC address etc.,  |
 reportingInterval |Reporting Interval in seconds |
 Location    |Device Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters) |
-parentDeviceId | id of the parent device to which this device is connected to. Eg. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway |
+parentDeviceId | id of the parent device to which this device is connected to. For example,. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway |
   Name  | Name to identify resource.  Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats  |
   Description  | Provide a meaningful description  |
   Properties  |Additional properties from the manufacturer  |
   **Sensor Model** | SensorModel corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc |
   Type (Analog, Digital)  |Mention analog or digital sensor|
   manufacturer  | name of manufacturer |
-  productCode  | Product code or Model Name/Number. eg: RS-CO2-N01  |
-  sensorMeasures > Name  | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. Eg. soil_moisture_15cm This name has to be consistent with the telemetry data. |
+  productCode  | Product code or Model Name/Number. For example, RS-CO2-N01  |
+  sensorMeasures > Name  | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry data. |
   sensorMeasures > DataType  | Telemetry Data Type. Currently Double is supported  |
   sensorMeasures > Type  | Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to /ExtendedType API
   sensorMeasures > Unit | Unit of sensor telemetry data. Following are the system-defined  units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to /ExtendedType API
   sensorMeasures > aggregationType  | Either of None, Average, Maximum, Minimum, StandardDeviation
-  SensorMeasures > depth  | The depth of the sensor in centimeters (eg. Measure of moisture 10 cm under the ground)
+  SensorMeasures > depth  | The depth of the sensor in centimeters (For example, Measure of moisture 10 cm under the ground)
   sensorMeasures > description  | Provide a meaningful description of the measure
-  name  | Name to identify resource. Eg. Model Name/Product Name
+  name  | Name to identify resource. For example, Model Name/Product Name
   description  | Provide a meaningful description of the model
   properties  | Additional properties from the manufacturer
   **Sensor**  |
@@ -183,7 +183,7 @@ parentDeviceId | id of the parent device to which this device is connected to. E
   location  | Sensor Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)
   port > name  |Name and Type of the port that the sensor is connected to on the device. This needs to be same name as defined in the Device Model
   deviceId  | id of the Device that the sensor is connected to
-  name  | Name to identify resource. Eg. Sensor Name/Product Name and Model Number/Product Code.
+  name  | Name to identify resource. For example, Sensor Name/Product Name and Model Number/Product Code.
   description  | Provide a meaningful description
   properties  | Additional properties from the manufacturer
 
@@ -260,7 +260,7 @@ The canonical message format is as below:
 
 ```
 
-All key names in the telemetry json should be lower case eg. deviceid, sensordata etc.
+All key names in the telemetry json should be lower case For example, deviceid, sensordata etc.
 
 For example, Telemetry message:
 
