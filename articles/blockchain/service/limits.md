@@ -2,11 +2,11 @@
 title: Azure Blockchain Limits
 description: Overview of the service and functional limits in Azure Blockchain Service
 services: azure-blockchain
-keywords: blockchain
+keywords: 
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
