@@ -136,27 +136,27 @@ Use the steps below to provision roles for a user to your application. Note that
     
   - **Example output** 
 
-```json
-  {
-    "schemas": [
-        "urn:ietf:params:scim:schemas:core:2.0:User"
-    ],
-    "externalId": "alias",
-    "userName": "alias@contoso.OnMicrosoft.com",
-    "active": true,
-    "displayName": "First Name Last Name",
-    "meta": {
-        "resourceType": "User"
-    },
-    "roles": [
-        {
-            "primary": true,
-            "type": "WindowsAzureActiveDirectoryRole",
-            "value": "Admin"
-        }
-    ]
-}
-```
+   ```json
+    {
+      "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": true,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "value": "Admin"
+         }
+      ]
+   }
+   ```
   
 - **AppRoleAssignmentsComplex** 
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
@@ -173,34 +173,34 @@ Use the steps below to provision roles for a user to your application. Note that
     
   - **Example output** 
   
-```json
-  {
-    "schemas": [
-        "urn:ietf:params:scim:schemas:core:2.0:User"
-    ],
-    "externalId": "alias",
-    "userName": "alias@contoso.OnMicrosoft.com",
-    "active": true,
-    "displayName": "First Name Last Name",
-    "meta": {
-        "resourceType": "User"
-    },
-    "roles": [
-        {
-            "primary": false,
-            "type": "WindowsAzureActiveDirectoryRole",
-            "display": "Admin",
-            "value": "Admin"
-        },
-        {
-            "primary": false,
-            "type": "WindowsAzureActiveDirectoryRole",
-            "display": "User",
-            "value": "User"
-        }
-    ]
-}
-```
+   ```json
+   {
+       "schemas": [
+           "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "Admin",
+               "value": "Admin"
+         },
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "User",
+             "value": "User"
+         }
+      ]
+   }
+   ```
 
   
 
