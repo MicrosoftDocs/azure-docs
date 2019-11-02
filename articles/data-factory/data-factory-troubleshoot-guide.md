@@ -17,6 +17,7 @@ This article explores common troubleshooting methods for external control activi
 ## Connector and copy activity
 
 For connector issues e.g. encounter error using copy activity, refer to [Troubleshoot Azure Data Factory Connectors](connector-troubleshoot-guide.md).
+  
 
 ## Azure Databricks
 
@@ -37,15 +38,15 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 - **Recommendation**: Specify the notebook path in the Databricks activity.
 
-<br/>
-
+<br/>    
+              
 - **Message**: `Cluster   ... does not exist.`
 
 - **Cause**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
 - **Recommendation**: Verify that the Databricks cluster exists.
 
-<br/>
+<br/>  
 
 - **Message**: `Invalid Python file URI.... Please visit Databricks user guide for supported URI schemes.`
 
@@ -53,7 +54,7 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 - **Recommendation**: Specify either absolute paths for workspace-addressing schemes, or `dbfs:/folder/subfolder/foo.py` for files stored in Databricks File System.
 
-<br/>
+<br/>  
 
 - **Message**: `{0} LinkedService should have domain and accessToken as required properties.`
 
@@ -61,7 +62,7 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 - **Recommendation**: Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service).
 
-<br/>
+<br/>  
 
 - **Message**: `{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
 
@@ -69,13 +70,13 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 - **Recommendation**: Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service).
 
-<br/>
+<br/>  
 
 - **Message**: `Node type Standard_D16S_v3 is not supported. Supported node types:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3,   Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2,   Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3,   Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2,   Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2,   Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3,   Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s,   Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2,   Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2,   Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3,   Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2,   Standard_L64s_v2, Standard_L80s_v2.`
 
 - **Cause**: `Bad authoring.`
 
-- **Recommendation**: Refer to the error message. 
+- **Recommendation**: Refer to the error message.
 
 <br/>
 
@@ -87,7 +88,7 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 - **Recommendation**: Check all pipelines that use this Databricks workspace for their job   creation rate.  If pipelines launched   too many Databricks runs in aggregate, migrate some pipelines to a new   workspace.
 
-<br/>
+<br/>  
 
 - **Message**: `Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
 
@@ -95,7 +96,7 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 - **Recommendation**: Inspect the pipeline JSON and ensure all parameters in the baseParameters notebook specify a nonempty value.
 
-<br/>
+<br/>  
 
 - **Message**: `User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not   authorized to access cluster.`
 
@@ -117,16 +118,15 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 - **Message**: `Job execution failed.`
 
-- **Cause**:  Error messages indicate various issues, such as an unexpected cluster state or a specific activity. Most often no error   message appears at all. 
+- **Cause**:  Error messages indicate various issues, such as an unexpected cluster state or a specific activity. Most often no error   message appears at all.
 
 - **Recommendation**: N/A
-
+            
 
 ## Azure Data Lake Analytics
 
 The following table applies to U-SQL.
-
-
+      
 ### Error code:  2709
 
 - **Message**: `The access token is from the wrong tenant.`
@@ -143,18 +143,18 @@ The following table applies to U-SQL.
 
 - **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics by changing Data Factory triggers and concurrency settings on activities. Or increase the limits on Data Lake Analytics.
 
-<br/>
+<br/>  
 
 - **Message**: `This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
 
-- **Cause**:  This error is caused by throttling on Data Lake Analytics. 
+- **Cause**:  This error is caused by throttling on Data Lake Analytics.
 
 - **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics by changing Data Factory triggers and concurrency settings on activities. Or increase the limits on Data Lake Analytics.
 
 
 ### Error code:  2705
 
-- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.`
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/>  <br/>  User is   not able to access Data Lake Store.  <br/>  <br/>  User is  not authorized to use Data Lake Analytics.`
 
 - **Cause**:  The service principal or certificate doesn't have access to the file in storage.
 
@@ -163,13 +163,13 @@ The following table applies to U-SQL.
 
 ### Error code:  2711
 
-- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.`
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/>  <br/>  User is   not able to access Data Lake Store.  <br/>  <br/>  User is  not authorized to use Data Lake Analytics.`
 
 - **Cause**:  The service principal or certificate doesn't have access to the file in storage.
 
 - **Recommendation**: Make sure the service principal or certificate the user provides for Data Lake Analytics jobs has access to the Data Lake Analytics account and the default Data Lake Storage instance from the root folder.
 
-<br/>
+<br/>  
 
 - **Message**: `Cannot find the 'Azure Data Lake Store' file or folder.`
 
@@ -180,7 +180,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2704
 
-- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.`
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/>  <br/>  User is   not able to access Data Lake Store.  <br/>  <br/>  User is  not authorized to use Data Lake Analytics.`
 
 - **Cause**:  The service principal or certificate doesn't have access to the file in storage.
 
@@ -200,11 +200,10 @@ The following table applies to U-SQL.
 
 - **Message**: `Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error   Id:").`
 
-- **Cause**:  The error is from Data Lake Analytics. 
+- **Cause**:  The error is from Data Lake Analytics.
 
 - **Recommendation**: An error like the example means the job was submitted to Data Lake Analytics, and the   script there failed. Investigate in Data Lake Analytics. In the portal, go to the Data Lake Analytics account, and look for the job by using the Data Factory activity run ID (not the pipeline run ID). The job there provides more   information about the error and will help you troubleshoot. If the resolution isn't clear, contact the Data Lake Analytics support team and provide the job URL, which   includes your account name and the job ID.
-
-
+          
 
 ## Azure functions
 
@@ -461,8 +460,7 @@ The following table applies to U-SQL.
 ## Custom
 
 The following table applies to Azure Batch.
-
-
+      
 ### Error code:  2500
 
 - **Message**: `Hit unexpected exception and execution failed.`
@@ -492,7 +490,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2504
 
-- **Message**:  `Operation returned an invalid status code 'BadRequest'.` 
+- **Message**:  `Operation returned an invalid status code 'BadRequest'.`
 
 - **Cause**: Too many files in the folderPath of the custom activity. The total   size of resourceFiles can't be more than 32,768 characters.
 
@@ -528,7 +526,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2509
 
-- **Message**: `Batch   url ... is invalid; it must be in Uri format.` 
+- **Message**: `Batch   url ... is invalid; it must be in Uri format.`
 
 - **Cause**: Batch URLs must be similar to `https://mybatchaccount.eastus.batch.azure.com`
 
@@ -539,10 +537,10 @@ The following table applies to Azure Batch.
 
 - **Message**: `An   error occurred while sending the request.`
 
-- **Cause**: The batch URL is invalid. 
+- **Cause**: The batch URL is invalid.
 
 - **Recommendation**: Verify the batch URL.
-
+            
 
 ## HDInsight
 
@@ -631,27 +629,36 @@ The following table applies to Azure Batch.
 
 - **Message**: Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.
 
-<br/>
+<br>
+
 - **Cause**: When error message contains a message similar to 'The remote name could not be resolved.', this could mean the provided cluster URI is invalid.
 
-- **Recommendation**:  Make sure that the cluster hasn't been deleted and that the provided URI is correct. When you open the URI in a browser, you should see the Ambari UI. If the cluster is in a virtual network, the URI should be the private URI. To open it, use a VM that's part of the same virtual network. For more information, see https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services for more information.
 
-<br/>
+- **Recommendation**: Make sure that the cluster hasn't been deleted and that the provided URI is correct. When you open the URI in a browser, you should see the Ambari UI. If the cluster is in a virtual network, the URI should be the private URI. To open it, use a VM that's part of the same virtual network. For more information, see [this](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services).
+                  
+
+<br>
+
 - **Cause**: When error message contains a message similar to 'A task was canceled.', this means that the job submission timed out.
 
 - **Recommendation**:  The problem could be either general HDInsight connectivity or network connectivity. First confirm that the HDInsight Ambari UI is available from any browser. Confirm that your credentials are still valid. If you're using self-hosted integrated runtime (IR), make sure to do this from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again. If it still fails, contact the Data Factory team for support.
 
-<br/>
+<br>
+
 - **Cause**: When error message contains a message similar to 'User admin is locked out in Ambari' or 'Unauthorized: Ambari user name or password is incorrect', this means the credentials for HDInsight are incorrect or have expired.
 
 - **Recommendation**:  Correct the credentials and redeploy the linked service. First make sure the credentials work on HDInsight by opening the cluster URI on any browser and trying to sign in. If the credentials don't work, you can reset them from the Azure portal.
 
-<br/>
+<br>
+
 - **Cause**: When error message contains a message similar to '502 - Web server received an invalid response while acting as a gateway or proxy server', this error is returned by HDInsight service.
 
-- **Recommendation**:  Look through Azure HDInsight troubleshooting documentation, for example,  https://hdinsight.github.io/ambari/ambari-ui-502-error.html, https://hdinsight.github.io/spark/spark-thriftserver-errors.html, https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-troubleshooting-502. 
 
-<br/>
+- **Recommendation**: Look through Azure HDInsight troubleshooting documentation, for example,  https://hdinsight.github.io/ambari/ambari-ui-502-error.html, https://hdinsight.github.io/spark/spark-thriftserver-errors.html, https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502.
+                  
+
+<br>
+
 - **Cause**: When error message contains a message similar to 'Unable to service the submit job request as templeton service is busy with too many submit job requests' or 'Queue root.joblauncher already has 500 applications, cannot accept submission of application', this means that too many jobs are being submitted to HDInsight at the same time.
 
 - **Recommendation**:  Consider limiting the number of concurrent jobs submitted to HDInsight. Refer to Data Factory activity concurrency if the jobs are being submitted by the same activity. Change the triggers so the concurrent pipeline runs are spread out over time. Refer to HDInsight documentation to adjust templeton.parallellism.job.submit as the error suggests.
@@ -663,7 +670,9 @@ The following table applies to Azure Batch.
 
 - **Cause**: HDInsight cluster or service has issues.
 
-- **Recommendation**:  This error happens when ADF does not get response from HDInsight cluster when attempting to get the status of the running job. It could be cause of issues on the cluster itself, or HDInsight service might have an outage. Please refer to HDInsight troubleshooting documentation  at https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-troubleshoot-guide, or contact their support for further assistance.
+
+- **Recommendation**: This error happens when ADF does not get response from HDInsight cluster when attempting to get the status of the running job. It could be cause of issues on the cluster itself, or HDInsight service might have an outage. Please refer to HDInsight troubleshooting documentation  at https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide, or contact their support for further assistance.
+                
 
 
 ### Error code:  2302
@@ -708,7 +717,9 @@ The following table applies to Azure Batch.
 
 - **Cause**: The json provided for the script action is invalid.
 
-- **Recommendation**:  The error message should help to identify the issue. Please fix the json configuration and try again. Check https://docs.microsoft.com/en-us/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service for more information.
+
+- **Recommendation**: The error message should help to identify the issue. Please fix the json configuration and try again. Check https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service for more information.
+                
 
 
 ### Error code:  2310
@@ -991,7 +1002,8 @@ The following table applies to Azure Batch.
 - **Cause**: The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout.
 
 - **Recommendation**:  Use Fiddler/Postman to validate the request.
-<br/>
+<br>
+
 
 #### More details
 To use Fiddler to create an HTTP session of the monitored web application:
