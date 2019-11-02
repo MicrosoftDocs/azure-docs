@@ -54,16 +54,14 @@ Alternatively, you can generate the credentials by running this script from the 
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (Usually it gets uploaded to the home directory - \</home/username\>
-6. Run the script:
+5. Go to the directory where the files were uploaded (Usually it gets uploaded to the home directory> usrename.
+6. Run the following script:
+
+    ```azurepowershell-interactive 
+
+    PS> ./generateCredentials.ps1   
 
     ```
-    powershell
-
-    PS> ./generateCredentials.ps1
-
-    ```
-
 7. Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String)
 
 **Integrate device data using the generated credentials**

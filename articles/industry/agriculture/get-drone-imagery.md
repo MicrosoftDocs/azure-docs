@@ -43,20 +43,20 @@ Use the following steps:
 
     ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory - </home/username/>  
+5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory > usrename.  
 6. Run the following script:
 
-```azurepowershell-interactive 
+    ```azurepowershell-interactive 
 
-PS> ./generateCredentials.ps1
+    PS> ./generateCredentials.ps1   
 
-```
+    ```
 
 7. Follow the onscreen instructions to capture the values of API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String.
 
     Once you enter the required credentials into the partner’s drone software system, you will be able to import all farms from the FarmBeats system and use the Farm details to do your flight path planning and drone image collection.
 
-    After the raw images are processed by the drone providers’ software, the drone software system uploads the stitched orthomosaic & other processed images into the Data hub.
+    After the raw images are processed by the drone providers’ software, the drone software system uploads the stitched orthomosaic and other processed images into the Data hub.
 
 ## View drone imagery
 
@@ -68,7 +68,7 @@ Alternatively, you should be able to view the latest drone image in the **Farm D
 2. Scroll down to the latest **Precision Maps** section.
 3. You should be able to view the image in the **Drone Imagery** section.
 
-  ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
+    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
 
 ## Download drone imagery
 

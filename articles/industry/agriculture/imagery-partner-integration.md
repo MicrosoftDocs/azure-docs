@@ -26,10 +26,10 @@ Drone Partners need to enable customers to link their account with their FarmBea
 
 You must use the following credentials in the drone partner software for linking FarmBeats:
 
- - API Endpoint
- - Tenant ID
- - Client ID
- - Client Secret
+- API Endpoint
+- Tenant ID
+- Client ID
+- Client Secret
 
 **API Development**
 
@@ -41,9 +41,9 @@ FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure
 
 FarmBeats Data hub uses bearer authentication, which needs the following credentials:
 
- - Client ID
- - Client Secret
- - Tenant ID
+- Client ID
+- Client Secret
+- Tenant ID
 
 Using the above credentials, the caller can request for an access token, which needs to be sent in the subsequent API requests, in the header section as follows:
 
@@ -55,7 +55,7 @@ Below is a sample Python code that gives the access token, which you can u
  
 import azure 
 
-```
+```python
 from azure.common.credentials import ServicePrincipalCredentials 
 import adal 
 #FarmBeats API Endpoint 
@@ -91,7 +91,7 @@ Optionally, you can include query parameters on GET calls to filter, limit the s
 
 The below sample request is to get the list of devices:
 
-```
+```J
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -103,7 +103,7 @@ Most GET, POST, and PUT calls require a JSON request body.
 The below sample request is to create a device (This has an input JSON with the request body).
 
 
-```
+```json
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
@@ -122,10 +122,10 @@ Once the partner has the required credentials to make the connect to the FarmBea
 
 1.	Create new extended type for the following fields to suit the imagery they are planning to upload:
 
-  - Scene Source: For example, <drone_partner_name>
-  - Scene Type: For example, <drone>
-  - Scene File Type: For example, <chlorophyll index>
-  - Scene File Content Type: For example, <image/tiff>
+- Scene Source: For example, <drone_partner_name>
+- Scene Type: For example, <drone>
+- Scene File Type: For example, <chlorophyll index>
+- Scene File Content Type: For example, <image/tiff>
 
 2.	Call the Farms API to get the list of Farms from within the Azure FarmBeats system
 3.	Provide the customer with an ability to choose a single farm from the list of Farms.
@@ -143,7 +143,7 @@ Check in the ExtendedType API, if the type and file source are available on Farm
 
 Following are the system defined values:
 
-```
+```json
 {
   "items": [
     {
@@ -326,7 +326,7 @@ This will be a one-time setup, and the scope of this new scenetype is limited to
 
 Example: To add SceneSource: “SlantRange”, you do PUT on the ID of the /ExtendedType with key: “SceneSource” Input payload:
 
-```
+```json
 {
 
       "key": "SceneSource",
@@ -350,7 +350,7 @@ The scenes (tiff or .csv files) will be in the context of a farm. You need to ge
 
 Get /Farm response:
 
-```
+```json
 {
   "id": "07f3e09c-89aa-4619-8d50-e57fb083d8f9",
   "createdAt": "2019-11-01T13:55:41.8804663Z",
@@ -402,7 +402,7 @@ This creates a new SceneID, which will be associated with the farm. Once the Sce
 
 Example input payload for the Post call on/Scene API
 
-```
+```json
 {
   "sceneId": "a0505928-c480-491b-ba31-d38285a28c1d",
   "type": "newtype",
@@ -419,7 +419,7 @@ Example input payload for the Post call on/Scene API
 
 API Response:
 
-```
+```json
 {
   "id": "a0505928-c480-491b-ba31-d38285a28c1d",
   "createdAt": "2019-10-04T16:19:12.4838584Z",
@@ -444,7 +444,7 @@ If the user requires a programmatic way of uploading a stream of images, the blo
 
 Example input payload for the Post call on /Scenefive API :
 
-```
+```json
 {
   "sceneId": "a0505928-c480-491b-ba31-d38285a28c1d",
   "type": "newtype",
@@ -459,7 +459,8 @@ Example input payload for the Post call on /Scenefive API :
 }
 ```
 API Response:
-```
+
+```json
 {
   "uploadSASUrl": "https://storagej2lho.blob.core.windows.net/farm-scene/2019/a0505928-c480-491b-ba31-d38285a28c1d/e91139a7-4ebd-4e2f-b17c-c677822dc840?sv=2018-03-28&sr=b&sig=%2F1426JkDcIFE5g3d%2BjOevCVMIn%2FJo9YKwBn3La5zL8Y%3D&se=2019-10-05T16%3A23%3A57Z&sp=w",
   "id": "e91139a7-4ebd-4e2f-b17c-c677822dc840",
