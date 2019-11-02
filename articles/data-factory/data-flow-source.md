@@ -158,6 +158,7 @@ When using CosmosDB as a source type, there are a few options to consider:
 * Include system columns: If you check this, ```id```, ```_ts```, and other system columns will be included in your data flow metadata from CosmosDB. When updating collections, it is important to include this so that you can grab the existing row id.
 * Page size: The number of documents per page of the query result. Default is "-1" which uses the service dynamic page up to 1000.
 * Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow during the read operation. Minimum is 400.
+* Preferred regions: You can choose the preferred read regions for this process.
 
 ## Optimize the source transformation
 
