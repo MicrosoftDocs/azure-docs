@@ -159,7 +159,7 @@ You can delete the Azure Storage account or use it to configure more blockchain 
 
 ## Create Azure Cosmos DB account
 
-[!INCLUDE cosmos-db-create-dbaccount]
+[!INCLUDE [cosmos-db-create-storage-account](../../../includes/cosmos-db-create-dbaccount.md)]
 
 ### Add a database and container
 
@@ -207,106 +207,6 @@ Every logic app must start with a trigger, which fires when a specific event hap
     | Resource Type | Choose **Microsoft.EventGrid.Topics**. |
     | Resource Name | Choose the name of the Event Grid Topic where Blockchain Data Manager is sending transaction data messages. |
 
-### Add Parse JSON action
-
-Add an action to parse the transaction messages sent from the Blockchain Data Manager via Event Grid. The *Parse JSON* action applies a schema to the JSON transaction message.
-
-1. Select **New step**.
-1. On **Choose an action**, search for **Parse JSON**
-1. Choose **Data Operations > Actions > Parse JSON**.
-
-1. For the **Content** setting, choose **Body** from the *Dynamic content* list.
-1. For the **Schema** setting, copy and paste the following transaction message schema.
-
-    ``` json
-    {
-        "properties": {
-            "data": {
-                "properties": {
-                    "BatchSize": {
-                        "type": "integer"
-                    },
-                    "BlockHash": {
-                        "type": "string"
-                    },
-                    "BlockNumber": {
-                        "type": "integer"
-                    },
-                    "BlockTimestamp": {
-                        "type": "integer"
-                    },
-                    "Connection": {
-                        "type": "string"
-                    },
-                    "Difficulty": {
-                        "type": "integer"
-                    },
-                    "ExtraData": {
-                        "type": "string"
-                    },
-                    "GasLimit": {
-                        "type": "integer"
-                    },
-                    "GasUsed": {
-                        "type": "integer"
-                    },
-                    "LogsBloom": {
-                        "type": "string"
-                    },
-                    "MessageId": {
-                        "type": "string"
-                    },
-                    "MessageType": {
-                        "type": "string"
-                    },
-                    "Miner": {
-                        "type": "string"
-                    },
-                    "Nonce": {
-                        "type": "string"
-                    },
-                    "ParentHash": {
-                        "type": "string"
-                    },
-                    "ReceiptsRoot": {
-                        "type": "string"
-                    },
-                    "SequenceNumber": {
-                        "type": "integer"
-                    },
-                    "Sha3Uncles": {
-                        "type": "string"
-                    },
-                    "Size": {
-                        "type": "integer"
-                    },
-                    "TotalDifficulty": {
-                        "type": "integer"
-                    },
-                    "TransactionsRoot": {
-                        "type": "string"
-                    },
-                    "WatcherId": {
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "id": {
-                "type": "string"
-            },
-            "subject": {
-                "type": "string"
-            }
-        },
-        "type": "object"
-    }
-    ```
-
-    ![Logic Apps Designer with Parse JSON](./media/data-manager-cosmosdb/parse-json.png)
-
-1. Select **Save**.
-
 ### Add Cosmos DB action
 
 Add an action to create a document in Cosmos DB for each transaction. Use the transaction message type as the partition key to categorize the messages.
@@ -325,22 +225,20 @@ Add an action to create a document in Cosmos DB for each transaction. Use the tr
 
 1. Enter the **Database ID** and **Collection ID** for your Azure Cosmos DB that you created previously in the [Add a database and container](#add-a-database-and-container) section.
 
-1. For the **Document** setting, copy and paste the following JSON:
+1. Select the **Document** setting. In the *Add dynamic content* pop-out, select **Expression** and copy and paste the following expression:
 
-    ``` json
-    {
-        "MessageType": "@{body('Parse_JSON')?['data']?['MessageType']}",
-        "body": @{triggerBody()},
-        "id": "@{triggerBody()?['id']}"
-    }
+    ```
+    addProperty(triggerBody()?['data'], 'id', utcNow())
     ```
 
-    The document represents the data that is created in Cosmos DB for each transaction.
+    The expression gets the data portion of the message and sets the ID  to a timestamp value.
 
 1. Select **Add new parameter** and choose **Partition key value**.
-1. Set the **Partition key value** to `"@{body('Parse_JSON')?['data']?['MessageType']}"`. The value must be surrounded by double quotes.
+1. Set the **Partition key value** to `"@{triggerBody()['data']['MessageType']}"`. The value must be surrounded by double quotes.
 
     ![Logic Apps Designer with Cosmos DB settings](./media/data-manager-cosmosdb/create-action.png)
+
+    The value sets the partition key to the transaction message type.
 
 1. Select **Save**.
 
@@ -362,7 +260,7 @@ Replace \<blockchain network\> with the name of the blockchain network defined i
 
 Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you can view the blockchain transaction messages in Cosmos DB Data Explorer.
 
-1. Go to the Cosmos DB Data Explorer view. For example, **cosmosdb-blockchain > Data Explorer > blockchain-data > transactions > Items**.
+1. Go to the Cosmos DB Data Explorer view. For example, **cosmosdb-blockchain > Data Explorer > blockchain-data > Messages > Items**.
 
     ![Cosmos DB Data Explorer](./media/data-manager-cosmosdb/data-explorer.png)
 
@@ -372,7 +270,15 @@ Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you
 
     [![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
-    The raw transaction message contains detail about the transaction. However, event and property information is encrypted. Since you added the HelloBlockchain smart contract to the Blockchain Data Manager instance, xxxx message types are also sent. xxxx messages contain decoded event and property information.
+    The raw transaction message contains detail about the transaction. However, event and property information is encrypted. 
+    
+Since you added the HelloBlockchain smart contract to the Blockchain Data Manager instance, **DecodedContractEvents** and **ContractProperties** message types are also sent. These message types contain decoded event and property information.
+
+1. Find the **ContractProperties** message for the transaction you sent in a previous step.
+
+    [![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+
+You have successfully created a transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
 
 ## Clean up resources
 
