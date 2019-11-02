@@ -9,9 +9,11 @@ ms.author: v-umha
 
 
 # Manage farms
+
 You can manage your farms in the Azure FarmBeats. This article provides the information about how to create farms, install devices, sensors, and drones that helps you manage your farms.
 
 ## Create farms
+
 Use the following steps:
 
 1. Login to the Farm Accelerator, the **Farms** page displays.
@@ -41,6 +43,7 @@ Here are the two ways to define a farm boundary:
 4.	Select **Submit** to create a farm. A new farm is created and displayed in the Farms page.
 
 ## View farm
+
 The Farm list page displays a list of created farms. Select a farm to view the list of:
 
   - **Device count** — displays the number and status of devices deployed within the farm.
@@ -49,6 +52,7 @@ The Farm list page displays a list of created farms. Select a farm to view the l
   - **Latest Precision Maps** — displays the latest Satellite Indices (EVI, NDWI), soil moisture and sensor placement map.
 
 ## Edit farm
+
 The **Farms** page displays a list of created farms.
 
 1.	Select a farm to view and edit the farm.
@@ -59,6 +63,7 @@ The **Farms** page displays a list of created farms.
 3.	Select **Submit** to save the details edited.
 
 ## Delete farm
+
 The **Farms** page displays a list of farms created. Use the following steps to delete a farm:
 
 1.	Select a farm from the list to delete farm details.
@@ -71,4 +76,5 @@ The **Farms** page displays a list of farms created. Use the following steps to 
 
 
 ## Next steps
+
 You have created your Farm now. See how you can [get sensor data](get-sensor-data-from-sensor-partner.md) flowing into your farm,

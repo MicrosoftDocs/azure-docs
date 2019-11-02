@@ -8,6 +8,7 @@ ms.author: v-umha
 ---
 
 # Generate maps
+
 Using Azure FarmBeats, you can generate the following maps by using satellite imagery and sensor data inputs. Maps help you in viewing the geographical location of your farm and identify the appropriate location for your devices.
 
   -  **Sensor Placement Map** – gets recommendations on how many sensors to use and where to place them in a farm.
@@ -15,11 +16,13 @@ Using Azure FarmBeats, you can generate the following maps by using satellite im
   - **Soil Moisture Map** – gets soil moisture distribution by fusing satellite data and sensor data.
 
 ## Sensor placement maps
+
 FarmBeats sensor placement map assists you with the placement of soil moisture sensors. The map output consists a list of coordinates for sensor deployment. The inputs from these sensors are used along with satellite imagery to generate the Soil Moisture Heatmap.  
 
 This map is derived by segmenting the canopy as seen over multiple dates throughout the year, even bare soil and buildings are part of the canopy. You can remove sensors that are not required on the location. This map is for guidance and you can alter the position and numbers slightly based on your custom knowledge (adding sensors will not regress soil moisture heat map results but there is possibility of deterioration in heat map accuracy if sensor number is reduced).  
 
 ## Before you begin  
+
 Ensure the following before you attempt to generate a sensor placement map:
 
 1. Farm size must be more than one acre.
@@ -30,6 +33,7 @@ Ensure the following before you attempt to generate a sensor placement map:
     > Sentinel allows only two concurrent threads per user. As a result, jobs will get queued and might take longer to complete.
 
 ### Dependencies on sentinel  
+
 For information on Sentinel dependencies see the following:
 
 1. We depend on Sentinel performance for downloading satellite images. Check Sentinel performance status and maintenance [activities](https://scihub.copernicus.eu/twiki/do/view/SciHubNews/WebHome).
@@ -67,6 +71,7 @@ Use the following steps:
   If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download sensor placement map
+
 Use the following steps:
 
 1. On the home page, go to **Maps** from the left navigation menu.
@@ -87,6 +92,7 @@ Use the following steps:
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-sensor-placement-map-1.png)
 
 ## Satellite Indices
+
 The following sections explain you the procedures involved in creating and viewing satellite indices.
 
 >[!NOTE]
@@ -100,6 +106,7 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 
 
 ## Create satellite indices map
+
 Use the following steps:
 
 1. On the home page, go to **Maps** from the left navigation menu.
@@ -126,6 +133,7 @@ Use the following steps:
     If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download map
+
 Use the following steps:
 
 1. On the home page, go to **Maps** from the left navigation menu.
@@ -150,9 +158,11 @@ Use the following steps:
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-satellite-indices-map-1.png)
 
 ## Get soil moisture Heatmap
+
 Soil moisture is the water that is held in the spaces between soil particles. The Soil Moisture heatmap helps you understand the soil moisture data at any depth, at high resolution within your farms. To generate an accurate and usable soil moisture heatmap, a uniform deployment of sensors is required, wherein all the sensors are from the same provider. Different providers will have differences in the way soil moisture is measured along with differences in calibration. The heatmap is generated for a particular depth using the sensors deployed at that depth.
 
 ### Before you begin  
+
 Ensure the following before you attempt to generate a Soil Moisture Heatmap:
 
 - At least three soil moisture sensors must be deployed. Microsoft recommends that you do not try to create a Soil Moisture Map before sensors are deployed and associated with the farm.  
@@ -162,6 +172,7 @@ Ensure the following before you attempt to generate a Soil Moisture Heatmap:
 
 
 ## Create soil moisture Heatmap
+
 Use the following steps:
 
 1. On the home page, go to **Maps** from the left navigation menu to view the Maps page.
@@ -190,6 +201,7 @@ To find the sensor measure, go to **Sensors**, select any soil moisture sensor, 
     If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download map
+
 Use the following steps:
 
 1. On the home page, go to **Maps** from the left navigation menu.
