@@ -1,7 +1,7 @@
 ---
 title:  "Neural Network Regression: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Neural Network Regression module in Azure Machine Learning service to create a regression model using a customizable neural network algorithm..
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Neural Network Regression module in Azure Machine Learning to create a regression model using a customizable neural network algorithm..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Neural Network Regression module
 
@@ -19,7 +19,7 @@ ms.date: 05/02/2019
   
 ## Module overview  
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a regression model using a customizable neural network algorithm.
   
@@ -46,8 +46,8 @@ Neural networks can be extensively customized. This section describes how to cre
     This option is best if you are already somewhat familiar with neural networks. You use the Net# language to define the network architecture.  
 
 ##  <a name="bkmk_DefaultArchitecture"></a> Create a neural network model using the default architecture
-  
-1.  Add the **Neural Network Regression** module to your pipeline in the interface. You can find this module under **Machine Learning**, **Initialize**, in the **Regression** category. 
+
+1.  Add the **Neural Network Regression** module to your pipeline in the designer. You can find this module under **Machine Learning**, **Initialize**, in the **Regression** category. 
   
 2. Indicate how you want the model to be trained, by setting the **Create trainer mode** option.  
   
@@ -93,4 +93,4 @@ After training is complete:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

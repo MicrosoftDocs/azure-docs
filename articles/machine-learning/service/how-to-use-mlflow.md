@@ -14,6 +14,7 @@ ms.custom: seodec18
 ---
 
 # Track metrics and deploy models with MLflow and Azure Machine Learning (preview)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article demonstrates how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), with Azure Machine Learning. Doing so enables you to:
 
@@ -34,7 +35,7 @@ The following diagram illustrates that with MLflow Tracking, you can take any ex
  MLflow Tracking offers metric logging and artifact storage functionalities that are only otherwise available via the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | MLflow Tracking & Deployment | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure portal or workspace landing page (preview)|
+| | MLflow Tracking & Deployment | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
 |---|---|---|---|---|
 | Manage workspace |   | ✓ | ✓ | ✓ |
 | Use data stores  |   | ✓ | ✓ | |
@@ -212,7 +213,7 @@ When configured correctly, you are able to see your MLflow tracking data in Azur
 
 ## View metrics and artifacts in your workspace
 
-The metrics and artifacts from MLflow logging are kept in your workspace. To view them anytime, navigate to your workspace and find the experiment by name on the [Azure portal](https://portal.azure.com) or in your [workspace landing page (preview)](https://ml.azure.com).  Or run the below code. 
+The metrics and artifacts from MLflow logging are kept in your workspace. To view them anytime, navigate to your workspace and find the experiment by name in your workspace in [Azure Machine Learning studio](https://ml.azure.com).  Or run the below code. 
 
 ```python
 run.get_metrics()
