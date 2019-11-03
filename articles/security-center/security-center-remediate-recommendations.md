@@ -30,15 +30,15 @@ After reviewing all the recommendations, decide which one to remediate first. We
 
 1. Once completed, a notification appears informing you if the remediation succeeded.
 
-## One-click fix remediation (Preview) <a name="one-click"></a>
+## Quick fix remediation<a name="one-click"></a>
 
-One-click fix enables you to remediate a recommendation on a bulk of resources, with a single click. It is an option only available for specific recommendations. One-click fix simplifies remediation and enables you to quickly improve your secure score and increase the security in your environment.
+Quick fix enables you to remediate a recommendation on a bulk of resources, with a single click. It is an option only available for specific recommendations. Quick fix simplifies remediation and enables you to quickly improve your secure score and increase the security in your environment.
 
-To implement one-click remediation:
+To implement quick fix remediation:
 
-1. From the list of recommendations that have the **1-Click-fix** label, click on the recommendation.  
+1. From the list of recommendations that have the **Quick fix** label, click on the recommendation.  
 
-   ![Select one-click fix](./media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)
+   ![Select quick fix](./media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)
 
 2. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and click **Remediate**. 
 
@@ -50,7 +50,7 @@ To implement one-click remediation:
    ![One-click fix](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
-    > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the 1-click remediation.
+    > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the quick fix remediation.
 
 4. Insert the relevant parameters if necessary, and approve the remediation.
 
@@ -64,7 +64,7 @@ To implement one-click remediation:
 The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/resource-group-audit.md).
 
 
-## Recommendations with one-click remediation
+## Recommendations with quick fix remediation
 
 |Recommendation|Implication|
 |---|---|
