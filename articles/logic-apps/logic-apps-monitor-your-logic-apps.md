@@ -1,6 +1,6 @@
 ---
-title: Check status, set up logging, and get alerts - Azure Logic Apps
-description: Monitor status, log diagnostics data, and set up alerts for Azure Logic Apps
+title: Monitor status, set up logging, and get alerts - Azure Logic Apps
+description: View the run history, turn on diagnostic logging, and set up alerts for monitoring your logic apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,88 +8,74 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 11/04/2019
 ---
 
 # Monitor status, set up diagnostics logging, and turn on alerts for Azure Logic Apps
 
-After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
-you can check its runs history, trigger history, status, and performance. 
-For real-time event monitoring and richer debugging, 
-set up [diagnostics logging](#azure-diagnostics) for your logic app. 
-That way, you can [find and view events](#find-events), 
-like trigger events, run events, and action events. 
-You can also use this [diagnostics data with other services](#extend-diagnostic-data), 
-like Azure Storage and Azure Event Hubs. 
+After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run history, trigger history, status, and performance. For real-time event monitoring and richer debugging, set up [diagnostics logging](#azure-diagnostics) for your logic app. 
+That way, you can [find and view events](#find-events), such as trigger events, run events, and action events. You can also use this [diagnostics data with other Azure services](#extend-diagnostic-data), such as Azure Storage and Azure Event Hubs.
 
-To get notifications about failures or other possible problems, 
-set up [alerts](#add-azure-alerts). For example, 
-you can create an alert that detects 
-"when more than five runs fail in an hour." 
-You can also set up monitoring, tracking, and logging programmatically 
-by using [Azure Diagnostics event settings and properties](#diagnostic-event-properties).
+To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour." You can also set up monitoring, tracking, and logging programmatically by using [Azure Diagnostics event settings and properties](#diagnostic-event-properties).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## View runs and trigger history for your logic app
+## View runs and trigger history
 
-1. To find your logic app in the [Azure portal](https://portal.azure.com), 
-on the main Azure menu, choose **All services**. In the search box, 
-type "logic apps", and choose **Logic apps**.
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app in the Logic App Designer.
 
-   ![Find your logic app](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
+   To find your logic app , in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
 
-   The Azure portal shows all the logic apps that are associated with your Azure subscription. 
+   ![Find and select "Logic Apps" service](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
-2. Select your logic app, then choose **Overview**.
+   The Azure portal shows all the logic apps that are associated with your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
 
-   The Azure portal shows the runs history and trigger history 
-   for your logic app. For example:
+   ![View logic apps associated with subscriptions](./media/logic-apps-monitor-your-logic-apps/logic-apps-list-in-subscription.png)
 
-   ![Logic app runs history and trigger history](media/logic-apps-monitor-your-logic-apps/overview.png)
+1. Select your logic app, and then select **Overview**.
 
-   * **Runs history** shows all the runs for your logic app. 
-   * **Trigger History** shows all the trigger activity for your logic app.
+   On the overview pane, under **Runs history**, all the past, current, and any waiting runs for your logic app appear, for example:
 
-   For status descriptions, see 
-   [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
+   ![Overview, runs history, and other logic app information](media/logic-apps-monitor-your-logic-apps/overview-pane-logic-app-details-run-history.png)
 
    > [!TIP]
-   > If you don't find the data that you expect, 
-   > on the toolbar, choose **Refresh**.
+   > If you don't find all the data that you expect, on the toolbar, select **Refresh**.
 
-3. To view the steps from a specific run, 
-under **Runs history**, select that run. 
+   For status definitions and descriptions, see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
-   The monitor view shows each step in that run. For example:
+1. To review the steps and other information for a specific run, under **Runs history**, select that run.
 
-   ![Actions for a specific run](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
+   ![Select a specific run to review](media/logic-apps-monitor-your-logic-apps/select-specific-logic-app-run.png)
 
-4. To get more details about the run, choose **Run Details**. 
-This information summarizes the steps, status, inputs, and outputs for the run. 
+   The **Logic app run** pane shows each step in the selected run, each step's run status, and the time taken for each step to run, for example:
 
-   ![Choose "Run Details"](media/logic-apps-monitor-your-logic-apps/run-details.png)
+   ![Each action in the specific run](media/logic-apps-monitor-your-logic-apps/logic-app-run-pane.png)
 
-   For example, you can get the run's **Correlation ID**, 
-   which you might need when you use the 
-   [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
+1. To get more information about a specific step, select that step so that the shape expands. You can now view details such as inputs, outputs, and any errors that happened in that step, for example:
 
-5. To get details about a specific step, choose that step. 
-You can now review details like inputs, outputs, 
-and any errors that happened for that step. For example:
+   ![View the details for a specific step](media/logic-apps-monitor-your-logic-apps/specific-step-inputs-outputs-errors.png)
 
-   ![Step details](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
-   
    > [!NOTE]
    > All runtime details and events are encrypted within the Logic Apps service. 
    > They are decrypted only when a user requests to view that data. 
-   > You can also control access to these events with 
+   > You can [hide inputs and outputs in run history](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) 
+   > or control user access to this information by using 
    > [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
 
-6. To get details about a specific trigger event, 
-go back to the **Overview** pane. Under **Trigger history**, 
-select the trigger event. You can now review details like inputs and outputs, 
-for example:
+1. To get more information about the run itself, on the toolbar, select **Run Details**. This information summarizes the steps, status, inputs, and outputs for the run.
+
+   ![On the toolbar, select "Run Details"](media/logic-apps-monitor-your-logic-apps/select-run-details-on-toolbar.png)
+
+   ![Review information about the run](media/logic-apps-monitor-your-logic-apps/review-logic-app-run-details.png)
+
+   For example, you can get the run's **Correlation ID** property, which you might need when you use the 
+   [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
+
+1. To get information about a specific trigger event, go back to the **Overview** pane.
+
+   1. In the **Summary** section, under **Evaluation**, select **See trigger history** so that you can view all the trigger activity for your logic app.
+
+   1. On the trigger pane, select the specific trigger event that you want to review. You can now review information about the status  details like inputs and outputs, for example:
 
    ![Trigger event output details](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
