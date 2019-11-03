@@ -66,7 +66,7 @@ If the **Restrict access** is enabled for the lab, only users in the list of use
 1. On the **Send invitation by email** page, enter an optional message, and then select **Send**. The email automatically includes the registration link. You can get this registration link by selecting **... (ellipsis)** on the toolbar, and **Registration link**. 
 
     ![Send registration link by email](../media/tutorial-setup-classroom-lab/send-email.png)
-4. You see the status of **invitation** in the **Users** list. The status should change to **Sending** and then to **Sent on &lt;date&gt;**. 
+4. You see the status of **invitation** in the **Users** list. The status should change to **Sending** and then to **Sent on \<date>**. 
 
     For more information about adding students to a class and managing their usage of the lab, see [How to configure student usage](how-to-configure-student-usage.md).
 
@@ -107,11 +107,11 @@ Select **Users** on the left menu to see the list of users registered with the l
 You can set quotas per user by using the following steps: 
 
 1. Select **Users** on the left menu if the page isn't already active. 
-2. Select **Quota per user: &lt;number&gt; hours** on the toolbar. 
+2. Select **Quota per user: \<number> hours** on the toolbar. 
 3. On the **Quota per user** page, specify the number of hours you want to give to each user (student) outside the scheduled class time, and then select **Save**.
 
     ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. You see the changed values on the toolbar now: **Quota per user: &lt;number of hours&gt;**. 
+5. You see the changed values on the toolbar now: **Quota per user: \<number of hours>**. 
 
     ![Quota per user — after](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
@@ -119,7 +119,7 @@ You can set quotas per user by using the following steps:
     > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs. 
 
 ## Set additional quota for a specific user
-You can specify additional quota for a user. This quota is in addition to the common quota set for all users in the previous section. For example, if you (as an instructor) set the quota for all users to 10 hours and set additonal quota of 5 hours for a specific users, that users gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, then the user gets 20 (15 + 5) hours of quota. Remember that this overall quota is in outside the scheduled time. The time that student spends on a lab VM during the schedule time does not count against this quota. 
+You can specify additional quota for a user. This quota is in addition to the common quota set for all users in the previous section. For example, if you (as an instructor) set the quota for all users to 10 hours and set additional quota of 5 hours for a specific users, that users gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, then the user gets 20 (15 + 5) hours of quota. Remember that this overall quota is in outside the scheduled time. The time that student spends on a lab VM during the schedule time does not count against this quota. 
 
 To do so, follow these steps:
 
@@ -156,7 +156,7 @@ To sign up for a Microsoft account, students should go to [http://signup.live.co
 > [!IMPORTANT]
 > When students sign in to a classroom lab, they are not given the option to create a Microsoft account. So, we recommend that you include this sign-up link in the classroom lab registration email that you send to students who are using non-Microsoft accounts.
 
-### Using a GitHub Account
+### Using a GitHub account
 Students can also use an existing GitHub account to register and sign in to a classroom lab. If the student already has a Microsoft account linked to their GitHub account, then they can sign in and provide their password as shown in the previous section. If they have not yet linked their GitHub account to a Microsoft account, they should select **Sign-in options**:
 
 ![Sign-in options link](../media/how-to-configure-student-usage/signin-options.png)
