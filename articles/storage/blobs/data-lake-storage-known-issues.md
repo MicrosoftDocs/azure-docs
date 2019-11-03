@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -15,7 +15,7 @@ This article lists the features and tools that are not yet supported or only par
 
 <a id="blob-apis-disabled" />
 
-## Issues and limitations with using Blob APIs on accounts that have a hierarchical namespace
+## Issues and limitations with using Blob APIs
 
 Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
 

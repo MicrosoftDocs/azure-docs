@@ -43634,6 +43634,11 @@
       "source_path": "articles/active-directory/develop/msal-acquire-token-interactively.md",
       "redirect_url": "/azure/active-directory/develop/msal-acquire-cache-tokens",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-store-integrate-with-azure-services.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-integrate-with-azure-services",
+      "redirect_document_id": false
     }
   ]
 }
