@@ -219,7 +219,7 @@ Add an action to create a document in Cosmos DB for each transaction. Use the tr
     | Setting | Description
     |---------|-------------|
     | Connection Name | Choose the subscription that contains the Event Grid Topic. |
-    | DocumentDB Account | Choose the DocumentDB account you created in the [Create Azure Cosmos DB account](#create-azure-cosmos-db-account) section. |
+    | DocumentDB Account | Choose the DocumentDB account you created in the [Create Azure Cosmos DB account](#create-azure-cosmos-db) section. |
 
 1. Enter the **Database ID** and **Collection ID** for your Azure Cosmos DB that you created previously in the [Add a database and container](#add-a-database-and-container) section.
 
