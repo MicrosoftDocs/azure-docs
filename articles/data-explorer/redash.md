@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/03/2019
 ---
 
 # Visualize data from Azure Data Explorer in Redash
@@ -17,7 +17,7 @@ ms.date: 10/07/2019
 
 You need the following to complete this article:
 
-1. Sign in to Redash service
+\\1. Sign in to Redash service
 1. Create a new query
 1. Create a new data source - select Azure Data Explorer (Kusto) connector. 
     You need to introduce the following properties:
@@ -30,49 +30,74 @@ You need the following to complete this article:
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-## \\Add info from Grafana
+    [!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
 
 ## Create queries in Redash 
 
 1. Sign in to [Redash](https://www.redash.io/). Select **Get Started** to create an account.
 1. Under **Let's get started**, Select **Connect a Data Source**.
-img step1
-1. In **Create a New Data Source** window, select **Azure Data Explorer (Kusto)** 
-img step2
-1. In **Azure Data Explorer (Kusto)** window, complete the following form and select **Create**:
-img step3
 
-| Setting |Description  |
-|---------|---------|
-|Name    |         |
-|Cluster    |         |
-|Azure AD Client ID    |         |
-|Row3     |         |
-|Row3     |         |
-|Row3     |         |
+    ![connect a data source](media/redash/step1.png)
+
+1. In **Create a New Data Source** window, select **Azure Data Explorer (Kusto)** 
+
+    ![Azure Data Explorer data source](media/redash/step2.png)
+
+1. In **Azure Data Explorer (Kusto)** window, complete the following form and select **Create**:
+
+    ![Azure Data Explorer (Kusto) settings window](media/redash/step3.png)
+
+    | Setting |Description  |
+    |---------|---------|
+    |Name    |         |
+    |Cluster    |         |
+    |Azure AD Client ID    |         |
+    |Row3     |         |
+    |Row3     |         |
+    |Row3     |         |
 
 1. In **Settings** window, select **Save** and **Test Connection** to test your **Azure Data Explorer (Kusto)** data source connection.
-img step3.5 
+
+    ![Test Azure Data Explorer connection](media/redash/step3.5.png)
+
 1. In Redash, on top left select **Create** > **Query**. Click on **New Query** and rename the query.
-img step4
+
+    ![Create query](media/redash/step4.png)
+
 1. The data source connection **Github connector** is seen in drop-down. In the left pane, view the tables in the selected database.
 1. Type your query in the top editing pane and select **Save** and **Execute**. Select **Publish** to publish query for future use.
-step 5
+
+    ![Publish query](media/redash/step5.png)
+
 1. View the query results in the bottom central pane. Create a visualization to go with the query by selecting the **New Visualization** button.
-step 6
+
+    ![New visualization](media/redash/step6.png)
+
 1. In the visualization screen, select the **Visualization Type** and the relevant fields such as **X Column** and **Y Column**. **Save** the visualization.
-step 7
+
+    ![Configure and save visualization](media/redash/step7.png)
+
 1. **Create** > **Query** to create a new query. Add a parameter to it using {{}} curly brackets.
+
 \\need image
+
 1. Select (wheel icon pic) to define the parameter attributes and open parameter name (**Type**) window. For **Type** select **Query Based Dropdown List** and for **Query** select another query (without parameter) that returns a list of values.
-step-add-parameter-type-img
-1. To create your dashboard, **Create** > **Dashboard**. Alternatively, select existing dashboard, **Dashboards** >  selection
-step 8
+
+    ![Add parameter type](media/redash/add-parameter-type.png)
+
+1. To create your dashboard, **Create** > **Dashboard**. Alternatively, select existing dashboard, **Dashboards** >  \\selection
+
+    ![Create dashboard](media/redash/step8.png)
+
 1. In **New Dashboard** window, name your dashboard and select **Save**.
 1. In **<Dashboard name>** window, select **Add Widget** to create a new widget. In **Add widget** window, select query name and **Choose Visualization**. Select **Add to Dashboard**
-step 9
+
+    ![Choose visualizations and add to dashboard](media/redash/step9.png)
+
 1. Select **Done Editing** to complete dashboard creation.
-step10 
+
+    ![Complete dashboard creation](media/redash/step10.png)
+
 1. In the dashboard edit mode, select **Use Dashboard Level Filters** to use the **Type** parameter previously defined.
 1. 
 1. Once you get the query right you can add a parameter to it using {{}} curly brackets like in the example below.
