@@ -7,14 +7,12 @@ author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
 
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2019
+ms.date: 11/02/2019
 ms.author: cynthn
 ms.custom: 
 
@@ -35,20 +33,20 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 |----------|------------|
 | **Managed image** | This is a basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from generalized VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
 | **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
+| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, whether the source was generalized or specialized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
 
 ## Before you begin
 
-To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
+To complete the example in this article, you must have an existing managed image of a generalized VM, or a snapshot of a specialized VM. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create a managed image, or [Create a snapshot](../articles/windows/snapshot-copy-managed-disk) for a specialized VM. For both managed images and snapshots, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource group and VM names where needed.
 
  
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]
 
-## Create VMs from an image
+## Create VMs from an image version
 
 Once the image version is complete, you can create one or more new VMs. 
 
