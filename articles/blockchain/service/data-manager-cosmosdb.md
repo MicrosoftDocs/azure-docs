@@ -77,17 +77,16 @@ The contract ABI defines the smart contract interfaces. It describes how to inte
 
 1. Save the **abi** array as a JSON file. For example, *abi.json*. You use the file in a later step.
 
-The contract bytecode is the compiled smart contract executed by the Ethereum virtual machine. You can use the extension to copy the contract bytecode to the clipboard.
 
-1. In the Visual Studio Code explorer pane, expand the **build/contracts** folder of your Solidity project.
-1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
-1. Select **Copy Contract Bytecode**.
+Blockchain Data Manager requires the deployed bytecode for the smart contract. The deployed bytecode is different than the smart contract bytecode. You can get the deployed bytecode from the compiled contract metadata file.
 
-    ![Visual Studio Code pane with the Copy Contract Bytecode selection](./media/data-manager-cosmosdb/bytecode-devkit.png)
+1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
+1. Find the **deployedBytecode** element in the JSON file.
+1. Copy the hexidecimal value without the quotes.
 
-    The contract bytecode is copied to the clipboard.
+    ![Visual Studio Code pane with bytecode in the metadata](./media/data-manager-portal/bytecode-metadata.png)
 
-1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. Save only the hexadecimal value. You use the file in a later step.
+1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. You use the file in a later step.
 
 The following example shows *abi.json* and *bytecode.json* files open in the VS Code editor. Your files should look similar.
 
@@ -270,13 +269,13 @@ Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you
 
     [![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
-    The raw transaction message contains detail about the transaction. However, event and property information is encrypted. 
-    
+    The raw transaction message contains detail about the transaction. However, event and property information is encrypted.
+
 Since you added the HelloBlockchain smart contract to the Blockchain Data Manager instance, **DecodedContractEvents** and **ContractProperties** message types are also sent. These message types contain decoded event and property information.
 
 1. Find the **ContractProperties** message for the transaction you sent in a previous step.
 
-    [![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+    [![Blockchain transaction detail](./media/data-manager-cosmosdb/properties-msg.png)](./media/data-manager-cosmosdb/properties-msg.png#lightbox)
 
 You have successfully created a transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
 
