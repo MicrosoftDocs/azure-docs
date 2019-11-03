@@ -60,7 +60,7 @@ If you add a blockchain application, Blockchain Data Manager decodes event and p
 
 Blockchain Data Manager requires a smart contract ABI and bytecode file to add the application.
 
-### Get Contract ABI and bytecode
+### Get Contract ABI and deployed bytecode
 
 The contract ABI defines the smart contract interfaces. It describes how to interact with the smart contract. You can use the [Azure Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) to copy the contract ABI to the clipboard.
 
@@ -76,13 +76,11 @@ The contract ABI defines the smart contract interfaces. It describes how to inte
 
 The contract bytecode is the compiled smart contract executed by the Ethereum virtual machine. You can use the extension to copy the contract bytecode to the clipboard.
 
-1. In the Visual Studio Code explorer pane, expand the **build/contracts** folder of your Solidity project.
-1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
-1. Select **Copy Contract Bytecode**.
+1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
+1. Find the **deployedBytecode** element in the JSON file.
+1. Copy the **deployedBytecode** value.
 
-    ![Visual Studio Code pane with the Copy Contract Bytecode selection](./media/data-manager-portal/bytecode-devkit.png)
-
-    The contract bytecode is copied to the clipboard.
+    ![Visual Studio Code pane with bytecode in the metadata](./media/ethereum-logic-app/bytecode-metadata.png)
 
 1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. Save only the hexadecimal value. You use the file in a later step.
 
