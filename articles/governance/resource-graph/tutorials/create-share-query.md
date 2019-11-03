@@ -39,10 +39,11 @@ Private queries are accessible and visible only to the account that creates them
    | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
+
     Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples—Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
+   [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
 
 
 1. Select **Save** or **Save as**, enter **Count VMs by OS** as the name, leave the type as **Private
@@ -73,10 +74,11 @@ Unlike a Private query, a Shared query is a Resource Manager resource. This fact
    | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
+    
     Select **Run query** to see the query results in the bottom pane.
 
     For more information about this query, see
-   [Samples - Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
+   [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
 
 1. Select **Save** or **Save as**.
 
