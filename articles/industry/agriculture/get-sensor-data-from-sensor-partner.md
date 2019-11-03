@@ -41,7 +41,7 @@ Alternatively, you can generate the credentials by running this script from the 
 1. Download the [ZIP file](https://aka.ms/farmbeatspartnerscript) and extract to your local drive. You will find two files inside the ZIP file.
 2. Sign in to https://portal.azure.com/ and open Cloud Shell (This option is available on the top right bar of the portal)  
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/navigation-bar-1.png)
+    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
 3. Ensure the environment is set to **PowerShell** - by default it is set to Bash.
 
