@@ -410,4 +410,7 @@ az resource delete \
 
 ## Next steps
 
-Learn more about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md).
+Try creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)
