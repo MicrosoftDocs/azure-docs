@@ -23,6 +23,8 @@ Following are some scenarios where this feature is useful:
 
 * **Long-running background activity**: If you use Durable Functions for a long-running background activity, this feature helps you to know the current status.
 
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
+
 ## Prerequisites
 
 * Install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc or later in your Durable Functions project.
