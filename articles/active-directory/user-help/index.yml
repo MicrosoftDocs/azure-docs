@@ -108,4 +108,4 @@ landingContent:
           - text: Sign up for password reset
             url: active-directory-passwords-reset-register.md
           - text: Reset your password
-            url: user-help-reset-password.md
+            url: active-directory-passwords-update-your-own-password.md

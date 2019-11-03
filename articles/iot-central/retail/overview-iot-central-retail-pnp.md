@@ -7,7 +7,6 @@ ms.date: 10/22/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: [iot-p0-scenario]
 ---
 
 # Building retail solutions with Azure IoT Central
