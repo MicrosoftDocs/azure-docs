@@ -14,7 +14,7 @@ Soil moisture is the water that is held in the spaces between soil particl
 This article describes the process of generating a Soil Moisture Heatmap for your farm, using the Azure FarmBeats Accelerator. In this article, you will learn how to:
 
 - [Create Farms](#create-a-farm)
-- [Assign sensors to Farms](#get-soil-moisture-sensor-data-from-partner-into-azure-farmbeats)
+- [Assign sensors to Farms](#get-soil-moisture-sensor-data-from-partner)
 - [Generate Soil Moisture Heatmap](#generate-soil-moisture-heatmap)
 
 ## Before you begin
@@ -27,7 +27,7 @@ Ensure the following:
 
 ## Create a farm
 
-A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a farm either using the [Farms API](https://aka.ms/FarmBeatsDatahubSwagger) or from the [accelerator UI]((manage-farms.md#create-farms))
+A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a farm either using the [Farms API](https://aka.ms/FarmBeatsDatahubSwagger) or from the [accelerator UI](manage-farms.md#create-farms)
 
 ## Deploy sensors
 
