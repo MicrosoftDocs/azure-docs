@@ -1,5 +1,5 @@
 ---
-title: Advanced Data Security for IaaS in Azure Security Center | Microsoft Docs
+title: Workflow automation (Preview) in Azure Security Center | Microsoft Docs
 description: "Learn how to create and automate workflows in Azure Security Center"
 services: security-center
 author: memildin

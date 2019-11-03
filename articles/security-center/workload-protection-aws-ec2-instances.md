@@ -1,6 +1,6 @@
 ---
 title: Configuring workload protection for your AWS EC2 instances in Azure Security Center | Microsoft Docs
-description: This article explains how to set up Azure Security Center workload protection for your AWS EC2 instances (Preview)
+description: This article explains how to set up Azure Security Center workload protection for AWS EC2 instances (Preview)
 services: security-center
 author: memildin
 manager: rkarlin
