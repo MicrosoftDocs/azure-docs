@@ -17,7 +17,7 @@ You can manage your farms in Azure FarmBeats. This article provides the informat
 Use the following steps:
 
 1. Login to the Farm Accelerator, the **Farms** page displays.
-The Farms page displays the list of farms in case they have already been created in subscription.
+    The Farms page displays the list of farms in case they have already been created in subscription.
 
     Here is the sample image:
 
@@ -47,7 +47,7 @@ The Farm list page displays a list of created farms. Select a farm to view the l
  - **Device count** — displays the number and status of devices deployed within the farm.
  - **Map** — map of the farm with the devices deployed in the farm.
  - **Telemetry** — displays the telemetry from the sensors deployed in the farm.
- - **Latest Precision Maps** — displays the latest Satellite Indices (EVI, NDWI), soil moisture and sensor placement map.
+ - **Latest Precision Maps** — displays the latest Satellite Indices map (EVI, NDWI), Soil Moisture Heatmap and Sensor Placement map.
 
 ## Edit farm
 

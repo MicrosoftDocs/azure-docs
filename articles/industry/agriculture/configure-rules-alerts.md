@@ -1,5 +1,5 @@
 ---
-title: Configure rules manage and alerts
+title: Configure rules and manage alerts in Azure FarmBeats
 description: Describes how to configure rules and manage alerts in FarmBeats
 author: uhabiba04
 ms.topic: article
@@ -9,12 +9,12 @@ ms.author: v-umha
 
 # Configure rules and manage alerts in FarmBeats
 
-FarmBeats allows you to create rules based on the business logic, in addition to the sensor data that flows from the sensors and devices deployed in your farm. The rules trigger alerts in the system whenever sensor values cross a threshold value. By viewing and analyzing the alerts created after the threshold values, you can quickly act on any issues and get required solutions.
+Azure FarmBeats allows you to create rules based on the business logic, in addition to the sensor data that flows from the sensors and devices deployed in your farm. The rules trigger alerts in the system whenever sensor values cross a threshold value. By viewing and analyzing the alerts created after the threshold values, you can quickly act on any issues and get required solutions.
 
 ## Create rule
 
 1. On the home page, go to **Rules**.
-2. Select **New Rule**, the New Rule window displays.
+2. Select **New Rule**. The New Rule window displays.
 
     ![Project Farm Beats](./media/configure-rules-and-alerts/new-rule-1.png)
 
@@ -27,11 +27,11 @@ FarmBeats allows you to create rules based on the business logic, in addition to
 6. Type the measure name in the **Measure** drop-down menu.
 7. Select **+Add Condition** to add more conditions to the rule.
 8. Select the **Severity level**.
-9. In the **Action**, switch on the **Email enabled** toggle button to enable email alerts.
+9. In **Action**, switch on the **Email enabled** toggle button to enable email alerts.
 
     ![Project Farm Beats](./media/configure-rules-and-alerts/new-rule-email-1.png)
 
-10. Enter the **Email addresses** to which you want to send the email alert along with the **Email Subject** and **Additional Notes**.  
+10. Enter the **Email addresses** to which you want to send the email alert, along with the **Email Subject** and **Additional Notes**.  
 11. In the **Rule Status**, switch on the **Enabled** toggle button to enable or disable the rule.
     You can view the number of devices that will be affected by the rule.
 12. Select **Apply** to create the rule.
@@ -74,7 +74,7 @@ To edit a rule, follow these steps:
 
 9.  Select the **Severity Level**.  
 10. In **Action**, switch on the **Email enabled** toggle button to enable email alerts.
-11. Edit the **Email addresses** that you want to send the email alert along with the **Email Subject** and **Additional Notes**.  
+11. Edit the **Email addresses** that you want to send the email alert, along with the **Email Subject** and **Additional Notes**.  
 12. In the **Rule Status**, switch on the **Enabled** toggle button to enable or disable the rule.
     You can view the number of devices that will be affected by this rule.
 13. Select **Apply** to edit the rule.
