@@ -52,9 +52,9 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 * Your applications require the Azure classic deployment model. General-purpose v2 accounts and Blob storage accounts support only the Azure Resource Manager deployment model.
 
-* Your applications are transaction-intensive or use significant geo-replication bandwidth, but do not require large capacity. In this case, general-purpose v1 may be the most economical choice.
+* Your applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity. In this case, general-purpose v1 may be the most economical choice.
 
-* You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
+* You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x. You can't upgrade your application.
 
 ### BlockBlobStorage accounts
 
@@ -62,7 +62,7 @@ A BlockBlobStorage account is a specialized storage account used to store unstru
 
 Compared with general-purpose v2 and BlobStorage accounts, BlockBlobStorage accounts provide low and consistent latency, and higher transaction rates.
 
-BlockBlobStorage accounts do not currently support tiering to hot, cool, or archive access tiers.
+BlockBlobStorage accounts don't currently support tiering to hot, cool, or archive access tiers.
 
 ### FileStorage accounts
 
