@@ -239,7 +239,7 @@ The orchestration client binding enables you to write functions that interact wi
 * Send events to them while they're running.
 * Purge instance history.
 
-If you're using Visual Studio, you can bind to the orchestration client by using the [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET attribute for Durable Functions 1.0. Starting in the Durable Functions 2.0 preview, you can bind to the orchestration client by using the `DurableClientAttribute` .NET attribute.
+If you're using Visual Studio, you can bind to the orchestration client by using the [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET attribute for Durable Functions 1.0. Starting in Durable Functions 2.0, you can bind to the orchestration client by using the `DurableClientAttribute` .NET attribute.
 
 If you're using scripting languages (for example, *.csx* or *.js* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 

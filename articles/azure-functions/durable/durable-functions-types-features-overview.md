@@ -46,7 +46,7 @@ Use an [activity trigger](durable-functions-bindings.md#activity-trigger) to def
 Entity functions define operations for reading and updating small pieces of state. We often refer to these stateful entities as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. They can also be invoked from client functions or from orchestrator functions. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
 > [!NOTE]
-> Entity functions and related functionality is only available in Durable Functions 2.0 and above. Entity functions are currently in public preview.
+> Entity functions and related functionality is only available in Durable Functions 2.0 and above.
 
 For more information about entity functions, see the [Durable Entities](durable-functions-entities.md) article.
 

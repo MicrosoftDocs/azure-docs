@@ -12,7 +12,7 @@ ms.author: azfuncdf
 #Customer intent: As a developer, I want to learn how to use Durable Entities in .NET so I can persist object state in a serverless context.
 ---
 
-# Developer's guide to durable entities in .NET (preview)
+# Developer's guide to durable entities in .NET
 
 In this article, we describe the available interfaces for developing durable entities with .NET in detail, including examples and general advice. 
 

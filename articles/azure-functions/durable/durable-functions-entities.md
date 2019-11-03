@@ -12,13 +12,13 @@ ms.author: azfuncdf
 #Customer intent: As a developer, I want to learn what Durable Entities are and how to use them to solve distributed, stateful problems in my applications.
 ---
 
-# Entity functions (preview)
+# Entity functions
 
 Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions manage the state of an entity explicitly, rather than implicitly representing state via control flow.
 Entities provide a means for scaling out applications, by distributing the work across many entities, each with a modestly sized state.
 
 > [!NOTE]
-> Entity functions and related functionality is only available in Durable Functions 2.0 and above. Entity functions are currently in public preview.
+> Entity functions and related functionality is only available in Durable Functions 2.0 and above.
 
 ## General concepts
 
