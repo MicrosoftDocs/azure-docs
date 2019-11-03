@@ -19,6 +19,8 @@ An orchestrator function can call another orchestrator function by calling the [
 
 Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function. 
 
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-sample-note.md)]
+
 > [!NOTE]
 > Currently, it's necessary to provide an `instanceId` argument value to the subOrchestration API in JavaScript.
 

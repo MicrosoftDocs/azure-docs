@@ -17,6 +17,8 @@ ms.author: azfuncdf
 
 You create a durable timer by calling the [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) method of [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) in .NET, or the `createTimer` method of `DurableOrchestrationContext` in JavaScript. The method returns a task that resumes on a specified date and time.
 
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-sample-note.md)]
+
 ## Timer limitations
 
 When you create a timer that expires at 4:30 pm, the underlying Durable Task Framework enqueues a message which becomes visible only at 4:30 pm. When running in the Azure Functions consumption plan, the newly visible timer message will ensure that the function app gets activated on an appropriate VM.

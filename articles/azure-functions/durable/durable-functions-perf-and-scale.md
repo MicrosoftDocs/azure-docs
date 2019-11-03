@@ -17,6 +17,8 @@ To optimize performance and scalability, it's important to understand the unique
 
 To understand the scale behavior, you have to understand some of the details of the underlying Azure Storage provider.
 
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-sample-note.md)]
+
 ## History table
 
 The **History** table is an Azure Storage table that contains the history events for all orchestration instances within a task hub. The name of this table is in the form *TaskHubName*History. As instances run, new rows are added to this table. The partition key of this table is derived from the instance ID of the orchestration. An instance ID is random in most cases, which ensures optimal distribution of internal partitions in Azure Storage.

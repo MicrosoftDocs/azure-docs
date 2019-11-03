@@ -15,6 +15,8 @@ ms.author: azfuncdf
 
 For background jobs you often need to ensure that only one instance of a particular orchestrator runs at a time. This can be done in [Durable Functions](durable-functions-overview.md) by assigning a specific instance ID to an orchestrator when creating it.
 
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-sample-note.md)]
+
 ## Singleton example
 
 The following C# and JavaScript examples show an HTTP-trigger function that creates a singleton background job orchestration. The code ensures that only one instance exists for a specified instance ID.

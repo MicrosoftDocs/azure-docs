@@ -15,6 +15,8 @@ ms.author: azfuncdf
 
 Durable Function orchestrations are implemented in code and can use the programming language's built-in error-handling features. There really aren't any new concepts you need to learn to add error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
 
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-sample-note.md)]
+
 ## Errors in activity functions
 
 Any exception that is thrown in an activity function is marshaled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.

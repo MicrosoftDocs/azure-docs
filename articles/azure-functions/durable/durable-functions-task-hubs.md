@@ -19,6 +19,8 @@ If multiple function apps share a storage account, each function app *must* be c
 
 ![Diagram showing shared and dedicated storage accounts.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-sample-note.md)]
+
 ## Azure Storage resources
 
 A task hub consists of the following storage resources:
