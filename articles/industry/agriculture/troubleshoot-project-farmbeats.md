@@ -274,7 +274,7 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 **Corrective action**: 
 1.	Go to your FarmBeats Data hub Resource Group.
 2.	Select the App service.  
-3.	Go to Scale up (App Service plan) and select an appropriate pricing tier, for more information [see](https://azure.microsoft.com/pricing/details/app-service/windows/)
+3.	Go to Scale up (App Service plan) and select an appropriate [pricing tier](https://azure.microsoft.com/pricing/details/app-service/windows/)
 
 ## Next steps
 
