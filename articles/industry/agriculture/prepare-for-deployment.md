@@ -259,8 +259,9 @@ The script automatically downloads all dependencies, and builds the deployer. Th
    - **Accelerator URL**: User Interface to explore FarmBeats Smart Farm Accelerator.
    - **Deployer log file**- saves logs during deployment and can be used for troubleshooting.
 
-    > [!NOTE]
-    > Make note of these and keep the deployment log file path handy for future use.
+> [!NOTE]
+> Make note of these and keep the deployment log file path handy for future use.
+
 
 #### Deployment scenario 2- Existing Azure Active Directory app registration used to deploy
 
@@ -281,6 +282,7 @@ The script automatically downloads all dependencies, and builds the deployer. Th
    "aadAppClientSecret": "Kxxxqxxxxu*kxcxxx3Yxxu5xx/db[xxx"
    }
  ```
+
 2. Make note of the path to your input.json file (on your local computer).
 3. Go to Azure Cloud Shell once again and you're successfully authenticated, select the upload button (see highlighted icon in below image) and upload the input.json file to Cloud Shell storage.
 
@@ -288,10 +290,12 @@ The script automatically downloads all dependencies, and builds the deployer. Th
 
 4. Type or paste the *Deployment Command* into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.
 
+
   ```
    wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
 
    ```
+
 5. The script automatically downloads all dependencies, and builds the deployer.
 6. You'll be prompted to read and agree to the Azure FarmBeats End-user license agreement (EULA).
 
@@ -300,8 +304,9 @@ The script automatically downloads all dependencies, and builds the deployer. Th
 
 7. You'll be prompted to enter an access token for the deployment. Copy the code generated and sign in to https://microsoft.com/devicelogin with your Azure credentials.
 
-    > [!NOTE]
-    > The code expires in the next 60 minutes. When it expires you can restart by typing the deployment command again.
+> [!NOTE]
+> The code expires in the next 60 minutes. When it expires you can restart by typing the deployment command again.
+
 
 8. The installer will now validate and start creating the resources, which can take about 20 minutes. Keep the session active on Cloud Shell during this time.
 9. Once the deployment goes through successfully, you'll receive the below output links:
