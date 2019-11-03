@@ -1,5 +1,5 @@
 ---
-title: Remediate recommendations in Azure Security Center  | Microsoft Docs
+title: Remediate recommendations in Azure Security Center | Microsoft Docs
 description: This article explains how to remediate recommendations in Azure Security Center to protect your resources and comply with security policies.
 services: security-center
 documentationcenter: na
@@ -37,7 +37,7 @@ Quick Fix enables you to quickly remediate a recommendation on multiple resource
 
 To implement Quick Fix remediation:
 
-1. From the list of recommendations that have the **Quick Fix!** label, click on the recommendation.  
+1. From the list of recommendations that have the **Quick Fix!** label, click on the recommendation.
 
     [![Select Quick Fix!](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
 
@@ -48,7 +48,7 @@ To implement Quick Fix remediation:
 
 1. In the confirmation box, read the remediation details and implications. 
 
-   ![Quick Fix](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
+    ![Quick Fix](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
     > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the Quick Fix remediation.
@@ -60,7 +60,7 @@ To implement Quick Fix remediation:
 
 1. Once completed, a notification appears informing you if the remediation succeeded.
 
-## Quick-fix remediation logging in the activity log <a name="activity-log"></a>
+## Quick Fix remediation logging in the activity log <a name="activity-log"></a>
 
 The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/resource-group-audit.md).
 
@@ -75,7 +75,7 @@ The remediation operation uses a template deployment or REST PATCH API call to a
 |Advanced Data Security should be enabled on your SQL servers|This action will enable Advanced Data Security (ADS) on these selected servers and their databases. <br>**Note**:<ul><li>For each region and resource group of the selected SQL servers, a storage account for storing scan results will be created and shared by all the servers in that region.<</li><li>ADS is charged at $15 per SQL server.</li></ul>||
 |Vulnerability Assessment should be enabled on your SQL servers|This action will enable SQL Vulnerability Assessment on these selected servers and their databases. <br>**Note**:<ul><li>SQL Vulnerability Assessment is part of the SQL Advanced Data Security (ADS) package. If ADS isn't enabled already, it will automatically be enabled on the SQL server.</li><li>For each region and resource group of the selected SQL servers, a storage account for storing scan results will be created and shared by all the instances in that region.</li><li>ADS is charged at $15 per SQL server.</li></ul>||
 |Transparent data encryption on SQL databases should be enabled|This action enables SQL Database Transparent Data Encryption (TDE) on the selected databases. <br>**Note**: By default, service-managed TDE keys will be used. 
-|Secure transfer to storage accounts should be enabled|This action updates your storage account security to only allow requests by secure connections. (HTTPS). <br>**Note**:<ul><li>Any requests using HTTP will be rejected.</li><li>When you're using the Azure files service, connection without encryption will fail, including scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client.  Learn more.</li></ul>|
+|Secure transfer to storage accounts should be enabled|This action updates your storage account security to only allow requests by secure connections. (HTTPS). <br>**Note**:<ul><li>Any requests using HTTP will be rejected.</li><li>When you're using the Azure files service, connection without encryption will fail, including scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client. Learn more.</li></ul>|
 |Web Application should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. <br>**Note**:<ul><li>An HTTPS endpoint that doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. So users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|
 |Function App should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. <br>**Note**:<ul><li>An HTTPS endpoint that doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. So users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|
 |API App should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. <br>**Note**:<ul><li>An HTTPS endpoint that doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. So users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|
@@ -85,7 +85,7 @@ The remediation operation uses a template deployment or REST PATCH API call to a
 |CORS should not allow every resource to access your Web Application|This action blocks other domains from accessing your Web Application. To allow specific domains, enter them in the Allowed origins field (separated by commas). <br>**Note**: Leaving the field empty will block all cross-origin calls.’Param field title: ‘Allowed origins’|
 |CORS should not allow every resource to access your Function App|This action blocks other domains from accessing your Function Application. To allow specific domains, enter them in the Allowed origins field (separated by commas). <br>**Note**: Leaving the field empty will block all cross-origin calls.’Param field title: ‘Allowed origins’|
 |CORS should not allow every resource to access your API App|This action blocks other domains from accessing your API Application. To allow specific domains, enter them in the Allowed origins field (separated by commas). <br>**Note**: Leaving the field empty will block all cross-origin calls.’Param field title: ‘Allowed origins’|
-|Monitoring agent should be enabled on your virtual machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to.<ul><li>If your update policy is set to automatic, it will deploy on new existing instances.</li><li>If your update policy is set to manual and you would like to install the agent on existing instances, select the check box option.  [Learn more](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set)</li></ul>|
+|Monitoring agent should be enabled on your virtual machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to.<ul><li>If your update policy is set to automatic, it will deploy on new existing instances.</li><li>If your update policy is set to manual and you would like to install the agent on existing instances, select the check box option. [Learn more](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set)</li></ul>|
 |Diagnostic logs in Key Vault should be enabled|This action enables diagnostic logs on key vaults. Diagnostic logs and metrics are saved in the selected workspace.|
 |Diagnostic logs in Service bus should be enabled|This action enables diagnostic logs on the service bus. Diagnostic logs and metrics are saved in the selected workspace.|
 
@@ -93,5 +93,5 @@ The remediation operation uses a template deployment or REST PATCH API call to a
 
 In this document, you were shown how to remediate recommendations in Security Center. To learn more about Security Center, see the following topics:
 
-* [Setting security policies in Azure Security Center](tutorial-security-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md): Learn how to monitor the health of your Azure resources.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) - Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
