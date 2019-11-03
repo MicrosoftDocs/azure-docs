@@ -38896,7 +38896,7 @@
     {
       "source_path": "articles/governance/policy/samples/req-sql-12.md",
       "redirect_url": "/azure/governance/policy/samples/index",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/req-store-acct-enc.md",
