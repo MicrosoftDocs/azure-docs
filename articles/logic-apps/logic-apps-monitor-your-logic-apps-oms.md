@@ -26,6 +26,14 @@ This topic shows how to set up Azure Monitor logs when you create your logic app
 > and is still collected and analyzed by the same Log Analytics service. For more information, see 
 > [Azure Monitor terminology changes](../azure-monitor/terminology.md).
 
+
+That way, you can [find and view events](#find-events), such as trigger events, run events, and action events. You can also use this [diagnostics data with other Azure services](#extend-diagnostic-data), such as Azure Storage and Azure Event Hubs.
+
+If you want to enable richer debugging for your logic app so that you get more information about runtime events and data, you can set up diagnostics logging by using the [Log Analytics capability](../azure-monitor/log-query/get-started-portal.md) in [Azure Monitor](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. When you store information about runtime events and data in [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and review this information.
+
+Before you start, you need a Log Analytics workspace. If you don't have a workspace, learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
+
+
 ## Prerequisites
 
 Before you start, you need a Log Analytics workspace. Learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).

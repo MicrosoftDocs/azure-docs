@@ -1,21 +1,21 @@
 ---
-title: Monitor status, set up logging, and get alerts - Azure Logic Apps
-description: View the run history, turn on diagnostic logging, and set up alerts for monitoring your logic apps
+title: Check run status and view run history - Azure Logic Apps
+description: Check your logic app's run status, view run history, and set up alerts in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: divswa, estfan, LADocs
 ms.topic: article
 ms.date: 11/04/2019
 ---
 
-# Monitor status, set up diagnostics logging, and turn on alerts for Azure Logic Apps
+# Check run status, view run history, and set up alerts in Azure Logic Apps
 
-After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run history, trigger history, status, and performance. For real-time event monitoring and richer debugging, set up [diagnostics logging](#azure-diagnostics) for your logic app. That way, you can [find and view events](#find-events), such as trigger events, run events, and action events. You can also use this [diagnostics data with other Azure services](#extend-diagnostic-data), such as Azure Storage and Azure Event Hubs.
+After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run status, run history, trigger history, and performance. To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour."
 
-To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour." You can also set up monitoring, tracking, and logging programmatically by using [Azure Diagnostics event settings and properties](#diagnostic-event-properties).
+For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using the [Logic Analytics capability](../azure-monitor/log-query/get-started-portal.md) in [Azure Monitor](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps with Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -87,148 +87,59 @@ In the **Summary** section, under **Evaluation**, select **See trigger history**
 
    ![View specific trigger information](media/logic-apps-monitor-your-logic-apps/view-specific-trigger-details.png)
 
-<a name="azure-diagnostics"></a>
-
-## Set up diagnostics logging
-
-For richer debugging with runtime details and events, you can set up diagnostics logging with [Azure Monitor logs](../log-analytics/log-analytics-overview.md). Azure Monitor is a service in Azure that monitors your cloud and on-premises environments to help you maintain their availability and performance.
-
-Before you start, you need to have a Log Analytics workspace. Learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
-
-1. In the [Azure portal](https://portal.azure.com), find and select your logic app.
-
-1. On your logic app menu, under **Monitoring**, select **Diagnostic settings** > **Add diagnostic setting**.
-
-   ![Under "Monitoring", select "Diagnostic settings" > "Add diagnostic setting"](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
-
-1. To create the setting, follow these steps:
-
-   1. Provide a name for the setting.
-
-   1. Select **Send to Log Analytics**.
-
-   1. For **Subscription**, select the Azure subscription for your Log Analytics workspace.
-
-   1. For **Log Analytics Workspace**, select the workspace that you want to use.
-
-   1. Under **log**, select the **WorkflowRuntime** category, which specifies the event category that you want to record.
-
-   1. To select all metrics, under **metric**, select **AllMetrics**.
-
-   1. When you're done, select **Save**.
-
-   ![Select Log Analytics workspace and data for logging](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
-
-Now, you can find events and other data for trigger events, run events, and action events.
-
-<a name="find-events"></a>
-
-## Review logged events and data
-
-To find and review the events and data from your logic app, such as trigger events, run events, and action events, follow these steps.
-
-1. In the [Azure portal](https://portal.azure.com) search box, enter "log analytics workspaces" as your filter, and select **Log Analytics workspaces**.
-
-   ![Find and select "Log Analytics workspaces"](media/logic-apps-monitor-your-logic-apps/find-select-log-analytics-workspaces.png)
-
-1. On the **Log Analytics workspaces** pane, select your workspace.
-
-   ![Select your Log Analytics workspace](media/logic-apps-monitor-your-logic-apps/select-log-analytics-workspace.png)
-
-1. On your workspace's menu, select **Logs**.
-
-   ![On workspace menu, select "Logs"](media/logic-apps-monitor-your-logic-apps/log-search.png)
-
-4. In the search box, specify a field that you want to find, and press **Enter**. 
-When you start typing, you see possible matches and operations that you can use. 
-
-   For example, to find the top 10 events that happened, 
-   enter and select this search query: **search Category == "WorkflowRuntime" | limit 10**
-
-   ![Enter search string](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
-
-   Learn more about [how to find data in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
-
-5. On the results page, in the left bar, choose the timeframe that you want to view.
-To refine your query by adding a filter, choose **+Add**.
-
-   ![Choose timeframe for query results](media/logic-apps-monitor-your-logic-apps/query-results.png)
-
-6. Under **Add Filters**, enter the filter name so you can find the filter you want. 
-Select the filter, and choose **+Add**.
-
-   This example uses the word "status" to find failed events under **AzureDiagnostics**.
-   Here the filter for **status_s** is already selected.
-
-   ![Select filter](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
-
-7. In the left bar, select the filter value that you want to use, and choose **Apply**.
-
-   ![Select filter value, choose "Apply"](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
-
-8. Now return to the query that you're building. 
-Your query is updated with your selected filter and value. 
-Your previous results are now filtered too.
-
-   ![Return to your query with filtered results](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
-
-9. To save your query for future use, choose **Save**. 
-Learn [how to save your query](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
-
-<a name="extend-diagnostic-data"></a>
-
-## Extend how and where you use diagnostic data with other services
-
-Along with Azure Monitor logs, you can extend how you use your logic app's 
-diagnostic data with other Azure services, for example: 
-
-* [Archive Azure Diagnostics Logs in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Stream Azure Diagnostics Logs to Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
-
-You can then get real-time monitoring by using telemetry and analytics from other services, 
-like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
-and [Power BI](../azure-monitor/platform/powerbi.md). For example:
-
-* [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
-* [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
-
-Based on the options that you want set up, make sure that you first 
-[create an Azure storage account](../storage/common/storage-create-storage-account.md) 
-or [create an Azure event hub](../event-hubs/event-hubs-create.md). 
-Then select the options for where you want to send diagnostic data:
-
-![Send data to Azure storage account or event hub](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
-
-> [!NOTE]
-> Retention periods apply only when you choose to use a storage account.
-
 <a name="add-azure-alerts"></a>
 
-## Set up alerts for your logic app
+## Set up monitoring alerts
 
-To monitor specific metrics or exceeded thresholds for your logic app, 
-set up [alerts in Azure](../azure-monitor/platform/alerts-overview.md). 
-Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+To set up alerts without [Azure Monitor logs](../log-analytics/log-analytics-overview.md), follow these steps. 
 
-To set up alerts without 
-[Azure Monitor logs](../log-analytics/log-analytics-overview.md), follow these steps. 
-For more advanced alerts criteria and actions, [set up Azure Monitor logs](#azure-diagnostics) too.
+To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md). Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-1. On the logic app blade menu, under **Monitoring**, 
-choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
+For more about creating alerts, see 
+
+1. On your logic app menu, under **Monitoring**, select **Alerts** > **New alert rule**.
 
    ![Add an alert for your logic app](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
 
-2. On the **Add an alert rule** blade, create your alert as shown:
+1. On the **Create rule** pane, follow these steps:
 
-   1. Under **Resource**, select your logic app, if not already selected. 
-   2. Give a name and description for your alert.
-   3. Select a **Metric** or event that you want to track.
-   4. Select a **Condition**, specify a **Threshold** for the metric, 
-   and select the **Period** for monitoring this metric.
-   5. Select whether to send mail for the alert. 
-   6. Specify any other email addresses for sending the alert. 
-   You can also specify a webhook URL where you want to send the alert.
+   1. Under **Resource**, select your logic app, if not already selected. Under **Condition**, select **Add** so that you can define the condition that triggers the alert.
+
+      ![Add a condition for the rule](media/logic-apps-monitor-your-logic-apps/add-condition-for-rule.png)
+
+   1. On the **Configure signal logic** pane, find and select the signal for to get an alert. You can use the search box, or to sort the signals alphabetically, select the **Signal name** column header.
+
+      For example, if you want to send an alert when a trigger fails, follow these steps:
+
+      1. In the **Signal name** column, find and select the **Triggers Failed** signal.
+
+         ![Select signal for creating alert](media/logic-apps-monitor-your-logic-apps/find-and-select-signal.png)
+
+      1. On the information pane that opens for the selected signal, under **Alert logic**, set up your condition, for example:
+
+         1. For **Operator**, select **Greater than or equal to**.
+
+         1. For **Aggregation type**, select **Count**.
+
+         1. For **Threshold value**, enter `1`.
+
+         1. Under **Condition preview**, confirm that your condition appears correct.
+
+         1. Under **Evaluated based on**, set up the interval and frequency for running the alert rule. For **Aggregation granularity (Period)**, select the period for grouping the data. For **Frequency of evaluation**, select how often you want to check the condition.
+
+         1. When you're ready, select **Done**.
+
+         Here's the finished condition:
+
+         ![Set up condition for alert](media/logic-apps-monitor-your-logic-apps/set-up-condition-for-alert.png)
+
+   1. Specify a name, optional description, and severity level for your alert. Either leave the **Enable rule upon creation** setting turned on, or turn off until you're ready to enable the rule.
+
+   1. When you're done, select **Create alert rule**.
+
+   1. Select whether to send mail for the alert.
+
+   1. Specify any other email addresses for sending the alert. You can also specify a webhook URL where you want to send the alert.
 
    For example, this rule sends an alert when five or more runs fail in an hour:
 
