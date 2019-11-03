@@ -10,16 +10,14 @@ ms.author: v-umha
 
 # Manage farms
 
-You can manage your farms in the Azure FarmBeats. This article provides the information about how to create farms, install devices, sensors, and drones that helps you manage your farms.
+You can manage your farms in Azure FarmBeats. This article provides the information about how to create farms, install devices, sensors, and drones that helps you manage your farms.
 
 ## Create farms
 
 Use the following steps:
 
 1. Login to the Farm Accelerator, the **Farms** page displays.
-
-    > [!NOTE]
-    > The Farms page displays the list of farms in case they have already been created in subscription.
+The Farms page displays the list of farms in case they have already been created in subscription.
 
     Here is the sample image:
 
@@ -27,7 +25,7 @@ Use the following steps:
 
 
 2. Select **Create Farm** and provide **Name**, **Crops** and **Address**.
-3. In the **Define Farm Boundary**, select either **Mark on Map** or **Paste GeoJSON code**, which is a mandatory field.
+3. In the **Define Farm Boundary**, (mandatory field) select either **Mark on Map** or **Paste GeoJSON code**.
 
 Here are the two ways to define a farm boundary:
 
@@ -36,11 +34,11 @@ Here are the two ways to define a farm boundary:
     ![Project Farm Beats](./media/create-farms/create-farm-mark-on-map-1.png)
 
 2. **Paste GeoJson Code**: The GeoJSON is a format for encoding geographical data structures, using JavaScript Object Notation (JSON). This option displays a text box where a GeoJSON string can be entered to mark the farm boundaries. You can also create GeoJSON code from GeoJSON.io.
+Use the tooltips to help fill in the information.
 
     ![Project Farm Beats](./media/create-farms/create-new-farm-1.png)
 
-3.	Use the tooltips to help fill in the information.
-4.	Select **Submit** to create a farm. A new farm is created and displayed in the Farms page.
+4.	Select **Submit** to create a farm. A new farm is created and displayed in the **Farms** page.
 
 ## View farm
 
@@ -72,9 +70,9 @@ The **Farms** page displays a list of farms created. Use the following steps to 
     ![Project Farm Beats](./media/create-farms/delete-farm-1.png)
 
     > [!NOTE]
-    > All the associated devices and maps with the farm will not be deleted. However, the farm details on these devices and maps are invalid. The devices, telemetry and the maps can still be viewed from the application.
+    > When you delete a farm, the devices and maps associated with the farm aren’t deleted. Any farm information associated with the device and maps won’t be relevant. You can continue to view devices, telemetry and maps from the FarmBeats service.
 
 
 ## Next steps
 
-You have created your Farm now. See how you can [get sensor data](get-sensor-data-from-sensor-partner.md) flowing into your farm,
+Now that you have created your farm, learn how to [get sensor data](get-sensor-data-from-sensor-partner.md) flowing into your farm.
