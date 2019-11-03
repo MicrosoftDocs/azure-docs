@@ -36,8 +36,5 @@ The following inter-region latency measurements are powered by [ThousandEyes](ht
 ![Azure inter-region latency statistics](media/azure-network-latency/azure-inter-region-latency.png)
 
 
-<a href="https://www.thousandeyes.com"><img src="https://te-logo.s3-us-west-2.amazonaws.com/ThousandEyes-Main-Logo-150.png"></a>
-
-
 ## Next steps
 - Learn about [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).

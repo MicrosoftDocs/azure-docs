@@ -24145,6 +24145,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/networking/virtual-network-test-latency.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md",
       "redirect_url": "/azure/virtual-network/virtual-network-create-peering",
       "redirect_document_id": false

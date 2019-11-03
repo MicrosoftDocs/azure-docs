@@ -1,7 +1,6 @@
 ---
-title: Test Azure Virtual Machine network latency in an Azure Virtual Network | Microsoft Docs
-titleSuffix: Azure Virtual Network latency
-description: Learn how to test network latency between Azure VMs on a virtual network
+title: Test Azure Virtual Machines network latency in an Azure Virtual Network | Microsoft Docs
+description: Learn how to test network latency between Azure virtual machines on a virtual network
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -21,9 +20,9 @@ ms.author: steveesp
 
 
 
-# Testing Network Latency
+# Testing network latency
 
-Measuring network latency with a tool that is designed for the task will give the most accurate results. Publicly available tools like SockPerf (for Linux) and Latte (for Windows) are examples of tools that can isolate and measure network latency while excluding other types of latency, such as application latency. These tools focus on the kind of network traffic that affects application performance, namely TCP and UDP. Other common connectivity tools, like ping, may sometimes be used for measuring latency but those results may not be representative of network traffic used in real workloads. That&#39;s because most of these tools employ the ICMP protocol, which can be treated differently from application traffic, and the results may not be applicable to workloads that use TCP and UDP. For accurate network latency testing of protocols used by most applications, SockPerf (for Linux) and Latte (for Windows) produce the most relevant results. This document covers both of these tools.
+Measuring network latency with a tool that is designed for the task will give the most accurate results. Publicly available tools like SockPerf (for Linux) and Latte (for Windows) are examples of tools that can isolate and measure network latency while excluding other types of latency, such as application latency. These tools focus on the kind of network traffic that affects application performance, namely TCP and UDP. Other common connectivity tools, like ping, may sometimes be used for measuring latency but those results may not be representative of network traffic used in real workloads. That's because most of these tools employ the ICMP protocol, which can be treated differently from application traffic, and the results may not be applicable to workloads that use TCP and UDP. For accurate network latency testing of protocols used by most applications, SockPerf (for Linux) and Latte (for Windows) produce the most relevant results. This document covers both of these tools.
 
 ## Overview
 
@@ -63,7 +62,7 @@ Using these tools ensures that only TCP or UDP payload delivery times are measur
 - Repeat tests whenever changes are observed or planned
 
 
-## Testing VMs running Windows:
+## Testing VMs running Windows
 
 ## Get Latte.exe onto the VMs
 
