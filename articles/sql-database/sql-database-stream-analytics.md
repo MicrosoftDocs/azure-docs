@@ -94,15 +94,16 @@ To complete the steps in this article, you need the following resources:
     - Use existing: If you selected this option in step 5, you will see the schema of selected table. 
  
 7. After you are done authoring & testing the query, select **Save query**. Select **Start Stream Analytics job** to start ingesting transformed data into the SQL table. Once you finalize the following fields, **start** the job. 
-   - Output start time: This defines the time of the first output of the job.  
+   - **Output start time**: This defines the time of the first output of the job.  
      - Now: The job will start now and process new incoming data.
      - Custom: The job will start now but will process data from a specific point in time (that can be in the past or the future). For more information, see [How to start an Azure Stream Analytics job](../stream-analytics/start-job.md).
-   - Throughput: This defines the throughput performance when you're loading data into SQL Azure Database using Azure Stream Analytics. For more information, see [Azure Stream Analytics output to Azure SQL Database](../stream-analytics/stream-analytics-sql-output-perf.md). 
-   - Output data error handling:  
+   - **Streaming units**: Azure Stream Analytics is priced by the number of streaming units required to process the data into the service. For more information, see [Azure Stream Analytics pricing](https://azure.microsoft.com/pricing/details/stream-analytics/). 
+   - **Output data error handling**:  
      - Retry: When an error occurs, Azure Stream Analytics retries writing the event indefinitely until the write succeeds. There is no timeout for retries. Eventually all subsequent events are blocked from processing by the event that is retrying. This option is the default output error handling policy. 
      - Drop: Azure Stream Analytics will drop any output event that results in a data conversion error. The dropped events cannot be recovered for reprocessing later. All transient errors (for example, network errors) are retried regardless of the output error handling policy configuration. 
-    
-    For more information about output error handling, see [Output error policies in Azure Stream Analytics](../stream-analytics/stream-analytics-output-error-policy.md). 
+   - **SQL Database output settings**: An option for inheriting the partitioning scheme of your previous query step, to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](../stream-analytics/stream-analytics-sql-output-perf.md).
+   - **Max batch count**: The recommended upper limit on the number of records sent with every bulk insert transaction.  
+    For more information about output error handling, see [Output error policies in Azure Stream Analytics](../stream-analytics/stream-analytics-output-error-policy.md).  
 
     ![start job](media/sql-database-stream-analytics/start-job.png)
 
