@@ -9,7 +9,7 @@ ms.author: v-umha
 
 # Get drone imagery from drone partners
 
-This article describes how you can bring in orthomosaic data from your drone imagery partners onto Azure FarmBeats Data hub. Currently the following imagery partners are supported:  
+This article describes how you can bring in orthomosaic data from your drone imagery partners in to Azure FarmBeats Data hub. Currently the following imagery partners are supported:  
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 
@@ -43,7 +43,7 @@ Use the following steps:
 
     ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory > usrename.  
+5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory > username.  
 6. Run the following script:
 
     ```azurepowershell-interactive 
@@ -64,7 +64,7 @@ Once the data is sent to the FarmBeats data hub, you should be able to query the
 
 Alternatively, you should be able to view the latest drone image in the **Farm Details** page. To view, follow the steps:  
 
-1. Select the farm to which your imagery has been uploaded to. The **Farm** details page displays.
+1. Select the farm to which your imagery has been uploaded. The **Farm** details page displays.
 2. Scroll down to the latest **Precision Maps** section.
 3. You should be able to view the image in the **Drone Imagery** section.
 
@@ -72,16 +72,16 @@ Alternatively, you should be able to view the latest drone image in the **Farm D
 
 ## Download drone imagery
 
-If you select the drone Imagery section, a Popup opens, which show a high resolution image of the drone orthomosaic. Select **Download** to download the different files associated with this particular scene.
+When **Drone Imagery** a popup opens to  show a high-resolution image of the drone orthomosaic. Select **Download** to download the different files associated with this particular scene.
 
 ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
 
 ## View all drone maps
 
-All the files and images uploaded by the drone provider are present in the Maps section. Select the **Maps** section, filter by **Farm** and choose the appropriate files to view and download:
+Files and images uploaded by the drone provider appear in the Maps section. Select the **Maps** section, filter by **Farm** and choose the appropriate files to view and download:
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
 
 ## Next steps
 
-Know how to use the FarmBeats data hub [PIs](references-for-farmbeats.md#rest-api) to get your drone imagery.
+Learn how to use the FarmBeats data hub [PIs](references-for-farmbeats.md#rest-api) to get your drone imagery.
