@@ -73,7 +73,7 @@ Visit the device partner portal, to link FarmBeats using the set of credentials 
 
  The device provider confirms a successful integration. Upon confirmation, you can view all the devices and sensors on Azure FarmBeats.
 
-## View devicesS and sensors
+## View devices and sensors
 
 Use the following section to view the devices and sensors in your farm.
 
