@@ -263,25 +263,28 @@ The script automatically downloads all dependencies, and builds the deployer. Th
 > Make note of these and keep the deployment log file path handy for future use.
 
 
-#### Deployment scenario 2- Existing Azure Active Directory app registration used to deploy
+### Deployment scenario 2- Existing Azure Active Directory app registration used to deploy
 
 1. Download [input json](https://aka.ms/PPInputJsonTemplate) Include the Azure Application Client ID and password in the input.json, save it.
-   ```json
-   {
-   "sku":"both",
-   "subscriptionId":"daxx9xxx-d18f-4xxc-9c21-5xx3exxxxx45",
-   "datahubResourceGroup":"dummy-test-dh1",  
-   "location":"westus2",  
-   "datahubWebsiteName":"dummy-test-dh1",  
-   "acceleratorResourceGroup":"dummy-test-acc1",  
-   "acceleratorWebsiteName":"dummy-test-acc1",  
-   "sentinelUsername":"dummy-dev",
-   "notificationEmailAddress":"dummyuser@org1.com",
-   "updateIfExists": true,
-   "aadAppClientId": "lmtlemlemylmylkmerkywmkm823",
-   "aadAppClientSecret": "Kxxxqxxxxu*kxcxxx3Yxxu5xx/db[xxx"
-   }
- ```
+
+    ```json
+       {
+       "sku":"both",
+       "subscriptionId":"daxx9xxx-d18f-4xxc-9c21-5xx3exxxxx45",
+       "datahubResourceGroup":"dummy-test-dh1",  
+       "location":"westus2",  
+       "datahubWebsiteName":"dummy-test-dh1",  
+       "acceleratorResourceGroup":"dummy-test-acc1",  
+       "acceleratorWebsiteName":"dummy-test-acc1",  
+       "sentinelUsername":"dummy-dev",
+       "notificationEmailAddress":"dummyuser@org1.com",
+       "updateIfExists": true,
+       "aadAppClientId": "lmtlemlemylmylkmerkywmkm823",
+       "aadAppClientSecret": "Kxxxqxxxxu*kxcxxx3Yxxu5xx/db[xxx"
+       }
+     ```
+
+     Follow the rest of the steps:
 
 2. Make note of the path to your input.json file (on your local computer).
 3. Go to Azure Cloud Shell once again and you're successfully authenticated, select the upload button (see highlighted icon in below image) and upload the input.json file to Cloud Shell storage.
@@ -295,6 +298,7 @@ The script automatically downloads all dependencies, and builds the deployer. Th
    wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
 
    ```
+   Follow the rest of the steps:
 
 5. The script automatically downloads all dependencies, and builds the deployer.
 6. You'll be prompted to read and agree to the Azure FarmBeats End-user license agreement (EULA).
@@ -303,11 +307,6 @@ The script automatically downloads all dependencies, and builds the deployer. Th
    - Enter 'N' if you don't agree to the terms and the deployment will terminate.
 
 7. You'll be prompted to enter an access token for the deployment. Copy the code generated and sign in to https://microsoft.com/devicelogin with your Azure credentials.
-
-> [!NOTE]
-> The code expires in the next 60 minutes. When it expires you can restart by typing the deployment command again.
-
-
 8. The installer will now validate and start creating the resources, which can take about 20 minutes. Keep the session active on Cloud Shell during this time.
 9. Once the deployment goes through successfully, you'll receive the below output links:
  - **Data hub URL**: Swagger link to try FarmBeats APIs.
@@ -367,6 +366,8 @@ The steps for upgrade are similar to the first-time installation. Follow these s
     ```
     wget -N -O farmbeats-installer.sh https://aka.ms/FB_1.2.0 && bash farmbeats-installer.sh> /home/dummyuser/input.json
     ```
+    Follow the rest of the steps:
+
 10. The Installer automatically prompts the required inputs on run-time:
 
   - Enter an access token for deployment. Copy the code generated and sign in to
@@ -397,7 +398,7 @@ For example, if you deployed Data hub and Accelerator in two different resource 
 2. Select your account in the top right corner, and switch to the desired Azure AD tenant where you want to deploy Microsoft FarmBeats.
 
    > [!NOTE]
-   >Data hub is needed for Accelerator to work properly. We don’t recommend uninstalling Data hub without uninstalling Accelerator.
+   > Data hub is needed for Accelerator to work properly. We don’t recommend uninstalling Data hub without uninstalling Accelerator.
 
 3. Select Resource Groups, and type in the name of the Data hub or Accelerator resource group that you want to delete.
 4. Select the resource group name. Type in the name again to double-check, and click Delete to remove the resource group, and all its underlying resources.
