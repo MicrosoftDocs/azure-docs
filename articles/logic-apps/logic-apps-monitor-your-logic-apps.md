@@ -13,14 +13,13 @@ ms.date: 11/04/2019
 
 # Monitor status, set up diagnostics logging, and turn on alerts for Azure Logic Apps
 
-After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run history, trigger history, status, and performance. For real-time event monitoring and richer debugging, set up [diagnostics logging](#azure-diagnostics) for your logic app. 
-That way, you can [find and view events](#find-events), such as trigger events, run events, and action events. You can also use this [diagnostics data with other Azure services](#extend-diagnostic-data), such as Azure Storage and Azure Event Hubs.
+After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run history, trigger history, status, and performance. For real-time event monitoring and richer debugging, set up [diagnostics logging](#azure-diagnostics) for your logic app. That way, you can [find and view events](#find-events), such as trigger events, run events, and action events. You can also use this [diagnostics data with other Azure services](#extend-diagnostic-data), such as Azure Storage and Azure Event Hubs.
 
 To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour." You can also set up monitoring, tracking, and logging programmatically by using [Azure Diagnostics event settings and properties](#diagnostic-event-properties).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## View runs and trigger history
+## Review runs history
 
 1. In the [Azure portal](https://portal.azure.com), find and open your logic app in the Logic App Designer.
 
@@ -71,13 +70,20 @@ To get notifications about failures or other possible problems, set up [alerts](
    For example, you can get the run's **Correlation ID** property, which you might need when you use the 
    [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
-1. To get information about a specific trigger event, go back to the **Overview** pane.
+## Review trigger history
 
-   1. In the **Summary** section, under **Evaluation**, select **See trigger history** so that you can view all the trigger activity for your logic app.
+1. To view all the trigger activity for your logic app, on your logic app's menu, select **Overview**.
+In the **Summary** section, under **Evaluation**, select **See trigger history**.
 
-   1. On the trigger pane, select the specific trigger event that you want to review. You can now review information about the status  details like inputs and outputs, for example:
+   ![View trigger history for your logic app](media/logic-apps-monitor-your-logic-apps/overview-pane-logic-app-details-trigger-history.png)
 
-   ![Trigger event output details](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
+1. To view information about a specific trigger event, on the trigger pane, select the specific trigger event that you want to review.
+
+   ![View trigger history for your logic app](media/logic-apps-monitor-your-logic-apps/select-trigger-event-for-review.png)
+
+   You can now review information about the selected trigger event, for example:
+
+   ![View specific trigger information](media/logic-apps-monitor-your-logic-apps/view-specific-trigger-details.png)
 
 <a name="azure-diagnostics"></a>
 
