@@ -13,12 +13,12 @@ Below are a collection of notes and instructions that outline the Azure FarmBeat
 
 ## REST API
 
-The Azure FarmBeats APIs provide Agribusiness with a standardized REST ful interface with JSON-based responses and this it will help you leverage Azure FarmBeats capabilities:
+The Azure FarmBeats APIs provide Agribusiness with a standardized RESTful interface with JSON-based responses and this it will help you leverage Azure FarmBeats capabilities:
 
 - API's to get sensor, camera, drone, weather, satellite, and curated ground data
 - Normalization/contextualization of data across common data providers
 - Schematized access and query capabilities on all ingested data
-- Automatic generation of query-able metadata based on agronomic features  
+- Automatic generation of metadata that can be queried, based on agronomic features  
 - Automatically generated time sequence aggregates for rapid model building
 - Integrated Azure Data Factory (ADF) engine to easily build custom data processing pipelines
 
@@ -55,7 +55,7 @@ JSON (JavaScript Object Notation) is a common, language-independent data format 
 HTTP requests to the REST API are protected with Azure Active Directory (Azure AD).
 To make an authenticated request to the REST APIs, client code requires authentication with valid credentials before you can call the API. Authentication is coordinated between the various actors by Azure AD, and provides your client with an access token as proof of the authentication. The token is then sent in the HTTP Authorization header of REST API requests. To learn more about Azure AD authentication, see Azure Active Directory for developers.
 
-The access token needs to be sent it in subsequent API requests in the header section as:
+The access token needs to be sent in subsequent API requests in the header section as:
 
 ```
 headers = {"Authorization": "Bearer " + **access_token**}
@@ -96,7 +96,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 **Query Parameters**
 
 For REST **GET** calls, you can filter, limit the size of, and sort the data in an API response by including one or more query parameters on the request URI. For the query parameters, refer to the API documentation and see the individual GET calls.
-For example, when querying the list of devices (GET call on /Device), following query parameters can be specified:  
+For example, when querying the list of devices (GET call on /Device), the following query parameters can be specified:  
 
 ![Project Farm Beats](./media/for-references/query-parameters-device-1.png)
 
@@ -144,24 +144,24 @@ Example: When creating a Farm, a mandatory field “Name” was not specified in
 1. Go to [Azure portal](https://portal.azure.com) **Azure Active Directory, App registrations**, > **New registration**. Alternatively, you can use an existing account.
 2. For a new account, ensure to complete the following:
 
-- Enter a name
-- Select **Accounts in this organizational directory only (Single tenant)**
-- The default values in the rest of the fields
-- Select **Register**
+    - Enter a name
+    - Select **Accounts in this organizational directory only (Single tenant)**
+    - The default values in the rest of the fields
+    - Select **Register**
 
 3. From the new/existing app registration, **Overview**, complete the following
 
-- Capture the **Client ID** and **Tenant ID**.
-- Go to **Certificates and Secrets** to generate a new client secret and capture the **Client-Secret**.
-- Go back to Overview and Click the link next to **Manage Application in local directory**
-- Go to **Properties** to capture the **Object ID**
+    - Capture the **Client ID** and **Tenant ID**.
+    - Go to **Certificates and Secrets** to generate a new client secret and capture the **Client-Secret**.
+    - Go back to Overview and Click the link next to **Manage Application in local directory**
+    - Go to **Properties** to capture the **Object ID**
 
-4. Go to your Data hub swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) and perform the following steps:
-- Navigate to **RoleAssignment API**
-- Perform a **POST** to create a RoleAssignment for the **Object ID** you just created. – The input json is:
+4. Go to your [Data hub swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) and perform the following steps:
+    - Navigate to **RoleAssignment API**
+    - Perform a **POST** to create a RoleAssignment for the **Object ID** you just created. – The input json is:
 
   > [!NOTE]
-  > For more information on the above steps, see [Azure active directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) .
+  > For more information on adding users and AD registration, see [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) .
 
 
 After completing the above steps, your app registration (client) can call the Azure FarmBeats APIs using an access token via Bearer Authentication.  

@@ -3,17 +3,18 @@ title: Sensor partner integration
 description: Describes Sensor Partner Integration
 author: uhabiba04
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Sensor partner integration
+# Sensor Partner Integration
+This article provides information about the Azure FarmBeats **Translator** component.
 
-This article explains the implementation of the Sensor data integration (also called the **Translator** component) that FarmBeats Device Partners (OEMs (Original Equipment Manufacturer) and Device Manufacturers) can develop to integrate with FarmBeats by leveraging its APIs and send customers’ device data along with telemetry to FarmBeats Data hub. The data once available is visualized through the FarmBeats Accelerator and can potentially be used for data fusion and ML/AI (Machine Language/Artificial Intelligence) model building by the Agribusiness or the customer’s System Integrator.
+Using this component, partners can develop sensors that integrate with FarmBeats, by leveraging our API, and sending customer device data and telemetry to the FarmBeats Data hub. Data is visualized using the FarmBeats Accelerator. Data can be used for data fusion, and for building machine language/artificial intelligence models.
 
 ## Link FarmBeats account
 
-Once the customers have purchased and deployed Devices/Sensors, they can access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device Partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by customer/SI:
+Once the customers have purchased and deployed devices/sensors, they can access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by customer/SI:
 
 - Display Name (An optional field for user to define a name for this integration)
 - API Endpoint
@@ -30,10 +31,10 @@ Once the customers have purchased and deployed Devices/Sensors, they can access 
 
 Customers have the ability to unlink an existing FarmBeats Integration. Unlinking FarmBeats should not delete any device/sensor metadata that was created in customer’s Data hub. Unlinking does the following:
 
-- Stops telemetry flow
+- Stops telemetry flow.
 - Deletes and erase the integration credentials on device partner.
 
-## Edit FarmBeats integration
+## Edit FarmBeats Integration
 
 The customer can edit the FarmBeats Integration. The primary scenario for edit is when the client secret or connection string changes due to expiry, in this case customer can only edit the following fields.
 
@@ -48,7 +49,7 @@ The customer can edit the FarmBeats Integration. The primary scenario for edit i
 
 The customer has the ability to view the timestamp of *Last Telemetry Sent*, is the time at which the latest telemetry was successfully sent to FarmBeats.
 
-## Translator development
+## Translator Development
 
 **Rest API-based integration**
 
@@ -60,7 +61,7 @@ The telemetry data is mapped to a canonical message that is published on Azure E
 
 **API Development**
 
-The APIs contain swagger technical documentation. See [swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information on all the APIs and their corresponding requests/responses.
+The APIs contain Swagger technical documentation. See [Swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information on all the APIs and their corresponding requests/responses.
 
 **Authentication**
 
@@ -134,7 +135,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 
 ## Data Format
 
-JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see [jason.org](http://json.org)
+JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see [jason.org](http://json.org).
 
 ## Metadata Specifications
 
@@ -190,31 +191,31 @@ parentDeviceId | id of the parent device to which this device is connected to. F
  See [swagger](httpa://aka.ms/FarmBeatsDatahubSwagger) for information more on each of the objects and their properties.
 
  > [!NOTE]
- > The APIs return unique ids for each instance created. This id needs to be retained by the Translator for device management and metadata sync.
+ > The APIs return unique ids for each instance created. This ID needs to be retained by the Translator for device management and metadata sync.
 
 
 **Metadata sync**
 
-The Translator should send updates on the metadata. For example, of update scenarios are – Change of Device/Sensor name, Change of Device/Sensor location.
+The Translator should send updates on the metadata. For example, of update scenarios are – change of device/sensor name, change of device/sensor location.
 
-The Translator should have the ability to add new Devices and/or Sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corresponding Device/Sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.
+The Translator should have the ability to add new Devices and/or Sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corrsponding device/sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.
 
 
 > [!NOTE]
-> Delete is not supported for Device/Sensor metadata.
+> Delete is not supported for device/sensor metadata.
 >
 > To update metadata, it is mandatory to call /Get/{id} on the device/sensor, update the changed properties and then do a /Put/{id} so that any properties set by the user is not lost
 
-**Adding new Types/Unit**
+### Adding new Types/Unit
 FarmBeats supports adding new sensor measure types and units. Refer to /ExtendedType API in the swagger for more details.
 
-## Telemetry specifications
+## Telemetry Specifications
 
 The telemetry data is mapped to a canonical message that is published on Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications.
 
-## Send telemetry data to FarmBeats
+## Send Telemetry Data to FarmBeats
 
-To send telemetry data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. To know more about telemetry data, see [sending telemetry to event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+To send telemetry data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. For more information about telemetry data, see [sending telemetry to event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
 Here is a sample Python code that sends telemetry as a client to a specified Event Hub:
 
@@ -237,7 +238,7 @@ write_client.stop()
 
 The canonical message format is as below:
 
-```json
+```
 {
 “deviceid”: “<id of the Device created>”,
  "timestamp": "<timestamp in ISO 8601 format>",
@@ -265,7 +266,7 @@ All key names in the telemetry json should be lower case For example, deviceid, 
 For example, Telemetry message:
 
 
-```json
+```
 {
   "deviceid": "7f9b4b92-ba45-4a1d-a6ae-c6eda3a5bd12",
   "timestamp": "2019-06-22T06:55:02.7279559Z",
@@ -318,11 +319,11 @@ In the event of an error that affects the device/sensor metadata/data integratio
 
 **Connection Checklist**
 
-Device Manufacturers/Partners can have the following sanity test/checklist to ensure that the credentials provided by the customer are accurate.
+Device manufacturers/partners can have the following sanity test/checklist to ensure that the credentials provided by the customer are accurate.
 
-1. Check if an access token is received with the credentials provided
-2. Check if an API call succeeds with the access token received
-3. Check if the EventHub client Connection is established
+- Check if an access token is received with the credentials provided
+- Check if an API call succeeds with the access token received
+- Check if the EventHub client Connection is established
 
 ## Next Steps
 
