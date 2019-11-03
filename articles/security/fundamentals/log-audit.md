@@ -37,7 +37,7 @@ Cloud applications are complex with many moving parts. Logging data can provide 
 Azure logs are categorized into the following types:
 * **Control/management logs** provide information about Azure Resource Manager CREATE, UPDATE, and DELETE operations. For more information, see [Azure activity logs](../../azure-monitor/platform/activity-logs-overview.md).
 
-* **Data plane logs** provide information about events raised as part of Azure resource usage. Examples of this type of log are the Windows event system, security, and application logs in a virtual machine (VM) and the [diagnostics logs](../../azure-monitor/platform/resource-logs-overview.md) that are configured through Azure Monitor. 
+* **Data plane logs** provide information about events raised as part of Azure resource usage. Examples of this type of log are the Windows event system, security, and application logs in a virtual machine (VM) and the [diagnostics logs](../../azure-monitor/platform/resource-logs-overview.md) that are configured through Azure Monitor.
 
 * **Processed events** provide information about analyzed events/alerts that have been processed on your behalf. Examples of this type are [Azure Security Center alerts](../../security-center/security-center-managing-and-responding-alerts.md) where [Azure Security Center](../../security-center/security-center-intro.md) has processed and analyzed your subscription and provides concise security alerts.
 
