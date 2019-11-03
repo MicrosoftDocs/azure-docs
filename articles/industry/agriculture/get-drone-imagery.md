@@ -60,7 +60,7 @@ Use the following steps:
 
 ## View drone imagery
 
-Once the data is sent to the FarmBeats data hub, you should be able to query the Scene Store using the FarmBeats Data hub APIs
+Once the data is sent to the FarmBeats data hub, you should be able to query the Scene Store using the FarmBeats Data hub APIs.
 
 Alternatively, you should be able to view the latest drone image in the **Farm Details** page. To view, follow the steps:  
 
@@ -72,7 +72,7 @@ Alternatively, you should be able to view the latest drone image in the **Farm D
 
 ## Download drone imagery
 
-When **Drone Imagery** a popup opens to  show a high-resolution image of the drone orthomosaic. Select **Download** to download the different files associated with this particular scene.
+When you select the Drone Imagery section, a pop-up opens to show a high-resolution image of the drone orthomosaic.
 
 ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
 

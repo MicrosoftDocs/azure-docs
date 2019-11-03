@@ -15,12 +15,12 @@ Data, once available, can be visualized through the FarmBeats Accelerator and po
 
 FarmBeats provides the ability to:
 
-1.	Define custom image types, source, file format using Extended Type APIs
-2.	Ingest imagery data from various sources via the Scene & SceneFile APIs.
+- Define custom image types, source, file format using Extended Type APIs
+- Ingest imagery data from various sources via the Scene & SceneFile APIs.
 
 The below section focuses on getting any form of imagery into the FarmBeats system
 
-Once you have purchased the drones/ camera payloads, you can access the partner software, which helps to plan drone flights and get raw data. You'll continue to use the partner’s software for path planning and orthomosaic image stitching.
+When you select the Drone Imagery section, a pop-up opens to show a high-resolution image of the drone orthomosaic. You can access the partner software, which helps to plan drone flights and get raw data. You'll continue to use the partner’s software for path planning and orthomosaic image stitching.
 
 Drone partners need to enable customers, to link their customer account with their FarmBeats instance on Azure.
 
@@ -37,7 +37,9 @@ The APIs contain Swagger technical documentation. Review [Swagger](https://aka.m
 
 **Authentication**
 
-FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure App Service provides built-in authentication and authorization support. For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+FarmBeats leverages Microsoft Azure’s [Active Directory]((https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)) Authentication. Azure App Service provides built-in authentication and authorization support. 
+
+For more information about, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 
 FarmBeats Data hub uses bearer authentication, which needs the following credentials:
 
@@ -130,7 +132,7 @@ After the partner has credentials to connect to the FarmBeats Data hub, the part
 
     The partner system must show the farm within the partner software to do the path planning and drone flight and image collection.
 
-4.	Call the Scene API and provide required details to create a new Scene with a unique SceneID
+4.	Call the Scene API and provide required details to create a new Scene with a unique SceneID.
 5.	Receive a Blob SAS URL to upload the required images into the FarmBeats data hub, in the context of the chosen farm, into the FarmBeats system.
 
 Here is a detailed flow on the API calls:
