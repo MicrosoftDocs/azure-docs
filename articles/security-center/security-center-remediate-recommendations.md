@@ -65,7 +65,7 @@ To implement Quick Fix remediation:
 The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/resource-group-audit.md).
 
 
-## Recommendations with quick fix remediation
+## Recommendations with Quick Fix remediation
 
 |Recommendation|Implication|
 |---|---|
