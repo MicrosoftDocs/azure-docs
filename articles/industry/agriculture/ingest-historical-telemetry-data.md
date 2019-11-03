@@ -9,11 +9,15 @@ ms.author: v-umha
 
 # Ingest historical telemetry data
 
-A common usage scenario is to ingest historical data from Internet of Things (IoT) such as, devices/sensors into your Azure FarmBeats instance. This can be done by creating the metadata for your devices/sensors and then ingest the historical sensor data in a canonical format to FarmBeats.
+This article describes how to ingest historical sensor data into Azure FarmBeats.
 
-This article describes the process of ingesting historical sensor data into FarmBeats. To proceed, make sure you have FarmBeats installed and have historical sensor data that you have collected from your IoT devices/sensors.
+Ingesting historical data from Internet of Things (IoT) for resources such as devices and sensors is a common scenario in FarmBeats. You create metadata for devices and sensors, and then ingest the historical data to FarmBeats in a canonical format.
 
-## Enable partner access to Azure FarmBeats
+## Before you begin
+
+Before you proceed with the next steps in this article, make sure that you’ve installed FarmBeats, and collected historical data from IoT.
+
+## Enable partner access
 
 You need to enable partner integration to your Azure FarmBeats instance. This step creates a client that will have access to your Azure FarmBeats as your device partner, and provides you the following values that are required in the subsequent steps.
 
@@ -41,7 +45,7 @@ Follow the below steps to generate these:
 
     ![Project Farm Beats](./media/for-tutorials/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory *</home<username>*
+5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory /home/username/.
 6. Run the script by using the command:  
 
     ```azurepowershell-interactive
@@ -58,53 +62,53 @@ Follow the below steps to generate these:
 
  FarmBeats Data hub has the following APIs that enable creation and management of device/sensor metadata.   
 
-- /**DeviceModel** - Device Model corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.  
+- /**DeviceModel** - Device Model corresponds to the metadata of the device such as the Manufacturer, Type of the device either Gateway or Node.  
 - /**Device** - Device corresponds to a physical device present in the farm.  
-- /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
-- /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device id.  
+- /**SensorModel** - Sensor Model corresponds to the metadata of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
+- /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.  
 
 
 |        Device Mode   |  Suggestions   |
 | ------- | -------             |
 |     Type (Node, Gateway)        |          1 Star      |
 |          Manufacturer            |         2 Star     |
-|  ProductCode                    |  Device product code Or Model Name/Number. For example, EnviroMonitor#6800  |
+|  ProductCode                    |  Device product code Or model name/Number. For example, EnviroMonitor#6800.  |
 |            Ports          |     Port Name and Type (Digital/Analog)
-|     Name                 |  Name to identify resource. For example, Model Name/Product Name
+|     Name                 |  Name to identify resource. For example, model name/product name.
       Description     |Provide a meaningful description of the model
 |    Properties          |    Additional properties from the manufacturer   |
 |    **Device**             |                      |
-|   DeviceModelId     |     ID of the associated Device Model  |
+|   DeviceModelId     |     ID of the associated device model  |
 |  HardwareId	       | Unique ID for the device such as MAC address etc.,
 |  reportingInterval        |   Reporting Interval in seconds
 |  Location            |  Device Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)   
-|parentDeviceId       |         ID of the parent device to which this device is connected to. For example, A Node connected to a Gateway; Node will have parentDeviceId as the Gateway  |
-|    Name            | Name to identify resource. Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats|
+|parentDeviceId       |         ID of the parent device to which this device is connected. For example, a node connected to a gateway; node will have parentDeviceId as the gateway.  |
+|    Name            | A name to identify the resource. Device partners must send a name that is consistent with the device name on the partner side. If the partner device name is user-defined, then the same user-defined name should be propagated to FarmBeats.|
 |     Description       |      Provide a meaningful description  |
 |     Properties    |  Additional properties from the manufacturer
 |     **Sensor Model**        |          |
 |       Type (Analog, Digital)          |      type of sensor whether analog or digital       |
 |          manufacturer            |       the manufacturer of the sensor     |
-|     productCode| Product code or Model Name/Number. For example, RS-CO2-N01 |
+|     productCode| Product code or Model Name/Number. For example, RS-CO2-N01. |
 |       TsensorMeasures > Name	    | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry d              |
 |          sensorMeasures > DataType	   |Telemetry Data Type. Currently Double is supported|
-|    sensorMeasures > Type	  |Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to /ExtendedType API|
-|        sensorMeasures > Unit	            | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to /ExtendedType API|
-|    sensorMeasures > aggregationType	 |  Either of None, Average, Maximum, Minimum, StandardDeviation  |
-|          name            | Name to identify resource. For example, Model Name/Product Name  |
+|    sensorMeasures > Type	  |Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to /ExtendedType API.|
+|        sensorMeasures > Unit	            | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to /ExtendedType API.|
+|    sensorMeasures > aggregationType	 |  Values can be None, Average, Maximum, Minimum, or StandardDeviation  |
+|          name            | Name to identify resource. For example, model name/product name.  |
 |    description        | Provide a meaningful description of the model  |
 |   properties       |  Additional properties from the manufacturer  |
 |    **Sensor**      |          |
 | hardwareId          |   Unique ID for the sensor set by manufacturer |
-|  sensorModelId     |    ID of the associated Sensor Model   |
+|  sensorModelId     |    ID of the associated sensor model   |
 | location          |  Sensor Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)|
-|   port > name	       |  Name and Type of the port that the sensor is connected to on the device. This needs to be same name as defined in the Device Mode |
+|   port > name	       |  Name and Type of the port that the sensor is connected to on the device. This needs to be same name as defined in the device model. |
 |    deviceId  |    ID of the Device that the sensor is connected to     |
-| name	          |   Name to identify resource. For example, Sensor Name/Product Name and Model Number/Product Code.|
+| name	          |   Name to identify resource. For example, sensor name/product name and model number/product code.|
 |    description	  | Provide a meaningful description |
 |    properties        |Additional properties from the manufacturer |
 
-See [swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information each of the objects.
+For more informaiton about objects, see [swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 **API request to create metadata**
 
@@ -253,20 +257,21 @@ Now that you have created the devices and sensors in FarmBeats, you can send the
 
 **Create telemetry client**
 
-You must send the Telemetry to Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send telemetry data to FarmBeats, you need to create a client that sends messages to an Event Hub in FarmBeats. To know more about sending telemetry, [see](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+You must send the Telemetry to Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send telemetry data to FarmBeats, you need to create a client that sends messages to an Event Hub in FarmBeats. To know more about sending telemetry, [Azure event hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
 **Send telemetry message as the client**
 
 Once you have a connection established as an EventHub client, you can send messages to the EventHub as a json.  
 Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. The canonical message format is as below:  
 
-```json
 
+ ```
   {   
       “deviceid”: “<id of the Device created>”,   
       "timestamp": "<timestamp in ISO 8601 format>",     
       "version" : "1",   
-      "sensors": [     
+      "sensors":
+      [     
       {        
           "id": "<id of the sensor created>”       
           "sensordata": [         
@@ -283,9 +288,11 @@ Convert the historical sensor data format to a canonical format that Azure FarmB
     }
 ```
 
-After adding the corresponding devices/sensors. You must obtain the deviceid and the sensorid in the telemetry message, from the previous section.
+
+After adding the corresponding devices and sensors, obtain the deviceid and the sensorid in the telemetry message, as described in the previous section
 
 Example Telemetry message:
+
 
  ```json
 {
