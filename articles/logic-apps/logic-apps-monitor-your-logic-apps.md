@@ -61,9 +61,11 @@ To get notifications about failures or other possible problems, set up [alerts](
    > or control user access to this information by using 
    > [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
 
-1. To get more information about the run itself, on the toolbar, select **Run Details**. This information summarizes the steps, status, inputs, and outputs for the run.
+1. To get more information about the run itself, on the toolbar, select **Run Details**.
 
    ![On the toolbar, select "Run Details"](media/logic-apps-monitor-your-logic-apps/select-run-details-on-toolbar.png)
+
+   This information summarizes the steps, status, inputs, and outputs for the run.
 
    ![Review information about the run](media/logic-apps-monitor-your-logic-apps/review-logic-app-run-details.png)
 
@@ -87,67 +89,55 @@ In the **Summary** section, under **Evaluation**, select **See trigger history**
 
 <a name="azure-diagnostics"></a>
 
-## Turn on diagnostics logging for your logic app
+## Set up diagnostics logging
 
-For richer debugging with runtime details and events, 
-you can set up diagnostics logging with 
-[Azure Monitor logs](../log-analytics/log-analytics-overview.md). 
-Azure Monitor is a service in Azure 
-that monitors your cloud and on-premises environments 
-to help you maintain their availability and performance. 
+For richer debugging with runtime details and events, you can set up diagnostics logging with [Azure Monitor logs](../log-analytics/log-analytics-overview.md). Azure Monitor is a service in Azure that monitors your cloud and on-premises environments to help you maintain their availability and performance.
 
-Before you start, you need to have a Log Analytics workspace. Learn 
-[how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
+Before you start, you need to have a Log Analytics workspace. Learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
-1. In the [Azure portal](https://portal.azure.com), 
-   find and select your logic app. 
+1. In the [Azure portal](https://portal.azure.com), find and select your logic app.
 
-2. On the logic app blade menu, under **Monitoring**, 
-   choose **Diagnostics** > **Diagnostic Settings**.
+1. On your logic app menu, under **Monitoring**, select **Diagnostic settings** > **Add diagnostic setting**.
 
-   ![Go to Monitoring, Diagnostics, Diagnostic Settings](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
+   ![Under "Monitoring", select "Diagnostic settings" > "Add diagnostic setting"](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
-3. Under **Diagnostics settings**, choose **On**.
+1. To create the setting, follow these steps:
 
-   ![Turn on diagnostic logs](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
+   1. Provide a name for the setting.
 
-4. Now select the Log Analytics workspace and event category for logging as shown:
+   1. Select **Send to Log Analytics**.
 
-   1. Select **Send to Log Analytics**. 
-   2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS workspaces**, select the workspace 
-      to use for logging.
-      > [!NOTE]
-      > OMS workspaces are now referred to as Log Analytics workspaces.
-   4. Under **Log**, select the **WorkflowRuntime** category.
-   5. Choose the metric interval.
-   6. When you're done, choose **Save**.
+   1. For **Subscription**, select the Azure subscription for your Log Analytics workspace.
+
+   1. For **Log Analytics Workspace**, select the workspace that you want to use.
+
+   1. Under **log**, select the **WorkflowRuntime** category, which specifies the event category that you want to record.
+
+   1. To select all metrics, under **metric**, select **AllMetrics**.
+
+   1. When you're done, select **Save**.
 
    ![Select Log Analytics workspace and data for logging](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
-Now, you can find events and other data for trigger events, 
-run events, and action events.
+Now, you can find events and other data for trigger events, run events, and action events.
 
 <a name="find-events"></a>
 
-## Find events and data for your logic app
+## Review logged events and data
 
-To find and view events in your logic app, 
-like trigger events, run events, and action events, 
-follow these steps.
+To find and review the events and data from your logic app, such as trigger events, run events, and action events, follow these steps.
 
-1. In the [Azure portal](https://portal.azure.com), choose **All Services**. 
-Search for "log analytics", then choose **Log Analytics** as shown here:
+1. In the [Azure portal](https://portal.azure.com) search box, enter "log analytics workspaces" as your filter, and select **Log Analytics workspaces**.
 
-   ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
+   ![Find and select "Log Analytics workspaces"](media/logic-apps-monitor-your-logic-apps/find-select-log-analytics-workspaces.png)
 
-2. Under **Log Analytics**, find and select your Log Analytics workspace. 
+1. On the **Log Analytics workspaces** pane, select your workspace.
 
-   ![Select your Log Analytics workspace](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Select your Log Analytics workspace](media/logic-apps-monitor-your-logic-apps/select-log-analytics-workspace.png)
 
-3. Under **Management**, choose **Log Search**.
+1. On your workspace's menu, select **Logs**.
 
-   ![Choose "Log Search"](media/logic-apps-monitor-your-logic-apps/log-search.png)
+   ![On workspace menu, select "Logs"](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
 4. In the search box, specify a field that you want to find, and press **Enter**. 
 When you start typing, you see possible matches and operations that you can use. 
