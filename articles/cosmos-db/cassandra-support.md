@@ -101,24 +101,37 @@ Azure Cosmos DB Cassandra API is a managed service platform. It does not require
 
 ## CQL Shell  
 
-CQLSH command-line utility comes with Apache Cassandra 3.1.1 and works out of box with following environment variables enabled:
+CQLSH command-line utility comes with Apache Cassandra 3.1.1 and works out of box by setting some environment variables.
 
-Before running the following commands, [add a Baltimore root certificate to the cacerts store](https://docs.microsoft.com/java/azure/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store). 
+**Windows:**
 
-**Windows:** 
+If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
 
-```bash
-set SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to Baltimore root ca cert>
-set CQLSH_PORT=10350 
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
-```
 **Unix/Linux/Mac:**
 
 ```bash
-export SSL_VERSION=TLSv1_2 
-export SSL_CERTFILE=<path to Baltimore root ca cert>
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
+# Install default-jre and default-jdk
+sudo apt install default-jre
+sudo apt-get update
+sudo apt install default-jdk
+
+# Import the Baltimore CyberTrust root certificate:
+curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
+keytool -importcert -alias bc2025ca -file bc2025.crt
+
+# Install the Cassandra libraries in order to get CQLSH:
+echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install cassandra
+
+# Export the SSL variables:
+export SSL_VERSION=TLSv1_2
+export SSL_VALIDATE=false
+
+# Connect to Azure Cosmos DB API for Cassandra:
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
+
 ```
 
 ## CQL commands
