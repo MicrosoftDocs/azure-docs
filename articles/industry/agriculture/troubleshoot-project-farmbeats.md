@@ -35,7 +35,7 @@ For additional help, write to us at farmbeatssupport@microsoft.com, include depl
 3. In case there are **NO Incoming messages**, contact your device partner.  
 4. In case there are **Incoming messages**, contact farmbeatssupport@microsoft.com with Data hub and Accelerator logs and captured telemetry.
 
-See [Logs section](#collecting-logs-manually) of the document to understand how to download Logs.    
+See [Logs section](#collect-logs-manually) of the document to understand how to download Logs.    
 
 ### Device appears offline
 
@@ -57,9 +57,9 @@ Following are the common error scenarios while deleting a device:
 2. In case you want to associate the sensors to a different device, ask your device partner to do the same.  
 3. Delete the device using a DELETE API call setting the force parameter as ‘true’.  
 
-**Message** - Device is referenced in devices as ParentDeviceId: There are one or more devices that are associated with this device as child devices. Delete them, and then delete this device.  
+**Message**: Device is referenced in devices as ParentDeviceId: There are one or more devices that are associated with this device as child devices. Delete them, and then delete this device.  
 
-**Meaning** – Your device has other devices associated with it  
+**Meaning**: Your device has other devices associated with it  
 
 **Corrective action**
 
@@ -70,11 +70,11 @@ Following are the common error scenarios while deleting a device:
     > You cannot delete a device if sensors are associated with it. See [Delete Sensors](get-sensor-data-from-sensor-partner.md) in Get Sensor Data chapter for more information on how to delete associated sensors.
 
 
-## issues with jobs run
+## Issues with jobs
 
 ### FarmBeats Internal Error
 
-**Message** – FarmBeats internal error, see troubleshooting guide for more details.
+**Message**: FarmBeats internal error, see troubleshooting guide for more details.
 
 **Corrective action**:
  This could be because of a temporary failure in the data pipeline. Create the job once again. If the error persists, add the error in a post on the FarmBeats forum or contact FarmBeatsSupport@microsoft.com.
@@ -101,7 +101,7 @@ If you have already been added and are facing this error, try again by refreshin
 
 ### Accelerator - An unknown error occurred  
 
-**Message**:Error: An unknown error occurred
+**Message**: Error: An unknown error occurred
 
 **Corrective action**: This happens if you leave the page idle for too long. Refresh the page.  
 

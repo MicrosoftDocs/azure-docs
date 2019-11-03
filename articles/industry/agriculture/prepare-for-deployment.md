@@ -315,7 +315,7 @@ Existing Azure Active Directory app registration is used to deploy.
      - **Accelerator URL**: User Interface to explore FarmBeats Smart Farm Accelerator.
      - **Deployer log file**: saves logs during deployment and can be used for troubleshooting.
 
-If you encounter any issues, review [Troubleshoot](troubleshoot-project-farmbeats.md#deployment) section.
+If you encounter any issues, review [Troubleshoot](troubleshoot-project-farmbeats.md).
 
 
 ## Validate Deployment
