@@ -1,7 +1,7 @@
 ---
 title: Create a sentiment analysis model
-titleSuffix: Azure Machine Learning Studio
-description: How to create text analytics models in Azure Machine Learning Studio using modules for text preprocessing, N-grams or feature hashing
+titleSuffix: Azure Machine Learning Studio (classic)
+description: How to create text analytics models in Azure Machine Learning Studio (classic) using modules for text preprocessing, N-grams or feature hashing
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,9 +12,9 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
 ---
-# Create a sentiment analysis model in Azure Machine Learning Studio
+# Create a sentiment analysis model in Azure Machine Learning Studio (classic)
 
-You can use Azure Machine Learning Studio to build and operationalize text analytics models. These models can help you solve, for example, document classification or sentiment analysis problems.
+You can use Azure Machine Learning Studio (classic) to build and operationalize text analytics models. These models can help you solve, for example, document classification or sentiment analysis problems.
 
 In a text analytics experiment, you would typically:
 
@@ -61,7 +61,7 @@ As an alternative approach to using Extract N-Gram Features, you can use Feature
 ## Step 3: Train classification or regression model
 Now the text has been transformed to numeric feature columns. The dataset still contains string columns from previous stages, so we use Select Columns in Dataset to exclude them.
 
-We then use [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning Studio to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
+We then use [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in the classic version of Azure Machine Learning Studio to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
 
 ![Train and Score](./media/text-analytics-module-tutorial/scoring-text.png)
 

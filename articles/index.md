@@ -1661,21 +1661,32 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                          <a href="/azure/web-application-firewall/">
+                                                <img src="media/index/web-app-firewall.svg" alt="" />
+                                                <p>Web Application Firewall</p>
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
                                                 <img src="media/index/private-link.svg" alt="" />
                                                 <p>Azure Private Link</p>
                                             </a>
                                         </li>
+                                            <a href="/azure/peering-service/">
+                                                <img src="media/index/peering-service.svg" alt="" />
+                                                <p>Peering Service</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                            <a href="/azure/firewall-manager/">
+                                                <p>Azure Firewall Manager</p>
                                         <li>
-                                            <a href="/azure/internet-analyzer/">
                                                 <img src="media/index/internet-analyzer.svg" alt="" />
                                                 <p>Azure Internet Analyzer</p>
                                             </a>
                                         </li>
-                                    </ul>
                                     <h3>Security</h3>
                                     <ul>
-                                        <li>
                                             <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Security Information</p>
@@ -5596,11 +5607,51 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                <a href="/azure/web-application-firewall/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/web-app-firewall.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Web Application Firewall</h3>
+                                                    <p>Provide centralized protection for your web applications from common exploits and vulnerabilities</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/peering-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/peering-service.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Peering Service</h3>
+                                                    <p>Get optimal internet connectivity to access the Microsoft network</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#security">Security</a>
+                        <ul id="security" class="cardsA">
+                            <li>
+                                <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
                                                     <div class="cardImage">
                                                         <img src="media/index/private-link.svg" alt="" />
                                                     </div>
@@ -5615,62 +5666,17 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/internet-analyzer/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/internet-analyzer.svg" alt="" />
-                                                    </div>
+                                                        <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Internet Analyzer</h3>
-                                                    <p>Test how application and content delivery architectures in Azure impact your customers’ performance with this client-side measurement platform</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#security">Security</a>
-                        <ul id="security" class="cardsA">
-                            <li>
-                                <a href="/azure/security/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Security Information</h3>
-                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/security-center">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
+                                                    <h3>Azure Firewall Manager</h3>
+                                                    <p>A globally distributed security management service</p>
                                                         <img src="media/index/SecurityCenter.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
                                                     <p>Unify security management and enable advanced threat protection across hybrid cloud workloads</p>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

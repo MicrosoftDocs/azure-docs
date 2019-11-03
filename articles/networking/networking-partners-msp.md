@@ -40,7 +40,7 @@ Use the links in this section for more information about managed cloud networkin
 
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 
-[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
+[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/
 
 [ixreach](https://www.ixreach.com/)
 
