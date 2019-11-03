@@ -82,7 +82,7 @@ Blockchain Data Manager requires the deployed bytecode for the smart contract. T
 
 1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
 1. Find the **deployedBytecode** element in the JSON file.
-1. Copy the hexidecimal value without the quotes.
+1. Copy the hexadecimal value without the quotes.
 
     ![Visual Studio Code pane with bytecode in the metadata](./media/data-manager-portal/bytecode-metadata.png)
 
@@ -255,6 +255,8 @@ truffle exec sendrequest.js --network <blockchain network>
 
 Replace \<blockchain network\> with the name of the blockchain network defined in the **truffle-config.js**.
 
+![Send transaction](./media/data-manager-cosmosdb/send-request.png)
+
 ## View blockchain transaction data
 
 Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you can view the blockchain transaction messages in Cosmos DB Data Explorer.
@@ -269,15 +271,17 @@ Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you
 
     [![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
-    The raw transaction message contains detail about the transaction. However, event and property information is encrypted.
+    The raw transaction message contains detail about the transaction. However, the property information is encrypted.
 
-Since you added the HelloBlockchain smart contract to the Blockchain Data Manager instance, **DecodedContractEvents** and **ContractProperties** message types are also sent. These message types contain decoded event and property information.
+Since you added the HelloBlockchain smart contract to the Blockchain Data Manager instance, a **ContractProperties** message type is also sent that contains decoded property information.
 
-1. Find the **ContractProperties** message for the transaction you sent in a previous step.
+1. Find the **ContractProperties** message for the transaction. It should be the next message in the list.
 
     [![Blockchain transaction detail](./media/data-manager-cosmosdb/properties-msg.png)](./media/data-manager-cosmosdb/properties-msg.png#lightbox)
 
-You have successfully created a transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+    The **DecodedProperties** array contains the properties of the transaction.
+
+Congratulations! You have successfully created a transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
 
 ## Clean up resources
 
