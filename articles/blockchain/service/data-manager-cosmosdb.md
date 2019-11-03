@@ -36,7 +36,7 @@ In this tutorial, you:
 * Create an [Event Grid Topic](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Learn about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md)
 
-## Create Blockchain Data Manager instance
+## Create instance
 
 A Blockchain Data Manager instance connects and monitors an Azure Blockchain Service transaction node. An instance captures all raw block and raw transaction data from the transaction node. An outbound connection sends blockchain data to Azure Event Grid. You configure a single outbound connection when you create the instance.
 
@@ -59,7 +59,7 @@ A Blockchain Data Manager instance connects and monitors an Azure Blockchain Ser
 
     It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. A running Blockchain Data Manager instance captures blockchain events from the transaction node and sends data to event grid.
 
-## Add helloblockchain application
+## Add application
 
 Add the **helloblockchain** blockchain application so that Blockchain Data Manager decodes event and property state. Blockchain Data Manager requires the smart contract ABI and bytecode file to add the application.
 
@@ -155,7 +155,7 @@ For each blob, generate a shared access signature.
 
 You can delete the Azure Storage account or use it to configure more blockchain applications. If you wish to delete the Azure Storage account, you can delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group.
 
-## Create Azure Cosmos DB account
+## Create Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-create-storage-account](../../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -256,7 +256,7 @@ Replace \<blockchain network\> with the name of the blockchain network defined i
 
 ![Send transaction](./media/data-manager-cosmosdb/send-request.png)
 
-## View blockchain transaction data
+## View transaction data
 
 Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you can view the blockchain transaction messages in Cosmos DB Data Explorer.
 
