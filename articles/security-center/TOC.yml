@@ -115,8 +115,6 @@
     href: security-center-enable-data-collection.md
   - name: Set up advanced threat protection for Azure Key Vault
     href: advanced-threat-protection-key-vault.md
-  - name: Automatically protect your AWS EC2 instances
-    href: workload-protection-aws-ec2-instances.md
   - name: Set up email notifications
     href: security-center-provide-security-contact-details.md
   - name: Pricing
