@@ -21,10 +21,9 @@ Azure Security Center is the Azure-native solution for container security. Secur
 
 This article describes how you can improve, monitor, and maintain the security of your containers and their apps. You'll learn how Security Center helps with these core aspects of container security:
 
-> [!div class="checklist"]
-> * Vulnerability management
-> * Hardening of the container's environment
-> * Runtime protection
+* Vulnerability management
+* Hardening of the container's environment
+* Runtime protection
 
 [![Azure Security Center's container security tab](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
