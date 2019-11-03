@@ -62,9 +62,9 @@ Follow the below steps to generate these:
 
  FarmBeats Data hub has the following APIs that enable creation and management of device/sensor metadata.   
 
-- /**DeviceModel** - Device Model corresponds to the metadata of the device such as the Manufacturer, Type of the device either Gateway or Node.  
+- /**DeviceModel** - Device Model corresponds to the metadata of the device such as the manufacturer, type of the device either gateway or node.  
 - /**Device** - Device corresponds to a physical device present in the farm.  
-- /**SensorModel** - Sensor Model corresponds to the metadata of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
+- /**SensorModel** - Sensor Model corresponds to the metadata of the sensor such as the manufacturer, type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
 - /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.  
 
 
@@ -90,7 +90,7 @@ Follow the below steps to generate these:
 |       Type (Analog, Digital)          |      type of sensor whether analog or digital       |
 |          manufacturer            |       the manufacturer of the sensor     |
 |     productCode| Product code or Model Name/Number. For example, RS-CO2-N01. |
-|       TsensorMeasures > Name	    | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry d              |
+|       sensorMeasures > Name	    | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry d              |
 |          sensorMeasures > DataType	   |Telemetry Data Type. Currently Double is supported|
 |    sensorMeasures > Type	  |Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to /ExtendedType API.|
 |        sensorMeasures > Unit	            | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to /ExtendedType API.|
@@ -103,12 +103,12 @@ Follow the below steps to generate these:
 |  sensorModelId     |    ID of the associated sensor model   |
 | location          |  Sensor Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)|
 |   port > name	       |  Name and Type of the port that the sensor is connected to on the device. This needs to be same name as defined in the device model. |
-|    deviceId  |    ID of the Device that the sensor is connected to     |
+|    deviceID  |    ID of the Device that the sensor is connected to     |
 | name	          |   Name to identify resource. For example, sensor name/product name and model number/product code.|
 |    description	  | Provide a meaningful description |
 |    properties        |Additional properties from the manufacturer |
 
-For more informaiton about objects, see [swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+For more information about objects, see [swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 **API request to create metadata**
 
