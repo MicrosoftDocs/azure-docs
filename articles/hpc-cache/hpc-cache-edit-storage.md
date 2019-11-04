@@ -4,7 +4,7 @@ description: How to edit Azure HPC Cache storage targets
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 11/4/2019
 ms.author: rohogue
 ---
 
@@ -21,7 +21,7 @@ You can edit storage targets to modify some of their properties. Different prope
   * Export
   * Export subdirectory
 
-You can't edit a storage target's name or its back-end storage system. If you need to change these properties, delete the storage target and create a replacement with the new value.
+You can't edit a storage target's name, type, or back-end storage system (Blob container or NFS hostname/IP address). If you need to change these properties, delete the storage target and create a replacement with the new value.
 
 To modify a storage target, click the storage target name to open its details page. Some fields in the page are editable.
 
@@ -36,7 +36,7 @@ For an NFS storage target, you can update several properties. (Refer to the scre
 * **NFS export path** - The storage system export to use for this namespace path.
 * **Subdirectory path** - The subdirectory (under the export) to associate with this namespace path. Leave this field blank if you don't need to specify a subdirectory.
 
-Each namespace path has to have a unique combination of export and subdirectory. You can't make two different client-facing paths to the exact same directory on the back-end storage system.
+Each namespace path needs a unique combination of export and subdirectory. That is, you can't make two different client-facing paths to the exact same directory on the back-end storage system.
 
 After making changes, click **OK** to update the storage target, or click **Cancel** to discard changes.
 
