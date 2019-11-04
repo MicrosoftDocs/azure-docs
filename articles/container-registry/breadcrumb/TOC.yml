@@ -5,3 +5,9 @@
   - name: Container Registry
     tocHref: /azure/security-center/
     topicHref: /azure/container-registry/index
+  - name: Container Registry
+    tocHref: /azure/aks/
+    topicHref: /azure/container-registry/index
+  - name: Container Registry
+    tocHref: /azure/event-grid/
+    topicHref: /azure/container-registry/index
