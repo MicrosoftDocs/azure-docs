@@ -32,18 +32,18 @@ For example, let's suppose that you are running one general purpose, Gen5 – 32
 
 ## Buy Azure Database for MySQL reserved capacity
 
-* Sign in to the [Azure portal](https://portal.azure.com/).
-* Select **All services** > **Reservations**.
-* Select **Add** and then in the Purchase reservations pane, select **Azure Database for MySQL** to purchase a new reservation for your MySQL databases.
-* Fill-in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Database for MySQL servers that get the discount depend on the scope and quantity selected.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Select **All services** > **Reservations**.
+3. Select **Add** and then in the Purchase reservations pane, select **Azure Database for MySQL** to purchase a new reservation for your MySQL databases.
+4. Fill-in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Database for MySQL servers that get the discount depend on the scope and quantity selected.
 
 
-**IMAGE FOR THE AZURE DATABASE FOR MYSQL RESERVATION**
+![Overview of reserved pricing](media/concepts-reserved-pricing/mysql-reserved-price.png)
 
 
 The following table describes required fields.
 
-| **Field** | **Description** |
+| Field | Description |
 | :------------ | :------- |
 | Subscription   | The subscription used to pay for the Azure Database for MySQL reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the Azure Database for MySQL reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.
 | Scope | The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the vCore reservation discount is applied to Azure Database for MySQL servers running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the vCore reservation discount is applied to Azure Database for MySQL servers in this subscription. </br></br> **Single resource group**, the reservation discount is applied to Azure Database for MySQL servers in the selected subscription and the selected resource group within that subscription.
