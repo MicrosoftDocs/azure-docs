@@ -91,7 +91,9 @@
       - name: Virtual network
         href: concepts-data-access-and-security-vnet.md
       - name: Connectivity architecture
-        href: concepts-connectivity-architecture.md      
+        href: concepts-connectivity-architecture.md
+      - name: Azure AD authentication
+        href: concepts-aad-authentication.md
     - name: Business continuity
       items:
       - name: Business continuity intro
@@ -153,8 +155,14 @@
         href: concepts-hyperscale-firewall-rules.md
       - name: Configure SSL
         href: concepts-hyperscale-ssl-connection-security.md
+    - name: Monitor and tune
+      items:
+      - name: Monitor and tune
+        href: concepts-hyperscale-monitoring.md
     - name: PostgreSQL extensions
       href: concepts-hyperscale-extensions.md
+    - name: High availability
+      href: concepts-hyperscale-high-availability.md
     - name: Resources
       items:
       - name: Configuration options
@@ -163,8 +171,12 @@
   items:
   - name: Single server
     items:
-    - name: Create users 
-      href: howto-create-users.md
+    - name: Authentication
+      items:
+        - name: Create users
+          href: howto-create-users.md
+        - name: Configure Azure AD integration
+          href: howto-configure-sign-in-aad-authentication.md
     - name: Optimize
       items: 
         - name: Bulk inserts
@@ -245,12 +257,20 @@
         href: howto-read-replicas-cli.md
   - name: Hyperscale (Citus)
     items:
-    - name: Scaling
+    - name: Create users
+      href: howto-hyperscale-create-users.md
+    - name: Scale
       href: howto-hyperscale-scaling.md
     - name: Manage firewall
       items:
       - name: Azure portal
         href: howto-hyperscale-manage-firewall-using-portal.md
+    - name: High availability
+      href: howto-hyperscale-high-availability.md
+    - name: Monitor
+      items:
+      - name: Create alerts on metrics
+        href: howto-hyperscale-alert-on-metric.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot connection errors

@@ -806,7 +806,7 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 2. **Multiclass classification**: To predict the range of tip paid, according to the previously defined classes.
 3. **Regression task**: To predict the amount of tip paid for a trip.
 
-To begin the modeling exercise, log in to your **Azure Machine Learning** workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning studio workspace](../studio/create-workspace.md).
+To begin the modeling exercise, log in to your **Azure Machine Learning (classic)** workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning Studio (classic) workspace](../studio/create-workspace.md).
 
 1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
@@ -827,7 +827,7 @@ A typical training experiment consists of the following steps:
 
 In this exercise, we have already explored and engineered the data in SQL Data Warehouse, and decided on the sample size to ingest in Azure Machine Learning studio. Here is the procedure to build one or more of the prediction models:
 
-1. Get the data into Azure Machine Learning studio using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
+1. Get the data into Azure Machine Learning Studio (classic) using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
 
     ![Azure ML Import Data][17]
 2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.

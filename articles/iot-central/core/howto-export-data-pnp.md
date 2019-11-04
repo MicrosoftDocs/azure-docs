@@ -190,7 +190,7 @@ Each message or record in a snapshot represents one or more changes to a device 
 
 - `@id` of the device in IoT Central
 - `name` of the device
-- `deviceId` from [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
+- `deviceId` from [Device Provisioning Service](/azure/iot-central/core/howto-connect-nodejs)
 - Device template information
 - Property values
 
