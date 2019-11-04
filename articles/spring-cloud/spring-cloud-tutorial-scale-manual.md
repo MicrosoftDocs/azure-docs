@@ -1,12 +1,10 @@
 ---
 title: "Tutorial: Scale an application in Azure Spring Cloud | Microsoft Docs"
 description: In this tutorial, you learn how to scale an application in Azure Spring Cloud on the Azure portal
-services: spring-cloud
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.reviewer: jeconnoc
-ms.author: v-vasuke
-author: v-vasuke
+ms.author: jeconnoc
+author: jpconnock
 ms.date: 10/06/2019
 ---
 
