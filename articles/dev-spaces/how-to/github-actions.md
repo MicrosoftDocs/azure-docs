@@ -152,7 +152,7 @@ After the action has completed, you will see a comment with a URL to your new ch
 
 Navigate to the *bikesharingweb* service by opening the URL from the comment. Select *Aurelia Briggs (customer)* as the user, then select a bike to rent. Verify you no longer see the placeholder image for the bike.
 
-If you merge your changes into the *dev* branch, another action will run to rebuild and run your entire application in the parent dev space. This requires In this example, the parent space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+If you merge your changes into the *dev* branch, another action will run to rebuild and run your entire application in the parent dev space. In this example, the parent space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## Clean up your Azure resources
 
