@@ -36,12 +36,12 @@
     #   href: article-template.md
     # - name: With SQL Analytics pool
     #   href: article-template.md
-    # - name: With SQL on-demand
-    #   href: article-template.md
+    - name: With SQL on-demand
+      href: sql-analytics/quickstart-sql-on-demand.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Tutorials
   items:
-  # - name: BI Professional
-  #   href: article-template.md
+  - name: Power BI Professional
+    href: sql-analytics/tutorial-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Data Scientist
     items:
     - name: Predict food inspection results
@@ -73,7 +73,7 @@
     # - name: Spark pool template
     #   href: article-template.md
   - name: SQL Analytics on-demand
-    href: ../synapse-analytics/sql-analytics/sql-analytics-on-demand-workspace-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: sql-analytics/sql-analytics-on-demand-workspace-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Pipeline and activity
     href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Execution and trigger
@@ -266,14 +266,14 @@
     items:
     - name: Overview
       items:
-      - name: What is SQL Analytics pool and SQL on demand
-        href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      # - name: SQL on demand 
-      #   href: article-template.md
+    #  - name: What is SQL Analytics pool and SQL on demand
+    #    href: 
+      - name: SQL Analytics on-demand
+        href: sql-analytics/on-demand.md
       - name: SQL Analytics pool 
+        href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Architecture
         href: ../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      # - name: Architecture
-      #   href: article-template.md
       - name: Resource consumption models
         href: sql-analytics/resource-consumption-models.md
       - name: Best practices
@@ -324,10 +324,12 @@
           href: sql-analytics/development-tables-statistics.md
         - name: Temporary
           href: sql-analytics/development-tables-temporary.md
-        # - name: External tables
-        #   href: article-template.md
-        # - name: CETAS
-        #   href: article-template.md
+        - name: OPENROWSET
+          href: sql-analytics/development-openrowset.md
+        - name: External tables
+          href: sql-analytics/development-tables-external-tables.md
+        - name: CETAS
+          href: sql-analytics/development-tables-cetas.md
       - name: T-SQL language elements
         items:
         - name: Loops
@@ -339,11 +341,11 @@
         - name: Transaction Best Practices
           href: sql-analytics/development-transaction-best-practices.md
         - name: User-defined schemas
-          href: sql-analytics/development-user-defined-schemas.md
+          href: sql-analytics/development-user-defined-schemas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Variable assignment
-          href: sql-analytics/development-variable-assignment.md
+          href: sql-analytics/development-variable-assignment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Views
-          href: sql-analytics/development-views.md
+          href: sql-analytics/development-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Querying
       items:
       - name: Dynamic SQL
@@ -352,8 +354,14 @@
         href: sql-analytics/development-group-by-options.md
       - name: Labels
         href: sql-analytics/development-label.md
-      # - name: Storage files
-      #   href: article-template.md
+      - name: Storage files
+        items:
+        - name: Overview
+          href: sql-analytics/development-storage-files-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Storage Access Control
+          href: sql-analytics/development-storage-files-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Spark tables
+          href: sql-analytics/development-storage-files-spark-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Workload management
       items:
       - name: Resource classes & workload management
@@ -512,22 +520,24 @@
 #           href: article-template.md
       - name: Query data in storage
         items:
-#         - name: Querying single CSV file
-#           href: article-template.md
-#         - name: Querying folders and multiple CSV files
-#           href: article-template.md
-#         - name: Querying specific files
-#           href: article-template.md
-#         - name: Querying Parquet files
-#           href: article-template.md
-#         - name: Querying Parquet nested types
-#           href: article-template.md
-#         - name: Querying JSON files
-#           href: article-template.md
-#         - name: Creating and using views
-#           href: article-template.md
-#         - name: Querying Spark tables
-#           href: article-template.md
+        - name: Overview
+          href: sql-analytics/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Query single CSV file
+          href: sql-analytics/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Query folders and multiple CSV files
+          href: sql-analytics/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Query specific files
+          href: sql-analytics/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Query Parquet files
+          href: sql-analytics/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Query Parquet nested types
+          href: sql-analytics/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Query JSON files
+          href: sql-analytics/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Create and use views
+          href: sql-analytics/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+#         - name: Query Spark tables
+#           href: query-spark-tables.md
 #       - name: Best practices
 #         href: article-template.md
     - name: Spark
@@ -937,17 +947,17 @@
     - name: SQL Analytics
       items:
       - name: Overview
-        href: ../sql-data-warehouse/sql-data-warehouse-connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      # - name: Query with ADS
-      #   href: article-template.md
+        href: sql-analytics/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query with Azure Data Studio
+        href: sql-analytics/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connection strings
-        href: ../sql-data-warehouse/sql-data-warehouse-connection-strings.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: sqlcmd
-        href: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-sqlcmd.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/connection-strings.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query with sqlcmd
+        href: sql-analytics/get-started-connect-sqlcmd.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with SSMS
-        href: ../sql-data-warehouse/sql-data-warehouse-query-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with Visual Studio
-        href: ../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     # - name: Spark pool
     #   href: article-template.md
 - name: Reference
@@ -979,7 +989,7 @@
   # - name: Datasets
   #   href: article-template.md
   - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
   # - name: Naming Rules
   #   href: article-template.md
   - name: Pricing
