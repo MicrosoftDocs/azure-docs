@@ -18,17 +18,17 @@ HDInsight provides customized infrastructure to ensure that four primary service
 
 - Apache Ambari server
 - Application Timeline Server for Apache YARN
-- Job History Server
+- Job History Server for Hadoop MapReduce
 - Apache Livy
 
-To achieve this level of dependability, HDInsight has developed a unique reliability infrastructure to support these services and provide automatic failover capabilities. This infrastrucuture consists of a number of services and software components, some of which are designed by HDInsight. The following components are unique to the HDInsight platform:
+To achieve this level of dependability, HDInsight has developed a unique reliability infrastructure to support these services and provide automatic failover capabilities. This infrastructure consists of a number of services and software components, some of which are designed by HDInsight. The following components are unique to the HDInsight platform:
 
 - Slave failover controller
 - Master failover controller
 - Slave high availability service
 - Master high availability service
 
-There are also other high availability services which are supported by open source Apache reliability services. These components are also present on HDInsight clusters, but are not supported by HDInsight:
+There are also other high availability services which are supported by open source Apache reliability services. These components are also present on HDInsight clusters, but are not developed by HDInsight:
 
 - HDFS NameNode
 - YARN Resource Manager
@@ -38,13 +38,13 @@ The following sections will provide more detail about how these services work to
 
 ## HDInsight High Availability Services
 
-Microsoft provides support for the four Apache services in the followin table in HDInsight clusters. To distinguish them from availability services provided by Apache, they are called HDInsight HA services.
+Microsoft provides support for the four Apache services in the following table in HDInsight clusters. To distinguish them from availability services provided by Apache, they are called HDInsight HA services.
 
 | Service | Cluster nodes | Cluster types | Purpose |
 |---|---|---|---|
 | Apache Ambari server| Active headnode | All | Monitors and manages the cluster.|
 | Application Timeline Server for Apache YARN | Active headnode | All except Kafka | Maintains debugging info about YARN jobs running on the cluster.|
-| Job History Server | Active headnode | All except Kafka | Maintains debugging data for MapReduce jobs.|
+| Job History Server for Hadoop MapReduce | Active headnode | All except Kafka | Maintains debugging data for MapReduce jobs.|
 | Apache Livy | Active headnode | Spark | Enables easy interaction with a Spark cluster over a REST interface |
 
 >[!Note]
