@@ -5669,7 +5669,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Internet Analyzer</h3>
-                                                    <p>Evaluate how networking infrastructure changes impact performance/p>
+                                                    <p>Evaluate how networking infrastructure changes impact your customers’ performance</p>
                                                 </div>
                                             </div>
                                         </div>
