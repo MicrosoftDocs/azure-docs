@@ -87,9 +87,9 @@ For authentication and authorization on Azure FarmBeats, you must have an Azure 
 
 If you already have a subscription, you can directly move to the next procedure.
 
-**Case 2**: This method is the preferred step when you don't have enough rights to create and configure an AAD app registration within your subscription. Request your  admin to use the [custom script](https://aka.ms/Create_AAD_App_Powershell_Script),  which will help IT admin automatically generate and configure the AAD app registration on the Azure portal. As an output to running this custom script using PowerShell environment the IT admin needs to share an Azure Active Directory Application Client ID and password secret with you. Make a note of these values.
+**Case 2**: This method is the preferred step when you don't have enough rights to create and configure an Azure AD app registration within your subscription. Request your  admin to use the [custom script](https://aka.ms/Create_AAD_App_Powershell_Script),  which will help IT admin automatically generate and configure the Azure AD app registration on the Azure portal. As an output to running this custom script using PowerShell environment the IT admin needs to share an Azure Active Directory Application Client ID and password secret with you. Make a note of these values.
 
-Use the following steps to run the AAD application registration script:
+Use the following steps to run the Azure AD application registration script:
 
 1. Get the registration [script](https://aka.ms/PPCreateAADappregistration).
 2. Sign in to Azure portal and select your subscription and AD tenant.
@@ -105,7 +105,7 @@ Use the following steps to run the AAD application registration script:
     ```powershell
     ./create_add_script.ps1
     ```
-7. Make a note of the AAD application ID and client secret to share with person deploying Azure FarmBeats.
+7. Make a note of the Azure AD application ID and client secret to share with person deploying Azure FarmBeats.
 
 ## Create Azure FarmBeats offer on marketplace
 
@@ -147,9 +147,9 @@ Swagger website. The default is Data hub resource group name. Press enter to con
 |“farmbeatsAppId"  | Values to be shared by Team Azure FarmBeats.  |
 |"farmbeatsPassword"  | Values to be shared by Team Azure FarmBeats.|
 |“notificationEmailAddress”  | Email address to receive the notifications for any alerts that you configure within Data hub.|
-|“upda"aadAppClientId" "  |[**Optional**] Parameter to be included within Input.Json only if AAD app already exists.  - True/False. False for a first-time installation and True for Upgrade scenario.|
-|"aadAppClientId"  | [**Optional**] Parameter to be included within Input.Json only if AAD app already exists.  |
-|"aadAppClientSecret"   | [**Optional**] Parameter to be included within Input.Json only if AAD app already exists.|
+|“upda"aadAppClientId" "  |[**Optional**] Parameter to be included within Input.Json only if Azure AD app already exists.  - True/False. False for a first-time installation and True for Upgrade scenario.|
+|"aadAppClientId"  | [**Optional**] Parameter to be included within Input.Json only if Azure AD app already exists.  |
+|"aadAppClientSecret"   | [**Optional**] Parameter to be included within Input.Json only if Azure AD app already exists.|
 
 **Add Azure active directory**
 
@@ -191,7 +191,7 @@ As part of the marketplace workflow you've created one Resource Group and signed
 
 ### Deployment scenario 1
 
-Installer creates the AAD (you have AD tenant read permissions).  
+Installer creates the Azure AD (you have AD tenant read permissions).  
 
 1. Download the [input.json](https://aka.ms/PPInputJsonTemplate) template. Include the Azure Application client ID and password in the input.json file, and save it.
 2. Open the downloaded file in a notepad and populate the file by entering the values.
@@ -216,7 +216,7 @@ Installer creates the AAD (you have AD tenant read permissions).
     > You can skip this step and the inputs will prompt at run-time.
 
 3. Save the file and make a note of the path (on your local computer).  
-4. Go to Azure Cloud Shell and after successful authentication, select the upload (see highlighted icon in below image) and upload the input.json file to Cloud Shell storage. You need not pass the Azure Active Directory (AAD) parameter within the json as installer will be creating and configuring the AAD app registration for you.
+4. Go to Azure Cloud Shell and after successful authentication, select the upload (see highlighted icon in below image) and upload the input.json file to Cloud Shell storage. You need not pass the Azure AD parameter within the json as installer will be creating and configuring the Azure AD app registration for you.
 
    ![Project Farm Beats](./media/prepare-for-deployment/bash-2-1.png)
 

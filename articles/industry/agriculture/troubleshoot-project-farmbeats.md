@@ -245,17 +245,17 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 
 ### Azure Active Directory related issues
 
-**Error**: Could not update required settings to AAD App d41axx40-xx21-4fbd-8xxf-97xxx9e2xxc0: Insufficient privileges to complete the operation. Ensure that above settings are configured properly for the AAD App.
+**Error**: Could not update required settings to Azure AD App d41axx40-xx21-4fbd-8xxf-97xxx9e2xxc0: Insufficient privileges to complete the operation. Ensure that above settings are configured properly for the Azure AD App.
 
-**Meaning**: The AAD app registration configuration didn’t happen properly.  
+**Meaning**: The Azure AD app registration configuration didn’t happen properly.  
 
-**Corrective action**: ask the IT admin (having tenant read access) to use our [script](https://aka.ms/PPCreateAADappregistration) for generating creating the Azure Active Directory app registration. This script will automatically take care of the configuration steps as well. as  
+**Corrective action**: ask the IT admin (having tenant read access) to use our [script](https://aka.ms/PPCreateAADappregistration) for generating creating the Azure AD app registration. This script will automatically take care of the configuration steps as well. as  
 
 **Error**: Could not create new Active Directory Application “dummyname” in this tenant: Another object with the same value for property identifier URIs already exists
 
-**Meaning**: AAD app registration with the same name already exists.
+**Meaning**: Azure AD app registration with the same name already exists.
 
-**Corrective action**: Delete the existing AAD app registration or reuse it for installation. If you are reusing the existing AAD pass the Application ID and client secret to the installer and redeploy.
+**Corrective action**: Delete the existing Azure AD app registration or reuse it for installation. If you are reusing the existing Azure AD pass the Application ID and client secret to the installer and redeploy.
 
 ## Input.json related issues
 
