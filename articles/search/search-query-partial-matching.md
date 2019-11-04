@@ -14,23 +14,23 @@ ms.date: 11/04/2019
 
 When string composition includes upper and lowercase text with special characters, additional work is sometimes necessary before queries can return matching documents in your index. 
 
-Analyzers, which tokenize terms during indexing and query analysis, add transformative processes that fundamentally change strings. Common transformations include lower-casing any upper-case text, and breaking down composite terms into smaller parts when characters like dashes, periods, and slashes are encountered. 
+Analyzers, which tokenize terms during indexing, modify strings en route. Common transformations include lower-casing any upper-case text, removing non-essential words, and breaking down composite terms into smaller parts when characters like dashes, periods, and slashes are encountered. 
 
-Given the default analyzer, consider how the following fictitious feature code, `"MSFT/SQL.2019/Linux&Java-Ext"`, would be tokenized into smaller parts: `msft`, `sql`, `2019`, `linux`, `java`, `ext`. Assuming these transformations, you can imagine how searching on a partial term like `"MSFT/SQL"` becomes problematic when the index contains only segments of the term, and not the combinations you expect.
+Assuming the default standard Lucene analyzer, consider how the following fictitious feature code, `"MSFT/SQL.2019/Linux&Java-Ext"`, would be tokenized into smaller parts: `msft`, `sql`, `2019`, `linux`, `java`, `ext`. Given these transformations, you can imagine how searching on a partial term like `"MSFT/SQL"` becomes problematic when the index contains only segments of the term, and not the combinations you expect.
 
 To enable pattern matching over complex strings, you need to address the following challenges:
 
-+ Control the tokenization process to ensure your index actually contains the required information. Instead of segmented terms, you want *intact* terms so that partial and pattern matching can succeed.
++ Control the tokenization process to ensure your index actually contains the required information. Instead of segmented terms, you want *intact* terms so that partial and pattern matching can succeed. You can add token filters for additional modifications.
 
 + Create queries that do the best job of setting up the matching criteria. Wildcard queries are a common approach, but you could also incorporate regular expressions for advanced scenarios.
 
 ## Set up analyzers
 
-Tokenization is a product of analyzers. The default analyzer is standard Lucene, but you can override the default rules by providing custom analyzers, which you can set field-by-field according to your needs.
+Tokenization is a product of analyzers. The default analyzer is standard Lucene, but you can override the default rules by providing [custom analyzers](index-add-custom-analyzers.md), which you can set field-by-field.
 
 Analyzers are called during indexing and during query execution. It's common to use the same analyzer for both but you can configure custom analyzers for each workload. Analyzer overrides are specified in the [index definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in an `analyzers` section, and then referenced on specific fields. 
 
-### Keyword tokenizer with lower-case token filter
+### Keyword tokenizer with additional token filters
 
 To preserve whole terms in the token, we recommend using keyword tokenizer because it creates a single token for the entire contents of a field. The following example is an illustration of a custom analyzer that provides the keyword tokenizer. This custom analyzer is referenced on the 'featureCode' field definition, but defined further down in the index schema.
 
@@ -78,6 +78,20 @@ A token filter adds additional processing over existing tokens in your index. Th
 }
 ```
 
+### Dedicated analyzers for indexing and query execution
+
+If custom analysis is only required during indexing, you can apply the custom analyzer to just indexing and continue to use the standard Lucene analyzer (or another analyzer) for queries.
+
+To specify role-specific analysis, you can set properties on the field for each one:
+
+```json
+"name": "featureCode",
+"indexAnalyzer":"myCustomAnalyzer",
+"searchAnalyzer":"standard",
+```
+
+> [!Tip]
+> You can also define separate fields if you want to vary field definition (for example, `featureCodeIndexing` to support the search behaviors you want over that field, and a separate `featureCode` field for other search scenarios.
 
 <!-- In full text search, query patterns that include spaces or characters (like dashes, slashes, quotes, commas, and periods) are problematic because [analyzers](search-lucene-query-architecture.md#stage-1-query-parsing) both strip out those characters at query time, and use them during indexing to break up and tokenize terms into smaller searchable parts. For example, using the default analyzer, this Microsoft phone number, 800-642-7676, would be tokenized into 3 separate components, which makes finding an exact match on the whole term less likely.
 
@@ -149,28 +163,16 @@ The following table includes examples that indicate a need for a RegEx search:
 | `"ABCD.23PT1111/Dur/5min"` | Composite terms like this one often need to be matched using partial term queries built from combinations of each part (for example, `1111/Dur/5min`). This type of query is virtually impossible to do unless you are using un-analyzed text and a RegEx query. | -->
 
 
+## Query definitions
 
-## Create a RegEx query
+[Wildcard](search-query-lucene-examples.md#example-7-wildcard-search) and [Regular expression (RegEx)](search-query-lucene-examples.md#example-6-regex) queries are often used to find patterns on content that is expressed as full tokens in an index. 
 
-[Regular expression (RegEx) queries](search-query-lucene-examples.md#example-6-regex) are used to find patterns on content that is expressed as full tokens in an index. 
+1. On the query expression, add `querytype=full` to specify the full Lucene query syntax used for wildcard and RegEx queries.
 
-1. On the query expression, add `querytype=full` to specify the full Lucene query syntax. This is the syntax that provides regular expressions.
-
-2. Add wildcard characters around your pattern or term, such as `/.*800-642.*/`
-
+2. Add `*` or `?` wildcard characters, or for RegEx queries, enclose your pattern or term with `/`, such as `fieldCode:/SQL*Java-Ext/`
 
 > [!NOTE]
 > You might be inclined to also use `searchFields` as a field constraint, or set `searchMode=all` as an operator contraint, but in most cases you won't need either one. A regular expression query is typically sufficient for finding an exact match, assuming your index is also set up as described in this article.
-
-## Resolving unexpected outcomes
-
-When queries fail to match on content that you know exists, it could be that the content doesn't exist the way you expect it to in the index, or that the query syntax is not valid. This section explores some of the more common issues.
-
-1. Exact phrase returns no results
-
-A keyword tokenizer will output one token for field content. For example, "ABCD.23PT1111/Dur/5min" will be indexed exactly as-is, and any query terms should be exactly the same to match this token from the index. 
-
-Wildcard queries don’t go through analysis, but get lower-cased by design, which will cause a case mismatch. 
 
 
 ## Next steps
