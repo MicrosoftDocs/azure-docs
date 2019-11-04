@@ -1676,10 +1676,7 @@ featureFlags:
                                                 <img src="media/index/peering-service.svg" alt="" />
                                                 <p>Peering Service</p>
                                             </a>
-                                        </li>
-                                    </ul>
-                                            <a href="/azure/firewall-manager/">
-                                                <p>Azure Firewall Manager</p>
+                                        </li> 
                                         <li>
                                                 <img src="media/index/internet-analyzer.svg" alt="" />
                                                 <p>Azure Internet Analyzer</p>
