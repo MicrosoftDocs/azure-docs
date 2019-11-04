@@ -1,9 +1,5 @@
 - name: Fundamentals Documentation
-  href: index.md
-- name: Architecture and design
-  href: overview.md
-  expanded: false
-  items:
+  href: index.yml
 - name: Architecture and design
   href: overview.md
   expanded: false
@@ -44,7 +40,8 @@
       href: data-encryption-best-practices.md
     - name: Data encryption-at-rest
       href: encryption-atrest.md
-    - name: Azure Disk Encryption for VMs and VM scale sets
+    - name: Azure Disk Encryption for virtual machines
+      displayName: virtual machines and virtual machine scale sets
       href: azure-disk-encryption-vms-vmss.md
   - name: Storage security guide
     href: https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
@@ -232,16 +229,12 @@
   href: https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource
 - name: Azure security services
   href: services-technologies.md
-- name: Technical overviews
-  href: overviews.md
 - name: Best practices
   href: best-practices-and-patterns.md
 - name: Resources
   items:
   - name: Built-in security controls
     href: security-controls.md
-  - name: Azure security MVP program
-    href: mvp.md
   - name: Cybersecurity consulting
     href: cyber-services.md
   - name: Log a security event support ticket

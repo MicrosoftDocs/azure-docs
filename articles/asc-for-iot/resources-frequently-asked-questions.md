@@ -66,7 +66,7 @@ The Azure Security Center for IoT security agent is open source and available on
 
 ## Where does the Azure Security Center for IoT agent get installed? 
 
-Detailed installation and agent deployment information can be found in GitHub: https://github.com/Azure/Azure-Security-IoT.
+Detailed installation and agent deployment information can be found in GitHub: https://github.com/Azure/Azure-IoT-Security.
 
 ## What are the dependencies and prerequisites of the agent?
 

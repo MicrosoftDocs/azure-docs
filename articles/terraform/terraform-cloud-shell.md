@@ -1,32 +1,30 @@
 ---
-title: Configure Azure Cloud Shell for Terraform
+title: Tutorial - Configure Azure Cloud Shell for Terraform
 description: Use Terraform with Azure Cloud Shell to simplify authentication and template configuration.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, scale set, virtual machine, network, storage, modules
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/26/2019
 ---
 
-# Terraform Cloud Shell development 
+# Tutorial: Configure Azure Cloud Shell for Terraform
 
-Terraform works great from a Bash command line such as macOS Terminal or Bash on Windows or Linux. Running your Terraform configurations in the Bash experience of the [Azure Cloud Shell](/azure/cloud-shell/overview) has some unique advantages to speed up your development cycle.
-
-This concepts article covers Cloud Shell features that help you write Terraform scripts that deploy to Azure.
+Terraform works well from a Bash command line in macOS, Windows, or Linux. Running your Terraform configurations in the Bash experience of the [Azure Cloud Shell](/azure/cloud-shell/overview) has some unique advantages. This tutorial shows how to write Terraform scripts that deploy to Azure using Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Automatic credential configuration
 
-Terraform is installed and immediately available in Cloud Shell. Terraform scripts authenticate with Azure when logged in to the Cloud Shell to manage infrastructure without any additional configuration. Automatic authentication bypasses the need to manually create an Active Directory service principal and configure the Azure Terraform provider variables.
+Terraform is installed and immediately available in Cloud Shell. Terraform scripts authenticate with Azure when logged in to the Cloud Shell to manage infrastructure without any additional configuration. Automatic authentication bypasses two manual processes:
+- Creating an Active Directory service principal.
+- configuring the Azure Terraform provider variables.
 
 
 ## Using Modules and Providers
 
-Azure Terraform modules require credentials to access and make changes to the resources in your Azure subscription. When working in the Cloud Shell, add the following code to your scripts to use Azure Terraform modules in the Cloud Shell:
+Azure Terraform modules require credentials to access and modify Azure resources. To use Terraform modules in Cloud Shell, add the following code:
+
 
 ```hcl
 # Configure the Microsoft Azure Provider
@@ -45,5 +43,5 @@ The Azure CLI is available in the Cloud Shell and is a great tool for testing co
 
 ## Next steps
 
-[Create a small VM cluster using the Module Registry](terraform-create-vm-cluster-module.md)
-[Create a small VM cluster using custom HCL](terraform-create-vm-cluster-with-infrastructure.md)
+> [!div class="nextstepaction"]
+> [Create a small VM cluster using the Module Registry](terraform-create-vm-cluster-module.md)

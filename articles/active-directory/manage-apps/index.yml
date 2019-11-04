@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: What is application management?
             url: what-is-application-management.md
+          - text: SaaS apps tutorials
+            url: /azure/active-directory/saas-apps/
   - title: Manage cloud apps and single sign-on
     linkLists:
       - linkListType: concept
