@@ -1,5 +1,5 @@
 ---
-title: Create Event Driven Machine Learning Workflows 
+title: Create event driven machine learning workflows 
 titleSuffix: Azure Machine Learning
 description: Learn how to use event grid with Azure Machine Learning to enable event driven solutions.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ---
 
 
-# Create Event Driven Machine Learning Workflows (Preview)
+# Create event driven machine learning workflows (Preview)
 
 [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) supports Azure Machine Learning service events. For example, you can use events from run completion, model registration, model deployment, and data drift detection scoped to a workspace. 
 
@@ -79,7 +79,7 @@ az eventgrid event-subscription create \
   --subject-begins-with "models/mymodelname"
 ```
 
-## Sample Scenarios
+## Sample scenarios
 
 ### Use a Logic App to send email alerts
 
@@ -151,7 +151,7 @@ In this example, a simple Data Factory pipeline is used to copy files into a blo
 
 1. Login and specify the published Azure Data Factory pipeline to run.
 
-    ![specify-adf-pipeline](media/how-to-use-event-grid/specify-ADF-pipeline.png)
+    ![specify-adf-pipeline](media/how-to-use-event-grid/specify-adf-pipeline.png)
 
 1. Save and create the logic app using the **save** button on the top left of the page. To view your app, go to your workspace in the [Azure portal](https://portal.azure.com) and click on **Events**.
 
