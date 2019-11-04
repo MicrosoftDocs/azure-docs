@@ -26605,6 +26605,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-policies-overview.md",
+      "redirect_url": "/azure/security-center/tutorial-security-policy.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
       "redirect_document_id": false
