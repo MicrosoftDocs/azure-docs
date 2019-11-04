@@ -1,6 +1,6 @@
 ---
-title: References for FarmBeats
-description:
+title: Get Drone Imagery
+description: Describes how to get the drone imagery from the partners
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019

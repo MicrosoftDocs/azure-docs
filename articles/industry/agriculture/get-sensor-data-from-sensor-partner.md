@@ -13,7 +13,7 @@ Azure FarmBeats helps you to bring streaming data from your IoT devices and sens
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
 
-Integrating Device data with Azure FarmBeats helps you get ground data from the IoT Sensors deployed in your farm to the Data hub. The data, once available can be visualized through the FarmBeats Accelerator and can be used for data fusion and AI/ML model building using the Farmbeats.
+Integrating Device data with Azure FarmBeats helps you get ground data from the IoT Sensors deployed in your farm to the Data hub. The data, once available can be visualized through the FarmBeats Accelerator and can be used for data fusion and AI/ML model building using FarmBeats.
 
 To start sensor data streaming, ensure the following:
 
@@ -51,7 +51,7 @@ Alternatively, you can generate the credentials by running this script from the 
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (Usually it gets uploaded to the home directory> username.
+5. Go to the directory where the files were uploaded (Usually it gets uploaded to the home directory> username).
 6. Run the following script:
 
     ```azurepowershell-interactive 

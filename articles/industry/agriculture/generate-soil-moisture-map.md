@@ -27,7 +27,7 @@ Ensure the following:
 
 ## Create a farm
 
-A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a farm using the [Farms API],(https://aka.ms/FarmBeatsDatahubSwagger) or in the [Accelerator UI](manage-farms.md#create-farms)
+A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a farm using the [Farms API](https://aka.ms/FarmBeatsDatahubSwagger) or in the [Accelerator UI](manage-farms.md#create-farms)
 
 ## Deploy sensors
 
