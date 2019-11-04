@@ -6,6 +6,8 @@
   items:
   - name: What is the Speech service?
     href: overview.md
+  - name: Language and region support
+    href: language-support.md
 - name: Speech-to-text
   expanded: false
   items:
@@ -38,7 +40,7 @@
     - name: Use compressed audio input formats
       href: how-to-use-codec-compressed-audio-input-streams.md
     - name: Use speech recognition with Docker containers
-      href: speech-container-howto.md
+      href: speech-container-howto.md?tabs=stt
   - name: Reference
     items:
     - name: Speech SDK APIs
@@ -87,7 +89,7 @@
     - name: Synthesize speech with Long Audio API
       href: long-audio-api.md
     - name: Use speech synthesis with Docker containers
-      href: speech-container-howto.md
+      href: speech-container-howto.md?tabs=tts
   - name: Reference
     items:
     - name: Speech SDK

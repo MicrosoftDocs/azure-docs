@@ -31,8 +31,8 @@ The transactional storage engine is backed by local SSDs, whereas the analytical
 |Durability  |    99.99999 (7-9 s)     |  99.99999 (7-9 s)       |
 |APIs that access the data  |   SQL, MongoDB, Cassandra, Gremlin, Tables, and Etcd.       | Apache Spark         |
 |Retention (Time-to-live or TTL)   |  Policy driven, configured on the Azure Cosmos container by using the `DefaultTimeToLive` property.       |   Policy driven, configured on the Azure Cosmos container by using the `ColumnStoreTimeToLive` property.      |
-|Price per GB    |   $0.25/GB      |  $0.02/GB       |
-|Price for storage transactions    | Provisioned throughput is charged at $0.008 per 100 RU/s with hourly billing.        |  Consumption-based throughput is charged at $0.05 for 10,000 write transactions and $0.004 for 10,000 read transactions.       |
+|Price per GB    |   See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
+|Price for storage transactions    |  See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 
 ## Benefits of transactional and analytical storage
 
@@ -61,16 +61,6 @@ For both single or multi-region Azure Cosmos accounts, regardless if single writ
 In a given region, the transactional workloads operate against your container’s transactional/row storage. On the other hand, the analytical workloads operate against your container’s analytical/column storage. The two storage engines operate independently and provide strict performance isolation between the workloads.
 
 The transactional workloads consume the provisioned throughput (RUs). Unlike the transactional workloads, the analytical workloads throughput is based on the actual consumption. The analytical workloads consume resources on-demand.
-
-### On-demand snapshots and time-travel analytics
-
-You can take snapshots of your data stored in the analytical storage of your Azure Cosmos containers, at any time, by calling the `CreateSnapshot (name, timestamp)` command on the container. Snapshots are named “bookmarks” in the history of the updates that were ever done on your container.
-
-![On-demand snapshots and time-travel analytics](./media/globally-distributed-transactional-analytical-storage/ondemand-analytical-data-snapshots.png)
-
-At the time of creating the snapshot, in addition to the name, you can specify the timestamp that defines the state of your container in the history of updates. You can then load the snapshot data into Spark and perform the queries.
-
-Currently, you can only take snapshots on-demand at any time on the container, the ability to automatically take snapshots based on a schedule or custom policy isn’t yet supported.
 
 ### Configure and tier data between transactional and analytical storage independently
 

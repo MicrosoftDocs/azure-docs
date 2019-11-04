@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/03/2019
 ms.author: diberry
 ---
 # Machine-learned features 
@@ -36,6 +36,14 @@ With a phrase list, LUIS considers context and generalizes to identify items tha
 When you want to be able to recognize new instances, like a meeting scheduler that should recognize the names of new contacts, or an inventory app that should recognize new products, start with a machine-learned entity. Then create a phrase list that helps LUIS find words with similar meaning. This phrase list guides LUIS to recognize examples by adding additional significance to the value of those words. 
 
 Phrase lists are like domain-specific vocabulary that help with enhancing the quality of understanding of both intents and entities. 
+
+## Considerations when using a phrase list
+
+A phrase list is applied, by default, to all models in the app. This will work for phrase lists that can cross all intents and entities. For decomposability, you should apply a phrase list to only the models it is relevant to. 
+
+If you create a phrase list (created globally by default), then later apply it as a descriptor (feature) to a specific model, it is removed from the other models. This removal adds relevance to the phrase list for the model it is applied to, helping improve the accuracy it provides in the model. 
+
+The `enabledForAllModels` flag controls this model scope in the API. 
 
 <a name="how-to-use-phrase-lists"></a>
 
