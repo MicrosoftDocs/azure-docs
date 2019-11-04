@@ -14,28 +14,28 @@ ms.date: 11/04/2019
 
 # Indexing documents in Azure Data Lake Storage Gen2 (preview)
 
-This article describes how to get started with the Azure Data Lake Storage Gen2 indexer.
+When setting up an Azure storage account, you have the option to enable [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+
+This article describes how to get started with indexing documents that are in Azure Data Lake Storage Gen2.
 
 > [!Note]
 > The ADLS Gen2 indexer is in preview and is not intended for production use.
 
-When setting up an Azure storage account, you have the option to enable [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
-
 ## Set up ADLS Gen2 indexing
 
-You can index content and metadata from ADLS Gen2 by using the [REST API version 2019-05-06-Preview](search-api-preview.md). There is no .NET SDK support at this time.
+There are a few steps you'll need to complete to index content from ADLS Gen2.
 
 ### Step 1: Sign up for the preview
 
-Sign up for the ADLS Gen2 preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview).
+Sign up for the ADLS Gen2 preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). You will receive a confirmation email once you have been accepted into the preview.
 
 ### Step 2: Follow the Azure Blob storage indexing setup steps
 
 Once you've received confirmation that your preview sign-up was successful, you're ready to create the indexing pipeline.
 
-Indexing content in ADLS Gen2 indexer is identical to indexing content in Azure Blob storage. So to understand how to set up the ADLS Gen2 data source, index, and indexer, refer to [Indexing Documents in Azure Blob storage](search-howto-indexing-azure-blob-storage.md). 
+You can index content and metadata from ADLS Gen2 by using the [REST API version 2019-05-06-Preview](search-api-preview.md). There is no .NET SDK support at this time.
 
-The page also provides information about what document formats are supported, what blob metadata properties are extracted, incremental indexing, and more. This information will be the same for ADLS Gen2.
+Indexing content in ADLS Gen2 is identical to indexing content in Azure Blob storage. So to understand how to set up the ADLS Gen2 data source, index, and indexer, refer to [How to index documents in Azure Blob Storage with Azure Cognitive Search](search-howto-indexing-azure-blob-storage.md). The Blob storage article also provides information about what document formats are supported, what blob metadata properties are extracted, incremental indexing, and more. This information will be the same for ADLS Gen2.
 
 ## Access control
 

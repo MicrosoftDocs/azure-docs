@@ -20,7 +20,7 @@ This article describes the `api-version=2019-05-06-Preview` version of Search se
 
 ## New in 2019-05-06-Preview
 
-[**Incremental indexing](cognitive-search-incremental-indexing-conceptual.md) is a new mode for indexing that adds state and caching, allowing you to reuse existing output when data, indexer, and skillset definitions are unchanged. This feature applies only to enrichments through a cognitive skillset.
+[**Incremental indexing**](cognitive-search-incremental-indexing-conceptual.md) is a new mode for indexing that adds state and caching, allowing you to reuse existing output when data, indexer, and skillset definitions are unchanged. This feature applies only to enrichments through a cognitive skillset.
 
 [**Knowledge store**](knowledge-store-concept-intro.md) is a new destination of an AI-based enrichment pipeline. In addition to an index, you can now persist populated data structures created during indexing in Azure storage. You control the physical structures of your data through elements in a Skillset, including how data is shaped, whether data is stored in Table storage or Blob storage, and whether there are multiple views.
 
@@ -32,7 +32,7 @@ Features announced in earlier previews are still in public preview. If you're ca
 
 + [moreLikeThis query parameter](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
 + [CSV blob indexing](search-howto-index-csv-blobs.md) creates one document per line, as opposed to one document per text blob.
-+ [Cosmos DB indexer](search-howto-index-cosmosdb.md) supports indexing of MongoDB API, Gremlin API, and Cassandra API.
++ [Cosmos DB indexer](search-howto-index-cosmosdb.md) supports MongoDB API, Gremlin API, and Cassandra API.
 + [Azure Data Lake Storage Gen2 indexer](search-howto-index-adls.md) can index content and metadata from ADLS Gen2.
 
 
