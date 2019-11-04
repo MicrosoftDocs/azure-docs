@@ -15,13 +15,9 @@ ms.date: 11/04/2019
 Once your project administrator has [created a labeling project](how-to-create-labeling-projects.md) in Azure Machine Learning studio, you can use the labeling tool to rapidly prepare data for a machine learning project. 
 
 > [!div class="checklist"]
-> * Logging in to the project's labeling portal 
-> * Understanding the labeling task
-> * Common features of the labeling task
-> * Tagging images for multi-class identification
-> * Tagging images for multi-label identification
-> * Tagging bounding boxes for object detection
-> * Finishing up 
+> * How to access your labeling projects
+> * Labeling tools
+> * How to use the tools for specific labeling tasks
 
 ## Prerequisites
 
