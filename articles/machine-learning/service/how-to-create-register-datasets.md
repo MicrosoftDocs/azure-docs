@@ -227,19 +227,19 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 ### Using the UI
 
-You can also create datasets from Open Datasets classes using the UI. In your workspace, navigate to the **Datasets** tab under *Assets*. Click the **Create dataset** dropdown, and then click **From Open Datasets**.
+You can also create datasets from Open Datasets classes through the UI. In your workspace, select the **Datasets** tab under *Assets*. On the **Create dataset** drop-down menus, select **From Open Datasets**.
 
 ![Open Dataset with the UI](media/how-to-create-register-datasets/open-datasets-1.png)
 
-Next select a dataset by selecting the tile, optionally filtering using the search bar. Then click **Next**.
+Select a dataset by selecting its tile. (You have the option to filter by using the search bar.) Select **Next**.
 
 ![Choose dataset](media/how-to-create-register-datasets/open-datasets-2.png)
 
-Next choose a name to register the dataset, and optionally filter the data using the available filters. In this case for the public holidays dataset, you filter the time period to one year and the country code to only the US. Then click **Create**.
+Choose a name under which to register the dataset, and optionally filter the data using the available filters. In this case, for the public holidays dataset, you filter the time period to one year and the country code to only the U.S. Select **Create**.
 
 ![Set dataset params and create dataset](media/how-to-create-register-datasets/open-datasets-3.png)
 
-The dataset is now created and available in your workspace under **Datasets**, and can be used in the same way as other datasets you have created.
+The dataset is now available in your workspace under **Datasets**. You can used it in the same way as other datasets you've created.
 
 ## Version datasets
 
