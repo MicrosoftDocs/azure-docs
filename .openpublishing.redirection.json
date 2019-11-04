@@ -5551,6 +5551,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/durable/durable-functions-preview.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-versions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-functions/functions-bindings-storage.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-storage-blob",
       "redirect_document_id": false
