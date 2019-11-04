@@ -168,6 +168,46 @@ inside Linux and Windows machines* contains 18 policies. There are six **DeployI
 **AuditIfNotExists** pairs for Windows and three pairs for Linux. The [policy definition](definition-structure.md#policy-rule)
 logic validates that only the target operating system is evaluated.
 
+#### Auditing operating system settings following industry baselines
+
+One of the initiatives available in Azure Policy provides the ability to audit operating system settings
+inside virtual machines following a "baseline" from Microsoft.  The definition, 
+*[Preview]: Audit Windows VMs that do not match Azure security baseline settings*
+includes a complete set of audit rules based on settings from Active Directory Group Policy.
+
+Most of the settings are available as parameters.  This functionality allows you to customize
+what will be audited to align the policy with your organizational requirements,
+or to map the policy to 3rd party information such as industry regulatory standards.
+
+Some parameters support an integer value range.  For example, the Maximum Password Age
+parameter can be set using a range operator to give flexibility to machine
+owners.  You could audit that the effective Group Policy setting
+requiring user to change their passwords should be no more than 70 days,
+but shouldn't be less than 1 day.  As described in the info-bubble for the parameter,
+to make this the effective audit value, set the value to "1,70".
+
+If you assign the policy using an Azure Resource Manager dployment template,
+you can use a parameters file to manage these settings from source control.
+Using a tool such as Git to manage changes to Audit policies with comments
+at each check-in, will document evidence as to why an assignment
+should be in exception to the expected value.
+
+#### Applying configurations using Guest Configuration
+
+The latest feature of Azure Policy configures settings inside machines.
+The definition *Configure the time zone on Windows machines* will
+make changes to the machine by configuring the time zone.
+
+When assigning definitions that begin with *Configure*, you must also assign
+the definition *Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.*
+You can combine these definitions in an initiative if you choose.
+
+#### Assigning policies to machines outside of Azure
+
+The Audit policies available for Guest Configuration include the **Microsoft.HybridCompute/machines**
+resource type.  Any machines onboarded to Azure Arc that are in the scope of the assignment
+will automatically be included.
+
 ### Multiple assignments
 
 Guest Configuration policies currently only support assigning the same Guest Assignment once per
