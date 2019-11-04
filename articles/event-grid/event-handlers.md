@@ -73,7 +73,7 @@ You can route events in Event Grid directly to Service Bus queues for use in buf
 
 ### Using CLI to add a Service Bus handler
 
-For Azure CLI, the following example subscribes and connects an Event Grid topic to a Service Bus queue:
+For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus queue:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
