@@ -31,7 +31,7 @@ In this quickstart, you walk through configuring self-service password reset (SS
 
 [View this process as a video on YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
-1. From your existing Azure AD tenant, on the **Azure portal** under **Azure Active Directory** select **Password reset**.
+1. From your existing Azure AD tenant, from the Azure portal menu or from the **Home** page, select **Azure Active Directory**. Then, select **Password reset**.
 
 2. From the **Properties** page, under the option **Self Service Password Reset Enabled**, choose **Selected**.
     * From **Select group**, choose your pilot group created as part of the prerequisites section of this article.
