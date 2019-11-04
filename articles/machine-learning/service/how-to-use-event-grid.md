@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 
 # Create event driven machine learning workflows (Preview)
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) supports Azure Machine Learning service events. For example, you can use events from run completion, model registration, model deployment, and data drift detection scoped to a workspace. 
+[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) supports Azure Machine Learning service events. For example, you can use events from run completion, model registration, model deployment, and data drift detection scoped to a workspace.
 
 For more information, see [Azure Machine Learning integration with Event Grid](concept-event-grid-integration.md) and the [Azure Machine Learning event grid schema](/azure/event-grid/event-schema-machine-learning).
 
@@ -28,13 +28,19 @@ Use Event Grid to enable common scenarios such as:
 
 * Contributor or owner access to the Azure Machine learning service workspace you will create events for. 
 * Select an event handler endpoint such as a webhook or Event Hub. For more information, see [event handlers](https://docs.microsoft.com/azure/event-grid/event-handlers). 
-* If your subscription had registered for event grid before November 1 2019, you will need to re register the machine learning resource provider. To register the provider, use the following steps:
 
-    1. Go to the  Azure portal and select your subscription. 
-    1. Search for 'machine learning services' in resource providers.
-    1. Select re-register.
+## Register Event Grid
+
+If you used Azure Event Grid before November 1 2019, you may need to re-register the provider before you can use it with Azure Machine Learning. To re-register the service, use the following steps:
+
+1. Go to the  Azure portal and select __Subscriptions__. Select the subscription that you want to work with. 
+1. Select __Resource providers__, and then search for __EventGrid__.
+1. Select the __Microsoft.EventGrid__ entry, and then select __Re-register__.
 
     ![re-register-resource-provider](media/how-to-use-event-grid/re-register-resource-provider.png)
+
+> [!TIP]
+> If you do not have permissions to complete these steps, ask your subscription administrator to perform them.
 
 ## Configure machine learning events using the Azure portal
 
@@ -62,7 +68,7 @@ To install the Event Grid extension, use the following command from the CLI:
 
 ```azurecli-interactive
 az add extension --name eventgrid
-``` 
+```
 
 The following example demonstrates how to select an Azure subscription, and then create a new event subscription for Azure Machine Learning:
 
