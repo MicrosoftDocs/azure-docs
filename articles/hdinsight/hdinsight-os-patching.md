@@ -23,7 +23,17 @@ HDInsight provides support for you to perform common tasks on your cluster such 
 > [!NOTE]  
 > Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
 
-## Install updates and schedule reboots
+## Restart nodes
+  
+The script [schedule-reboots](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh), sets the type of reboot that will be performed on the machines in the cluster. When submitting the script action, set it to apply on all three node types: head node, worker node, and zookeeper. If the script isn't applied to a node type, the VMs for that node type won't be updated or restarted.
+
+The `schedule-reboots script` accepts one numeric parameter:
+
+| Parameter | Accepted Values | Definition |
+| --- | --- | --- |
+| Type of restart to perform | 1 or 2 | A value of 1 enables schedule restart (scheduled in 12-24 hours). A value of 2 enables immediate restart (in 5 minutes). If no parameter is given, the default is 1. |  
+
+## Install updates and restart nodes
 
 The script [install-updates-schedule-reboots.sh](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh) provides options to install different types of updates and restart the VM.
 
@@ -32,17 +42,7 @@ The `install-updates-schedule-reboots` script accepts two numeric parameters, as
 | Parameter | Accepted Values | Definition |
 | --- | --- | --- |
 | Type of updates to install | 0,  1, or 2 | A value of 0 installs only kernel updates. A value of 1 installs all updates, and 2 installs only kernel + security updates. If no parameter is provided, the default is 0. |
-| Type of reboot to perform | 0, 1, or 2 | A value of 0 disables restart. A value of 1 enables schedule restart, and 2 enables immediate restart. If no parameter is provided, the default is 0. The user must change input parameter 1 to input parameter 2. |
-
-## Schedule reboots only
-  
-The script [schedule-reboots](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh), sets the type of reboot that will be performed on the machines in the cluster. When submitting the script action, set it to apply on all three node types: head node, worker node, and zookeeper. If the script isn't applied to a node type, the VMs for that node type won't be updated or restarted.
-
-The `schedule-reboots script` accepts one numeric parameter:
-
-| Parameter | Definition |
-| --- | --- |
-| Enable schedule reboot/Enable immediate reboot |1 or 2. A value of 1 enables schedule restart (scheduled in 12-24 hours). A value of 2 enables immediate restart (in 5 minutes). If no parameter is given, the default is 1. |  
+| Type of restart to perform | 0, 1, or 2 | A value of 0 disables restart. A value of 1 enables schedule restart, and 2 enables immediate restart. If no parameter is provided, the default is 0. The user must change input parameter 1 to input parameter 2. |
 
 > [!NOTE]
 > You must mark a script as persisted after you apply it to an existing cluster. Otherwise, any new nodes created through scaling operations will use the default patching schedule. If you apply the script as part of the cluster creation process, it's persisted automatically.
