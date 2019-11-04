@@ -1,6 +1,6 @@
 ---
-title: Check run status and view run history - Azure Logic Apps
-description: Check your logic app's run status, view run history, and set up alerts in Azure Logic Apps
+title: Check run status or history and set up alerts - Azure Logic Apps
+description: Check your logic app's run status, view runs history, and set up alerts in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, estfan, LADocs
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/05/2019
 ---
 
-# Check run status, view run history, and set up alerts in Azure Logic Apps
+# Check run status, view runs history, and set up alerts in Azure Logic Apps
 
 After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run status, run history, trigger history, and performance. To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour."
 
