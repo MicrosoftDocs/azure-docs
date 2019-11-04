@@ -52,5 +52,5 @@ If you can't find the data you want, email us to [request a dataset](mailto:aod@
 
 ## Next steps
 * [Sample notebook](samples.md)
-* [Tutorial: Regression modeling with NY taxi data](tutorial-opendatasets-automl.md)
+* [Tutorial: Regression modeling with NY taxi data](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [Python SDK for Open Datasets](/python/api/azureml-opendatasets/?view=azure-ml-py)
