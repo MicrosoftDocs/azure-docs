@@ -58,4 +58,3 @@ To learn about Peering Service connection, see [Peering Service connection](conn
 To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
 
 To learn about onboarding Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
-
