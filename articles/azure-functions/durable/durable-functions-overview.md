@@ -329,7 +329,6 @@ To create the durable timer, call `context.CreateTimer` (.NET) or `context.df.cr
 
 An external client can deliver the event notification to a waiting orchestrator function by using either the [built-in HTTP APIs](durable-functions-http-api.md#raise-event) or by using the `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) method from another function:
 
-**C#**
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
 public static async Task Run(
@@ -341,7 +340,6 @@ public static async Task Run(
 }
 ```
 
-**JavaScript**
 ```javascript
 const df = require("durable-functions");
 
@@ -352,7 +350,6 @@ module.exports = async function (context) {
 };
 ```
 
-**cURL**
 ```bash
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
@@ -367,7 +364,6 @@ The tricky thing about trying to implement this pattern with normal, stateless f
 
 You can use [Durable entities](durable-functions-entities.md) to easily implement this pattern as a single function.
 
-**C#**
 ```csharp
 [FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
@@ -389,7 +385,6 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-**JavaScript**
 ```javascript
 const df = require("durable-functions");
 
@@ -410,7 +405,7 @@ module.exports = df.entity(function(context) {
 });
 ```
 
-Durable Entities can also be modeled as classes in .NET. This model can be useful if the list of operations is fixed and becomes large. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
+Durable entities can also be modeled as classes in .NET. This model can be useful if the list of operations is fixed and becomes large. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
 
 ```csharp
 public class Counter
@@ -432,7 +427,6 @@ public class Counter
 
 Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
 
-**C#**
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
 public static async Task Run(
@@ -452,7 +446,6 @@ public static async Task Run(
 > Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-bindings.md#entity-client-usage) on the orchestration client binding.
 
 
-**JavaScript**
 ```javascript
 const df = require("durable-functions");
 

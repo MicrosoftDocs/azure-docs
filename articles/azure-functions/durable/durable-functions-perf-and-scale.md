@@ -178,7 +178,7 @@ Activity, orchestrator, and entity function concurrency limits can be configured
 In the previous example, a maximum of 10 orchestrator or entity functions and 10 activity functions can run on a single VM concurrently. If not specified, the number of concurrent activity and orchestrator or entity function executions is capped at 10X the number of cores on the VM.
 
 > [!NOTE]
-> These settings are useful to help manage memory and CPU usage on a single VM. However, when scaled out across multiple VMs, each VM will have its own set of limits. These settings cannot be used to control concurrency at a global level.
+> These settings are useful to help manage memory and CPU usage on a single VM. However, when scaled out across multiple VMs, each VM has its own set of limits. These settings can't be used to control concurrency at a global level.
 
 ## Extended sessions
 
@@ -210,10 +210,10 @@ You can enable extended sessions by setting `durableTask/extendedSessionsEnabled
 
 There are two potential downsides of this setting to be aware of:
 
-1. There will be an overall increase in function app memory usage.
+1. There's an overall increase in function app memory usage.
 2. There can be an overall decrease in throughput if there are many concurrent, short-lived orchestrator or entity function executions.
 
-As an example, if `durableTask/extendedSessionIdleTimeoutInSeconds` is set to 30 seconds, then a short-lived orchestrator or entity function episode that executes in less than 1 second will still occupy memory for 30 seconds. It will also count against the `durableTask/maxConcurrentOrchestratorFunctions` quota mentioned previously, potentially preventing other orchestrator or entity functions from running.
+As an example, if `durableTask/extendedSessionIdleTimeoutInSeconds` is set to 30 seconds, then a short-lived orchestrator or entity function episode that executes in less than 1 second still occupies memory for 30 seconds. It also counts against the `durableTask/maxConcurrentOrchestratorFunctions` quota mentioned previously, potentially preventing other orchestrator or entity functions from running.
 
 The specific effects of extended sessions on orchestrator and entity functions are described in the next sections.
 
@@ -223,10 +223,10 @@ As mentioned previously, orchestrator functions are replayed using the contents 
 
 The performance improvement of extended sessions is most often observed in the following situations:
 
-* When there are a limited number of orchestration instances running concurrently
-* When orchestrations have large number of sequential actions (e.g. hundreds of activity function calls) that complete quickly
-* When orchestrations fan-out and fan-in a large number of actions that complete around the same time
-* When orchestrator functions need to process large messages or do any CPU-intensive data processing
+* When there are a limited number of orchestration instances running concurrently.
+* When orchestrations have large number of sequential actions (e.g. hundreds of activity function calls) that complete quickly.
+* When orchestrations fan-out and fan-in a large number of actions that complete around the same time.
+* When orchestrator functions need to process large messages or do any CPU-intensive data processing.
 
 In all other situations, there is typically no observable performance improvement for orchestrator functions.
 
@@ -235,7 +235,7 @@ In all other situations, there is typically no observable performance improvemen
 
 ### Entity function unloading
 
-Entity functions will process up to 20 operations in a single batch. As soon as an entity finishes processing a batch of operations, it will persist its state and unload from memory. You can delay the unloading of entities from memory using the extended sessions setting. Entities will continue to persist their state changes as before, but will remain in memory for the configured period of time to reduce the number of loads from Azure Storage. This reduction of loads from Azure Storage can improve the overall throughput of frequently accessed entities.
+Entity functions process up to 20 operations in a single batch. As soon as an entity finishes processing a batch of operations, it persists its state and unloads from memory. You can delay the unloading of entities from memory using the extended sessions setting. Entities continue to persist their state changes as before, but remain in memory for the configured period of time to reduce the number of loads from Azure Storage. This reduction of loads from Azure Storage can improve the overall throughput of frequently accessed entities.
 
 ## Performance targets
 

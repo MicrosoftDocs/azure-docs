@@ -72,7 +72,7 @@ The following steps use a template to create the durable function code in your p
     ![Select durable template](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
 > [!NOTE]
-> This template currently creates a Durable Function using an older 1.x version of the extension. See the [Durable Functions Versions](durable-functions-versions.md) article for information about how to upgrade to the newer 2.x versions of Durable Functions.
+> This template currently creates a durable function using an older 1.x version of the extension. See the [Durable Functions Versions](durable-functions-versions.md) article for information about how to upgrade to the newer 2.x versions of Durable Functions.
 
 A new durable function is added to the app.  Open the new .cs file to view the contents. This durable function is a simple function chaining example with the following methods:  
 

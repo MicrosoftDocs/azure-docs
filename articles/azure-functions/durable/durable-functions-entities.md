@@ -108,7 +108,7 @@ For more information on the class-based syntax and how to use it, see [Defining 
 
 ### Example: JavaScript entity
 
-Durable Entities are available in JavaScript starting with version **1.3.0** of the `durable-functions` npm package. The following code is the *Counter* entity implemented as a durable function written in JavaScript.
+Durable entities are available in JavaScript starting with version **1.3.0** of the `durable-functions` npm package. The following code is the *Counter* entity implemented as a durable function written in JavaScript.
 
 **function.json**
 ```json
@@ -167,7 +167,6 @@ Below we show some examples that illustrate these various ways of accessing enti
 
 To access entities from an ordinary Azure Function - also known as *client function* - use the [entity client output binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function *signaling* an entity using this binding.
 
-**C#**
 ```csharp
 [FunctionName("AddFromQueue")]
 public static Task Run(
@@ -181,7 +180,6 @@ public static Task Run(
 }
 ```
 
-**JavaScript**
 ```javascript
 const df = require("durable-functions");
 
@@ -198,7 +196,6 @@ The term *signal* means that the entity API invocation is one-way and asynchrono
 
 Client functions can also query the state of an entity, as shown in the following example:
 
-**C#**
 ```csharp
 [FunctionName("QueryCounter")]
 public static async Task<HttpResponseMessage> Run(
@@ -211,7 +208,6 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-**JavaScript**
 ```javascript
 const df = require("durable-functions");
 
@@ -228,7 +224,6 @@ Entity state queries are sent to the Durable tracking store and return the entit
 
 Orchestrator functions can access entities using APIs on the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). The following example code shows an orchestrator function *calling* and *signaling* a *Counter* entity.
 
-**C#**
 ```csharp
 [FunctionName("CounterOrchestration")]
 public static async Task Run(
@@ -246,7 +241,6 @@ public static async Task Run(
 }
 ```
 
-**JavaScript**
 ```javascript
 const df = require("durable-functions");
 
@@ -272,7 +266,6 @@ Only orchestrations are capable of calling entities and getting a response, whic
 An entity function can send signals to other entities (or even itself!) while it executes an operation.
 For example, we can modify the counter entity example above so it sends a "milestone-reached" signal to some monitor entity when the counter reaches the value 100:
 
-**C#**
 ```csharp
    case "add":
         var currentValue = ctx.GetState<int>();
@@ -286,7 +279,6 @@ For example, we can modify the counter entity example above so it sends a "miles
         break;
 ```
 
-**JavaScript**
 ```javascript
     case "add":
         const amount = context.df.getInput();

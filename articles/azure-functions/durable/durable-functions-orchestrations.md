@@ -214,7 +214,6 @@ Orchestrator functions aren't permitted to do I/O, as described in [orchestrator
 
 To simplify this common pattern, orchestrator functions can use the `CallHttpAsync` method in .NET to invoke HTTP APIs directly. In addition to supporting basic request/response patterns, `CallHttpAsync` supports automatic handling of common async HTTP 202 polling patterns, and also supports authentication with external services using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
-**C#**
 ```csharp
 [FunctionName("CheckSiteAvailable")]
 public static async Task CheckSiteAvailable(
@@ -233,7 +232,6 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-**JavaScript**
 ```javascript
 const df = require("durable-functions");
 

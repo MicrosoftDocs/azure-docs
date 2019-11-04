@@ -595,7 +595,6 @@ To remove all the data associated with an orchestration, you can purge the insta
 
 This method has two overloads. The first overload purges history by the ID of the orchestration instance:
 
-**C#**
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -606,7 +605,6 @@ public static Task Run(
 }
 ```
 
-**JavaScript**
 ```javascript
 const df = require("durable-functions");
 
@@ -618,7 +616,6 @@ module.exports = async function(context, instanceId) {
 
 The next example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it removes data for all instances completed 30 or more days ago. It's scheduled to run once per day, at 12 AM:
 
-**C#**
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(

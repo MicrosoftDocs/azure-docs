@@ -500,7 +500,7 @@ module.exports = df.entity(function(context) {
 ```
 
 > [!NOTE]
-> Durable Entities are available in JavaScript starting with version **1.3.0** of the `durable-functions` npm package.
+> Durable entities are available in JavaScript starting with version **1.3.0** of the `durable-functions` npm package.
 
 ## Entity client
 
@@ -633,7 +633,7 @@ module.exports = async function (context) {
 ```
 
 > [!NOTE]
-> Durable Entities are available in JavaScript starting with version **1.3.0** of the `durable-functions` npm package.
+> Durable entities are available in JavaScript starting with version **1.3.0** of the `durable-functions` npm package.
 
 <a name="host-json"></a>
 ## host.json settings
