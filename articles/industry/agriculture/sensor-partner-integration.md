@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Sensor Partner Integration
+# Sensor partner integration
 This article provides information about the Azure FarmBeats **Translator** component.
 
 Using this component, partners can develop sensors that integrate with FarmBeats, by leveraging our API, and sending customer device data and telemetry to the FarmBeats Data hub. Data is visualized using the FarmBeats Accelerator. Data can be used for data fusion, and for building machine language/artificial intelligence models.
@@ -34,7 +34,7 @@ Customers have the ability to unlink an existing FarmBeats Integration. Unlinkin
 - Stops telemetry flow.
 - Deletes and erase the integration credentials on device partner.
 
-## Edit FarmBeats Integration
+## Edit FarmBeats integration
 
 The customer can edit the FarmBeats Integration. The primary scenario for edit is when the client secret or connection string changes due to expiry, in this case customer can only edit the following fields.
 
@@ -45,11 +45,11 @@ The customer can edit the FarmBeats Integration. The primary scenario for edit i
     > [!NOTE]
     > Edit should not interrupt the creation of metadata objects.
 
-## Last Telemetry Sent
+## Last telemetry sent
 
 The customer has the ability to view the timestamp of *Last Telemetry Sent*, is the time at which the latest telemetry was successfully sent to FarmBeats.
 
-## Translator Development
+## Translator development
 
 **Rest API-based integration**
 
@@ -133,18 +133,18 @@ The below sample request is to create a device (This sample has an input json wi
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
-## Data Format
+## Data format
 
-JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see [jason.org](http://json.org).
+JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see [json.org](http://json.org).
 
-## Metadata Specifications
+## Metadata specifications
 
 FarmBeats Data hub has the following APIs that enable device partners to create and manage device/sensor metadata.  
 
 - /**DeviceModel** - Device Model corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.  
 - /**Device** - Device corresponds to a physical device present in the farm.
 - /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
-- /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device id.
+- /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
   **Device Model** | **DeviceModel corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.**
   --- | ---
@@ -155,12 +155,12 @@ FarmBeats Data hub has the following APIs that enable device partners to create 
   Name  | Name to identify resource. For example, Model Name/Product Name |
   Description  | Provide a meaningful description of the model |
   Properties  | Additional properties from the manufacturer |
-  **Device** | **Device corresponds to a physical device present in the farm. Each device has a unique device id** |
-DeviceModelId  |id of the associated Device Model. |
-HardwareId   |Unique Id for the device such as MAC address etc.,  |
+  **Device** | **Device corresponds to a physical device present in the farm. Each device has a unique device ID** |
+DeviceModelId  |ID of the associated Device Model. |
+HardwareId   |Unique ID for the device such as MAC address etc.,  |
 reportingInterval |Reporting Interval in seconds |
 Location    |Device Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters) |
-parentDeviceId | id of the parent device to which this device is connected to. For example,. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway |
+parentDeviceId | ID of the parent device to which this device is connected to. For example,. A Node connected to a Gateway; Node will have parentDeviceID as the Gateway |
   Name  | Name to identify resource.  Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats  |
   Description  | Provide a meaningful description  |
   Properties  |Additional properties from the manufacturer  |
@@ -179,11 +179,11 @@ parentDeviceId | id of the parent device to which this device is connected to. F
   description  | Provide a meaningful description of the model
   properties  | Additional properties from the manufacturer
   **Sensor**  |
-  hardwareId  | Unique Id for the sensor set by manufacturer
-  sensorModelId  | id of the associated Sensor Model.
+  hardwareId  | Unique ID for the sensor set by manufacturer
+  sensorModelId  | ID of the associated Sensor Model.
   location  | Sensor Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)
   port > name  |Name and Type of the port that the sensor is connected to on the device. This needs to be same name as defined in the Device Model
-  deviceId  | id of the Device that the sensor is connected to
+  deviceId  | ID of the Device that the sensor is connected to
   name  | Name to identify resource. For example, Sensor Name/Product Name and Model Number/Product Code.
   description  | Provide a meaningful description
   properties  | Additional properties from the manufacturer
@@ -191,14 +191,14 @@ parentDeviceId | id of the parent device to which this device is connected to. F
  See [swagger](httpa://aka.ms/FarmBeatsDatahubSwagger) for information more on each of the objects and their properties.
 
  > [!NOTE]
- > The APIs return unique ids for each instance created. This ID needs to be retained by the Translator for device management and metadata sync.
+ > The APIs return unique IDs for each instance created. This ID needs to be retained by the Translator for device management and metadata sync.
 
 
 **Metadata sync**
 
 The Translator should send updates on the metadata. For example, of update scenarios are – change of device/sensor name, change of device/sensor location.
 
-The Translator should have the ability to add new Devices and/or Sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corrsponding device/sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.
+The Translator should have the ability to add new Devices and/or Sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corresponding device/sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.
 
 
 > [!NOTE]
@@ -206,14 +206,14 @@ The Translator should have the ability to add new Devices and/or Sensors that ha
 >
 > To update metadata, it is mandatory to call /Get/{id} on the device/sensor, update the changed properties and then do a /Put/{id} so that any properties set by the user is not lost
 
-### Adding new Types/Unit
+### Adding new types/unit
 FarmBeats supports adding new sensor measure types and units. Refer to /ExtendedType API in the swagger for more details.
 
-## Telemetry Specifications
+## Telemetry specifications
 
 The telemetry data is mapped to a canonical message that is published on Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications.
 
-## Send Telemetry Data to FarmBeats
+## Send telemetry data to FarmBeats
 
 To send telemetry data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. For more information about telemetry data, see [sending telemetry to event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
@@ -303,21 +303,21 @@ For example, Telemetry message:
 
 ```
 
-## Troubleshoot/Error Management
+## Troubleshoot/error management
 
-**Troubleshoot Option/Support**
+**Troubleshoot option/support**
 
 In the event that the customer is not able to receive Device data and/or telemetry in the FarmBeats instance specified, the device partner should provide support and a mechanism to troubleshoot the same.
 
-**Telemetry Data Retention**
+**Telemetry data retention**
 
 The Telemetry data should also be retained for a pre-defined time period so that the same can be useful in debugging or re-sending the telemetry in the event of error or data loss.
 
-**Error Management / Error notification**
+**Error management/error notification**
 
 In the event of an error that affects the device/sensor metadata/data integration or telemetry data flow in the device partner system, the same should be notified to the customer. A mechanism to resolve the error(s) should also be designed and implemented.
 
-**Connection Checklist**
+**Connection checklist**
 
 Device manufacturers/partners can have the following sanity test/checklist to ensure that the credentials provided by the customer are accurate.
 
@@ -325,6 +325,6 @@ Device manufacturers/partners can have the following sanity test/checklist to en
 - Check if an API call succeeds with the access token received
 - Check if the EventHub client Connection is established
 
-## Next Steps
+## Next steps
 
 For more information about REST API, see [REST API](references-for-farmbeats.md#rest-api).
