@@ -81,7 +81,7 @@ Select the image that you want to label and then click on the tag. Choosing the 
 
 To correct a mistake, you may either click the `X` to clear individual tags or select the images, and choose the tag, which will clear the tag from all the selected images. This scenario is shown here, where clicking on "Land" will clear that tag from the two selected images.
 
-![Screenshot showing multiple deselection](media/how-to-label-images/multiple_deselection.png)
+![Screenshot showing multiple deselection](media/how-to-label-images/multiple-deselection.png)
 
 Azure will only enable the **Submit** button after you've applied at least one tag to each image. Press **Submit** for your work to be saved.
 
@@ -90,11 +90,11 @@ Azure will only enable the **Submit** button after you've applied at least one t
 If your project is of type "Object Identification (Bounding Boxes)", you'll specify one or more bounding boxes in the image and apply a tag to that box. Each image may have multiple bounding boxes, each with a single tag. Use **View detailed instructions** to determine if adding multiple bounding boxes is appropriate to your project.
 
 1. Select a tag for the bounding box you wish to create
-1. Select the **Rectangular box** tool ![Rectangular box tool](media/how-to-label-images/rectangular_box_tool.png) or press 'R' 
+1. Select the **Rectangular box** tool ![Rectangular box tool](media/how-to-label-images/rectangular-box-tool.png) or press 'R' 
 1. Click and drag diagonally across your target to create a rough bounding box
     * Adjust the bounding box by clicking and dragging the edges or corners of the box
 
-![Screenshot of basic bounding box creation](media/how-to-label-images/bounding_box_sequence.png)
+![Screenshot of basic bounding box creation](media/how-to-label-images/bounding-box-sequence.png)
 
 If you wish to delete the bounding box, click the X-shaped target that appears beside the bounding box after creation.
 
@@ -102,9 +102,9 @@ You may not reassign the tag of an existing bounding box. If you make a mistake 
 
 By default, existing bounding boxes may be edited. The **Lock/unlock regions** tool ![Lock/unlock regions tool](media/how-to-label-images/lock_bounding_boxes_tool.png) or "L" toggles that behavior. If regions are locked, you may only change the shape or location of a new bounding box.
 
-Use the **Regions manipulation** tool ![Regions manipulation tool](media/how-to-label-images/regions_tool.png) or "M" to adjust an existing bounding box. You can click and drag on the edges or corners to adjust the shape. If you click in the interior, you can drag the whole bounding box. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool. 
+Use the **Regions manipulation** tool ![Regions manipulation tool](media/how-to-label-images/regions-tool.png) or "M" to adjust an existing bounding box. You can click and drag on the edges or corners to adjust the shape. If you click in the interior, you can drag the whole bounding box. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool. 
 
-Use the **Template-based box** tool ![Template-box tool](media/how-to-label-images/template_box_tool.png) or "T" to create multiple bounding boxes of the same size. If the image has no bounding boxes and you activate template-based boxes, the tool will produce 50x50 pixel boxes. If you've created a bounding box and then activate template-based boxes, new bounding boxes will be the size of the last one you made. Template-based boxes can be resized after placement. Resizing a template-based box only resizes the particular box. 
+Use the **Template-based box** tool ![Template-box tool](media/how-to-label-images/template-box-tool.png) or "T" to create multiple bounding boxes of the same size. If the image has no bounding boxes and you activate template-based boxes, the tool will produce 50x50 pixel boxes. If you've created a bounding box and then activate template-based boxes, new bounding boxes will be the size of the last one you made. Template-based boxes can be resized after placement. Resizing a template-based box only resizes the particular box. 
 
 If you wish to delete _all_ bounding boxes in the current image, you can choose the **Delete all regions** tool ![Delete regions tool](media/how-to-label-images/delete_regions_tool.png). 
 
