@@ -12,6 +12,8 @@ manager: abjork
 
 # Tutorial: Create and walk-through the smart meter monitoring app template 
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial guides you through the process of creating the smart meter monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn:
 
 > [!div class="checklist"]
@@ -89,7 +91,7 @@ Click on the **Device templates** tab to see the smart meter device model. The m
 ## Clean up resources
 If you decide to not continue using this application, delete your application with the following these steps:
 
-1. From the left-hand menu, open Administration tab
+1. From the left pane, open Administration tab
 2. Select Application settings and click Delete button at the bottom of the page. 
 
     > [!div class="mx-imgBorder"]
@@ -97,5 +99,6 @@ If you decide to not continue using this application, delete your application wi
 
 
 ## Next steps
-* To learn about smart meter app architecture refer to the concept article. 
+* Learn about smart meter app architecture refer to [the concept article](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
 * Create smart meter application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
+* Learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/)

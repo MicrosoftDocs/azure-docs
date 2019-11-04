@@ -10,6 +10,8 @@ ms.date: 10/20/2019
 
 # Tutorial: Deploy and walk through a connected logistics application template
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial shows you how to get started by deploying an IoT Central **connected logistics** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
 In this tutorial, you learn how to, 

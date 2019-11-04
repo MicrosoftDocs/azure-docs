@@ -251,6 +251,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/open-datasets/tutorial-opendatasets-automl.md",
+      "redirect_url": "/azure/machine-learning/service/tutorial-auto-train-models",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/high-performance-computing.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
       "redirect_document_id": false
@@ -284,6 +289,11 @@
       "source_path": "articles/machine-learning/studio/retrain-existing-resource-manager-based-web-service.md",
       "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/algorithm-cheat-sheet.md",
+      "redirect_url": "/azure/machine-learning/algorithm-cheat-sheet",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/service-bus-messaging/service-bus-paired-namespaces.md",
@@ -753,6 +763,56 @@
     {
       "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix4-supported-inspectors.md",
       "redirect_url": "/azure/machine-learning/service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-roles.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-entity-types#entity-role-defines-context",
+      "redirect_document_id": false      
+    },    
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-version.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-app-iteration",
+      "redirect_document_id": false   
+    },
+    {   
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-cs-add-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-prebuilt-entities.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/howto-add-prebuilt-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-prebuilt-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/howto-add-prebuilt-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-prebuilt-domains.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/howto-add-prebuilt-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-go-add-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-java-add-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-node-add-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-python-add-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest",
       "redirect_document_id": false
     },
     {
@@ -1448,6 +1508,16 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-qsg.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices-sdk-android-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/faq-voice-first-virtual-assistants.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/faq-voice-assistants",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/voice-first-virtual-assistants.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/voice-assistants",
       "redirect_document_id": true
     },
     {
@@ -3040,6 +3110,21 @@
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-linux",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-portal.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-vscode.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/iot-edge/how-to-register-device-cli.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
       "redirect_url": "/azure/cognitive-services/recommendations/overview",
@@ -5466,6 +5551,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/durable/durable-functions-preview.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-versions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-functions/functions-bindings-storage.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-storage-blob",
       "redirect_document_id": false
@@ -5847,7 +5937,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-configure-ssl-certificate.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-ssl",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate",
       "redirect_document_id": false
     },
     {
@@ -6512,7 +6602,12 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-tutorial-custom-ssl.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-ssl",
+      "redirect_url": "/azure/app-service/configure-ssl-bindings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-tutorial-custom-ssl.md",
+      "redirect_url": "/azure/app-service/configure-ssl-bindings",
       "redirect_document_id": false
     },
     {
@@ -6677,7 +6772,17 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-purchase-ssl-web-site.md",
-      "redirect_url": "/azure/app-service/web-sites-purchase-ssl-web-site",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-purchase-ssl-web-site.md",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-ssl-cert-load.md",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate-in-code",
       "redirect_document_id": false
     },
     {
@@ -7307,7 +7412,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-app-powershell-ssl-binding.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-ssl",
+      "redirect_url": "/azure/app-service/configure-ssl-bindings",
       "redirect_document_id": false
     },
     {
@@ -15861,11 +15966,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-wan/virtual-wan-point-to-site-portal.md",
-      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
       "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
@@ -16111,13 +16211,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/stream-analytics/vs-code-how-to.md",
-      "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
+      "source_path": "articles/stream-analytics/powerbi-output-managed-identity.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#power-bi",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/stream-analytics/custom-deserializer.md",
-      "redirect_url": "https://aka.ms/asapreview1",
+      "source_path": "articles/stream-analytics/vs-code-how-to.md",
+      "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
       "redirect_document_id": false
     },
     {
@@ -19181,8 +19281,33 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-passwords.md",
-      "redirect_url": "active-directory-passwords-update-your-own-password",
+      "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-privacy-page.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-privacy-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-organizations-page.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-organizations-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-devices-page.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-devices-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-reset-password.md",
+      "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
+      "redirect_document_id": false      
     },
     {
       "source_path": "articles/active-directory/active-directory-protocols-oauth-code.md",
@@ -24115,6 +24240,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/networking/virtual-network-test-latency.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md",
       "redirect_url": "/azure/virtual-network/virtual-network-create-peering",
       "redirect_document_id": false
@@ -26502,6 +26632,11 @@
     {
       "source_path": "articles/security-center/security-center-custom-alert.md",
       "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#custom-alert-rules-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-policies-overview.md",
+      "redirect_url": "/azure/security-center/tutorial-security-policy.md",
       "redirect_document_id": false
     },
     {
@@ -35715,7 +35850,7 @@
     },
     {
       "source_path": "articles/azure-policy/scripts/req-sql-12.md",
-      "redirect_url": "/azure/governance/policy/samples/require-sql-12",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
@@ -36169,6 +36304,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/concepts-connectivity-pnp.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-get-connected-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/concepts-stay-connected.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-stay-connected-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/overview-iot-central-transform.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-transform-pnp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/core/howto-create-event-rules-pnp.md",
       "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
       "redirect_document_id": false
@@ -36190,22 +36340,22 @@
     },
     {
       "source_path": "articles/iot-central/tutorial-add-device-pnp.md",
-      "redirect_url": "/azure/iot-central/quick-create-pnp-device-pnp",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/tutorial-define-device-type-pnp.md",
-      "redirect_url": "/azure/iot-central/quick-create-pnp-device-pnp",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-export-data-blob-storage-pnp.md",
-      "redirect_url": "/azure/iot-central/howto-export-data-pnp",
+      "redirect_url": "/azure/iot-central/core/howto-export-data-pnp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-export-data-event-hubs-service-bus-pnp.md",
-      "redirect_url": "/azure/iot-central/howto-export-data-pnp",
+      "redirect_url": "/azure/iot-central/core/howto-export-data-pnp",
       "redirect_document_id": false
     },
     {
@@ -36215,12 +36365,12 @@
     },
     {
       "source_path": "articles/iot-central/howto-create-application.md",
-      "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-connect-powerbi-pnp.md",
-      "redirect_url": "/azure/iot-central/howto-connect-powerbi",
+      "redirect_url": "/azure/iot-central/core/howto-connect-powerbi",
       "redirect_document_id": false
     },
     {
@@ -38359,6 +38509,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/azure-logs-metrics.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-platform",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -38780,8 +38935,13 @@
     },
     {
       "source_path": "articles/governance/policy/samples/req-sql-12.md",
-      "redirect_url": "/azure/governance/policy/samples/require-sql-12",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/require-sql-12.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/req-store-acct-enc.md",
@@ -39485,7 +39645,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-export-data.md",
-      "redirect_url": "/azure/iot-central/howto-export-data-event-hubs-service-bus",
+      "redirect_url": "/azure/iot-central/core/howto-export-data-event-hubs-service-bus",
       "redirect_document_id": false
     },
     {
@@ -41650,12 +41810,387 @@
     },
     {
       "source_path": "articles/iot-central/howto-create-and-manage-applications-as-CSP.md",
-      "redirect_url": "/azure/iot-central/howto-create-and-manage-applications-csp",
+      "redirect_url": "/azure/iot-central/core/howto-create-and-manage-applications-csp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-version-devicetemplate.md",
-      "redirect_url": "/azure/iot-central/howto-version-device-template",
+      "redirect_url": "/azure/iot-central/core/howto-version-device-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/concepts-architecture.md",
+      "redirect_url": "/azure/iot-central/core/concepts-architecture/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/concepts-architecture-pnp.md",
+      "redirect_url": "/azure/iot-central/core/concepts-architecture-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/concepts-connectivity.md",
+      "redirect_url": "/azure/iot-central/core/concepts-connectivity/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/concepts-connectivity-pnp.md",
+      "redirect_url": "/azure/iot-central/core/concepts-connectivity-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-add-microsoft-flow.md",
+      "redirect_url": "/azure/iot-central/core/howto-add-microsoft-flow/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-administer.md",
+      "redirect_url": "/azure/iot-central/core/howto-administer/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-administer-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-administer-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-build-azure-logic-apps.md",
+      "redirect_url": "/azure/iot-central/core/howto-build-azure-logic-apps/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-build-iotc-device-bridge.md",
+      "redirect_url": "/azure/iot-central/core/howto-build-iotc-device-bridge/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-configure-homepage.md",
+      "redirect_url": "/azure/iot-central/core/howto-configure-homepage/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-devkit.md",
+      "redirect_url": "/azure/iot-central/core/howto-connect-devki/t",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-devkit-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-connect-devkit-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-nodejs.md",
+      "redirect_url": "/azure/iot-central/core/howto-connect-nodejs/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-pnp-device-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-connect-pnp-device-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-powerbi.md",
+      "redirect_url": "/azure/iot-central/core/howto-connect-powerbi/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-raspberry-pi-csharp.md",
+      "redirect_url": "/azure/iot-central/core/howto-connect-raspberry-pi-csharp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-raspberry-pi-python.md",
+      "redirect_url": "/azure/iot-central/core/howto-connect-raspberry-pi-python/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-sensortile.md",
+      "redirect_url": "/azure/iot-central/core/howto-connect-sensortile/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-windowsiotcore.md",
+      "redirect_url": "/azure/iot-central/core/howto-connect-windowsiotcore/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-analytics.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-analytics/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-and-manage-applications-csp.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-and-manage-applications-csp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-custom-analytics.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-custom-analytics/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-custom-rules.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-custom-rules/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-event-rules.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-event-rules/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-event-rules-pnp.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-telemetry-rules.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-telemetry-rules/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-telemetry-rules-pnp.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-webhooks.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-webhooks/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-customize-ui.md",
+      "redirect_url": "/azure/iot-central/core/howto-customize-ui/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-customize-ui-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-customize-ui-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-export-data-blob-storage.md",
+      "redirect_url": "/azure/iot-central/core/howto-export-data-blob-storage/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-export-data-event-hubs-service-bus.md",
+      "redirect_url": "/azure/iot-central/core/howto-export-data-event-hubs-service-bus/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-manage-devices.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-manage-devices-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-manage-iot-central-from-cli.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-manage-iot-central-from-portal.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-portal/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-manage-iot-central-from-powershell.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-powershell/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-manage-preferences.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-preferences/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-manage-users-roles.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-users-roles/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-manage-users-roles-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-users-roles-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-personalize-dashboard.md",
+      "redirect_url": "/azure/iot-central/core/howto-personalize-dashboard/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-prepare-images.md",
+      "redirect_url": "/azure/iot-central/core/howto-prepare-images/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-run-a-job.md",
+      "redirect_url": "/azure/iot-central/core/howto-run-a-job/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-set-up-template.md",
+      "redirect_url": "/azure/iot-central/core/howto-set-up-template/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-set-up-template-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-set-up-template-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-show-hide-chat.md",
+      "redirect_url": "/azure/iot-central/core/howto-show-hide-chat",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-trigger-azure-functions.md",
+      "redirect_url": "/azure/iot-central/core/howto-trigger-azure-functions/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-use-action-groups.md",
+      "redirect_url": "/azure/iot-central/core/howto-use-action-groups/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-use-app-templates.md",
+      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-use-device-groups-pnp.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-use-device-groups-pnp.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-use-device-sets.md",
+      "redirect_url": "/azure/iot-central/core/howto-use-device-sets/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-use-iotc-explorer.md",
+      "redirect_url": "/azure/iot-central/core/howto-use-iotc-explorer/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-use-tiles.md",
+      "redirect_url": "/azure/iot-central/core/howto-use-tiles/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-version-device-template.md",
+      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-version-device-template-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-version-device-template-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-view-bill.md",
+      "redirect_url": "/azure/iot-central/core/howto-view-bill/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-view-bill-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-view-bill-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/iot-central-customer-data-requests.md",
+      "redirect_url": "/azure/iot-central/core/iot-central-customer-data-requests/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/iot-central-supported-browsers.md",
+      "redirect_url": "/azure/iot-central/core/iot-central-supported-browsers/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/overview-iot-central.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/overview-iot-central-pnp.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/overview-iot-central-tour.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-tour/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/overview-iot-central-tour-pnp.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-tour-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/overview-iot-options.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-options/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/quick-create-pnp-device-pnp.md",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/quick-deploy-iot-central.md",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/quick-deploy-iot-central-pnp.md",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/tutorial-add-device.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-add-device/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/tutorial-configure-rules.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-configure-rules/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/tutorial-configure-rules-pnp.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/tutorial-customize-operator.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-customize-operator/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/tutorial-define-device-type.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-define-device-type/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/tutorial-monitor-devices.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-monitor-devices/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/tutorial-monitor-devices-pnp.md",
+      "redirect_url": "/azure/iot-central/core/quick-monitor-devices-pnp/",
       "redirect_document_id": true
     },
     {
@@ -42224,6 +42759,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/image-moderation-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/dotnet-sdk-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/text-moderation-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/dotnet-sdk-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/moderation-reviews-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/dotnet-sdk-quickstart",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/dev-spaces/quickstart-cli-dockerfile.md",
       "redirect_url": "/azure/dev-spaces/quickstart-cli",
       "redirect_document_id": false
@@ -42749,6 +43299,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/algorithm-module-reference/import-from-azure-blob-storage.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/algorithm-module-reference/import-from-azure-sql-database.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/algorithm-module-reference/import-from-web-url-via-http.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
       "source_path": "articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-overview.md",
       "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-overview",
       "redirect_document_id": false
@@ -42871,6 +43433,261 @@
     {
       "source_path": "articles/industry/index.md",
       "redirect_url": "/azure/industry-marketing/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-churn.md",
+      "redirect_url": "how-to-designer-sample-classification-churn",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-basic.md",
+      "redirect_url": "how-to-designer-sample-classification-predict-income",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md",
+      "redirect_url": "how-to-designer-sample-classification-credit-risk-cost-sensitive",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-flight-delay.md",
+      "redirect_url": "how-to-designer-sample-classification-flight-delay",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-basic.md",
+      "redirect_url": "how-to-designer-sample-regression-automobile-price-basic",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md",
+      "redirect_url": "how-to-designer-sample-regression-automobile-price-compare-algorithms",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-ui-sample-text-classification.md",
+      "redirect_url": "how-to-designer-sample-text-classification",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-deploy.md",
+      "redirect_url": "tutorial-designer-automobile-price-deploy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-train-score.md",
+      "redirect_url": "tutorial-designer-automobile-price-train-score",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/ui-concept-visual-interface.md",
+      "redirect_url": "concept-designer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/terraform/terrafom-quickstart.md",
+      "redirect_url": "/azure/terraform/terraform-create-configuration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/terraform/terraform-vm-msi.md",
+      "redirect_url": "/azure/terraform/terraform-vm-managed-identities-for-azure-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-dotnet-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-uwp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-xamarin.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-unity.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-cpp-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-cpp-linux.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-cpp-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-java-android.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-java-jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-js-browser.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-js-node.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-objectivec-ios.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-objective-c-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-swift-ios.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-swift-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-python.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-translate-speech-dotnetcore-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-translate-speech-dotnetframework-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-translate-speech-uwp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-translate-speech-cpp-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-translate-speech-java-jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-dotnet-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-dotnetcore.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-csharp-uwp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-csharp-unity.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-cpp-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-cpp-linux.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-java-android.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-java-jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-objectivec-ios.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-objectivec-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-swift-ios.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-swift-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-text-to-speech-python.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-voice-tuning.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-audio-content-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/msal-acquire-token-interactively.md",
+      "redirect_url": "/azure/active-directory/develop/msal-acquire-cache-tokens",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-live-logs.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-livedata-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-store-integrate-with-azure-services.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-integrate-with-azure-services",
       "redirect_document_id": false
     }
   ]

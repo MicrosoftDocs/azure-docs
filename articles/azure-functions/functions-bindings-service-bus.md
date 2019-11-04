@@ -58,7 +58,7 @@ logs a Service Bus queue message:
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
     string myQueueItem,
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
@@ -71,12 +71,6 @@ public static void Run(
     log.LogInformation($"MessageId={messageId}");
 }
 ```
-
-This example is for Azure Functions version 1.x. To make this code work for 2.x:
-
-- [omit the access rights parameter](#trigger---configuration)
-- change the type of the log parameter from `TraceWriter` to `ILogger`
-- change `log.Info` to `log.LogInformation`
 
 ### Trigger - C# script example
 
@@ -477,12 +471,12 @@ public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
 Here's C# script code that creates multiple messages:
 
 ```cs
-public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> outputSbQueue)
+public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<string> outputSbQueue)
 {
     string message = $"Service Bus queue messages created at: {DateTime.Now}";
     log.LogInformation(message); 
-    outputSbQueue.Add("1 " + message);
-    outputSbQueue.Add("2 " + message);
+    await outputSbQueue.AddAsync("1 " + message);
+    await outputSbQueue.AddAsync("2 " + message);
 }
 ```
 

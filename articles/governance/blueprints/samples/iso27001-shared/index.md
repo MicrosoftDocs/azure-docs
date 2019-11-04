@@ -1,6 +1,6 @@
 ---
 title: ISO 27001 Shared Services blueprint sample - Overview
-description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers asses specific ISO 27001 controls.
+description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers assess specific ISO 27001 controls.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
@@ -75,7 +75,7 @@ sample:
 > [ISO 27001 Shared Services blueprint - Control mapping](./control-mapping.md)
 > [ISO 27001 Shared Services blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

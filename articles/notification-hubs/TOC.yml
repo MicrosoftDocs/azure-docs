@@ -41,7 +41,7 @@
       href: push-notification-updates-ios-13.md
     - name: Push notifications to iOS apps
       items:
-      - name: Objective-c
+      - name: Objective-C
         href: notification-hubs-ios-apple-push-notification-apns-get-started.md
       - name: Swift
         href: notification-hubs-ios-push-notifications-swift-apps-get-started.md

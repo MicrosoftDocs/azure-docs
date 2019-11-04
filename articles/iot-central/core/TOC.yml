@@ -8,8 +8,6 @@
     href: overview-iot-options.md
   - name: Tour of the UI
     href: overview-iot-central-tour.md    
-  - name: Stay connected
-    href: concepts-stay-connected.md
 - name: Quickstarts
   expanded: true
   items:
