@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Manage Azure Cosmos DB Gremlin API resources using Azure Resource Manager Templates
 
-This article describes how to perform different operations to automate management of your Azure Cosmos DB accounts, databases and containers using Azure Resource manager templates. This article has examples for Gremlin API accounts only, to find examples for other API type accounts see: use Resource Manager templates with Azure Cosmos DB's API for  [Cassandra](manage-cassandra-with-resource-manager.md), [SQL](manage-sql-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [Table](manage-table-with-resource-manager.md) articles.
+This article describes how to perform different operations to automate management of your Azure Cosmos DB accounts, databases and containers using Azure Resource Manager templates. This article has examples for Gremlin API accounts only, to find examples for other API type accounts see: use Resource Manager templates with Azure Cosmos DB's API for  [Cassandra](manage-cassandra-with-resource-manager.md), [SQL](manage-sql-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [Table](manage-table-with-resource-manager.md) articles.
 
 ## Create Azure Cosmos DB API for MongoDB account, database and collection <a id="create-resource"></a>
 
