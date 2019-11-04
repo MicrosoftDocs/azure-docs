@@ -5659,6 +5659,8 @@ featureFlags:
                                 <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
                                     <div class="cardSize">
                                         <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
                                                     <div class="cardImage">
                                                         <img src="media/index/private-link.svg" alt="" />
                                                     </div>
@@ -5673,11 +5675,31 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/firewall-manager/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
                                                         <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
+                                                    </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Firewall Manager</h3>
                                                     <p>A globally distributed security management service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                               <a href="/azure/security-center/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
                                                         <img src="media/index/SecurityCenter.svg" alt="" />
                                                     </div>
                                                 </div>
