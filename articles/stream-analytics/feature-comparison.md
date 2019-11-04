@@ -34,8 +34,8 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
 |Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |
 |Query testing with a sample file     |Yes         |Yes         |Yes         |
-|Live data local testing     |No         |Yes         |Yes        |
-|List jobs and view job entities     |Yes         |Yes (with query diagram)        |Yes         |
+|Live data local testing     |No         |Yes (with query diagram)        |Yes      |
+|List jobs and view job entities     |Yes         |Yes        |Yes         |
 |Export a job to a local project     |No         |Yes         |Yes         |
 |Submit, start, and stop jobs     |Yes         |Yes         |Yes         |
 |Source control     |No         |Yes         |Yes         |
