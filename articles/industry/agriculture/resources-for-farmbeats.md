@@ -10,12 +10,12 @@ ms.author: v-umha
 
 # Resources
 
- In this section you can go to blog and forum for more information.
+Use the following to visit the blog spaces and forums for FarmBeats.
 
 ## Blog
 
-https://aka.ms/AzureFarmBeats
+[See blog](https://aka.ms/AzureFarmBeats)
 
 ## Forum
 
-https://aka.ms/FarmBeatsMSDN
+[See forums](https://aka.ms/FarmBeatsMSDN)
