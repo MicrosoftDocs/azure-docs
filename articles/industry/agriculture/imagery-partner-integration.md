@@ -1,5 +1,5 @@
 ---
-title: Imagery Partner Integration
+title: Imagery partner integration
 description: Describes about imagery partner integration
 author: uhabiba04
 ms.topic: article
