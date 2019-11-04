@@ -4,7 +4,7 @@ description: Describes how to set up an appliance for discovery, assessment, and
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 10/10/2019
 ms.author: raynew
 ---
 
@@ -25,7 +25,7 @@ The VMware VM appliance is a lightweight appliance used by Azure Migrate Server 
 
 To set up the appliance you:
 - Download an OVA template file, and import it to vCenter Server.
-- Create the appliance, and check that it can connect to Azure Migrate Server Assessment. 
+- Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
 - Configure the appliance for the first time, and register it with the Azure Migrate project.
 
 ## Download the OVA template
@@ -44,7 +44,7 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command, to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For appliance version 1.0.0.5, the generated hash should match these settings. 
+3. For appliance version 1.0.0.5, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
@@ -95,7 +95,7 @@ Set up the appliance for the first time.
 ## Register the appliance with Azure Migrate
 
 1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. On the new tab, sign in using your Azure credentials. 
+2. On the new tab, sign in using your Azure credentials.
     - Sign in with your username and password.
     - Sign in with a PIN isn't supported.
 3. After successfully signing in, go back to the web app.
@@ -104,18 +104,30 @@ Set up the appliance for the first time.
 4. Click **Register**.
 
 
-## Start continuous discovery
+## Start continuous discovery by providing vCenter Server and VM credential
 
-Now, connect from the appliance to vCenter Server, and start VM discovery. 
+The appliance needs to connect to vCenter Server to discover the configuration and performance data of the VMs.
 
+### Specify vCenter Server details
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
+2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#scoping-discovery).
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
-4. After the connection is established, click **Save and start discovery**.
 
+### Specify VM credentials
+For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the access privileges needed.
 
-This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the portal. 
+> [!NOTE]
+> This input is optional and is needed to enable application discovery and agentless dependency visualization.
 
+1. In **Discover applications and dependencies on VMs**, click **Add credentials**.
+2. Select the **Operating System**.
+3. Provide a friendly name for the credential.
+4. In **Username** and **Password**, specify an account that has at least guest access on the VMs.
+5. Click **Add**.
+
+Once you have specified the vCenter Server and VM credentials (optional), click **Save and start discovery** to start discovery of the on-premises environment.
+
+It takes around 15 minutes for metadata of discovered VMs to appear in the portal. Discovery of installed applications, roles, and features takes some time, the duration depends on the number of VMs being discovered. For 500 VMs, it takes approximately 1 hour for the application inventory to appear in the Azure Migrate portal.
 
 ## Next steps
 

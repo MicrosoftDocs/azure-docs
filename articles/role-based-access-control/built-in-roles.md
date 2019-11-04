@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 09/25/2019
+ms.date: 10/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -110,6 +110,7 @@ The following table provides a brief description of each built-in role. Click th
 | [Managed Applications Reader](#managed-applications-reader) | Lets you read resources in a managed app and request JIT access. |
 | [Managed Identity Contributor](#managed-identity-contributor) | Create, Read, Update, and Delete User Assigned Identity |
 | [Managed Identity Operator](#managed-identity-operator) | Read and Assign User Assigned Identity |
+| [Managed Services Registration assignment Delete Role](#managed-services-registration-assignment-delete-role) | Managed Services Registration Assignment Delete Role allows the managing tenant users to delete the registration assignment assigned to their tenant. |
 | [Management Group Contributor](#management-group-contributor) | Management Group Contributor Role |
 | [Management Group Reader](#management-group-reader) | Management Group Reader Role |
 | [Monitoring Contributor](#monitoring-contributor) | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
@@ -275,7 +276,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Description** | acr quarantine data reader |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | Pull or Get quarantined images from container registry |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -290,8 +291,8 @@ The following table provides a brief description of each built-in role. Click th
 > | **Description** | acr quarantine data writer |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
-> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Write/Modify quarantine state of quarantined images |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | Pull or Get quarantined images from container registry |
+> | Microsoft.ContainerRegistry/registries/quarantine/write | Write/Modify quarantine state of quarantined images |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1834,6 +1835,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Return the storage account with the given account. |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | Microsoft.Insights/logdefinitions/* | This permission is necessary for users who need access to Activity Logs via the portal. List log categories in Activity Log. |
 > | Microsoft.Insights/metricDefinitions/* | Read metric definitions (list of available metric types for a resource). |
@@ -1866,6 +1868,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Insights/alertRules/*/read | Read Insights alert rules |
+> | Microsoft.Insights/metricAlerts/*/read |  |
 > | Microsoft.Insights/diagnosticSettings/*/read | Gets diagnostic settings for Logic Apps |
 > | Microsoft.Insights/metricDefinitions/*/read | Gets the available metrics for Logic Apps. |
 > | Microsoft.Logic/*/read | Reads Logic Apps resources. |
@@ -1957,6 +1960,23 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Managed Services Registration assignment Delete Role
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Managed Services Registration Assignment Delete Role allows the managing tenant users to delete the registration assignment assigned to their tenant. |
+> | **Id** | 91c1777a-f3dc-4fae-b103-61d183457e46 |
+> | **Actions** |  |
+> | Microsoft.ManagedServices/registrationAssignments/read | Retrieves a list of Managed Services registration assignments. |
+> | Microsoft.ManagedServices/registrationAssignments/delete | Removes Managed Services registration assignment. |
+> | Microsoft.ManagedServices/operationStatuses/read | Reads the operation status for the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |

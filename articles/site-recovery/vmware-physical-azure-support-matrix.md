@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/22/2019
 ms.author: raynew
 
 ---
@@ -45,7 +45,7 @@ RAM | 16 GB
 Number of disks | 3 disks<br/><br/> Disks include the OS disk, process server cache disk, and retention drive for failback.
 Disk free space | 600 GB of space for the process server cache.
 Disk free space | 600 GB  of space for the retention drive.
-Operating system  | Windows Server 2012 R2, or Windows Server 2016 with Desktop experience |
+Operating system  | Windows Server 2012 R2, or Windows Server 2016 with Desktop experience <br/><br> If you plan to use the in-built Master Target of this appliance for failback, ensure that the OS version is same or higher than the replicated items.|
 Operating system locale | English (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Not needed for configuration server version [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) or later. 
 Windows Server roles | Don't enable Active Directory Domain Services; Internet Information Services (IIS) or Hyper-V. 
@@ -271,7 +271,6 @@ Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per 
 
 **Source data churn** | **Maximum Limit**
 ---|---
-Average data churn per VM| 25 MB/s
 Peak data churn across all disks on a VM | 54 MB/s
 Maximum data churn per day supported by a Process Server | 2 TB
 

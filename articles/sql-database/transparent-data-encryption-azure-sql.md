@@ -63,7 +63,10 @@ For example, if the BACPAC file is exported from an on-premises SQL Server insta
 
 The one exception is when you export to and from a SQL database. Transparent data encryption is enabled in the new database, but the BACPAC file itself still isn't encrypted.
 
-## Manage transparent data encryption in the Azure portal
+
+## Manage transparent data encryption
+# [Portal](#tab/azure-portal)
+Manage transparent data encryption in the Azure portal.
 
 To configure transparent data encryption through the Azure portal, you must be connected as the Azure Owner, Contributor, or SQL Security Manager.
 
@@ -75,7 +78,8 @@ You set the transparent data encryption master key, also known as the transparen
 
 ![Transparent data encryption with Bring Your Own Key support](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
-## Manage transparent data encryption by using PowerShell
+# [PowerShell](#tab/azure-powershell)
+Manage transparent data encryption by using PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -102,7 +106,8 @@ Use the following cmdlets for Azure SQL Database and Data Warehouse:
 > [!IMPORTANT]
 > For Azure SQL Managed Instance, use the T-SQL [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) command to turn transparent data encryption on and off on a database level, and check [sample PowerShell script](transparent-data-encryption-byok-azure-sql-configure.md) to manage transparent data encryption on an instance level.
 
-## Manage transparent data encryption by using Transact-SQL
+# [Transact-SQL](#tab/azure-TransactSQL)
+Manage transparent data encryption by using Transact-SQL.
 
 Connect to the database by using a login that is an administrator or member of the **dbmanager** role in the master database.
 
@@ -115,7 +120,8 @@ Connect to the database by using a login that is an administrator or member of t
 
 You can't switch the transparent data encryption protector to a key from Key Vault by using Transact-SQL. Use PowerShell or the Azure portal.
 
-## Manage transparent data encryption by using the REST API
+# [REST API](#tab/azure-RESTAPI)
+Manage transparent data encryption by using the REST API.
 
 To configure transparent data encryption through the REST API, you must be connected as the Azure Owner, Contributor, or SQL Security Manager.
 Use the following set of commands for Azure SQL Database and Data Warehouse:

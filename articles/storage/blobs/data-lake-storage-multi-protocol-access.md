@@ -29,7 +29,7 @@ This also includes third-party tools and applications. You can point them to acc
 
 ## Use all Blob storage features
 
-Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob storage lifecycle management policies](storage-lifecycle-management-concepts.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on your blob storage accounts without loosing access to these important features. 
+Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob storage lifecycle management policies](storage-lifecycle-management-concepts.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on your blob storage accounts without losing access to these important features. 
 
 > [!NOTE]
 > To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article.

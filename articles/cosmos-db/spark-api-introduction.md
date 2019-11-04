@@ -4,8 +4,8 @@ description: Learn how you can use the built-in support for Apache Spark in Azur
 ms.service: cosmos-db
 ms.topic: overview 
 ms.date: 09/26/2019
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ---
 
 # Built-in operational analytics in Azure Cosmos DB with Apache Spark
