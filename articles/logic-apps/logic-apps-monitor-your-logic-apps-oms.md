@@ -171,11 +171,15 @@ After your logic app runs, you can view the status and count for those runs on t
 
    ![View actions for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
 
+<a name="view-query-logs"></a>
+
 ## View and query diagnostic logs
 
 To view the events and data collected from your logic app's runs, such as trigger events, run events, and action events, you can create queries with Log Analytics. For more information, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 
-### View logs from inside Logic Apps Management
+<a name="view-logic-apps-management"></a>
+
+### View log results and queries from Logic Apps Management
 
 From within the Logic Apps Management solution, you can view the query behind a results page or view all the results.
 
@@ -187,11 +191,18 @@ From within the Logic Apps Management solution, you can view the query behind a 
 
    * To view the query results in a table, select **Table**.
 
-   * Queries use [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), which you can edit if you want to view different results. To change the query, update the query string and select **Run** to view the results in the table. 
+   * Queries use [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), which you can edit if you want to view different results. To change the query, update the query string and select **Run** to view the results in the table.
 
-     ![Log Analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![Log Analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/view-query-behind-results.png)
 
-### View logs for a Log Analytics workspace
+<a name="create-custom-queries"></a>
+
+### Create custom log queries for your Log Analytics workspace
+
+To create your own queries for your Log Analytics workspace, follow these steps. For more information about creating queries, see these topics:
+
+* [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter "log analytics workspaces" as your filter, and select **Log Analytics workspaces**.
 
@@ -205,8 +216,9 @@ From within the Logic Apps Management solution, you can view the query behind a 
 
    ![On workspace menu, select "Logs"](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace-select-logs.png)
 
-1. In the search box, specify a field that you want to find, and press **Enter**. 
-When you start typing, you see possible matches and operations that you can use. 
+1. In the search box, specify a field that you want to find, and press **Enter**. When you start typing, you see possible matches and operations that you can use.
+
+   ![Start typing to create query](media/logic-apps-monitor-your-logic-apps-oms/create-query-log-analytics-workspace.png)
 
 ## Next steps
 
