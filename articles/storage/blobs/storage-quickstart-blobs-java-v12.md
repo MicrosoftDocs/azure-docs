@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/30/2019
+ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -22,7 +22,7 @@ Use the Azure Blob storage client library v12 for Java to:
 * Download a blob to your local computer
 * Delete a container
 
-[API reference documentation](/java/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+[API reference documentation](/java/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob?repo=jcenter) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 ## Prerequisites
 
@@ -106,7 +106,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-storage-blob</artifactId>
-    <version>12.0.0-preview.4</version>
+    <version>12.0.0</version>
 </dependency>
 ```
 
@@ -289,7 +289,7 @@ Add this code to the end of the `Main` method:
 System.out.println("\nListing blobs...");
 
 // List the blob(s) in the container.
-for (BlobItem blobItem : containerClient.listBlobsFlat()) {
+for (BlobItem blobItem : containerClient.listBlobs()) {
     System.out.println("\t" + blobItem.getName());
 }
 ```
@@ -320,7 +320,6 @@ The app pauses for user input by calling `System.console().readLine()` before it
 Add this code to the end of the `Main` method:
 
 ```java
-// Clean up
 // Clean up
 System.out.println("\nPress the Enter key to begin clean up");
 System.console().readLine();
