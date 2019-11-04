@@ -26,7 +26,7 @@ Once your project administrator has [created a labeling project](how-to-create-l
 * An Azure Active Directory account for the organization and project
 
 > [!Note]
-> The project administrator can find the labeling portal URL at **Project details** **Details**. 
+> The project administrator can find the labeling portal URL on the **Details** tab within the **Project details** page. 
 
 ## Logging in to the project's labeling portal
 
@@ -36,7 +36,7 @@ Log in using the email account the administrator used to add you to the team. Fo
 
 ## Understanding the labeling task
 
-Once you've signed in, you'll be presented with a list of the labeling projects in which you're participating. Click on the project you wish to work and you'll be brought to project's overview page. 
+Once you've signed in, you'll be brought to the project's overview page. 
 
 The first thing to do is **View detailed instructions**. These instructions are specific to your project and will explain the type of data you're facing, how you should make your decisions, and other relevant information. When you're done, return to the project page and choose **Start labeling**.
 
@@ -110,7 +110,7 @@ Once you've created the bounding boxes for the image, press **Submit** to save y
 
 When you submit a page of tagged data, Azure assigns you new unlabeled data from a work queue. If there are no more unlabeled data, you'll see a message to that effect, with a link back to the portal home page. 
 
-If you know you're not going to do more labeling, choose your name in the upper right corner of the labeling portal and choose **Signout**. If you sign out, Azure will immediately return the unlabeled data to the work queue. If you don't sign out, eventually Azure will "time you out" and assign your data to another labeler. 
+If you know you're not going to do more labeling, choose your name in the upper right corner of the labeling portal and choose **Signout**. If you don't sign out, eventually Azure will "time you out" and assign your data to another labeler. 
 
 ## Next steps
 
