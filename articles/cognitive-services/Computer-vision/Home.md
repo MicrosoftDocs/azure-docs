@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 10/30/2019 
+ms.date: 11/04/2019 
 ms.author: pafarley
 ms.custom: seodec18
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 # What is Computer Vision?
 
-Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information, depending on the visual features you're interesting in. For example, Computer Vision can determine if an image contains adult content, or it can find all of the human faces in an image.
+Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult content, or it can find all of the human faces in an image.
 
 You can use Computer Vision in your application through a native SDK or by invoking the REST API directly. This page broadly covers what you can do with Computer Vision.
 
