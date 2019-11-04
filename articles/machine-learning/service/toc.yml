@@ -166,6 +166,9 @@
     - name: Get data labeled
       displayName: data, dataset, labeling
       href: how-to-create-labeling-projects.md
+    - name: Label images
+      displayName: data, dataset, labeling
+      href: how-to-label-images.md
   - name: Train models
     items:
     - name: Use the designer
