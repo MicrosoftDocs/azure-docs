@@ -13,8 +13,6 @@ ms.author: magattus
 
 # Azure CDN Standard Rules Engine
 
-## Overview
-
 > [!NOTE]
 > Standard Rules Engine is only available for Azure CDN from Microsoft. 
 
