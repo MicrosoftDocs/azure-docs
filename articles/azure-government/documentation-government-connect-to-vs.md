@@ -4,7 +4,7 @@ description: This quickstart shows how to connect to Azure Government with Visua
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhong
+author: yujhongmicrosoft
 manager: zakramer
 
 ms.service: azure-government
