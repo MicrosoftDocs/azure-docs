@@ -76,7 +76,7 @@ In this section, you create an Azure Databricks workspace using the Azure Resour
 
    Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](user-guide/clusters/create.html).
+For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](/azure/databricks/user-guide/clusters/create).
 
 ## Run a Spark SQL job
 
