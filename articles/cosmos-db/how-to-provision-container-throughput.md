@@ -62,7 +62,7 @@ await client.CreateDocumentCollectionAsync(
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
-Similar command can be issued through any of the CQL compliant driver.
+Similar commands can be issued through any CQL-compliant driver.
 
 ```csharp
 // Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
@@ -72,7 +72,7 @@ session.Execute("CREATE TABLE myKeySpace.myTable(
     lastName text) WITH cosmosdb_provisioned_throughput=400");
 
 ```
-### Alter or change throughput for Cassandra Table
+### Alter or change throughput for Cassandra table
 
 ```csharp
 // Altering the throughput too can be done through code by issuing following command
