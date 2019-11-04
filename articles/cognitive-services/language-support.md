@@ -85,7 +85,7 @@ These tables highlight language availability by service category; core languages
 
 The following Cognitive Services are language agnostic and don't have limitations based on language.
 
-* [Personalizer (Preview)](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
+* [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
 * [Anomaly Detector (Preview)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
 
 
