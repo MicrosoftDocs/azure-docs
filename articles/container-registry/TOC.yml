@@ -99,8 +99,10 @@
         href: container-registry-auth-aci.md
       - name: Authenticate from Azure Kubernetes Service (AKS)
         href: ../aks/cluster-container-registry-integration.md
-    - name: Roles and permissions
+    - name: Role-based access control
       href: container-registry-roles.md
+    - name: Repository-scoped permissions (preview)
+      href: container-registry-repository-scoped-permissions.md
     - name: Content trust
       href: container-registry-content-trust.md
   - name: ACR Tasks

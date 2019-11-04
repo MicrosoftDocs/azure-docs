@@ -26,7 +26,7 @@ Whether you're training a machine learning scikit-learn model from the ground-up
 ## Prerequisites
 
 Run this code on either of these environments:
- - Azure Machine Learning compute instance - no downloads or installation necessary
+ - Azure Machine Learning Notebook VM - no downloads or installation necessary
 
     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md)  to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples training folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > training > train-hyperparameter-tune-deploy-with-sklearn** folder.
