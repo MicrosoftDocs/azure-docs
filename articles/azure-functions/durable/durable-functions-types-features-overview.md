@@ -36,7 +36,7 @@ Unlike orchestrator functions, activity functions aren't restricted in the type 
 > [!NOTE]
 > Because activity functions only guarantee *at least once* execution, we recommend you make your activity function logic *idempotent* whenever possible.
 
-Use an [activity trigger](durable-functions-bindings.md#activity-trigger) to define an activity function. .NET functions receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other JSON-serializeable object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings). Activity functions can only have a single value passed to them. To pass multiple values, you must use tuples, arrays, or complex types.
+Use an [activity trigger](durable-functions-bindings.md#activity-trigger) to define an activity function. .NET functions receive a `DurableActivityContext` as a parameter. You can also bind the trigger to any other JSON-serializeable object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings). Activity functions can only have a single value passed to them. To pass multiple values, you must use tuples, arrays, or complex types.
 
 > [!NOTE]
 > You can trigger an activity function only from an orchestrator function.

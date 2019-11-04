@@ -7,15 +7,13 @@ manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/02/2019
 ms.author: azfuncdf
 ---
 
 # Handling errors in Durable Functions (Azure Functions)
 
 Durable Function orchestrations are implemented in code and can use the programming language's built-in error-handling features. There really aren't any new concepts you need to learn to add error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-sample-note.md)]
 
 ## Errors in activity functions
 
@@ -27,7 +25,7 @@ For example, consider the following orchestrator function that transfers funds f
 
 ```csharp
 [FunctionName("TransferFunds")]
-public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var transferDetails = ctx.GetInput<TransferOperation>();
 
@@ -66,7 +64,7 @@ public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
 
-public static async Task Run(DurableOrchestrationContext context)
+public static async Task Run(IDurableOrchestrationContext context)
 {
     var transferDetails = ctx.GetInput<TransferOperation>();
 
@@ -100,7 +98,10 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-### JavaScript (Functions 2.x only)
+> [!NOTE]
+> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+### JavaScript (Functions 2.0 only)
 
 ```javascript
 const df = require("durable-functions");
@@ -146,7 +147,7 @@ When you call activity functions or sub-orchestration functions, you can specify
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
-public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var retryOptions = new RetryOptions(
         firstRetryInterval: TimeSpan.FromSeconds(5),
@@ -161,7 +162,7 @@ public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext 
 ### C# Script
 
 ```csharp
-public static async Task Run(DurableOrchestrationContext context)
+public static async Task Run(IDurableOrchestrationContext context)
 {
     var retryOptions = new RetryOptions(
         firstRetryInterval: TimeSpan.FromSeconds(5),
@@ -173,7 +174,10 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-### JavaScript (Functions 2.x only)
+> [!NOTE]
+> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+### JavaScript (Functions 2.0 only)
 
 ```javascript
 const df = require("durable-functions");
@@ -187,7 +191,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-The `CallActivityWithRetryAsync` (.NET) or `callActivityWithRetry` (JavaScript) API takes a `RetryOptions` parameter. Suborchestration calls using the `CallSubOrchestratorWithRetryAsync` (.NET) or `callSubOrchestratorWithRetry` (JavaScript) API can use these same retry policies.
+The `CallActivityWithRetryAsync` (.NET) or `callActivityWithRetry` (JavaScript) API takes a `RetryOptions` parameter. Sub-orchestration calls using the `CallSubOrchestratorWithRetryAsync` (.NET) or `callSubOrchestratorWithRetry` (JavaScript) API can use these same retry policies.
 
 There are several options for customizing the automatic retry policy:
 
@@ -206,7 +210,7 @@ You might want to abandon a function call within an orchestrator function if it'
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
-public static async Task<bool> Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -235,7 +239,7 @@ public static async Task<bool> Run([OrchestrationTrigger] DurableOrchestrationCo
 ### C# Script
 
 ```csharp
-public static async Task<bool> Run(DurableOrchestrationContext context)
+public static async Task<bool> Run(IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -261,7 +265,10 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-### JavaScript (Functions 2.x only)
+> [!NOTE]
+> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+### JavaScript (Functions 2.0 only)
 
 ```javascript
 const df = require("durable-functions");
