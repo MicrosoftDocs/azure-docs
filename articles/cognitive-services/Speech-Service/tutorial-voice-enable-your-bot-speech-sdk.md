@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 11/05/2019
 ms.author: dcohen
 ---
 
@@ -23,10 +23,10 @@ This tutorial is designed for developers who are just starting their journey wit
 At the end of this exercise, you'll have set up a system that will operate as follows:
 
 1. The sample client application is configured to connect to Direct Line Speech channel and the Echo Bot
-2. Audio is recorded from the default microphone on button press (or continuously recorded if custom wake word is activated)
-3. Optionally, custom wake word detection happens, gating audio streaming to the cloud
+2. Audio is recorded from the default microphone on button press (or continuously recorded if custom keyword is activated)
+3. Optionally, custom keyword detection happens, gating audio streaming to the cloud
 4. Using Speech SDK, the app connects to Direct Line Speech channel and streams audio
-5. Optionally, higher accuracy wake word verification happens on the service
+5. Optionally, higher accuracy keyword verification happens on the service
 6. The audio is passed to the speech recognition service and transcribed to text
 7. The recognized text is passed to the Echo-Bot as a Bot Framework Activity 
 8. The response text is turned into audio by the Text-to-Speech (TTS) service, and streamed back to the client application for playback
@@ -42,7 +42,7 @@ Here's what this tutorial covers:
 > * Build, test, and deploy the Echo Bot sample to an Azure App Service
 > * Register your bot with Direct Line Speech channel
 > * Build and run the Direct Line Speech Client to interact with your Echo Bot
-> * Add custom wake word activation
+> * Add custom keyword activation
 > * Learn to change the language of the recognized and spoken speech
 
 ## Prerequisites
@@ -74,7 +74,7 @@ The client app that you'll create in this tutorial uses a handful of Azure servi
 
 If you'd like to use a different region for this tutorial these factors may limit your choices:
 
-* The Direct Line Speech channel is a preview service. As such, it may be limited to specific Azure regions. For more information about available regions, see [Voice-first virtual assistants](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#voice-first-virtual-assistants).
+* Ensure that you use a [supported Azure region](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#voice-assistants).
 * The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. Neural voices are [limited to specific Azure regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
 * Free trial keys may be restricted to a specific region.
 
@@ -252,7 +252,7 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
 1. Locate and open your **SpeechEchoBotTutorial-BotRegistration** resource in the [Azure portal](https://portal.azure.com).
 2. From the left navigation, select **Channels**.
    * Look for **More channels**, locate and click **Direct Line Speech**.
-   * Review the text on the page titled **Configure Direct line Speech (Preview)**, then click **Save**.
+   * Review the text on the page titled **Configure Direct line Speech**, then click **Save**.
    * As part of creation, two **Secret keys** were generated. These keys are unique to your bot. When you write a client app using the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/), you'll provide one of these keys to establish a connection between the client app, the Direct Line Speech channel, and your bot service. In this tutorial, you'll use the Direct Line Speech Client (WPF, C#).
    * Click **Show** and copy one of the keys somewhere you'll be able to easily access it. Don't worry, you can always access the keys from the Azure portal.
 3. From the left navigation, click **Settings**.
@@ -260,13 +260,13 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
    * Click **Save**.
 
 > [!TIP]
-> If you'd like to learn more, see [Connect a bot to Direct Line Speech (Preview)](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). This page includes additional information and known issues.
+> If you'd like to learn more, see [Connect a bot to Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). This page includes additional information and known issues.
 
 ## Build the Direct Line Speech Client
 
 In this step, you're going to build the Direct Line Speech Client. The client is a Windows Presentation Foundation (WPF) app in C# that uses the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) to manage communication with your bot using the Direct Line Speech channel. Use it to interact with and test your bot before writing a custom client app.
 
-The Direct Line Speech Client has a simple UI that allows you to configure the connection to your bot, view the text conversation, view Bot-Framework activities in JSON format, and display adaptive cards. It also supports the use of custom wake words. You'll use this client to speak with your bot and receive a voice response.
+The Direct Line Speech Client has a simple UI that allows you to configure the connection to your bot, view the text conversation, view Bot-Framework activities in JSON format, and display adaptive cards. It also supports the use of custom keywords. You'll use this client to speak with your bot and receive a voice response.
 
 Before we move on, make sure that your microphone and speakers are enabled and working.
 
@@ -288,11 +288,11 @@ If you get an error message in your main app window, use this table to identify 
 |Error ConnectionFailure: Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in its output Activity [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field, but the Azure region associated with your Speech subscription key does not support neural voices. See [Standard and neural voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 |Error ConnectionFailure: Connection was closed by the remote host. Error code: 1000. Error details: Exceeded maximum web socket connection idle duration(> 300000 ms)| This is an expected error when a connection to the channel is left open and inactive for more than five minutes. |
 
-If your issue isn't addressed in the table, see [Voice-first virtual assistants Preview: Frequently asked questions](https://docs.microsoft.com/azure/cognitive-services/speech-service/faq-voice-first-virtual-assistants).
+If your issue isn't addressed in the table, see [Voice assistants: Frequently asked questions](faq-voice-assistants.md).
 
 ### View bot activities
 
-Every bot sends and receives **Activity** messages. In the **Activity Log** window of Direct Line Speech Client, you'll see timestamped logs with each activity that the client has received from the bot. You can also see the activities that the client sent to the bot using the [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync)  method. When you select a log item, it will show the details of the associated activity as JSON.
+Every bot sends and receives **Activity** messages. In the **Activity Log** window of Direct Line Speech Client, you'll see timestamped logs with each activity that the client has received from the bot. You can also see the activities that the client sent to the bot using the [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync)  method. When you select a log item, it will show the details of the associated activity as JSON.
 
 Here's a sample json of an Activity the client received:
 ```json
@@ -337,37 +337,37 @@ The Direct Line Speech Client uses the NuGet package [Microsoft.CognitiveService
 - [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig) - For configuration settings (speech subscription key, key region, bot secret)
 - [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor) - To manage the channel connection and client subscription events for handling recognized speech and bot responses.
 
-## Add custom wake word activation
+## Add custom keyword activation
 
-The Speech SDK supports custom wake word activation. Similar to "Hey Cortana" for Microsoft's Assistant, you can write an app that will continuously listen for a wake word of your choice. Keep in mind that a wake word can be single word or a multi-word phrase.
+The Speech SDK supports custom keyword activation. Similar to "Hey Cortana" for Microsoft's Assistant, you can write an app that will continuously listen for a keyword of your choice. Keep in mind that a keyword can be single word or a multi-word phrase.
 
 > [!NOTE]
-> The term *wake work* is often used interchangeably with the *key word*, and you may see both used in Microsoft documentation.
+> The term *keyword* is often used interchangeably with the term *wake word*, and you may see both used in Microsoft documentation.
 
-Wake word detection is done on the client app. If using a wake word, audio is only streamed to the Direct Line Speech channel if the wake word is detected. The Direct Line Speech channel includes a component called *key word verification (KWV)*, which does more complex processing in the cloud to verify that the wake word you've chosen is at the start of the audio stream. If key word verification succeeds, then the channel will communicate with the bot.
+Keyword detection is done on the client app. If using a keyword, audio is only streamed to the Direct Line Speech channel if the keyword is detected. The Direct Line Speech channel includes a component called *keyword verification (KWV)*, which does more complex processing in the cloud to verify that the keyword you've chosen is at the start of the audio stream. If key word verification succeeds, then the channel will communicate with the bot.
 
-Follow these steps to create a wake word model, configure the Direct Line Speech Client to use this model, and finally, test it with your bot.
+Follow these steps to create a keyword model, configure the Direct Line Speech Client to use this model, and finally, test it with your bot.
 
-1. Follow these instructions to [create a custom wake word by using the Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
-2. Unzip the model file that you downloaded in the previous step. It should be named for your wake word. You're looking for a file named `kws.table`.
+1. Follow these instructions to [create a custom keyword by using the Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
+2. Unzip the model file that you downloaded in the previous step. It should be named for your keyword. You're looking for a file named `kws.table`.
 3. In the Direct Line Speech client, locate the **Settings** menu (look for the gear icon in the top right). Locate **Model file path** and enter the full path name for the `kws.table` file from step 2.
-4. Make sure to check the box labeled **Enabled**. You should see this message next to the check box: "Will listen for the wake word upon next connection". If you've provided the wrong file or an invalid path, you should see an error message.
+4. Make sure to check the box labeled **Enabled**. You should see this message next to the check box: "Will listen for the keyword upon next connection". If you've provided the wrong file or an invalid path, you should see an error message.
 5. Enter your speech **subscription key**, **subscription key region**, and then click **OK** to close the **Settings** menu.
-6. Select a **Bot Secret**, then click **Reconnect**. You should see a message that reads: "New conversation started - type, press the microphone button, or say the wake word". The app is now continuously listening.
-7. Speak any phrase that starts with your wake word. For example: "**{your wake word}**, what time is it?". You don't need to pause after uttering the wake word. When finished, two things happen:
+6. Select a **Bot Secret**, then click **Reconnect**. You should see a message that reads: "New conversation started - type, press the microphone button, or say the keyword". The app is now continuously listening.
+7. Speak any phrase that starts with your keyword. For example: "**{your keyword}**, what time is it?". You don't need to pause after uttering the keyword. When finished, two things happen:
    * You'll see a transcription of what you spoke
    * Shortly after, you'll hear the bot's response
 8. Continue to experiment with the three input types that your bot supports:
    * Typed-text in the bottom bar
    * Pressing the microphone icon and speaking
-   * Saying a phrase that starts with your wake word
+   * Saying a phrase that starts with your keyword
 
-### View the source code that enables wake word
+### View the source code that enables keyword
 
-In the Direct Line Client source code, take a look at these files to review the code that's used to enable wake word detection:
+In the Direct Line Client source code, take a look at these files to review the code that's used to enable keyword detection:
 
-1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) includes a call to the Speech SDK method [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/en-us/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-), which is used to instantiate the model from a local file on disk.
-1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) includes a call to Speech SDK method [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync), which activates continuous wake word detection.
+1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) includes a call to the Speech SDK method [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-), which is used to instantiate the model from a local file on disk.
+1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) includes a call to Speech SDK method [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync), which activates continuous keyword detection.
 
 ## (Optional) Change the language and redeploy your bot
 
@@ -404,7 +404,7 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build your own client app with the Speech SDK](quickstart-virtual-assistant-csharp-uwp.md)
+> [Build your own client app with the Speech SDK](quickstart-voice-assistant-csharp-uwp.md)
 
 ## See also
 
@@ -414,5 +414,5 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
   * [Bot Service pricing](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Building and deploying your own voice-enabled bot:
-    * Build a [Bot-Framework bot](https://dev.botframework.com/). Register it with [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) and [customize your bot for voice](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
-    * Explore existing [Bot-Framework solutions](https://github.com/microsoft/botframework-solutions): Build a [custom voice-first virtual assistant](https://docs.microsoft.com/azure/cognitive-services/speech-service/voice-first-virtual-assistants) and [voice-enable it](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md)
+  * Build a [Bot-Framework bot](https://dev.botframework.com/). Register it with [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) and [customize your bot for voice](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
+  * Explore existing [Bot-Framework solutions](https://github.com/microsoft/botframework-solutions): Build a [custom voice assistant](https://docs.microsoft.com/azure/cognitive-services/speech-service/voice-assistants) and [voice-enable it](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md)
