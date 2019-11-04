@@ -31,6 +31,24 @@ landingContent:
             url: security-center-os-coverage.md
  
   # Card
+  - title: Stay current
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Protect your containers
+            url: container-security.md
+          - text: Add dynamic compliance packages
+            url: update-regulatory-compliance-packages.md
+          - text: Integrate with Windows Admin Center
+            url: windows-admin-center-integration.md
+          - text: Automate responses to alerts and recommendations
+            url: workflow-automation.md
+          - text: Export security alerts and recommendations
+            url: continuous-export.md
+          - text: Set up advanced threat protection for Azure Key Vault 
+            url: advanced-threat-protection-key-vault.md
+ 
+  # Card
   - title: Get started
     linkLists:
       - linkListType: get-started
