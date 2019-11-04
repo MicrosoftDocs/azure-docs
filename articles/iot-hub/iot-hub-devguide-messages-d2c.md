@@ -60,7 +60,7 @@ IoT Hub batches messages and writes data to storage whenever the batch reaches a
 
 You may use any file naming convention, however you must use all listed tokens. IoT Hub will write to an empty blob if there is no data to write.
 
-#### Reading the blobs
+### Reading from Azure Blob storage
 
 We recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover). You can use the [List Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) to enumerate the list of blobs. Please see the following sample as guidance.
 
