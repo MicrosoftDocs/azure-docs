@@ -15,7 +15,7 @@ ms.author: diberry
 
 1. In the top right side of the LUIS website, select the **Train** button. 
 
-    ![Train button](./media/cognitive-services-luis/train-button.png)
+    ![Train button](../train-button.png)
 
 2. Training is complete when you see the status confirming success.
 
