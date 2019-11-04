@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 ---
 # Create an access review of an access package in Azure AD entitlement management
 
-To reduce the risk of stale access, you should enable periodic reviews of users who have active assignments to the access package.  You can enable reviews of access package policies when creating a new policy or editing an existing policy. This article describes how to enable access reviews for Entitlement Manage access packages.
+To reduce the risk of stale access, you should enable periodic reviews of users who have active assignments to an access package in Azure AD entitlement management. You can enable reviews when you create a new access package or edit an existing access package. This article describes how to enable access reviews of access packages.
 
 ## Prerequisites
 
@@ -36,13 +36,13 @@ For more information, see [License requirements](entitlement-management-overview
 
 ## Create an access review of an access package
 
-You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package](entitlement-management-access-package-request-policy.md) policy. Follow these steps to enable access reviews while creating a new policy in an access package:
+You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package](entitlement-management-access-package-lifecycle-policy.md) policy. Follow these steps to enable access reviews of an access package:
 
-1. Once you are in the **Lifecycle** section while creating or editing an access package, scroll down to **Access Reviews**.
-    
-    ![Add the access review](./media/entitlement-management-access-reviews/access-reviews-pane.png)
+1. Open the **Lifecycle** tab for an access package and scroll down to **Access Reviews**.
 
 1. Move the **Require access reviews** toggle to **Yes**.
+
+    ![Add the access review](./media/entitlement-management-access-reviews/access-reviews-pane.png)
 
 1. Specify the date the reviews will start next to **Starting on**.
 
@@ -62,19 +62,19 @@ This setting determines how often access reviews will occur.
 
     ![Specify the reviewers](./media/entitlement-management-access-reviews/access-reviews-select-reviewer.png)
 
-1. Click on **Review + Create** if you are creating a new access package or **Update** if you are editing an access package, at the bottom of the page.
+1. Click **Review + Create** if you are creating a new access package or **Update** if you are editing an access package, at the bottom of the page.
 
 ## View the status of the access review
 
-After the start date of the review, it will appear in a list in **Access reviews** where you can view the status of the view. Use the following procedure to view the status of an access review:
+After the start date, an access review will be listed in the **Access reviews** section. Follow these steps to view the status of an access review:
 
-1. In **Identity Governance**, click on **Access packages** then select the access package with the access review status you'd like to check.   
+1. In **Identity Governance**, click **Access packages** then select the access package with the access review status you'd like to check.   
 
-1. Once you are on the access package overview, click on **Access reviews** on the left menu.
+1. Once you are on the access package overview, click **Access reviews** on the left menu.
     
     ![Select access reviews](./media/entitlement-management-access-reviews/access-review-status-access-package-overview.png)
 
-1. A list will appear that contains all of the policies that have access reviews associated with them. Click on the review to see its report.
+1. A list will appear that contains all of the policies that have access reviews associated with them. Click the review to see its report.
 
     ![List of access reviews](./media/entitlement-management-access-reviews/access-review-status-select-access-reviews.png)
    

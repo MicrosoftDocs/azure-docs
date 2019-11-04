@@ -43,15 +43,15 @@ Use the following steps to find and open the access review:
     
     ![Access review reviewer email](./media/entitlement-management-access-reviews-review-access/review-access-reviewer-email.png)
 
-1. Click the **Review access** link to open the access review. 
+1. Click the **Review user access** link to open the access review. 
 
 1. If you don’t have the email, you can find your pending access reviews by navigating directly to https://myaccess.microsoft.com.
 
-1. Click on **Access reviews** on the left navigation bar to see a list of pending access reviews assigned to you.
+1. Click **Access reviews** on the left navigation bar to see a list of pending access reviews assigned to you.
     
     ![Select access reviews on My Access](./media/entitlement-management-access-reviews-review-access/review-access-myaccess-select-access-review.png)
 
-1. Click on the review that you’d like to begin.
+1. Click the review that you’d like to begin.
     
     ![Select the access review](./media/entitlement-management-access-reviews-review-access/review-access-select-access-review.png)
 
