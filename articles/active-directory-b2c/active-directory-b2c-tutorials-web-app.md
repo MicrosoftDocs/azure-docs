@@ -37,7 +37,7 @@ In the tutorial that you completed as part of the prerequisites, you registered 
 
 ### Add a redirect URI (reply URL)
 
-You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to update the application. [Learn more about the preview experience](http://aka.ms/b2cappregintro).
+You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to update the application. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
 
 #### [Applications](#tab/applications/)
 

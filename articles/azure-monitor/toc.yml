@@ -295,7 +295,7 @@
         - name: Exceptions
           href: app/asp-net-exceptions.md
         - name: Log traces
-          href: app/java-trace-logs.md
+          href: app/asp-net-trace-logs.md 
         - name: Unix metrics
           href: app/java-collectd.md
         - name: Dependencies
@@ -318,6 +318,8 @@
           href: app/opencensus-python.md
         - name: Dependencies 
           href: app/opencensus-python-dependency.md
+        - name: Requests 
+          href: app/opencensus-python-request.md
       - name: Web pages
         items:
         - name: Client-side JavaScript
@@ -593,26 +595,39 @@
     - name: Resource logs
       items: 
       - name: Overview
+        displayname: Resource logs
         href: platform/resource-logs-overview.md 
       - name: Collect in Azure Monitor Logs
+        displayname: Resource logs
         href: platform/resource-logs-collect-workspace.md
       - name: Archive to storage
+        displayname: Resource logs
         href: platform/resource-logs-collect-storage.md
       - name: Stream to Event Hubs
+        displayname: Resource logs
         href: platform/resource-logs-stream-event-hubs.md
     - name: Activity log
       items:
       - name: Overview
+        displayname: Activity log
         href: platform/activity-logs-overview.md
+      - name: Collect with diagnostic setting
+        displayname: Activity log
+        href: platform/diagnostic-settings-subscription.md
       - name: View and retrieve
+        displayname: Activity log
         href: platform/activity-log-view.md
       - name: Collect and analyze
+        displayname: Activity log
         href: platform/activity-log-collect.md
       - name: Collect across tenants
+        displayname: Activity log
         href: platform/activity-log-collect-tenants.md
       - name: Export 
+        displayname: Activity log
         href: platform/activity-log-export.md
       - name: Schema
+        displayname: Activity log
         href: platform/activity-log-schema.md
     - name: Diagnostic settings
       items: 
@@ -621,6 +636,7 @@
       - name: Create diagnostic setting with Resource Manager
         href: platform/diagnostic-settings-template.md
       - name: Change to blob storage format
+        displayname: Diagnostic settings
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
