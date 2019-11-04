@@ -55,11 +55,11 @@ The customer has the ability to view the timestamp of *Last Telemetry Sent*, is 
 
 Sensor data integration capabilities of FarmBeats are exposed via the REST API. Capabilities include metadata definition, device/sensor provisioning, device, and sensor management.
 
-**Telemetry Ingestion**
+**Telemetry ingestion**
 
 The telemetry data is mapped to a canonical message that is published on Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications.
 
-**API Development**
+**API development**
 
 The APIs contain Swagger technical documentation. For more information on the APIs  and their corresponding requests/responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger)
 
@@ -103,18 +103,18 @@ access_token = token_response.get('accessToken') 
 ```
 
 
-**HTTP Request Headers**
+**HTTP request headers**
 
 Here are the most common request headers that need to be specified when making an API call to FarmBeats Data hub:
 
 
-**Header** | **Description and Example**
+**Header** | **Description and example**
 --- | ---
 Content-Type | The request format (Content-Type: application/<format>) For FarmBeats Data hub APIs format is json. Content-Type: application/json
 Authorization | Specifies the access token required to make an API call Authorization: Bearer <Access-Token>
 Accept | The response format. For FarmBeats Data hub APIs, the format is json Accept: application/json
 
-**API Requests**
+**API requests**
 
 To make a REST (Representational State Transfer) API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the URI (Uniform Resource Identifier) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API Endpoint provided by the customer. Here is sample: https://<yourdatahub>.azurewebsites.net
 
