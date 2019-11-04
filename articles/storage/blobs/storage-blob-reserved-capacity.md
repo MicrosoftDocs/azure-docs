@@ -66,9 +66,8 @@ For help with identifying the reservation terms that are right for your scenario
 
 Follow these steps to purchase reserved capacity:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).  
-1. Select **All services** > **Reservations** > **Add**.
-1. From the **Purchase reservations** pane, choose **Azure Blob Storage** to buy a new reservation.  
+1. Navigate to the [Purchase reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) pane in the Azure portal.  
+1. Select **Azure Blob Storage** to buy a new reservation.  
 1. Fill in the required fields as described in the following table:
 
     ![Screenshot showing how to purchase reserved capacity](media/storage-blob-reserved-capacity/select-reserved-capacity.png)
