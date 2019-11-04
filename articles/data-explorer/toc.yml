@@ -136,6 +136,8 @@
       href: tableau.md
     - name: Sisense
       href: sisense.md
+    - name: Redash
+      href: redash.md
   - name: Manage
     items:
     - name: Cluster
