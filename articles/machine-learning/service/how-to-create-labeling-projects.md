@@ -23,14 +23,11 @@ You can start and stop the project, add and remove people and teams, and monitor
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create a labeling project
-> * Specify data to be labeled
-> * Specify label classes
-> * Describe the labeling task
-> * Initialize the labeling project
-> * Manage teams and people
+> * Create a project
+> * Specify the project's data and structure
+> * Manage the teams and people working on the project
 > * Run and monitor the project
-> * Export the labels
+> * Export the labels 
 
 ## Prerequisites
 
@@ -48,7 +45,7 @@ If your data are already stored in Azure blob storage, you should make them avai
 
 To create a project, choose **Add project**. Give it an appropriate name and select **Labeling task type**. 
 
-![Labeling project creation wizard](media/how-to-create-labeling-projects/labeling_creation_wizard.png)
+![Labeling project creation wizard](media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
 * Choose **Image Classification Multi-label** for projects in which **one _or more_** labels from a set of classes may be applied to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*
 * Choose **Image Classification Multi-class** for projects in which only a **single class** from a set of classes may be applied to an image
@@ -148,7 +145,7 @@ At any time, you may export the label data for machine learning experimentation.
 
 The COCO file is created in the default blob store of the Azure ML workspace in a folder within **export/coco**. You can access the exported Azure ML dataset under the **Datasets** section of studio. Dataset details page also provides sample code to access your labels from Python.
 
-![Exported dataset](media/how-to-create-labeling-projects/exported_dataset.png)
+![Exported dataset](media/how-to-create-labeling-projects/exported-dataset.png)
 
 ## Next steps
 
