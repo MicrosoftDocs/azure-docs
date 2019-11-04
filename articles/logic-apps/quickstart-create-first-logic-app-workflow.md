@@ -19,7 +19,7 @@ This quickstart introduces how to build your first automated workflow with [Azur
 
 ![High-level example logic app workflow](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-To follow this quickstart, you need an email account from a provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/). This logic app uses an Office 365 Outlook account. If you use another email account, the overall steps are the same, but your UI might slightly differ.
+To follow this quickstart, you need an email account from a provider that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/). This logic app uses an Office 365 Outlook account. If you use another email account, the overall steps are the same, but your user interface might slightly differ.
 
 Also, if you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    ![Add new logic app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. Under **Create logic app**, provide details about your logic app as shown here. After you're done, select **Create**.
+1. On the Logic App pane, provide details about your logic app as shown below. After you're done, select **Create**.
 
    ![Provide details for new logic app](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -60,15 +60,15 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    ![Select blank template for logic app](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
-Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) that fires when a new RSS feed item appears. Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance that starts and runs your workflow.
+Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) that fires when a new RSS feed item appears. Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Azure Logic Apps engine creates a logic app instance that starts and runs your workflow.
 
 <a name="add-rss-trigger"></a>
 
 ## Check RSS feed with a trigger
 
-1. In Logic App Designer, under the search box, select **All**.
+1. In the **Logic App Designer**, under the search box, select **All**.
 
-1. In the search box, enter `rss`. From the triggers list, select this trigger: **When a feed item is published**
+1. In the search box, enter `rss`. From the triggers list, select this trigger: **When a feed item is published**.
 
    ![Select "When a feed item is published" trigger](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -95,7 +95,7 @@ Your logic app is now live but doesn't do anything other than check the RSS feed
 
 ## Send email with an action
 
-Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) that sends email when a new item appears in the RSS feed.
+Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) that sends an email when a new item appears in the RSS feed.
 
 1. Under the **When a feed item is published** trigger, select **New step**.
 
@@ -116,7 +116,7 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
 
 1. In the **Send an email** action, specify the data that you want the email to include.
 
-   1. In the **To** box, enter the recipient's email address. For testing purposes, you can use your own email address.
+   1. In the **To** box, enter the recipient's email address. For testing purposes, you can use your email address.
 
       For now, ignore the **Add dynamic content** list that appears. When you click inside some edit boxes, this list appears and shows any available parameters from the previous step that you can include as inputs in your workflow.
 
@@ -157,7 +157,7 @@ For example, here is a sample email that this logic app sends.
 
 ![Sample email sent when new RSS feed item appears](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Technically, when the trigger checks the RSS feed and finds new items, the trigger fires, and the Logic Apps engine creates an instance of your logic app workflow that runs the actions in the workflow. If the trigger doesn't find new items, the trigger doesn't fire and "skips" instantiating the workflow.
+Technically, when the trigger checks the RSS feed and finds new items, the trigger fires, and the Azure Logic Apps engine creates an instance of your logic app workflow that runs the actions in the workflow. If the trigger doesn't find new items, the trigger doesn't fire and "skips" instantiating the workflow.
 
 Congratulations, you've now successfully built and run your first logic app with the Azure portal.
 

@@ -1,10 +1,10 @@
-- name: SQL Data Warehouse Documentation
+- name: Azure Synapse Analytics Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is SQL Data Warehouse?
+  - name: What is Azure Synapse Analytics?
     href: sql-data-warehouse-overview-what-is.md
-  - name: SQL Data Warehouse architecture
+  - name: Azure Synapse Analytics architecture
     href: massively-parallel-processing-mpp-architecture.md
   - name: Data warehouse units
     href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -257,20 +257,22 @@
       href: sql-data-warehouse-encryption-tde-tsql.md
   - name: Load data
     items:
-    - name: New York taxi cab data
-      href: load-data-from-azure-blob-storage-using-polybase.md
-    - name: Contoso public data
-      href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-    - name: Azure Data Lake Storage
+    - name: From Azure Data Lake Storage (ADLS)
       href: sql-data-warehouse-load-from-azure-data-lake-store.md
-    - name: Azure Databricks
+    - name: Using Azure Databricks (ADB)
       href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-    - name: Data Factory
+    - name: Using Data Factory (ADF)
       href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-    - name: SSIS
+    - name: Using SQL Server Integration Services (SSIS)
       href: /sql/integration-services/load-data-to-sql-data-warehouse
-    - name: Load WideWorldImporters
-      href: load-data-wideworldimportersdw.md
+    - name: Samples
+      items:
+      - name: New York Taxi 
+        href: load-data-from-azure-blob-storage-using-polybase.md
+      - name: Contoso 
+        href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+      - name: Wide World Importers
+        href: load-data-wideworldimportersdw.md
   - name: Develop
     items:
     - name: Overview
@@ -351,9 +353,9 @@
     items:
     - name: Full reference
       href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-    - name: SQL DW language elements
+    - name: Azure Synapse Analytics TSQL language elements
       href: sql-data-warehouse-reference-tsql-language-elements.md
-    - name: SQL DW statements
+    - name: Azure Synapse Analytics TSQL statements
       href: sql-data-warehouse-reference-tsql-statements.md
   - name: System views
     href: sql-data-warehouse-reference-tsql-system-views.md
