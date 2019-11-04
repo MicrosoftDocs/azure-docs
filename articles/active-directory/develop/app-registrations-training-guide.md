@@ -1,6 +1,6 @@
 ---
 title: App registrations in the Azure portal training guide - Azure
-description: Build embedded and browser-less authentication flows using the device code grant.
+description: An introduction to the new application registration experience in the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
 author: archieag
@@ -20,9 +20,11 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Training guide: App registrations in the Azure portal  
+# Training guide: App registrations in the Azure portal
 
 You can find numerous improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the legacy experience, use this training guide to get you started using the new experience.
+
+In Azure Active Directory, the new application registration experience described here generally available (GA). In Azure Active Directory B2C (Azure AD B2C), this experience is in preview.
 
 ## Key changes
 
@@ -39,7 +41,7 @@ You can find numerous improvements in the new [App registrations](https://go.mic
 
 In the legacy experience, to register an app you were required to provide: **Name**, **Application type**, and **Sign-on URL/Redirect URI**. The apps that were created were Azure AD only single-tenant applications meaning that they only supported organizational accounts from the directory the app was registered in.
 
-In the new experience, you must provide a **Name** for the app and choose the **Supported account types**. You can optionally provide a **redirect URI**. If you provide a redirect URI, you'll need to specify if it's web/public (mobile and desktop). For more info on how to register an app using the new app registrations experience, see [this quickstart](quickstart-register-app.md).
+In the new experience, you must provide a **Name** for the app and choose the **Supported account types**. You can optionally provide a **redirect URI**. If you provide a redirect URI, you'll need to specify if it's web/public (mobile and desktop). For more info on how to register an app using the new app registrations experience, see [Register an app with the Microsoft identity platform](quickstart-register-app.md). For Azure AD B2C, see [Register an application in Azure Active Directory B2C](../../active-directory-b2c/tutorial-register-applications.md).
 
 ## The legacy Properties page
 
@@ -65,7 +67,7 @@ In the legacy experience, an app had **Keys** page. In the new experience, it ha
 ## Required permissions/API permissions
 
 - In the legacy experience, an app had a **Required permissions** page. In the new experience, it has been renamed to **API permissions**.
-- When selecting an API in the legacy experience, you could choose from a small list of Microsoft APIs or search through service principals in the tenant. In the new experience, you can choose from multiple tabs: **Microsoft APIs**, **APIs my organization uses**, or **My APIs**. The search bar on **APIs my organization** uses tab searches through service principals in the tenant. 
+- When selecting an API in the legacy experience, you could choose from a small list of Microsoft APIs or search through service principals in the tenant. In the new experience, you can choose from multiple tabs: **Microsoft APIs**, **APIs my organization uses**, or **My APIs**. The search bar on **APIs my organization** uses tab searches through service principals in the tenant.
 
    > [!NOTE]
    > You won't see this tab if your application isn't associated with a tenant. For more info on how to request permissions using the new experience, see [this quickstart](quickstart-configure-app-access-web-apis.md).
