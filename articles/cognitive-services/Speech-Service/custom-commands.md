@@ -16,7 +16,7 @@ ms.author: travisw
 
 [Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech-to-text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text-to-speech](text-to-speech.md). Devices connect to assistants with the Speech SDK’s `DialogServiceConnector` object.
 
-**Custom Commands (Preview)** is a streamlined solution for creating a voice assistant. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity versus other assistant creation options like [Direct Line Speech](direct-line-speech.md). This simplification, however, comes with a reduction in flexibility. So, Custom Commands (Preview) is best suited for task completion or command-and-control scenarios.
+**Custom Commands (Preview)** is a streamlined solution for creating a voice assistant. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity versus other assistant creation options like [Direct Line Speech](direct-line-speech.md). This simplification, however, comes with a reduction in flexibility. So, Custom Commands (Preview) is best suited for task completion or command-and-control scenarios. It's particularly well-matched for Internet of Things (IoT) and headless devices.
 
 For complex conversational interaction and integration with other solutions like the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) you're encouraged to use Direct Line Speech.
 
