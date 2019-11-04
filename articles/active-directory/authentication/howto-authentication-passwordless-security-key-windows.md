@@ -108,7 +108,7 @@ For devices not managed by Intune, a provisioning package can be installed to en
 > Devices running Windows 10 Version 1809 must also enable shared PC mode (EnableSharedPCMode). Information about enabling this funtionality can be found in the article, 
 [Set up a shared or guest PC with Windows 10](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc).
 
-## Sign in to with FIDO2 security key
+## Sign in to Windows with a FIDO2 security key
 
 In the example below a user Bala Sandhu has already provisioned their FIDO2 security key using the steps in the previous article, [Enable passwordless security key sign in](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys). Bala can choose the security key credential provider from the Windows 10 lock screen and insert the security key to sign into Windows.
 
@@ -144,11 +144,11 @@ Security keys come in a variety of form factors. Please contact the device manuf
 
 We are working on this capability for general availability (GA) of this feature.
 
-### Where can I go to find compliant Security Keys?
+### Where can I go to find compliant security keys?
 
 [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 
-### What do I do if I lose my Security Key?
+### What do I do if I lose my security key?
 
 You can remove keys from the Azure portal, by navigating to the security info page and removing the security key.
 
