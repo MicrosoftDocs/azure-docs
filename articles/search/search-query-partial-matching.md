@@ -175,20 +175,13 @@ Wildcard queries don’t go through analysis, but get lower-cased by design, whi
 
 ## NEW INTRO
 
-Searching over strings composed of upper and lowercase text with special characters can be problematic. Analyzers, which tokenize terms during indexing and queries, commonly lowercase any uppercase text, and split terms based on characters like dashes, periods, and slashes. Consider the following fictitious term, `"MSFT/SQL.2019/Linux&Java-Ext"`, which would be tokenized and indexed as follows:
+Searching over strings composed of upper and lowercase text with special characters can be problematic. Analyzers, which tokenize terms during indexing and queries, commonly lower-case any upper-case text, and break down composite terms into smaller parts when characters like dashes, periods, and slashes are encountered. 
 
-```
-msft
-sql
-2019
-linux
-java
-ext
-```
+As an illustration, consider how the following fictitious feature code, `"MSFT/SQL.2019/Linux&Java-Ext"`, would be tokenized and indexed into smaller parts, given the default analyzer: `msft`, `sql`, `2019`, `linux`, `java`, `ext`
 
-Given these transformations, you can imagine how searching on partial terms like `"MSFT/SQL"` becomes problematic when the index contains only segments of the term you expect.
+Given these transformations, you can imagine how searching on a partial term like `"MSFT/SQL"` becomes problematic when the index contains only segments of the term you expect.
 
-To enable searching over complex string, your challenges are two-fold:
+To enable searching over complex strings, your challenges are two-fold:
 
 + First, control the tokenization process to ensure your index actually contains the required information. Instead of segments, you want intact terms so that matching on partial terms or patterns can succeed.
 
@@ -198,7 +191,8 @@ To enable searching over complex string, your challenges are two-fold:
 
 Tokenization is a product of analyzers. The default analyzer is standard Lucene, but you can override the default results by providing custom analyzers, which you can set on a field by field basis according to your needs.
 
-Analyzers are used during 
+Analyzers are used during indexing as well as queries. It's common to use the same analyzer for both but you can configure custom analyzers for each workload.
+
 
 ## Next steps
 
