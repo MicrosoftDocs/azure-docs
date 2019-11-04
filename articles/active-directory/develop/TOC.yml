@@ -436,7 +436,7 @@
               href: msal-js-prompt-behavior.md 
         - name: MSAL for iOS and macOS
           items:
-            - name: Microsoft Authentication Library for iOS and macOS differences
+            - name: MSAL for iOS and macOS differences
               href: msal-differences-ios-macos.md
             - name: Configure keychain
               href: howto-v2-keychain-objc.md

@@ -100,7 +100,7 @@ experiment_run.wait_for_completion(show_output=True)
 
 If you want to make your data files available on the compute target for training, use [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) to mount or download files referred by it.
 
-When you mount a file system, you attach that file system to a directory (mount point) and make it available on the compute target. Mounting is instantaneous because files are loaded only at the time of processing. Mounting is supported and recommended for Linux-based computes, including Azure Machine Learning Compute, virtual machines, and HDInsight. For non Linux-based compute, only downloading is supported.  
+When you mount a file system, you attach that file system to a directory (mount point) and make it available on the compute target. Mounting is instantaneous because files are loaded only at the time of processing. Mounting is supported and recommended for Linux-based computes, including Azure Machine Learning Compute, virtual machines, and HDInsight. For non-Linux-based compute, only downloading is supported.  
 
 >[!WARNING]
 > If your data size exceeds the storage limit of the compute target, downloading will fail.

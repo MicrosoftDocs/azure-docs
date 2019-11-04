@@ -154,11 +154,11 @@ Quota information is for Azure Machine Learning compute only.
 
 The following are dimensions that can be used to filter quota metrics:
 
-| Dimension | Description |
-| ---- | ---- |
-| Cluster Name | The name of the compute instance. |
-| Vm Family Name | The name of the VM family used by the cluster. This dimension is only available with the __Quota utilization percentage__ metric. |
-| Vm Priority | |
+| Dimension | Metric(s) available with | Description |
+| ---- | ---- | ---- |
+| Cluster Name | All quota metrics | The name of the compute instance. |
+| Vm Family Name | Quota utilization percentage | The name of the VM family used by the cluster. |
+| Vm Priority | Quota utilization percentage | The priority of the VM.
 
 **Run**
 
