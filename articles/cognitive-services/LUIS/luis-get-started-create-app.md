@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
@@ -23,6 +23,8 @@ In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomat
 For this article, you need a free LUIS account, created on the LUIS portal at [https://www.luis.ai](https://www.luis.ai). 
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
+
+[!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
 ## Create a new app
 You can create and manage your applications on **My Apps**. 
