@@ -1,5 +1,5 @@
 ---
-title: Get Drone Imagery
+title: Get drone imagery
 description: Describes how to get the drone imagery from the partners
 author: uhabiba04
 ms.topic: article
@@ -43,7 +43,7 @@ Use the following steps:
 
     ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory > username.  
+5. Go to the directory where the files were uploaded. (By default it gets uploaded to the home directory > username.)  
 6. Run the following script:
 
     ```azurepowershell-interactive 
