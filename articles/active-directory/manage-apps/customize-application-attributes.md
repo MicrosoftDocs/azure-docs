@@ -1,5 +1,5 @@
 ---
-title: Customizing Azure AD Attribute Mappings | Microsoft Docs
+title: Customizing Azure AD attribute mappings | Microsoft Docs
 description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
 services: active-directory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---
-# Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory
+# Customizing user provisioning attribute-mappings for SaaS applications in Azure Active Directory
 
 Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
 
@@ -121,6 +121,113 @@ When editing the list of supported attributes, the following properties are prov
 - **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are pre-configured and currently can't be edited using the Azure portal, but can be edited using the [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 To add a new attribute, scroll to the end of the list of supported attributes, populate the fields above using the provided inputs, and select **Add Attribute**. Select **Save** when finished adding attributes. You then need to reload the **Provisioning** tab for the new attributes to become available in the attribute-mapping editor.
+## Provisioning a role to a SCIM app
+Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
+
+- Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). The appRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
+
+- **SingleAppRoleAssignment** 
+  - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
+  - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from: (roles[primary eq "True"].display, roles[primary eq "True].type, and roles[primary eq "True"].value). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.  
+  
+  ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  - **Things to consider**
+    - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.
+    
+  - **Example output** 
+
+   ```json
+    {
+      "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": true,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "value": "Admin"
+         }
+      ]
+   }
+   ```
+  
+- **AppRoleAssignmentsComplex** 
+  - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
+  - **How to configure:** Edit the list of supported attributes as described above to include a new attribute for roles: 
+  
+    ![Add roles](./media/customize-application-attributes/add-roles.png)<br>
+
+    Then use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image below:
+
+    ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+  - **Things to consider**
+    - All roles will be provisioned as primary = false.
+    - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
+    
+  - **Example output** 
+  
+   ```json
+   {
+       "schemas": [
+           "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "Admin",
+               "value": "Admin"
+         },
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "User",
+             "value": "User"
+         }
+      ]
+   }
+   ```
+
+  
+
+
+## Provisioning a multi-value attribute
+Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression below for multi-value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value. 
+
+* phoneNumbers[type eq "work"].value
+* phoneNumbers[type eq "mobile"].value
+* phoneNumbers[type eq "fax"].value
+
+   ```json
+   "phoneNumbers": [
+       {
+         "value": "555-555-5555",
+         "type": "work"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "mobile"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "fax"
+      }
+   ]
+   ```
 
 ## Restoring the default attributes and attribute-mappings
 

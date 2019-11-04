@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database serverless (preview) | Microsoft Docs
+title: Azure SQL Database serverless | Microsoft Docs
 description: This article describes the new serverless compute tier and compares it with the existing provisioned compute tier
 services: sql-database
 ms.service: sql-database
@@ -10,11 +10,11 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 09/06/2019
+ms.date: 11/04/2019
 ---
-# Azure SQL Database serverless (preview)
+# Azure SQL Database serverless
 
-Azure SQL Database serverless (preview) is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
+Azure SQL Database serverless is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
 
 ## Serverless compute tier
 
@@ -165,7 +165,7 @@ Creating a new database or moving an existing database into a serverless compute
 
    |Parameter|Value choices|Default value|
    |---|---|---|---|
-   |Min vCores|Depends on max vCores configured - see [resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0.5 vCores|
+   |Min vCores|Depends on max vCores configured - see [resource limits](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0.5 vCores|
    |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|60 minutes|
 
 > [!NOTE]
@@ -282,7 +282,7 @@ Get-AzSqlDatabase `
 
 ## Resource limits
 
-For resource limits, see [serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+For resource limits, see [serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
 
 ## Billing
 
@@ -325,4 +325,4 @@ The serverless compute tier is available worldwide except the following regions:
 ## Next steps
 
 - To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
-- For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+- For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
