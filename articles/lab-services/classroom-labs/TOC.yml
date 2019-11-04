@@ -82,6 +82,8 @@
   items:
   - name: REST API
     href: https://docs.microsoft.com/rest/api/labservices/
+  - name: Az.LabServices PowerShell module (preview)
+    href: reference-powershell-module.md
 - name: Resources
   items:
   - name: Azure updates
