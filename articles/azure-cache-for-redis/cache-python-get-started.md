@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a Python app that uses Azure Cache for Redis'
-description: In this quickstart, you learn how to create an Python App that uses Azure Cache for Redis.
+description: In this quickstart, you learn how to create a Python App that uses Azure Cache for Redis.
 services: cache
 documentationcenter: ''
 author: yegu-ms
@@ -28,7 +28,7 @@ In this article, you incorporate Azure Cache for Redis into a Python app to have
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Python 2 or 3](https://www.python.org/downloads/)
 
-## Create an Azure Cache for Redis
+## Create an Azure Cache for Redis instance
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
@@ -86,7 +86,7 @@ for c in result:
     print("id : " + c['id'] + ", addr : " + c['addr'])
 ```
 
-Run the sample app with Python to see results like the following example:
+Run *PythonApplication1.py* with Python. You should see results like the following example:
 
 ![Run Python script to test cache access](./media/cache-python-get-started/cache-python-completed.png)
 
@@ -103,6 +103,7 @@ To delete the resource group and all its resources:
 1. In the **Filter by name** text box, enter the name of your resource group, and then select it from the search results. 
 1. On your resource group page, select **Delete resource group**.
 1. Type the resource group name, and then select **Delete**. The resource group and all of its resources are deleted.
+   
    ![Delete your resource group for Azure Cache for Redis](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
 
 ## Next steps

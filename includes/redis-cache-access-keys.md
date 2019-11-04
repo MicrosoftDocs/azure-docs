@@ -14,7 +14,7 @@ ms.custom: "include file"
 
 To connect to an Azure Cache for Redis instance, cache clients need the host name, ports, and a key for the cache. Some clients might refer to these items by slightly different names. You can get the host name, ports, and keys from the [Azure portal](https://portal.azure.com).
 
-- To get the access keys, from your cache left navigation, select **Access keys** . 
+- To get the access keys, from your cache left navigation, select **Access keys**. 
   
   ![Azure Cache for Redis keys](media/redis-cache-access-keys/redis-cache-keys.png)
 
