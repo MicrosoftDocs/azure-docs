@@ -29,9 +29,9 @@
 - name: References
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.network
+    href: /powershell/module/az.peering
   - name: Azure CLI
-    href: /cli/azure/network
+    href: /cli/azure/ext/peering/peering
 - name: Resources
   items:
   - name: Azure roadmap
