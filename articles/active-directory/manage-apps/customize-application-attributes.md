@@ -73,6 +73,15 @@ Along with this property, attribute-mappings also support the following attribut
   - **Always** – Apply this mapping on both user creation and update actions.
   - **Only during creation** - Apply this mapping only on user creation actions.
 
+## Matching users in the source and target  systems
+The Azure AD provisioning service can be deployed in both greenfield (users do not exit in the target system) and brownfield (users already exist in the target system) scenarios. To support both scenarios, the provisioning service uses the concept of matching attribute(s). Matching attribute(s) allow you to determine how to uniquely identify a user in the source and match the user in the target. As part of planning your deployment, identify the attribute that can be used to uniquely identify a user in the source and target systems. Things to note:
+
+- **Matching attributes should be unique:** Customers often use attributes such as upn, mail, or object ID as the matching attribute.
+- **Multiple attributes can be used as matching attributes:** You can define multiple attributes to be evaluated when matching users and the order in which they are evaluated (defined as matching precedence in the UI).   
+- **The value in the source and the target do not have to match exactly:** The value in the target can be some simple function of the value in the source.  Here "simple" means the target value can be some transformation of only a single source attribute.  So, one could have an emailAddress attribute in the source and the userPrincipalName in the target, and match by a function of the emailAddress attribute that replaces some characters with some constant value.  
+- **Matching based on a combination of attributes is not supported:** Most applications do not support querying based on two properties and therfore it is not possible to match based on a combination of attributes. It is possible to evaluate single properties on after another.
+- **All the users must actually have a value for one matching property:**  A customer can identify a number of matching attributes in priority order.  So, for example, if there is a match on employeeId then that takes priority over a match on emailAddress. Each item in the hierarchy can only be the raw attribute value or a simple function of the raw attribute value.  
+
 ## Editing group attribute-mappings
 
 A selected number of applications, such as ServiceNow, Box, and G Suite, support the ability to provision Group objects and User objects. Group objects can contain group properties such as display names and email aliases, along with group members.
