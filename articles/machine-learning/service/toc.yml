@@ -228,11 +228,14 @@
     - name: Use automated ML (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
-    - name: Use automated ML (workspace landing page)
+    - name: Use automated ML (interface)
       href: how-to-create-portal-experiments.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
+    - name: Define ML tasks
+      displayName: machine learning, task type
+      href: how-to-define-task-type.md
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
