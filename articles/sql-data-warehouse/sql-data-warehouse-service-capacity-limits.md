@@ -1,6 +1,6 @@
 ---
 title: Capacity limits - Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
-description: Maximum values allowed for various components of Azure SQL Analytics.
+description: Maximum values allowed for various components of SQL Analytics in Azure Synapse.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -13,7 +13,8 @@ ms.reviewer: igorstan
 ---
 
 # Azure Synapse Analytics (formerly SQL DW) capacity limits
-Maximum values allowed for various components of Azure Synapse Analytics.
+
+Maximum values allowed for various components of Azure Synapse.
 
 ## Workload management
 | Category | Description | Maximum |
@@ -81,4 +82,4 @@ Maximum values allowed for various components of Azure Synapse Analytics.
 | sys.dm_pdw_sql_requests |The most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
 
 ## Next steps
-For recommendations on using Azure Synapse Analytics, see the [Cheat Sheet](cheat-sheet.md).
+For recommendations on using Azure Synapse, see the [Cheat Sheet](cheat-sheet.md).

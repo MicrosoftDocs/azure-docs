@@ -119,6 +119,8 @@ To switch to another classroom lab from the current, select the drop-down list o
 
 You can also create a new lab using the **New lab** in this drop-down list. 
 
+To switch to a different lab account, select the drop-down next to the lab account and select the other lab account. 
+
 
 ## Next steps
 See the following articles:
