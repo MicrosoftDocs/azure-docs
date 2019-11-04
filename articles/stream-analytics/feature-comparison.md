@@ -26,14 +26,16 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |SQL database reference data     |Yes         |Yes         |Yes         |
 |Custom message properties     |Yes         |No         |No         |
 |Share inputs and outputs across multiple queries     |No         |Yes         |Yes         |
+|C# custom code function and Deserializer||Yes|No|
 |JavaScript UDF and UDA     |Yes         |Yes         |Windows only         |
-|Machine Learning callouts     |Yes, but the query cannot be tested        |Yes, but cannot be tested locally         |No         |
-|Compatibility level     |1.0</br>1.1</br>1.2         |1.0</br>1.1</br>1.2          |1.0</br>1.1</br>1.2          |
+|Machine Learning Service     |Yes, but the query cannot be tested        |Yes         |No         |
+|Machine Learning Studio     |Yes, but the query cannot be tested        |Yes |No         |
+|Compatibility level     |1.0</br>1.1</br>1.2  (default)         |1.0</br>1.1</br>1.2 (default)           |1.0</br>1.1</br>1.2 (default)           |
 |Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
 |Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |
 |Query testing with a sample file     |Yes         |Yes         |Yes         |
-|Live data local testing     |No         |Yes         |No         |
-|List jobs and view job entities     |Yes         |Yes         |Yes         |
+|Live data local testing     |No         |Yes         |Yes        |
+|List jobs and view job entities     |Yes         |Yes (with query diagram)        |Yes         |
 |Export a job to a local project     |No         |Yes         |Yes         |
 |Submit, start, and stop jobs     |Yes         |Yes         |Yes         |
 |Source control     |No         |Yes         |Yes         |
