@@ -1,21 +1,22 @@
 ---
-title: 'View a knowledge store with Storage Explorer - Azure Search'
-description: View and analyze an Azure Search knowledge store with the Azure portal's Storage Explorer.  
+title: View a knowledge store with Storage Explorer
+titleSuffix: Azure Cognitive Search
+description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer.  
 
+manager: nitinme
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
 ms.author: v-lilei
- 
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
+
 # View a knowledge store with Storage Explorer
 
 > [!Note]
-> Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
+> Knowledge store is in preview and should not be used in production. The portal and [Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
-In this article, you'll learn how to connect and explore a knowledge store using Storage Explorer in the Azure portal. To create the knowledge store sample used in this walkthrough, see [Create a knowledge store in Azure portal](knowledge-store-create-portal.md).
+In this article, you'll learn by example how to connect to and explore a knowledge store using Storage Explorer in the Azure portal.
 
 ## Prerequisites
 
@@ -25,7 +26,7 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 ## View, edit and query a knowledge store in Storage Explorer
 
-1. In the Azure portal, open the storage account that you used to create the knowledge store.
+1. In the Azure portal, [open the Storage account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) that you used to create the knowledge store.
 
 1. In the storage account's left navigation pane, click **Storage Explorer**.
 
@@ -53,12 +54,8 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-To learn how to connect this knowledge store to Power BI, see the following article.
+Connect this knowledge store to Power BI for deeper analysis, or move forward with code, using the REST API and Postman to create a different knowledge store.
 
 > [!div class="nextstepaction"]
 > [Connect with Power BI](knowledge-store-connect-power-bi.md)
-
-To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
-
-> [!div class="nextstepaction"]
 > [Create a knowledge store in REST](knowledge-store-howto.md)
