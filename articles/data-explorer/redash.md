@@ -16,7 +16,7 @@ ms.date: 11/03/2019
 ## Prerequisites
 
 1. [Create cluster and database](create-cluster-database-portal.md).
-1. Create a new data source as explained in [ingest sample data into Azure Data Explorer](ingest-sample-data.md). For more ingestion options see [ingestion overview](ingest-data-overview.md).
+1. Create a new data source as explained in [ingest sample data into Azure Data Explorer](ingest-sample-data.md). For more ingestion options, see [ingestion overview](ingest-data-overview.md).
 1. Create a new query using [Web UI](web-query-data.md). 
 
 [!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
@@ -69,7 +69,7 @@ ms.date: 11/03/2019
     ![query based dropdown list](media/redash/query-based-dropdown-list.png)
 
     > [!NOTE]
-    > The query uses multiple values, therefore you must include the following syntax `| where Type in ((split('{{Type}}', ',')))`. See [in operator](/azure/kusto/query/inoperator) for more details. This results in [multiple query parameter options in redash app](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select-Query-Parametersredash.io)
+    > The query uses multiple values, therefore you must include the following syntax `| where Type in ((split('{{Type}}', ',')))`. For more information, see [in operator](/azure/kusto/query/inoperator). This results in [multiple query parameter options in redash app](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select-Query-Parametersredash.io)
 
     ![multi parameters query](media/redash/multi-parameters-query.png)    
 
