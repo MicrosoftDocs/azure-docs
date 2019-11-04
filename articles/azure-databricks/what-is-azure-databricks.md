@@ -91,9 +91,9 @@ Through rich integration with Power BI, Azure Databricks allows you to discover 
 ## Next steps
 
 * [Quickstart: Run a Spark job on Azure Databricks](quickstart-create-databricks-workspace-portal.md)
-* [Work with Spark clusters](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
-* [Work with notebooks](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
-* [Create Spark jobs](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Work with Spark clusters](/azure/databricks/clusters/index)
+* [Work with notebooks](/azure/databricks/notebooks/index)
+* [Create Spark jobs](/azure/databricks/jobs)
 
  
 

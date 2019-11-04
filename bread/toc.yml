@@ -115,6 +115,9 @@
     - name: Blockchain Service
       tocHref: /azure/blockchain/service/
       topicHref: /azure/blockchain/service/index
+    - name: Blockchain Tokens
+      tocHref: /azure/blockchain/tokens/
+      topicHref: /azure/blockchain/tokens/index
     - name: Blockchain Workbench
       tocHref: /azure/blockchain/workbench/
       topicHref: /azure/blockchain/workbench/
@@ -454,6 +457,9 @@
   - name: Firewall
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Firewall Manager
+    tocHref: /azure/firewall-manager
+    topicHref: /azure/firewall-manager
   - name: Front Door Service
     tocHref: /azure/frontdoor/
     topicHref: /azure/frontdoor/
@@ -570,7 +576,7 @@
         - name: Algorithm and Module Reference
           tocHref: /azure/machine-learning/algorithm-module-reference
           topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
-      - name: Studio
+      - name: Studio (classic)
         tocHref: /azure/machine-learning/studio
         topicHref: /azure/machine-learning/studio/
       - name: Team Data Science Process
@@ -702,12 +708,15 @@
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/
-  - name: SQL Data Warehouse
+  - name: Synapse Analytics
     tocHref: /azure/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/
   - name: SQL Database
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/
+  - name: SQL Database Edge
+    tocHref: /azure/sql-database-edge/
+    topicHref: /azure/sql-database-edge/
   - name: SQL Server Stretch Database
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/
@@ -782,9 +791,15 @@
   - name: Virtual Network
     tocHref: /azure/virtual-network/
     topicHref: /azure/virtual-network/
+  - name: Peering Service
+    tocHref: /azure/peering-service/
+    topicHref: /azure/peering-service/ 
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
+  - name: Web Application Firewall
+    tocHref: /azure/web-application-firewall/
+    topicHref: /azure/web-application-firewall/
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/

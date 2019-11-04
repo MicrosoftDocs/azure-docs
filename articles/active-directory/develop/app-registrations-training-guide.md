@@ -52,7 +52,7 @@ Here's where you can find the equivalent functionality in the new experience:
 - The functionality controlled by the **Multi-tenant** toggle in the legacy experience has been replaced by **Supported account types** on the **Authentication** page. For more information about how multi-tenant maps to the supported account type options, see [this quickstart](quickstart-modify-supported-accounts.md).
 - **Logout URL** is now on the **Authentication** page.
 - **Application type** is no longer a valid field. Instead, redirect URIs (which you can find on the **Authentication** page) determine which app types are supported.
-- **App ID URI** is now called **Application ID URI** and you can find this on the **Expose an API** blade. In the legacy experience, this property was auto-registered using the following format: `https://{tenantdomain}/{appID}` (for example, `https://microsoft.onmicrosoft.com/aeb4be67-a634-4f20-9a46-e0d4d4f1f96d`). In the new format, it's auto-generated as `api://{appID}`, but it needs to be explicitly saved.
+- **App ID URI** is now called **Application ID URI** and you can find this on the **Expose an API** blade. In the legacy experience, this property was auto-registered using the following format: `https://{tenantdomain}/{appID}` (for example, `https://microsoft.onmicrosoft.com/aeb4be67-a634-4f20-9a46-e0d4d4f1f96d`). In the new format, it's auto-generated as `api://{appID}`, but it needs to be explicitly saved. In Azure AD B2C tenants, the `https://{tenantdomain}/{appID}` format is still used.
 
 ## Reply URLs/redirect URls
 
@@ -97,6 +97,5 @@ There's new UI for properties that could previously only be set using the manife
 
 The new experience has the following limitations:
 
-- The new experience is currently not available in Azure AD B2C tenants.
-- The format of client secrets (app passwords) is different than that of the legacy experience and breaks CLI.
+- The format of client secrets (app passwords) is different than that of the legacy experience and may break CLI.
 - Changing the value for supported accounts is not supported in the UI. You need to use the app manifest unless you're switching between Azure AD single-tenant and multi-tenant.

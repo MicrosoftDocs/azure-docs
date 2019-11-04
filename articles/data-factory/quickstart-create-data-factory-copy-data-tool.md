@@ -30,9 +30,14 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
-1. Select **Create a resource** on the left menu, select **Analytics**, and then select **Data Factory**. 
-   
-   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
+1. From the Azure portal menu, select **Create a resource**.
+
+    ![Create a resource from the Azure portal menu](./media/quickstart-create-data-factory-copy-data-tool/create-data-factory-resource.png)
+
+1. Select **Analytics**, and then select **Data Factory**.
+
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory-menu.png)
+
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
  
    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
