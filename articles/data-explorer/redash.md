@@ -55,7 +55,7 @@ ms.date: 11/03/2019
 
 1. In the visualization screen, select the **Visualization Type** and the relevant fields such as **X Column** and **Y Column**. **Save** the visualization.
 
-    ![Configure and save visualization](media/redash/step7.png)
+    ![Configure and save visualization](media/redash/configure-visualization.png)
 
 ### Create a query using a parameter
 
@@ -68,11 +68,11 @@ ms.date: 11/03/2019
     ![query based dropdown list](media/redash/query-based-dropdown-list.png)
 
     > [!NOTE]
-    > The query uses multiple values, therefore you must include the following syntax `| where Type in ((split('{{Type}}', ',')))`. See [in operator](https://docs.microsoft.com/en-us/azure/kusto/query/inoperator) for more details. This results in [multiple query parameter options in redash app](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select Query Parametersredash.io)
+    > The query uses multiple values, therefore you must include the following syntax `| where Type in ((split('{{Type}}', ',')))`. See [in operator](/azure/kusto/query/inoperator) for more details. This results in [multiple query parameter options in redash app](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select-Query-Parametersredash.io)
 
     ![multi parameters query](media/redash/multi-parameters-query.png)    
 
-1. Select *settings icon* to modify the parameter attributes and open <parameter name> window. Select **Save**
+1. Select *settings icon* to modify the parameter attributes and open <parameter_name> window. Select **Save**
 
     ![Add parameter type](media/redash/add-parameter-type.png)
 
@@ -80,18 +80,19 @@ ms.date: 11/03/2019
 
 1. To create your dashboard, **Create** > **Dashboard**. Alternatively, select existing dashboard, **Dashboards** > select a dashboard from the list.
 
-    ![Create dashboard](media/redash/step8.png)
+    ![Create dashboard](media/redash/create-dashboard.png)
 
-1. In **New Dashboard** window, name your dashboard and select **Save**.
-1. In **<Dashboard name>** window, select **Add Widget** to create a new widget. In **Add widget** window, select query name and **Choose Visualization**. Select **Add to Dashboard**
+1. In **New Dashboard** window, name your dashboard and select **Save**. In **<Dashboard_name>** window, select **Add Widget** to create a new widget. 
 
-   ![Choose visualizations and add to dashboard](media/redash/step9.png)
+1. In **Add Widget** window, select query name, **Choose Visualization**, and **Parameters**. Select **Add to Dashboard**
+
+   ![Choose visualizations and add to dashboard](media/redash/add-widget-window.png)
 
 1. Select **Done Editing** to complete dashboard creation.
 
 1.  In the dashboard edit mode, select **Use Dashboard Level Filters** to use the **Type** parameter previously defined.
 
-    ![Complete dashboard creation](media/redash/step10.png)
+    ![Complete dashboard creation](media/redash/complete-dashboard.png)
 
 ## Next steps
 
