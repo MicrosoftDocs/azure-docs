@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: how to troubleshoot the farmbeats
+description: How to troubleshoot Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -168,7 +168,7 @@ Server refused connection at: http://172.30.175.69:8983/solr/dhus 
 
 [Install and connect]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to Azure Storage Explorer.
 
-### How to Collect data hub ADF job ogs
+### How to collect data hub ADF job logs
 1. Log in to https://portal.azure.com
 2. In the **Search** text box, search for FarmBeats Data hub resource group.
 
@@ -203,7 +203,7 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 9.	Email the downloaded zip file to farmbeatssupport@microsoft.com
 
 
-### How to collect data hub app service sogs
+### How to collect data hub app service logs
 
 1.	Log in to https://portal.azure.com
 2.	In the **Search** text box, search for FarmBeats Data hub resource group.
@@ -261,7 +261,7 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 
 **Error** reading input from input.json file
 
-**Corrective action**: This issue mostly arises due to miss in specifying the correct input json path or name to the installer. Make appropriate corrections and retry redploying.
+**Corrective action**: This issue mostly arises due to miss in specifying the correct input json path or name to the installer. Make appropriate corrections and retry redeploying.
 
 **Error parsing json input**
 

@@ -153,7 +153,7 @@ Swagger website. The default is Data hub resource group name. Press enter to con
 
 **Add Azure active directory**
 
-Sample Json input:
+Sample JSON input:
 
 ```json
 {  
@@ -226,15 +226,15 @@ Installer creates the Azure AD (you have AD tenant read permissions).
     wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
 
     ```
-The script automatically downloads all dependencies, and builds the deployer. Then, you're prompted to agree to the Azure FarmBeats End-user license agreement (EULA).
+   The script automatically downloads all dependencies, and builds the deployer. Then, you're prompted to agree to the Azure FarmBeats End-user license agreement (EULA).
 
-- Enter ‘Y’ if you agree and you will proceed to the next step.
-- Enter ‘N’ if you do not agree to the terms and the deployment will terminate.
+   - Enter ‘Y’ if you agree and you will proceed to the next step.
+   - Enter ‘N’ if you do not agree to the terms and the deployment will terminate.
 
-  Then you will be prompted to enter an access token for the deployment. Copy the code generated and login to https://microsoft.com/devicelogin with your Azure credentials.
+   Then you will be prompted to enter an access token for the deployment. Copy the code generated and login to https://microsoft.com/devicelogin with your Azure credentials.
 
-  > [!NOTE]
-  > The code expires after 60 minutes. When it expires you can restart by typing the deployment command again.
+   > [!NOTE]
+   > The code expires after 60 minutes. When it expires you can restart by typing the deployment command again.
 
 5. On the next prompt, enter Sentinel account password.
 6. The installer now validates and starts deploying, which can take about 20 minutes.
@@ -256,12 +256,12 @@ The script automatically downloads all dependencies, and builds the deployer. Th
    minutes.
 10. Once the deployment goes through successful, you'll receive the below output links:
 
-   - **Data hub URL**: Swagger link to try FarmBeats APIs
-   - **Accelerator URL**: User Interface to explore FarmBeats Smart Farm Accelerator.
-   - **Deployer log file**- saves logs during deployment and can be used for troubleshooting.
+    - **Data hub URL**: Swagger link to try FarmBeats APIs
+    - **Accelerator URL**: User Interface to explore FarmBeats Smart Farm Accelerator.
+    - **Deployer log file**- saves logs during deployment and can be used for troubleshooting.
 
-   > [!NOTE]
-   > Make note of these and keep the deployment log file path handy for future use.
+    > [!NOTE]
+    > Make note of these and keep the deployment log file path handy for future use.
 
 
 ### Deployment scenario 2
@@ -296,8 +296,8 @@ Existing Azure Active Directory app registration is used to deploy.
 
 4. Type or paste the *Deployment Command* into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.
 
-  ```
-   wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
+   ```
+    wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
 
    ```
    Follow the rest of the steps:
@@ -311,9 +311,9 @@ Existing Azure Active Directory app registration is used to deploy.
 7. You'll be prompted to enter an access token for the deployment. Copy the code generated and sign in to https://microsoft.com/devicelogin with your Azure credentials.
 8. The installer will now validate and start creating the resources, which can take about 20 minutes. Keep the session active on Cloud Shell during this time.
 9. Once the deployment goes through successfully, you'll receive the below output links:
-     - **Data hub URL**: Swagger link to try FarmBeats APIs.
-     - **Accelerator URL**: User Interface to explore FarmBeats Smart Farm Accelerator.
-     - **Deployer log file**: saves logs during deployment and can be used for troubleshooting.
+   - **Data hub URL**: Swagger link to try FarmBeats APIs.
+   - **Accelerator URL**: User Interface to explore FarmBeats Smart Farm Accelerator.
+   - **Deployer log file**: saves logs during deployment and can be used for troubleshooting.
 
 If you encounter any issues, review [Troubleshoot](troubleshoot-project-farmbeats.md).
 
@@ -382,12 +382,12 @@ The steps for upgrade are similar to the first-time installation. Follow these s
 11. The installer now validates and starts creating the resources, which can take about 20 minutes.
 12. Once the deployment is successful, you will receive the below output links:
 
-     - **Data hub URL**: Swagger link to try FarmBeats APIs.
-     - **Accelerator URL**: User interface to explore FarmBeats Smart Farm Accelerator.
-     - **Deployer log file**:  saves logs during deployment. It can be used for troubleshooting.
+    - **Data hub URL**: Swagger link to try FarmBeats APIs.
+    - **Accelerator URL**: User interface to explore FarmBeats Smart Farm Accelerator.
+    - **Deployer log file**:  saves logs during deployment. It can be used for troubleshooting.
 
-     > [!NOTE]
-     > Make note of the above links and keep the deployment log file path handy for future use.
+    > [!NOTE]
+    > Make note of the above links and keep the deployment log file path handy for future use.
 
 ## Uninstall
 
