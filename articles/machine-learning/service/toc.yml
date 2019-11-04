@@ -337,6 +337,8 @@
   - name: Machine Learning CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/azureml/
   - name: Monitor data reference
     href: monitor-resource-reference.md
   - name: Machine learning pipeline YAML reference
