@@ -48,24 +48,24 @@ If you don't already have one, create an instance of Application Insights in you
 1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`.
 1. Add the following node as a child of the `<UserJourneyBehaviors>` element. Make sure to replace `{Your Application Insights Key}` with the Application Insights **Instrumentation Key** that you recorded earlier.
 
-   ```XML
-   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
-   ```
+    ```XML
+    <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+    ```
 
-   * `DeveloperMode="true"` tells ApplicationInsights to expedite the telemetry through the processing pipeline. Good for development, but constrained at high volumes.
-   * `ClientEnabled="true"` sends the ApplicationInsights client-side script for tracking page view and client-side errors. You can view these in the **browserTimings** table in the Application Insights portal. By setting `ClientEnabled= "true"`, you add Application Insights to your page script and you get timings of page loads and AJAX calls, counts, details of browser exceptions and AJAX failures, and user and session counts. This field is **optional**, and is set to `false` by default.
-   * `ServerEnabled="true"` sends the existing UserJourneyRecorder JSON as a custom event to Application Insights.
+    * `DeveloperMode="true"` tells ApplicationInsights to expedite the telemetry through the processing pipeline. Good for development, but constrained at high volumes.
+    * `ClientEnabled="true"` sends the ApplicationInsights client-side script for tracking page view and client-side errors. You can view these in the **browserTimings** table in the Application Insights portal. By setting `ClientEnabled= "true"`, you add Application Insights to your page script and you get timings of page loads and AJAX calls, counts, details of browser exceptions and AJAX failures, and user and session counts. This field is **optional**, and is set to `false` by default.
+    * `ServerEnabled="true"` sends the existing UserJourneyRecorder JSON as a custom event to Application Insights.
 
-   Sample:
+    For example:
 
-   ```XML
-   <TrustFrameworkPolicy
-    ...
-    TenantId="fabrikamb2c.onmicrosoft.com"
-    PolicyId="SignUpOrSignInWithAAD"
-    DeploymentMode="Development"
-    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-   >
+    ```XML
+    <TrustFrameworkPolicy
+      ...
+      TenantId="fabrikamb2c.onmicrosoft.com"
+      PolicyId="SignUpOrSignInWithAAD"
+      DeploymentMode="Development"
+      UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+    >
     ...
     <RelyingParty>
       <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
@@ -73,8 +73,8 @@ If you don't already have one, create an instance of Application Insights in you
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
       ...
-   </TrustFrameworkPolicy>
-   ```
+    </TrustFrameworkPolicy>
+    ```
 
 1. Upload the policy.
 
