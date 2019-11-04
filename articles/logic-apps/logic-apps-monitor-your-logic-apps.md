@@ -19,6 +19,8 @@ For real-time event monitoring and richer debugging, set up diagnostics logging 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
+<a name="review-runs-history"></a>
+
 ## Review runs history
 
 1. In the [Azure portal](https://portal.azure.com), find and open your logic app in the Logic App Designer.
@@ -69,8 +71,9 @@ For real-time event monitoring and richer debugging, set up diagnostics logging 
 
    ![Review information about the run](media/logic-apps-monitor-your-logic-apps/review-logic-app-run-details.png)
 
-   For example, you can get the run's **Correlation ID** property, which you might need when you use the 
-   [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
+   For example, you can get the run's **Correlation ID** property, which you might need when you use the [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
+
+<a name="review-trigger-history"></a>
 
 ## Review trigger history
 
