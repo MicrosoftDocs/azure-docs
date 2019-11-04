@@ -29,11 +29,11 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
       ![Create a new resource](../../../includes/media/aml-create-in-portal/create-workspace.gif)
 
-1. Use the search bar to find **Machine Learning service workspace**.
+1. Use the search bar to find **Machine Learning**.
 
-1. Select **Machine Learning service workspace**.
+1. Select **Machine Learning**.
 
-1. In the **Machine Learning service workspace** pane, select **Create** to begin.
+1. In the **Machine Learning** pane, select **Create** to begin.
 
 1. Provide the following information to configure your new workspace:
 
