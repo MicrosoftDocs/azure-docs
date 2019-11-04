@@ -209,7 +209,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
 ## Create an Azure AD user from the Azure AD server principal (login) and give permissions
 
-Authorization to individual databases works much in the same way in managed instance as it does with SQL Server on-premise. A user can be created from an existing login in a database, and be provided with permissions on that database, or added to a database role.
+Authorization to individual databases works much in the same way in managed instance as it does with SQL Server on-premises. A user can be created from an existing login in a database, and be provided with permissions on that database, or added to a database role.
 
 Now that we've created a database called **MyMITestDB**, and a login that only has default permissions, the next step is to create a user from that login. At the moment, the login can connect to the managed instance, and see all the databases, but can't interact with the databases. If you sign in with the Azure AD account that has the default permissions, and try to expand the newly created database, you'll see the following error:
 

@@ -125,7 +125,7 @@ Subsequent operations on deployed managed instances might also have effects on i
 All management operations can be categorized as follows:
 
 - Instance deployment (new instance creation). 
-- Instance update (changing instance properties, such as vCores, reserved storage, etc).
+- Instance update (changing instance properties, such as vCores or reserved storage.
 - Instance deletion.
 
 Typically, operations on virtual clusters take the longest. Duration of the operations on virtual clusters vary – below are the values that you can typically expect, based on existing service telemetry data:
