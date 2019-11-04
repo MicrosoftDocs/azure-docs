@@ -114,7 +114,25 @@ Select **Test** again to collapse the test pane.
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.967174649
+                    "score": 0.984315455
+                },
+                "HomeAutomation.QueryState": {
+                    "score": 0.009912962
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.00626645749
+                },
+                "HomeAutomation.TurnUp": {
+                    "score": 0.00572059769
+                },
+                "HomeAutomation.SetDevice": {
+                    "score": 0.00379381469
+                },
+                "HomeAutomation.TurnOn": {
+                    "score": 0.00366983772
+                },
+                "None": {
+                    "score": 0.000623856
                 }
             },
             "entities": {
@@ -138,7 +156,7 @@ Select **Test** again to collapse the test pane.
                             "text": "living room",
                             "startIndex": 13,
                             "length": 11,
-                            "score": 0.9494325,
+                            "score": 0.907323956,
                             "modelTypeId": 1,
                             "modelType": "Entity Extractor",
                             "recognitionSources": [
