@@ -44,33 +44,15 @@ Each logic app run starts with a trigger attempt, so if the trigger doesn't fire
 
 ## Check run history
 
-Each trigger that fires starts a logic app instance that runs the workflow. You can review what happened during that run, including the status for each step in the workflow, plus the inputs and outputs for each step.
+Each time that the trigger fires for an item or event, the Logic Apps engine creates a separate logic app instance that runs the workflow. By default, each instance runs in parallel so that no workflow has to wait before starting a run. You can review what happened during that run, including the status for each step in the workflow plus the inputs and outputs for each step.
 
 1. On the logic app menu, choose **Overview**. Under **Runs history**, review the run for the fired trigger.
 
-   > [!TIP]
-   > If you don't see the logic app menu, 
-   > try returning to the Azure dashboard, 
-   > and reopen your logic app.
-
    ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
 
-   > [!TIP]
-   > * If you don't find the data that you expect, 
-   > try selecting **Refresh** on the toolbar.
-   > * If the list shows many runs, 
-   > and you can't find the entry you want, 
-   > try filtering the list.
 
-   Here are the possible statuses for a run:
 
-   | Status | Description | 
-   | ------ | ----------- | 
-   | **Succeeded** | All actions succeeded. <p>If any failures happened in a specific action, a following action in the workflow handled that failure. | 
-   | **Failed** | At least one action failed, and no later actions in the workflow were set up to handle the failure. | 
-   | **Cancelled** | The workflow was running but received a cancel request. | 
-   | **Running** | The workflow is currently running. <p>This status might happen for throttled workflows, or due to the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](../logic-apps/logic-apps-monitor-your-logic-apps.md), you can also get information about any throttle events that happen. | 
-   ||| 
+
 
 2. Review the details for each step in a specific run. 
 Under **Runs history**, select the run that you want to examine.

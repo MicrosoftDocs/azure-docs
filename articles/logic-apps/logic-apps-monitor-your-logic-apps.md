@@ -35,14 +35,20 @@ For real-time event monitoring and richer debugging, set up diagnostics logging 
 
 1. Select your logic app, and then select **Overview**.
 
-   On the overview pane, under **Runs history**, all the past, current, and any waiting runs for your logic app appear, for example:
+   On the overview pane, under **Runs history**, all the past, current, and any waiting runs for your logic app appear. If the list shows many runs, and you can't find the entry that you want, try filtering the list. If you don't find the data that you expect, try selecting **Refresh** on the toolbar.
 
    ![Overview, runs history, and other logic app information](media/logic-apps-monitor-your-logic-apps/overview-pane-logic-app-details-run-history.png)
 
-   > [!TIP]
-   > If you don't find all the data that you expect, on the toolbar, select **Refresh**.
+   Here are the possible statuses for a logic app run:
 
-   For status definitions and descriptions, see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
+   | Status | Description |
+   |--------|-------------|
+   | **Cancelled** | The workflow was running but received a cancel request. |
+   | **Failed** | At least one action failed, and no later actions in the workflow were set up to handle the failure. |
+   | **Running** | The workflow is currently running. <p>This status can also appear for throttled workflows or due to the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md), you can get information about any throttle events that happen. |
+   | **Succeeded** | All actions succeeded. <p>**Note**: If any failures happened in a specific action, a later action in the workflow handled that failure. |
+   | **Waiting** | The workflow hasn't started or is paused, for example, due to an earlier workflow that's still running. |
+   |||
 
 1. To review the steps and other information for a specific run, under **Runs history**, select that run.
 
@@ -103,9 +109,9 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
 
    | Status | Description |
    |--------|-------------|
-   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a "Fired" status also appears alongside this status. If not, the trigger definition might have a condition or `SplitOn` command that wasn't met. <p>This status can apply to a manual trigger, recurrence trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
-   | **Skipped** | The trigger checked the endpoint but found no data. |
    | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt and choose **Outputs**. For example, you might find inputs that aren't valid. |
+   | **Skipped** | The trigger checked the endpoint but found no data. |
+   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a "Fired" status also appears alongside this status. If not, the trigger definition might have a condition or `SplitOn` command that wasn't met. <p>This status can apply to a manual trigger, recurrence trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
    |||
 
    > [!TIP]
