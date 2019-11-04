@@ -116,7 +116,7 @@ To configure Storegate for automatic user provisioning with Azure AD, you need t
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Storegate based on user and/or group assignments in Azure AD.
 
 > [!NOTE]
-> To learn more about Oracle Fusion ERP's SCIM endpoint, refer [this](https://en-support.storegate.com/article/step-by-step-instruction-how-to-enable-azure-provisioning-to-your-storegate-team-account/).
+> To learn more about Storegate's SCIM endpoint, refer [this](https://en-support.storegate.com/article/step-by-step-instruction-how-to-enable-azure-provisioning-to-your-storegate-team-account/).
 
 ### To configure automatic user provisioning for Storegate in Azure AD:
 
