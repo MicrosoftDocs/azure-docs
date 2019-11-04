@@ -164,7 +164,7 @@ parentDeviceId | ID of the parent device to which this device is connected to. F
   Name  | Name to identify resource.  Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats  |
   Description  | Provide a meaningful description  |
   Properties  |Additional properties from the manufacturer  |
-  **Sensor Model** | SensorModel corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc |
+  **Sensor Model** | SensorModel corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc. |
   Type (Analog, Digital)  |Mention analog or digital sensor|
   manufacturer  | name of manufacturer |
   productCode  | Product code or Model Name/Number. For example, RS-CO2-N01  |
