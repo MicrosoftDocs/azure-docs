@@ -17,6 +17,8 @@ Azure PowerShell can be used to control and automate the deployment and manageme
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.

@@ -33,7 +33,7 @@ Beyond the functional aspect of the Speech Services their primary purpose – wh
 
 * Post-call analytics that is, batch processing of call recordings
 * Real-time analytics processing of the audio signal to extract various insights as the call is taking place (with sentiment being a prominent use case) and
-* Virtual Assistants (Bots), either driving the dialogue between the customer and the bot in an attempt to solve the customer's issue with no agent participation, or being the application of AI protocols to assist the agent.
+* Voice assistants (bots), either driving the dialogue between the customer and the bot in an attempt to solve the customer's issue with no agent participation, or being the application of AI protocols to assist the agent.
 
 A typical architecture diagram of the implementation of a batch scenario is depicted in the picture below
 ![Call center transcription architecture](media/scenarios/call-center-transcription-architecture.png)
