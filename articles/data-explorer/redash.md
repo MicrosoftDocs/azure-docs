@@ -71,8 +71,6 @@ ms.date: 11/03/2019
     > [!NOTE]
     > The query uses multiple values, therefore you must include the following syntax `| where Type in ((split('{{Type}}', ',')))`. For more information, see [in operator](/azure/kusto/query/inoperator). This results in [multiple query parameter options in redash app](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select-Query-Parametersredash.io)
 
-    ![multi parameters query](media/redash/multi-parameters-query.png)    
-
 ## Create a dashboard in Redash
 
 1. To create your dashboard, **Create** > **Dashboard**. Alternatively, select existing dashboard, **Dashboards** > select a dashboard from the list.
