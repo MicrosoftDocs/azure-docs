@@ -115,7 +115,7 @@ There are several ways you can access the files in Data Lake Storage from an HDI
 
 ### Data access examples
 
-Examples are based on an [ssh connection](./hdinsight-hadoop-linux-use-ssh-unix.md) to the head node of the cluster. The examples use all three URIs scheme. Replace `CONTAINERNAME` and `STORAGEACCOUNT` with the relevant values
+Examples are based on an [ssh connection](./hdinsight-hadoop-linux-use-ssh-unix.md) to the head node of the cluster. The examples use all three URI schemes. Replace `CONTAINERNAME` and `STORAGEACCOUNT` with the relevant values
 
 #### A few hdfs commands
 
