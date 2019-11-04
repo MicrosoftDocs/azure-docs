@@ -11,10 +11,13 @@ author: gogowings
 ms.date: 11/04/2019
 ---
 
-# Consume Azure Machine Learning events
+# Consume Azure Machine Learning events (Preview)
+
 Azure Machine Learning manages the entire lifecycle of machine learning process, including model training, model deployment, and monitoring. Azure Machine Learning events allow applications to react to events during the machine learning lifecycle, such as the completion of training runs, the registration and deployment of models, and the detection of data drift, by using modern serverless architectures. 
 
 These events are published through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Using Azure portal, Powershell or Azure CLI, customers can easily subscribe events by [specifying one or more event types, and filtering conditions](/azure/event-grid/event-filtering). Customers also have choice to build a wide range of event handlers such as Azure Functions, Azure Logic Apps, or generic webhooks. Azure Machine Learning, along with Azure Event Grid, provides a high available, reliable, and fault-tolerant event delivery platform for you to build event driven applications.
+
+For information on using Azure Machine Learning with Event Grid, see [Create Event Driven Machine Learning Workflows (Preview)](how-to-use-event-grid.md).
 
 ## The event model 
 
@@ -92,3 +95,4 @@ Learn more about Event Grid and give Azure Machine Learning events a try:
 
 - [About Event Grid](../../event-grid/overview.md)
 - [Azure Event Grid event schema for Azure Machine Learning](../../event-grid/event-schema-machine-learning.md)
+- [Create event driven workflows with Azure Machine Learning](how-to-use-event-grid.md)
