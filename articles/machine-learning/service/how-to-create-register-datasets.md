@@ -227,7 +227,7 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 ### Using the UI
 
-You can also create datasets from Open Datasets classes through the UI. In your workspace, select the **Datasets** tab under *Assets*. On the **Create dataset** drop-down menus, select **From Open Datasets**.
+You can also create datasets from Open Datasets classes through the UI. In your workspace, select the **Datasets** tab under **Assets**. On the **Create dataset** drop-down menu, select **From Open Datasets**.
 
 ![Open Dataset with the UI](media/how-to-create-register-datasets/open-datasets-1.png)
 
