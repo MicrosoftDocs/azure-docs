@@ -24,8 +24,8 @@ Once the customers have purchased and deployed devices/sensors, they can access 
    - EventHub Connection String
    - Start Date
 
-    > [!NOTE]
-    > Start Date enables historical data feed i.e. data from the date specified by the user.
+   > [!NOTE]
+   > Start Date enables historical data feed i.e. data from the date specified by the user.
 
 ## Unlink FarmBeats
 
@@ -42,8 +42,8 @@ The customer can edit the FarmBeats Integration. The primary scenario for edit i
    - Client secret (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
    - Connection string (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
 
-    > [!NOTE]
-    > Edit should not interrupt the creation of metadata objects.
+   > [!NOTE]
+   > Edit should not interrupt the creation of metadata objects.
 
 ## Last Telemetry Sent
 
@@ -188,7 +188,7 @@ parentDeviceId | id of the parent device to which this device is connected to. F
   description  | Provide a meaningful description
   properties  | Additional properties from the manufacturer
 
- See [swagger](httpa://aka.ms/FarmBeatsDatahubSwagger) for information more on each of the objects and their properties.
+ For information on each of the objects and their properties, see [swagger](httpa://aka.ms/FarmBeatsDatahubSwagger).
 
  > [!NOTE]
  > The APIs return unique ids for each instance created. This ID needs to be retained by the Translator for device management and metadata sync.
