@@ -80,6 +80,9 @@ If you switch from one policy to the other, this discards the existing policy co
 
 ### Prerequisite
 
+> [!Note]
+> The AzureADPreview Module is not a fully supported module as it is in preview. 
+
 To set the allow or deny list by using PowerShell, you must install the preview version of the Azure Active Directory Module for Windows PowerShell. Specifically, install the AzureADPreview module version 2.0.0.98 or later.
 
 To check the version of the module (and see if it's installed):
