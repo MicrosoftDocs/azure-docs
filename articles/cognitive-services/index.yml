@@ -22,6 +22,12 @@ highlightedContent:
     - title: Cognitive Services and machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
+    - title: Virtual networks for Cognitive Services
+      itemType: architecture
+      url: cognitive-services-virtual-networks.md
+    - title: Custom subdomains for Cognitive Services
+      itemType: whats-new
+      url: cognitive-services-custom-subdomains.md
     - title: Create a Cognitive Services resource
       itemType: how-to-guide
       url: ./cognitive-services-apis-create-account.md
