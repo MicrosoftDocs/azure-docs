@@ -32,4 +32,4 @@ When you reach a quota, you'll receive a 400 error that reads: "Quota exceeds li
 
 ## Next steps
 
-Certain default limits and quotas can be increased. If your resource requires an increase, send us your request:  azure-spring-cloud@service.microsoft.com.
+Certain default limits and quotas can be increased. If your resource requires an increase, [create a support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
