@@ -8,13 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
-ms.date: 10/15/2017
+ms.date: 11/06/2019
 ---
 
 # Troubleshoot and diagnose workflow failures in Azure Logic Apps
 
 Your logic app generates information that can help you diagnose and debug problems in your app. You can diagnose a logic app by reviewing each step in the workflow through the Azure portal. Or, you can add some steps to a workflow for runtime debugging.
+
+<a name="check-trigger-history"></a>
 
 ## Check trigger history
 
@@ -22,7 +23,7 @@ Each logic app run starts with a trigger attempt, so if the trigger doesn't fire
 
 1. Check the trigger's status by [checking the trigger history](../logic-apps/logic-apps-monitor-your-logic-app.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
 
-   ![Trigger status and history for your logic app](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
+   ![View trigger status and history](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
 1. Check the trigger's inputs to confirm that they appear as you expect. Under **Inputs link**, select the link, which shows the **Inputs** pane.
 
@@ -32,40 +33,41 @@ Each logic app run starts with a trigger attempt, so if the trigger doesn't fire
 
    ![Review trigger inputs for errors](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
 
-1. Check the triggers outputs, if any, to confirm that they appear as you expect.
+1. Check the triggers outputs, if any, to confirm that they appear as you expect. Under **Outputs link**, select the link, which shows the **Outputs** pane.
 
    Trigger outputs include the data that the trigger passes to the next step in your workflow. Reviewing these outputs can help you determine whether the correct or expected values passed on to the next step in your workflow, for example:
 
-   ![Review trigger outputs for errors](./media/logic-apps-diagnosing-failures/trigger-outputs.png)
+   ![Review trigger outputs for errors](./media/logic-apps-diagnosing-failures/review-trigger-outputs-for-errors.png)
 
    > [!TIP]
    > If you find any content that you don't recognize, learn more about 
    > [different content types](../logic-apps/logic-apps-content-type.md) in Azure Logic Apps.
 
-## Check run history
+<a name="check-runs-history"></a>
 
-Each time that the trigger fires for an item or event, the Logic Apps engine creates a separate logic app instance that runs the workflow. By default, each instance runs in parallel so that no workflow has to wait before starting a run. You can review what happened during that run, including the status for each step in the workflow plus the inputs and outputs for each step.
+## Check runs history
 
-1. On the logic app menu, choose **Overview**. Under **Runs history**, review the run for the fired trigger.
+Each time that the trigger fires for an item or event, the Logic Apps engine creates and runs a separate workflow instance for each item or event. If a run fails, follow these steps to review what happened during that run, including the status for each step in the workflow plus the inputs and outputs for each step.
 
-   ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
+1. Check the workflow's run status by [checking the runs history](../logic-apps/logic-apps-monitor-your-logic-app.md#review-runs-history).
 
+   ![View run status and history](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
+1. To view more information about a failed run, select that run, which shows all the steps in that run and their status, and expand the first failed step.
 
+   ![Select failed run and expand failed step](./media/logic-apps-diagnosing-failures/logic-app-run-pane.png)
 
+1. Check the failed step's inputs to confirm whether they appear as you expect.
 
-2. Review the details for each step in a specific run. 
-Under **Runs history**, select the run that you want to examine.
+1. Review the details for each step in a specific run. Under **Runs history**, select the run that you want to examine.
 
    ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
 
-   Whether the run itself succeeded or failed, 
-   the Run Details view shows each step and whether 
-   they succeeded or failed.
+   Whether the run itself succeeded or failed, the Run Details view shows each step and whether they succeeded or failed.
 
    ![View details for a logic app run](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. To examine the inputs, outputs, and any error messages for a specific step, choose that step so that the shape expands and shows the details. For example:
+1. To examine the inputs, outputs, and any error messages for a specific step, choose that step so that the shape expands and shows the details. For example:
 
    ![View step details](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

@@ -23,6 +23,8 @@ For real-time event monitoring and richer debugging, set up diagnostics logging 
 
 ## Review runs history
 
+Each time that the trigger fires for an item or event, the Logic Apps engine creates and runs a separate workflow instance for each item or event. By default, each workflow instance runs in parallel so that no workflow has to wait before starting a run. You can review what happened during that run, including the status for each step in the workflow plus the inputs and outputs for each step.
+
 1. In the [Azure portal](https://portal.azure.com), find and open your logic app in the Logic App Designer.
 
    To find your logic app , in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
