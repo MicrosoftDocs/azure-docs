@@ -9,27 +9,47 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/03/2019
 ms.author: diberry
 ---
-# Phrase list features in your LUIS app
+# Machine-learned features 
 
-In machine learning, a *feature* is a distinguishing trait or attribute of data that your system observes. 
+In machine learning, a *feature* is a distinguishing trait or attribute of data that your system observes & learns through. In Language Understanding (LUIS), a feature describes and explains what is significant about your intents and entities.
 
-Add features to a language model to provide hints about how to recognize input that you want to label or classify. Features help LUIS recognize both intents and entities, but features are not intents or entities themselves. Instead, features might provide examples of related terms.  
+## Features in Language Understanding
 
-## What is a phrase list feature?
-A phrase list is a list of words or phrases that are significant to your app, more so than other words in utterances. A phrase list adds to the vocabulary of the app domain as an additional signal to LUIS about those words. What LUIS learns about one of them is automatically applied to the others as well. This list is not a closed [list entity](luis-concept-entity-types.md#types-of-entities) of exact text matches.
+Features, also known as descriptors, describe clues to help Language Understanding identify the example utterances. Features include: 
 
-Phrase lists do not help with stemming so you need to add utterance examples that use a variety of stemming for any significant vocabulary words and phrases.
+* Phrase list as a feature to intents or entities
+* Entities as features to intents or entities
 
-## Phrase lists help all models
+Features should be considered as a necessary part of your schema for model decomposition. 
 
-Phrase lists are not linked to a specific intent or entity but are added as a significant boost to all the intents and entities. Its purpose is to improve intent detection and entity classification.
+## What is a phrase list
 
-## How to use phrase lists
+A phrase list is a list of words, phrases, numbers or other characters that help identify the concept you are trying to identify. The list is case-insensitive. 
 
-[Create a phrase](luis-how-to-add-features.md) list when your app has words or phrases that are important to the app such as:
+## When to use a phrase list
+
+With a phrase list, LUIS considers context and generalizes to identify items that are similar to, but not an exact text match. If you need your LUIS app to be able to generalize and identify new items, use a phrase list. 
+
+When you want to be able to recognize new instances, like a meeting scheduler that should recognize the names of new contacts, or an inventory app that should recognize new products, start with a machine-learned entity. Then create a phrase list that helps LUIS find words with similar meaning. This phrase list guides LUIS to recognize examples by adding additional significance to the value of those words. 
+
+Phrase lists are like domain-specific vocabulary that help with enhancing the quality of understanding of both intents and entities. 
+
+## Considerations when using a phrase list
+
+A phrase list is applied, by default, to all models in the app. This will work for phrase lists that can cross all intents and entities. For decomposability, you should apply a phrase list to only the models it is relevant to. 
+
+If you create a phrase list (created globally by default), then later apply it as a descriptor (feature) to a specific model, it is removed from the other models. This removal adds relevance to the phrase list for the model it is applied to, helping improve the accuracy it provides in the model. 
+
+The `enabledForAllModels` flag controls this model scope in the API. 
+
+<a name="how-to-use-phrase-lists"></a>
+
+### How to use a phrase list
+
+[Create a phrase list](luis-how-to-add-features.md) list when your intent or entity has words or phrases that are important such as:
 
 * industry terms
 * slang
@@ -38,44 +58,25 @@ Phrase lists are not linked to a specific intent or entity but are added as a si
 * language that is from another language but frequently used in your app
 * key words and phrases in your example utterances
 
-Once you've entered a few words or phrases, use the **Recommend** feature to find related values. Review the related values before adding to your phrase list values.
-
-An phrase list is for values that are synonyms. For example, if you want all bodies of water found and you have example utterances such as: 
-
-* What cities are close to the Great Lakes? 
-* What road runs along Lake Havasu?
-* Where does the Nile start and end? 
-
-Each utterance should be determined for both intent and entities regardless of body of water: 
-
-* What cities are close to [bodyOfWater]?
-* What road runs along [bodyOfWater]?
-* Where does the [bodyOfWater] start and end? 
-
-Because the words or phrases for the body of water are synonymous and can be used interchangeably in the utterances. 
+Do **not** add every possible word or phrase. Instead, add a few words or phrases at a time, then retrain and publish. As the list grows over time, you may find some terms have many forms (synonyms). Break these out into another list. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## Phrase lists help identify simple interchangeable entities
-Interchangeable phrase lists are a good way to tune the performance of your LUIS app. If your app has trouble predicting utterances to the correct intent, or recognizing entities, think about whether the utterances contain unusual words, or words that might be ambiguous in meaning. These words are good candidates to include in a phrase list.
+## When to use an entity as a feature 
 
-## Phrase lists help identify intents by better understanding context
-A phrase list is not an instruction to LUIS to perform strict matching or always label all terms in the phrase list exactly the same. It is simply a hint. For example, you could have a phrase list that indicates that "Patti" and "Selma" are names, but LUIS can still use contextual information to recognize that they mean something different in "Make a reservation for 2 at Patti's Diner for dinner" and "Find me driving directions to Selma, Georgia". 
+An entity can be added as a feature at the intent or the entity level. 
 
-Adding a phrase list is an alternative to adding more example utterances to an intent. 
+### Entity as a feature to an intent
 
-## When to use phrase lists versus list entities
-While both a phrase list and [list entities](reference-entity-list.md) can impact utterances across all intents, each does this in a different way. Use a phrase list to affect intent prediction score. Use a list entity to affect entity extraction for an exact text match. 
+Add an entity as a descriptor (feature) to an intent when the detection of that entity is significant for the intent.
 
-### Use a phrase list
-With a phrase list, LUIS can still take context into account and generalize to identify items that are similar to, but not an exact match, as items in a list. If you need your LUIS app to be able to generalize and identify new items in a category, use a phrase list. 
+For example, if the intent is for booking a flight and the entity is ticket information (such as the number of seats, origin, and destination), then finding the ticket information entity should add weight to the prediction of the book flight intent. 
 
-When you want to be able to recognize new instances of an entity, like a meeting scheduler that should recognize the names of new contacts, or an inventory app that should recognize new products, use another type of machine-learned entity such as a simple entity. Then create a phrase list of words and phrases that helps LUIS find other words similar to the entity. This list guides LUIS to recognize examples of the entity by adding additional significance to the value of those words. 
+### Entity as a feature to another entity
 
-Phrase lists are like domain-specific vocabulary that help with enhancing the quality of understanding of both intents and entities. A common usage of a phrase list is proper nouns such as city names. A city name can be several words including hyphens, or apostrophes.
- 
-### Don't use a phrase list 
-A list entity explicitly defines every value an entity can take, and only identifies values that match exactly. A list entity may be appropriate for an app in which all instances of an entity are known and don't change often. Examples are food items on a restaurant menu that changes infrequently. If you need an exact text match of an entity, do not use a phrase list. 
+An entity (A) should be added as a feature to another entity (B) when the detection of that entity (A) is significant for the (B).
+
+For example, if the street address entity (A) is detected, then finding the street address (A) adds weight to the prediction for the shipping address entity (B). 
 
 ## Best practices
 Learn [best practices](luis-concept-best-practices.md).

@@ -9,30 +9,29 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.custom: seodec18
+ms.date: 11/04/2019
 
 ---
 # Known issues and troubleshooting Azure Machine Learning
 
 This article helps you find and correct errors or failures encountered when using Azure Machine Learning.
 
-## Upcoming SR-IOV upgrade to NCv3 machines in AmlCompute
+## Outage: SR-IOV upgrade to NCv3 machines in AmlCompute
 
-Azure Compute will be updating the NCv3 SKUs starting early November to support all MPI implementations and versions, and RDMA verbs for InfiniBand-equipped virtual machines. This will require a short downtime - [read more about the SR-IOV upgrade](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
+Azure Compute will be updating the NCv3 SKUs starting early November 2019 to support all MPI implementations and versions, and RDMA verbs for InfiniBand-equipped virtual machines. This will require a short downtime - [read more about the SR-IOV upgrade](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
 As a customer of Azure Machine Learning's managed compute offering (AmlCompute), you are not required to make any changes at this time. Based on the [update schedule](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) you would need to plan for a short break in your training. The service will take responsibility to update the VM images on your cluster nodes and automatically scale up your cluster. Once the upgrade completes you may be able to use all other MPI discibutions (like OpenMPI with Pytorch) besides getting higher InfiniBand bandwidth, lower latencies, and better distributed application performance.
 
-## Visual interface issues
+## Azure Machine Learning designer issues
 
-Visual interface for machine learning service issues.
+Known issues with the designer.
 
 ### Long compute preparation time
 
 Create new compute or evoke leaving compute takes time, may be a few minutes or even longer. The team is working for optimization.
 
 
-### Cannot run an experiment only contains dataset 
+### Cannot run an experiment only contains a dataset 
 
 You might want to run an experiment only contains dataset  to visualize the dataset. However, it's not allowed to run an experiment only contains dataset today. We are actively fixing this issue.
  
@@ -148,6 +147,7 @@ If you see a `FailToSendFeather` error when reading data on Azure Databricks clu
 * Add `azure-dataprep` version 1.1.8 or above.
 * Add `pyarrow` version 0.11 or above.
 
+
 ## Datasets
 
 These are known issues for Azure Machine Learning Datasets.
@@ -157,11 +157,11 @@ These are known issues for Azure Machine Learning Datasets.
 
 ## Azure portal
 
-If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
+If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
 
 ## Diagnostic logs
 
-Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.  You can also find this information in the **Experiments** section of your [workspace landing page (preview)](https://ml.azure.com).
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure Machine Learning studio](https://ml.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.  
 
 > [!NOTE]
 > Azure Machine Learning logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
