@@ -19,12 +19,13 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 In this tutorial, you learn how to:
 
-* Create an Azure Time Series Insights Preview environment.
-* Connect the Azure Time Series Insights Preview environment to an IoT Hub.
-* Run a solution accelerator sample to stream data into the Azure Time Series Insights Preview environment.
-* Perform basic analysis on the data.
-* Define a Time Series Model type and hierarchy, and associate it with your instances.
-* Use the Power BI connector and visualize data in Power BI.
+> [!div class="checklist"]
+> * Create an Azure Time Series Insights Preview environment.
+> * Connect the Azure Time Series Insights Preview environment to an IoT Hub.
+> * Run a solution accelerator sample to stream data into the Azure Time Series Insights Preview environment.
+> * Perform basic analysis on the data.
+> * Define a Time Series Model type and hierarchy, and associate it with your instances.
+> * Use the Power BI connector and visualize data in Power BI.
 
 >[!TIP]
 > [IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) provide enterprise-grade preconfigured solutions that you can use to accelerate the development of custom IoT solutions.
@@ -53,7 +54,7 @@ In this section, you will create three simulated devices that send data to an Az
     | --- | --- |
     | **Deployment name** | Enter a unique value for a new resource group. The listed Azure resources are created and assigned to the resource group. |
     | **Azure subscription** | Select the subscription where you will create your Time Series Insights environment. |
-    | **Azure location** | Select the region where you intend to house your Time Series Insights environment. Note that the device simulator is only offered in a limited number of regions, thus, if you do not see your desired region you may choose to select a location solely for the tutorial and then create a new TSI environment when you’re ready to move onto your next phase of on-boarding.  |
+    | **Azure location** | Select the region where you intend to store your Time Series Insights environment. Note that the device simulator is only offered in a limited number of regions, thus, if you do not see your desired region you may choose to select a location solely for the tutorial and then create a new TSI environment when you’re ready to move onto your next phase of on-boarding.  |
     | **Deployment options** | Select **Provision new IoT Hub**. |
 
     1. Select **Create**.
@@ -80,7 +81,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
     | **Environment name** | Enter a unique name for the Azure Time Series Insights Preview environment. |
     | **Subscription** | Enter the subscription where you want to create the Azure Time Series Insights Preview environment. A best practice is to use the same subscription as the rest of the IoT resources that are created by the device simulator. |
     | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Preview environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as the other IoT resources that are created by the device simulator. |
-    | **Location** | Select a data center region for your Azure Time Series Insights Preview environment. To avoid additional latency, it's best to create your Azure Time Series Insights Preview environment in the same region as your IoT Hub created by the device simulator. |
+    | **Location** | Select a data center region for your Azure Time Series Insights Preview environment. To avoid additional latency, it's best to create your Azure Time Series Insights Preview environment in the same region as your IoT hub created by the device simulator. |
     | **Tier** |  Select **PAYG** (*pay-as-you-go*). This is the SKU for the Azure Time Series Insights Preview product. |
     | **Property ID** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box cannot be changed later. For this tutorial, enter **iothub-connection-device-id**. To learn more about Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
     | **Storage account name** | Enter a globally unique name for a new storage account.|
@@ -129,7 +130,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
       [![Listed credentials](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
-   If your credentials are not listed, you must grant yourself permission to access the environment by selecting Add and searching for your credentials. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
+   If your credentials aren't listed, you must grant yourself permission to access the environment by selecting Add and searching for your credentials. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
 
 ## Stream data
 
