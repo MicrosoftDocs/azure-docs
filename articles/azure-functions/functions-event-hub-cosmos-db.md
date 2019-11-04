@@ -6,7 +6,7 @@ manager: barbkess
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ms.author: karler
 #Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Azure Cosmos DB.
 ---
@@ -412,7 +412,7 @@ After some build and startup messages, you'll see output similar to the followin
 
 You can then go to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Select **Data Explorer**, expand **TelemetryInfo**, then select **Items** to view your data when it arrives.
 
-![Cosmos DB Data Explorer](media/functions-eventhub-cosmosdb/data-explorer.png)
+![Cosmos DB Data Explorer](media/functions-event-hub-cosmos-db/data-explorer.png)
 
 ## Deploy to Azure and view app telemetry
 
@@ -428,11 +428,11 @@ Your functions now run in Azure, and continue to accumulate data in your Azure C
 
 **Live Metrics Stream:**
 
-![Application Insights Live Metrics Stream](media/functions-eventhub-cosmosdb/application-insights-live-metrics-stream.png)
+![Application Insights Live Metrics Stream](media/functions-event-hub-cosmos-db/application-insights-live-metrics-stream.png)
 
 **Performance:**
 
-![Application Insights Performance blade](media/functions-eventhub-cosmosdb/application-insights-performance.png)
+![Application Insights Performance blade](media/functions-event-hub-cosmos-db/application-insights-performance.png)
 
 ## Clean up resources
 
