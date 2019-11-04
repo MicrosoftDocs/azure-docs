@@ -62,43 +62,6 @@ In a given region, the transactional workloads operate against your container’
 
 The transactional workloads consume the provisioned throughput (RUs). Unlike the transactional workloads, the analytical workloads throughput is based on the actual consumption. The analytical workloads consume resources on-demand.
 
-### Configure and tier data between transactional and analytical storage independently
-
-Depending on your scenario, you can independently enable or disable each of the two storage engines. The following are the configurations for each scenario:
-
-|Scenario |Transactional storage setting  |Analytical storage setting |
-|---------|---------|---------|
-|Running analytical workloads exclusively (with infinite retention) |  DefaultTimeToLive = 0       |  ColumnStoreTimeToLive = -1       |
-|Running transactional workloads exclusively (with infinite retention)  |   DefaultTimeToLive = -1      |  ColumnStoreTimeToLive = 0       |
-|Running both transactional and analytical workloads (with infinite retention)   |   DefaultTimeToLive = -1      | ColumnStoreTimeToLive = -1        |
-|Running both transactional and analytical workloads (with different retention intervals, also known as storage tiering)  |  DefaultTimeToLive = <Value1>       |     ColumnStoreTimeToLive = <Value2>    |
-
-1. **Configure the container exclusively for analytical workloads (with infinite retention)**
-
-   You can configure your Azure Cosmos container exclusively for analytical workloads. This configuration has an advantage where you do not need to pay for the transactional storage. If your goal is to use the container for analytical workloads only, you can disable the transactional storage by setting `DefaultTimeToLive` to 0 on the Cosmos container, and you can enable analytical storage with infinite retention by setting `ColumnStoreTimeToLive` to -1.
-
-   ![Analytical workloads with infinite retention](./media/globally-distributed-transactional-analytical-storage/analytical-workload-configuration.png)
-
-1. **Configure the container exclusively for transactional workloads (with infinite retention)**
-
-   You can configure your Azure Cosmos container exclusively for transactional workloads. You can disable the analytical storage by setting `ColumnStoreTimeToLive` to 0 on the container, and you can enable analytical storage with infinite retention by setting `DefaultTimeToLive` to -1.
-
-   ![Transactional workloads with infinite retention](./media/globally-distributed-transactional-analytical-storage/transactional-workload-configuration.png)
-
-1. **Configure the container for both transactional and analytical workloads (with infinite retention)**
-
-   You can configure your Azure Cosmos container for both transactional and analytical workloads with full performance isolation between them. You can enable the analytical storage by setting `ColumnStoreTimeToLive` to -1, and enable transactional storage with infinite retention by setting `DefaultTimeToLive ` to -1.
-
-   ![Transactional and analytical workloads with infinite retention](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-infinite-retention.png)
-
-1. **Configure the container for both transactional and analytical workloads with storage-tiering**
-
-   You can configure your Azure Cosmos container for both transactional and analytical workloads with full performance isolation between them with different retention intervals. Azure Cosmos DB will enforce that your analytical storage is always retained for a longer duration than the transactional storage.
-
-   You can enable transactional storage with infinite retention by setting `DefaultTimeToLive` to <Value 1> and enable analytical storage by setting `ColumnStoreTimeToLive` to <Value 2>. Azure Cosmos DB will enforce that <Value 2>  is always greater than <Value 1>.
-
-   ![Transactional and analytical workloads with storage tiering](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-specified-retention.png)
-
 ## Next steps
 
 * [Time to live in Azure Cosmos DB](time-to-live.md)
