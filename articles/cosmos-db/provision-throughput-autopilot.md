@@ -69,7 +69,7 @@ You can try out autopilot in your Azure Cosmos accounts by enabling in from Azur
 
 1. Sign in to the [Azure portal.](https://portal.azure.com)
 
-2. Navigate to your Azure Cosmos account and open the **New Features** tab. Select **Auto Polit** and **Register** as shown in the following screenshot:
+2. Navigate to your Azure Cosmos account and open the **New Features** tab. Select **Auto Pilot** and **Register** as shown in the following screenshot:
 
 ![Create a container in autopilot mode](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
 
