@@ -1676,7 +1676,7 @@ featureFlags:
                                                 <img src="media/index/peering-service.svg" alt="" />
                                                 <p>Peering Service</p>
                                             </a>
-                                        </li> <!--
+                                        </li>
                                         <li>
                                             <a href="/azure/firewall-manager/">
                                                 <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
@@ -1688,10 +1688,11 @@ featureFlags:
                                                 <img src="media/index/internet-analyzer.svg" alt="" />
                                                 <p>Azure Internet Analyzer</p>
                                             </a>
-                                        </li>-->
+                                        </li>
                                     </ul>
                                     <h3>Security</h3>
                                     <ul>
+                                        <li>
                                             <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Security Information</p>
@@ -1709,7 +1710,6 @@ featureFlags:
                                                 <p>Key Vault</p>
                                             </a>
                                         </li>
-                                        <li>
                                         <li>
                                             <a href="/azure/dedicated-hsm">
                                                 <img src="media/index/dedicated-hsm.svg" alt="" />
