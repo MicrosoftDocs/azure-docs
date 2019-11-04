@@ -129,7 +129,7 @@ A managed instance can't access files, so cryptographic providers can't be creat
 ### Logins and users
 
 - SQL logins created by using `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported (public preview). These logins are created at the server level.
+- Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported. These logins are created at the server level.
 
     Managed instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
 
@@ -150,17 +150,17 @@ A managed instance can't access files, so cryptographic providers can't be creat
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
 
-- Public preview limitations for Azure AD server principals (logins):
+- Database export/import using bacpac files are supported for Azure AD users in managed instance using either [SSMS V18.4 or later](/sql/ssms/download-sql-server-management-studio-ssms), or [SQLPackage.exe](/sql/tools/sqlpackage-download).
+  - The following configurations are supported using database bacpac file: 
+    - Export/import a database between different manage instances within the same Azure AD domain.
+    - Export a database from managed instance and import to SQL Database within the same Azure AD domain. 
+    - Export a database from SQL Database and import to managed instance within the same Azure AD domain.
+    - Export a database from managed instance and import to SQL Server (version 2012 or later).
+      - In this configuration all Azure AD users are created as SQL database principals (users) without logins. The type of users are listed as SQL (visible as SQL_USER in sys.database_principals). Their permissions and roles remain in the SQL Server database metadata and can be used for impersonation. However, they cannot be used to access and log in to the SQL Server using their credentials.
 
-  - Active Directory admin limitations for managed instance:
-
-    - The Azure AD admin used to set up the managed instance can't be used to create an Azure AD server principal (login) within the managed instance. You must create the first Azure AD server principal (login) by using a SQL Server account that's a `sysadmin` role. This temporary limitation will be removed after Azure AD server principals (logins) become generally available. If you try to use an Azure AD admin account to create the login, you see the following error: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-      - Currently, the first Azure AD login created in the master database must be created by the standard SQL Server account (non-Azure AD) that's a `sysadmin` role by using [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. After general availability, this limitation will be removed. Then you can create an initial Azure AD login by using the Active Directory admin for managed instance.
-    - DacFx (export/import) used with SQL Server Management Studio or SqlPackage isn't supported for Azure AD logins. This limitation will be removed after Azure AD server principals (logins) become generally available.
-    - Using Azure AD server principals (logins) with SQL Server Management Studio:
-
-      - Scripting Azure AD logins that use any authenticated login isn't supported.
-      - IntelliSense doesn't recognize the CREATE LOGIN FROM EXTERNAL PROVIDER statement and shows a red underline.
+- Using Azure AD server principals (logins) with SQL Server Management Studio:
+  - Scripting Azure AD logins that use any authenticated login isn't supported.
+  - IntelliSense doesn't recognize the CREATE LOGIN FROM EXTERNAL PROVIDER statement and shows a red underline.
 
 - Only the server-level principal login, which is created by the managed instance provisioning process, members of the server roles, such as `securityadmin` or `sysadmin`, or other logins with ALTER ANY LOGIN permission at the server level can create Azure AD server principals (logins) in the master database for managed instance.
 - If the login is a SQL principal, only logins that are part of the `sysadmin` role can use the create command to create logins for an Azure AD account.
