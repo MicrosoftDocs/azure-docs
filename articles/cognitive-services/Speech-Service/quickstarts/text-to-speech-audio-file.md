@@ -13,7 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-# Quickstart: Recognize speech from an audio file
+# Quickstart: Synthesize speech into an audio file
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/tts-audio-file/header.md)]

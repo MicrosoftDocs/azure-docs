@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 11/02/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -102,14 +102,6 @@ Now, create the VNet:
 9. Under **Subnet**, for **Name** type **SN-Workload**.
 10. For **Address range**, type **10.6.0.0/24**.
 11. Accept the other default settings, and then select **Create**.
-
-Now create a second subnet for the gateway.
-
-1. On the **VNet-Spoke** page, select **Subnets**.
-2. Select **+Subnet**.
-3. For **Name**, type **GatewaySubnet**.
-4. For **Address range (CIDR block)** type **10.6.1.0/24**.
-5. Select **OK**.
 
 ## Create the on-premises virtual network
 
@@ -336,7 +328,7 @@ Now create the default route from the spoke subnet.
 2. After the route table is created, select it to open the route table page.
 3. Select **Routes** in the left column.
 4. Select **Add**.
-5. For the route name, type **ToSpoke**.
+5. For the route name, type **ToHub**.
 6. For the address prefix, type **0.0.0.0/0**.
 7. For next hop type, select **Virtual appliance**.
 8. For next hop address, type the firewall's private IP address that you noted earlier.
@@ -379,7 +371,7 @@ Create a virtual machine in the spoke virtual network, running IIS, with no publ
 ### Install IIS
 
 1. From the Azure portal, open the Cloud Shell and make sure that it's set to **PowerShell**.
-2. Run the following command to install IIS on the virtual machine:
+2. Run the following command to install IIS on the virtual machine and change the location if necessary:
 
    ```azurepowershell-interactive
    Set-AzVMExtension `
@@ -415,7 +407,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 
 ## Test the firewall
 
-1. First, get and then note the private IP address for **VM-spoke-01** virtual machine.
+1. First, note the private IP address for **VM-spoke-01** virtual machine.
 
 2. From the Azure portal, connect to the **VM-Onprem** virtual machine.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
