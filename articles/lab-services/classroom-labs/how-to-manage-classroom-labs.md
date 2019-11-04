@@ -122,6 +122,8 @@ You can also create a new lab using the **New lab** in this drop-down list.
 > [!NOTE]
 > You can also use the Az.LabServices PowerShell module (preview) to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
+To switch to a different lab account, select the drop-down next to the lab account and select the other lab account. 
+
 ## Next steps
 See the following articles:
 
