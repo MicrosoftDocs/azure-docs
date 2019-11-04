@@ -2,14 +2,14 @@
 title: Launch an Azure Spring Cloud application using the Azure portal
 description: Deploy a sample application to the Azure Spring Cloud using the Azure portal.
 services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
+author: jpconnock
+manager: barbkess
 editor: ''
 
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/04/2019
-ms.author: v-vasuke
+ms.date: 10/31/2019
+ms.author: jeconnoc
 
 ---
 # Quickstart: Launch an Azure Spring Cloud application using the Azure portal
@@ -48,7 +48,7 @@ To complete this quickstart:
 Install the Azure Spring Cloud extension for the Azure CLI using the following command
 
 ```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## Provision a service instance on the Azure portal

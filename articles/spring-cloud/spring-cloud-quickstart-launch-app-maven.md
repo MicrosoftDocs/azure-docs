@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/30/2019
+ms.date: 10/31/2019
 ms.author: jeconnoc
 
 ---
@@ -45,7 +45,7 @@ To complete this quickstart:
 Install the Azure Spring Cloud extension for the Azure CLI by using the following command:
 
 ```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## Provision a service instance on the Azure portal
