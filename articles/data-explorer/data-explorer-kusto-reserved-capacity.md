@@ -1,18 +1,14 @@
 ---
-title: Prepay for Azure Azure Data Explorer markup to save money | Microsoft Docs
+title: Prepay for Azure Azure Data Explorer markup to save money
 description: Learn how to buy Azure Data Explorer reserved capacity to save on your Azure Data Explorer costs.
-services: data-explorer
-ms.service: data-explorer
-ms.subservice: service
-ms.custom:
-ms.devlang:
-ms.topic: conceptual
 author: avnera
 ms.author: avnera
-ms.reviewer: yashar
-manager: urib
-ms.date: 10/31/2019
+ms.reviewer: orspodek
+ms.service: data-explorer
+ms.topic: conceptual
+ms.date: 11/03/2019
 ---
+
 # Prepay for Azure Data Explorer markup units with Azure Data Explorer reserved capacity
 
 Save money with Azure Data Explorer by prepaying for the markup units compared to pay-as-you-go prices. With Azure Data Explorer reserved capacity, you make an upfront commitment for a period of one or three years to get a significant discount on the Azure Data Explorer markup costs. To purchase Azure Data Explorer reserved capacity, you need to specify the term, it will apply to all deployments of Azure Data Explorer in all regions.
