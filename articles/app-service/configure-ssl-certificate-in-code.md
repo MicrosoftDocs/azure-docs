@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 # Use an SSL certificate in your code in Azure App Service
 
-You can access the [public or private certificates you add to App Service](configure-ssl-certificate.md). Your app code may act as a client and access an external service that requires certificate authentication, or that your app needs to perform cryptographic tasks. This how-to guide shows how to use public or private certificates in your application code.
+In your application code, you can access the [public or private certificates you add to App Service](configure-ssl-certificate.md). Your app code may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks. This how-to guide shows how to use public or private certificates in your application code.
 
 This approach to using certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above. If your app is in **Free** or **Shared** tier, you can [include the certificate file in your app repository](#load-certificate-from-file).
 
@@ -55,7 +55,7 @@ To make all your certificates accessible, set the value to `*`.
 
 ## Load certificate in Windows apps
 
-The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Windows hosted app in the Windows certificate store, and the location depends on the [pricing tier](overview-hosting-plans.md):
+The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates accessible to your Windows hosted app in the Windows certificate store, and the location depends on the [pricing tier](overview-hosting-plans.md):
 
 - **Isolated** tier - in [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
 - All other tiers - in [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
