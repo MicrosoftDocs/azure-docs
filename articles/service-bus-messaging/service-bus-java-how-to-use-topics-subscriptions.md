@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Use Azure Service Bus topics and subscriptions with Java
-description: Quickstart: Use Service Bus topics and subscriptions in Azure.
+title: Use Azure Service Bus topics and subscriptions with Java
+description: Use Service Bus topics and subscriptions in Azure.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,13 +12,13 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: quickstart
-ms.date: 10/24/2019
+ms.topic: article
+ms.date: 04/15/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
 ---
-# Quickstart: Use Service Bus topics and subscriptions with Java
+# Use Service Bus topics and subscriptions with Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 

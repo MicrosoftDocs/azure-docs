@@ -41,8 +41,8 @@ The self-test API contains a single endpoint that supports only the POST method.
 ```
 Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
-Request Header:  Content-Type: “application/json”
-Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
+Request Header:  Content-Type: "application/json"
+Authorization:   "Bearer xxxx-xxxx-xxxx-xxxxx"
 Request body:    The Request body parameters should use the following JSON format:
                  {
                    "DNSName":"XXXX.westus.cloudapp.azure.com",
@@ -82,7 +82,7 @@ To call the API in PowerShell, follow these steps:
 The following code example shows a PowerShell call to the API.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -197,7 +197,7 @@ To call the API with cURL, follow these steps:
 
 ```
 CURL POST -H "Content-Type:application/json"
--H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
+-H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
 https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 ```

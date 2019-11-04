@@ -42,6 +42,8 @@ landingContent:
             url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
       - linkListType: whats-new
         links:
+          - text: Custom Ambari DB
+            url: ./hdinsight-custom-ambari-db.md
           - text: 'Autoscale: automatically scale hadoop clusters'
             url: ./hdinsight-autoscale-clusters.md
           - text: Monitoring with HDInsight

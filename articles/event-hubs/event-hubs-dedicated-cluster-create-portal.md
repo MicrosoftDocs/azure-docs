@@ -9,7 +9,7 @@ manager:
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2019
+ms.date: 05/02/2019
 ms.author: xurui
 
 ---

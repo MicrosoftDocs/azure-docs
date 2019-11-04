@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 10/26/2019
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Database managed instance online using DMS
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Create an instance of Azure Database Migration Service.
 > * Create a migration project and start online migration by using Azure Database Migration Service.
 > * Monitor the migration.
-> * Cutover the migration when you are ready.
+> * Perform the migration cutover when you are ready.
 
 > [!IMPORTANT]
 > For online migrations from SQL Server to a SQL Database managed instance using Azure Database Migration Service, you must provide the full database backup and subsequent log backups in the SMB network share that the service can use to migrate your databases. Azure Database Migration Service does not initiate any backups, but rather uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-This article describes an online migration from SQL Server to a SQL Database managed instance. For an offline migration, see [Migrate SQL Server to an Azure SQL Database managed instance offline using DMS](tutorial-sql-server-to-managed-instance.md).
+This article describes an online migration from SQL Server to a SQL Database managed instance. For an offline migration, see [Migrate SQL Server to a SQL Database managed instance offline using DMS](tutorial-sql-server-to-managed-instance.md).
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ To complete this tutorial, you need to:
 * Create an Azure Active Directory Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure Database managed instance and Azure Storage Container. For more information, see the article [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
   > [!NOTE]
-  > Azure Database Migration Service requires the Contributor permission on the subscription for the specified Application ID. We are actively working to reduce these permissions requirements.
+  > Azure Database Migration Service requires the Contributor permission on the subscription for the specified Application ID. Alternatively, you can create custom roles that grant the specific permissions that Azure Database Migration Service requires. For step-by-step guidance about using custom roles, see the article [Custom roles for SQL Server to SQL Database managed instance online migrations](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Create or make a note of **Standard Performance tier**, Azure Storage Account, that allows DMS service to upload the database backup files to and use for migrating databases.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
 

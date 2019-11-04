@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 12/22/2018
 ms.author: sngun
 
 ---

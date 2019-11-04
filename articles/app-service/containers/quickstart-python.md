@@ -23,7 +23,7 @@ experiment_id: 1e304dc9-5add-4b
 
 In this quickstart, you deploy a Python web app to [App Service on Linux](app-service-linux-intro.md), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
-If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Service from Visual Studio Code](/python/tutorial-deploy-app-service-on-linux-01).
+If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Service from Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
 ## Prerequisites
 
@@ -172,7 +172,7 @@ Once deployment has completed, switch back to the browser window open to `http:/
 ![Run an updated sample Python app in Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
 > [!TIP]
-> Visual Studio Code provides powerful extensions for Python and Azure App Service, which simplify the process of deploying Python web apps to App Service. For more information, see [Deploy Python apps to App Service from Visual Studio Code](/python/tutorial-deploy-app-service-on-linux-01).
+> Visual Studio Code provides powerful extensions for Python and Azure App Service, which simplify the process of deploying Python web apps to App Service. For more information, see [Deploy Python apps to App Service from Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
 ## Stream logs
 
@@ -203,17 +203,19 @@ To stop log streaming at any time, type `Ctrl`+`C`.
 
 ## Manage the Azure app
 
-You manage the app you created in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>. 
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created. Search for and select **App Services**.
 
-From the left menu, select **App Services**, and then select the name of your Azure app.
+![Navigate to App Services in the Azure portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
+
+Select the name of your Azure app.
 
 ![Navigate to your Python app in App Services in the Azure portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-Your app's Overview page then appears. On this page you can perform basic management tasks like browse, stop, start, restart, and delete.
+You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![Manage your Python app in the Overview page in the Azure portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
-The left menu provides different pages for configuring your app. 
+The App Service menu provides different pages for configuring your app.
 
 ## Clean up resources
 

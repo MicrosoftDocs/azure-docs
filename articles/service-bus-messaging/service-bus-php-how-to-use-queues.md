@@ -1,6 +1,6 @@
 ---
-title: Quickstart: How to use Service Bus queues with PHP
-description: Quickstart: Learn how to use Service Bus queues in Azure. Code samples written in PHP.
+title: How to use Service Bus queues with PHP | Microsoft Docs
+description: Learn how to use Service Bus queues in Azure. Code samples written in PHP.
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,12 +12,12 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: quickstart
-ms.date: 10/24/2019
+ms.topic: article
+ms.date: 04/10/2019
 ms.author: aschhab
 
 ---
-# Quickstart: How to use Service Bus queues with PHP
+# How to use Service Bus queues with PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 In this tutorial, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 

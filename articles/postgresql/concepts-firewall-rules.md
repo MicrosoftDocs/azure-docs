@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2019
+ms.date: 10/25/2019
 ---
 # Firewall rules in Azure Database for PostgreSQL - Single Server
 Azure Database for PostgreSQL server firewall prevents all access to your database server until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.
@@ -36,6 +36,9 @@ To allow applications from Azure to connect to your Azure Database for PostgreSQ
 
 ![Configure Allow access to Azure services in the portal](media/concepts-firewall-rules/allow-azure-services.png)
 
+### Connecting from a VNet
+To connect securely to your Azure Database for PostgreSQL server from a VNet, consider using [VNet service endpoints](./concepts-data-access-and-security-vnet.md). 
+
 ## Programmatically managing firewall rules
 In addition to the Azure portal, firewall rules can be managed programmatically using Azure CLI.
 See also [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md)
@@ -63,3 +66,4 @@ Connections to the Azure Database for PostgreSQL server are routed through a pub
 For articles on creating server-level and database-level firewall rules, see:
 * [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md)
 * [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md)
+- [VNet service endpoints in Azure Database for PostgreSQL](./concepts-data-access-and-security-vnet.md)
