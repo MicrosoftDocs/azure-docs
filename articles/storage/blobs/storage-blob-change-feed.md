@@ -74,6 +74,8 @@ To deploy the template by using Azure portal:
 
 # [PowerShell](#tab/azure-powershell)
 
+To deploy the template by using PowerShell:
+
 1. Install the latest PowershellGet.
 
    ```powershell
