@@ -27,13 +27,13 @@ This article describes the upcoming deprecation plan,  the corresponding implica
 
 - Once the scenarios are deprecated, there will be the following implications unless the customer follows the recommend steps.
 
-    - DR between of Hyper-V VMs managed by SCVMM between customer owned sites: The replications will continue to work, as the underlying capability of Hyper-V replica will continue to work, but customers won't be able to view, manage or performs ny DR-related operations via the Azure Sire Recovery experience in the Azure portal. 
-    - DR of Hyper-V VMs managed by SCVMM to Azure: The existing replications will be disrupted and customers won't be able to view, manage, or performs ny DR-related operations via the Azure Site Recovery
+    - DR between of Hyper-V VMs managed by SCVMM between customer owned sites: The replications will continue to work, as the underlying capability of Hyper-V replica will continue to work, but customers won't be able to view, manage or performs any DR-related operations via the Azure Sire Recovery experience in the Azure portal. 
+    - DR of Hyper-V VMs managed by SCVMM to Azure: The existing replications will be disrupted and customers won't be able to view, manage, or performs any DR-related operations via the Azure Site Recovery
 
 
 ## Recommended actions to be taken
 
-Below are the alternate options the customer has to ensure that their DR strategy is not impacted once the scenario is deprecated. 
+Below are the options the customer has to ensure that their DR strategy is not impacted once the scenario is deprecated. 
 
 - Choose to [start using Azure as the DR target for VMs on Hyper-V hosts](hyper-v-azure-tutorial.md).
 

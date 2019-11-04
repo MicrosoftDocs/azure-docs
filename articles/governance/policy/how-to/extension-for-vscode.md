@@ -9,7 +9,7 @@ ms.service: azure-policy
 ---
 # Use Azure Policy extension for Visual Studio Code
 
-> Applies to Azure Policy extension version **0.0.19** and newer
+> Applies to Azure Policy extension version **0.0.21** and newer
 
 Learn how to use the Azure Policy extension for Visual Studio Code to look up
 [aliases](../concepts/definition-structure.md#aliases) and review resources and policies. First,
@@ -106,7 +106,7 @@ The Azure Policy extension lists resources in the selected subscriptions by Reso
 resource group in the **Resources** pane. The treeview includes the following groupings of resources
 within the selected subscription or at the subscription level:
 
-- **Provider Resources**
+- **Resource Providers**
   - Each registered Resource Provider with resources and related child resources that have policy
     aliases
 - **Resource Groups**

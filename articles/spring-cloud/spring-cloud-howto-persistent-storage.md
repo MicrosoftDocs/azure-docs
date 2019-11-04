@@ -2,13 +2,13 @@
 title: How to use persistent storage in Azure Spring Cloud | Microsoft Docs
 description: How to use persistent storage in Azure Spring Cloud
 services: spring-cloud
-author: v-vasuke
-manager: gwallace
+author: jpconnock
+manager: barbkess
 editor: ''
 
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/07/2019
+ms.date: 10/31/2019
 ms.author: jeconnoc
 
 ---
@@ -50,6 +50,12 @@ Persistent storage is a file share container managed by Azure allocated per appl
 When persistent storage is enabled, its size and path are shown both on this page.
 
 ## Use the Azure CLI to modify persistent storage
+
+If necessary, install the Spring Cloud extension for the Azure CLI:
+
+```azurecli
+az extension add --name spring-cloud
+```
 
 Create an app with persistent disk enabled:
  

@@ -79,7 +79,7 @@ See the section [Proxy server configuration](quickstart-onboard-powershell.md#pr
 
 ## Register the required Resource Providers
 
-Once the 'Feature Flag' registration has been approved, you must register the required Resource Providers.
+In order to use Azure Arc for Servers, you must register the required Resource Providers.
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
