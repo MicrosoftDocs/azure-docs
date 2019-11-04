@@ -15,8 +15,7 @@ ms.date: 10/10/2019
 
 This article describes how to use the Evaluate Recommender module in the Azure Machine Learning designer (preview). The goal is to measure the accuracy of predictions that a recommendation model has made. By using this module, you can evaluate different kinds of recommendations:  
   
--   Ratings predicted for a user and an item  
-  
+-   Ratings predicted for a user and an item    
 -   Items recommended for a user  
   
 When you create predictions by using a recommendation model, slightly different results are returned for each of these supported prediction types. The Evaluate Recommender module deduces the kind of prediction from the column format of the scored dataset. For example, the scored dataset might contain:
@@ -56,10 +55,8 @@ Performance metrics for the model are generated based on the type of input. The 
 
 When you're evaluating predicted ratings, the scored dataset (the second input to Evaluate Recommender) must contain user-item-rating triples that meet these requirements:
   
--   The first column of the dataset contains the user identifiers.  
-  
+-   The first column of the dataset contains the user identifiers.    
 -   The second column contains the item identifiers.  
-  
 -   The third column contains the corresponding user-item ratings.  
   
 > [!IMPORTANT] 
@@ -73,13 +70,10 @@ Evaluate Recommender compares the ratings in the "ground truth" dataset to the p
 
 When you're evaluating item recommendations, use a scored dataset that includes the recommended items for each user:
   
--   The first column of the dataset must contain the user identifier.  
-  
+-   The first column of the dataset must contain the user identifier.    
 -   All subsequent columns should contain the corresponding recommended item identifiers, ordered by how relevant an item is to the user. 
 
 Before you connect this dataset, we recommend that you sort the dataset so that the most relevant items come first.  
-
-
 
 > [!IMPORTANT] 
 > For Evaluate Recommender to work, the column names must be `User`, `Item 1`, `Item 2`, `Item 3` and so forth.  

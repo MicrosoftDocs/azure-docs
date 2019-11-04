@@ -112,7 +112,7 @@ We recommend that you pipeline with the settings to determine the most efficient
 At the end of testing, the model presents a report that contains the accuracy for each model so that you can review the metric results:
 
 - A uniform set of metrics is used for all binary classification models.
-- Accuracy is used for all multi-class classification models
+- Accuracy is used for all multi-class classification models.
 - A different set of metrics is used for regression models. 
 
 However, during training, you must choose a *single* metric to use in ranking the models that are generated during the tuning process. You might find that the best metric varies, depending on your business problem and the cost of false positives and false negatives.

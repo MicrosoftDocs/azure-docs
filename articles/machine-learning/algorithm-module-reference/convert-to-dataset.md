@@ -55,8 +55,6 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
   
 ## Technical notes  
 
-This section contains implementation details and tips.
-
 -   Any module that takes a dataset as input can also take data in the CSV file or the TSV file. Before any module code is run, the inputs are preprocessed. Preprocessing is equivalent to running the Convert to Dataset module on the input.  
   
 -   You can't convert from the SVMLight format to a dataset.  
