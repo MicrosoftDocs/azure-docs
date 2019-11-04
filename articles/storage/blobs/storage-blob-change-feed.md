@@ -40,7 +40,7 @@ Change feed support is well-suited for scenarios that process data based on obje
 
 You have to enable the change feed to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using ARM templates on Portal or Powershell.
 
-# [Template](#tab/template)
+# [Portal](#tab/azure-portal)
 
 To deploy the template by using Azure portal:
 
