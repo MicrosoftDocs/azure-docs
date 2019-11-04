@@ -19,6 +19,8 @@ This article introduces concepts that apply to the [Azure Maps Weather Services]
 
 The latest radar and infrared satellite images can be requested via the **Get Map Tiles API**. The table below helps interpret colors used for the radar and satellite tiles.
 
+### Radar Images
+
 | Hex color code | Color sample | Weather condition | Threshold |
 |----------------|--------------|-------------------|-----------|
 | #93c701        | ![](./media/weather-services-concepts/color-93c701.png) | Rain-Light | | 
@@ -38,3 +40,20 @@ The latest radar and infrared satellite images can be requested via the **Get Ma
 | #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Mix | |
 | #6500ba        | ![](./media/weather-services-concepts/color-6500ba.png) | Mix | |
 
+
+### Satellite Images
+
+| Hex color code | Color sample | Weather condition | Threshold |
+|----------------|--------------|-------------------|-----------|
+| #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Clouds-Low | | 
+| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) | Clouds | |
+| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Clouds | |
+| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) | Clouds | |
+| #479702        | ![](./media/weather-services-concepts/color-479702.png) | Clouds | |
+| #72b403        | ![](./media/weather-services-concepts/color-72b403.png) | Clouds | |
+| #93c701        | ![](./media/weather-services-concepts/color-93c701.png) | Clouds | |
+| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) | Clouds | |
+| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) | Clouds | |
+| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) | Clouds | |
+| #ba0808        | ![](./media/weather-services-concepts/color-ba0808.png) | Clouds | |
+| #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Clouds-High | |
