@@ -1,14 +1,10 @@
 ---
 title: Launch an Azure Spring Cloud application using the Azure portal
 description: Deploy a sample application to the Azure Spring Cloud using the Azure portal.
-services: spring-cloud
 author: jpconnock
-manager: barbkess
-editor: ''
-
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/31/2019
+ms.date: 11/4/2019
 ms.author: jeconnoc
 
 ---

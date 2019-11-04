@@ -1,15 +1,11 @@
 ---
 title: Prepare a Spring application for deployment in Azure Spring Cloud | Microsoft Docs
 description: In this quickstart, you prepare a Java Spring application for deployment.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
-
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 
 ---
 # Tutorial: Prepare a Java Spring application for deployment in Azure Spring Cloud
