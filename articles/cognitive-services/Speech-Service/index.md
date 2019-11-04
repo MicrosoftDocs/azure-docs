@@ -744,7 +744,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="https://aka.ms/speech/custom-tts-content">
+                                <a href="https://aka.ms/speech/custom-tts-audio-content-creation">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
