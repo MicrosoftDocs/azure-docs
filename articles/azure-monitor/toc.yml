@@ -618,6 +618,8 @@
       items: 
       - name: Create diagnostic setting
         href: platform/diagnostic-settings.md
+      - name: Collect with diagnostic setting
+        href: platform/diagnostic-settings-subscription.md
       - name: Create diagnostic setting with Resource Manager
         href: platform/diagnostic-settings-template.md
       - name: Change to blob storage format

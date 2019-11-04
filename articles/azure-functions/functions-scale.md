@@ -43,8 +43,8 @@ The following table indicates the current level of support for the three hosting
 
 | | Consumption plan | Premium plan | Dedicated plan |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | preview | GA |
-| Linux | GA | preview | GA |
+| Windows | GA | GA | GA |
+| Linux | GA | GA | GA |
 
 ## Consumption plan
 
@@ -61,7 +61,7 @@ Function apps in the same region can be assigned to the same Consumption plan. T
 
 To learn more about how to estimate costs when running in a Consumption plan, see [Understanding Consumption plan costs](functions-consumption-costs.md).
 
-## <a name="premium-plan"></a>Premium plan (preview)
+## <a name="premium-plan"></a>Premium plan
 
 When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events just like the Consumption plan.  Premium plan supports the following features:
 
