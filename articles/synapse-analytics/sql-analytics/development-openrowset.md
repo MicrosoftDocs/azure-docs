@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 # How to use OPENROWSET in SQL Analytics
 The OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option. The OPENROWSET(BULK...) function allows you to access files in Azure Storage. 
 
-The `OPENROWSET` function can be referenced in the FROM clause of a query as if it were a table name. `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
+The `OPENROWSET` function can be referenced in the FROM clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
 OPENROWSET is currently not supported in SQL Analytics pool.
 
@@ -48,9 +48,9 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 
 ### Arguments 
 
-Format of the input files containing data to be queried. Valid values are:
+The following is the format of the input files containing data to be queried. Valid values are:
 
-- 'CSV’ - Covers any delimited text file with row/column separators. Any character can be used as a field separator (i.e. TSV: FIELDTERMINATOR = tab)
+- 'CSV’ - Covers any delimited text file with row/column separators and any character can be used as a field separator (i.e. TSV: FIELDTERMINATOR = tab)
 
 - ‘PARQUET’ - Binary file in Parquet format 
 
@@ -63,30 +63,29 @@ Provides path to data in form of `'<prefix>://<storage_account_path>/<storage_pa
 | Azure Data Lake Store Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
- `'<storage_path>'` is path within your storage that points to folder or file you want to read. If path points to container or folder, all files will be read from that particular container or folder. Files in subfolders will not be included. You can use wildcards to target multiple files or folders. Usage of multiple nonconsecutive wildcards is allowed.
-Example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  `'https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv'`
+ `'<storage_path>'` is a path within your storage that points to the folder or file you want to read. If the path points to a container or folder, all files will be read from that particular container or folder. Files in subfolders will not be included. 
+ 
+ You can use wildcards to target multiple files or folders. Usage of multiple nonconsecutive wildcards is allowed.
+Below is an example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  `'https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv'`
 
-If you specify unstructured_data_path to be a folder, a SQL Analytics on-demand query will retrieve files from the folder. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It also returns files for which the file name begins with an underline (_) or a period (.).
+If you specify unstructured_data_path to be a folder, a SQL Analytics on-demand query will retrieve files from the folder. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It returns files for which the file name begins with an underline (_) or a period (.).
 
-In this example, if unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/', a SQL Analytics on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in subfolder.
+In this example, if unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/', a SQL Analytics on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
 
 ![Recursive data for external tables](media/development-openrowset/folder-traversal.png)
 
 [WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]
 
-WITH clause allows you to specify columns that you want to read from files. 
+The WITH clause allows you to specify columns that you want to read from files. 
 
-- In case of CSV data files, to read all the columns, simply provide column names and their data types. In case you want a subset of columns, use ordinal number to pick the columns from originating data files by ordinal (i.e. columns will be bound by ordinal). WITH clause is mandatory for CSV files.
-- In case of Parquet data files, provide column names that match the column names in the originating data files (i.e. columns will be bound by name). If WITH clause is omitted, all columns from Parquet files will be returned.
+- For CSV data files, to read all the columns, simply provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal (i.e., columns will be bound by the ordinal designation). The WITH clause is mandatory for CSV files.
+- For Parquet data files, provide column names that match the column names in the originating data files (i.e., columns will be bound by name). If the WITH clause is omitted, all columns from Parquet files will be returned.
 
-column_name
-Name for the output column. If provided, this name overrides the column name in the source file.
+column_name - Name for the output column. If provided, this name overrides the column name in the source file.
 
-column_type
-Data type for the output column. The implicit data type conversion will take place here.
+column_type - Data type for the output column. The implicit data type conversion will take place here.
 
-column_ordinal
-Ordinal number of the column in the source file(s). This argument is ignored for Parquet files since binding is done by name. Following example would return second column only from CSV file:
+column_ordinal - Ordinal number of the column in the source file(s). This argument is ignored for Parquet files since binding is done by name. The following example would return a second column only from a CSV file:
 
 ```sql
 WITH (
@@ -98,17 +97,19 @@ WITH (
 ```
 
 ESCAPE_CHAR = 'char'
-Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself or any of the delimiter values, the escape character is dropped when reading the value. The ESCAPE_CHAR parameter will be applied regarding of whether FIELDQUOTE is enabled or not. It however will not be used to escape the quoting character. The quoting character will get escaped with double-quotes in alignment with the Excel CSV behavior.
+Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
+
+The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It will not be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
 
 FIELDTERMINATOR ='field_terminator'
-Specifies the field terminator to be used. The default field terminator is “**,**” (comma character).
+Specifies the field terminator to be used. The default field terminator is a comma (“**,**”).
 
 ROWTERMINATOR ='row_terminator'
-Specifies the row terminator to be used. The default row terminator is **\r\n** (newline character).
+Specifies the row terminator to be used. The default row terminator is a newline character, i.e., **\r\n**.
 
 ## Examples
 
-Following example returns only two columns with ordinal numbers 1 and 4 from *population*.csv* files, and start reading from the first line as there is no header row in files:
+The following example returns only two columns with ordinal numbers 1 and 4 from the *population*.csv* files and starts reading from the first line since there is no header row in files:
 
 ```sql
 /* make sure you have credentials for storage account access created
@@ -136,7 +137,7 @@ WITH (
 
 
 
-Following example returns all columns of first row from census data set in parquet format without specifying column names and data types: 
+The following example returns all columns of the first row from the census data set in Parquet format without specifying column names and data types: 
 
 ```sql
 /* make sure you have credentials for storage account access created
@@ -163,4 +164,4 @@ FROM
 
 ## Next steps
 
-For more samples, go to [quickstarts](query-data-storage.md) or save results of your query to Azure Storage using [CETAS](development-tables-cetas.md).
+For more samples, go to [quickstarts](query-data-storage.md) or save the results of your query to Azure Storage using [CETAS](development-tables-cetas.md).

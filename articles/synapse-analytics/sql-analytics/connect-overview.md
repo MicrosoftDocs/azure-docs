@@ -12,11 +12,12 @@ ms.reviewer: jrasnick
 ---
 
 # Connect to Azure SQL Analytics
-Get connected to Azure SQL analytics.
+Get connected to Azure SQL Analytics.
 
 ## Supported tools for SQL Analytics on-demand
-Fully supported tool is Azure Data Studio.
-SQL Server Management Studio is supported partially from version 18.4 with limited feature like connecting and querying, keep in mind that it's not fully supported.
+The fully supported tool is Azure Data Studio.
+
+SQL Server Management Studio is supported partially from version 18.4. There are limited features such as connecting and querying.
 
 ## Find your server name
 The server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:

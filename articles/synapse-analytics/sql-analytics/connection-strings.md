@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 ---
 
 # Connection strings for Azure SQL Analytics
-You can connect to SQL Analytics with several different application protocols such as, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] and [JDBC][JDBC]. Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
+You can connect to SQL Analytics with several different application protocols such as, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] and [JDBC][JDBC]. Below are some examples of connections strings for each protocol. You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
 
 ## Sample ADO.NET connection string
 ```csharp
@@ -35,7 +35,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ```
 
 > [!NOTE]
-> Consider setting the connection timeout to 300 seconds in order to allow the connection to survive short periods of  unavailability.
+> Consider setting the connection timeout to 300 seconds to allow the connection to survive short periods of unavailability.
 > 
 > 
 
