@@ -193,7 +193,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the compute instance
+### Stop the Notebook VM
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

@@ -99,7 +99,7 @@ Azure Storage contains all data files in a database. Page servers keep data file
 
 ## Backup and restore
 
-Backups are file-snapshot based and hence they are nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup does not impact performance of the primary compute node; similarly, restores are done by reverting to file snapshots, and as such are not a size of data operation. Restore is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies for development or testing purposes, even of terabyte sized databases, is doable in minutes.
+Backups are file-snapshot based and hence they are nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup does not impact performance of the primary compute node; similarly, restores are done by reverting to file snapshots, and as such are not a size of data operation. Restore is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies within the same logical server for development or testing purposes, even of terabyte sized databases, is doable in minutes.
 
 ## Scale and performance advantages
 
