@@ -22,7 +22,7 @@ The Azure FarmBeats APIs provide Agribusiness with a standardized RESTful interf
 - Automatically generated time sequence aggregates for rapid model building
 - Integrated Azure Data Factory (ADF) engine to easily build custom data processing pipelines
 
-## Application Development
+## Application development
 
 The APIs contain swagger technical documentation. See [Swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information on all the APIs and their corresponding requests/responses.
 
@@ -46,11 +46,11 @@ Alert  | Alert corresponds to a notification, which gets generated when a rule c
 RoleDefinition  | RoleDefinition defines allowed and disallowed actions for a role.
 RoleAssignment  |RoleAssignment corresponds to the assignment of a role to a user or a service principal.
 
-**Data Format**
+**Data format**
 
 JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see json.org.
 
-## Authentication and Authorization
+## Authentication and authorization
 
 HTTP requests to the REST API are protected with Azure Active Directory (Azure AD).
 To make an authenticated request to the REST APIs, client code requires authentication with valid credentials before you can call the API. Authentication is coordinated between the various actors by Azure AD, and provides your client with an access token as proof of the authentication. The token is then sent in the HTTP Authorization header of REST API requests. To learn more about Azure AD authentication, see Azure Active Directory for developers.
@@ -61,18 +61,18 @@ The access token needs to be sent in subsequent API requests in the header secti
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
-**HTTP Request Headers**
+**HTTP request headers**
 
 Here are the most common request headers that need to be specified when making an API call to Azure FarmBeats Data hub:
 
 
-**Header** | **Description and Example**
+**Header** | **Description and example**
 --- | ---
 Content-Type  | The request format (Content-Type: application/<format>) For Azure FarmBeats Data hub APIs format is json. Content-Type: application/json
 Authorization  | Specifies the access token required to make an API call. **Authorization: Bearer <Access-Token>**
 Accept | The response format. For Azure FarmBeats Data hub APIs the format is json **Accept: application/json**
 
-**API Requests**
+**API requests**
 
 To make a REST API request, you combine the HTTP (GET, POST, PUT, or DELETE) method, the URL to the API service, the URI to a resource to query, submit data to, update, or delete, and one or more HTTP request headers.
 
@@ -93,14 +93,14 @@ The below sample request is to create a Device (This has an input json with the 
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
-**Query Parameters**
+**Query parameters**
 
 For REST **GET** calls, you can filter, limit the size of, and sort the data in an API response by including one or more query parameters on the request URI. For the query parameters, refer to the API documentation and see the individual GET calls.
 For example, when querying the list of devices (GET call on /Device), the following query parameters can be specified:  
 
 ![Project Farm Beats](./media/for-references/query-parameters-device-1.png)
 
-**Error Handling**
+**Error handling**
 
 Azure FarmBeats Data hub API's return the standard HTTP errors. The most common error codes are as follows:
 

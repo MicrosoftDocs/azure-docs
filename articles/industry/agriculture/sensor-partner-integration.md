@@ -323,7 +323,7 @@ Device manufacturers/partners can have the following sanity test/checklist to en
 
 - Check if an access token is received with the credentials provided
 - Check if an API call succeeds with the access token received
-- Check if the EventHub client Connection is established
+- Check if the EventHub client connection is established
 
 ## Next steps
 
