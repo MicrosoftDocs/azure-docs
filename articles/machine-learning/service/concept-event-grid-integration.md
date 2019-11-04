@@ -63,11 +63,11 @@ Azure Event Grid also supports advanced filtering based on published event schem
 
 Some sample advanced filterings you can perform include:
 
-* For `Microsoft.MachineLearningServices.ModelRegistered` event, to filter model's tag value
+* For `Microsoft.MachineLearningServices.ModelRegistered` event, to filter model's tag value:
 
-```
---advanced-filter data.ModelTags.key1 StringIn ('value1')
-```
+    ```
+    --advanced-filter data.ModelTags.key1 StringIn ('value1')
+    ```
 
 To learn more about how to apply filters, see [Filter events for Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
