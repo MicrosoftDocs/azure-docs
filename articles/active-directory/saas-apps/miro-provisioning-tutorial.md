@@ -50,7 +50,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Set up Miro for provisioning
 
-1.	For **Secret Token** contact Miro support team at support@miro.com. This value will be entered in the Secret Token field in the Provisioning tab of your Miro application in the Azure portal.
+1.	To retrieve the needed **Secret Token** contact Miro support team at support@miro.com. This value will be entered in the Secret Token field in the Provisioning tab of your Miro application in the Azure portal.
 
 ## Add Miro from the gallery
 
@@ -124,7 +124,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Miro Group Mappings](media/miro-provisioning-tutorial/groupmappings.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Miro in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Miro for update operations. Select the **Save** button to commit any changes. uncheck **Create** and **Delete** under **Target Object Actions** as Miro SCIM API does not support creating and deleting groups.
+11. Review the group attributes that are synchronized from Azure AD to Miro in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Miro for update operations. Select the **Save** button to commit any changes. Uncheck **Create** and **Delete** under **Target Object Actions** as Miro SCIM API does not support creating and deleting groups.
 
 	![Miro Group Attributes](media/miro-provisioning-tutorial/groupattributes.png)
 
@@ -145,6 +145,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Miro.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+
+## Connector Limitations
+
+* Miro's SCIM endpoint does not allow **Create** and **Delete** operations on groups. It only supports group **Update** operation.
 
 ## Additional resources
 
