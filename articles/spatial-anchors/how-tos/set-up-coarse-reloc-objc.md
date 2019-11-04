@@ -13,7 +13,7 @@ ms.service: azure-spatial-anchors
 # How to create and locate anchors using on-device sensors in Objective-C
 
 > [!div  class="op_single_selector"]
-> * [C#/Unity](set-up-coarse-reloc-csharp.md)
+> * [Unity](set-up-coarse-reloc-unity.md)
 > * [Objective-C](set-up-coarse-reloc-objc.md)
 > * [Swift](set-up-coarse-reloc-swift.md)
 > * [Android Java](set-up-coarse-reloc-java.md)
@@ -35,11 +35,11 @@ To complete this guide, make sure you have:
 
 ```objc
 // Create the sensor fingerprint provider
-ASAFusedLocationProvider *sensorProvider;
-sensorProvider = [[ASAFusedLocationProvider alloc] init];
+ASAPlatformLocationProvider *sensorProvider;
+sensorProvider = [[ASAPlatformLocationProvider alloc] init];
 
 // Allow GPS
-ASALocationProviderSensorCapabilities *sensors = locationProvider.sensors;
+ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.geoLocationEnabled = true;
 
 // Allow WiFi scanning

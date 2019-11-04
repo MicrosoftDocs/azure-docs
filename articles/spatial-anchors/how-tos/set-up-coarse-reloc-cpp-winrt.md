@@ -13,7 +13,7 @@ ms.service: azure-spatial-anchors
 # How to create and locate anchors using on-device sensors in C++/WinRT
 
 > [!div  class="op_single_selector"]
-> * [C#/Unity](set-up-coarse-reloc-csharp.md)
+> * [Unity](set-up-coarse-reloc-unity.md)
 > * [Objective-C](set-up-coarse-reloc-objc.md)
 > * [Swift](set-up-coarse-reloc-swift.md)
 > * [Android Java](set-up-coarse-reloc-java.md)
@@ -39,11 +39,11 @@ SpatialAnchorsFactory m_asaFactory { nullptr };
 // . . .
 
 // Create the sensor fingerprint provider
-FusedLocationProvider sensorProvider;
-sensorProvider = m_asaFactory.CreateFusedLocationProvider();
+PlatformLocationProvider sensorProvider;
+sensorProvider = m_asaFactory.CreatePlatformLocationProvider();
 
 // Allow GPS
-LocationProviderSensorCapabilities sensors = sensorProvider.Sensors()
+SensorCapabilities sensors = sensorProvider.Sensors()
 sensors.GeoLocationEnabled(true);
 
 // Allow WiFi scanning
