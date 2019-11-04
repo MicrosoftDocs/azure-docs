@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 11/4/2019
+ms.date: 11/04/2019
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
@@ -143,7 +143,7 @@ Your managed instance needs permissions to read Azure AD to successfully accompl
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
 
-After provisioning an Azure AD admin for your managed instance, you can begin to create Azure AD server principals (logins) (**public preview**) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [managed instance Overview](sql-database-managed-instance.md#azure-active-directory-integration).
+After provisioning an Azure AD admin for your managed instance, you can begin to create Azure AD server principals (logins) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [managed instance overview](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > To later remove an Admin, at the top of the Active Directory admin page, select **Remove admin**, and then select **Save**.
@@ -329,8 +329,8 @@ You can meet these requirements by:
 
 ## Create contained database users in your database mapped to Azure AD identities
 
->[!IMPORTANT]
->Managed instance now supports Azure AD server principals (logins) (**public preview**), which enables you to create logins from Azure AD users, groups, or applications. Azure AD server principals (logins) provides the ability to authenticate to your managed instance without requiring database users to be created as a contained database user. For more information, see [managed instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+> [!IMPORTANT]
+> Managed instance now supports Azure AD server principals (logins), which enables you to create logins from Azure AD users, groups, or applications. Azure AD server principals (logins) provides the ability to authenticate to your managed instance without requiring database users to be created as a contained database user. For more information, see [managed instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 Azure Active Directory authentication requires database users to be created as contained database users. A contained database user based on an Azure AD identity, is a database user that does not have a login in the master database, and which maps to an identity in the Azure AD directory that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
