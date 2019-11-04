@@ -42,7 +42,6 @@ An API layer, which enables aggregation, normalization, and contextualization of
 
 A sample solution, built on top of Data hub, that jumpstarts your user interface and model development. This web application leverages APIs to demonstrate visualization of ingested sensor data as charts and visualization of model output as maps. For example, you can use the accelerator to quickly create a farm and easily get a vegetation index map or a sensor placement map for that farm.
 
-
 ## Next steps
 
 To get started with Azure FarmBeats, visit [Azure marketplace](https://aka.ms/FarmBeatsMarketplace) to deploy.
