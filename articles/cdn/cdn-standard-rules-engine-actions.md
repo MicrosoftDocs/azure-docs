@@ -19,6 +19,8 @@ The second part of a rule is an action. An action defines the behavior that is a
 
 ## Actions
 
+The following actions are available to use. 
+
 ## Cache Expiration
 
 This action allows you to overwrite the TTL of the endpoint for requests specified by the rules match conditions.

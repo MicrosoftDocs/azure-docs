@@ -25,6 +25,8 @@ For example, you can use a match condition to:
 
 ## Match Conditions
 
+The following match conditions are available to use. 
+
 ### Device type 
 
 The Device type match condition identifies requests made from a mobile or desktop device based on its properties.  
