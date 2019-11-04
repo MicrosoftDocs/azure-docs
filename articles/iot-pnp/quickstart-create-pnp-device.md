@@ -12,15 +12,15 @@ ms.custom: mvc
 # As a device builder, I want to try out generating device code from a model so I can understand the purpose of device capability models.
 ---
 
-# Quickstart: Use a device capability model to create an IoT Plug and Play device
+# Quickstart: Use a device capability model to create an IoT Plug and Play Preview device (Windows)
 
-A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code to create an IoT Plug and Play device using a DCM.
+A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code on Windows to create an IoT Plug and Play device using a DCM.
 
 ## Prerequisites
 
 To complete this quickstart, you need to install the following software on your local machine:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
+* [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) with **C++ build tools** and **NuGet package manager component** workloads. Or if you already have [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 or 2015 with same workloads installed.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 * [Visual Studio Code](https://code.visualstudio.com/).
@@ -74,30 +74,46 @@ Run the following commands to get the _IoT hub connection string_ for your hub:
 az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
 ```
 
+Make a note of the device connection string, which looks like:
+
+```json
+HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={YourSharedAccessKey}
+```
+
+You'll use this value later in the quickstart.
+
 ## Prepare the development environment
 
 ### Get Azure IoT device SDK for C
 
-In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT C device SDK.
+In this quickstart, you prepare a development environment by installing the Azure IoT C device SDK via [Vcpkg](https://github.com/microsoft/vcpkg).
 
-1. Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+1. Open a command prompt. Execute the following command to install Vcpkg:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
+    git clone https://github.com/Microsoft/vcpkg.git
+    cd vcpkg
+
+    .\bootstrap-vcpkg.bat
     ```
 
-    You should expect this operation to take several minutes to complete.
-
-1. Create a `pnp_app` subdirectory in the root of the local clone of the repository. You use this folder for the device model files and device code stub.
+    Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run (note: requires admin on first use):
 
     ```cmd/sh
-    cd azure-iot-sdk-c
-    mkdir pnp_app
+    .\vcpkg.exe integrate install
+    ```
+
+1. Install Azure IoT C device SDK Vcpkg:
+
+    ```cmd/sh
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
 ## Author your model
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
+
+1. Create a `pnp_app` directory in your local drive.
 
 1. Download the [device capability model](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
 
@@ -117,7 +133,7 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
 
     > [!NOTE]
-    > The first time you use the IoT Plug and Play Code Generator utility, it takes a few seconds to download.
+    > The first time you use the IoT Plug and Play CodeGen CLI, it takes a few seconds to download and install automatically.
 
 1. Choose the DCM file you want to use to generate the device code stub.
 
@@ -125,37 +141,43 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 
 1. Choose **ANSI C** as your language.
 
-1. Choose **CMake Project** as your project type.
-
 1. Choose **Via IoT Hub device connection string** as connection method.
+
+1. Choose **CMake Project on Windows** as project template.
+
+1. Choose **Via Vcpkg** as way to include the device SDK.
 
 1. VS Code opens a new window with generated device code stub files.
     ![Device code](media/quickstart-create-pnp-device/device-code.png)
 
 ## Build the code
 
-You use the device SDK to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+You build the generated device code stub together with the device SDK. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In VS Code, open `CMakeLists.txt` in the device SDK root folder.
-
-1. Add the line below at the bottom of the `CMakeLists.txt` file to include the device code stub folder when compiling:
-
-    ```txt
-    add_subdirectory(pnp_app/sample_device)
-    ```
-
-1. Create a cmake subdirectory in the device SDK root folder, and navigate to that folder:
+1. Create a `cmake` subdirectory in the `sample_device` folder, and navigate to that folder:
 
     ```cmd\sh
     mkdir cmake
     cd cmake
     ```
 
-1. Run the following commands to build the device SDK and the generated code stub:
+1. Specify the CMake generator based on the build tools you are using:
 
     ```cmd\sh
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
-    cmake --build . -- /m /p:Configuration=Release
+    # Either
+    cmake .. -G "Visual Studio 14 2015" ## For Visual Studio 2015
+    # or
+    cmake .. -G "Visual Studio 15 2017" ## For Visual Studio 2017
+    # or
+    cmake .. -G "Visual Studio 16 2019" -A Win32
+    ```
+
+1. Run the following commands to build generated code stub:
+
+    ```cmd\sh
+    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+
+    cmake --build .
     ```
 
     > [!NOTE]
@@ -164,8 +186,7 @@ You use the device SDK to build the generated device code stub. The application 
 1. After the build completes successfully, run your application passing the IoT hub device connection string as parameter.
 
     ```cmd\sh
-    cd azure-iot-sdk-c\cmake\pnp_app\sample_device\Release\
-    sample_device.exe "[IoT Hub device connection string]"
+    .\Debug\sample_device.exe "[IoT Hub device connection string]"
     ```
 
 1. The device application starts sending data to IoT Hub.
@@ -214,8 +235,9 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
 
 1. Select the **Properties(writable)** page to view the writable properties you can update.
 
-1. Expand property **name**, update with a new name and select **update writable property**. 
-2. To see the new name shows up in the **Reported Property** column, click the **Refresh** button on top of the page.
+1. Expand property **name**, update with a new name and select **update writable property**.
+
+1. To see the new name shows up in the **Reported Property** column, click the **Refresh** button on top of the page.
 
 1. Select the **Command** page to view all the commands the device supports.
 

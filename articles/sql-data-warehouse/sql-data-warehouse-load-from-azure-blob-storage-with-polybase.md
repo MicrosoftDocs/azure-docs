@@ -1,6 +1,6 @@
 ---
-title: Load Contoso Retail data to Azure SQL Data Warehouse | Microsoft Docs
-description: Use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into Azure SQL Data Warehouse.
+title: Load Contoso Retail data to a SQL Analytics data warehouse | Microsoft Docs
+description: Use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into Azure SQL Analytics.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -12,9 +12,9 @@ ms.author: kevin
 ms.reviewer: igorstan
 ---
 
-# Load Contoso Retail data to Azure SQL Data Warehouse
+# Load Contoso Retail data to a SQL Analytics data warehouse
 
-In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into Azure SQL Data Warehouse. 
+In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into a SQL Analytics data warehouse. 
 
 In this tutorial you will:
 
@@ -23,10 +23,10 @@ In this tutorial you will:
 3. Perform optimizations after the load is finished.
 
 ## Before you begin
-To run this tutorial, you need an Azure account that already has a SQL Data Warehouse. If you don't have a data warehouse provisioned, see [Create a SQL Data Warehouse and set server-level firewall rule][Create a SQL Data Warehouse].
+To run this tutorial, you need an Azure account that already has a SQ Analytics data warehouse. If you don't have a data warehouse provisioned, see [Create a SQL data warehouse and set server-level firewall rule][Create a SQL data warehouse].
 
 ## 1. Configure the data source
-PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in SQL Data Warehouse. The data is stored externally.
+PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in your SQL Analytics data warehouse. The data is stored externally.
 
 ### 1.1. Create a credential
 **Skip this step** if you are loading the Contoso public data. You don't need secure access to the public data since it's already accessible to anyone.
@@ -110,7 +110,7 @@ GO
 ```
 
 ### 3.2. Create the external tables.
-Run the following script to create the DimProduct and FactOnlineSales external tables. All you're doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files. The definition is stored in SQL Data Warehouse and the data is still in the Azure Storage Blob.
+Run the following script to create the DimProduct and FactOnlineSales external tables. All you're doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files. The definition is stored in the SQL Analytics data warehouse and the data is still in the Azure Storage Blob.
 
 The  **LOCATION** parameter is the folder under the root folder in the Azure Storage Blob. Each table is in a different folder.
 
@@ -259,7 +259,7 @@ ORDER BY
 ```
 
 ## 5. Optimize columnstore compression
-By default, SQL Data Warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There are different reasons why this can happen. To learn more, see [manage columnstore indexes][manage columnstore indexes].
+By default, the SQL Analytics data warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There are different reasons why this can happen. To learn more, see [manage columnstore indexes][manage columnstore indexes].
 
 To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows. 
 
@@ -323,7 +323,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## Achievement unlocked!
-You have successfully loaded public data into Azure SQL Data Warehouse. Great job!
+You have successfully loaded public data into a SQL Analytics data warehouse. Great job!
 
 You can now start querying the tables to explore your data. Run the following query to find out total sales per brand:
 
@@ -338,14 +338,14 @@ GROUP BY p.[BrandName]
 ## Next steps
 To load the full data set, run the example [load the full Contoso Retail Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server Samples repository.
 
-For more development tips, see [SQL Data Warehouse development overview][SQL Data Warehouse development overview].
+For more development tips, see [SQL data warehouse development overview][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Create a SQL Analytics data warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Analytics data warehouse]: sql-data-warehouse-overview-load.md
+[SQL Analytics data warehouse development overview]: sql-data-warehouse-overview-develop.md
 [manage columnstore indexes]: sql-data-warehouse-tables-index.md
 [Statistics]: sql-data-warehouse-tables-statistics.md
 [CTAS]: sql-data-warehouse-develop-ctas.md

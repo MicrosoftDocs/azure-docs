@@ -443,7 +443,7 @@ The following settings don't affect VHD uploading. However, we strongly recommen
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   If a data disk is attached to the VM, the temporal drive volume's letter is typically *D*. This designation could be different, depending on your settings and the number of available drives.
-  * We recommend disabling script blockers that might be provided by anti-virus software. They might interfer and block the Windows Provisioning Agent scripts executed when you deploy a new VM from your image.
+  * We recommend disabling script blockers that might be provided by anti-virus software. They might interfere and block the Windows Provisioning Agent scripts executed when you deploy a new VM from your image.
   
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)

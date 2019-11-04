@@ -4,7 +4,7 @@ description: Learn how to onboard a customer to Azure delegated resource managem
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/30/2019
+ms.date: 10/29/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -105,6 +105,8 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 # To retrieve role definition IDs
 az role definition list --name "<roleName>" | grep name
 ```
+> [!TIP]
+> We recommend assigning the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) when onboarding a customer, so that users in your tenant can [remove access to the delegation](#remove-access-to-a-delegation) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
 
 ## Create an Azure Resource Manager template
 
@@ -190,7 +192,8 @@ The last authorization in the example above adds a **principalId** with the User
 Once you have updated your parameter file, the customer must deploy the Resource Management template in their customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
 
 > [!IMPORTANT]
-> The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded).
+> The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -265,6 +268,70 @@ Get-AzContext
 # Log in first with az login if you're not using Cloud Shell
 
 az account list
+```
+
+## Remove access to a delegation
+
+By default, a user in the customer's tenant who has the appropriate permissions can remove access to resources that have been delegated to a service provider in the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal.
+
+If you have included users with the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) when onboarding the customer for Azure delegated resource management, those users in your tenant can also remove the delegation. When you do so, no users in the service provider's tenant will be able to access the resources that had been previously delegated.
+
+The example below shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file:
+
+```json
+    "authorizations": [ 
+        { 
+            "principalId": "cfa7496e-a619-4a14-a740-85c5ad2063bb", 
+            "principalIdDisplayName": "MSP Operators", 
+            "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c" 
+        } 
+    ] 
+```
+
+A user with this permission can remove a delegation in one of the following ways.
+
+### PowerShell
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+# Sign in as a user from the managing tenant directory 
+
+Login-AzAccount
+
+# Select the subscription that is delegated - or contains the delegated resource group(s)
+
+Select-AzSubscription -SubscriptionName "<subscriptionName>"
+
+# Get the registration assignment
+
+Get-AzManagedServicesAssignment -Scope "/subscriptions/{delegatedSubscriptionId}"
+
+# Delete the registration assignment
+
+Remove-AzManagedServicesAssignment -ResourceId "/subscriptions/{delegatedSubscriptionId}/providers/Microsoft.ManagedServices/registrationAssignments/{assignmentGuid}"
+```
+
+### Azure CLI
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+# Sign in as a user from the managing tenant directory
+
+az login
+
+# Select the subscription that is delegated – or contains the delegated resource group(s)
+
+az account set -s <subscriptionId/name>
+
+# List registration assignments
+
+az managedservices assignment list
+
+# Delete the registration assignment
+
+az managedservices assignment delete –assignment <id or full resourceId>
 ```
 
 ## Next steps

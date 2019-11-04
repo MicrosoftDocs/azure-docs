@@ -36,13 +36,19 @@ As an example, if you have an on-premises VM with four cores at 20% utilization,
 
 ## Best practices for creating assessments
 
-The Azure Migrate appliance continuously profiles your on-premises environment, and sends metadata and performance data to Azure. Follow these best practices for creating assessments:
+The Azure Migrate appliance continuously profiles your on-premises environment, and sends metadata and performance data to Azure. Follow these best practices for assessments of servers discovered using an appliance:
 
 - **Create as-is assessments**: You can create as-is assessments immediately once your machines show up in the Azure Migrate portal.
 - **Create performance-based assessment**: After setting up discovery, we recommend that you wait at least a day before running a performance-based assessment:
     - Collecting performance data takes time. Waiting at least a day ensures that there are enough performance data points before you run the assessment.
     - When you're running performance-based assessments, make sure you profile your environment for the assessment duration. For example, if you create an assessment with a performance duration set to one week, you need to wait for at least a week after you start discovery, for all the data points to be collected. If you don't, the assessment won't get a five-star rating.
 - **Recalculate assessments**: Since assessments are point-in-time snapshots, they aren't automatically updated with the latest data. To update an assessment with the latest data, you need to recalculate it.
+
+Follow these best practices for assessments of servers imported into Azure Migrate via .CSV file:
+
+- **Create as-is assessments**: You can create as-is assessments immediately once your machines show up in the Azure Migrate portal.
+- **Create performance-based assessment**: This helps to get a better cost estimate, especially if you have overprovisioned server capacity on-premises. However, the accuracy of the performance-based assessment depends on the performance data specified by you for the servers. 
+- **Recalculate assessments**: Since assessments are point-in-time snapshots, they aren't automatically updated with the latest data. To update an assessment with the latest imported data, you need to recalculate it.
 
 ## Best practices for confidence ratings
 

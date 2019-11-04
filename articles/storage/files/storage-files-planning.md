@@ -202,6 +202,7 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |-------|---------|
 |Australia East |LRS     |
 |Australia Southeast|LRS |
+|Canada Central  |LRS     |
 |Central India  |LRS     |
 |East Asia      |LRS     |
 |East US*        |LRS     |

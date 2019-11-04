@@ -69,7 +69,8 @@ If you have a video service developed today on top of the [legacy Media Services
     * Live Event replaces Channel.<br/>Live Events billing is based on Live Channel meters. For more information, see [billing](live-event-states-billing.md) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output replaces Program.
 * Live Outputs start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
-*  To get information about a job, you need to know the Transform name under which the job was created. 
+* To get information about a job, you need to know the Transform name under which the job was created. 
+* In v2, XML [input](../previous/media-services-input-metadata-schema.md) and [output](../previous/media-services-output-metadata-schema.md) metadata files get generated as the result of an encoding job. In v3, the metadata format changed from XML to JSON. 
 
 > [!NOTE]
 > Review the naming conventions that are applied to [Media Services v3 resources](media-services-apis-overview.md#naming-conventions). Also review [naming blobs](assets-concept.md#naming-blobs).
