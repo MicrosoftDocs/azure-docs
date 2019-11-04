@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 11/04/2019
 ---
 
 # Visualize data from Azure Data Explorer in Redash
@@ -16,8 +16,7 @@ ms.date: 11/03/2019
 ## Prerequisites
 
 1. [Create cluster and database](create-cluster-database-portal.md).
-1. Create a new data source as explained in [ingest sample data into Azure Data Explorer](ingest-sample-data.md). For more ingestion options, see [ingestion overview](ingest-data-overview.md).
-1. Create a new query using [Web UI](web-query-data.md). 
+1. Ingest data as explained in [ingest sample data into Azure Data Explorer](ingest-sample-data.md). For more ingestion options, see [ingestion overview](ingest-data-overview.md).
 
 [!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
 
