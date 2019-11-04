@@ -38,9 +38,69 @@ Change feed support is well-suited for scenarios that process data based on obje
 
 ## Enabling and disabling the change feed
 
-You have to enable the change feed to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using the Azure portal.
+You have to enable the change feed to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using ARM templates on Portal or Powershell.
 
-Show screenshot here.
+# [Template](#tab/template)
+
+To deploy the template by using Azure portal:
+
+1. In the Azure portal, choose **Create a resource**.
+
+2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
+
+3. Choose **Template deployment**, choose **Create**, and then choose **Build your own template in the editor**.
+
+5. In the template editor, paste in the following json.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [{
+        "type": "Microsoft.Storage/storageAccounts/blobServices",
+        "apiVersion": "2019-04-01",
+        "name": "/default",
+        "properties": {
+            "changeFeed": {
+            "enabled": true
+            }
+        } 
+     }]
+}
+```
+4. Choose the **Save** button, specify the resource group of the account, and then choose the **Purchase** button to enable the change feed.
+
+# [PowerShell](#tab/azure-powershell)
+
+1. Install the latest PowershellGet.
+
+   ```powershell
+   install-Module PowerShellGet –Repository PSGallery –Force
+   ```
+
+2. Close, and then reopen the Powershell console.
+
+3. Install the **Az.Storage** preview module.
+
+   ```powershell
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   ```
+
+4. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+5. Enable change feed for your storage account.
+
+   ```powershell
+   Update-AzStorageBlobServiceProperty -ResourceGroupName -StorageAccountName -EnableChangeFeed $true
+   ```
+
+---
 
 Here's a few things to keep in mind when you enable the change feed.
 
