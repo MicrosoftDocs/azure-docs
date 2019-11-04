@@ -38,7 +38,7 @@ In addition to the built-in roles, users may also create [custom roles](../role-
 
 ## Preventing changes from Cosmos SDK
 
-The Cosmos resource provider can be locked down to prevent any changes to resources including Cosmos account, databases, containers and throughput from any client connecting via account keys (i.e. applications connecting via Cosmos SDK). When set, changes to any resource must be from a user with the proper RBAC role and credentials. This capability is set with `disableKeyBasedMetadataWriteAccess` property value in the Cosmos resource provider. An example of an ARM template with this property setting is below.
+The Cosmos resource provider can be locked down to prevent any changes to resources including Cosmos account, databases, containers and throughput from any client connecting via account keys (i.e. applications connecting via Cosmos SDK). When set, changes to any resource must be from a user with the proper RBAC role and credentials. This capability is set with `disableKeyBasedMetadataWriteAccess` property value in the Cosmos resource provider. An example of an Azure Resource Manager template with this property setting is below.
 
 ```json
 {
