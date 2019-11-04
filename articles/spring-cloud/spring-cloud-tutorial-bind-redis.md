@@ -1,15 +1,11 @@
 ---
 title: How to bind Azure Cache for Redis to your Azure Spring Cloud application | Microsoft Docs
 description: Learn how to bind Azure Cache for Redis to your Azure Spring Cloud application
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
-
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/06/2019
-ms.author: v-vasuke
+ms.topic: tutorial
+ms.date: 10/31/2019
+ms.author: jeconnoc
 
 ---
 
@@ -23,14 +19,7 @@ Azure Spring Cloud allows you to bind select Azure services to your applications
 * An Azure Cache for Redis service instance
 * Azure Spring Cloud extension for the Azure CLI
 
-If necessary, install the Azure Spring Cloud extension for the Azure CLI using the following command:
-
-```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
-```
-
->[!TIP]
-> The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
+If you do not have a deployed Azure Spring Cloud instance, follow the steps in this [quickstart](spring-cloud-quickstart-launch-app-portal.md) to deploy your first Spring Cloud app.
 
 ## Bind Azure Cache for Redis
 
