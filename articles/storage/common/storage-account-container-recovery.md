@@ -2,17 +2,17 @@
 title: Storage Account Container Recovery
 description: Storage Account Container Recovery
 author: v-miegge
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.author: kartup
 ms.date: 10/30/2019
 ms.service: storage
 ---
 
-# Storage Account Container Recovery
+# Storage Account container recovery
 
 Azure Storage provides data resiliency through automated replicas. However, this does not prevent application code or users from corrupting data, whether accidentally or maliciously. Maintaining data fidelity in the face of application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log.
 
-## Checking Azure Storage Account Type
+## Checking Azure Storage account type
 
 1. Navigate to the [Azure portal](https://portal.azure.com/).
 
@@ -38,7 +38,7 @@ Azure Storage provides data resiliency through automated replicas. However, this
 
    * We can attempt to restore the storage account container but without any guarantee. 
 
-## Things Not to Do for Recover to be successful:
+## Things not to do for recover to be successful
 
 * Please do not recreate the container (with the same name).  
 * If you have already recreated the container, you need to delete the container before filing a support request for recovery.
@@ -49,7 +49,7 @@ Azure Storage provides data resiliency through automated replicas. However, this
 
 2. We also recommend the [Snapshot](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob) feature.
  
-## Next Steps
+## Next steps
 
 Here are two sample codes on the feature:
 
