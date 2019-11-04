@@ -68,15 +68,15 @@ Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 
 **Size**|**vCPU**|**Memory: GiB**|**Temp storage (SSD) GiB**|**Max data disks**|**Max cached and temp storage throughput: IOPS / MBps (cache size in GiB)**|**Max uncached disk throughput: IOPS / MBps**|**Max NICs / Expected network bandwidth (MBps)**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-Standard\_E2as\_v4|2|16|32|4|4000 / 32 (50)|3200 / 48|2 / 1000
-Standard\_E4as\_v4|4|32|64|8|8000 / 64 (100)|6400 / 96|2 / 2000
-Standard\_E8as\_v4|8|64|128|16|16000 / 128 (200)|12800 / 192|4 / 4000
-Standard\_E16as\_v4|16|128|256|32|32000 / 255 (400)|25600 / 384|8 / 8000
-Standard\_E20as\_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 / 10000
-Standard\_E32as\_v4|32|256|512|32|64000 / 510 (800)|51200 / 768|8 / 16000
-Standard\_E48as\_v4|48|384|768|32|96000 / 1020 (1200)|76800 / 1148|8 / 24000
-Standard\_E64as\_v4|64|512|1024|32|128000 / 1020 (1600)|80000 / 1200|8 / 30000
-Standard\_E96as\_v4|96|672|1344|32|192000 / 1020 (2400)|80000 / 1200|8 / 30000
+Standard\_E2as\_v4|2|16|32|4|4000 / 32 (50)|3200 / 48|2 / tbd
+Standard\_E4as\_v4|4|32|64|8|8000 / 64 (100)|6400 / 96|2 / tbd
+Standard\_E8as\_v4|8|64|128|16|16000 / 128 (200)|12800 / 192|4 / tbd
+Standard\_E16as\_v4|16|128|256|32|32000 / 255 (400)|25600 / 384|8 / tbd
+Standard\_E20as\_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 / tbd
+Standard\_E32as\_v4|32|256|512|32|64000 / 510 (800)|51200 / 768|8 / tbd
+Standard\_E48as\_v4|48|384|768|32|96000 / 1020 (1200)|76800 / 1148|8 / tbd
+Standard\_E64as\_v4|64|512|1024|32|128000 / 1020 (1600)|80000 / 1200|8 / tbd
+Standard\_E96as\_v4|96|672|1344|32|192000 / 1020 (2400)|80000 / 1200|8 / tbd
 
 ## Ev3-series 
 
@@ -121,15 +121,15 @@ Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 
 **Size**|**vCPU**|**Memory: GiB**|**Temp storage (SSD) GiB**|**Max data disks**|**Max temp storage throughput: IOPS / Read MBps / Write MBps**|**Max NICs / Expected network bandwidth (MBps)**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 / 1000
-Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 / 2000
-Standard\_E8a\_v4|8|64|200|16|12000 / 187 / 93|4 / 4000
-Standard\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 / 8000
-Standard\_E20a\_v4|20|160|500|32|30000 / 468 / 234|8 / 10000
-Standard\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 / 16000
-Standard\_E48a\_v4|48|384|1200|32|96000  / 1020 / 510|8 / 24000
-Standard\_E64a\_v4|64|512|1600|32|96000  / 1020 / 510|8 / 30000
-Standard\_E96a\_v4|96|672|2400|32|96000  / tbd / tbd|8 / 30000
+Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 / tbd
+Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 / tbd
+Standard\_E8a\_v4|8|64|200|16|12000 / 187 / 93|4 / tbd
+Standard\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 / tbd
+Standard\_E20a\_v4|20|160|500|32|30000 / 468 / 234|8 / tbd
+Standard\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 / tbd
+Standard\_E48a\_v4|48|384|1200|32|96000  / 1020 / 510|8 / tbd
+Standard\_E64a\_v4|64|512|1600|32|96000  / 1020 / 510|8 / tbd
+Standard\_E96a\_v4|96|672|2400|32|96000  / tbd / tbd|8 / tbd
 
 ## Mv2-series
 
