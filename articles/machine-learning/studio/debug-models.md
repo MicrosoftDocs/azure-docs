@@ -1,7 +1,7 @@
 ---
 title: Debug your model
-titleSuffix: Azure Machine Learning Studio
-description: How to debug errors produced by Train Model and Score Model modules in Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: How to debug errors produced by Train Model and Score Model modules in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2017
 ---
-# Debug your model in Azure Machine Learning Studio
+# Debug your model in Azure Machine Learning Studio (classic)
 
 When running a model, you may run into the following errors:
 
@@ -28,7 +28,7 @@ This article explains potential causes for these errors.
 
 The [Train Model][train-model] Module expects two inputs:
 
-1. The type of machine learning model from the collection of models provided by Azure Machine Learning Studio.
+1. The type of machine learning model from the collection of models provided by Azure Machine Learning Studio (classic).
 2. The training data with a specified Label column that specifies the variable to predict (the other columns are assumed to be Features).
 
 This module can produce an error in the following cases:

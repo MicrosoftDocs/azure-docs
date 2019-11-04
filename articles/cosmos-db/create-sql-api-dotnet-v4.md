@@ -107,7 +107,7 @@ Time Elapsed 00:00:34.17
 While still in the application directory, install the Azure Cosmos DB client library for .NET Core by using the dotnet add package command.
 
    ```bash
-   dotnet add package Azure.Cosmos --version 1.0.0-preview1
+   dotnet add package Azure.Cosmos --version 4.0.0-preview
    ```
 
 ### Copy your Azure Cosmos account credentials from the Azure portal
