@@ -295,7 +295,7 @@
         - name: Exceptions
           href: app/asp-net-exceptions.md
         - name: Log traces
-          href: app/java-trace-logs.md
+          href: app/asp-net-trace-logs.md 
         - name: Unix metrics
           href: app/java-collectd.md
         - name: Dependencies
