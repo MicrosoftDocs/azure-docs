@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/31/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
@@ -35,14 +35,45 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server ova** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 9.29.5367.1 | 5.15000.0 | 9.29.5367.1 | 5.15000.0 | 2.0.9165.0
 [Rollup 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Rollup 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [Rollup 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
 [Rollup 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
-[Rollup 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
 		
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+
+## Updates (October 2019)
+
+### Update rollup 41
+
+[Update rollup 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+
+
+### Azure VM disaster recovery
+
+New features for Azure VM disaster recovery are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**Test failover settings** | When setting up a test failover, you can now configure settings for the test failover VM and network, including IP address, NSG, internal load balance, and the public IP address for each machine NIC. These settings are optional and don't change current behavior. If you don't configure these settings, you can choose an Azure VNet at the time of test failover. [Learn more](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/).
+**Recovery plans** | Recovery plans are now limited to 100 VMs, to ensure failover reliability.
+
+### VMware to Azure disaster recovery
+
+New features for VMware to Azure disaster recovery are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**Recovery plans** | Recovery plans are now limited to 100 VMs, to ensure failover reliability.
 
 
 ## Updates (September 2019)

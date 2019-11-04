@@ -32,13 +32,10 @@ Access the following web-based authoring tools from the studio:
 
 | Web-based tool | Description | Edition |
 |-|-|-|
-| [Compute Instance](concept-compute-instance.md) (preview) | Fully managed cloud-based workstation | Basic & Enterprise |
+| Notebook VM(preview) | Fully managed cloud-based workstation | Basic & Enterprise |
 | [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
 | [Designer](ui-concept-visual-interface.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the the designer | Enterprise |
 
-> [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  
 
 ### Azure Machine Learning designer enhancements 
 
@@ -663,7 +660,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Fixed transformations argument for LIME explainer for raw feature importance in azureml-contrib-explain-model package
     + added segmentations to image explanations in image explainer for AzureML-contrib-explain-model package
     + add scipy sparse support for LimeExplainer
-    + add batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
+    + added `batch_size` to mimic explainer when `include_local=False`, for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
   + **azureml-contrib-featureengineering**
     + Fix for calling set_featurizer_timeseries_params(): dict value type change and null check - Add notebook for `timeseries`  featurizer
     + Update NimbusML dependency to 1.2.0 version (current latest).
@@ -692,7 +689,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + for mimic explainer in explain model library, fixed error when include_local=False for sparse data input
     + add expected values to `automl` output
     + fixed permutation feature importance when transformations argument supplied to get raw feature importance
-    + add batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
+    + added `batch_size` to mimic explainer when `include_local=False`, for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
     + for model explainability library, fixed blackbox explainers where pandas dataframe input is required for prediction
     + Fixed a bug where `explanation.expected_values` would sometimes return a float rather than a list with a float in it.
   + **azureml-mlflow**
@@ -757,11 +754,10 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Improved NoaaIsdWeather enrich performance in non-SPARK version significantly.
   + **azureml-explain-model**
     + Updated online documentation for interpretability objects.
-    + Added batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel.
+    + Added `batch_size` to mimic explainer when `include_local=False`, for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel for model explainability library.
     + Fixed the issue where `explanation.expected_values` would sometimes return a float rather than a list with a float in it.
     + Added expected values to `automl` output for mimic explainer in explain model library.
     + Fixed permutation feature importance when transformations argument supplied to get raw feature importance.
-    + Added batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel for model explainability library.
   + **azureml-core**
     + Added the ability to attach DBFS datastores in the AzureML CLI.
     + Fixed the issue with datastore upload where an empty folder is created if `target_path` started with `/`.
@@ -774,7 +770,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Fixed the issue where mlflow.log_artifacts("my_dir") would save artifacts under "my_dir/artifact-paths" instead of "artifact-paths".
   + **azureml-pipeline-core**
     + Parameter hash_paths for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore)
-    + Continuing improving Module and ModuleStep to support compute type specific modules, in preparation for RunConfiguration integration and further changes to unlock their usage in pipelines.
+    + Continued improving Module and ModuleStep to support compute type specific modules, to prepare for RunConfiguration integration and other changes to unlock compute type specific module usage in pipelines.
   + **azureml-pipeline-steps**
     + AzureBatchStep: Improved documentation with regards to inputs/outputs.
     + AzureBatchStep: Changed delete_batch_job_after_finish default value to true.

@@ -23,6 +23,9 @@ Enhance the model creation process by tracking your experiments and monitoring r
 > [!NOTE]
 > Azure Machine Learning may also log information from other sources during training, such as automated machine learning runs, or the Docker container that runs the training job. These logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
+> [!TIP]
+> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+
 ## Available metrics to track
 
 The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [Run class reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).

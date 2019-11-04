@@ -23,13 +23,16 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 
 + For experiments that don't natively output TensorBoard consumable files, such as like Scikit-learn or Azure Machine Learning experiments, use [the `export_to_tensorboard()` method](#export) to export the run histories as TensorBoard logs and launch TensorBoard from there. 
 
+> [!TIP]
+> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+
 ## Prerequisites
 
 * To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to    track its metrics and performance.  
 
-* The code in this how-to can be run in either of the following environments: 
+* The code in this document can be run in either of the following environments: 
 
-    * Azure Machine Learning compute instance - no downloads or installation necessary
+    * Azure Machine Learning Notebook VM - no downloads or installation necessary
 
         * Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
 
@@ -45,7 +48,7 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 <a name="direct"></a>
 ## Option 1: Directly view run history in TensorBoard
 
-This option works for experiments that natively outputs log files consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments. If that is not the case of your experiment, use [the `export_to_tensorboard()` method](#export) instead.
+This option works for experiments that natively outputs log files consumable by TensorBoard, such as PyTorch, Chainer, and TensorFlow experiments. If that is not the case of your experiment, use [the `export_to_tensorboard()` method](#export) instead.
 
 The following example code uses the [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) from TensorFlow's repository in a remote compute target, Azure Machine Learning Compute. Next, we train our model with the SDK's custom [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and then
 start TensorBoard against this TensorFlow experiment, that is, an experiment that natively outputs TensorBoard event files.
@@ -212,7 +215,7 @@ data = {
 
 ### Run experiment and log metrics
 
-For this code, we train a linear regression model and log key metrics, the alpha coefficient, `alpha` and mean squared error, `mse`, in run history.
+For this code, we train a linear regression model and log key metrics, the alpha coefficient, `alpha`, and mean squared error, `mse`, in run history.
 
 ```Python
 from tqdm import tqdm

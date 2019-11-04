@@ -45,10 +45,10 @@
     href: app-service-web-tutorial-connect-msi.md
   - name: Host RESTful API
     href: app-service-web-tutorial-rest-api.md
-  - name: Map Custom Domain
+  - name: Map custom domain
     href: app-service-web-tutorial-custom-domain.md
-  - name: Bind SSL Certificate
-    href: app-service-web-tutorial-custom-ssl.md
+  - name: Secure domain with SSL
+    href: configure-ssl-bindings.md
   - name: Add CDN
     href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
   - name: Authenticate users
@@ -143,8 +143,8 @@
       href: manage-custom-dns-migrate-domain.md
   - name: Secure app
     items:
-    - name: Buy SSL cert
-      href: web-sites-purchase-ssl-web-site.md
+    - name: Add SSL cert
+      href: configure-ssl-certificate.md
     - name: Authenticate users
       items:
       - name: Authenticate with Azure AD
@@ -165,8 +165,8 @@
       href: overview-managed-identity.md
     - name: Reference secrets from Key Vault
       href: app-service-key-vault-references.md
-    - name: Use SSL cert in application code
-      href: app-service-web-ssl-cert-load.md
+    - name: Use SSL cert in code
+      href: configure-ssl-certificate-in-code.md
     - name: Configure TLS mutual authentication
       href: app-service-web-configure-tls-mutual-auth.md
   - name: Scale app
@@ -265,7 +265,7 @@
         href: faq-availability-performance-application-issues.md
       - name: Deployment FAQ
         href: faq-deployment.md
-      - name: Open source technologies FAQ
+      - name: Open-source technologies FAQ
         href: faq-open-source-technologies.md
       - name: Configuration and management FAQ
         href: faq-configuration-and-management.md

@@ -29,7 +29,7 @@ Yes, you can deploy an AKS cluster into an existing virtual network by using the
 
 ## Can I limit who has access to the Kubernetes API server?
 
-Yes, you can limit access to the Kubernetes API server using [API Server Authorized IP Ranges][api-server-authorized-ip-ranges], which is currently in preview.
+Yes, you can limit access to the Kubernetes API server using [API Server Authorized IP Ranges][api-server-authorized-ip-ranges].
 
 ## Can I make the Kubernetes API server accessible only within my virtual network?
 
@@ -37,7 +37,7 @@ Not at this time, but this is planned. You can track progress on the [AKS GitHub
 
 ## Can I have different VM sizes in a single cluster?
 
-Yes, you can use different virtual machine sizes in your AKS cluster by creating [multiple node pools][multi-node-pools], which is currently in preview.
+Yes, you can use different virtual machine sizes in your AKS cluster by creating [multiple node pools][multi-node-pools].
 
 ## Are security updates applied to AKS agent nodes?
 
@@ -114,7 +114,7 @@ Windows Server support for node pool includes some limitations that are part of 
 
 In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
 
-It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines. Although the control plane may be unavailable if the control plane is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources they are backed by a financial SLA. Read [here for more details](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) on the Azure VM SLA and how to increase that availability with features like [Availability Zones][availability-zones].
+It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines. Although the control plane may be unavailable if the control plane is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources they are backed by a financial SLA. Read [here for more details](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) on the Azure VM SLA and how to increase that availability with features like [Availability Zones][availability-zones].
 
 ## Why can't I set maxPods below 30?
 

@@ -64,19 +64,19 @@ Restore as follows:
     - The oldest and latest restore points.
     - The log backup status for the last 24 hours for databases that are in full and bulk-logged recovery mode and that are configured for transactional log backups.
 
-6. Select **Restore DB**.
+6. Select **Restore**.
 
-    ![Select Restore DB](./media/backup-azure-sql-database/restore-db-button.png)
+    ![Select Restore](./media/backup-azure-sql-database/restore-db.png)
 
-7. In **Restore Configuration**, specify where to restore the data:
+7. In **Restore Configuration**, specify where (or how) to restore the data:
    - **Alternate Location**: Restore the database to an alternate location and keep the original source database.
    - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
 
-     > [!Important]
-     > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
-     >
-
-     ![Restore Configuration menu](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+           > [!IMPORTANT]
+           > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
+           >
+   - **Restore as files**: Instead of restoring as a database, restore the backup files that can be recovered as a database later on any machine where the files are present using SQL Server Management Studio.
+     ![Restore Configuration menu](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### Restore to an alternate location
 
@@ -86,7 +86,7 @@ Restore as follows:
 4. If applicable, select **Overwrite if the DB with the same name already exists on selected SQL instance**.
 5. Select **OK**.
 
-    ![Provide values for the Restore Configuration menu](./media/backup-azure-sql-database/restore-configuration-menu.png)
+    ![Provide values for the Restore Configuration menu](./media/backup-azure-sql-database/restore-configuration.png)
 
 6. In **Select restore point**, select whether to [restore to a specific point in time](#restore-to-a-specific-point-in-time) or to [restore to a specific recovery point](#restore-to-a-specific-restore-point).
 
@@ -103,6 +103,25 @@ Restore as follows:
 
     > [!NOTE]
     > The point-in-time restore is available only for log backups for databases that are in full and bulk-logged recovery mode.
+
+### Restore as files
+
+To restore the backup data as .bak files instead of a database, choose **Restore as Files**. Once the files are dumped to a specified path, you can take these files to any machine where you want to restore them as a database. By the virtue of being able to move these files around to any machine, you can now restore the data across subscriptions and regions.
+
+1. In the **Restore Configuration** menu, under **Where to Restore**, select **Restore as files**.
+2. Select the SQL Server name to which you want to restore the backup files.
+3. In the **Destination path on the server** input the folder path on the server selected in step 2. This is the location where the service will dump all the necessary backup files. Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
+4. Select **OK**.
+
+![Select Restore As Files](./media/backup-azure-sql-database/restore-as-files.png)
+
+5. Select the **Restore Point** corresponding to which all the available .bak files will be restored.
+
+![Select a Restore Point](./media/backup-azure-sql-database/restore-point.png)
+
+6. All the backup files associated with the selected recovery point are dumped into the destination path. You can restore the files as a database on any machine they are present on using SQL Server Management Studio.
+
+![Restored Backup Files in Destination Path](./media/backup-azure-sql-database/sql-backup-files.png)
 
 ### Restore to a specific point in time
 
