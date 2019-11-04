@@ -781,20 +781,32 @@
           href: insights/container-insights-enable-new-cluster.md
         - name: Enable for existing cluster
           href: insights/container-insights-enable-existing-clusters.md
+        - name: Enable for hybrid cluster
+          href: insights/container-insights-hybrid-setup.md
         - name: Region mappings
           href: insights/container-insights-region-mapping.md
       - name: Analyze 
         href: insights/container-insights-analyze.md
       - name: Disable monitoring
         href: insights/container-insights-optout.md
-      - name: View live logs
-        href: insights/container-insights-live-logs.md
+      - name: View live data
+        items:
+        - name: Live Data (preview) overview
+          href: insights/container-insights-livedata-overview.md
+        - name: Setup
+          href: insights/container-insights-livedata-setup.md
+        - name: View cluster metrics
+          href: insights/container-insights-livedata-metrics.md
+        - name: View deployments
+          href: insights/container-insights-livedata-deployments.md
       - name: Analyze data with log queries
         href: insights/container-insights-log-search.md
       - name: Alerting
         href: insights/container-insights-alerts.md
       - name: Agent management
         href: insights/container-insights-manage-agent.md
+      - name: Configure Prometheus metric scraping
+        href: insights/container-insights-prometheus-integration.md
       - name: Configure agent collection settings
         href: insights/container-insights-agent-config.md
       - name: Update to enable metrics

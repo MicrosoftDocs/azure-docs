@@ -10,11 +10,12 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 
 ---
 
 # Start, monitor, and cancel training runs in Python
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Machine Learning CLI](reference-azure-machine-learning-cli.md) provide various methods to monitor, organize, and manage your runs for training and experimentation.
 

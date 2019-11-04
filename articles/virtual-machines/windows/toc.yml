@@ -220,6 +220,8 @@
       href: disk-encryption.md
     - name: Designing for high performance
       href: premium-storage-performance.md
+    - name: Disk bursting
+      href: disk-bursting.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
