@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
@@ -69,7 +69,7 @@ The following table shows connectivity locations and the service providers for e
 * **Zone** refers to [pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 
-### Production Azure
+### Global commercial Azure
 | **Location** | **Address** | **Zone** | **Local Azure regions** | **ER Direct** | **Service providers** |
 | --- | --- | --- | --- | --- | --- |
 | **Amsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | West Europe | 10G, 100G | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
@@ -134,6 +134,8 @@ The following table shows connectivity locations and the service providers for e
  **+** denotes coming soon
 
 ### National cloud environments
+
+Azure national clouds are isolated from each other and from global commerical Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others.
 
 ### US Government cloud
 | **Location** | **Address** | **Local Azure regions**| **ER Direct** | **Service providers** |

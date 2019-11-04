@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/30/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 
 ---
@@ -68,7 +68,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 The following table shows locations by service provider. If you want to view available providers by location, see [Service providers by location](expressroute-locations-providers.md).
 
 
-### Production Azure
+### Global commercial Azure
 
 | **Service provider** | **Microsoft Azure** | **Office 365**  | **Locations** |
 | --- | --- | --- | --- |
@@ -156,6 +156,8 @@ The following table shows locations by service provider. If you want to view ava
  **+** denotes coming soon
 
 ### National cloud environment
+
+Azure national clouds are isolated from each other and from global commerical Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others. 
 
 ### US Government cloud
 

@@ -1,10 +1,10 @@
 ---
-title: Add storage to an Azure HPC Cache (preview)
+title: Add storage to an Azure HPC Cache
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
@@ -69,7 +69,7 @@ Steps to add the RBAC roles:
 1. In the **Select** field, search for "hpc".  This string should match one service principal, named "HPC Cache Resource Provider". Click that principal to select it.
 
    > [!NOTE]
-   > If a search for "hpc" doesn't work, try using the string "storagecache" instead. Users who joined the preview early might need to use the older name for the service principal.
+   > If a search for "hpc" doesn't work, try using the string "storagecache" instead. Users who joined the previews (before GA) might need to use the older name for the service principal.
 
 1. Click the **Save** button to add the role assignment to the storage account.
 
