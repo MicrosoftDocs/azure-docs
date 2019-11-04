@@ -64,7 +64,7 @@ The template will make use of the following resources:
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "The resource id of an existing custom provider. Provide this to skip deployment of new logic app and custom provider."
+                "description": "The resource ID of an existing custom provider. Provide this to skip deployment of new logic app and custom provider."
             }
         },
         "associationName": {
@@ -220,24 +220,24 @@ Let's deploy the custom provider infrastructure, either copy, save, and deploy t
 
 ![Template name and description](media/custom-providers-resource-onboarding/templatesdescription.png)
 
-5. Fill in the "ARM Template" under "ARM Template" by copying the JSON template from the "Getting started with resource onboarding"
+5. Fill in the Resource Manager template by copying the JSON template from the "Getting started with resource onboarding"
 
-![Fill in ARM template](media/custom-providers-resource-onboarding/templatesarmtemplate.png)
+![Fill in Resource Manager template](media/custom-providers-resource-onboarding/templatesarmtemplate.png)
 
-6. Hit the `Add` button to create a new template. If the new Template doesn't show up, hit `Refresh`.
+6. Hit the `Add` button to create a new template. If the new template doesn't show up, hit `Refresh`.
 
 7. Select the newly created template and hit the `Deploy` button.
 
 ![Select the newly created template and deploy](media/custom-providers-resource-onboarding/templateselectspecific.png)
 
-8. Input the setting parameters for the required fields and select the subscription and resource group. The "Custom Resource Provider Id" can be left empty.
+8. Input the setting parameters for the required fields and select the subscription and resource group. The "Custom Resource Provider ID" can be left empty.
 
 | Setting Name | Required | Description |
 | ------------ | -------- | ----------- |
 | Location | *yes* | The location for the resources in the template. |
 | Logic App Name | *no* | The logic app name. |
 | Custom Resource Provider Name | *no* | The custom resource provider name. |
-| Custom Resource Provider Id | *no* | An existing custom resource provider that supports the "association" resource. Specifying this will skip the logic app and custom provider deployment. |
+| Custom Resource Provider ID | *no* | An existing custom resource provider that supports the "association" resource. Specifying this will skip the logic app and custom provider deployment. |
 | Association Name | *no* | The name of the association resource. |
 
 Sample parameters:
@@ -260,7 +260,7 @@ Resource group with "Show hidden types":
 
 ## Deploy additional associations
 
-Once we have the custom provider infrastructure set up, we can easily deploy additional "associations". The resource group for additional "associations" does not have to be the same as the resource group the custom provider infrastructure was deployed to. In order to create an association, "Microsoft.CustomProviders/resourceproviders/write" permissions are needed on the specified "Custom Resource Provider Id".
+Once we have the custom provider infrastructure set up, we can easily deploy additional "associations". The resource group for additional "associations" does not have to be the same as the resource group the custom provider infrastructure was deployed to. In order to create an association, "Microsoft.CustomProviders/resourceproviders/write" permissions are needed on the specified "Custom Resource Provider ID".
 
 1. Navigate to the custom provider "Microsoft.CustomProviders/resourceProviders" resource in the resource group of the previous deployment. The "Show hidden types" checkbox will need to be selected.
 
@@ -276,7 +276,7 @@ Once we have the custom provider infrastructure set up, we can easily deploy add
 
 ![Select the previously created template and deploy](media/custom-providers-resource-onboarding/templateselectspecific.png)
 
-5. Input the setting parameters for the required fields and select the subscription and a different resource group. For the "Custom Resource Provider Id" setting, input the copied "Resource Id" of the previously deployed custom provider.
+5. Input the setting parameters for the required fields and select the subscription and a different resource group. For the "Custom Resource Provider ID" setting, input the copied "Resource ID" of the previously deployed custom provider.
 
 6. Navigate to the deployment and wait for it to finish. It should now only deploy the new "associations" resource.
 

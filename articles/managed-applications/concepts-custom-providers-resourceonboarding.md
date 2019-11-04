@@ -59,7 +59,7 @@ endpoint | *yes* | The endpoint to route the requests to. This will handle the r
 Once the custom provider with the "associations" resource type is created, you can target using "Microsoft.CustomProviders/associations". "Microsoft.CustomProviders/associations" is an extension resource that can extend any other Azure resource. When an instance of "Microsoft.CustomProviders/associations" is created, it will take a property **targetResourceId**, which should be a valid "Microsoft.CustomProviders/resourceProviders" or "Microsoft.Solutions/applications" resource id. In these cases, the request will be forwarded to the "associations" resource type on the "Microsoft.CustomProviders/resourceProviders" instance we created.
 
 > [!Note]
-> If a "Microsoft.Solutions/applications" resource id is provided as the **targetResourceId**, then there must be a "Microsoft.CustomProviders/resourceProviders" deployed in the managed resource group with the name "public".
+> If a "Microsoft.Solutions/applications" resource ID is provided as the **targetResourceId**, then there must be a "Microsoft.CustomProviders/resourceProviders" deployed in the managed resource group with the name "public".
 
 Sample Azure Custom Provider Association:
 
@@ -74,7 +74,7 @@ Sample Azure Custom Provider Association:
 
 Property | Required | Description
 ---|---|---
-targetResourceId | *yes* | The resource id of the "Microsoft.CustomProviders/resourceProviders" or "Microsoft.Solutions/applications".
+targetResourceId | *yes* | The resource ID of the "Microsoft.CustomProviders/resourceProviders" or "Microsoft.Solutions/applications".
 
 ## How to use resource onboarding
 
