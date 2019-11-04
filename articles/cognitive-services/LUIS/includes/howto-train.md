@@ -15,7 +15,7 @@ ms.author: diberry
 
 1. In the top right side of the LUIS website, select the **Train** button. 
 
-    ![Train button](../train-button.png)
+    ![Train button](../media/train-button.png)
 
 2. Training is complete when you see the status confirming success.
 
