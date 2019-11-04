@@ -71,6 +71,7 @@ To learn more about how to apply filters, see [Filter events for Event Grid](htt
 ## Consume Machine Learning events
 
 Applications that handle Machine Learning events should follow a few recommended practices:
+
 > [!div class="checklist"]
 > * As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
 > * Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
