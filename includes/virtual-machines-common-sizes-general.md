@@ -88,14 +88,14 @@ Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 
 **Size**|**vCPU**|**Memory: GiB**|**Temp storage (SSD) GiB**|**Max data disks**|**Max cached and temp storage throughput: IOPS / MBps (cache size in GiB)**|**Max uncached disk throughput: IOPS / MBps**|**Max NICs / Expected network bandwidth (MBps)**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-Standard\_D2as\_v4|2|8|16|4|4000 / 32 (50)|3200 / 48|2 / 1000
-Standard\_D4as\_v4|4|16|32|8|8000 / 64 (100)|6400 / 96|2 / 2000
-Standard\_D8as\_v4|8|32|64|16|16000 / 128 (200)|12800 / 192|4 / 4000
-Standard\_D16as\_v4|16|64|128|32|32000 / 255 (400)|25600 / 384|8 / 8000
-Standard\_D32as\_v4|32|128|256|32|64000 / 510 (800)|51200 / 768|8 / 16000
-Standard\_D48as\_v4|48|192|384|32|96000 / 1020 (1200)|76800 / 1148|8 / 24000
-Standard\_D64as\_v4|64|256|512|32|128000 / 1020 (1600)|80000 / 1200|8 / 30000
-Standard\_D96as\_v4|96|384|768|32|192000 / 1020 (2400)|80000 / 1200|8 / 30000
+Standard\_D2as\_v4|2|8|16|4|4000 / 32 (50)|3200 / 48|2 / tbd
+Standard\_D4as\_v4|4|16|32|8|8000 / 64 (100)|6400 / 96|2 / tbd
+Standard\_D8as\_v4|8|32|64|16|16000 / 128 (200)|12800 / 192|4 / tbd
+Standard\_D16as\_v4|16|64|128|32|32000 / 255 (400)|25600 / 384|8 / tbd
+Standard\_D32as\_v4|32|128|256|32|64000 / 510 (800)|51200 / 768|8 / tbd
+Standard\_D48as\_v4|48|192|384|32|96000 / 1020 (1200)|76800 / 1148|8 / tbd
+Standard\_D64as\_v4|64|256|512|32|128000 / 1020 (1600)|80000 / 1200|8 / tbd
+Standard\_D96as\_v4|96|384|768|32|192000 / 1020 (2400)|80000 / 1200|8 / tbd
 
 ## Dv3-series <sup>1</sup>
 
@@ -134,14 +134,14 @@ Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 
 **Size**|**vCPU**|**Memory: GiB**|**Temp storage (SSD) GiB**|**Max data disks**|**Max temp storage throughput: IOPS / Read MBps / Write MBps**|**Max NICs / Expected network bandwidth (MBps)**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-Standard\_D2a\_v4|2|8|50|4|3000 / 46 / 23|2 / 1000
-Standard\_D4a\_v4|4|16|100|8|6000 / 93 / 46|2 / 2000
-Standard\_D8a\_v4|8|32|200|16|12000 / 187 / 93|4 / 4000
-Standard\_D16a\_v4|16|64|400|32|24000 / 375 / 187|8 / 8000
-Standard\_D32a\_v4|32|128|800|32|48000 / 750 / 375|8 / 16000
-Standard\_D48a\_v4|48|192|1200|32|96000  / 1020 / 510|8 / 24000
-Standard\_D64a\_v4|64|256|1600|32|96000  / 1020 / 510|8 / 30000
-Standard\_D96a\_v4|96|384|2400|32|96000 / tbd / tbd|8 / 30000
+Standard\_D2a\_v4|2|8|50|4|3000 / 46 / 23|2 / tbd
+Standard\_D4a\_v4|4|16|100|8|6000 / 93 / 46|2 / tbd
+Standard\_D8a\_v4|8|32|200|16|12000 / 187 / 93|4 / tbd
+Standard\_D16a\_v4|16|64|400|32|24000 / 375 / 187|8 / tbd
+Standard\_D32a\_v4|32|128|800|32|48000 / 750 / 375|8 / tbd
+Standard\_D48a\_v4|48|192|1200|32|96000  / 1020 / 510|8 / tbd
+Standard\_D64a\_v4|64|256|1600|32|96000  / 1020 / 510|8 / tbd
+Standard\_D96a\_v4|96|384|2400|32|96000 / tbd / tbd|8 / tbd
 
 
 ## DSv2-series
