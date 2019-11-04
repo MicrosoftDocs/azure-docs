@@ -24,15 +24,19 @@ Whichever onboarding method you choose, you will need to define *authorizations*
 When defining an authorization, each user account must be assigned one of the [role-based access control (RBAC) built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are not supported.
 
 All built-in roles are currently supported with Azure delegated resource management, with the following exceptions:
-- The Owner role is not supported.
+
+- The [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role is not supported.
 - Any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission are not supported.
-- The User Access Administrator built-in role is supported, but only for the specific purpose of [assigning roles to a managed identity in the customer tenant](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). If you define a user with the User Access Administrator, you must also specify the built-in role(s) that this user can assign to managed identities.
+- The [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) built-in role is supported, but only for the specific purpose of [assigning roles to a managed identity in the customer tenant](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). If you define a user with the User Access Administrator, you must also specify the built-in role(s) that this user can assign to managed identities.
 
 ## Best practices for defining users and roles
 
-In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
+When creating your authorizations, we recommend the following best practices:
 
-Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors. For more info, see [Recommended security practices](../concepts/recommended-security-practices.md).
+- In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
+- Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors. For more info, see [Recommended security practices](../concepts/recommended-security-practices.md).
+- Include the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) so that users in your tenant can [remove access to the delegation](#remove-access-to-a-delegation) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
+- Be sure that any user who needs to view the My customers page in the Azure portal has the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access).
 
 ## Next steps
 
