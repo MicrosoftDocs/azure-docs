@@ -42,7 +42,7 @@ The manner in which special characters are treated varies according to how a mat
 
 Text that is interpreted as a literal value treats all special characters, with the exception of the % symbol, as a part of the value that must be matched. In other words, a literal match condition set to `\'*'\` is only satisfied when that exact value (that is, `\'*'\`) is found.
 
-A percentage symbol is used to indicate URL encoding (for example, `%20`).
+A percent sign is used to indicate URL encoding (for example, `%20`).
 
 ### Wildcard values
 
@@ -51,7 +51,7 @@ Text that is interpreted as a wildcard value assigns additional meaning to speci
 Character | Description
 ----------|------------
 \ | A backslash is used to escape any of the characters specified in this table. A backslash must be specified directly before the special character that should be escaped.<br/>For example, the following syntax escapes an asterisk: `\*`
-% | A percentage symbol is used to indicate URL encoding (for example, `%20`).
+% | A percent sign is used to indicate URL encoding (for example, `%20`).
 \* | An asterisk is a wildcard that represents one or more characters.
 Space | A space character indicates that a match condition may be satisfied by either of the specified values or patterns.
 'value' | A single quote does not have special meaning. However, a set of single quotes is used to indicate that a value should be treated as a literal value. It can be used in the following ways:<br><br/>- It allows a match condition to be satisfied whenever the specified value matches any portion of the comparison value.  For example, `'ma'` would match any of the following strings: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />- It allows a special character to be specified as a literal character. For example, you may specify a literal space character by enclosing a space character within a set of single quotes (that is, `' '` or `'sample value'`).<br/>- It allows a blank value to be specified. Specify a blank value by specifying a set of single quotes (that is, '').<br /><br/>**Important:**<br/>- If the specified value does not contain a wildcard, then it is automatically considered a literal value, which means that it is not necessary to specify a set of single quotes.<br/>- If a backslash does not escape another character in this table, it is ignored when it is specified within a set of single quotes.<br/>- Another way to specify a special character as a literal character is to escape it using a backslash (that is, `\`).

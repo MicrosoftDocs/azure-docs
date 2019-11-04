@@ -15,7 +15,7 @@ ms.author: magattus
 
 This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) from Microsoft [Standard Rules Engine](cdn-standard-rules-engine.md).
 
-The first part of a rule is a set of match conditions. Each rule may have up to 4 match conditions. A match condition identifies specific types of requests for which the actions definied in the rule will be performed. If you use multiple match conditions, they will be grouped together using AND logic.
+The first part of a rule is a set of match conditions. Each rule may have up to 4 match conditions. A match condition identifies specific types of requests for which the actions defined in the rule will be performed. If you use multiple match conditions, they will be grouped together using AND logic.
 
 For example, you can use a match condition to:
 
@@ -60,8 +60,8 @@ String | [Standard operator list](#standard-operator-list) | String, Int | No tr
 Key information
 - Wildcard values, including asterisks (*), are not supported when specifying a cookie name, only exact cookie name matches are eligible for comparison.
 - Only a single cookie name can be specified per instance of this match condition.
-- Cookie name comparisions are case-insensitive.
-- Specifiy multiple cookie values by delimiting each one with a single space. 
+- Cookie name comparisons are case-insensitive.
+- Specify multiple cookie values by delimiting each one with a single space. 
 - Cookie values can take advantage of wildcard values.
 - If a wildcard value has not been specified, only an exact match will satisfy this match condition. For example, specifying "Value" will match "Value", but not "Value1". 
 

@@ -29,7 +29,7 @@ The Azure CDN Standard Rules Engine allows you to customize how HTTP requests ar
    
     The Rules Engine blade is displayed, with the Global rule. 
    
-    ![CDN new rules page](./media/cdn-standard-rules-engine/cdn-blank-rule.png)
+    [![CDN new rules page](./media/cdn-standard-rules-engine/cdn-blank-rule.png)](./media/cdn-standard-rules-engine/cdn-blank-rule.png#lightbox)
    
    > [!IMPORTANT]
    > The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
@@ -39,7 +39,7 @@ The Azure CDN Standard Rules Engine allows you to customize how HTTP requests ar
 
 4. Identify the type of requests the rule applies to. Use the drop down to select the **Request protocol** match condition, and use the value **Equals** **HTTP**.
    
-   ![CDN rule match condition](./media/cdn-standard-rules-engine/cdn-request-protocol.png)
+   [![CDN rule match condition](./media/cdn-standard-rules-engine/cdn-request-protocol.png)](./media/cdn-standard-rules-engine/cdn-request-protocol.png#lightbox)
    
    > [!NOTE]
    > Multiple match conditions are available in the dropdown list. 
@@ -47,7 +47,7 @@ The Azure CDN Standard Rules Engine allows you to customize how HTTP requests ar
    
 5. Choose the action that will be applied to the identified requests. Use the dropdown to select the **URL redirect** action, and use the Value **Found (302)** for Type, and **HTTPS** for protocol. Leave all other fields blank to use the incoming values.
    
-   ![CDN rule action](./media/cdn-standard-rules-engine/cdn-new-action.png)
+   [![CDN rule action](./media/cdn-standard-rules-engine/cdn-new-action.png)](./media/cdn-standard-rules-engine/cdn-new-action.png#lightbox)
    
    > [!NOTE]
    > Multiple Actions are available in the dropdown list. 
