@@ -5706,6 +5706,7 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
                                                     <p>Unify security management and enable advanced threat protection across hybrid cloud workloads</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
