@@ -3,7 +3,7 @@ title: Change feed in Azure Blob Storage (Preview) | Microsoft Docs
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
 author: normesta
 ms.author: normesta
-ms.date: 10/10/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
@@ -50,7 +50,7 @@ To deploy the template by using Azure portal:
 
 3. Choose **Template deployment**, choose **Create**, and then choose **Build your own template in the editor**.
 
-5. In the template editor, paste in the following json.
+5. In the template editor, paste in the following json. Replace the `<accountName>` placeholder with the name of your storage account.
 
 ```json
 {
@@ -61,7 +61,7 @@ To deploy the template by using Azure portal:
     "resources": [{
         "type": "Microsoft.Storage/storageAccounts/blobServices",
         "apiVersion": "2019-04-01",
-        "name": "/default",
+        "name": "<accountName>/default",
         "properties": {
             "changeFeed": {
             "enabled": true

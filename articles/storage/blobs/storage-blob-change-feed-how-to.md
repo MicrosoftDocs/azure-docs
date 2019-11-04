@@ -3,7 +3,7 @@ title: Process change feed in Azure Blob Storage (Preview) | Microsoft Docs
 description: Learn how to process change feed logs in a .NET client application
 author: normesta
 ms.author: normesta
-ms.date: 10/20/2019
+ms.date: 11/04/2019
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
@@ -17,7 +17,7 @@ Change feed provides transaction logs of all the changes that occur to the blobs
 To learn more about the change feed, see [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md).
 
 > [!NOTE]
-> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To learn more about this feature along with known issues and limitations, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md).
+> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To learn more about this feature along with known issues and limitations, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md). The change feed processor library is subject to change between now and when this library becomes generally available.
 
 ## Get the blob change feed processor library
 
