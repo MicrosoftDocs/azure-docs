@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 10/24/2019
 ms.author: diberry
 ---
 
@@ -66,9 +66,9 @@ You can then send the total reward to the API.
 
 ## Calling the Reward API multiple times
 
-You can also call the Reward API using the same event ID, sending different reward scores. When Personalizer gets those rewards, it determines the final reward for that event by aggregating them as specified in the Personalizer settings.
+You can also call the Reward API using the same event ID, sending different reward scores. When Personalizer gets those rewards, it determines the final reward for that event by aggregating them as specified in the Personalizer configuration.
 
-Aggregation settings:
+Aggregation values:
 
 *  **First**: Takes the first reward score received for the event, and discards the rest.
 * **Sum**: Takes all reward scores collected for the eventId, and adds them together.
@@ -76,10 +76,6 @@ Aggregation settings:
 All rewards for an event, which are received after the **Reward Wait Time**, are discarded and do not affect the training of models.
 
 By adding up reward scores, your final reward may be outside the expected score range. This won't make the service fail.
-
-<!--
-@edjez - is the number ignored if it is outside the acceptable range?
--->
 
 ## Best Practices for calculating reward score
 
@@ -101,13 +97,11 @@ Personalizer will correlate the information of a Rank call with the rewards sent
 
 If the **Reward Wait Time** expires, and there has been no reward information, a default reward is applied to that event for training. The maximum wait duration is 6 days.
 
-## Best practices for setting reward wait time
+## Best practices for reward wait time
 
 Follow these recommendations for better results.
 
 * Make the Reward Wait Time as short as you can, while leaving enough time to get user feedback. 
-
-<!--@Edjez - storage quota? -->
 
 * Don't choose a duration that is shorter than the time needed to get feedback. For example, if some of your rewards come in after a user has watched 1 minute of a video, the experiment length should be at least double that.
 

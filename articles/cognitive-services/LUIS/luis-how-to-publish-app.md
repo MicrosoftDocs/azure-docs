@@ -10,13 +10,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ---
 
 # Publish your active, trained app to a staging or production endpoint
 
 When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="publish-your-trained-app-to-an-http-endpoint"></a>
 
