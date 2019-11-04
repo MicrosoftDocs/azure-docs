@@ -59,7 +59,7 @@ To connect the SQL Server’s host to a workspace, follow the instructions in [C
 
 ## Set up email notification for ATP alerts 
 
-You can set a list of recipients to receive an email notification when ASC alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. 
+You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. 
 
 1. Go to **Security Center** > **Pricing & settings** and click on the relevant subscription
 
