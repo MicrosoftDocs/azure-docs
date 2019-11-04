@@ -29,7 +29,7 @@ The transactional storage engine is backed by local SSDs, whereas the analytical
 |Storage encoding  |   Row-oriented, using an internal format.   |   Column-oriented, using Apache Parquet format. |
 |Storage locality |   Replicated storage backed by local/intra-cluster SSDs. |  Replicated storage backed by inexpensive remote/off-cluster SSDs.       |
 |Durability  |    99.99999 (7-9 s)     |  99.99999 (7-9 s)       |
-|APIs that access the data  |   SQL, MongoDB, Cassandra, Gremlin, Tables, and Etcd.       | Apache Spark         |
+|APIs that access the data  |   SQL, MongoDB, Cassandra, Gremlin, Tables, and etcd.       | Apache Spark         |
 |Retention (Time-to-live or TTL)   |  Policy driven, configured on the Azure Cosmos container by using the `DefaultTimeToLive` property.       |   Policy driven, configured on the Azure Cosmos container by using the `ColumnStoreTimeToLive` property.      |
 |Price per GB    |   See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 |Price for storage transactions    |  See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
