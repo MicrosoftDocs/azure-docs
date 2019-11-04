@@ -28,6 +28,9 @@ The following diagram illustrates that with MLflow Tracking, you can take any ex
 
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram-track.png)
 
+> [!TIP]
+> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-are-machine-learning.md).
+
 ## Compare MLflow and Azure Machine Learning clients
 
  The below table summarizes the different clients that can use Azure Machine Learning, and their respective function capabilities.
