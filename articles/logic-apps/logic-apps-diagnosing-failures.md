@@ -16,73 +16,37 @@ ms.date: 10/15/2017
 
 Your logic app generates information that can help you diagnose and debug problems in your app. You can diagnose a logic app by reviewing each step in the workflow through the Azure portal. Or, you can add some steps to a workflow for runtime debugging.
 
-## Review trigger history
+## Check trigger history
 
-Each logic app starts with trigger. If the trigger doesn't fire, first check the trigger history. This history lists all the trigger attempts that your logic app made and details about the inputs and outputs for each trigger attempt.
+Each logic app run starts with a trigger attempt, so if the trigger doesn't fire, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), find and open your logic app in the Logic App Designer.
+1. Check the trigger's status by [checking the trigger history](../logic-apps/logic-apps-monitor-your-logic-app.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
 
-   > [!TIP]
-   > If you don't see the logic app menu, try returning to the Azure dashboard, and reopen your logic app.
+   ![Trigger status and history for your logic app](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
-1. On your logic app's menu, select **Overview**. In the **Summary** section, under **Evaluation**, select **See trigger history**.
+1. Check the trigger's inputs to confirm that they appear as you expect. Under **Inputs link**, select the link, which shows the **Inputs** pane.
 
-   ![Review trigger history](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
+   Trigger inputs include the data that the trigger expects and requires to start the workflow. Reviewing these inputs can help you determine whether the trigger inputs are correct and whether the condition was met so that the workflow can continue.
 
-1. To view information about a specific trigger event, on the trigger pane, select the specific trigger event that you want to review. If you don't find the data that you expect, try selecting **Refresh** on the toolbar.
+   For example, the `feedUrl` property here has an incorrect RSS feed value:
 
-   > [!TIP]
-   > 
-   > If the list shows many trigger attempts, and you can't find the entry you want, try filtering the list.
-   > You might have multiple trigger entries with the same date and time, which happens when your logic app finds multiple items. Each time the trigger fires, the Logic Apps engine creates a logic app instance to run your workflow. By default, each instance runs in parallel so that no workflow has to wait before starting a run.
+   ![Review trigger inputs for errors](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
 
-   ![View trigger history for your logic app](media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
+1. Check the triggers outputs, if any, to confirm that they appear as you expect.
 
-   Here are the possible statuses for a trigger attempt:
+   Trigger outputs include the data that the trigger passes to the next step in your workflow. Reviewing these outputs can help you determine whether the correct or expected values passed on to the next step in your workflow, for example:
 
-   | Status | Description |
-   | ------ | ----------- |
-   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a "Fired" status also appears alongside this status. If not, the trigger definition might have a condition or `SplitOn` command that wasn't met. <p>This status can apply to a manual trigger, recurrence trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. | 
-   | **Skipped** | The trigger checked the endpoint but found no data. | 
-   | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt and choose **Outputs**. For example, you might find inputs that aren't valid. | 
-   |||
+   ![Review trigger outputs for errors](./media/logic-apps-diagnosing-failures/trigger-outputs.png)
 
    > [!TIP]
-   > You can recheck the trigger without waiting for the next recurrence. 
-   > On the overview toolbar, choose **Run trigger**, 
-   > and select the trigger, which forces a check. 
-   > Or, select **Run** on Logic Apps Designer toolbar.
+   > If you find any content that you don't recognize, learn more about 
+   > [different content types](../logic-apps/logic-apps-content-type.md) in Azure Logic Apps.
 
-   You can now review information about the selected trigger event, for example:
+## Check run history
 
-   ![View specific trigger information](media/logic-apps-monitor-your-logic-apps/view-specific-trigger-details.png)
+Each trigger that fires starts a logic app instance that runs the workflow. You can review what happened during that run, including the status for each step in the workflow, plus the inputs and outputs for each step.
 
-3. To examine the details for a trigger attempt, 
-under **Trigger History**, select that trigger attempt. 
-
-   ![Select a trigger attempt](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
-
-4. Review the inputs and any outputs that the trigger generated. 
-Trigger outputs show the data that came from the trigger. 
-These outputs can help you determine whether all properties 
-returned as expected.
-
-   > [!NOTE]
-   > If you find any content that you don't understand, 
-   > learn how Azure Logic Apps 
-   > [handles different content types](../logic-apps/logic-apps-content-type.md).
-
-   ![Trigger outputs](./media/logic-apps-diagnosing-failures/trigger-outputs.png)
-
-## Review run history
-
-Each fired trigger starts a workflow run. 
-You can review what happened during that run, 
-including the status for each step in the workflow, 
-plus the inputs and outputs for each step.
-
-1. On the logic app menu, choose **Overview**. 
-Under **Runs history**, review the run for the fired trigger.
+1. On the logic app menu, choose **Overview**. Under **Runs history**, review the run for the fired trigger.
 
    > [!TIP]
    > If you don't see the logic app menu, 

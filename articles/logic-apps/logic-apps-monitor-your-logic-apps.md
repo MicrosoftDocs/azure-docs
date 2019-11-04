@@ -13,7 +13,7 @@ ms.date: 11/05/2019
 
 # Check run status, view runs history, and set up alerts in Azure Logic Apps
 
-After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run status, run history, trigger history, and performance. To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour."
+After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run status, runs history, trigger history, and performance. To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour."
 
 For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using the [Logic Analytics capability](../azure-monitor/log-query/get-started-portal.md) in [Azure Monitor](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md).
 
@@ -77,14 +77,45 @@ For real-time event monitoring and richer debugging, set up diagnostics logging 
 
 ## Review trigger history
 
-1. To view all the trigger activity for your logic app, on your logic app's menu, select **Overview**.
-In the **Summary** section, under **Evaluation**, select **See trigger history**.
+Each logic app run starts with a trigger. The trigger history lists all the trigger attempts that your logic app made and information about the inputs and outputs for each trigger attempt.
+
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app in the Logic App Designer.
+
+   To find your logic app , in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
+
+   ![Find and select "Logic Apps" service](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
+
+   The Azure portal shows all the logic apps that are associated with your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
+
+   ![View logic apps associated with subscriptions](./media/logic-apps-monitor-your-logic-apps/logic-apps-list-in-subscription.png)
+
+1. Select your logic app, and then select **Overview**.
+
+1. On your logic app's menu, select **Overview**. In the **Summary** section, under **Evaluation**, select **See trigger history**.
 
    ![View trigger history for your logic app](media/logic-apps-monitor-your-logic-apps/overview-pane-logic-app-details-trigger-history.png)
 
-1. To view information about a specific trigger event, on the trigger pane, select the specific trigger event that you want to review.
+   The trigger history pane shows all the trigger attempts that your logic app has made. Each time that the trigger fires for an item or event, the Logic Apps engine creates a separate logic app instance that runs the workflow. By default, each instance runs in parallel so that no workflow has to wait before starting a run. So if your logic app triggers on multiple items at the same time, a trigger entry with the same date and time appears for each item.
 
-   ![View trigger history for your logic app](media/logic-apps-monitor-your-logic-apps/select-trigger-event-for-review.png)
+   ![Multiple trigger attempts for different items](media/logic-apps-monitor-your-logic-apps/logic-app-trigger-history.png)
+
+   Here are the possible statuses for a trigger attempt:
+
+   | Status | Description |
+   |--------|-------------|
+   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a "Fired" status also appears alongside this status. If not, the trigger definition might have a condition or `SplitOn` command that wasn't met. <p>This status can apply to a manual trigger, recurrence trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
+   | **Skipped** | The trigger checked the endpoint but found no data. |
+   | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt and choose **Outputs**. For example, you might find inputs that aren't valid. |
+   |||
+
+   > [!TIP]
+   > You can recheck the trigger without waiting for the next recurrence. On the overview toolbar, 
+   > select **Run trigger**, and select the trigger, which forces a check. Or, select **Run** on 
+   > Logic Apps Designer toolbar.
+
+1. To view information about a specific trigger attempt, on the trigger pane, select that trigger event. If the list shows many trigger attempts, and you can't find the entry that you want, try filtering the list. If you don't find the data that you expect, try selecting **Refresh** on the toolbar.
+
+   ![View specific trigger attempt](media/logic-apps-monitor-your-logic-apps/select-trigger-event-for-review.png)
 
    You can now review information about the selected trigger event, for example:
 
