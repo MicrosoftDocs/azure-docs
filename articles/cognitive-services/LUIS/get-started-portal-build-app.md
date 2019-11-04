@@ -134,7 +134,7 @@ The **None** intent's example utterances should be outside of your client applic
 
 ## Train the app
 
-In the menu in the upper right, select **Train** to apply the intent and entity model changes to the current version of the app.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## Look at the regular expression entity in the example utterances
 
