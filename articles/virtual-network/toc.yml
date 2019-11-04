@@ -301,6 +301,8 @@
       href: diagnose-network-routing-problem.md
     - name: Throughput testing
       href: virtual-network-bandwidth-testing.md
+    - name: Test VM network latency
+      href: virtual-network-test-latency.md
     - name: Cannot delete virtual networks
       href: virtual-network-troubleshoot-cannot-delete-vnet.md
     - name: VM to VM connectivity problems
