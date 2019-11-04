@@ -186,7 +186,7 @@ If you have overridden the [AuthNegotiateDelegateAllowlist](https://docs.microso
 
 #### Microsoft Edge based on Chromium (macOS and other non-Windows platforms)
 
-For Microsoft Edge based on Chromium on Mac OS and other non-Windows platforms, refer to [The Microsoft Edge based on Chromium Policy List](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Azure AD URL for integrated authentication to your allow-list.
+For Microsoft Edge based on Chromium on Mac OS and other non-Windows platforms, refer to [the Microsoft Edge based on Chromium Policy List](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Azure AD URL for integrated authentication to your allow-list.
 
 #### Google Chrome (all platforms)
 
