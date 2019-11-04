@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center and Azure Container Registry | Microsoft Docs
-description: "Learn about Azure Security Center's integration with Azure Kubernetes Services"
+description: "Learn about Azure Security Center's integration with Azure Container Registry"
 services: security-center
 documentationcenter: na
 author: memildin
