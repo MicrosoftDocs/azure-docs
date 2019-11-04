@@ -32,7 +32,7 @@ The table in this article provides information on the Peering Service connectivi
 | BBIX |Japan |
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe|
-| DE-CIX|Europe, North America |
+| [DE-CIX](https://www.de-cix.net/microsoft)|Europe, North America |
 | [IIJ](https://www.iij.ad.jp/en/) | Japan |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
