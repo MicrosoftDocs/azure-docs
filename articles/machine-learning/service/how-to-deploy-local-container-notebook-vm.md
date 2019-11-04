@@ -1,7 +1,7 @@
 ---
-title: How to deploy models to compute instances
+title: How to deploy models to Notebook VMs
 titleSuffix: Azure Machine Learning
-description: 'Learn how to deploy your Azure Machine Learning models as a web service using compute instances.'
+description: 'Learn how to deploy your Azure Machine Learning models as a web service using Notebook VMs.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,31 +12,27 @@ ms.reviewer: larryfr
 ms.date: 10/25/2019
 ---
 
-# Deploy a model to Azure Machine Learning compute instances
+# Deploy a model to Azure Machine Learning Notebook VMs
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-> [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can deploy a model to either a compute instance or a Notebook VM using the steps in this article.
-
-Learn how to use Azure Machine Learning to deploy a model as a web service on your Azure Machine Learning compute instance. Use compute instances if one of the following conditions is true:
+Learn how to use Azure Machine Learning to deploy a model as a web service on your Azure Machine Learning Notebook VM. Use Notebook VMs if one of the following conditions is true:
 
 - You need to quickly deploy and validate your model.
 - You are testing a model that is under development.
 
 > [!TIP]
-> Deploying a model from a Jupyter Notebook on a compute instance, to a web service on the same VM is a _local deployment_. In this case, the 'local' computer is the compute instance. For more information on deployments, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+> Deploying a model from a Jupyter Notebook on a Notebook VM, to a web service on the same VM is a _local deployment_. In this case, the 'local' computer is the Notebook VM. For more information on deployments, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace with a compute instance running. For more information, see [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+- An Azure Machine Learning workspace with a Notebook VM running. For more information, see [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
-## Deploy to the compute instances
+## Deploy to the Notebook VMs
 
-An example notebook that demonstrates local deployments is included on your compute instance. Use the following steps to load the notebook and deploy the model as a web service on the VM:
+An example notebook that demonstrates local deployments is included on your Notebook VM. Use the following steps to load the notebook and deploy the model as a web service on the VM:
 
-1. From [Azure Machine Learning studio](https://ml.azure.com), select your Azure Machine Learning compute instances.
+1. From [Azure Machine Learning studio](https://ml.azure.com), select your Azure Machine Learning Notebook VMs.
 
 1. Open the `samples-*` subdirectory, and then open `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Once open, run the notebook.
 
@@ -46,13 +42,7 @@ An example notebook that demonstrates local deployments is included on your comp
 
     ![Screenshot of the running local service port](media/how-to-deploy-local-container-notebookvm/deploy-local-service-port.png)
 
-1. To test the service from a compute instance, use the `https://localhost:<local_service.port>` URL. To test from a remote client, get the public URL of the service running on the compute instance. The public URL can be determined use the following formula; 
-    * Notebook VM: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
-    * Compute instance: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
-    
-    For example, 
-    * Notebook VM: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
-    * Compute instance: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
+1. To test the service from the Notebook VM, use the `https://localhost:<local_service.port>` URL. To test from a remote client, get the public URL of the service running on the Notebook VM. The public URL can be determined use the following formula; `https://<notebookvm_name>-<local_service_port>.<azure_region_of_notebook>.notebooks.azureml.net/score`. For example, `https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score`.
 
 ## Test the service
 
