@@ -2,12 +2,12 @@
 title: 'Custom traffic selectors for Azure VPN Gateway connections| Microsoft Docs'
 description: Learn about how to use custom traffic selectors on VPN Gateway connections
 services: vpn-gateway
-author: radwiv
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: radwiv
+ms.author: cherylmc
 
 ---
 # Custom traffic selectors for VPN Gateway connections

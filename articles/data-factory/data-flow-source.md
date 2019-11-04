@@ -10,8 +10,6 @@ ms.date: 09/06/2019
 
 # Source transformation for mapping data flow 
 
-
-
 A source transformation configures your data source for the data flow. When designing data flows, your first step will always be configuring a source transformation. To add a source, click on the **Add Source** box in the data flow canvas.
 
 Every data flow requires at least one source transformation, but you can add as many sources as necessary to complete your data transformations. You can join those sources together with a join, lookup, or a union transformation.
@@ -22,11 +20,12 @@ Each source transformation is associated with exactly one Data Factory dataset. 
 
 Mapping Data Flow follows an extract, load, transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently the following datasets can be used in a source transformation:
     
-* Azure Blob Storage
-* Azure Data Lake Storage Gen1
-* Azure Data Lake Storage Gen2
+* Azure Blob Storage (JSON, Avro, Text, Parquet)
+* Azure Data Lake Storage Gen1 (JSON, Avro, Text, Parquet)
+* Azure Data Lake Storage Gen2 (JSON, Avro, Text, Parquet)
 * Azure SQL Data Warehouse
 * Azure SQL Database
+* Azure CosmosDB
 
 Azure Data Factory has access to over 80 native connectors. To include data from those other sources in your data flow, use the Copy Activity to load that data into one of the supported staging areas.
 
@@ -125,7 +124,7 @@ If your source is in SQL Database or SQL Data Warehouse, additional SQL-specific
 
 **Input:** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
 
-**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow.
+**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups. Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **Batch size**: Enter a batch size to chunk large data into reads.
 
@@ -147,6 +146,19 @@ Like schemas in datasets, the projection in a source defines the data columns, t
 If your text file has no defined schema, select **Detect data type** so that Data Factory will sample and infer the data types. Select **Define default format** to autodetect the default data formats. 
 
 You can modify the column data types in a down-stream derived-column transformation. Use a select transformation to modify the column names.
+
+### Import schema
+
+Datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset. Therefore, you will be able to click the "Import Schema" button the Projection tab for these types of sources.
+
+## CosmosDB specific settings
+
+When using CosmosDB as a source type, there are a few options to consider:
+
+* Include system columns: If you check this, ```id```, ```_ts```, and other system columns will be included in your data flow metadata from CosmosDB. When updating collections, it is important to include this so that you can grab the existing row id.
+* Page size: The number of documents per page of the query result. Default is "-1" which uses the service dynamic page up to 1000.
+* Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow during the read operation. Minimum is 400.
+* Preferred regions: You can choose the preferred read regions for this process.
 
 ## Optimize the source transformation
 

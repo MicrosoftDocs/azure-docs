@@ -51,6 +51,9 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 | North Europe | 191.235.193.75 | 40.113.93.91 |
 | South Central US | 23.98.162.75 | 13.66.62.124 |
 | South East Asia | 23.100.117.95 | 104.43.15.0 |
+| South Africa North | 102.133.152.0 | |
+| South Africa West | 102.133.24.0 | |
+| UAE North | 65.52.248.0 | |
 | UK South | 51.140.184.11 | |
 | UK West | 51.141.8.11| |
 | West Europe | 191.237.232.75 | 40.68.37.158 |
