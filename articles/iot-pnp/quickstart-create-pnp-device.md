@@ -12,9 +12,9 @@ ms.custom: mvc
 # As a device builder, I want to try out generating device code from a model so I can understand the purpose of device capability models.
 ---
 
-# Quickstart: Use a device capability model to create an IoT Plug and Play device
+# Quickstart: Use a device capability model to create an IoT Plug and Play Preview device (Windows)
 
-A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code to create an IoT Plug and Play device using a DCM.
+A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code on Windows to create an IoT Plug and Play device using a DCM.
 
 ## Prerequisites
 
