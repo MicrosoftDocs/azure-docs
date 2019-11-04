@@ -11,7 +11,7 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/16/2019
+  ms.date: 11/04/2019
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -103,7 +103,7 @@ conceptualContent:
           text: Content Moderator
         - url: ./personalizer/index.yml
           itemType: overview
-          text: Personalizer (Preview)
+          text: Personalizer 
     - title: Search
       summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
       links:
