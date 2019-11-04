@@ -71,6 +71,8 @@
         href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+      - name: Azure Data Explorer
+        href: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json  
       - name: Azure Databricks
         href: billing-prepay-databricks-reserved-capacity.md
       - name: App Service
@@ -91,6 +93,8 @@
         href: billing-understand-reservation-charges.md
       - name: SQL Data Warehouse
         href: billing-how-reservation-discount-is-applied-to-azure-sql-dw.md
+      - name: Azure Data Explorer
+        href: billing-understand-kusto-azuredataexplorer-reservation-charges.md  
       - name: Azure Databricks
         href: billing-reservation-discount-databricks.md
       - name: App Service
