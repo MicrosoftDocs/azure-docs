@@ -10,5 +10,5 @@ ms.date: 11/04/2019
 ms.author: diberry
 ---
 
-> [!Caution]
+> [!NOTE]
 > This document uses the [preview LUIS portal](https://preview.luis.ai). 
