@@ -120,7 +120,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
 1. You have access to your Azure Time Series Insights Preview environment by default if you are an owner of the Azure subscription. Verify that you have access:
 
-   1. Search for your resource group, and then select your newly created Azure Time Series Insights Preview environment.
+   1. Search for your resource group, and then select your newly created Azure Time Series Insights Preview environment. 
       [![Selected environment](media/v2-update-provision/payg-eight-environment.png)](media/v2-update-provision/payg-eight-environment.png#lightbox)
 
    1. On the Azure Time Series Insights Preview page, select **Data Access Policies**:
