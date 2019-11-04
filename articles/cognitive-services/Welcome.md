@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice:
 ms.topic: overview
-ms.date: 04/19/2019
+ms.date: 11/04/2019
 ms.author: nitinme
 ---
 

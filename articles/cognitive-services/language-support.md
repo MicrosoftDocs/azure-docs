@@ -7,7 +7,7 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
