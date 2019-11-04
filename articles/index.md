@@ -1862,6 +1862,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/hpc-cache/">
+                                                <img src="media/index/hpc-cache.svg" alt="" />
+                                                <p>Azure HPC Cache</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/avere-vfxt/">
                                                 <img src="media/index/avere.svg" alt="" />
                                                 <p>Avere vFXT</p>
@@ -6192,6 +6198,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Data Box family</h3>
                                                     <p>Family of storage devices that enable offline or network-based data transfer</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/hpc-cache/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/hpc-cache.svg" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure HPC Cache</h3>
+                                                    <p>Run flexible, file-based workloads in Azure</p>
                                                 </div>
                                             </div>
                                         </div>

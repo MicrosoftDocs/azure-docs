@@ -24,18 +24,13 @@ If you have a different application that you'd like to use for this example, you
 
 To complete this article:
 
-1. [Install Git](https://git-scm.com/)
-1. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-1. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
-1. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-1. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 
 ## Install the Azure CLI extension
 
 Install the Azure Spring Cloud extension for the Azure CLI using the following command
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 	
 ## View all deployments

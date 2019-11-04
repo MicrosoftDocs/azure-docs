@@ -47,6 +47,12 @@ When persistent storage is enabled, its size and path are shown both on this pag
 
 ## Use the Azure CLI to modify persistent storage
 
+If necessary, install the Spring Cloud extension for the Azure CLI:
+
+```azurecli
+az extension add --name spring-cloud
+```
+
 Create an app with persistent disk enabled:
  
 ```azurecli

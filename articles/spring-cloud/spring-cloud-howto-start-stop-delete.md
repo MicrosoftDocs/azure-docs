@@ -24,24 +24,30 @@ Once you have an application deployed, you can **Start**, **Stop**, and **Delete
 ## Using the Azure CLI
 
 > [!NOTE]
-> You can use optional parameters and configure defaults with the Azure CLI. Learn more about by reading our [reference documentation](spring-cloud-cli-reference.md).
+> You can use optional parameters and configure defaults with the Azure CLI. Learn more about by reading our [reference documentation](spring-cloud-cli-reference.md).  
+
+Install the Spring Cloud extension for the Azure CLI:
+
+```azurecli
+az extension add --name spring-cloud
+```
 
 * To start your application:
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app start -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * To stop your application:
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app stop -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * To restart your application:
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app restart -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * To delete your application:
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app delete -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
