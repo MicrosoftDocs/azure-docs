@@ -272,7 +272,7 @@ Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you
 
     The raw transaction message contains detail about the transaction. However, the property information is encrypted.
 
-Since you added the HelloBlockchain smart contract to the Blockchain Data Manager instance, a **ContractProperties** message type is also sent that contains decoded property information.
+    Since you added the HelloBlockchain smart contract to the Blockchain Data Manager instance, a **ContractProperties** message type is also sent that contains decoded property information.
 
 1. Find the **ContractProperties** message for the transaction. It should be the next message in the list.
 
