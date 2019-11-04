@@ -362,7 +362,7 @@ The sixth pattern is about aggregating event data over a period of time into a s
 
 The tricky thing about trying to implement this pattern with normal, stateless functions is that concurrency control becomes a huge challenge. Not only do you need to worry about multiple threads modifying the same data at the same time, you also need to worry about ensuring that the aggregator only runs on a single VM at a time.
 
-Using a [Durable Entity function](durable-functions-preview.md#entity-functions), one can implement this pattern easily as a single function.
+You can use [Durable entities](durable-functions-entities.md) to easily implement this pattern as a single function.
 
 ```csharp
 [FunctionName("Counter")]
@@ -428,7 +428,7 @@ public static async Task Run(
 Dynamically generated proxies are also available for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-bindings.md#entity-client-usage) on the orchestration client binding.
 
 > [!NOTE]
-> Entity functions are currently only available in .NET as part of the [Durable Functions 2.0 preview](durable-functions-preview.md).
+> Entity functions are currently only available in Durable Functions version 2.x.
 
 ## The technology
 
