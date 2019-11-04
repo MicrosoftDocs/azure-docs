@@ -65,7 +65,7 @@ Use the [amortized cost view](quick-acm-cost-analysis.md#customize-cost-views) i
 
 Use the billing profile scope to view pre-tax costs in the billing currency across all your customers for all products and subscriptions included in an invoice. You can filter costs in a billing profile for a specific invoice using the **InvoiceID** filter. The filter shows the consumption and product purchase costs for a specific invoice. You can also filter the costs for a specific customer on the invoice to see pre-tax costs.
 
-After you onboard customers to a Microsoft Customer Agreement, you receive a invoice that includes all charges for all products (consumption, purchases, and entitlements) for these customers on the Microsoft Customer Agreement. When billed in the same currency, these invoices also include the charges for entitlement and purchased products such as SaaS, Azure Marketplace, and reservations for customers who are still in the CSP offer.
+After you onboard customers to a Microsoft Customer Agreement, you receive an invoice that includes all charges for all products (consumption, purchases, and entitlements) for these customers on the Microsoft Customer Agreement. When billed in the same currency, these invoices also include the charges for entitlement and purchased products such as SaaS, Azure Marketplace, and reservations for customers who are still in the CSP offer.
 
 To help reconcile charges against the customer invoice, the billing profile scope enables you to see all costs that accrue for an invoice for your customers. Like the invoice, the scope shows costs for every customer in the new Microsoft Customer Agreement. The scope also shows every charge for customer entitlement products still in the current CSP offer.
 
@@ -148,7 +148,7 @@ The following fields are found in usage detail files and Cost Management APIs. F
 
 | **Field name** | **Description** |
 | --- | --- |
-| invoiceId | Invoice ID shown on the invoice where the specific transaction appears. |
+| invoiceId | Invoice ID shown on the invoice for the specific transaction. |
 | previousInvoiceID | Reference to an original invoice there is a refund (negative cost). Populated only when there is a refund. |
 | billingAccountName | Name of the billing account representing the partner. It accrues all costs across the customers who have onboarded to a Microsoft customer agreement and the CSP customers that have made entitlement purchases like SaaS, Azure Marketplace, and reservations. |
 | billingAccountID | Identifier for the billing account representing the partner. |
@@ -157,8 +157,8 @@ The following fields are found in usage detail files and Cost Management APIs. F
 | invoiceSectionName | Name of the project that is being charged in the invoice. Not applicable for Microsoft Customer Agreements onboarded by partners. |
 | invoiceSectionID | Identifier of the project that is being charged in the invoice. Not applicable for Microsoft Customer Agreements onboarded by partners. |
 | **CustomerTenantID** | Identifier of the Azure Active Directory tenant of the customer&#39;s subscription. |
-| **CustomerName** | Name of the Azure Active Directory tenant where the customer&#39;s subscription belongs. |
-| **CustomerTenantDomainName** | Domain name for the Azure Active Directory tenant where the customer&#39;s subscription belongs. |
+| **CustomerName** | Name of the Azure Active Directory tenant for the customer&#39;s subscription. |
+| **CustomerTenantDomainName** | Domain name for the Azure Active Directory tenant of the customer&#39;s subscription. |
 | **PartnerTenantID** | Identifier for the partner&#39;s Azure Active Directory tenant. |
 | **PartnerName** | Name of the partner Azure Active Directory tenant. |
 | **ResellerMPNID** | MPNID for the reseller associated with the subscription. |
@@ -168,21 +168,21 @@ The following fields are found in usage detail files and Cost Management APIs. F
 | servicePeriodStartDate | Start date for the rating period when the service usage was rated for charges. The prices for Azure services are determined for the rating period. |
 | servicePeriodEndDate | End date for the period when the service usage was rated for charges. The prices for Azure services are determined based on the rating period. |
 | date | For Azure consumption data, it shows date of usage as rated. For reserved instance, it shows the purchased date. For recurring charges and one-time charges such as Marketplace and support, it shows the purchase date. |
-| productID | Identifier for the product that has accrued charges by consumption or purchase. This is the concatenated key of productID and SKuID, as shown in the Partner Center. |
+| productID | Identifier for the product that has accrued charges by consumption or purchase. It is the concatenated key of productID and SKuID, as shown in the Partner Center. |
 | product | Name of the product that has accrued charges by consumption or purchase, as shown on the invoice. |
 | serviceFamily | Shows the service family for the product purchased or charged. For example, Storage or Compute. |
 | productOrderID | The identifier of the asset or Azure plan name that the subscription belongs to. For example, Azure Plan. |
 | productOrderName | The name of the Azure plan that the subscription belongs to. For example, Azure Plan. |
 | consumedService | Consumed service (legacy taxonomy) as used in legacy EA usage details. |
-| meterID | Identifier of the meter where consumption is measured. |
-| meterName | Identifies the name of the meter where consumption is measured. |
+| meterID | Metered identifier for measured consumption. |
+| meterName | Identifies the name of the meter for measured consumption. |
 | meterCategory | Identifies the top-level service for usage. |
-| meterSubCategory | Defines the type or sub-category of Azure service that can affect the rate. |
+| meterSubCategory | Defines the type or subcategory of Azure service that can affect the rate. |
 | meterRegion | Identifies the location of the datacenter for certain services that are priced based on datacenter location. |
 | subscription ID | Unique Microsoft generated identifier for the Azure subscription. |
 | subscriptionName | Name of the Azure subscription. |
-| Term | Displays the term for the validity of the offer. For example, reserved instances show 12 months of a yearly term of the reserved instance. For one-time purchases or recurring purchases, the terms displays one month for SaaS, Azure Marketplace, and support. Not applicable for Azure consumption. |
-| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Type of publisher that identifies the publisher as first party, third party reseller, or third-party agency. |
+| Term | Displays the term for the validity of the offer. For example, reserved instances show 12 months of a yearly term of the reserved instance. For one-time purchases or recurring purchases, the term displays one month for SaaS, Azure Marketplace, and support. Not applicable for Azure consumption. |
+| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Type of publisher that identifies the publisher as first party, third-party reseller, or third-party agency. |
 | partNumber | Part number for the unused reserved instance and Azure Marketplace services. |
 | publisherName | Name of the publisher of the service including Microsoft or third-party publishers. |
 | reservationId | Identifier for the reserved instance purchase. |
@@ -193,7 +193,7 @@ The following fields are found in usage detail files and Cost Management APIs. F
 | instanceID (or) ResourceID | Identifier of the resource instance. |
 | resourceLocation | Name of the resource location. |
 | Location | Normalized location of the resource. |
-| effectivePrice | The effective unit price of the service, in pricing currency. Unique for a product, servicefamily, meter, and offer. Used with pricing in the price sheet for the billing account. When there is tiered pricing or an included quantity, it shows the blended price for consumption. |
+| effectivePrice | The effective unit price of the service, in pricing currency. Unique for a product, service family, meter, and offer. Used with pricing in the price sheet for the billing account. When there is tiered pricing or an included quantity, it shows the blended price for consumption. |
 | Quantity | Measured quantity purchased or consumed. The amount of the meter used during the billing period. |
 | unitOfMeasure | Identifies the unit that the service is charged in. For example, GB and hours. |
 | pricingCurrency | The currency defining the unit price. |
