@@ -49,13 +49,13 @@ Each logic app run starts with a trigger attempt, so if the trigger doesn't fire
 
 Each time that the trigger fires for an item or event, the Logic Apps engine creates and runs a separate workflow instance for each item or event. If a run fails, follow these steps to review what happened during that run, including the status for each step in the workflow plus the inputs and outputs for each step.
 
-1. Check the workflow's run status by [checking the runs history](../logic-apps/logic-apps-monitor-your-logic-app.md#review-runs-history).
+1. Check the workflow's run status by [checking the runs history](../logic-apps/logic-apps-monitor-your-logic-app.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
 
-   ![View run status and history](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
+   ![View run history and select failed run](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
-1. To view more information about a failed run, select that run, which shows all the steps in that run and their status, and expand the first failed step.
+1. After all the steps in the run appear, expand the first failed step.
 
-   ![Select failed run and expand failed step](./media/logic-apps-diagnosing-failures/logic-app-run-pane.png)
+   ![Expand first failed step](./media/logic-apps-diagnosing-failures/logic-app-run-pane.png)
 
 1. Check the failed step's inputs to confirm whether they appear as you expect.
 
@@ -63,13 +63,13 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
    ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
 
-   Whether the run itself succeeded or failed, the Run Details view shows each step and whether they succeeded or failed.
-
    ![View details for a logic app run](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
 1. To examine the inputs, outputs, and any error messages for a specific step, choose that step so that the shape expands and shows the details. For example:
 
    ![View step details](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
+
+   review-action-outputs-for-errors.png
 
 ## Perform runtime debugging
 

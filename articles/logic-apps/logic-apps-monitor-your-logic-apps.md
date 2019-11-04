@@ -60,9 +60,27 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
    ![Each action in the specific run](media/logic-apps-monitor-your-logic-apps/logic-app-run-pane.png)
 
-1. To get more information about a specific step, select that step so that the shape expands. You can now view details such as inputs, outputs, and any errors that happened in that step, for example:
+   To view this information in list form, on the **Logic app run** toolbar, select **Run Details**.
 
-   ![View the details for a specific step](media/logic-apps-monitor-your-logic-apps/specific-step-inputs-outputs-errors.png)
+   ![On the toolbar, select "Run Details"](media/logic-apps-monitor-your-logic-apps/select-run-details-on-toolbar.png)
+
+   The Run Details view shows each step, their status, and other information.
+
+   ![Review details about each step in the run](media/logic-apps-monitor-your-logic-apps/review-logic-app-run-details.png)
+
+   For example, you can get the run's **Correlation ID** property, which you might need when you use the [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
+
+1. To get more information about a specific step, select either option:
+
+   * In the **Logic app run** pane select the step so that the shape expands. You can now view information such as inputs, outputs, and any errors that happened in that step, for example:
+
+     ![In logic app run pane, view failed step](media/logic-apps-monitor-your-logic-apps/specific-step-inputs-outputs-errors.png)
+
+   * In the **Logic app run details** pane, select the step that you want.
+
+     ![In run details pane, view failed step](media/logic-apps-monitor-your-logic-apps/select-failed-step-in-failed-run.png)
+
+     You can now view information such as inputs and outputs for that step, for example:
 
    > [!NOTE]
    > All runtime details and events are encrypted within the Logic Apps service. 
@@ -70,16 +88,6 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
    > You can [hide inputs and outputs in run history](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) 
    > or control user access to this information by using 
    > [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
-
-1. To get more information about the run itself, on the toolbar, select **Run Details**.
-
-   ![On the toolbar, select "Run Details"](media/logic-apps-monitor-your-logic-apps/select-run-details-on-toolbar.png)
-
-   This information summarizes the steps, status, inputs, and outputs for the run.
-
-   ![Review information about the run](media/logic-apps-monitor-your-logic-apps/review-logic-app-run-details.png)
-
-   For example, you can get the run's **Correlation ID** property, which you might need when you use the [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
 <a name="review-trigger-history"></a>
 
