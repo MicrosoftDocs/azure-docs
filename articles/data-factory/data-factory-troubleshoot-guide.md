@@ -227,7 +227,7 @@ The following table applies to U-SQL.
 
 ### Error code:  3606
 
-- **Message**: `Azure function activity missing function key.`
+- **Message**: Azure function activity missing function key.
 
 - **Cause**: Azure function activity definition is not complete.
 
@@ -302,11 +302,20 @@ The following table applies to U-SQL.
 
 ### Error code:  4110
 
-- **Message**: AzureMLExecutePipeline activity missing LinkedService definition in JSON.
+- **Message**: `AzureMLExecutePipeline activity missing LinkedService definition in JSON.`
 
 - **Cause**: AzureMLExecutePipeline activity definition is not complete.
 
 - **Recommendation**:  Please check if the input AzureMLExecutePipeline activity JSON definition has linked service details.
+
+
+### Error code:  4111
+
+- **Message**: `AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
+
+- **Cause**: Incorrect activity definition.
+
+- **Recommendation**:  Please check if the input AzureMLExecutePipeline activity JSON definition has correct linked service details.
 
 
 ### Error code:  4112
@@ -377,7 +386,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2103
 
-- **Message**: Please provide value for the required property '%propertyName;'.
+- **Message**: `Please provide value for the required property '%propertyName;'.`
 
 - **Cause**: The value for the property has not been provided, however it is required in the scenario.
 
@@ -386,7 +395,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2104
 
-- **Message**: The type of the property '%propertyName;' is incorrect.
+- **Message**: `The type of the property '%propertyName;' is incorrect.`
 
 - **Cause**: The type of the provided property is not as expected.
 
@@ -395,7 +404,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2105
 
-- **Message**: An invalid json is provided for property '%propertyName;'. Encountered an error while trying to parse: '%message;'.
+- **Message**: `An invalid json is provided for property '%propertyName;'. Encountered an error while trying to parse: '%message;'.`
 
 - **Cause**: The value for the property is invalid or doesn't have the expected format.
 
@@ -404,7 +413,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2106
 
-- **Message**: The storage connection string is invalid. %errorMessage;
+- **Message**: `The storage connection string is invalid. %errorMessage;`
 
 - **Cause**: The connection string for the storage is invalid or has incorrect format.
 
@@ -546,7 +555,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  200
 
-- **Message**: Unexpected error happened: '%error;'.
+- **Message**: `Unexpected error happened: '%error;'.`
 
 - **Cause**: There is an internal service issue.
 
@@ -555,7 +564,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  201
 
-- **Message**: JobType %jobType; is not found.
+- **Message**: `JobType %jobType; is not found.`
 
 - **Cause**: There is a new job type that is not supported by ADF.
 
@@ -564,7 +573,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  202
 
-- **Message**: Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'
+- **Message**: `Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
 
 - **Cause**: The error message should show the details of what went wrong.
 
@@ -573,7 +582,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  203
 
-- **Message**: Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'
+- **Message**: `Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
 
 - **Cause**: The error message should show the details of what went wrong.
 
@@ -582,7 +591,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  204
 
-- **Message**: The resumption token is missing for runId '%runId;'.
+- **Message**: `The resumption token is missing for runId '%runId;'.`
 
 - **Cause**: There is an internal service issue.
 
@@ -591,7 +600,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  205
 
-- **Message**: Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.
+- **Message**: `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
 
 - **Cause**: There was an error when creating the HDI on demand cluster.
 
@@ -600,7 +609,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  206
 
-- **Message**: The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.
+- **Message**: `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
 
 - **Cause**: There was an internal problem with the service that caused this.
 
@@ -609,7 +618,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  207
 
-- **Message**: Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.
+- **Message**: `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
 
 - **Cause**: There was an internal error while trying to determine the region from the primary storage account.
 
@@ -618,7 +627,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  208
 
-- **Message**: Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.
+- **Message**: `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
 
 - **Cause**: There was an internal error while trying to read the Service Principal or instantiating the MSI authentication.
 
@@ -627,7 +636,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2300
 
-- **Message**: Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.
+- **Message**: `Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
 
 <br>
 
@@ -666,7 +675,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2301
 
-- **Message**: Could not get the status of the application '%physicalJobId;' from the HDInsight service. Received the following error: %message;. Please refer to HDInsight troubleshooting documentation or contact their support for further assistance.
+- **Message**: `Could not get the status of the application '%physicalJobId;' from the HDInsight service. Received the following error: %message;. Please refer to HDInsight troubleshooting documentation or contact their support for further assistance.`
 
 - **Cause**: HDInsight cluster or service has issues.
 
@@ -677,7 +686,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2302
 
-- **Message**: Hadoop job failed with exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Contact HDInsight team for further support.
+- **Message**: `Hadoop job failed with exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Contact HDInsight team for further support.`
 
 - **Cause**: The job was submitted to HDI cluster and failed there.
 
@@ -686,7 +695,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2303
 
-- **Message**: Hadoop job failed with transient exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Try again or contact HDInsight team for further support.
+- **Message**: `Hadoop job failed with transient exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Try again or contact HDInsight team for further support.`
 
 - **Cause**: The job was submitted to HDI cluster and failed there.
 
@@ -695,7 +704,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2304
 
-- **Message**: MSI authentication is not supported on storages for HDI activities.
+- **Message**: `MSI authentication is not supported on storages for HDI activities.`
 
 - **Cause**: The storage linked service(s) used in HDI linked service or HDI activity are configured with MSI authentication which is not supported.
 
@@ -704,7 +713,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2305
 
-- **Message**: Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'
+- **Message**: `Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
 
 - **Cause**: The connection information for HDI cluster is incorrect, the provided user doesn't have permissions to perform the required action, or HDInsight service had issues responding to requests from ADF.
 
@@ -713,7 +722,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2306
 
-- **Message**: An invalid json is provided for script action '%scriptActionName;'. Error: '%message;'
+- **Message**: `An invalid json is provided for script action '%scriptActionName;'. Error: '%message;'`
 
 - **Cause**: The json provided for the script action is invalid.
 
@@ -724,7 +733,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2310
 
-- **Message**: Failed to submit Spark job. Error: '%message;'
+- **Message**: `Failed to submit Spark job. Error: '%message;'`
 
 - **Cause**: ADF tried to create a batch on a Spark cluster using Livy API (livy/batch), but received an error.
 
@@ -733,7 +742,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2312
 
-- **Message**: Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.
+- **Message**: `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
 
 - **Cause**: The job failed on HDInsight Spark cluster.
 
@@ -742,7 +751,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2313
 
-- **Message**: The batch with ID '%batchId;' was not found on Spark cluster. Open the Spark History UI and try to find it there. Contact HDInsight support for further assistance.
+- **Message**: `The batch with ID '%batchId;' was not found on Spark cluster. Open the Spark History UI and try to find it there. Contact HDInsight support for further assistance.`
 
 - **Cause**: The batch was deleted on the HDInsight Spark cluster.
 
@@ -760,7 +769,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2329
 
-- **Message**: Failed to delete the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'
+- **Message**: `Failed to delete the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
 
 - **Cause**: The error message should show the details of what went wrong.
 
@@ -769,7 +778,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2331
 
-- **Message**: The file path should not be null or empty.
+- **Message**: `The file path should not be null or empty.`
 
 - **Cause**: The provided file path is empty.
 
@@ -778,7 +787,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2340
 
-- **Message**: HDInsightOnDemand linked service does not support execution via SelfHosted IR. Your IR name is '%IRName;'. Please select an Azure IR instead.
+- **Message**: `HDInsightOnDemand linked service does not support execution via SelfHosted IR. Your IR name is '%IRName;'. Please select an Azure IR instead.`
 
 - **Cause**: HDInsightOnDemand linked service does not support execution via SelfHosted IR.
 
@@ -787,7 +796,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2341
 
-- **Message**: HDInsight cluster URL '%clusterUrl;' is incorrect, it must be in URI format and the scheme must be 'https'.
+- **Message**: `HDInsight cluster URL '%clusterUrl;' is incorrect, it must be in URI format and the scheme must be 'https'.`
 
 - **Cause**: The provided URL is not in correct format.
 
@@ -796,7 +805,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2342
 
-- **Message**: Failed to connect to HDInsight cluster: '%errorMessage;'.
+- **Message**: `Failed to connect to HDInsight cluster: '%errorMessage;'.`
 
 - **Cause**: The provided credentials are wrong for the cluster or there was a network configuration or connection issue or IR is having problems connecting to the cluster.
 
@@ -811,7 +820,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2343
 
-- **Message**: User name and password cannot be null or empty to connect to the HDInsight cluster.
+- **Message**: `User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
 - **Cause**: Either user name or password are empty.
 
@@ -820,7 +829,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2345
 
-- **Message**: Failed to read the content of the hive script. Error: '%message;'
+- **Message**: `Failed to read the content of the hive script. Error: '%message;'`
 
 - **Cause**: The script file doesn't exist or ADF could not connect to the location of the script.
 
@@ -829,7 +838,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2346
 
-- **Message**: Failed to create ODBC connection to the HDI cluster with error message '%message;'.
+- **Message**: `Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
 
 - **Cause**: ADF tried to establish an ODBC connection to the HDI cluster and it failed with error.
 
@@ -838,7 +847,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2347
 
-- **Message**: Hive execution through ODBC failed with error message '%message;'.
+- **Message**: `Hive execution through ODBC failed with error message '%message;'.`
 
 - **Cause**: ADF submitted the hive script for execution to the HDI cluster via ODBC connection and the script has failed on HDI.
 
@@ -847,7 +856,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2348
 
-- **Message**: The main storage has not been initialized. Please check the properties of the storage linked service in the HDI linked service.
+- **Message**: `The main storage has not been initialized. Please check the properties of the storage linked service in the HDI linked service.`
 
 - **Cause**: The storage linked service properties are not set correctly.
 
@@ -856,7 +865,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2350
 
-- **Message**: Failed to prepare the files for the run '%jobId;'. HDI cluster: '%cluster;', Error: '%errorMessage;'
+- **Message**: `Failed to prepare the files for the run '%jobId;'. HDI cluster: '%cluster;', Error: '%errorMessage;'`
 
 - **Cause**: The credentials provided to connect to the storage where the files should be located are incorrect, or the files do not exist there.
 
@@ -865,7 +874,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2351
 
-- **Message**: Could not open the file '%filePath;' in container/fileSystem '%container;'.
+- **Message**: `Could not open the file '%filePath;' in container/fileSystem '%container;'.`
 
 - **Cause**: The file does not exist at specified path.
 
@@ -874,7 +883,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2352
 
-- **Message**: The file storage has not been initialized. Please check the properties of the file storage linked service in the HDI activity.
+- **Message**: `The file storage has not been initialized. Please check the properties of the file storage linked service in the HDI activity.`
 
 - **Cause**: The file storage linked service properties are not set correctly.
 
@@ -883,7 +892,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2353
 
-- **Message**: The script storage has not been initialized. Please check the properties of the script storage linked service in the HDI activity.
+- **Message**: `The script storage has not been initialized. Please check the properties of the script storage linked service in the HDI activity.`
 
 - **Cause**: The script storage linked service properties are not set correctly.
 
@@ -892,7 +901,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2354
 
-- **Message**: The storage linked service type '%linkedServiceType;' is not supported for '%executorType;' activities for property '%linkedServicePropertyName;'.
+- **Message**: `The storage linked service type '%linkedServiceType;' is not supported for '%executorType;' activities for property '%linkedServicePropertyName;'.`
 
 - **Cause**: The storage linked service type is not supported by the activity.
 
@@ -901,7 +910,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2355
 
-- **Message**: The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.
+- **Message**: `The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
 
 - **Cause**: The provided for commandEnvironment is incorrect.
 
@@ -916,7 +925,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2356
 
-- **Message**: The commandEnvironment already contains a variable named '%variableName;'.
+- **Message**: `The commandEnvironment already contains a variable named '%variableName;'.`
 
 - **Cause**: The variable was provided twice in the commandEnvironment .
 
@@ -931,7 +940,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2357
 
-- **Message**: The certificate or password is wrong for ADLS Gen 1 storage.
+- **Message**: `The certificate or password is wrong for ADLS Gen 1 storage.`
 
 - **Cause**: The provided credentials are incorrect.
 
@@ -940,7 +949,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2358
 
-- **Message**: The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.
+- **Message**: `The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.`
 
 - **Cause**: The provided value for the required property 'TimeToLive' has invalid format. 
 
@@ -949,7 +958,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2359
 
-- **Message**: The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.
+- **Message**: `The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.`
 
 - **Cause**: The provided value for the property 'roles' is invalid.
 
@@ -958,7 +967,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2360
 
-- **Message**: The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.
+- **Message**: `The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.`
 
 - **Cause**: The provided connection string for the HCatalogLinkedService is invalid.
 
@@ -967,7 +976,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2361
 
-- **Message**: Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.
+- **Message**: `Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
 
 - **Cause**: The cluster creation failed, and ADF did not get an error back from HDInsight service.
 
@@ -976,7 +985,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2362
 
-- **Message**: Only Azure Blob storage accounts are supported as additional storages for HDInsight on demand linked service.
+- **Message**: `Only Azure Blob storage accounts are supported as additional storages for HDInsight on demand linked service.`
 
 - **Cause**: The provided additional storage was not Azure Blob storage.
 
