@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 ---
 
@@ -24,7 +24,7 @@ This diagram shows the steps it takes to tune and export customized speech-to-te
 
 ![](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
-1. The first step is to [create an Azure account, register a Speech resource, and get a subscription key](#create-a-speech-resource). Once you have a subscription key, you can use it to call the Speech service, and to access [Audio Content Creation](https://aka.ms/audiocontentcreation).
+1. The first step is to [create an Azure account, register a Speech resource, and get a subscription key](#create-a-speech-resource). After you have a subscription key, you can use it to call the Speech service, and to access [Audio Content Creation](https://aka.ms/audiocontentcreation).
 2. [Create an audio tuning file](#create-an-audio-tuning-file) using plain text or SSML.
 3. Choose the voice and the language that you'd like to tune. Audio Content Creation includes all of the [Microsoft text-to-speech voices](language-support.md#text-to-speech). You can use standard, neural, or your own custom voice.
    >[!NOTE]
@@ -38,7 +38,7 @@ This diagram shows the steps it takes to tune and export customized speech-to-te
 
 Follow these steps to create a Speech resource and connect it with Speech Studio.
 
-1. Follow these instructions to [sign up for an Azure account and create a Speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Make sure that your pricing tier is set to **S0**. If you are using one of the Neural voices, make sure that you create your resource in a [supported region](regions.md#standard-and-neural-voices).
+1. Follow these instructions to [sign up for an Azure account](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) and [create a Speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Make sure that your pricing tier is set to **S0**. If you are using one of the Neural voices, make sure that you create your resource in a [supported region](regions.md#standard-and-neural-voices).
 2. Sign into [Audio Content Creation](https://aka.ms/audiocontentcreation).
 3. Select an existing project, or click **Create New**.
 4. You can modify your subscription at any time with the **Settings** option, located in the top nav.
