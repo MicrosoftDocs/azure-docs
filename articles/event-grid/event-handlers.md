@@ -69,7 +69,7 @@ Use Logic Apps to automate business processes for responding to events.
 | [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
 
 ## Service Bus Queue 
-Use Service Bus as an event handler to route your events in Event Grid directly to Service Bus queues for use in buffering or command and control scenarios in enterprise applications. Currently, the handler doesn't work with Service Bus topics and sessions, but it does work with all tiers of Service Bus queues.
+You can route events in Event Grid directly to Service Bus queues for use in buffering or command & control scenarios in enterprise applications.
 
 ### Using CLI to add a Service Bus handler
 
