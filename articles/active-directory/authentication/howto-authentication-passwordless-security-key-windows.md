@@ -26,15 +26,13 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 
 ## Requirements
 
-| Device Type | Azure AD joined |
-| --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X |
-| [Combined security information registration preview](concept-registration-mfa-sspr-combined.md) | X |
-| Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X |
-| WebAuthN requires Windows 10 version 1809 or higher | X |
-| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1809 or higher | X |
-| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (Optional) | X |
-| Provisioning package (Optional) | X |
+- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
+- Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
+- WebAuthN requires Windows 10 version 1809 or higher
+- [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1809 or higher
+- [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (Optional)
+- Provisioning package (Optional)
 
 ### Unsupported scenarios
 
