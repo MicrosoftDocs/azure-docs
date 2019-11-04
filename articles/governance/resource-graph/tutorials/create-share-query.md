@@ -66,7 +66,8 @@ follow these steps:
    by OS** now appears in the **Query Name** list. When you select the title link of the saved
    query, it's loaded into a new tab with that query's name.
 
-   > [!NOTE] When a saved query is open and the tab shows its name, selecting the **Save** button
+   > [!NOTE] 
+   >When a saved query is open and the tab shows its name, selecting the **Save** button
    > updates it with any changes that have been made. To create a new saved query from this open
    > query, select **Save as** and proceed as if you were saving a brand new query.
 
@@ -115,7 +116,8 @@ To create a new Shared query, follow these steps:
    
    ![Save the new query as a Shared query](../media/create-share-query/save-shared-query-window.png)
 
-   > [!NOTE] You can clear the **Publish to resource-graph-queries resource group** check box if you
+   > [!NOTE] 
+   >You can clear the **Publish to resource-graph-queries resource group** check box if you
    > want to provide the name of an existing resource group to save the shared query into. Using the
    > default named resource group for queries makes Shared queries easier to discover. It also makes
    > the purpose of that resource group more apparent. However, you might opt to select an existing
@@ -132,7 +134,8 @@ To create a new Shared query, follow these steps:
 
    ![Show the Shared Query with icon](../media/create-share-query/show-saved-shared-query.png)
 
-   > [!NOTE] When a saved query is open and the tab shows its name, the **Save** button updates it
+   > [!NOTE] 
+   >When a saved query is open and the tab shows its name, the **Save** button updates it
    > with any changes that have been made. To create a new saved query, select **Save as** and
    > proceed as if you were saving a brand new query.
 
