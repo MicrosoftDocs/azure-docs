@@ -1,5 +1,5 @@
 ---
-title: Creating crowd-sourced data labeling projects
+title: Get crowd-sourced labels for data
 titleSuffix: Azure Machine Learning
 description: This article shows you how to create and run labeling projects to crowd-source tagging data for machine learning.
 author: lobrien
@@ -10,11 +10,11 @@ ms.date: 11/04/2019
 
 ---
 
-# Create a labeling project for machine learning
+# Get labels for data
 
-Azure Machine Learning studio gives you a central location to create, manage, and monitor labeling projects.  Labeling projects coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling task.
-
-A labeling project allows you to create, administer, and monitor a labeling task. Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes. 
+Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. 
+ 
+Azure Machine Learning studio gives you a central location to create, manage, and monitor labeling projects. Labeling projects help coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling tasks. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes.
 
 Azure tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't require an Azure account to participate. Once authenticated with their Microsoft Account (MSA) or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much or as little labeling as their time allows. They can assign and change labels using keyboard shortcuts. 
 
@@ -87,6 +87,8 @@ If you wish to directly upload your data:
 1. Choose **Next** 
 1. Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
 
+The data get uploaded to the default blob store (`workspaceblobstore`) of your Azure ML workspace.
+
 ## Specify label classes
 
 On the **Label classes** page, you specify the set of classes used to categorize your data. Give thought to these classes, as your labelers' accuracy and speed will be affected by the ease with which they can properly choose among them. For instance, rather than spelling out the full genus and species for plants or animals it might be better to use field codes or abbreviate the genus. 
@@ -115,7 +117,7 @@ With bounding boxes, other important questions include:
 
 ## Initialize the labeling project
 
-Once initialized, some aspects of the labeling project are immutable: you can't change the task type or dataset. You may modify labels and you can change the URL for the task description. Carefully review the settings before creating the project. Once you've submitted the project, you'll be taken back to the **Labeling** homepage, which will show the project as **Initializing**. This page doesn't autorefresh, so after some amount of time, manually refreshing it will show the project as **Created**. Expect initialization to process roughly 20 data points per second. 
+Once initialized, some aspects of the labeling project are immutable: you can't change the task type or dataset. You may modify labels and you can change the URL for the task description. Carefully review the settings before creating the project. Once you've submitted the project, you'll be taken back to the **Labeling** homepage, which will show the project as **Initializing**. This page doesn't autorefresh, so after some amount of time, manually refreshing it will show the project as **Created**. 
 
 ## Manage teams and people
 
