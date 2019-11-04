@@ -103,7 +103,7 @@ This step is optional. Learn about the database resources created in code, or sk
 
 The following snippets are all taken from the `cosmos_get_started.py` file.
 
-* The CosmosClient is initialized. Make sure to update the "Endpoint" and "master key" values as described in the [Update your connection string](#update-your-connection-string) section. 
+* The CosmosClient is initialized. Make sure to update the "endpoint" and "key" values as described in the [Update your connection string](#update-your-connection-string) section. 
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
 
@@ -150,7 +150,7 @@ The following snippets are all taken from the `cosmos_get_started.py` file.
 
     If you get an error about access being denied when attempting to install azure-cosmos, you'll need to [run VS Code as an administrator](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
 
-6. Run the following command to run the sample and create and store new documents in Azure Cosmos dB.
+6. Run the following command to run the sample and create and store new documents in Azure Cosmos DB.
 
     ```python
     python cosmos_get_started.py
