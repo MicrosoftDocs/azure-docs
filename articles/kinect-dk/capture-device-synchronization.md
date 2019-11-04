@@ -1,6 +1,6 @@
 ---
 title: Capture Azure Kinect device synchronization 
-description: Device synchronization
+description: Learn how to capture Azure Kinect device synchronization using the Azure Kinect Sensor SDK.
 author: xthexder
 ms.author: jawirth
 ms.prod: kinect-dk
