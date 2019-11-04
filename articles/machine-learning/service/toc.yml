@@ -113,6 +113,8 @@
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
+  - name: Event grid integration
+    href: concept-event-grid-integration.md
   - name: Git integration
     displayName: git github gitlab
     href: concept-train-model-git-integration.md
@@ -321,6 +323,9 @@
   - name: Export and delete data
     displayName: GDPR
     href: how-to-export-delete-data.md
+  - name: Create event driven workflows
+    displayName: event grid
+    href: how-to-use-event-grid.md
 - name: Reference
   items:
   - name: ML SDK (Python)
