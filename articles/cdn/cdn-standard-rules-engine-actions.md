@@ -31,7 +31,7 @@ Bypass Cache | When this option is selected and the rule matches, the content wi
 Override | When this option is selected and the rule matches, the TTL value returned from origin will be overwritten with the value specified in the action.
 Set if missing | When this option is selected and the rule matches, if there was no TTL value returned from origin, the rule will set the TTL to the value specified in the action.
 
-**Additonal fields**
+**Additional fields**
 
 Days | Hours | Minutes | Seconds
 -----|-------|---------|--------
