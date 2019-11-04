@@ -96,13 +96,13 @@ If you wish to delete the bounding box, click the X-shaped target that appears b
 
 You may not reassign the tag of an existing bounding box. If you make a mistake with tag assignment, you must delete the bounding box and create a new one with the correct tag.
 
-By default, existing bounding boxes may be edited. The **Lock/unlock regions** tool ![Lock/unlock regions tool](media/how-to-label-images/lock_bounding_boxes_tool.png) or "L" toggles that behavior. If regions are locked, you may only change the shape or location of a new bounding box.
+By default, existing bounding boxes may be edited. The **Lock/unlock regions** tool ![Lock/unlock regions tool](media/how-to-label-images/lock-bounding-boxes-tool.png) or "L" toggles that behavior. If regions are locked, you may only change the shape or location of a new bounding box.
 
 Use the **Regions manipulation** tool ![Regions manipulation tool](media/how-to-label-images/regions-tool.png) or "M" to adjust an existing bounding box. You can click and drag on the edges or corners to adjust the shape. If you click in the interior, you can drag the whole bounding box. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool. 
 
 Use the **Template-based box** tool ![Template-box tool](media/how-to-label-images/template-box-tool.png) or "T" to create multiple bounding boxes of the same size. If the image has no bounding boxes and you activate template-based boxes, the tool will produce 50x50 pixel boxes. If you've created a bounding box and then activate template-based boxes, new bounding boxes will be the size of the last one you made. Template-based boxes can be resized after placement. Resizing a template-based box only resizes the particular box. 
 
-If you wish to delete _all_ bounding boxes in the current image, you can choose the **Delete all regions** tool ![Delete regions tool](media/how-to-label-images/delete_regions_tool.png). 
+If you wish to delete _all_ bounding boxes in the current image, you can choose the **Delete all regions** tool ![Delete regions tool](media/how-to-label-images/delete-regions-tool.png). 
 
 Once you've created the bounding boxes for the image, press **Submit** to save your work. Your work in progress won't be saved unless you press the **Submit** button. 
 

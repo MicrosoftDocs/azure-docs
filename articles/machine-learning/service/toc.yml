@@ -164,9 +164,6 @@
     - name: Version & track datasets
       displayName: data, data set
       href: how-to-version-track-datasets.md     
-    - name: Create labeling projects
-      displayName: data, dataset, labeling
-      href: how-to-create-labeling-projects.md
     - name: Label images
       displayName: data, dataset, labeling
       href: how-to-label-images.md
