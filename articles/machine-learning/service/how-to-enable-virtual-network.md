@@ -70,12 +70,6 @@ To use an Azure storage account for the workspace in a virtual network, do the f
 
    [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
-1. When __running experiments__, in your experimentation code change the run config to use Azure Blob storage:
-
-    ```python
-    run_config.source_directory_data_store = "workspaceblobstore"
-    ```
-
 > [!IMPORTANT]
 > You can place the both the _default storage account_ for Azure Machine Learning, or _non-default storage accounts_ in a virtual network.
 >
