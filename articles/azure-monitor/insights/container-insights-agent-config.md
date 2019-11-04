@@ -6,26 +6,21 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/08/2019
-
+ms.date: 10/15/2019
 ---
 
 # Configure agent data collection for Azure Monitor for containers
 
-Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) from the containerized agent. This agent can also collect time series data (also referred to as metrics) from Prometheus using the containerized agent without having to set up and manage a Prometheus server and database. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. 
+Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) from the containerized agent. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. 
 
 This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
-
->[!NOTE]
->Support for Prometheus is a feature in public preview at this time.
->
 
 ## ConfigMap file settings overview
 
 A template ConfigMap file is provided that allows you to easily edit it with your customizations without having to create it from scratch. Before starting, you should review the Kubernetes documentation about [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and familiarize yourself with how to create, configure, and deploy ConfigMaps. This will allow you to filter stderr and stdout per namespace or across the entire cluster, and environment variables for any container running across all pods/nodes in the cluster.
 
 >[!IMPORTANT]
->The minimum agent version supported to collect stdout, stderr, and environmental variables from container workloads is ciprod06142019 or later. The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later. To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.  
+>The minimum agent version supported to collect stdout, stderr, and environmental variables from container workloads is ciprod06142019 or later. To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property. For additional information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
 
 ### Data collection settings
 
@@ -40,39 +35,6 @@ The following are the settings that can be configured to control data collection
 |`[log_collection_settings.stderr] enabled =` |Boolean | true or false |This controls if stderr container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection (`log_collection_settings.stderr.exclude_namespaces` setting), stderr logs will be collected from all containers across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |String |Comma-separated array |Array of Kubernetes namespaces for which stderr logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMap, the default value is `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` |Boolean | true or false | This setting controls environment variable collection across all pods/nodes in the cluster and defaults to `enabled = true` when not specified in ConfigMaps. If collection of environment variables is globally enabled, you can disable it for a specific container by setting the environment variable `AZMON_COLLECT_ENV` to **False** either with a Dockerfile setting or in the [configuration file for the Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under the **env:** section. If collection of environment variables is globally disabled, then you cannot enable collection for a specific container (that is, the only override that can be applied at the container level is to disable collection when it's already enabled globally.). |
-
-### Prometheus scraping settings
-
-![Container monitoring architecture for Prometheus](./media/container-insights-agent-config/monitoring-kubernetes-architecture.png)
-
-Azure Monitor for containers provides a seamless experience to enable collection of Prometheus metrics by multiple scraping through the following mechanisms as shown in the following table. The metrics are collected through a set of settings specified in a single ConfigMap file, which is the same file used to configure collection of stdout, stderr, and environmental variables from container workloads. 
-
-Active scraping of metrics from Prometheus is performed from one of two perspectives:
-
-* Cluster-wide - HTTP URL and discover targets from listed endpoints of a service, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus data_collection_settings.cluster]*.
-* Node-wide - HTTP URL and discover targets from listed endpoints of a service. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus_data_collection_settings.node]*.
-
-| Endpoint | Scope | Example |
-|----------|-------|---------|
-| Pod annotation | Cluster-wide | annotations: <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
-| Kubernetes service | Cluster-wide | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics`​ |
-| url/endpoint | Per-node and/or cluster-wide | `http://myurl:9101/metrics` |
-
-When a URL is specified, Azure Monitor for containers only scrapes the endpoint. When Kubernetes service is specified, the service name is resolved with the cluster DNS server to get the IP address and then the resolved service is scraped.
-
-|Scope | Key | Data type | Value | Description |
-|------|-----|-----------|-------|-------------|
-| Cluster-wide | | | | Specify any one of the following three methods to scrape endpoints for metrics. |
-| | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
-| | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. For example,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod. `monitor_kubernetes_pods` must be set to `true`. |
-| | `prometheus.io/scheme` | String | http or https | Defaults to scrapping over HTTP. If necessary, set to `https`. | 
-| | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path on which to fetch metrics from. If the metrics path is not `/metrics`, define it with this annotation. |
-| | `prometheus.io/port` | String | 9102 | Specify a port to scrape from. If port is not set, it will default to 9102. |
-| Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
-| Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, h. |
-| Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allow list first. |
 
 ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMaps overruling the collections.
 
@@ -89,72 +51,20 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally, and then follow the steps [here](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
-    
-3. To configure collection of Kubernetes services cluster-wide, configure the ConfigMap file using the following example.
 
-    ```
-    prometheus-data-collection-settings: |- ​
-    # Custom Prometheus metrics data collection settings
-    [prometheus_data_collection_settings.cluster] ​
-    interval = "1m"  ## Valid time units are s, m, h.
-    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
-    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-    kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
-    ```
-
-4. To configure scraping of Prometheus metrics from a specific URL across the cluster, configure the ConfigMap file using the following example.
-
-    ```
-    prometheus-data-collection-settings: |- ​
-    # Custom Prometheus metrics data collection settings
-    [prometheus_data_collection_settings.cluster] ​
-    interval = "1m"  ## Valid time units are s, m, h.
-    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
-    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-    urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
-    ```
-
-5. To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following in the ConfigMap:
-    
-    ```
-    prometheus-data-collection-settings: |- ​
-    # Custom Prometheus metrics data collection settings ​
-    [prometheus_data_collection_settings.node] ​
-    interval = "1m"  ## Valid time units are s, m, h. 
-    urls = ["http://$NODE_IP:9103/metrics"] ​
-    fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
-    fielddrop = ["metric_to_drop"] ​
-    ```
-
-    >[!NOTE]
-    >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase. 
-
-6. To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
-
-    1. In the ConfigMap, specify the following:
-
-        ```
-         prometheus-data-collection-settings: |- ​
-         # Custom Prometheus metrics data collection settings
-         [prometheus_data_collection_settings.cluster] ​
-         interval = "1m"  ## Valid time units are s, m, h
-         monitor_kubernetes_pods = true 
-        ```
-
-    2. Specify the following configuration for pod annotations:
-
-        ```
-         - prometheus.io/scrape:"true" #Enable scraping for this pod ​
-         - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
-         - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
-         - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
-        ```
-
-7. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
     The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+
+4. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+    
+    Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
+    
+    The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+
+## Verify configuration 
 
 To verify the configuration was successfully applied, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
 
@@ -163,11 +73,17 @@ To verify the configuration was successfully applied, use the following command 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Errors related to applying configuration changes for Prometheus are also available for review.  Either from the logs from an agent pod using the same `kubectl logs` command or from live logs. Live logs show errors similar to the following:
+Errors related to applying configuration changes are also available for review. The following options are available to perform additional troubleshooting of configuration changes:
 
-```
-2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
-```
+- From an agent pod logs using the same `kubectl logs` command. 
+
+- From Live logs. Live logs show errors similar to the following:
+
+    ```
+    config::error::Exception while parsing config map for log collection/env variable settings: \nparse error on value \"$\" ($end), using defaults, please check config map for errors
+    ```
+
+- From the **KubeMonAgentEvents** table in your Log Analytics workspace. Data is sent every hour with *Error* severity for configuration errors. If there are no errors, the entry in the table will have data with severity *Info*, which reports no errors. The **Tags** property contains more information about the pod and container ID on which the error occurred and also the first occurrence, last occurrence and count in the last hour.
 
 Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the error(s) in ConfigMap, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`.
 
@@ -196,62 +112,10 @@ The output will show similar to the following with the annotation schema-version
 	                schema-versions=v1 
 ```
 
-## Query Prometheus metrics data
-
-To view prometheus metrics scraped by Azure Monitor, specify "prometheus" as the Namespace. Here is a sample query to view prometheus metrics from the `default` kubernetes namespace.
-
-```
-InsightsMetrics 
-| where Namespace == "prometheus"
-| extend tags=parse_json(Tags)
-| summarize count() by Name
-```
-
-Prometheus data can also be directly queried by name.
-
-```
-InsightsMetrics 
-| where Namespace == "prometheus"
-| where Name contains "some_prometheus_metric"
-```
-
-## Review Prometheus data usage
-
-To identify the ingestion volume of each metrics size in GB per day to understand if it is high, the following query is provided.
-
-```
-InsightsMetrics 
-| where Namespace == "prometheus"
-| where TimeGenerated > ago(24h)
-| summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
-| order by VolumeInGB desc
-| render barchart
-```
-The output will show results similar to the following:
-
-![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-usage-03.png)
-
-To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
-
-```
-InsightsMetrics 
-| where Namespace contains "prometheus"
-| where TimeGenerated > ago(24h)
-| summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name
-| order by EstimatedGBPer30dayMonth desc
-| render barchart
-```
-
-The output will show results similar to the following:
-
-![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-usage-02.png)
-
-Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md).
-
 ## Next steps
 
-Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
+- Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
 
-- To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+- With monitoring enabled to collect health and resource utilization of your AKS or hybrid cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
 
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.

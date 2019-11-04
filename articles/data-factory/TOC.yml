@@ -80,8 +80,12 @@
       items:
       - name: Copy Data tool
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-  - name: Transform data with mapping data flow
-    href: tutorial-data-flow.md
+  - name: Transform and prepare data with data flows
+    items:
+    - name: Transform data with a mapping data flow
+      href: tutorial-data-flow.md
+    - name: Prepare data with a wrangling data flow
+      href: wrangling-data-flow-tutorial.md
   - name: External transformations
     items:
     - name: HDInsight Spark
@@ -143,28 +147,36 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-  - name: Mapping data flows
+  - name: Data flows
     items:
-    - name: Mapping data flow overview
-      href: concepts-data-flow-overview.md
-    - name: Debug mode
-      href: concepts-data-flow-debug-mode.md
-    - name: JSON handling
-      href: concepts-data-flow-json.md
-    - name: Schema drift
-      href: concepts-data-flow-schema-drift.md
-    - name: Column patterns
-      href: concepts-data-flow-column-pattern.md
-    - name: Data flow monitoring
-      href: concepts-data-flow-monitoring.md
-    - name: Data flow performance
-      href: concepts-data-flow-performance.md
-    - name: Move nodes
-      href: concepts-data-flow-move-nodes.md
-    - name: Expression builder
-      href: concepts-data-flow-expression-builder.md
-    - name: Expression language
-      href: data-flow-expression-functions.md
+    - name: Transform data with mapping data flows
+      items:
+      - name: Mapping data flow overview
+        href: concepts-data-flow-overview.md
+      - name: Debug mode
+        href: concepts-data-flow-debug-mode.md
+      - name: JSON handling
+        href: concepts-data-flow-json.md
+      - name: Schema drift
+        href: concepts-data-flow-schema-drift.md
+      - name: Column patterns
+        href: concepts-data-flow-column-pattern.md
+      - name: Data flow monitoring
+        href: concepts-data-flow-monitoring.md
+      - name: Data flow performance
+        href: concepts-data-flow-performance.md
+      - name: Move nodes
+        href: concepts-data-flow-move-nodes.md
+      - name: Expression builder
+        href: concepts-data-flow-expression-builder.md
+      - name: Expression language
+        href: data-flow-expression-functions.md
+    - name: Prepare data with Wrangling data flows
+      items:
+      - name: Wrangling data flow overview
+        href: wrangling-data-flow-overview.md
+      - name: Supported functions
+        href: wrangling-data-flow-functions.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Understanding pricing
