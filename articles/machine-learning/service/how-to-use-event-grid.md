@@ -157,7 +157,7 @@ In this example, a simple Data Factory pipeline is used to copy files into a blo
 
     ![show-logic-app-webhook](media/how-to-use-event-grid/show-logic-app-webhook.png)
 
-Now the data factory pipeline is triggered when drift occurs. View details on your data drift run and machine learning pipeline on the [new workspace portal](ml.azure.com). 
+Now the data factory pipeline is triggered when drift occurs. View details on your data drift run and machine learning pipeline on the [new workspace portal](https://ml.azure.com). 
 
 ![view-in-workspace](media/how-to-use-event-grid/view-in-workspace.png)
 
