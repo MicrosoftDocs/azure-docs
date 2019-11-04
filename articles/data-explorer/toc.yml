@@ -87,11 +87,7 @@
     - name: Logstash
       href: ingest-data-logstash.md
     - name: Copy data using Azure Data Factory
-      href: data-factory-load-data.md 
-  - name: Deploy
-    items:
-    - name: DevOps task
-      href: devops.md    
+      href: data-factory-load-data.md   
   - name: Query data
     items:
     - name: Write queries
@@ -136,6 +132,8 @@
       href: tableau.md
     - name: Sisense
       href: sisense.md
+    - name: Redash
+      href: redash.md
   - name: Manage
     items:
     - name: Cluster
@@ -166,6 +164,10 @@
         href: delete-data.md
       - name: Deal with duplicate data
         href: dealing-with-duplicates.md
+  - name: Deploy
+    items:
+    - name: Deploy your cluster into your VNet
+      href: vnet-deployment.md  
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor ingestion
@@ -186,6 +188,8 @@
       href: connect-from-databricks.md
     - name: Analyze data in Jupyter Notebooks & Kqlmagic
       href: kqlmagic.md
+    - name: Azure Pipelines
+      href: devops.md  
   - name: Troubleshoot
     items:
     - name: Creating a cluster
@@ -220,10 +224,14 @@
       href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
   - name: Product feedback
     href: https://aka.ms/adefeedback
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/data-explorer/
-  - name: Cost Estimator
-    href: https://aka.ms/adecostestimator
+  - name: Pricing & billing
+    items: 
+    - name: Pricing page
+      href: https://azure.microsoft.com/pricing/details/data-explorer/
+    - name: Cost estimator
+      href: https://aka.ms/adecostestimator
+    - name: Reserved capacity
+      href: pricing-reserved-capacity.md 
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-explorer
 

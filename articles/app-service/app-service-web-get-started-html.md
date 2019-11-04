@@ -114,9 +114,11 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## Manage your new Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
+To manage the web app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
 
-From the left menu, click **App Services**, and then click the name of your Azure app.
+![Select App Services in the Azure portal](./media/app-service-web-get-started-html/portal0.png)
+
+On the **App Services** page, select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/app-service-web-get-started-html/portal1.png)
 
