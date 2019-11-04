@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/29/2019
+ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -208,6 +208,11 @@ The **summary** tab provides an overview of what happened and identifiers for th
 |---|---|
 |Conflict, EntryConflict|Correct the conflicting attribute values in either Azure AD or the application, or review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the following [documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) for more information on configuring matching attributes.|
 |TooManyRequests|The target app rejected this attempt to update the user because it is overloaded and receiving too many requests. There is nothing to do. This attempt will automatically be retired. Microsoft has also been notified of this issue.|
+|InternalServerError |The target app returned an unexpected error. There may be a service issue with the target application that is preventing this from working. This attempt will automatically be retired in 40 minutes.|
+|InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD was able to authenticate with the target application, but was not authorized to perform the update. Please review any instructions provided by the target application as well as the respective application [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).|
+|UnprocessableEntity|The target application returned an unexpected response. The configuration of the target application may not be correct, or there may be a service issue with the target application that is preventing this from working.|
+|WebExceptionProtocolError |An HTTP protocol error occurred while connecting to the target application. There is nothing to do. This attempt will automatically be retired in 40 minutes.|
+|InvalidAnchor|A user that was previously created or matched by the provisioning service no longer exists. Check to ensure the user exists. To force a re-match of all users, use the MS Graph API to [restart job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Note that restarting provisioning will trigger an initial cycle, which can take time to complete. It also deletes the cache the provisioning service uses to operate, meaning that all users and groups in the tenant will have to be evaluated again and certain provisioning events could be dropped.|
 
 ## Next steps
 
