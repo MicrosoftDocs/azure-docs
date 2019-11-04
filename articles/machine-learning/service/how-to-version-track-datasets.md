@@ -9,20 +9,21 @@ ms.topic: conceptual
 ms.author: sihhu
 author: sihhu
 ms.reviewer: nibaccam
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.custom: 
 
 # Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple ML experiments.
 ---
 
 # Version and track datasets in experiments
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this how-to, you learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data, so you can apply a specific version of the dataset for future experiments.
 
 Typical scenarios to consider for versioning:
 
-* When new data is available for retraining.
-* When you are applying different data preparation or feature engineering approaches.
+* When new data is available for retraining
+* When you are applying different data preparation or feature engineering approaches
 
 ## Prerequisites
 
@@ -152,7 +153,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-After registration, you're able to see the list of models registered with the dataset using Python or the [workspace landing page](https://ml.azure.com/).
+After registration, you're able to see the list of models registered with the dataset using Python or the [Azure Machine Learning studio](https://ml.azure.com/).
 
 The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with that experiment run.
 
@@ -165,14 +166,14 @@ train_dataset = inputs[0]['dataset']
 train_dataset.to_path()
 ```
 
-You can also find the `input_datasets` from experiments using the [workspace landing page (preview)](https://ml.azure.com/). 
+You can also find the `input_datasets` from experiments using the [Azure Machine Learning studio](https://ml.azure.com/). 
 
-The following image shows where to find the input dataset of an experiment on the workspace landing page. For this example, 
+The following image shows where to find the input dataset of an experiment on the Azure Machine Learning studio. For this example, 
 navigate to your **Experiments** pane, and open the **Properties** tab for a specific run of your experiment, `keras-mnist`. 
 
 ![Input datasets](media/how-to-version-datasets/input-datasets.png)
 
-You can also find the models that used your dataset with the workspace landing page. The following view is from the Datasets blade under Assets. Select the dataset and navigate to the Models tab for a list of the models using that dataset. 
+You can also find the models that used your dataset. The following view is from the Datasets blade under Assets. Select the dataset and navigate to the Models tab for a list of the models using that dataset. 
 
 ![Input datasets models](media/how-to-version-datasets/dataset-models.png)
 

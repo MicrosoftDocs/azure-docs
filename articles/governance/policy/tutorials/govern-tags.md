@@ -30,7 +30,7 @@ before you begin.
 ## Identify requirements
 
 Like any good implementation of governance controls, the requirements should come from your business
-needs and be well understand before creating technical controls. For this scenario tutorial, the
+needs and be well understood before creating technical controls. For this scenario tutorial, the
 following items are our business requirements:
 
 - Two required tags on all resources: _CostCenter_ and _Env_
