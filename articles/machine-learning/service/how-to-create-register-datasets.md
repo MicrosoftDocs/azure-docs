@@ -14,7 +14,7 @@ ms.date: 11/04/2019
 
 ---
 
-# Create and access datasets (preview) in Azure Machine Learning
+# Create and access datasets in Azure Machine Learning
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -168,7 +168,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
 #### On the web 
-The following steps and animation shows how to create a dataset in the Azure Machine Learning studio, https://ml.azure.com.
+The following steps and animation show how to create a dataset in the Azure Machine Learning studio, https://ml.azure.com.
 
 ![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
@@ -201,7 +201,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ### Using the SDK
 
-To create datasets with Azure Open Datasets from the SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by it's own class in the SDK, and certain classes are available as either a `TabularDataset`, `FileDataset`, or both. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) for a full list of classes.
+To create datasets with Azure Open Datasets from the SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by its own class in the SDK, and certain classes are available as either a `TabularDataset`, `FileDataset`, or both. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) for a full list of classes.
 
 Most classes inherit from and return an instance of `TabularDataset`. Examples of these classes include `PublicHolidays`, `BostonSafety`, and `UsPopulationZip`. To create a `TabularDataset` from these types of classes, use the constructor with no arguments. When you register a dataset created from Open Datasets, no data is immediately downloaded, but the data will be accessed later when requested (during training, for example) from a central storage location. 
 
@@ -229,7 +229,7 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 ### Using the UI
 
-You can also create datasets from Open Datasets classes using the UI. In your workspace, navigate to the **Datasets** tab under *Assets*. Click the **Create dataset** dropdown,and then click **From Open Datasets**.
+You can also create datasets from Open Datasets classes using the UI. In your workspace, navigate to the **Datasets** tab under *Assets*. Click the **Create dataset** dropdown, and then click **From Open Datasets**.
 
 ![Open Dataset with the UI](media/how-to-create-register-datasets/open-datasets-1.png)
 

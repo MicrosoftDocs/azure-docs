@@ -29,7 +29,7 @@ A taxonomy of the workspace is illustrated in the following diagram:
 
 The diagram shows the following components of a workspace:
 
-+ A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
++ A workspace can contain Azure Machine Learning Notebook VMs, cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams or projects.
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
@@ -72,11 +72,8 @@ You can also perform the following workspace management tasks:
 | Manage workspace access    | **&check;**   || |  **&check;**    |
 | Upgrade to Enterprise edition    | **&check;** |  | |     |
 | Create and manage compute resources    |   | **&check;** | **&check;** |  **&check;**   |
-| Create a compute instance | **&check;**  | **&check;** | **&check;** |     |
+| Create a Notebook VM |   | **&check;** | |     |
 
-> [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
 
 ## <a name='create-workspace'></a> Create a workspace
 
@@ -98,7 +95,7 @@ You can [upgrade your workspace from Basic to Enterprise edition](how-to-manage-
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model. To minimize costs, ACR is **lazy-loaded** until deployment images are created.
-+ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instance are stored here as well.
++ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning Notebook VM are stored here as well.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring information about your models.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 

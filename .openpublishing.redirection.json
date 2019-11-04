@@ -5551,6 +5551,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/durable/durable-functions-preview.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-versions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-functions/functions-bindings-storage.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-storage-blob",
       "redirect_document_id": false
@@ -19280,6 +19285,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-privacy-page.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-privacy-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-organizations-page.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-organizations-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-devices-page.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-devices-page",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/user-help/user-help-reset-password.md",
       "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
       "redirect_document_id": false      
@@ -24214,6 +24239,11 @@
       "redirect_url": "/azure/virtual-network/virtual-network-create-vm-accelerated-networking",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/networking/virtual-network-test-latency.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md",
       "redirect_url": "/azure/virtual-network/virtual-network-create-peering",
@@ -35820,7 +35850,7 @@
     },
     {
       "source_path": "articles/azure-policy/scripts/req-sql-12.md",
-      "redirect_url": "/azure/governance/policy/samples/require-sql-12",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
@@ -38479,6 +38509,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/azure-logs-metrics.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-platform",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -38900,8 +38935,13 @@
     },
     {
       "source_path": "articles/governance/policy/samples/req-sql-12.md",
-      "redirect_url": "/azure/governance/policy/samples/require-sql-12",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/require-sql-12.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/req-store-acct-enc.md",
@@ -43643,6 +43683,11 @@
     {
       "source_path": "articles/azure-monitor/insights/container-insights-live-logs.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-livedata-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-store-integrate-with-azure-services.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-integrate-with-azure-services",
       "redirect_document_id": false
     }
   ]
