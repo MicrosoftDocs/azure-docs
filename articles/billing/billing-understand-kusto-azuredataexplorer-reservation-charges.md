@@ -31,17 +31,17 @@ A reservation discount is applied to Azure Data Explorer markup consumption on a
 ## Examples
 
 The following examples show how the Azure Data Explorer reserved capacity discount is applied, depending on the number of markup units you bought, and when they're running.
-For example, for engine cluster size: **2 D11_v2 VMs**, your total on-demand charges are for 4 units of Azure Data Explorer markup meter per hour. 
+For example, for engine cluster size: **2 D11_v2 VMs**, your total on-demand charges are for four units of Azure Data Explorer markup meter per hour. 
 
 **Scenario 1** 
 
-You buy a Azure Data Explorer reserved capacity for 8 Azure Data Explorer markup units. You run an engine cluster of two D13_v2 VMs with a total of 16 cores that charges for 16 units of Azure Data Explorer markup units per hour and matches the rest of the attributes of the reservation. You are charged the pay-as-you-go price for 8 cores of Azure Data Explorer compute usage and get the reservation discount for one hour of 8 core Azure Data Explorer markup unit usage.
+You buy an Azure Data Explorer reserved capacity for 8 Azure Data Explorer markup units. You run an engine cluster of two D13_v2 VMs with a total of 16 cores that charges for 16 units of Azure Data Explorer markup units per hour and matches the rest of the attributes of the reservation. You are charged the pay-as-you-go price for eight cores of Azure Data Explorer compute usage and get the reservation discount for one hour of eight core Azure Data Explorer markup unit usage.
 
 For the rest of these examples, assume that the Azure Data Explorer reserved capacity you buy is for a 16 core Azure Data Explorer cluster and the rest of the reservation attributes match the running Azure Data Explorer cluster.
 
 **Scenario 2** 
 
-You run two Azure Data Explorer engine clusters with 8 cores each for an hour in two different regions. The 16 core reservation discount is applied for both of the cluster and the 16 units of Azure Data Explorer markup units they consume.
+You run two Azure Data Explorer engine clusters with eight cores each for an hour in two different regions. The 16 core reservation discount is applied for both of the cluster and the 16 units of Azure Data Explorer markup units they consume.
 
 **Scenario 3** 
 

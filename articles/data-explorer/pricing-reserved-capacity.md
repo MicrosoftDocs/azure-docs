@@ -1,5 +1,5 @@
 ---
-title: Prepay for Azure Azure Data Explorer markup to save money
+title: Prepay for Azure Data Explorer markup to save money
 description: Learn how to buy Azure Data Explorer reserved capacity to save on your Azure Data Explorer costs.
 author: avnera
 ms.author: avnera
@@ -13,7 +13,7 @@ ms.date: 11/03/2019
 
 Save money with Azure Data Explorer by prepaying for the markup units compared to pay-as-you-go prices. With Azure Data Explorer reserved capacity, you make a commitment for Azure Data Explorer use for a period of one or three years to get a significant discount on the Azure Data Explorer markup costs. To purchase Azure Data Explorer reserved capacity, you only need to specify the term, it will apply to all deployments of Azure Data Explorer in all regions.
 
-By purchasing a reservation, you are pre-paying for the markup costs for a period of one or three years. As soon as you buy a reservation, the Azure Data Explorer markup charges that match the reservation attributes are no longer charged at the pay-as-you go rates. Azure Data Explorer clusters that are already running or ones that are newly deployed will automatically get the benefit. This reservation doesn't cover compute, networking, or storage charges associated with the clusters. Reserved capacity for these resources need to be purchased separately. At the end of the reservation term, the billing benefit expires and the Azure Data Explorer markup units are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Data Explorer pricing page](https://azure.microsoft.com/pricing/details/data-explorer/).
+By purchasing a reservation, you're pre-paying for the markup costs for a period of one or three years. As soon as you buy a reservation, the Azure Data Explorer markup charges that match the reservation attributes are no longer charged at the pay-as-you go rates. Azure Data Explorer clusters that are already running or ones that are newly deployed will automatically get the benefit. This reservation doesn't cover compute, networking, or storage charges associated with the clusters. Reserved capacity for these resources needs to be purchased separately. At the end of the reservation term, the billing benefit expires and the Azure Data Explorer markup units are billed at the pay-as-you go price. Reservations don't auto-renew. For pricing information, see the [Azure Data Explorer pricing page](https://azure.microsoft.com/pricing/details/data-explorer/).
 
 You can buy Azure Data Explorer reserved capacity in the [Azure portal](https://portal.azure.com). To buy Azure Data Explorer reserved capacity:
 
@@ -27,7 +27,7 @@ For details on how enterprise customers and Pay-As-You-Go customers are charged 
 
 ## Determine the right markup usage before purchase
 
-The size of reservation should be based on the total amount of Azure Data Explorer markup units used by the existing or soon-to-be-deployed Azure Data Explorer clusters. The number of markup units is equal to the number of Azure Data Explorer engine cluster cores in production (not including the dev/test SKU). 
+The size of reservation should be based on the total number of Azure Data Explorer markup units used by the existing or soon-to-be-deployed Azure Data Explorer clusters. The number of markup units is equal to the number of Azure Data Explorer engine cluster cores in production (not including the dev/test SKU). 
 
 ## Buy Azure Data Explorer reserved capacity
 
@@ -47,7 +47,7 @@ The size of reservation should be based on the total amount of Azure Data Explor
 
 If you need to cancel your Azure Data Explorer reserved capacity reservation, there may be a 12% early termination fee. Refunds are based on the lowest price of your purchase price or the current price of the reservation. Refunds are limited to $50,000 per year. The refund you receive is the remaining pro-rated balance minus the 12% early termination fee. To request a cancellation, go to the reservation in the Azure portal and select **Refund** to create a support request.
 
-If you need to change your Azure Data Explorer reserved capacity reservation to another term, you can exchange it for another reservation that is of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The 1 or 3 year term starts from when you create the new reservation. To request an exchange, go to the reservation in the Azure portal, and select **Exchange** to create a support request.
+If you need to change your Azure Data Explorer reserved capacity reservation to another term, you can exchange it for another reservation that is of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The 1 or 3-year term starts from when you create the new reservation. To request an exchange, go to the reservation in the Azure portal, and select **Exchange** to create a support request.
 
 For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
