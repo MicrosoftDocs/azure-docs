@@ -338,10 +338,15 @@ System.out.println("Done");
 
 This app creates a test file in your local folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
 
-Navigate to the directory containing the *pom.xml* file, then build the package.
+Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
 
 ```console
 mvn compile
+```
+
+Then, build the package.
+
+```console
 mvn package
 ```
 
