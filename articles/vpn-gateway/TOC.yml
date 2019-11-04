@@ -200,8 +200,6 @@
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md 
   - name: Configure packet captures 
     href: packet-capture.md
-  - name: Configure custom traffic selectors
-    href: custom-traffic-selectors.md  
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:

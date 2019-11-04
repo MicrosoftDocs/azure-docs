@@ -5,7 +5,7 @@ author:  jpconnock
 
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 9/27/2019
+ms.date: 11/04/2019
 ms.author: jeconnoc
 ---
 # Quotas and Service Plans for Azure Spring Cloud
