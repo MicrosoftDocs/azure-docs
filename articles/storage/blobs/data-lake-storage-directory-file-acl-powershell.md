@@ -6,7 +6,7 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 11/04/2019
 ms.author: normesta
 ms.reviewer: prishet
 ---
@@ -138,69 +138,89 @@ In this example, the owning user and owning group have only read and write permi
 
 ## Upload a file to a directory
 
-Upload a file to a directory by using the `Set-AzStorageBlobContent` cmdlet.
+Upload a file to a directory by using the `New-AzDataLakeGen2Item` cmdlet.
 
-This example uploads a file named `text1.txt` to a directory named `my-directory`. 
+This example uploads a file named `upload.txt` to a directory named `my-directory`. 
 
 ```powershell
-$containerName = "mycontainer"
-$directory = "my-directory"
-$localSrcFile = "C:\text1.txt"
-Set-AzStorageBlobContent -Context $ctx -File $localSrcFile -Container $containerName -Blob "$($directory)/text1.txt" -Force 
+$localSrcFile =  "upload.txt"
+$filesystemName = "my-file-system";
+$dirname = "my-directory"
+$destPath = $dirname + "/" + (Get-Item $localSrcFile).Name
+New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $destPath -Source $localSrcFile -Force 
 ```
 
 ## Get the ACL of a file
 
-Get the access permissions of a file by using the `Get-AzStorageBlobFromDirectory` with the `-FetchPermission` and `BlobRelativePath` parameters.
+Get the access permissions of a file by using the `Get-AzDataLakeGen2Item` cmdlet. 
 
-This example gets the ACL of a file and then prints the short form of ACL to the console.
+This example gets the ACL of a file and then prints the ACL to the console.
 
 ```powershell
-$containerName = "mycontainer"
-$directoryName = "my-directory"
-$blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath $directoryName  -BlobRelativePath text1.txt -FetchPermission
-$blob.ICloudBlob.PathProperties
+$filePath = "my-directory/upload.txt"
+$file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath
+$file.ACL
 ```
+
+The output might look something like the following:
+
+![Get ACL output](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
+
+In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## Set the ACL of a file
 
-Use the `New-AzStorageBlobPathACL` cmdlet to set ACL on a file for the owning user, owning group, or other users. Then, use the `Set-AzStorageBlob` to commit the ACL.
+Use the `New-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Update-AzDataLakeGen2Item` cmdlet to commit the ACL.
 
-This example sets ACL on a file for the owning user, owning group, or other users.
+This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```powershell
-$containerName = "mycontainer"
-$directory = "my-directory"
-$acl = New-AzStorageBlobPathACL -AccessControlType user -Permission r-x 
-$acl = New-AzStorageBlobPathACL -AccessControlType group -Permission rwx -InputObject $acl 
-$acl = New-AzStorageBlobPathACL -AccessControlType other -Permission "-w-" -InputObject $acl
-$blob = Set-AzStorageBlob -Context $ctx -Container $containerName -Path text1.txt -ACL $acl
-$blob.ICloudBlob.PathProperties
+$filesystemName = "my-file-system";
+$filePath = "my-directory/upload.txt"
+$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
+$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
+$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath -Acl $acl
+$file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath
+$file.ACL
 ```
+The output would look like the following:
+
+![Get ACL output](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
+
+In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## Download from a directory
 
-Download a file from a directory by using the `Get-AzStorageBlobFromDirectory` cmdlet.
+Download a file from a directory by using the `Get-AzDataLakeGen2ItemContent` cmdlet.
 
-This example downloads a file named `text1.txt` from a directory named `my-directory`. 
+This example downloads a file named `upload.txt` from a directory named `my-directory`. 
 
 ```powershell
-$containerName = "mycontainer"
-$directoryName = "my-directory"
-$blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath $directoryName  -BlobRelativePath text1.txt
-$blob
+$filesystemName = "my-file-system";
+$filePath = "my-directory/upload.txt"
+$downloadFilePath = "download.txt"
+Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $filePath -Destination $downloadFilePath
 ```
 
 ## List directory contents
 
-List the contents of a directory by using the `Get-AzStorageBlobFromDirectory` cmdlet.
+List the contents of a directory by using the `Get-AzDataLakeGen2ChildItem` cmdlet.
 
 This example lists the contents of a directory named `my-directory`. 
 
 ```powershell
-$containerName = "mycontainer"
-$directoryName = "my-directory"
-Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath $directoryName 
+$filesystemName = "my-file-system";
+$dirname = "my-directory"
+Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname
+```
+
+This example lists the contents of a directory named `my-directory` and includes ACLs in the list.
+
+```powershell
+$filesystemName = "my-file-system";
+$dirname = "my-directory"
+Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
 ```
 
 ## See also
