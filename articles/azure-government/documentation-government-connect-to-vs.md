@@ -41,12 +41,12 @@ Then navigate to **Environment** > **Accounts** and under "Registered Azure Clou
 ![VS-2](./media/connect-to-vs-2.png)
 ![VS-3](./media/connect-to-vs-3.png)
 
-From this dropdown you can choose "Azure U.S. Government" and click add. Once you have done this you should be able to see "Azure U.S. Government" under "Registered Azure Clouds". 
+From this dropdown, you can choose "Azure U.S. Government" and click add. Once you have done this you should be able to see "Azure U.S. Government" under "Registered Azure Clouds". 
 
 ![VS-4](./media/connect-to-vs-4.png)
 ![VS-5](./media/connect-to-vs-5.png)
 
-Then you can click on the blue "Manage Accounts" link in the top left corner and choose "Azure US Government" to access an Azure Government account. 
+Then you can click on the blue "Manage Accounts" link in the top-left corner and choose "Azure US Government" to access an Azure Government account. 
 
 ![VS-6](./media/connect-to-vs-6.png)
 ![VS-7](./media/connect-to-vs-7.png)
