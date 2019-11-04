@@ -33,10 +33,10 @@ Learn what's new in the service. These items include release notes, videos, blog
 * Enhance user experience in [preview.luis.ai portal](https://preview.luis.ai) - revamped labeling experience to enable building and debugging complex models.
 * Advance language understanding capabilities - [building sophisticated language models](luis-concept-entity-types.md) with less effort. 
 * Defining machine learning features at the model level and enabling models to be used as signals to other model, like using entities as features to intents and to other entities.
+* New, expanded [limits](luis-boundaries.md) - higher max for phrase lists and total phrases, new model as a feature limits
 * Extract information from text in the format of deep hierarchy structure, making conversation applications more powerful.
 
     ![machine-learned entity image](./media/whats-new/deep-entity-extraction-example.png)
-
 
 ### September 3, 2019
 
