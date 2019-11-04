@@ -236,7 +236,7 @@ test-device-3	2019-05-02T14:24:28.919Z
 
 This solution uses a Stream Analytics query to detect when a device stops sending telemetry for more than 120 seconds. The query uses the telemetry from the event hub as its input. The job sends the  query results to the function app. In this section, you configure the Stream Analytics job:
 
-1. In the Azure portal, navigate to your Stream analytics job, under **Jobs topology** select **Inputs**, choose **+ Add stream input**, and then choose **Event Hub**.
+1. In the Azure portal, navigate to your Stream Analytics job, under **Jobs topology** select **Inputs**, choose **+ Add stream input**, and then choose **Event Hub**.
 1. Use the information in the following table to configure the input using the event hub you created previously, then choose **Save**:
 
     | Setting | Value |
