@@ -31,7 +31,7 @@ You need the following to complete this how to:
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-    [!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
+[!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
 
 ### Specify properties and test the connection
 
