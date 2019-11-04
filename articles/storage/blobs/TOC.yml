@@ -33,23 +33,23 @@
             href: storage-quickstart-blobs-dotnet-legacy.md
       - name: Java
         items:
-          - name: Java (v12)
+          - name: Java (v12 SDK)
             href: storage-quickstart-blobs-java.md
-          - name: Java (v8)
+          - name: Java (v8 SDK)
             href: storage-quickstart-blobs-java-legacy.md
       - name: Python
         items:
-          - name: Python (v12)
+          - name: Python (v12 SDK)
             href: storage-quickstart-blobs-python.md
-          - name: Python (v2.1)
+          - name: Python (v2.1 SDK)
             href: storage-quickstart-blobs-python-legacy.md
       - name: JavaScript
         items:
-          - name: JavaScript (v12 for Node.js)
+          - name: JavaScript (v12 SDK for Node.js)
             href: storage-quickstart-blobs-nodejs.md
-          - name: JavaScript (v10 for Node.js)
+          - name: JavaScript (v10 SDK for Node.js)
             href: storage-quickstart-blobs-nodejs-v10.md
-          - name: JavaScript (v10 for browser)
+          - name: JavaScript (v10 SDK for browser)
             href: storage-quickstart-blobs-javascript-client-libraries-v10.md
       - name: Go
         href: storage-quickstart-blobs-go.md
