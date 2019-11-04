@@ -17,8 +17,8 @@ ms.date: 07/01/2019
 
 HDInsight provides support for you to perform common tasks on your cluster such as installing OS patches, security updates, and rebooting nodes. These tasks are accomplished using the following two scripts that can be run as [script actions](hdinsight-hadoop-customize-cluster-linux.md), and configured with parameters:
 
+1. `schedule-reboots.sh` - Do an immediate restart, or schedule a restart on the cluster nodes.
 1. `install-updates-schedule-reboots.sh` - Install all updates, only kernel + security updates, or only kernel updates.
-2. `schedule-reboots.sh` - Do an immediate restart, or schedule a restart on the VM.
 
 > [!NOTE]  
 > Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
