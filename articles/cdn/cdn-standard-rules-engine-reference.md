@@ -28,7 +28,7 @@ A rule is defined through the use of [**match conditions**](cdn-standard-rules-e
 
  ![CDN rules structure](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
-Each rule can have up to 4 match conditions, and 3 actions. There is a maximum of 5 rules per CDN endpoint. Additionally, there is a rule in place by default called the **Global Rule**. This is a rule with no match conditions, where the actions definied within will always trigger. This rule is included in the current 5 rule limit.
+Each rule can have up to 4 match conditions, and 3 actions. There is a maximum of 5 rules per CDN endpoint. Additionally, there is a rule in place by default called the **Global Rule**. This is a rule with no match conditions, where the actions defined within will always trigger. This rule is included in the current 5 rule limit.
 
 ## Syntax
 
