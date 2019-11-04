@@ -1672,6 +1672,7 @@ featureFlags:
                                                 <p>Azure Private Link</p>
                                             </a>
                                         </li>
+                                        <li>
                                             <a href="/azure/peering-service/">
                                                 <img src="media/index/peering-service.svg" alt="" />
                                                 <p>Peering Service</p>
