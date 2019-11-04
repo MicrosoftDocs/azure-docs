@@ -16,13 +16,13 @@ Using this component, partners can develop sensors that integrate with FarmBeats
 
 Once the customers have purchased and deployed devices/sensors, they can access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by customer/SI:
 
-    - Display Name (An optional field for user to define a name for this integration)
-    - API Endpoint
-    - Tenant ID
-    - Client ID
-    - Client Secret
-    - EventHub Connection String
-    - Start Date
+   - Display Name (An optional field for user to define a name for this integration)
+   - API Endpoint
+   - Tenant ID
+   - Client ID
+   - Client Secret
+   - EventHub Connection String
+   - Start Date
 
     > [!NOTE]
     > Start Date enables historical data feed i.e. data from the date specified by the user.
@@ -31,16 +31,16 @@ Once the customers have purchased and deployed devices/sensors, they can access 
 
 Customers have the ability to unlink an existing FarmBeats Integration. Unlinking FarmBeats should not delete any device/sensor metadata that was created in customer’s Data hub. Unlinking does the following:
 
-    - Stops telemetry flow.
-    - Deletes and erase the integration credentials on device partner.
+   - Stops telemetry flow.
+   - Deletes and erase the integration credentials on device partner.
 
 ## Edit FarmBeats Integration
 
 The customer can edit the FarmBeats Integration. The primary scenario for edit is when the client secret or connection string changes due to expiry, in this case customer can only edit the following fields.
 
-    - Display name (if applicable)
-    - Client secret (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
-    - Connection string (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
+   - Display name (if applicable)
+   - Client secret (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
+   - Connection string (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
 
     > [!NOTE]
     > Edit should not interrupt the creation of metadata objects.
@@ -70,9 +70,9 @@ FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure
 For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
 FarmBeats Data hub uses Bearer Authentication, which needs the following credentials:
-    - Client ID
-    - Client Secret
-    - Tenant ID
+   - Client ID
+   - Client Secret
+   - Tenant ID
 
 Using the above credentials, the caller can request for an access token, which needs to be
 sent in the subsequent API requests in the header section as follows:
@@ -321,9 +321,9 @@ In the event of an error that affects the device/sensor metadata/data integratio
 
 Device manufacturers/partners can have the following sanity test/checklist to ensure that the credentials provided by the customer are accurate.
 
-    - Check if an access token is received with the credentials provided
-    - Check if an API call succeeds with the access token received
-    - Check if the EventHub client Connection is established
+   - Check if an access token is received with the credentials provided
+   - Check if an API call succeeds with the access token received
+   - Check if the EventHub client Connection is established
 
 ## Next Steps
 
