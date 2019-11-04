@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
 ---
 
@@ -28,7 +28,7 @@ The **Rank** API decides to use either:
 The **Reward** API:
 
 * Collects data to train the model by recording the features and reward scores of each rank call.
-* Uses that data to update the model based on settings specified in the _Learning Policy_.
+* Uses that data to update the model based on configuration specified in the _Learning Policy_.
 
 ## Architecture
 
