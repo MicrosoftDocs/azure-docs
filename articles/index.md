@@ -5658,7 +5658,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/intenet-analyzer/">
+                                <a href="/azure/internet-analyzer/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
