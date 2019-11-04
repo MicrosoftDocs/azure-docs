@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -44,7 +44,7 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7.
 
 ### How do I edit my LUIS app programmatically?
-To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-concept-keys.md#authoring-key) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-concept-keys.md).
+To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-concept-keys.md#azure-resources-for-luis) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-concept-keys.md).
 
 ### Where is the Pattern feature that provided regular expression matching?
 The previous **Pattern feature** is currently deprecated, replaced by **[Patterns](luis-concept-patterns.md)**.
@@ -64,7 +64,7 @@ To transfer a LUIS app to a different Azure subscription, export the LUIS app an
 
 ### A prebuilt entity is tagged in an example utterance instead of my custom entity. How do I fix this? 
 
-See [Troubleshooting prebuilt entities](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+In the LUIS portal, you can label text for the exact entity you are interested in extracting. If the LUIS portal is not showing the correct entity prediction, you may need to add more utterances and label the entity within the text or add a descriptor (such as a feature). 
 
 ### I tried to import an app or version file but I got an error, what happened? 
 

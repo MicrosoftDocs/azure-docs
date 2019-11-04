@@ -1,7 +1,7 @@
 ---
 title:  "Partition and Sample: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Partition and Sample module in Azure Machine Learning service to perform sampling on a dataset or to create partitions from your dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Partition and Sample module in Azure Machine Learning to perform sampling on a dataset or to create partitions from your dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Partition and Sample module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to perform sampling on a dataset or to create partitions from your dataset.
 
@@ -162,4 +162,4 @@ This option is used when you have divided a dataset into multiple partitions and
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
