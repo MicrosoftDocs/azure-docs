@@ -6,7 +6,7 @@ author: azooinmyluggage
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 11/04/2019
 ms.author: atulmal
 ---
 
@@ -72,7 +72,7 @@ Follow the steps to configure the secrets:
 
 ##  Build a Container Image and Deploy to Azure Kubernetes Service cluster
 
-The Build & push of the container images is done using `Azure/docker-login@v1` action. To deploy a container image to AKS, you will need to use the `Azure/k8s-deploy@v1` action. This action has five parameters:
+The build and push of the container images is done using `Azure/docker-login@v1` action. To deploy a container image to AKS, you will need to use the `Azure/k8s-deploy@v1` action. This action has five parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
