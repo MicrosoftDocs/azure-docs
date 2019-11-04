@@ -44,7 +44,7 @@ Azure Maps generates a *unique identifier (client ID)* for each Azure Maps accou
 | Azure Government    | https://login.microsoftonline.us |
 
 
-For more information about how to configure Azure AD and request tokens for Azure Maps, see [Manage authentication in Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+For more information about how to configure Azure AD and request tokens for Azure Maps, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 For general information about requesting tokens from Azure AD, see [What is authentication?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
@@ -87,6 +87,6 @@ For information about viewing your RBAC settings, see [How to configure RBAC for
 
 ## Next steps
 
-* To learn more about authenticating an application with Azure AD and Azure Maps, see [Manage authentication in Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+* To learn more about authenticating an application with Azure AD and Azure Maps, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 * To learn more about authenticating the Azure Maps Map Control and Azure AD, see [Use the Azure Maps Map Control](https://aka.ms/amaadmc).
