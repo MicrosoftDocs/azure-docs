@@ -33,7 +33,7 @@ Features announced in earlier previews are still in public preview. If you're ca
 + [moreLikeThis query parameter](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
 + [CSV blob indexing](search-howto-index-csv-blobs.md) creates one document per line, as opposed to one document per text blob.
 + [Cosmos DB indexer](search-howto-index-cosmosdb.md) supports MongoDB API, Gremlin API, and Cassandra API.
-+ [Azure Data Lake Storage Gen2 indexer](search-howto-index-adls.md) can index content and metadata from ADLS Gen2.
++ [Azure Data Lake Storage Gen2 indexer](search-howto-index-adls.md) can index content and metadata from Data Lake Storage Gen2.
 
 
 ## How to call a preview API
