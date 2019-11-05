@@ -5,7 +5,7 @@ author: jpconnock
 
 ms.service: spring-cloud
 ms.topic: overview
-ms.date: 10/04/2019
+ms.date: 11/4/2019
 ms.author: jeconnoc
 ---
 # What is Azure Spring Cloud?

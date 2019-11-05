@@ -14,6 +14,30 @@ ms.custom: seodec18
 ---
 
 # Release notes
+
+## Speech SDK 1.8.0: 2019-November release
+
+**New Features**
+*   Added a FromHost() API, to ease use with on-prem containers and sovereign coulds.
+*   Added Automatic Source Language Detection for Speech Recognition (in Java and C++)
+*   Added SourceLanguageConfig object for Speech Recognition, used to specify expected source languages (in Java and C++)
+*   Added KeywordRecognizer support on Windows (UWP), Android and iOS through the Nuget and Unity packages
+*   Added Remote Conversation Java API to do Conversation Transcription in asynchronous batches.
+
+**Breaking changes**
+*   Conversation Transcriber functionalities moved under namespace Microsoft.CognitiveServices.Speech.Transcription.
+*   Part of the Conversation Transcriber methods are moved to new Conversation class.
+*   Dropped support for 32-bit (ARMv7 and x86) iOS 
+
+**Bug fixes**
+*   Fix for crash if local KeywordRecognizer is used without a valid speech service subscription key
+
+**Samples**
+*   Xamarin sample for KeywordRecognizer
+*   Unity sample for KeywordRecognizer
+*   C++ and Java samples for Automatic Source Language Detection.
+
+
 ## Speech SDK 1.7.0: 2019-September release
 
 **New Features**
@@ -32,7 +56,6 @@ ms.custom: seodec18
 *   Fixed issue with UUIDs not being unique in some connection properties
 *   Fixed a few warnings about nullability specifiers in the Swift bindings (might require small code changes)
 *   Fixed a bug that caused websocket connections to be closed ungracefully under network load
-*   iOS: dropped support for arm7s architecture
 *   Fixed an issue on Android that sometimes results in duplicate impression IDs used by DialogServiceConnector
 *   Improvements to the stability of connections across multi-turn interactions and the reporting of failures (via Canceled events) when they occur with DialogServiceConnector
 *   DialogServiceConnector session starts will now properly provide events, including when calling ListenOnceAsync() during an active StartKeywordRecognitionAsync()

@@ -36,11 +36,13 @@ Use the links in this section for more information about managed cloud networkin
 
 [Equinix](https://www.equinix.com/)
 
-[InterCloud](https://intercloud.com/partners/microsoft-azure/)
-
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 
-[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/
+[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)
+
+[InterCloud](https://intercloud.com/partners/microsoft-azure/)
+
+[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)
 
 [ixreach](https://www.ixreach.com/)
 
