@@ -83,7 +83,7 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
 1. Expand **Attach Cognitive Services**. **Free (Limited enrichments)** is selected by default. You can use this resource because number of records in HotelReviews-Free.csv is 19 and this free resource allows up to 20 transactions a day.
 1. Expand **Add cognitive skills**.
 1. For **Skillset name**, enter `hotel-reviews-ss`.
-1. For **Source data field**, select **reviews_text*.
+1. For **Source data field**, select **reviews_text**.
 1. For **Enrichment granularity level**, select **Pages (5000 characters chunks)**
 1. Select these cognitive skills:
     + **Extract key phrases**

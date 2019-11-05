@@ -75,7 +75,9 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
       }
     },
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10
+    "maxConcurrentOrchestratorFunctions": 10,
+    "extendedSessionsEnabled": false,
+    "extendedSessionIdleTimeoutInSeconds": 30
   }
 }
 ```

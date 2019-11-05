@@ -3,6 +3,7 @@ title: Export data and visualize insights in Azure IoT Central | Microsoft Docs
 description: In this tutorial, learn how to export data from IoT Central, and visualize insights in a Power BI dashboard.
 services: iot-central
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 ms.author: dobett

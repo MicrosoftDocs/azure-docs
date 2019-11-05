@@ -1,7 +1,7 @@
 ---
-title: Get crowd-sourced labels for data
+title: Get labels for data
 titleSuffix: Azure Machine Learning
-description: This article shows you how to create and run labeling projects to crowd-source tagging data for machine learning.
+description: This article shows you how to create and run labeling projects to tag data for machine learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
