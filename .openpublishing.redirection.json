@@ -5276,6 +5276,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/web-application-firewall-troubleshoot.md",
+      "redirect_url": "/azure/web-application-firewall/ag/web-application-firewall-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/waf-overview.md",
+      "redirect_url": "/azure/web-application-firewall/ag/ag-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-create-url-route-portal.md",
       "redirect_url": "/azure/application-gateway/create-url-route-portal",
       "redirect_document_id": false
