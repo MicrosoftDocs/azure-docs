@@ -29,6 +29,7 @@ Regression | Task for predicting a continuous quantity output. | Automobile cost
 Forecasting |Task for making informed estimates in determining the direction of future trends.| Forecasting energy demand for them next 48 hours. The target column would be **demand** and the predicted values would be used to show patterns in the energy demand.
 
 Automated ML supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
+
 Classification | Regression | Time Series Forecasting
 -- |-- |--
 [Logistic Regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
