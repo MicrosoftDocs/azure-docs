@@ -447,7 +447,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 
 7. Click Save
 
-## Configure the redirect URIs for the Azure AD B2C frontend app
+## Set the redirect URIs for the Azure AD B2C frontend app
 1. Open the Azure AD B2C blade and navigate to the application registration for the JavaScript Frontend Application
 2. Set the redirect URL to the one you noted down when you previously set up the static website primary endpoint above
 
