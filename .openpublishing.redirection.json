@@ -43715,5 +43715,10 @@
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-use-conversation-transcription",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/machine-learning/service/publish-a-machine-learning-web-service.md",
+      "redirect_url": "/azure/machine-learning/service/deploy-a-machine-learning-web-servicen",
+      "redirect_document_id": false
+    }
   ]
 }

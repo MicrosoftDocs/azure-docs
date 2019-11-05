@@ -19,7 +19,7 @@ Once you deploy an Azure Machine Learning Studio (classic) predictive model as a
 You can find more information about how to create and deploy a Machine Learning Web service using Machine Learning Studio (classic) here:
 
 * For a tutorial on how to create an experiment in Machine Learning Studio (classic), see [Create your first experiment](create-experiment.md).
-* For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
+* For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](deploy-a-machine-learning-web-service.md).
 * For more information about Machine Learning in general, visit the [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 
@@ -32,7 +32,7 @@ Tthe classic version of Azure Machine Learning Studio has two types of services:
 * Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio (classic).
 * Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
 
-For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
+For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](deploy-a-machine-learning-web-service.md).
 
 ## Get an authorization key
 When you deploy your experiment, API keys are generated for the Web service. You can retrieve the keys from several locations.
