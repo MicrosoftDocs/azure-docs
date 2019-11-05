@@ -44,7 +44,7 @@ In most cases, you should not be impacted by backwards-incompatibility.
 
 ## Timeline
 
-You can check for the deployment of the new runtime here [Runtime troubleshoot](data-lake-analytics-runtime-troubleshoot.md), and by looking at any prior successful job.
+You can check for the deployment of the new runtime here [Runtime troubleshoot](runtime-troubleshoot.md), and by looking at any prior successful job.
 
 ### What if I can't get my code reviewed in time
 
