@@ -100,7 +100,7 @@ If you're finished with the Azure resource group and resources you created in th
 To delete the resource group and its Redis Cache for Azure instance:
 
 1. From the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
-1. In the **Filter by name** text box, enter the name of your resource group, and then select it from the search results. 
+1. In the **Filter by name** text box, enter the name of the resource group that contains your cache instance, and then select it from the search results. 
 1. On your resource group page, select **Delete resource group**.
 1. Type the resource group name, and then select **Delete**.
    
