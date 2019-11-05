@@ -51,8 +51,7 @@ Virtual machines scale sets allow you to specify orchestration mode.  With the v
 |   | “orchestrationMode”: “VM” (VirtualMachine)| “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
 |----|----|----|
 | VM configuration model| None. VirtualMachineProfile is undefined in the scale set model. | Required. VirtualMachineProfile is populated in the scale set model. |
-| Adding new VM to Scale Set| VMs are explicitly added to the scale set when the VM is created. |
-| VMs are implicitly created and added to the scale set based on the VM configuration model, instance count, and AutoScaling rules
+| Adding new VM to Scale Set| VMs are explicitly added to the scale set when the VM is created. | VMs are implicitly created and added to the scale set based on the VM configuration model, instance count, and AutoScaling rules. |
 | Availability Zones| Supports regional deployment or VMs in one Availability Zone| Supports regional deployment or multiple Availability Zones; Can define the zone balancing strategy |
 | Fault domains| Can define fault domains count. 2 or 3 based on regional support and 5 for Availability zone. The assigned VM fault domain will persist with VM lifecycle, including deallocate and restart. | Can define 1, 2, or 3 fault domains for non-zonal deployments, and 5 for Availability zone deployments. The assigned VM fault domain does not persist with VM lifecycle, virtual machines are assigned a fault domain at time of allocation. |
 | Update domains| N/A. Update domains are automatically mapped to fault domains| N/A. Update domains are automatically mapped to fault domains |
