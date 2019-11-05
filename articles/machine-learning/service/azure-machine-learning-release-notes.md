@@ -53,7 +53,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added append_prefix bool parameter to download_files in run.py and download_artifacts_from_prefix in artifacts_client. This flag is used to selectively flatten the origin filepath so only the file or folder name is added to the output_directory
     + fix deserialization issue for `run_config.yml` with dataset usage.
   + **azureml-interpret**
-    + update interpret-community version to 0.1.0.3
+    + updated interpret-community version to 0.1.0.3
   + **azureml-train-automl**
     + Fixed an issue where automl_step might not print validation issues.
     + Fixed register_model to succeed even if the model's environment is missing dependencies locally.
