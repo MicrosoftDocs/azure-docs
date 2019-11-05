@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 10/21/2019
+ms.date: 11/06/2019
 ms.author: helohr
 ---
 # Troubleshoot the Windows Virtual Desktop management tool
@@ -47,7 +47,7 @@ When you deploy the management tool, the consent prompt might not open right awa
 
 If a customer sets the region to East US, they can't deploy the management tool.
 
-To fix this, deploy the management tool in a different region.
+To fix this, deploy the management tool in a different region. Redeploying the tool in a different region shouldn't affect user experience.
 
 ## Next steps
 

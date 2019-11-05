@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 11/06/2019
 ms.author: helohr
 ---
 # Tutorial: Deploy a management tool
@@ -98,6 +98,7 @@ Follow these instructions to launch the tool:
 1. Select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Sign in using your Windows Virtual Desktop credentials.
 3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
+4. When you select Default Tenant Group, a menu should appear on the right side of your window. On this menu, find the name of your tenant group and select it.
 
 > [!NOTE]
 > If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
