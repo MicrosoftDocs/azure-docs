@@ -47,7 +47,7 @@ landingContent:
         - text: Using suggested terms
           url: concepts/get-suggestions.md
         - text: Sending API requests
-          url: quickstarts/csharp.md
+          url: concepts/sending-requests.md
 
 - title: Reference
   linkLists:
