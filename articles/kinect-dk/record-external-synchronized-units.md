@@ -1,5 +1,5 @@
 ---
-title: Use Azure Kinect recorder with external synchronized units
+title: Use Azure Kinect recorder with external synchronized devices
 description: Learn how to record data from devices configured for external synchronization using the Azure Kinect Recorder.
 author: tesych
 ms.author: tesych
@@ -10,7 +10,7 @@ ms.topic: conceptual
 keywords: Kinect, sensor, viewer, external sync, phase delay, depth, RGB, camera, audio cable, recorder
 ---
 
-# Use Azure Kinect recorder with external synchronized units
+# Use Azure Kinect recorder with external synchronized devices
 
 This article provides guidance on how the [Azure Kinect Recorder](azure-kinect-recorder.md) can record data external synchronization configured devices.
 
