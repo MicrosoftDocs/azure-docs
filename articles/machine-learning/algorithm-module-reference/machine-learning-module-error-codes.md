@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot module errors
-titleSuffix: "Azure Machine Learning service"
+titleSuffix: "Azure Machine Learning"
 description: Troubleshoot module exceptions in Azure Machine Learning Studio using error codes
 services: machine-learning
 ms.service: machine-learning
@@ -9,19 +9,19 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Exceptions and error codes for Algorithm & Module Reference
 
-Learn about the error messages and exception codes you might encounter using  modules in Azure Machine Learning Studio. 
+Learn about the error messages and exception codes you might encounter using  modules in Azure Machine Learning designer (preview). 
 
-To resolve the issue, look for the error in this article to read about common causes. There are two ways to get the full text of an error message in Studio:  
+To resolve the issue, look for the error in this article to read about common causes. There are two ways to get the full text of an error message in the designer:  
  
 - Click the link, **View Output Log**, in the right pane and scroll to the bottom. The detailed error message is displayed in the last two lines of the window.  
   
 - Select the module that has the error, and click the red X. Only the pertinent error text is displayed.  
   
-If the error message text is not helpful, send us information about the context and any desired additions or changes. You can either submit feedback on the error topic, or visit the [Azure Machine Learning STUDIO forum](https://aka.ms/aml-forum-studio) and post a question.  
+If the error message text is not helpful, send us information about the context and any desired additions or changes by submitting feedback.
 
 
 ## Error 0001  
@@ -164,9 +164,9 @@ If the error message text is not helpful, send us information about the context 
 ## Error 0009  
  Exception occurs when the Azure storage account name or container name is specified incorrectly.  
   
-This error occurs in Azure Machine Learning Studio when you specify parameters for an Azure storage account, but the name or password cannot be resolved. Errors on passwords or account names can happen for many reasons:
+This error occurs in Azure Machine Learning designer when you specify parameters for an Azure storage account, but the name or password cannot be resolved. Errors on passwords or account names can happen for many reasons:
  
- + The account is the wrong type. Some new account types are not supported for use with Machine Learning Studio. See [Import Data](import-data.md) for details.
+ + The account is the wrong type. Some new account types are not supported for use with Machine Learning designer. See [Import Data](import-data.md) for details.
  + You entered the incorrect account name
  + The account no longer exists
  + The password for the storage account is wrong or has changed
@@ -1107,7 +1107,7 @@ Another reason you might get this error if you try to use a column containing fl
   
 **Resolution:**
 
-1. In Azure Machine Learning Studio, right-click the module that has the error, and select **View Log**.
+1. In Azure Machine Learning designer, right-click the module that has the error, and select **View Log**.
 2. Examine the standard error log of the module, which contains the stack trace.
     + Lines beginning with [ModuleOutput] indicate output from R.
     + Messages from R marked as **warnings** typically do not cause the pipeline to fail.

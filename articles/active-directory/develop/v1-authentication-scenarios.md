@@ -1,5 +1,5 @@
 ---
-title: Authentication in Microsoft identity platform (v1) | Azure
+title: Authentication in the Microsoft identity platform (v1.0) | Azure
 description: Learn the basics about authentication in Microsoft identity platform- the app model, API, provisioning, and the most common authentication scenarios that Microsoft identity platform supports.
 services: active-directory
 documentationcenter: dev-center-name

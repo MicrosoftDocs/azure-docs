@@ -40,7 +40,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: image-moderation-quickstart-dotnet.md
+            url: dotnet-sdk-quickstart.md
           - text: Using the Python SDK
             url: python-sdk-quickstart.md
           - text: Using the Java SDK
@@ -62,8 +62,6 @@ landingContent:
             url: image-lists-quickstart-dotnet.md
           - text: Using the Python SDK
             url: python-sdk-quickstart.md
-          - text: Using the Java SDK
-            url: java-sdk-quickstart.md
       - linkListType: how-to-guide
         links:
           - text: Using the API console
@@ -78,11 +76,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: text-moderation-quickstart-dotnet.md
+            url: dotnet-sdk-quickstart.md
           - text: Using the Python SDK
             url: python-sdk-quickstart.md
-          - text: Using the Java SDK
-            url: java-sdk-quickstart.md
       - linkListType: how-to-guide
         links:
           - text: Using the API console
@@ -96,8 +92,6 @@ landingContent:
             url: term-lists-quickstart-dotnet.md
           - text: Using the Python SDK
             url: python-sdk-quickstart.md
-          - text: Using the Java SDK
-            url: java-sdk-quickstart.md
       - linkListType: how-to-guide
         links:
           - text: Using the API console
@@ -130,8 +124,6 @@ landingContent:
         links:
           - text: Create reviews with the Python SDK
             url: python-sdk-quickstart.md
-          - text: Create reviews with the Java SDK
-            url: java-sdk-quickstart.md
       - linkListType: how-to-guide
         links:
           - text: Define and use reviews (Review tool)
