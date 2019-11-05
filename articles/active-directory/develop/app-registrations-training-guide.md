@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 You can find numerous improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the legacy experience, use this training guide to get you started using the new experience.
 
-In Azure Active Directory, the new application registration experience described here generally available (GA). In Azure Active Directory B2C (Azure AD B2C), this experience is in preview.
+In Azure Active Directory, the new application registration experience described here is generally available (GA). In Azure Active Directory B2C (Azure AD B2C), this experience is in preview.
 
 ## Key changes
 
