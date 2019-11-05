@@ -7,7 +7,7 @@ ms.date: 10/16/2019
 ms.author: marsma
 # Used by the identity provider (IdP) setup articles under "Custom policy"
 ---
-To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
 #### [Applications](#tab/applications/)
 
