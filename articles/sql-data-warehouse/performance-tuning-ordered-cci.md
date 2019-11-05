@@ -1,5 +1,5 @@
 ---
-title: Performance tuning with Azure SQL Data Warehouse ordered clustered columnstore index | Microsoft Docs
+title: Performance tuning with Azure SQL Data Warehouse ordered clustered columnstore index 
 description: Recommendations and considerations you should know as you use ordered clustered columnstore index to improve your query performance. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
