@@ -253,7 +253,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 > The following section is optional and does not apply to the **Consumption** tier, which does not support the developer portal.
 > If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](##build-the-javascript-spa-to-consume-the-api).
 
-## [Optional] Configure the API Management developer portal to call your secured API
+## [Optional] Configure the API Management developer portal
 
 1. Open the Azure AD B2C blade and navigate to the application registration for the Developer Portal
 2. Set the 'Reply URL' entry to the one you noted down when you configured the redirect_uri of the auth code grant in API Management earlier.
@@ -447,7 +447,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 
 7. Click Save
 
-## Configure the redirect URIs for the frontend app registration in Azure AD B2C
+## Configure the redirect URIs for the Azure AD B2C frontend app
 1. Open the Azure AD B2C blade and navigate to the application registration for the JavaScript Frontend Application
 2. Set the redirect URL to the one you noted down when you previously set up the static website primary endpoint above
 
