@@ -295,7 +295,7 @@
         - name: Exceptions
           href: app/asp-net-exceptions.md
         - name: Log traces
-          href: app/java-trace-logs.md
+          href: app/asp-net-trace-logs.md 
         - name: Unix metrics
           href: app/java-collectd.md
         - name: Dependencies
@@ -318,6 +318,8 @@
           href: app/opencensus-python.md
         - name: Dependencies 
           href: app/opencensus-python-dependency.md
+        - name: Requests 
+          href: app/opencensus-python-request.md
       - name: Web pages
         items:
         - name: Client-side JavaScript
@@ -593,26 +595,39 @@
     - name: Resource logs
       items: 
       - name: Overview
+        displayname: Resource logs
         href: platform/resource-logs-overview.md 
       - name: Collect in Azure Monitor Logs
+        displayname: Resource logs
         href: platform/resource-logs-collect-workspace.md
       - name: Archive to storage
+        displayname: Resource logs
         href: platform/resource-logs-collect-storage.md
       - name: Stream to Event Hubs
+        displayname: Resource logs
         href: platform/resource-logs-stream-event-hubs.md
     - name: Activity log
       items:
       - name: Overview
+        displayname: Activity log
         href: platform/activity-logs-overview.md
+      - name: Collect with diagnostic setting
+        displayname: Activity log
+        href: platform/diagnostic-settings-subscription.md
       - name: View and retrieve
+        displayname: Activity log
         href: platform/activity-log-view.md
       - name: Collect and analyze
+        displayname: Activity log
         href: platform/activity-log-collect.md
       - name: Collect across tenants
+        displayname: Activity log
         href: platform/activity-log-collect-tenants.md
       - name: Export 
+        displayname: Activity log
         href: platform/activity-log-export.md
       - name: Schema
+        displayname: Activity log
         href: platform/activity-log-schema.md
     - name: Diagnostic settings
       items: 
@@ -621,6 +636,7 @@
       - name: Create diagnostic setting with Resource Manager
         href: platform/diagnostic-settings-template.md
       - name: Change to blob storage format
+        displayname: Diagnostic settings
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
@@ -781,20 +797,32 @@
           href: insights/container-insights-enable-new-cluster.md
         - name: Enable for existing cluster
           href: insights/container-insights-enable-existing-clusters.md
+        - name: Enable for hybrid cluster
+          href: insights/container-insights-hybrid-setup.md
         - name: Region mappings
           href: insights/container-insights-region-mapping.md
       - name: Analyze 
         href: insights/container-insights-analyze.md
       - name: Disable monitoring
         href: insights/container-insights-optout.md
-      - name: View live logs
-        href: insights/container-insights-live-logs.md
+      - name: View live data
+        items:
+        - name: Live Data (preview) overview
+          href: insights/container-insights-livedata-overview.md
+        - name: Setup
+          href: insights/container-insights-livedata-setup.md
+        - name: View cluster metrics
+          href: insights/container-insights-livedata-metrics.md
+        - name: View deployments
+          href: insights/container-insights-livedata-deployments.md
       - name: Analyze data with log queries
         href: insights/container-insights-log-search.md
       - name: Alerting
         href: insights/container-insights-alerts.md
       - name: Agent management
         href: insights/container-insights-manage-agent.md
+      - name: Configure Prometheus metric scraping
+        href: insights/container-insights-prometheus-integration.md
       - name: Configure agent collection settings
         href: insights/container-insights-agent-config.md
       - name: Update to enable metrics

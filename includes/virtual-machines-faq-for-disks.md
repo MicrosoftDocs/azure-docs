@@ -166,15 +166,6 @@ You will receive email notifications 30 days prior to expiration and again on th
 
 ## Ultra disks
 
-**What regions currently support ultra disks?**
-- East US 2
-- SouthEast Asia
-- North Europe
-
-**What VM series currently support ultra disks?**
-- ESv3
-- DSv3
-
 **What should I set my ultra disk throughput to?**
 If you are unsure what to set your disk throughput to, we recommend you start by assuming an IO size of 16 KiB and adjust the performance from there as you monitor your application. The formula is: Throughput in MBps = # of IOPS * 16 / 1000.
 
@@ -353,6 +344,18 @@ Yes
 No. But if you export a VHD to an encrypted storage account from an encrypted managed disk or snapshot, then it's encrypted. 
 
 ## Premium disks: Managed and unmanaged
+
+**What regions support bursting capability for applicable premium SSD disk size?**
+
+The bursting capability is currently supported in Azure West Central US.
+
+**What regions are 4/8/16 GiB Managed Disk sizes (P1/P2/P3, E1/E2/E3) supported in?**
+
+These new disk sizes are currently supported in Azure West Central US.
+
+**Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?**
+
+No, it is only supported on Premium SSD Managed Disks. 
 
 **If a VM uses a size series that supports Premium SSD disks, such as a DSv2, can I attach both premium and standard data disks?** 
 

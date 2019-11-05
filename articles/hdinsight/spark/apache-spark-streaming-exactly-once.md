@@ -1,5 +1,5 @@
 ---
-title: Spark Streaming jobs with exactly-once event processing - Azure HDInsight
+title: Spark Streaming & exactly-once event processing - Azure HDInsight
 description: How to set up Apache Spark Streaming to process an event once and only once.
 ms.service: hdinsight
 author: hrasheed-msft

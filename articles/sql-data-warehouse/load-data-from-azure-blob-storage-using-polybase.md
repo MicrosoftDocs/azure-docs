@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Load New York Taxicab data to Azure SQL Data Warehouse | Microsoft Docs'
-description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from a public Azure blob  to Azure SQL Data Warehouse.
+description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from a global Azure blob  to Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo  
 manager: craigg
@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Tutorial: Load New York Taxicab data to Azure SQL Data Warehouse
 
-This tutorial uses PolyBase to load New York Taxicab data from a public Azure blob to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
+This tutorial uses PolyBase to load New York Taxicab data from a global Azure blob to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -39,7 +39,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL Data Warehouse
 
-An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+An Azure SQL Data Warehouse is created with a defined set of [compute resources]memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
 Follow these steps to create a blank SQL Data Warehouse. 
 
