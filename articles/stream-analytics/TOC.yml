@@ -97,6 +97,8 @@
       href: stream-analytics-power-bi-dashboard.md
     - name: Stop or delete a job
       href: stream-analytics-clean-up-your-job.md
+    - name: Copy or back up a job
+      href: copy-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
     - name: Authenticate with managed identity - ADLS Gen 1 output

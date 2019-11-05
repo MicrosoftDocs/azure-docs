@@ -262,3 +262,23 @@ This exception should come from your training scripts. You can look at the log f
 
 ### Horovod is shutdown
 In most cases, this exception means there was an underlying exception in one of the processes that caused horovod to shutdown. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easy to differentiate the logs. To find the exact error that caused horovod shutdown, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
+
+## Labeling projects issues
+
+Known issues with labeling projects.
+
+### Only datasets created on blob datastores can be used
+
+This is a known limitation of the current release. 
+
+### After creation, the project shows "Initializing" for a long time
+
+Manually refresh the page. Initialization should proceed at roughly 20 datapoints per second. The lack of autorefresh is a known issue. 
+
+### Bounding box cannot be drawn all the way to right edge of image 
+
+Try resizing the browser window. We are investigating to determine the cause of this behavior. 
+
+### When reviewing images, newly labeled images are not shown
+
+To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.

@@ -162,19 +162,7 @@ The following tag is an example of the format:
 2.0.0-amd64-en-us-preview
 ```
 
-The following table lists the supported locales for **speech-to-text** in the 2.0.0 version of the container:
-
-| Language locale | Tags |
-|--|--|
-| Chinese | `zh-CN` |
-| English | `en-US`<br>`en-GB`<br>`en-AU`<br>`en-IN` |
-| French | `fr-CA`<br>`fr-FR` |
-| German | `de-DE` |
-| Italian | `it-IT` |
-| Japanese | `ja-JP` |
-| Korean | `ko-KR` |
-| Portuguese | `pt-BR` |
-| Spanish | `es-ES`<br>`es-MX` |
+For all of the supported locales in the 2.0.0 version of the **speech-to-text** container, lease see the **Container support** column of the [Speech-to-text language support](language-support.md#speech-to-text) table.
 
 # [Custom Speech-to-text](#tab/cstt)
 
@@ -216,24 +204,7 @@ The following tag is an example of the format:
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-The following table lists the supported locales for **text-to-speech** in the 1.3.0 version of the container:
-
-| Language locale | Tags | Supported voices |
-|--|--|--|
-| Chinese | `zh-CN` | huihuirus<br>kangkang-apollo<br>yaoyao-apollo |
-| English | `en-AU` | catherine<br>hayleyrus |
-| English | `en-GB` | george-apollo<br>hazelrus<br>susan-apollo |
-| English | `en-IN` | heera-apollo<br>priyarus<br>ravi-apollo<br> |
-| English | `en-US` | jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus |
-| French | `fr-CA` | caroline<br>harmonierus |
-| French | `fr-FR` | hortenserus<br>julie-apollo<br>paul-apollo |
-| German | `de-DE` | hedda<br>heddarus<br>stefan-apollo |
-| Italian | `it-IT` | cosimo-apollo<br>luciarus |
-| Japanese | `ja-JP` | ayumi-apollo<br>harukarus<br>ichiro-apollo |
-| Korean | `ko-KR` | heamirus |
-| Portuguese | `pt-BR` | daniel-apollo<br>heloisarus |
-| Spanish | `es-ES` | elenarus<br>laura-apollo<br>pablo-apollo<br> |
-| Spanish | `es-MX` | hildarus<br>raul-apollo |
+For all of the supported locales and corresponding voices in the 1.3.0 version of the **text-to-speech** container, please see the **Container support** column of the [standard voices language support](language-support.md#standard-voices) table.
 
 > [!IMPORTANT]
 > When constructing a *Standard Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-JessaRUS`.

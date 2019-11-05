@@ -121,7 +121,7 @@ If you already have a service with the dependencies installed in your **environm
 
    ![Edit Service](media/how-to-enable-data-collection/EditService.PNG)
 
-1. In **Advanced Settings**, deselect **Enable Model data collection**. 
+1. In **Advanced Settings**, select **Enable Model data collection**. 
 
     [![check Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
