@@ -13,14 +13,12 @@ ms.reviewer: jrasnick
 
 # Quickstart: Create and use views
 
-This section explains how to leverage views to wrap SQL on-demand queries so you can reuse your queries. 
-
-Views are also needed if you want tools like Power BI to leverage SQL on-demand query.
+This section explains how to leverage views to wrap SQL on-demand queries so you can reuse your queries. Views are also needed if you want tools like Power BI to leverage SQL on-demand query.
 
 
 ## Prerequisites
 
-Before reading rest of the article, make sure to check following articles:
+Before reading the rest of this article, make sure to check following articles:
 - [First-time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
@@ -28,10 +26,10 @@ Before reading rest of the article, make sure to check following articles:
 
 You can create views the same way you create regular SQL Server views. 
 
-Following query creates view that reads *population.csv* file.
+The query below creates view that reads *population.csv* file.
 
 > [!NOTE]
-> Change the first line in query below to use database you created. If you did not create database, please check [First-time setup](query-data-storage.md#first-time-setup).
+> Change the first line in query below to use the database you created. If you have not created a database, please check [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname]
@@ -62,10 +60,10 @@ WITH (
 
 You can use views in your queries the same way you use views in SQL Server queries. 
 
-Following query shows how you can use *population_csv* view we created in [Create a view](#create-a-view). It returns country names with their population in 2019 in descending order.
+The following query shows how you can use the *population_csv* view we created in [Create a view](#create-a-view). It returns country names with their population in 2019 in descending order.
 
 > [!NOTE]
-> Change the first line in query below to use database you created. If you did not create database, please check [First-time setup](query-data-storage.md#first-time-setup).
+> Change the first line in the query below to use the database you created. If you have not created a database, please check [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname]

@@ -13,10 +13,10 @@ ms.reviewer: jrasnick
 ---
 
 # Design decisions and coding techniques for SQL Analytics
-Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for SQL Analytics.
+The development articles below will help you to better understand key design decisions, recommendations, and coding techniques for SQL Analytics.
 
 ## Key design decisions
-The following articles highlight concepts and design decisions for developing using SQL Analytics:
+The following articles highlight concepts and design decisions for development using SQL Analytics:
 
 |                                                          |   SQL Analytics pool   | SQL Analytics on-demand |
 | -----------------------------------------------------    | ---- | ---- |
@@ -34,7 +34,7 @@ The following articles highlight concepts and design decisions for developing us
 
 
 ## Development recommendations and coding techniques
-These articles highlight specific coding techniques, tips, and recommendations for developing:
+The following articles highlight specific coding techniques, tips, and recommendations for development:
 
 |                                            | SQL Analytics pool | SQL Analytics on-demand |
 | ------------------------------------------ | ------------------ | ----------------------- |

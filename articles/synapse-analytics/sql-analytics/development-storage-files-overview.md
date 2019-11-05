@@ -15,18 +15,18 @@ ms.reviewer: jrasnick
 
 SQL Analytics on-demand enables you to query data in your data lake. It offers a T-SQL querying surface area, which is slightly enhanced/extended in some aspects to accommodate for experiences around querying of semi-structured and unstructured data.
 
-For querying, following T-SQL aspects are supported:
+For querying, the following T-SQL aspects are supported:
 
 - Full [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=sql-server-2017) surface area, including majority of SQL functions, operators, etc.
-- [CETAS](development-tables-cetas.md) - CREATE EXTERNAL TABLE AS SELECT -  creates an [external table](development-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
+- CREATE EXTERNAL TABLE AS SELECT ([CETAS](development-tables-cetas.md)) creates an [external table](development-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
-For more information on what is supported and what is not, check [SQL Analytics on-demand overview](on-demand.md) document.
+For more information on what is supported and what is not, check the [SQL Analytics on-demand overview](on-demand.md) document.
 
-By default, for queries ran by AAD users, storage accounts will be accessed using AAD pass-through. This means that user will be impersonated and permissions checked on storage level. You can [control storage access](development-storage-files-storage-access-control.md) to suit your needs.
+By default, for queries ran by AAD users, storage accounts will be accessed using the AAD pass-through. This means that users will be impersonated and permissions checked on the storage level. You can [control storage access](development-storage-files-storage-access-control.md) to suit your needs.
 
 ## Extensions
 
-In order to enable smooth experience for in place querying of data residing in files in Azure Storage, SQL Analytics on-demand uses [OPENROWSET](development-openrowset.md) function with additional capabilities:
+In order to enable a smooth experience for in place querying of data residing in Azure Storage files, SQL Analytics on-demand uses the [OPENROWSET](development-openrowset.md) function with additional capabilities:
 
 - [Querying multiple files or folders](#querying-multiple-files-or-folders)
 - [PARQUET file format](#parquet-file-format)
@@ -39,18 +39,19 @@ In order to enable smooth experience for in place querying of data residing in f
 
 ### Querying multiple files or folders
 
-To run a T-SQL query over a set of files within a folder or set of folders on storage treating them as a single entity/rowset, provide a path to folder or a pattern (using wildcards) over a set of files/folders.  
-Following rules apply: 
+To run a T-SQL query over a set of files within a folder or set of folders on storage while treating them as a single entity/rowset, provide a path to a folder or a pattern (using wildcards) over a set of files/folders.  
 
-- Patterns can appear either in part of a directory path or in a filename
-- Several patterns can appear in the same directory step or file name
-- If there are multiple wildcards, then files within all matching paths will be included in the resulting file set
+The following rules apply: 
+
+- Patterns can appear either in part of a directory path or in a filename.
+- Several patterns can appear in the same directory step or file name.
+- If there are multiple wildcards, then files within all matching paths will be included in the resulting file set.
 
 ```
 N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
 ```
 
-Check [Querying folders and multiple files](query-folders-multiple-csv-files.md) in Samples section for usage examples.
+Check [Querying folders and multiple files](query-folders-multiple-csv-files.md) in the Samples section for usage examples.
 
 ### PARQUET file format
 
@@ -68,7 +69,7 @@ AS table_alias(column_alias,...n)
 [ , FORMAT = {'CSV' | 'PARQUET'} ] 
 ```
 
-Check [Querying Parquet files](query-parquet-files.md) in Samples section for usage examples.
+Check [Querying Parquet files](query-parquet-files.md) in the Samples section for usage examples.
 
 ### Additional options for working with delimited text
 
@@ -84,21 +85,22 @@ These additional parameters are introduced for working with CSV (delimited text)
 ```
 
 - ESCAPE_CHAR = 'char'
-Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself or any of the delimiter values, the escape character is dropped when reading the value. The ESCAPE_CHAR parameter will be applied regardless of whether FIELDQUOTE is enabled or not. It however will not be used to escape the quoting character. The quoting character will get escaped with double-quotes in alignment with the Excel CSV behavior.
+Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself or any of the delimiter values, the escape character is dropped when reading the value. 
+The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It will not be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
 
 - FIELDTERMINATOR ='field_terminator'
-Specifies the field terminator to be used. The default field terminator is “,” (comma character).  
+Specifies the field terminator to be used. The default field terminator is a comma (“**,**”) 
 
 - ROWTERMINATOR ='row_terminator'
-Specifies the row terminator to be used. The default row terminator is \r\n (newline character).  
+Specifies the row terminator to be used. The default row terminator is a newline character, i.e., **\r\n**.
 
 ### Reading a chosen subset of columns
 
 To specify columns that you want to read, you can provide an optional WITH clause within your OPENROWSET statement.
 
-- If there are CSV data files, to read all the columns, simply provide column names and their data types. In case you want a subset of columns, use ordinal number filed to pick the columns from originating data files by ordinal (i.e. columns will be bound by ordinal).
+- If there are CSV data files, to read all the columns, simply provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal (i.e., columns will be bound by the ordinal designation).
 
-- If there are Parquet data files, provide column names that match the column names in the originating data files (i.e. columns will be bound by name).
+- If there are Parquet data files, provide column names that match the column names in the originating data files (i.e., columns will be bound by name).
 
 ```
 OPENROWSET
@@ -111,10 +113,10 @@ Check [Read CSV files without specifying all columns](query-single-csv-file.md#r
 
 ### Schema inference
 
-By omitting the WITH clause from OPENROWSET statement, you can instruct the service to auto detect (infer) schema from underlying files.
+By omitting the WITH clause from OPENROWSET statement, you can instruct the service to auto detect (infer) the schema from underlying files.
 
 > [!NOTE]
-> Note that this currently works only for PARQUET file format.
+> This currently works only for PARQUET file format.
 
 ```
 OPENROWSET( 
@@ -124,26 +126,26 @@ BULK N'path_to_file(s)', FORMAT='PARQUET');
 
 ### filename function
 
-This function returns file name that row originates from.
+This function returns the file name that the row originates from.
 
 Check [filename function](query-specific-files.md#filename) in samples section for queries.
 
 ### filepath function
 
-This function returns full path or part of path:
+This function returns a full path or a part of path:
 
-- When called without parameter, returns full file path that row originates from. 
-- When called with parameter, it returns part of path that matches wildcard on position specified in parameter. For example, parameter value 1 would return part of path that matches first wildcard.
+- When called without parameter, returns the full file path that row originates from. 
+- When called with parameter, it returns part of path that matches the wildcard on position specified in parameter. For example, parameter value 1 would return part of path that matches the first wildcard.
 
 Check [filepath function](query-specific-files.md#filepath) in samples section for queries.
 
 ### Working with complex types and nested or repeated data structures
 
-In order to enable smooth experience when working with data stored in nested/repeated data types (e.g. in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files), Starlight added extensions below.
+In order to enable a smooth experience when working with data stored in nested/repeated data types (e.g., in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files), Starlight added the extensions below.
 
 #### Projecting nested and/or repeated data
 
-To project data, simply run a SELECT statement over Parquet file that contains columns of nested data types. On output, nested values will be serialized into JSON and returned as varchar(8000) SQL data type. 
+To project data, simply run a SELECT statement over the Parquet file that contains columns of nested data types. On output, nested values will be serialized into JSON and returned as a varchar(8000) SQL data type. 
 
 ```
 	SELECT  *  FROM
@@ -157,8 +159,8 @@ Check [Projecting nested and/or repeated data](query-parquet-nested-types.md#pro
 
 #### Accessing elements from nested columns
 
-To access nested elements from nested (e.g. Struct) column, use "dot notation" to concatenate field names into path and provide the path as column_name in WITH clause of OPENROWSET function. 
-See syntax fragment below:
+To access nested elements from a nested (e.g., Struct) column, use "dot notation" to concatenate field names into the path and provide the path as column_name in the WITH clause of the OPENROWSET function. 
+See the syntax fragment below:
 
 ```
 	OPENROWSET 
@@ -170,24 +172,24 @@ See syntax fragment below:
 	'column_name' ::= '[field_name.] field_name'
 ```
 
-By default, OPENROWSET function matches source field name and path with column names provided in WITH clause. Elements contained at different nesting levels within the same source Parquet file can be accessed in same WITH clause.
+By default, the OPENROWSET function matches the source field name and path with column names provided in the WITH clause. Elements contained at different nesting levels within the same source Parquet file can be accessed in same via the WITH clause.
 
 *Return values*
-- Function returns a scalar value (e.g., int, decimal, varchar) from the specified element on the specified path for all Parquet types that are not in Nested Type group.
-- If the path points to an element that is of Nested Type, the function returns a JSON fragment starting from the top element on the specified path. JSON fragment is of type varchar (8000).
+- Function returns a scalar value (e.g., int, decimal, varchar) from the specified element on the specified path for all Parquet types that are not in the Nested Type group.
+- If the path points to an element that is of a Nested Type, the function returns a JSON fragment starting from the top element on the specified path. The JSON fragment is of type varchar(8000).
 - If the property can't be found at the specified column_name, the function returns an error.
-- If the property can't be found at the specified column_path depending on [Path mode](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017#PATHMODE), the function returns an error (in strict mode) or null (in lax mode)
+- If the property can't be found at the specified column_path, depending on [Path mode](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017#PATHMODE), the function returns an error (in strict mode) or null (in lax mode)
 
 Check [Accessing elements from nested columns](query-parquet-nested-types.md#accessing-elements-from-nested-columns) in samples section for queries.
 
 #### Accessing elements from repeated columns
 
-To access elements from a repeated column (e.g. element of an Array or Map), use [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) function for every scalar element you need to project and provide:
+To access elements from a repeated column (e.g., element of an Array or Map), use the [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) function for every scalar element you need to project and provide:
 
 - Nested/repeated column, as first parameter
 - A [JSON path](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to access, as a second parameter
 
-To access non-scalar elements from a repeated column, use [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) function for every non-scalar element you need to project and provide:
+To access non-scalar elements from a repeated column, use the [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) function for every non-scalar element you need to project and provide:
 
 - Nested/repeated column, as first parameter
 - A [JSON path](https://docs.microsoft.com/lational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to access, as a second parameter
@@ -209,7 +211,7 @@ Check [Accessing elements from repeated columns](query-parquet-nested-types.md#a
 
 ## Next steps
 
-Now you are ready to start with following quickstart articles:
+Now you are ready to continue with the following quickstart articles:
 
 - [Query single CSV file](query-single-csv-file.md)
 
