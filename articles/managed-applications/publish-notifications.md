@@ -13,6 +13,17 @@ ms.date: 11/01/2019
 
 Publishers on the Azure Managed Application platform are able to specify custom notification webhook endpoints to receive event notifications about new and existing managed application instances. This allows the publisher to set up custom tracking and workflows at the time of managed application instance provisioning, updates and deletion.
 
+## Getting Started
+In order to start receiving managed applications, you will need to spin up a public HTTPs endpoint and specify it while publishing the Service Catalog application definition or while publishing your Marketplace offer.
+
+Here are the recommended series of steps to get up and running quickly:
+- Spin up a public HTTPs endpoint that logs the incoming POST requests and returns `200 OK`.
+- Add the endpoint to service catalog application definition or marketplace offer as explained below.
+- Create a managed application instance that references the application definition or the marketplace offer.
+- Validate that the notifications are being received successfully.
+- Follow the Notficiation Schema documentation below to parse the notification requests and implement your business logic based on that.
+- Enable authorization as explained in the **Endpoint Authentication** section below.
+
 ## Adding Service Catalog Application Definition Notifications
 #### Azure Portal
 ![Service catalog application definition notifications on Portal](./media/publish-notifications/service-catalog-notifications.png)
@@ -161,7 +172,7 @@ error | *Only specified when the provisioningState is Failed*. Contains the erro
 applicationDefinitionId | *Only specified for Service Catalog managed applications*. Represents the fully qualified resource identifier of the application definition for which the managed application instance was provisioned.
 plan | *Only specified for Marketplace managed applications*. Represents the publisher, offer, sku and version of the managed application instance.
 
-## Endpoint Authentication and Authorization
+## Endpoint Authentication
 In order to secure the webhook endpoint and ensure the authenticity of the notificaiton:
 - Provide a query parameter on top of the webhook URI like https://your-endpoint.com **?sig=Guid**. With each notification, perform a quick check that the query parameter "sig" has the expected value "Guid".
 - Perform a GET on the managed application instance with applicationId and validate that the provisioningState matches the provisioningState of the notification to ensure consistency prior to performing any action.
