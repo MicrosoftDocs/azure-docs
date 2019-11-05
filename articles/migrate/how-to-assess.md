@@ -19,7 +19,7 @@ If you want to add an assessment tool and you don't yet have an Azure Migrate pr
 
 ## Select a tool
 
-If you choose a non-Azure Migrate tool, or ISV offering for assessment, you start by obtaining a license, or signing up for a free trial, in accordance with the tool policy. Tools have an option to connect to Azure Migrate. Follow the instructions and documentation, to connect the tool to Azure Migrate. [Learn more](migrate-services-overview.md) about tools.
+If you choose a non-Azure Migrate tool for assessment, start by obtaining a license, or signing up for a free trial, in accordance with the tool policy. Tools have an option to connect to Azure Migrate. Follow the instructions and documentation, to connect the tool to Azure Migrate. [Learn more](migrate-services-overview.md) about tools.
 
 
 ## Select an assessment scenario
