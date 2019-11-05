@@ -5282,6 +5282,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-portal.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-cli.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/custom-waf-rules-overview.md",
       "redirect_url": "/azure/web-application-firewall/ag/custom-waf-rules-overview",
       "redirect_document_id": false
