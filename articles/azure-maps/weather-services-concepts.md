@@ -58,7 +58,9 @@ The latest radar and infrared satellite images can be requested via the **Get Ma
 | #ba0808        | ![](./media/weather-services-concepts/color-ba0808.png) | Clouds | |
 | #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Clouds-High | |
 
-### Unit types
+## Unit types
+
+Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned response for these APIs will also includes unitType, a numeric value that can be used for unit translations. Please see table below to interpret these values.
 
 | Type               | Numeric Id | 
 |--------------------|------------|
