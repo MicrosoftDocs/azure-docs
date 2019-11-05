@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Manage compute with Azure Functions in Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Tutorial: Manage compute with Azure Functions in Azure SQL Data Warehouse '
 description: How to use Azure functions to manage the compute of your data warehouse.
 services: sql-data-warehouse
 author: KavithaJonnakuti

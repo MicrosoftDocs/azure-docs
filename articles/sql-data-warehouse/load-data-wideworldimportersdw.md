@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Load data to Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Tutorial: Load data to Azure SQL Data Warehouse '
 description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo 

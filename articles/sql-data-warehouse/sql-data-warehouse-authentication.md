@@ -1,5 +1,5 @@
 ---
-title: Authenticate to Azure SQL Data Warehouse | Microsoft Docs
+title: Authenticate to Azure SQL Data Warehouse 
 description: Learn how to authenticate to Azure SQL Data Warehouse by using Azure Active Directory (AAD) or SQL Server authentication.
 services: sql-data-warehouse
 author: KavithaJonnakuti

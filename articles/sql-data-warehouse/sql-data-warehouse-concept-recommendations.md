@@ -1,5 +1,5 @@
 ---
-title: SQL Data Warehouse Recommendations - Concepts | Microsoft Docs
+title: SQL Data Warehouse Recommendations - Concepts 
 description: Learn about SQL Data Warehouse recommendations and how they are generated
 services: sql-data-warehouse
 author: kevinvngo

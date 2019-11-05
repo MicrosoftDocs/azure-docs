@@ -1,5 +1,5 @@
 ---
-title: Fivetran quickstart for Azure SQL Data Warehouse | Microsoft Docs
+title: Fivetran quickstart for Azure SQL Data Warehouse 
 description: Get started quickly with Fivetran and Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd 
