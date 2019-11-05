@@ -50,3 +50,16 @@ landingContent:
             url: access-fhir-postman-tutorial.md
           - text: SMART integration for third-party apps & medical records
             url: use-smart-on-fhir-proxy.md
+
+  - title: Register apps for AD authentication
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Register a resource app
+            url: register-resource-azure-ad-client-app.md
+          - text: Register a confidential client app
+            url: register-confidential-azure-ad-client-app.md
+          - text: Register a public client app
+            url: register-public-azure-ad-client-app.md
+          - text: Register a service client app
+            url: register-service-azure-ad-client-app.md       
