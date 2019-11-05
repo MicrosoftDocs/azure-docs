@@ -48,13 +48,13 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
    > [!NOTE]  
    > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
 
-7. In the **Submit Topology** dialog box, select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor whether the submission is successful by using the **Output** window.
+7. In the **Submit Topology** dialog box, select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor whether the submission is successful by viewing the **Output** pane.
 
 ## Submit a topology: SSH and the Storm command
 
 To submit a topology to Storm using SSH:
 
-1. Use SSH to connect to the HDInsight cluster. Replace *USERNAME* the name of your SSH login. Replace *CLUSTERNAME* with your HDInsight cluster name:
+1. Use SSH to connect to the HDInsight cluster. Replace `USERNAME` the name of your SSH user name (such as *sshuser*). Replace `CLUSTERNAME` with your HDInsight cluster name:
 
     ```shell
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -64,7 +64,7 @@ To submit a topology to Storm using SSH:
 
 2. Use the following command to start an example topology:
 
-    ```shell
+    ```ssh
     storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
     ```
 
