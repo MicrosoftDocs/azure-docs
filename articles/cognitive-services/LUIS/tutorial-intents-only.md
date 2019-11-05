@@ -72,7 +72,7 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
     By providing _example utterances_, you are training LUIS about what kinds of utterances should be predicted for this intent. 
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]    
-    
+
 ## Create remaining subject domain intents with example utterances
 
 1. Create the `Greeting` intent and add the following example utterances. This is the intent to determine if a user is beginning a new pizza order conversation.
@@ -97,7 +97,7 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
 
 ## Add example utterances to the None intent 
 
-[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+[!INCLUDE [Follow these steps to add the None intent to the app](includes/add-example-utterances-none-intent.md)]
 
 ## Train the app before testing or publishing
 
@@ -111,114 +111,80 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address bar and enter `I'm looking for a job with Natural Language Processing`. The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances. It is a good test and should return the `GetJobInformation` intent as the top scoring intent. 
+1. Go to the end of the URL in the address bar and enter:
+
+    `get a medium vegetarian pizza for delivery` 
+
+    This is not example the same as an example utterance but is close to several. 
+
+    The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances. It is a good test and should return the `OrderPizza` intent as the top scoring intent. 
 
     ```JSON
     {
-      "query": "I'm looking for a job with Natural Language Processing",
-      "topScoringIntent": {
-        "intent": "GetJobInformation",
-        "score": 0.9923871
-      },
-      "intents": [
-        {
-          "intent": "GetJobInformation",
-          "score": 0.9923871
-        },
-        {
-          "intent": "None",
-          "score": 0.007810574
+        "query": "get a medium vegetarian pizza for delivery",
+        "prediction": {
+            "topIntent": "OrderPizza",
+            "intents": {
+                "OrderPizza": {
+                    "score": 0.6488959
+                },
+                "None": {
+                    "score": 0.139966831
+                },
+                "Confirm": {
+                    "score": 0.00736504374
+                },
+                "Greeting": {
+                    "score": 0.003970454
+                }
+            },
+            "entities": {}
         }
-      ],
-      "entities": []
     }
     ```
 
-    The `verbose=true` querystring parameter means include **all the intents** in the app's query results. The entities array is empty because this app currently does not have any entities. 
+    The entities array is empty because this app currently does not have any entities. 
 
-    The JSON result identifies the top scoring intent as **`topScoringIntent`** property. All scores are between 1 and 0, with the better score being close to 1. 
+    The JSON result identifies the top scoring intent as **`prediction.topIntent`** property. All scores are between 1 and 0, with the better score being closer to 1. 
 
-## Create intent for job applications
+1. Change the URL **query** parameter to target the **Greeting** intent:
 
-Return to the LUIS portal and create a new intent to determine if the user utterance is about applying for a job.
+    `Howdy`
 
-1. Select **Build** from the top, right menu to return to app building.
-
-1. Select **Intents** from the left menu to get to the list of intents.
-
-1. Select **Create new intent** and enter the name `ApplyForJob`. 
-
-    ![LUIS dialog to create new intent](./media/luis-quickstart-intents-only/create-applyforjob-intent.png)
-
-1. Add several utterances to this intent that you expect a user to ask for, such as:
-
-    | Example utterances|
-    |--|
-    |`Fill out application for Job 123456`|
-    |`Here is my c.v. for position 654234`|
-    |`Here is my resume for the part-time receptionist post.`|
-    |`I'm applying for the art desk job with this paperwork.`|
-    |`I'm applying for the summer college internship in Research and Development in San Diego`|
-    |`I'm requesting to submit my resume to the temporary position in the cafeteria.`|
-    |`I'm submitting my resume for the new Autocar team in Columbus, OH`|
-    |`I want to apply for the new accounting job`|
-    |`Job 456789 accounting internship paperwork is here`|
-    |`Job 567890 and my paperwork`|
-    |`My papers for the tulsa accounting internship are attached.`|
-    |`My paperwork for the holiday delivery position`|
-    |`Please send my resume for the new accounting job in seattle`|
-    |`Submit resume for engineering position`|
-    |`This is my c.v. for post 234123 in Tampa.`|
-
-
-## Train again
-
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
-
-## Publish again
-
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
-
-## Get intent prediction again
-
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
-
-2. In the new browser window, enter `Can I submit my resume for job 235986` at the end of the URL. 
+    This is not example the same as an example utterance but is close to several. 
 
     ```json
     {
-      "query": "Can I submit my resume for job 235986",
-      "topScoringIntent": {
-        "intent": "ApplyForJob",
-        "score": 0.9634406
-      },
-      "intents": [
-        {
-          "intent": "ApplyForJob",
-          "score": 0.9634406
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.0171300638
-        },
-        {
-          "intent": "None",
-          "score": 0.00670867041
+        "query": "howdy",
+        "prediction": {
+            "topIntent": "Greeting",
+            "intents": {
+                "Greeting": {
+                    "score": 0.446016937
+                },
+                "Confirm": {
+                    "score": 0.2390079
+                },
+                "None": {
+                    "score": 0.09119555
+                },
+                "OrderPizza": {
+                    "score": 0.00109590159
+                }
+            },
+            "entities": {}
         }
-      ],
-      "entities": []
-    }
+    }    
     ```
-
-    The results include the new intent **ApplyForJob** as well as the existing intents. 
+ 
+    This prediction has a 44% confidence score. To increase the confidence score, add between 15 and 30 example utterances.  
 
 ## Client-application next steps
 
 After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. The conversational follow-up is provided by the client application such as an Azure Bot. 
 
-## Clean up resources
 
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## Related information
 
@@ -231,9 +197,7 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 
 ## Next steps
 
-This tutorial created the Human Resources (HR) app, created 2 intents, added example utterances to each intent, added example utterances to the None intent, trained, published, and tested at the endpoint. These are the basic steps of building a LUIS model. 
-
-Continue with this app, [adding a simple entity and phrase list](luis-quickstart-primary-and-secondary-data.md).
+This tutorial created a LUIS app, created intents, added example utterances to each intent, added example utterances to the None intent, trained, published, and tested at the endpoint. These are the basic steps of building a LUIS model. 
 
 > [!div class="nextstepaction"]
 > [Add prebuilt intents and entities to this app](luis-tutorial-prebuilt-intents-entities.md)
