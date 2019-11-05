@@ -563,6 +563,6 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ## Next steps
 
-- Learn more about the [query language](../concepts/query-language.md)
-- Learn to [explore resources](../concepts/explore-resources.md)
-- See samples of [Advanced queries](advanced.md)
+- Learn more about the [query language](../concepts/query-language.md).
+- Learn more about how to [explore resources](../concepts/explore-resources.md).
+- See samples of [Advanced queries](advanced.md).
