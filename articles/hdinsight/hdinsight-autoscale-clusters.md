@@ -23,12 +23,10 @@ The following table describes the cluster types and versions that are compatible
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
-
-&nbsp; &nbsp; \* HBase clusters can only be configured for schedule-based scaling, not load-based.
+| HDInsight 3.6 without ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | No | No | No | No | No |
 
 ## How it works
 
@@ -86,8 +84,6 @@ To enable the Autoscale feature with load-based scaling, complete the following 
     ![Enable worker node load-based autoscale](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
 
 The initial number of worker nodes must fall between the minimum and maximum, inclusive. This value defines the initial size of the cluster when it's created. The minimum number of worker nodes should be set to three or more. . Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication. See [Getting stuck in safe mode]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) for more information.
-
-
 
 ### Create a cluster with schedule-based Autoscaling
 
