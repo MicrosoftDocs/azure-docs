@@ -6,8 +6,6 @@
   - name: Understand your bill
     href: billing-understand-your-bill.md
   - name: Understand your EA bill
-    href: billing-understand-your-bill-ea.md
-  - name: Understand your bill - Microsoft Customer Agreement
     href: billing-mca-understand-your-bill.md
   - name: Understand your bill - Microsoft Partner Agreement
     href: billing-mpa-understand-your-bill.md
@@ -145,6 +143,8 @@
     items:
     - name: Get started in the Azure EA portal
       href: billing-ea-portal-get-started.md
+    - name: Understand your EA bill
+      href: billing-understand-your-bill-ea.md
     - name: EA roles in Azure
       href: billing-understand-ea-roles.md
     - name: Azure EA portal administration
