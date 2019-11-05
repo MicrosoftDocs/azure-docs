@@ -75,6 +75,8 @@ IGEL is an approved and verified partner of Microsoft Azure and Windows Virtual 
  
 IGEL OS supports all popular virtual apps, desktops, and cloud workspace client protocols from Citrix, Microsoft, and VMware. It includes integrated technologies from 85 peripheral, interface, and protocol partners to help organizations quickly adopt Windows Virtual Desktop services into their own unique user environments. IGEL OS is a read-only, modular endpoint OS, which helps protect it from tampering. It now also includes a complete “chain of trust” that verifies the integrity of all key major processes running on the endpoint, from the endpoint hardware (some selected models) or UEFU process all the way to the Azure cloud and Windows Virtual Desktop services. With IGEL OS, enterprises can subscribe to Windows Virtual Desktop from the Azure cloud with full confidence in the integrity, security, and manageability of their users’ endpoint devices.
 
+- [Go to the partner website.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
+
 ## Ivanti
 
 ![Ivanti Logo](./media/partners/ivanti.png)
