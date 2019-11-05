@@ -1,5 +1,5 @@
 ---
-title: Build, test, and deploy code using GitHub Actions
+title: Build, test, and deploy containers to Azure Kubernetes Service using GitHub Actions
 description:  Learn how to use GitHub Actions to deploy your container to Kubernetes
 services: container-service
 author: azooinmyluggage
@@ -27,8 +27,8 @@ For a workflow targeting AKS, the file has three sections:
 |**Authentication** | Login to a private container registry (ACR) |
 |**Build** | Build & push the container image  |
 |**Deploy** | 1. Set the target AKS cluster |
-| |2. Create a generic/docker-registry secret in k8s cluster  |
-||3. Deploy to the k8s cluster|
+| |2. Create a generic/docker-registry secret in Kubernetes cluster  |
+||3. Deploy to the Kubernetes cluster|
 
 ## Create a service principal
 
@@ -57,7 +57,7 @@ Follow the steps to configure the secrets:
 
 1. In [GitHub](https://github.com/), browse to your repository, select **Settings > Secrets > Add a new secret**.
 
-    ![secrets](media/k8s-action/secrets.png)
+    ![secrets](media/kubernetes-action/secrets.png)
 
 2. Paste the contents of the above `az cli` command as the value of secret variable. For example, `AZURE_CREDENTIALS`.
 
@@ -68,9 +68,9 @@ Follow the steps to configure the secrets:
 
 4. You will see the secrets as shown below once defined.
 
-    ![k8s-secrets](media/k8s-action/k8s-secrets.png)
+    ![kubernetes-secrets](media/kubernetes-action/kubernetes-secrets.png)
 
-##  Build a Container Image and Deploy to Azure Kubernetes Service cluster
+##  Build a container image and deploy to Azure Kubernetes Service cluster
 
 The build and push of the container images is done using `Azure/docker-login@v1` action. To deploy a container image to AKS, you will need to use the `Azure/k8s-deploy@v1` action. This action has five parameters:
 
@@ -130,7 +130,7 @@ jobs:
           demo-k8s-secret
 ```
 
-## Next
+## Next steps
 
 You can find our set of Actions in different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
 
