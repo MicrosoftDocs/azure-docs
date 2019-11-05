@@ -45,7 +45,7 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
     string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
 
     dataLakeServiceClient = new DataLakeServiceClient
-        (new Uri(dfsUri), sharedKeyCredential, new DataLakeClientOptions());
+        (new Uri(dfsUri), sharedKeyCredential);
 }
 ```
 
@@ -149,13 +149,7 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 
     Console.WriteLine(directoryAccessControl.Acl);
 
-    PathAccessControl updatedAccessControl = 
-        DataLakeModelFactory.PathAccessControl
-        (null, null, null, "user::rwx,group::r-x,other::rw-");
-
-    directoryClient.SetAccessControl(updatedAccessControl);
-
-    Console.WriteLine(updatedAccessControl.Acl);
+    directoryClient.SetAccessControl("user::rwx,group::r-x,other::rw-");
 
 }
 
@@ -200,21 +194,14 @@ public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
         fileSystemClient.GetDirectoryClient("my-directory");
 
     DataLakeFileClient fileClient = 
-        directoryClient.GetFileClient("my-file.txt");
+        directoryClient.GetFileClient("hello.txt");
 
     PathAccessControl FileAccessControl =
         await fileClient.GetAccessControlAsync();
 
     Console.WriteLine(FileAccessControl.Acl);
 
-    PathAccessControl updatedAccessControl =
-        DataLakeModelFactory.PathAccessControl
-        (null, null, null, "user::rwx,group::r-x,other::rw-");
-
-    fileClient.SetAccessControl(updatedAccessControl);
-
-    Console.WriteLine(updatedAccessControl.Acl);
-
+    fileClient.SetAccessControl("user::rwx,group::r-x,other::rw-");
 }
 ```
 
@@ -266,9 +253,8 @@ This example, prints the names of each file that is located in a directory named
 ```cs
 public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient)
 {
-    Azure.AsyncPageable<PathItem> items = fileSystemClient.ListPathsAsync("my-directory");
-
-    IAsyncEnumerator<PathItem> enumerator = items.GetAsyncEnumerator(new System.Threading.CancellationToken());
+    IAsyncEnumerator<PathItem> enumerator = 
+        fileSystemClient.ListPathsAsync("my-directory").GetAsyncEnumerator();
 
     await enumerator.MoveNextAsync();
 
