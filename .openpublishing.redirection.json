@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-registry/container-registry-upgrade.md",
+      "redirect_url": "/azure/container-registry/container-registry-skus",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
       "redirect_url": "/azure/azure-government/documentation-government-welcome",
       "redirect_document_id": false
