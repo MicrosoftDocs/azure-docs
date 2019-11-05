@@ -201,7 +201,7 @@ CREATE DATABASE testdb
 ( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
 ```
 
-For details, see [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql.md?view=azuresqldb-current).  
+For details, see [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
 
 ### Move database from provisioned compute tier into serverless compute tier
 
@@ -231,7 +231,7 @@ ALTER DATABASE testdb
 MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 ```
 
-For details, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql.md?view=azuresqldb-current).
+For details, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
 ### Move database from serverless compute tier into provisioned compute tier
 
