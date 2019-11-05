@@ -190,6 +190,8 @@
       href: slurm.md
     - name: HT Condor
       href: htcondor.md
+    - name: IBM Spectrum LSF
+      href: lsf.md
 - name: Resources
   items:
   - name: Get Azure CycleCloud
