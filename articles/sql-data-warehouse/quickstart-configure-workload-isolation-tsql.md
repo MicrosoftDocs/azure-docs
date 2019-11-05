@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Configure workload isolation - T-SQL | Microsoft Docs'
+title: 'Quickstart: Configure workload isolation - T-SQL in Azure SQL Data Warehouse | Microsoft Docs'
 description: Use T-SQL to configure workload isolation.
 services: sql-data-warehouse
 author: ronortloff
