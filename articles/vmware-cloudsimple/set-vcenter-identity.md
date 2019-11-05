@@ -34,7 +34,7 @@ Before [adding an identity source](#add-an-identity-source-on-vcenter), temporar
 ## Identity source options
 
 * [Add on-premises Active Directory as a single sign-on identity source](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
-* [Set Up New Active Directory on a AVS Private Cloud](#set-up-new-active-directory-on-a-private-cloud)
+* [Set Up New Active Directory on an AVS Private Cloud](#set-up-new-active-directory-on-an-avs-private-cloud)
 * [Set Up Active Directory on Azure](#set-up-active-directory-on-azure)
 
 ## Add On-Premises Active Directory as a Single Sign-On Identity Source
@@ -64,7 +64,7 @@ When you have the information in the previous table, you can add your on-premise
 > [!TIP]
 > You'll find more information on Single Sign-On identity sources on the [VMware documentation page](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
-## Set Up new Active Directory on a AVS Private Cloud
+## Set Up new Active Directory on an AVS Private Cloud
 
 You can set up a new Active Directory domain on your AVS Private Cloud and use it as an identity source for Single Sign-On. The Active Directory domain can be a part of an existing Active Directory forest or can be set up as an independent forest.
 

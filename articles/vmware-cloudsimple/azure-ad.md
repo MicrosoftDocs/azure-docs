@@ -29,7 +29,7 @@ Azure AD is the Microsoft multi-tenant, cloud based directory and identity manag
 To use Azure AD as an identity source with vCenter, you must set up Azure AD and Azure AD domain services. Follow these instructions:
 
 1. [How to set up Azure AD and Azure AD domain services](#set-up-azure-ad-and-azure-ad-domain-services)
-2. [How to set up an identity source on your AVS Private Cloud vCenter](#set-up-an-identity-source-on-your-private-cloud-vcenter)
+2. [How to set up an identity source on your AVS Private Cloud vCenter](#set-up-an-identity-source-on-your-avs-private-cloud-vcenter)
 
 ## Set up Azure AD and Azure AD domain services
 

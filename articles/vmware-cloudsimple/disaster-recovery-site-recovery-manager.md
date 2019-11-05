@@ -39,14 +39,14 @@ The following sections describe how to deploy a DR solution using SRM in your AV
 
 1. [Verify that VMware product versions are compatible](#verify-that-vmware-product-versions-are-compatible)
 2. [Estimate the size of your DR environment](#estimate-the-size-of-your-dr-environment)
-3. [Create an AVS Private Cloud for your environment](#create-a-private-cloud-for-your-environment)
-4. [Set up AVS Private Cloud networking for the SRM solution](#set-up-private-cloud-networking-for-the-srm-solution)
-5. [Set up a Site-to-Site VPN connection between your on-premises network and the AVS Private Cloud and open required ports](#set-up-a-site-to-site-vpn-connection-between-your-on-premises-network-and-the-private-cloud-and-open-required-ports)
-6. [Set up infrastructure services in your AVS Private Cloud](#set-up-infrastructure-services-in-your-private-cloud)
+3. [Create an AVS Private Cloud for your environment](#create-an-avs-private-cloud-for-your-environment)
+4. [Set up AVS Private Cloud networking for the SRM solution](#set-up-avs-private-cloud-networking-for-the-srm-solution)
+5. [Set up a Site-to-Site VPN connection between your on-premises network and the AVS Private Cloud and open required ports](#set-up-a-site-to-site-vpn-connection-between-your-on-premises-network-and-the-avs-private-cloud-and-open-required-ports)
+6. [Set up infrastructure services in your AVS Private Cloud](#set-up-infrastructure-services-in-your-avs-private-cloud)
 7. [Install vSphere Replication appliance in your on-premises environment](#install-vsphere-replication-appliance-in-your-on-premises-environment)
-8. [Install vSphere Replication appliance in your AVS Private Cloud environment](#install-vsphere-replication-appliance-in-your-private-cloud-environment)
+8. [Install vSphere Replication appliance in your AVS Private Cloud environment](#install-vsphere-replication-appliance-in-your-avs-private-cloud-environment)
 9. [Install SRM server in your on-premises environment](#install-srm-server-in-your-on-premises-environment)
-10. [Install SRM server in your AVS Private Cloud](#install-srm-server-in-your-private-cloud)
+10. [Install SRM server in your AVS Private Cloud](#install-srm-server-in-your-avs-private-cloud)
 
 ### Verify that VMware product versions are compatible
 
@@ -128,10 +128,10 @@ Before installing vRA and SRM, you must escalate the vCenter privileges of the c
 The installation consists of these high-level steps:
 
 1. [Escalate privileges](escalate-private-cloud-privileges.md).
-2. Create a user in your AVS Private Cloud for vSphere Replication and SRM installation. Explained below in [vCenter UI: Create a user in AVS Private Cloud for vRA & SRM installation](#vcenter-ui-create-a-user-in-private-cloud-for-vra-and-srm-installation).
+2. Create a user in your AVS Private Cloud for vSphere Replication and SRM installation. Explained below in [vCenter UI: Create a user in the AVS Private Cloud for vRA & SRM installation](#vcenter-ui-create-a-user-in-the-avs-private-cloud-for-vra-and-srm-installation).
 3. Prepare your AVS Private Cloud environment for vRA installation.
 4. Deploy vRA in your AVS Private Cloud using the OVF in the VR ISO from vmware.com. For vRA 6.5, [this VMware blog](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) has relevant information.
-5. Configure firewall rules for vRA. Explained below in [AVS portal: Configure Firewall rules for vRA](#cloudsimple-portal-configure-firewall-rules-for-vra).
+5. Configure firewall rules for vRA. Explained below in [AVS portal: Configure Firewall rules for vRA](#avs-portal-configure-firewall-rules-for-vra).
 6. Register AVS Private Cloud vRA with vCenter Single Sign-On at the AVS Private Cloud site.
 7. Configure vSphere Replication connections between the two appliances. Ensure that the required ports are opened across the firewalls. See [this VMware knowledge base article](https://kb.vmware.com/s/article/2087769) for a list of port numbers that must be open for vSphere Replication 6.5.
 
@@ -174,9 +174,9 @@ Before you begin, verify the following:
 The following steps describe the AVS Private Cloud SRM installation.
 
 1. [vCenter UI: Install SRM](#vcenter-ui-install-srm)
-2. [AVS portal: Configure firewall rules for SRM](#cloudsimple-portal-configure-firewall-rules-for-srm)
+2. [AVS portal: Configure firewall rules for SRM](#avs-portal-configure-firewall-rules-for-srm)
 3. [vCenter UI: Configure SRM](#vcenter-ui-configure-srm)
-4. [AVS portal: de-escalate privileges](#cloudsimple-portal-de-escalate-privileges)
+4. [AVS portal: de-escalate privileges](#avs-portal-de-escalate-privileges)
 
 #### vCenter UI: Install SRM
 

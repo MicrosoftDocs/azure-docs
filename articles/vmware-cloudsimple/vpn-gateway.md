@@ -117,4 +117,4 @@ The following table lists the number of concurrent client connections for prefix
 | Number of concurrent TCP connections | 124 | 60 | 28 | 12 | 4 |
 | Number of concurrent UDP connections | 124 | 60 | 28 | 12 | 4 |
 
-To connect using Point-to-Site VPN, see [Connect to AVS using Point-to-Site VPN](set-up-vpn.md#connect-to-cloudsimple-using-point-to-site-vpn).
+To connect using Point-to-Site VPN, see [Connect to AVS using Point-to-Site VPN](set-up-vpn.md#connect-to-avs-using-point-to-site-vpn).

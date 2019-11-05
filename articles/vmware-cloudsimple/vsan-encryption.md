@@ -34,8 +34,8 @@ The KMS server cluster runs in your Azure virtual network and is IP reachable fr
 The deployment process has the following steps:
 
 1. [Verify that prerequisites are met](#verify-prerequisites-are-met)
-2. [AVS portal: Obtain ExpressRoute Peering Information](#cloudsimple-portal-obtain-expressroute-peering-information)
-3. [Azure portal: Connect your virtual network to the AVS Private Cloud](#azure-portal-connect-your-virtual-network-to-your-private-cloud)
+2. [AVS portal: Obtain ExpressRoute Peering Information](#avs-portal-obtain-expressroute-peering-information)
+3. [Azure portal: Connect your virtual network to the AVS Private Cloud](#azure-portal-connect-your-virtual-network-to-the-avs-private-cloud)
 4. [Azure portal: Deploy a HyTrust KeyControl Cluster in your virtual network](#azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network)
 5. [HyTrust WebUI: Configure KMIP server](#hytrust-webui-configure-the-kmip-server)
 6. [vCenter UI: Configure vSAN encryption to use KMS cluster in your Azure virtual network](#vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network)
@@ -54,7 +54,7 @@ Verify the following prior to deployment:
 
 To continue the setup, you need the authorization key and peer circuit URI for ExpressRoute plus access to your Azure Subscription. This information is available on the Virtual Network Connection page in the AVS portal. For instructions, see [Set up a virtual network connection to the AVS Private Cloud](virtual-network-connection.md). If you have any trouble obtaining the information, open a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### Azure portal: Connect your virtual network to your AVS Private Cloud
+### Azure portal: Connect your virtual network to the AVS Private Cloud
 
 1. Create a virtual network gateway for your virtual network by following the instructions in [Configure a virtual network gateway for ExpressRoute using the Azure portal](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
 2. Link your virtual network to the AVS ExpressRoute circuit by following the instructions in [Connect a virtual network to an ExpressRoute circuit using the portal](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

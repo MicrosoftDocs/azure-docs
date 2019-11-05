@@ -9,7 +9,6 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-! Divya, in line 2, should we make it read "workload AVS virtual machines" or leave it as is?
 # Back up workload VMs on AVS Private Cloud using Veeam B&R
 
 This guide describes how you can back up your virtual machines that are running in an Azure-based AVS Private Cloud by using Veeam B&R 9.5.
@@ -83,15 +82,15 @@ The following sections describe how to install and configure a Veeam backup solu
 
 The deployment process consists of these steps:
 
-1. [vCenter UI: Set up infrastructure services in your AVS Private Cloud](#vcenter-ui-set-up-infrastructure-services-in-your-private-cloud)
-2. [AVS portal: Set up AVS Private Cloud networking for Veeam](#cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam)
-3. [AVS portal: Escalate Privileges](#cloudsimple-private-cloud-escalate-privileges-for-cloudowner)
-4. [Azure portal: Connect your virtual network to the AVS Private Cloud](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
-5. [Azure portal: Create a backup repository in Azure](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
+1. [vCenter UI: Set up infrastructure services in your AVS Private Cloud](#vcenter-ui-set-up-infrastructure-services-in-your-avs-private-cloud)
+2. [AVS portal: Set up AVS Private Cloud networking for Veeam](#avs-private-cloud-set-up-avs-private-cloud-networking-for-veeam)
+3. [AVS portal: Escalate Privileges](#avs-private-cloud-escalate-privileges-for-cloudowner)
+4. [Azure portal: Connect your virtual network to the AVS Private Cloud](#azure-portal-connect-your-virtual-network-to-the-avs-private-cloud)
+5. [Azure portal: Create a backup repository in Azure](#azure-portal-connect-your-virtual-network-to-the-avs-private-cloud)
 6. [Azure portal: Configure Azure blob storage for long term data retention](#configure-azure-blob-storage-for-long-term-data-retention)
-7. [vCenter UI of AVS Private Cloud: Install Veeam B&R](#vcenter-console-of-private-cloud-install-veeam-br)
+7. [vCenter UI of AVS Private Cloud: Install Veeam B&R](#vcenter-console-of-avs-private-cloud-install-veeam-br)
 8. [Veeam Console: Configure Veeam Backup & Recovery software](#veeam-console-install-veeam-backup-and-recovery-software)
-9. [AVS portal: Set up Veeam access and de-escalate privileges](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
+9. [AVS portal: Set up Veeam access and de-escalate privileges](#avs-portal-set-up-veeam-access-and-de-escalate-privileges)
 
 ### Before you begin
 
@@ -223,7 +222,7 @@ Access vCenter from your AVS Private Cloud to create a Veeam service account, in
 
 Using the Veeam console, configure Veeam backup and recovery software. For details, see [Veeam Backup & Replication v9 - Installation and Deployment](https://www.youtube.com/watch?v=b4BqC_WXARk).
 
-1. Add VMware vSphere as a managed server environment. When prompted, provide  the credentials of the Veeam Service Account that you created at the beginning of [vCenter Console of AVS Private Cloud: Install Veeam B&R](#vcenter-console-of-private-cloud-install-veeam-br).
+1. Add VMware vSphere as a managed server environment. When prompted, provide  the credentials of the Veeam Service Account that you created at the beginning of [vCenter Console of AVS Private Cloud: Install Veeam B&R](#vcenter-console-of-avs-private-cloud-install-veeam-br).
 
     * Use default settings for load control and default advanced settings.
     * Set the mount server location  to be the backup server.

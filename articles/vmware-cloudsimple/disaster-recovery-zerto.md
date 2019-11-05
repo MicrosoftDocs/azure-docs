@@ -37,8 +37,8 @@ The following figure shows the architecture for the Zerto solution.
 The following sections describe how to deploy a DR solution using Zerto Virtual Replication in your AVS Private Cloud.
 
 1. [Prerequisites](#prerequisites)
-2. [Optional configuration on AVS Private Cloud](#optional-configuration-on-your-private-cloud)
-3. [Set up ZVM and VRA on AVS Private Cloud](#set-up-zvm-and-vra-on-your-private-cloud)
+2. [Optional configuration on your AVS Private Cloud](#optional-configuration-on-your-avs-private-cloud)
+3. [Set up ZVM and VRA on your AVS Private Cloud](#set-up-zvm-and-vra-on-your-avs-private-cloud)
 4. [Set up Zerto Virtual Protection Group](#set-up-zerto-virtual-protection-group)
 
 ### Prerequisites

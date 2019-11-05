@@ -29,8 +29,8 @@ The following sections describe how to deploy a VDI solution using Horizon in yo
 
 1. [Verify that VMware product versions are compatible](#verify-that-vmware-product-versions-are-compatible)
 2. [Estimate the size of your desktop environment](#estimate-the-size-of-your-desktop-environment)
-3. [Create an AVS Private Cloud for your environment](#create-a-private-cloud-for-your-environment)
-4. [Install VMware Horizon in your AVS Private Cloud](#install-vmware-horizon-in-your-private-cloud)
+3. [Create an AVS Private Cloud for your environment](#create-an-avs-private-cloud-for-your-environment)
+4. [Install VMware Horizon in your AVS Private Cloud](#install-vmware-horizon-in-your-avs-private-cloud)
 
 ### Verify that VMware product versions are compatible
 

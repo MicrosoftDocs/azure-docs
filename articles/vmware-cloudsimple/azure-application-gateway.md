@@ -35,9 +35,9 @@ In this scenario, the Azure Application Gateway runs in your Azure virtual netwo
 The deployment process consists of the following tasks:
 
 1. [Verify that prerequisites are met](#1-verify-prerequisites)
-2. [Connect your Azure virtual connection to the AVS Private Cloud](#2-connect-your-azure-virtual-network-to-your-private-cloud)
+2. [Connect your Azure virtual connection to the AVS Private Cloud](#2-connect-your-azure-virtual-network-to-your-avs-private-cloud)
 3. [Deploy an Azure application gateway](#3-deploy-an-azure-application-gateway)
-4. [Create and Configure Web Server VM pool in your AVS Private Cloud](#4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud)
+4. [Create and Configure Web Server VM pool in your AVS Private Cloud](#4-create-and-configure-a-web-server-vm-pool-in-your-avs-private-cloud)
 
 ## 1. Verify prerequisites
 

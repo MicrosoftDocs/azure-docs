@@ -76,5 +76,5 @@ Create a virtual machine on your AVS Private Cloud from the vCenter UI. To creat
 
 ## Next steps
 
-* [View list of AVS virtual machines](azure-create-vm.md#view-list-of-cloudsimple-virtual-machines)
+* [View list of AVS virtual machines](azure-create-vm.md#view-list-of-avs-virtual-machines)
 * [Manage AVS virtual machine from Azure](azure-manage-vm.md)
