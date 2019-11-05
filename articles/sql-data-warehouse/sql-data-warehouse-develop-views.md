@@ -1,5 +1,5 @@
 ---
-title: Using T-SQL views in Azure SQL Data Warehouse | Microsoft Docs
+title: Using T-SQL views in Azure SQL Data Warehouse 
 description: Tips for using T-SQL views in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 author: XiaoyuMSFT 

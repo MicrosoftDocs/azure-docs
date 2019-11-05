@@ -1,5 +1,5 @@
 ---
-title: Data Warehouse Units (DWUs, cDWUs) in Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+title: Data Warehouse Units (DWUs, cDWUs) in Azure Synapse Analytics (formerly SQL DW) 
 description: Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWUs) to optimize price and performance, and how to change the number of units.
 services: sql-data-warehouse
 author: mlee3gsd

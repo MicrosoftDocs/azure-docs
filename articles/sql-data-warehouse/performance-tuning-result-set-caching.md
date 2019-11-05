@@ -1,5 +1,5 @@
 ---
-title: Performance tuning with result set caching | Microsoft Docs
+title: Performance tuning with result set caching 
 description: Feature overview  
 services: sql-data-warehouse
 author: XiaoyuMSFT

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse workload isolation | Microsoft Docs
+title: Azure SQL Data Warehouse workload isolation 
 description: Guidance for setting workload isolation with workload groups in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff

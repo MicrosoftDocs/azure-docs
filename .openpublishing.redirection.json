@@ -770,6 +770,12 @@
       "redirect_url": "/azure/machine-learning/service",
       "redirect_document_id": false
     },
+    
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-only.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-intents-only",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-roles.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-entity-types#entity-role-defines-context",
@@ -5278,6 +5284,26 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-portal.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-cli.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/custom-waf-rules-overview.md",
+      "redirect_url": "/azure/web-application-firewall/ag/custom-waf-rules-overview",
       "redirect_document_id": false
     },
     {

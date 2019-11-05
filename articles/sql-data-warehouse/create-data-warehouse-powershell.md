@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure SQL Data Warehouse - Azure Powershell | Microsoft Docs'
+title: 'Quickstart: Create an Azure SQL Data Warehouse - Azure Powershell '
 description: Quickly create a SQL Database logical server, server-level firewall rule, and data warehouse with Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT

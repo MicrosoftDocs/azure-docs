@@ -23,7 +23,7 @@ Following this quickstart, you will learn how to:
 > * Assign a public endpoint for your application
 
 >[!Note]
-> > Azure Spring Cloud is currently offered as a public preview. While Azure Spring Cloud is in preview, Microsoft offers limited support without an SLA.  For more information about support during previews, please file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> > Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 >[!TIP]
 > Azure Cloud Shell is a free interactive shell that you can use to run the commands in this article. It has common Azure tools preinstalled, including the latest versions of Git, the Java Development Kit (JDK), Maven, and the Azure CLI. If you're signed in to your Azure subscription, launch [Azure Cloud Shell](https://shell.azure.com). For more information, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
@@ -46,7 +46,7 @@ az extension add --name spring-cloud
 
 ## Provision a service instance on the Azure portal
 
-1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud), and sign in to your account.
+1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform), and sign in to your account.
 
     ![Search for and select Azure Spring Cloud](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
 
@@ -86,7 +86,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 1. Change directory and build the project by running the following command:
 
     ```azurecli
-    cd PiggyMetrics
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 

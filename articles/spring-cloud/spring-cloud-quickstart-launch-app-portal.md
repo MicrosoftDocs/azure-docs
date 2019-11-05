@@ -1,5 +1,5 @@
 ---
-title: Launch an Azure Spring Cloud application using the Azure portal
+title: "Quickstart: Launch an Azure Spring Cloud application using the Azure portal"
 description: Deploy a sample application to the Azure Spring Cloud using the Azure portal.
 author: jpconnock
 ms.service: spring-cloud
@@ -26,7 +26,7 @@ Following this quickstart, you will learn how to:
 ## Prerequisites
 
 >[!Note]
-> Azure Spring Cloud is currently offered as a public preview. While Azure Spring Cloud is in preview, Microsoft offers limited support without an SLA.  For more information about support during previews, please file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 >[!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
@@ -69,7 +69,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. In the **Default repository** section, set **URI** to "https\://github.com/Azure-Samples/piggymetrics", set **LABEL** to "config", and select **Apply** to save your changes.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Screenshot of ASC portal](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 
 ## Build and deploy microservice applications
 
@@ -84,7 +84,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 1. Build the cloned package.
 
     ```azurecli
-    cd PiggyMetrics
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 
