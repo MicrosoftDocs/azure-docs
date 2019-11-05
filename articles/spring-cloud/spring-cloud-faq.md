@@ -1,15 +1,11 @@
 ---
 title: Frequently asked questions for Azure Spring Cloud | Microsoft Docs
 description: Review the FAQ for Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
-
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 
 ---
 

@@ -1672,21 +1672,28 @@ featureFlags:
                                                 <p>Azure Private Link</p>
                                             </a>
                                         </li>
+                                        <li>
                                             <a href="/azure/peering-service/">
                                                 <img src="media/index/peering-service.svg" alt="" />
                                                 <p>Peering Service</p>
                                             </a>
                                         </li>
-                                    </ul>
-                                            <a href="/azure/firewall-manager/">
-                                                <p>Azure Firewall Manager</p>
                                         <li>
+                                            <a href="/azure/firewall-manager/">
+                                                <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
+                                                <p>Azure Firewall Manager</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/internet-analyzer/">
                                                 <img src="media/index/internet-analyzer.svg" alt="" />
                                                 <p>Azure Internet Analyzer</p>
                                             </a>
                                         </li>
+                                    </ul>
                                     <h3>Security</h3>
                                     <ul>
+                                        <li>
                                             <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Security Information</p>
@@ -1705,12 +1712,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                        <li>
                                             <a href="/azure/dedicated-hsm">
                                                 <img src="media/index/dedicated-hsm.svg" alt="" />
                                                 <p>Azure Dedicated HSM</p>
                                             </a>
                                         </li>
+                                        <li>
                                             <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Azure DDoS protection</p>
@@ -1852,6 +1859,12 @@ featureFlags:
                                             <a href="/azure/databox-family/">
                                                 <img src="media/index/Service-icon.png" alt="" />
                                                 <p>Data Box</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/hpc-cache/">
+                                                <img src="media/index/hpc-cache.svg" alt="" />
+                                                <p>Azure HPC Cache</p>
                                             </a>
                                         </li>
                                         <li>
@@ -5630,6 +5643,7 @@ featureFlags:
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
+                                                <div class="cardImageOuter">
                                                     <div class="cardImage">
                                                         <img src="media/index/peering-service.svg" alt="" />
                                                     </div>
@@ -5643,7 +5657,26 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                        </ul>
+                            <li>
+                                <a href="/azure/internet-analyzer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/internet-analyzer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Internet Analyzer</h3>
+                                                    <p>Evaluate how networking infrastructure changes impact your customers’ performance</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                         </ul>
                     </li>
                     <li>
                         <a href="#security">Security</a>
@@ -5652,6 +5685,8 @@ featureFlags:
                                 <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
                                     <div class="cardSize">
                                         <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
                                                     <div class="cardImage">
                                                         <img src="media/index/private-link.svg" alt="" />
                                                     </div>
@@ -5666,17 +5701,38 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/firewall-manager/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
                                                         <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
+                                                    </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Firewall Manager</h3>
                                                     <p>A globally distributed security management service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                               <a href="/azure/security-center/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
                                                         <img src="media/index/SecurityCenter.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
                                                     <p>Unify security management and enable advanced threat protection across hybrid cloud workloads</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -6161,6 +6217,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Data Box family</h3>
                                                     <p>Family of storage devices that enable offline or network-based data transfer</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/hpc-cache/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/hpc-cache.svg" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure HPC Cache</h3>
+                                                    <p>Run flexible, file-based workloads in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
