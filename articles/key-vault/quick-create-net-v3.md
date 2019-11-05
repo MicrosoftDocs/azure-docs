@@ -1,17 +1,20 @@
 ---
-title: Quickstart -  Azure Key Vault client library for .NET
-description: Provides format and content criteria for writing Quickstarts for Azure SDK client libraries.
+title: Quickstart -  Azure Key Vault client library for .NET (SDK v3)
+description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library (v3)
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/20/2019
+ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
 
 ---
 
-# Quickstart: Azure Key Vault client library for .NET
+# Quickstart: Azure Key Vault client library for .NET (SDK v3)
 
 Get started with the Azure Key Vault client library for .NET. Follow the steps below to install the package and try out example code for basic tasks.
+
+> [!NOTE]
+> This quickstart uses the v3.0.4 version of the Microsoft.Azure.KeyVault client library. To use the most up-to-date version of the Key Vault client library, see [Azure Key Vault client library for .NET (SDK v4)](quick-create-net.md). 
 
 Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for .NET to:
 
@@ -22,6 +25,10 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Use FIPS 140-2 Level 2 validated HSMs.
 
 [API reference documentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
+
+> [!NOTE]
+> Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
+
 
 ## Prerequisites
 

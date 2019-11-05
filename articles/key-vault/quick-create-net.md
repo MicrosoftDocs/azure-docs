@@ -1,6 +1,6 @@
 ---
-title: Quickstart -  Azure Key Vault client library for .NET
-description: Provides format and content criteria for writing Quickstarts for Azure SDK client libraries.
+title: Quickstart -  Azure Key Vault client library for .NET (v4)
+description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library (v4)
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 05/20/2019
