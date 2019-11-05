@@ -31,10 +31,10 @@ This article walks you through the steps to check the status, update, or delete 
 
 ## Before you begin
 
-Install the latest versions of the Azure Service Management (SM) PowerShell modules and the ExpressRoute module. You can't use the Azure CloudShell environement to run SM modules.
+Install the latest versions of the Azure Service Management (SM) PowerShell modules and the ExpressRoute module. You can't use the Azure CloudShell environment to run SM modules.
 
 1. Use the instructions in the [Installing the Service Management module](/powershell/azure/servicemanagement/install-azure-ps) article to install the Azure Service Management Module. If you have the Az or RM module already installed, be sure to use -AllowClobber.
-2. Import the installed modules. When using the following example, the version number (in this example, 5.3.0) will change as newer versions of the cmdlets are released. Also, if the WindowsPowerShell module is installed in a different location on your computer, adjust the path accordingly
+2. Import the installed modules. When using the following example, the version number (in this example, 5.3.0) will change as newer versions of the cmdlets are released. Also, if the WindowsPowerShell module is installed in a different location on your computer, adjust the path accordingly.
 
    ```powershell
    Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
