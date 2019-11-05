@@ -19,7 +19,7 @@ Azure Backup sends diagnostics events that can be collected and used for the pur
 ## Diagnostics Events Available for Azure Backup Users
 1)	**AzureBackupReport** – Traditionally, all backup-related diagnostics data for a vault has been contained in a single event called ‘AzureBackupReport’. 
 
-Data for this event can be sent to a storage account, which you can use in conjunction with Power BI Reports ([click here](https://docs.microsoft.com/en-us/azure/backup/backup-azure-reports-data-model) to learn the Power BI data model for AzureBackupReport) or any custom solution which uses data from the storage account. It can also be sent to an LA Workspace ([click here](https://docs.microsoft.com/en-us/azure/backup/backup-azure-log-analytics-data-model) to learn the Log Analytics data model for AzureBackupReport). It can also be sent to an Event Hub.
+Data for this event can be sent to a storage account, which you can use in conjunction with Power BI Reports ([click here](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) to learn the Power BI data model for AzureBackupReport) or any custom solution which uses data from the storage account. It can also be sent to an LA Workspace ([click here](https://docs.microsoft.com/azure/backup/backup-azure-log-analytics-data-model) to learn the Log Analytics data model for AzureBackupReport). It can also be sent to an Event Hub.
 
 2)	**New Events** – Today, Azure Backup supports six new events, which are, in essence, a decomposition of all the data contained in AzureBackupReport.  These new events are - CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy, and AddonAzureBackupStorage (click here to learn the data model for the new events). Data for these new events can also be sent to either a storage account, LA workspace, or an Event Hub. If you are sending this data to an LA Workspace, you need to select the ‘Resource Specific’ toggle in the Diagnostics Setting screen (see more information in the below sections).
 
@@ -33,13 +33,13 @@ As mentioned in the previous section, Azure Backup allows you to send backup rep
 
 The AzureBackupReport event is supported **only** in Azure Diagnostics Mode. **Please note that if you try to send AzureBackupReport event data in Resource Specific Mode, no data will flow to the LA Workspace.**
 
-Learn more about Azure Diagnostics mode [here](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/resource-logs-collect-workspace#azure-diagnostics-mode).
+Learn more about Azure Diagnostics mode [here](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#azure-diagnostics-mode).
 
 2.	**Resource Specific Mode** – Aligning with the Azure Log Analytics roadmap, Azure Backup now allows you to send vault diagnostics data to dedicated LA tables for Backup. These are referred to as Resource Specific tables.
 
 The six new events, namely, CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy, and AddonAzureBackupStorage, are supported **only** in Resource Specific Mode. **Please note that if you try to send data for these 6 events in Azure Diagnostics Mode, no data will flow to the LA Workspace.**
 
-Learn more about Resource Specific Mode [here](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific)
+Learn more about Resource Specific Mode [here](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific)
 
 ## How to send Backup Reporting Data to Log Analytics in Azure Diagnostics Mode (old)
 
@@ -51,7 +51,7 @@ Learn more about Resource Specific Mode [here](https://docs.microsoft.com/en-us/
 
 ![Azure Diagnostics mode](./media/backup-azure-diagnostics-events/azure_diagnostics.PNG)
 
-Once data flows into the LA Workspace, you can write queries on the AzureBackupReport event, using the AzureDiagnostics table in your workspace. [Click here](https://review.docs.microsoft.com/en-us/azure/backup/backup-azure-monitoring-use-azuremonitor?branch=pr-en-us-90760#sample-kusto-queries) to learn how to write queries on AzureDiagnostics.
+Once data flows into the LA Workspace, you can write queries on the AzureBackupReport event, using the AzureDiagnostics table in your workspace. [Click here](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) to learn how to write queries on AzureDiagnostics.
 
 ## How to send Backup Reporting Data to Log Analytics in Resource Specific Mode (new)
 
