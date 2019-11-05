@@ -219,6 +219,9 @@ The **summary** tab provides an overview of what happened and identifiers for th
 |InternalError |An internal service error occurred within the Azure AD provisioning service. There is nothing to do. This attempt will automatically be retried in 40 minutes.|
 |InvalidDomain |The operation could not be performed due to an attribute value containing an invalid domain name. Update the domain name on the user or add it to the permitted list in the target application. |
 |Timeout |The operation could not be completed because the target application took too long to respond. There is nothing to do. This attempt will automatically be retried in 40 minutes.|
+|LicenseLimitExceeded|The user could not be created in the target application because there are no available licenses for this user. Either procure additional licenses for the target application, or review your user assignments and attribute mapping configuration to ensure that the correct users are assigned with the correct attributes.|
+|DuplicateTargetEntries  |The operation could not be completed because more than one user in the target application was found with the configured matching attributes. Either remove the duplicate user from the target application, or reconfigure your attribute mappings as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateSourceEntries | The operation could not be completed because more than one user was found with the configured matching attributes. Either remove the duplicate user, or reconfigure your attribute mappings as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 
 ## Next steps
 
