@@ -32,13 +32,10 @@ Access the following web-based authoring tools from the studio:
 
 | Web-based tool | Description | Edition |
 |-|-|-|
-| [Compute Instance](concept-compute-instance.md) (preview) | Fully managed cloud-based workstation | Basic & Enterprise |
+| Notebook VM(preview) | Fully managed cloud-based workstation | Basic & Enterprise |
 | [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
 | [Designer](ui-concept-visual-interface.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the the designer | Enterprise |
 
-> [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  
 
 ### Azure Machine Learning designer enhancements 
 

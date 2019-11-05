@@ -768,14 +768,14 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-roles.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-entity-types#entity-role-defines-context",
-      "redirect_document_id": false      
-    },    
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-version.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-app-iteration",
-      "redirect_document_id": false   
+      "redirect_document_id": false
     },
-    {   
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-cs-add-utterance.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest",
       "redirect_document_id": false
@@ -5276,6 +5276,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/web-application-firewall-troubleshoot.md",
+      "redirect_url": "/azure/web-application-firewall/ag/web-application-firewall-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/waf-overview.md",
+      "redirect_url": "/azure/web-application-firewall/ag/ag-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-create-url-route-portal.md",
       "redirect_url": "/azure/application-gateway/create-url-route-portal",
       "redirect_document_id": false
@@ -5549,6 +5559,11 @@
       "source_path": "articles/azure-functions/durable/durable-functions-checkpointing-and-replay.md",
       "redirect_url": "/azure/azure-functions/durable/durable-functions-orchestrations",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/durable-functions-preview.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-versions",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/azure-functions/functions-bindings-storage.md",
@@ -19280,9 +19295,29 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-privacy-page.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-privacy-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-organizations-page.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-organizations-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-devices-page.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-devices-page",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/user-help/user-help-reset-password.md",
       "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
-      "redirect_document_id": false      
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-protocols-oauth-code.md",
@@ -24215,6 +24250,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/networking/virtual-network-test-latency.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md",
       "redirect_url": "/azure/virtual-network/virtual-network-create-peering",
       "redirect_document_id": false
@@ -26602,6 +26642,11 @@
     {
       "source_path": "articles/security-center/security-center-custom-alert.md",
       "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#custom-alert-rules-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-policies-overview.md",
+      "redirect_url": "/azure/security-center/tutorial-security-policy.md",
       "redirect_document_id": false
     },
     {
@@ -34390,6 +34435,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-ssl-portal.md",
       "redirect_url": "/azure/application-gateway/create-ssl-portal",
       "redirect_document_id": true
@@ -35815,7 +35865,7 @@
     },
     {
       "source_path": "articles/azure-policy/scripts/req-sql-12.md",
-      "redirect_url": "/azure/governance/policy/samples/require-sql-12",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
@@ -38474,6 +38524,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/azure-logs-metrics.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-platform",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -38895,8 +38950,13 @@
     },
     {
       "source_path": "articles/governance/policy/samples/req-sql-12.md",
-      "redirect_url": "/azure/governance/policy/samples/require-sql-12",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/require-sql-12.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/req-store-acct-enc.md",
@@ -43639,6 +43699,21 @@
       "source_path": "articles/azure-monitor/insights/container-insights-live-logs.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-livedata-overview",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-store-integrate-with-azure-services.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-integrate-with-azure-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/conversation-transcription-service.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/conversation-transcription",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-use-conversation-transcription-service.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-use-conversation-transcription",
+      "redirect_document_id": false
+    },
   ]
 }
