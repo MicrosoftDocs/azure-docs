@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/05/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to create a Human Resources app, so that I can analyze user text in that subject domain.
+#Customer intent: As a new user, I want to create a custom app with intents, so that I can analyze user text in that subject domain.
 ---
 
 # Tutorial: Build LUIS app to determine user intentions
 
-In this tutorial, you create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). 
+In this tutorial, you create a custom app that predicts a user's intention based on the utterance (text). 
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
