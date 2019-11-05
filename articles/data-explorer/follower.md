@@ -3,7 +3,7 @@ title: Use follower to share databases in Azure Data Explorer
 description: Learn about how to share databases in Azure Data Explorer.
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: rkarl
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/04/2019
@@ -11,7 +11,7 @@ ms.date: 11/04/2019
 
 # Using Follower database to share databases in Azure Data Explorer
 
-Azure Data Explorer database(s) hosted in one cluster can be attached as read only database(s) to a different cluster. By attaching a database to a cluster you allow users of this cluster to view the data in the attached database and execute queries on such a database.
+Azure Data Explorer database(s) hosted in one cluster can be attached as read only database(s) to a different cluster. By attaching a database to a cluster, you allow users of the cluster to view the data and execute queries on the attached database.
 The attached database is a read-only database which means the data in the database, its tables and the equivalent policies cannot be modifed except for a specific set of policies. Attached databases cannot be delted and they can only be detached on the attaching side. In case a database that was attached to another cluster is deleted on the original cluster all the attached databases will be inaccssible.
 Attaching a database to a different cluster is useful for seggragating compute resource in case we would like to protect a production environment from non-production use cases.
 It is also usefull for associating cost of Azure Data Explorer cluster to the part that runs queries on the data.
@@ -19,14 +19,14 @@ Both the original cluster the the attached database(s) cluster are sharing the s
 A cluster can hold both attached databases and databases attached to other clusters.
 It is possible to attach a single database, multiple databases and all databases in a specific cluster
 
-## How to share a database
+## Share a database
 
 You can share a database using Azure Resource Manager template.
 In this section, you learn how to share a database by using an [Azure Resource Manager template](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-resource-manager/resource-group-overview.md). 
 In order to be able to share a database the user must have a permission on both leader cluster and follower cluster. 
 In order to share a database, one must have right permission on both the follower cluster and the leader cluster. For more information about permission, see [permission model](#Permission-model).
 
-### Azure Resource Manager template for sharing a database
+### Share a database using an Azure Resource Manager template
 
 ```json
 {
@@ -107,13 +107,11 @@ In order to share a database, one must have right permission on both the followe
 }
 ```
 
-### 2nd method Deploy the template and verify template deployment
-
-#### Deploy
+### Deploy the template 
 
 You can deploy the Azure Resource Manager template by using the Azure portal or using powershell.
 
-![TemplateDeployment](TemplateDeployment.png)
+   ![template deployment](media/follower/template-deployment.png)
 
 1. **Follower Cluster Name** - the name of the follower cluster. 
 2. **Attached Database Configurations Name** - the name of the attached database configurations object. The name must be unique in the cluster level.
@@ -122,7 +120,7 @@ You can deploy the Azure Resource Manager template by using the Azure portal or 
 5. **Default Principal Modification Kind** - the default principal modification kind. Can be Union, Replace or None. For more information about default principal modification kind, [see here]("#broken-link").
 6. **Location** - the location of all the resouces. Please note that the leader and the follower must be in the same location. 
 
-#### Verify 
+### Verify that the database was successfully shared
 
 Verifying that the database was successfully shared using [Azure Portal](https://portal.azure.com).
 
@@ -130,7 +128,7 @@ Verifying that the database was successfully shared using [Azure Portal](https:/
 * Go to Databases
 * Search for new "Read Only" Databases in the database lists
 
-    ![TemplateDeployment](ReadOnlyFollowingDatabase.png)
+    ![Read only follower database](media/follower/read-only-follower-database.png)
 
 Alternatively:
 
@@ -138,11 +136,9 @@ Alternatively:
 * Go to Databases
 * Make sure that the relevant databases are marked as "SHARED WITH OTHERS"
 
-    ![TemplateDeployment](readwriteDatabasesShared.png)
+    ![Read and write shared databases](media/follower/read-write-databases-shared.png)
 
-## How to detach the follower database
-
-### Detach the following data using C# 
+### Detach the follower database using C# 
 
 Follower cluster is able to detach any attached database as follows:
 
@@ -200,8 +196,6 @@ var followerDatabaseDefinition = new FollowerDatabaseDefinition()
 managementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
-## Permission model
-
 ## Managing principals
 
 When attaching a database you need to specify the "default principals modification kind" to one of the following values:
@@ -209,12 +203,16 @@ Union - the attached database principal list will always include the original da
 Replace - There is no inheritance of principals from the original database. New principals should be created for the attached database.
 None - the attached database principals can include only the principals of the original database and non can be added specifically to the attached one.
 
-### Managing Permissions
+## Managing permissions
 
 Managing read only database permission is the same as "regular" databases, please see [manage permissions in Azure portal](https://docs.microsoft.com/en-us/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 **Note**: Managing permissions with management commands is not supported.
 
+## Configurable policies
+
+The attached database admin can modify the caching policy of the attached database or any of its tables on the hosting cluster. This means, it is possible to have a chaching policy of 30 days on the original cluster for running monthly analytics and a policy of 3 days on the secondary cluster to query only the recent data for troubleshooting.
+
 ## Limitations
 
-- The follower and the leader must be in the same region
-- Database that is being followed cannot be deleted
+* The follower and the leader must be in the same region
+* Database that is being followed cannot be deleted
