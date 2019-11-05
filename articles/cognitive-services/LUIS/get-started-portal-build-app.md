@@ -8,13 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances. 
 ---
 
 # Quickstart: Create a new app in the LUIS portal
 
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 In this quickstart, you build a new app in the [LUIS portal](https://www.luis.ai). First you create the basic parts of an app, **intents**, and **entities**. Then you test the app by providing a sample user utterance in the interactive test panel to get the predicted intent.
 
@@ -133,7 +134,7 @@ The **None** intent's example utterances should be outside of your client applic
 
 ## Train the app
 
-In the menu in the upper right, select **Train** to apply the intent and entity model changes to the current version of the app.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## Look at the regular expression entity in the example utterances
 
