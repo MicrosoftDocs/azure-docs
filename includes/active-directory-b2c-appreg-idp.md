@@ -36,5 +36,5 @@ Once the application registration is complete, enable the implicit grant flow:
 
 1. Under **Manage**, select **Authentication**.
 1. Select **Try out the new experience** (if shown).
-1. Under **IMPLICIT GRANT**, select both the **Access tokens** and **ID tokens** check boxes.
+1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
