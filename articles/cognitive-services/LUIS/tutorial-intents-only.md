@@ -67,9 +67,12 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
     |`pickup a cheddar cheese pizza large with extra anchovies`|
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
 
+    ![Add example utterances](./media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+
     By providing _example utterances_, you are training LUIS about what kinds of utterances should be predicted for this intent. 
 
-    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
+    [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]    
+    
 ## Create remaining subject domain intents with example utterances
 
 1. Create the `Greeting` intent and add the following example utterances. This is the intent to determine if a user is beginning a new pizza order conversation.
