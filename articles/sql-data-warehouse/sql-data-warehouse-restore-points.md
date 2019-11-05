@@ -10,6 +10,7 @@ ms.subservice: manage
 ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # User-defined restore points

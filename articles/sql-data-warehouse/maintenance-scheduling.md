@@ -1,5 +1,5 @@
 ---
-title: Azure maintenance schedules (preview) 
+title: Azure maintenance schedules
 description: Maintenance scheduling enables customers to plan around the necessary scheduled maintenance events that the Azure SQL Data Warehouse service uses to roll out new features, upgrades, and patches.  
 services: sql-data-warehouse
 author: antvgski
