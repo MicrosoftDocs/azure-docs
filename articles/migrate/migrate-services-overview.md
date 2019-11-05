@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 11/05/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -14,16 +14,16 @@ ms.custom: mvc
 
 This article provides a quick overview of Azure Migrate.
 
-Azure Migrate helps you to migrate from on-premises to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools and services for assessment and migration, as well as third-party independent software vendor (ISV) offerings. Azure Migrate provides:
+Azure Migrate helps you to migrate your enterprise from on-premises to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure.  Azure Migrate provides:
 
 - **Unified migration platform**: A single portal to start, run, and track your migration journey to Azure.
-- **Range of tools**: Native tools, and integration with other Azure services, as well as with ISV tools. Select the right assessment and migration tools, based on your organizational requirements.
-- **Workloads**: Azure Migrate provides assessment and migration tools for:
-    - **Servers**: Use Microsoft tools or ISV tools for assessment and migration of servers to Azure VMs.
-    - **Databases**: Leverage Microsoft and ISV tools for assessment and migration of on-premises databases to Azure SQL DB or Azure SQL Managed Instance.
+- **Range of tools**: The hub provides Azure tools and services for assessment and migration, and integration with other Azure services, as well as with other tools third-party independent software vendor (ISV) offerings.
+- **Workloads**: Azure Migrate provides assessment and migration for:
+    - **Servers**: Use Azure Migrate Server Assessment, Azure Migrate Server Migration, and other tools, for assessment and migration of servers to Azure VMs.
+    - **Databases**: Leverage Microsoft and ISV tools for assessment and migration of on-premises databases to Azure SQL DB, or Azure SQL Managed Instance.
     - **Web applications**: Use Azure App Service Assistant to assess and migrate on-premises web applications to Azure App Service.
     - **Virtual desktops**: Use ISV tools to assess and migrate on-premises virtual desktop infrastructure (VDI) to Windows Virtual Desktop in Azure.
-    - **Data**: Use the Azure Data Box family of products to quickly and cost-effectively migrate data to Azure.
+    - **Data**: Use the Azure Data Box family of products to quickly and cost-effectively migrate large amounts of data to Azure.
 
 ## Azure Migrate versions
 
@@ -45,16 +45,19 @@ In addition to native Microsoft tools, Azure Migrate integrates with a number of
 [Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate
 [Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate
 
+## Tool integration
 
+Azure Migrate integrates with Movere for assessment. Movere is a SaaS platform that increases business intelligence by accurately presenting entire IT environments within a single day. [Learn more](https://go.microsoft.com/fwlink/?linkid=2109528).
 
-### Selecting an ISV tool
+### Selecting a tool
 
 You identify the tool you need, and add it to an Azure Migrate project.
 
-- After adding an ISV tool, you get started by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. Licensing for ISV tools is in accordance with the ISV licensing model.
+- After adding a tool, you get started by obtaining a license, or signing up for a free trial, in accordance with the tool policy. Licensing for tools is in accordance with the ISV or tool licensing model.
 - In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation, to connect the tool with Azure Migrate.L
-- You centrally track your migration journey from within the Azure Migrate project, across Azure and ISV tools.
+- You centrally track your migration journey from within the Azure Migrate project, across Azure and other tools.
 
 
 ## Azure Migrate Server Assessment tool

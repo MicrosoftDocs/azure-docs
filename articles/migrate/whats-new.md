@@ -17,6 +17,13 @@ ms.custom: mvc
 
 ## Update (November 2019)
 
+New assessment and migration tools were added to Azure Migrate:
+
+- **Rackware**: Offering cloud migration
+- **Movere**: Offering assessment.
+
+[Learn more](migrate-services-overview.md) about using tools and ISV offerings for assessment and migration in Azure Migrate.
+
 A number of new features were added to Azure Migrate:
 
 - **Physical server assessment**. Assessment of on-premises physical servers is now supported, in addition to physical server migration that is already supported.

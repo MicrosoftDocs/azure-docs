@@ -29,20 +29,25 @@ The table summarizes supported discovery, assessment, and migration scenarios.
 **Deployment** | **Details** 
 --- | --- 
 **App-specific discovery** | You can discover apps, roles, and features running on VMware VMs. Currently this feature is limited to discovery only. Assessment is currently at the machine level. We don't yet offer app, role, or feature-specific assessment. 
-**On-premises assessment** | Assess on-premises workloads and data running on VMware VMs and Hyper-V VMs. Assess using Azure Migrate Server Assessment and Microsoft Data Migration Assistant (DMA), as well as third-party tools that include Cloudamize, Corent Tech, and Turbonomic Server.
-**On-premises migration to Azure** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as using third-party tools that include Carbonite and CorentTech.
+**On-premises assessment** | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess using Azure Migrate Server Assessment and Microsoft Data Migration Assistant (DMA), as well as other tools and ISV offerings.
+**On-premises migration to Azure** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as other tools and ISV offerings.
 
 Specific tool support is summarized as follows.
 
 **Tool** | **Assessment/Migration** | **Details**
 --- | --- | ---
-Azure Migrate Server Assessment | Assessment | Try out server assessment for [Hyper-V](tutorial-prepare-hyper-v.md) and [VMware](tutorial-prepare-vmware.md).
-Cloudamize | Assessment | [Learn more](https://www.cloudamize.com/platform#tab-0).
-CorentTech | Assessment | [Learn more](https://www.corenttech.com/).
-Turbonomic | Assessment | [Learn more](https://turbonomic.com/solutions/technologies/azure-cloud/).
+Azure Migrate Server Assessment | Assessment | Try out server assessment for [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md), and [physical servers](tutorial-prepare-physical.md).
 Azure Migrate Server Migration | Migration | Try out server migration for [Hyper-V](tutorial-migrate-hyper-v.md) and [VMware](tutorial-migrate-vmware.md).
+Cloudamize | Assessment | [Learn more](https://www.cloudamize.com/platform#tab-0).
+Device 42 | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2097158).
+UnifyCloud | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2097195).
+Turbonomic  | Assessment [Learn more](https://go.microsoft.com/fwlink/?linkid=2094295).
+Lakeside | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2104908).
+Corent Technology | Assessment and migration | [Learn more](https://go.microsoft.com/fwlink/?linkid=2084928).
 Carbonite | Migration | [Learn more](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure).
-CorentTech | Migration | [Learn more](https://www.corenttech.com/).
+RackWare | Migration | [Learn more](https://go.microsoft.com/fwlink/?linkid=2102735) 
+Movere | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2109528).
+
 
 
 ## Azure Migrate projects
