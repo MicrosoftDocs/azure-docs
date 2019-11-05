@@ -168,8 +168,6 @@ Creating a new database or moving an existing database into a serverless compute
    |Min vCores|Depends on max vCores configured - see [resource limits](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0.5 vCores|
    |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|60 minutes|
 
-> [!NOTE]
-> Using T-SQL to move an existing database into serverless or change its compute size is not currently supported but can be done via the Azure portal or PowerShell.
 
 ### Create new database in serverless compute tier 
 
@@ -194,6 +192,17 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
+#### Use Transact-SQL (T-SQL)
+
+The following example creates a new database in the serverless compute tier.
+
+```sql
+CREATE DATABASE testdb
+( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
+```
+
+For details, see [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+
 ### Move database from provisioned compute tier into serverless compute tier
 
 #### Use PowerShell
@@ -212,6 +221,17 @@ Set-AzSqlDatabase `
   -MaxVcore 4 `
   -AutoPauseDelayInMinutes 1440
 ```
+
+#### Use Transact-SQL (T-SQL)
+
+The following example moves a database from the provisioned compute tier into the serverless compute tier. 
+
+```sql
+ALTER DATABASE testdb 
+MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
+```
+
+For details, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
 ### Move database from serverless compute tier into provisioned compute tier
 
