@@ -113,6 +113,15 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
 
 4. Once you have updated your cluster configuration file with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the _backup and restore service_ starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and the service can be located under system service section in the Service Fabric explorer. 
 
+### Using Service Fabric Explorer
+
+1. Make sure Advanced Mode is enabled.
+![Enable Advanced Mode][2]
+2. Select an application and go to action. Click Enable/Update Application Backup.
+![Enable Application Backup][3] 
+3. Finally, select the desired policy and click Enable Backup.
+![Select Policy][4]
+
 ## Enabling periodic backup for Reliable Stateful service and Reliable Actors
 Let's walk through steps to enable periodic backup for Reliable Stateful service and Reliable Actors. These steps assume
 - That the cluster is set up with _backup and restore service_.
@@ -259,6 +268,12 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+#### Using Service Fabric Explorer
+
+To view backups in Service Fabric Explorer, navigate to a partition and select the Backups tab.
+
+![Enumerate Backups][5]
+
 ## Limitation/ caveats
 - Service Fabric PowerShell cmdlets are in preview mode.
 - No support for Service Fabric clusters on Linux.
@@ -268,4 +283,8 @@ FailureError            :
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent.png
+[2]: ./media/service-fabric-backuprestoreservice/AdvancedMode.png
+[3]: ./media/service-fabric-backuprestoreservice/EnableAppBackup.png
+[4]: ./media/service-fabric-backuprestoreservice/EnableApplicationBackup.png
+[5]: ./media/service-fabric-backuprestoreservice/BackupEnumeration.png
 
