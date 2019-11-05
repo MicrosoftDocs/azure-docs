@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
-ms.date: 10/15/2019
+ms.date: 11/11/2019
 ---
 
 # Define machine learning pipelines in YAML
@@ -43,8 +43,6 @@ A pipeline definition uses the following keys, which correspond to the [Pipeline
 | `data_reference` | Defines how and where data should be made available in a run. |
 | `default_compute` | Default compute target where all steps in the pipeline run. |
 | `steps` | The steps used in the pipeline. |
-
-The following YAML is an example pipeline definition:
 
 ## Parameters
 
@@ -100,15 +98,15 @@ pipeline:
 
 ## Steps
 
-Steps define a computational environment, along with the files to run on the environment. The YAML definition represents the following steps:
+Steps define a computational environment, along with the files to run on the environment. To define the type of a step, use the `type` key:
 
-| YAML key | Description |
+| Step type | Description |
 | ----- | ----- |
-| `adla_step` | Runs a U-SQL script with Azure Data Lake Analytics. Corresponds to the [AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py) class. |
-| `azurebatch_step` | Runs jobs using Azure Batch. Corresponds to the [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py) class. |
-| `databricks_step` | Adds a Databricks notebook, Python script, or JAR. Corresponds to the [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) class. |
-| `data_transfer_step` | Transfers data between storage options. Corresponds to the [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) class. |
-| `python_script_step` | Runs a Python script. Corresponds to the [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) class. |
+| `AdlaStep` | Runs a U-SQL script with Azure Data Lake Analytics. Corresponds to the [AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py) class. |
+| `AzureBatchStep` | Runs jobs using Azure Batch. Corresponds to the [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py) class. |
+| `DatabricsStep` | Adds a Databricks notebook, Python script, or JAR. Corresponds to the [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) class. |
+| `DataTransferStep` | Transfers data between storage options. Corresponds to the [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) class. |
+| `PythonScriptStep` | Runs a Python script. Corresponds to the [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) class. |
 
 ### ADLA step
 
@@ -147,10 +145,10 @@ pipeline:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            adla_step:
-                name: "AdlaStep"
-                script_name: "sample_script.usql"
-                source_directory: "helloworld"
+            type: "AdlaStep"
+            name: "MyAdlaStep"
+            script_name: "sample_script.usql"
+            source_directory: "helloworld"
             inputs:
                 employee_data:
                     source: employee_data
@@ -199,13 +197,13 @@ pipeline:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            azurebatch_step:
-                name: "AzureBatchStep"
-                pool_id: "MyPoolName"
-                create_pool: true
-                executable: "azurebatch.cmd"
-                source_directory: "D:\\AzureMlCli\\cli_testing"
-                allow_reuse: false
+            type: "AzureBatchStep"
+            name: "MyAzureBatchStep"
+            pool_id: "MyPoolName"
+            create_pool: true
+            executable: "azurebatch.cmd"
+            source_directory: "D:\\AzureMlCli\\cli_testing"
+            allow_reuse: false
             inputs:
                 input:
                     source: input
@@ -252,13 +250,13 @@ pipeline:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            databricks_step:
-                name: "Databrickstep"
-                run_name: "DatabrickRun"
-                python_script_name: "train-db-local.py"
-                source_directory: "D:\\AzureMlCli\\cli_testing\\databricks_train"
-                num_workers: 1
-                allow_reuse: true
+            type: "DatabricksStep"
+            name: "MyDatabrickstep"
+            run_name: "DatabrickRun"
+            python_script_name: "train-db-local.py"
+            source_directory: "D:\\AzureMlCli\\cli_testing\\databricks_train"
+            num_workers: 1
+            allow_reuse: true
             inputs:
                 blob_test_data:
                     source: blob_test_data
@@ -302,9 +300,9 @@ pipeline:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            data_transfer_step:
-                name: "DataTransferStep"
-                adla_compute_name: adftest
+            type: "DataTransferStep"
+            name: "MyDataTransferStep"
+            adla_compute_name: adftest
             source_data_reference:
                 adls_test_data:
                     source: adls_test_data
@@ -346,11 +344,11 @@ pipeline:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            python_script_step:
-                name: "PythonScriptStep"
-                script_name: "train.py"
-                allow_reuse: True
-                source_directory: "helloworld"
+            type: "PythonScriptStep"
+            name: "MyPythonScriptStep"
+            script_name: "train.py"
+            allow_reuse: True
+            source_directory: "helloworld"
             inputs:
                 InputData:
                     source: DataReference1
