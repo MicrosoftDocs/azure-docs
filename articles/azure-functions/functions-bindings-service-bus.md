@@ -471,12 +471,12 @@ public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
 Here's C# script code that creates multiple messages:
 
 ```cs
-public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> outputSbQueue)
+public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<string> outputSbQueue)
 {
     string message = $"Service Bus queue messages created at: {DateTime.Now}";
     log.LogInformation(message); 
-    outputSbQueue.Add("1 " + message);
-    outputSbQueue.Add("2 " + message);
+    await outputSbQueue.AddAsync("1 " + message);
+    await outputSbQueue.AddAsync("2 " + message);
 }
 ```
 

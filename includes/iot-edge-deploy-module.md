@@ -45,6 +45,7 @@ To deploy your first module from the Azure Marketplace, use the following steps:
    ```sql
     FROM /messages/* INTO $upstream
    ```
+   Then select **Next**.
 
    Select **Next: Review + create** to continue to the next step of the wizard.
 
