@@ -1,5 +1,5 @@
 ---
-title: Defining data types - Azure SQL Data Warehouse | Microsoft Docs
+title: Defining data types - Azure SQL Data Warehouse 
 description: Recommendations for defining table data types in Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
