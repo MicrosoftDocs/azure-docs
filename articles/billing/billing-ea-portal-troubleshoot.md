@@ -81,17 +81,17 @@ However, if the EA administrators are not able to assist you, we will be able to
 - email address to be added and authentication type (work/school/MS).
 - an email approval from the EA administrator.
 
-Once you have all the required information, please submit a request at [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).
+Once you have all the required information, please submit a request at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
 ### I would like to update the first EA admin on the enrollment
 
 The first EA admin can be updated in volume licensing service center by updating the notice contact and online admin on the portal. It will take about 24 hours for the EA portal to update. Once it is updated, the new EA admin will receive activation email.
 
-If you do not have VLSC portal access or if your initial EA administrator can no longer manage the enrollment and has no access to EA portal, please submit a request at [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport) to request for an update and provide the following information:
+If you do not have VLSC portal access or if your initial EA administrator can no longer manage the enrollment and has no access to EA portal, please submit a request at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) to request for an update and provide the following information:
 - Enrollment number
-- Email address to be added and authentication type (work/school/MS).
-- Reason for changing initial EA administrator.
-- Email approval from initial EA administrator.
+- Email address to be added and authentication type (work/school/MS)
+- Reason for changing initial EA administrator
+- Email approval from initial EA administrator
 
 ### My current EA admin is no longer with the company
 
@@ -124,7 +124,7 @@ There are a few possible reasons for an error message on Azure EA portal during 
     1. If you prefer to set up two-step authentication later, select “Set it up later”.
     1. You will land on the "Manage your account aliases" page where you will see the account aliases that you have. Double check that the primary alias is the one that you are using to log into Azure EA portal. If it is not, you can either make it your primary alias, or you will use the primary alias for EA portal instead.
 
-If the above troubleshooting steps failed, please submit a request at [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport) with information such as:
+If the above troubleshooting steps failed, please submit a request at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) with information such as:
 - The browsers and version used.
 - Screenshot of the error message.
 - URL of the page showing error.  

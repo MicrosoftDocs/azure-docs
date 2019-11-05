@@ -129,7 +129,7 @@ Once partner markup is published, the indirect customer will have access to bala
 Partners can use the markup feature (on Azure EA) after a Change of Channel Partner is processed; no need to wait for the next anniversary term.
 
 
-# Resource Commitment and Requesting Quota Increases
+## Resource commitment and requesting quota increases
 
 **The system enforces the following default quotas per subscription:**
 
@@ -257,13 +257,13 @@ This scenario occurs when the customer has deployed services under the wrong enr
 
 To validate if you're deploying under the right enrollment, you can check your included units information via the price sheet. Please sign in as an Enterprise Administrator and click on **Reports** on the left navigation and select **Price Sheet** tab. Click the Download icon in the top-right corner and find the corresponding Plan SKU part numbers with filter on column “Included Quantity” and select values greater than “0”.
 
-Ensure that your OMS plan is showing on the price sheet under included units. If there are no included units for OMS plan on your enrollment, your OMS plan may be under another enrollment. Please contact Azure Enterprise Portal Support at [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).
+Ensure that your OMS plan is showing on the price sheet under included units. If there are no included units for OMS plan on your enrollment, your OMS plan may be under another enrollment. Please contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
-If the included units for the services on the price sheet don't match with what you have deployed, e.g. Operational Insights Premium Data Analyzed vs. Operational Insights Standard Data Analyzed, it means that you may have deployed services that are not covered by the plan, please contact Azure Enterprise Portal Support at [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport) so we can assist you further.
+If the included units for the services on the price sheet don't match with what you have deployed, e.g. Operational Insights Premium Data Analyzed vs. Operational Insights Standard Data Analyzed, it means that you may have deployed services that are not covered by the plan, please contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) so we can assist you further.
 
 **Provisioned Plan SKU services on wrong enrollment**
 
-If you have multiple enrollments and have deployed services under the wrong enrollment number, which doesn't have an OMS plan, please contact Azure Enterprise Portal Support at [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).
+If you have multiple enrollments and have deployed services under the wrong enrollment number, which doesn't have an OMS plan, please contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
 ## Next steps
 

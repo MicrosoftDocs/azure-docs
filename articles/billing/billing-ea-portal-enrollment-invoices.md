@@ -347,11 +347,11 @@ In addition to the introduction of new services, services also periodically chan
 
 ### Enterprise MSDN Dev/Test
 
-Enterprise Administrators can enable Account Owners to create subscriptions based on the EA MSDN Dev/Test offer. In order for this to function correctly, the Account Owner will need to set up the EA MSDN Dev/Test subscriptions needed for the underlying MSDN subscribers. This enables active MSDN subscribers to run development and testing workloads on Azure at special dev/test rates. For more information, see [EA MSDN Dev/Test](http://azure.microsoft.com/offers/ms-azr-0148p/).
+Enterprise Administrators can enable Account Owners to create subscriptions based on the EA MSDN Dev/Test offer. In order for this to function correctly, the Account Owner will need to set up the EA MSDN Dev/Test subscriptions needed for the underlying MSDN subscribers. This enables active MSDN subscribers to run development and testing workloads on Azure at special dev/test rates. For more information, see [EA MSDN Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### Enterprise program usage calculation guidelines
 
-Please refer to [Azure Services](http://azure.microsoft.com/services/) and [Azure Pricing](http://azure.microsoft.com/pricing/) for basic public pricing information, units of measure, FAQs, and usage reporting guidelines for each individual service. In addition, when calculating service usage, the following Enterprise Program guidelines should be used.
+Please refer to [Azure Services](https://azure.microsoft.com/services/) and [Azure Pricing](https://azure.microsoft.com/pricing/) for basic public pricing information, units of measure, FAQs, and usage reporting guidelines for each individual service. In addition, when calculating service usage, the following Enterprise Program guidelines should be used.
 
 ### Enterprise program units of measure
 
@@ -492,7 +492,7 @@ Although customers can convert their direct Azure subscriptions to EA by associa
 
 ### Marketplace charges in Azure EA Portal reports
 
-Additional information on marketplace charges can be found [here.](https://azure.microsoft.com/en-us/marketplace/faq/)
+Additional information on marketplace charges can be found [here.](https://azure.microsoft.com/marketplace/faq/)
 
 There are two types of marketplace charges:
 
@@ -547,7 +547,7 @@ There's no impact to our indirect enrollment customers or partners. These servic
 
 ### List of Services that will deduct from Azure monetary commitment
 
-Specific Azure marketplace offers can use monetary commitment funds. See [Azure monetary commitment](https://azure.microsoft.com/en-us/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) for a complete list of products participating in this program.
+Specific Azure marketplace offers can use monetary commitment funds. See [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) for a complete list of products participating in this program.
 
 ## Additional information
 
@@ -586,7 +586,7 @@ To sign up for the free trial, go to the gear icon and selecting **Manage person
 1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Click **Sign In**.
 1. The import process will begin automatically. When complete, a new dashboard, report, and model will appear in the navigation pane. Click the dashboard to view your imported data.
 
-For more information on how to generate the API key for your enrollment, please visit the API Reports help file on the [Enterprise Portal](http://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). For more information on the new content pack, please download the [Microsoft Azure Consumption Insights](http://automaticbillingspec.blob.core.windows.net/spec/Microsoft%20Azure%20Consumption%20Insights.docx?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26) document.
+For more information on how to generate the API key for your enrollment, please visit the API Reports help file on the [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). For more information on the new content pack, please download the [Microsoft Azure Consumption Insights](https://automaticbillingspec.blob.core.windows.net/spec/Microsoft%20Azure%20Consumption%20Insights.docx?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26) document.
 
 ### To access the legacy Power BI EA content pack:
 

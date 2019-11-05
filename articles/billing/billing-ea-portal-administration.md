@@ -80,7 +80,7 @@ The Azure EA portal helps you to administer your Azure EA costs and usage. There
 
 Each role has a different level of access and authority.
 
-For more information about user roles, see [Enterprise user roles](https://docs.microsoft.com/en-us/azure/billing/billing-ea-portal-get-started#enterprise-user-roles).
+For more information about user roles, see [Enterprise user roles](https://docs.microsoft.com/azure/billing/billing-ea-portal-get-started#enterprise-user-roles).
 
 ## Add an Azure EA account
 
@@ -327,7 +327,7 @@ The Azure sponsorship offer is a limited sponsored Microsoft Azure account. It i
 
 For more information, see:
 
-- Support request for Sponsorship Activation -  http://aka.ms/azrsponsorship
+- Support request for Sponsorship Activation -  https://aka.ms/azrsponsorship
 
 ## Conversion to work or school account authentication
 
