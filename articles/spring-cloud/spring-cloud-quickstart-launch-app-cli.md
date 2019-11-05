@@ -101,7 +101,7 @@ az spring-cloud config-server git set -n <your-service-name> --uri https://githu
 2. Change directory and build the project.
 
     ```azurecli
-        cd PiggyMetrics
+        cd piggymetrics
         mvn clean package -D skipTests
     ```
 

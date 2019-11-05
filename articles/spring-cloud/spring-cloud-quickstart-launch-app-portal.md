@@ -84,7 +84,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 1. Build the cloned package.
 
     ```azurecli
-    cd PiggyMetrics
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 
