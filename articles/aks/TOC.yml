@@ -102,6 +102,8 @@
     href: supported-kubernetes-versions.md
   - name: Security Hardening in host OS
     href: security-hardened-vm-host-image.md
+  - name: Azure Kubernetes Service Diagnostics overview
+    href: concepts-diagnostics.md
 - name: How-to guides
   items:
   - name: Cluster operations
@@ -128,11 +130,11 @@
         href: virtual-nodes-portal.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
-    - name: Use Cluster Autoscaler (preview)
+    - name: Use Cluster Autoscaler
       href: cluster-autoscaler.md
-    - name: Use Availability Zones (preview)
+    - name: Use Availability Zones
       href: availability-zones.md
-    - name: Use multiple node pools (preview)
+    - name: Use multiple node pools
       href: use-multiple-node-pools.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
@@ -199,7 +201,7 @@
       href: use-network-policies.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
-    - name: Define API server authorized IP ranges (preview)
+    - name: Define API server authorized IP ranges
       href: api-server-authorized-ip-ranges.md
     - name: Control deployments with Azure Policy (preview)
       href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
@@ -225,8 +227,8 @@
       href: view-master-logs.md
     - name: View the kubelet logs
       href: kubelet-logs.md
-    - name: View real-time container logs (preview)
-      href: ../azure-monitor/insights/container-insights-live-logs.md
+    - name: View container data real-time
+      href: ../azure-monitor/insights/container-insights-livedata-overview.md
       maintainContext: true
   - name: Use Windows Server containers (preview)
     items:

@@ -16,7 +16,7 @@ ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/29/2019
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---
@@ -201,6 +201,13 @@ The **summary** tab provides an overview of what happened and identifiers for th
 - There is currently no support for log analytics.
 
 - When you access the provisioning logs from the context of an app, it doesn’t automatically filter events to the specific app the way audit logs do.
+
+## Error Codes
+
+|ErrorCode|Description|
+|---|---|
+|Conflict, EntryConflict|Correct the conflicting attribute values in either Azure AD or the application, or review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the following [documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) for more information on configuring matching attributes.|
+|TooManyRequests|The target app rejected this attempt to update the user because it is overloaded and receiving too many requests. There is nothing to do. This attempt will automatically be retired. Microsoft has also been notified of this issue.|
 
 ## Next steps
 

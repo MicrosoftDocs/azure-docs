@@ -103,8 +103,8 @@ After you get to the **My Apps** portal, you can:
 
 ## Related articles
 
-- [Update your profile and account info](myprofile-portal-overview.md). Instructions about how to update your personal information that appears on the **My Profile** (preview) portal.
+- [Update your profile and account info](my-account-portal-overview.md). Instructions about how to update your personal information that appears on the **My Profile** (preview) portal.
 
-- [Manage your organizations](myprofile-portal-organizations-page.md). Instructions about how to view and manage your organization-related information on the **Organizations** page of the **My Profile** portal.
+- [Manage your organizations](my-account-portal-organizations-page.md). Instructions about how to view and manage your organization-related information on the **Organizations** page of the **My Profile** portal.
 
-- [Manage your connected devices](myprofile-portal-devices-page.md). Instructions about how to manage the devices you're connected to using your work or school account, on the **Devices** page of the **My Profile** portal.
+- [Manage your connected devices](my-account-portal-devices-page.md). Instructions about how to manage the devices you're connected to using your work or school account, on the **Devices** page of the **My Profile** portal.
