@@ -62,7 +62,7 @@ See also [Table overview][Table overview], [Table distribution][Table distributi
 ### Do not over-partition
 While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL Analytics pool.  
 
-Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. SQL Analytics pool partitions your data for you into 60 databases. So, if you create a table with 100 partitions, the result witll be 6000 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  
+Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. SQL Analytics pool partitions your data for you into 60 databases. So, if you create a table with 100 partitions, the result will be 6000 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  
 
 One option to consider is using a granularity that is lower than what may have worked for you in SQL Server.  For example, consider using weekly or monthly partitions rather than daily partitions.
 
