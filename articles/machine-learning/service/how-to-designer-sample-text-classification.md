@@ -1,5 +1,5 @@
 ---
-title: 'Designer: Classify book reviews"
+title: 'Designer&#58; Classify book reviews"
 titleSuffix: Azure Machine Learning
 description: Learn how to build a machine learning model classify book reviews into different categories.
 services: machine-learning
