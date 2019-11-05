@@ -1,7 +1,7 @@
 ---
 title: Versioning - LUIS
 titleSuffix: Azure Cognitive Services
-description: Versions, in LUIS, are similar to versions in traditional programming. Each version is a snapshot in time of the app. Before you make changes to the app, create a new version. It is easier to go back to the exact app, then to try to unpeel and app's intent and utterances to a previous state.
+description: In LUIS, a version is a snapshot in time of the app. Before you make changes to the app, always create a new version.
 services: cognitive-services
 author: diberry
 manager: nitinme
