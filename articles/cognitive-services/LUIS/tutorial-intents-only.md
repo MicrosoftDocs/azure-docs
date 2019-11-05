@@ -18,7 +18,7 @@ ms.author: diberry
 
 In this tutorial, you create a custom app that predicts a user's intention based on the utterance (text). 
 
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **In this tutorial, you learn how to:**
 
@@ -67,7 +67,7 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
     |`pickup a cheddar cheese pizza large with extra anchovies`|
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
 
-    ![Add example utterances](./media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    ![Add example utterances](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
     By providing _example utterances_, you are training LUIS about what kinds of utterances should be predicted for this intent. 
 
