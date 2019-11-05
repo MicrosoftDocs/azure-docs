@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse workload management | Microsoft Docs
+title: Azure SQL Data Warehouse workload management 
 description: Guidance for implementing workload management in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
