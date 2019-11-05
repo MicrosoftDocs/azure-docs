@@ -21,7 +21,7 @@ This article helps you configure secure encrypted connectivity between your on-p
 >
 >
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="architecture"></a>Architecture
 
