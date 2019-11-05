@@ -14,8 +14,9 @@ manager: dikamath
 
 To get started with Azure VMware Solutions (AVS), create the Azure VMware Solutions (AVS) service in the Azure portal.
 
-> [!IMPORTANT]
-> Before you create the AVS service, you must register the Microsoft.VMwareAVS resource provider on your Azure subscription. Follow the steps in [Enable the Microsoft.VMwareAVS resource provider on your Azure subscription](enable-cloudsimple-service.md).
+## Before you begin
+
+Allocate a /28 CIDR block for the gateway subnet. A gateway subnet is required per AVS service and is unique to the region in which it's created. The gateway subnet is used for edge network services and requires a /28 CIDR block. The gateway subnet address space must be unique. It must not overlap with any network that communicates with the AVS environment. The networks that communicate with AVS include on-premises networks and Azure virtual networks.
 
 ## Sign in to Azure
 

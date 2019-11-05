@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 10/30/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create and configure a virtual network subnet or network peering for application workloads in an Azure Active Directory Domain Services managed domain
@@ -151,7 +151,7 @@ To see this managed domain in action, create and join a virtual machine to the d
 > [!div class="nextstepaction"]
 > [Join a Windows Server virtual machine to your managed domain](join-windows-vm.md)
 
-<!-- INTERNAL LINKS -->
+<!-- INTERNAL LINKS --> 
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md

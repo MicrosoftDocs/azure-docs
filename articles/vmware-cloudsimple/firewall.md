@@ -29,6 +29,9 @@ Firewall tables and the associated rules allow you to specify restrictions on tr
 5. A default rule for the table is listed. Click **Create New Rule** to create an additional rule. See the following procedure for details.
 6. Click **Done** to save the firewall table.
 
+> [!IMPORTANT]
+> You can create up to two Firewall tables per Private Cloud.
+
 ## Firewall rules
 
 Firewall rules determine how the firewall treats specific types of traffic. The **Rules** tab for a selected firewall table lists all the associated rules.
@@ -56,6 +59,9 @@ Firewall rules determine how the firewall treats specific types of traffic. The 
     ![Firewall table add rule](media/firewall-rule-create.png)
 
 3. Click **Done** to save the rule and add it to the list of rules for the firewall table.
+
+> [!IMPORTANT]
+> Each Firewall table can have up to 10 inbound rules and 20 outbound rules. These limits can be increased by [contacting support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Attach VLANs/subnets
 

@@ -36,7 +36,7 @@ AVS Private Clouds are managed through the AVS portal. They have their own vCent
 
 5. In the AVS portal, provide a name for your AVS Private Cloud.
 6. Select the **Location** of your AVS Private Cloud.
-7. Select **Node type**, consistent with what you purchased on Azure.
+7. Select **Node type**, consistent with what you provisioned on Azure.
 8. Specify **Node count**. At least three nodes are required to create an AVS Private Cloud.
 
     ![Create AVS Private Cloud - Basic info](media/create-private-cloud-basic-info.png)

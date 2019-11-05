@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Recover files and folders from an Azure VM backup'
+title: 'Azure Backup: Recover files and folders from Azure VM backup'
 description: Recover files from an Azure virtual machine recovery point
 ms.reviewer: pullabhk
 author: dcurwin
@@ -68,10 +68,9 @@ To restore files or folders from the recovery point, go to the virtual machine a
     - outbound port 3260
 
 > [!Note]
-> 
-> * The downloaded script file name will have the **geo-name** to be filled in the URL. For eg: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like ContosoVM_wcus_12345678.....<br><br>
-> * The URL would be "https:\//pod01-rec2.wcus.backup.windowsazure.com"
-
+>
+> - The downloaded script file name will have the **geo-name** to be filled in the URL. For eg: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like ContosoVM_wcus_12345678.....<br><br>
+> - The URL would be "https:\//pod01-rec2.wcus.backup.windowsazure.com"
 
    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
 
@@ -217,7 +216,7 @@ The script also requires Python and bash components to execute and connect secur
 
 This section explains how to perform file recovery from Azure Virtual machine backups whose number of disks are > 16 and each disk size is > 4 TB.
 
-Since file recovery process attaches all disks from the backup, in case of large number of disks (>16) or large disks (> 4TB each), following action points are recommended.
+Since file recovery process attaches all disks from the backup, in case of large number of disks (>16) or large disks (> 4 TB each), following action points are recommended.
 
 - Keep a separate restore server (Azure VM D2v3 VMs) for file recovery. You can use that only file recovery and then shut down when not required. Restoring on the original machine is not recommended since it will have significant impact on the VM itself.
 - Then run the script once to check if the file recovery operation succeeds.
@@ -270,7 +269,7 @@ This feature was built to access the VM data without the need to restore the ent
 
 #### Select Recovery point (who can generate script)
 
-The script provides access to VM data, it is important to regulate who can generate it in the first place. One needs to log in into Azure portal and should be [RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to be able to generate the script.
+The script provides access to VM data, it is important to regulate who can generate it in the first place. One needs to sign in into Azure portal and should be [RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to be able to generate the script.
 
 File recovery needs the same level of authorization as required for VM restore and disks restore. In other words, only authorized users can view the VM data can generate the script.
 

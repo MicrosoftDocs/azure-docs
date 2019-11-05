@@ -1,15 +1,11 @@
 ---
 title: Troubleshooting guide for Azure Spring Cloud | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
-
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
+ms.topic: troubleshooting
+ms.date: 11/04/2019
+ms.author: jeconnoc
 
 ---
 # Troubleshooting Guide for common problems
@@ -167,7 +163,7 @@ Environment variables inform the Azure Spring Cloud framework, ensuring that Azu
             </dependency>
         ```
 
-1. With the Spring Boot Actuator endpoint enabled, go to the Azure portal and find the configuration page of your application.  Add an environment variable with the name `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value `*`. 
+1. With the Spring Boot Actuator endpoint enabled, go to the Azure portal and find the configuration page of your application.  Add an environment variable with the name `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` and the value `*` . 
 
 1. Restart your application.
 

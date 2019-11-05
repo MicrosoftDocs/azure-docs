@@ -88,7 +88,7 @@ steps:
 
 #### Python
 
-You can use the following sample to create a YAML file to build a Python app. Python is supported only for Linux Azure Functions.
+You can use the following sample to create a YAML file to build a Python app. Python is supported only for Linux Azure Functions. The YAML for Python 3.7 can be built by replacing all the instances of 3.6 with 3.7 in this YAML.
 
 ```yaml
 pool:

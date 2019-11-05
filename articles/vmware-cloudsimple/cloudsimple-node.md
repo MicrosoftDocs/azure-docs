@@ -19,16 +19,16 @@ Nodes are the building blocks of an AVS Private Cloud. A node is:
 
 You create an AVS Private Cloud from the purchased nodes. To create an AVS Private Cloud, you need a minimum of three nodes of the same SKU. To expand an AVS Private Cloud, add additional nodes. You can add nodes to an existing cluster or create a new cluster by purchasing nodes in the Azure portal and associating them with the AVS service. All purchased nodes are visible under the AVS service. 
 
-## Purchased nodes
+## Provisioned nodes
 
-Purchased nodes provide pay-as-you-go capacity. Purchasing nodes helps you quickly scale your VMware cluster on demand. You can add nodes as needed or delete a purchased node to scale down your VMware cluster. Purchased nodes are billed on a monthly basis and charged to the subscription where they're purchased.
+Provisioned nodes provide pay-as-you-go capacity. Provisioning nodes helps you quickly scale your VMware cluster on demand. You can add nodes as needed or delete a provisioned node to scale down your VMware cluster. Provisioned nodes are billed on a monthly basis and charged to the subscription where they're provisioned.
 
 * If you pay for your Azure subscription by credit card, the card is billed immediately.
 * If you're billed by invoice, the charges appear on your next invoice.
 
 ## VMware Solution by AVS nodes SKU
 
-The following types of nodes are available for purchase or reservation.
+The following types of nodes are available for provisioning or reservation.
 
 | SKU           | CS28 - Node                 | CS36 - Node                 | CS36m - Node                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
@@ -52,5 +52,10 @@ The following node limits apply to AVS Private Clouds.
 
 ## Next steps
 
+<<<<<<< HEAD
 * Learn how to [purchase nodes](create-nodes.md)
 * Learn about [AVS Private Clouds](cloudsimple-private-cloud.md)
+=======
+* Learn how to [provision nodes](create-nodes.md)
+* Learn about [Private Clouds](cloudsimple-private-cloud.md)
+>>>>>>> 131a204c66f2169bc98740418bce5e46ab307cdd
