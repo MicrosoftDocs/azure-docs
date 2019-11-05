@@ -115,31 +115,31 @@ For the code shown here, you need **remote-conversation version 1.8.0**, support
 
 You can obtain **remote-conversation** by editing your pom.xml file as follows.
 
-- At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK:
+1. At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK:
 
-  ```xml
-  <repositories>
-    <repository>
-      <id>maven-cognitiveservices-speech</id>
-      <name>Microsoft Cognitive Services Speech Maven Repository</name>
-      <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
-    </repository>
-  </repositories>
-  ```
+   ```xml
+   <repositories>
+     <repository>
+       <id>maven-cognitiveservices-speech</id>
+       <name>Microsoft Cognitive Services Speech Maven Repository</name>
+       <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+     </repository>
+   </repositories>
+   ```
 
-- Also add a `dependencies` element, with the remoteconversation-client-sdk 1.8.0 as a dependency:
+2. Also add a `dependencies` element, with the remoteconversation-client-sdk 1.8.0 as a dependency:
 
-  ```xml
-  <dependencies>
-    <dependency>
-      <groupId>com.microsoft.cognitiveservices.speech.remoteconversation</groupId>
-      <artifactId>remote-conversation</artifactId>
-      <version>1.8.0</version>
-    </dependency>
-  </dependencies>
-  ```
+   ```xml
+   <dependencies>
+     <dependency>
+       <groupId>com.microsoft.cognitiveservices.speech.remoteconversation</groupId>
+       <artifactId>remote-conversation</artifactId>
+       <version>1.8.0</version>
+     </dependency>
+   </dependencies>
+   ```
 
-- Save the changes
+3. Save the changes
 
 ### Sample transcription code
 
