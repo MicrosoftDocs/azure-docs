@@ -41,11 +41,11 @@ Azure Migrate Server Migration | Migration | Try out server migration for [Hyper
 Cloudamize | Assessment | [Learn more](https://www.cloudamize.com/platform#tab-0).
 Device 42 | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2097158).
 UnifyCloud | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2097195).
-Turbonomic  | Assessment [Learn more](https://go.microsoft.com/fwlink/?linkid=2094295).
+Turbonomic  | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2094295).
 Lakeside | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2104908).
 Corent Technology | Assessment and migration | [Learn more](https://go.microsoft.com/fwlink/?linkid=2084928).
 Carbonite | Migration | [Learn more](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure).
-RackWare | Migration | [Learn more](https://go.microsoft.com/fwlink/?linkid=2102735) 
+RackWare | Migration | [Learn more](https://go.microsoft.com/fwlink/?linkid=2102735).
 Movere | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2109528).
 
 
