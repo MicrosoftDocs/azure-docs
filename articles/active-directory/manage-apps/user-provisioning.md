@@ -85,11 +85,7 @@ Use the Azure Active Directory portal to configure the Azure AD provisioning ser
 
 1. Open the **[Azure Active Directory portal](https://aad.portal.azure.com)**.
 1. Select **Enterprise applications** from the left pane. A list of all configured apps is show.
-1. Choose **+ New application** to add an application. Add either of the following depending on your scenario:
-
-   - The **Add your own app** option supports custom-developed SCIM integrations.
-   - All applications in the **Add from the gallery** > **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning](../saas-apps/tutorial-list.md) for additional ones.
-
+1. Choose **+ New application** to add an application. 
 1. Provide any details and select **Add**. The new app is added to the list of enterprise applications and opens to its application management screen.
 1. Select **Provisioning** to manage user account provisioning settings for the app.
 
