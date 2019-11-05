@@ -348,17 +348,17 @@ aci_service$scoring_uri
 Delete the resources once you no longer need them. Don't delete any resource you plan to still use. 
 
 Delete the web service:
-```{r delete_service, eval=FALSE}
+```R
 delete_webservice(aci_service)
 ```
 
 Delete the registered model:
-```{r delete_model, eval=FALSE}
+```R
 delete_model(model)
 ```
 
 Delete the compute cluster:
-```{r delete_compute, eval=FALSE}
+```R
 delete_compute(compute)
 ```
 
