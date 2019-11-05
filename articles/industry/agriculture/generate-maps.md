@@ -65,7 +65,7 @@ Use the following steps:
 7. Select **Generate Maps**.
  A confirmation message with job details appears.
 
-  For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
+  For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on the tooltip of the *Failed* status.. In this case, repeat the steps listed above and try again.
 
   If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
@@ -78,12 +78,12 @@ Use the following steps:
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
 2. Select **Filter** from the left navigation of the window.
-  The **Filter** window displays where you can search for maps.
+  The **Filter** window displays search criteria.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
 3. Select **Type**, **Date** and **Name** from the drop-down menu and then select **Apply** to search for the map you want to view.
-  The date on which the job was created in shown in the format type_farmname_YYYY-MM-DD.
+  The date on which the job was created is shown in the format type_farmname_YYYY-MM-DD.
 4. Scroll through the list of maps available using the navigation bars at the end of the page.
 5. Select the map you want to view. A pop-up window displays the preview for the selected map.
 6. Select **Download**, and download the GeoJSON file of sensor coordinates.
@@ -127,7 +127,7 @@ Use the following steps:
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/successful-satellitte-indices-1.png)
 
-    For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
+    For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on the tooltip of the *Failed* status. In this case, repeat the steps listed above and try again.
 
     If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
@@ -139,12 +139,12 @@ Use the following steps:
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2. Select **Filter** from the left navigation of the window, the **Filter** window displays from where you can search for maps.
+2. Select **Filter** from the left navigation of the window, the **Filter** window displays search criteria.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
 3. Select **Type**, **Date** and **Name** from the drop-down menu and then select **Apply** to search for the map you want to view.
-  The date on which the job was created in shown in the format type_farmname_YYYY-MM-DD.
+  The date on which the job was created is shown in the format type_farmname_YYYY-MM-DD.
 
 4. Scroll through the list of maps available using the navigation bars at the end of the page.
 5. For each combination of **Farm Name** and **Date**, the following three maps are available:
@@ -195,7 +195,7 @@ To find the sensor measure, go to **Sensors**, select any soil moisture sensor. 
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/successful-soil-moisture-1.png)
 
-    For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
+    For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on the tooltip of the *Failed* status. In this case, repeat the steps listed above and try again.
 
     If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
@@ -211,7 +211,7 @@ Use the following steps:
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3.  Select **Type**, **Date** and **Name** from the drop-down menu and then select **Apply** to search for the map you want to view. The date on which the job was created in shown in the format type_farmname_YYYY-MM-DD.
+3.  Select **Type**, **Date** and **Name** from the drop-down menu and then select **Apply** to search for the map you want to view. The date on which the job was created is shown in the format type_farmname_YYYY-MM-DD.
 4. Select the **Sort** icon next to the table headers to sort according to Farm, Date, Created On, Job ID, and Job Type.
 5. Scroll through the list of maps available using the navigation buttons at the end of the page.
 6. Select the map you want to view. A pop-up window displays the preview for the selected map.
