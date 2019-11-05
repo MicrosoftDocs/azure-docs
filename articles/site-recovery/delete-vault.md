@@ -5,7 +5,7 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/05/19
+ms.date: 11/05/2019
 ms.author: rajanaki
 
 ---
