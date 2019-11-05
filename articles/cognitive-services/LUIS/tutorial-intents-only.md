@@ -115,7 +115,7 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
 
     `get a medium vegetarian pizza for delivery` 
 
-    This is not example the same as an example utterance but is close to several. 
+    This is not exactly the same as an example utterance so it is a good test to see if LUIS can learn what should be predicted with this intent.
 
     The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances. It is a good test and should return the `OrderPizza` intent as the top scoring intent. 
 
@@ -151,7 +151,7 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
 
     `Howdy`
 
-    This is not example the same as an example utterance but is close to several. 
+    This is not exactly the same as an example utterance so it is a good test to see if LUIS can learn what should be predicted with this intent. 
 
     ```json
     {
