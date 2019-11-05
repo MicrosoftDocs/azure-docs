@@ -17,7 +17,7 @@ This article provides a quick overview of Azure Migrate.
 Azure Migrate helps you to migrate your enterprise from on-premises to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure.  Azure Migrate provides:
 
 - **Unified migration platform**: A single portal to start, run, and track your migration journey to Azure.
-- **Range of tools**: The hub provides Azure tools and services for assessment and migration, and integration with other Azure services, as well as with other tools third-party independent software vendor (ISV) offerings.
+- **Range of tools**: The hub provides Azure tools and services for assessment and migration, and integration with other Azure services, as well as with other tools and independent software vendor (ISV) offerings.
 - **Workloads**: Azure Migrate provides assessment and migration for:
     - **Servers**: Use Azure Migrate Server Assessment, Azure Migrate Server Migration, and other tools, for assessment and migration of servers to Azure VMs.
     - **Databases**: Leverage Microsoft and ISV tools for assessment and migration of on-premises databases to Azure SQL DB, or Azure SQL Managed Instance.
