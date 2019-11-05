@@ -1,5 +1,5 @@
 ---
-title: Install Visual Studio 2019 for SQL Data Warehouse | Microsoft Docs
+title: Install Visual Studio 2019 for SQL Data Warehouse 
 description: Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Data Warehouse
 services: sql-data-warehouse
 ms.custom: vs-azure
@@ -21,7 +21,7 @@ Visual Studio **2019** SQL Server Data Tools (SSDT) is a single tool allowing yo
 - Leverage an object explorer to visually explore all objects in your data model including tables, views, stored procedures, and etc.
 - Generate T-SQL data definition language (DDL) scripts for your objects
 - Develop your data warehouse using a state-based approach with SSDT Database Projects
-- Integrate your database project with source control systems such as Git with Azure DevOps Repos
+- Integrate your database project with source control systems such as Git with Azure Repos
 - Set up continuous integration and deployment pipelines with automation servers such as Azure DevOps
 
 > [!NOTE]

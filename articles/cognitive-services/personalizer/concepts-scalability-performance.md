@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 10/24/2019
 ms.author: diberry
 ---
 # Scalability and Performance
@@ -18,28 +18,15 @@ High-performance and high-traffic websites and applications have two main factor
 * Keeping low latency when making Rank API calls
 * Making sure training throughput keeps up with event input
 
-Personalization can return a rank very rapidly, with most of the call duration dedicated to communication through the REST API. Azure will autoscale the ability to respond to requests rapidly.
+Personalization can return a rank rapidly, with most of the call duration dedicated to communication through the REST API. Azure will autoscale the ability to respond to requests rapidly.
 
 ##  Low-latency scenarios
 
-Some applications require low latencies when returning a rank. This is necessary:
+Some applications require low latencies when returning a rank. Low latencies are necessary:
 
 * To keep the user from waiting a noticeable amount of time before displaying ranked content.
 * To help a server that is experiencing extreme traffic avoid tying up scarce compute time and network connections.
 
-<!--
-
-If your web site is scaled on your infrastructure, you can avoid making HTTP calls by hosting the Personalizer API in your own servers running a Docker container.
-
-This change would be transparent to your application, other than using an endpoint URL referring to the running docker instances as opposed to an online service in the cloud.
-
-
-
-### Extreme Low Latency Scenarios
-
-If you require latencies under a millisecond, and have already tested using Personalizer via containers, please contact our support team so we can assess your scenario and provide guidance suited to your needs.
-
--->
 
 ## Scalability and training throughput
 

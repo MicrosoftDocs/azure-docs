@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -26,6 +26,8 @@ Requirements for batch testing:
 * Entity types allowed: only machined-learned entities of simple and composite. Batch testing is only useful for machined-learned intents and entities.
 
 When using an app other than this tutorial, do *not* use the example utterances already added to an intent. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In this tutorial, you learn how to:**
 

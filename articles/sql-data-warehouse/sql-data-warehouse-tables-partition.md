@@ -1,5 +1,5 @@
 ---
-title: Partitioning tables in Azure SQL Data Warehouse | Microsoft Docs
+title: Partitioning tables in Azure SQL Data Warehouse 
 description: Recommendations and examples for using table partitions in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT

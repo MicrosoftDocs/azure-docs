@@ -259,4 +259,4 @@ Provide these details:
 
 - See the language in use in [Starter queries](../samples/starter.md).
 - See advanced uses in [Advanced queries](../samples/advanced.md).
-- Learn to [explore resources](explore-resources.md).
+- Learn more about how to [explore resources](explore-resources.md).
