@@ -59,7 +59,7 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
 
 1. Add several example utterances to this intent that you expect a user to ask:
 
-    | Example utterances|
+    |`OrderPizza` example utterances|
     |--|
     |`can i get a pepperoni pizza and a can of coke please`|
     |`can i get a small pizza with onions peppers and olives`|
@@ -77,7 +77,7 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
 
 1. Create the `Greeting` intent and add the following example utterances. This is the intent to determine if a user is beginning a new pizza order conversation.
 
-    | Example utterances|
+    |`Greeting` example utterances|
     |--|
     |`Hi`|
     |`Hello`|
@@ -87,7 +87,7 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
 
 1. Create the `Confirm` intent and add the following example utterances. This is the intent to determine if a user is done ordering and accepts the order details. 
 
-    | Example utterances|
+    |`Confirm` example utterances|
     |--|
     |`Go ahead`|
     |`ok`|
