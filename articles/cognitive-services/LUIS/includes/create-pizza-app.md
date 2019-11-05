@@ -16,7 +16,7 @@ ms.author: diberry
 
 1. Select **Create new app**.  
 
-    [![Screenshot of Language Understanding (LUIS) My Apps page](../media/create-app-in-portal.png "Screenshot of Language Understanding (LUIS) My Apps page")](./media/create-app-in-portal.png#lightbox)
+    [![Screenshot of Language Understanding (LUIS) My Apps page](../media/create-app-in-portal.png "Screenshot of Language Understanding (LUIS) My Apps page")](../media/create-app-in-portal.png#lightbox)
 
 1. In the pop-up dialog, enter the name `Pizza tutorial` and keep the default culture, **English**. The other fields are optional, do not set them. Select **Done**. 
 
