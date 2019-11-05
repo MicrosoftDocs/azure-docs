@@ -43,7 +43,7 @@
   - name: Build app
     items:
     - name: Determine user intentions
-      href: luis-quickstart-intents-only.md
+      href: tutorial-intents-only.md
     - name: Identify common user data with prebuilt models
       href: luis-tutorial-prebuilt-intents-entities.md
     - name: Get sentiment from user utterances
