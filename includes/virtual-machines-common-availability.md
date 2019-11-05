@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/28/2019
+ ms.date: 11/04/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -50,16 +50,15 @@ Virtual machines scale sets allow you to specify orchestration mode.  With the v
 
 |   | “orchestrationMode”: “VM” (VirtualMachine)| “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
 |----|----|----|
-| VM configuration model| None| Required |
+| VM configuration model| None. VirtualMachineProfile is undefined in the scale set model. | Required. VirtualMachineProfile is populated in the scale set model. |
 | Adding new VM to Scale Set| VMs are explicitly added to the scale set when the VM is created. |
 | VMs are implicitly created and added to the scale set based on the VM configuration model, instance count, and AutoScaling rules
 | Availability Zones| Supports regional deployment or VMs in one Availability Zone| Supports regional deployment or multiple Availability Zones; Can define the zone balancing strategy |
-| Fault domains| Can define fault domains. 2 or 3 based on regional support and 5 for Availability zone.| Can define fault domains going from 1 through 5 |
+| Fault domains| Can define fault domains count. 2 or 3 based on regional support and 5 for Availability zone. The assigned VM fault domain will persist with VM lifecycle, including deallocate and restart. | Can define 1, 2, or 3 fault domains for non-zonal deployments, and 5 for Availability zone deployments. The assigned VM fault domain does not persist with VM lifecycle, virtual machines are assigned a fault domain at time of allocation. |
 | Update domains| N/A. Update domains are automatically mapped to fault domains| N/A. Update domains are automatically mapped to fault domains |
 
 ** VMSS Fault domains and Update domains **
-Virtual machine scale sets simplify designing for high availability by aligning fault domains and update domains. You will only have to define fault domains count for the scale set. In VM orchestration mode, you can specify the fault domain for VMs added to the scale set.
-To provide consistency, when a VM is deployed and has an assigned fault domain, the logical fault domain will not change till the VM is deleted. Fault domains will persist with VM lifecycle including deallocate, re-start lifecycle.
+Virtual machine scale sets simplify designing for high availability by aligning fault domains and update domains. You will only have to define fault domains count for the scale set. The number of fault domains available to the scale sets may vary by region. See [Number of Fault Domains per region](#number-of-fault-domains-per-region).
 
 
 ## Availability sets
