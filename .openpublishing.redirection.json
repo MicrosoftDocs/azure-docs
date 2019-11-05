@@ -5282,6 +5282,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/custom-waf-rules-overview.md",
+      "redirect_url": "/azure/web-application-firewall/ag/custom-waf-rules-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-waf-configuration.md",
       "redirect_url": "/azure/web-application-firewall/ag/application-gateway-waf-configuration",
       "redirect_document_id": false
