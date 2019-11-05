@@ -246,7 +246,7 @@ At this point, the resources are all set up and the routing is configured. You c
 
 2. Add these values to the list for the ContosoStorageEndpointEnriched endpoint.
 
-   | Name | Value | Endpoint (dropdown list) |
+   | Key | Value | Endpoint (dropdown list) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
