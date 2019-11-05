@@ -65,8 +65,7 @@ Whenever possible, use [deployment slots](deploy-staging-slots.md) when deployin
 
 Azure App Service content is stored on Azure Storage and is surfaced up in a durable manner as a content share. However, some apps just need a high-performance, read-only content store that they can run with high availability. These apps can benefit from using [local cache](overview-local-cache.md). Local cache is not recommended for content management sites such as WordPress.
 
-Always use local cache in conjunction with [deployment slots](deploy-staging-slots
-md) to prevent downtime. See [this section](overview-local-cache.md#best-practices-for-using-app-service-local-cache) for information on using these features together.
+Always use local cache in conjunction with [deployment slots](deploy-staging-slots.md) to prevent downtime. See [this section](overview-local-cache.md#best-practices-for-using-app-service-local-cache) for information on using these features together.
 
 ### High CPU or Memory
 

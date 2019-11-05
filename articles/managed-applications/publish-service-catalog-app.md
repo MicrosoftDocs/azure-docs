@@ -1,5 +1,5 @@
 ---
-title: Create and publish an Azure service catalog managed application | Microsoft Docs
+title: Publish Azure service catalog managed application
 description: Shows how to create an Azure managed application that is intended for members of your organization.
 services: managed-applications
 author: tfitzmac
@@ -82,7 +82,7 @@ Save the mainTemplate.json file.
 
 ## Defining your create experience using CreateUiDefinition.json
 
-As a publisher, you define your create experience using the **createUiDefinition.json** file which generates the interface for users creating managed applications. You define how users provide input for each parameter using [control elements] (create-uidefinition-elements.md) including drop-downs, text boxes, and password boxes.
+As a publisher, you define your create experience using the **createUiDefinition.json** file which generates the interface for users creating managed applications. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) including drop-downs, text boxes, and password boxes.
 
 Create a file named **createUiDefinition.json** (This name is case-sensitive)
 

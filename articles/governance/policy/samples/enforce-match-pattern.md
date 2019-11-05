@@ -2,7 +2,6 @@
 title: Sample - Enforce match pattern 
 description: This sample policy definition requires that resources meet the match pattern for naming conventions.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019

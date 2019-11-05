@@ -83,6 +83,13 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 The local network gateway typically refers to your on-premises location. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which you will create a connection. You also specify the IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
 
+**Example values**
+
+* **Name:** Site1
+* **Resource Group:** TestRG1
+* **Location:** East US
+
+
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
 ## <a name="VPNDevice"></a>4. Configure your VPN device

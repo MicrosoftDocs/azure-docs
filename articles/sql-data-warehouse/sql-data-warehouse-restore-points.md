@@ -1,5 +1,5 @@
 ---
-title: User-defined restore points | Microsoft Docs
+title: User-defined restore points 
 description: How to create a restore point Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs

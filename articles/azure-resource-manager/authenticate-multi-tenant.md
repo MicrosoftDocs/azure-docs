@@ -4,7 +4,7 @@ description: Describes how Azure Resource Manager handles authentication request
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
 ---
 
@@ -32,5 +32,6 @@ When your app sends a request to Resource Manager, the request is run under the 
 When the request references a resource from different tenant, Resource Manager checks the auxiliary tokens to determine if the request can be processed. All auxiliary tokens in the header must be valid and unexpired. If any token is expired, Resource Manager returns a 401 response code. The response includes the client ID and tenant ID from the token that isn't valid. If the auxiliary header contains a valid token for the tenant, the cross tenant request is processed.
 
 ## Next steps
-* To learn about sending authentication requests with the Azure Resource Manager APIs, see [Use Resource Manager authentication API to access subscriptions](resource-manager-api-authentication.md).
-* For more information about tokens, see [Azure Active Directory access tokens](/azure/active-directory/develop/access-tokens).
+
+* To learn about authentication requests, see [Authentication flows and application scenarios](../active-directory/develop/authentication-flows-app-scenarios.md).
+* For more information about tokens, see [Azure Active Directory access tokens](../active-directory/develop/access-tokens.md).

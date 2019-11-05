@@ -110,6 +110,10 @@
         "v-dansch",
         "chbain",
         "atookey",
+        "megvanhuygen",
+        "PMEds28",
+        "tiburd",
+        "v-rihow",
         "tfosmark",
         "sdwheeler",
         "meganbradley"
@@ -397,7 +401,8 @@
         "articles/governance/policy/**/*.yml": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/governance/resource-graph/**/*.yml": "Azure Resource Graph",
-        "articles/lighthouse/**/*.md": "Azure Lighthouse"
+        "articles/lighthouse/**/*.md": "Azure Lighthouse",
+        "articles/sql-data-warehouse/**/*.md": "Azure SQL Data Warehouse"
       },
       "manager": {
         "articles/sql-database/**/*.md": "jroth"

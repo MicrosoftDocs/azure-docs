@@ -44,7 +44,7 @@ conceptualContent:
           itemType: concept
           text: Security controls for Azure services
       footerLink: 
-        url: ./fundamentals/index.md
+        url: ./fundamentals/index.yml
         text: See more
 
     - title: Developers
@@ -98,7 +98,7 @@ conceptualContent:
           itemType: concept
           text:  Storage security
       footerLink: 
-        url: azure-security-disk-encryption-overview.md
+        url: ./fundamentals/encryption-overview.md
         text: See more
 
     - title: Identity management
