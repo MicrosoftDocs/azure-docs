@@ -72,19 +72,13 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
 1. Find the new row in the table for the new prediction resource and copy the endpoint URL. It's correctly constructed to make an `HTTP GET` request to the LUIS API endpoint for a prediction.
 
-## Train and publish the app
+## Train the app
 
-Train the app when you're ready to test it. Publish the app when you want the currently trained version to be available to client applications from the query prediction endpoint runtime.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-1. If the app is untrained, select **Train** from the menu in the upper right.
+## Publish the app to the prediction endpoint
 
-1. Select **Publish** from the top menu. Select the **Production** slot, then select **Publish**.
-
-1. When the success notification appears, publishing is complete.
-
-1. On the Manage section's **Azure resources** page, find the list of assigned resources and corresponding endpoint URLs.
-
-1. Copy the example query into a browser window and add your user utterance as the `query` parameter.
+[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
 
 ## Prediction endpoint request
 
@@ -136,7 +130,7 @@ The browser shows the response:
 }
 ```
 
-To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare the current app you're working on with an app that is published to the endpoint.
+To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare changes to the current app you're working on with an app that is published to the endpoint.
 
 [![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
