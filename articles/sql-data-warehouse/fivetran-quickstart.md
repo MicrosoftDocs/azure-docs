@@ -10,7 +10,7 @@ ms.subservice: integration
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 # Get started quickly with Fivetran and SQL Data Warehouse

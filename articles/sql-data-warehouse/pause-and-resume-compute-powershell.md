@@ -10,7 +10,7 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 # Quickstart: Pause and resume compute in Azure SQL Data Warehouse with Azure PowerShell
 

@@ -10,7 +10,7 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 # Quickstart: Pause and resume compute for an Azure SQL Data Warehouse in the Azure portal
 

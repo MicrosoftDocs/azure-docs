@@ -10,7 +10,7 @@ ms.subservice: load-data
 ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 # Best practices for loading data into Azure SQL Data Warehouse

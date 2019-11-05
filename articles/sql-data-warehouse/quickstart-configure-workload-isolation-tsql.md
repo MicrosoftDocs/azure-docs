@@ -10,7 +10,7 @@ ms.subservice: workload-management
 ms.date: 10/29/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 # Quickstart: Configure workload isolation using T-SQL

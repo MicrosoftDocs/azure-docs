@@ -10,7 +10,7 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.custom: "seo-lt-2019"​  
+ms.custom: seo-lt-2019  
 ---
 
 # Performance tuning with result set caching  

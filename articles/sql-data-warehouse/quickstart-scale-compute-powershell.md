@@ -10,7 +10,7 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 

@@ -10,7 +10,7 @@ ms.subservice: development
 ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 # Quickstart: Create and query an Azure SQL Data Warehouse in the Azure portal
 

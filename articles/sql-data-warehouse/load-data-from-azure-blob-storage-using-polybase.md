@@ -10,7 +10,7 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 # Tutorial: Load New York Taxicab data to Azure SQL Data Warehouse

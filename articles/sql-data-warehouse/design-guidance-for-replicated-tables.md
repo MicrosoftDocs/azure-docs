@@ -10,7 +10,7 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 # Design guidance for using replicated tables in Azure SQL Data Warehouse

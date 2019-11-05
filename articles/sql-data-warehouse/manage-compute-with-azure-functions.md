@@ -10,7 +10,7 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 # Use Azure Functions to manage compute resources in Azure SQL Data Warehouse

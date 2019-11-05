@@ -10,7 +10,7 @@ ms.subservice: load-data
 ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 # Designing a PolyBase data loading strategy for Azure SQL Data Warehouse

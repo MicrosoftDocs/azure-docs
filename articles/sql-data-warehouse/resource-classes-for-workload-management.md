@@ -10,7 +10,7 @@ ms.subservice: workload-management
 ms.date: 11/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 # Workload management with resource classes in Azure SQL Data Warehouse

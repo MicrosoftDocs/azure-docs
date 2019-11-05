@@ -10,7 +10,7 @@ ms.subservice: workload-management
 ms.date: 10/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 

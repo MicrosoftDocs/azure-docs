@@ -10,7 +10,7 @@ ms.subservice: security
 ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ---
 
 # Column-level Security
