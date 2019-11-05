@@ -84,7 +84,7 @@ For each **Authorization**, you'll need to provide the following. You can then s
 > [!TIP]
 > In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 
-Once you've completed To create another plan for this offer, select **New plan**. When you're done, select **Save**, and then continue to the **Marketplace** section.
+Once you've completed the info, you can select **New plan** as many times as you need to create additional plans. When you're done, select **Save**, and then continue to the **Marketplace** section.
 
 ## Provide Marketplace text and images
 
