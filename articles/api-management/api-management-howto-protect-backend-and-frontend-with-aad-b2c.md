@@ -80,7 +80,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 12. Grant them access to the backend API scope and the default one that was already there ("Access the user's profile").
 13. Generate them a key each by selecting the *Keys* tab under 'General' to generate an auth key and record those keys somewhere safe for later.
 
-## Create an Azure AD B2C "Signup or Signin" user flow
+## Create an Azure AD B2C "Sign up or Sign in" user flow
 1. Return to the root (Or 'Overview') of the AAD B2C Blade 
 2. Then select “User Flows (Policies)” and click "New user flow"
 3. Choose the 'Sign up and sign in' user flow type
