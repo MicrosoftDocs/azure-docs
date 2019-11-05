@@ -86,7 +86,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 1. Change directory and build the project by running the following command:
 
     ```azurecli
-    cd PiggyMetrics
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 
