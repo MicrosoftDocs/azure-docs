@@ -10,13 +10,13 @@ ms.author: dacurwin
 ---
 # Security features to help protect cloud workloads that use Azure Backup
 
-Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion. One such feature is Soft Delete. With Soft Delete, even if a malicious actor deletes the backup of a VM (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. These additional 14 days retention of backup data in the "soft delete" state don’t incur any cost to the customer.
+Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion. One such feature is soft delete. With soft delete, even if a malicious actor deletes the backup of a VM (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. These additional 14 days retention of backup data in the "soft delete" state don’t incur any cost to the customer.
 
 > [!NOTE]
 > Soft delete only protects deleted backup data. If a VM is deleted without a backup, the soft-delete feature will not preserve the data. All resources should be protected with Azure Backup to ensure full resilience.
 >
 
-## Soft Delete
+## Soft delete
 
 ### Supported regions
 
@@ -64,11 +64,11 @@ This flow chart shows the different steps and states of a backup item:
 
 For more information, see the [Frequently Asked Questions](backup-azure-security-feature-cloud.md#frequently-asked-questions) section below.
 
-## Disabling Soft Delete
+## Disabling soft delete
 
-Soft Delete is enabled by default on newly created vaults. If the soft delete security feature is disabled,  backup data will not be protected from accidental or malicious deletes. Without the soft delete feature, all deletions of protected items will result in immediate removal, without the ability to restore. Since backup data in the "soft delete" state doesn't incur any cost to the customer, disabling this feature is not recommended. The only circumstance where you should consider disabling soft delete is if you are planning on moving your protected items to a new vault, and cannot wait the 14 days required before deleting and reprotecting (such as in a test environment.)
+Soft delete is enabled by default on newly created vaults. If the soft delete security feature is disabled,  backup data will not be protected from accidental or malicious deletes. Without the soft delete feature, all deletions of protected items will result in immediate removal, without the ability to restore. Since backup data in the "soft delete" state doesn't incur any cost to the customer, disabling this feature is not recommended. The only circumstance where you should consider disabling soft delete is if you are planning on moving your protected items to a new vault, and cannot wait the 14 days required before deleting and reprotecting (such as in a test environment.)
 
-### Prerequisites for disabling Soft Delete
+### Prerequisites for disabling soft delete
 
 - Enabling or disabling soft delete for vaults (without protected items) can only be done the Azure portal. This applies to:
   - Newly created vaults that do not contain protected items
@@ -85,7 +85,7 @@ To disable soft delete, ensure that the prerequisites are met, and then follow t
 2. In the properties pane, select **Security Settings** -> **Update**.
 3. In the security settings pane, under Soft Delete, select **Disable**.
 
-![Disable Soft Delete](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+![Disable soft delete](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
 
 ## Other security features
 
@@ -107,9 +107,9 @@ Storage accounts used by recovery services vaults are isolated and cannot be acc
 
 For more information, please see [Use Role-Based Access Control to manage Azure Backup recovery points](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
 
-## Frequently Asked Questions
+## Frequently asked questions
 
-### Soft Delete
+### Soft delete
 
 #### Do I need to enable the soft-delete feature on every vault?
 
@@ -126,7 +126,8 @@ No, this 14-day additional retention comes for free of cost as a part of soft-de
 #### Can I perform a restore operation when my data is in soft delete state?
 
 No, you need to undelete the soft deleted resource in order to restore. The undelete operation will bring the resource back into the **Stop protection with retain data state** where you can restore to any point in time. Garbage collector remains paused in this state.
- #### Will my snapshots follow the same lifecycle as my recovery points in the vault?
+
+#### Will my snapshots follow the same lifecycle as my recovery points in the vault?
 
 Yes.
 
