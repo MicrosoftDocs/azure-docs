@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 11/05/2019
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Database managed instance online using DMS
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Create an instance of Azure Database Migration Service.
 > * Create a migration project and start online migration by using Azure Database Migration Service.
 > * Monitor the migration.
-> * Cutover the migration when you are ready.
+> * Perform the migration cutover when you are ready.
 
 > [!IMPORTANT]
 > For online migrations from SQL Server to a SQL Database managed instance using Azure Database Migration Service, you must provide the full database backup and subsequent log backups in the SMB network share that the service can use to migrate your databases. Azure Database Migration Service does not initiate any backups, but rather uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
@@ -39,13 +39,13 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-This article describes an online migration from SQL Server to a SQL Database managed instance. For an offline migration, see [Migrate SQL Server to an Azure SQL Database managed instance offline using DMS](tutorial-sql-server-to-managed-instance.md).
+This article describes an online migration from SQL Server to a SQL Database managed instance. For an offline migration, see [Migrate SQL Server to a SQL Database managed instance offline using DMS](tutorial-sql-server-to-managed-instance.md).
 
 ## Prerequisites
 
 To complete this tutorial, you need to:
 
-* Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Learn network topologies for Azure SQL Database managed instance migrations using the Azure Database Migration Service](https://aka.ms/dmsnetworkformi). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
+* Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Learn network topologies for Azure SQL Database managed instance migrations using Azure Database Migration Service](https://aka.ms/dmsnetworkformi). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
     > During VNet setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
@@ -54,7 +54,9 @@ To complete this tutorial, you need to:
     > * Storage endpoint
     > * Service bus endpoint
     >
-    > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
+    > This configuration is necessary because Azure Database Migration Service lacks internet connectivity.
+    >
+    >If you don’t have site-to-site connectivity between the on-premises network and Azure or if there is limited site-to-site connectivity bandwidth, consider using Azure Database Migration Service in hybrid mode (Preview). Hybrid mode leverages an on-premises migration worker together with an instance of Azure Database Migration Service running in the cloud. To create an instance of Azure Database Migration Service in hybrid mode, see the article [Create an instance of Azure Database Migration Service in hybrid mode using the Azure portal](https://aka.ms/dms-hybrid-create).
 
     > [!IMPORTANT]
     > Regarding the storage account used as part of the migration, you must either:
@@ -74,7 +76,7 @@ To complete this tutorial, you need to:
 * Create an Azure Active Directory Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure Database managed instance and Azure Storage Container. For more information, see the article [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
   > [!NOTE]
-  > Azure Database Migration Service requires the Contributor permission on the subscription for the specified Application ID. We are actively working to reduce these permissions requirements.
+  > Azure Database Migration Service requires the Contributor permission on the subscription for the specified Application ID. Alternatively, you can create custom roles that grant the specific permissions that Azure Database Migration Service requires. For step-by-step guidance about using custom roles, see the article [Custom roles for SQL Server to SQL Database managed instance online migrations](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Create or make a note of **Standard Performance tier**, Azure Storage Account, that allows DMS service to upload the database backup files to and use for migrating databases.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
 
@@ -112,7 +114,7 @@ To complete this tutorial, you need to:
 
     For more information on how to create a VNet in Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
 
-    For additional detail, see the article [Network topologies for Azure SQL Database managed instance migrations using the Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+    For additional detail, see the article [Network topologies for Azure SQL Database managed instance migrations using Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
 6. Select a SKU from the Premium pricing tier.
 
@@ -197,8 +199,8 @@ After an instance of the service is created, locate it within the Azure portal, 
 
     | | |
     |--------|---------|
-    |**SMB Network location share** | The local SMB network share that contains the Full database backup files and transaction log backup files that the Azure Database Migration Service can use for migration. The service account running the source SQL Server instance must have read\write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'.|
-    |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. The Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure storage container for restore operation. |
+    |**SMB Network location share** | The local SMB network share that contains the Full database backup files and transaction log backup files that Azure Database Migration Service can use for migration. The service account running the source SQL Server instance must have read\write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'.|
+    |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure storage container for restore operation. |
     |**Password** | Password for the user. |
     |**Subscription of the Azure Storage Account** | Select the subscription that contains the Azure Storage Account. |
     |**Azure Storage Account** | Select the Azure Storage Account that DMS can upload the backup files from the SMB network share to and use for database migration.  We recommend selecting the Storage Account in the same region as the DMS service for optimal file upload performance. |

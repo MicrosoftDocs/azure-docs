@@ -33,7 +33,7 @@ Currently Change Analysis is integrated into the **Diagnose and solve problems**
 
 Using [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Change Analysis provides a historical record of how the Azure resources that host your application have changed over time. Change Analysis can detect, for example, changes in IP configuration rules, managed identities, and SSL settings. So if a tag is added to a web app, Change Analysis reflects the change. This information is available as long as the `Microsoft.ChangeAnalysis` resource provider is enabled in the Azure subscription.
 
-### Changes in web app deployment and configuration
+### Changes in web app deployment and configuration (in-guest changes)
 
 Change Analysis captures the deployment and configuration state of an application every 4 hours. It can detect, for example, changes in the application environment variables. The tool computes the differences and presents what has changed. Unlike Resource Manager changes, code deployment change information might not be available immediately in the tool. To view the latest changes in Change Analysis, select **Scan changes now**.
 
@@ -47,10 +47,32 @@ Currently the following dependencies are supported:
 - Azure Storage
 - Azure SQL
 
+## Viewing changes for all resources in Azure
+In Azure Monitor, there is a standalone blade for Change Analysis to view all changes with insights and application dependencies resources.
+
+Search for Change Analysis in the search bar on Azure portal to launch the blade.
+
+![Screenshot of searching Change Analysis in Azure portal](./media/change-analysis/search-change-analysis.png)
+
+Select Resource Group and resources to start viewing changes.
+
+![Screenshot of Change Analysis blade in Azure portal](./media/change-analysis/change-analysis-standalone-blade.png)
+
+You can see Insights and related dependencies resources that host your application. This view is designed to be application-centric for developers to troubleshoot issues.
+
+Currently supported resources include:
+- Virtual Machines
+- Virtual Machine Scale Set
+- Azure Networking resources
+- Web app with in-guest file tracking and environment variables changes
+
+For any feedback, please use the send feedback button in the blade or email changeanalysisteam@microsoft.com. 
+
+![Screenshot of feedback button in Change Analysis blade](./media/change-analysis/change-analysis-feedback.png)
 
 ## Change Analysis for the Web Apps feature
 
-In Azure Monitor, Change Analysis is currently built into the self-service **Diagnose and solve problems** experience. Access this experience from the **Overview** page of your App Service application.
+In Azure Monitor, Change Analysis is also built into the self-service **Diagnose and solve problems** experience. Access this experience from the **Overview** page of your App Service application.
 
 ![Screenshot of the "Overview" button and the "Diagnose and solve problems" button](./media/change-analysis/change-analysis.png)
 

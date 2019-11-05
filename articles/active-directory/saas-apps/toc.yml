@@ -291,6 +291,8 @@
         href: clickup-productivity-platform-tutorial.md
       - name: Cloud Management Portal for Microsoft Azure
         href: newsignature-tutorial.md
+      - name: Cloudmore
+        href: cloudmore-tutorial.md
       - name: CloudPassage
         href: cloudpassage-tutorial.md
       - name: Cloud Service PICCO
@@ -401,6 +403,8 @@
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
         href: dynatrace-tutorial.md
+      - name: EAB Navigate IMPL
+        href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
         href: eab-navigate-strategic-care-tutorial.md
       - name: EasyTerritory
@@ -810,6 +814,8 @@
         href: lynda-tutorial.md
       - name: M-Files
         href: m-files-tutorial.md
+      - name: Mail Luck!
+        href: mail-luck-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
       - name: Marketo
@@ -974,6 +980,8 @@
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
         href: pavaso-digital-close-tutorial.md
+      - name: Paylocity
+        href: paylocity-tutorial.md
       - name: Peakon
         href: peakon-tutorial.md
       - name: Pega Systems

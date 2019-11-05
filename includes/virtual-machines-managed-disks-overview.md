@@ -46,11 +46,11 @@ You can use [Azure role-based access control (RBAC)](../articles/role-based-acce
 
 ## Encryption
 
-Managed disks offer two different kinds of encryption. The first is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption (ADE), which you can enable on the OS and data disks for your VMs.
+Managed disks offer two different kinds of encryption. The first is Server Side Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption (ADE), which you can enable on the OS and data disks for your VMs.
 
-### Storage Service Encryption (SSE)
+### Server-side encryption
 
-[Azure Storage Service Encryption](../articles/storage/common/storage-service-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. SSE is enabled by default for all managed disks, snapshots, and images in all the regions where managed disks are available. Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
+[Azure Server-side Encryption](../articles/storage/common/storage-service-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. Server-side encryption is enabled by default for all managed disks, snapshots, and images in all the regions where managed disks are available. Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
 
 ### Azure Disk Encryption
 
@@ -80,12 +80,12 @@ Every VM contains a temporary disk, which is not a managed disk. The temporary d
 
 A managed disk snapshot is a read-only crash-consistent full copy of a managed disk that is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new managed disks. 
 
-Snapshots are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, that snapshot is billed only for the used data size of 10 GiB. You can see the used size of your snapshots by looking at the [Azure usage report](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). For example, if the used data size of a snapshot is 10 GiB, the usage report will show 10 GiB/(31 days x 24 hours) = 0.013441 GiB as the consumed quantity.
+Snapshots are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, that snapshot is billed only for the used data size of 10 GiB. You can see the used size of your snapshots by looking at the [Azure usage report](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). For example, if the used data size of a snapshot is 10 GiB, the **daily** usage report will show 10 GiB/(31 days) = 0.3226 as the consumed quantity.
 
-To learn more about how to create snapshots with managed disks, see the following resources:
+To learn more about how to create snapshots for managed disks, see the following resources:
 
-* [Create copy of VHD stored as a managed disk using snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a managed disk using snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Create a snapshot of a managed disk in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Create a snapshot of a managed disk in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### Images
 
