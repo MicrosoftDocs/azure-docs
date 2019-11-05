@@ -15,9 +15,9 @@ ms.author: diberry
 
 1. In the top right side of the LUIS website, select the **Train** button. 
 
-    ![Train button](../media/train-button.png)
+    ![Train button](../media/train-button-preview.png)
 
 2. Training is complete when you see the status confirming success.
 
     > [!Tip]
-    > **Notifications** is available in the top-right navigation. Notifications includes a history of status changes.
+    > **Notifications** is available in the top-right navigation and includes a history.

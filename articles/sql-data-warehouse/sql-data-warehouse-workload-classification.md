@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse classification | Microsoft Docs
+title: Azure SQL Data Warehouse classification 
 description: Guidance for using classification to manage concurrency, importance, and compute resources for queries in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
