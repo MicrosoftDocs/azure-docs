@@ -3,7 +3,7 @@ title: Azure Active Directory general operations guide reference
 description: This operations reference guide describes the checks and actions you should take to secure general operations
 services: active-directory
 author: martincoetzer
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -29,8 +29,8 @@ Managing Azure Active Directory requires the continuous execution of key operati
 - Maintain Azure AD Connect Servers - IAM Operations Team
 - Regularly execute and triage IdFix Reports - IAM Operations Team
 - Triage Azure AD Connect Health Alerts for Sync and AD FS - IAM Operations Team
-- If not Azure AD Connect, then customer has equivalent process and tools to monitor custom infrastructure - IAM Operations Team
-- If not AD FS, then customer has equivalent process and tools to monitor custom infrastructure - IAM Operations Team
+- If not using Azure AD Connect, then customer has equivalent process and tools to monitor custom infrastructure - IAM Operations Team
+- If not using AD FS, then customer has equivalent process and tools to monitor custom infrastructure - IAM Operations Team
 - Monitor Hybrid Logs: Azure AD App Proxy Connectors - IAM Operations Team
 - Monitor Hybrid Logs: Passthrough Authentication Agents - IAM Operations Team
 - Monitor Hybrid Logs: Password Writeback Service - IAM Operations Team
