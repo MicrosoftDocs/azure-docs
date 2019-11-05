@@ -3,7 +3,7 @@ title: Weather services concepts in Azure Maps | Microsoft Docs
 description: Learn about weather services in Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/30/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -57,3 +57,31 @@ The latest radar and infrared satellite images can be requested via the **Get Ma
 | #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) | Clouds | |
 | #ba0808        | ![](./media/weather-services-concepts/color-ba0808.png) | Clouds | |
 | #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Clouds-High | |
+
+### Unit types
+
+| Type               | Numeric Id | 
+|--------------------|------------|
+|feet                |0  |
+|inches              |1  |
+|miles               |2  |
+|millimeter          |3  |
+|centimeter          |4  |
+|meter               |5  |
+|kilometer           |6  |
+|kilometersPerHour   |7  |
+|knots               |8  |
+|milesPerHour        |9  |
+|metersPerSecond     |10 |
+|hectoPascals        |11 |
+|inchesOfMercury     |12 |
+|kiloPascals         |13 |
+|millibars           |14 |
+|millimetersOfMercury|15 |
+|poundsPerSquareInch |16 |
+|celsius             |17 |
+|fahrenheit          |18 |
+|kelvin              |19 |
+|percent             |20 |
+|float               |21 |
+|integer             |22 |

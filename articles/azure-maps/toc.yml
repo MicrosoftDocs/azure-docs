@@ -59,6 +59,8 @@
     href: zoom-levels-and-tile-grid.md
   - name: Mobility Service data structure
     href: mobility-service-data-structure.md
+  - name: Weather service concepts
+    href: weather-services-concepts.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
