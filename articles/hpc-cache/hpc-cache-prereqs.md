@@ -1,14 +1,14 @@
 ---
-title: Azure HPC Cache (preview) prerequisites
+title: Azure HPC Cache prerequisites
 description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
-# Prerequisites for Azure HPC Cache (preview)
+# Prerequisites for Azure HPC Cache
 
 Before using the Azure portal to create a new Azure HPC Cache, make sure your environment meets these requirements.
 
@@ -17,7 +17,7 @@ Before using the Azure portal to create a new Azure HPC Cache, make sure your en
 A paid subscription is recommended.
 
 > [!NOTE]
-> During the preview release, the Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their test caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
+> During the first several months of the GA release, the Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
 
 ## Network infrastructure
 
@@ -81,7 +81,7 @@ To create a compatible storage account, use these settings:
 * Access tier (default): **Hot**
 
 It's a good practice to use a storage account in the same location as your cache.
-<!-- need to clarify location - same region or same resource group or same virtual network? -->
+<!-- clarify location - same region or same resource group or same virtual network? -->
 
 You also must give the cache application access to your Azure storage account. Follow the description in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the access roles Storage Account Contributor and Storage Blob Data Contributor. If you are not the storage account owner, have the owner do this step.
 

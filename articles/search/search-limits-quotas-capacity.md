@@ -1,16 +1,19 @@
 ---
-title: Service limits for tiers and skus - Azure Search
-description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Search.
-author: HeidiSteen
+title: Service limits for tiers and skus
+titleSuffix: Azure Cognitive Search
+description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Cognitive Search.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
+author: HeidiSteen
 ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# Service limits in Azure Search
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
+
+# Service limits in Azure Cognitive Search
+
+Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Cognitive Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
 + **Free** is a multi-tenant shared service that comes with your Azure subscription. Indexing and query requests execute on replicas and partitions that are used by other tenants.
 
@@ -62,11 +65,11 @@ To determine whether your service has document limits, check the Usage tile in t
 
   ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-<sup>1</sup> Even though there aren't any SKU specific document limits, every index is still subject to a maximum safe limit to ensure stability of the service. This limit comes from Lucene. Every Azure Search document is internally indexed as one or more Lucene documents. The number of Lucene documents per Azure search document depends on the total number of elements in complex collection fields. Each element is indexed as a separate Lucene document. For example, a document with 3 elements in a complex collection field, will be indexed as 4 Lucene documents - 1 for the document itself and 3 for the elements. The maximum number of Lucene documents is roughly 25 billion per index.
+<sup>1</sup> Even though there aren't any SKU specific document limits, every index is still subject to a maximum safe limit to ensure stability of the service. This limit comes from Lucene. Every Azure Cognitive Search document is internally indexed as one or more Lucene documents. The number of Lucene documents per search document depends on the total number of elements in complex collection fields. Each element is indexed as a separate Lucene document. For example, a document with 3 elements in a complex collection field, will be indexed as 4 Lucene documents - 1 for the document itself and 3 for the elements. The maximum number of Lucene documents is roughly 25 billion per index.
 
 ### Regions previously having document limits
 
-If the portal indicates a document limit, your service was either created before late 2017, or it was created on a data center using lower-capacity clusters for hosting Azure Search services:
+If the portal indicates a document limit, your service was either created before late 2017, or it was created on a data center using lower-capacity clusters for hosting Azure Cognitive Search services:
 
 + Australia East
 + East Asia
@@ -134,13 +137,13 @@ The maximum number of synonym maps allowed varies by pricing tier. Each rule can
 
 QPS estimates must be developed independently by every customer. Index size and complexity, query size and complexity, and the amount of traffic are primary determinants of QPS. There is no way to offer meaningful estimates when such factors are unknown.
 
-Estimates are more predictable when calculated on services running on dedicated resources (Basic and Standard tiers). You can estimate QPS more closely because you have control over more of the parameters. For guidance on how to approach estimation, see [Azure Search performance and optimization](search-performance-optimization.md).
+Estimates are more predictable when calculated on services running on dedicated resources (Basic and Standard tiers). You can estimate QPS more closely because you have control over more of the parameters. For guidance on how to approach estimation, see [Azure Cognitive Search performance and optimization](search-performance-optimization.md).
 
 For the Storage Optimized tiers,  you should expect a lower query throughput and higher latency than the Standard tiers.  The methodology for estimating the query performance you'll experience is the same as the Standard tiers.
 
-## Data limits (cognitive search)
+## Data limits (AI enrichment)
 
-A [cognitive search pipeline](cognitive-search-concept-intro.md) that makes calls to a Text Analytics resource for [entity recognition](cognitive-search-skill-entity-recognition.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment.md), and [language detection](cognitive-search-skill-language-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
+An [AI enrichment pipeline](cognitive-search-concept-intro.md) that makes calls to a Text Analytics resource for [entity recognition](cognitive-search-skill-entity-recognition.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment.md), and [language detection](cognitive-search-skill-language-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Throttling limits
 
@@ -161,7 +164,7 @@ Static rate request limits for operations related to an index:
 * Maximum 32 fields in $orderby clause
 * Maximum search term size is 32,766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 
-<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
+<sup>1</sup> In Azure Cognitive Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
 
 ## API response limits
 * Maximum 1000 documents returned per page of search results

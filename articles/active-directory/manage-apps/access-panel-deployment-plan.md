@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
@@ -221,6 +221,10 @@ Plan the order in which you'll add applications to the My Apps launcher, and dec
 #### Add applications to the My Apps panel
 
 Any Azure AD SSO-enabled application can be added to the My Apps launcher. Other applications are added by using the Linked SSO option. You can configure an application tile that links to the URL of your existing web application. Linked SSO allows you to start directing users to the My Apps portal without migrating all the applications to Azure AD SSO. You can gradually move to Azure AD SSO-configured applications without disrupting the users' experience.
+
+#### Use My Apps workspaces (preview)
+
+By default, all applications are listed together on a single page. But you can use workspaces to group together related applications and present them on a separate tab, making them easier to find. For example, you can use workspaces to create logical groupings of applications for specific job roles, tasks, projects, and so on. For information, see [How to use My Apps workspaces to customize user access panels (preview)](access-panel-workspaces.md). 
 
 #### Plan whether to use My Apps or an existing portal
 

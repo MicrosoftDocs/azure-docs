@@ -1,5 +1,5 @@
 ---
-title: SQL Data Warehouse data management partners | Microsoft Docs
+title: SQL Data Warehouse data management partners 
 description: Lists of third-party data management partners with solutions that support SQL Data Warehouse.
 services: sql-data-warehouse
 author: mabasile-MSFT
