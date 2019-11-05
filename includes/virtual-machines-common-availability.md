@@ -56,7 +56,7 @@ Virtual machines scale sets allow you to specify orchestration mode.  With the v
 | Fault domains| Can define fault domains count. 2 or 3 based on regional support and 5 for Availability zone. The assigned VM fault domain will persist with VM lifecycle, including deallocate and restart. | Can define 1, 2, or 3 fault domains for non-zonal deployments, and 5 for Availability zone deployments. The assigned VM fault domain does not persist with VM lifecycle, virtual machines are assigned a fault domain at time of allocation. |
 | Update domains| N/A. Update domains are automatically mapped to fault domains| N/A. Update domains are automatically mapped to fault domains |
 
-** Fault domains and update domains **
+**Fault domains and update domains**
 Virtual machine scale sets simplify designing for high availability by aligning fault domains and update domains. You will only have to define fault domains count for the scale set. The number of fault domains available to the scale sets may vary by region. See [Number of Fault Domains per region](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#number-of-fault-domains-per-region).
 
 
