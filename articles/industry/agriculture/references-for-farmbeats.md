@@ -13,23 +13,23 @@ Below are a collection of notes and instructions that outline the Azure FarmBeat
 
 ## REST API
 
-The Azure FarmBeats APIs provide Agribusiness with a standardized RESTful interface with JSON-based responses and this it will help you leverage Azure FarmBeats capabilities:
+The Azure FarmBeats APIs provide agricultural business with a standardized RESTful interface with JSON-based responses and this it will help you leverage Azure FarmBeats capabilities:
 
-- API's to get sensor, camera, drone, weather, satellite, and curated ground data
-- Normalization/contextualization of data across common data providers
-- Schematized access and query capabilities on all ingested data
-- Automatic generation of metadata that can be queried, based on agronomic features  
-- Automatically generated time sequence aggregates for rapid model building
-- Integrated Azure Data Factory (ADF) engine to easily build custom data processing pipelines
+- API's to get sensor, camera, drone, weather, satellite, and curated ground data.
+- Normalization/contextualization of data across common data providers.
+- Schematized access and query capabilities on all ingested data.
+- Automatic generation of metadata that can be queried, based on agronomic features.  
+- Automatically generated time sequence aggregates for rapid model building.
+- Integrated Azure Data Factory (ADF) engine to easily build custom data processing pipelines.
 
 ## Application development
 
-The APIs contain swagger technical documentation. See [Swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information on all the APIs and their corresponding requests/responses.
+The APIs contain Swagger technical documentation. See [Swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information on all the APIs and their corresponding requests/responses.
 
 This is a summary of all objects/resources in FarmBeats Data hub:
 
 Farm | Farm corresponds to a physical location of interest within the FarmBeats system. Each Farm has a Farm name and a unique farm ID.
---- | ---
+--- | ---|
 Device  | Device corresponds to a physical device present in the farm. Each device has a unique device ID. Device is typically provisioned to a farm with a farm ID.
 DeviceModel  | DeviceModel corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.
 Sensor  | Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
@@ -53,7 +53,7 @@ JSON (JavaScript Object Notation) is a common, language-independent data format 
 ## Authentication and authorization
 
 HTTP requests to the REST API are protected with Azure Active Directory (Azure AD).
-To make an authenticated request to the REST APIs, client code requires authentication with valid credentials before you can call the API. Authentication is coordinated between the various actors by Azure AD, and provides your client with an access token as proof of the authentication. The token is then sent in the HTTP Authorization header of REST API requests. To learn more about Azure AD authentication, see Azure Active Directory for developers.
+To make an authenticated request to the REST APIs, client code requires authentication with valid credentials before you can call the API. Authentication is coordinated between the various actors by Azure AD, and provides your client with an access token as proof of the authentication. The token is then sent in the HTTP Authorization header of REST API requests. To learn more about Azure AD authentication, see [Azure Active Directory](https://portal.azure.com) for developers.
 
 The access token needs to be sent in subsequent API requests in the header section as:
 
@@ -76,7 +76,7 @@ Accept | The response format. For Azure FarmBeats Data hub APIs the format is js
 
 To make a REST API request, you combine the HTTP (GET, POST, PUT, or DELETE) method, the URL to the API service, the URI to a resource to query, submit data to, update, or delete, and one or more HTTP request headers.
 
-The URL to the API service is your Data hub URL (https://<yourdatahub>.azurewebsites.net)  
+The URL to the API service is your Data hub URL https://\<yourdatahub-website-name>.azurewebsites.net
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
 The below sample request is to get the list of devices:
@@ -156,13 +156,12 @@ Example: When creating a Farm, a mandatory field “Name” was not specified in
     - Go back to Overview and Click the link next to **Manage Application in local directory**
     - Go to **Properties** to capture the **Object ID**
 
-4. Go to your [Data hub swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) and perform the following steps:
+4. Go to your [Data hub Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) and perform the following steps:
     - Navigate to **RoleAssignment API**
     - Perform a **POST** to create a RoleAssignment for the **Object ID** you just created. – The input json is:
 
   > [!NOTE]
   > For more information on adding users and AD registration, see [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) .
-
 
 After completing the above steps, your app registration (client) can call the Azure FarmBeats APIs using an access token via Bearer Authentication.  
 

@@ -16,13 +16,13 @@ Using this component, partners can develop sensors that integrate with FarmBeats
 
 Once the customers have purchased and deployed devices/sensors, they can access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by customer/SI:
 
-   - Display Name (An optional field for user to define a name for this integration)
-   - API Endpoint
+   - Display name (An optional field for user to define a name for this integration)
+   - API endpoint
    - Tenant ID
    - Client ID
-   - Client Secret
-   - EventHub Connection String
-   - Start Date
+   - Client secret
+   - EventHub connection string
+   - Start date
 
    > [!NOTE]
    > Start Date enables historical data feed i.e. data from the date specified by the user.
@@ -36,7 +36,7 @@ Customers have the ability to unlink an existing FarmBeats Integration. Unlinkin
 
 ## Edit FarmBeats integration
 
-The customer can edit the FarmBeats Integration. The primary scenario for edit is when the client secret or connection string changes due to expiry, in this case customer can only edit the following fields.
+The customer can edit the FarmBeats integration. The primary scenario for edit is when the client secret or connection string changes due to expiry, in this case customer can only edit the following fields.
 
    - Display name (if applicable)
    - Client secret (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
@@ -45,9 +45,9 @@ The customer can edit the FarmBeats Integration. The primary scenario for edit i
    > [!NOTE]
    > Edit should not interrupt the creation of metadata objects.
 
-## Last telemetry sent
+## View last telemetry sent
 
-The customer has the ability to view the timestamp of *Last Telemetry Sent*, is the time at which the latest telemetry was successfully sent to FarmBeats.
+You can view the timestamp of Last **Telemetry Sent**. This is the time at which the latest telemetry was successfully sent to FarmBeats.
 
 ## Translator development
 
@@ -141,64 +141,64 @@ JSON (JavaScript Object Notation) is a common, language-independent data format 
 
 FarmBeats Data hub has the following APIs that enable device partners to create and manage device/sensor metadata.  
 
-- /**DeviceModel** - Device Model corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.  
+- /**DeviceModel** - Device model corresponds to the metadata of the device such as the Manufacturer, Type of the device either gateway or node.  
 - /**Device** - Device corresponds to a physical device present in the farm.
-- /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
+- /**SensorModel** - Sensor model corresponds to the meta-data of the sensor such as the manufacturer, Type of the sensor either analog or digital, sensor measure such as ambient temperature, pressure etc.,
 - /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
-  **Device Model** | **DeviceModel corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.**
+  Device Model| DeviceModel corresponds to the metadata of the device such as the Manufacturer, Type of the device either Gateway or Node.
   --- | ---
   Type (Node, Gateway)  | 1 Star |
   Manufacturer  | 2 Star |
-  ProductCode  | Device product code Or Model Name/Number. For example, EnviroMonitor#6800 |
-  Ports  | Port Name and Type (Digital/Analog)  |
-  Name  | Name to identify resource. For example, Model Name/Product Name |
+  ProductCode  | Device product code Or model name/number. For example, EnviroMonitor#6800 |
+  Ports  | Port name and type (digital/analog)  |
+  Name  | Name to identify resource. For example, model name/product name |
   Description  | Provide a meaningful description of the model |
   Properties  | Additional properties from the manufacturer |
   **Device** | **Device corresponds to a physical device present in the farm. Each device has a unique device ID** |
-DeviceModelId  |ID of the associated Device Model. |
+DeviceModelId  |ID of the associated device model. |
 HardwareId   |Unique ID for the device such as MAC address etc.,  |
-reportingInterval |Reporting Interval in seconds |
-Location    |Device Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters) |
-parentDeviceId | ID of the parent device to which this device is connected to. For example,. A Node connected to a Gateway; Node will have parentDeviceID as the Gateway |
-  Name  | Name to identify resource.  Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats  |
+reportingInterval |Reporting interval in seconds |
+Location    |Device latitude (-90 to +90)/longitude (-180 to 180)/elevation (in meters) |
+ParentDeviceId | ID of the parent device to which this device is connected to. For example,. A node connected to a gateway; node will have parentDeviceID as the Gateway |
+  Name  | Name to identify resource.  Device partners will need to send a name that is consistent with the device name on device partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats  |
   Description  | Provide a meaningful description  |
   Properties  |Additional properties from the manufacturer  |
-  **Sensor Model** | SensorModel corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc. |
-  Type (Analog, Digital)  |Mention analog or digital sensor|
+  **Sensor Model** | SensorModel corresponds to the metadata of the sensor such as the manufacturer, type of the sensor either analog or digital, sensor measure such as ambient temperature, pressure etc. |
+  Type (analog, digital)  |Mention analog or digital sensor|
   manufacturer  | name of manufacturer |
-  productCode  | Product code or Model Name/Number. For example, RS-CO2-N01  |
-  sensorMeasures > Name  | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry data. |
-  sensorMeasures > DataType  | Telemetry Data Type. Currently Double is supported  |
+  ProductCode  | Product code or model name/number. For example, RS-CO2-N01  |
+  SensorMeasures > Name  | Name of the sensor measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry data. |
+  sensorMeasures > DataType  | Telemetry data type. Currently double is supported  |
   sensorMeasures > Type  | Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to /ExtendedType API
   sensorMeasures > Unit | Unit of sensor telemetry data. Following are the system-defined  units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to /ExtendedType API
-  sensorMeasures > aggregationType  | Either of None, Average, Maximum, Minimum, StandardDeviation
-  SensorMeasures > depth  | The depth of the sensor in centimeters (For example, Measure of moisture 10 cm under the ground)
+  SensorMeasures > aggregationType  | Either of none, average, maximum, minimum, StandardDeviation
+  SensorMeasures > depth  | The depth of the sensor in centimeters (For example, measure of moisture 10 cm under the ground)
   sensorMeasures > description  | Provide a meaningful description of the measure
-  name  | Name to identify resource. For example, Model Name/Product Name
+  name  | Name to identify resource. For example, model name/product name
   description  | Provide a meaningful description of the model
   properties  | Additional properties from the manufacturer
   **Sensor**  |
   hardwareId  | Unique ID for the sensor set by manufacturer
   sensorModelId  | ID of the associated Sensor Model.
-  location  | Sensor Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)
-  port > name  |Name and Type of the port that the sensor is connected to on the device. This needs to be same name as defined in the Device Model
-  deviceId  | ID of the Device that the sensor is connected to
-  name  | Name to identify resource. For example, Sensor Name/Product Name and Model Number/Product Code.
+  location  | Sensor latitude (-90 to +90)/longitude (-180 to 180)/elevation (in meters)
+  port > name  |Name and type of the port that the sensor is connected to on the device. This needs to be same name as defined in the device model
+  deviceId  | ID of the device that the sensor is connected to
+  name  | Name to identify resource. For example, sensor name/product name and model number/product code.
   description  | Provide a meaningful description
   properties  | Additional properties from the manufacturer
 
  For information on each of the objects and their properties, see [swagger](httpa://aka.ms/FarmBeatsDatahubSwagger).
 
  > [!NOTE]
- > The APIs return unique IDs for each instance created. This ID needs to be retained by the Translator for device management and metadata sync.
+ > The APIs return unique IDs for each instance created. This ID needs to be retained by the translator for device management and metadata sync.
 
 
 **Metadata sync**
 
 The Translator should send updates on the metadata. For example, of update scenarios are – change of device/sensor name, change of device/sensor location.
 
-The Translator should have the ability to add new Devices and/or Sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corresponding device/sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.
+The Translator should have the ability to add new devices and/or sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corresponding device/sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.
 
 
 > [!NOTE]
@@ -207,7 +207,8 @@ The Translator should have the ability to add new Devices and/or Sensors that ha
 > To update metadata, it is mandatory to call /Get/{id} on the device/sensor, update the changed properties and then do a /Put/{id} so that any properties set by the user is not lost
 
 ### Adding new types/unit
-FarmBeats supports adding new sensor measure types and units. Refer to /ExtendedType API in the swagger for more details.
+
+FarmBeats supports adding new sensor measure types and units. For more information about /ExtendedType API, [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 ## Telemetry specifications
 
