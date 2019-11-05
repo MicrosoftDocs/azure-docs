@@ -21,7 +21,7 @@ If LUIS returns the **None** intent for an utterance, your client application ca
 
 1. Select **Intents** from the left panel.
 
-2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your Human Resources app:
+2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app:
 
     | Example utterances|
     |--|
