@@ -1,6 +1,6 @@
 ---
-title: Quickstart Send custom events with Event Grid and Azure CLI
-description: Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application. 
+title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
+description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
 services: event-grid 
 keywords: 
 author: spelluru
