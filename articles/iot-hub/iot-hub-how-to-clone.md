@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 11/05/2019
 ms.author: robinsh
 # intent: As a customer using IoT Hub, I need to clone my IoT hub to another region. 
 ---
@@ -542,17 +542,17 @@ To commit the changes, here are the steps you need to perform:
 
 * Update the connection string in each device to point to the new hub.
 
-* Anything you have that refers to the old hub will need to be updated to point to the new hub.
+* Change anything you have that refers to the old hub to point to the new hub.
 
-* After these two things are done, the new hub should be up and running and the old hub should have no active devices and be in a disconnected state. 
+* After you're finished, the new hub should be up and running. The old hub should have no active devices and be in a disconnected state. 
 
 ## Rolling back the changes
 
-If you decide you would rather roll back the changes than keep them, here are the steps you need to perform:
+If you decide to roll back the changes, here are the steps to perform:
 
 * Update the connection string in each device to point to the old hub.
 
-* Anything you have that refers to the new hub will need to be updated to point to the old hub. 
+* Change anything you have that refers to the new hub to point to the old hub. 
 
 * Remove the devices from the new hub. You can use the Import/Export program to do this.
 
@@ -560,7 +560,7 @@ If you decide you would rather roll back the changes than keep them, here are th
 
 ## Checking the results 
 
-To check the results, change your IoT solution to point to your new hub in its new location and run it. In other words, perform the same actions with the new hub that you performed with the previous hub and make sure they work correctly. 
+To check the results, change your IoT solution to point to your hub in the new location and run it. In other words, perform the same actions with the new hub that you performed with the previous hub and make sure they work correctly. 
 
 If you have implemented routing, test and make sure your messages are routed to the resources correctly.
 
