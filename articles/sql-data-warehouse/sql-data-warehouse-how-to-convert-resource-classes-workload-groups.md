@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: workload-management
 ms.topic: conceptual
-ms.date: 10/9/2019
+ms.date: 11/4/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ---

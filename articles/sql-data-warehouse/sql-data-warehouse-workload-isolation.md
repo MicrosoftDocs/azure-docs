@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/31/2019
+ms.date: 11/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
@@ -30,7 +30,8 @@ Configuring workload isolation implicitly defines a guaranteed level of concurre
 
 [Guaranteed Concurrency] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
-> [!NOTE] There are specific service level minimum viable values for min_percentage_resource.  For more information, see [Effective Values](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) for further details.
+> [!NOTE] 
+> There are specific service level minimum viable values for min_percentage_resource.  For more information, see [Effective Values](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) for further details.
 
 In the absence of workload isolation, requests operate in the [shared pool](#shared-pool-resources) of resources.  Access to resources in the shared pool is not guaranteed and is assigned on an [importance](sql-data-warehouse-workload-importance.md) basis.
 
@@ -38,7 +39,8 @@ Configuring workload isolation should be done with caution as the resources are 
 
 Users should avoid a workload management solution that configures 100% workload isolation: 100% isolation is achieved when the sum of min_percentage_resource configured across all workload groups equals 100%.  This type of configuration is overly restrictive and rigid, leaving little room for resource requests that are accidently mis-classified.  There is a provision to allow one request to execute from workload groups not configured for isolation.  The resources allocated to this request will show up as a zero in the systems DMVs and borrow a smallrc level of resource grant from system reserved resources.
 
-> [!NOTE] To ensure optimal resource utilization, consider a workload management solution that leverages some isolation to ensure SLAs are met and mixed with shared resources that are accessed based on [workload importance](sql-data-warehouse-workload-importance.md).
+> [!NOTE] 
+> To ensure optimal resource utilization, consider a workload management solution that leverages some isolation to ensure SLAs are met and mixed with shared resources that are accessed based on [workload importance](sql-data-warehouse-workload-importance.md).
 
 ## Workload containment
 
@@ -48,19 +50,22 @@ Configuring workload containment implicitly defines a maximum level of concurren
 
 [Max Concurrency] = [`CAP_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
-> [!NOTE] The effective CAP_PERCENTAGE_RESOURCE of a workload group will not reach 100% when workload groups with MIN_PERCENTAGE_RESOURCE at a level greater than zero are created.  See [sys.dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) for effective runtime values.
+> [!NOTE] 
+> The effective CAP_PERCENTAGE_RESOURCE of a workload group will not reach 100% when workload groups with MIN_PERCENTAGE_RESOURCE at a level greater than zero are created.  See [sys.dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) for effective runtime values.
 
 ## Resources per request definition
 
 Workload groups provide a mechanism to define the min and max amount of resources that are allocated per request with the REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT parameters in the [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  Resources in this case are CPU and memory.  Configuring these values dictates how much resources and what level of concurrency can be achieved on the system.
 
-> [!NOTE] REQUEST_MAX_RESOURCE_GRANT_PERCENT is an optional parameter that defaults to the same value that is specified for REQUEST_MIN_RESOURCE_GRANT_PERCENT.
+> [!NOTE] 
+> REQUEST_MAX_RESOURCE_GRANT_PERCENT is an optional parameter that defaults to the same value that is specified for REQUEST_MIN_RESOURCE_GRANT_PERCENT.
 
 Like choosing a resource class, configuring REQUEST_MIN_RESOURCE_GRANT_PERCENT sets the value for the resources utilized by a request.  The amount of resources indicated by the set value is guaranteed for allocation to the request before it begins execution.  For customers migrating from resource classes to workload groups, consider following the [How To](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md) article to map from resources classes to workload groups as a starting point.
 
 Configuring REQUEST_MAX_RESOURCE_GRANT_PERCENT to a value greater than REQUEST_MIN_RESOURCE_GRANT_PERCENT allows the system to allocate more resources per request.  While scheduling a request, system determines actual resource allocation  to the request, which is between REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT, based on resource availability in shared pool and current load on the system.  The resources must exist in the [shared pool](#shared-pool-resources) of resources when the query is scheduled.  
 
-> [!NOTE] REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT have effective values that are dependent on the effective MIN_PERCENTAGE_RESOURCE and CAP_PERCENTAGE_RESOURCE values.  See [sys.dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) for effective runtime values.
+> [!NOTE] 
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT have effective values that are dependent on the effective MIN_PERCENTAGE_RESOURCE and CAP_PERCENTAGE_RESOURCE values.  See [sys.dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) for effective runtime values.
 
 ## Execution Rules
 
