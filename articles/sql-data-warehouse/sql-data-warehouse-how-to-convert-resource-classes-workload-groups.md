@@ -1,5 +1,5 @@
 ---
-title: Convert resource class to a workload group in Azure SQL Data Warehouse | Microsoft Docs
+title: Convert resource class to a workload group in Azure SQL Data Warehouse 
 description: Learn how to create a workload group that is similar to a resource class.
 services: sql-data-warehouse
 author: ronortloff

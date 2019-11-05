@@ -69,10 +69,6 @@
       href: application-gateway-ssl-policy-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
-  - name: WAF
-    items:
-    - name: Custom rules
-      href: custom-waf-rules-overview.md
   - name: Ingress for AKS
     href: ingress-controller-overview.md
   - name: Health monitoring

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse Release Notes | Microsoft Docs
+title: Azure SQL Data Warehouse Release Notes 
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 ms.service: sql-data-warehouse

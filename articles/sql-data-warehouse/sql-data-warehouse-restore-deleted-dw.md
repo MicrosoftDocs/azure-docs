@@ -1,5 +1,5 @@
 ---
-title: Restore a deleted Azure SQL Data Warehouse | Microsoft Docs
+title: Restore a deleted Azure SQL Data Warehouse 
 description: How to guide for restoring a deleted Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs

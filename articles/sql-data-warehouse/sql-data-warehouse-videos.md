@@ -1,5 +1,5 @@
 ---
-title: Videos - Azure SQL Data Warehouse | Microsoft Docs
+title: Videos - Azure SQL Data Warehouse 
 description: Links to various video playlists for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
