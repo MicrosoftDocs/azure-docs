@@ -1,5 +1,5 @@
 ---
-title: Launch an Azure Spring Cloud application using the Azure portal
+title: "Quickstart: Launch an Azure Spring Cloud application using the Azure portal"
 description: Deploy a sample application to the Azure Spring Cloud using the Azure portal.
 author: jpconnock
 ms.service: spring-cloud
@@ -69,7 +69,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. In the **Default repository** section, set **URI** to "https\://github.com/Azure-Samples/piggymetrics", set **LABEL** to "config", and select **Apply** to save your changes.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Screenshot of ASC portal](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 
 ## Build and deploy microservice applications
 
@@ -84,7 +84,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 1. Build the cloned package.
 
     ```azurecli
-    cd PiggyMetrics
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 

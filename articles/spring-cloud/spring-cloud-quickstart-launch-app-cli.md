@@ -1,5 +1,5 @@
 ---
-title: Launch a Java Spring application using the Azure CLI
+title: "Quickstart: Launch a Java Spring application using the Azure CLI"
 description: In this quickstart, you deploy a sample application to Azure Spring Cloud on the Azure CLI.
 author: jpconnock
 ms.service: spring-cloud
@@ -101,7 +101,7 @@ az spring-cloud config-server git set -n <your-service-name> --uri https://githu
 2. Change directory and build the project.
 
     ```azurecli
-        cd PiggyMetrics
+        cd piggymetrics
         mvn clean package -D skipTests
     ```
 
