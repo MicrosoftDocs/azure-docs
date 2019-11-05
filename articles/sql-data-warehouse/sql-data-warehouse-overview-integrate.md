@@ -1,6 +1,6 @@
 ---
 title: Build integrated solutions
-description: 'Tools and partners with solutions that integrate with SQL Data Warehouse. '
+description: 'Tools and partners with solutions that integrate with Azure SQL Data Warehouse.'
 services: sql-data-warehouse
 author: mlee3gsd 
 manager: craigg

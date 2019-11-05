@@ -1,6 +1,6 @@
 ---
 title: Pause, resume, scale with REST APIs
-description: Manage compute power in SQL Data Warehouse through REST APIs.
+description: Manage compute power in Azure SQL Data Warehouse through REST APIs.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg

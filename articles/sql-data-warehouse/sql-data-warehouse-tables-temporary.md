@@ -1,6 +1,6 @@
 ---
 title: Temporary tables
-description: Essential guidance for using temporary tables in Azure SQL DAta Warehouse, highlighting the principles of session level temporary tables. 
+description: Essential guidance for using temporary tables in Azure SQL Data Warehouse, highlighting the principles of session level temporary tables. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg

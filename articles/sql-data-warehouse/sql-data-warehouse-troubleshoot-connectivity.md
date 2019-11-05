@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting connectivity
-description: Troubleshooting Azure SQL Data Warehouse.
+description: Troubleshooting connectivity  in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
