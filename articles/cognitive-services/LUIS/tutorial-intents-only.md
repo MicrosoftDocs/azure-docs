@@ -18,7 +18,7 @@ ms.author: diberry
 
 In this tutorial, you create a custom app that predicts a user's intention based on the utterance (text). 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 **In this tutorial, you learn how to:**
 
@@ -31,31 +31,27 @@ In this tutorial, you create a custom app that predicts a user's intention based
 > * Get intent from endpoint
 
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../includes/quickstart-tutorial-use-free-starter-key.md)]
 
 ## User intentions as intents
 
 The purpose of the app is to determine the intention of conversational, natural language text: 
 
-`Are there any new positions in the Seattle office?`
+`I'd like to order a veggie pizza with a salad on the side.`
 
 These intentions are categorized into **Intents**. 
 
-This app has a few intents. 
-
 |Intent|Purpose|
 |--|--|
-|`ApplyForJob`|Determine if user is applying for a job.|
-|`GetJobInformation`|Determine if user is looking for information about jobs in general or a specific job.|
+|`ModifyOrder`|Determine user's pizza order.|
 |`None`|Determine if user is asking something app is not supposed to answer. This intent if provided as part of app creation and can't be deleted. |
 
 ## Create a new app
 
 [!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-## Create intent for job information
-
-1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted when a user wants information about open jobs in the company. 
+## Create a new intent 
+1. In the [preview LUIS portal](https://preview.luis.ai), inside the app's **Build** section, select **+ Create**. Enter the new intent name `GetJobInformation`. This intent is predicted when a user wants information about open jobs in the company. 
 
     ![Screenshot of Language Understanding (LUIS) New intent dialog](media/luis-quickstart-intents-only/create-intent.png "Screenshot of Language Understanding (LUIS) New intent dialog")
 
