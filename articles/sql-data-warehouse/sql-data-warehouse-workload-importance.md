@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse workload importance | Microsoft Docs
+title: Azure SQL Data Warehouse workload importance 
 description: Guidance for setting importance for queries in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff

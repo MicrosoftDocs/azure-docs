@@ -1,5 +1,5 @@
 ---
-title: Using user-defined schemas in SQL Data Warehouse | Microsoft Docs
+title: Using user-defined schemas in SQL Data Warehouse 
 description: Tips for using T-SQL user-defined schemas in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 author: XiaoyuMSFT 

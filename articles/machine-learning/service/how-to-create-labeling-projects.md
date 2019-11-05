@@ -1,7 +1,7 @@
 ---
-title: Get crowd-sourced labels for data
+title: Get labels for data
 titleSuffix: Azure Machine Learning
-description: This article shows you how to create and run labeling projects to crowd-source tagging data for machine learning.
+description: This article shows you how to create and run labeling projects to tag data for machine learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
@@ -151,4 +151,5 @@ The COCO file is created in the default blob store of the Azure ML workspace in 
 
 ## Next steps
 
+* Label images for [image classification or object detection](how-to-label-images.md)
 * Learn more about [Azure Machine Learning and studio](../compare-azure-ml-to-studio-classic.md)

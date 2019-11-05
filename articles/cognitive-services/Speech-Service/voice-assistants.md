@@ -22,26 +22,29 @@ Applications connect to the voice assistant service with the Speech Software Dev
 
    ![Conceptual diagram of the voice assistant orchestration service flow](media/voice-assistants/overview.png "The voice assistant flow")
 
+## Choosing an assistant solution
+
+The first step to creating a voice assistant is to decide what it should do. Azure Speech Services provide multiple, complementary solutions for crafting your assistant interactions. Whether you want the flexibility and versatility that the Bot Framework's [Direct Line Speech](direct-line-speech.md) channel provides or the simplicity of [Custom Commands (Preview)](custom-commands.md) for straightforward scenarios, selecting the right tools will get you started.
+
+| If you want... | Then consider... | For example... |
+|-------------------|------------------|----------------|
+|Open-ended conversation with robust skills integration and full deployment control | The Bot Framework's [Direct Line Speech](direct-line-speech.md) channel | <ul><li>"I need to go to Seattle"</li><li>"What kind of pizza can I order?"</li></ul>
+|Command and control or task-oriented conversation with simplified authoring and hosting | [Custom Commands (Preview)](custom-commands.md) | <ul><li>"Turn on the overhead light"</li><li>"Make it 5 degrees warmer"</ul>
+
+We recommend [Direct Line Speech](direct-line-speech.md) as the best default choice if you aren't yet sure what you'd like your assistant to handle. It offers integration with a rich set of tools and authoring aids such as the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) and the [QnA Maker service](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) to build on common patterns and use your existing knowledge sources.
+
+[Custom Commands (Preview)](custom-commands.md) provides a streamlined authoring and hosting experience specifically tailored for natural language command and control scenarios.
+   ![Comparison of assistant solutions](media/voice-assistants/assistant-solution-comparison.png "Comparison of assistant solutions")
+
 ## Core features
+
+Whether you choose [Direct Line Speech](direct-line-speech.md) or [Custom Commands (Preview)](custom-commands.md) to create your assistant interactions, you can use a rich set of customization features to customize your assistant to your brand, product, and personality.
 
 | Category | Features |
 |----------|----------|
 |[Custom keyword](speech-devices-sdk-create-kws.md) | Users can start conversations with assistants with a custom keyword like “Hey Contoso.” An app does this with a custom keyword engine in the Speech SDK, which can be configured with a custom keyword [that you can generate here](speech-devices-sdk-create-kws.md). Voice assistants can use service-side keyword verification to improve the accuracy of the keyword activation (versus the device alone).
 |[Speech to text](speech-to-text.md) | Voice assistants convert real-time audio into recognized text using [Speech-to-text](speech-to-text.md) from Azure Speech Services. This text is available, as it's transcribed, to both your assistant implementation and your client application.
 |[Text to speech](text-to-speech.md) | Textual responses from your assistant are synthesized using [Text-to-speech](text-to-speech.md) from Azure Speech Services. This synthesis is then made available to your client application as an audio stream. Microsoft offers the ability to build your own custom, high-quality Neural TTS voice that gives a voice to your brand. To learn more, [contact us](mailto:mstts@microsoft.com).
-
-## Comparing assistant solutions
-
-The voice assistant service connects your on-device application to your unique assistant implementation. Developers author voice assistants using either (1) the Bot Framework's [Direct Line Speech](direct-line-speech.md) channel or (2) the [Custom Commands (Preview)](custom-commands.md) solution.
-
-   ![Comparison of assistant solutions](media/voice-assistants/assistant-solution-comparison.png "Comparison of assistant solutions")
-
-| Solution | Features |
-|----------|----------|
-|[Custom Commands (Preview)](custom-commands.md) | Custom Commands (Preview) provides a streamlined authoring and hosting solution for voice assistants. It's tailored to the needs of task completion and command-and-control scenarios.
-|[Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Direct Line Speech enables a smooth and seamless connection between (1) your client application, (2) a compatible bot, and (3) the capabilities of Azure Speech Services. For more information on configuring your bot to use the Direct Line Speech channel, please see [its page in the Bot Framework documentation](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
-
-Once you've created a voice assistant with one of these solutions, connect your on-device application to it using the `DialogServiceConnector` in the Speech SDK. For more details, please see the Quickstarts and samples for each solution.
 
 ## Getting started with voice assistants
 

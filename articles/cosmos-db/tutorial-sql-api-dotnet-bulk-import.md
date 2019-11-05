@@ -90,6 +90,14 @@ Let's start by overwriting the default `Main` method and defining the global var
 
 
    ```csharp
+   using System;
+   using System.Collections.Generic;
+   using System.Diagnostics;
+   using System.IO;
+   using System.Text.Json;
+   using System.Threading.Tasks;
+   using Microsoft.Azure.Cosmos;
+
    public class Program
    {
         private const string EndpointUrl = "https://<your-account>.documents.azure.com:443/";

@@ -331,25 +331,23 @@ In order to correlate telemetry in Asynchronous Spring Boot application, please 
 
 At times, you might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
 
+- Starting with Application Insights Java SDK 2.5.0, you can specify the cloud role name
+  by adding `<RoleName>` to your `ApplicationInsights.xml` file, e.g.
+
+  ```XML
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <RoleName>** Your role name **</RoleName>
+     ...
+  </ApplicationInsights>
+  ```
+
 - If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
 
   `spring.application.name=<name-of-app>`
 
   The Spring Boot starter automatically assigns `cloudRoleName` to the value you enter for the `spring.application.name` property.
-
-- If you're using the `WebRequestTrackingFilter`, the `WebAppNameContextInitializer` sets the application name automatically. Add the following to your configuration file (ApplicationInsights.xml):
-
-  ```XML
-  <ContextInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
-  </ContextInitializers>
-  ```
-
-- If you use the cloud context class:
-
-  ```Java
-  telemetryClient.getContext().getCloud().setRole("My Component Name");
-  ```
 
 ## Next steps
 
