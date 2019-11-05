@@ -102,7 +102,7 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
 
 ## Publish the app to query from the endpoint
 
-[!INCLUDE [LUIS How to Publish steps](includes/how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)] 
 
 ## Get intent prediction from the endpoint
 
