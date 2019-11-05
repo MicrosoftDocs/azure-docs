@@ -40,7 +40,7 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
-- An Azure Machine Learning Studio account. ([Try Machine Learning Studio for free](https://studio.azureml.net/)).
+- An [Azure Machine Learning Studio](https://studio.azureml.net/) account.
 
 ## Deploy the weather prediction model as a web service
 
