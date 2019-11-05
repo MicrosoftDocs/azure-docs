@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/17/2019
+ms.date: 11/04/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint. 
 ---
 
 # Quickstart: Deploy an app in the LUIS portal
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 When your LUIS app is ready to return utterance predictions to a client application (for example, a chat bot), you need to deploy the app to the prediction endpoint.
 
@@ -63,7 +62,7 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
 1. To add the LUIS, select **Add prediction resource**.
 
-    <!-- TBD: get screenshot-->
+    ![To add the LUIS prediction resource, select Add prediction resource](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
 1. Select your tenant, subscription, and resource name. Select **Assign resource**.
 
@@ -73,23 +72,17 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
 1. Find the new row in the table for the new prediction resource and copy the endpoint URL. It's correctly constructed to make an `HTTP GET` request to the LUIS API endpoint for a prediction.
 
-## Train and publish the app
+## Train the app
 
-Train the app when you're ready to test it. Publish the app when you want the currently trained version to be available to client applications from the query prediction endpoint runtime.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-1. If the app is untrained, select **Train** from the menu in the upper right.
+## Publish the app to the prediction endpoint
 
-1. Select **Publish** from the top menu. Select the production slot, and publish.
-
-1. When the notification bar appears, publishing is complete.
-
-1. On the Manage section's **Azure resources** page, find the list of assigned resources and corresponding endpoint URLs.
-
-1. Copy the example query into a browser window and add your user utterance as the `query` parameter.
+[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
 
 ## Prediction endpoint request
 
-The `query=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `query=`, enter the same user utterance used at the end of the previous quickstart:
+The `query=` at the end of the URL is where the user's utterance is appended to the GET request. After the `query=`, enter the same user utterance used at the end of the previous quickstart:
 
 ```Is there a form named hrf-234098```
 
@@ -137,7 +130,7 @@ The browser shows the response:
 }
 ```
 
-To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare the current app you're working on with an app that is published to the endpoint.
+To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare changes to the current app you're working on with an app that is published to the endpoint.
 
 [![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 

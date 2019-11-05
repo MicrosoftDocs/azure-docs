@@ -1,5 +1,5 @@
 ---
-title: Designing tables - Azure SQL Data Warehouse | Microsoft Docs
+title: Designing tables - Azure SQL Data Warehouse 
 description: Introduction to designing tables in Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 author: XiaoyuMSFT

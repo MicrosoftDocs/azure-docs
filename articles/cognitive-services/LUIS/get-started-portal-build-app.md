@@ -35,8 +35,8 @@ Building an app is free and doesn't require an Azure subscription. When you're r
    |--|--|--|
    |Name|`myEnglishApp`|Unique LUIS app name<br>required|
    |Culture|**English**|Language of utterances from users, **en-us**<br>required|
-   |Description|`App made with LUIS Portal`|Description of app<br>optional|
-   |Prediction resource |-  |Do not select. LUIS gives you a Starter key to use for free for authoring and 1,000 prediction endpoint requests. |
+   |Description (Optional)|`App made with LUIS Portal`|Description of app<br>optional|
+   |Prediction resource (Optional) |-  |Do not select. LUIS gives you a Starter key to use for free for authoring and 1,000 prediction endpoint requests. |
 
    ![Enter new app settings](./media/get-started-portal-build-app/create-new-app-settings.png)
 
@@ -56,9 +56,9 @@ The app's two different _intentions_ align to the following intents:
 
 To create intents, complete the following steps:
 
-1. After the app is created, you are on the **Intents** page of the **Build** section. Select **Create new intent**.
+1. After the app is created, you are on the **Intents** page of the **Build** section. Select **Create**.
 
-   [![Select Create new intent button](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![Select Create to create new intent](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. Enter the intent name, `FindForm`, and then select **Done**.
 
@@ -106,13 +106,16 @@ To return the form number in the runtime prediction response, the form must be m
 
 1. Select **Entities** from the menu on the left.
 
-1. Select **Create new entity** on the **Entities** page.
+1. Select **Create** on the **Entities** page.
 
-1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, and enter the regular expression, `hrf-[0-9]{6}`. This entry matches the literal characters, `hrf-`, and allows for exactly 6 digits.
+1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, then select **Next**.
 
-   ![Enter entity information for the regular expression entity](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![Create regular expression entity](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. Select **Done**.
+1. Enter the regular expression (**RegEx**) expression, `hrf-[0-9]{6}`. This entry matches the literal characters, `hrf-`, and allows for exactly 6 digits, then select **Create**.
+
+   ![Enter regular expression for entity](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
+
 
 ## Add example utterances to the None intent
 
@@ -130,7 +133,7 @@ The **None** intent's example utterances should be outside of your client applic
    |Order a pizza for me|
    |Penguins in the ocean|
 
-   For this human resources app, these example utterances are outside the domain. If your human resources domain include animals, food, or the ocean, then you should use different example utterances for the **None** intent.
+   For this app, these example utterances are outside the domain. If your domain include animals, food, or the ocean, then you should use different example utterances for the **None** intent.
 
 ## Train the app
 
