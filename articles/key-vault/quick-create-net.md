@@ -9,7 +9,7 @@ ms.topic: quickstart
 
 ---
 
-# Quickstart: Azure Key Vault client library for .NET
+# Quickstart: Azure Key Vault client library for .NET (SDK v4)
 
 Get started with the Azure Key Vault client library for .NET. Follow the steps below to install the package and try out example code for basic tasks.
 
@@ -21,7 +21,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Simplify and automate tasks for SSL/TLS certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
-[API reference documentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
+[API reference documentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 ## Prerequisites
 
@@ -63,13 +63,13 @@ Build succeeded.
 From the console window, install the Azure Key Vault client library for .NET:
 
 ```console
-dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.5
+dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0
 ```
 
 For this quickstart, you will need to install the following packages as well:
 
 ```console
-dotnet add package Azure.Identity --version 1.0.0-preview.5
+dotnet add package Azure.Identity --version 1.0.0
 ```
 
 ### Create a resource group and key vault
@@ -203,6 +203,58 @@ az group delete -g "myResourceGroup" -l "EastUS"
 ```azurepowershell
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
+
+## Sample code
+
+```csharp
+using System;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+namespace key_vault_console_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string secretName = "mySecret";
+
+            string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
+            var kvUri = "https://" + keyVaultName + ".vault.azure.net";
+
+            var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+
+            Console.Write("Input the value of your secret > ");
+            string secretValue = Console.ReadLine();
+
+            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+
+            client.SetSecret(secretName, secretValue);
+
+            Console.WriteLine(" done.");
+
+            Console.WriteLine("Forgetting your secret.");
+            secretValue = "";
+            Console.WriteLine("Your secret is '" + secretValue + "'.");
+
+            Console.WriteLine("Retrieving your secret from " + keyVaultName + ".");
+
+            KeyVaultSecret secret = client.GetSecret(secretName);
+
+            Console.WriteLine("Your secret is '" + secret.Value + "'.");
+
+            Console.Write("Deleting your secret from " + keyVaultName + " ...");
+
+            client.StartDeleteSecret(secretName);
+
+            System.Threading.Thread.Sleep(5000);
+            Console.WriteLine(" done.");
+
+        }
+    }
+}
+```
+
 
 ## Next steps
 

@@ -189,8 +189,9 @@ az group delete -g "myResourceGroup" -l "EastUS"
 
 ```azurepowershell
 Remove-AzResourceGroup -Name "myResourceGroup"
+```
 
-## Entire sample
+## Sample code
 
 ```python
 import os
