@@ -106,6 +106,79 @@ We recommend looking at the latest the documentation for your Linux distribution
 
 	You should see the IP address you added as part of the list.
 
+### Linux (Ubuntu 18.04+)
+Ubuntu 18.04 and above have changed to `netplan` for OS network management. We recommend looking at the latest the documentation for your Linux distribution. 
+
+1. Open a terminal window.
+2. Make sure you are the root user. If you are not, enter the following command:
+
+	```bash
+	sudo -i
+    ```
+
+3. Create a file for the second interface and open it in a text editor:
+
+	```bash
+	vi /etc/netplan/60-static.yaml
+    ```
+
+4. Add the following lines to the file, replacing `10.0.0.6/24` with your IP/netmask:
+
+	```bash
+    network:
+        version: 2
+        ethernets:
+            eth0:
+                addresses:
+                    - 10.0.0.6/24
+    ```
+
+5. Save the file by using the following command:
+
+	```bash
+	:wq
+    ```
+
+6. Test the changes using [netplan try](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) to confirm syntax:
+
+	```bash
+	netplan try
+    ```
+
+>[!NOTE]
+>`netplan try` will apply the changes temporarily, and will roll them back after 120 seconds. If there is a loss of connectivity, please wait 120 seconds then re-connect. At that time, the changes will have been rolled back.
+
+7. Assuming no issues with `netplan try`, apply the configuration changes:
+
+	```bash
+	netplan apply
+    ```
+
+8. Verify the IP address is added to the network interface with the following command:
+
+	```bash
+	ip addr list eth0
+    ```
+
+	You should see the IP address you added as part of the list. Example:
+
+	```bash
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+        valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 00:0d:3a:8c:14:a5 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.6/24 brd 10.0.0.255 scope global eth0
+        valid_lft forever preferred_lft forever
+        inet 10.0.0.4/24 brd 10.0.0.255 scope global secondary eth0
+        valid_lft forever preferred_lft forever
+        inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
+        valid_lft forever preferred_lft forever
+    ```
+    
 ### Linux (Red Hat, CentOS, and others)
 
 1. Open a terminal window.
