@@ -23,7 +23,7 @@ Currently supported files are:
 
 ## Prerequisites
 
-Tool to issue queries:
+Tools needed to issue queries:
 
 - SQL client of your choice:
     - Synapse Studio
@@ -34,26 +34,26 @@ Parameters:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL on-demand service endpoint address    | Will be used as server name                                   |
-| SQL on-demand service endpoint region     | Will be used to determine what storage will we use in samples |
-| Username and password for endpoint access | Will be used to access endpoint                               |
-| Database you will use to create views     | This database will be used as starting point in samples       |
+| SQL on-demand service endpoint address    | Will be used as the server name.                                   |
+| SQL on-demand service endpoint region     | Will be used to determine the storage used in the samples. |
+| Username and password for endpoint access | Will be used to access the endpoint.                               |
+| The database you will use to create views     | This database will be used as a starting point for the samples.       |
 
 ## First-time setup
 
-There are two steps prior to using samples:
+You have two steps before using the samples:
 
-- Create database for your views (in case you want to use views)
-- Create credentials to be used by SQL on-demand to access files in storage
+- Create a database for your views (in case you want to use views)
+- Create credentials to be used by SQL on-demand to access the files in storage
 
 ### Create database
 
-Create your own database. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
+You need a database to create views. You will use this database for some of the sample queries in this documentation. 
 
 > [!NOTE]
-> Note that databases are used only for view metadata, not for actual data.
+> Databases are only used for viewing metadata, not for actual data.  Write down the database name that you use, you will need it later on.
 > 
-> Write down database name you use. you will need it later on.
+>
 
 ```sql
 CREATE DATABASE mydbname
@@ -63,12 +63,12 @@ CREATE DATABASE mydbname
 
 ### Create credentials
 
-We need to create credential before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
+You must credentials before you can run queries. This credential will be used by SQL on-demand service to access the files in storage.
 
-For more information on how to manage storage access control check this [link](development-storage-files-storage-access-control.md).
+For more information on how to manage storage access control, check this [link](development-storage-files-storage-access-control.md).
 
 > [!NOTE]
-> Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
+> You need to create credentials for a storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in the same region will provide a better performance experience.
 
 **Code snippet on how to create credentials for CSV, JSON and Parquet containers**, run:
 
@@ -106,7 +106,7 @@ Go
 
 ## Provided demo data
 
-Demo data contains following data sets:
+Demo data contains the following data sets:
 
 - NYC Taxi - Yellow Taxi Trip Records - part of public NYC data set 
   - CSV format
@@ -133,12 +133,10 @@ Demo data contains following data sets:
 ## Validation
 
 
-Execute following three queries and check if credentials are created correctly.
+Execute the following three queries and check if the credentials are created correctly.
 
 > [!NOTE]
-> Note that all URIs in sample queries are using storage account located in North Europe Azure region. 
-> 
-> Make sure that you created appropriate credential. Run this query and make sure storage account is listed:
+> All URIs in the sample queries are use a storage account located in the North Europe Azure region. Make sure that you created appropriate credential. Run the query below and make sure the storage account is listed.
 
 ```sql
 -- QUERY 1 - Validate CSV credential
@@ -160,11 +158,11 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/json'
 ```
 
-If you can't find appropriate credential, check [First-time setup](#first-time-setup).
+If you can't find the appropriate credential, check [First-time setup](#first-time-setup).
 
 ### Sample query
 
-Last step of validation is to execute the following query.
+The last step of validation is to execute the following query:
 
 ```sql
 SELECT 
@@ -176,11 +174,11 @@ FROM
 	) AS nyc
 ```
 
-Query above should return number: **8945574**.
+The above Query should return this number: **8945574**.
 
 ## Next steps
 
-Now you are ready to start with following quickstart articles:
+You're now ready to continue on with the following quickstart articles:
 
 - [Query single CSV file](query-single-csv-file.md)
 
@@ -197,6 +195,6 @@ Now you are ready to start with following quickstart articles:
 - [Creating and using views](create-use-views.md)
 
 
-Advance to the next article to learn how to query single CSV file.
+Advance to the next article to learn how to query a single CSV file.
 > [!div class="nextstepaction"]
 > [Query single CSV file](query-single-csv-file.md)

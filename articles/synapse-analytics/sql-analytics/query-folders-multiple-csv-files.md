@@ -13,22 +13,20 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying folders and multiple files
 
-Reading this article you will learn how to write a query in SQL Analytics on-demand that will read from multiple files.
+In this article, you will learn how to write a query in SQL Analytics on-demand that will read from multiple CSV files.
 
-Reading multiple files/folders is supported through usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed. Take a look at following sections for more details.
-
-We will show how to query folders and multiple CSV files in following sections.
+Reading multiple files/folders is supported by using wildcards that are similar to wildcards used in Windows OS. However, greater flexibility is present since multiple wildcards are allowed. 
 
 ## Prerequisites
 
-Before reading rest of the article make sure to check following articles:
+Before reading the rest of this article, make sure to review following articles:
 - [First-time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
 ## Read multiple files in folder
 
-We will use folder *csv/taxi* for following sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016. to June 2018.
+You will use the folder *csv/taxi* to follow the sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016. to June 2018.
 
 Files in *csv/taxi* are named after year and month:
 
@@ -50,7 +48,7 @@ Each file has the following structure:
 
 ### Read all files in folder
 
-This sample reads all NYC Yellow Taxi data files from *csv/taxi* folder and returns total number of passengers and rides per year. It also shows usage of aggregate functions.
+The example below reads all NYC Yellow Taxi data files from the *csv/taxi* folder and returns the total number of passengers and rides per year. It also shows usage of aggregate functions.
 
 ```sql
 SELECT 
@@ -88,13 +86,13 @@ ORDER BY
 ```
 
 > [!NOTE]
-> Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
+> All files accessed with the single OPENROWSET must have the same structure (i.e., number of columns and their data types).
 
 
 
 ### Read subset of files in folder
 
-This sample reads NYC Yellow Taxi data files for year 2017. from *csv/taxi* folder using wildcard and returns total fare amount per payment type.
+The example below reads the  2017 NYC Yellow Taxi data files from the *csv/taxi* folder using a wildcard and returns the total fare amount per payment type.
 
 ```sql
 SELECT 
@@ -130,22 +128,22 @@ ORDER BY payment_type
 ```
 
 > [!NOTE]
-> Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
+> All files accessed with the single OPENROWSET must have the same structure (i.e., number of columns and their data types).
 
  
 
 ## Read folders
 
-Path that you provide to OPENROWSET can be path to folder also. Following sections shows such queries.
+The path that you provide to OPENROWSET can also be a path to a folder. The following sections include these query types.
 
 ### Read all files from specific folder
 
-Although we can read all files in folder using file level wildcard as shown in [Read all files in folder](#read-all-files-in-folder), there is a way to query to folder and it will consume all files from particular folder. 
+You can read all files in a folder using the file level wildcard as shown in [Read all files in folder](#read-all-files-in-folder). But, there is a way to query to a folder and consume all files from that particular folder. 
 
-If path provided in OPENROWSET points to folder, all files in that folder will be used as source for our query.  Following query will read all files in *csv/taxi* folder.
+If the path provided in OPENROWSET points to a folder, all files in that folder will be used as a source for your query.  The following query will read all files in the *csv/taxi* folder.
 
 > [!NOTE]
-> Note existence of / at the end of path in query below. It denotes folder. If / is omitted, query will target file named *taxi* instead.
+> Note the existence of the / at the end of the path in the query below. It denotes a folder. If the / is omitted, the query will target a file named *taxi* instead.
 
 ```sql
 SELECT 
@@ -183,14 +181,14 @@ ORDER BY
 ```
 
 > [!NOTE]
-> Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
+> All files accessed with the single OPENROWSET must have the same structure (i.e., number of columns and their data types).
 
 ### Read all files from multiple folders
 
-It is possible to read files from multiple folders with usage of wildcard. Following query will read all files from all folders located in *csv* folder, which names start with *t* and end with *i*.
+It is possible to read files from multiple folders by using a wildcard. The following query will read all files from all folders located in the *csv* folder that have names starting with *t* and ending with *i*.
 
 > [!NOTE]
-> Note existence of / at the end of path in query below. It denotes folder. If / is omitted, query will target files named *t&ast;i* instead.
+> Note the existence of the / at the end of the path in the query below. It denotes a folder. If the / is omitted, the query will target files named *t&ast;i* instead.
 
 ```sql
 SELECT 
@@ -228,17 +226,17 @@ ORDER BY
 ```
 
 > [!NOTE]
-> Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
+> All files accessed with the single OPENROWSET must have the same structure (i.e., number of columns and their data types).
 
-Since we have only one folder that matches criteria, the result of this query is the same as in [Read all files in folder](#read-all-files-in-folder).
+Since you have only one folder that matches the criteria, the query result is the same as [Read all files in folder](#read-all-files-in-folder).
 
 ## Multiple wildcards
 
-We can use multiple wildcards on different levels of path. For example, we can enrich previous query to read files with 2017 data only, from all folders which names start with *t* and end with *i*.
+You can use multiple wildcards on different path levels. For example, you can enrich previous query to read files with 2017 data only, from all folders which names start with *t* and end with *i*.
 
 > [!NOTE]
-> Note existence of / at the end of path in query below. It denotes folder. If / is omitted, query will target files named *t&ast;i* instead.
-> Note that there is a limit of maximum 10 wildcards per query.
+> Note the existence of the / at the end of the path in the query below. It denotes a folder. If the / is omitted, the query will target files named *t&ast;i* instead.
+> There is a maximum limit of 10 wildcards per query.
 
 
 ```sql
@@ -277,9 +275,9 @@ ORDER BY
 ```
 
 > [!NOTE]
-> Note that all accessed files with single OPENROWSET must have the same structure (number of columns and their data types).
+> All files accessed with the single OPENROWSET must have the same structure (i.e., number of columns and their data types).
 
-Since we have only one folder that matches criteria, the result of this query is the same as in [Read subset of files in folder](#read-subset-of-files-in-folder) and [Read all files from specific folder](#read-all-files-from-specific-folder). More complex scenarios of wildcard usage are covered in [Querying Parquet files](query-parquet-files.md).
+Since you have only one folder that matches the criteria, the query result is the same as [Read subset of files in folder](#read-subset-of-files-in-folder) and [Read all files from specific folder](#read-all-files-from-specific-folder). More complex wildcard usage scenarios are covered in [Querying Parquet files](query-parquet-files.md).
 
 
 
