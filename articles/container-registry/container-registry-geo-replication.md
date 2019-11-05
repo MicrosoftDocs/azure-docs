@@ -1,6 +1,6 @@
 ---
 title: Geo-replicating an Azure container registry
-description: Get started creating and managing geo-replicated Azure container registries.
+description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-master regional replicas.
 services: container-registry
 author: stevelas
 manager: gwallace
