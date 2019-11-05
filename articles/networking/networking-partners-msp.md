@@ -12,13 +12,13 @@ ms.author: sukishen
 
 # About Azure Networking MSP partners
 
-The [Azure Networking Managed Service Provider (MSP) Partner Program](https://azure.microsoft.com/en-us/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) enables network-services focused MSPs, Telcos, and Systems Integrators (SIs) to offer cloud and hybrid networking services centered around Azure’s portfolio of networking products and services.
+The [Azure Networking Managed Service Provider (MSP) Partner Program](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) enables network-services focused MSPs, Telcos, and Systems Integrators (SIs) to offer cloud and hybrid networking services centered around Azure’s portfolio of networking products and services.
 
 Azure Networking MSPs are a specialized set of managed service providers that address the enterprise cloud networking needs and challenges across all aspects of cloud and hybrid networking. The managed network services include one or more of the following services: network architecture, planning, deployment, operations, maintenance, and optimization.
 
 ![MSP][0]
 
-Customers can purchase MSP-managed services offers in the Azure Marketplace, or directly from the MSP. MSPs can deploy and manage Azure networking resources in the customers' subscriptions and resource groups by using [Azure Lighthouse](https://azure.microsoft.com/en-us/services/azure-lighthouse/).
+Customers can purchase MSP-managed services offers in the Azure Marketplace, or directly from the MSP. MSPs can deploy and manage Azure networking resources in the customers' subscriptions and resource groups by using [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/).
 
 ## <a name="msp"></a>Azure Networking MSP partners
 
@@ -37,7 +37,7 @@ Use the links in this section for more information about managed cloud networkin
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|Yes||||Yes|
 |[InterCloud](https://intercloud.com/partners/microsoft-azure/)|Yes|Yes||||
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|Yes|Yes||||
-|[ixreach](https://www.ixreach.com/services/sdn-cloud-connect/)|Yes|Yes||||
+|[IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/)|Yes|Yes||||
 |[KINX](https://www.kinx.net/service/cloud/?lang=en)|Yes|||||
 |[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/microsoft-azure.html)|Yes|Yes||||
 |[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|Yes|Yes|Yes|||
