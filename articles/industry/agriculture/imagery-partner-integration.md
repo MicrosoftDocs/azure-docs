@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Imagery partner integration
+## Imagery partner integration
 
 This article describes how to use the Azure FarmBeats Translator component to send imagery data to FarmBeats. Agricultural imagery data can be from various sources, including multispectral cameras, satellites, and drones. Agricultural imagery partners can integrate with FarmBeats to provide customers with custom-generated maps for their farms.
 
@@ -31,11 +31,11 @@ You must use the following credentials in the drone partner software for linking
 - Client ID
 - Client Secret
 
-**API development**
+## API development
 
 The APIs contain Swagger technical documentation. Review [Swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information about the APIs and corresponding requests/responses.
 
-**Authentication**
+## Authentication
 
 FarmBeats leverages Microsoft Azure’s [Active Directory]((https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)). Authentication Azure App Service provides built-in authentication and authorization support. 
 
@@ -74,7 +74,7 @@ token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLI
 access_token = token_response.get('accessToken') 
 ```
 
-**HTTP request headers**
+## HTTP request headers
 
 Here are the most common request headers that need to be specified when making an API call to FarmBeats Data hub:
 
@@ -85,7 +85,7 @@ Authorization | Specifies the access token required to make an API call. Authori
 Accept  | The response format. For FarmBeats Data hub APIs the format is json  Accept: application/json
 
 
-**API requests**
+## API requests
 
 To make a REST API request, you combine the HTTP method (GET/POST/PUT), the URL to the API service, the resource URI (to query, submit data, update, or delete), and one or more HTTP request headers.
 
