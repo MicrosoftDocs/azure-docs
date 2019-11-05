@@ -16,6 +16,8 @@ ms.author: diberry
 
 # Quickstart: Use prebuilt Home automation app
 
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
+
 In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
 ## Prerequisites
@@ -33,7 +35,7 @@ You can create and manage your applications on **My Apps**.
 
     ![In the LUIS portal, on the My apps list, select '+ Create.](./media/create-app-in-portal.png)
 
-1. In the dialog box, name your application `Home Automation` then select **Done**. LUIS creates the app.
+1. In the dialog box, name your application `Home Automation` then select **Done**. LUIS creates the app. The description is optional and isn't used for authoring or prediction. The prediction resource is also optional when creating a LUIS app. When you publish your app to production, you should assign a prediction resource so your app can handle many requests.  
 
     ![In the dialog box, name your application `Home Automation`](./media/create-new-app-details.png)
 
@@ -63,7 +65,7 @@ Select the **HomeAutomation.TurnOff** intent. You can see that the intent contai
 
 ## Train the LUIS app
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## Test your app
 Once you've trained your app, you can test it. Select **Test**. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter. 
@@ -112,7 +114,25 @@ Select **Test** again to collapse the test pane.
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.967174649
+                    "score": 0.984315455
+                },
+                "HomeAutomation.QueryState": {
+                    "score": 0.009912962
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.00626645749
+                },
+                "HomeAutomation.TurnUp": {
+                    "score": 0.00572059769
+                },
+                "HomeAutomation.SetDevice": {
+                    "score": 0.00379381469
+                },
+                "HomeAutomation.TurnOn": {
+                    "score": 0.00366983772
+                },
+                "None": {
+                    "score": 0.000623856
                 }
             },
             "entities": {
@@ -136,7 +156,7 @@ Select **Test** again to collapse the test pane.
                             "text": "living room",
                             "startIndex": 13,
                             "length": 11,
-                            "score": 0.9494325,
+                            "score": 0.907323956,
                             "modelTypeId": 1,
                             "modelType": "Entity Extractor",
                             "recognitionSources": [
