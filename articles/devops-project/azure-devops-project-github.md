@@ -112,7 +112,7 @@ Azure DevOps Projects automatically configures a CI/CD pipeline in Azure Pipelin
 
 ## Clean up resources
 
-When you no longer need the Azure App service and related resources that you created in this tutorial, you can delete them. Use the **Delete** functionality on the DevOps Projects dashboard.
+When you no longer need Azure App Service and the related resources that you created in this tutorial, you can delete them. Use the **Delete** functionality on the DevOps Projects dashboard.
 
 ## Next steps
 
