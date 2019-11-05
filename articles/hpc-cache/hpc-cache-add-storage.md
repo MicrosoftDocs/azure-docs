@@ -129,3 +129,5 @@ After creating storage targets, consider one of these tasks:
 
 * [Mount the Azure HPC Cache](hpc-cache-mount.md)
 * [Move data to Azure Blob storage](hpc-cache-ingest.md)
+
+If you need to change a storage target, read [Edit storage targets](hpc-cache-edit-storage.md) to learn how.

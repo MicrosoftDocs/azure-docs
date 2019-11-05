@@ -204,7 +204,9 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 ## Error Codes
 
-|ErrorCode|Description|
+Use the table below to better understand how to resolve errors you may find in the provisioning logs. For any error codes that are missing, provide feedback using the link at the bottom of this page. 
+
+|Error Code|Description|
 |---|---|
 |Conflict, EntryConflict|Correct the conflicting attribute values in either Azure AD or the application, or review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the following [documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) for more information on configuring matching attributes.|
 |TooManyRequests|The target app rejected this attempt to update the user because it is overloaded and receiving too many requests. There is nothing to do. This attempt will automatically be retired. Microsoft has also been notified of this issue.|
