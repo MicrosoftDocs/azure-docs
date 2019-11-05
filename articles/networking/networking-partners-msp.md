@@ -24,53 +24,55 @@ Customers can purchase MSP-managed services offers in the Azure Marketplace, or 
 
 Use the links in this section for more information about managed cloud networking services offered by Azure Networking MSP partners. If your cloud network services partner is not listed in the section below, have the provider contact us. They can contact us by sending an email to ManagedVirtualWAN@microsoft.com. 
 
-[ANS Group UK](https://www.ans.co.uk/)
+| **MSP** | **Cloud Network Transformation Services** | **Managed ExpressRoute** | **Managed Virtual WAN** | **Managed Firewall** |**Managed Network Edge Compute** |
 
-[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)
+|ANS Group UK](https://www.ans.co.uk/)|Yes|Yes||||
 
-[BT](https://www.globalservices.bt.com/en/aboutus/news-press/bt-named-one-of-the-first-global-managed-service-providers-for-a-new-microsoft-azure-networking-virtual-wan-services/)
+|[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|Yes|Yes|Yes|||
 
-[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)
+|[BT](https://www.globalservices.bt.com/en/aboutus/news-press/bt-named-one-of-the-first-global-managed-service-providers-for-a-new-microsoft-azure-networking-virtual-wan-services/)|Yes|Yes|Yes|Yes||
 
-[Dimension Data](https://www.dimensiondata.com/)
+|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|Yes|||||
 
-[Equinix](https://www.equinix.com/)
+|[Dimension Data](https://www.dimensiondata.com/)|Yes|||||
 
-[IIJ](https://www.iij.ad.jp/biz/cloudex/)
+|[Equinix](https://www.equinix.com/)|Yes|Yes||||
 
-[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)
+|[IIJ](https://www.iij.ad.jp/biz/cloudex/)|Yes|Yes||||
 
-[InterCloud](https://intercloud.com/partners/microsoft-azure/)
+|[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|Yes||||Yes|
 
-[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)
+|[InterCloud](https://intercloud.com/partners/microsoft-azure/)|Yes|||||
 
-[ixreach](https://www.ixreach.com/)
+|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|Yes|Yes||||
 
-[KINX](https://www.kinx.net/service/cloud/?lang=en)
+|[ixreach](https://www.ixreach.com/)|Yes|||||
 
-[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/microsoft-azure.html)
+|[KINX](https://www.kinx.net/service/cloud/?lang=en)|Yes|||||
 
-[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)
+|[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/microsoft-azure.html)|Yes|||||
 
-[Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|Yes|yes||||
 
-[OmniClouds](https://omniclouds.com/services/)
+|[Megaport](https://www.megaport.com/services/microsoft-expressroute/)|Yes|||||
 
-[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
+|[OmniClouds](https://omniclouds.com/services/)|Yes|||||
 
-[Orixcom]( https://www.orixcom.com/cloud-solutions/)
+|[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)|Yes|||||
 
-[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
+|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|Yes|||||
 
-[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
+|[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|Yes|||||
 
-[TCTS](https://www.tatacommunications-ts.com/index.php)
+|[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|Yes|Yes||||
 
-[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
+|[TCTS](https://www.tatacommunications-ts.com/index.php)|Yes|Yes|Yes|||
 
-[Vandis](https://www.vandis.com/microsoft-azure-practice/)
+|[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)|Yes||||Yes|
 
-[Vigilant IT](https://vigilant.it/manage-cloud-service/)
+|[Vandis](https://www.vandis.com/microsoft-azure-practice/)|Yes|Yes|Yes|||
+
+|[Vigilant IT](https://vigilant.it/manage-cloud-service/)|Yes|Yes||||
 
 ## <a name="expressroute"></a>ExpressRoute partners
 
