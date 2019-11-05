@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -17,7 +17,7 @@ You can save money on storage costs for blob data with Azure Storage reserved ca
 
 Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. The cost savings achieved depend on the duration of your reservation, the total capacity you choose to reserve, and the access tier and type of redundancy that you've chosen for your storage account. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Storage resources.
 
-For information about Azure Storage reservation pricing, see [Block blob pricing](/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](/pricing/details/storage/data-lake/).
+For information about Azure Storage reservation pricing, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ## Reservation terms for Azure Storage
 
