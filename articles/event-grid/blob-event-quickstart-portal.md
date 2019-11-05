@@ -1,6 +1,6 @@
 ---
-title: Quickstart Send Blob storage events to web endpoint - portal
-description: Quickstart Use Azure Event Grid and Azure portal to create Blob storage account, and subscribe its events. Send the events to a Webhook.
+title: 'Quickstart: Send Blob storage events to web endpoint - portal'
+description: 'Quickstart: Use Azure Event Grid and Azure portal to create Blob storage account, and subscribe its events. Send the events to a Webhook.'
 services: event-grid 
 keywords: 
 author: spelluru
