@@ -95,17 +95,17 @@ Azure Storage automatically encrypts your data when persisting it to the cloud. 
 
 Within Azure, data in transit between Azure storage and the vault is protected by HTTPS. This data remains on the Azure backbone network.
 
-For more information, please see [Azure Storage encryption for data at rest](https://docs.microsoft.com/en-in/azure/storage/common/storage-service-encryption).
+For more information, please see [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 ### VM encryption
 
-You can back up and restore Windows or Linux Azure virtual machines (VMs) with encrypted disks using the Azure Backup service. For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+You can back up and restore Windows or Linux Azure virtual machines (VMs) with encrypted disks using the Azure Backup service. For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ### Protection of Azure Backup recovery points
 
 Storage accounts used by recovery services vaults are isolated and cannot be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore. These management operations are controlled through Role-Based Access Control (RBAC).
 
-For more information, please see [Use Role-Based Access Control to manage Azure Backup recovery points](https://docs.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault).
+For more information, please see [Use Role-Based Access Control to manage Azure Backup recovery points](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
 
 ## Frequently Asked Questions
 
