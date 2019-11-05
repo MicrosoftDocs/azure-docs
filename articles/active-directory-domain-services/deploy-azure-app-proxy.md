@@ -1,25 +1,21 @@
 ---
 title: Deploy Azure AD Application Proxy for Azure AD Domain Services | Microsoft Docs
-description: Use Azure AD Application Proxy on Azure Active Directory Domain Services managed domains
+description: Learn how to deploy and configure Azure AD Application Proxy with an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 11/04/2019
 ms.author: iainfou
 
 ---
-
 # Deploy Azure AD Application Proxy on an Azure AD Domain Services managed domain
+
 Azure Active Directory (AD) Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. With Azure AD Domain Services, you can now lift-and-shift legacy applications running on-premises to Azure Infrastructure Services. You can then publish these applications using the Azure AD Application Proxy, to provide secure remote access to users in your organization.
 
 If you're new to the Azure AD Application Proxy, learn more about this feature with the following article:
@@ -28,16 +24,21 @@ If you're new to the Azure AD Application Proxy, learn more about this feature w
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## Before you begin
-To perform the tasks listed in this article, you need:
 
-1. A valid **Azure subscription**.
-2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. An **Azure AD Premium license** is required to use the Azure AD Application Proxy.
-4. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
+To complete this article, you need the following resources and privileges:
 
-<br>
+* An active Azure subscription.
+    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+    * An **Azure AD Premium license** is required to use the Azure AD Application Proxy.
+* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
+    * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+* A Windows Server VM that is joined to the Azure AD DS managed domain.
+    * If needed, the previous tutorial [creates a Windows Server VM and joins it to a managed domain][create-join-windows-vm].
 
-## Task 1 - Enable Azure AD Application Proxy for your Azure AD directory
+## Enable Azure AD Application Proxy for your Azure AD directory
+
 Perform the following steps to enable the Azure AD Application Proxy for your Azure AD directory.
 
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com).
@@ -52,16 +53,16 @@ Perform the following steps to enable the Azure AD Application Proxy for your Az
 
     ![Confirm download](./media/app-proxy/app-proxy-enabled-confirm-download.png)
 
+## Provision domain-joined Windows servers to deploy the Azure AD Application Proxy connector
 
-## Task 2 - Provision domain-joined Windows servers to deploy the Azure AD Application Proxy connector
 You need domain-joined Windows Server virtual machines on which you can install the Azure AD Application Proxy connector. For some applications, you may choose to provision multiple servers on which the connector is installed. This deployment option gives you greater availability and helps handle heavier authentication loads.
 
 Provision the connector servers on the same virtual network (or a connected/peered virtual network), in which you have enabled your Azure AD Domain Services managed domain. Similarly, the servers hosting the applications you publish via the Application Proxy need to be installed on the same Azure virtual network.
 
 To provision connector servers, follow the tasks outlined in the article titled [Join a Windows virtual machine to a managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
 
+## Install and register the Azure AD Application Proxy Connector
 
-## Task 3 - Install and register the Azure AD Application Proxy Connector
 Previously, you provisioned a Windows Server virtual machine and joined it to the managed domain. In this task, you install the Azure AD Application Proxy connector on this virtual machine.
 
 1. Copy the connector installation package to the VM on which you install the Azure AD Web Application Proxy connector.
@@ -85,45 +86,49 @@ Previously, you provisioned a Windows Server virtual machine and joined it to th
 
 > [!NOTE]
 > You may choose to install connectors on multiple servers to guarantee high availability for authenticating applications published through the Azure AD Application Proxy. Perform the same steps listed above to install the connector on other servers joined to your managed domain.
->
->
-
-## Next Steps
-You have set up the Azure AD Application Proxy and integrated it with your Azure AD Domain Services managed domain.
-
-* **Migrate your applications to Azure virtual machines:** You can lift-and-shift your applications from on-premises servers to Azure virtual machines joined to your managed domain. Doing so helps you get rid of the infrastructure costs of running servers on-premises.
-
-* **Publish applications using Azure AD Application Proxy:** Publish applications running on your Azure virtual machines using the Azure AD Application Proxy. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
-
 
 ## Deployment note - Publish IWA (Integrated Windows Authentication) applications using Azure AD Application Proxy
+
 Enable single sign-on to your applications using Integrated Windows Authentication (IWA) by granting Application Proxy Connectors permission to impersonate users, and send and receive tokens on their behalf. Configure Kerberos constrained delegation (KCD) for the connector to grant the required permissions to access resources on the managed domain. Use the resource-based KCD mechanism on managed domains for increased security.
 
-
 ### Enable resource-based Kerberos constrained delegation for the Azure AD Application Proxy connector
+
 The Azure Application Proxy connector should be configured for Kerberos constrained delegation (KCD), so it can impersonate users on the managed domain. On an Azure AD Domain Services managed domain, you do not have domain administrator privileges. Therefore, **traditional account-level KCD cannot be configured on a managed domain**.
 
 Use resource-based KCD as described in this [article](deploy-kcd.md).
 
 > [!NOTE]
 > You need to be a member of the 'AAD DC Administrators' group, to administer the managed domain using AD PowerShell cmdlets.
->
->
 
 Use the Get-ADComputer PowerShell cmdlet to retrieve the settings for the computer on which the Azure AD Application Proxy connector is installed.
+
 ```powershell
 $ConnectorComputerAccount = Get-ADComputer -Identity contoso-proxy.contoso.com
 ```
 
 Thereafter, use the Set-ADComputer cmdlet to set up resource-based KCD for the resource server.
+
 ```powershell
 Set-ADComputer contoso-resource.contoso.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 
 If you have deployed multiple Application Proxy connectors on your managed domain, you need to configure resource-based KCD for each such connector instance.
 
+## Next Steps
 
-## Related Content
+You have set up the Azure AD Application Proxy and integrated it with your Azure AD Domain Services managed domain.
+
+* **Migrate your applications to Azure virtual machines:** You can lift-and-shift your applications from on-premises servers to Azure virtual machines joined to your managed domain. Doing so helps you get rid of the infrastructure costs of running servers on-premises.
+
+* **Publish applications using Azure AD Application Proxy:** Publish applications running on your Azure virtual machines using the Azure AD Application Proxy. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
+
 * [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Configure Kerberos Constrained Delegation on a managed domain](deploy-kcd.md)
 * [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/library/jj553400.aspx)
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[create-join-windows-vm]: join-windows-vm.md
+[azure-bastion]: ../bastion/bastion-create-host-portal.md
