@@ -1,6 +1,6 @@
 ---
 title: Use Azure Kinect Sensor SDK to record file format
-description: Understand how to use the Azure Kinect Sensor SDK to record file format.
+description: Understand how to use the Azure Kinect Sensor SDK recorded file format.
 author: xthexder
 ms.author: jawirth
 ms.prod: kinect-dk
