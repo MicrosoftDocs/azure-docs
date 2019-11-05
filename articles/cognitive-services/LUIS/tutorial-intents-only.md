@@ -28,7 +28,7 @@ In this tutorial, you create a custom app that predicts a user's intention based
 > * Add example utterances
 > * Train app
 > * Publish app
-> * Get intent from endpoint
+> * Get intent prediction from endpoint
 
 
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
@@ -73,7 +73,7 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]    
 
-## Create remaining subject domain intents with example utterances
+## Create remaining intents
 
 1. Create the `Greeting` intent and add the following example utterances. This is the intent to determine if a user is beginning a new pizza order conversation.
 
@@ -95,19 +95,19 @@ The `OrderPizza` intent is predicted when: a user wants to order a pizza.
     |`Sure`|
 
 
-## Add example utterances to the None intent 
+## None intent example utterances
 
 [!INCLUDE [Follow these steps to add the None intent to the app](includes/add-example-utterances-none-intent.md)]
 
-## Train the app before testing or publishing
+## Train the app 
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## Publish the app to query from the endpoint
+## Publish the app 
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)] 
 
-## Get intent prediction from the endpoint
+## Get intent prediction
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
