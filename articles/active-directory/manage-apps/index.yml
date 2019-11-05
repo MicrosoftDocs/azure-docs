@@ -92,3 +92,19 @@ landingContent:
             url: application-proxy-integrate-with-remote-desktop-services.md
           - text: Enable remote access to SharePoint with Azure AD Application Proxy
             url: application-proxy-integrate-with-sharepoint-server.md
+  - title: Secure legacy apps with application delivery controllers and networks (on-premises or cloud)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is secure hybrid access?
+            url: secure-hybrid-access.md
+      - linkListType: how-to-guide
+        links:
+          - text: Protect your apps using F5 Big-IP APM
+            url: /azure/active-directory/saas-apps/headerf5-tutorial.md
+          - text: Protect your apps using Zscaler ZPA
+            url: /azure/active-directory/saas-apps/zscaler-provisioning-tutorial.md
+          - text: Protect your apps using Akamai EAA
+            url: application-proxy-deployment-plan.md
+          - text: Protect your apps using Citrix ADC
+            url: /azure/active-directory/saas-apps/citrix-netscaler-tutorial.md
