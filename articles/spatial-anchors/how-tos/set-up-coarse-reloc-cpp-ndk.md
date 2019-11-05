@@ -13,7 +13,7 @@ ms.service: azure-spatial-anchors
 # How to create and locate anchors using on-device sensors in C++/NDK
 
 > [!div  class="op_single_selector"]
-> * [C#/Unity](set-up-coarse-reloc-csharp.md)
+> * [Unity](set-up-coarse-reloc-unity.md)
 > * [Objective-C](set-up-coarse-reloc-objc.md)
 > * [Swift](set-up-coarse-reloc-swift.md)
 > * [Android Java](set-up-coarse-reloc-java.md)
@@ -35,11 +35,11 @@ To complete this guide, make sure you have:
 
 ```cpp
 // Create the sensor fingerprint provider
-std::shared_ptr<FusedLocationProvider> sensorProvider;
-sensorProvider = std::make_shared<FusedLocationProvider>();
+std::shared_ptr<PlatformLocationProvider> sensorProvider;
+sensorProvider = std::make_shared<PlatformLocationProvider>();
 
 // Allow GPS
-const std::shared_ptr<LocationProviderSensorCapabilities>& sensors = sensorProvider->Sensors();
+const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->GeoLocationEnabled(true);
 
 // Allow WiFi scanning

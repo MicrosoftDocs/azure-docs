@@ -1,6 +1,6 @@
 ---
 title: Coarse Relocalization | Microsoft Docs
-description: Coarse relocalization quickstart guide.  
+description: Coarse relocalization quickstart guide.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -14,7 +14,7 @@ ms.service: azure-spatial-anchors
 
 Coarse relocalization is a feature that provides an initial answer to the question: *Where is my device now / What content should I be observing?* The response isn't precise, but instead is in the form: *You're close to these anchors, try locating one of them*.
 
-Coarse relocalization works by associating various on-device sensor readings with both the creation and the querying of anchors. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS is not available or unreliable (such as indoors), the sensor data consists in the WiFi access points and Bluetooth beacons in range. All collected sensor data contributes to maintaining a spatial index. The spatial index is leveraged by the anchor service to quickly determine the anchors that are within approximately 100 meters of your device. 
+Coarse relocalization works by associating various on-device sensor readings with both the creation and the querying of anchors. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS is not available or unreliable (such as indoors), the sensor data consists in the WiFi access points and Bluetooth beacons in range. All collected sensor data contributes to maintaining a spatial index. The spatial index is leveraged by the anchor service to quickly determine the anchors that are within approximately 100 meters of your device.
 
 The fast look-up of anchors enabled by coarse relocalization simplifies the development of applications backed by world-scale collections of (say millions of geo-distributed) anchors. The complexity of anchor management is all hidden away, allowing you to focus more on your awesome application logic. All the anchor heavy-lifting is done for you behind the scenes by the service!
 
@@ -36,7 +36,7 @@ Let's start by creating a sensor fingerprint provider and making the session awa
 
 ```csharp
 // Create the sensor fingerprint provider
-sensorProvider = new FusedLocationProvider();
+sensorProvider = new PlatformLocationProvider();
 
 // Create and configure the session
 cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
@@ -49,8 +49,8 @@ cloudSpatialAnchorSession.LocationProvider = sensorProvider;
 
 ```objc
 // Create the sensor fingerprint provider
-ASAFusedLocationProvider *sensorProvider;
-sensorProvider = [[ASAFusedLocationProvider alloc] init];
+ASAPlatformLocationProvider *sensorProvider;
+sensorProvider = [[ASAPlatformLocationProvider alloc] init];
 
 // Create and configure the session
 cloudSpatialAnchorSession = [[ASACloudSpatialAnchorSession alloc] init];
@@ -63,8 +63,8 @@ cloudSpatialAnchorSession.locationProvider = sensorProvider;
 
 ```swift
 // Create the sensor fingerprint provider
-var sensorProvider: ASAFusedLocationProvider?
-sensorProvider = ASAFusedLocationProvider()
+var sensorProvider: ASAPlatformLocationProvider?
+sensorProvider = ASAPlatformLocationProvider()
 
 // Create and configure the session
 cloudSpatialAnchorSession = ASACloudSpatialAnchorSession()
@@ -77,7 +77,7 @@ cloudSpatialAnchorSession!.locationProvider = sensorProvider
 
 ```java
 // Create the sensor fingerprint provider
-FusedLocationProvider sensorProvider = new FusedLocationProvider();
+PlatformLocationProvider sensorProvider = new PlatformLocationProvider();
 
 // Create and configure the session
 cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
@@ -90,8 +90,8 @@ cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 
 ```cpp
 // Create the sensor fingerprint provider
-std::shared_ptr<FusedLocationProvider> sensorProvider;
-sensorProvider = std::make_shared<FusedLocationProvider>();
+std::shared_ptr<PlatformLocationProvider> sensorProvider;
+sensorProvider = std::make_shared<PlatformLocationProvider>();
 
 // Create and configure the session
 cloudSpatialAnchorSession = std::make_shared<CloudSpatialAnchorSession>();
@@ -107,8 +107,8 @@ SpatialAnchorsFactory m_asaFactory { nullptr };
 // . . .
 
 // Create the sensor fingerprint provider
-FusedLocationProvider sensorProvider;
-sensorProvider = m_asaFactory.CreateFusedLocationProvider();
+PlatformLocationProvider sensorProvider;
+sensorProvider = m_asaFactory.CreatePlatformLocationProvider();
 
 // Create and configure the session
 cloudSpatialAnchorSession = CloudSpatialAnchorSession();
@@ -141,7 +141,7 @@ sensorProvider.Sensors.GeoLocationEnabled = true;
 # [ObjC](#tab/objc)
 
 ```objc
-ASALocationProviderSensorCapabilities *sensors = locationProvider.sensors;
+ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.geoLocationEnabled = true;
 ```
 
@@ -155,21 +155,21 @@ sensors.geoLocationEnabled = true
 # [Java](#tab/java)
 
 ```java
-LocationProviderSensorCapabilities sensors = sensorProvider.getSensors();
+SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
 # [C++ NDK](#tab/cpp)
 
 ```cpp
-const std::shared_ptr<LocationProviderSensorCapabilities>& sensors = sensorProvider->Sensors();
+const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->GeoLocationEnabled(true);
 ```
 
 # [C++ WinRT](#tab/cppwinrt)
 
 ```cpp
-LocationProviderSensorCapabilities sensors = sensorProvider.Sensors()
+SensorCapabilities sensors = sensorProvider.Sensors()
 sensors.GeoLocationEnabled(true);
 ```
 
@@ -326,7 +326,7 @@ sensorProvider.Sensors.WifiEnabled = true;
 # [ObjC](#tab/objc)
 
 ```objc
-ASALocationProviderSensorCapabilities *sensors = locationProvider.sensors;
+ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.wifiEnabled = true;
 ```
 
@@ -340,21 +340,21 @@ sensors.wifiEnabled = true
 # [Java](#tab/java)
 
 ```java
-LocationProviderSensorCapabilities sensors = sensorProvider.getSensors();
+SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
 # [C++ NDK](#tab/cpp)
 
 ```cpp
-const std::shared_ptr<LocationProviderSensorCapabilities>& sensors = sensorProvider->Sensors();
+const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->WifiEnabled(true);
 ```
 
 # [C++ WinRT](#tab/cppwinrt)
 
 ```cpp
-LocationProviderSensorCapabilities sensors = sensorProvider.Sensors()
+SensorCapabilities sensors = sensorProvider.Sensors()
 sensors.WifiEnabled(true);
 ```
 
@@ -384,7 +384,7 @@ sensorProvider.Sensors.BluetoothEnabled = true;
 # [ObjC](#tab/objc)
 
 ```objc
-ASALocationProviderSensorCapabilities *sensors = locationProvider.sensors;
+ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.bluetoothEnabled = true;
 ```
 
@@ -398,21 +398,21 @@ sensors.bluetoothEnabled = true
 # [Java](#tab/java)
 
 ```java
-LocationProviderSensorCapabilities sensors = sensorProvider.getSensors();
+SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
 # [C++ NDK](#tab/cpp)
 
 ```cpp
-const std::shared_ptr<LocationProviderSensorCapabilities>& sensors = sensorProvider->Sensors();
+const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->BluetoothEnabled(true);
 ```
 
 # [C++ WinRT](#tab/cppwinrt)
 
 ```cpp
-LocationProviderSensorCapabilities sensors = sensorProvider.Sensors();
+SensorCapabilities sensors = sensorProvider.Sensors();
 sensors.BluetoothEnabled(true);
 ```
 
@@ -440,7 +440,7 @@ sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
 ```objc
 NSArray *uuids = @[@"22e38f1a-c1b3-452b-b5ce-fdb0f39535c1", @"a63819b9-8b7b-436d-88ec-ea5d8db2acb0"];
 
-ASALocationProviderSensorCapabilities *sensors = locationProvider.sensors;
+ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.knownBeaconProximityUuids = uuids;
 ```
 
@@ -462,7 +462,7 @@ String uuids[] = new String[2];
 uuids[0] = "22e38f1a-c1b3-452b-b5ce-fdb0f39535c1";
 uuids[1] = "a63819b9-8b7b-436d-88ec-ea5d8db2acb0";
 
-LocationProviderSensorCapabilities sensors = sensorProvider.getSensors();
+SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
@@ -473,7 +473,7 @@ std::vector<std::string> uuids;
 uuids.push_back("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1");
 uuids.push_back("a63819b9-8b7b-436d-88ec-ea5d8db2acb0");
 
-const std::shared_ptr<LocationProviderSensorCapabilities>& sensors = sensorProvider->Sensors();
+const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->KnownBeaconProximityUuids(uuids);
 ```
 
@@ -484,7 +484,7 @@ std::vector<winrt::hstring> uuids;
 uuids.emplace_back("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1");
 uuids.emplace_back("a63819b9-8b7b-436d-88ec-ea5d8db2acb0");
 
-LocationProviderSensorCapabilities sensors = sensorProvider.Sensors();
+SensorCapabilities sensors = sensorProvider.Sensors();
 sensors.KnownBeaconProximityUuids(uuids);
 ```
 
@@ -592,7 +592,7 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 ---
 
 The `DistanceInMeters` parameter controls how far we'll explore the anchor graph to retrieve content. Assume for instance that you have populated some space with anchors at a constant density of 2 every meter. Furthermore, the camera on your device is  observing a single anchor and the service has successfully located it. You're most likely interested in retrieving all the anchors you've placed nearby rather than the single anchor you're currently observing. Assuming the anchors you've placed are connected in a graph, the service can retrieve all the nearby anchors for you by following the edges in the graph. The amount of graph traversal done is controlled by `DistanceInMeters`; you'll be given all the anchors connected to the one you've located, that are closer than `DistanceInMeters`.
- 
+
 Keep in mind that large values for `MaxResultCount` may negatively affect performance. Try to set it to a sensible value that makes sense for your application.
 
 Finally, you'll need to tell the session to use the sensor-based look-up:
@@ -645,7 +645,7 @@ The same reasoning is applied when querying with GPS. The device is represented 
 
 The accuracy of the GPS signal, both on anchor creation as well as during queries, has a large influence over the set of returned anchors. In contrast, queries based on WiFi / beacons will consider all anchors that have at least one access point / beacon in common with the query. In that sense, the result of a query based on WiFi / beacons is mostly determined by the physical range of the access points / beacons, and environmental obstructions.
 
-The table below estimates the expected search space for each sensor type:  
+The table below estimates the expected search space for each sensor type:
 
 | Sensor      | Search space radius (approx.) | Details |
 |-------------|:-------:|---------|
@@ -663,6 +663,28 @@ The following table summarizes the sensor data collected on each of the supporte
 | GPS         | N/A | Supported through [LocationManager][3] APIs (both GPS and NETWORK) | Supported through [CLLocationManager][4] APIs |
 | WiFi        | Supported at a rate of approximately one scan every 3 seconds | Supported. Starting with API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5]. | N/A - no public API |
 | BLE beacons | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] |
+
+## Next steps
+
+Use coarse relocalization in an app.
+
+> [!div class="nextstepaction"]
+> [Unity](../how-tos/set-up-coarse-reloc-unity.md)
+
+> [!div class="nextstepaction"]
+> [Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
+
+> [!div class="nextstepaction"]
+> [Swift](../how-tos/set-up-coarse-reloc-swift.md)
+
+> [!div class="nextstepaction"]
+> [Java](../how-tos/set-up-coarse-reloc-java.md)
+
+> [!div class="nextstepaction"]
+> [C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
+
+> [!div class="nextstepaction"]
+> [C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
 
 <!-- Reference links in article -->
 [1]: https://developers.google.com/beacons/eddystone

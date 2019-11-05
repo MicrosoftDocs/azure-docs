@@ -27,6 +27,7 @@ sections:
       - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Anchor relationships and way-finding.</a>
       - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Experience guidelines.</a>
       - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Logging and diagnostics.</a>
+      - html: <a href="/azure/spatial-anchors/concepts/coarse-reloc">Coarse relocalization.</a>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
