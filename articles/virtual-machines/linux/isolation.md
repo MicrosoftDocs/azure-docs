@@ -28,7 +28,7 @@ We recently announced the Preview of Azure Dedicated Host, which allows you to r
 ## How does this affect me?
 After February 15, 2020, we will no longer provide an isolation guarantee for your D15_v2/DS15_v2 Azure virtual machines. 
 
-## What actions should I take?
+## Next Steps
 If hardware isolation is not important to you, there is no action you need to take. 
 
 If isolation is important to you, before February 15, 2020, you would need to either:
@@ -47,10 +47,25 @@ For details see below:
 | May 15, 2021	| Retire D/DS15i_v2 (all customers except who bought 3-year RI of D/DS15_v2 before November 15, 2019)| 
 | Nov 14, 2022	 | Retire D/DS15i_v2 when 3-year RIs done (for customers who bought 3-year RI of D/DS15_v2 before November 15, 2019) | 
 
-## FAQs
-### Reserved Instances - Bill
+## FAQ
+### Q: Why am I not seeing the new D/DS15i_v2 sizes in the portal?
+**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this form: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u
+
+### Q: Why I am not seeing any quota for the new D/DS15i_v2 sizes?
+**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this form: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u
+
+### Q: When are the other isolated sizes going to retire?
+**A**: We will provide reminders 12 months in advance of the official decommissioning of the sizes.
+
+### Q: Is there a downtime when my vm lands on a non-isolated hardware?
+**A**: If you do not need isolation you do not need to take any action and you would not see any downtime.
+
+### Q: Are there any cost changes for moving to a non-isolated virtual machine?
+**A**: No 
+
 ### Q: I already purchased 1- or 3-year Reserved Instance for D15_v2 or Ds15_v2. How will the discount be applied to my VM usage?
-**A**: All RIs purchased before November 15, 2019 will automatically extend coverage to the new isolated VM series. 
+**A**: 
+RIs purchased before November 15, 2019 will automatically extend coverage to the new isolated VM series. 
 
 | RI |	Instance Size Flexibility |	Benefit eligibility |	
 | --- | --- | --- |
@@ -61,7 +76,7 @@ For details see below:
 Likewise for Dsv2 series.
  
 ### Q: I want to purchase additional Reserved Instances for Dv2. Which one should I choose?
-**A**: All RIs purchased after the announcement date will have the following behavior. 
+**A**: All RIs purchased after Nov 15th, 2019, have the following behavior. 
 
 | RI |	Instance Size Flexibility |	Benefit eligibility |	
 | --- | --- | --- |
@@ -78,19 +93,3 @@ Likewise, for Dsv2 series.
  
 ### Q: Can I move my existing D15_v2/DS15_v2 Reserve Instance to an isolated size Reserved Instance?
 **A**: This is not necessary since the benefit will apply to both isolated and non-isolated sizes. But Azure will support changing existing D15_v2/DS15_v2 Reserved Instances to D15i_v2/DS15i_v2. For all other Dv2/Dsv2 Reserved Instances, use the existing Reserved Instance or buy new Reserved Instances for the isolated sizes.
- 
-### Miscellaneous
-### Q: When are the other isolated sizes going to retire?
-**A**: We will provide reminders 12 months in advance of the official decommissioning of the sizes.
-
-### Q: Is there a downtime when my vm lands on a non-isolated hardware?
-**A**: If you do not need isolation you do not need to take any action and you would not see any downtime.
-
-### Q: Are there any cost changes for moving to a non-isolated virtual machine?
-**A**: No 
-
-### Q: Why am I not seeing the new D/DS15i_v2 sizes in the portal?
-**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this form.: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u
-
-### Q: Why I am not seeing any quota for the new D/DS15i_v2 sizes?
-**A**: Each customer is assigned the default quota according to their customer segment. If you are looking for more please fill this form: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUNU1XUkhZWkNXQUFMNEJWUk9VWkRRVUJPMy4u
