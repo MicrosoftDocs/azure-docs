@@ -28,7 +28,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
     ```kusto
     requests
     | where url endswith "generateAnswer"
-    | project timestamp, id, name, resultCode, duration, performanceBucket
+    | project timestamp, id, url, resultCode, duration, performanceBucket
     | parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
     | join kind= inner (
     traces | extend id = operation_ParentId
@@ -36,7 +36,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
     | extend question = tostring(customDimensions['Question'])
     | extend answer = tostring(customDimensions['Answer'])
     | extend score = tostring(customDimensions['Score'])
-    | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId 
+    | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId
     ```
 
     Select **Run** to run the query.
@@ -59,8 +59,8 @@ requests
 
 ```kusto
 //Total Question Traffic in a given time period
-let startDate = todatetime('2018-02-18');
-let endDate = todatetime('2018-03-12');
+let startDate = todatetime('2019-01-01');
+let endDate = todatetime('2020-12-31');
 requests
 | where timestamp <= endDate and timestamp >=startDate
 | where url endswith "generateAnswer" and name startswith "POST" 
@@ -74,7 +74,7 @@ requests
 //User Traffic
 requests
 | where url endswith "generateAnswer"
-| project timestamp, id, name, resultCode, duration
+| project timestamp, id, url, resultCode, duration
 | parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
 | join kind= inner (
 traces | extend id = operation_ParentId 
