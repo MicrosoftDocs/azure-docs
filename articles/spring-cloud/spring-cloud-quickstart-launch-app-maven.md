@@ -1,14 +1,10 @@
 ---
 title: "Quickstart: Launch an application using Maven - Azure Spring Cloud"
 description: Launch a sample application using Maven
-services: spring-cloud
 author: jpconnock
-manager: gwallace
-editor: ''
-
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/30/2019
+ms.date: 11/04/2019
 ms.author: jeconnoc
 
 ---
@@ -27,7 +23,7 @@ Following this quickstart, you will learn how to:
 > * Assign a public endpoint for your application
 
 >[!Note]
-> Before you begin this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud. As a preview service, we invite you to reach out to us so that we can add your subscription to our allow list. If you want to explore the capabilities of Azure Spring Cloud, fill out and submit the [Azure Spring Cloud (Private Preview) - Interest Form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u). While Azure Spring Cloud is in preview, Microsoft offers limited support without an SLA.  For more information about support during previews, please refer to this [Support FAQ](https://azure.microsoft.com/support/faq/).
+> > Azure Spring Cloud is currently offered as a public preview. While Azure Spring Cloud is in preview, Microsoft offers limited support without an SLA.  For more information about support during previews, please file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 >[!TIP]
 > Azure Cloud Shell is a free interactive shell that you can use to run the commands in this article. It has common Azure tools preinstalled, including the latest versions of Git, the Java Development Kit (JDK), Maven, and the Azure CLI. If you're signed in to your Azure subscription, launch [Azure Cloud Shell](https://shell.azure.com). For more information, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
@@ -45,7 +41,7 @@ To complete this quickstart:
 Install the Azure Spring Cloud extension for the Azure CLI by using the following command:
 
 ```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## Provision a service instance on the Azure portal

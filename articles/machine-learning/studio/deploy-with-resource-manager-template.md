@@ -1,6 +1,6 @@
 ---
 title: Deploy Studio (classic) workspace with Azure Resource Manager
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: How to deploy a workspace for Azure Machine Learning Studio (classic) using Azure Resource Manager template
 services: machine-learning
 ms.service: machine-learning

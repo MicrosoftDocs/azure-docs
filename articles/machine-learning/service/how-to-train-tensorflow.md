@@ -156,6 +156,9 @@ est = TensorFlow(source_directory=script_folder,
                  use_gpu=True)
 ```
 
+> [!TIP]
+> Support for **Tensorflow 2.0** has been added to the Tensorflow estimator class. See the [blog post](https://azure.microsoft.com/blog/tensorflow-2-0-on-azure-fine-tuning-bert-for-question-tagging/) for more information.
+
 ## Submit a run
 
 The [Run object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.

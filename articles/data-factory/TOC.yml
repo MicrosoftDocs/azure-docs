@@ -518,6 +518,8 @@
       href: data-movement-security-considerations.md
     - name: Store credentials in Azure Key Vault
       href: store-credentials-in-key-vault.md
+    - name: Use Azure Key Vault secrets in pipeline activities
+      href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Managed identity for Data Factory
