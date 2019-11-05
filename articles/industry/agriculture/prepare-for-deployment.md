@@ -11,7 +11,7 @@ ms.author: v-umha
 
 This article describes how to set up Azure FarmBeats.
 
-Azure FarmBeats is an industry-specific, extensible solution for data-driven farming that enables seamless provisioning and sensor devices connectivity to Azure cloud, telemetry data collection, and aggregation. Azure FramBeats has various sensors such as cameras, drones, soil sensors, and management of devices from the cloud, which includes infrastructure and services in Azure for the IoT-ready (Internet of Things) devices to an extendible web and mobile app to provide visualization, alerts, and insights.
+Azure FarmBeats is an industry-specific, extensible solution for data-driven farming that enables seamless provisioning and sensor devices connectivity to Azure cloud, telemetry data collection, and aggregation. Azure FarmBeats has various sensors such as cameras, drones, soil sensors, and management of devices from the cloud, which includes infrastructure and services in Azure for the IoT-ready (Internet of Things) devices to an extendible web and mobile app to provide visualization, alerts, and insights.
 
 > [!NOTE]
 > Azure FarmBeats is supported only in Public Cloud Environments. For more information about cloud environment, see [Azure](https://azure.microsoft.com/overview/what-is-a-public-cloud/).
@@ -220,7 +220,7 @@ Installer creates the Azure AD (you have AD tenant read permissions).
 
    ![Project Farm Beats](./media/prepare-for-deployment/bash-2-1.png)
 
-4. Type or paste the “Deployment Command” into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.  
+5. Type or paste the “Deployment Command” into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.  
 
     ```
     wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
@@ -236,9 +236,9 @@ Installer creates the Azure AD (you have AD tenant read permissions).
    > [!NOTE]
    > The code expires after 60 minutes. When it expires you can restart by typing the deployment command again.
 
-5. On the next prompt, enter Sentinel account password.
-6. The installer now validates and starts deploying, which can take about 20 minutes.
-7. Once the deployment is successful, you will receive the below output links:
+6. On the next prompt, enter Sentinel account password.
+7. The installer now validates and starts deploying, which can take about 20 minutes.
+8. Once the deployment is successful, you will receive the below output links:
     - **Data hub URL**: Swagger link to try Azure FarmBeats APIs.
     - **Accelerator URL**: User Interface to explore Azure FarmBeats Smart Farm Accelerator.
     - **Deployer log file**- Log file created during deployment. It can be used for troubleshooting.
@@ -249,18 +249,6 @@ Installer creates the Azure AD (you have AD tenant read permissions).
    Then you'll be prompted to enter an access token for the deployment. Copy the code generated and sign in to https://microsoft.com/devicelogin with your Azure credentials.
 
    > [!NOTE]
-   > The code expires after 60 minutes. When it expires, you can restart by typing the deployment command again.
-
-8. On the next prompt, enter Sentinel password.
-9. The installer will now validate and start creating the resources, which can take about 20
-   minutes.
-10. Once the deployment goes through successful, you'll receive the below output links:
-
-    - **Data hub URL**: Swagger link to try FarmBeats APIs
-    - **Accelerator URL**: User Interface to explore FarmBeats Smart Farm Accelerator.
-    - **Deployer log file**- saves logs during deployment and can be used for troubleshooting.
-
-    > [!NOTE]
     > Make note of these and keep the deployment log file path handy for future use.
 
 
