@@ -21,35 +21,35 @@ ms.reviewer: jrasnick
 > 
 > 
 
-Use Azure Data Studio application to connect to and query an Azure SQL analytics database.
+Use the Azure Data Studio application to connect to and query an Azure SQL analytics database.
 
 ## 1. Connect using Azure Data Studio
-To get started with [Azure Data Studio][ads], open application and select **New Connection** followed by the connection details for your SQL on-demand database. 
+To get started with [Azure Data Studio][ads], open the application and select **New Connection** followed by the connection details for your SQL on-demand database. 
 
 ![Open Azure Data Studio][1]
 
 The connection requires the following parameters:
 
 * **Server:** Server in the form `<`Server Name`>`.database.windows.net
-* **Database:** Database name.
+* **Database:** Database name
 
 To use SQL Server Authentication, you need to add the username/password parameters:
 
 * **User:** Server user in the form `<`User`>`
-* **Password:** Password associated with the user.
+* **Password:** Password associated with the user
 
 For example, your connection might look like the following screenshot:
 
 ![SQL Login][2]
 
 
-To use Windows authentication or Azure Active Directory you need to choose needed authentication type.
+To use Windows authentication or Azure Active Directory, you need to choose the needed authentication type.
 
-Example of Windows authentication connection
+Example of the Windows authentication connection:
 
 ![Windows Authentication][3]
 
-After successful login, you should see a dashboard like this.
+After successful login, you should see a dashboard like this:
 ![Dashboard][4]
 
 ## 2. Query using SQL Analytics on-demand
@@ -58,7 +58,7 @@ After connection, you can issue any supported Transact-SQL statements against th
 On the screenshot bellow you can see the dashboard, select **"New query"**
 ![New Query][5]
 
-In this example, we will query parquet files.
+In the example below, you will query parquet files:
 
 ```sql
 SELECT COUNT(*) 

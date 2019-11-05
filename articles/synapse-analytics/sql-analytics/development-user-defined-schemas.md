@@ -27,10 +27,10 @@ By contrast, SQL Analytics runs the entire analytics workload within one databas
 > 
 
 ## Recommendations
-These are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas
+These are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas:
 
-- Use one SQL Analytics database to run your entire analytics workload
-- Consolidate your existing analytics environment to use one SQL Analytics database
+- Use one SQL Analytics database to run your entire analytics workload.
+- Consolidate your existing analytics environment to use one SQL Analytics database.
 - Leverage **user-defined schemas** to provide the boundary previously implemented using databases.
 
 If user-defined schemas have not been used previously, then you have a clean slate. Use the old database name as the basis for your user-defined schemas in the SQL analytics database.
@@ -42,12 +42,12 @@ If schemas have already been used, then you have a few options:
 - Retain the legacy schema names by implementing views over the table in an extra schema to re-create the old schema structure.
 
 > [!NOTE]
-> On first inspection option 3 may seem like the most appealing option. However, the devil is in the detail. Views are read only in SQL analytics. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are using views in your architecture already.
+> On first inspection, option 3 may seem like the most appealing choice. Views are read only in SQL analytics. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are already using views in your architecture.
 > 
 > 
 
 ### Examples:
-Implement user-defined schemas based on database names
+Implement user-defined schemas based on database names.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -83,7 +83,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-Retain legacy schema names using views
+Retain the legacy schema names using views.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -111,7 +111,7 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Any change in schema strategy needs a review of the security model for the database. In many cases you might be able to simplify the security model by assigning permissions at the schema level. If more granular permissions are required then you can use database roles.
+> Any change in schema strategy needs a review of the security model for the database. In many cases, you might be able to simplify the security model by assigning permissions at the schema level. If more granular permissions are required, then you can use database roles.
 > 
 > 
 

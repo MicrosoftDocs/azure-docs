@@ -24,8 +24,8 @@ ms.reviewer: jrasnick
 Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL analytics. 
 
 ## Supported tools for SQL analytics on-demand
-Fully supported tool is Azure Data Studio.
-SQL Server Management Studio is supported partially from version 18.4 with limited feature like connecting and querying, keep in mind that it's not fully supported.
+Azure Data Studio is a fully supported tool.
+SQL Server Management Studio is supported partially from version 18.4 and with limited features such as connecting and querying. 
 
 ## Prerequisites
 To use this tutorial, you need:
@@ -45,9 +45,9 @@ To use this tutorial, you need:
    
     ![Connect to Server][2a]
    
-   * **Server name**. Enter the **server name** previously identified.
-   * **Authentication**. Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
-   * **User Name** and **Password**. Enter user name and password if SQL Server Authentication was selected above.
+   * **Server name**: Enter the **server name** previously identified.
+   * **Authentication**: Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
+   * **User Name** and **Password**: Enter your user name and password if SQL Server Authentication was selected above.
    * Click **Connect**.
 4. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
    
@@ -55,16 +55,16 @@ To use this tutorial, you need:
 
 ### SQL analytics on-demand
 1. Open SSMS.
-2. Open Object Explorer. To do this, select **File** > **Connect Object Explorer**.
+2. Open the Object Explorer. To do this, select **File** > **Connect Object Explorer**.
    
     ![SQL Server Object Explorer][1]
 3. Fill in the fields in the Connect to Server window.
    
     ![Connect to Server][2]
    
-   * **Server name**. Enter the **server name** previously identified.
-   * **Authentication**. Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
-   * **User Name** and **Password**. Enter user name and password if SQL Server Authentication was selected above.
+   * **Server name**: Enter the **server name** previously identified.
+   * **Authentication**: Select **SQL Server Authentication** or **Active Directory Integrated Authentication**:
+   * **User Name** and **Password**: Enter your user name and password if SQL Server Authentication was selected above.
    * Click **Connect**.
 4. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand demo to see the content in your sample database.
    
@@ -74,7 +74,7 @@ To use this tutorial, you need:
 ## 2. Run a sample query
 
 ### SQL pool
-Now that a connection has been established to your database, let's write a query.
+Now that a connection has been established to your database, you'll write a query.
 
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
@@ -94,7 +94,7 @@ Now that a connection has been established to your database, let's write a query
 
 ### SQL on-demand
 
-Now that a connection has been established to your database, let's write a query.
+Now that a connection has been established to your database, you'll write a query.
 
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
@@ -113,7 +113,7 @@ Now that a connection has been established to your database, let's write a query
     ![Query results][6]
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with PowerBI][visualizing the data with PowerBI].
+Now that you can connect and query, try [visualizing the data with Power BI][visualizing the data with PowerBI].
 
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL analytics][Authenticate to SQL analytics].
 

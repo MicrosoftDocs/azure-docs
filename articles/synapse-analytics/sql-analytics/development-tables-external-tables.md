@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 ---
 
 # Using external tables in SQL Analytics 
-An external table points to data located in Hadoop, Azure Storage blob or Azure Data Lake Store. External tables are used to read data from files, or write data to files in Azure Storage.
+An external table points to data located in Hadoop, Azure Storage blob or Azure Data Lake Store. External tables are used to read data from files or write data to files in Azure Storage.
 
 
 
@@ -21,9 +21,9 @@ An external table points to data located in Hadoop, Azure Storage blob or Azure 
 Use an external table to:
 
 - Query Hadoop or Azure blob storage data with Transact-SQL statements.
-- Import and store data from Hadoop, Azure Blob Storage and Azure Data Lake Store into Azure SQL Data Warehouse.
+- Import and store data from Hadoop, Azure Blob Storage, and Azure Data Lake Store into Azure SQL Data Warehouse.
 
-When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL Analytics pool. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
+When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into a SQL Analytics pool. External tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 
 
 
@@ -31,7 +31,7 @@ When used in conjunction with the CREATE TABLE AS SELECT statement, selecting fr
 Use an external table to:
 
 - Query data in Azure blob storage or Azure Data Lake Store with Transact-SQL statements
-- Store results of SQL Analytics on-demand query to files in Azure Blob Storage or Azure Data Lake Store using [CETAS](development-tables-cetas.md).
+- Store results of a SQL Analytics on-demand query to files in Azure Blob Storage or Azure Data Lake Store using [CETAS](development-tables-cetas.md).
 
 You can create external table with following steps:
 
@@ -59,8 +59,8 @@ WITH
 data_source_name
 Specifies the user-defined name for the data source. The name must be unique within the database in SQL Server.
 
-LOCATION = `'<prefix>://<path>'`
-Provides the connectivity protocol and path to the external data source. Path can include container, in form of  `'<prefix>://<path>/container'`, as well as folder in form of `'<prefix>://<path>/container/folder'`.
+LOCATION = `'<prefix>://<path>'` - 
+Provides the connectivity protocol and path to the external data source. The path can include a container in the form of  `'<prefix>://<path>/container'`, as well as a folder in the form of `'<prefix>://<path>/container/folder'`.
 
 | External Data Source       | Location prefix | Location path                                       |
 | -------------------------- | --------------- | --------------------------------------------------- |
@@ -70,7 +70,7 @@ Provides the connectivity protocol and path to the external data source. Path ca
 
 #### Example
 
-Following example creates external data source pointing to US population census data:
+The following example creates an external data source pointing to US population census data:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE population_ds
@@ -84,7 +84,7 @@ WITH
 
 ### CREATE EXTERNAL FILE FORMAT
 
-Creates an External File Format object defining external data stored in Azure Blob Storage or Azure Data Lake Store. Creating an external file format is a prerequisite for creating an External Table. By creating an External File Format, you specify the actual layout of the data referenced by an external table.
+Creates an External File Format object which defines external data stored in Azure Blob Storage or Azure Data Lake Store. Creating an external file format is a prerequisite for creating an External Table. By creating an External File Format, you specify the actual layout of the data referenced by an external table.
 
 SQL Analytics on-demand supports the following file formats:
 
@@ -122,16 +122,16 @@ WITH (
 
 #### Arguments
 
-file_format_name
+file_format_name - 
 Specifies a name for the external file format.
 
-FORMAT_TYPE = [ PARQUET | DELIMITEDTEXT] Specifies the format of the external data.
+FORMAT_TYPE = [ PARQUET | DELIMITEDTEXT] - Specifies the format of the external data.
 
-- PARQUET Specifies a Parquet format.
-- DELIMITEDTEXT Specifies a text format with column delimiters, also called field terminators.
+- PARQUET - Specifies a Parquet format.
+- DELIMITEDTEXT - Specifies a text format with column delimiters, also called field terminators.
 
-FIELD_TERMINATOR = *field_terminator*
-Applies only to delimited text files. The field terminator specifies one or more characters that mark the end of each field (column) in the text-delimited file. The default is the pipe character ꞌ|ꞌ. 
+FIELD_TERMINATOR = *field_terminator* -
+Applies only to delimited text files. The field terminator specifies one or more characters that mark the end of each field (column) in the text-delimited file. The default is the pipe character (ꞌ|ꞌ). 
 
 Examples:
 
@@ -139,8 +139,8 @@ Examples:
 - FIELD_TERMINATOR = ' '
 - FIELD_TERMINATOR = ꞌ\tꞌ
 
-STRING_DELIMITER = *string_delimiter*
-Specifies the field terminator for data of type string in the text-delimited file. The string delimiter is one or more characters in length and is enclosed with single quotes. The default is the empty string "". 
+STRING_DELIMITER = *string_delimiter* -
+Specifies the field terminator for data of type string in the text-delimited file. The string delimiter is one or more characters in length and is enclosed with single quotes. The default is the empty string (""). 
 
 Examples:
 
@@ -148,26 +148,26 @@ Examples:
 - STRING_DELIMITER = '*'
 - STRING_DELIMITER = ꞌ,ꞌ
 
-FIRST_ROW = *First_row_int*
+FIRST_ROW = *First_row_int* - 
 Specifies the row number that is read first and applies to all files. If the value is set to two, the first row in every file (header row) is skipped when the data is loaded. Rows are skipped based on the existence of row terminators (/r/n, /r, /n). 
 
-USE_TYPE_DEFAULT = { TRUE | **FALSE** }
+USE_TYPE_DEFAULT = { TRUE | **FALSE** } -
 Specifies how to handle missing values in delimited text files when retrieving data from the text file.
 
-TRUE
+TRUE - 
 When retrieving data from the text file, store each missing value by using the default value for the data type of the corresponding column in the external table definition. For example, replace a missing value with:
 
 - 0 if the column is defined as a numeric column. Decimal columns are not supported and will error.
-- Empty string "" if the column is a string column.
+- Empty string ("") if the column is a string column.
 - 1900-01-01 if the column is a date column.
 
-FALSE
+FALSE - 
 Store all missing values as NULL. Any NULL values that are stored by using the word NULL in the delimited text file are imported as the string 'NULL'.
 
-Encoding = {'UTF8' | 'UTF16'}
+Encoding = {'UTF8' | 'UTF16'} - 
 SQL Analytics on-demand can read UTF8 and UTF16 encoded delimited text files.
 
-DATA_COMPRESSION = *data_compression_method*
+DATA_COMPRESSION = *data_compression_method* - 
 This argument is ignored when reading from external tables. It is used only when writing to external tables using [CETAS](development-tables-cetas.md). It specifies the data compression method for the external data.
 
 The PARQUET file format type supports the following compression methods:
@@ -177,7 +177,7 @@ The PARQUET file format type supports the following compression methods:
 
 #### Example
 
-Following example creates external file format for census files:
+The following example creates an external file format for census files:
 
 ```sql
 CREATE EXTERNAL FILE FORMAT census_file_format
@@ -223,35 +223,31 @@ CREATE EXTERNAL TABLE supports the ability to configure column name, data type, 
 
 The column definitions, including the data types and number of columns, must match the data in the external files. If there's a mismatch, the file rows will be rejected when querying the actual data.
 
-In case of reading from Parquet files, you can specify only columns you want to read and skip the rest.
+When reading from Parquet files, you can specify only the columns you want to read and skip the rest.
 
 LOCATION = '*folder_or_filepath*'
 
 Specifies the folder or the file path and file name for the actual data in Azure blob storage. The location starts from the root folder. The root folder is the data location specified in the external data source.
 
-If you specify LOCATION to be a folder, a SQL Analytics on-demand query that selects from the external table will retrieve files from the folder. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It also returns files for which the file name begins with an underline (_) or a period (.).
+If you specify a folder LOCATION, a SQL Analytics on-demand query that selects from the external table will retrieve files from the folder. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It returns files for which the file name begins with an underline (_) or a period (.).
 
-In this example, if LOCATION='/webdata/', a SQL Analytics on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in subfolder.
+In this example, if LOCATION='/webdata/', a SQL Analytics on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
 
 ![Recursive data for external tables](media/development-tables-external-tables/folder-traversal.png)
 
 
 
-DATA_SOURCE = *external_data_source_name*
+DATA_SOURCE = *external_data_source_name* - Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
-Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
-
-FILE_FORMAT = *external_file_format_name*
-
-Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+FILE_FORMAT = *external_file_format_name* - Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
 
 #### Permissions
 
-You need proper credentials with list and read permissions to be able to select from external table.
+You need proper credentials with list and read permissions to be able to select from an external table.
 
 #### Example
 
-Following example creates external table using previously created external data source and external file format, and returns first row:
+The following example creates an external table using the previously created external data source and external file format, and returns the first row:
 
 ```sql
 CREATE EXTERNAL TABLE census_external_table
@@ -290,4 +286,4 @@ SELECT TOP 1 * FROM census_external_table
 ## Next steps
 
 
-Check [CETAS](development-tables-cetas.md) to save the result of query to external table in Azure Storage, or start querying [Spark tables](development-storage-files-spark-tables.md).
+Check [CETAS](development-tables-cetas.md) to save the query results to an external table in Azure Storage, or start querying [Spark tables](development-storage-files-spark-tables.md).

@@ -21,19 +21,19 @@ ms.reviewer: jrasnick
 > 
 > 
 
-Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Analytics.  
+Use the [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Analytics.  
 
 ## 1. Connect
 To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Analytics database. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
-* **Database (-d):** Database name.
-* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Analytics instance.
+* **Database (-d):** Database name
+* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Analytics instance
 
 To use SQL Server Authentication, you need to add the username/password parameters:
 
 * **User (-U):** Server user in the form `<`User`>`
-* **Password (-P):** Password associated with the user.
+* **Password (-P):** Password associated with the user
 
 
 For example, your connection string might look like the following:
@@ -74,7 +74,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ## 2. Query 
 
 ### Using SQL pool
-After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
+After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -83,7 +83,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
+These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd:
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -93,7 +93,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 ### Using SQL on-demand
-After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
+After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode:
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
@@ -102,7 +102,7 @@ C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Her
 3> QUIT
 ```
 
-These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
+These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd:
 
 ```sql
 sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P 'Enter_Your_Password_Here' -I -Q "SELECT COUNT(*) FROM  OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', FORMAT='PARQUET')"
@@ -113,7 +113,7 @@ sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P
 ```
 
 ## Next steps
-See [sqlcmd documentation][sqlcmd] for more about details about the options available in sqlcmd.
+See [sqlcmd documentation][sqlcmd] for more details about the options available in sqlcmd.
 
 <!--Image references-->
 
