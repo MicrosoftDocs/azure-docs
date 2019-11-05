@@ -21,7 +21,7 @@ Review the supported clients and required network configuration in the [Azure Ar
 
 ## Generate the agent install script using the Azure portal
 
-1. Launch [https://aka.ms/hybridmachineportal][aka_hybridmachineportal]
+1. Launch [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal)
 1. Click on **+Add**
 1. Follow the wizard to completion
 1. The last page has a script generated which you can copy (or download).
