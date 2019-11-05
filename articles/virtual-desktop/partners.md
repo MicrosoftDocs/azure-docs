@@ -39,7 +39,7 @@ As an approved provider, the benefits of Windows Virtual Desktop will be extende
 
 ![CloudJumper Logo](./media/partners/cloudjumper.png)
 
-CloudJumper is a Windows Virtual Desktop value-added services provider that equips solution providers and enterprise IT with software to holistically provision and manage Windows Virtual Desktop environments. With CloudJumper software, IT can manage every layer of a Windows Virtual Desktop deployment. Delivery of workloads and applications is automated, ensuring that users can quickly access their desktop anywhere on any device.
+CloudJumper is a Windows Virtual Desktop value-added services provider that equips solution providers and enterprise IT with software to  provision and manage Windows Virtual Desktop environments holistically. With CloudJumper software, IT can manage every layer of a Windows Virtual Desktop deployment. Delivery of workloads and applications is automated, ensuring that users can quickly access their desktop anywhere on any device.
 
 CloudJumper’s software, Cloud Workspace Management Suite extends the value of Windows Virtual Desktop by simplifying deployment and ongoing administration tasks in Azure. From a single pane of glass, IT can provision, manage, and optimize infrastructure for user workspaces. CloudJumper’s Simple Script Triggering Engine integrates with IT service platforms to automate tasks involved in provisioning Windows Virtual Desktop. Additionally, CloudJumper APIs allow further extensibility and integration with other enterprise systems like ServiceNow and BMC Ready.
 
