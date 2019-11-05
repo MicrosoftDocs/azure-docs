@@ -10,7 +10,7 @@ ms.subservice: manage
 ms.date: 10/21/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019"
 ---
 
 # Backup and restore in Azure SQL Data Warehouse

@@ -10,7 +10,7 @@ ms.subservice: workload-management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019​
 ---
 
 # Analyze your workload in Azure SQL Data Warehouse
