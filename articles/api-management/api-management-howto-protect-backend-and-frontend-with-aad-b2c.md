@@ -18,7 +18,7 @@ ms.author: wieastbu
 ms.custom: fasttrack-new
 ---
 
-# Protect a SPA backend with OAuth 2.0 by using Azure Active Directory B2C and Azure API Management.
+# Protect a SPA backend with OAuth 2.0 by using Azure Active Directory B2C and Azure API Management
 
 This scenario shows you how to configure your Azure API Management instance to protect an API. 
 We'll use the OpenID Connect protocol with Azure AD B2C, alongside API Management to secure an Azure Functions backend using EasyAuth.
@@ -56,7 +56,7 @@ Here is a quick overview of the steps:
 11. Configure the Sample JS Client App with the new Azure AD B2C Client ID’s and keys 
 12. Test the Client Application
 
-## Create the Azure AD B2C configuration.
+## Create the Azure AD B2C configuration
 Open the Azure AD B2C blade in the portal and do the following steps.
 1. Select the **Applications** tab 
 2. Click the 'Add' button and create three applications for the following purposes
@@ -80,7 +80,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 12. Grant them access to the backend API scope and the default one that was already there ("Access the user's profile").
 13. Generate them a key each by selecting the *Keys* tab under 'General' to generate an auth key and record those keys somewhere safe for later.
 
-## Create an Azure AD B2C "Signup or Signin" user flow.
+## Create an Azure AD B2C "Signup or Signin" user flow
 1. Return to the root (Or 'Overview') of the AAD B2C Blade 
 2. Then select “User Flows (Policies)” and click "New user flow"
 3. Choose the 'Sign up and sign in' user flow type
@@ -98,7 +98,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 > Once this is done – you now have a functional Business to Consumer identity platform that will sign users into multiple applications. 
 > If you want to you can click the 'Run user flow' button here (to go through the sign up or sign in process) and get a feel for what it will do in practice, but the redirection step at the end will fail as the app has not yet been deployed.
 
-## Build the function API.
+## Build the function API
 1. Go to the Function Apps blade of the Azure portal, open your empty function app, then create a new In-Portal 'Webhook + API' function via the quickstart.
 2. Paste the sample code from below into Run.csx over the existing code that appears.
 
@@ -152,7 +152,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 > Now we have a scalable serverless https API, that is capable of returning a very simple payload.
 > You can now test calling this API from a web browser using the URL above, you can also strip the ?code=secret portion of the URL and prove that Azure Functions will return a 401 error.
 
-## Configure and secure the function API.
+## Configure and secure the function API
 1. Two extra areas in the function app need to be configured (Auth and Network Restrictions).
 2. Firstly Let's configure Authentication / Authorization, so click on the name of the function app (next to the &lt;Z&gt; functions icon) to show the overview page.
 3. Next Select the 'Platform features' tab and select 'Authentication / Authorization'.
@@ -179,7 +179,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 > [!NOTE]
 > Now your Function API should not be callable from anywhere other than via API management, or your address.
 
-## Import the function app definition.
+## Import the function app definition
 1. Open the API Management portal blade and select your API Management instance.
 2. Select the APIs Blade from the API Management section of your instance.
 3. From the 'Add a New API' pane, choose 'Function App', then select 'Full' from the top of the popup.
@@ -187,7 +187,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 5. Give the API a name and description for API Management's internal use and add it to the ‘unlimited’ Product.
 6. Make sure you record the base URL for later use and then click create.
 
-## Configure Oauth2 for API Management.
+## Configure Oauth2 for API Management
 1. Switch back to your standard Azure AD tenant in the Azure portal so we can configure items in your subscription again and open the *API Management blade*, then open *your instance*.
 2. Next, Select the Oauth 2.0 blade from the Security Tab, and click 'Add'
 3. Give values for *Display Name* and *Description* for the added Oauth Endpoint (these values will show up in the next step as an Oauth2 endpoint).
@@ -199,7 +199,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 9. Set the Client Secret to the key you recorded earlier - skip this step if using the consumption API Management model.
 10. Lastly, now record the redirect_uri of the auth code grant from API Management for later use.
 
-## Set up Oauth2 for your API.
+## Set up Oauth2 for your API
 1. Your API will appear on the left-hand side of the portal under the 'All APIs' section, open your API by clicking on it.
 2. Select the 'Settings' Tab.
 3. Update your settings by selecting “Oauth 2.0” from the user authorization radio button.
@@ -209,7 +209,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
    > [!NOTE]
    > Now we have an API Management instance that knows how to get access tokens from Azure AD B2C to authorize requests and understands our Oauth2 Azure Active Directory B2C configuration.
 
-## Set up the **CORS** policy and add the **validate-jwt** policy.
+## Set up the **CORS** policy and add the **validate-jwt** policy
 
 > The following sections should be followed regardless of the APIM tier being used. 
 
@@ -253,7 +253,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 > The following section is optional and does not apply to the **Consumption** tier, which does not support the developer portal.
 > If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](##build-the-javascript-spa-to-consume-the-api).
 
-## [Optional] Configure the API Management developer portal to call your secured API.
+## [Optional] Configure the API Management developer portal to call your secured API
 
 1. Open the Azure AD B2C blade and navigate to the application registration for the Developer Portal
 2. Set the 'Reply URL' entry to the one you noted down when you configured the redirect_uri of the auth code grant in API Management earlier.
@@ -282,7 +282,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 > You would be correct, as this example is a JavaScript Single Page Application, we use the API Management Key only for rate-limiting and billing calls.
 > The actual Authorization and Authentication is handled by Azure AD B2C, and is encapsulated in the JWT, which gets validated twice, once by API Management, and then by Azure Functions.
 
-## Build the JavaScript SPA to consume the API.
+## Build the JavaScript SPA to consume the API
 1. Open the storage accounts blade in the Azure portal 
 2. Select the account you created and select the 'Static Website' blade from the Settings section (if you don't see a 'Static Website' option, check you created a V2 account).
 3. Set the static web hosting feature to 'enabled', and set the index document name to 'index.html', then click 'save'.
@@ -291,7 +291,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 > [!NOTE]
 > You could use either Azure Blob Storage + CDN rewrite, or Azure App Service - but Blob Storage's Static Website hosting feature gives us a default container to serve static web content / html / js / css from Azure Storage and will infer a default page for us for zero work.
 
-## Upload the JS SPA sample.
+## Upload the JS SPA sample
 1. Still in the storage account blade, select the 'Blobs' blade from the Blob Service section and click on the $web container that appears in the right-hand pane.
 2. Save the code below to a file locally on your machine as index.html and then upload the file index.html to the $web container.
 
@@ -427,7 +427,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 > Congratulations, you just deployed a JavaScript Single Page App to Azure Storage
 > Since we haven’t configured the JS app with your keys for the api or configured the JS app with your Azure AD B2C details yet – the page will not work yet if you open it.
 
-## Configure the JS SPA for Azure AD B2C.
+## Configure the JS SPA for Azure AD B2C
 1. Now we know where everything is: we can configure the SPA with the appropriate API Management API address and the correct Azure AD B2C application / client IDs
 2. Go back to the Azure portal storage blade and click on index.html, then choose ‘Edit Blob’ 
 3. Update the auth details to match your front-end application you registered in B2C earlier, noting that the 'b2cScopes' values are for the API backend.
@@ -447,7 +447,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 
 7. Click Save
 
-## Configure the redirect URIs for the frontend app registration in Azure AD B2C.
+## Configure the redirect URIs for the frontend app registration in Azure AD B2C
 1. Open the Azure AD B2C blade and navigate to the application registration for the JavaScript Frontend Application
 2. Set the redirect URL to the one you noted down when you previously set up the static website primary endpoint above
 
@@ -462,13 +462,13 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 > [!NOTE]
 > Now we have a simple app with a simple secured API, let's test it.
 
-## Test the client application.
+## Test the client application
 1. Open the sample app URL that you noted down from the storage account you created earlier
-2. Click “Sign In” in the top-right-hand corner, this click will pop up your Azure AD B2C sign up or Signin profile.
+2. Click “Sign In” in the top-right-hand corner, this click will pop up your Azure AD B2C sign up or sign in profile.
 3. Post Sign in the "Logged in as" section of the screen will be populated from your JWT.
 4. Now Click "Call Web Api", and you the page should update with the values sent back from your secured API.
 
-## And we're done.
+## And we're done
 The steps above can be adapted and edited to allow many different uses of Azure AD B2C with API Management.
 
 ## Next steps
