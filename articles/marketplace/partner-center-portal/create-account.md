@@ -21,9 +21,9 @@ To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft
 To create an account on Partner Center, make sure you have:
 
 - Authority to sign legal agreements on your company's behalf.
-- Your company’s legal business name, address, and primary contact (this can be you).
+- Your company's legal business name, address, and primary contact (this can be you).
 
-We’ll verify this information during the account creation process.
+We'll verify this information during the account creation process.
 
 There are two ways to create an account:
 

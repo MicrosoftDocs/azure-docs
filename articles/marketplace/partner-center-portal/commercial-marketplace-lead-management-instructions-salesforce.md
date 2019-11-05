@@ -39,7 +39,7 @@ The rest of the instructions are the same irrespective of which Salesforce exper
 6. On the **Create a Web-to-Lead Form**, make sure `the Include reCAPTCHA in HTML` setting is unchecked and select **Generate**. 
     ![Salesforce - Create a Web-to-Lead Form](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
-7. You will be presented with some HTML text. Search for the text “oid” and copy the **oid value** from the HTML text (only the text in between quotation marks) and save it. You'll paste this value in the **Organization Identifier** field on the publishing portal.
+7. You will be presented with some HTML text. Search for the text "oid" and copy the **oid value** from the HTML text (only the text in between quotation marks) and save it. You'll paste this value in the **Organization Identifier** field on the publishing portal.
     ![Salesforce - Create a Web-to-Lead Form](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-5.png)
 
 8. Selected **Finished**.

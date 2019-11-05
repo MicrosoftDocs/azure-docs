@@ -17,7 +17,7 @@ One of the following status indicators should be displayed for each offer.
 
 | **Status**    | **Description**  |
 | :---------- | :-------------------|
-| **Draft** | Offer has been created but it isn’t being published. |
+| **Draft** | Offer has been created but it isn't being published. |
 | **Publish in progress** | Offer/Plan is working its way through the steps of the publishing process. |
 | **Attention needed** | A critical issue was discovered during certification by Microsoft or any of the publishing steps. |
 | **Preview** | Offer was certified by Microsoft, and now awaits a final verification by the publisher. Select go live to make the offer live. |

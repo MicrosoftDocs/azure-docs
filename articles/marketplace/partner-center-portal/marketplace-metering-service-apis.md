@@ -113,7 +113,7 @@ Conflict, when we receive the usage call for the usage resource ID, and effectiv
 The batch usage event API allows you to emit usage events for more than one purchased entity at once. The batch usage event request references the metering services dimension defined by the publisher when publishing the offer.
 
 >[!Note]
->You can register multiple SaaS offers in the Microsoft’s commercial marketplace. Each registered SaaS offer has a unique Azure AD application that is registered for authentication and authorization purposes. The events emitted in batch should belong to offers with the same Azure AD application at the time of registering the offer.
+>You can register multiple SaaS offers in the Microsoft's commercial marketplace. Each registered SaaS offer has a unique Azure AD application that is registered for authentication and authorization purposes. The events emitted in batch should belong to offers with the same Azure AD application at the time of registering the offer.
 
 **POST:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 

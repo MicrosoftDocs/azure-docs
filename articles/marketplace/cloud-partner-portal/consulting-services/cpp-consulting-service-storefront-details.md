@@ -116,7 +116,7 @@ solutions in the Microsoft cloud.
 
 The following sample Markdown file is for the previous offer:
 
-    This 3-day workshop is for technical and business leaders and is held on-site at the client’s facility.
+    This 3-day workshop is for technical and business leaders and is held on-site at the client's facility.
 
       ### Agenda
 
