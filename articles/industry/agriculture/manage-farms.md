@@ -17,7 +17,7 @@ You can manage your farms in Azure FarmBeats. This article provides the informat
 Use the following steps:
 
 1. Login to the Farm Accelerator, the **Farms** page displays.
-    The Farms page displays the list of farms in case they have already been created in subscription.
+    The **Farms** page displays the list of farms in case they have already been created in subscription.
 
     Here is the sample image:
 

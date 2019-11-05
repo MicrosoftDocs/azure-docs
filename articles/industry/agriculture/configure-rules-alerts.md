@@ -19,7 +19,7 @@ Azure FarmBeats allows you to create rules based on the business logic, in addit
     ![Project Farm Beats](./media/configure-rules-and-alerts/new-rule-1.png)
 
 3. Enter the **Rule Name** and **Rule Description** and then select a farm from the **Select Farm** drop-down menu.
-4. Type your farm name to select the farm and **Conditions** appears on the same window.  
+4. Type your farm name to select the farm and **Conditions** section appears on the same window.  
 
     ![Project Farm Beats](./media/configure-rules-and-alerts/new-rule-condition-1.png)
 
