@@ -1,5 +1,5 @@
 ---
-title: Build integrated solutions with SQL Data Warehouse 
+title: Build integrated solutions
 description: 'Tools and partners with solutions that integrate with SQL Data Warehouse. '
 services: sql-data-warehouse
 author: mlee3gsd 
@@ -10,6 +10,7 @@ ms.subservice: integration
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Integrate other services with SQL Data Warehouse

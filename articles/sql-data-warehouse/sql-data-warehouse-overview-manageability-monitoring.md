@@ -1,5 +1,5 @@
 ---
-title: SQL Data Warehouse Manageability and Monitoring - Overview 
+title: Manageability and monitoring - overview 
 description: Monitoring and manageability overview for resource utilization, log and query activity, recommendations, and data protection (backup and restore).
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,6 +10,7 @@ ms.subservice: manage
 ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Manageability and monitoring with Azure SQL Data Warehouse

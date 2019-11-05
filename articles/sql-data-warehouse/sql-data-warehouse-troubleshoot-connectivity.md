@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure SQL Data Warehouse 
+title: Troubleshooting connectivity
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,6 +10,7 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Troubleshooting connectivity issues

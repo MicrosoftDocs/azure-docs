@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure SQL Data Warehouse - VSTS 
+title: Connect with VSTS 
 description: Query SQL Data Warehouse with Visual Studio.
 services: sql-data-warehouse
 author: kevinvngo 
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Connect to SQL Data Warehouse with Visual Studio and SSDT
