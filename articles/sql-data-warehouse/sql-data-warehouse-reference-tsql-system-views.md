@@ -1,5 +1,5 @@
 ---
-title: System views - Azure SQL Data Warehouse | Microsoft Docs
+title: System views - Azure SQL Data Warehouse 
 description: Links to the documentation for system views supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT 

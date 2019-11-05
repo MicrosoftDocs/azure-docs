@@ -355,7 +355,7 @@ DNS records in the private DNS zone are not removed automatically when a private
 * Adding a new private endpoint linked to this private DNS zone.
 * Adding a new region to any database account that has private endpoints linked to this private DNS zone.
 
-Without the above two steps, unexpected data plane issues such as data outage to the regions added after private endpoint removal may happen.
+Without cleaning up the DNS records, unexpected data plane issues such as data outage to regions added after private endpoint removal or region removal may happen
 
 ## Next steps
 
