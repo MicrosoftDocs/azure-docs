@@ -286,7 +286,7 @@ To remove a secondary certificate from being used for cluster security, Navigate
 
 ## Adding application certificates to a VMSS
 
-To deploy a certificate you use for your applications to your cluster, see [this sample Powershell script](\scripts\service-fabric-powershell-add-application-certificate.md).
+To deploy a certificate you use for your applications to your cluster, see [this sample Powershell script](scripts\service-fabric-powershell-add-application-certificate.md).
 
 ## Next steps
 Read these articles for more information on cluster management:
