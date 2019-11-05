@@ -19,11 +19,11 @@ In order to achieve this logical projection, a subscription (or one or more reso
 
 Whichever onboarding method you choose, you will need to define *authorizations*. Each authorization specifies a user account in the managing tenant which will have access to the delegated resources, and a built-in role that sets the permissions that each of these users will have for these resources.
 
-## Supported roles for Azure delegated resource management
+## Role support for Azure delegated resource management
 
 When defining an authorization, each user account must be assigned one of the [role-based access control (RBAC) built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are not supported.
 
-All built-in roles are currently supported with Azure delegated resource management, with the following exceptions:
+All [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) are currently supported with Azure delegated resource management, with the following exceptions:
 
 - The [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role is not supported.
 - Any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission are not supported.
@@ -40,5 +40,5 @@ When creating your authorizations, we recommend the following best practices:
 
 ## Next steps
 
-- Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
-- Learn about [Azure delegated resource management](azure-delegated-resource-management.md).
+- Learn about [recommended security practices for Azure delegated resource management](recommended-security-practices.md).
+- Onboard your customers to Azure delegated resource management, either by [using Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a private or public managed services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
