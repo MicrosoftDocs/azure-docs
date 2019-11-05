@@ -101,7 +101,7 @@ Storage Explorer provides several ways to connect to storage accounts. In genera
 
 There are several ways to attach to a resource in Storage Explorer:
 
-* [Add a resource via Azure AD](#add-a-resource-by-using-azure-ad). If you have permissions only at the data layer, use this option to add a blob container or an Azure Data Lake Storage Gen2 Blob storage container.
+* [Add a resource via Azure AD](#add-a-resource-via-azure-ad). If you have permissions only at the data layer, use this option to add a blob container or an Azure Data Lake Storage Gen2 Blob storage container.
 * [Use a connection string](#use-a-connection-string). Use this option if you have a connection string to a storage account. Storage Explorer supports both key and [shared access signature](storage/common/storage-dotnet-shared-access-signature-part-1.md) connection strings.
 * [Use a shared access signature URI](#use-a-shared-access-signature-uri). If you have a [shared access signature URI](storage/common/storage-dotnet-shared-access-signature-part-1.md) to a blob container, file share, queue, or table, use it to attach to the resource. To get a shared access signature URI, you can either use [Storage Explorer](#generate-a-sas-in-storage-explorer) or the [Azure portal](https://portal.azure.com).
 * [Use a name and key](#use-a-name-and-key). If you know either of the account keys to your storage account, you can use this option to quickly connect. Find your keys in the storage account page by selecting **Settings** > **Access keys** in the [Azure portal](https://portal.azure.com).
