@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/05/2019
 ms.author: helohr
 ---
 # Windows Virtual Desktop partner integrations
@@ -69,7 +69,7 @@ deviceTRUST extends the value of Windows Virtual Desktop with their contextual s
 
 ## IGEL
 
-![IGEL logo]()
+![IGEL logo](./media/partners/igel.png)
 
 IGEL is an approved and verified partner of Microsoft Azure and Windows Virtual Desktop services. IGEL offers IGEL OS, the next-gen edge OS for cloud workspaces designed to access virtual apps, desktops, and cloud workspaces from one or more user devices with a lightweight, simple, and secure Linux-based endpoint. A platform-independent software solution, IGEL OS and its server-based management and control software, IGEL Universal Management Suite (UMS), comprise an endpoint management and control solution that frees enterprises to take full advantage of Azure-based cloud instances and Windows Virtual Desktop desktops, including economical multi-session Windows Virtual Desktop, while reducing endpoint hardware and endpoint device management and operations costs.
  
