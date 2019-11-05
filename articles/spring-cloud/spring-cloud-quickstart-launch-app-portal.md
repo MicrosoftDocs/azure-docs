@@ -1,14 +1,10 @@
 ---
 title: Launch an Azure Spring Cloud application using the Azure portal
 description: Deploy a sample application to the Azure Spring Cloud using the Azure portal.
-services: spring-cloud
 author: jpconnock
-manager: barbkess
-editor: ''
-
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/31/2019
+ms.date: 11/4/2019
 ms.author: jeconnoc
 
 ---
@@ -77,22 +73,24 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 ## Build and deploy microservice applications
 
-1. Open a command window and run the following command to clone the sample app repository to your local machine.
+1. Open an [Azure Cloudshell](https://shell.azure.com)  and clone the sample app repository to your local machine.  Here, we first create a temporary directory called `source-code` before cloning the app.
 
-    ```cli
+    ```azurecli
+    mkdir source-code
+    cd source-code
     git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
-1. Build the project by running below command.
+1. Build the cloned package.
 
-    ```cli
+    ```azurecli
     cd PiggyMetrics
     mvn clean package -DskipTests
     ```
 
 1. Login to Azure CLI and set your active subscription.
 
-    ```cli
+    ```azurecli
     # Login to Azure CLI
     az login
 
@@ -119,7 +117,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. Following the same pattern, create the `account-service` and `auth-service` applications and deploy their JAR files.
 
-    ```cli
+    ```azurecli
     az spring-cloud app create -n account-service
     az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar
     az spring-cloud app create -n auth-service
@@ -131,8 +129,10 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 ## Assign a public endpoint to gateway
 
 1. Open the **Apps** tab in the menu on the left.
-2. Select the `gateway` application to show the **Overview** page.
-3. Select **Assign Domain** to assign a public endpoint to gateway. This can a few minutes.
+
+1. Select the `gateway` application to show the **Overview** page.
+
+1. Select **Assign Domain** to assign a public endpoint to gateway. This can a few minutes.
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 

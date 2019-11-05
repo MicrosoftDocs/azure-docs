@@ -48,6 +48,7 @@ Use the following steps to create a Private Link for an existing Azure Cosmos ac
     | Resource |Select your Azure Cosmos account |
     |Target sub-resource |Select the Cosmos DB API type you want to map. This defaults to only one choice for the SQL, MongoDB and Cassandra APIs. For the Gremlin and Table APIs, you can also choose *Sql* as these APIs are interoperable with the SQL API. |
     |||
+
 1. Select **Next: Configuration**.
 1. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
 
@@ -57,14 +58,26 @@ Use the following steps to create a Private Link for an existing Azure Cosmos ac
     | Virtual network| Select your virtual network. |
     | Subnet | Select your subnet. |
     |**Private DNS Integration**||
-    |Integrate with private DNS zone |Select **Yes**. |
-    |Private DNS Zone |Select *privatelink.documents.azure.com* |
+    |Integrate with private DNS zone |Select **Yes**. <br><br/> To connect privately with your private endpoint, you need a DNS record. It’s recommended that you integrate your private endpoint with a private DNS zone. You can also utilize your own DNS servers or create DNS records using the host files on your virtual machines. |
+    |Private DNS Zone |Select *privatelink.documents.azure.com* <br><br/> The Private DNS zone is determined automatically and can’t be changed currently by using the Azure portal.|
     |||
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 1. When you see the **Validation passed** message, select **Create**.
 
 When you have approved Private Links for an Azure Cosmos account, in the Azure portal the **All networks** option in the **Firewall and virtual networks** pane is greyed out.
+
+The following table shows mapping between different Azure Cosmos account API types, supported sub resources and the corresponding private zone names. The Gremlin and Table API accounts are accessible through SQL API as well so there are 2 entries for these APIs:
+
+|Azure Cosmos account API type  |Supported sub-resources(or groupIds) |Private zone name  |
+|---------|---------|---------|
+|Sql    |   Sql      | privatelink.documents.azure.com   |
+|Cassandra    | Cassandra        |  privatelink.cassandra.cosmos.azure.com    |
+|Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
+|Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |
+|Gremlin     |  Sql       |  privatelink.documents.azure.com    |
+|Table    |    Table     |   privatelink.table.cosmos.azure.com    |
+|Table     |   Sql      |  privatelink.documents.azure.com    |
 
 ### Fetch the private IP addresses
 
@@ -299,7 +312,7 @@ Adding or removing regions to an Azure Cosmos account requires you to add or rem
 
 For example, if you deploy an Azure Cosmos account in 3 regions: "West US", "Central US", and "West Europe". When you create a private endpoint for your account, 4 private IPs are reserved in the subnet. One for each region, which counts to a total of 3, and one for the global/region-agnostic endpoint.
 
-Later if you add a new region, for example "East US" to the Azure Cosmos account. By default, the new region is not accessible from the existing private endpoint. The Azure Cosmos account administrator should refresh the private endpoint connection before accessing it form the new region.
+Later if you add a new region, for example "East US" to the Azure Cosmos account. By default, the new region is not accessible from the existing private endpoint. The Azure Cosmos account administrator should refresh the private endpoint connection before accessing it form the new region. 
 
 When you run the ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` command, the output of the command contains the `ActionRequired` parameter, which is set to "Recreate". This value indicates that the private endpoint should be refreshed. Next the Azure Cosmos account administrator runs the `Set-AzPrivateEndpoint` command to trigger the private endpoint refresh.
 
@@ -312,6 +325,8 @@ Set-AzPrivateEndpoint -PrivateEndpoint $pe
 A new private IP is automatically reserved in the subnet under this private endpoint, and the value `ActionRequired` becomes `None`. If you don’t have any private DNZ zone integration (in other words, if you are using a custom private DNS), you have to configure your private DNS to add a new DNS record for the private IP corresponding to the new region.
 
 You can use the same steps when you remove a region. The private IP of the removed region is automatically reclaimed, and the `ActionRequired` flag becomes `None`. If you don’t have any private DNZ zone integration, you must configure your private DNS to remove the DNS record for the removed region.
+
+DNS records in the private DNS zone are not removed automatically when a private endpoint is deleted or a region from the Azure Cosmos account is removed. You must manually remove the DNS records.
 
 ## Current limitations
 
@@ -332,6 +347,15 @@ The following limitations apply when using the Private Link with an Azure Cosmos
 * An Azure Cosmos account can't be failed over to a region that's not mapped to all private endpoints attached to it. For more information, see Adding or removing regions in the previous section.
 
 * A network administrator should be granted at least the "*/PrivateEndpointConnectionsApproval" permission at the Azure Cosmos account scope by an administrator to create automatically-approved private endpoints.
+
+### Private DNS zone integration limitations
+
+DNS records in the private DNS zone are not removed automatically when a private endpoint is deleted or a region from the Azure Cosmos account is removed. You must manually remove the DNS records before:
+
+* Adding a new private endpoint linked to this private DNS zone.
+* Adding a new region to any database account that has private endpoints linked to this private DNS zone.
+
+Without the above two steps, unexpected data plane issues such as data outage to the regions added after private endpoint removal may happen.
 
 ## Next steps
 

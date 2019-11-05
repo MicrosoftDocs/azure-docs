@@ -28,6 +28,9 @@ With Azure Machine Learning dataset monitors, you can:
 
 Metrics and insights are available through the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with the Azure Machine Learning service workspace.
 
+> [!Important]
+> Please note that monitoring data drift with the SDK is available in all editions, while monitoring data drift through the studio on the web is Enterprise edition only.
+
 ## Prerequisites
 
 To create and work with dataset monitors, you need:
@@ -61,11 +64,11 @@ Monitoring a model's serving data for drift from the model's training data | Res
 Monitoring a time series dataset for drift from a previous time period. | This scenario is more general, and can be used to monitor datasets involved upstream or downstream of model building.  The target dataset must have a timestamp column, while the baseline dataset can be any tabular dataset which has features in common with the target dataset.
 Performing analysis on past data. | This can be used to understand historical data and inform decisions in settings for dataset monitors.
 
-## How dataset monitors work in Azure Machine Learning
+## How dataset can monitors data
 
 Using Azure Machine Learning, data drift is monitored through datasets. To monitor for data drift, a baseline dataset - usually the training dataset for a model - is specified. A target dataset - usually model input data - is compared over time to your baseline dataset. This means that your target dataset must have a timestamp column specified.
 
-### Setting the `timeseries` trait in the target dataset
+### Set the `timeseries` trait in the target dataset
 
 The target dataset needs to have the `timeseries` trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. This can be done through the Python SDK or Azure Machine Learning studio. A column representing a "fine grain" timestamp must be specified to add `timeseries` trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', you can create a virtual column through the path pattern setting and set it as the "coarse grain" timestamp to improve the importance of time series functionality. 
 

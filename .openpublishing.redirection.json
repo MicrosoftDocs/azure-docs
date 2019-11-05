@@ -768,14 +768,14 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-roles.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-entity-types#entity-role-defines-context",
-      "redirect_document_id": false      
-    },    
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-version.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-app-iteration",
-      "redirect_document_id": false   
+      "redirect_document_id": false
     },
-    {   
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-cs-add-utterance.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest",
       "redirect_document_id": false
@@ -19307,7 +19307,7 @@
     {
       "source_path": "articles/active-directory/user-help/user-help-reset-password.md",
       "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
-      "redirect_document_id": false      
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-protocols-oauth-code.md",
@@ -24243,7 +24243,7 @@
       "source_path": "articles/networking/virtual-network-test-latency.md",
       "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md",
       "redirect_url": "/azure/virtual-network/virtual-network-create-peering",
@@ -34425,6 +34425,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-ssl-portal.md",
       "redirect_url": "/azure/application-gateway/create-ssl-portal",
       "redirect_document_id": true
@@ -43689,6 +43694,16 @@
       "source_path": "articles/storage/blobs/data-lake-store-integrate-with-azure-services.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-integrate-with-azure-services",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/conversation-transcription-service.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/conversation-transcription",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-use-conversation-transcription-service.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-use-conversation-transcription",
+      "redirect_document_id": false
+    },
   ]
 }
