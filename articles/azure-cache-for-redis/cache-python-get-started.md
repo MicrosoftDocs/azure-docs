@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.topic: quickstart
-ms.date: 11/01/2019
+ms.date: 11/05/2019
 ms.author: yegu
 ms.custom: [mvc, seo-python-october2019]
 #Customer intent: As a Python developer new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
@@ -97,12 +97,12 @@ If you're finished with the Azure resource group and resources you created in th
 > [!IMPORTANT]
 > Deleting a resource group is irreversible, and the resource group and all the resources in it are permanently deleted. If you created your Azure Cache for Redis instance in an existing resource group that you want to keep, you can delete just the cache by selecting **Delete** from the cache **Overview** page. 
 
-To delete the resource group and all its resources:
+To delete the resource group and its Redis Cache for Azure instance:
 
 1. From the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
 1. In the **Filter by name** text box, enter the name of your resource group, and then select it from the search results. 
 1. On your resource group page, select **Delete resource group**.
-1. Type the resource group name, and then select **Delete**. The resource group and all of its resources are deleted.
+1. Type the resource group name, and then select **Delete**.
    
    ![Delete your resource group for Azure Cache for Redis](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
 

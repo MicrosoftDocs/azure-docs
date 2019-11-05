@@ -5,7 +5,7 @@ services: redis-cache
 author: wesmc7777
 ms.service: cache
 ms.topic: "include"
-ms.date: 11/01/2019
+ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: "include file"
 ---
