@@ -109,7 +109,7 @@ conceptualContent:
           text: Content Moderator
         - url: ./personalizer/index.yml
           itemType: overview
-          text: Personalizer 
+          text: Personalizer
     - title: Search
       summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
       links:
