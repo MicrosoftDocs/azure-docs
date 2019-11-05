@@ -13,18 +13,18 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying JSON files 
 
-Reading this article you will learn how to write a query in SQL Analytics on-demand that will read JSON files.
+In this article, you will learn how to write a query in SQL Analytics on-demand that will read JSON files.
 
 ## Prerequisites
 
-Before reading rest of the article, make sure to check following articles:
+Before reading the rest of this article, review the following articles:
 - [First-time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
 ## Sample JSON files
 
-This section contains sample scripts to read JSON files. Files are stored in *json* container, folder *books*, and contain single book entry with following structure:
+The section below contains sample scripts to read JSON files. Files are stored in a *json* container, folder *books*, and contain a single book entry with following structure:
 
 ```json
 {  
@@ -46,7 +46,7 @@ This section contains sample scripts to read JSON files. Files are stored in *js
 
 ## Reading JSON files
 
-In order to process JSON files using [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) and [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) you need to read json file from storage as single column. Following script reads *book1.json* file as single column:
+To process JSON files using JSON_VALUE and JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017), you need to read the JSON file from storage as a single column. The following script reads the *book1.json* file as a single column:
 
 ```mssql
 SELECT 
@@ -65,12 +65,12 @@ FROM
 ```
 
 > [!NOTE]
-> Note that we are reading entire JSON file as single row/column so FIELDTERMINATOR, FIELDQUOTE and ROWTERMINATOR are set to 0x0b.
+> Note that you are reading entire JSON file as single row/column so FIELDTERMINATOR, FIELDQUOTE and ROWTERMINATOR are set to 0x0b.
 
 
 ## Querying JSON files using JSON_VALUE
 
-Following query shows how to use [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+The query below shows you how to use [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```mssql
 SELECT 
@@ -95,7 +95,7 @@ WHERE
 
 ## Querying JSON files using JSON_QUERY
 
-Following query shows how to use [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve objects and arrays (authors) from book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
+The following query shows you how to use [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve objects and arrays (authors) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
 
 ```mssql
 SELECT 
@@ -119,7 +119,7 @@ WHERE
 
 ## Querying JSON files using OPENJSON
 
-Following query shows how to use [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql?view=sql-server-2017) to retrieve objects and properties within book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+The following query shows you how to use [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql?view=sql-server-2017) to retrieve objects and properties within a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```mssql
 SELECT
@@ -133,7 +133,7 @@ FROM
         ROWTERMINATOR = '0x0b'
     )
     WITH (
-        jsonContent NVARCHAR(4000) --Note that we have to use NVARCHAR(4000) for OPENJSON to work.
+        jsonContent NVARCHAR(4000) --Note that you have to use NVARCHAR(4000) for OPENJSON to work.
     ) AS [r]
 CROSS APPLY OPENJSON(jsonContent) AS j
 WHERE 
@@ -141,9 +141,6 @@ WHERE
 ```
 
 ## Next steps
-
-You can see more in [Creating and using views](create-use-views.md).
-
 
 Advance to the next article to learn how create and use views.
 > [!div class="nextstepaction"]

@@ -13,14 +13,16 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying specific files 
 
-SQL on-demand Query service can address multiple files and folders as described in [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md). Sometimes you may need to know which row in result set came from which file/folder. In such cases, you can use virtual columns to return file name and/or path in result set, or you can use them to filter data based on file name and/or folder path. These functions are described in syntax section - [filename function](development-storage-files-overview.md#filename-function) and [filepath function](development-storage-files-overview.md#filepath-function). You can find short descriptions along samples below.
+The SQL on-demand Query service can address multiple files and folders as described in [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md). Sometimes, you may need to know which file/folder source correlates to a specific row in the result set.
+
+You can use virtual columns to return file names and/or the path in the result set. Or you can use them to filter data based on the file name and/or folder path. These functions are described in the syntax section [filename function](development-storage-files-overview.md#filename-function) and [filepath function](development-storage-files-overview.md#filepath-function). Below you will find short descriptions along samples.
 
 
 In this quickstart, you will query a specific file.
 
 ## Prerequisites
 
-Before reading rest of the article, make sure to check following articles:
+Before reading the rest of this article, review the following articles:
 - [First-time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
@@ -28,9 +30,9 @@ Before reading rest of the article, make sure to check following articles:
 
 ### Filename
 
-This function returns file name that row originates from.
+This function returns the file name that row originates from.
 
-Following sample reads NYC Yellow Taxi data files for last three months of 2017. and returns number of rides per file. OPENROWSET part of query specifies what files will be read.
+The following sample reads the NYC Yellow Taxi data files for the last three months of 2017 and returns the number of rides per file. The OPENROWSET part of the query specifies which files will be read.
 
 ```sql
 SELECT 
@@ -68,7 +70,7 @@ ORDER BY
 
 
 
-Following example shows how filename() can be used in WHERE clause to filter files to be read. It accesses whole folder in OPENROWSET part of query and filters files in WHERE clause. This example returns the same results as previous one. 
+The following example shows how filename() can be used in the WHERE clause to filter the files to be read. It accesses the entire folder in the OPENROWSET part of  the query and filters files in the WHERE clause. This example returns the same results as the previous one. 
 
 ```sql
 SELECT 
@@ -110,13 +112,13 @@ ORDER BY
 
 ### Filepath
 
-This function returns full path or part of path:
+The filepath function returns a full or partial path:
 
-- When called without parameter, returns full file path that row originates from. 
+- When called without parameter, it returns the full file path that the row originates from. 
 
-- When called with parameter, it returns part of path that matches wildcard on position specified in parameter. For example, parameter value 1 would return part of path that matches first wildcard.
+- When called with a parameter, it returns part of the path that matches wildcard on the position specified in parameter. For example, parameter value 1 would return part of path that matches the first wildcard.
 
-Following sample reads NYC Yellow Taxi data files for last three months of 2017. and returns number of rides per file path. OPENROWSET part of query specifies what files will be read.
+The following sample reads NYC Yellow Taxi data files for last three months of 2017 and returns the number of rides per file path. The OPENROWSET part of the query specifies which files will be read.
 
 ```sql
 SELECT 
@@ -154,7 +156,7 @@ ORDER BY
 
 
 
-Following example shows how filepath() can be used in WHERE clause to filter files to be read. We used wildcards in OPENROWSET part of query and additionally filter files in WHERE clause. This example returns the same results as previous one. 
+The following example shows how filepath() can be used in the WHERE clause to filter the files to be read. You used wildcards in the OPENROWSET part of the query and filtered the files in the WHERE clause. This example returns the same results as the previous one. 
 
 ```sql
 SELECT 
@@ -198,9 +200,6 @@ ORDER BY
 ```
 
 ## Next steps
-
-You can see more in [Querying Parquet files](query-parquet-files.md).
-
 
 Advance to the next article to learn how to query Parquet files.
 > [!div class="nextstepaction"]

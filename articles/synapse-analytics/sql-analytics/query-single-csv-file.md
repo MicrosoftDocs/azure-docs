@@ -13,27 +13,27 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying single CSV file
 
-In this article, you will learn how to query single CSV file with SQL On-demand. 
+In this article, you will learn how to query a single CSV file with SQL On-demand. 
 CSV files may have different formats: 
 
-- With and without header row
+- With and without a header row
 - Comma and tab-delimited values
 - Windows and Unix style line endings
 - Non-quoted and quoted values, and escaping characters
 
-In this article, we will cover all these variations.
+All of the above variations will be covered below.
 
 
 ## Prerequisites
 
-Before reading rest of the article, make sure to check following articles:
+Before reading the rest of this article, review the following articles:
 - [First-time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
 ## Read CSV file - no header row, Windows style new line
 
-Following query shows how to read CSV file without header row, with Windows-style new line and comma-delimited columns.
+The following query shows how to read a CSV file without a header row, with a Windows-style new line, and comma-delimited columns.
 
 File preview:
 
@@ -61,7 +61,7 @@ WHERE
 
 ## Read CSV file - no header row, Unix-style new line
 
-Following query shows how to read file without header row, with Unix-style new line and comma-delimited columns. Note different location of file comparing to other examples.
+The following query shows how to read a file without a header row, with a Unix-style new line, and comma-delimited columns. Note the different location of the file as compared to the other examples.
 
 File preview:
 
@@ -90,7 +90,7 @@ WHERE
 
 ## Read CSV file - header row, Unix-style new line
 
-Following query shows how to read file with header row, with Unix-style new line and comma-delimited columns. Note different location of file comparing to other examples.
+The following query shows how to a read file with a header row, with a Unix-style new line, and comma-delimited columns. Note the different location of the file as compared to the other examples.  
 
 File preview:
 
@@ -121,7 +121,7 @@ WHERE
 
 ## Read CSV file - header row, Unix-style new line, quoted
 
-Following query shows how to read file with header row, with Unix-style new line, comma-delimited columns and quoted values. Note different location of file comparing to other examples.
+The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and quoted values. Note the different location of the file as compared to the other examples.  
 
 File preview:
 
@@ -149,13 +149,13 @@ WHERE
 ```
 
 > [!NOTE]
-> Note that this query would return same results if we omit FIELDQUOTE parameter since default value for FIELDQUOTE is double-quote.
+> This query would return the same results if you omitted the FIELDQUOTE parameter since the default value for FIELDQUOTE is a double-quote.
 
 
 
 ## Read CSV file - header row, Unix-style new line, escape
 
-Following query shows how to read file with header row, with Unix-style new line, comma-delimited columns and escape char used for field delimiter (comma) within values. Note different location of file comparing to other examples.
+The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escape char used for the field delimiter (comma) within values. Note the different location of the file as compared to the other examples.
 
 File preview:
 
@@ -182,13 +182,13 @@ WHERE
 ```
 
 > [!NOTE]
-> Note that this query would fail if ESCAPECHAR is not specified, since comma in "Slov,enia" would be treated as field delimiter instead of part of country name. "Slov,enia" would be treated as two columns, therefore particular row would have one column more than other rows and one column more than we defined in WITH clause.
+> This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
 
 
 
 ## Read CSV file - header row, Unix-style new line, tab-delimited
 
-Following query shows how to read file with header row, with Unix-style new line and tab-delimited columns. Note different location of file comparing to other examples.
+The following query shows how to read a file with a header row, with a Unix-style new line, and tab-delimited columns. Note the different location of the file as compared to the other examples.
 
 File preview:
 
@@ -218,12 +218,12 @@ WHERE
 
 ## Read CSV file - without specifying all columns
 
-So far, we specified CSV file schema using WITH and listing all columns. You can specify only columns you actually need in your query by specifying ordinal number for each column you are interested in while omitting columns of no interest.
+So far, you've specified the CSV file schema using WITH and listing all columns. You can only specify columns you actually need in your query by using an ordinal number for each column you are interested in while omitting columns of no interest.
 
-Following query returns number of distinct country names in file, specifying only columns that are needed:
+The following query returns the number of distinct country names in a file, specifying only the columns that are needed:
 
 > [!NOTE]
-> Take a look at WITH clause in query below and note that there is "2" (without quotes) at the end of row where we define *[country_name]* column. It means that *[country_name]* column is second column in the file. Query will ignore all columns in file except the second one.
+> Take a look at the WITH clause in the query below and note that there is "2" (without quotes) at the end of row where you define the *[country_name]* column. It means that the *[country_name]* column is the second column in the file. The query will ignore all columns in the file except the second one.
 
 ```sql
 SELECT 
@@ -245,9 +245,6 @@ WITH (
 
 
 ## Next steps
-
-You can see more in [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md).
-
 
 Advance to the next article to learn how query folders and multiple CSV files.
 > [!div class="nextstepaction"]

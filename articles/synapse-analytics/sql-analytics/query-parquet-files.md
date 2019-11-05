@@ -13,26 +13,26 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying Parquet files 
 
-Reading this article you will learn how to write a query in SQL Analytics on-demand that will read Parquet files.
+In this article, you will learn how to write a query in SQL Analytics on-demand that will read Parquet files.
 
 
 ## Prerequisites
 
-Before reading rest of the article, make sure to check following articles:
+Before reading rest of this article, review the following articles:
 - [First-time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
 ## Read Parquet files
 
-You can query Parquet files the same way you read CSV files. The only difference is FILEFORMAT parameter that should be set to PARQUET. Examples in this section show specifics of reading Parquet files.
+You can query Parquet files the same way you read CSV files. The only difference is that the FILEFORMAT parameter should be set to PARQUET. Examples in this section show the specifics of reading Parquet files.
 
 > [!NOTE]
-> Note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand Query service will utilize metadata in parquet file and bind columns by name.  
+> You do not have to specify columns in the OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand Query service will utilize metadata in parquet file and bind columns by name.  
 
-We will use folder *parquet/taxi* for following sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016. to June 2018.
+You will use the folder *parquet/taxi* for the sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016. to June 2018.
 
-Data is partitioned by year and month and folder structure is:
+Data is partitioned by year and month and the folder structure is as follows:
 
 - year=2016
   - month=6
@@ -78,12 +78,12 @@ ORDER BY
 
 ### Read Parquet files without specifying schema
 
-You do not have to use OPENROWSET WITH clause when reading Parquet files because columns names and data types will be automatically read from Parquet files. 
+You don't need to use the OPENROWSET WITH clause when reading Parquet files. Column names and data types will be automatically read from Parquet files. 
 
-This sample shows automatic schema inference capabilities for Parquet files. It returns number of rows in September 2017. without specifying schema. 
+The sample below shows the automatic schema inference capabilities for Parquet files. It returns the number of rows in September 2017 without specifying a schema. 
 
 > [!NOTE]
-> Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand Query service will utilize metadata in parquet file and bind columns by name.  
+> You don't have to specify columns in the OPENROWSET WITH clause when reading Parquet files. In that case, SQL on-demand Query service will utilize metadata in the Parquet file and bind columns by name.  
 
 ```sql
 SELECT 
@@ -99,10 +99,10 @@ FROM
 
 ### Target specific partitions using filepath function
 
-You can target specific partitions using filepath function, just like we did in CSV examples. This example show fare amounts by year, month and payment_type, for first three months of 2017.
+You can target specific partitions using the filepath function. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
 
 > [!NOTE]
-> Please note that SQL on-demand Query is compatible with Hive/Hadoop partitioning scheme.
+> The SQL on-demand Query is compatible with Hive/Hadoop partitioning scheme.
 
 ```sql
 SELECT 
@@ -131,8 +131,6 @@ ORDER BY
 
 ## Next steps
 
-You can see more in [Querying Parquet nested types](query-parquet-nested-types.md).
-
-Advance to the next article to learn how to query parquet nested types.
+Advance to the next article to learn how to query Parquet nested types.
 > [!div class="nextstepaction"]
 > [Querying Parquet nested types](query-parquet-nested-types.md)
