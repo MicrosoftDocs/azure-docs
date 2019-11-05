@@ -1,7 +1,7 @@
 ---
-title: What happened to Machine Learning Workbench?
+title: What happened to Workbench?
 titleSuffix: Azure Machine Learning
-description: Learn about what happened to the Machine Learning Workbench application, what changed in Azure Machine Learning, and what the support timeline is.
+description: Learn about what's possible without Workbench application and what the support timeline is.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
