@@ -41,7 +41,7 @@ ALTER DATABASE <yourdatawarehousename>
 SET AUTO_CREATE_STATISTICS ON
 ```
 
-These statements will trigger automatic creation of statistics:
+These statements will trigger the automatic creation of statistics:
 
 - SELECT
 - INSERT-SELECT
@@ -51,14 +51,14 @@ These statements will trigger automatic creation of statistics:
 - EXPLAIN when containing a join or the presence of a predicate is detected
 
 > [!NOTE]
-> Automatic creation of statistics are not created on temporary or external tables.
+> The automatic creation of statistics is not generated on temporary or external tables.
 
 Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the table. To avoid measurable performance degradation, especially in performance benchmarking, you should ensure stats have been created first by executing the benchmark workload before profiling the system.
 
 > [!NOTE]
 > The creation of stats will be logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under a different user context.
 
-When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view stats that have already been created by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) command:
+When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view already created stats by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) command:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -68,7 +68,11 @@ The table_name is the name of the table that contains the statistics to display.
 
 ### Updating statistics
 
-One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country/region column in a customer table might never need to be updated, because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country/region and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
+One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. 
+
+Conversely, statistics on a country/region column in a customer table might never need to be updated because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. 
+
+However, if your data warehouse only contains one country/region and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
 
 The following are recommendations updating statistics:
 
@@ -113,7 +117,9 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
+**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. 
+
+Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
 
 For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics).
 
@@ -125,7 +131,7 @@ The following guiding principles are provided for updating your statistics durin
 
 * Ensure that each loaded table has at least one statistics object updated. This updates the table size (row count and page count) information as part of the statistics update.
 * Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
-* Consider updating "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
+* Consider updating "ascending key" columns such as transaction dates more frequently because these values will not be included in the statistics histogram.
 * Consider updating static distribution columns less frequently.
 * Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
 
@@ -341,13 +347,12 @@ To create statistics on all columns in the table using a fullscan, call this pro
 EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
 ```
 
-To create sampled statistics on all columns in the table, enter 3, and the sample percent. This procedures uses a 20 percent sample rate.
+To create sampled statistics on all columns in the table, enter 3, and the sample percent. This procedure uses a 20 percent sample rate.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 ```
 
-To create sampled statistics on all columns
 
 ### Examples: Update statistics
 
@@ -386,7 +391,7 @@ For example:
 UPDATE STATISTICS dbo.table1;
 ```
 
-The UPDATE STATISTICS statement is easy to use. Just remember that it updates *all* statistics on the table, and therefore might perform more work than is necessary. If performance is not an issue, this is the easiest and most complete way to guarantee that statistics are up to date.
+The UPDATE STATISTICS statement is easy to use. Just remember that it updates *all* statistics on the table, thereby performing more work than is necessary. If performance is not an issue, this is the easiest and most complete way to guarantee that statistics are up to date.
 
 > [!NOTE]
 > When updating all statistics on a table, SQL Analytics pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
@@ -470,7 +475,7 @@ DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data
 - Density vector
 - Histogram
 
-The header metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQL Analytics pool computes cardinality estimates with any of the data in the statistics object.
+The header is the metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQL Analytics pool computes cardinality estimates with any of the data in the statistics object.
 
 #### Show header, density, and histogram
 
@@ -529,29 +534,29 @@ The more SQL Analytics on-demand knows about your data, the faster it can execut
 
 SQL Analytics on-demand analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
 
-SELECT statement will trigger automatic creation of statistics.
+The SELECT statement will trigger automatic creation of statistics.
 
 > [!NOTE]
-> Automatic creation of statistics is turned on for Parquet files. For CSV files you need to create statistics manually until automatic creation of CSV files statistics is supported.
+> Automatic creation of statistics is turned on for Parquet files. For CSV files,  you need to create statistics manually until automatic creation of CSV files statistics is supported.
 
 Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted. 
 
 ### Manual creation of statistics
 
-SQL Analytics on-demand lets you create statistics manually. For CSV files you have to create statistics manually because automatic creation of statistics is not turned on for CSV files. See examples below for instructions on how to create statistics manually.
+SQL Analytics on-demand lets you create statistics manually. For CSV files,  you have to create statistics manually because automatic creation of statistics is not turned on for CSV files. See examples below for instructions on how to create statistics manually.
 
 ### Updating statistics
 
-Changes to data in files, deleting and adding files result in data distribution changes and makes statistics out of date. In that case statistics needs to be updated.
+Changes to data in files, deleting, and adding files result in data distribution changes and makes statistics out of date. In that case, statistics needs to be updated.
 
-SQL Analytics on-demand automatically recreates statistics if data is significantly changed. Every time statistics are automatically created, current state of the dataset it also saved - file paths, sizes, last modification dates.
+SQL Analytics on-demand automatically recreates statistics if data is significantly changed. Every time statistics are automatically created, the current state of the dataset it also saved, e.g., file paths, sizes, last modification dates.
 
 If statistics are stale, new ones are created. The algorithm goes through the data and compares it to the current state of the dataset. If the size of changes (files deleted, added, changed) is greater than specific threshold, old stats are deleted and will be created again over the new dataset.
 
 Manual stats are never declared stale.
 
-[!NOTE]
-Automatic recreation of statistics is turned on for Parquet files. For CSV files you need to drop and create statistics manually until automatic creation of CSV files statistics is supported. Check examples below on how to drop and create statistics.
+>[!NOTE]
+Automatic recreation of statistics is turned on for Parquet files. For CSV files, you need to drop and create statistics manually until automatic creation of CSV files statistics is supported. Check the examples below on how to drop and create statistics.
 
 One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 
@@ -566,40 +571,40 @@ You may want to extend your data pipeline to ensure that statistics are updated 
 
 The following guiding principles are provided for updating your statistics:
 
-- Ensure that dataset has at least one statistics object updated. This updates size (row count and page count) information as part of the statistics update.
+- Ensure that the dataset has at least one statistics object updated. This updates size (row count and page count) information as part of the statistics update.
 - Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
-- Update "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
+- Update "ascending key" columns such as transaction dates more frequently because these values will not be included in the statistics histogram.
 - Update static distribution columns less frequently.
 
 For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
 ### Examples: Create statistics
 
-These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
+These examples show you how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
 
 > [!NOTE]
 > You can create single-column statistics only at this moment.
 
-Following stored procedure is used to create statistics:
+The following stored procedure is used to create statistics:
 ```sql
 sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
 ```
 Arguments:
-[ @stmt = ] N'statement_text'
-Is a Transact-SQL statement that will return column values to be used for statistics. You can use TABLESAMPLE to specify sample of data to be used. If TABLESAMPLE is not specified, FULLSCAN will be used. 
+[ @stmt = ] N'statement_text' -
+This is a Transact-SQL statement that will return column values to be used for statistics. You can use TABLESAMPLE to specify samples of data to be used. If TABLESAMPLE is not specified, FULLSCAN will be used. 
 ```sql
 <tablesample_clause> ::= TABLESAMPLE ( sample_number PERCENT )
 ```
 > [!NOTE]
-> CSV sampling does not work at this moment, only FULLSCAN is supported for CSV.
+> CSV sampling does not work at this time, only FULLSCAN is supported for CSV.
 
 #### Create single-column statistics by examining every row
 
-To create statistics on a column, provide query that returns column you need statistics for.
+To create statistics on a column, provide a query that returns the column for which you need statistics.
 
-By default, if you don't specify otherwise, SQL Analytics on-demand uses 100%  of data in provided dataset when it creates statistics.
+By default, if you don't specify otherwise, SQL Analytics on-demand uses 100%  of the data provided in the dataset when it creates statistics.
 
-For example, to create statistics with default options (FULLSCAN) for year column for dataset based on population.csv file:
+For example, to create statistics with default options (FULLSCAN) for a year column of the dataset based on the population.csv file:
 
 ```sql
 /* make sure you have credentials for storage account access created
@@ -656,15 +661,15 @@ FROM OPENROWSET(
 
 ### Examples: Update statistics
 
-To update statistics, you need to drop and create statistics. Following stored procedure is used to drop statistics:
+To update statistics, you need to drop and create statistics. The following stored procedure is used to drop statistics:
 ```sql
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
 Arguments:
-[ @stmt = ] N'statement_text'
-Is the same Transact-SQL statement used when statistics were created. 
+[ @stmt = ] N'statement_text' - 
+This is the same Transact-SQL statement used when the statistics were created. 
 
-To update statistics for year column for dataset based on population.csv file, you need to drop and create statistics:
+To update the statistics for the year column in the dataset based on the population.csv file, you need to drop and create statistics:
 
 ```sql
 EXEC sys.sp_drop_file_statistics N'SELECT payment_type 
@@ -698,4 +703,4 @@ FROM OPENROWSET(
 
 ## Next steps
 
-For further query performance improvements, see [best practices.](best-practices.md#sql-on-demand).
+For further query performance improvements, see [best practices](best-practices.md#sql-on-demand).

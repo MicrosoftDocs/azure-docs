@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 
 This document is related to key concepts for designing tables in Azure SQL Analytics pool. 
 
-[SQL Analytics on-demand](on-demand.md) is a query service over the data in your data lake. It has no local storage that you can ingest data to. Therefore some topics described in this document do not apply to SQL Analytics on-demand. Table below shows which topics are related to SQL Analytics pool and on-demand:
+[SQL Analytics on-demand](on-demand.md) is a query service over the data in your data lake. It has no local storage for data ingestion. Therefore, some topics described in this document do not apply to SQL Analytics on-demand. The table below shows which topics are related to SQL Analytics pool vs. on-demand:
 
 | Topic                                                        | SQL Analytics pool | SQL Analytics on-demand |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
@@ -57,7 +57,7 @@ A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into f
 - **Integration tables** provide a place for integrating or staging data. You can create an integration table as a regular table, an external table, or a temporary table. For example, you can load data to a staging table, perform transformations on the data in staging, and then insert the data into a production table.
 
 ## Schema names
-Schemas are a good way to group objects, used in a similar fashion, together. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called wwi.
+Schemas are a good way to group together objects that are used in a similar fashion. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called wwi.
 
 ```sql
 CREATE SCHEMA wwi;
@@ -77,7 +77,7 @@ To show the organization of the tables in SQL Analytics pool, you could use fact
 
 ## Table persistence 
 
-Tables store data either permanently in Azure Storage, temporarily in Azure Storage, or in a data store external to data warehouse.
+Tables store data either permanently in Azure Storage, temporarily in Azure Storage, or in a data store external to the data warehouse.
 
 ### Regular table
 
@@ -107,7 +107,7 @@ SQL Analytics pool supports the most commonly used data types. For a list of the
 For guidance on using data types, see [Data types](development-tables-data-types.md).
 
 ## Distributed tables
-A fundamental feature of SQL Analytics pool is the way it can store and operate on tables across [distributions](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md#distributions).  SQL Analytics pool supports three methods for distributing data, round-robin (default), hash and replicated.
+A fundamental feature of SQL Analytics pool is the way it can store and operate on tables across [distributions](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md#distributions).  SQL Analytics pool supports three methods for distributing data, round-robin (default), hash, and replicated.
 
 ### Hash-distributed tables
 A hash distributed table distributes rows based on the value in the distribution column. A hash distributed table is designed to achieve high performance for queries on large tables. There are several factors to consider when choosing a distribution column. 
@@ -125,7 +125,7 @@ A round-robin table distributes table rows evenly across all distributions. The 
 For more information, see [Design guidance for distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 ### Common distribution methods for tables
-The table category often determines which option to choose for distributing the table. 
+The table category often determines the optimal option for table distribution.
 
 | Table category | Recommended distribution option |
 |:---------------|:--------------------|
@@ -134,7 +134,11 @@ The table category often determines which option to choose for distributing the 
 | Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to production tables. |
 
 ## Partitions
-In SQL Analytics pool, a partitioned table stores and performs operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. You can also maintain the data through partition switching. Since the data in SQL Analytics pool is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md).  When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) statement if the existing data is to be truncated. The below code switches in the transformed daily data into the SalesFact overwriting any existing data. 
+In SQL Analytics pool, a partitioned table stores and performs operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. 
+
+You can also maintain the data through partition switching. Since the data in SQL Analytics pool is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md).  
+
+When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) statement if the existing data is to be truncated. The code below switches the transformed daily data into a SalesFact partition and overwrites any existing data. 
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -142,7 +146,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 
 
 
-In SQL Analytics on-demand, you can limit files/folders (partitions) that will be read by your query. Partitioning by path is supported using filepath and fileinfo functions described in [Querying storage files](development-storage-files-overview.md). Following example reads folder with data for year 2017:
+In SQL Analytics on-demand, you can limit the files/folders (partitions) that will be read by your query. Partitioning by path is supported using the filepath and fileinfo functions described in [Querying storage files](development-storage-files-overview.md). The following example reads a folder with data for year 2017:
 
 ```sql
 SELECT 
@@ -171,10 +175,10 @@ By default, SQL Analytics pool stores a table as a clustered columnstore index. 
 For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](data-loading-columnstore-compression.md).
 
 ## Statistics
-The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. SQL Analytics support automatic creation of statistics. However, updating statistics does not happen automatically. Update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](development-tables-statistics.md).
+The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. SQL Analytics supports automatic creation of statistics. However, updating statistics does not happen automatically. You should update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](development-tables-statistics.md).
 
 ## Primary key and unique key
-PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported with NOT ENFORCED is used.  Check [SQL Analytics pool Table Constraints](../../sql-data-warehouse/sql-data-warehouse-table-constraints.md).
+PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  Check [SQL Analytics pool Table Constraints](../../sql-data-warehouse/sql-data-warehouse-table-constraints.md).
 
 ## Commands for creating tables
 You can create a table as a new empty table. You can also create and populate a table with the results of a select statement. The following are the T-SQL commands for creating a table.
@@ -207,7 +211,7 @@ SQL Analytics pool supports many, but not all, of the table features offered by 
 - [User-Defined Types](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## Table size queries
-One simple way to identify space and rows consumed by a table in each of the 60 distributions, is to use [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
+One simple way to identify space and rows consumed by a table in each of the 60 distributions is to use [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -329,7 +333,7 @@ FROM size
 
 ### Table space summary
 
-This query returns the rows and space by table.  It allows you to see which tables are your largest tables and whether they are round-robin, replicated, or hash -distributed.  For hash-distributed tables, the query shows the distribution column.  
+This query returns the rows and space by table.  It allows you to see which tables are your largest tables and whether they are round-robin, replicated, or hash-distributed.  For hash-distributed tables, the query shows the distribution column.  
 
 ```sql
 SELECT 
