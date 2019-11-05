@@ -38,7 +38,7 @@ Change feed support is well-suited for scenarios that process data based on obje
 
 ## Enabling and disabling the change feed
 
-You have to enable the change feed to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using ARM templates on Portal or Powershell.
+You have to enable the change feed to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using Azure Resource Manager templates on Portal or Powershell.
 
 ### [Portal](#tab/azure-portal)
 
@@ -217,7 +217,7 @@ Here's an example of change event record from change feed file converted to Json
 }
 
 ```
-For a description of each property, see [Azure Event Grid event schema for Blob storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
+For a description of each property, see [Azure Event Grid event schema for Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
 > [!NOTE]
 > The change feed files for a segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.
@@ -285,7 +285,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 <a id="conditions"></a>
 
-## Conditions and Known Issues (Preview)
+## Conditions and known issues (Preview)
 
 This section describes known issues and conditions in the current public preview of the change feed.
 
@@ -298,4 +298,4 @@ This section describes known issues and conditions in the current public preview
 ## Next steps
 
 - See an example of how to read the change feed by using a .NET client application. See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
-- Learn about how to react to events in real time. See [Reacting to Blob storage events](storage-blob-event-overview.md)
+- Learn about how to react to events in real time. See [Reacting to Blob Storage events](storage-blob-event-overview.md)
