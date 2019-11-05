@@ -1,5 +1,5 @@
 ---
-title: Restrict access to Azure Container Registry from a virtual network
+title: Restrict access to Azure Container Registry with a virtual network
 description: Allow access to an Azure container registry only from resources in an Azure virtual network or from public IP address ranges.
 services: container-registry
 author: dlepow

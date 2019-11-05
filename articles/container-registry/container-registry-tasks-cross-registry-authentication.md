@@ -1,6 +1,6 @@
 ---
 title: Cross-registry authentication from Azure Container Registry task
-description: Allow an Azure Container Registry (ACR) task to to access another private container registry in Azure by using a managed identity for Azure Resources
+description: Configure an Azure Container Registry task (ACR Task) to access another private Azure container registry by using a managed identity for Azure Resources
 services: container-registry
 author: dlepow
 

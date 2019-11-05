@@ -1,6 +1,6 @@
 ---
 title: Azure Container Registry webhook schema reference
-description: Reference for the JSON payload for webhook requests in Azure Container Registry, which are generated when webhooks are enabled for container image or Helm chart push or delete events in a registry
+description: Reference for the JSON payload for webhook requests in an Azure container registry, which are generated when webhooks are enabled for container image or Helm chart push or delete events
 services: container-registry
 author: dlepow
 manager: gwallace
