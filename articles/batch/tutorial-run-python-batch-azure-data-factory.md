@@ -44,11 +44,11 @@ Set up your Azure Storage account using the [Azure portal](https://docs.microsof
 
 2.  Select your storage container (e.g. **mystorage**)
 
-    ![](https://github.com/mammask/tutorial-run-r-batch-azure-data-factory/blob/master/samples/select-blob-storage-container.png?raw=true)
+    ![](https://raw.githubusercontent.com/mammask/tutorial-run-r-batch-azure-data-factory/master/samples/select-blob-storage-container.PNG)
 
 3.  **Upload** &gt; **Files** &gt; iris.csv &gt; **Upload to folder** &gt; inputs. A new folder will be created even if it does not exist.
 
-    ![](https://github.com/mammask/tutorial-run-r-batch-azure-data-factory/blob/master/samples/upload-to-blob-storage-container.png?raw=true)
+    ![](https://raw.githubusercontent.com/mammask/tutorial-run-r-batch-azure-data-factory/master/samples/upload-to-blob-storage-container.PNG)
 
 When the dataset is uploaded the status of the current uploads will be updated to completed.
 
@@ -96,9 +96,9 @@ blobService.create_blob_from_text(containerName, "outputs/iris_setosa.csv", "iri
 
 Save the script as *main.python* and upload it to the **Azure Storage** container.
 
-![](https://github.com/mammask/azure-docs-pr/blob/master/articles/batch/media/run-python-batch-azure-data-factory/upload_script_blob.PNG?raw=true)
+![Upload Blob](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/upload_script_blob.PNG?token=ABTT2GOQBBVLIF4NKHEMGZS5ZLY4S)
 
-Run the scritp locally using either command prompt or terminal depending on your operating system.
+Run the script locally using either command prompt or terminal depending on your operating system.
 
 ``` bash
 python main.py
@@ -106,7 +106,7 @@ python main.py
 
 Access the **Azure portal** and check that the dataset is now saved in the outputs folder of the **Azure Storage** container.
 
-![](https://github.com/mammask/azure-docs-pr/blob/master/articles/batch/media/run-python-batch-azure-data-factory/upload_subset_data_blob.PNG?raw=true)
+![Upload Subset](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/upload_subset_data_blob.PNG?token=ABTT2GPP5OCTYKBOXNKTCAK5ZLY7Y)
 
 Set up an Azure Batch account
 -----------------------------
@@ -155,15 +155,15 @@ In this procedure, you create and validate a pipeline using a script in `Python`
 
 1.  In the **Factory Resources** box, select the + (plus) button and then select **Pipeline**
 
-2.  In the **General** tab specify **run R** for Name
+2.  In the **General** tab specify **run Python** for Name
 
-    ![](media/run-python-batch-azure-data-factory/adf-create-pipeline.png)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-pipeline.png?token=ABTT2GMIRJJPYBVS7ADEC2S5ZLZL6)
 
 3.  In the **Activities** box, expand the **Batch Service**. Drag the **Custom** activity from the **Activities** toolbox to the pipeline designer surface.
 
 4.  In the **General** tab specify **testPipeline** for Name
 
-    ![](media/run-python-batch-azure-data-factory/adf-create-custom-task.png)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task.png?token=ABTT2GPZKBE6AN74MJ3QBG25ZLZQW)
 
 
 5.  In the **Azure Batch** tab, add the **Batch Account** that was created in the previous steps and **Test connection** to ensure that it is successful.
@@ -176,7 +176,7 @@ In this procedure, you create and validate a pipeline using a script in `Python`
 
 8.  In the **Folder Path**, select the name of the **Azure Blob Storage** container that contains the `Python` script and the associated inputs. This will download the selected files from the container to the pool node instances before the execution of the `Python` script.
 
-    ![](media/run-python-batch-azure-data-factory/adf-create-custom-task-python-script-command.png)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task-python-script-command.PNG?token=ABTT2GLQOQ4OPMOW6WFMUT25ZLZTI)
 
 9.  Click **Validate** on the pipeline toolbar above the canvas to validate the pipeline settings. Confirm that the pipeline has been successfully validated. To close the validation output, select the &gt;&gt; (right arrow) button
 
@@ -186,7 +186,7 @@ In this procedure, you create and validate a pipeline using a script in `Python`
 
 12. Click **trigger** to run the `Python` script as part of a batch process
 
-    ![](media/run-python-batch-azure-data-factory/adf-create-custom-task-python-success-run.png)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task-python-success-run.PNG?token=ABTT2GKSGTINC5OX3VEXPXS5ZLZXK)
 
 You can debug, trigger, monitor the pipeline manually and schedule periodical executions of the script. For more information visit the Azure official [documentation](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal).
 
@@ -203,18 +203,18 @@ Access the log files of the batch process to view bugs/ warnings produced by the
 
 3.  Select the pool id that is associated with the tasks that ran on **Azure Data Factory**
 
-    ![](media/run-python-batch-azure-data-factory/batch-jobs.png)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs.PNG?token=ABTT2GPRX4WAB6XNA53HCO25ZLZZE)
 
 4.  Select the latest task
 
-    ![](media/run-python-batch-azure-data-factory/batch-jobs-successful-task.png)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs-successful-task.PNG?token=ABTT2GKOIP42HYHYO5MCF2K5ZL2AW)
 
 5.  The **wd** folder is the working directory of the pool node.
 
-    ![](media/run-python-batch-azure-data-factory/batch-jobs-successful-task-wd.png)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs-successful-task-wd.PNG?token=ABTT2GJBOIAJ543YJHUMTLS5ZL2CM)
 
 6.  The **stder.txt** file is the logs file associated with the execution of the `Python` script.
 
-        ![](media/run-python-batch-azure-data-factory/batch-jobs-successful-task-wd-stderr.png)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs-successful-task-wd-stderr.PNG?token=ABTT2GOLGEW73PPZJYXXO2S5ZL2DY)
 
 In this example there is not any issue.
