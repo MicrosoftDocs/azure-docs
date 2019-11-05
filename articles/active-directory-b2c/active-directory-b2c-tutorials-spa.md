@@ -44,7 +44,7 @@ Additionally, you need the following in your local development environment:
 
 In the second tutorial that you completed as part of the prerequisites, you registered a web application in Azure AD B2C. To enable communication with the sample in the tutorial, you need to add a redirect URI to the application in Azure AD B2C.
 
-You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to update the application. [Learn more about the preview experience](http://aka.ms/b2cappregintro).
+You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to update the application. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
 
 #### [Applications](#tab/applications/)
 
