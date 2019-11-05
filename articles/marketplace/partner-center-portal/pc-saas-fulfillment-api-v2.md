@@ -4,6 +4,7 @@ description: This article explains how to create and manage a SaaS offer on the 
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: evansma

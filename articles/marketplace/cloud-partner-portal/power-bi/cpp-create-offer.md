@@ -4,6 +4,7 @@ description: How to create a Power BI App offer for the Microsoft AppSource Mark
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pabutler

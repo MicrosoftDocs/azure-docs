@@ -5,6 +5,7 @@ services: Azure, Marketplace, Compute
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler

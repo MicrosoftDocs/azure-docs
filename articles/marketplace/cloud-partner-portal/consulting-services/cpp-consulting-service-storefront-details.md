@@ -4,6 +4,7 @@ description: Define storefront details in an Azure or Dynamics 365 consulting se
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler

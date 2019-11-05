@@ -5,6 +5,7 @@ services: Azure, Marketplace, AppSource, commercial marketplace, Partner Center
 author: qianw211
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: v-qiwe

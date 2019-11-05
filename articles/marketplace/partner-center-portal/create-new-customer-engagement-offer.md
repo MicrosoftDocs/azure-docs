@@ -5,6 +5,7 @@ author: JnHs
 manager: evansma
 ms.author: jenhayes 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

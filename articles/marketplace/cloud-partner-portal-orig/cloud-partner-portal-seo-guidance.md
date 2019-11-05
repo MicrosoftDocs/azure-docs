@@ -4,6 +4,7 @@ description: Provides guidance on maximizing search engine optimization (SEO).
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: pabutler

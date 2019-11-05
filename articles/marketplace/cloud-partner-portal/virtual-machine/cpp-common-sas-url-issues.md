@@ -4,6 +4,7 @@ description: List common problems around using shared access signature URIs and 
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: pabutler

@@ -5,6 +5,7 @@ services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Securit
 author: qianw211
 manager: evansma
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: v-qiwe

@@ -7,6 +7,7 @@ author: yijenj
 manager: nuno costa
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
