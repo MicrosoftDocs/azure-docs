@@ -8,12 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances. 
 ---
 
 # Quickstart: Create a new app in the LUIS portal
+
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 In this quickstart, you build a new app in the [LUIS portal](https://www.luis.ai). First you create the basic parts of an app, **intents**, and **entities**. Then you test the app by providing a sample user utterance in the interactive test panel to get the predicted intent.
 
@@ -23,9 +25,9 @@ Building an app is free and doesn't require an Azure subscription. When you're r
 
 ## Create an app
 
-1. Select **Create new app** from the context toolbar.
+1. Select **+ Create** from the context toolbar.
 
-   [![Create new app in LUIS portal](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![Create new app in LUIS portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. In the pop-up window, configure the app with the following settings and then select **Done**.
 
@@ -34,7 +36,7 @@ Building an app is free and doesn't require an Azure subscription. When you're r
    |Name|`myEnglishApp`|Unique LUIS app name<br>required|
    |Culture|**English**|Language of utterances from users, **en-us**<br>required|
    |Description|`App made with LUIS Portal`|Description of app<br>optional|
-   | | | |
+   |Prediction resource |-  |Do not select. LUIS gives you a Starter key to use for free for authoring and 1,000 prediction endpoint requests. |
 
    ![Enter new app settings](./media/get-started-portal-build-app/create-new-app-settings.png)
 
@@ -59,8 +61,6 @@ To create intents, complete the following steps:
    [![Select Create new intent button](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. Enter the intent name, `FindForm`, and then select **Done**.
-
-   ![Enter the intent name of FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
 ## Add an example utterance
 
@@ -134,7 +134,7 @@ The **None** intent's example utterances should be outside of your client applic
 
 ## Train the app
 
-In the menu in the upper right, select **Train** to apply the intent and entity model changes to the current version of the app.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## Look at the regular expression entity in the example utterances
 
@@ -161,8 +161,6 @@ Use the interactive **Test** pane in the LUIS portal to validate that the entity
 ## Clean up resources
 
 When you're done with this quickstart and aren't moving on to the next quickstart, select **My apps** from the top navigation menu. Then select the app's left check box from the list and select  **Delete** from the context toolbar above the list.
-
-[![Delete app from My apps list](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## Next steps
 

@@ -44,7 +44,7 @@ conceptualContent:
           itemType: concept
           text: Security controls for Azure services
       footerLink: 
-        url: ./fundamentals/index.md
+        url: ./fundamentals/index.yml
         text: See more
 
     - title: Developers

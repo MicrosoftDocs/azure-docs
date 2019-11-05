@@ -59,8 +59,6 @@
           href: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Run a job
           href: ../core/howto-run-a-job.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-        - name: Use device groups
-          href: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Version device template
           href: ../core/howto-version-device-template-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Monitoring and analytics
@@ -75,9 +73,9 @@
         - name: Configure continuous data export
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Create custom rules
-          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-create-custom-rules-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Create custom analytics with Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-create-custom-analytics-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 
     - name: Administration
       items:
@@ -133,8 +131,6 @@
           href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
-    - name: API reference documentation
-      href: https://go.microsoft.com/fwlink/?linkid=2109131
     - name: Customer data requests
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Supported browsers

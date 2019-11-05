@@ -12,6 +12,8 @@ manager: abjork
 
 # Azure IoT Central - smart meter app architecture
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 This article provides an overview of the smart meter monitoring app template architecture. The diagram below shows a commonly used architecture for smart meter app on Azure using IoT Central platform.
 
 > [!div class="mx-imgBorder"]
