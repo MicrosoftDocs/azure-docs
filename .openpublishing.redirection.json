@@ -43717,7 +43717,12 @@
     },
     {
       "source_path": "articles/machine-learning/service/publish-a-machine-learning-web-service.md",
-      "redirect_url": "/azure/machine-learning/service/deploy-a-machine-learning-web-servicen",
+      "redirect_url": "/azure/machine-learning/service/deploy-a-machine-learning-web-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/linear-regression-in-azure.md",
+      "redirect_url": "/azure/machine-learning/studio/use-case-excel-studio",
       "redirect_document_id": false
     }
   ]

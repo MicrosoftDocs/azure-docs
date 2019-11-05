@@ -152,7 +152,7 @@
     - name: Sentiment analysis
       href: text-analytics-module-tutorial.md
     - name: Migrate analytics from Excel to Studio (classic)
-      href: linear-regression-in-azure.md
+      href: use-case-excel-studio.md
   - name: Delete & export customer data
     items:
     - name: Studio (classic) data
