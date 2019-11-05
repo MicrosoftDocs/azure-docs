@@ -53,9 +53,10 @@ These intentions are categorized into **Intents**.
 [!INCLUDE [Follow these steps to create a new LUIS app](includes/create-pizza-app.md)]
 
 ## Create a new intent 
+
 1. In the [preview LUIS portal](https://preview.luis.ai), inside the app's **Build** section, select **+ Create**. Enter the new intent name listed below then select **Done**.
 
-The `OrderPizza` intent is predicted when: a user wants to order a pizza. 
+    The `OrderPizza` intent is predicted when: a user wants to order a pizza. 
 
 1. Add several example utterances to this intent that you expect a user to ask:
 
