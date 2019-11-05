@@ -43,7 +43,7 @@ First choose by Compliance title, then expand Azure in the Microsoft in-scope cl
 
 Q. Can I connect Power BI?
 
-A. Yes! Though Power BI supports direct query with Azure Synapse, it’s not intended for large number of users or real-time data. For production use of Power BI, we recommend using Power BI on top of Azure Analysis Services or Analysis Service IaaS. 
+A. Yes! Though Power BI supports direct query with Azure Synapse, it’s not intended for a large number of users or real-time data. To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
 
 Q. What are SQL Analytics capacity limits?
 

@@ -16,7 +16,7 @@ ms.date: 07/19/2019
 
 This article describes the limits and configuration details for 
 creating and running automated workflows with Azure Logic Apps. 
-For Microsoft Flow, see [Limits and configuration in Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config).
+For Power Automate, see [Limits and configuration in Power Automate](https://docs.microsoft.com/flow/limits-and-config).
 
 <a name="definition-limits"></a>
 
@@ -281,10 +281,10 @@ take significant time to complete.
 The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depend on the region where your logic app exists. *All* logic apps that are in the same region use the same IP address ranges.
 
 > [!NOTE]
-> Some Microsoft Flow calls, such as **HTTP** and **HTTP + OpenAPI** requests, 
+> Some Power Automate calls, such as **HTTP** and **HTTP + OpenAPI** requests, 
 > go directly through the Azure Logic Apps service and come from the IP addresses 
-> that are listed here. For more information about IP addresses used by Microsoft Flow, see 
-> [Limits and configuration in Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
+> that are listed here. For more information about IP addresses used by Power Automate, see 
+> [Limits and configuration in Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
 * To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewall with *all* the [inbound](#inbound) *and* [outbound](#outbound) IP addresses that are used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region.
 
