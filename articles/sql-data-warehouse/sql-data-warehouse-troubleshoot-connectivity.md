@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure SQL Data Warehouse | Microsoft Docs
+title: Troubleshooting Azure SQL Data Warehouse 
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs

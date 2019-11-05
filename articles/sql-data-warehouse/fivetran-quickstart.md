@@ -1,5 +1,5 @@
 ---
-title: Fivetran quickstart for Azure SQL Data Warehouse | Microsoft Docs
+title: Fivetran quickstart for Azure SQL Data Warehouse 
 description: Get started quickly with Fivetran and Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd 
@@ -65,7 +65,7 @@ This quickstart describes how to set up a new Fivetran user to work with Azure S
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    For more information, read about [memory and concurrency limits](memory-and-concurrency-limits.md) and [resource classes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
+    For more information, read about [memory and concurrency limits]memory-concurrency-limits.md) and [resource classes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
 ## Sign in to Fivetran

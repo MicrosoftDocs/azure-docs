@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure SQL Data Warehouse - Azure Powershell | Microsoft Docs'
+title: 'Quickstart: Create an Azure SQL Data Warehouse - Azure Powershell '
 description: Quickly create a SQL Database logical server, server-level firewall rule, and data warehouse with Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -113,7 +113,7 @@ New-AzSqlDatabase `
 
 Required Parameters are:
 
-* **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](memory-and-concurrency-limits.md).
+* **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits]memory-concurrency-limits.md).
 * **DatabaseName**: The name of the SQL Data Warehouse that you're creating.
 * **ServerName**: The name of the server that you're using for creation.
 * **ResourceGroupName**: Resource group you're using. To find available resource groups in your subscription use Get-AzureResource.
