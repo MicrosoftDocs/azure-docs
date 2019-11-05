@@ -116,7 +116,7 @@ Accept | The response format. For FarmBeats Data hub APIs, the format is json Ac
 
 **API requests**
 
-To make a REST (Representational State Transfer) API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the URI (Uniform Resource Identifier) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API Endpoint provided by the customer. Here is sample: https://<yourdatahub>.azurewebsites.net
+To make a REST (Representational State Transfer) API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the URI (Uniform Resource Identifier) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API Endpoint provided by the customer. Here is sample: https://\<yourdatahub-website-name>.azurewebsites.net
 
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
