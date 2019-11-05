@@ -158,7 +158,7 @@ Use the following steps:
 
 ## Get Soil Moisture Heatmap
 
-Soil moisture is the water that is held in the spaces between soil particles. The Soil Moisture Heatmap helps you understand the soil moisture data at any depth, at high resolution within your farms. To generate an accurate and usable Soil Moisture Heatmap, a uniform deployment of sensors is required, wherein all the sensors are from the same provider. Different providers will have differences in the way soil moisture is measured along with differences in calibration. The heatmap is generated for a particular depth using the sensors deployed at that depth.
+Soil moisture is the water that is held in the spaces between soil particles. The Soil Moisture Heatmap helps you understand the soil moisture data at any depth, at high resolution within your farms. To generate an accurate and usable Soil Moisture Heatmap, a uniform deployment of sensors is required, wherein all the sensors are from the same provider. Different providers will have differences in the way soil moisture is measured along with differences in calibration. The Heatmap is generated for a particular depth using the sensors deployed at that depth.
 
 ### Before you begin  
 

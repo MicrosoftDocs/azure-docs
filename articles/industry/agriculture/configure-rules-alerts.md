@@ -76,7 +76,7 @@ To edit a rule, follow these steps:
 10. In **Action**, switch on the **Email enabled** toggle button to enable email alerts.
 11. Edit the **Email addresses** that you want to send the email alert, along with the **Email Subject** and **Additional Notes**.  
 12. In the **Rule Status**, switch on the **Enabled** toggle button to enable or disable the rule.
-    You can view the number of devices that will be affected by this rule.
+You can view the number of devices that will be affected by this rule.
 13. Select **Apply** to edit the rule.
 
 ## Change rule status

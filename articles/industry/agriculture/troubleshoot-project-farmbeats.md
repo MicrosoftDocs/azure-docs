@@ -7,10 +7,9 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-
 # Troubleshooting
 
-The following sections describe common Azure FarmBeats issues, and  how to fix them.
+The following sections describe common Azure FarmBeats issues, and how to fix them.
 
 For additional help, write to us at farmbeatssupport@microsoft.com, include deployer.log file on this email.
 
@@ -39,9 +38,9 @@ See [Logs section](#collect-logs-manually) of the document to understand how to 
 
 ### Device appears offline
 
-**Symptoms**: Devices are installed, and you have linked FarmBeats with your device partner. The devices are online and sending Telemetry data, but they appear Offline.
+**Symptoms**: Devices are installed, and you have linked FarmBeats with your device partner. The devices are online and sending telemetry data, but they appear Offline.
 
-**Corrective action**: The reporting Interval is not configured for this device. Contact your device manufacturer to set the reporting interval. 
+**Corrective action**: The reporting interval is not configured for this device. Contact your device manufacturer to set the reporting interval. 
 
 ### Error deleting a resource
 
@@ -72,7 +71,7 @@ Following are the common error scenarios while deleting a device:
 
 ## Issues with jobs
 
-### FarmBeats Internal Error
+### FarmBeats internal error
 
 **Message**: FarmBeats internal error, see troubleshooting guide for more details.
 
@@ -166,7 +165,7 @@ Server refused connection at: http://172.30.175.69:8983/solr/dhus 
 
 ## Collect logs manually
 
-[Install and connect]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to Azure Storage Explorer.
+[Install and deploy]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to Azure Storage Explorer.
 
 ### How to collect data hub ADF job logs
 1. Log in to https://portal.azure.com

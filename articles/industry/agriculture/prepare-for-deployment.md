@@ -66,7 +66,7 @@ Before initiating the deployment, ensure you've the following:
 
 ## Create a sentinel account    
 
-An account with Sentinel helps you to download the sentinel satellite imagery from their official website to your device. Follow these steps to create a free account:
+An account with sentinel helps you to download the sentinel satellite imagery from their official website to your device. Follow these steps to create a free account:
 
 1. Go to https://scihub.copernicus.eu/dhus/#/self-registration. In the registration page, provide a first name, last name, username, password, and email.
 2. In the **Select Domain** drop-down menu, select the option **Land**.
@@ -85,13 +85,13 @@ For authentication and authorization on Azure FarmBeats, you must have an Azure 
 
 **Case 1**: The installer assumes that you have the rights to create an Azure active directory application registration within the desired subscription. To register, sign in to portal, go to **Azure active directory** > **app registration** > **New registration**.
 
-If you already have a subscription, you can directly move to the next procedure.
+If you already have a subscription, you can directly moved to the next procedure.
 
-**Case 2**: This method is the preferred step when you don't have enough rights to create and configure an Azure AD app registration within your subscription. Request your  admin to use the [custom script](https://aka.ms/Create_AAD_App_Powershell_Script),  which will help IT admin automatically generate and configure the Azure AD app registration on the Azure portal. As an output to running this custom script using PowerShell environment the IT admin needs to share an Azure Active Directory Application Client ID and password secret with you. Make a note of these values.
+**Case 2**: This method is the preferred step when you don't have enough rights to create and configure an Azure AD app registration within your subscription. Request your  admin to use the [custom script](https://aka.ms/FarmBeatsAADScript), which will help IT admin automatically generate and configure the Azure AD app registration on the Azure portal. As an output to running this custom script using PowerShell environment the IT admin needs to share an Azure Active Directory Application Client ID and password secret with you. Make a note of these values.
 
 Use the following steps to run the Azure AD application registration script:
 
-1. Get the registration [script](https://aka.ms/PPCreateAADappregistration).
+1. Get the registration [script](https://aka.ms/FarmBeatsAADScript).
 2. Sign in to Azure portal and select your subscription and AD tenant.
 3. Launch Cloud Shell from the top navigation of the Azure portal.
 
@@ -103,7 +103,7 @@ Use the following steps to run the Azure AD application registration script:
 6. In Cloud Shell enter the below commands to run the script.
 
     ```powershell
-    ./create_add_script.ps1
+    ./create_aad_script.ps1
     ```
 7. Make a note of the Azure AD application ID and client secret to share with person deploying Azure FarmBeats.
 
@@ -142,7 +142,7 @@ Swagger website. The default is Data hub resource group name. Press enter to con
 |“acceleratorResourceGroup”  | Resource group name for Data hub resources. |
 |“acceleratorLocation”  | Location for storing the Data hub resources
 “acceleratorWebsiteName”  | Unique URL prefix to name your Accelerator website. The default is accelerator. Press enter to continue with the default value.|
-|''sentinelUsername'' | User name to sign into: https://scihub.copernicus.eu/dhus/#/self-registration.|
+|''sentinelUsername'' | user name to sign into: https://scihub.copernicus.eu/dhus/#/self-registration.|
 |“sentinelPassword”  | Password to sign into: https://scihub.copernicus.eu/dhus/#/self-registration.|
 |“farmbeatsAppId"  | Values to be shared by Team Azure FarmBeats.  |
 |"farmbeatsPassword"  | Values to be shared by Team Azure FarmBeats.|
@@ -151,7 +151,6 @@ Swagger website. The default is Data hub resource group name. Press enter to con
 |"aadAppClientId"  | [**Optional**] Parameter to be included within Input.Json only if Azure AD app already exists.  |
 |"aadAppClientSecret"   | [**Optional**] Parameter to be included within Input.Json only if Azure AD app already exists.|
 
-**Add Azure active directory**
 
 Sample JSON input:
 
@@ -223,7 +222,7 @@ Installer creates the Azure AD (you have AD tenant read permissions).
 5. Type or paste the “Deployment Command” into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.  
 
     ```
-    wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
+    wget -N -O farmbeats-installer.sh https://aka.ms/FB_1.2.0 && bash farmbeats-installer.sh> /home/dummyuser/input.json
 
     ```
    The script automatically downloads all dependencies, and builds the deployer. Then, you're prompted to agree to the Azure FarmBeats End-user license agreement (EULA).
@@ -236,11 +235,11 @@ Installer creates the Azure AD (you have AD tenant read permissions).
    > [!NOTE]
    > The code expires after 60 minutes. When it expires you can restart by typing the deployment command again.
 
-6. On the next prompt, enter Sentinel account password.
+6. On the next prompt, enter sentinel account password.
 7. The installer now validates and starts deploying, which can take about 20 minutes.
 8. Once the deployment is successful, you will receive the below output links:
     - **Data hub URL**: Swagger link to try Azure FarmBeats APIs.
-    - **Accelerator URL**: User Interface to explore Azure FarmBeats Smart Farm Accelerator.
+    - **Accelerator URL**: User interface to explore Azure FarmBeats Smart Farm Accelerator.
     - **Deployer log file**- Log file created during deployment. It can be used for troubleshooting.
 
     - Enter 'Y' if you agree and you'll continue to the next step.
@@ -300,17 +299,17 @@ Existing Azure Active Directory app registration is used to deploy.
 8. The installer will now validate and start creating the resources, which can take about 20 minutes. Keep the session active on Cloud Shell during this time.
 9. Once the deployment goes through successfully, you'll receive the below output links:
    - **Data hub URL**: Swagger link to try FarmBeats APIs.
-   - **Accelerator URL**: User Interface to explore FarmBeats Smart Farm Accelerator.
+   - **Accelerator URL**: User interface to explore FarmBeats Smart Farm Accelerator.
    - **Deployer log file**: saves logs during deployment and can be used for troubleshooting.
 
 If you encounter any issues, review [Troubleshoot](troubleshoot-project-farmbeats.md).
 
 
-## Validate Deployment
+## Validate deployment
 
 ### Data hub
 
-Once the data hub installation is complete, you'll receive the URL to access Azure FarmBeats APIs via Swagger interface in the format: <https://<datahub-website-name>.azurewebsites.net/>
+Once the data hub installation is complete, you'll receive the URL to access Azure FarmBeats APIs via the Swagger interface in the format: <\https://<\yourdatahub-website-name>.azurewebsites.net/\>
 
 1. To sign in via Swagger, copy and paste the URL in the browser.
 2. Sign in with Azure portal credentials.
@@ -322,21 +321,21 @@ Once the data hub installation is complete, you'll receive the URL to access Azu
 
 ### Accelerator
 
-Once the Accelerator installation is complete, you'll receive the URL to access FarmBeats user-interface in the format: *<https://<accelerator-website-name>.azurewebsites.net/>*
+Once the Accelerator installation is complete, you'll receive the URL to access FarmBeats user-interface in the format: <\https://<\accelerator-website-name>.azurewebsites.net/\>
 
 1. To sign in from Accelerator, copy and paste the URL in the browser.
 2. Sign in with Azure portal credentials.
 3. Run an optional sanity test.
 
-    - Check if you are able to successfully sign in to the accelerator portal using the Accelerator link that you received as an output to a successful deployment.
+    - Check if you are able to successfully sign in to the Accelerator portal using the Accelerator link that you received as an output to a successful deployment.
     - Select **Create farm**.
-    - Under the icon "?" access the FarmBeats guides using the **Get started** button.
+    - Under the icon "?" open the FarmBeats guides using the **Get started** button.
 
 ## Upgrade
 
 The steps for upgrade are similar to the first-time installation. Follow these steps:
 
-1. Sign in on Azure portal and select your desired subscription and AD tenant.
+1. Sign in to Azure portal and select your desired subscription and AD tenant.
 2. Launch Cloud Shell from the top navigation of the Azure portal.
 
    ![Project Farm Beats](./media/prepare-for-deployment/navigation-bar-1.png)
