@@ -36,13 +36,7 @@ To deploy your first module from the Azure Marketplace, use the following steps:
 
    On the **Modules** tab of the wizard of wizard, if not auto-populated, specify your **Container Registry Credentials** from your the **Access keys** blade in your **Container Registry** in the Azure portal.
 
-<<<<<<< HEAD
    Notice that the **SimulatedTemperatureSensor** module is auto-populated. In the tutorials, you use this page to add additional modules to your deployment. For this quickstart, only deploy this one module.
-=======
-4. In the **Specify Routes** step of the wizard, you define how messages are passed between modules and to IoT Hub. For the quickstart, you want all messages from all modules to go to IoT Hub (`$upstream`). If it's not autopopulated, add the following code:
->>>>>>> d8710dd9f2a38ba1728f846b3f63d9dcb521c2c5
-
-   Select **Next: Routes** to continue to the next step of the wizard.
 
 4. On the **Routes** tab of the wizard, you define how messages are passed between modules and to IoT Hub. For the quickstart, you want all messages from all modules to go to IoT Hub (`$upstream`). If it's not autopopulated, add the following code then select **Next**:
 
