@@ -108,13 +108,14 @@ To return the form number in the runtime prediction response, the form must be m
 
 1. Select **Create** on the **Entities** page.
 
-1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, and enter the regular expression, `hrf-[0-9]{6}`. This entry matches the literal characters, `hrf-`, and allows for exactly 6 digits.
+1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, then select **Next**.
 
    ![Create regular expression entity](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
+1. Enter the regular expression (**RegEx**) expression, `hrf-[0-9]{6}`. This entry matches the literal characters, `hrf-`, and allows for exactly 6 digits, then select **Create**.
+
    ![Enter regular expression for entity](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
 
-1. Select **Create**.
 
 ## Add example utterances to the None intent
 
@@ -132,7 +133,7 @@ The **None** intent's example utterances should be outside of your client applic
    |Order a pizza for me|
    |Penguins in the ocean|
 
-   For this human resources app, these example utterances are outside the domain. If your human resources domain include animals, food, or the ocean, then you should use different example utterances for the **None** intent.
+   For this app, these example utterances are outside the domain. If your domain include animals, food, or the ocean, then you should use different example utterances for the **None** intent.
 
 ## Train the app
 
