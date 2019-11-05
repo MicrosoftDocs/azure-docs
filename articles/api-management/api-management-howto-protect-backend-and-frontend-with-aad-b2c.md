@@ -35,11 +35,11 @@ To follow the steps in this article, you must have:
 * An empty Azure Function app (running the V2 .Net Core runtime, on a Windows Consumption Plan) to host the called API
 * An Azure AD B2C tenant, linked to a subscription 
 
-Although in practice you would use resources in the same region in production workloads, for this how-to article the region of deployment is not important.
+Although in practice you would use resources in the same region in production workloads, for this how-to article the region of deployment isn't important.
 
 ## Overview
 Here is an illustration of the components in use and the flow between them once this process is complete.
-![Components in use and flow](../api-management/media/api-management-howto-protect-backend-and-frontend-with-aad-b2c/image_arch.png "Components in use and flow")
+![Components in use and flow](../api-management/media/api-management-howto-protect-backend-and-frontend-with-aad-b2c/image-arch.png "Components in use and flow")
 
 Here is a quick overview of the steps:
 
