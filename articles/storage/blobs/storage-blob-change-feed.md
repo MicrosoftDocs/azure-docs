@@ -266,7 +266,7 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 
 Because the change feed is only in public preview, you'll need to register your subscription to use the feature.
 
-### [PowerShell](#tab/azure-powershell)
+### Register by using PowerShell
 
 In a PowerShell console, run these commands:
 
@@ -274,7 +274,7 @@ In a PowerShell console, run these commands:
    Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
    ```
-### [Azure CLI](#tab/azure-cli)
+### Register by using Azure CLI
 
 In Azure Cloud Shell, run these commands:
 
@@ -282,8 +282,6 @@ In Azure Cloud Shell, run these commands:
 az feature register --namespace Microsoft.Storage --name Changefeed
 az provider register --namespace 'Microsoft.Storage'
 ```
-
----
 
 <a id="conditions"></a>
 
