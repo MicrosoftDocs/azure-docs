@@ -309,7 +309,7 @@ If you encounter any issues, review [Troubleshoot](troubleshoot-project-farmbeat
 
 ### Data hub
 
-Once the data hub installation is complete, you'll receive the URL to access Azure FarmBeats APIs via the Swagger interface in the format: <https://<\yourdatahub-website-name>.azurewebsites.net/>
+Once the data hub installation is complete, you'll receive the URL to access Azure FarmBeats APIs via the Swagger interface in the format: https://\<yourdatahub-website-name>.azurewebsites.net
 
 1. To sign in via Swagger, copy and paste the URL in the browser.
 2. Sign in with Azure portal credentials.
@@ -321,7 +321,7 @@ Once the data hub installation is complete, you'll receive the URL to access Azu
 
 ### Accelerator
 
-Once the Accelerator installation is complete, you'll receive the URL to access FarmBeats user-interface in the format: <https://<\accelerator-website-name>.azurewebsites.net>
+Once the Accelerator installation is complete, you'll receive the URL to access FarmBeats user-interface in the format: https://\<accelerator-website-name>.azurewebsites.net
 
 1. To sign in from Accelerator, copy and paste the URL in the browser.
 2. Sign in with Azure portal credentials.
