@@ -13,7 +13,7 @@ This article describes how you can bring in orthomosaic data from your drone ima
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 
-Integrating drone imagery data with Azure FarmBeats helps you get orthomosaic data from the drone flights you conduct on your farm into the Data hub. The data once available can be visualized through the FarmBeats Accelerator and can potentially be used for data fusion and AI/ML model building.
+Integrating drone imagery data with Azure FarmBeats helps you get orthomosaic data from the drone flights you conduct on your farm into the Data hub. After the data is available you can view it in the FarmBeats Accelerator, and it can be used for data fusion and AI/ML model building.
 
 ## Before you begin
 
@@ -84,4 +84,4 @@ Files and images uploaded by the drone provider appear in the Maps section. Sele
 
 ## Next steps
 
-Learn how to use the FarmBeats data hub [PIs](references-for-farmbeats.md#rest-api) to get your drone imagery.
+Learn how to use the FarmBeats data hub [APIs](references-for-farmbeats.md#rest-api) to get your drone imagery.

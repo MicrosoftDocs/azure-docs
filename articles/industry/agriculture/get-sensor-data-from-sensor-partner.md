@@ -34,7 +34,7 @@ getting the data into your FarmBeats system. You need to provide the following i
  - Client Secret  
  - EventHub Connection String
 
-The above information is provided to you by your System Integrator. For any issues while enabling the device integrations, contact your System Integrator.
+The above information is provided to you by your system integrator. For any issues while enabling the device integrations, contact your system integrator.
 
 Alternatively, you can generate the credentials by running this script from the Azure Cloud Shell. Follow the below steps:
 
@@ -51,7 +51,7 @@ Alternatively, you can generate the credentials by running this script from the 
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (Usually it gets uploaded to the home directory> username).
+5. Go to the directory where the files were uploaded (by default it gets uploaded to the home directory> username).
 6. Run the following script:
 
     ```azurepowershell-interactive 
@@ -59,7 +59,7 @@ Alternatively, you can generate the credentials by running this script from the 
     PS> ./generateCredentials.ps1   
 
     ```
-7. Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String)
+7. Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String).
 
 **Integrate device data using the generated credentials**
 
@@ -87,7 +87,7 @@ Currently FarmBeats supports the following devices:
 Use the following steps:
 
 1. On the home page, select **Devices** from the menu.
-  Devices page displays the device type, model, its status, the farm it is placed in and the last metadata updated date. By default, the  farm column is set to NULL. You can choose to assign a device to a farm. For more information, see [Assign devices](#assign-devices).
+  The Devices page displays the device type, model, status, the farm it’s placed in, and the last updated date for metadata. By default, the farm column is set to NULL. You can choose to assign a device to a farm. For more information, see [Assign devices](#assign-devices).
 2. Select the device to view the device properties, telemetry and child devices connected to the device.  
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
