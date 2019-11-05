@@ -220,7 +220,12 @@ The ability to resume an unfinished indexing job is predicated on having documen
 
 It is possible to override this behavior, enabling incremental progress and suppressing this warning by using the `assumeOrderByHighWatermarkColumn` configuration property.
 
-[More information about Cosmos DB incremental progress and custom queries.](https://go.microsoft.com/fwlink/?linkid=2099593)
+For more information, see [Incremental progress and custom queries](search-howto-index-cosmosdb.md#IncrementalProgress).
+
+### Truncated extracted text to X characters
+Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, and 4 million for Standard, Standard S2 and Standard S3 tiers. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
+
+For more information, see [Indexer limits](search-limits-quotas-capacity.md#indexer-limits).
 
 ### Could not map output field 'X' to search index
 Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To workaround this issue, double-check your output field mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).

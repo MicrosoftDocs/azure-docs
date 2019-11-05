@@ -1,5 +1,5 @@
 ---
-title: How to create a support ticket for Azure SQL Data Warehouse | Microsoft Docs
+title: How to create a support ticket for Azure SQL Data Warehouse 
 description: How to create a support ticket in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo

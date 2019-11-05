@@ -1,5 +1,5 @@
 ---
-title: Using group by options in Azure SQL Data Warehouse | Microsoft Docs
+title: Using group by options in Azure SQL Data Warehouse 
 description: Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 author: XiaoyuMSFT
