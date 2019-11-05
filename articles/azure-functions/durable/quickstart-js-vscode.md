@@ -18,6 +18,8 @@ ms.reviewer: azfuncdf, cotresne
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
+
 In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
 
 ![Running durable function in Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
@@ -158,4 +160,4 @@ After you've verified that the function runs correctly on your local computer, i
 You have used Visual Studio Code to create and publish a JavaScript durable function app.
 
 > [!div class="nextstepaction"]
-> [Learn about common durable function patterns](durable-functions-concepts.md)
+> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)

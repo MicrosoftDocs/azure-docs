@@ -1,15 +1,14 @@
 ---
 title: High availability for Hadoop - Azure HDInsight 
 description: Learn how HDInsight clusters improve reliability and availability by using an additional head node. Learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH.
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 keywords: hadoop high availability
-
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: hrasheed
 ---
 
 # Availability and reliability of Apache Hadoop clusters in HDInsight
@@ -102,7 +101,7 @@ The Ambari Web UI is viewable at `https://CLUSTERNAME.azurehdinsight.net`. Repla
 
 When you arrive on the Ambari page, the installed services are listed on the left of the page.
 
-![Installed services](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
+![Apache Ambari installed services](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 There are a series of icons that may appear next to a service to indicate status. Any alerts related to a service can be viewed using the **Alerts** link at the top of the page.  Ambari offers several predefined alerts.
 
@@ -151,11 +150,11 @@ You can select each service to view more information on it.
 
 While the service page provides information on the status and configuration of each service, it does not provide information on which head node the service is running on. To view this information, use the **Hosts** link at the top of the page. This page displays hosts within the cluster, including the head nodes.
 
-![hosts list](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
+![Apache Ambari headnode hosts list](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 Selecting the link for one of the head nodes displays the services and components running on that node.
 
-![Component status](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
+![Apache Ambari component status](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 For more information on using Ambari, see [Monitor and manage HDInsight using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 

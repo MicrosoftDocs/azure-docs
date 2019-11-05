@@ -16,7 +16,9 @@ ms.author: pafarley
 
 # Tutorial: Use Computer Vision to generate image metadata in Azure Storage
 
-In this tutorial, you will learn how to integrate the Azure Computer Vision service into a web app to generate metadata for uploaded images. A full app guide can be found in the [Azure Storage and Cognitive Services Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) on GitHub, and this tutorial essentially covers Exercise 5 of the lab. You may wish to create the end-to-end application by following every step, but if you'd just like to see how Computer Vision can be integrated into an existing web app, read along here.
+In this tutorial, you'll learn how to integrate the Azure Computer Vision service into a web app to generate metadata for uploaded images. This is useful for [digital asset management (DAM)](../Home.md#computer-vision-for-digital-asset-management) scenarios, such as if a company wants to quickly generate descriptive captions or searchable keywords for all of its images.
+
+A full app guide can be found in the [Azure Storage and Cognitive Services Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) on GitHub, and this tutorial essentially covers Exercise 5 of the lab. You may wish to create the end-to-end application by following every step, but if you'd just like to see how Computer Vision can be integrated into an existing web app, read along here.
 
 This tutorial shows you how to:
 
@@ -44,6 +46,7 @@ You will need to create a Computer Vision resource for your Azure account; this 
 1. Then go to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
 
     ![Azure portal page with the endpoint URL and access keys link outlined](../Images/copy-vision-endpoint.png)
+    
     [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 

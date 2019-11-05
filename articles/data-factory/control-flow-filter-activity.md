@@ -96,7 +96,6 @@ In this example, the pipeline has two activities: **Filter** and **ForEach**. Th
 				"defaultValue": [1, 2, 3, 4, 5, 6]
 			}
 		},
-
         "variables": {
             "test": {
                 "type": "String"

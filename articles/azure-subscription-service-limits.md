@@ -51,7 +51,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
-* [Azure Machine Learning Service](#azure-machine-learning-service-limits)
+* [Azure Machine Learning](#azure-machine-learning-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -79,15 +79,18 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Networking](#networking-limits)
   * [Application Gateway](#application-gateway-limits)
+  * [Azure Bastion](#azure-bastion-limits)
   * [Azure DNS](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure Firewall](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [Load Balancer](#load-balancer)
-  * [Public IP address](#publicip-address)
   * [Network Watcher](#network-watcher-limits)
+  * [Public IP address](#publicip-address)
+  * [Private Link](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
+  * [Virtual WAN](#virtual-wan-limits)
 * [Notification Hubs](#notification-hubs-limits)
 * [Resource group](#resource-group-limits)
 * [Role-based access control](#role-based-access-control-limits)
@@ -147,7 +150,7 @@ The following table details the features and limits of the Basic, Standard, and 
 ### Azure Kubernetes Service limits
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### Azure Machine Learning Service limits
+### Azure Machine Learning limits
 The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../articles/machine-learning/service/how-to-manage-quotas.md)
 
 ### Networking limits
@@ -155,6 +158,9 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 #### ExpressRoute limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
+#### Virtual WAN limits
+[!INCLUDE [virtual-wan-limits](../includes/virtual-wan-limits.md)]
 
 #### Application Gateway limits
 
@@ -164,8 +170,14 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 #### Network Watcher limits
 [!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
 
+#### Private Link limits
+[!INCLUDE [private-link-limits](../includes/private-link-limits.md)]
+
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### Azure Bastion limits
+[!INCLUDE [Azure Bastion limits](../includes/bastion-limits.md)]
 
 #### Azure DNS limits
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]

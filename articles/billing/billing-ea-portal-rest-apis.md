@@ -4,7 +4,7 @@ description: This article describes the REST APIs for use with your Azure enterp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -26,7 +26,7 @@ Microsoft Enterprise Azure customers can get usage and billing information throu
 
 **Marketplace Store Charge -** The [Marketplace Store Charge API](billing-enterprise-api-marketplace-storecharge.md) returns usage-based marketplace charges, broken down day for the specified billing period or start and end dates. For more information, see [Reporting APIs for Enterprise customers - Marketplace Store Charge](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
 
-**Price Sheet -** The [Price Sheet API](/billing-enterprise-api-pricesheet.md) provides the applicable rate for each meter for an enrollment and billing period. For more information, see [Reporting APIs for Enterprise customers - Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
+**Price Sheet -** The [Price Sheet API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) provides the applicable rate for each meter for an enrollment and billing period. For more information, see [Reporting APIs for Enterprise customers - Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
 
 **Billing Periods -** The [Billing Periods API](billing-enterprise-api-billing-periods.md) returns a list of billing periods that have consumption data for an enrollment in reverse chronological order. Each period contains a property pointing to the API route for the four sets of data, BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet. For more information, see [Reporting APIs for Enterprise customers - Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
@@ -64,7 +64,7 @@ The preceding steps give API access key holders with access to cost and pricing 
 
 Pass the API key for each call for authentication and authorization. Pass the following property to HTTP headers:
 
-| Request Header Key | Value |
+| Request header key | Value |
 | --- | --- |
 | Authorization | Specify the value in this format: **bearer {API\_KEY}**
 Example: bearer \&lt;APIKey\&gt; |
@@ -77,7 +77,7 @@ A Swagger endpoint is available at [Enterprise Reporting v3 APIs](https://consum
 
 When you're using an API, response status codes are shown. The following table describes them.
 
-| Response Status Code | Message | Description |
+| Response status code | Message | Description |
 | --- | --- | --- |
 | 200 | OK | No error |
 | 401 | Unauthorized | API Key not found, Invalid, Expired etc. |
@@ -91,7 +91,11 @@ Usage and billing data files are updated every 24 hours for the current billing 
 
 ### Test enrollment for development
 
-If you're a partner or a developer without an Azure enterprise enrollment and you want to access the API, you can use the test enrollment. The enrollment name is _EnrollmentNumber 100_. Then you can [test with the enrollment access key](https://automaticbillingspec.blob.core.windows.net/spec/TestEnrollmentUsageApiKey.txt) to call the API and see sample data.
+If you're a partner or a developer without an Azure enterprise enrollment and you want to access the API, you can use the test enrollment. The enrollment name is _EnrollmentNumber 100_, you can find and test usage information up to June 2018. Then you can use the following key to call the API and see sample data.
+
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpoeXA2UU9DWlZmY1pmdmhDVGR1OFdxeTJ5byJ9.eyJFbnJvbGxtZW50TnVtYmVyIjoiMTAwIiwiSWQiOiI1ZTc2ZmNiMy0xN2I4LTQ5ZDItYjdkOC0zMDU0YjUwOWY0MWYiLCJSZXBvcnRWaWV3IjoiU3lzdGVtIiwiUGFydG5lcklkIjoiIiwiRGVwYXJ0bWVudElkIjoiIiwiQWNjb3VudElkIjoiIiwiaXNzIjoiZWEubWljcm9zb2Z0YXp1cmUuY29tIiwiYXVkIjoiY2xpZW50LmVhLm1pY3Jvc29mdGF6dXJlLmNvbSIsImV4cCI6MTU4NjM5MDA2OSwibmJmIjoxNTcwNTc4ODY5fQ.lENR5pCBph6iZCVexUlN1b-j7StaILCyBewVHoILD-_fn8S2o2bHY1qUseGOkBwNlaFQfk2OZIo-jQYvnf3eP3UNrNVTCINT0APbc1RqgwSjZSxugVVHH9jnSzEjONkJaSKmi4tlidk6zkF1-uY-TPJkKxYN_9ar7BgLshF9JGXk7t8OZhxSCxDZc-smntu6ORFDl4gRZZVBKXhqOGjOAdYX5tPiGDF2Bxb68RSzh9Xyr5PXxKLx5yivZzUdo0-GFHo13V9w6a5VQM4R1w4_ro8jF8WAo3mpGZ_ovx_U5IY6zMNmi_AoA1mUyvTGotgcu94RragutoJRxAGHbNJZ0Q
+```
 
 ### Azure service catalog
 
@@ -101,11 +105,11 @@ All Azure services are posted to a catalog in CSV format in an Azure storage blo
 
 The following information describes the properties of API reports.
 
-#### Usage Summary
+#### Usage summary
 
 JSON format is generated from the CSV report. As a result, the format is same as the summary CSV format. The column name is wielded, so you should deserialize into a data table when you consume the JSON summary data.
 
-| CSV Column Name | Json Column Name | Json new Column | Comment |
+| CSV column name | JSON column name | JSON new column | Comment |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
 | Account Name | AccountName | AccountName |   |
@@ -141,7 +145,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 
 #### Azure Marketplace report
 
-| CSV Column Name | Json Column Name | Json new Column |
+| CSV column name | JSON column name | JSON new column |
 | --- | --- | --- |
 | AccountOwnerId | AccountOwnerId | AccountOwnerId |
 | Account Name | AccountName | AccountName |
@@ -168,9 +172,9 @@ JSON format is generated from the CSV report. As a result, the format is same as
 | Cost Center | CostCenters |  CostCenter |
 | Resource Group | ResourceGroup |  ResourceGroup |
 
-#### Price Sheet
+#### Price sheet
 
-| CSV Column Name | Json Column Name | Comment |
+| CSV column name | JSON column name | Comment |
 | --- | --- | --- |
 | Service | Service |  No change to price |
 | Unit of Measure | UnitOfMeasure |   |

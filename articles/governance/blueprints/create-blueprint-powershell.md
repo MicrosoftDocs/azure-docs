@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
-manager: carmonm
 ---
 # Quickstart: Define and Assign an Azure Blueprint with PowerShell
 
@@ -24,6 +23,11 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 > - Remove a blueprint that has been assigned to a subscription
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+
+## Prerequisites
+
+If it isn't already installed, follow the instructions in [Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module)
+to install and validate the **Az.Blueprint** module from the PowerShell Gallery.
 
 ## Create a blueprint
 

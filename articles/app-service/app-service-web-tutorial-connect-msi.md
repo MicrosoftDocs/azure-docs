@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 09/16/2019
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -78,10 +78,22 @@ For more information on adding an Active Directory admin, see [Provision an Azur
 
 ## Set up Visual Studio
 
-To enable development and debugging in Visual Studio, add your Azure AD user in Visual Studio by selecting **File** > **Account Settings** from the menu, and click **Add an account**.
+### Windows
+Visual Studio for Windows is integrated with Azure AD authentication. To enable development and debugging in Visual Studio, add your Azure AD user in Visual Studio by selecting **File** > **Account Settings** from the menu, and click **Add an account**.
 
 To set the Azure AD user for Azure service authentication, select **Tools** > **Options** from the menu, then select **Azure Service Authentication** > **Account Selection**. Select the Azure AD user you added and click **OK**.
 
+You're now ready to develop and debug your app with the SQL Database as the back end, using Azure AD authentication.
+
+### MacOS
+
+Visual Studio for Mac is not integrated with Azure AD authentication. However, the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library that you will use later can use tokens from Azure CLI. To enable development and debugging in Visual Studio, first you need to [install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) on your local machine.
+
+Once Azure CLI is installed on your local machine, sign in to Azure CLI with the following command using your Azure AD user:
+
+```bash
+az login --allow-no-subscriptions
+```
 You're now ready to develop and debug your app with the SQL Database as the back end, using Azure AD authentication.
 
 ## Modify your project
@@ -171,6 +183,9 @@ conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceT
 > This demonstration code is synchronous for clarity. For more information, see [Asynchronous guide for constructors](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#constructors).
 
 That's every thing you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up the SQL Database server later to allow connection from the managed identity of your App Service app. The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. You don't need any custom code to refresh the token.
+
+> [!TIP]
+> If the Azure AD user you configured has access to multiple tenants, call `GetAccessTokenAsync("https://database.windows.net/", tenantid)` with the desired tenant ID to retrieve the proper access token.
 
 Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now connecting to the Azure SQL Database directly, using Azure AD authentication. This setup lets you run database migrations from Visual Studio.
 

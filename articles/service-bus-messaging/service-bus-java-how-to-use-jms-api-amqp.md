@@ -1,10 +1,9 @@
 ---
-title: Use AMQP 1.0 with Java Message Service API and Azure Service Bus
+title: Use AMQP with Java Message Service API & Azure Service Bus
 description: How to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
@@ -13,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 10/22/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019, seo-java-august2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
 ---
 # Use the Java Message Service (JMS) with Azure Service Bus and AMQP 1.0
+This article explains how to use Azure Service Bus messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard. There is a [companion article](service-bus-amqp-dotnet.md) that explains how to do the same using the Azure Service Bus .NET API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
+
 The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform messaging applications.
 
-Support for AMQP 1.0 in Service Bus means that you can use the queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.
-
-This article explains how to use Service Bus messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard. There is a [companion article](service-bus-amqp-dotnet.md) that explains how to do the same using the Service Bus .NET API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
+Support for AMQP 1.0 in Azure Service Bus means that you can use the queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.
 
 ## Get started with Service Bus
 This guide assumes that you already have a Service Bus namespace containing a queue named **basicqueue**. If you do not, then you can [create the namespace and queue](service-bus-create-namespace-portal.md) using the [Azure portal](https://portal.azure.com). For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
@@ -341,7 +340,7 @@ MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ## JMS Topics vs. Service Bus Topics
 Using Azure Service Bus topics and subscriptions through the Java Message Service (JMS) API provides basic send and receive capabilities. It's a convenient choice when porting applications from other message brokers with JMS compliant APIs, even though Service Bus topics differ from JMS Topics and require a few adjustments. 
 
-Azure Service Bus topics route messages into named, shared, durable subscriptions that are managed through the Azure Resource Management interface, the Azure command line tools, or through the Azure portal. Each subscription allows for up to 2000 selection rules, each of which may have a filter condition and, for SQL filters, also a metadata transformation action. Each filter condition match selects the input message to be copied into tehj subscription.  
+Azure Service Bus topics route messages into named, shared, durable subscriptions that are managed through the Azure Resource Management interface, the Azure command line tools, or through the Azure portal. Each subscription allows for up to 2000 selection rules, each of which may have a filter condition and, for SQL filters, also a metadata transformation action. Each filter condition match selects the input message to be copied into the subscription.  
 
 Receiving messages from subscriptions is identical receiving messages from queues. Each subscription has an associated dead-letter queue as well as the ability to automatically forward messages to another queue or topics. 
 

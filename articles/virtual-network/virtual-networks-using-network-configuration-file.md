@@ -4,7 +4,7 @@ description: Learn how to create and modify virtual networks (classic) by export
 services: virtual-network
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 

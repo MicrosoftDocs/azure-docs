@@ -1,15 +1,14 @@
 ---
 title: Monitor your ASP.NET Web App  with Azure Application Insights | Microsoft Docs
 description: Provides instructions to quickly set up an ASP.NET Web App for monitoring with Application Insights
-services: application-insights
-keywords:
+ms.service:  azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
-ms.service: application-insights
+
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
 ---
 
 # Start monitoring your ASP.NET Web Application
@@ -46,7 +45,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 4. Select your subscription and click **Register**.
 
-5. Run your application by either selecting **Start Debugging** from the **Debug** menu or by pressing the
+5. Select **Project** > **Manage NuGet Packages** > **Package source: nuget.org** > **Update** the Application Insights SDK packages to the latest stable release.
+
+6. Run your application by either selecting **Start Debugging** from the **Debug** menu or by pressing the
   F5 key.
 
 ## Confirm app configuration

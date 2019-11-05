@@ -38,7 +38,7 @@ If an Amendment M503 is signed, you can move any agreement from any frequency to
 
 ## Credits and adjustments
 
-All credits or adjustments that are applied to your enrollment are visible at [https://www.ea.azure.com](https://www.ea.azure.com) in the **Reports** section. If you have a specific question about an actual credit amount, contact [Azure EA Portal Support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c).
+All credits or adjustments that are applied to your enrollment are visible at [https://ea.azure.com](https://ea.azure.com) in the **Reports** section. If you have a specific question about an actual credit amount, contact [Azure EA Portal Support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c).
 
 ## Request an invoice copy
 

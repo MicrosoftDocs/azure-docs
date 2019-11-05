@@ -95,7 +95,7 @@ This article answers common questions about Azure Files features and functionali
    
     \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
-    For example, the first conflict of CompanyReport.docx would become CompanyReport-CentralServer.docx if CentralServer is where the older write occurred. The second conflict would be named CompanyReport-CentralServer-1.docx.
+    For example, the first conflict of CompanyReport.docx would become CompanyReport-CentralServer.docx if CentralServer is where the older write occurred. The second conflict would be named CompanyReport-CentralServer-1.docx. Azure File Sync supports 100 conflict files per file. Once the maximum number of conflict files has been reached, the file will fail to sync until the number of conflict files is less than 100.
 
 * <a id="afs-storage-redundancy"></a>
   **Is geo-redundant storage supported for Azure File Sync?**  
@@ -339,7 +339,12 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="need-larger-share"></a>
 **What sizes are available for Azure file shares?**  
-    Azure file share sizes (premium and standard) can scale up to 100 TiB. Premium file shares sizes up to 100 TiB are available as a GA offering. Standard file shares sizes up to 5 TiB are available as a GA offering, while sizes up to 100 TiB are in preview. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide for onboarding instructions to the larger file shares preview for the standard tier.
+    Azure file share sizes (premium and standard) can scale up to 100 TiB. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide for onboarding instructions to the larger file shares for the standard tier.
+
+* <a id="lfs-performance-impact"></a>
+**Does expanding my file share quota impact my workloads or Azure File Sync?**
+    
+    No. Expanding the quota will not impact your workloads or Azure File Sync.
 
 * <a id="open-handles-quota"></a>
 **How many clients can access the same file simultaneously?**   

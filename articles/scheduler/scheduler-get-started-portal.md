@@ -15,9 +15,10 @@ ms.date: 09/17/2018
 # Create and schedule your first job with Azure Scheduler - Azure portal
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-> is replacing Azure Scheduler, which is being retired. 
-> To schedule jobs, [try Azure Logic Apps instead](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
+> [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
+> To continue working with the jobs that you set up in Scheduler, please 
+> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible.
 
 This tutorial shows how easily you can create and schedule a job, 
 and then monitor and manage that job. 

@@ -4,7 +4,7 @@ description: Troubleshoot issues when you cannot connect to your Windows virtual
 keywords: Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
-ms.author: roiyz
+ms.author: akjosh
 
 ---
 # Troubleshoot Remote Desktop connections to an Azure virtual machine

@@ -12,7 +12,7 @@ manager: dikamath
 
 # Manage your CloudSimple Private Cloud virtual machines in Azure
 
-To manage the virtual machines that you [created for your CloudSimple Private Cloud](azure-create-vm.md), sign to the [Azure portal](http://portal.azure.com). Search for and select the virtual (search under **All Services** or **Virtual Machines** on the side menu).
+To manage the virtual machines that you [created for your CloudSimple Private Cloud](azure-create-vm.md), sign to the [Azure portal](https://portal.azure.com). Search for and select the virtual (search under **All Services** or **Virtual Machines** on the side menu).
 
 ## Control virtual machine operation
 

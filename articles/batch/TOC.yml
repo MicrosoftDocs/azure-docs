@@ -80,6 +80,8 @@
     - name: Configure access to compute nodes
       href: pool-endpoint-configuration.md
     - name: Create a pool with the Shared Image Gallery
+      href: batch-sig-images.md
+    - name: Create a pool with a managed image resource
       href: batch-custom-images.md
     - name: Create a pool in a virtual network
       href: batch-virtual-network.md

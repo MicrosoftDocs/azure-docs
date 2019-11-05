@@ -35,7 +35,7 @@ If you don't have an Azure subscription, you can get one for free through [Visua
 
 2. Select **Create**.
 
-   	![Starting Continuous Delivery configuration](_img/azure-devops-project-java/fullbrowser.png)
+   	![Create an Azure resource in DevOps Projects](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
 ## Select a sample application and Azure service
 
@@ -58,7 +58,7 @@ The Java samples include a choice of several application frameworks.
 
 2. Select **Browse** to view your running application.
 
-   	![Dashboard view](_img/azure-devops-project-java/dashboardnopreview.png) 
+   	![View application dashboard in Azure portal](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
 	
    DevOps Projects automatically configured a CI build and release trigger.  You're now ready to collaborate with a team on a Java app with a CI/CD process that automatically deploys your latest work to your web site.
 

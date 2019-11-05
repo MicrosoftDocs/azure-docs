@@ -22,11 +22,9 @@ We currently support Microsoft Azure Active Directory as the identity provider.
 
 ## Supported FHIR version
 
-Azure API for FHIR (PaaS): We support version 3.0.1
+We support versions 4.0.0 and 3.0.1 on both Azure API for FHIR (PaaS) and FHIR Server for Azure (OSS)
 
-FHIR Server for Azure (OSS): We support version 4.0.0, the most recent version of the FHIR specification, in addition to version 3.0.1.
-
-See [Supported Features](fhir-features-supported.md) for details. Read about what has changed between versions in [HL7 FHIR's Version History](http://hl7.org/fhir/R4/history.html)
+See [Supported Features](fhir-features-supported.md) for details. Read about what has changed between versions in [HL7 FHIR's Version History](https://hl7.org/fhir/R4/history.html)
 
 ## OSS and Azure API for FHIR
 
