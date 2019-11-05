@@ -39,7 +39,7 @@
       href: container-registry-tutorial-deploy-update.md
 - name: Concepts
   items:
-  - name: Container registry SKUs
+  - name: Container registry SKUs and limits
     href: container-registry-skus.md
   - name: Registries, repositories, and images
     href: container-registry-concepts.md
