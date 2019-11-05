@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure HPC Cache Preview documentation
+title: Azure HPC Cache documentation
 summary: Use Azure HPC Cache to expedite file access for read-intensive high-performance computing (HPC) workloads
 
 metadata:
@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: ekpgh
   ms.author: rohogue
-  ms.date: 10/21/2019
+  ms.date: 10/30/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

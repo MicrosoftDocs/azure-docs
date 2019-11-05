@@ -35,7 +35,6 @@ The result is a private and isolated relationship between the workloads bound to
 > - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
-> - Azure Data Explorer
 >
 > The below Microsoft services are required to be on a virtual network
 > - Azure Web Apps

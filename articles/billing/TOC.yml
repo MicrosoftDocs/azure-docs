@@ -67,10 +67,14 @@
         href: billing-prepay-sql-data-warehouse-charges-with-reserved-capacity.md
       - name: Virtual machine
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: Azure Storage
+        href: ../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: Cosmos DB
         href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+      - name: Azure Data Explorer
+        href: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json  
       - name: Azure Databricks
         href: billing-prepay-databricks-reserved-capacity.md
       - name: App Service
@@ -85,14 +89,24 @@
       items:
       - name: Reserved VM Instances
         href: billing-understand-vm-reservation-charges.md
+      - name: Azure Storage reserved capacity
+        href: billing-understand-storage-charges.md
       - name: Cosmos DB reserved capacity
         href: billing-understand-cosmosdb-reservation-charges.md
       - name: SQL Database reserved capacity
         href: billing-understand-reservation-charges.md
       - name: SQL Data Warehouse
         href: billing-how-reservation-discount-is-applied-to-azure-sql-dw.md
+      - name: Azure Data Explorer
+        href: billing-understand-kusto-azuredataexplorer-reservation-charges.md  
       - name: Azure Databricks
         href: billing-reservation-discount-databricks.md
+      - name: Azure Database for MySQL
+        href: billing-understand-reservation-charges-mysql.md 
+      - name: Azure Database for PostgreSQL
+        href: billing-understand-reservation-charges-postgresql.md 
+      - name: Azure Database for MariaDB
+        href: billing-understand-reservation-charges-mariadb.md  
       - name: App Service
         href: billing-reservation-discount-app-service-isolated-stamp.md
       - name: Azure software plans
