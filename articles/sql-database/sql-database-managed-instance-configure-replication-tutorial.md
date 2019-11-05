@@ -8,10 +8,9 @@ ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/20/2019
+ms.date: 11/04/2019
 ---
-# Tutorial: Managed instance security in Azure SQL Database using Azure AD server principals (logins)
+# Tutorial: Configure transactional replication between two managed instances and SQL Server
 
 
 In this tutorial, you learn how to:
@@ -32,6 +31,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 - An [Azure subscription](https://azure.microsoft.com/en-us/free/). 
 - Experience with deploying two managed instances within the same virtual network, and a SQL Server VM in Azure. 
 - The latest version of [Azure Powershell](/powershell/azure/install-az-ps?view=azps-1.7.0).
+- An [Azure File share](../storage/files/storage-how-to-create-file-share.md). The name `replshare` is used in this tutorial. 
 
 ## 1 - Create the resource group
 Use the following PowerShell code snippet to create a new resource group:
@@ -119,25 +119,7 @@ Once VPN peering is established, test connectivity by launching SQL Server Manag
 
 ![Test connectivity to the managed instances](media/sql-database-managed-instance-configure-replication-tutorial/test-connectivity-to-mi.png)
 
-
-## 5 - Create share on subscriber
-Create a shared folder on the subscriber for the snapshot location.  To do so, do the following:
-
-1. RDP to your SQL Server VM. 
-1. Launch File Explorer and navigate to `c:\`. 
-1. Right-click in the empty space, navigate to **New** and create a **New folder**. 
-1. Right-click the new folder and rename it to `Repl`. 
-1. Right-click the new `Repl` folder and select **Properties**. 
-1. Select the **Sharing** tab, and choose to **Share** the folder. 
-1. Type `Everyone` in the field and select **Add** to grant permission of the folder to `Everyone`. 
-1. Using the drop-down under **Permission Level**, ensure that **Everyone** has `Read/Write` permission to the **Repl** folder. 
-1. Select **Share** to share the folder, and then select **Done** to close the **File sharing** window. 
-1. Make note of the value for **Network Path** as you will need it for the snapshot location. It should be `\\sql-vm-sub\Repl`. 
-1. Select **Close** to close the **Repl Properties** window. 
-
-  ![Configure sharing ](media/sql-database-managed-instance-configure-replication-tutorial/share-repl-folder.png)
-
-# 7 - Create a database
+## 7 - Create a database
 Create a new database on the publisher MI. To do so, do the following:
 
 1. Launch SQL Server Management Studio (SSMS) on your SQL Server VM. 
@@ -171,7 +153,7 @@ CREATE TABLE ReplTest (
 )
 GO
 
--- Populate table with dat
+-- Populate table with data
 USE [ReplTutorial]
 GO
 
@@ -190,22 +172,26 @@ Once connectivity is established and you have a sample database, you can configu
 
 1. Launch SQL Server Management Studio (SSMS) on your SQL Server VM. 
 1. Connect to the `sql-mi-distributor` managed instance. 
-1. Right-click the **Replication** node within **Object Explorer** and select **Configure Distribution**. 
-1. Select **Next** to move past the welcome page. 
-1. Choose to let the `sql-mi-distributor` instance acts as its own distributor, and select **Next**. 
-1. On the **Snapshot Folder** page, type in the value of the **Network path** of the shared folder you configured previously, such as `\\sql-vm-sub\Repl`. Select **Next**.  
+1. Open a **New Query** window and run the following Transact-SQL code to configure distribution on the distribution managed instance: 
 
-   ![Snapshot folder](media/sql-database-managed-instance-configure-replication-tutorial/snapshot-folder.png)
+    ```sql
+    Use MASTER
+    EXEC sys.sp_adddistributor @distributor=@@SERVERNAME, @password = '<distributor_admin_password>'; 
+    EXEC sys.sp_adddistributiondb @database = 'distribution';
+    ```
 
-1. On the **Distribution Database** page, leave all the values as default. 
-1. On the **Publishers** page, select **Add** and then select **Add SQL Server Publisher** from the drop down. This will open the **Connect to Server** dialog box. Connect to the publisher instance `sql-mi-publisher`. Select **Next**. 
+1. Run the following Transact-SQL code to register the publisher at the distributor. :
 
-   ![Add SQL MI Publisher](media/sql-database-managed-instance-configure-replication-tutorial/add-mi-as-publisher.png)
+```sql
+```
 
-1. On the **Distributor Password** page, type in a complex password that will be used by the distributor. Select **Next**. 
-1. On the **Wizard Action** page, ensure that **Configure distribution** is checked and (optionally) choose to **Generate a script file to configure distribution** if you want to save a script to reuse in the future. Select **Next**. 
-1. On the **Complete the Wizard** page, review your configuration and select **Finish** when ready to proceed. 
-1. Select **Close** once the configuration is complete. 
+1. Connect to the `sql-mi-publisher` managed instance. 
+1. Open a **New Query** window and run the following Transact-SQL code to register the distributor at the publisher: 
+
+```sql
+Use MASTER
+EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>' 
+```
 
 
 ## 7 - Create the publication
@@ -213,6 +199,10 @@ Once distribution has been configured, you can now create the publisher. To do s
 
 1. Launch SQL Server Management Studio (SSMS) on your SQL Server VM. 
 1. Connect to the `sql-mi-publisher` managed instance. 
+
+
+
+
 1. In **Object Explorer**, expand the **Replication** node and right-click the **Local Publication** folder. Select **New Publication...**. 
 1. Select **Next** to move past the welcome page. 
 1. On the **Distributor** page, select the option to **Use the following server as the Distributor**. Select **Add...**. Connect to your distributor instance, `sql-mi-distributor`. Select **Next**. 
@@ -220,7 +210,35 @@ Once distribution has been configured, you can now create the publisher. To do s
    ![Add SQL MI as distributor](media/sql-database-managed-instance-configure-replication-tutorial/add-mi-as-distributor.png)
 
 1. On the **Administrative Password** page, supply the password that you manually configured when you configured distribution (on the **Distributor password** page). Select **Next**. 
+1. On the **Publication Database** page, select the `ReplTutorial` database you created previously. Select **Next**. 
+1. On the **Publication type** page, select **Transactional publication**. Select **Next**. 
+1. On the **Articles** page, check the box next to **Tables**. Select **Next**. 
+1. On the **Filter Table Rows** page, select **Next** without adding any filters. 
+1. On the **Snapshot Agent** page, check the box next to **Create snapshot immediately and keep the snapshot available to initialize subscriptions**. Select **Next**. 
+1. On the **Agent Security** page, select **Security Settings..**. Choose to **Run under the SQL Server Agent service account** and **Use the following SQL Server login**. Provide credentials to connect to the Publisher. Select **OK** to close the **Snapshot Agent Security** page. Select **Next**. 
+
+   ![Configure Snapshot Agent security](media/sql-database-managed-instance-configure-replication-tutorial/snapshot-agent-security.png)
+
+1. On the **Wizard Actions** page, choose to **Create the publication** and (optionally) choose to **Generate a script file with steps to create the publication** if you want to save this script for later. 
+1. On the **Complete the Wizard** page, name your publication `ReplTest` and select **Next** to create your publication. 
+1. Once your publication has been created, refresh the **Replication** node in **Object explorer** to see your new publication. 
+1. Select **Next** to move past the Welcome page
 1. 
+
+## 8 - Create the subscription 
+
+Once the publication has been created, you can create the subscription. To do so, follow these steps: 
+
+1. Launch SQL Server Management Studio (SSMS) on your SQL Server VM. 
+1. Connect to the `sql-mi-publisher` managed instance. 
+1. In **Object Explorer**, expand the **Replication** node, and then expand the **Local PUblications** node. 
+1. Right-click on your publication `ReplTest` and select **New Subscriptions...**. 
+1. 
+
+
+
+1. Launch SQL Server Management Studio (SSMS) on your SQL Server VM. 
+1. Connect to your subscriber VM `sql-vm-sub`. 
 
 
 
