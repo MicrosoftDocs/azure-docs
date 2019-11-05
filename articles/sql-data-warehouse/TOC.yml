@@ -227,7 +227,7 @@
     - name: Workload isolation
       href: sql-data-warehouse-workload-isolation.md
     - name: Memory & concurrency limits
-      href: memory-and-concurrency-limits.md
+      href: memory-concurrency-limits.md
     - name: Resource classes
       href: resource-classes-for-workload-management.md
   - name: Manageability & monitoring
