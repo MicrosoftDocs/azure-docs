@@ -12,7 +12,7 @@ ms.date: 10/15/2019
 
 # Understand Apache Spark for U-SQL developers
 
-Microsoft supports several Analytics services such as [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Azure HDInsight](../hdinsight/hdinsight-overview.md) as well as Azure Data Lake Analytics. We hear from developers that they have a clear preference for open-source-solutions as they build analytics pipelines. To help U-SQL developers understand Apache Spark, and how you might transform your U-SQL scripts to Apache Spark, we've created this guidance. 
+Microsoft supports several Analytics services such as [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Azure HDInsight](../hdinsight/hdinsight-overview.md) as well as Azure Data Lake Analytics. We hear from developers that they have a clear preference for open-source-solutions as they build analytics pipelines. To help U-SQL developers understand Apache Spark, and how you might transform your U-SQL scripts to Apache Spark, we've created this guidance.
 
 It includes a number of steps you can take, and several alternatives.
 
@@ -23,7 +23,7 @@ It includes a number of steps you can take, and several alternatives.
    If you use [Azure Data Factory](../data-factory/introduction.md) to orchestrate your Azure Data Lake Analytics scripts, you'll have to adjust them to orchestrate the new Spark programs.
 2. Understand the differences between how U-SQL and Spark manage data
 
-   If you want to move your data from [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) to [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md), you will have to copy both the file data and the catalog maintained data. See [Understand Spark data formats](understand-spark-data-formats.md)
+   If you want to move your data from [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) to [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md), you will have to copy both the file data and the catalog maintained data. Note that Azure Data Lake Analytics only supports Azure Data Lake Storage Gen1. See [Understand Spark data formats](understand-spark-data-formats.md)
 3. Transform your U-SQL scripts to Spark
 
    Before transforming your U-SQL scripts, you will have to choose an analytics service. Some of the available compute services available are:
