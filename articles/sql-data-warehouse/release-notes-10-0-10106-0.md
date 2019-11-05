@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse Release Notes 
+title: Release Notes 
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
@@ -10,6 +10,7 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
+ms.custom: seo-lt-2019
 ---
 
 # Azure SQL Data Warehouse release notes
