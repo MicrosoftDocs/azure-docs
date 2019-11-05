@@ -18,7 +18,7 @@ Test out Azure IoT Edge in this quickstart by deploying containerized code to a 
 
 In this quickstart you learn how to:
 
-1. Create an IoT Hub.
+1. Create an IoT hub.
 2. Register an IoT Edge device to your IoT hub.
 3. Install and start the IoT Edge runtime on your virtual device.
 4. Remotely deploy a module to an IoT Edge device and send telemetry to IoT Hub.
@@ -89,7 +89,7 @@ The following code creates a free **F1** hub in the resource group **IoTEdgeReso
 
 ## Register an IoT Edge device
 
-Register an IoT Edge device with your newly created IoT Hub.
+Register an IoT Edge device with your newly created IoT hub.
 ![Diagram - Register a device with an IoT Hub identity](./media/quickstart/register-device.png)
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. The device identity lives in the cloud, and you use a unique device connection string to associate a physical device to a device identity.
@@ -135,7 +135,7 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
 
 1. If you haven't already, follow the steps in [Register a new Azure IoT Edge device](how-to-register-device.md) to register your device and retrieve the device connection string.
 
-2. Run PowerShell as an administrator.
+2. In the virtual machine, run PowerShell as an administrator.
 
    >[!NOTE]
    >Use an AMD64 session of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which session type you're using, run the following command:
@@ -144,7 +144,7 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the moby runtime, and then downloads the IoT Edge runtime.
+3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the Moby runtime, and then downloads the IoT Edge runtime.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `

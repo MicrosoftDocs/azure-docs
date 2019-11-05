@@ -1,7 +1,7 @@
 ---
 title:  "Two-Class Logistic Regression: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Two-Class Logistic Regression module in Azure Machine Learning service to create a logistic regression model that can be used to predict two (and only two) outcomes. 
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Two-Class Logistic Regression module in Azure Machine Learning to create a logistic regression model that can be used to predict two (and only two) outcomes. 
 
 services: machine-learning
 ms.service: machine-learning
@@ -10,11 +10,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Two-Class Logistic Regression module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a logistic regression model that can be used to predict two (and only two) outcomes. 
 
@@ -83,4 +83,4 @@ After training is complete:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
