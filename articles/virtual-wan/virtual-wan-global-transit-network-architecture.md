@@ -140,4 +140,4 @@ Create a connection using Virtual WAN and Deploy Azure Firewall in VWAN hub(s).
 
 * [Site-to-site connections using Virtual WAN](virtual-wan-site-to-site-portal.md)
 * [ExpressRoute connections using Virtual WAN](virtual-wan-expressroute-portal.md)
-* [Azure Firewall Manager to Deploy Azure FW in VWAN] (https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Azure Firewall Manager to Deploy Azure FW in VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)

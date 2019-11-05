@@ -1,14 +1,10 @@
 ---
 title: "Quickstart: Launch an application using Maven - Azure Spring Cloud"
 description: Launch a sample application using Maven
-services: spring-cloud
 author: jpconnock
-manager: gwallace
-editor: ''
-
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/31/2019
+ms.date: 11/04/2019
 ms.author: jeconnoc
 
 ---
@@ -90,7 +86,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 1. Change directory and build the project by running the following command:
 
     ```azurecli
-    cd PiggyMetrics
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 

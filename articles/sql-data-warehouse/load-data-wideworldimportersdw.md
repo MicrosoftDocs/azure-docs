@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Load data to Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Tutorial: Load data to Azure SQL Data Warehouse '
 description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo 
@@ -39,7 +39,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL Data Warehouse
 
-An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+An Azure SQL Data Warehouse is created with a defined set of [compute resources]memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
 Follow these steps to create a blank SQL Data Warehouse. 
 

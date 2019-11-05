@@ -1,6 +1,6 @@
 ---
 title: Evaluate model performance
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: This article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio (classic) and provides a brief explanation of the metrics available for this task.
 services: machine-learning
 ms.service: machine-learning

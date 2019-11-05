@@ -1,5 +1,5 @@
 ---
-title: Assign variables in Azure SQL Data Warehouse | Microsoft Docs
+title: Assign variables in Azure SQL Data Warehouse 
 description: Tips for assigning T-SQL variables in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 author: XiaoyuMSFT 

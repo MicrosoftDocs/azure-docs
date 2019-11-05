@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure SQL Data Warehouse | Microsoft Docs
+title: Connect to Azure SQL Data Warehouse 
 description: Get connected to Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT 
