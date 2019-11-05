@@ -1059,7 +1059,7 @@ service = Model.deploy(ws, service_name, [model])
 
 NOTE: These dependencies are included in the prebuilt sklearn inference container:
 
-```python
+```yaml
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
