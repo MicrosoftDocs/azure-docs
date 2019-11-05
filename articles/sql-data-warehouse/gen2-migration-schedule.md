@@ -1,5 +1,5 @@
 ---
-title: Migrate your existing Azure SQL Data Warehouse to Gen2 | Microsoft Docs
+title: Migrate your existing Azure SQL Data Warehouse to Gen2 
 description: Instructions for migrating an existing data warehouse to Gen2 and the migration schedule by region.
 services: sql-data-warehouse
 author: mlee3gsd

@@ -1,5 +1,5 @@
 ---
-title: Manage and monitor workload importance in Azure SQL Data Warehouse | Microsoft Docs
+title: Manage and monitor workload importance in Azure SQL Data Warehouse 
 description: Learn how to manage and monitor request level importance.
 services: sql-data-warehouse
 author: ronortloff

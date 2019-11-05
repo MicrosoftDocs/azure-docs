@@ -469,6 +469,6 @@ Search-AzGraph -Query "limit 1" -Include DisplayNames
 
 ## Next steps
 
-- See samples of [Starter queries](starter.md)
-- Learn more about the [query language](../concepts/query-language.md)
-- Learn to [explore resources](../concepts/explore-resources.md)
+- See samples of [Starter queries](starter.md).
+- Learn more about the [query language](../concepts/query-language.md).
+- Learn more about how to [explore resources](../concepts/explore-resources.md).

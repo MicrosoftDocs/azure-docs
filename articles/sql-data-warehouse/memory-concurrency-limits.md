@@ -1,5 +1,5 @@
 ---
-title: Memory and concurrency limits in Azure SQL Data Warehouse | Microsoft Docs
+title: Memory and concurrency limits in Azure SQL Data Warehouse 
 description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 
 # Memory and concurrency limits for Azure SQL Data Warehouse
-View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse. For more information, and to apply these capabilities to your workload management plan, see [Resource classes for workload management](resource-classes-for-workload-management.md). 
+View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.  
 
 ## Data warehouse capacity settings
 The following tables show the maximum capacity for the data warehouse at different performance levels. To change the performance level, see [Scale compute - portal](quickstart-scale-compute-portal.md).
@@ -44,7 +44,30 @@ The service levels range from DW100c to DW30000c.
 
 The maximum service level is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
-## Concurrency maximums
+## Concurrency maximums for workload groups
+With the introduction of workload groups-LINK TBD, the concept of concurrency slots no longer applies.  Resources per request are allocated on a percentage basis and specified in the workload group definition.  However, even with the removal of concurrency slots, there are minimum amounts of resources needed per queries based on the service level.  The below table defined the minimum amount of resources needed per query across service levels and the associated concurrency that can be achieved. 
+
+|Service Level|Maximum concurrent queries|Min % supported for REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|---|---|---|
+|DW100c|4|25%|
+|DW200c|8|12.5%|
+|DW300c|12|8%|
+|DW400c|16|6.25%|
+|DW500c|20|5%|
+|DW1000c|32|3%|
+|DW1500c|32|3%|
+|DW2000c|48|2%|
+|DW2500c|48|2%|
+|DW3000c|64|1.5%|
+|DW5000c|64|1.5%|
+|DW6000c|128|0.75%|
+|DW7500c|128|0.75%|
+|DW10000c|128|0.75%|
+|DW15000c|128|0.75%|
+|DW30000c|128|0.75%|
+||||
+
+## Concurrency maximums for resource classes
 To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 **Static resource classes**
