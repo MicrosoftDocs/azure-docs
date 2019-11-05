@@ -12,14 +12,16 @@ ms.author: adbalaji
 
 # Using Diagnostics Settings for Recovery Services Vaults
 
-Azure Backup sends diagnostics events that can be collected and used for the purposes of analysis, alerting and reporting. You can configure diagnostics settings for a Recovery Services Vault via the Azure Portal, by navigating to the vault and clicking the **Diagnostic Settings** menu item. Clicking on **+ Add Diagnostic Setting** lets you send one or more diagnostics events to a Storage Account, Event Hub, or a Log Analytics (LA) Workspace.
+Azure Backup sends diagnostics events that can be collected and used for the purposes of analysis, alerting and reporting. 
+
+You can configure diagnostics settings for a Recovery Services Vault via the Azure Portal, by navigating to the vault and clicking the **Diagnostic Settings** menu item. Clicking on **+ Add Diagnostic Setting** lets you send one or more diagnostics events to a Storage Account, Event Hub, or a Log Analytics (LA) Workspace.
 
 ![Diagnostics Settings Blade](./media/backup-azure-diagnostics-events/diagnostics_settings_blade.PNG)
 
 ## Diagnostics Events Available for Azure Backup Users
 1)	**AzureBackupReport** – Traditionally, all backup-related diagnostics data for a vault has been contained in a single event called ‘AzureBackupReport’. 
 
-Data for this event can be sent to a storage account, which you can use in conjunction with Power BI Reports ([click here](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) to learn the Power BI data model for AzureBackupReport) or any custom solution which uses data from the storage account. It can also be sent to an LA Workspace ([click here](https://docs.microsoft.com/azure/backup/backup-azure-log-analytics-data-model) to learn the Log Analytics data model for AzureBackupReport). It can also be sent to an Event Hub.
+Data for this event can be sent to a storage account, which you can use in conjunction with Power BI Reports ([click here](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) to learn the Power BI data model for AzureBackupReport) or any custom solution which uses data from the storage account. It can also be sent to an LA Workspace ([click here](https://docs.microsoft.com/azure/backup/backup-azure-log-analytics-data-model) to learn the Log Analytics data model for AzureBackupReport). Alternatively, it can be sent to an Event Hub.
 
 2)	**New Events** – Today, Azure Backup supports six new events, which are, in essence, a decomposition of all the data contained in AzureBackupReport.  These new events are - CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy, and AddonAzureBackupStorage (click here to learn the data model for the new events). Data for these new events can also be sent to either a storage account, LA workspace, or an Event Hub. If you are sending this data to an LA Workspace, you need to select the ‘Resource Specific’ toggle in the Diagnostics Setting screen (see more information in the below sections).
 
