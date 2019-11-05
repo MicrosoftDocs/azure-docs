@@ -61,6 +61,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Add logging of the exception that is causing a local run to fail prematurely.
   + **azureml-train-core**
     + Consider resume_from runs in the calculation of automated hyperparameter tuning best child runs.
+  + **azureml-pipeline-core**
+    + Fixed parameter handling in pipeline argument construction.
+    + Added pipeline description and step type yaml parameter.
+    + New yaml format for Pipeline step and added deprecation warning for old format.
+    
+    
   
 ## 2019-11-04
 
