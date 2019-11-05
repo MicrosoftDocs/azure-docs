@@ -7,7 +7,7 @@ author: cawaMS
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 11/08/2019
 ms.author: cawa
 ---
 
@@ -139,7 +139,7 @@ After the connection is successfully added, the resource tree goes to the node t
 
 1. Choose a display name for your connection and enter your connection string. Then, select **Next**.
 
-1. Review the **Connection Summary** to make sure all the information is correct. If it is, select **Connect**. Otherwise, use the **Back** button to return to the previous pages to fix any incorrect information.
+1. Review the **Connection Summary** to make sure all the information is correct. If it is, select **Connect**. Otherwise, select **Back** to return to the previous pages to fix any incorrect information.
 
 After the connection is successfully added, the resource tree goes to the node that represents the connection. The resource appears under **Local & Attached** > **Storage Accounts**. If Storage Explorer couldn't add your connection, or if you can't access your data after successfully adding the connection, see the [Azure Storage Explorer troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
@@ -153,7 +153,7 @@ After the connection is successfully added, the resource tree goes to the node t
 
 1. Choose a display name for your connection and enter your shared access signature URI. The service endpoint for the type of resource you're attaching should autofill. If you're using a custom endpoint, it's possible it might not. Select **Next**.
 
-1. Review the **Connection Summary** to make sure all the information is correct. If it is, select **Connect**. Otherwise, use the **Back** button to return to the previous pages to fix any incorrect information.
+1. Review the **Connection Summary** to make sure all the information is correct. If it is, select **Connect**. Otherwise, select **Back** to return to the previous pages to fix any incorrect information.
 
 After the connection is successfully added, the resource tree goes to the node that represents the connection. The resource appears under **Local & Attached** > **Storage Accounts** > **(Attached Containers)** > *the service node for the type of container you attached*. If Storage Explorer couldn't add your connection, see the [Azure Storage Explorer troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting). See the troubleshooting guide if you can't access your data after successfully adding the connection.
 
@@ -171,7 +171,7 @@ After the connection is successfully added, the resource tree goes to the node t
 
 1. Choose the **Storage domain** to use and then select **Next**.
 
-1. Review the **Connection Summary** to make sure all the information is correct. If it is, select **Connect**. Otherwise, use the **Back** button to return to the previous pages to fix any incorrect information.
+1. Review the **Connection Summary** to make sure all the information is correct. If it is, select **Connect**. Otherwise, select **Back** to return to the previous pages to fix any incorrect information.
 
 After the connection is successfully added, the resource tree goes to the node that represents the connection. The resource appears under **Local & Attached** > **Storage Accounts**. If Storage Explorer couldn't add your connection, or if you can't access your data after successfully adding the connection, see the [Azure Storage Explorer troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
@@ -182,7 +182,7 @@ Storage Explorer currently supports two official Storage emulators:
 * [Azure Storage emulator](storage/common/storage-use-emulator.md) (Windows only)
 * [Azurite](https://github.com/azure/azurite) (Windows, macOS, or Linux)
 
-If your emulator is listening on the default ports, you can use the **Emulator - Default Ports** node (found under **Local & Attached** > **Storage Accounts**) to quickly access your emulator.
+If your emulator is listening on the default ports, you can use the **Emulator - Default Ports** node to access your emulator. Look for **Emulator - Default Ports** under **Local & Attached** > **Storage Accounts**.
 
 If you want to use a different name for your connection, or if your emulator isn't running on the default ports, follow these steps:
 
@@ -199,7 +199,7 @@ If you want to use a different name for your connection, or if your emulator isn
 
 1. Choose a display name for your connection and enter the ports your emulator is listening on for each service type. **Attach to a Local Emulator** suggests the default port values for most emulators. **Files port** is blank, because neither of the official emulators currently support the Files service. If the emulator you're using does support Files, you can enter the port to use. Then, select **Next**.
 
-1. Review the **Connection Summary** and make sure all the information is correct. If it is, select **Connect**. Otherwise, use the **Back** button to return to the previous pages to fix any incorrect information.
+1. Review the **Connection Summary** and make sure all the information is correct. If it is, select **Connect**. Otherwise, select **Back** to return to the previous pages to fix any incorrect information.
 
 After the connection is successfully added, the resource tree goes to the node that represents the connection. The node should appear under **Local & Attached** > **Storage Accounts**. If Storage Explorer couldn't add your connection, or if you can't access your data after successfully adding the connection, see the [Azure Storage Explorer troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
