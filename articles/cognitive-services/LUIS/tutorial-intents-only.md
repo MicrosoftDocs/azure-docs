@@ -44,45 +44,53 @@ These intentions are categorized into **Intents**.
 |Intent|Purpose|
 |--|--|
 |`ModifyOrder`|Determine user's pizza order.|
-|`None`|Determine if user is asking something app is not supposed to answer. This intent if provided as part of app creation and can't be deleted. |
+|`Greeting`|Begin bot conversation.|
+|`ConfirmOrder`|Confirm pizza order.|
+|`None`|Determine if user is asking something the app is not supposed to answer. This intent if provided as part of app creation and can't be deleted. |
 
 ## Create a new app
 
-[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+[!INCLUDE [Follow these steps to create a new LUIS app](includes/create-pizza-app.md)]
 
 ## Create a new intent 
-1. In the [preview LUIS portal](https://preview.luis.ai), inside the app's **Build** section, select **+ Create**. Enter the new intent name `GetJobInformation`. This intent is predicted when a user wants information about open jobs in the company. 
+1. In the [preview LUIS portal](https://preview.luis.ai), inside the app's **Build** section, select **+ Create**. Enter the new intent name listed below then select **Done**.
 
-    ![Screenshot of Language Understanding (LUIS) New intent dialog](media/luis-quickstart-intents-only/create-intent.png "Screenshot of Language Understanding (LUIS) New intent dialog")
+The `OrderPizza` intent is predicted when: a user wants to order a pizza. 
 
-1. Select **Done**.
-
-2. Add several example utterances to this intent that you expect a user to ask:
+1. Add several example utterances to this intent that you expect a user to ask:
 
     | Example utterances|
     |--|
-    |`Any new jobs posted today?`|
-    |`Are there any new positions in the Seattle office?`|
-    |`Are there any remote worker or telecommute jobs open for engineers?`|
-    |`Is there any work with databases?`|
-    |`I'm looking for a co-working situation in the tampa office.`|
-    |`Is there an internship in the san francisco office?`|
-    |`Is there any part-time work for people in college?`|
-    |`Looking for a new situation with responsibilities in accounting`|
-    |`Looking for a job in new york city for bilingual speakers.`|
-    |`Looking for a new situation with responsibilities in accounting.`|
-    |`New jobs?`|
-    |`Show me all the jobs for engineers that were added in the last 2 days.`|
-    |`Today's job postings?`|
-    |`What accounting positions are open in the london office?`|
-    |`What positions are available for Senior Engineers?`|
-    |`Where is the job listings`|
-
-    [![Screenshot of entering new utterances for MyStore intent](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    |`can i get a pepperoni pizza and a can of coke please`|
+    |`can i get a small pizza with onions peppers and olives`|
+    |`delivery for a small pepperoni pizza`|
+    |`pickup a cheddar cheese pizza large with extra anchovies`|
+    |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
 
     By providing _example utterances_, you are training LUIS about what kinds of utterances should be predicted for this intent. 
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
+## Create remaining subject domain intents with example utterances
+
+1. Create the `Greeting` intent and add the following example utterances. This is the intent to determine if a user is beginning a new pizza order conversation.
+
+    | Example utterances|
+    |--|
+    |`Hi`|
+    |`Hello`|
+    |`Hey`|
+    |`Start`|
+    |`Begin`|
+
+1. Create the `Confirm` intent and add the following example utterances. This is the intent to determine if a user is done ordering and accepts the order details. 
+
+    | Example utterances|
+    |--|
+    |`Go ahead`|
+    |`ok`|
+    |`Yes`|
+    |`Sure`|
+
 
 ## Add example utterances to the None intent 
 
@@ -90,15 +98,15 @@ These intentions are categorized into **Intents**.
 
 ## Train the app before testing or publishing
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## Publish the app to query from the endpoint
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](includes/how-to-publish.md)] 
 
 ## Get intent prediction from the endpoint
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
 1. Go to the end of the URL in the address bar and enter `I'm looking for a job with Natural Language Processing`. The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances. It is a good test and should return the `GetJobInformation` intent as the top scoring intent. 
 
