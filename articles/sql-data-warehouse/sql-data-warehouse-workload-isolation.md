@@ -37,7 +37,7 @@ In the absence of workload isolation, requests operate in the [shared pool](#sha
 
 Configuring workload isolation should be done with caution as the resources are allocated to the workload group even if there are no active requests in the workload group.  Over-configuring isolation can lead to diminished overall system utilization.
 
-Users should avoid a workload management solution that configures 100% workload isolation: 100% isolation is achieved when the sum of min_percentage_resource configured across all workload groups equals 100%.  This type of configuration is overly restrictive and rigid, leaving little room for resource requests that are accidently mis-classified.  There is a provision to allow one request to execute from workload groups not configured for isolation.  The resources allocated to this request will show up as a zero in the systems DMVs and borrow a smallrc level of resource grant from system reserved resources.
+Users should avoid a workload management solution that configures 100% workload isolation: 100% isolation is achieved when the sum of min_percentage_resource configured across all workload groups equals 100%.  This type of configuration is overly restrictive and rigid, leaving little room for resource requests that are accidentally mis-classified.  There is a provision to allow one request to execute from workload groups not configured for isolation.  The resources allocated to this request will show up as a zero in the systems DMVs and borrow a smallrc level of resource grant from system reserved resources.
 
 > [!NOTE] 
 > To ensure optimal resource utilization, consider a workload management solution that leverages some isolation to ensure SLAs are met and mixed with shared resources that are accessed based on [workload importance](sql-data-warehouse-workload-importance.md).
@@ -69,7 +69,7 @@ Configuring REQUEST_MAX_RESOURCE_GRANT_PERCENT to a value greater than REQUEST_M
 
 ## Execution Rules
 
-On ad-hoc reporting systems, customers can accidently execute runaway queries that severely impact the productivity of others.  System admins are forced to spend time killing runaway queries to free up system resources.  Workload groups offer the ability to configure a query execution timeout rule to cancel queries that have exceeded the specified value.  The rule is configured by setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter in the [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.
+On ad-hoc reporting systems, customers can accidentally execute runaway queries that severely impact the productivity of others.  System admins are forced to spend time killing runaway queries to free up system resources.  Workload groups offer the ability to configure a query execution timeout rule to cancel queries that have exceeded the specified value.  The rule is configured by setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter in the [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.
 
 ## Shared pool resources
 

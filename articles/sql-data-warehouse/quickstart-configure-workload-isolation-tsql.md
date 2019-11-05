@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Configure workload isolation using T-SQL
 
-In this quickstart, you'll quickly create a workload group and classifier for reserving resources for data loading. The workload group will allocate 20% of the system resorces to a data loads.  The workload classifier will assign requests to the data loads workload group.  With 20% isolation for data loads, they are guaranteed resources to hit SLAs.
+In this quickstart, you'll quickly create a workload group and classifier for reserving resources for data loading. The workload group will allocate 20% of the system resources to a data loads.  The workload classifier will assign requests to the data loads workload group.  With 20% isolation for data loads, they are guaranteed resources to hit SLAs.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
