@@ -34,13 +34,9 @@ Analyzers are called during indexing and during query execution. It's common to 
 
 To preserve whole terms in the token, we recommend using keyword tokenizer because it creates a single token for the entire contents of a field. The following example is an illustration of a custom analyzer that provides the keyword tokenizer. This custom analyzer is referenced on the 'featureCode' field definition, but defined further down in the index schema.
 
-A token filter adds additional processing over existing tokens in your index. The following example includes a lower-case filter in anticipation of wildcard and regular expression queries, both of which lower-case any upper-case characters found during query parsing. It also includes an EdgeNGramTokenFilter to make prefix matches easier and faster.
-
 ```json
 {
     "fields": [
-      . . . 
-
         {
            "name": "featureCode",
             "analyzer":"myCustomAnalyzer",
@@ -51,31 +47,35 @@ A token filter adds additional processing over existing tokens in your index. Th
             "sortable": false,
             "facetable": false
         }
-     . . . 
-    ],
-   "analyzers": [
-        {
-           "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
+```
+
+A token filter adds additional processing over existing tokens in your index. The following example includes a lower-case filter in anticipation of wildcard and regular expression queries, both of which lower-case any upper-case characters found during query parsing. It also includes an EdgeNGramTokenFilter to make prefix matches easier and faster.
+
+```json
+"analyzers": [
+      {
+         "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
            "name":"myCustomAnalyzer",
            "charFilters":[],
            "tokenizer":"keyword_v2",
            "tokenFilters":[
               "lowercase",
               "my_edgeNGram"
-           ],
-           "charfilters": []
-        }
-     ],
-   "tokenFilters": [
-        {
-           "@odata.type":"#Microsoft.Azure.Search.EdgeNGramTokenFilterV2",
+            ]
+      }
+    ],
+
+"charfilters": [],
+
+"tokenFilters": [
+      {
+         "@odata.type":"#Microsoft.Azure.Search.EdgeNGramTokenFilterV2",
            "name":"my_edgeNGram",
            "minGram": 2,
            "maxGram": 25,
            "side": "front"
-        }
-     ]
-}
+      }
+    ],
 ```
 
 ### Dedicated analyzers for indexing and query execution
