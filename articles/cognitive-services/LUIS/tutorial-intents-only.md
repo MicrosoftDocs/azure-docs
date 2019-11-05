@@ -31,7 +31,7 @@ In this tutorial, you create a custom app that predicts a user's intention based
 > * Get intent from endpoint
 
 
-[!INCLUDE [LUIS Free account](../includes/quickstart-tutorial-use-free-starter-key.md)]
+[!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
 
 ## User intentions as intents
 
