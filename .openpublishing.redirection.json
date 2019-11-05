@@ -5279,6 +5279,7 @@
       "source_path": "articles/application-gateway/application-gateway-waf-configuration.md",
       "redirect_url": "/azure/web-application-firewall/ag/application-gateway-waf-configuration",
       "redirect_document_id": false
+    },
     {
       "source_path": "articles/application-gateway/web-application-firewall-troubleshoot.md",
       "redirect_url": "/azure/web-application-firewall/ag/web-application-firewall-troubleshoot",
