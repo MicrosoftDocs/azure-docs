@@ -35,7 +35,7 @@ The steps to create a backup policy for an Azure Recovery Services vault are out
 To create or update an Azure Backup policy, use the following *PUT* operation
 
 ```http
-PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
 ```
 
 The `{policyName}` and `{vaultName}` are provided in the URI. Additional information is provided in the request body.
@@ -175,14 +175,14 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
 Then track the resulting operation using the location header or Azure-AsyncOperation header with a simple *GET* command.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 ```
 
 Once the operation completes, it returns 200 (OK) with the policy content in the response body.
