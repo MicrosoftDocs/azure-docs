@@ -890,6 +890,8 @@
         href: n2f-expensereports-tutorial.md
       - name: Namely
         href: namely-tutorial.md
+      - name: NegometrixPortal Single Sign On (SSO)
+        href: negometrixportal-tutorial.md
       - name: NEOGOV
         href: neogov-tutorial.md
       - name: Neota Logic Studio
