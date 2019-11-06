@@ -127,10 +127,15 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
 ### Using Service Fabric Explorer
 
 1. Make sure Advanced Mode is enabled.
+
 ![Enable Advanced Mode][2]
+
 2. Select an application and go to action. Click Enable/Update Application Backup.
+
 ![Enable Application Backup][3] 
+
 3. Finally, select the desired policy and click Enable Backup.
+
 ![Select Policy][4]
 
 

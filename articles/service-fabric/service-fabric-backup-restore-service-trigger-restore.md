@@ -200,6 +200,7 @@ You can track the progress of a restore with TrackRestoreProgress.
 You can trigger a restore from Service Fabric Explorer. Make sure Advanced Mode has been enabled in Service Fabric Explorer settings.
 1. Select the desired partitions and click on Actions. 
 2. Select Trigger Partition Restore and fill in information for Azure:
+
     ![Trigger Partition Restore][2]
 
     or FileShare:

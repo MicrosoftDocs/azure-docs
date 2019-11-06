@@ -111,6 +111,7 @@ You can use the [GetBackupProgress](https://docs.microsoft.com/rest/api/servicef
 Make sure Advanced Mode has been enabled in Service Fabric Explorer settings.
 1. Select the desired partitions and click on Actions. 
 2. Select Trigger Partition Backup, and fill in information for Azure:
+
     ![Trigger Partition Backup][0]
 
     or FileShare:
