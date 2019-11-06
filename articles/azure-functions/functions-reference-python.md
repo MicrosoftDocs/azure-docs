@@ -531,10 +531,10 @@ class TestFunction(unittest.TestCase):
 ```
 ## Temporary files
 
-The `tempfile.gettempdir()` method returns a temporary folder, which on Linux is `/tmp`. Your application can use this directory store temporary files generated and used by your functions during execution. 
+The `tempfile.gettempdir()` method returns a temporary folder, which on Linux is `/tmp`. Your application can use this directory to store temporary files generated and used by your functions during execution. 
 
 > [!IMPORTANT]
-> Files written to the temporary directory are not guaranteed to persist across invocations. During scale-out, these files are also not shared between instances. 
+> Files written to the temporary directory aren't guaranteed to persist across invocations. During scale out, temporary files aren't shared between instances. 
 
 The following example creates a named temporary file in the temporary directory (`/tmp`):
 
