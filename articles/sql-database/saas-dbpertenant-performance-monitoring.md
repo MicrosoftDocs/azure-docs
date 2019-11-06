@@ -1,5 +1,5 @@
 ---
-title: "Saas app: Monitor performance of many Azure SQL databases | Microsoft Docs"
+title: "Saas app: Monitor performance of many Azure SQL databases "
 description: "Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app"
 services: sql-database
 ms.service: sql-database

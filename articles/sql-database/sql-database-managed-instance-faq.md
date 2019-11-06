@@ -1,5 +1,5 @@
 ---
-title: SQL Database managed instance FAQ | Microsoft Docs
+title: SQL Database managed instance FAQ 
 description: SQL Database managed instance frequently asked questions (FAQ)
 services: sql-database
 ms.service: sql-database
