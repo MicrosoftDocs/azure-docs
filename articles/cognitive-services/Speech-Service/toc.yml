@@ -68,7 +68,7 @@
   - name: Resources
     items:
     - name: Speech-to-text FAQ
-      href: stt-faq.md
+      href: faq-stt.md
 - name: Text-to-speech
   exanded: false
   items:
