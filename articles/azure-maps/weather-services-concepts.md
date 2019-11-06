@@ -44,12 +44,10 @@ The table below provides guidance to interpret the radar images and create a map
 
 Detailed color palette for radar tiles with Hex color codes and Dbz values is showed below. Dbz represents precipitation intensity in weather radar. 
 
-**Global Radar (SMIR)**
-
 | **RAIN**             | **ICE**              | **SNOW**             | **MIXED**           |
 |----------------------|----------------------|----------------------|---------------------|
 | **dbz**    **color** | **dbz**    **color** | **dbz**    **color** | **dbz**   **color** |
-| 1.25    #93C701      | 1.25    #E6A5C8      | 1.25    #9EC8F2      | 1.25     #C196E6    |
+| 1.25  	&nbsp; 	&nbsp;   #93C701      | 1.25  	&nbsp; 	&nbsp;   #E6A5C8      | 1.25    	&nbsp; 	&nbsp; #9EC8F2      | 1.25    	&nbsp; 	&nbsp;  #C196E6    |
 | 2.5     #92C201      | 2.5     #E6A2C6      | 2.5     #98C5F0      | 2.5      #BF92E6    |
 | 3.75    #92BE01      | 3.75    #E69FC5      | 3.75    #93C3EF      | 3.75     #BD8EE6    |
 | 5       #92BA02      | 5       #E69DC4      | 5       #8DC1EE      | 5        #BB8BE6    |
