@@ -6,7 +6,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 11/06/2019
 ms.author: hrasheed
 ---
 
@@ -15,7 +15,7 @@ ms.author: hrasheed
 Learn how to use C# user-defined functions (UDF) with [Apache Hive](https://hive.apache.org) and [Apache Pig](https://pig.apache.org) on HDInsight.
 
 > [!IMPORTANT]
-> The steps in this document work with both Linux-based and Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](../hdinsight-component-versioning.md).
+> The steps in this document work with Linux-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](../hdinsight-component-versioning.md).
 
 Both Hive and Pig can pass data to external applications for processing. This process is known as _streaming_. When using a .NET application, the data is passed to the application on STDIN, and the application returns the results on STDOUT. To read and write from STDIN and STDOUT, you can use `Console.ReadLine()` and `Console.WriteLine()` from a console application.
 
@@ -23,21 +23,19 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
 * A familiarity with writing and building C# code that targets .NET Framework 4.5.
 
-    * Use whatever IDE you want. We recommend [Visual Studio](https://www.visualstudio.com/vs) or [Visual Studio Code](https://code.visualstudio.com/). The steps in this document use Visual Studio 2019.
+    Use whatever IDE you want. We recommend [Visual Studio](https://www.visualstudio.com/vs) or [Visual Studio Code](https://code.visualstudio.com/). The steps in this document use Visual Studio 2019.
 
 * A way to upload .exe files to the cluster and run Pig and Hive jobs. We recommend [Data Lake Tools for Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md), [Azure PowerShell](/powershell/azure), and [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). The steps in this document use the Data Lake Tools for Visual Studio to upload the files and run the example Hive query.
 
-  For information on other ways to run Hive queries, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md).
+    For information on other ways to run Hive queries, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md).
 
 * A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## .NET on HDInsight
 
-* *Linux-based HDInsight* clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6.
+*Linux-based HDInsight* clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6.
 
-    For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
-
-* *Windows-based HDInsight* clusters use the [Microsoft .NET CLR](/dotnet/standard/clr) to run .NET applications.
+For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 For more information on the version of the .NET Framework and Mono included with HDInsight versions, see [HDInsight component versions](../hdinsight-component-versioning.md).
 
@@ -229,18 +227,10 @@ You can also run a Pig job that uses your Pig UDF application.
 
 1. Use SSH to connect to your HDInsight cluster. (For example, run the command `ssh sshuser@<clustername>-ssh.azurehdinsight.net`.) For more information, see [Use SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use one of the following commands to start the Pig command line:
+2. Use the following command to start the Pig command line:
 
-    * For a Linux-based cluster:
     ```shell
     pig
-    ```
-
-    * For a Windows-based cluster:
-
-    ```cmd
-    cd %PIG_HOME%
-    bin\pig
     ```
 
     A `grunt>` prompt is displayed.
