@@ -5287,6 +5287,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-web-application-firewall-portal.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-cli.md",
+      "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/configure-waf-custom-rules.md",
       "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
       "redirect_document_id": false
@@ -43367,6 +43382,9 @@
     {
       "source_path": "articles/machine-learning/algorithm-module-reference/import-from-web-url-via-http.md",
       "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-overview.md",
       "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-overview",
       "redirect_document_id": false
@@ -43484,11 +43502,6 @@
     {
       "source_path": "articles/industry/retail/visual-search-use-case-overview.md",
       "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/industry/index.md",
-      "redirect_url": "/azure/industry-marketing/index",
       "redirect_document_id": false
     },
     {
