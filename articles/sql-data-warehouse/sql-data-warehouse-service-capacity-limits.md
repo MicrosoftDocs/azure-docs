@@ -1,5 +1,5 @@
 ---
-title: Capacity limits - Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+title: Capacity limits - Azure Synapse Analytics (formerly SQL DW) 
 description: Maximum values allowed for various components of SQL Analytics in Azure Synapse.
 services: sql-data-warehouse
 author: mlee3gsd

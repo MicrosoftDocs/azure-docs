@@ -69,10 +69,6 @@
       href: application-gateway-ssl-policy-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
-  - name: WAF
-    items:
-    - name: Custom rules
-      href: custom-waf-rules-overview.md
   - name: Ingress for AKS
     href: ingress-controller-overview.md
   - name: Health monitoring
@@ -137,14 +133,6 @@
       href: tutorial-restrict-web-traffic-powershell.md
     - name: Azure CLI
       href: tutorial-restrict-web-traffic-cli.md
-  - name: Configure WAF rule sets
-    items:
-    - name: Azure portal
-      href: application-gateway-customize-waf-rules-portal.md
-    - name: Azure PowerShell
-      href: application-gateway-customize-waf-rules-powershell.md
-    - name: Azure CLI
-      href: application-gateway-customize-waf-rules-cli.md
   - name:   WAF custom rules
     items:
     - name: Custom rule examples
