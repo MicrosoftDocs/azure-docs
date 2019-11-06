@@ -1,0 +1,25 @@
+### YamlMime:Hub
+
+title: Bing Search API documentation
+summary: summary # < 160 chars
+brand: azure
+
+metadata:
+  title: Bing Search API documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: description # Required; article description that is displayed in search results. < 160 chars.
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: bing-web-search
+  ms.topic: hub-page
+  ms.collection: collection
+  author: aahill
+  ms.author: aahi
+  ms.date: 11/06/2019
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    - title: Compare the Bing Search APIs 
+      itemType: learn
+      url: https://docs.microsoft.com/azure/cognitive-services/
+
