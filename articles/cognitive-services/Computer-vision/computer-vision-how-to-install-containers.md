@@ -8,19 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
 ---
 
-# Install and run Computer Vision containers
+# Install and run Read containers
 
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
 
-There are two Docker containers available for Computer Vision: *Recognize Text* and *Read*. The *Recognize Text* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The *Read* container, however; also detects *handwritten text* in images and provides PDF/TIFF/multi-page support. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
-
-> [!IMPORTANT]
-> The Recognize Text container is being deprecated in favor of the Read container. The Read container is a superset of its predecessor the Recognize Text container, and consumers should migrate to using the Read container. Both containers work only with English.
+A single Docker container, *Read*, is available for Computer Vision. The *Read* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. Additionally, the *Read* container detects *handwritten text* in images and provides PDF, TIFF, and multi-page file support. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,10 +33,6 @@ You must meet the following prerequisites before using the containers:
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## Request access to the private container registry
-
-[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
-
 ### The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -50,43 +43,19 @@ You must meet the following prerequisites before using the containers:
 
 ## Get the container image with `docker pull`
 
-# [Read](#tab/read)
-
 Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
 | Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
-# [Recognize Text](#tab/recognize-text)
-
-Container images for Recognize Text are available.
-
-| Container | Container Registry / Repository / Image Name |
-|-----------|------------|
-| Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
-
-***
-
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
-
-# [Read](#tab/read)
 
 ### Docker pull for the Read container
 
 ```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 ```
-
-# [Recognize Text](#tab/recognize-text)
-
-### Docker pull for the Recognize Text container
-
-```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
-
-***
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -103,8 +72,6 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-# [Read](#tab/read)
-
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 containerpreview.azurecr.io/microsoft/cognitive-services-read \
@@ -119,25 +86,6 @@ This command:
 * Allocates 8 CPU core and 16 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
-
-# [Recognize Text](#tab/recognize-text)
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-This command:
-
-* Runs the Recognize Text container from the container image.
-* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
-* Automatically removes the container after it exits. The container image is still available on the host computer.
-
-***
 
 More [examples](./computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 
@@ -155,8 +103,6 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 The container provides REST-based query prediction endpoint APIs. 
 
 Use the host, `http://localhost:5000`, for container APIs.
-
-# [Read](#tab/read)
 
 ### Asynchronous read
 
@@ -309,26 +255,19 @@ export interface Line {
     words?: Word[] | null;
 }
 
+export enum Confidence {
+    High = 0,
+    Low = 1
+}
+
 export interface Word {
   boundingBox?: number[] | null;
   text: string;
-  confidence?: string | null;
+  confidence?: Confidence | null;
 }
 ```
 
-For an example use-case, see the [TypeScript sandbox here](https://aka.ms/ts-read-api-types) and select "Run" to visualize its ease-of-use.
-
-# [Recognize Text](#tab/recognize-text)
-
-### Asynchronous text recognition
-
-You can use the `POST /vision/v2.0/recognizeText` and `GET /vision/v2.0/textOperations/*{id}*` operations in concert to asynchronously recognize printed text in an image, similar to how the Computer Vision service uses those corresponding REST operations. The Recognize Text container only recognizes printed text, not handwritten text, at this time, so the `mode` parameter normally specified for the Computer Vision service operation is ignored by the Recognize Text container.
-
-### Synchronous text recognition
-
-You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
-
-***
+For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">TypeScript sandbox here <span class="docon docon-navigate-external x-hidden-focus"></span></a> and select **Run** to visualize its ease-of-use.
 
 ## Stop the container
 
@@ -356,10 +295,10 @@ For more information about these options, see [Configure containers](./computer-
 
 In this article, you learned concepts and workflow for downloading, installing, and running Computer Vision containers. In summary:
 
-* Computer Vision provides a Linux container for Docker, encapsulating both Recognize Text and Read.
+* Computer Vision provides a Linux container for Docker, encapsulating Read.
 * Container images are downloaded from the "Container Preview" container registry in Azure.
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Recognize Text or Read containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Read containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
