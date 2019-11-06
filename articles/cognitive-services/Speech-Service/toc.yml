@@ -190,6 +190,10 @@
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
+  - name: Resources
+    items:
+    - name: Speech translation FAQ
+      href: https://www.microsoft.com/translator/faq.aspx
 - name: Conversation transcription
   expanded: false
   items:
