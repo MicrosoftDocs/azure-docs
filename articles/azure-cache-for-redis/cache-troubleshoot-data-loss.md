@@ -115,7 +115,7 @@ Azure Cache for Redis uses the **db0** database by default. If you switch to ano
 
 ### Redis instance failure
 
-Azure Cache for Redis is an in-memory data store. Data is kept on the physical or virtual machines that host the Redis cache. An Azure Cache for Redis instance in the Basic tier runs on only a single virtual machine (VM). If that VM is down, all data that you've stored in the cache is lost. 
+Redis is an in-memory data store. Data is kept on the physical or virtual machines that host the Redis cache. An Azure Cache for Redis instance in the Basic tier runs on only a single virtual machine (VM). If that VM is down, all data that you've stored in the cache is lost. 
 
 Caches in the Standard and Premium tiers offer much higher resiliency against data loss by using two VMs in a replicated configuration. When the master node in such a cache fails, the replica node takes over to serve data automatically. These VMs are located on separate domains for faults and updates, to minimize the chance of both becoming unavailable simultaneously. If a major datacenter outage happens, however, the VMs might still go down together. Your data will be lost in these rare cases.
 
