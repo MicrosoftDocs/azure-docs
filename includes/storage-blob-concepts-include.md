@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 11/5/2019
+ms.date: 11/05/2019
 ms.author: tamram
 ms.custom: "include file"
 ---
