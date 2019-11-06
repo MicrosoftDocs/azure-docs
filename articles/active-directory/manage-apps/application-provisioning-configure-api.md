@@ -286,23 +286,6 @@ Content-type: application/json
     }
 }
 ```
-## Step 5: Save your credentials
-
-Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third party application. The example below is for an application that requires clientSecret and secretToken. Each applicaiton has its on requirements. Review the API documentation to see the available options. 
-
-```json
-PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
- 
-{ 
-    value: [ 
-        { key: "ClientSecret", value: "xxxxxxxxxxxxxxxxxxxxx" },
-        { key: "SecretToken", value: "xxxxxxxxxxxxxxxxxxxxx" }
-    ]
-}
-```
-
-You should get “Success – Status Code 204” as a result.
-
 ## Step 3: Retrieve the Provisioning Job ID of the Provisioning App
 Now that the provisioning job is created, you will need to retrieve the job ID to complete your configuration. Use the command below to retrieve your job ID. 
 
@@ -359,15 +342,34 @@ Content-length: 2577
 
 ## Step 4: Validate credentials
 
-In the Microsoft Graph Explorer, run the following GET query, replacing [servicePrincipalId] and [ProvisioningJobId] with the ServicePrincipalId and the ProvisioningJobId retrieved in the previous steps. This will allow you to test the connection with the third party application. 
+Test the connection with the third party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
 ```http
 POST /servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
 ```
+{ 
+    credentials: [ 
+        { key: "ClientSecret", value: "xxxxxxxxxxxxxxxxxxxxx" },
+        { key: "SecretToken", value: "xxxxxxxxxxxxxxxxxxxxx" }
+    ]
+}
 
-https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http
+## Step 5: Save your credentials
 
-Copy the JSON object from the response and save it to a file to create a backup of the schema.
+Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third party application. The example below is for an application that requires clientSecret and secretToken. Each applicaiton has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
+
+```json
+PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
+ 
+{ 
+    value: [ 
+        { key: "ClientSecret", value: "xxxxxxxxxxxxxxxxxxxxx" },
+        { key: "SecretToken", value: "xxxxxxxxxxxxxxxxxxxxx" }
+    ]
+}
+```
+
+You should get “Success – Status Code 204” as a result.
 
 ## Step 6: Set scope
 
