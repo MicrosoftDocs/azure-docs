@@ -1,6 +1,6 @@
 ---
-title: Use follower database feature to share databases in Azure Data Explorer
-description: Learn about how to share databases in Azure Data Explorer using follower.
+title: Use follower database feature to attach databases in Azure Data Explorer
+description: Learn about how to attach databases in Azure Data Explorer using follower.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabilehner
@@ -9,31 +9,33 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ---
 
-# Using Follower database to share databases in Azure Data Explorer
+# Using Follower database to attach databases in Azure Data Explorer
 
-Azure Data Explorer database(s) hosted in one cluster can be attached as read-only database(s) to a different cluster. By attaching a database to a cluster, you allow the users of the cluster to view the data and execute queries on the attached database. The attached database is a read-only database. Therefore, the data, tables and policies in the database can't be modified. \\policies that can be modified (with link).\\
-Attached databases can't be deleted and they can only be detached on the attaching side. If a database that was attached to another cluster is deleted on the original cluster, \\all the attached databases will be inaccessible.\\
+Azure Data Explorer database(s) hosted in one cluster can be attached as read-only database(s) to a different cluster. By attaching a database to a cluster, you allow the users of the cluster to view the data and execute queries on the attached database. The attached database is a read-only database. Therefore, the data, tables and policies in the database can't be modified except for [configurable policies](#configurable-policies) and [Managing permissions](#managing-permissions). Attached databases can't be deleted. They must be detached by both the leader and follower clusters and only then they can be deleted. 
 
-* The original cluster and the attached database(s) cluster share the same storage account. Therefore, you don't need to ingest data to the cluster of the attached database(s) since the attached databases cluster is fetching the data from the original cluster storage. The storage costs are associated with the original database cluster.
+* The original cluster and the attached database(s) cluster use the same storage account to fetch the data. The storage is owned by the original database cluster. The follower database views the data without needing to ingest it. 
 * A cluster can hold both attached databases and databases attached to other clusters.
 * You can attach a single database, multiple databases, or all databases in a specific cluster.
 * Detaching databases can be performed on both leader and follower clusters.
 
 ## Use cases for Follower database
+
 Attaching a database to a different cluster is useful for the following scenarios:
+* Share data between organizations and teams.
 * Segregate compute resource to protect a production environment from non-production use cases.
-* Associate cost of Azure Data Explorer cluster to the part that runs queries on the data.
+* Associate cost of Azure Data Explorer cluster to the party that runs queries on the data.
 
 ## Prerequisites
 
 1. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-1. Create cluster and DB?
+1. [Create cluster and DB and ingest data] for leader cluster.
+1. [Create cluster] for follower cluster.
 
 ## Attach a database
 
-There are various methods you can use to share a database. In this article, we discuss sharing a database using C# or an Azure Resource Manager template. 
+There are various methods you can use to attach a database. In this article, we discuss attaching a database using C# or an Azure Resource Manager template. 
 
-To attach a database, you must have permissions on both the leader cluster and the follower cluster. For more information about permissions, see [permission model](#Permission-model).
+\\To attach a database, you must have permissions on the leader cluster and the follower cluster. For more information about permissions, see [permission model](#Permission-model).\\
 
 ### Attach a database using C#
 
@@ -74,7 +76,7 @@ var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseCo
 
 ### Attach a database using an Azure Resource Manager template
 
-In this section, you learn how to share a database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). 
+In this section, you learn how to attach a database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). 
 
 ```json
 {
@@ -171,9 +173,9 @@ You can deploy the Azure Resource Manager template by [using the Azure portal](#
 |Default Principals Modification Kind    |   The default principal modification kind. Can be `Union`, `Replace` or `None`. For more information about default principal modification kind, [see link](need link).      |
 |Location   |   The location of all the resources. The leader and the follower must be in the same location.       |
  
-### Verify that the database was successfully shared
+### Verify that the database was successfully attached
 
-To verify that the database was successfully shared, find your shared databases in the [Azure portal](https://portal.azure.com). 
+To verify that the database was successfully attached, find your attached databases in the [Azure portal](https://portal.azure.com). 
 
 1. Navigate to the follower cluster and select **Databases**
 1. Search for new Read-Only databases in the database list.
@@ -185,13 +187,13 @@ Alternatively:
 1. Navigate to the leader cluster and select **Databases**
 2. Check that the relevant databases are marked as **SHARED WITH OTHERS** > **Yes**
 
-    ![Read and write shared databases](media/follower/read-write-databases-shared.png)
+    ![Read and write attached databases](media/follower/read-write-databases-shared.png)
 
 ### Detach the follower database using C# 
 
-Follower cluster is able to detach any attached database as follows:
+#### Detach the attached follower database from the follower cluster
 
-#### Detach the attached database from the follower cluster
+Follower cluster is able to detach any attached database as follows:
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -210,7 +212,7 @@ var attachedDatabaseConfigurationsName = "adc";
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
 
-#### Detach the attached database from the leader cluster
+#### Detach the attached follower database from the leader cluster
 
 The leader cluster is able to detach any attached database as follows:
 
@@ -237,6 +239,8 @@ var followerDatabaseDefinition = new FollowerDatabaseDefinition()
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
+## Managing principals and permissions
+
 ## Managing principals
 
 When attaching a database you specify the **default principals modification kind"**:
@@ -244,17 +248,16 @@ When attaching a database you specify the **default principals modification kind
 |**Kind** |**Description**  |
 |---------|---------|
 |Union     |   The attached database principals will always include the original database principals plus additional new principals.      |
-|Replace    |    No inheritance of principals from the original database. New principals must be created for the attached database.     |
+|Replace    |    No inheritance of principals from the original database. New principals must be created for the attached database. At least one principal needs to be added to block principal inheritance.     |
 |None    |   The attached database principals include only the principals of the original database with no additional principals.      |
- 
 
 ## Managing permissions
 
-Managing read only database permission is the same as for "regular" databases. See [manage permissions in the Azure portal](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal). Note that managing permissions with management commands isn't supported.
+Managing read only database permission is the same as for all database types. See [manage permissions in the Azure portal](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 
 ## Configurable policies
 
-The attached database admin can modify the caching policy of the attached database or any of its tables on the hosting cluster. Therefore, it's possible to have a 30 day caching policy on the read-write database for running monthly reporting and a three day caching policy on the secondary cluster to query only the recent data for troubleshooting.
+The follower database administrator can modify the caching policy of the attached database or any of its tables on the hosting cluster. For example, it's possible to have a 30 day caching policy on the leader database for running monthly reporting and a three day caching policy on the follower cluster to query only the recent data for troubleshooting.
 
 ## Limitations
 
