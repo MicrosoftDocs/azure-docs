@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database - Azure Hybrid Benefit | Microsoft Docs
+title: Azure SQL Database - Azure Hybrid Benefit 
 description: Use existing SQL Server licenses for SQL Database discounts.
 services: sql-database
 ms.service: sql-database

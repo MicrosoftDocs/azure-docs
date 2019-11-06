@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance determine VNet/subnet size | Microsoft Docs
+title: Azure SQL Database Managed Instance determine VNet/subnet size 
 description: This topic describes how to calculate the size of the subnet where the Azure SQL Database Managed Instances will be deployed.
 services: sql-database
 ms.service: sql-database

@@ -1,5 +1,5 @@
 ---
-title: Supported file formats in Azure Data Factory | Microsoft Docs
+title: Supported file formats in Azure Data Factory 
 description: 'This topic describes the file formats and compression codes that are supported by file-based connectors in Azure Data Factory.'
 author: linda33wj
 manager: craigg
