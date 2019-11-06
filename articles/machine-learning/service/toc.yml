@@ -112,14 +112,11 @@
           href: how-to-change-storage-access-key.md
       - name: Monitor Azure Machine Learning
         href: monitor-azure-machine-learning.md
+      - name: Event grid integration
+        href: concept-event-grid-integration.md
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
-  - name: Event grid integration
-    href: concept-event-grid-integration.md
-  - name: Git integration
-    displayName: git github gitlab
-    href: concept-train-model-git-integration.md
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -148,6 +145,9 @@
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
+    - name: Git integration
+      displayName: github gitlab
+      href: concept-train-model-git-integration.md 
   - name: Work with data
     items:
     - name: Get data from a datastore
