@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 11/06/2019
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-five
 ---
 
 # Quickstart: Use the Text Analytics client library for detecting language
