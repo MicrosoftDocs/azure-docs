@@ -20,4 +20,4 @@ ms.author: diberry
 2. Training is complete when you see the status confirming success.
 
     > [!Tip]
-    > **Notifications** is available in the top-right navigation. Notifications includes a history of status changes.
+    > **Notifications** is available in the top-right navigation and includes a history.
