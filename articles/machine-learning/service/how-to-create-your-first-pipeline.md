@@ -407,14 +407,14 @@ response = requests.post(published_pipeline1.endpoint,
 ### View results of a published pipeline
 
 See the list of all your published pipelines and their run details:
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+1. Sign in to [Azure Machine Learning](https://ml.azure.com).
 
 1. [View your workspace](how-to-manage-workspace.md#view) to find the list of pipelines.
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Select a specific pipeline to see the run results.
 
-These results are also available in your workspace in [Azure Machine Learning studio]](https://ml.azure.com).
+These results are also available in your workspace in [Azure Machine Learning](https://ml.azure.com).
 
 ### Disable a published pipeline
 
