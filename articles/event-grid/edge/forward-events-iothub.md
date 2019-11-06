@@ -5,7 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -155,7 +155,9 @@ Update the edge hub's route to forward event subscription's events to be forward
 
 ## Setup IoT Hub route
 
-See the IoT Hub [routing tutorial](../../iot-hub/tutorial-routing.md) to set up a route from the IoT hub so that you can view the events forwarded from the Event Grid module.
+See the [IoT Hub routing tutorial](../../iot-hub/tutorial-routing.md) to set up a route from the IoT hub so that you can view events forwarded from the Event Grid module. Use `true` for the query to keep the tutorial simple.  
+
+
 
 ## Publish an event
 
@@ -200,6 +202,7 @@ See the IoT Hub [routing tutorial](../../iot-hub/tutorial-routing.md) for the st
 
 In this tutorial, you created an event grid topic, edge hub subscription, and published events. Now that you know the basic steps to forward to an edge hub, see the following articles:
 
+* To troubleshoot issues with using Azure Event Grid on IoT Edge, see [Troubleshooting guide](troubleshoot.md).
 * Use [edge hub](../../iot-edge/module-composition.md) route filters to partition events
 * Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 * Follow [documentation](configure-client-auth.md) to configure client authentication

@@ -6,7 +6,7 @@ author: bandersmsft
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/01/2019
 ms.author: banders
 ---
 
@@ -19,6 +19,7 @@ Your monthly payment amount may vary, depending on the current month's market ex
 Monthly payments are available for:
 
 - Virtual machines
+- Azure Storage
 - SQL Database
 - SQL Data Warehouse
 - Cosmos DB

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Language Understanding (LUIS) authoring client library for .NET"
 titleSuffix: Azure Cognitive Services 
-description: Get started with the Language Understanding (LUIS) client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  Language Understanding (LUIS) enables you to apply custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. 
+description: Get started with the LUIS client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. 
 services: cognitive-services
 author: diberry
 manager: nitinme

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services instance.
@@ -99,7 +99,7 @@ Azure AD DS managed domains are managed using the same administrative tools as o
 
 To install the Active Directory Administration tools on a domain-joined VM, complete the following steps:
 
-1. **Server Manager** should open by default when you sign in to the VM. If not, on the **Start** menu, select **Server Manager**.
+1. If **Server Manager** doesn't open by default when you sign in to the VM, select the **Start** menu, then choose **Server Manager**.
 1. In the *Dashboard* pane of the **Server Manager** window, select **Add Roles and Features**.
 1. On the **Before You Begin** page of the *Add Roles and Features Wizard*, select **Next**.
 1. For the *Installation Type*, leave the **Role-based or feature-based installation** option checked and select **Next**.
@@ -129,13 +129,15 @@ With the administrative tools installed, let's see how to use them to administer
 
 1. To see the users and groups that belong to the Azure AD DS managed domain, select the **AADDC Users** container. The user accounts and groups from your Azure AD tenant are listed in this container.
 
-    In the following example output, a user account named *contosoadmin* and a group for *AAD DC Administrators* are shown in this container.
+    In the following example output, a user account named *Contoso Admin* and a group for *AAD DC Administrators* are shown in this container.
 
     ![View the list of Azure AD DS domain users in the Active Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. To see the computers that are joined to the Azure AD DS managed domain, select the **AADDC Computers** container. An entry for the current virtual machine, such as *myVM*, is listed. Computer accounts for all computers that are joined to the Azure AD DS managed domain are stored in this *AADDC Computers* container.
 
-Common Active Directory Administrative Center actions such as resetting a user account password or managing group membership are available. You can also use the *Active Directory Module for Windows PowerShell*, installed as part of the administrative tools, to manage common actions in your Azure AD DS managed domain.
+Common Active Directory Administrative Center actions such as resetting a user account password or managing group membership are available. These actions only work for users and groups created directly in the Azure AD DS managed domain. Identity information only synchronizes *from* Azure AD to Azure AD DS. There's no write back from Azure AD DS to Azure AD. You can't change passwords or managed group membership for users synchronized from Azure AD and have those changes synchronized back.
+
+You can also use the *Active Directory Module for Windows PowerShell*, installed as part of the administrative tools, to manage common actions in your Azure AD DS managed domain.
 
 ## Next steps
 
