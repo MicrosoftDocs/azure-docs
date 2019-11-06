@@ -56,7 +56,7 @@ name | Yes | The name of the endpoint definition. For resource onboarding, the n
 routingType | Yes | Determines the type of contract with the endpoint. For resource onboarding, the valid **routingTypes** are "Proxy,Cache,Extension" and "Webhook,Cache,Extension".
 endpoint | Yes | The endpoint to route the requests to. This will handle the response and any side effects of the request.
 
-After you create the custom provider with the "associations" resource type, you can target using Microsoft.CustomProviders/associations. Microsoft.CustomProviders/associations is an extension resource that can extend any other Azure resource. When an instance of Microsoft.CustomProviders/associations is created, it will take a property **targetResourceId**, which should be a valid Microsoft.CustomProviders/resourceProviders or Microsoft.Solutions/applications resource ID. In these cases, the request will be forwarded to the "associations" resource type on the Microsoft.CustomProviders/resourceProviders instance you created.
+After you create the custom provider with the associations resource type, you can target using Microsoft.CustomProviders/associations. Microsoft.CustomProviders/associations is an extension resource that can extend any other Azure resource. When an instance of Microsoft.CustomProviders/associations is created, it will take a property **targetResourceId**, which should be a valid Microsoft.CustomProviders/resourceProviders or Microsoft.Solutions/applications resource ID. In these cases, the request will be forwarded to the associations resource type on the Microsoft.CustomProviders/resourceProviders instance you created.
 
 > [!NOTE]
 > If a Microsoft.Solutions/applications resource ID is provided as the **targetResourceId**, there must be a Microsoft.CustomProviders/resourceProviders deployed in the managed resource group with the name "public".
@@ -80,7 +80,7 @@ targetResourceId | Yes | The resource ID of the Microsoft.CustomProviders/resour
 
 Resource onboarding works by extending other resources with the Microsoft.CustomProviders/associations extension resource. In the following sample, the request is made for a virtual machine, but any resource can be extended.
 
-First, you need to create a custom provider resource with an "associations" resource type. This will declare the callback URL that will be used when a corresponding Microsoft.CustomProviders/associations resource is created, which targets the custom provider.
+First, you need to create a custom provider resource with an associations resource type. This will declare the callback URL that will be used when a corresponding Microsoft.CustomProviders/associations resource is created, which targets the custom provider.
 
 Sample Microsoft.CustomProviders/resourceProviders create request:
 
@@ -146,7 +146,7 @@ The endpoint should respond with an application/json `Content-Type` and a valid 
 
 ## Getting help
 
-If you have questions about Azure Custom Resource Providers development, try asking them on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). A similar question might have already been asked and answered, so check first before posting. Add the tag ```azure-custom-providers``` to get a fast response!
+If you have questions about Azure Custom Resource Providers development, try asking them on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). A similar question might have already been answered, so check first before posting. Add the tag ```azure-custom-providers``` to get a fast response!
 
 ## Next steps
 
