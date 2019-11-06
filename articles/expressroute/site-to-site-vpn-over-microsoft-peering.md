@@ -64,7 +64,7 @@ Once you have configured your circuit and Microsoft peering, you can easily view
 
 ## <a name="routefilter"></a>2. Configure route filters
 
-A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It is essentially a whitelist of all the BGP community values. 
+A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It is essentially an allow list of all the BGP community values. 
 
 ![route filter](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
