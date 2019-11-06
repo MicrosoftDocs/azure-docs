@@ -43,167 +43,126 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
 ## Create a directory
 
-Create a directory reference by using the `New-AzDataLakeGen2Item` cmdlet. 
+Create a directory reference by using the `az storage blob directory create` command. 
 
-This example adds a directory named `my-directory` to a file system.
+This example adds a directory named `my-directory` to a file system named `my-file-system` that is located in an account named `mystorageaccount`.
 
 ```azurecli
-$filesystemName = "my-file-system";
-$dirname = "my-directory"
-New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Directory
+az storage blob directory create -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
 ## Rename or move a directory
 
-Rename or move a directory by using the `Move-AzDataLakeGen2Item` cmdlet.
+Rename or move a directory by using the `az storage blob directory move` command.
 
 This example renames a directory from the name `my-directory` to the name `my-new-directory`.
 
 ```azurecli
-$filesystemName = "my-file-system";
-$dirname2 = "my-new-directory"
-Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -DestFileSystem $filesystemName -DestPath $dirname2
+az storage blob directory move -c my-file-system -d my-new-directory -s my-directory --account-name mystorageaccount
 ```
 
 ## Delete a directory
 
-Delete a directory by using the `Remove-AzDataLakeGen2Item` cmdlet.
+Delete a directory by using the `az storage blob directory delete` command.
 
 This example deletes a directory named `my-directory`. 
 
 ```azurecli
-$filesystemName = "my-file-system";
-$dirname = "my-directory"
-Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $dirname 
+az storage blob directory delete -c my-file-system -d my-directory --account-name mystorageaccount 
 ```
 
 ## Get the ACL of a directory
 
-Get the ACL of a directory by using the `Get-AzStorageBlob`cmdlet with the `-FetchPermission` parameter.
+Get the ACL of a directory by using the `az storage blob directory access show` command.
 
 This example gets the ACL of a directory, and then prints the ACL to the console.
 
 ```azurecli
-$filesystemName = "my-file-system";
-$dir = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
-$dir.ACL
+az storage blob directory access show -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
 The output might look something like the following:
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
+![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
 
 In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## Set the ACL of a directory
 
-Use the `New-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Update-AzDataLakeGen2Item` cmdlet to commit the ACL.
+Use the `az storage blob directory access set` command to set the ACL of a directory. 
 
 This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-$filesystemName = "my-file-system";
-$dirname = "my-directory"
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
-$dir = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
-$dir.ACL
+az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
 The output would look like the following:
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
+![Set ACL output](./media/data-lake-storage-directory-file-acl-cli/set-acl.png)
 
 In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 
 ## Upload a file to a directory
 
-Upload a file to a directory by using the `New-AzDataLakeGen2Item` cmdlet.
+Upload a file to a directory by using the `az storage blob directory upload` command.
 
 This example uploads a file named `upload.txt` to a directory named `my-directory`. 
 
 ```azurecli
-$localSrcFile =  "upload.txt"
-$filesystemName = "my-file-system";
-$dirname = "my-directory"
-$destPath = $dirname + "/" + (Get-Item $localSrcFile).Name
-New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $destPath -Source $localSrcFile -Force 
+az storage blob directory upload -c my-file-system --account-name mystorageaccount -s "C:\mylocaldirectory\upload.txt" -d my-directory
 ```
 
 ## Get the ACL of a file
 
-Get the access permissions of a file by using the `Get-AzDataLakeGen2Item` cmdlet. 
+Get the access permissions of a file by using the `az storage blob access show` command. 
 
 This example gets the ACL of a file and then prints the ACL to the console.
 
 ```azurecli
-$filePath = "my-directory/upload.txt"
-$file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath
-$file.ACL
+az storage blob access show -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 
 The output might look something like the following:
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
+![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/get-file-acl.png)
 
-In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+In this example, the owning user has read, and write permissions. The owning group has only read permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## Set the ACL of a file
 
-Use the `New-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Update-AzDataLakeGen2Item` cmdlet to commit the ACL.
+Use the `az storage blob access set` command to set the acl of a file. 
 
 This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-$filesystemName = "my-file-system";
-$filePath = "my-directory/upload.txt"
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath -Acl $acl
-$file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath
-$file.ACL
+az storage blob access set -a "user::rw-,group::rw-,other::-wx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 The output would look like the following:
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
+![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/set-file-acl.png)
 
 In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## Download from a directory
 
-Download a file from a directory by using the `Get-AzDataLakeGen2ItemContent` cmdlet.
+Download a file from a directory by using the `az storage blob directory download` command.
 
 This example downloads a file named `upload.txt` from a directory named `my-directory`. 
 
 ```azurecli
-$filesystemName = "my-file-system";
-$filePath = "my-directory/upload.txt"
-$downloadFilePath = "download.txt"
-Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $filePath -Destination $downloadFilePath
+az storage blob directory download -c my-file-system --account-name mystorageaccount -s "my-directory/upload.txt" -d "C:\mylocalfolder\download.txt"
 ```
 
 ## List directory contents
 
-List the contents of a directory by using the `Get-AzDataLakeGen2ChildItem` cmdlet.
+List the contents of a directory by using the `az storage blob directory list` command.
 
-This example lists the contents of a directory named `my-directory`. 
-
-```azurecli
-$filesystemName = "my-file-system";
-$dirname = "my-directory"
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname
-```
-
-This example lists the contents of a directory named `my-directory` and includes ACLs in the list.
+This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` file system of a storage account named `mystorageaccount`. 
 
 ```azurecli
-$filesystemName = "my-file-system";
-$dirname = "my-directory"
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+az storage blob directory list -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
 ## See also

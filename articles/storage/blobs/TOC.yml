@@ -671,6 +671,8 @@
         href: data-lake-storage-how-to-set-permissions-storage-explorer.md
       - name: PowerShell
         href: data-lake-storage-directory-file-acl-powershell.md
+      - name: CLI
+        href: data-lake-storage-directory-file-acl-cli.md
       - name: .NET
         href: data-lake-storage-directory-file-acl-dotnet.md
       - name: Java
