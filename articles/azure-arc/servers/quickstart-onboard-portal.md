@@ -21,7 +21,7 @@ Review the supported clients and required network configuration in the [Azure Ar
 
 ## Generate the agent install script using the Azure portal
 
-1. Launch [https://aka.ms/hybridmachineportal][aka_hybridmachineportal]
+1. Launch [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal)
 1. Click on **+Add**
 1. Follow the wizard to completion
 1. The last page has a script generated which you can copy (or download).
@@ -61,7 +61,7 @@ To disconnect a machine from Azure Arc for servers, you need to perform two step
 
    On Windows, you can use the "Apps & Features" control panel to uninstall the agent.
   
-  ![Apps & Features](./media/quickstart-onboard/apps_and_features.png)
+  ![Apps & Features](./media/quickstart-onboard/apps-and-features.png)
 
    If you would like to script the uninstall, you can use the following example which retrieves the **PackageId** and uninstall the agent using `msiexec /X`.
 

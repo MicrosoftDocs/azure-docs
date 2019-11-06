@@ -195,7 +195,7 @@ To disconnect a machine from Azure Arc for servers, you need to perform two step
 
    On Windows, you can use the "Apps & Features" control panel to uninstall the agent.
   
-  ![Apps & Features](./media/quickstart-onboard/apps_and_features.png)
+  ![Apps & Features](./media/quickstart-onboard/apps-and-features.png)
 
    If you would like to script the uninstall, you can use the following example which retrieves the **PackageId** and uninstall the agent using `msiexec /X`.
 
