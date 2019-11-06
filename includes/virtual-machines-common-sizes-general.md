@@ -135,16 +135,16 @@ Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 
 **Size**|**vCPU**|**Memory: GiB**|**Temp storage (SSD) GiB**|**Max data disks**|**Max temp storage throughput: IOPS / Read MBps / Write MBps**|**Max NICs / Expected network bandwidth (MBps)**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-Standard\_D2a\_v4|2|8|50|4|3000 / 46 / 23|2 / 1000
-Standard\_D4a\_v4|4|16|100|8|6000 / 93 / 46|2 / 2000
-Standard\_D8a\_v4|8|32|200|16|12000 / 187 / 93|4 / 4000
-Standard\_D16a\_v4|16|64|400|32|24000 / 375 / 187|8 / 8000
-Standard\_D32a\_v4|32|128|800|32|48000 / 750 / 375|8 / 16000
-Standard\_E48a\_v4**|48|192|1200|32| | 
-Standard\_E64a\_v4**|64|256|1600|32| | 
-Standard\_E96a\_v4**|96|384|2400|32| | 
+Standard_D2a_v4|2|8|50|4|3000 / 46 / 23|2 / 1000
+Standard_D4a_v4|4|16|100|8|6000 / 93 / 46|2 / 2000
+Standard_D8a_v4|8|32|200|16|12000 / 187 / 93|4 / 4000
+Standard_D16a_v4|16|64|400|32|24000 / 375 / 187|8 / 8000
+Standard_D32a_v4|32|128|800|32|48000 / 750 / 375|8 / 16000
+Standard_E48a_v4**|48|192|1200|32| | 
+Standard_E64a_v4**|64|256|1600|32| | 
+Standard_E96a_v4**|96|384|2400|32| | 
 
-** These sizes are in Preview.  If you are interested in trying out these larger sizes, [click here to sign up](https://aka.ms/AzureAMDLargeVMPreview).
+** These sizes are in Preview.  If you are interested in trying out these larger sizes, [go here to sign up](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## DSv2-series
 
