@@ -182,5 +182,5 @@ For more information about image storage, see [Container image storage in Azure 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-acr-run]: /cli/azure/acr#az-acr-run
-[[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
 [az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show
