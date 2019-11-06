@@ -91,4 +91,4 @@ An important aspect of ALM is to be able to automate the execution and deploymen
 ## Next steps
 * Download the [Azure Machine Learning Studio (classic) PowerShell](https://aka.ms/amlps) module and start to automate your ALM tasks.
 * Learn how to [create and manage large number of ML models by using just a single experiment](create-models-and-endpoints-with-powershell.md) through PowerShell and retraining API.
-* Learn more about [deploying Azure Machine Learning web services](publish-a-machine-learning-web-service.md).
+* Learn more about [deploying Azure Machine Learning web services](deploy-a-machine-learning-web-service.md).
