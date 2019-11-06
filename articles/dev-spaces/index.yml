@@ -72,5 +72,5 @@ landingContent:
         links:
           - text: Use GitHub Actions with Azure Dev Spaces
             url: how-to/github-actions.md
-          - text: Use Azure Dev Spaces Connect
+          - text: Connect your development machine to an AKS cluster
             url: how-to/connect.md

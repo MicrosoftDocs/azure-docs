@@ -5,7 +5,7 @@ services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
 ms.date: 11/04/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: brendal
 #Customer intent: As an administrator, I want to use Azure Blockchain Tokens account management to control access to tokens.

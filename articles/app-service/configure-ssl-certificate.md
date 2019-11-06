@@ -60,6 +60,7 @@ To secure a custom domain in an SSL binding, the certificate has additional requ
 
 The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
 
+- Does not support wildcard certificates.
 - Does not support naked domains.
 - Is not exportable.
 
@@ -276,7 +277,7 @@ Click **Upload**.
 
 ![Upload public certificate in App Service](./media/configure-ssl-certificate/upload-public-cert.png)
 
-Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](configure-ssl-certificate-in-code.md#load-the-certificate).
+Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](configure-ssl-certificate-in-code.md#make-the-certificate-accessible).
 
 ## Manage App Service certificates
 
