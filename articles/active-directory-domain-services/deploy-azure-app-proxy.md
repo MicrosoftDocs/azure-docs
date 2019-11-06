@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure AD Application Proxy for Azure AD Domain Services | Microsoft Docs
-description: Learn how to deploy and configure Azure AD Application Proxy with an Azure Active Directory Domain Services managed domain
+description: Learn how to provide secure access to internal applications for remote workers by deploying and configuring Azure Active Directory Application Proxy in an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -10,15 +10,17 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/6/2019
 ms.author: iainfou
 
 ---
-# Deploy Azure AD Application Proxy on an Azure AD Domain Services managed domain
+# Deploy Azure AD Application Proxy for secure access to internal applications in an Azure AD Domain Services managed domain
 
-Azure Active Directory (AD) Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. With Azure AD Domain Services (Azure AD DS), you can now lift-and-shift legacy applications running on-premises to Azure. You can then publish these applications using the Azure AD Application Proxy to provide secure remote access to users in your organization.
+With Azure AD Domain Services (Azure AD DS), you can lift-and-shift legacy applications running on-premises into Azure. Azure Active Directory (AD) Application Proxy then helps you support remote workers by securely publishing internal applications part of the Azure AD DS managed domain that can be accessed over the internet.
 
-If you're new to the Azure AD Application Proxy and want to learn more, see [How to provide secure remote access to on-premises applications](../active-directory/manage-apps/application-proxy.md).
+If you're new to the Azure AD Application Proxy and want to learn more, see [How to provide secure remote access to internal applications](../active-directory/manage-apps/application-proxy.md).
+
+This article shows you how to create and configure an Azure AD Application Proxy connector to provide secure access to applications in an Azure AD DS managed domain.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -34,7 +36,7 @@ To complete this article, you need the following resources and privileges:
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
 
-## Create a domain-joined Windows VM for the Azure AD Application Proxy connector
+## Create a domain-joined Windows VM
 
 To route traffic to applications running in your environment, you install the Azure AD Application Proxy connector component. This Azure AD Application Proxy connector must be installed on Windows Server virtual machines (VM) that's joined to the Azure AD DS managed domain. For some applications, you may choose to provision multiple servers on which the connector is installed. This deployment option gives you greater availability and helps handle heavier authentication loads.
 
@@ -62,20 +64,20 @@ With a VM ready to be used as the Azure AD Application Proxy connector, now copy
 
 1. Copy the Azure AD Application Proxy connector setup file to your VM.
 1. Run the setup file, such as *AADApplicationProxyConnectorInstaller.exe*. Accept the software license terms.
-1. During install, you're prompted to register the connector with the Application Proxy in your Azure AD directory.
+1. During the install, you're prompted to register the connector with the Application Proxy in your Azure AD directory.
    * Provide the credentials for a global administrator in your Azure AD directory. The Azure AD global administrator credentials may be different from your  Azure credentials in the portal
-       * The global administrator account used to register the connector must belong to the same directory where you enable the Application Proxy service. For example, if the Azure AD domain is *contoso.com*, the global administrator should be *admin@contoso.com* or another valid alias on that domain.
+       * The global administrator account used to register the connector must belong to the same directory where you enable the Application Proxy service. For example, if the Azure AD domain is *contoso.com*, the global administrator should be `admin@contoso.com` or another valid alias on that domain.
    * If Internet Explorer Enhanced Security Configuration is turned on for the VM where you install the connector, the registration screen might be blocked. To allow access, follow the instructions in the error message. Make sure that Internet Explorer Enhanced Security is off.
    * If connector registration fails, see [Troubleshoot Application Proxy](../active-directory/manage-apps/application-proxy-troubleshoot.md).
-1. At the end of the setup, a note is shown for when you have an outbound proxy in your environment. To configure the Azure AD Application Proxy connector to work through the outbound proxy, run the provided script, such as `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
-1. On the Application proxy page in the Azure portal, the new connected is listed with a status of *Active*, as shown in the following example:
+1. At the end of the setup, a note is shown for environments with an outbound proxy. To configure the Azure AD Application Proxy connector to work through the outbound proxy, run the provided script, such as `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
+1. On the Application proxy page in the Azure portal, the new connector is listed with a status of *Active*, as shown in the following example:
 
     ![The new Azure AD Application Proxy connector shown as active in the Azure portal](./media/app-proxy/connected-app-proxy.png)
 
 > [!NOTE]
-> To provide high availability for applications authenticating through the Azure AD Application Proxy, you can install connectors on multiple VMs. Perform the same steps listed in the previous section to install the connector on other servers joined to your managed domain.
+> To provide high availability for applications authenticating through the Azure AD Application Proxy, you can install connectors on multiple VMs. Perform the same steps listed in the previous section to install the connector on other servers joined to the Azure AD DS managed domain.
 
-## Enable resource-based Kerberos constrained delegation for the Azure AD Application Proxy connector
+## Enable resource-based Kerberos constrained delegation
 
 If you want to use single sign-on to your applications using Integrated Windows Authentication (IWA), grant the Azure AD Application Proxy connectors permission to impersonate users and send and receive tokens on their behalf. To grant these permissions, you configure Kerberos constrained delegation (KCD) for the connector to access resources on the Azure AD DS managed domain. As you don't have domain administrator privileges in an Azure AD DS managed domain, traditional account-level KCD cannot be configured on a managed domain. Instead, use resource-based KCD.
 
@@ -84,7 +86,7 @@ For more information, see [Configure Kerberos constrained delegation (KCD) in Az
 > [!NOTE]
 > You must be signed in to a user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant to run the following PowerShell cmdlets.
 >
-> The computer account for your App Proxy VM must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for a computer account in the built-in *AAD DC Computers* container.
+> The computer accounts for your App Proxy connector VM and application VMs must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for a computer account in the built-in *AAD DC Computers* container.
 
 Use the [Get-ADComputer][Get-ADComputer] to retrieve the settings for the computer on which the Azure AD Application Proxy connector is installed. From your domain-joined management VM and logged in as user account that's a member of the *Azure AD DC administrators* group, run the following cmdlets.
 
