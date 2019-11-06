@@ -1,13 +1,13 @@
 ---
- title include file
+ title:: include file
  description include file
- services virtual-machines
- author jonbeck7
- ms.service virtual-machines
- ms.topic include
- ms.date 10/17/2019
- ms.author azcspmt;jonbeck;cynthn
- ms.custom include file
+ services: virtual-machines
+ author: jonbeck7
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 10/17/2019
+ ms.author: azcspmt;jonbeck;cynthn
+ ms.custom: include file
 ---
 
 Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for relational database servers, medium to large caches, and in-memory analytics. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for each size in this grouping.
@@ -28,16 +28,16 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 
 ## Esv3-series
 
-ACU 160-190 <sup>1</sup>
+ACU: 160-190 <sup>1</sup>
 
-Premium Storage  Supported
+Premium Storage: Supported
 
-Premium Storage caching  Supported
+Premium Storage caching:  Supported
 
 ESv3-series instances feature the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) processors and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and use premium storage. Ev3-series instances are ideal for memory-intensive enterprise applications.
 
 
-| Size             | vCPU | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput IOPS / MBps (cache size in GiB) | Max uncached disk throughput IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
+| Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_E2s_v3 | 2      | 16          | 32             | 4              | 4000 / 32 (50)                                                       | 3200 / 48                                | 2 / 1000                                   |
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8000 / 64 (100)                                                      | 6400 / 96                                | 2 / 2000                                   |
@@ -58,15 +58,15 @@ ESv3-series instances feature the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the 
 
 ## Easv4-series
 
-ACU 230 - 260
+ACU: 230 - 260
 
-Premium Storage Supported
+Premium Storage: Supported
 
-Premium Storage caching Supported
+Premium Storage caching: Supported
 
 Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Easv4-series sizes are ideal for memory-intensive enterprise applications.
 
-| Size | vCPU | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput IOPS / MBps (cache size in GiB) | Max uncached disk throughput IOPS / MBps | Max NICs / Expected network bandwidth (MBps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (MBps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_E2as_v4|2|16|32|4|4000 / 32 (50)|3200 / 48|2 / 1000 |
 | Standard_E4as_v4|4|32|64|8|8000 / 64 (100)|6400 / 96|2 / 2000 |
@@ -82,18 +82,18 @@ Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 
 ## Ev3-series 
 
-ACU 160 - 190 <sup>1</sup>
+ACU: 160 - 190 <sup>1</sup>
 
-Premium Storage  Not Supported
+Premium Storage: Not Supported
 
-Premium Storage caching  Not Supported
+Premium Storage caching: Not Supported
 
 Ev3-series instances feature the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) processors and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0. Ev3-series instances are ideal for memory-intensive enterprise applications.
 
 Data disk storage is billed separately from virtual machines. To use premium storage disks, use the ESv3 sizes. The pricing and billing meters for ESv3 sizes are the same as Ev3-series. 
 
 
-| Size            | vCPU | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput IOPS / Read MBps / Write MBps | Max NICs / Network bandwidth |
+| Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs / Network bandwidth |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
 | Standard_E2_v3  | 2         | 16          | 50             | 4              | 3000/46/23                                               | 2 / 1000                 |
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2 / 2000                 |
@@ -113,15 +113,15 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 ## Eav4-series
 
-ACU 230 - 260
+ACU: 230 - 260
 
-Premium Storage Not Supported
+Premium Storage: Not Supported
 
-Premium Storage caching Not Supported
+Premium Storage caching: Not Supported
 
 Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Eav4-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Easv4-series sizes. The pricing and billing meters for Easv4 sizes are the same as the Eav3-series.
 
-| Size | vCPU | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput IOPS / Read MBps / Write MBps | Max NICs / Expected network bandwidth (MBps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs / Expected network bandwidth (MBps) |
 | -----|-----|-----|-----|-----|-----|-----|
 | Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 / 1000 |
 | Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 / 2000 |
@@ -137,17 +137,17 @@ Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 
 ## Mv2-series
 
-ACU 188-280<sup>1</sup>
+ACU: 188-280<sup>1</sup>
 
-Premium Storage Supported
+Premium Storage: Supported
 
-Premium Storage caching Supported
+Premium Storage caching: Supported
 
-Write Accelerator [Supported](https//docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Write Accelerator: [Supported](https//docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 The Mv2-series features high throughput, low latency platform running on a hyper-threaded Intel® Xeon® Platinum 8180M 2.5GHz (Skylake) processor with an all core base frequency of 2.5 GHz and a max turbo frequency of 3.8 GHz. All Mv2-series virtual machine sizes can use both standard and premium persistent disks. Mv2-series instances are memory optimized VM sizes providing unparalleled computational performance to support large in-memory databases and workloads, with a high memory-to-CPU ratio that is ideal for relational database servers, large caches, and in-memory analytics.
 
-|Size | vCPU | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput IOPS / MBps (cache size in GiB) | Max uncached disk throughput IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
+|Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M208ms_v2<sup>2</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
 | Standard_M208s_v2<sup>2</sup> | 208 | 2850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
@@ -162,17 +162,17 @@ The Mv2-series features high throughput, low latency platform running on a hyper
 
 ## M-series 
 
-ACU 160-180 <sup>1</sup>
+ACU: 160-180 <sup>1</sup>
 
-Premium Storage  Supported
+Premium Storage: Supported
 
-Premium Storage caching  Supported
+Premium Storage caching: Supported
 
 M-series sizes are based on the Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz	
 
-Write Accelerator  [Supported](https//docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Write Accelerator:  [Supported](https//docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Size            | vCPU | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput IOPS / MBps (cache size in GiB) | Max uncached disk throughput IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
+| Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10000 / 100 (793)  | 5000  / 125 | 4 / 2000 |
 | Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20000 / 200 (1587) | 10000 / 250 | 8 / 4000 |
@@ -203,15 +203,15 @@ Write Accelerator  [Supported](https//docs.microsoft.com/azure/virtual-machines/
 
 ## DSv2-series 11-15
 
-ACU 210 - 250 <sup>1</sup>
+ACU: 210 - 250 <sup>1</sup>
 
-Premium Storage  Supported
+Premium Storage: Supported
 
-Premium Storage caching  Supported
+Premium Storage caching: Supported
 
 DSv2-series sizes run on the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.
 
-| Size | vCPU | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput IOPS / MBps (cache size in GiB) | Max uncached disk throughput IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8000 / 64 (72) |6400 / 96 |2 / 1500 |
 | Standard_DS12_v2&nbsp;<sup>3</sup> |4 |28 |56 |16 |16000 / 128 (144) |12800 / 192 |4 / 3000 |
@@ -228,15 +228,15 @@ DSv2-series sizes run on the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the Intel
 
 ## Dv2-series 11-15
 
-ACU 210 - 250
+ACU: 210 - 250
 
-Premium Storage  Not Supported
+Premium Storage: Not Supported
 
-Premium Storage caching  Not Supported
+Premium Storage caching: Not Supported
 
 DSv2-series sizes run on the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.
 
-| Size              | vCPU | Memory GiB | Temp storage (SSD) GiB | Max temp storage throughput IOPS / Read MBps / Write MBps | Max data disks / throughput IOPS | Max NICs / Expected network bandwidth (Mbps) |
+| Size              | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1500                     |
 | Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
