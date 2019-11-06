@@ -133,7 +133,7 @@ Standard\_E48a\_v4**|48|384|1200|32| |
 Standard\_E64a\_v4**|64|512|1600|32| | 
 Standard\_E96a\_v4**|96|672|2400|32| | 
 
-** These sizes are in Preview.  If you are interested in trying out these larger sizes, [click here to sign up](https://aka.ms/AzureAMDLargeVMPreview).
+** These sizes are in Preview.  If you are interested in trying out these larger sizes, sign up at [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## Mv2-series
 
