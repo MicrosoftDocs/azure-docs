@@ -92,9 +92,9 @@ Standard\_D4as\_v4|4|16|32|8|8000 / 64 (100)|6400 / 96|2 / 2000
 Standard\_D8as\_v4|8|32|64|16|16000 / 128 (200)|12800 / 192|4 / 4000
 Standard\_D16as\_v4|16|64|128|32|32000 / 255 (400)|25600 / 384|8 / 8000
 Standard\_D32as\_v4|32|128|256|32|64000 / 510 (800)|51200 / 768|8 / 16000
-Standard\_D48as\_v4|48|192|384|32|PREVIEW **| | 
-Standard\_D64as\_v4|64|256|512|32| | | 
-Standard\_D96as\_v4|96|384|768|32| | | 
+Standard\_E48a\_v4**|48|192|384|32| | | 
+Standard\_E64a\_v4**|64|256|512|32| | | 
+Standard\_E96a\_v4**|96|384|768|32| | | 
 
 ** These sizes are in Preview.  If you are interested in trying out these larger sizes, [click here to sign up](https://aka.ms/AzureAMDLargeVMPreview).
 
@@ -140,9 +140,9 @@ Standard\_D4a\_v4|4|16|100|8|6000 / 93 / 46|2 / 2000
 Standard\_D8a\_v4|8|32|200|16|12000 / 187 / 93|4 / 4000
 Standard\_D16a\_v4|16|64|400|32|24000 / 375 / 187|8 / 8000
 Standard\_D32a\_v4|32|128|800|32|48000 / 750 / 375|8 / 16000
-Standard\_D48a\_v4|48|192|1200|32|PREVIEW **| 
-Standard\_D64a\_v4|64|256|1600|32| | 
-Standard\_D96a\_v4|96|384|2400|32| | 
+Standard\_E48a\_v4**|48|192|1200|32| | 
+Standard\_E64a\_v4**|64|256|1600|32| | 
+Standard\_E96a\_v4**|96|384|2400|32| | 
 
 ** These sizes are in Preview.  If you are interested in trying out these larger sizes, [click here to sign up](https://aka.ms/AzureAMDLargeVMPreview).
 
