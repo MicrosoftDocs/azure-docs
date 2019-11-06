@@ -28,7 +28,7 @@ Go to the storage account you configured, and select containers. If the containe
 
 * Data related to **Storage** is pushed to a customer storage account every 24 hours.
 
-       ![Azure Backup Reports data push frequency](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+    ![Azure Backup Reports data push frequency](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 
 * Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack.
 
