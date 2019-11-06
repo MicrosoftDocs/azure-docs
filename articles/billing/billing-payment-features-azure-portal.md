@@ -26,10 +26,10 @@ You must be the Account Administrator to perform any of these tasks.
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search for **Cost Management + Billing**.
     
-    ![Screenshot that shows search for cost management + billing ](./media/billing-payment-features-azure-portal/search.png)
+    ![Screenshot that shows search for cost management + billing ](./media/billing-payment-features-azure-portal/search-bar.png)
 
 1. In the **My subscriptions** list, select the subscription you'd like to add the credit card to.
-    ![Screenshot that shows my subscriptions grid in overview](./media/billing-payment-features-azure-portal/cost-management-billing-overview.png)
+    ![Screenshot that shows my subscriptions grid in overview](./media/billing-payment-features-azure-portal/cost-management-billing-overview-x.png)
 
 1. Select **Payment methods**.
 
@@ -47,11 +47,11 @@ You can change the active payment method by adding a new credit card or choosing
 
 1. Enter credit card details in the form on the right.
 
-    ![Screenshot that shows add credit card form.](./media/billing-payment-features-azure-portal/subscription-add-payment-method.png)
+    ![Screenshot that shows add credit card form.](./media/billing-payment-features-azure-portal/subscription-add-payment-method-x.png)
 
 1. To make this card your active payment method, check the box next to **Make this my active payment method** above the form. This card will become the active payment instrument for all subscriptions using the same card as the selected subscription.
 
-    ![Screenshot that shows check box for making card active payment method.](./media/billing-payment-features-azure-portal/subscription-make-active-payment-method.png)
+    ![Screenshot that shows check box for making card active payment method.](./media/billing-payment-features-azure-portal/subscription-make-active-payment-method-x.png)
 
 1. Select **Next**.
 
@@ -59,7 +59,7 @@ To change the active payment method to a credit card that is already saved:
 
 1. Select the box next to the card you'd like to make the active payment method.
 
-    ![Screenshot that shows box checked next to credit card](./media/billing-payment-features-azure-portal/subscription-checked-payment-method.png)
+    ![Screenshot that shows box checked next to credit card](./media/billing-payment-features-azure-portal/subscription-checked-payment-method-x.png)
 
 1. Click **Set active** in the command bar.
 
@@ -69,7 +69,7 @@ To change the active payment method to a credit card that is already saved:
 
 To edit credit card details such as the expiration date or address, click on the credit card that you'd like to edit. A credit card form will appear on the right.
 
-![Screenshot that shows credit card selected](./media/billing-payment-features-azure-portal/subscription-edit-payment-method.png)
+![Screenshot that shows credit card selected](./media/billing-payment-features-azure-portal/subscription-edit-payment-method-x.png)
 
 Update the credit card details and click **Save**.
 
@@ -77,7 +77,7 @@ Update the credit card details and click **Save**.
 
 1. Select the box next to the card you'd like to delete.
 
-    ![Screenshot that shows box checked next to credit card](./media/billing-payment-features-azure-portal/subscription-checked-payment-method.png)
+    ![Screenshot that shows box checked next to credit card](./media/billing-payment-features-azure-portal/subscription-checked-payment-method-x.png)
 
 1. Click **Delete** in the command bar.
 
@@ -111,19 +111,19 @@ The spending limit isn’t available for subscriptions with commitment plans or 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search for **Cost Management + Billing**.
 
-    ![Screenshot that shows search for cost management + billing ](./media/billing-payment-features-azure-portal/search.png)
+    ![Screenshot that shows search for cost management + billing ](./media/billing-payment-features-azure-portal/search-bar.png)
 
 1. In the **My subscriptions** list, select your Visual Studio Enterprise subscription.
     
-    ![Screenshot that shows my subscriptions grid in overview](./media/billing-payment-features-azure-portal/cost-management-overview-msdn.png)
+    ![Screenshot that shows my subscriptions grid in overview](./media/billing-payment-features-azure-portal/cost-management-overview-msdn-x.png)
 
 1. In the Subscription overview, click the orange banner to remove the spending limit.
     
-    ![Screenshot that shows remove spending limit banner](./media/billing-payment-features-azure-portal/msdn-remove-spending-limit-banner.png)
+    ![Screenshot that shows remove spending limit banner](./media/billing-payment-features-azure-portal/msdn-remove-spending-limit-banner-x.png)
 
 1. Choose whether you want to remove the spending limit indefinitely or for the current billing period only.
 
-   ![Screenshot that shows remove spending limit blade](./media/billing-payment-features-azure-portal/remove-spending-limit-blade.png)
+   ![Screenshot that shows remove spending limit blade](./media/billing-payment-features-azure-portal/remove-spending-limit-blade-x.png)
 
 1. Click **Select payment method** to choose a payment method for your subscription. This will become the active payment method for your subscription.
 
@@ -136,11 +136,11 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search for **Cost Management + Billing**.
 
-    ![Screenshot that shows search for cost management + billing ](./media/billing-payment-features-azure-portal/search.png)
+    ![Screenshot that shows search for cost management + billing ](./media/billing-payment-features-azure-portal/search-bar.png)
 
 1. In the **My subscriptions** list, select your Azure in Open subscription.
    
-    ![Screenshot that shows my subscriptions grid in overview](./media/billing-payment-features-azure-portal/cost-management-overview-aio.png)
+    ![Screenshot that shows my subscriptions grid in overview](./media/billing-payment-features-azure-portal/cost-management-overview-aio-x.png)
 
 1. Select **Credit history**.
     
