@@ -74,19 +74,19 @@ When you use an ISE with an Azure virtual network, a common setup problem is hav
 
 * If you created a new virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
 
-* If your virtual network uses an [Azure firewall](../firewall/overview.md), you can enable access through that firewall by [setting up a single, outbound, public, and predictable IP address](#predictable-outbound-ip) for one or more ISEs can use to communicate with the destination system. That way, you don't have to set up additional firewall openings at the destination.
-
-  Otherwise, to make sure that your ISE stays accessible and works correctly, you need to open the ports specified by the table below. If any required ports are unavailable, your ISE won't work correctly.
-
 * On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, on the virtual network where you want to set up the NSGs, make sure that you [open the ports specified by the table below](#network-ports-for-ise). If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
 
 * If you have previously existing NSGs, make sure that you [open the ports specified by the table below](#network-ports-for-ise). If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
+
+* If your virtual network uses [Azure Firewall](../firewall/overview.md) or a [network virtual appliance](../virtual-network/virtual-networks-overview.md#filter-network-traffic), you can [set up a single, outbound, public, and predictable IP address](#predictable-outbound-ip) for one or more ISEs to communicate with destination systems. That way, you don't have to set up additional firewall openings at the destination.
+
+  Otherwise, to make sure that your ISE stays accessible and works correctly, you need to open the ports specified by the table below. If any required ports are unavailable, your ISE won't work correctly.
 
 <a name="predictable-outbound-ip"></a>
 
 ### Set up public outbound IP address for an ISE
 
-When your Azure virtual network uses an [Azure firewall](../firewall/overview.md), you can enable access through that firewall by setting up a single, outbound, public, and predictable IP address. That way, all the ISEs in the virtual network can use this single IP address to communicate with the destination system, and you don't have to set up additional firewall openings at the destination.
+When your Azure virtual network uses [Azure Firewall](../firewall/overview.md) or a [network virtual appliance](../virtual-network/virtual-networks-overview.md#filter-network-traffic), you can route outbound access through that firewall by setting up a single, outbound, public, and predictable IP address to communicate with destination systems. That way, all the ISEs in the virtual network can use this single IP address to communicate with destination systems, and you don't have to set up additional firewall openings at the destination.
 
 Before you start, you need these items:
 
