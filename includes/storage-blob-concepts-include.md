@@ -31,7 +31,7 @@ Users or client applications can access objects in Blob storage via HTTP/HTTPS, 
 * [Python](/azure/python/)
 * [Go](https://github.com/azure/azure-storage-blob-go/)
 * [PHP](https://azure.github.io/azure-storage-php/)
-* [Ruby](https://azure.github.io/azure-storage-ruby).
+* [Ruby](https://azure.github.io/azure-storage-ruby)
 
 ## About Azure Data Lake Storage Gen2
 
