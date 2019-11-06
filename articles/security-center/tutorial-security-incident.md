@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Incident response - Azure Security Center | Microsoft Docs
+title: Incident response tutorial - Azure Security Center | Microsoft Docs
 description: Azure Security Center Tutorial - Respond to security incidents
 services: security-center
 documentationcenter: na
