@@ -5,7 +5,7 @@ author: tamram
 
 ms.service: billing
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/05/2019
 ms.author: tamram
 ---
 
@@ -15,7 +15,7 @@ After you purchase Azure Storage reserved capacity, the reservation discount is 
 
 For more information about Azure Storage reserved capacity, see [Optimize costs for Blob storage with reserved capacity](../storage/blobs/storage-blob-reserved-capacity.md).
 
-For information about Azure Storage reservation pricing, see [Block blob pricing](/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](/pricing/details/storage/data-lake/).
+For information about Azure Storage reservation pricing, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ## How the reservation discount is applied
 
@@ -29,7 +29,7 @@ When you delete a resource, the reservation discount automatically applies to an
 
 The following examples show how the Azure Storage reserved capacity discount applies, depending on the deployments.
 
-Suppose that you have purchased 100 TiB of reserved capacity in the in US West 2 region for a 1-year term. Your reservation is for locally redundant storage (LRS) in the hot access tier.
+Suppose that you have purchased 100 TB of reserved capacity in the in US West 2 region for a 1-year term. Your reservation is for locally redundant storage (LRS) in the hot access tier.
 
 The cost of this sample reservation is $18,540. You can either choose to pay the full amount up front or to pay fixed monthly installments of $1,545 per month for the next twelve months.
 
@@ -37,11 +37,11 @@ For these examples, assume that you have signed up for a monthly reservation pay
 
 ### Underusing your capacity
 
-Suppose that in a given hour within the reservation period, you used only 80 TiB of your 100 TiB reserved capacity. The remaining 20 TiB is not applied for that hour and does not carry over.
+Suppose that in a given hour within the reservation period, you used only 80 TB of your 100 TB reserved capacity. The remaining 20 TB is not applied for that hour and does not carry over.
 
 ### Overusing your capacity
 
-Suppose that in a given hour within the reservation period, you used 101 TiB of storage capacity. The reservation discount applies to 100 TiB of your data, and the remaining 1 TiB is charged at pay-as-you-go rates for that hour. If in the next hour your usage changes to 100 TiB, then all usage is covered by the reservation.
+Suppose that in a given hour within the reservation period, you used 101 TB of storage capacity. The reservation discount applies to 100 TB of your data, and the remaining 1 TB is charged at pay-as-you-go rates for that hour. If in the next hour your usage changes to 100 TB, then all usage is covered by the reservation.
 
 ## Need help? Contact us
 

@@ -1,5 +1,5 @@
 ---
-title: Save costs for Azure SQL Database vCores  | Microsoft Docs
+title: Save costs for Azure SQL Database vCores  
 description: Learn how to buy Azure SQL Database reserved capacity to save on your compute costs.
 services: sql-database
 ms.service: sql-database
