@@ -403,7 +403,9 @@
         "articles/governance/resource-graph/**/*.yml": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
         "articles/sql-data-warehouse/**/*.md": "Azure SQL Data Warehouse",
-        "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse"
+        "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse",
+        "articles/data-factory/**/*.md": "Azure Data Factory",
+        "articles/data-factory/**/*.yml": "Azure Data Factory"
       },
       "manager": {
         "articles/sql-database/**/*.md": "jroth"

@@ -31,6 +31,6 @@ Download the cheat sheet here: **[Microsoft Azure Machine Learning automated dat
 
 ## More help with Machine Learning Studio
 * For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](../studio/what-is-machine-learning.md).
-* For an explanation of how to deploy a scoring web service, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
+* For an explanation of how to deploy a scoring web service, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
 * For a discussion of how to consume a scoring web service, see [How to consume an Azure Machine Learning Web service](../studio/consume-web-services.md).
 

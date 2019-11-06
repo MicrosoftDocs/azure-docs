@@ -1,5 +1,5 @@
 ---
-title: 'Azure Resource Manager: Create a single database - Azure SQL Database | Microsoft Docs'
+title: 'Azure Resource Manager: Create a single database - Azure SQL Database '
 description: Create a single database in Azure SQL Database using the Azure Resource Manager template.
 services: sql-database
 ms.service: sql-database

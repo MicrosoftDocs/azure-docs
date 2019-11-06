@@ -10,7 +10,7 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-mscustom: sqlfreshmay19 
+ms.custom: seo-lt-2019
 ---
 
 # Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
