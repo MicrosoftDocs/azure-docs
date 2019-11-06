@@ -1,5 +1,5 @@
 ---
-title: 'Connect client VM - Azure SQL Database Managed Instance | Microsoft Docs'
+title: 'Connect client VM - Azure SQL Database Managed Instance '
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an Azure virtual machine.
 services: sql-database
 ms.service: sql-database

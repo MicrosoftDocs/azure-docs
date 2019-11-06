@@ -5,7 +5,7 @@ description: Understand Azure AD password protection common troubleshooting
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 
 ms.author: joflore

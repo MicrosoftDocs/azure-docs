@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
 
 ---
@@ -89,10 +89,8 @@ In this tutorial, you learn how to:
 2. Select **Developer Portal** from the top menu.
 3. Select **APIs**, and then select **Demo Conference API**.
 4. Notice your new **test** operation is now available.
-5. Select **API Change History** from below the API name.
+5. Click on **Changelog** near the API name.
 6. Notice that your change log entry appears in this list.
-
-    ![Developer portal](media/api-management-getstarted-revise-api/developer_portal.PNG)
 
 ## Next steps
 

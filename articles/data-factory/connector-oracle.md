@@ -1,5 +1,5 @@
 ---
-title: Copy data to and from Oracle by using Azure Data Factory | Microsoft Docs
+title: Copy data to and from Oracle by using Azure Data Factory 
 description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, by using Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -72,6 +72,12 @@ The Oracle linked service supports the following properties:
 
 >[!TIP]
 >If you get an error, "ORA-01025: UPI parameter out of range", and your Oracle version is 8i, add `WireProtocolMode=1` to your connection string. Then try again.
+
+More connection properties you can set in connection string per your case:
+
+| Property | Description | Allowed values |
+|:--- |:--- |:--- |
+| ArraySize |The number of bytes the connector can fetch in a single network round trip. E.g., `ArraySize=‭10485760‬`.<br/><br/>Larger values increase throughput by reducing the number of times to fetch data across the network. Smaller values increase response time, as there is less of a delay waiting for the server to transmit data. | An integer from 1 to 4294967296 (4 GB). Default value is `60000`. The value 1 does not define the number of bytes, but indicates allocating space for exactly one row of data. |
 
 To enable encryption on Oracle connection, you have two options:
 

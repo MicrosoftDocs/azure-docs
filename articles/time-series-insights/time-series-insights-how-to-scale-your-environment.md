@@ -3,10 +3,9 @@ title: 'How to scale your Azure Time Series Insights environment | Microsoft Doc
 description: This article describes how to scale your Azure Time Series Insights environment. Use the Azure portal to add or subtract capacity within a pricing SKU. 
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
@@ -22,21 +21,9 @@ You can use the Azure portal to increase or decrease capacity within a given pri
 
 However, changing the pricing tier SKU is not allowed. For example, an environment with an S1 pricing SKU cannot be converted into an S2, or vice versa.
 
-## S1 SKU ingress rates and capacities
+## GA limits
 
-| S1 SKU Capacity | Ingress Rate | Maximum Storage Capacity
-| --- | --- | --- |
-| 1 | 1 GB (1 million events) | 30 GB (30 million events) per month |
-| 10 | 10 GB (10 million events) | 300 GB (300 million events) per month |
-
-## S2 SKU ingress rates and capacities
-
-| S2 SKU Capacity | Ingress Rate | Maximum Storage Capacity
-| --- | --- | --- |
-| 1 | 10 GB (10 million events) | 300 GB (300 million events) per month |
-| 10 | 100 GB (100 million events) | 3 TB (3 billion events) per month |
-
-Capacities scale linearly, so an S1 SKU with capacity 2 supports 2 GB (2 million) events per day ingress rate and 60 GB (60 million events) per month.
+[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
 
 ## Change the capacity of your environment
 

@@ -1,5 +1,5 @@
 ---
-title: Copy data to/from Azure SQL Database | Microsoft Docs
+title: Copy data to/from Azure SQL Database 
 description: Learn how to copy data to/from Azure SQL Database using Azure Data Factory.
 services: data-factory
 documentationcenter: ''

@@ -10,9 +10,11 @@ ms.date: 07/09/2019
 ms.author: dacurwin
 ---
 # Back up a SharePoint farm to Azure with DPM
+
 You back up a SharePoint farm to Microsoft Azure by using System Center Data Protection Manager (DPM) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. DPM provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
 
 ## SharePoint supported versions and related protection scenarios
+
 Azure Backup for DPM supports the following scenarios:
 
 | Workload | Version | SharePoint deployment | DPM deployment type | DPM - System Center 2012 R2 | Protection and recovery |
@@ -20,39 +22,49 @@ Azure Backup for DPM supports the following scenarios:
 | SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint deployed as a physical server or Hyper-V/VMware virtual machine <br> -------------- <br> SQL AlwaysOn |Physical server or on-premises Hyper-V virtual machine |Supports backup to Azure from Update Rollup 5 |Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
 
 ## Before you start
+
 There are a few things you need to confirm before you back up a SharePoint farm to Azure.
 
 ### Prerequisites
+
 Before you proceed, make sure that you have met all the [prerequisites for using Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) to protect workloads. Some tasks for prerequisites include: create a backup vault, download vault credentials, install Azure Backup Agent, and register DPM/Azure Backup Server with the vault.
 
 ### DPM agent
+
 The DPM agent must be installed on the server that's running SharePoint, the servers that are running SQL Server, and all other servers that are part of the SharePoint farm. For more information about how to set up the protection agent, see [Setup Protection Agent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  The one exception is that you install the agent only on a single web front end (WFE) server. DPM needs the agent on one WFE server only to serve as the entry point for protection.
 
 ### SharePoint farm
+
 For every 10 million items in the farm, there must be at least 2 GB of space on the volume where the DPM folder is located. This space is required for catalog generation. For DPM to recover specific items (site collections, sites, lists, document libraries, folders, individual documents, and list items), catalog generation creates a list of the URLs that are contained within each content database. You can view the list of URLs in the recoverable item pane in the **Recovery** task area of DPM Administrator Console.
 
 ### SQL Server
+
 DPM runs as a LocalSystem account. To back up SQL Server databases, DPM needs sysadmin privileges on that account for the server that's running SQL Server. Set NT AUTHORITY\SYSTEM to *sysadmin* on the server that's running SQL Server before you back it up.
 
 If the SharePoint farm has SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that DPM will protect.
 
 ### SharePoint Server
+
 While performance depends on many factors such as size of SharePoint farm, as general guidance one DPM server can protect a 25-TB SharePoint farm.
 
 ### DPM Update Rollup 5
+
 To begin protection of a SharePoint farm to Azure, you need to install DPM Update Rollup 5 or later. Update Rollup 5 provides the ability to protect a SharePoint farm to Azure if the farm is configured by using SQL AlwaysOn.
 For more information, see the blog post that introduces [DPM Update Rollup 5](https://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
 
 ### What's not supported
+
 * DPM that protects a SharePoint farm does not protect search indexes or application service databases. You will need to configure the protection of these databases separately.
 * DPM does not provide backup of SharePoint SQL Server databases that are hosted on scale-out file server (SOFS) shares.
 
 ## Configure SharePoint protection
+
 Before you can use DPM to protect SharePoint, you must configure the SharePoint VSS Writer service (WSS Writer service) by using **ConfigureSharePoint.exe**.
 
 You can find **ConfigureSharePoint.exe** in the [DPM Installation Path]\bin folder on the front-end web server. This tool provides the protection agent with the credentials for the SharePoint farm. You run it on a single WFE server. If you have multiple WFE servers, select just one when you configure a protection group.
 
 ### To configure the SharePoint VSS Writer service
+
 1. On the WFE server, at a command prompt, go to [DPM installation location]\bin\
 2. Enter ConfigureSharePoint -EnableSharePointProtection.
 3. Enter the farm administrator credentials. This account should be a member of the local Administrator group on the WFE server. If the farm administrator isn’t a local admin grant the following permissions on the WFE server:
@@ -65,9 +77,11 @@ You can find **ConfigureSharePoint.exe** in the [DPM Installation Path]\bin fold
 >
 
 ## Back up a SharePoint farm by using DPM
+
 After you have configured DPM and the SharePoint farm as explained previously, SharePoint can be protected by DPM.
 
 ### To protect a SharePoint farm
+
 1. From the **Protection** tab of the DPM Administrator Console, click **New**.
     ![New Protection Tab](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
 2. On the **Select Protection Group Type** page of the **Create New Protection Group** wizard, select **Servers**, and then click **Next**.
@@ -136,6 +150,7 @@ After you have configured DPM and the SharePoint farm as explained previously, S
     ![Summary](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## Restore a SharePoint item from disk by using DPM
+
 In the following example, the *Recovering SharePoint item* has been accidentally deleted and needs to be recovered.
 ![DPM SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
@@ -197,6 +212,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
     >
 
 ## Restore a SharePoint database from Azure by using DPM
+
 1. To recover a SharePoint content database, browse through various recovery points (as shown previously), and select the recovery point that you want to restore.
 
     ![DPM SharePoint Protection8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)
@@ -223,6 +239,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.
 
 ## Next steps
+
 * Learn more about DPM Protection of SharePoint - see [Video Series - DPM Protection of SharePoint](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
 * Review [Release Notes for System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 * Review [Release Notes for Data Protection Manager in System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
