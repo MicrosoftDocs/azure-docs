@@ -133,16 +133,16 @@ Premium Storage caching: Not Supported
 
 Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz. The Dav4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Dasv4 sizes. The pricing and billing meters for Dasv4 sizes are the same as the Dav4-series.
 
-**Size**|**vCPU**|**Memory: GiB**|**Temp storage (SSD) GiB**|**Max data disks**|**Max temp storage throughput: IOPS / Read MBps / Write MBps**|**Max NICs / Expected network bandwidth (MBps)**
-:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-Standard_D2a_v4|2|8|50|4|3000 / 46 / 23|2 / 1000 |
-Standard_D4a_v4|4|16|100|8|6000 / 93 / 46|2 / 2000 |
-Standard_D8a_v4|8|32|200|16|12000 / 187 / 93|4 / 4000 |
-Standard_D16a_v4|16|64|400|32|24000 / 375 / 187|8 / 8000 |
-Standard_D32a_v4|32|128|800|32|48000 / 750 / 375|8 / 16000 |
-Standard_E48a_v4**|48|192|1200|32| | |
-Standard_E64a_v4**|64|256|1600|32| | |
-Standard_E96a_v4**|96|384|2400|32| | |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs / Expected network bandwidth (MBps) |
+|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2a_v4|2|8|50|4|3000 / 46 / 23|2 / 1000 |
+| Standard_D4a_v4|4|16|100|8|6000 / 93 / 46|2 / 2000 |
+| Standard_D8a_v4|8|32|200|16|12000 / 187 / 93|4 / 4000 |
+| Standard_D16a_v4|16|64|400|32|24000 / 375 / 187|8 / 8000 |
+| Standard_D32a_v4|32|128|800|32|48000 / 750 / 375|8 / 16000 |
+| Standard_E48a_v4**|48|192|1200|32| | |
+| Standard_E64a_v4**|64|256|1600|32| | |
+| Standard_E96a_v4**|96|384|2400|32| | |
 
 ** These sizes are in Preview.  If you are interested in trying out these larger sizes, [go here to sign up](https://aka.ms/AzureAMDLargeVMPreview).
 
