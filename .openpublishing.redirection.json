@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-registry/container-registry-upgrade.md",
+      "redirect_url": "/azure/container-registry/container-registry-skus",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
       "redirect_url": "/azure/azure-government/documentation-government-welcome",
       "redirect_document_id": false
@@ -5279,6 +5284,21 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-portal.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-cli.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-cli",
       "redirect_document_id": false
     },
     {
@@ -16234,11 +16254,6 @@
     {
       "source_path": "articles/stream-analytics/stream-analytics-common-troubleshooting-issues.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-input",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/stream-analytics/powerbi-output-managed-identity.md",
-      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#power-bi",
       "redirect_document_id": false
     },
     {
@@ -43731,5 +43746,15 @@
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-use-conversation-transcription",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/machine-learning/service/publish-a-machine-learning-web-service.md",
+      "redirect_url": "/azure/machine-learning/service/deploy-a-machine-learning-web-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/linear-regression-in-azure.md",
+      "redirect_url": "/azure/machine-learning/studio/use-case-excel-studio",
+      "redirect_document_id": false
+    }
   ]
 }

@@ -51,9 +51,7 @@ az extension add --name spring-cloud
 
 1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform).
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
-
-1. Select **Azure Spring Cloud** to go to the overview page. Then select the **Create** button to get started.
+1. Select **Azure Spring Cloud** to go to the overview page. Select the **Create** button to get started.
 
 1. Fill out the form, considering the following guidelines:
     - Service Name: Specify the name of your service instance.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
