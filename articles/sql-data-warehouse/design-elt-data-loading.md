@@ -128,7 +128,7 @@ To load data with PolyBase, you can use any of these loading options:
 
 ### Other loading options
 
-Aside from PolyBase and the COPY statement, you can use [bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest) or the [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to SQL Data Warehouse without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is slower than PolyBase and the COPY statement. 
+In addition to PolyBase and the COPY statement, you can use [bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest) or the [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to SQL Data Warehouse without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is slower than PolyBase and the COPY statement. 
 
 
 ## 5. Transform the data
