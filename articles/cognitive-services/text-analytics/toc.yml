@@ -14,30 +14,23 @@
   items:
     - name: Client library
       items:
-      - name: C#
-        href: quickstarts/csharp.md
-      - name: Python
-        href: quickstarts/python-sdk.md
-      - name: Go
-        href: quickstarts/go-sdk.md
-      - name: Ruby
-        href: quickstarts/ruby-sdk.md
-      - name: Node.js
-        href: quickstarts/nodejs-sdk.md
+      - name: Analyze Text using the client library
+        href: quickstarts/text-analytics-sdk.md
     - name: REST API
-      items:
-      - name: Go
-        href: quickstarts/go.md
-      - name: Java
+      items: 
+      - name: Using Java
         href: quickstarts/java.md
-      - name: Node.js
-        href: quickstarts/nodejs.md
-      - name: PHP
-        href: quickstarts/php.md
-      - name: Python
+      - name: Using Python
         href: quickstarts/python.md
-      - name: Ruby
-        href: quickstarts/ruby.md
+      - name: Using Node.js
+        href: quickstarts/nodejs.md
+      - name: Using PHP
+        href: quickstarts/php.md
+      - name: Using Go
+        href: quickstarts/php.md
+      - name: Using Ruby
+        href: quickstarts/php.md
+
 - name: Tutorials
   items:
     - name: Integrate Power BI to analyze customer feedback
