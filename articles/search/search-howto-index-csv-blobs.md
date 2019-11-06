@@ -1,7 +1,7 @@
 ---
 title: Index CSV blobs using delimitedText parsing mode (preview)
 titleSuffix: Azure Cognitive Search
-description: Extract and import CSV from Azure Blob storage using the delimitedText parsing mode, currently in public preview..
+description: Extract and import CSV from Azure Blob storage using the delimitedText parsing mode, currently in public preview.
 
 manager: nitinme
 author: mgottein 
@@ -24,7 +24,7 @@ By default, [Azure Cognitive Search blob indexer](search-howto-indexing-azure-bl
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-In this article, you will learn how to parse CSV blobs with an Azure Cognitive Search blob indexerby setting the `delimitedText` parsing mode. 
+In this article, you will learn how to parse CSV blobs with an Azure Cognitive Search blob indexer by setting the `delimitedText` parsing mode. 
 
 > [!NOTE]
 > Follow the indexer configuration recommendations in [One-to-many indexing](search-howto-index-one-to-many-blobs.md) to output multiple search documents from one Azure blob.
