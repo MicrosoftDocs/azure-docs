@@ -26,7 +26,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ### Create the virtual network
 
-In this section, you create a virtual network and the subnet that you will later delegate to an Azure service.
+In this section, you create a virtual network and the subnet that you'll later delegate to an Azure service.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 1. In **Create virtual network**, enter or select this information:
@@ -43,9 +43,9 @@ In this section, you create a virtual network and the subnet that you will later
     |||
 1. Leave the rest as default, and then select **Create**.
 
-### Permissons
+### Permissions
 
-If you didn't create the subnet you would like to delegate to an Azure service, you need the follwoing permission: `Microsoft.Network/virtualNetworks/subnets/write`.
+If you didn't create the subnet you would like to delegate to an Azure service, you need the following permission: `Microsoft.Network/virtualNetworks/subnets/write`.
 
 The built-in [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role also contains the necessary permissions.
 
@@ -96,9 +96,9 @@ Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *m
     --subnet-name mySubnet \
     --subnet-prefix 10.0.0.0/24
 ```
-### Permissons
+### Permissions
 
-If you didn't create the subnet you would like to delegate to an Azure service, you need the follwoing permission: `Microsoft.Network/virtualNetworks/subnets/write`.
+If you didn't create the subnet you would like to delegate to an Azure service, you need the following permission: `Microsoft.Network/virtualNetworks/subnets/write`.
 
 The built-in [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role also contains the necessary permissions.
 
@@ -116,7 +116,7 @@ Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network
   --delegations Microsoft.DBforPostgreSQL/serversv2
 ```
 
-To verify the delegation was applied, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show) to verify the service was delegated to the subnet under the property **serviceName**:
+To verify the delegation was applied, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Verify the service is delegated to the subnet under the property **serviceName**:
 
 ```azurecli-interactive
   az network vnet show \
@@ -154,7 +154,7 @@ Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network
   --vnet-name myVnet
   --remove delegations
 ```
-To verify the delegation was removed, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show) to verify the service was removed from the subnet under the property **serviceName**:
+To verify the delegation was removed, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Verify the service is removed from the subnet under the property **serviceName**:
 
 ```azurecli-interactive
   az network vnet show \
@@ -197,7 +197,7 @@ Create a virtual network named **myVnet** with a subnet named **mySubnet** using
 ```
 ### Permissions
 
-If you didn't create the subnet you would like to delegate to an Azure service, you need the follwoing permission: `Microsoft.Network/virtualNetworks/subnets/write`.
+If you didn't create the subnet you would like to delegate to an Azure service, you need the following permission: `Microsoft.Network/virtualNetworks/subnets/write`.
 
 The built-in [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role also contains the necessary permissions.
 
@@ -244,7 +244,7 @@ Use [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/g
   Get-AzDelegation -Name "myDelegation" -Subnet $subnet
 
   Get-AzDelegation: Sequence contains no matching element
-  
+
 ```
 
 ## Next steps
