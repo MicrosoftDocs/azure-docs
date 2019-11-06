@@ -42,7 +42,7 @@ This tutorial adds a machine-learned entity to extract data from an utterance. T
 
 This machine-learned entity is the beginning and top-level for data extraction. The decomposability of the machine-learned entity allows LUIS to find and label the specific words inside the utterance's text for each part of the entity. 
 
-While you may not know how detailed you want your entity when you begin your app, a best-practice is to start with a machine-learned entity, then add subcomponents are your app matures.
+While you may not know how detailed you want your entity when you begin your app, a best practice is to start with a machine-learned entity, then add subcomponents are your app matures.
 
 ## Import example app
 
@@ -52,7 +52,7 @@ While you may not know how detailed you want your entity when you begin your app
 
 1. From the **Manage** section, on the **Versions** tab, select the version, then select **Clone** to clone the version, and name it `mach-learn`. Then select **Done** to finish the clone process.
 
-    Cloning is a best-practice before you modify your app. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+    Cloning is a best practice before you modify your app. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
 ## Mark entities in example utterances
 
@@ -141,9 +141,11 @@ To extract information about a Pizza order, mark the details in the example utte
 
     ![Accept prediction by selecting Confirm entity prediction.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
+    For now, the machine-learned entity is working. 
+
 ## Add prebuilt number to app
 
-The order information should also include how many of an item in the order. To extract this data, add a subcomponent to the order entity named `Quantity`. Add a constraint to the `Quantity` entity to make sure only numbers are returned. This constraint uses a prebuilt (pretrained) entity named **Number** to extract this information. If the number is spelled out as `two` or uses a digit `2`, the client application will receive the data extracted as digits. 
+The order information should also include how many of an item in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added and that component needs a constraint of a prebuilt number. 
 
 Begin by adding the prebuilt number to the app. 
 
@@ -155,27 +157,55 @@ Begin by adding the prebuilt number to the app.
 
     ![Add prebuilt entity](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
 
-    The prebuilt entity is added to the app but isn't a constraint for the `Quantity` subcomponent yet. 
+    The prebuilt entity is added to the app but isn't a constraint yet. 
 
-## Add constraint to entity
+## Create subcomponent entity with constraint
 
-Constrain the `Quantity` subcomponent to a number with this procedure.
+The `Order` entity should have a `Quantity` subcomponent to determine how many of an item are in the order. 
 
-1. In the following utterance, select the text in the square brackets to create a `Quantity` machine-learned subcomponent.  
+1. Select **Entities** then select the `OrderPizza` intent. 
+1. Select **+ Add Component** then enter the name `Quantity` then select Enter to add the new entity to the app.
+1. After the success notification, select the `Quantity` subcomponent then select the Constraint pencil.
+1. In the drop-down list, select the prebuilt number. 
 
-    |Order example utterance|
-    |--|
-    |`i need [2] large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
+    ![Create quantity entity with prebuilt number as constraint.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-1. In the pop-up box, enter the name of `Quantity` and create the entity. 
+    The entity with the constraint is create but not yet applied to the example utterances.
 
-    ![Create a quantity entity](media/tutorial-machine-learned-entity/create-quantity-entity.png)
+## Mark example utterance with subcomponent for quantity
 
-1. To set the constraint for the `Quantity` entity, select the **Entities** section from the left-menu, then select the `Order` entity.
+1. Select **Intents** from the left-hand navigation then select the **OrderPizza** intent. The three numbers in the following utterances are marked but are visually below the `Order` entity line. This lower level means the entities are found but are not considered apart of the `Order` entity.
+1. Mark the numbers with the `Quantity` entity by selecting the `2` in the example utterance then selecting `Quantity` from the list. 
 
-1. In the **Structure** box, select the `Quantity` component, then select the pencil icon to add a new constraint. In the box, select **Add prebuilt...**. 
+    ![Mark text with quantity entity.](media/tutorial-machine-learned-entity/mark-example-utterance-with-quantity-entity.png)
 
+1. Mark the `6` and the `1` in the same example utterance. 
+1. In the following example utterance, mark the `a` as a quantity, because it implies a quantity of 1: 
 
+    `delivery for a small pepperoni pizza`
+
+    Label the `a` when it implies quantity in the remaining example utterances. 
+
+1. Select **Train** to train the app with these new utterances.
+
+    ![Train the app then review the example utterances.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
+
+    At this point, the order has some details that can be extracted (size, quantity, and total order). There is further refining of the `Order` entity such as pizza toppings, type of crust, and side orders. Each of those should be created as subcomponents of the `Order` entity. 
+
+## Test the app
+
+Test the app using the interactive test panel. This process lets you enter a new utterance then view the prediction results to see how well the active model is working. The intent prediction should be fairly confident (above 70%) and the entity extraction should pick up at least the `Order`.
+
+1. Select **Test** in the top navigation.
+1. Enter the utterance `deliver a medium veggie pizza` and select Enter. The active model predicted the correct intent with over 70% confidence.
+
+    ![Enter a new utterance to test the intent.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance.png)
+
+1. Select **Inspect** to see the entity predictions.
+
+    ![View the entity predictions in the interactive test panel.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
+
+    The size was correctly identified but the quantity was not. More utterances with the subcomponents marked will help with this issue.
 
 ## Publish the app so the trained model is queryable from the endpoint
 
@@ -185,134 +215,76 @@ Constrain the `Quantity` subcomponent to a number with this procedure.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Go to the end of the URL in the address and enter `Here is my c.v. for the engineering job`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `ApplyForJob` utterances.
+1. Go to the end of the URL in the address and enter the same query as you entered in the interactive test panel. 
+
+    `deliver a medium veggie pizza`
+
+    The last querystring parameter is `query`, the utterance **query**. 
 
     ```json
     {
-      "query": "Here is my c.v. for the engineering job",
-      "topScoringIntent": {
-        "intent": "ApplyForJob",
-        "score": 0.98052007
-      },
-      "intents": [
-        {
-          "intent": "ApplyForJob",
-          "score": 0.98052007
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.03424581
-        },
-        {
-          "intent": "None",
-          "score": 0.0015820954
+        "query": "deliver a medium veggie pizza",
+        "prediction": {
+            "topIntent": "OrderPizza",
+            "intents": {
+                "OrderPizza": {
+                    "score": 0.7812769
+                },
+                "None": {
+                    "score": 0.0314020254
+                },
+                "Confirm": {
+                    "score": 0.009299271
+                },
+                "Greeting": {
+                    "score": 0.007551549
+                }
+            },
+            "entities": {
+                "Order": [
+                    {
+                        "Size": [
+                            "medium"
+                        ],
+                        "$instance": {
+                            "Size": [
+                                {
+                                    "type": "Size",
+                                    "text": "medium",
+                                    "startIndex": 10,
+                                    "length": 6,
+                                    "score": 0.9955588,
+                                    "modelTypeId": 1,
+                                    "modelType": "Entity Extractor",
+                                    "recognitionSources": [
+                                        "model"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "$instance": {
+                    "Order": [
+                        {
+                            "type": "Order",
+                            "text": "a medium veggie pizza",
+                            "startIndex": 8,
+                            "length": 21,
+                            "score": 0.7983857,
+                            "modelTypeId": 1,
+                            "modelType": "Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
         }
-      ],
-      "entities": [
-        {
-          "entity": "engineering",
-          "type": "Job",
-          "startIndex": 24,
-          "endIndex": 34,
-          "score": 0.668959737
-        }
-      ]
-    }
+    }    
     ```
     
-    LUIS found the correct intent, **ApplyForJob**, and extracted the correct entity, **Job**, with a value of `engineering`.
-
-
-## Names are tricky
-The LUIS app found the correct intent with high confidence and it extracted the job name, but names are tricky. Try the utterance `This is the lead welder paperwork`.  
-
-In the following JSON, LUIS responds with the correct intent, `ApplyForJob`, but didn't extract the `lead welder` job name. 
-
-```json
-{
-  "query": "This is the lead welder paperwork",
-  "topScoringIntent": {
-    "intent": "ApplyForJob",
-    "score": 0.860295951
-  },
-  "intents": [
-    {
-      "intent": "ApplyForJob",
-      "score": 0.860295951
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.07265678
-    },
-    {
-      "intent": "None",
-      "score": 0.00482481951
-    }
-  ],
-  "entities": []
-}
-```
-
-Because a name can be anything, LUIS predicts entities more accurately if it has a phrase list of words to boost the signal.
-
-## To boost signal of the job-related words, add a phrase list of job-related words
-
-Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the Azure-Samples GitHub repository. The list is over 1,000 job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
-
-1. In the **Build** section of the LUIS app, select **Phrase lists** found under the **Improve app performance** menu.
-
-1. Select **Create new phrase list**. 
-
-1. Name the new phrase list `JobNames` and copy the list from jobs-phrase-list.csv into the **Values** text box.
-
-    [![Screenshot of create new phrase list dialog pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
-
-    If you want more words added to the phrase list, select **Recommand** then review the new **Related Values** and add any that are relevant. 
-
-    Make sure to keep the **These values are interchangeable** checked because these values should all be treated as synonyms for jobs. Learn more about interchangeable and noninterchangeable [phrase list concepts](luis-concept-feature.md#how-to-use-phrase-lists).
-
-1. Select **Done** to activate the phrase list.
-
-    [![Screenshot of create new phrase list dialog pop-up with words in phrase list values box](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
-
-1. Train and publish the app again to use phrase list.
-
-1. Requery at the endpoint with the same utterance: `This is the lead welder paperwork.`
-
-    The JSON response includes the extracted entity:
-
-    ```json
-      {
-      "query": "This is the lead welder paperwork.",
-      "topScoringIntent": {
-        "intent": "ApplyForJob",
-        "score": 0.983076453
-      },
-      "intents": [
-        {
-          "intent": "ApplyForJob",
-          "score": 0.983076453
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.0120766377
-        },
-        {
-          "intent": "None",
-          "score": 0.00248388131
-        }
-      ],
-      "entities": [
-        {
-          "entity": "lead welder",
-          "type": "Job",
-          "startIndex": 12,
-          "endIndex": 22,
-          "score": 0.8373154
-        }
-      ]
-    }
-    ```
 
 ## Clean up resources
 
@@ -320,17 +292,16 @@ Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
 ## Related information
 
-* [Intents without entities tutorial](luis-quickstart-intents-only.md)
-* [Simple entity](luis-concept-entity-types.md) conceptual information
-* [Phrase list](luis-concept-feature.md) conceptual information
+* [Tutorial - intents](luis-quickstart-intents-only.md)
+* [Concept - entities](luis-concept-entity-types.md) conceptual information
+* [Concept - features](luis-concept-feature.md) conceptual information
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)
 
-
 ## Next steps
 
-In this tutorial, the Human Resources app uses a machine-learned simple entity to find job names in utterances. Because job names can be such a wide variety of words or phrases, the app needed a phrase list to boost the job name words. 
+In this tutorial, the app uses a machine-learned entity to find the intent of a user's utterance and extract details from that utterance. Using the machine-learned entity allows you to decompose the details of the entity.  
 
 > [!div class="nextstepaction"]
 > [Add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)
