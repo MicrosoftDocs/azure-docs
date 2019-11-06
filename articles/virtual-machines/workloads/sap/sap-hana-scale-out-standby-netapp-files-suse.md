@@ -59,29 +59,29 @@ In the example configurations, installation commands, and so on, the HANA instan
 
 Before you begin, refer to the following SAP notes and papers:
 
-* [Azure NetApp Files documentation][anf-azure-doc]. 
-* SAP Note [1928533], which includes:  
+* [Azure NetApp Files documentation][anf-azure-doc] 
+* SAP Note [1928533] includes:  
   * A list of Azure VM sizes that are supported for the deployment of SAP software
   * Important capacity information for Azure VM sizes
   * Supported SAP software, and operating system (OS) and database combinations
   * The required SAP kernel version for Windows and Linux on Microsoft Azure
-* SAP Note [2015553], listing prerequisites for SAP-supported SAP software deployments in Azure
-* SAP Note [2205917], containing recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [1944799], containing SAP Guidelines for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [2178632], containing detailed information about all monitoring metrics reported for SAP in Azure
-* SAP Note [2191498], containing the required SAP Host Agent version for Linux in Azure
-* SAP Note [2243692], containing information about SAP licensing on Linux in Azure
-* SAP Note [1984787], containing general information about SUSE Linux Enterprise Server 12
-* SAP Note [1999351], containing additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP
-* SAP Note [1900823], containing information about SAP HANA storage requirements
-* [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes), containing all required SAP notes for Linux
+* SAP Note [2015553]: Lists prerequisites for SAP-supported SAP software deployments in Azure
+* SAP Note [2205917]: Contains recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [1944799]: Contains SAP Guidelines for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [2178632]: Contains detailed information about all monitoring metrics reported for SAP in Azure
+* SAP Note [2191498]: Contains the required SAP Host Agent version for Linux in Azure
+* SAP Note [2243692]: Contains information about SAP licensing on Linux in Azure
+* SAP Note [1984787]: Contains general information about SUSE Linux Enterprise Server 12
+* SAP Note [1999351]: Contains additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP
+* SAP Note [1900823]: Contains information about SAP HANA storage requirements
+* [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Contains all required SAP notes for Linux
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [SUSE SAP HA Best Practice Guides][suse-ha-guide], containing all required information to set up NetWeaver High Availability and SAP HANA System Replication on-premises (to be used as a general baseline; they provide much more detailed information)
+* [SUSE SAP HA Best Practice Guides][suse-ha-guide]: Contains all required information to set up NetWeaver High Availability and SAP HANA System Replication on-premises (to be used as a general baseline; they provide much more detailed information)
 * [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
-* [SAP HANA on NetApp Systems with Network File System (NFS)](https://www.netapp.com/us/media/tr-4435.pdf), a configuration guide containing information about how to set up SAP HANA by using Azure NFS by NetApp
+* [SAP HANA on NetApp Systems with Network File System (NFS)](https://www.netapp.com/us/media/tr-4435.pdf): A configuration guide that contains information about how to set up SAP HANA by using Azure NFS by NetApp
 
 
 ## Overview
@@ -92,11 +92,11 @@ One method for achieving HANA high availability is by configuring host auto fail
 > The standby node needs access to all database volumes. The HANA volumes must be mounted as NFSv4 volumes. The improved file lease-based locking mechanism in the NFSv4 protocol is used for `I/O` fencing. 
 
 > [!IMPORTANT]
-> To build the supported configuration, it is mandatory to deploy the HANA data and log volumes as NFSv4.1 volumes and mount them by using the NFSv4.1 protocol. The HANA host auto-failover configuration with standby node is not supported with NFSv3.
+> To build the supported configuration, you must deploy the HANA data and log volumes as NFSv4.1 volumes and mount them by using the NFSv4.1 protocol. The HANA host auto-failover configuration with standby node is not supported with NFSv3.
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png)
 
-In the preceding diagram, following the SAP HANA network recommendations, three subnets were created within one Azure virtual network: 
+In the preceding diagram, which follows SAP HANA network recommendations, three subnets were created within one Azure virtual network: 
 * For communication with the storage system
 * For internal HANA inter-node communication
 * For client communication
@@ -138,7 +138,7 @@ The following instructions assume that you've already deployed your [Azure virtu
 
    As you're deploying the volumes, be sure to select the **NFSv4.1** version. Currently, access to NFSv4.1 requires additional permissions. Deploy the volumes in the designated Azure NetApp Files [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). 
    
-   Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, **HN1**-data-mnt00001, **HN1**-log-mnt00001, etc. are the volume names and nfs://10.23.1.5/**HN1**-data-mnt00001, nfs://10.23.1.4/**HN1**-log-mnt00001, etc. are the file paths for the Azure NetApp Files volumes.  
+   Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, **HN1**-data-mnt00001, **HN1**-log-mnt00001, and so on are the volume names and nfs://10.23.1.5/**HN1**-data-mnt00001, nfs://10.23.1.4/**HN1**-log-mnt00001, and so on are the file paths for the Azure NetApp Files volumes.  
 
    * volume **HN1**-data-mnt00001 (nfs://10.23.1.5/**HN1**-data-mnt00001)
    * volume **HN1**-data-mnt00002 (nfs://10.23.1.6/**HN1**-data-mnt00002)
@@ -153,9 +153,9 @@ The following instructions assume that you've already deployed your [Azure virtu
 As you're creating your Azure NetApp Files for SAP NetWeaver on SUSE High Availability architecture, be aware of the following important considerations:
 
 - The minimum capacity pool is 4 tebibytes (TiB).  
-- The minimum volume size is 100 gibibyte (GiB).
+- The minimum volume size is 100 gibibytes (GiB).
 - Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted must be in the same Azure virtual network or in [peered virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) in the same region.  
-- The selected virtual network must have a subnet, delegated to Azure NetApp Files.
+- The selected virtual network must have a subnet that's delegated to Azure NetApp Files.
 - The throughput of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). When you're sizing the HANA Azure NetApp volumes, make sure that the resulting throughput meets the HANA system requirements.  
 - With the Azure NetApp Files [export policy](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy), you can control the allowed clients, the access type (read-write, read only, and so on). 
 - The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.  
@@ -173,9 +173,9 @@ The throughput of an Azure NetApp Files volume is a function of the volume size 
 
 As you design the infrastructure for SAP in Azure, be aware of some minimum storage requirements by SAP, which translate into minimum throughput characteristics:
 
-- Enable read-write on /hana/log of 250 MB/sec with 1-MB I/O sizes.  
-- Enable read activity of at least 400 MB/sec for /hana/data for 16-MB and 64-MB I/O sizes.  
-- Enable write activity of at least 250 MB/sec for /hana/data with 16-MB and 64-MB I/O sizes. 
+- Enable read-write on /hana/log of 250 megabytes per second (MB/s) with 1-MB I/O sizes.  
+- Enable read activity of at least 400 MB/s for /hana/data for 16-MB and 64-MB I/O sizes.  
+- Enable write activity of at least 250 MB/s for /hana/data with 16-MB and 64-MB I/O sizes. 
 
 The [Azure NetApp Files throughput limits](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TiB of volume quota are:
 - Premium Storage tier - 64 MiB/s  
@@ -252,9 +252,9 @@ The next instructions assume that you've already created the resource group, the
     
     e. Select **Save**. 
  
-    e. Repeat steps b through e for the remaining virtual machines (in our example,  **hanadb2** and **hanadb3**).
+    f. Repeat steps b through e for the remaining virtual machines (in our example,  **hanadb2** and **hanadb3**).
  
-    f. Leave the virtual machines in stopped state for now. Next, we'll enable [accelerated networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) for all newly attached network interfaces.  
+    g. Leave the virtual machines in stopped state for now. Next, we'll enable [accelerated networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) for all newly attached network interfaces.  
 
 6. Enable accelerated networking for the additional network interfaces for the `hana` and `client` subnets by doing the following:  
 
@@ -349,7 +349,7 @@ Configure and prepare your OS by doing the following:
     vm.swappiness=10
     ```
 
-4. **[A]** Adjust sunrpc settings as recommended in the [SAP HANA on NetApp AFF Systems with NFS configuration guide](https://www.netapp.com/us/media/tr-4435.pdf).  
+4. **[A]** Adjust the sunrpc settings, as recommended in the [SAP HANA on NetApp AFF Systems with NFS configuration guide](https://www.netapp.com/us/media/tr-4435.pdf).  
 
     ```
     vi /etc/modprobe.d/sunrpc.conf
@@ -407,7 +407,7 @@ Configure and prepare your OS by doing the following:
     echo "N" > /sys/module/nfs/parameters/nfs4_disable_idmapping
     ```
 
-5. **[A]** Create the SAP HANA group and user manually. The IDs for group sapsys and user **hn1**adm must be set to the same IDs, which are provided during the onboarding. In this example the IDs are set to **1001**. Otherwise, it wouldn't be possible to access the volumes. The IDs for group sapsys and user accounts **hn1**adm and sapadm, must be the same on all virtual machines.  
+5. **[A]** Create the SAP HANA group and user manually. The IDs for group sapsys and user **hn1**adm must be set to the same IDs, which are provided during the onboarding. (In this example, the IDs are set to **1001**.) If the IDs aren't set correctly, you won't be able to access the volumes. The IDs for group sapsys and user accounts **hn1**adm and sapadm must be the same on all virtual machines.  
 
     ```
     # Create user group 
@@ -484,7 +484,7 @@ Configure and prepare your OS by doing the following:
 
 ## Installation  
 
-In this example for deploying SAP HANA in scale-out configuration with standby node with Azure, we used HANA 2.0 SP4.  
+In this example for deploying SAP HANA in scale-out configuration with standby node with Azure, we've used HANA 2.0 SP4.  
 
 ### Prepare for HANA installation
 
@@ -557,7 +557,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
 2. **[1]** Verify global.ini  
 
-   Display global.ini, and ensure that the configuration for the internal SAP HANA inter-node communication is in place. Verify the section **communication**. It should have the address space for the `hana` subnet, and `listeninterface` should be set to `.internal`. Verify the section **internal_hostname_resolution**. It should have the IP addresses for the HANA virtual machines that belong to the `hana` subnet.  
+   Display global.ini, and ensure that the configuration for the internal SAP HANA inter-node communication is in place. Verify the **communication** section. It should have the address space for the `hana` subnet, and `listeninterface` should be set to `.internal`. Verify the **internal_hostname_resolution** section. It should have the IP addresses for the HANA virtual machines that belong to the `hana` subnet.  
 
    ```
     sudo cat /usr/sap/**HN1**/SYS/global/hdb/custom/config/global.ini
@@ -650,7 +650,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GREEN
    ```
 
-   b. To simulate a node crash, run the following command as root on the worker node, which is in this case **hanadb2**:  
+   b. To simulate a node crash, run the following command as root on the worker node, which is **hanadb2** in this case:  
    
    ```
     echo b > /proc/sysrq-trigger
@@ -678,11 +678,11 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
    ```
 
    > [!IMPORTANT]
-   > To avoid delays with SAP HANA failover, when a node experiences kernel panic, set `kernel.panic` to 20 seconds on *all* HANA virtual machines. The configuration is done in `/etc/sysctl`. Reboot the virtual machines to activate the change. Failover, when a node is experiencing kernel panic can take 10 or more minutes, if this change is not performed.  
+   > When a node experiences kernel panic, avoid delays with SAP HANA failover by setting `kernel.panic` to 20 seconds on *all* HANA virtual machines. The configuration is done in `/etc/sysctl`. Reboot the virtual machines to activate the change. If this change isn't performed, failover can take 10 or more minutes when a node is experiencing kernel panic.  
 
 2. Kill the name server by doing the following:
 
-   a. Prior to the test, run the following commands as **hn1**adm to check the status of the environment:  
+   a. Prior to the test, check the status of the environment by running the following commands as **hn1**adm:  
 
    ```
     #Landscape status 
@@ -704,12 +704,12 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GRAY
    ```
 
-   b. Run the following commands as **hn1**adm on the active master node, which is, in this case, **hanadb1**:  
+   b. Run the following commands as **hn1**adm on the active master node, which is **hanadb1** in this case:  
 
     ```
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill
     ```
-    The standby node **hanadb3** will take over as master node. This is the resource state after the failover test completed:  
+    The standby node **hanadb3** will take over as master node. Here is the resource state after the failover test completed:  
 
     ```
         # Check the instance status
@@ -759,13 +759,13 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     | hanadb3 | yes    | info   |          |        |         0 |         1 | default  | default  | master 3   | master     | standby     | master      | standby | worker  | default | default |
    ```
 
-   d. Again, kill the name server on the currently active master node, that is, on node **hanadb3**.  
+   d. Again, kill the name server on the currently active master node (that is, on node **hanadb3**).  
    
    ```
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB kill
    ```
 
-   Node **hanadb1** will resume the role of master node. The status, after the failover test has been completed, will look like this:
+   Node **hanadb1** will resume the role of master node. After the failover test has been completed, the status will look like this:
 
    ```
     # Check the instance status
@@ -796,7 +796,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB start
    ```
 
-   The status after SAP HANA has started on **hanadb3** looks like the following:  
+   After SAP HANA has started on **hanadb3**, the status looks like the following:  
 
    ```
     # Check the instance status
