@@ -15,6 +15,7 @@ ms.custom: seodec18
 ---
 
 # Use secrets in training runs
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to use secrets in training runs securely. For example, to connect to an external database to query training data, you would need to pass username and password to the remote run context. Coding such values into training scripts in clear text is insecure as it would expose the secret. 
 

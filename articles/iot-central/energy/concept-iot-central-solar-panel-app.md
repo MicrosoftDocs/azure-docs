@@ -12,6 +12,9 @@ manager: abjork
 
 # Azure IoT Central - solar panel app architecture
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
+
 This article provides an overview of the solar panel monitoring app template architecture. The diagram below shows a commonly used architecture for solar panel app on Azure using IoT Central platform.
 
 > [!div class="mx-imgBorder"]

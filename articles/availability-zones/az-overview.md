@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2019
+ms.date: 10/17/2019
 ms.author: cynthn
 ms.custom: fasttrack-edit
 ms.custom: mvc 
@@ -68,8 +68,8 @@ The combinations of Azure services and regions that support Availability Zones a
 | **Integration**                     |            |              |           |           |                |              |          |             |            |                |
 | Service Bus (Premium Tier Only) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
 | Event Grid | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
-
-
+| **Identity**                     |            |              |           |           |                |              |          |             |            |                |
+| Azure AD Domain Services | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
 
 ## Services resiliency
 All Azure management services are architected to be resilient from region-level failures. In the spectrum of failures, one or more Availability Zone failures within a region have a smaller failure radius compared to an entire region failure. Azure can recover from a zone-level failure of management services within the region or from another Azure region. Azure performs critical maintenance one zone at a time within a region, to prevent any failures impacting customer resources deployed across Availability Zones within a region.
@@ -91,6 +91,7 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 - [Add zone redundant region for Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
 - [Getting Started Azure Cache for Redis Availability Zones](https://aka.ms/redis/az/getstarted)
+- [Create an Azure Active Directory Domain Services instance](../active-directory-domain-services/tutorial-create-instance.md)
 
 ## Next steps
 - [Quickstart templates](https://aka.ms/azqs)

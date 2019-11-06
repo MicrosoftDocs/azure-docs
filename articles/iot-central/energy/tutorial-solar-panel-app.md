@@ -12,6 +12,8 @@ manager: abjork
 
 # Tutorial: Create and walk-through the solar panel monitoring app template 
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial guides you through the process of creating the solar panel monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn:
 
 
@@ -91,7 +93,7 @@ Click on the **Device templates** tab to see the solar panel device model. The m
 ## Clean up resources
 If you decide to not continue using this application, delete your application with the following these steps:
 
-1. From the left-hand menu, open Administration tab
+1. From the left pane, open Administration tab
 2. Select Application settings and click Delete button at the bottom of the page. 
 
     > [!div class="mx-imgBorder"]

@@ -4,11 +4,14 @@ description: An architecture of Digital Distribution Center application template
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ---
 
 # Architecture of IoT Central digital distribution center application template
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Partners & customer can leverage the app template & following guidance to develop end to end **digital distribution center** solutions.
 

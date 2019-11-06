@@ -1,5 +1,5 @@
 ---
-title: Copy Activity performance and tuning guide | Microsoft Docs
+title: Copy Activity performance and tuning guide 
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use Copy Activity.
 services: data-factory
 documentationcenter: ''
