@@ -62,8 +62,17 @@ The following sample *host.json* files have all possible options specified.
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 20
+              "maxTelemetryItemsPerSecond": 20,
+              "EvaluationInterval": "00:00:15",
+              "InitialSamplingPercentage": 0,
+              "MaxSamplingPercentage": 100,
+              "MinSamplingPercentage": 0.1,
+              "MovingAverageRatio":0.25,
+              "SamplingPercentageDecreaseTimeout": "00:02:00",
+              "SamplingPercentageIncreaseTimeout": "00:15:00"
             }
+            "SamplingExcludedTypes": "",
+            "SamplingIncludedTypes": "Dependency, Event, Exception, PageView, Request, Trace"
         }
     },
     "managedDependency": {
@@ -98,7 +107,19 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
         "samplingSettings": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 20
+          "EvaluationInterval": "00:00:15",
+          "InitialSamplingPercentage": 0,
+          "MaxSamplingPercentage": 100,
+          "MinSamplingPercentage": 0.1,
+          "MovingAverageRatio":0.25,
+          "SamplingPercentageDecreaseTimeout": "00:02:00",
+          "SamplingPercentageIncreaseTimeout": "00:15:00"
         }
+    "SamplingExcludedTypes": "",
+    "SamplingIncludedTypes": "Dependency, Event, Exception, PageView, Request, Trace",
+    "EnableLiveMetrics": true,
+    "EnableDependencyTracing":true,
+    "EnablePerformanceCountersCollection":true
     }
 }
 ```
@@ -109,7 +130,16 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
 |Property  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|true|Enables or disables sampling.| 
-|maxTelemetryItemsPerSecond|20|The threshold at which sampling begins.| 
+|maxTelemetryItemsPerSecond|20|The target rate that the adaptive algorithm aims for.| 
+|EvaluationInterval |00:00:15|The interval at which the current rate of telemetry is re-evaluated. Evaluation is performed as a moving average.|
+|InitialSamplingPercentage |100|The value assigned when the app has just started. Don't reduce this while you're debugging.|
+|MaxSamplingPercentage |100|As sampling percentage varies, what is the maximum value we're allowed to set.|
+|MinSamplingPercentage |0.1|As sampling percentage varies, what is the minimum value we're allowed to set.|
+|MovingAverageRatio |0.25|In the calculation of the moving average, the weight assigned to the most recent value. Use a value equal to or less than 1. Smaller values make the algorithm less reactive to sudden changes.|
+|SamplingPercentageDecreaseTimeout |00:02:00|When sampling percentage value changes, how soon after are we allowed to lower sampling percentage again to capture less data.|
+|SamplingPercentageIncreaseTimeout |00:15:00|When sampling percentage value changes, how soon after are we allowed to increase sampling percentage again to capture more data.|
+|SamplingExcludedTypes |""|Types excluded from Sampling.|
+|SamplingIncludedTypes |""|Types included in Sampling.|
 |EnableLiveMetrics |true|Enables live metrics collection.|
 |EnableDependencyTracking|true|Enables dependency tracking.|
 |EnablePerformanceCountersCollection|true|Enables Kudu performance counters collection.|
