@@ -86,6 +86,8 @@ This can happen if your refresh token has not been updated. Try these steps to e
 
 1. Sign into the Azure portal, and make sure you can access the resource.
 2. Try to refresh the credentials for the dashboard.
+3. Try to clear the cache from your PowerBI Desktop
+
 
    If you do have access and refreshing the credentials does not work, please open a support ticket.
 
