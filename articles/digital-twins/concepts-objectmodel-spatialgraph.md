@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/05/2019
 ---
 
 # Understand Digital Twins object models and spatial intelligence graph
