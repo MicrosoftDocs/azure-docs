@@ -1,5 +1,5 @@
 ---
-title: Visual authoring in Azure Data Factory | Microsoft Docs
+title: Visual authoring in Azure Data Factory 
 description: Learn how to use visual authoring in Azure Data Factory
 services: data-factory
 documentationcenter: ''

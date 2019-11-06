@@ -74,6 +74,10 @@ landingContent:
             url: data-manager-cli.md
           - text: Integrate blockchain using Azure Logic Apps
             url: ethereum-logic-app.md
+      - linkListType: tutorial
+        links:
+          - text: Use Blockchain Data Manager to send data to Azure Cosmos DB
+            url: data-manager-cosmosdb.md
       - linkListType: video
         links:
           - text: Introduction to Blockchain Data Manager

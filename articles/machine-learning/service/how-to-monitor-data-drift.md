@@ -156,14 +156,13 @@ datadrift.disable_schedule()
 
 The configuration of the data drift detector can be seen under **Models** in the **Details** tab in your workspace on the [Azure Machine Learning studio](https://ml.azure.com).
 
-![Azure Machine Learning studio Data Drift](media/how-to-monitor-data-drift/drift-config.png)
+[![Azure Machine Learning studio Data Drift](media/how-to-monitor-data-drift/drift-config.png)](media/how-to-monitor-data-drift/drift-config-expanded.png)
 
 ## View results in your Azure Machine Learning studio
 
 To view results in your workspace in [Azure Machine Learning studio](https://ml.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A **Data drift** tab is now available visualizing the data drift metrics. 
 
 [![Azure Machine Learning studio Data Drift](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
-
 
 ## Receiving drift alerts
 

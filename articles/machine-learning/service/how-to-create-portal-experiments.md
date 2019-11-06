@@ -100,7 +100,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
     Select **Next**.
 
-1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. 
+1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [how to define task types](how-to-define-task-type.md) for more information.
 
     1. For classification, you can also enable deep learning which is used for text featurizations.
 
@@ -201,12 +201,17 @@ Automated ML helps you with deploying the model without writing code:
 
     Field| Value
     ----|----
-    Deployment name| Enter a unique name for your deployment.
-    Deployment description| Enter a description to better identify what this deployment is for.
-    Scoring script| Autogenerate or upload your own scoring file. [Learn more about scoring script](how-to-deploy-and-where.md#script).
-    Environment script| Autogenerate or upload your own environment file.
+    Name| Enter a unique name for your deployment.
+    Description| Enter a description to better identify what this deployment is for.
+    Compute type| Select the type of endpoint you want to deploy: *Azure Kubernetes Service (AKS)* or *Azure Container Instance (ACI)*.
+    Name| *Applies to AKS only:* Select the name of the AKS cluster you wish to deploy to.
+    Enable authentication | Select to allow for token-based or key-based authentication.
+    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. [Learn more about scoring scripts](how-to-deploy-and-where.md#script).
+
     >[!Important]
     > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
+
+    The *Advanced* menu offers default deployment features such data collection and resource utilization settings. If you wish to override these defaults do so in this menu.
 
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
 

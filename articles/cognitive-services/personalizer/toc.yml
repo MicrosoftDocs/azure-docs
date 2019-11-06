@@ -41,7 +41,7 @@
     - name: "Features Action and Context"
       href: concepts-features.md
       displayName: action, context, feature, namespace, JSON, best practice, set, ID, guid, event id, 
-    - name: Active learning
+    - name: Active and inactive events
       href: concept-active-learning.md
       displayName: active, inactive
     - name: Rewards

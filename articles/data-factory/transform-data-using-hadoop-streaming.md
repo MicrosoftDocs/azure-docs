@@ -1,5 +1,5 @@
 ---
-title: Transform data using Hadoop Streaming activity in Azure Data Factory | Microsoft Docs
+title: Transform data using Hadoop Streaming activity in Azure Data Factory 
 description: Explains how to use Hadoop Streaming Activity in Azure Data Factory to transform data by running Hadoop Streaming programs on a Hadoop cluster. 
 services: data-factory
 documentationcenter: ''
