@@ -35,7 +35,7 @@ Use the following steps to install the [Azure IoT Tools for VS Code](https://mar
 
 ### Install the Azure IoT explorer
 
-Download and install the Azure IoT explorer tool from the [latest release](https://github.com/Azure/azure-iot-explorer/releases) page.
+Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page.
 
 ### Get the connection string for your company model repository
 
@@ -97,7 +97,7 @@ In this quickstart, you prepare a development environment by installing the Azur
     .\bootstrap-vcpkg.bat
     ```
 
-    Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run (note: requires admin on first use):
+    Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run the following (note: requires admin on first use):
 
     ```cmd/sh
     .\vcpkg.exe integrate install
@@ -120,7 +120,7 @@ In this quickstart, you use an existing sample device capability model and assoc
     > [!TIP]
     > To download a file from GitHub, navigate to the file, right-click on **Raw**, and then select **Save link as**.
 
-1. Open `pnp_app` folder with VS Code. You can view the files with intellisense:
+1. Open `pnp_app` folder with VS Code. You can view the files with IntelliSense:
 
     ![Device capability model](media/quickstart-create-pnp-device/dcm.png)
 
@@ -135,7 +135,7 @@ Now you have a DCM and its associated interfaces, you can generate the device co
     > [!NOTE]
     > The first time you use the IoT Plug and Play CodeGen CLI, it takes a few seconds to download and install automatically.
 
-1. Choose the DCM file you want to use to generate the device code stub.
+1. In the pop-up input dialog, choose the DCM file you want to use to generate the device code stub.
 
 1. Enter the project name **sample_device**, it will be the name of your device application.
 
@@ -147,7 +147,7 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 
 1. Choose **Via Vcpkg** as way to include the device SDK.
 
-1. VS Code opens a new window with generated device code stub files.
+1. A new folder called **sample_device** is created in the same location as the DCM file, and in it are the generated device code stub files. VS Code opens a new window to display these.
     ![Device code](media/quickstart-create-pnp-device/device-code.png)
 
 ## Build the code
@@ -161,7 +161,7 @@ You build the generated device code stub together with the device SDK. The appli
     cd cmake
     ```
 
-1. Run the following commands to build generated code stub:
+1. Run the following commands to build the generated code stub (replacing the placeholder with the directory of your Vcpkg repo):
 
     ```cmd\sh
     cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
@@ -181,7 +181,7 @@ You build the generated device code stub together with the device SDK. The appli
     > [!NOTE]
     > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-1. After the build completes successfully, run your application passing the IoT hub device connection string as parameter.
+1. After the build completes successfully, run your application, passing the IoT hub device connection string as parameter.
 
     ```cmd\sh
     .\Debug\sample_device.exe "[IoT Hub device connection string]"
