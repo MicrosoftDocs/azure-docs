@@ -23,7 +23,7 @@ The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependenc
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ### Operating system
 
