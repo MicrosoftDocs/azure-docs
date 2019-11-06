@@ -24,7 +24,7 @@ This article describes the `api-version=2019-05-06-Preview` version of Search se
 
 + [Cosmos DB indexer](search-howto-index-cosmosdb.md) supports MongoDB API, Gremlin API, and Cassandra API.
 
-[Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md) can index content and metadata from Data Lake Storage Gen2.
++ [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md) can index content and metadata from Data Lake Storage Gen2.
 
 + [Document Extraction (preview)](cognitive-search-skill-document-extraction.md) is a cognitive skill used during indexing that allows you to extract the contents of a file from within a skillset. Previously, document cracking only occurred prior to skillset execution. With the addition of this skill, you can also perform this operation within skillset execution.
 
