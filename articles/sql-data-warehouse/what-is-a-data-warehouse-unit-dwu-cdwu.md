@@ -1,5 +1,5 @@
 ---
-title: Data Warehouse Units (DWUs, cDWUs) in Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+title: Data Warehouse Units (DWUs, cDWUs) in Azure Synapse Analytics (formerly SQL DW) 
 description: Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWUs) to optimize price and performance, and how to change the number of units.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,7 +10,7 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-mscustom: sqlfreshmay19 
+ms.custom: seo-lt-2019
 ---
 
 # Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
@@ -19,11 +19,11 @@ Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWU
 
 ## What are Data Warehouse Units
 
-SQL pool represents a collection of analytic resources that are being provisioned when using SQL Analytics. Analytic resources are defined as a combination of CPU, memory and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
+SQL pool represents a collection of analytic resources that are being provisioned when using [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse). Analytic resources are defined as a combination of CPU, memory and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
 
 For higher performance, you can increase the number of data warehouse units. For less performance, reduce data warehouse units. Storage and compute costs are billed separately, so changing data warehouse units does not affect storage costs.
 
-Performance for data warehouse units is based on these [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pools) workload metrics:
+Performance for data warehouse units is based on these workload metrics:
 
 - How fast a standard data warehousing query can scan a large number of rows and then perform a complex aggregation. This operation is I/O and CPU intensive.
 - How fast the data warehouse can ingest data from Azure Storage Blobs or Azure Data Lake. This operation is network and CPU intensive.
@@ -210,4 +210,4 @@ When you start a scale operation, the system first kills all open sessions, roll
 
 ## Next steps
 
-To learn more about managing performance, see [Resource classes for workload management](resource-classes-for-workload-management.md) and [Memory and concurrency limits](memory-and-concurrency-limits.md).
+To learn more about managing performance, see [Resource classes for workload management](resource-classes-for-workload-management.md) and [Memory and concurrency limits]memory-concurrency-limits.md).

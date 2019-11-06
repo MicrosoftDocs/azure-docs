@@ -15,11 +15,11 @@ ms.date: 10/25/2018
 This article lists the top questions you might have related to Azure Databricks. It also lists some common problems you might have while using Databricks. For more information, see [What is Azure Databricks](what-is-azure-databricks.md). 
 
 ## Can I use Azure Key Vault to store keys/secrets to be used in Azure Databricks?
-Yes. You can use Azure Key Vault to store keys/secrets for use with Azure Databricks. For more information, see [Azure Key Vault-backed scopes](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss).
+Yes. You can use Azure Key Vault to store keys/secrets for use with Azure Databricks. For more information, see [Azure Key Vault-backed scopes](/azure/databricks/security/secrets/secret-scopes).
 
 
 ## Can I use Azure Virtual Networks with Databricks?
-Yes. You can use an Azure Virtual Network (VNET) with Azure Databricks. For more information, see [Deploying Azure Databricks in your Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+Yes. You can use an Azure Virtual Network (VNET) with Azure Databricks. For more information, see [Deploying Azure Databricks in your Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 ## How do I access Azure Data Lake Storage from a notebook? 
 
@@ -28,7 +28,7 @@ Follow these steps:
 1. Assign the necessary permissions to the service principal in Data Lake Storage.
 1. To access a file in Data Lake Storage, use the service principal credentials in Notebook.
 
-For more information, see [Use Azure Data Lake Storage with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
+For more information, see [Use Azure Data Lake Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake.html).
 
 ## Fix common problems
 
@@ -76,7 +76,7 @@ The following are a couple of solutions to this issue:
 
 #### Solution
 
-If you did not create the workspace, and you are added as a user, contact the person who created the workspace. Have that person add you by using the Azure Databricks Admin Console. For instructions, see [Adding and managing users](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). If you created the workspace and still you get this error, try selecting **Initialize Workspace** again from the Azure portal.
+If you did not create the workspace, and you are added as a user, contact the person who created the workspace. Have that person add you by using the Azure Databricks Admin Console. For instructions, see [Adding and managing users](/azure/databricks/administration-guide/users-groups/users). If you created the workspace and still you get this error, try selecting **Initialize Workspace** again from the Azure portal.
 
 ### Issue: Cloud provider launch failure while setting up the cluster (PublicIPCountLimitReached)
 

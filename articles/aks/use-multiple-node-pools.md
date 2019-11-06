@@ -29,19 +29,20 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 * You can't delete the default (first) node pool.
 * The HTTP application routing add-on can't be used.
+* The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
+* The AKS cluster must use virtual machine scale sets for the nodes.
 * You can't add or delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
 * The name of a node pool must start with a lowercase letter and can only contain alphanumeric characters. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
 * The AKS cluster can have a maximum of eight node pools.
 * The AKS cluster can have a maximum of 400 nodes across those eight node pools.
 * All node pools must reside in the same subnet.
-* The AKS cluster must use virtual machine scale sets for the nodes.
 
 ## Create an AKS cluster
 
 To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.10* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
 
 > [!NOTE]
-> The *Basic* load balanacer SKU is not supported when using multiple node pools. By default, AKS clusters are created with the *Standard* loadbalacer SKU.
+> The *Basic* load balanacer SKU is not supported when using multiple node pools. By default, AKS clusters are created with the *Standard* load balancer SKU from Azure CLI and Azure portal.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -543,20 +544,7 @@ AKS nodes do not require their own public IP addresses for communication. Howeve
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and adding the following boolean value property "enableNodePublicIP" on the agentPoolProfiles. Set this to `true` as by default it is set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
-
-```
-"agentPoolProfiles":[  
-    {  
-      "maxPods": 30,
-      "osDiskSizeGB": 0,
-      "agentCount": 3,
-      "agentVmSize": "Standard_DS2_v2",
-      "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]",
-      "enableNodePublicIP":true
-    }
-```
+After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean value property `enableNodePublicIP` to agentPoolProfiles. Set the value to `true` as by default it is set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
 
 ## Clean up resources
 

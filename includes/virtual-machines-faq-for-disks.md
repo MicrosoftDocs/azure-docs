@@ -166,15 +166,6 @@ You will receive email notifications 30 days prior to expiration and again on th
 
 ## Ultra disks
 
-**What regions currently support ultra disks?**
-- East US 2
-- SouthEast Asia
-- North Europe
-
-**What VM series currently support ultra disks?**
-- ESv3
-- DSv3
-
 **What should I set my ultra disk throughput to?**
 If you are unsure what to set your disk throughput to, we recommend you start by assuming an IO size of 16 KiB and adjust the performance from there as you monitor your application. The formula is: Throughput in MBps = # of IOPS * 16 / 1000.
 

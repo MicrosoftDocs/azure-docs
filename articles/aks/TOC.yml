@@ -227,8 +227,8 @@
       href: view-master-logs.md
     - name: View the kubelet logs
       href: kubelet-logs.md
-    - name: View real-time container logs (preview)
-      href: ../azure-monitor/insights/container-insights-live-logs.md
+    - name: View container data real-time
+      href: ../azure-monitor/insights/container-insights-livedata-overview.md
       maintainContext: true
   - name: Use Windows Server containers (preview)
     items:
@@ -345,6 +345,8 @@
       maintainContext: true
     - name: Deployment Center Launcher
       href: deployment-center-launcher.md 
+    - name: GitHub Actions for Kubernetes
+      href: ../aks/kubernetes-action.md
   - name: Troubleshoot
     items:
     - name: Common issues

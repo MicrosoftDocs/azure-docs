@@ -18,7 +18,11 @@ ms.collection: M365-identity-device-management
 ---
 # Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory
 
+<<<<<<< HEAD
 In Azure Active Directory (Azure AD), the term **app provisioning** refers to automatically creating user identities and roles in the cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into applications like Dropbox, Salesforce, ServiceNow, and more. This is known as automatic user provisioning for SaaS apps.
+=======
+Azure Active Directory (Azure AD) lets you automate the creation, maintenance, and removal of user identities in cloud SaaS applications such as [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), and more. This is known as automated user provisioning for SaaS apps.
+>>>>>>> 239b17f72a00baaf1e8900c4e99ffc0ac760a670
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
@@ -84,11 +88,7 @@ Use the Azure Active Directory portal to configure the Azure AD provisioning ser
 
 1. Open the **[Azure Active Directory portal](https://aad.portal.azure.com)**.
 1. Select **Enterprise applications** from the left pane. A list of all configured apps is show.
-1. Choose **+ New application** to add an application. Add either of the following depending on your scenario:
-
-   - The **Add your own app** option supports custom-developed SCIM integrations.
-   - All applications in the **Add from the gallery** > **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning](../saas-apps/tutorial-list.md) for additional ones.
-
+1. Choose **+ New application** to add an application. 
 1. Provide any details and select **Add**. The new app is added to the list of enterprise applications and opens to its application management screen.
 1. Select **Provisioning** to manage user account provisioning settings for the app.
 
@@ -190,7 +190,7 @@ For scenario-based guidance on how to troubleshoot automatic user provisioning, 
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-For an example step-by-step deployment plan for outbound user provisioning to an application, see the [Identity Deployment Guide for User Provisioning](https://aka.ms/userprovisioningdeploymentplan).
+For an example step-by-step deployment plan for outbound user provisioning to an application, see the [Identity Deployment Guide for User Provisioning](https://aka.ms/deploymentplans/userprovisioning).
 
 ## Frequently asked questions
 
