@@ -529,11 +529,14 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
-## Usage of Temp dir
+## Temporary files
 
-If your application needs to use a temporary directory to store temporary files the folder returned by tempfile.gettempdir() method (which is /tmp on Linux) can be used.  Note that anything written to this directory is not guranteed to be persisted across invocations. 
+The `tempfile.gettempdir()` method returns a temporary folder, which on Linux is `/tmp`. Your application can use this directory store temporary files generated and used by your functions during execution. 
 
-See below for an example which creates a temporary named file in the temporary directory
+> [!IMPORTANT]
+> Files written to the temporary directory are not guaranteed to persist across invocations. During scale-out, these files are also not shared between instances. 
+
+The following example creates a named temporary file in the temporary directory (`/tmp`):
 
 ```python
 import logging
@@ -542,10 +545,10 @@ import tempfile
 from os import listdir
 
 #---
-   tempFilePath = tempfile.gettempdir()   #this resolves to /tmp 
-   fp = tempfile.NamedTemporaryFile()     #create a temporary named file
-   fp.write(b'Hello world!')              #write something to it
-   filesDirListInTemp = listdir(tempFilePath)     #this list will contain the temporary file starting with tmp created above
+   tempFilePath = tempfile.gettempdir()   
+   fp = tempfile.NamedTemporaryFile()     
+   fp.write(b'Hello world!')              
+   filesDirListInTemp = listdir(tempFilePath)     
 ```   
 
 ## Known issues and FAQ
