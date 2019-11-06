@@ -19,22 +19,22 @@ To learn more about moving data to Blob storage for your Azure HPC Cache, read [
 The script below will add the executable `parallelcp`. (This script is designed for Ubuntu; if using another distribution, you must install ``parallel`` separately.)
 
 ```bash
-sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM 
+sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM
 #!/bin/bash
 
-display_usage() { 
-    echo -e "\nUsage: \$0 SOURCE_DIR DEST_DIR\n" 
-} 
+display_usage() {
+    echo -e "\nUsage: \$0 SOURCE_DIR DEST_DIR\n"
+}
 
-if [  \$# -le 1 ] ; then 
+if [  \$# -le 1 ] ; then
     display_usage
     exit 1
-fi 
- 
-if [[ ( \$# == "--help") ||  \$# == "-h" ]] ; then 
+fi
+
+if [[ ( \$# == "--help") ||  \$# == "-h" ]] ; then
     display_usage
     exit 0
-fi 
+fi
 
 SOURCE_DIR="\$1"
 DEST_DIR="\$2"
