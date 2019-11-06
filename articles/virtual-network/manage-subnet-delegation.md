@@ -104,15 +104,9 @@ The built-in [Network Contributor](../role-based-access-control/built-in-roles.m
 
 ### Delegate a subnet to an Azure service
 
-In this section, you delegate the subnet that you created in the preceding section to an Azure service. Use [az network vnet subnet](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-list-available-delegations) to list the availabile services for delegation in the **East US** region:
+In this section, you delegate the subnet that you created in the preceding section to an Azure service. 
 
-```azurecli-interactive
-  az network vnet subnet list-available-delegations \
-  --location eastus \
-  --query [].serviceName
-```
-
-Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) to update the subnet named **mySubnet** with a delegation to an Azure service listed in the previous command:
+Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) to update the subnet named **mySubnet** with a delegation to an Azure service.  In this example **Microsoft.DBforPostgreSQL/serversv2** is used for the example delegation:
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -178,17 +172,80 @@ Output from command is a null bracket:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+### Connect to Azure
+
+```azurepowershell-interactive
+  Connect-AzAccount
+```
+
 ### Create a resource group
 Create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
-```azurecli-interactive
+```azurepowershell-interactive
+  New-AzResourceGroup -Name myResourceGroup -Location eastus
+```
+### Create virtual network
 
-  az group create \
-    --name myResourceGroup \
-    --location eastus
+Create a virtual network named **myVnet** with a subnet named **mySubnet** using [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) in the **myResourceGroup** using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). The IP address space for the virtual network is **10.0.0.0/16**. The subnet within the virtual network is **10.0.0.0/24**.  
+
+```azurepowershell-interactive
+  $subnet = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix "10.0.0.0/24"
+
+  New-AzVirtualNetwork -Name myVnet -ResourceGroupName myResourceGroup -Location eastus -AddressPrefix "10.0.0.0/16" -Subnet $subnet
+```
+### Permissions
+
+If you didn't create the subnet you would like to delegate to an Azure service, you need the follwoing permission: `Microsoft.Network/virtualNetworks/subnets/write`.
+
+The built-in [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role also contains the necessary permissions.
+
+### Delegate a subnet to an Azure service
+
+In this section, you delegate the subnet that you created in the preceding section to an Azure service. 
+
+Use [Add-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/add-azdelegation?view=latest) to update the subnet named **mySubnet** with a delegation named **myDelegation** to an Azure service.  In this example **Microsoft.DBforPostgreSQL/serversv2** is used for the example delegation:
+
+```azurepowershell-interactive
+  $vnet = Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
+  $subnet = Get-AzVirtualNetworkSubnetConfig -Name "mySubnet" -VirtualNetwork $vnet
+  $subnet = Add-AzDelegation -Name "myDelegation" -ServiceName "Microsoft.DBforPostgreSQL/serversv2" -Subnet $subnet
+  Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
+Use [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/get-azdelegation?view=latest) to verify the delegation:
+
+```azurepowershell-interactive
+  $subnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup" | Get-AzVirtualNetworkSubnetConfig -Name "mySubnet"
+  Get-AzDelegation -Name "myDelegation" -Subnet $subnet
+
+  ProvisioningState : Succeeded
+  ServiceName       : Microsoft.DBforPostgreSQL/serversv2
+  Actions           : {Microsoft.Network/virtualNetworks/subnets/join/action}
+  Name              : myDelegation
+  Etag              : W/"9cba4b0e-2ceb-444b-b553-454f8da07d8a"
+  Id                : /subscriptions/3bf09329-ca61-4fee-88cb-7e30b9ee305b/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet/delegations/myDelegation
 
 ```
+### Remove subnet delegation from an Azure service
+
+Use [Remove-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/remove-azdelegation?view=latest) to remove the delegation from the subnet named **mySubnet**:
+
+```azurepowershell-interactive
+  $vnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
+  $subnet = Get-AzVirtualNetworkSubnetConfig -Name "mySubnet" -VirtualNetwork $vnet
+  $subnet = Remove-AzDelegation -Name "myDelegation" -Subnet $subnet
+  Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
+Use [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/get-azdelegation?view=latest) to verify the delegation was removed:
+
+```azurepowershell-interactive
+  $subnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup" | Get-AzVirtualNetworkSubnetConfig -Name "mySubnet"
+  Get-AzDelegation -Name "myDelegation" -Subnet $subnet
+
+  Get-AzDelegation: Sequence contains no matching element
+  
+```
+
 ## Next steps
 - Learn how to [manage subnets in Azure](virtual-network-manage-subnet.md).
