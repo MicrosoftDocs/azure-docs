@@ -1,5 +1,5 @@
 ---
-title: Automate the replication of schema changes in Azure SQL Data Sync | Microsoft Docs
+title: Automate the replication of schema changes in Azure SQL Data Sync 
 description: Learn how to automate the replication of schema changes in Azure SQL Data Sync.
 services: sql-database
 ms.service: sql-database

@@ -1,5 +1,5 @@
 ---
-title: Integration of Azure security products in Azure Security Center| Microsoft Docs
+title: Integration of Azure security products with Azure Security Center
 description: This topic presents Azure security products that have been integrated with Azure Security Center.
 services: security-center
 documentationcenter: na

@@ -19,6 +19,9 @@ ms.custom: mvc
 
 A number of new features were added to Azure Migrate:
 
+> [!NOTE]
+> If you don't yet see some of these features in the Azure Migrate portal, hang on. They will appear over the next week or so.
+
 - **Physical server assessment**. Assessment of on-premises physical servers is now supported, in addition to physical server migration that is already supported.
 - **Import-based assessment**. Assessment of machines using metadata and performance data provided in a CSV file is now supported.
 - **Application discovery**: Azure Migrate now supports application-level discovery of apps, roles, and features using the Azure Migrate appliance. This is currently supported for VMware VMs only, and is limited to discovery only (assessment isn't currently supported). [Learn more](how-to-discover-applications.md)

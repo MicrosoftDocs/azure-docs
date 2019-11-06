@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Multi-model capabilities | Microsoft Docs
+title: Azure SQL Database Multi-model capabilities 
 description: Azure SQL Database enables you to work with multiple data models in the same database.
 services: sql-database
 ms.service: sql-database

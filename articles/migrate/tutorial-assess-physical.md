@@ -11,6 +11,10 @@ ms.author: raynew
 
 # Assess physical servers with Azure Migrate: Server Assessment
 
+> [!NOTE]
+> If you don't yet see this feature in the Azure Migrate portal, hang on. It will appear over the next week or so.
+ 
+
 This article shows you how to assess on-premises physical servers, using the Azure Migrate: Server Assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
