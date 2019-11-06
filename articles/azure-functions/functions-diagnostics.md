@@ -20,10 +20,10 @@ When you’re running a function app, you want to be prepared for any issues tha
 
 To access Azure Functions diagnostics:
 
-- Navigate to your function app in the [Azure portal](https://portal.azure.com).
-- Select the **Platform features** tab.
-- Select **Diagnose and solve problems** under **Resource Management**, which opens Azure Functions diagnostics.
-- Choose a category that best describes the issue of your function app by using the keywords in the homepage tile. You can also type a keyword that best describes your issue in the search bar. For example, you could type `execution` to see a list of diagnostic reports related to your function app execution and open them directly from the homepage.
+1. Navigate to your function app in the [Azure portal](https://portal.azure.com).
+2. Select the **Platform features** tab.
+3. Select **Diagnose and solve problems** under **Resource Management**, which opens Azure Functions diagnostics.
+4. Choose a category that best describes the issue of your function app by using the keywords in the homepage tile. You can also type a keyword that best describes your issue in the search bar. For example, you could type `execution` to see a list of diagnostic reports related to your function app execution and open them directly from the homepage.
 
 ![Homepage](./media/functions-diagnostics/homepage.png)
 
@@ -35,7 +35,7 @@ Once you select a homepage category that best aligns with your function app's pr
 
 After selecting a tile, you can see a list of topics related to the issue described in the tile. These topics provide snippets of notable information from the full report. You can select any of these topics to investigate the issues further. Also, you can select **View Full Report** to explore all the topics on a single page.
 
-![Preview of diagnostic report](./media/functions-diagnostics/preview.png)
+![Preview of diagnostic report](./media/functions-diagnostics/preview-of-diagnostic-report.png)
 
 ## View a diagnostic report
 
@@ -45,9 +45,9 @@ After you choose a topic, you can view a diagnostic report specific to your func
 
 For script-based functions, you can use **Function Execution** and **Errors under Function App Down or Reporting Errors** to narrow down on the line of code causing exceptions or errors. This feature can be a useful tool for getting to the root cause and fixing issues from a specific line of code. This option isn't available for precompiled C# and Java functions.
 
-![Diagnostic report on function execution errors](./media/functions-diagnostics/function-execution-errors.png)
+![Diagnostic report on function execution errors](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 
-![Exception](./media/functions-diagnostics/function-exception.png)
+![Function exception](./media/functions-diagnostics/function-exception.png)
 
 ## Next steps
 
