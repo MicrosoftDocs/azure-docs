@@ -1,5 +1,5 @@
 ---
-title: Pricing of Azure Security Center tiers | Microsoft Docs
+title: Pricing of Azure Security Center tiers
 description: This article provides information on pricing for Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -49,7 +49,7 @@ To get the Standard tier:
 Security Center offers enhanced security and threat protection for your hybrid cloud workloads, including:
 
 - **Hybrid security** – Get a unified view of security across all of your on-premises and cloud workloads. Apply security policies and continuously assess the security of your hybrid cloud workloads to ensure compliance with security standards. Collect, search, and analyze security data from multiple sources, including firewalls and other partner solutions.
-- **Advanced threat detection** - Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyber-attacks.  Leverage built-in behavioral analytics and machine learning to identify attacks and zero-day exploits. Monitor networks, machines, and cloud services for incoming attacks and post-breach activity. Streamline investigation with interactive tools and contextual threat intelligence.
+- **Advanced threat detection** - Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyber-attacks. Leverage built-in behavioral analytics and machine learning to identify attacks and zero-day exploits. Monitor networks, machines, and cloud services for incoming attacks and post-breach activity. Streamline investigation with interactive tools and contextual threat intelligence.
 - **Access and application controls** - Block malware and other unwanted applications by applying machine learning powered whitelisting recommendations adapted to your specific workloads. Reduce the network attack surface with just-in-time, controlled access to management ports on Azure VMs. This drastically reduces exposure to brute force and other network attacks.
 - **Container security features** - Benefit from vulnerability management and real-time threat detection on your containerized environments. When enabling the container registries resource, it may take up to 12hrs until all the features are enabled.
 
