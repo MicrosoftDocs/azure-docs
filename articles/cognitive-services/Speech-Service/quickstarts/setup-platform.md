@@ -1,7 +1,7 @@
 ---
-title: 'Setup dev platform'
+title: 'Set up dev platform'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for your preferred platform and programming language combination.
+description: In this quickstart, you'll learn how to install the Speech SDK for your preferred platform and programming language combination.
 services: cognitive-services
 author: erhopf
 manager: nitinme
