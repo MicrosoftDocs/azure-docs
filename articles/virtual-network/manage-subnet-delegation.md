@@ -173,5 +173,22 @@ Output from command is a null bracket:
 ```json
 []
 ```
+
+## Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+### Create a resource group
+Create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+
+```azurecli-interactive
+
+  az group create \
+    --name myResourceGroup \
+    --location eastus
+
+```
 ## Next steps
 - Learn how to [manage subnets in Azure](virtual-network-manage-subnet.md).
