@@ -153,7 +153,7 @@ private IAccount getAccountForPolicy(IPublicClientApplication app, String policy
     List<IAccount> accounts = app.getAccounts();
 
     foreach(IAccount account : accounts)
-   {
+    {
         if (account.getClaims().get("tfp").equals(policyId))
         {
             return account;
