@@ -20,7 +20,7 @@ ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ---
 
-Azure AD provides an interface for configuring provisioning. This can be easy to use for one or two applications, but in situations where you have to create 10, 20, 100+ instances of an application, it is often easier to automate application creation and configuration through APIs rather than the user interface. This document outlines how to automate configuring provisioning through APIs. This is most commonly used for applications such as [Amazong Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on) and [Azure Databricks]()
+Azure AD provides an interface for configuring provisioning. This can be easy to use for one or two applications, but in situations where you have to create 10, 20, 100+ instances of an application, it is often easier to automate application creation and configuration through APIs rather than the user interface. This document outlines how to automate configuring provisioning through APIs. This is most commonly used for applications such as [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on) and [Azure Databricks]()
 
 
 
@@ -42,7 +42,7 @@ Content-type: application/json
     1. Test connection to the application<br>
     POST /servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
     1. Save credentials<br>	
-    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets  
+    PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets  
 
 4.	Configure
     1.	What’s an example of setting scope?
@@ -76,8 +76,6 @@ Applications in the Azure AD application gallery have an application template de
 
 ### Request
 
-The following is an example of the request.
-
 <!-- {
   "blockType": "request",
   "name": "get_applicationtemplates"
@@ -89,8 +87,6 @@ GET https://graph.microsoft.com/beta/applicationTemplates
 
 
 ### Response
-
-The following is an example of the response.
 
 <!-- {
   "blockType": "response",
@@ -125,8 +121,6 @@ Use the template ID retrieved for your application in the last step to create an
 
 ### Request
 
-The following is an example of the request.
-
 <!-- {
   "blockType": "request",
   "name": "applicationtemplate_instantiate"
@@ -143,10 +137,6 @@ Content-type: application/json
 
 ### Response
 
-The following is an example of the response.
-
-> [!NOTE]
-> The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
 
 <!-- {
   "blockType": "response",
@@ -212,7 +202,6 @@ Content-type: application/json
 Applications in the gallery that are enabled for provisoning have templates to streamline configuration. Use the request below to retrieve the template for the provisioning configuration. 
 
 ##### Request
-The following is an example of a request.
 
 <!-- {
   "blockType": "request",
@@ -302,7 +291,7 @@ Content-type: application/json
 Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third party application. The example below is for an application that requires clientSecret and secretToken. Each applicaiton has its on requirements. Review the API documentation to see the available options. 
 
 ```json
-PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets 
+PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
  
 { 
     value: [ 
@@ -327,7 +316,6 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 ```
 
 ##### Response
-The following is an example of a response. 
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -425,8 +413,6 @@ templateId: "DropboxSCIMOutDelta"
 Now that the provisioning job is configured, use the following command to start the job. 
 
 ##### Request
-The following is an example of a request.
-
 <!-- {
   "blockType": "request",
   "name": "synchronizationjob_start"
@@ -460,10 +446,6 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 ```
 
 ##### Response
-The following is an example of a response. 
-
->**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
-
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -639,3 +621,7 @@ Content-type: application/json
 }
 
 ```
+## Related articles
+
+- [MS Graph documentation](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Integrating a custom SCIM app with Azure AD](use-scim-to-provision-users-and-groups.md)
