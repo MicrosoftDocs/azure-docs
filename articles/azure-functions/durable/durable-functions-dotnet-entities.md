@@ -12,7 +12,7 @@ ms.author: azfuncdf
 #Customer intent: As a developer, I want to learn how to use Durable Entities in .NET so I can persist object state in a serverless context.
 ---
 
-# Developer's guide to durable entities in .NET (preview)
+# Developer's guide to durable entities in .NET
 
 In this article, we describe the available interfaces for developing durable entities with .NET in detail, including examples and general advice. 
 
@@ -126,7 +126,7 @@ The following Azure Http Function implements a DELETE operation using REST conve
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -143,7 +143,7 @@ The following Azure Http Function implements a GET operation using REST conventi
 [FunctionName("GetCounter")]
 public static async Task<HttpResponseMessage> GetCounter(
     [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -190,6 +190,7 @@ public interface ICounter
     Task<int> Get();
     void Delete();
 }
+
 public class Counter : ICounter
 {
     ...
@@ -208,7 +209,7 @@ Client code can use `SignalEntityAsync<TEntityInterface>` to send signals to ent
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -447,6 +448,9 @@ public class HttpEntity
 
 > [!NOTE]
 > To avoid issues with serialization, make sure to exclude fields meant to store injected values from the serialization.
+
+> [!NOTE]
+> Unlike when using constructor injection in regular .NET Azure Functions, the functions entry point method for class-based entities *must* be declared `static`. Declaring a non-static function entry point may cause conflicts between the normal Azure Functions object initializer and the Durable Entities object initializer.
 
 ## Function-based syntax
 

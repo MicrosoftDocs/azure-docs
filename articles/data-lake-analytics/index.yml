@@ -106,8 +106,18 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Understand Apache Spark for U-SQL Developers
-            url: data-lake-analytics-understand-spark-for-usql-developers.md
+            url: understand-spark-for-usql-developers.md
           - text: Understand Apache Spark data formats
-            url: data-lake-analytics-understand-spark-data-formats.md
+            url: understand-spark-data-formats.md
           - text: Understand Apache Spark code concepts
-            url: data-lake-analytics-understand-spark-code-concepts.md
+            url: understand-spark-code-concepts.md
+
+  # Card (optional)
+  - title: Troubleshoot U-SQL jobs 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+         - text: Troubleshoot U-SQL runtime failures
+           url: runtime-troubleshoot.md
+         - text: Troubleshoot a .NET upgrade
+           url: dotnet-upgrade-troubleshoot.md

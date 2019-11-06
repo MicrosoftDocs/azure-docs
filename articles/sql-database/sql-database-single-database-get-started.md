@@ -1,5 +1,5 @@
 ---
-title: 'Create a single database - Azure SQL Database | Microsoft Docs'
+title: 'Create a single database - Azure SQL Database '
 description: Create and query a single database in Azure SQL Database using the Azure portal, PowerShell and Azure CLI.
 services: sql-database
 ms.service: sql-database

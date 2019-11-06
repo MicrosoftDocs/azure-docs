@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics (formerly SQL DW) architecture | Microsoft Docs
-description: Learn how Azure Synapse Analytics combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
+title: Azure Synapse Analytics (formerly SQL DW) architecture 
+description: Learn how Azure Synapse Analytics (formerly SQL DW) combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -14,11 +14,11 @@ ms.reviewer: igorstan
 
 # Azure Synapse Analytics (formerly SQL DW) architecture 
 
-Azure Synapse Analytics is a limitless cloud data warehouse that gives you the freedom to query data, using provisioned or on-demand (Preview) resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. These capabilities enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs.
+Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs.
 
- Azure Synapse Analytics has four components:
+ Azure Synapse has four components:
 - SQL Analytics : Complete T-SQL based analytics 
-    - Synapse SQL pool (pay per DWU provisioned) – Generally Available
+    - SQL pool (pay per DWU provisioned) – Generally Available
     - SQL on-demand (pay per TB processed) – (Preview)
 - Spark : Deeply integrated Apache Spark (Preview) 
 - Data Integration : Hybrid data integration (Preview)
@@ -28,23 +28,24 @@ Azure Synapse Analytics is a limitless cloud data warehouse that gives you the f
 
 ## SQL Analytics MPP architecture components
 
-SQL Analytics leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). SQL Analytics separates compute from storage which enables you to scale compute independently of the data in your system.
+[SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Compute is separate from storage which enables you to scale compute independently of the data in your system.
 
-![Azure SQL Analytics Architecture](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+![SQL Analytics architecture](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
 SQL Analytics uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for SQL Analytics. The Control node runs the MPP engine which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel. 
 
 The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results. 
 
-With decoupled storage and compute, SQL Analytics can:
+With decoupled storage and compute, when using SQL Analytics one can:
 
 * Independently size compute power irrespective of your storage needs.
-* Grow or shrink compute power, within a SQL pool, without moving data.
+* Grow or shrink compute power, within a SQL pool (data warehouse), without moving data.
 * Pause compute capacity while leaving data intact, so you only pay for storage.
 * Resume compute capacity during operational hours.
 
 ### Azure storage
-SQL Analytics uses Azure storage to keep your user data safe.  Since your data is stored and managed by Azure storage, SQL Analytics charges separately for your storage consumption. The data itself is sharded into **distributions** to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. SQL Analytics supports these sharding patterns:
+
+SQL Analytics leverages Azure storage to keep your user data safe.  Since your data is stored and managed by Azure storage, there is a separate charge for your storage consumption. The data itself is sharded into **distributions** to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
 
 * Hash
 * Round Robin
@@ -100,7 +101,7 @@ The diagram below shows a replicated table which is cached on the first distribu
 ![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
 ## Next steps
-Now that you know a bit about Synapse Analytics, learn how to quickly [create a SQL pool][create a SQL pool] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other Synapse Analytics Resources.  
+Now that you know a bit about Azure Synapse, learn how to quickly [create a SQL pool][create a SQL pool] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
 
 * [Customer success stories]
 * [Blogs]
@@ -120,7 +121,7 @@ Now that you know a bit about Synapse Analytics, learn how to quickly [create a 
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
 [create a SQL pool]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[Synapse Analytics solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Azure Synapse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md
@@ -136,6 +137,6 @@ Now that you know a bit about Synapse Analytics, learn how to quickly [create a 
 [Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for Synapse Analytics]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
+[SLA for Azure Synapse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

@@ -11,16 +11,18 @@ ms.author: azfuncdf
 #Customer intent: As a Durable Functions user, I want to deploy with zero downtime so that updates don't interrupt my Durable Functions orchestration execution.
 --- 
 
-# Zero-downtime deployment for Durable Functions
+# Zero downtime deployment for Durable Functions
+
 The [reliable execution model](durable-functions-checkpointing-and-replay.md) of Durable Functions requires that orchestrations be deterministic, which creates an additional challenge to consider when you deploy updates. When a deployment contains changes to activity function signatures or orchestrator logic, in-flight orchestration instances fail. This situation is especially a problem for instances of long-running orchestrations, which might represent hours or days of work.
 
 To prevent these failures from happening, you have two options: 
 - Delay your deployment until all running orchestration instances have completed.
 - Make sure that any running orchestration instances use the existing versions of your functions. 
 
-For more information about versioning, see [Versioning in Durable Functions](durable-functions-versioning.md).
+> [!NOTE]
+> This article provides guidance for functions apps that target Durable Functions 1.x. It hasn't been updated to account for changes introduced in Durable Functions 2.x. For more information about the differences between extension versions, see [Durable Functions versions](durable-functions-versions.md).
 
-The following table compares the three main strategies to achieve a zero-downtime deployment for Durable Functions. 
+The following chart compares the three main strategies to achieve a zero-downtime deployment for Durable Functions: 
 
 | Strategy |  When to use | Pros | Cons |
 | -------- | ------------ | ---- | ---- |
@@ -29,6 +31,7 @@ The following table compares the three main strategies to achieve a zero-downtim
 | [Application routing](#application-routing) | A system that doesn't have periods of time when orchestrations aren't running, such as those time periods with orchestrations that last more than 24 hours or with frequently overlapping orchestrations. | Handles new versions of systems with continually running orchestrations that have breaking changes. | Requires an intelligent application router.<br/>Could max out the number of function apps allowed by your subscription. The default is 100. |
 
 ## Versioning
+
 Define new versions of your functions and leave the old versions in your function app. As you can see in the diagram, a function's version becomes part of its name. Because previous versions of functions are preserved, in-flight orchestration instances can continue to reference them. Meanwhile, requests for new orchestration instances call for the latest version, which your orchestration client function can reference from an app setting.
 
 ![Versioning strategy](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
@@ -62,7 +65,7 @@ The following diagram shows the described configuration of deployment slots and 
 
 The following JSON fragments are examples of the connection string setting in the *host.json* file.
 
-#### Functions 2.x
+#### Functions 2.0
 
 ```json
 {
@@ -156,7 +159,7 @@ When you deploy a new version of your app with a breaking change, you can increm
 
 ![Application routing (breaking change)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
 
-The router monitors the status of orchestrations on the 1.0.1 version and removes apps after all orchestrations are finished.  
+The router monitors the status of orchestrations on the 1.0.1 version and removes apps after all orchestrations are finished. 
 
 ### Tracking store settings
 

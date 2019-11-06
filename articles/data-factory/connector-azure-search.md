@@ -1,5 +1,5 @@
 ---
-title: Copy data to Search index by using Azure Data Factory | Microsoft Docs
+title: Copy data to Search index by using Azure Data Factory 
 description: 'Learn about how to push or copy data to an Azure search index by using the Copy Activity in an Azure Data Factory pipeline.'
 services: data-factory
 documentationcenter: ''
