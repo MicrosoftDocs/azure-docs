@@ -26,7 +26,7 @@ The key questions to ask for capacity planning are:
 
 The Azure region determines where your cluster is physically provisioned. To minimize the latency of reads and writes, the cluster should be near your data.
 
-HDInsight is available in many Azure regions. To find the closest region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hdinsight/).
+HDInsight is available in many Azure regions. To find the closest region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hdinsight).
 
 ## Choose storage location and size
 
