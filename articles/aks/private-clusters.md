@@ -11,7 +11,7 @@ ms.date: 11/01/2019
 ms.author: saudas
 ---
 
-## Limited Private Preview - Private Azure Kubernetes Service cluster
+# Limited Private Preview - Private Azure Kubernetes Service cluster
 
 In a private cluster, the Control Plane/API server will have internal IP addresses defined in [RFC1918](https://tools.ietf.org/html/rfc1918).  
 
@@ -112,7 +112,7 @@ The API server end point has no public IP address. Consequently, users will need
 * No support for virtual nodes in a private cluster to spin private ACI instances in a private Azure VNET.
 * No support for Azure DevOps integration out of the box with private clusters
 * If customers need to enable ACR to work with private AKS, then the ACR’s VNET will need to be peered with the agent cluster VNET
-* Devspaces might not work. You might be able to get it to work with [self hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops)
+* Devspaces might not work. You might be able to get it to work with [self hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-linux?view=azure-devops)
 * IPV4 traffic Only – No support for IPv6 traffic 
 * No support to convert existing AKS clusters to private clusters  
 * Deleting the private end point in the customer subnet will cause the cluster to stop functioning 
