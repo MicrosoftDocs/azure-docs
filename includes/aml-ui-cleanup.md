@@ -39,4 +39,6 @@ Datasets can be unregistered from your workspace by selecting each dataset and s
 
 ![Unregister dataset](./media/aml-ui-cleanup/unregister-dataset.png)
 
+To delete a dataset, navigate to the storage account using the Azure portal or the Storage Explorer and manually delete those assets.
+
 
