@@ -588,6 +588,8 @@ Don't clean up until you are really certain the new hub is up and running and th
 
 * If you haven't already, delete the old hub. This removes all of the active devices from the hub.
 
+* If you have routing resources that you moved to the new location, you can delete the old routing resources.
+
 ## Next steps
 
 You have cloned an IoT hub into a new hub in a new region, complete with the devices. For more information about performing bulk operations against the identity registry in an IoT Hub, see [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md).
