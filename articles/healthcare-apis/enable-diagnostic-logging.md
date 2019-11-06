@@ -18,7 +18,7 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
 ## Enable audit logs
 1. To enable diagnostic logging in Azure API for FHIR®, select your Azure API for FHIR® service in the Azure portal 
 2. Navigate to **Diagnostic settings** 
-![Diagnostic settings](media/diagnostic-logging/diagnostic-settings.png) 
+![Diagnostic settings](media/diagnostic-logging/diagnostic-settings-screen.png) 
 
 3. Select **+ Add diagnostic setting**
 
@@ -95,7 +95,7 @@ Run this query to find the **average time to perform an operation** by **FHIRRes
 MicrosoftHealthcareApisAuditLogs 
 | summarize avg(OperationDuration) by FhirResourceType, ResultType
 ```
-![Audit Log Example](media/diagnostic-logging/audit-log.png) 
+![Audit Log Example](media/diagnostic-logging/audit-logging.png) 
 
 ## Conclusion 
 Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. Azure API for FHIR® allows you to do these actions through diagnostic logs. 
