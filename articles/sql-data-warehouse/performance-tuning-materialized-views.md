@@ -1,5 +1,5 @@
 ---
-title: Performance tuning with Azure SQL Data Warehouse materialized views | Microsoft Docs
+title: Performance tuning with materialized views 
 description: Recommendations and considerations you should know as you use materialized views to improve your query performance. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
+ms.custom: seo-lt-2019
 ---
 
 # Performance tuning with materialized views 

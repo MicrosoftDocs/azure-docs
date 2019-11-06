@@ -1,5 +1,5 @@
 ---
-title: 'Branching in Azure Data Factory pipeline | Microsoft Docs'
+title: 'Branching in Azure Data Factory pipeline '
 description: 'Learn how to control flow of data in Azure Data Factory by branching and chaining activities.'
 services: data-factory
 documentationcenter: ''

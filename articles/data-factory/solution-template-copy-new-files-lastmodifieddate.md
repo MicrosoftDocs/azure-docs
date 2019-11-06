@@ -1,5 +1,5 @@
 ---
-title: Copy new and changed files by LastModifiedDate with Azure Data Factory | Microsoft Docs
+title: Copy new and changed files by LastModifiedDate with Azure Data Factory 
 description: Learn how to use a solution template to copy new and changed files by LastModifiedDate with Azure Data Factory.
 services: data-factory
 documentationcenter: ''

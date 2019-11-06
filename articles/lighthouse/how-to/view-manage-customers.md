@@ -26,6 +26,9 @@ To view customer details, select **Customers** on the left side of the **My cust
 
 For each customer, you'll see the customer's name, customer ID (tenant ID), and the offer associated with the engagement. In the **Delegations** column, you'll see the number of delegated subscriptions and/or the number of delegated resource groups.
 
+> [!IMPORTANT]
+> In order to see a delegation, users must have been granted the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access) in the onboarding process.
+
 Filters at the top of the page let you sort and group your customer info or filter by specific customers, offers, or keywords.
 
 You can view the following info from this page:

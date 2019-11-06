@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 10/16/2019
+ms.date: 11/04/2019
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
@@ -52,6 +52,9 @@ When using Azure Active Directory with geo-replication, the Azure Active Directo
 > [!IMPORTANT]
 > Only follow these steps if you are provisioning a managed instance. This operation can only be executed by Global/Company administrator or a Privileged Role Administrator in Azure AD. Following steps describe the process of granting permissions for users with different privileges in directory.
 
+> [!NOTE]
+> For Azure AD admins for MI created prior to GA, but continue operating post GA, there is no functional change to the existing behavior. For more information, see the [New Azure AD admin functionality for MI](#new-azure-ad-admin-functionality-for-mi) section for more details.
+
 Your managed instance needs permissions to read Azure AD to successfully accomplish tasks such as authentication of users through security group membership or creation of new users. For this to work, you need to grant permissions to managed instance to read Azure AD. There are two ways to do it: from Portal and PowerShell. The following steps both methods.
 
 1. In the Azure portal, in the upper-right corner, select your connection to drop down a list of possible Active Directories.
@@ -62,7 +65,7 @@ Your managed instance needs permissions to read Azure AD to successfully accompl
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4. Select the banner on top of the Active Directory admin page and grant permission to the current user. If you are logged in as Global/Company administrator in Azure AD, you can do it from the Azure portal or using PowerShell with the script below.
+4. Select the banner on top of the Active Directory admin page and grant permission to the current user. If you're logged in as Global/Company administrator in Azure AD, you can do it from the Azure portal or using PowerShell with the script below.
 
     ![grant permissions-portal](./media/sql-database-aad-authentication/grant-permissions.png)
 
@@ -140,10 +143,22 @@ Your managed instance needs permissions to read Azure AD to successfully accompl
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
 
-After provisioning an Azure AD admin for your managed instance, you can begin to create Azure AD server principals (logins) (**public preview**) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [managed instance Overview](sql-database-managed-instance.md#azure-active-directory-integration).
+After provisioning an Azure AD admin for your managed instance, you can begin to create Azure AD server principals (logins) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [managed instance overview](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > To later remove an Admin, at the top of the Active Directory admin page, select **Remove admin**, and then select **Save**.
+
+### New Azure AD admin functionality for MI
+
+The table below summarizes the functionality for the public preview Azure AD login admin for MI, versus a new functionality delivered with GA for Azure AD logins.
+
+| Azure AD login admin for MI during public preview | GA functionality for Azure AD admin for MI |
+| --- | ---|
+| Behaves in a similar way as Azure AD admin for SQL Database, which enables Azure AD authentication, but the Azure AD admin cannot create Azure AD or SQL logins in the master db for MI. | Azure AD admin has sysadmin permission and can create AAD and SQL logins in master db for MI. |
+| Is not present in the sys.server_principals view | Is present in the sys.server_principals view |
+| Allows individual Azure AD guest users to be set up as Azure AD admin for MI. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md). | Requires creation of an Azure AD group with guest users as members to set up this group as an Azure AD admin for MI. |
+
+As a best practice for existing Azure AD admins for MI created prior to GA, and still operating post GA, reset the Azure AD admin using the Azure portal “Remove admin” and “Set admin” option for the same Azure AD user or group.
 
 ### PowerShell for SQL managed instance
 
@@ -314,8 +329,8 @@ You can meet these requirements by:
 
 ## Create contained database users in your database mapped to Azure AD identities
 
->[!IMPORTANT]
->Managed instance now supports Azure AD server principals (logins) (**public preview**), which enables you to create logins from Azure AD users, groups, or applications. Azure AD server principals (logins) provides the ability to authenticate to your managed instance without requiring database users to be created as a contained database user. For more information, see [managed instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+> [!IMPORTANT]
+> Managed instance now supports Azure AD server principals (logins), which enables you to create logins from Azure AD users, groups, or applications. Azure AD server principals (logins) provides the ability to authenticate to your managed instance without requiring database users to be created as a contained database user. For more information, see [managed instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 Azure Active Directory authentication requires database users to be created as contained database users. A contained database user based on an Azure AD identity, is a database user that does not have a login in the master database, and which maps to an identity in the Azure AD directory that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 

@@ -1,5 +1,5 @@
 ---
-title: Copy data to or from Azure Data Lake Storage Gen2 using Data Factory | Microsoft Docs
+title: Copy data to or from Azure Data Lake Storage Gen2 using Data Factory 
 description: Learn how to copy data to and from Azure Data Lake Storage Gen2 by using Azure Data Factory.
 services: data-factory
 author: linda33wj

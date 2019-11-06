@@ -1,5 +1,5 @@
 ---
-title: Datasets in Azure Data Factory | Microsoft Docs
+title: Datasets in Azure Data Factory 
 description: 'Learn about datasets in Data Factory. Datasets represent input/output data.'
 services: data-factory
 documentationcenter: ''

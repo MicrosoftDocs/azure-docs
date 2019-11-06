@@ -1,5 +1,5 @@
 ---
-title: Transform data with Databricks Notebook - Azure | Microsoft Docs
+title: Transform data with Databricks Notebook - Azure 
 description: Learn how to process or transform data by running a Databricks notebook.
 services: data-factory
 documentationcenter: ''

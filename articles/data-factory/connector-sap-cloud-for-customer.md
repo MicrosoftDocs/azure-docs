@@ -1,5 +1,5 @@
 ---
-title: Copy data from/to SAP Cloud for Customer using Azure Data Factory | Microsoft Docs
+title: Copy data from/to SAP Cloud for Customer using Azure Data Factory 
 description: Learn how to copy data from SAP Cloud for Customer to supported sink data stores (or) from supported source data stores to SAP Cloud for Customer by using Data Factory.
 services: data-factory
 documentationcenter: ''

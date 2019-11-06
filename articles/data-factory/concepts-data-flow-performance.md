@@ -1,5 +1,5 @@
 ---
-title: Mapping data flow performance and tuning guide in Azure Data Factory | Microsoft Docs
+title: Mapping data flow performance and tuning guide in Azure Data Factory 
 description: Learn about key factors that affect the performance of mapping data flows in Azure Data Factory.
 author: kromerm
 ms.topic: conceptual

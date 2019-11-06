@@ -1,5 +1,5 @@
 ---
-title: Pipeline execution and triggers in Azure Data Factory | Microsoft Docs
+title: Pipeline execution and triggers in Azure Data Factory 
 description: This article provides information about how to execute a pipeline in Azure Data Factory, either on-demand or by creating a trigger.
 services: data-factory
 documentationcenter: ''
