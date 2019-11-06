@@ -49,7 +49,7 @@ It turns any iOS or Android phone into a strong, passwordless credential by allo
 
 FIDO2 security keys are an unphishable standards-based passwordless authentication method that can come in any form factor. Fast Identity Online (FIDO) is an open standard for passwordless authentication. It allows users and organizations to leverage the standard to sign in to their resources without a username or password using an external security key or a platform key built into a device.
 
-For public preview, employees can use security keys to sign in to their Azure AD or hybrid Azure AD joined Windows 10 devices and get single-sign on to their cloud and on-premises resources. They can also sign in to supported browsers.
+For public preview, employees can use security keys to sign in to their Azure AD joined Windows 10 devices and get single-sign on to their cloud and on-premises resources. They can also sign in to supported browsers.
 
 ![Sign in to Microsoft Edge with a security key](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

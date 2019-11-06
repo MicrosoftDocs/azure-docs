@@ -436,7 +436,7 @@
               href: msal-js-prompt-behavior.md 
         - name: MSAL for iOS and macOS
           items:
-            - name: Microsoft Authentication Library for iOS and macOS differences
+            - name: MSAL for iOS and macOS differences
               href: msal-differences-ios-macos.md
             - name: Configure keychain
               href: howto-v2-keychain-objc.md
@@ -522,7 +522,7 @@
       items:
       - name: Android
         href: quickstart-v1-android.md
-      - name: iOS and MacOS
+      - name: iOS
         href: quickstart-v1-ios.md
       - name: Windows Desktop .NET
         href: quickstart-v1-dotnet.md

@@ -66,6 +66,9 @@ The following sample *host.json* files have all possible options specified.
             }
         }
     },
+    "managedDependency": {
+        "enabled": true
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -73,10 +76,7 @@ The following sample *host.json* files have all possible options specified.
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ],
-    "managedDependency": {
-        "enabled": true
-    }
+    "watchDirectories": [ "Shared", "Test" ]
 }
 ```
 
@@ -177,23 +177,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 ## http
 
-Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md).
-
-```json
-{
-    "extensions": {
-        "http": {
-            "routePrefix": "api",
-            "maxOutstandingRequests": 200,
-            "maxConcurrentRequests": 100,
-            "dynamicThrottlesEnabled": true
-        }
-    }
-}
-```
-
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md#hostjson-settings).
 
 ## logging
 
@@ -201,7 +185,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly",
+    "fileLoggingMode": "debugOnly"
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"
@@ -241,6 +225,18 @@ This setting is a child of [logging](#logging). It controls the console logging 
 |Property  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|false|Enables or disables console logging.| 
+
+## managedDependency
+
+Managed dependency is a feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the `enabled` property is set to `true`, the `requirements.psd1` file is processed. Dependencies are updated when any minor versions are released. For more information, see [Managed dependency](functions-reference-powershell.md#dependency-management) in the PowerShell article.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
 
 ## queues
 
@@ -289,18 +285,6 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
-}
-```
-
-## managedDependency
-
-Managed dependency is a preview feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the enabled property is set to true, the [requirements.psd1](functions-reference-powershell.md#dependency-management) file will be processed. Dependencies will be updated when any minor versions are released.
-
-```json
-{
-    "managedDependency": {
-        "enabled": true
-    }
 }
 ```
 

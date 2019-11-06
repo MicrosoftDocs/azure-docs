@@ -1,5 +1,5 @@
 ---
-title: Copy data to and from Azure SQL Data Warehouse by using Azure Data Factory | Microsoft Docs
+title: Copy data to and from Azure SQL Data Warehouse by using Azure Data Factory 
 description: Learn how to copy data from supported source stores to Azure SQL Data Warehouse or from SQL Data Warehouse to supported sink stores by using Data Factory.
 services: data-factory
 documentationcenter: ''

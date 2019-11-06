@@ -1,5 +1,5 @@
 ---
-title: "Install licensed components for the Azure-SSIS integration runtime | Microsoft Docs"
+title: "Install licensed components for the Azure-SSIS integration runtime "
 description: Learn how an ISV can develop and install paid or licensed custom components for the Azure-SSIS integration runtime
 services: data-factory
 documentationcenter: ""

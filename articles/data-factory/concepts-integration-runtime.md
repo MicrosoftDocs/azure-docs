@@ -1,5 +1,5 @@
 ---
-title: Integration runtime in Azure Data Factory | Microsoft Docs
+title: Integration runtime in Azure Data Factory 
 description: 'Learn about integration runtime in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''

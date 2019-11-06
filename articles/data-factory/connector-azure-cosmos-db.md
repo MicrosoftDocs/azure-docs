@@ -1,5 +1,5 @@
 ---
-title: Copy data to or from Azure Cosmos DB (SQL API) by using Data Factory | Microsoft Docs
+title: Copy data to or from Azure Cosmos DB (SQL API) by using Data Factory 
 description: Learn how to copy data from supported source data stores to or from Azure Cosmos DB (SQL API) to supported sink stores by using Data Factory.
 services: data-factory, cosmosdb
 documentationcenter: ''

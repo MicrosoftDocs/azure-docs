@@ -103,5 +103,12 @@ Choose database settings:
 > [!NOTE]
 > When you update or delete rows in your database sink, you must set the key column. This setting allows the alter-row transformation to determine the unique row in the data movement library (DML).
 
+### CosmosDB specific settings
+
+When landing data in CosmosDB, you will need to consider these additional options:
+
+* Partition Key: This is a required field. Enter a string that represents the partition key for your collection. Example: ```/movies/title```
+* Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow. Minimum is 400.
+
 ## Next steps
 Now that you've created your data flow, add a [Data Flow activity to your pipeline](concepts-data-flow-overview.md).

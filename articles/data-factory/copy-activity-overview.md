@@ -1,5 +1,5 @@
 ---
-title: Copy activity in Azure Data Factory | Microsoft Docs
+title: Copy activity in Azure Data Factory 
 description: Learn about the Copy activity in Azure Data Factory. You can use it to copy data from a supported source data store to a supported sink data store.
 services: data-factory
 documentationcenter: ''

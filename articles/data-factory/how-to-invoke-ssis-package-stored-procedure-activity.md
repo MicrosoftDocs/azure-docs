@@ -1,5 +1,5 @@
 ---
-title: Run SSIS package with Stored Procedure Activity - Azure | Microsoft Docs
+title: Run SSIS package with Stored Procedure Activity - Azure 
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Stored Procedure Activity.
 services: data-factory
 documentationcenter: ''

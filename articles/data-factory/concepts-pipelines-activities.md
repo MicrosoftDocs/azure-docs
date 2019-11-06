@@ -1,5 +1,5 @@
 ---
-title: Pipelines and activities in Azure Data Factory | Microsoft Docs
+title: Pipelines and activities in Azure Data Factory 
 description: 'Learn about pipelines and activities in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''

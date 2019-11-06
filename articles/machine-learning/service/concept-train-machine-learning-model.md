@@ -13,7 +13,7 @@ ms.date: 09/18/2019
 
 # Train models with Azure Machine Learning
 
-Azure Machine Learning provides several ways to train your models, from code first solutions using the SDK to low code solutions such as automated machine learning and the visual interface. Use the following list to determine which training method is right for you:
+Azure Machine Learning provides several ways to train your models, from code first solutions using the SDK to low code solutions such as automated machine learning and the visual designer. Use the following list to determine which training method is right for you:
 
 + [Azure Machine Learning SDK for Python](#python-sdk): The Python SDK provides several ways to train models, each with different capabilities.
 
@@ -24,7 +24,7 @@ Azure Machine Learning provides several ways to train your models, from code fir
     | [Estimators](#estimators) | Estimator classes **make it easy to train models based on popular machine learning frameworks**. There are estimator classes for **Scikit-learn**, **PyTorch**, **TensorFlow**, and **Chainer**. There is also a generic estimator that can be used with frameworks that do not already have a dedicated estimator class. You don't have to worry about defining a run configuration when using estimators. |
     | [Machine learning pipeline](#machine-learning-pipeline) | Pipelines are not a different training method, but a **way of defining a workflow using modular, reusable steps**, that can include training as part of the workflow. Machine learning pipelines support using automated machine learning, estimators, and run configuration to train models. Since pipelines are not focused specifically on training, the reasons for using a pipeline are more varied than the other training methods. Generally, you might use a pipeline when:<br>* You want to **schedule unattended processes** such as long running training jobs or data preparation.<br>* Use **multiple steps** that are coordinated across heterogeneous compute resources and storage locations.<br>* Use the pipeline as a **reusable template** for specific scenarios, such as retraining or batch scoring.<br>* **Track and version data sources, inputs, and outputs** for your workflow.<br>* Your workflow is **implemented by different teams that work on specific steps independently**. Steps can then be joined together in a pipeline to implement the workflow. |
 
-+ **Visual interface**: The Azure Machine Learning __visual interface__ provides an easy entry-point into machine learning for building proof of concepts, or for users with little coding experience. It allows you to train models using a drag and drop web-based UI. You can use Python code as part of the design, or train models without writing any code.
++ **Designer**: Azure Machine Learning designer (preview) provides an easy entry-point into machine learning for building proof of concepts, or for users with little coding experience. It allows you to train models using a drag and drop web-based UI. You can use Python code as part of the design, or train models without writing any code.
 
 + **CLI**: The machine learning CLI provides commands for common tasks with Azure Machine Learning, and is often used for **scripting and automating tasks**. For example, once you've created a training script or pipeline, you might use the CLI to start a training run on a schedule or when the data files used for training are updated. For training models, it provides commands that submit training jobs. It can submit jobs using run configurations or pipelines.
 
@@ -54,7 +54,7 @@ You may start with a run configuration for your local computer, and then switch 
 Define the iterations, hyperparameter settings, featurization, and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel. Training stops once it hits the exit criteria you defined. You don't have to worry about defining a run configuration when using estimators.
 
 > [!TIP]
-> In addtion to the Python SDK, you can also use Automated ML through the [workspace landing page (preview)](https://ml.azure.com).
+> In addtion to the Python SDK, you can also use Automated ML through [Azure Machine Learning studio](https://ml.azure.com).
 
 * [What is automated machine learning?](concept-automated-ml.md)
 * [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md)
@@ -62,7 +62,7 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 * [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
 * [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
-* [How to: Create, explore, and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)](how-to-create-portal-experiments.md)
+* [How to: Create, explore, and deploy automated machine learning experiments with [Azure Machine Learning studio](how-to-create-portal-experiments.md)
 
 ### Estimators
 
@@ -84,15 +84,17 @@ Machine learning pipelines can use the previously mentioned training methods (ru
 * [Examples: Pipeline with automated machine learning](https://aka.ms/pl-automl)
 * [Examples: Pipeline with estimators](https://aka.ms/pl-estimator)
 
-## Visual interface
+## Azure Machine Learning designer
 
-The visual interface (preview) enables you to train models using a drag and drop interface in your web browser.
+The designer lets you to train models using a drag and drop interface in your web browser.
 
-+ [What is the visual interface?](ui-concept-visual-interface.md)
-+ [Tutorial : Predict automobile price](ui-tutorial-automobile-price-train-score.md)
-+ [Regression: Predict price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-+ [Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-+ [Classification: Predict churn, appetency, and up-selling](how-to-ui-sample-classification-predict-churn.md)
++ [What is the designer?](concept-designer.md)
++ [Tutorial : Predict automobile price](tutorial-designer-automobile-price-train-score.md)
++ [Regression: Predict price](how-to-designer-sample-regression-automobile-price-basic.md)
++ [Classification: Predict income](how-to-designer-sample-classification-predict-income.md)
++ [Classification: Predict churn, appetency, and up-selling](how-to-designer-sample-classification-churn.md)
++ [Classification with custom R script: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
++ [Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
 
 ## CLI
 
