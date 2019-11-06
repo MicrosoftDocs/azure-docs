@@ -109,7 +109,7 @@ Set-ADComputer appserver.contoso.com -PrincipalsAllowedToDelegateToAccount $Impe
 
 If you deploy multiple Azure AD Application Proxy connectors, you must configure resource-based KCD for each connector instance.
 
-## Next Steps
+## Next steps
 
 With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
 
