@@ -39,8 +39,6 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 Create an initial image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-If your source VM was generalized, use:
-
 ```azurecli-interactive 
 az sig image-definition create \
    --resource-group myGalleryRG \
@@ -52,18 +50,6 @@ az sig image-definition create \
    --os-type Linux 
 ```
 
-If your source VM is specialized (not generalized), use:
-
-```azurecli-interactive 
-az sig image-definition create \
-   --resource-group myGalleryRG \
-   --gallery-name myGallery \
-   --gallery-image-definition myImageDefinition \
-   --publisher myPublisher \
-   --offer myOffer \
-   --sku 16.04-LTS \
-   --os-type Linux 
-```
 
 ## Create an image version 
 
