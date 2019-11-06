@@ -95,9 +95,9 @@ The Microsoft identity platform:
 * Holds all the data required to support authentication at runtime.
 * Holds all the data for deciding what resources an app might need to access, and under what circumstances a given request should be fulfilled.
 * Provides infrastructure for implementing app provisioning within the app developer's tenant, and to any other Azure AD tenant.
+* Handles user consent during token request time and facilitate the dynamic provisioning of apps across tenants
 
-Handle user consent during token request time and facilitate the dynamic provisioning of apps across tenants
-Consent is the process of a resource owner granting authorization to a client application to access protected resources, under specific permissions, on behalf of the resource owner. The Microsoft identity platform:
+Consent is the process of a resource owner granting authorization for a client application to access protected resources, under specific permissions, on behalf of the resource owner. The Microsoft identity platform:
 
 * Enables users and administrators to dynamically grant or deny consent for the app to access resources on their behalf.
 * Enables administrators to ultimately decide what apps are allowed to do and which users can use specific apps, and how the directory resources are accessed.
