@@ -97,7 +97,7 @@ The four key components of ADR are:
 
   - Keeping track of all aborted transactions and marking them invisible to other transactions. 
   - Performing rollback using PVS for all user transactions, rather than physically scanning the transaction log and undoing changes one at a time
-  - Releasing all locks immediately after transaction abort. Since abort involves simply maring changes in memory, the process is very efficient and therefore locks do not have to be held for a long time.
+  - Releasing all locks immediately after transaction abort. Since abort involves simply marking changes in memory, the process is very efficient and therefore locks do not have to be held for a long time.
 
 - **sLog**
 
