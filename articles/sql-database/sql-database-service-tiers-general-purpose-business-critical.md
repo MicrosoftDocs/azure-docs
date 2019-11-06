@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database - general purpose and business critical | Microsoft Docs'
+title: 'Azure SQL Database - general purpose and business critical '
 description: The article discusses the general purpose and business critical service tiers in the vCore-based purchasing model.  
 services: sql-database
 ms.service: sql-database
