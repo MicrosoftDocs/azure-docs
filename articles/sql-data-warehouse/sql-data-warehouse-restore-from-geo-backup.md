@@ -1,5 +1,5 @@
 ---
-title: Restore an Azure SQL Data Warehouse from a geo-backup 
+title: Restore a data warehouse from a geo-backup 
 description: How-to guide for geo-restoring an Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,6 +10,7 @@ ms.subservice: manage
 ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Geo-restore Azure SQL Data Warehouse

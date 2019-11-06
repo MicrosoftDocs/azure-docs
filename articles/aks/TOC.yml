@@ -345,6 +345,8 @@
       maintainContext: true
     - name: Deployment Center Launcher
       href: deployment-center-launcher.md 
+    - name: GitHub Actions for Kubernetes
+      href: ../aks/kubernetes-action.md
   - name: Troubleshoot
     items:
     - name: Common issues
