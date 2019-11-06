@@ -48,7 +48,7 @@ Azure Migrate Server Migration | NA | Migrate [VMware VMs](tutorial-migrate-vmwa
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | NA
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads, and SQL Server databases. | NA
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Assess on-premises SQL Server databases. | NA
-[DMS]](https://docs.microsoft.com/azure/dms/dms-overview) | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. | NA
+[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. | NA
 [Webapp Migration Assistant](https://appmigration.microsoft.com/) | Assess web apps | Migrate web apps.
 
 
