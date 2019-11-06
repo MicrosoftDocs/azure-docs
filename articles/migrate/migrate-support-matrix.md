@@ -39,15 +39,6 @@ Specific tool support is summarized in the table.
 
 **Tool** | **Assess** | **Migrate** 
 --- | --- | ---
-<<<<<<< HEAD
-Azure Migrate Server Assessment | Assessment | Try out server assessment for [Hyper-V](tutorial-prepare-hyper-v.md) and [VMware](tutorial-prepare-vmware.md).
-Cloudamize | Assessment | [Learn more](https://www.cloudamize.com/platform#tab-0).
-CorentTech | Assessment | [Learn more](https://www.corenttech.com/).
-Turbonomic | Assessment | [Learn more](https://turbonomic.com/).
-Azure Migrate Server Migration | Migration | Try out server migration for [Hyper-V](tutorial-migrate-hyper-v.md) and [VMware](tutorial-migrate-vmware.md).
-Carbonite | Migration | [Learn more](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure).
-CorentTech | Migration | [Learn more](https://www.corenttech.com/).
-=======
 Azure Migrate Server Assessment | Assess [VMware VMs](tutorial-prepare-vmware.md), [Hyper-V VMs](tutorial-prepare-hyper-v.md), and [physical servers](tutorial-prepare-physical.md). |  Not available (NA)
 Azure Migrate Server Migration | NA | Migrate [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [physical servers](tutorial-migrate-physical-virtual-machines.md).
 [Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | NA | Migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. 
@@ -62,7 +53,6 @@ Azure Migrate Server Migration | NA | Migrate [VMware VMs](tutorial-migrate-vmwa
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | NA
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads, and SQL Server databases. | NA
 [Webapp Migration Assistant](https://appmigration.microsoft.com/) | Assess web apps | Migrate web apps.
->>>>>>> 0982e1bd1a7fcf5900a3d6986a31d33345de9d24
 
 
 ## Azure Migrate projects
