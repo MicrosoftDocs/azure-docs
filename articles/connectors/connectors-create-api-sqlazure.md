@@ -10,7 +10,7 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 10/14/2019
+ms.date: 11/06/2019
 ---
 
 # Automate workflows for SQL Server or Azure SQL Database by using Azure Logic Apps
@@ -40,6 +40,11 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
 * Before you can connect logic apps to on-premises systems such as SQL Server, you have to [set up an on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). That way, you can select the gateway when you create the SQL connection for your logic app.
+
+  > [!IMPORTANT]
+  > To use Windows authentication with this connector, you must use the on-premises data gateway. 
+  > This connector doesn't support Windows authentication for a logic app in an 
+  > [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * The logic app where you need access to your SQL database. To start your logic app with a SQL trigger, you need a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
