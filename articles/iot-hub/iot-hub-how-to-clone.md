@@ -570,7 +570,7 @@ If you decide to roll back the changes, here are the steps to perform:
 
 * Update each device to change the IoT Hub Hostname to point the IoT Hub Hostname for the old hub. You should do this using the same method you used when you first provisioned the device.
 
-* Change any applications you have that refer to the new hub to point to the old hub. 
+* Change any applications you have that refer to the new hub to point to the old hub. For example, if you are using Azure Analytics, you may need to reconfigure your [Azure Stream Analytics input](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
 
 * Delete the new hub. 
 
