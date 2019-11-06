@@ -1,5 +1,5 @@
 ---
-title: Provision with Azure portal
+title: Provision virtual machine with Azure portal
 description: This how-to guide describes your options for creating Windows SQL Server 2017 virtual machines in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
