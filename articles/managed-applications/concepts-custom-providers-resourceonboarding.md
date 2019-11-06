@@ -26,7 +26,7 @@ Azure Custom Providers resource onboarding is an extensibility model for Azure r
 Similar to [Azure Custom Providers custom resources](./custom-providers-resources-endpoint-how-to.md), resource onboarding defines a contract that will proxy "onboarding" requests to an endpoint. Unlike custom resources, resource onboarding doesn't create a new resource type. Instead, it allows the extension of existing resource types. And resource onboarding works with Azure Policy, so management and configuration of resources can be done at scale. Some examples of resource onboarding workflows:
 
 - Install and manage onto virtual machine extensions.
-- Upload and configure defaults on Azure storage Accounts.
+- Upload and configure defaults on Azure storage accounts.
 - Enable baseline diagnostic settings at scale.
 
 ## Resource onboarding basics
@@ -155,5 +155,5 @@ In this article, you learned about custom providers. See these articles to learn
 - [Tutorial: Resource onboarding with custom providers](./tutorial-custom-providers-resource-onboarding.md)
 - [Tutorial: Create custom actions and resources in Azure](./tutorial-custom-providers-101.md)
 - [Quickstart: Create a custom resource provider and deploy custom resources](./create-custom-provider.md)
-- [How To: Adding custom actions to an Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [How To: Adding custom resources to an Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+- [How to: Adding custom actions to an Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [How to: Adding custom resources to an Azure REST API](./custom-providers-resources-endpoint-how-to.md)

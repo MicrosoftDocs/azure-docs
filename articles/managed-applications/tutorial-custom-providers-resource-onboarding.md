@@ -224,7 +224,7 @@ Let's deploy the custom provider infrastructure. Either copy, save, and deploy t
 
    ![Create a Resource Manager template](media/custom-providers-resource-onboarding/templatesarmtemplate.png)
 
-6. Select the **Add** to create the template. If the new template doesn't appear, select **Refresh**.
+6. Select **Add** to create the template. If the new template doesn't appear, select **Refresh**.
 
 7. Select the newly created template and then select **Deploy**:
 
@@ -237,14 +237,14 @@ Let's deploy the custom provider infrastructure. Either copy, save, and deploy t
    | Location | Yes | The location for the resources in the template. |
    | Logic App Name | No | The name of the logic app. |
    | Custom Resource Provider Name | No | The custom resource provider name. |
-   | Custom Resource Provider Id | No | An existing custom resource provider that supports the "association" resource. If you specify a value here, the logic app and custom provider deployment will be skipped. |
+   | Custom Resource Provider Id | No | An existing custom resource provider that supports the association resource. If you specify a value here, the logic app and custom provider deployment will be skipped. |
    | Association Name | No | The name of the association resource. |
 
    Sample parameters:
 
    ![Enter template parameters](media/custom-providers-resource-onboarding/templatescustomprovider.png)
 
-9. Navigate to the deployment and wait for it to finish. You should see something like the following screenshot. You should see the new "association" resource as an output:
+9. Navigate to the deployment and wait for it to finish. You should see something like the following screenshot. You should see the new association resource as an output:
 
    ![Successful deployment](media/custom-providers-resource-onboarding/customproviderdeployment.png)
 
@@ -252,7 +252,7 @@ Let's deploy the custom provider infrastructure. Either copy, save, and deploy t
 
    ![Custom provider deployment](media/custom-providers-resource-onboarding/showhidden.png)
 
-10. Explore the logic app **Runs history** tab to see the calls for the "association" create:
+10. Explore the logic app **Runs history** tab to see the calls for the association create:
 
     ![Logic app Runs history](media/custom-providers-resource-onboarding/logicapprun.png)
 
@@ -274,7 +274,7 @@ After you have the custom provider infrastructure set up, you can easily deploy 
 
    ![Select the previously created template and then select Deploy](media/custom-providers-resource-onboarding/templateselectspecific.png)
 
-5. Enter the settings for the required fields and then select the subscription and a different resource group. For the **Custom Resource Provider Id** setting, enter the **Resource ID** that you copied from the custom provider that you deployed earlier.
+5. Enter the settings for the required fields and then select the subscription and a different resource group. For the **Custom Resource Provider Id** setting, enter the Resource ID that you copied from the custom provider that you deployed earlier.
 
 6. Navigate to the deployment and wait for it to finish. It should now deploy only the new associations resource:
 
