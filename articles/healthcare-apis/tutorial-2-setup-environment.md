@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Setup development environment for Azure API for FHIR
-description: This tutorial explains how to set up a development environment for Azure API for FHIR (node.js/JS)
+title: 'Tutorial: Develop an Azure API for FHIR sample application'
+description: Develop a Node.js/JS app that uses Azure AD to connect to Azure API for FHIR endpoint, uploads patient data, and displays the list of patients with details.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir

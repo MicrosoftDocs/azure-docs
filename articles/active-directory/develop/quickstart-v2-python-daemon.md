@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40 
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
 #Customer intent: As an application developer, I want to learn how my Python app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
 ms.collection: M365-identity-device-management
 ---
@@ -138,10 +138,10 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 #### Step 5: Run the application
 
-You'll need to install MSAL Python once
+You'll need to install the dependencies of this sample once
 
 ```console
-pip install msal
+pip install -r requirements.txt
 ```
 
 Then, run the application via command prompt or console:
@@ -164,7 +164,7 @@ You should see on the console output some Json fragment representing a list of u
  You can install MSAL Python by running the following pip command.
 
 ```powershell
-pip install -r requirements.txt
+pip install msal
 ```
 
 ### MSAL initialization

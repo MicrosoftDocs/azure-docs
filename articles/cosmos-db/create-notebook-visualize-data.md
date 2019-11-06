@@ -5,7 +5,7 @@ author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
 ms.date: 09/25/2019
-ms.author: de
+ms.author: dech
 ms.reviewer: sngun
 ---
 
