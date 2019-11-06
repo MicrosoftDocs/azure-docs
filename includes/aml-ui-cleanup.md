@@ -7,7 +7,7 @@ ms.custom: "include file"
 ms.topic: "include"
 author: sgilley
 ms.author: sgilley
-ms.date: 10/22/2019
+ms.date: 11/06/2019
 ---
 
 >[!IMPORTANT]
@@ -22,8 +22,6 @@ If you don't plan to use anything that you created, delete the entire resource g
    ![Delete resource group in the Azure portal](./media/aml-ui-cleanup/delete-resources.png)
 
 1. In the list, select the resource group that you created.
-
-1. On the right side of the window, select the ellipsis button (**...**).
 
 1. Select **Delete resource group**.
 
