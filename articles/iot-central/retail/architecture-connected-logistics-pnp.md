@@ -4,6 +4,7 @@ description: An architecture of IoT Connected Logistics application template for
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ---

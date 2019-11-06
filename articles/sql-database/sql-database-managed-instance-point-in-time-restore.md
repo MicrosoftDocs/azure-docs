@@ -1,5 +1,5 @@
 ---
-title: SQL Database managed instance - Point-in-time restore | Microsoft Docs
+title: SQL Database managed instance - Point-in-time restore 
 description: Restore a SQL database in a managed instance to a previous point in time.
 services: sql-database
 ms.service: sql-database
