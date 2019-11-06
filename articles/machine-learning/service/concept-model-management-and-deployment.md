@@ -154,16 +154,16 @@ For more information on using Azure Pipelines with Azure Machine Learning, see t
 
 Learn more by reading and exploring the following resources:
 
-+ [How and where you can deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
++ [How & where to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
 
-+ [Tutorial: Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
-
-+ [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
-
-+ Create clients that [Consume a model deployed as a web service](how-to-consume-web-service.md)
++ [Tutorial: Deploy an image classification model in ACI](tutorial-deploy-models-with-aml.md).
 
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 
++ [CI/CD of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
+
++ Create clients that [consume a deployed model](how-to-consume-web-service.md)
+
 + [Machine learning at scale](/architecture/data-guide/big-data/machine-learning-at-scale)
 
-+ [Azure AI Reference Architectures and Best Practices Repositories](https://github.com/microsoft/AI)
++ [Azure AI reference architectures & best practices rep](https://github.com/microsoft/AI)
