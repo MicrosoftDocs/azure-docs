@@ -56,17 +56,31 @@ While you may not know how detailed you want your entity when you begin your app
 
 ## Mark entities in example utterances
 
-To extract information about a Pizza order, mark the details in the example utterances. To extract details about a pizza order, create a top level, machine-learned `CompleteOrder` entity. This should include all words that are important to get the order correct and only those words.
+To extract information about a Pizza order, mark the details in the example utterances. To extract details about a pizza order, create a top level, machine-learned `Order` entity. This should include all words that are important to get the order correct and only those words.
 
 1. [!INCLUDE [Start in Build section](includes/tutorial-start-in-build-section.md)]
 
 1. On the **Intents** page, select **OrderPizza** intent. 
 
-1. In the example utterances list, select the following utterance. Begin just before the left-most text (#1), select it (this begins the marking process), then go just beyond the right-most text (#2 - this ends the marking process).
+1. In the example utterances list, select the following utterance. 
+
+    |Order example utterance|
+    |--|
+    |`pickup a cheddar cheese pizza large with extra anchovies`|
+
+    Begin just before the left-most text of `pickup` (#1), select it (this begins the marking process), then go just beyond the right-most text, `anchovies` (#2 - this ends the marking process).
+
+    An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received so it should be part of the marked entity for the order.
+
+
+    FIX THIS IMAGE
+
 
     ![Mark beginning and ending of text for complete order](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
 1. In the pop-up box, enter the name of the entity as `Order` (#1). Then select that name from the list (#2).
+
+    FIX THIS IMAGE
 
     ![Name the entity for the complete order](media/tutorial-machine-learned-entity/name-entity-for-complete-order.png)
 
@@ -86,56 +100,82 @@ To extract information about a Pizza order, mark the details in the example utte
 
 1. When the Intent details page appears, the example utterance has a solid line under the marked text. This indicates the marked text agrees with the prediction. Because you explicitly marked it and labeled it, they will match. This visual indicator is valuable, not on the first utterance marked, but on the remaining utterances. 
 
+    FIX THIS IMAGE
+
     ![Entity marked and predicted](media/tutorial-machine-learned-entity/machine-learned-entity-marked-and-predicted.png)
 
 1. In the example utterance, mark and select the **Size** subcomponent. Again the line is solid under the text because both the marking and prediction match because you explicitly marked the text.
 
-1. Train the app to understand how much LUIS knows about this entity as it is applied to the other example utterances. Select **Train**. 
+1. Mark the `Order` entity in the remaining utterances. The square brackets in the text indicate the marked entity.
 
-1. After training, one of the other utterances is marked with a dotted line, indicating the LUIS prediction. 
+    |Order example utterances|
+    |--|
+    |`can i get [a pepperoni pizza and a can of coke] please`|
+    |`can i get [a small pizza with onions peppers and olives]`|
+    |`[delivery for a small pepperoni pizza]`|
+    |`i need [2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza]`|
 
-    ![After training, LUIS can predict another example utterance](media/tutorial-machine-learned-entity/trained-entity-without-acceptance.png)
+    The `a` is part of the order because it implies a quantity of 1.
+
+1. Mark the words indicating size such as `large` and `small` with the Size entity. 
+
+    FIX THIS IMAGE
+
+    ![The machine-learned entity and the subcomponent are marked in the utterances.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
+
+1. Train the app, select **Train**. 
+
+1. After training, add a new example utterance to understand how well LUIS understands the new machine-learned entity. 
+
+    |Order example utterance|
+    |--|
+    |`pickup XL meat lovers pizza`|
 
     The overall top entity, `Order` is marked and the `Size` subcomponent is also marked with dotted lines.  
 
-## Add more example utterances and mark entity
+    ![New example utterance predicted with entity](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
-Simple entities need many examples in order to have a high confidence of prediction. 
- 
-1. Add more utterances and mark the job words or phrases as **Job** entity. 
+    The dotted link indicates the prediction. 
 
-    |Utterance|Job entity|
-    |:--|:--|
-    |I'm applying for the Program Manager desk in R&D|Program Manager|
-    |Here is my line cook application.|line cook|
-    |My resume for camp counselor is attached.|camp counselor|
-    |This is my c.v. for administrative assistant.|administrative assistant|
-    |I want to apply for the management job in sales.|management, sales|
-    |This is my resume for the new accounting position.|accounting|
-    |My application for barback is included.|barback|
-    |I'm submitting my application for roofer and framer.|roofer, framer|
-    |My c.v. for bus driver is here.|bus driver|
-    |I'm a registered nurse. Here is my resume.|registered nurse|
-    |I would like to submit my paperwork for the teaching position I saw in the paper.|teaching|
-    |This is my c.v. for the stocker post in fruits and vegetables.|stocker|
-    |Apply for tile work.|tile|
-    |Attached resume for landscape architect.|landscape architect|
-    |My curriculum vitae for professor of biology is enclosed.|professor of biology|
-    |I would like to apply for the position in photography.|photography|
+1. In order to accept the prediction, select the row, then select **Confirm entity predictions**.
 
-## Mark job entity in other intents
+    ![Accept prediction by selecting Confirm entity prediction.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
-1. Select **Intents** from the left menu.
+## Add prebuilt number to app
 
-1. Select **GetJobInformation** from the list of intents. 
+The order information should also include how many of an item in the order. To extract this data, add a subcomponent to the order entity named `Quantity`. Add a constraint to the `Quantity` entity to make sure only numbers are returned. This constraint uses a prebuilt (pretrained) entity named **Number** to extract this information. If the number is spelled out as `two` or uses a digit `2`, the client application will receive the data extracted as digits. 
 
-1. Label the jobs in the example utterances
+Begin by adding the prebuilt number to the app. 
 
-    If there are more example utterances in one intent than another intent, that intent has a higher likelihood of being the highest predicted intent. 
+1. Select **Entities** from the left menu, then select **+ Create**. 
 
-## Train the app so the changes to the intent can be tested 
+    ![Create new entity](media/tutorial-machine-learned-entity/add-prebuilt-entity-to-existing-app.png)
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+1. In the **Add prebuilt entities** box, search for and select **Number** then select **Done**. 
+
+    ![Add prebuilt entity](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
+
+    The prebuilt entity is added to the app but isn't a constraint for the `Quantity` subcomponent yet. 
+
+## Add constraint to entity
+
+Constrain the `Quantity` subcomponent to a number with this procedure.
+
+1. In the following utterance, select the text in the square brackets to create a `Quantity` machine-learned subcomponent.  
+
+    |Order example utterance|
+    |--|
+    |`i need [2] large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
+
+1. In the pop-up box, enter the name of `Quantity` and create the entity. 
+
+    ![Create a quantity entity](media/tutorial-machine-learned-entity/create-quantity-entity.png)
+
+1. To set the constraint for the `Quantity` entity, select the **Entities** section from the left-menu, then select the `Order` entity.
+
+1. In the **Structure** box, select the `Quantity` component, then select the pencil icon to add a new constraint. In the box, select **Add prebuilt...**. 
+
+
 
 ## Publish the app so the trained model is queryable from the endpoint
 
