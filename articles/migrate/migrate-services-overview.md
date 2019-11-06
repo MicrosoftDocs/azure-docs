@@ -120,7 +120,7 @@ Azure Migrate integrates with the Azure App Service Migration Assistant. From th
 
 [Learn more](https://appmigration.microsoft.com/) about the Assistant.
 
-Azure Migrate integrates with Movere for assessment. Movere is a SaaS platform that increases business intelligence by accurately presenting entire IT environments within a single day. [Learn more](https://go.microsoft.com/fwlink/?linkid=2109528).
+
 
 ## Offline data migration
 
