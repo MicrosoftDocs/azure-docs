@@ -49,7 +49,7 @@ Private site access refers to making your app accessible only from a private net
 * Private site access is available in the [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan), and [App Service](functions-scale.md#app-service-plan) plans when service endpoints are configured.
     * Service endpoints can be configured on a per-app basis under **Platform features** > **Networking** > **Configure Access Restrictions** > **Add Rule**. Virtual networks can now be selected as a rule type.
     * For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
-        * Keep in mind that with service endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
+    * Keep in mind that with service endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
 * Private site access is also available within an App Service Environment that's configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 ## Virtual network integration
