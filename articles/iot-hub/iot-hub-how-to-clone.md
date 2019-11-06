@@ -558,7 +558,7 @@ At this point, you have copied your hub to the new location and migrated the dev
 
 To commit the changes, here are the steps you need to perform: 
 
-* Update each device to change the IoT Hub Hostname to point the IoT Hub Hostname to the new hub. You should do this using the same method you used when you first provisioned the device.
+* Update each device to change the IoT Hub host name to point the IoT Hub host name to the new hub. You should do this using the same method you used when you first provisioned the device.
 
 * Change any applications you have that refer to the old hub to point to the new hub.
 
