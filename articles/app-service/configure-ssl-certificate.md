@@ -339,7 +339,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contains both the public and private certificates. In each prompt, an empty string is provided for the import password and the PEM pass phrase.
+The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contains both the public and private certificates. In each prompt, use an empty string for the import password and the PEM pass phrase.
 
 ### Delete certificate 
 
