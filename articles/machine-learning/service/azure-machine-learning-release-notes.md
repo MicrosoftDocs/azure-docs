@@ -28,6 +28,11 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   
   + **Preview features**
     + [Contrib features below] 
+    + **azureml-contrib-dataset**
+      + After importing azureml-contrib-dataset, you can call `Dataset.Labeled.from_json_lines` instead of `._Labeled` to create a labeled dataset.
+      + When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not.
+      + When calling `keep_columns` or `drop_columns` that results in a timeseries, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+      + Fixed issues with PyTorch loader when calling `dataset.to_torchvision()`.
 
 + **Breaking changes**
   + [Reference upcoming breaking changes and old API support drop date]
@@ -51,9 +56,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added a new API amlcompute.get_active_runs that returns a generator for running and queued runs on a given amlcompute.
     + Added Load Balancer Type to MLC for AKS types.
     + Added append_prefix bool parameter to download_files in run.py and download_artifacts_from_prefix in artifacts_client. This flag is used to selectively flatten the origin filepath so only the file or folder name is added to the output_directory
-    + fix deserialization issue for `run_config.yml` with dataset usage.
+    + Fix deserialization issue for `run_config.yml` with dataset usage.
+    + When calling `keep_columns` or `drop_columns` that results in a timeseries column being dropped, the corresponding capabilities will be dropped for the dataset as well.
   + **azureml-interpret**
-    + updated interpret-community version to 0.1.0.3
+    + Updated interpret-community version to 0.1.0.3
   + **azureml-train-automl**
     + Fixed an issue where automl_step might not print validation issues.
     + Fixed register_model to succeed even if the model's environment is missing dependencies locally.
