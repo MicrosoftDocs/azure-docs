@@ -1,5 +1,5 @@
 ---
-title: Failover groups - Azure SQL Database | Microsoft Docs
+title: Failover groups - Azure SQL Database 
 description: Auto-failover groups is a SQL Database feature that allows you to manage replication and automatic / coordinated failover of a group of databases on a SQL Database server or all databases in managed instance.
 services: sql-database
 ms.service: sql-database
