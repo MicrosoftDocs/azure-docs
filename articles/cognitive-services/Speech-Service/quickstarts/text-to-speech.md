@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Synthesize speech - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: In this quickstart, you will use the Speech SDK to convert text to synthesized speech. 
 services: cognitive-services
 author: erhopf
 manager: nitinme

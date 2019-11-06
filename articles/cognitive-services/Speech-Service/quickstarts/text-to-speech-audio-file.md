@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Synthesize speech into audio file - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: In this quickstart, you'll use the Speech SDK to convert text to synthesized speech in an audio file. 
 services: cognitive-services
 author: erhopf
 manager: nitinme

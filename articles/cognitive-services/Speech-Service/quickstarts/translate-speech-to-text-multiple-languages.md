@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Translate speech to multiple languages - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: In this quickstart, you'll use the Speech SDK to interactively translate speech from one language to speech in another language. 
 services: cognitive-services
 author: erhopf
 manager: nitinme

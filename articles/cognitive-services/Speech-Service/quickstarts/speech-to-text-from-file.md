@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Recognize speech from an audio file - Speech Service"
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: In this quickstart, you'll use the Speech SDK to recognize speech from an audio file.
 services: cognitive-services
 author: erhopf
 manager: nitinme

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Recognize speech from a microphone - Speech Service"
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: In this quickstart, you'll use the Speech SDK to interactively recognize speech from audio data captured from a microphone. 
 services: cognitive-services
 author: erhopf
 manager: nitinme
