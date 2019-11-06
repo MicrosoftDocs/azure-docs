@@ -17,7 +17,7 @@ This article provides a quick overview of Azure Migrate.
 Azure Migrate helps you to migrate your enterprise from on-premises to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure.  Azure Migrate provides:
 
 - **Unified migration platform**: A single portal to start, run, and track your migration journey to Azure.
-- **Range of tools**: The hub provides Azure tools and services for assessment and migration, and integration with other Azure services, as well as with other tools and independent software vendor (ISV) offerings.
+- **Range of tools**: The hub provides Azure Migrate tools assessment and migration, and integrates with other Azure services, as well other tools and independent software vendor (ISV) offerings.
 - **Workloads**: Azure Migrate provides assessment and migration for:
     - **Servers**: Use Azure Migrate Server Assessment, Azure Migrate Server Migration, and other tools, for assessment and migration of servers to Azure VMs.
     - **Databases**: Leverage Microsoft and ISV tools for assessment and migration of on-premises databases to Azure SQL DB, or Azure SQL Managed Instance.
@@ -32,35 +32,48 @@ There are currently two versions of the Azure Migrate service:
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
 - **Previous version**: If you used the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. You can no longer create Azure Migrate projects using the previous version, and we recommend that you don't perform new discoveries. To access existing projects, in the Azure portal > **All services**, search for **Azure Migrate**. On the Azure Migrate dashboard, there's a notification and a link to access old Azure Migrate projects.
 
+
+
 ## ISV integration
 
-In addition to native Microsoft tools, Azure Migrate integrates with a number of ISV offerings. 
+In addition to native Azure tools, Azure Migrate integrates with a number of ISV offerings. 
 
 **ISV**	| **Feature**
 --- | ---
-[Cloudamize](https://www.cloudamize.com/platform) | Assess
-[Device 42](https://docs.device42.com/) | Assess
-[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess
-[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess
-[Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate
 [Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate
+[Cloudamize](https://www.cloudamize.com/platform) | Assess 
+[Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate
+[Device 42](https://docs.device42.com/) | Assess
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate
+[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess
+[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess
 
 ## Tool integration
 
-Azure Migrate integrates with Movere for assessment. Movere is a SaaS platform that increases business intelligence by accurately presenting entire IT environments within a single day. [Learn more](https://go.microsoft.com/fwlink/?linkid=2109528).
+The table summarizes other tools that are integrated in Azure Migrate.
 
-### Selecting a tool
+**Tool** | **Details**
+--- | ---
+Azure Migrate: Server Assessment | Assess servers
+Azure Migrate: Server Migration | Migrate servers
+Database Migration Assistant (DMA) | Assess databases
+Database Migration Service (DMS) | Migrate databases
+Movere | Assess Servers
+Web App Migration Assistant | Assess and migrate web apps
 
-You identify the tool you need, and add it to an Azure Migrate project.
+
+
+### Selecting an ISV/tool
+
+Identify the ISV offering or tool you need, and add it to an Azure Migrate project.
 
 - After adding a tool, you get started by obtaining a license, or signing up for a free trial, in accordance with the tool policy. Licensing for tools is in accordance with the ISV or tool licensing model.
-- In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation, to connect the tool with Azure Migrate.L
+- In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation, to connect the tool with Azure Migrate.
 - You centrally track your migration journey from within the Azure Migrate project, across Azure and other tools.
 
 
-## Azure Migrate Server Assessment tool
+## Azure Migrate Server Assessment
 
 Azure Migrate: Server Assessment tool discovers and assesses on-premises VMware VMs, Hyper-V VMs,and physical servers, for migration to Azure. It helps you identify the following:
 
@@ -77,20 +90,26 @@ Server Assessment uses a lightweight appliance that you deploy on-premises, and 
 - After discovery, you gather discovered machines into groups. You typically gather together machines that you'd like to migrate together.
 - You create an assessment for a group. You then analyze the assessment, to figure out your migration strategy.
 
-## Azure Migrate Server Migration tool
+## Azure Migrate Server Migration
 
 Azure Migrate: Server Migration tool helps you to migrate on-premises VMware VMs, Hyper-V VMs, physical servers, other virtualized machines, and public cloud VMs to Azure. You can migrate machines after assessing them, or without an assessment.
 
 
-## Database assessment
+## DMA
 
 Azure Migrate integrates with Microsoft Data Migration Assistant (DMA) to assess on-premises SQL Server databases for migration to Azure SQL DB, Azure SQL Managed Instance, or Azure VMs running SQL Server. DMA provides information about potential blocking issues for migration. It identifies unsupported features, as well as new features that you can benefit from after migration, and helps you to identify the right path for database migration. [Learn more](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
 
-## Database migration
+## DMS
 
 Azure Migrate integrates with the Azure Database Migration Service (DMS), to migrate on-premises databases to Azure. Use DMS to migrate on-premises databases to Azure VMs running SQL, Azure SQL DB, and Azure SQL Managed Instances. [Learn more](https://docs.microsoft.com/azure/dms/dms-overview).
 
-## Web app migration
+## Movere
+
+ 
+Movere is a SaaS platform that increases business intelligence by accurately presenting entire IT environments within a single day. As organizations grow, change, and digitally optimize, the solution provides enterprises with the confidence they need to have visibility and control of their environments regardless of platform, application or geography. Movere was [acquired](https:/azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools) by Microsoft and is no longer sold as a standalone offer.  Movere is available through the Microsoft Solution Assessment and Cloud Economics Programs. [Learn more](https://www.movere.io) about Movere. If you have questions, submit them to: movereq@microsoft.com or contact your Microsoft representative.
+ 
+
+## Web app migration assistant
 
 Azure Migrate integrates with the Azure App Service Migration Assistant. From the Azure Migrate hub, you can assess and migrate on-premises web apps to Azure, using the Assistant, as follows:
 
@@ -98,6 +117,8 @@ Azure Migrate integrates with the Azure App Service Migration Assistant. From th
 - **Migrate web apps**: Migrate .NET and PHP web apps to Azure, using Azure App Service Migration Assistant.
 
 [Learn more](https://appmigration.microsoft.com/) about the Assistant.
+
+Azure Migrate integrates with Movere for assessment. Movere is a SaaS platform that increases business intelligence by accurately presenting entire IT environments within a single day. [Learn more](https://go.microsoft.com/fwlink/?linkid=2109528).
 
 ## Offline data migration
 
