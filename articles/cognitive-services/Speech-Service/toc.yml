@@ -376,6 +376,8 @@
       href: scenario-availability.md
   - name: Quickstarts
     items:
+    - name: Create a project
+      href: quickstarts/create-project.md
     - name: Setup Speech SDK with C#
       href: quickstarts/setup-platform.md?pivots=programming-language-csharp
     - name: Setup Speech SDK with C++
