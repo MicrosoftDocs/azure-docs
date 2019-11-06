@@ -15,7 +15,7 @@ ms.author: saudas
 
 In a private cluster, the Control Plane/API server will have internal IP addresses defined in [RFC1918](https://tools.ietf.org/html/rfc1918).  
 
-The communication between the control plane/ API server which is in an Azure subscription and the customers cluster / node pool which is in a customer subscription can communicate with each other through the private link service in the API server VNET and a private end point exposed in the subnet of the customer AKS cluster.
+The communication between the control plane/API server, which is in an Azure subscription and the customers cluster / node pool, which is in a customer subscription can communicate with each other through the private link service in the API server VNET and a private end point exposed in the subnet of the customer AKS cluster.
 
 Private cluster users can use a Standard Load Balancer or an internal load balancer to route traffic inside the private cluster without requiring a public IP.
 
@@ -92,7 +92,7 @@ Where --enable-private-cluster is a mandatory flag for a private cluster
 The API server end point has no public IP address. Consequently, users will need to create an Azure virtual machine in a virtual network and connect to the API server. The steps in
 
 * Create a VM in the same VNET as the AKS cluster or create a VM in a different VNET and peer this VNET with the AKS cluster VNET
-* If you create a VM in a different VNET you will need to set up a link between this VNET and the Private DNS Zone
+* If you create a VM in a different VNET, you'll need to set up a link between this VNET and the Private DNS Zone
     * go to the MC_* resource group in the portal 
     * click on the Private DNS Zone 
     * select Virtual network link in the left pane
@@ -110,10 +110,10 @@ The API server end point has no public IP address. Consequently, users will need
 ## Limitations 
 * Cannot create more than one AKS cluster into same VNET
 * No support for virtual nodes in a private cluster to spin private ACI instances in a private Azure VNET.
-* No support for Azure dev ops integration out of the box with private clusters
+* No support for Azure DevOps integration out of the box with private clusters
 * If customers need to enable ACR to work with private AKS, then the ACR’s VNET will need to be peered with the agent cluster VNET
 * Devspaces might not work. You might be able to get it to work with [self hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops)
 * IPV4 traffic Only – No support for IPv6 traffic 
 * No support to convert existing AKS clusters to private clusters  
 * Deleting the private end point in the customer subnet will cause the cluster to stop functioning 
-* Azure monitoring will not work
+* Azure monitoring won't work
