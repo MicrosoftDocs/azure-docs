@@ -65,6 +65,10 @@
         href: rest-speech-to-text.md
       - name: Batch transcription REST APIs
         href: batch-transcription.md
+  - name: Resources
+    items:
+    - name: Speech-to-text FAQ
+      href: stt-faq.md
 - name: Text-to-speech
   exanded: false
   items:
@@ -112,6 +116,10 @@
       items:
       - name: Text-to-speech REST API
         href: rest-text-to-speech.md
+  - name: Resources
+    items:
+    - name: Text-to-speech FAQ
+      href: faq-text-to-speech.md
 - name: Intent recognition
   exanded: false
   items:
@@ -254,7 +262,7 @@
     items:
     - name: Voice enable your bot with Speech SDK
       href: tutorial-voice-enable-your-bot-speech-sdk.md
-  - name: Reference
+  - name: Resources
     items:
     - name: Voice assistants FAQ
       href: faq-voice-assistants.md
