@@ -130,31 +130,37 @@ Before you start, you need these items:
 
 1. In the collection, add a rule that permits traffic to the destination system.
 
-   For example, suppose that you have a logic app that runs in an ISE and needs outbound access to an SFTP system. Here's a rule that is named `LogicApp_ISE_SFTP_outbound` and 
+   For example, suppose that you have a logic app that runs in an ISE and needs to communicate with an SFTP system. You create a network rule collection that's named `LogicApp_ISE_SFTP_Outbound`, which contains a network rule named `ISE_SFTP_Outbound`. This rule permits traffic from the IP address of any subnet where your ISE runs in your virtual network to the destination SFTP system by using your firewall's private IP address.
+
+   ![Set up network rule for firewall](./media/connect-virtual-network-vnet-isolated-environment/set-up-network-rule-for-firewall.png)
 
    **Network rule collection properties**
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Name** | <*network-rule-collection-name*> | A unique name for the route in the route table |
-   | **Priority** | <*priority-level*> | The destination system's address where you want the traffic to go. Make sure that you use [Classless Inter-Domain Routing (CIDR) notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) for this address. |
-   | **Action** | **Allow** | The [hop type](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) that's used by outbound traffic |
-   ||| 
+   | **Name** | <*network-rule-collection-name*> | The name for your network rule collection |
+   | **Priority** | <*priority-level*> | The order of priority to use for running the rule collection. For more information, see [What are some Azure Firewall concepts](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
+   | **Action** | **Allow** | The action type to perform for this rule |
+   |||
 
    **Network rule properties**
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **name** | <*firewall-private-IP-address*> | The private IP address for your firewall |
+   | **Name** | <*network-rule-name*> | The name for your network rule |
+   | **Protocol** | <*connection-protocols*> | The connection protocols to use. For example, if you're using NSG rules, select both **TCP** and **UDP**, not only **TCP**. |
+   | **Source addresses** | <*ISE-subnet-addresses*> | The subnet IP addresses where your ISE runs and where traffic from your logic app originates |
+   | **Destination addresses** | <*destination-IP-address*> | The IP address for your destination system where you want the traffic to go |
+   | **Destination ports** | <*destination-ports*> | Any ports that your destination system uses for inbound communication |
    |||
 
    For more information about network rules, see these articles:
 
    * [Configure a network rule](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
    * [Azure Firewall rule processing logic](../firewall/rule-processing.md#network-rules-and-applications-rules)
+   * [Azure Firewall FAQ](../firewall/firewall-faq.md)
    * [Azure PowerShell: New-AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule)
    * [Azure CLI: az network firewall network-rule](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
-
 
 <a name="network-ports-for-ise"></a>
 
