@@ -74,9 +74,9 @@ Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 | Standard_E16as_v4|16|128|256|32|32000 / 255 (400)|25600 / 384|8 / 8000 |
 | Standard_E20as_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 / 10000 |
 | Standard_E32as_v4|32|256|512|32|64000 / 510 (800)|51200 / 768|8 / 16000 |
-| Standard_E48a_v4 <sup>**</sup> |48|384|768|32|  | | 
-| Standard_E64a_v4 <sup>**</sup> |64|512|1024|32| | | 
-| Standard_E96a_v4 <sup>**</sup> |96|672|1344|32| | |  
+| Standard_E48as_v4 <sup>**</sup> |48|384|768|32|  | | 
+| Standard_E64as_v4 <sup>**</sup> |64|512|1024|32| | | 
+| Standard_E96as_v4 <sup>**</sup> |96|672|1344|32| | |  
 
 <sup>**</sup>  These sizes are in Preview. If you are interested in trying out these larger sizes, sign up at [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
