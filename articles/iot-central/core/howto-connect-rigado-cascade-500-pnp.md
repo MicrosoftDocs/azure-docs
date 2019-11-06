@@ -25,7 +25,7 @@ Cascade 500 is pre-certified for Azure IoT Plug and Play (PnP) allowing our solu
 To step through this how-to guide, you need the following resources:
 
 * A Rigado Cascade 500 device. For more information, please visit [Rigado](https://www.rigado.com/).
-* An Azure IoT Central application created from one of the preview application templates. For more information, see the [create a new application](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* An Azure IoT Central application created from one of the preview application templates. For more information, see the [create a new application](https://docs.microsoft.com/azure/iot-central/core/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Add a device template
 

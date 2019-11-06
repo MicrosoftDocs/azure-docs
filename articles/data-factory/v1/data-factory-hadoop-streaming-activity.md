@@ -1,5 +1,5 @@
 ---
-title: Transform data using Hadoop Streaming Activity - Azure | Microsoft Docs
+title: Transform data using Hadoop Streaming Activity - Azure 
 description: Learn how you can use the Hadoop Streaming Activity in an Azure data factory to transform data by running Hadoop Streaming programs on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''

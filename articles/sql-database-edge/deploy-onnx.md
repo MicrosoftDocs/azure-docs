@@ -14,7 +14,7 @@ ms.date: 11/04/2019
 
 # Deploy and make predictions with an ONNX model in SQL Database Edge Preview
 
-In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to Azure SQL Database Edge Preview, and then run native PREDICT on data using the uploaded ONNX model.
+In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to Azure SQL Database Edge Preview, and then run native PREDICT on data using the uploaded ONNX model. For more information, see [Machine learning and AI with ONNX in SQL Database Edge Preview](onnx-overview.md).
 
 This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
