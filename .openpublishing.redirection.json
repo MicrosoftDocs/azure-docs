@@ -16382,6 +16382,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/csharp.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/cognitive-services-text-analytics-how-to-access-key.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account",
       "redirect_document_id": false
