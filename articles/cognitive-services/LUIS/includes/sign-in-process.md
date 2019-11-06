@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 09/02/2018
+ms.date: 10/23/2019
 ms.author: diberry
 ---
 ## Sign in to LUIS portal
@@ -36,8 +36,8 @@ A new user to LUIS needs to follow this procedure:
 
 1. A summary of the resource to be created is displayed. Select **Next**.
 
-    ![Create authoring resource](./media/sign-in-confirm-key-selection.png)
+    ![Create authoring resource](../media/sign-in/sign-in-confirm-key-selection.png)
 
-1. Step 3 is a confirmation. Confirm your select by selecting **Continue**. 
+1. Confirm by selecting **Continue**. 
 
-    ![Create authoring resource](./media/sign-in-confirm-continue.png)
+    ![Create authoring resource](../media/sign-in/sign-in-confirm-continue.png)

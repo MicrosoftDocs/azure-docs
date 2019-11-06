@@ -1,5 +1,5 @@
 ---
-title: Generic performance troubleshooting for Azure virtual machine running Linux or Windows
+title: Troubleshoot Azure virtual machine performance on Linux or Windows
 description: This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 09/18/2019
 ms.author: v-miegge
 ---
 
-# Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows
+# Troubleshoot Azure virtual machine performance on Linux or Windows
 
 This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur. Besides monitoring, you can also use Perfinsights which can provide a report with best practices recommendations and key bottlenecks around IO/CPU/Memory. Perfinsights is available for both [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) and [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) VM’s in Azure.
 
