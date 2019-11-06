@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/04/2019
+ms.date: 11/06/2019
 ---
 
 # Azure machine learning monitoring data reference
@@ -50,7 +50,7 @@ The following table lists the properties for Azure Machine Learning resource log
 | JobErrorMessage | detailed message of Job error |
 | NodeId | ID of the node created where job is running |
 
-### AmlComputerClusterEvents table
+### AmlComputeClusterEvents table
 
 | Property | Description |
 |:--- |:--- |

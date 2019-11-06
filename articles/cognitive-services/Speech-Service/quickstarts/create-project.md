@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a project'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to create a project that you'll use as a template to build a Speech application.
+description: In this quickstart, you'll create an empty project for your preferred programming language that you'll use to complete a quickstart or create an application.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-three
 ---
 
-# Quickstart: Create an empty project.
+# Quickstart: Create a project
 
-This guide shows how to create an empty project for use in other quickstarts.
+In this quickstart, you'll create an empty project for your preferred programming language that you'll use to complete a quickstart or create an application.
 
 ::: zone pivot="programming-language-csharp"
 **Choose your target environment**
@@ -49,6 +49,9 @@ For this sample, we'll be compiling with g++, so all you need for an empty proje
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+For the Python-based quickstarts, all you'll need to do is create a file named `helloworld.py` with your favorite text editor or IDE.
+
 ::: zone-end
 
 ## Next steps
