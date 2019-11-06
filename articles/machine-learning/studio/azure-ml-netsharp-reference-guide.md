@@ -1,5 +1,5 @@
 ---
-title: Create custom neural networks with Net#
+title: Net# custom neural networks
 titleSuffix: ML Studio (classic) Azure
 description: Syntax guide for the Net# neural networks specification language. Learn how to create custom neural network models in Azure Machine Learning Studio (classic).
 services: machine-learning

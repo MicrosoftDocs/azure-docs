@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Load New York Taxicab data to Azure SQL Data Warehouse '
+title: 'Tutorial: Load New York Taxicab data'
 description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from a global Azure blob  to Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo  
@@ -10,6 +10,7 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Tutorial: Load New York Taxicab data to Azure SQL Data Warehouse
