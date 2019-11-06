@@ -45,7 +45,7 @@ To create and work with datasets, you need:
 
 There are two dataset types, based on how users consume them in training:
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a Pandas or Spark DataFrame. A `TabularDataset` object can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference).
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a Pandas or Spark DataFrame. You can create a `TabularDataset` object from .csv, .tsv, and parquet files, and from SQL query results. For a complete list, see [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
 
 * The [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) class references single or multiple files in your datastores or public URLs. By this method, you can download or mount the files to your compute as a FileDataset object. The files can be in any format, which enables a wider range of machine learning scenarios, including deep learning.
 
@@ -57,31 +57,31 @@ By creating a dataset, you create a reference to the data source location, along
 
 For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web URLs.
 
-### Using the SDK
+### Use the SDK
 
 To create datasets from an [Azure datastore](how-to-access-data.md) by using the Python SDK:
 
-* Verify that you have `contributor` or `owner` access to the registered Azure datastore.
+1. Verify that you have `contributor` or `owner` access to the registered Azure datastore.
 
-* Create the dataset by referencing a path in the datastore:
+1. Create the dataset by referencing a path in the datastore:
 
-```Python
-from azureml.core.workspace import Workspace
-from azureml.core.datastore import Datastore
-from azureml.core.dataset import Dataset
-
-datastore_name = 'your datastore name'
-
-# get existing workspace
-workspace = Workspace.from_config()
-
-# retrieve an existing datastore in the workspace by name
-datastore = Datastore.get(workspace, datastore_name)
-```
+    ```Python
+    from azureml.core.workspace import Workspace
+    from azureml.core.datastore import Datastore
+    from azureml.core.dataset import Dataset
+    
+    datastore_name = 'your datastore name'
+    
+    # get existing workspace
+    workspace = Workspace.from_config()
+    
+    # retrieve an existing datastore in the workspace by name
+    datastore = Datastore.get(workspace, datastore_name)
+    ```
 
 #### Create a TabularDataset
 
-You can create TabularDatasets through the SDK or by using Azure Machine Learning studio. You can specify a timestamp from a column in the data or from the path pattern that the data is stored in to enable a time series trait. This specification allows for easy and efficient filtering by time.
+You can create TabularDatasets through the SDK or by using Azure Machine Learning Studio. You can specify a time stamp from a column in the data or from the path pattern that the data is stored in to enable a time series trait. This specification allows for easy and efficient filtering by time.
 
 Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation.
 
@@ -125,9 +125,9 @@ sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
 
-In TabularDatasets, you can specify a timestamp from a column in the data or from wherever the path pattern data is stored to enable a time series trait. This specification allows for easy and efficient filtering by time.
+In TabularDatasets, you can specify a time stamp from a column in the data or from wherever the path pattern data is stored to enable a time series trait. This specification allows for easy and efficient filtering by time.
 
-Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on the`TabularDataset` class to specify your timestamp column and to enable filtering by time. For more information, see [Tabular time series-related API demo with NOAA weather data](https://aka.ms/azureml-tsd-notebook).
+Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on the`TabularDataset` class to specify your time stamp column and to enable filtering by time. For more information, see [Tabular time series-related API demo with NOAA weather data](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
 # create a TabularDataset with time series trait
@@ -168,14 +168,14 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
 #### On the web 
-The following steps and animation show how to create a dataset in the Azure Machine Learning studio, https://ml.azure.com.
+The following steps and animation show how to create a dataset in Azure Machine Learning Studio, https://ml.azure.com.
 
 ![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
 To create a dataset in the studio:
 1. Sign in at https://ml.azure.com.
 1. Select **Datasets** in the **Assets** section of the left pane. 
-1. Select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls.
+1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, or public URLs.
 1. Select **Tabular** or **File** for Dataset type.
 1. Select **Next** to review the **Settings and preview**, **Schema** and **Confirm details** forms; they are intelligently populated based on file type. Use these forms to check your selections and to further configure your dataset prior to creation.  
 1. Select **Create** to complete your dataset creation.
@@ -191,13 +191,13 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 ```
 
 > [!Note]
-> Datasets created through the Azure Machine Learning studio are automatically registered to the workspace.
+> Datasets created through Azure Machine Learning Studio are automatically registered to the workspace.
 
 ## Create datasets with Azure Open Datasets
 
 [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. Open Datasets are in the cloud on Microsoft Azure and are included in both the SDK and the workspace UI.
 
-### Using the SDK
+### Use the SDK
 
 To create datasets with Azure Open Datasets from the SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by its own class in the SDK, and certain classes are available as either a `TabularDataset`, `FileDataset`, or both. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) for a full list of classes.
 
@@ -210,7 +210,7 @@ tabular_dataset = UsPopulationZip()
 tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
 ```
 
-Certain classes can be retrieved as either a `TabularDataset` or `FileDataset`, which allows you to manipulate and/or download the files directly. Other classes can only get a dataset using either the `get_tabular_dataset()` **or** `get_file_dataset()` functions. The following code sample shows a few examples of these types of classes.
+You can retrieve certain classes as either a `TabularDataset` or `FileDataset`, which allows you to manipulate and/or download the files directly. Other classes can get a dataset only by using either the `get_tabular_dataset()` or `get_file_dataset()` functions. The following code sample shows a few examples of these types of classes:
 
 ```python
 from azureml.opendatasets import MNIST
@@ -225,7 +225,7 @@ from azureml.opendatasets import Diabetes
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
 
-### Using the UI
+### Use the UI
 
 You can also create datasets from Open Datasets classes through the UI. In your workspace, select the **Datasets** tab under **Assets**. On the **Create dataset** drop-down menu, select **From Open Datasets**.
 
@@ -235,7 +235,7 @@ Select a dataset by selecting its tile. (You have the option to filter by using 
 
 ![Choose dataset](media/how-to-create-register-datasets/open-datasets-2.png)
 
-Choose a name under which to register the dataset, and optionally filter the data using the available filters. In this case, for the public holidays dataset, you filter the time period to one year and the country code to only the U.S. Select **Create**.
+Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the public holidays dataset, you filter the time period to one year and the country code to only the US. Select **Create**.
 
 ![Set dataset params and create dataset](media/how-to-create-register-datasets/open-datasets-3.png)
 

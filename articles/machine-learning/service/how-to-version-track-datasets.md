@@ -18,7 +18,7 @@ ms.custom:
 # Version and track datasets in experiments
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this how-to, you'll learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data so that you can apply a specific version of the dataset for future experiments.
+In this article, you'll learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data so that you can apply a specific version of the dataset for future experiments.
 
 Typical versioning scenarios:
 
@@ -27,9 +27,9 @@ Typical versioning scenarios:
 
 ## Prerequisites
 
-For this how-to, you need:
+For this tutorial, you need:
 
-- To have the [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). This SDK includes the [azureml-datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py) package.
+- [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). This SDK includes the [azureml-datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py) package.
     
 - An [Azure Machine Learning workspace](concept-workspace.md). Retrieve an existing one by running the following code, or [create a new workspace](how-to-manage-workspace.md).
 
@@ -153,7 +153,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-After registration, you can see the list of models registered with the dataset using Python or the [Azure Machine Learning studio](https://ml.azure.com/).
+After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning Studio](https://ml.azure.com/).
 
 The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with the experiment run:
 
@@ -166,14 +166,13 @@ train_dataset = inputs[0]['dataset']
 train_dataset.to_path()
 ```
 
-You can also find the `input_datasets` from experiments using the [Azure Machine Learning studio](https://ml.azure.com/). 
+You can also find the `input_datasets` from experiments by using [Azure Machine Learning Studio](https://ml.azure.com/). 
 
-The following image shows where to find the input dataset of an experiment on the Azure Machine Learning studio. For this example, 
-go to your **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`. 
+The following image shows where to find the input dataset of an experiment on Azure Machine Learning Studio. For this example, go to your **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`.
 
 ![Input datasets](media/how-to-version-datasets/input-datasets.png)
 
-You can also find the models that used your dataset. The following view is from the **Datasets** blade under **Assets**. Select the dataset and then select the **Models** tab for a list of the models using that dataset. 
+You can also find the models that used your dataset. The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are using that dataset. 
 
 ![Input datasets models](media/how-to-version-datasets/dataset-models.png)
 
