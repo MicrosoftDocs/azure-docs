@@ -107,6 +107,8 @@ landingContent:
             url: service/how-to-consume-web-service.md
           - text: Batch prediction 
             url: service/how-to-run-batch-predictions.md
+          - text: Github How-To-Guide
+            url: https://github.com/microsoft/MLOps
 
   # Reference
   - title: Explore reference docs
@@ -121,3 +123,7 @@ landingContent:
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
           - text: Designer algorithms & modules
             url: algorithm-module-reference/module-reference.md
+          - text: Machine learning at scale
+            url: https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/machine-learning-at-scalex
+          - text: Azure AI Reference Architectures and Best Practices Repositories
+            url: https://github.com/microsoft/AI
