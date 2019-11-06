@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Back up Azure VMs using REST API'
-description: Manage backup operations of Azure VM Backup using REST API
+description: In this article, learn how to configure, initiate, and manage backup operations of Azure VM Backup using REST API.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -103,13 +103,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The *GET* URI has all the required parameters. No additional request body is needed.
 
-##### <a name="responses-1"></a>Responses
+#### <a name="responses-1"></a>Responses
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### <a name="example-responses-1"></a>Example responses
+#### <a name="example-responses-1"></a>Example responses
 
 Once the *GET* request is submitted, a 200 (OK) response is returned.
 
@@ -324,7 +324,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |---------|---------|---------|
 |202 Accepted     |         |     Accepted    |
 
-##### <a name="example-responses-3"></a>Example responses
+#### <a name="example-responses-3"></a>Example responses
 
 Once you submit the *POST* request for an on-demand backup, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
@@ -449,7 +449,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 [Restore data from an Azure Virtual machine backup](backup-azure-arm-userestapi-restoreazurevms.md).
 
-For more information on the Azure Backup REST APIs, refer to the following documents:
+For more information on the Azure Backup REST APIs, see the following documents:
 
 - [Azure Recovery Services provider REST API](/rest/api/recoveryservices/)
 - [Get started with Azure REST API](/rest/api/azure/)
