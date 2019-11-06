@@ -92,8 +92,86 @@ Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *m
     --resource-group myResourceGroup \
     --location eastus \
     --name myVnet \
-    --subnet-name mySubnet
+    --address-prefix 10.0.0.0/16 \
+    --subnet-name mySubnet \
+    --subnet-prefix 10.0.0.0/24
+```
+### Permissons
+
+If you didn't create the subnet you would like to delegate to an Azure service, you need the follwoing permission: `Microsoft.Network/virtualNetworks/subnets/write`.
+
+The built-in [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role also contains the necessary permissions.
+
+### Delegate a subnet to an Azure service
+
+In this section, you delegate the subnet that you created in the preceding section to an Azure service. Use [az network vnet subnet](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-list-available-delegations) to list the availabile services for delegation in the **East US** region:
+
+```azurecli-interactive
+  az network vnet subnet list-available-delegations \
+  --location eastus \
+  --query [].serviceName
 ```
 
+Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) to update the subnet named **mySubnet** with a delegation to an Azure service listed in the previous command:
+
+```azurecli-interactive
+  az network vnet subnet update \
+  --resource-group myResourceGroup \
+  --name mySubnet
+  --vnet-name myVnet
+  --delegations Microsoft.DBforPostgreSQL/serversv2
+```
+
+To verify the delegation was applied, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show) to verify the service was delegated to the subnet under the property **serviceName**:
+
+```azurecli-interactive
+  az network vnet show \
+  --resource-group myResourceGroup \
+  --name mySubnet \
+  --vnet-name myVnet
+  --query delegations
+```
+
+```json
+[
+  {
+    "actions": [
+      "Microsoft.Network/virtualNetworks/subnets/join/action"
+    ],
+    "etag": "W/\"8a8bf16a-38cf-409f-9434-fe3b5ab9ae54\"",
+    "id": "/subscriptions/3bf09329-ca61-4fee-88cb-7e30b9ee305b/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet/delegations/0",
+    "name": "0",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "myResourceGroup",
+    "serviceName": "Microsoft.DBforPostgreSQL/serversv2",
+    "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+  }
+]
+```
+
+### Remove subnet delegation from an Azure service
+
+Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) to remove the delegation from the subnet named **mySubnet**:
+
+```azurecli-interactive
+  az network vnet subnet update \
+  --resource-group myResourceGroup
+  --name mySubnet
+  --vnet-name myVnet
+  --remove delegations
+```
+To verify the delegation was removed, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show) to verify the service was removed from the subnet under the property **serviceName**:
+
+```azurecli-interactive
+  az network vnet show \
+  --resource-group myResourceGroup \
+  --name mySubnet \
+  --vnet-name myVnet
+  --query delegations
+```
+Output from command is a null bracket:
+```json
+[]
+```
 ## Next steps
 - Learn how to [manage subnets in Azure](virtual-network-manage-subnet.md).
