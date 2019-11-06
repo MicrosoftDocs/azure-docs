@@ -102,7 +102,7 @@ Having access to diagnostic logs is essential for monitoring a service and provi
  
 FHIR® is the registered trademark of HL7 and is used with the permission of HL7.
 
-## Next Steps
+## Next steps
 In this article, you learned how to enable Audit Logs for Azure API for FHIR®. Next, learn how to use custom headers to add data to audit logs in Azure API for FHIR®.
  
 >[!div class="nextstepaction"]
