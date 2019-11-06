@@ -1,7 +1,7 @@
 ---
 title: Introduction to knowledge store (preview)
 titleSuffix: Azure Cognitive Search
-description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications.
+description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications. This feature is in public preview.
 
 author: HeidiSteen
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 11/04/2019
 
 # Introduction to knowledge stores in Azure Cognitive Search
 
-> [!Note]
-> Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
->
+> [!IMPORTANT] 
+> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
 Knowledge store is a feature of Azure Cognitive Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for later analysis or other downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. 
 
