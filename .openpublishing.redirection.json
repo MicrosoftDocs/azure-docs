@@ -43367,6 +43367,9 @@
     {
       "source_path": "articles/machine-learning/algorithm-module-reference/import-from-web-url-via-http.md",
       "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-overview.md",
       "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-overview",
       "redirect_document_id": false
@@ -43484,11 +43487,6 @@
     {
       "source_path": "articles/industry/retail/visual-search-use-case-overview.md",
       "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/industry/index.md",
-      "redirect_url": "/azure/industry-marketing/index",
       "redirect_document_id": false
     },
     {
