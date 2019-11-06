@@ -331,21 +331,17 @@
     href: how-to-use-event-grid.md
 - name: Reference
   items:
-  - name: ML SDK (Python)
+  - name: Python SDK
     displayName: api, core, package, python, class
     href: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
-  - name: ML SDK (R)
+  - name: R SDK
     displayName: api, core, package, R, class
     href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
-  - name: Machine Learning CLI
+  - name: CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
   - name: REST API
     href: https://docs.microsoft.com/rest/api/azureml/
-  - name: Monitor data reference
-    href: monitor-resource-reference.md
-  - name: Machine learning pipeline YAML reference
-    href: reference-pipeline-yaml.md
   - name: Designer modules
     displayName: module, reference, algorithm, studio
     items:
@@ -479,6 +475,12 @@
         href: ../algorithm-module-reference/summarize-data.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
+  - name: ML at scale
+    href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
+  - name: Monitor data reference
+    href: monitor-resource-reference.md
+  - name: Machine learning pipeline YAML reference
+    href: reference-pipeline-yaml.md
 - name: Resources
   items:
   - name: Release notes
