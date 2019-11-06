@@ -239,7 +239,7 @@ Choose a name under which to register the dataset, and optionally filter the dat
 
 ![Set dataset params and create dataset](media/how-to-create-register-datasets/open-datasets-3.png)
 
-The dataset is now available in your workspace under **Datasets**. You can used it in the same way as other datasets you've created.
+The dataset is now available in your workspace under **Datasets**. You can use it in the same way as other datasets you've created.
 
 ## Version datasets
 
