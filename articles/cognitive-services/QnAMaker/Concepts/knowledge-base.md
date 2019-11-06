@@ -48,9 +48,9 @@ The process is explained in the following table.
 |1|The client application sends the user query to the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|QnA Maker preprocesses the user query with language detection, spellers, and word breakers.|
 |3|This preprocessing is taken to alter the user query for the best search results.|
-|4|This altered query is sent to Azure Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries.|
-|5|QnA Maker applies advanced featurization to determine the correctness of the fetched Azure Search results for the user query. |
-|6|The trained ranker model uses the feature score, from step 5, to rank the Azure Search results.|
+|4|This altered query is sent to an Azure Cognitive Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries.|
+|5|QnA Maker applies advanced featurization to determine the correctness of the fetched search results for the user query. |
+|6|The trained ranker model uses the feature score, from step 5, to rank the Azure Cognitive Search results.|
 |7|The new results are returned to the client application in ranked order.|
 |||
 
