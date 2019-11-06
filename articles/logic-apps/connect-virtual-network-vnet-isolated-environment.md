@@ -128,7 +128,32 @@ Before you start, you need these items:
 
    ![Add network rule collection to firewall](./media/connect-virtual-network-vnet-isolated-environment/add-network-rule-collection.png)
 
-1. In that collection, add a rule that permits traffic to the intended destination, for example, the rule named `AllowWebapp`:
+1. In the collection, add a rule that permits traffic to the destination system.
+
+   For example, suppose that you have a logic app that runs in an ISE and needs outbound access to an SFTP system. Here's a rule that is named `LogicApp_ISE_SFTP_outbound` and 
+
+   **Network rule collection properties**
+
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **Name** | <*network-rule-collection-name*> | A unique name for the route in the route table |
+   | **Priority** | <*priority-level*> | The destination system's address where you want the traffic to go. Make sure that you use [Classless Inter-Domain Routing (CIDR) notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) for this address. |
+   | **Action** | **Allow** | The [hop type](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) that's used by outbound traffic |
+   ||| 
+
+   **Network rule properties**
+
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **name** | <*firewall-private-IP-address*> | The private IP address for your firewall |
+   |||
+
+   For more information about network rules, see these articles:
+
+   * [Configure a network rule](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
+   * [Azure Firewall rule processing logic](../firewall/rule-processing.md#network-rules-and-applications-rules)
+   * [Azure PowerShell: New-AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule)
+   * [Azure CLI: az network firewall network-rule](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
 
 
 <a name="network-ports-for-ise"></a>
