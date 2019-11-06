@@ -1,5 +1,5 @@
 ---
-title: Public data sets for Azure analytics | Microsoft Docs
+title: Public data sets for Azure analytics 
 description: Learn about public data sets that you can use to prototype and test Azure analytics services and solutions.
 services: sql-database
 ms.service: sql-database

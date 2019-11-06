@@ -55,6 +55,8 @@ landingContent:
         links:
           - text: Open a support ticket
             url: hpc-cache-support-ticket.md
+          - text: Edit a storage target
+            url: hpc-cache-edit-storage.md
       - linkListType: concept
         links:
           - text: Recover from a regional outage

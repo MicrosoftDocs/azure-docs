@@ -250,7 +250,7 @@ These types are currently supported:
 * `pyspark`
 * Standard Python object
 
-To use schema generation, include the `inference-schema` package in your Conda environment file.
+To use schema generation, include the `inference-schema` package in your Conda environment file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema).
 
 ##### Example dependencies file
 
@@ -995,10 +995,12 @@ To delete a registered model, use `model.delete()`.
 For more information, see the documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## (Preview) No-code model deployment
+
 No-code model deployment is currently in preview and supports the following machine learning frameworks:
 
 ### Tensorflow SavedModel format
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1013,10 +1015,12 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 ### ONNX models
+
 ONNX model registration and deployment is supported for any ONNX inference graph. Preprocess and postprocess steps are not currently supported.
 
 Here is an example of how to register and deploy an MNIST ONNX model:
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1029,11 +1033,14 @@ model = Model.register(workspace=ws,
 service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
+
 ### Scikit-learn models
+
 No code model deployment is supported for all built-in scikit-learn model types.
 
 Here is an example of how to register and deploy a sklearn model with no extra code:
-```
+
+```python
 from azureml.core import Model
 from azureml.core.resource_configuration import ResourceConfiguration
 
@@ -1051,7 +1058,8 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 NOTE: These dependencies are included in the prebuilt sklearn inference container:
-```
+
+```yaml
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
@@ -1059,6 +1067,7 @@ NOTE: These dependencies are included in the prebuilt sklearn inference containe
 ```
 
 ## Next steps
+
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)

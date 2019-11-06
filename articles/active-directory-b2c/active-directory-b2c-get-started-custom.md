@@ -69,7 +69,7 @@ You need to register these two applications in your Azure AD B2C tenant only onc
 
 ### Register the IdentityExperienceFramework application
 
-To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
 #### [Applications](#tab/applications/)
 
@@ -147,7 +147,7 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 1. Select **Grant admin consent for (your tenant name)**.
 1. Select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
 1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **STATUS** for both scopes. It might take a few minutes for the permissions to propagate.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for both scopes. It might take a few minutes for the permissions to propagate.
 
 * * *
 
