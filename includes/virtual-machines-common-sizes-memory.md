@@ -1,6 +1,6 @@
 ---
- title:: include file
- description include file
+ title: include file
+ description: include file
  services: virtual-machines
  author: jonbeck7
  ms.service: virtual-machines
@@ -24,7 +24,7 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 
 * Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series is about 35% faster than the D-series. It runs on the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors, and with the Intel Turbo Boost Technology 2.0. The Dv2-series has the same memory and disk configurations as the D-series.
 
-* Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer.  These virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers for workloads involving elements like compliance and regulatory requirements.  Customers can also choose to further subdivide the resources of these Isolated virtual machines by using [Azure support for nested virtual machines](https//azure.microsoft.com/blog/nested-virtualization-in-azure/).  Please see the tables of virtual machine families below for your isolated VM options.
+* Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer.  These virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers for workloads involving elements like compliance and regulatory requirements.  Customers can also choose to further subdivide the resources of these Isolated virtual machines by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).  Please see the tables of virtual machine families below for your isolated VM options.
 
 ## Esv3-series
 
@@ -78,7 +78,7 @@ Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 | Standard_E64a_v4 <sup>**</sup> |64|512|1024|32| | | 
 | Standard_E96a_v4 <sup>**</sup> |96|672|1344|32| | |  
 
-<sup>**</sup>  These sizes are in Preview. If you are interested in trying out these larger sizes, sign up at [https//aka.ms/AzureAMDLargeVMPreview](https//aka.ms/AzureAMDLargeVMPreview).
+<sup>**</sup>  These sizes are in Preview. If you are interested in trying out these larger sizes, sign up at [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## Ev3-series 
 
@@ -133,7 +133,7 @@ Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 | Standard\_E64a\_v4 <sup>**</sup> |64|512|1600|32| | |
 | Standard\_E96a\_v4 <sup>**</sup> |96|672|2400|32| | |
 
-<sup>**</sup>  These sizes are in Preview.  If you are interested in trying out these larger sizes, sign up at [https//aka.ms/AzureAMDLargeVMPreview](https//aka.ms/AzureAMDLargeVMPreview).
+<sup>**</sup>  These sizes are in Preview.  If you are interested in trying out these larger sizes, sign up at [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## Mv2-series
 
@@ -143,7 +143,7 @@ Premium Storage: Supported
 
 Premium Storage caching: Supported
 
-Write Accelerator: [Supported](https//docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 The Mv2-series features high throughput, low latency platform running on a hyper-threaded Intel® Xeon® Platinum 8180M 2.5GHz (Skylake) processor with an all core base frequency of 2.5 GHz and a max turbo frequency of 3.8 GHz. All Mv2-series virtual machine sizes can use both standard and premium persistent disks. Mv2-series instances are memory optimized VM sizes providing unparalleled computational performance to support large in-memory databases and workloads, with a high memory-to-CPU ratio that is ideal for relational database servers, large caches, and in-memory analytics.
 
@@ -158,7 +158,7 @@ The Mv2-series features high throughput, low latency platform running on a hyper
 
 <sup>2</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see [Support for generation 2 VMs on Azure](../articles/virtual-machines/linux/generation-2.md) for instructions on how to find and select an image.
 
-<sup>3</sup> For the M416ms_v2 and M416s_v2 sizes, note that there is initial support for the following image only “GEN2 SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP Applications."
+<sup>3</sup> For the M416ms_v2 and M416s_v2 sizes, note that there is initial support for the following image only: “GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP Applications."
 
 ## M-series 
 
@@ -170,7 +170,7 @@ Premium Storage caching: Supported
 
 M-series sizes are based on the Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz	
 
-Write Accelerator:  [Supported](https//docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Write Accelerator:  [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
