@@ -338,6 +338,10 @@ More precisely, the compute bill in this example is calculated as follows:
 
 Suppose the compute unit price is $0.000073/vCore/second.  Then the compute billed for this 24-hour period is the product of the compute unit price and vCore seconds billed: $0.000073/vCore/second * 50400 vCore seconds = $3.68
 
+### Azure Hybrid Benefit and reserved capacity
+
+Azure Hybrid Benefit (AHB) and reserved capacity discounts do not apply to the serverless compute tier.
+
 ## Available regions
 
 The serverless compute tier is available worldwide except the following regions: China East, China North, Germany Central, Germany Northeast, UK North, UK South 2, West Central US, and US Gov Central (Iowa).

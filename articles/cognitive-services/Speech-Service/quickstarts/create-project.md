@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Create a project'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: In this quickstart, you'll learn how to create a project that you'll use as a template to build a Speech application.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-three
 ---
@@ -58,4 +58,3 @@ For this sample, we'll be compiling with g++, so all you need for an empty proje
 - [Quickstart: Translate speech-to-text](translate-speech-to-text.md)
 - [Quickstart: Synthesize speech to text](text-to-speech.md)
 - [Quickstart: Recognize Intents](intent-recognition.md)
-

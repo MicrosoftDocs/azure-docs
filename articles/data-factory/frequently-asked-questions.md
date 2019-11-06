@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: Frequently asked questions | Microsoft Docs'
+title: 'Azure Data Factory: Frequently asked questions '
 description: Get answers to frequently asked questions about Azure Data Factory.
 services: data-factory
 documentationcenter: ''
