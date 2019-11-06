@@ -52,7 +52,7 @@ This article shows how to complete these tasks:
   
   * If you want to deploy the ISE through an Azure Resource Manager template, first make sure that you delegate one empty subnet to Microsoft.Logic/integrationServiceEnvironment. You don't need to do this delegation when you deploy through the Azure portal.
 
-  * Make sure that your virtual network [makes these ports available](#ports) so your ISE works correctly and stays accessible.
+  * Make sure that your virtual network [enables access for your ISE](#ports) so your ISE works correctly and stays accessible.
 
   * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), which provides a private connection to Microsoft cloud services, you must [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table to each subnet that's used by your ISE:
 
@@ -68,21 +68,78 @@ This article shows how to complete these tasks:
 
 <a name="ports"></a>
 
-## Check network ports
+## Enable access for ISE
 
-When you use an ISE with an Azure virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port that you use on your FTP system is available, for example, port 21 for sending commands. To make sure that your ISE stays accessible and can work correctly, open the ports specified by the table below. Otherwise, if any required ports are unavailable, your ISE stops working.
+When you use an ISE with an Azure virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, the port that you use on your FTP system needs to be available, for example, port 21 for sending commands.
+
+* If you created a new virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
+
+* If your virtual network uses an [Azure firewall](../firewall/overview.md), you can enable access through that firewall by [setting up a single, outbound, public, and predictable IP address](#predictable-outbound-ip) for one or more ISEs can use to communicate with the destination system. That way, you don't have to set up additional firewall openings at the destination.
+
+  Otherwise, to make sure that your ISE stays accessible and works correctly, you need to open the ports specified by the table below. If any required ports are unavailable, your ISE won't work correctly.
+
+* On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, on the virtual network where you want to set up the NSGs, make sure that you [open the ports specified by the table below](#network-ports-for-ise). If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
+
+* If you have previously existing NSGs, make sure that you [open the ports specified by the table below](#network-ports-for-ise). If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
+
+<a name="predictable-outbound-ip"></a>
+
+### Set up public outbound IP address for an ISE
+
+When your Azure virtual network uses an [Azure firewall](../firewall/overview.md), you can enable access through that firewall by setting up a single, outbound, public, and predictable IP address. That way, all the ISEs in the virtual network can use this single IP address to communicate with the destination system, and you don't have to set up additional firewall openings at the destination.
+
+Before you start, you need these items:
+
+* An Azure firewall that runs in the same virtual network as your ISE. If you don't have a firewall, first [add a subnet](../virtual-network/virtual-network-manage-subnet#add-a-subnet) that's named `AzureFirewallSubnet` to your virtual network. You can then [create and deploy a firewall](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) in your virtual network.
+
+* An Azure [route table](../virtual-network/manage-route-table.md). If you don't have one, first [create a route table](../virtual-network/manage-route-table.md#create-a-route-table). For more information about routing, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).
+
+1. In the [Azure portal](https://portal.azure.com), select the route table, for example:
+
+   ![Select route table with rule for directing outbound traffic](./media/connect-virtual-network-vnet-isolated-environment/select-route-table-for-virtual-network.png)
+
+1. To [add a new route](../virtual-network/manage-route-table.md#create-a-route), on the route table menu, select **Routes** > **Add**.
+
+   ![Add route for directing outbound traffic](./media/connect-virtual-network-vnet-isolated-environment/add-route-to-route-table.png)
+
+1. On the **Add route** pane, [set up the new route](../virtual-network/manage-route-table.md#create-a-route) with a rule that specifies that all the outgoing traffic to the destination system follows this behavior:
+
+   * Uses the [**Virtual appliance**](../virtual-network/virtual-networks-udr-overview.md#user-defined) as the next hop type.
+
+   * Goes to the private IP address for the firewall instance as the next hop address.
+
+     To find this IP address, on your firewall menu, select **Overview**, find the address under **Private IP address**, for example:
+
+     ![Find firewall private IP address](./media/connect-virtual-network-vnet-isolated-environment/find-firewall-private-ip-address.png)
+
+   Here's an example that shows how such a rule might look:
+
+   ![Set up rule for directing outbound traffic](./media/connect-virtual-network-vnet-isolated-environment/add-rule-to-route-table.png)
+
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **Route name** | <*unique-route-name*> | A unique name for the route in the route table |
+   | **Address prefix** | <*destination-address*> | The destination system's address where you want the traffic to go. Make sure that you use [Classless Inter-Domain Routing (CIDR) notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) for this address. |
+   | **Next hop type** | **Virtual appliance** | The [hop type](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) that's used by outbound traffic |
+   | **Next hop address** | <*firewall-private-IP-address*> | The private IP address for your firewall |
+   |||
+
+1. In the Azure portal, find and select your firewall. On the firewall menu, under **Settings**, select **Rules**. On the rules pane, select **Network rule collection** > **Add network rule collection**.
+
+   ![Add network rule collection to firewall](./media/connect-virtual-network-vnet-isolated-environment/add-network-rule-collection.png)
+
+1. In that collection, add a rule that permits traffic to the intended destination, for example, the rule named `AllowWebapp`:
+
+
+<a name="network-ports-for-ise"></a>
+
+### Network ports used by an ISE
+
+This table describes the ports in your Azure virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
 
 > [!IMPORTANT]
 > Source ports are ephemeral, so make sure that you set them to `*` for all rules.
 > For internal communication inside your subnets, your ISE requires that you open all ports within those subnets.
-
-* If you created a new virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
-
-* On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, on the virtual network where you want to set up the NSGs, make sure that you open the ports specified by the table below. If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
-
-* If you have previously existing NSGs or firewalls in your virtual network, make sure that you open the ports specified by the table below. If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
-
-Here is the table that describes the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
 
 | Purpose | Direction | Destination ports | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
