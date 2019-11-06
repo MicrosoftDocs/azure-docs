@@ -57,7 +57,7 @@ AVS Private Cloud provisioning process starts. It can take up to two hours for t
 
 ## Launch AVS portal
 
-You can access the AVS portal from Azure portal. The AVS portal will be launched with your Azure sign in credentials using Single Sign-On (SSO). Accessing the AVS portal requires you to authorize the **AVS Service Authorization** application. For more information on granting permissions, see [Consent to AVS Service Authorization application](access-cloudsimple-portal.md#consent-to-AVS-service-authorization-application).
+You can access the AVS portal from Azure portal. The AVS portal will be launched with your Azure sign in credentials using Single Sign-On (SSO). Accessing the AVS portal requires you to authorize the **AVS Service Authorization** application. For more information on granting permissions, see [Consent to AVS Service Authorization application](access-cloudsimple-portal.md#consent-to-avs-service-authorization-application).
 
 1. Select **All services**.
 2. Search for **AVS Services**.
