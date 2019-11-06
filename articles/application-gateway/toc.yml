@@ -133,12 +133,6 @@
       href: tutorial-restrict-web-traffic-powershell.md
     - name: Azure CLI
       href: tutorial-restrict-web-traffic-cli.md
-  - name:   WAF custom rules
-    items:
-    - name: Custom rule examples
-      href: create-custom-waf-rules.md
-    - name: Configure WAF with custom rules
-      href: configure-waf-custom-rules.md
   - name: Ingress for AKS 
     items:
     - name: Set up with existing Application Gateway 
