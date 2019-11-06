@@ -34,11 +34,11 @@ To deploy your first module from the Azure Marketplace, use the following steps:
 
    ![Set modules on device](./media/iot-edge-deploy-module/set-modules-on-device.png)
 
-   Notice that the **SimulatedTemperatureSensor** module is auto-populated. In the tutorials, you use this page to add additional modules to your deployment. For this quickstart, only deploy this one module and no credentials are required because its public.
+   Notice that the **SimulatedTemperatureSensor** module is auto populated. In the tutorials, you use this page to add additional modules to your deployment. For this quickstart, only deploy this one module. No credentials are required because its public.
 
    Select **Next: Routes** to continue to the next step of the wizard.
 
-4. On the **Routes** tab of the wizard, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. For the quickstart, you want all messages from all modules to go to IoT Hub (`$upstream`). If it's not auto-populated, add the following code for as the **Value** for the **Name** `upsrtream`:
+4. On the **Routes** tab of the wizard, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. For the quickstart, you want all messages from all modules to go to IoT Hub (`$upstream`). If it's not auto populated, add the following code for as the **Value** for the **Name** `upsrtream`:
 
    ```sql
     FROM /messages/* INTO $upstream

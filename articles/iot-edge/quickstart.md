@@ -24,13 +24,13 @@ In this quickstart you learn how to:
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart/install-edge-full.png)
 
-This quickstart walks you through creating a Windows virtual machine and configuring it to be IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
+This quickstart walks you through creating a Windows virtual machine and configuring it to be an IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality.
+You use the Azure CLI to complete many of the steps in this quickstart. Azure IoT has an extension to enable additional functionality.
 
 Add the Azure IoT extension to the cloud shell instance.
 
@@ -156,8 +156,9 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
 6. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Initia
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression;
+   Initialize-IoTEdge -ContainerOs Windows
+   ```
 
 7. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
 
@@ -177,7 +178,7 @@ Verify that the runtime was successfully installed and configured.
     Get-IoTEdgeLog
     ```
 
-3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default, and helps to install and start any additional modules that you deploy to your device.
+3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
 
     ```powershell
     iotedge list
