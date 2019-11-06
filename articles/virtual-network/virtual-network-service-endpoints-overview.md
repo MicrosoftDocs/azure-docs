@@ -10,17 +10,17 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2018
+ms.date: 11/05/2019
 ms.author: sumi
 ms.custom:
 
 ---
 
-# Virtual Network Service Endpoints
+# Virtual Network service endpoints
 
-Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
+Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
 
-This feature is available for the following Azure services and regions, and you will also find the Microsoft.* resource in parenthesis that needs to be enabled from the Subnet side while configuring service endpoints for your service :
+This feature is available for the following Azure services and regions, and you'll also find the Microsoft.* resource in parenthesis that needs to be enabled from the Subnet side while configuring service endpoints for your service:
 
 **Generally available**
 
@@ -47,7 +47,7 @@ For the most up-to-date notifications, check the [Azure Virtual Network updates]
 
 Service endpoints provide the following benefits:
 
-- **Improved security for your Azure service resources**: VNet private address space can be overlapping and so, cannot be used to uniquely identify traffic originating from your VNet. Service endpoints provide the ability to secure Azure service resources to your virtual network, by extending VNet identity to the service. Once service endpoints are enabled in your virtual network, you can secure Azure service resources to your virtual network by adding a virtual network rule to the resources. This provides improved security by fully removing public Internet access to resources, and allowing traffic only from your virtual network.
+- **Improved security for your Azure service resources**: VNet private address space can be overlapping and so, can't be used to uniquely identify traffic that originates from your VNet. Service endpoints provide the ability to secure Azure service resources to your virtual network, by extending VNet identity to the service. Once service endpoints are enabled in your virtual network, you can secure Azure service resources to your virtual network by adding a virtual network rule to the resources. This provides improved security by fully removing public Internet access to resources, and allowing traffic only from your virtual network.
 - **Optimal routing for Azure service traffic from your virtual network**: Today, any routes in your virtual network that force Internet traffic to your premises and/or virtual appliances, known as forced-tunneling, also force Azure service traffic to take the same route as the Internet traffic. Service endpoints provide optimal routing for Azure traffic. 
 
   Endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. Keeping traffic on the Azure backbone network allows you to continue auditing and monitoring outbound Internet traffic from your virtual networks, through forced-tunneling, without impacting service traffic. Learn more about [user-defined routes and forced-tunneling](virtual-networks-udr-overview.md).
