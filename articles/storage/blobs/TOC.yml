@@ -247,6 +247,8 @@
           href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Event handling
       href: storage-blob-event-overview.md
+    - name: Change feed
+      href: storage-blob-change-feed.md
     - name: Page blob features
       href: storage-blob-pageblob-overview.md
     - name: Static websites
@@ -374,6 +376,8 @@
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
       href: storage-blob-event-quickstart.md
+    - name: Process change feed logs
+      href: storage-blob-change-feed-how-to.md
     - name: Search Blob storage with Azure Search
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Transfer data
@@ -432,24 +436,24 @@
       href: /cli/azure/storage
     - name: .NET
       items:
-      - name: Blobs, Queues, and Files
-        href: /dotnet/api/overview/azure/storage/client
+      - name: Blobs (version 12.x)
+        href: /dotnet/api/azure.storage.blobs
       - name: Data Movement
         href: /dotnet/api/microsoft.azure.storage.datamovement
       - name: Storage Resource Provider
         href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
-      - name: Blobs, Queues, and Files (version 12.x - preview)
-        href: https://azure.github.io/azure-sdk-for-java/track2reports/index.html
-      - name: Blobs, Queues, and Files (version 8)
-        href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
+      - name: Blobs (version 12.x)
+        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html
+      - name: Blobs (version 8.x)
+        href: /java/api/com.microsoft.azure.storage.blob
       - name: Storage Resource Provider
         href: /java/api/overview/azure/storage/management
-    - name: Node.js
-      href: /javascript/api/overview/azure/storage
-    - name: Python
-      href: /python/api/overview/azure/storage
+    - name: JavaScript (version 12.x)
+      href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+    - name: Python (version 12.x)
+      href: /python/api/azure-storage-blob/
     - name: REST
       items:
       - name: Blobs, Queues, Tables, and Files
@@ -737,20 +741,24 @@
       href: /cli/azure/storage
     - name: .NET
       items:
-      - name: Blobs, Queues, Tables, and Files
-        href: /dotnet/api/overview/azure/storage/client
-      - name: Data movement
+      - name: Blobs (version 12.x)
+        href: /dotnet/api/azure.storage.blobs
+      - name: Data Movement
         href: /dotnet/api/microsoft.azure.storage.datamovement
-      - name: Resource Manager
+      - name: Storage Resource Provider
         href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
-      - name: Blobs, Queues, and Files (version 12.x - preview)
-        href: https://azure.github.io/azure-sdk-for-java/track2reports/index.html
-      - name: Blobs, Queues, and Files (version 8)
-        href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
+      - name: Blobs (version 12.x)
+        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html
+      - name: Blobs (version 8.x)
+        href: /java/api/com.microsoft.azure.storage.blob
       - name: Storage Resource Provider
         href: /java/api/overview/azure/storage/management
+    - name: JavaScript (version 12.x)
+      href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+    - name: Python (version 12.x)
+      href: /python/api/azure-storage-blob/
     - name: REST
       items:
       - name: Blobs, Queues, Tables, and Files

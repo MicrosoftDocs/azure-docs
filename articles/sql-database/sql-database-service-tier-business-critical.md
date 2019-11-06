@@ -1,5 +1,5 @@
 ---
-title: Business Critical tier - Azure SQL Database service | Microsoft Docs
+title: Business Critical tier - Azure SQL Database service 
 description: Learn about the Azure SQL Database Business Critical tier
 services: sql-database
 ms.service: sql-database
