@@ -4,7 +4,7 @@ description: Describes how to create an Azure Migrate project and add an assessm
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 11/06/2019
 ms.author: raynew
 ---
 
