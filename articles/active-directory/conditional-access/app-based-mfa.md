@@ -64,7 +64,7 @@ In your policy, set:
 **To configure your Conditional Access policy:**
 
 1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a Conditional Access administrator.
-1. In the Azure portal, on the left navbar, click **Azure Active Directory**.
+1. In the Azure portal, search for and select **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-based-mfa/02.png)
 

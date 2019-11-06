@@ -1,7 +1,7 @@
 ---
 title: Active and inactive events - Personalizer
 titleSuffix: Azure Cognitive Services
-description: When your application calls the Rank API, you receive the action that the application should show in the rewardActionId field. From that moment, Personalizer expects a Reward call that has the same eventId. The reward score will be used to train the model for future Rank calls. If no Reward call is received for the eventId, a default reward is applied. Default rewards are set in the Azure portal.
+description: This article discusses the use of active and inactive events, learning settings, and learning policies within the Personalizer service.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -14,13 +14,13 @@ ms.author: diberry
 
 # Active and inactive events
 
-When your application calls the Rank API, you receive the action that the application should show in the **rewardActionId** field. From that moment, Personalizer expects a Reward call that has the same eventId. The reward score will be used to train the model for future Rank calls. If no Reward call is received for the eventId, a default reward is applied. Default rewards are set in the Azure portal.
+When your application calls the Rank API, you receive the action the application should show in the **rewardActionId** field.  From that moment, Personalizer expects a Reward call that has the same eventId. The reward score will be used to train the model for future Rank calls. If no Reward call is received for the eventId, a default reward is applied. Default rewards are set in the Azure portal.
 
-In some scenarios, the application might call Rank before it even knows the result will be used or will be displayed to the user. These scenarios might happen when, for example, the page rendering of promoted content is overwritten by a marketing campaign. If the result of the Rank call was never used (displayed to the user), don't send a corresponding Reward call.
+In some scenarios, the application might need to call Rank before it even knows if the result will be used or displayed to the user. This might happen in situations where, for example, the page rendering of promoted content is overwritten by a marketing campaign. If the result of the Rank call was never used and the user never saw it, don't send a corresponding Reward call.
 
 Typically, these scenarios happen when:
 
-* You're pre-rendering UI that the user might or might not get to see. 
+* You're prerendering UI that the user might or might not get to see. 
 * Your application is doing predictive personalization in which Rank calls are made with little real-time context and the application might or might not use the output. 
 
 In these cases, use Personalizer to call Rank, requesting the event to be _inactive_. Personalizer won't expect a reward for this event, and it won't apply a default reward. 

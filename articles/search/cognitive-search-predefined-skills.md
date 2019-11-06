@@ -1,5 +1,5 @@
 ---
-title: Built-in data extraction, natural language, image processing
+title: Built-in skills for data extraction, natural language, image processing during indexing.
 titleSuffix: Azure Cognitive Search
 description: Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Cognitive Search pipeline.
 
@@ -36,6 +36,7 @@ Several skills are flexible in what they consume or produce. In general, most sk
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | This skill uses an image detection algorithm to identify the content of an image and generate a text description. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optical character recognition. |
 | [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md) | Allows filtering, assigning a default value, and merging data based on a condition.|
+| [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extracts content from a file within the enrichment pipeline. |
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Maps output to a complex type (a multi-part data type, which might be used for a full name, a multi-line address, or a combination of last name and a personal identifier.) |
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Allows extensibility of an AI enrichment pipeline by making an HTTP call into a custom Web API |
 

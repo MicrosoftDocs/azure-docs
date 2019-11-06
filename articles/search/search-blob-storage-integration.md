@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/04/2019
 ---
 
 # Add full text search to Azure blob data using Azure Cognitive Search
@@ -67,4 +67,4 @@ A more permanent solution is to gather query inputs and present the response as 
 ## Next steps
 
 + [Upload, download, and list blobs with the Azure portal (Azure Blob storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-+ [Set up a blob indexer (Azure Search)](search-howto-indexing-azure-blob-storage.md) 
++ [Set up a blob indexer (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 
