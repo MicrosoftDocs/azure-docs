@@ -14,26 +14,28 @@ ms.date: 11/06/2019
 Azure Data Explorer database(s) hosted in one cluster can be attached as read-only database(s) to a different cluster. By attaching a database to a cluster, you allow the users of the cluster to view the data and execute queries on the attached database. The attached database is a read-only database. Therefore, the data, tables and policies in the database can't be modified. \\policies that can be modified (with link).\\
 Attached databases can't be deleted and they can only be detached on the attaching side. If a database that was attached to another cluster is deleted on the original cluster, \\all the attached databases will be inaccessible.\\
 
-\\## Use cases for Follower database\\
+* The original cluster and the attached database(s) cluster share the same storage account. Therefore, you don't need to ingest data to the cluster of the attached database(s) since the attached databases cluster is fetching the data from the original cluster storage. The storage costs are associated with the original database cluster.
+* A cluster can hold both attached databases and databases attached to other clusters.
+* You can attach a single database, multiple databases, or all databases in a specific cluster.
+* Detaching databases can be performed on both leader and follower clusters.
+
+## Use cases for Follower database
 Attaching a database to a different cluster is useful for the following scenarios:
 * Segregate compute resource to protect a production environment from non-production use cases.
 * Associate cost of Azure Data Explorer cluster to the part that runs queries on the data.
-* The original cluster and the attached database(s) cluster share the same storage account. Therefore, you don't need to ingest data to the cluster of the attached database(s) since the attached databases cluster is fetching the data from the original cluster storage. The storage costs are associated with the original database cluster.
-* A cluster can hold both attached databases and databases attached to other clusters.
-* You can attach a single database, multiple databases, or all databases in a specific cluster
 
 ## Prerequisites
 
 1. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 1. Create cluster and DB?
 
-## Share a database
+## Attach a database
 
 There are various methods you can use to share a database. In this article, we discuss sharing a database using C# or an Azure Resource Manager template. 
 
-To share a database, you must have permissions on both the leader cluster and the follower cluster. For more information about permissions, see [permission model](#Permission-model).
+To attach a database, you must have permissions on both the leader cluster and the follower cluster. For more information about permissions, see [permission model](#Permission-model).
 
-### Share a database using C#
+### Attach a database using C#
 
 **Required NuGets**
 
@@ -70,7 +72,7 @@ AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new Atta
 var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseConfigurations.CreateOrUpdate(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationName, attachedDatabaseConfigurationProperties);
 ```
 
-### Share a database using an Azure Resource Manager template
+### Attach a database using an Azure Resource Manager template
 
 In this section, you learn how to share a database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). 
 
@@ -252,9 +254,14 @@ Managing read only database permission is the same as for "regular" databases. S
 
 ## Configurable policies
 
-The attached database admin can modify the caching policy of the attached database or any of its tables on the hosting cluster. Therefore, it's possible to have a caching policy of 30 days on the original cluster for running monthly analytics and a policy of 3 days on the secondary cluster to query only the recent data for troubleshooting.
+The attached database admin can modify the caching policy of the attached database or any of its tables on the hosting cluster. Therefore, it's possible to have a 30 day caching policy on the read-write database for running monthly reporting and a three day caching policy on the secondary cluster to query only the recent data for troubleshooting.
 
 ## Limitations
 
+* \\data plane level operations on databases that were attached using "Attach all DBs" are not supported at this point.\\
 * The follower and the leader must be in the same region.
 * A database that is being followed can't be deleted.
+* Streaming ingestion can't be used on a database that is being followed.
+* You can't delete a database that is attached to a different cluster before detaching it.
+* You can't delete a cluster that has a database attached to a different cluster before detaching it.
+* \\You can't stop a cluster that has database(s) that were detached to other clusters as well as stopping a cluster that has attached databases.\\
