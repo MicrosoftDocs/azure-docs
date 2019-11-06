@@ -43,7 +43,7 @@ The following example used *pip3* for Python 3 to install *redis-py* on Windows 
 
 ## Read and write to the cache
 
-Run Python from the command line and test your cache by using the following code. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. 
+Run Python from the command line and test your cache by using the following code. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form *\<DNS name>.redis.cache.windows.net*.
 
 ```python
 >>> import redis
@@ -60,7 +60,7 @@ b'bar'
 
 ## Create a Python sample app
 
-Create a new text file, add the following script, and save the file as *PythonApplication1.py*. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. 
+Create a new text file, add the following script, and save the file as *PythonApplication1.py*. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form *\<DNS name>.redis.cache.windows.net*.
 
 ```python
 import redis
