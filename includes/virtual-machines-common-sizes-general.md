@@ -144,7 +144,7 @@ Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 | Standard_E64a_v4 <sup>**</sup> | 64 | 256 | 1600 | 32 | | |
 | Standard_E96a_v4 <sup>**</sup> | 96 | 384 | 2400 | 32 | | |
 
-<sup>**</sup> These sizes are in Preview.  If you are interested in trying out these larger sizes, [go here to sign up](https://aka.ms/AzureAMDLargeVMPreview).
+<sup>**</sup> These sizes are in Preview.  If you are interested in trying out these larger sizes, sign up at [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## DSv2-series
 
