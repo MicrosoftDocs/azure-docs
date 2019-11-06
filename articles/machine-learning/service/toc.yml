@@ -59,11 +59,13 @@
     href: tutorial-train-deploy-model-cli.md
 - name: Samples
   items:
-  - name: Notebooks
+  - name: Jupyter Notebooks
     displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
     href: samples-notebooks.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+  - name: End-to-end MLOps examples
+    href: https://github.com/microsoft/MLOps
 - name: Concepts
   items:
   - name: Workspace
