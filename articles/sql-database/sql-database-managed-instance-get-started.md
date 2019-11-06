@@ -1,5 +1,5 @@
 ---
-title: 'Azure portal: Create a SQL Database managed instance | Microsoft Docs'
+title: 'Azure portal: Create a SQL Database managed instance '
 description: Create a SQL Database managed instance, network environment, and client VM for access.
 services: sql-database
 ms.service: sql-database

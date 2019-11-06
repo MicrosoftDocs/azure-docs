@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database resource limits - managed instance | Microsoft Docs
+title: Azure SQL Database resource limits - managed instance 
 description: This article provides an overview of the Azure SQL Database resource limits for managed instances. 
 services: sql-database
 ms.service: sql-database

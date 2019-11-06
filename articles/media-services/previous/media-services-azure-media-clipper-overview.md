@@ -4,9 +4,9 @@ title: Create clips with Azure Media Clipper | Microsoft Docs
 description: Overview of Azure Media Clipper, a tool for building media clips from assets
 services: media-services
 keywords: clip;subclip;encoding;media
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.

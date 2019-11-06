@@ -1,5 +1,5 @@
 ---
-title: Accelerated database recovery - Azure SQL Database | Microsoft Docs
+title: Accelerated database recovery - Azure SQL Database 
 description: The Azure SQL Database has a new feature that provides fast and consistent database recovery, instantaneous transaction rollback, and aggressive log truncation for single databases and pooled databases in Azure SQL Database, and databases in Azure SQL Data Warehouse.
 ms.service: sql-database
 ms.subservice: high-availability
