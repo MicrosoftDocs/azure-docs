@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: bobbytreed
 ms.author: robreed
-ms.date: 05/21/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -23,13 +23,13 @@ This solution provides a decentralized low-cost automation option for users who 
 - Schedule VMs to start and stop in ascending order by using Azure Tags (not supported for classic VMs).
 - Autostop VMs based on low CPU usage.
 
-The following are limitations to the current solution:
+The following are limitations with the current solution:
 
 - This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account.
 - This solution is available in Azure and AzureGov to any region that supports a Log Analytics workspace, an Azure Automation account, and Alerts. AzureGov regions currently do not support email functionality.
 
 > [!NOTE]
-> If you are using the solution for classic VMs, then all your VMs will be processed sequentially per cloud service. Virtual machines are still processed in parallel across different cloud services.
+> If you are using the solution for classic VMs, then all your VMs will be processed sequentially per cloud service. Virtual machines are still processed in parallel across different cloud services. If you have more than 20 VMs per cloud service, we recommend creating multiple schedules with the parent runbook **ScheduledStartStop_Parent** and specify 20 VMs per schedule. In the schedule properties, specify as a comma separated list, VM names in the **VMList** parameter. Otherwise, if the Automation job for this solution runs more than three hours it is temporarily unloaded or stopped per the [fair share](automation-runbook-execution.md#fair-share) limit.
 >
 > Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When the Start/Stop solution runs you may receive errors as it has cmdlets to manage classic resources. To learn more about CSP, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). If you use a CSP subscription, you should modify the [**External_EnableClassicVMs**](#variables) variable to **False** after deployment.
 
