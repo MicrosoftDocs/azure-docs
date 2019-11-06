@@ -186,7 +186,9 @@ The last authorization in the example above adds a **principalId** with the User
 
 ## Deploy the Azure Resource Manager templates
 
-Once you have updated your parameter file, the customer must deploy the Azure Resource Manager template in their customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard). Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. The deployment may be done by using PowerShell or Azure CLI, as shown below.
+Once you have updated your parameter file, the customer must deploy the Azure Resource Manager template in their customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
+
+Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. The deployment may be done by using PowerShell or Azure CLI, as shown below.
 
 > [!IMPORTANT]
 > The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
@@ -244,7 +246,7 @@ In the service provider's tenant:
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
 > [!IMPORTANT]
-> A user in the service provider's tenant must have the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access) for the delegated subscription in order to see it in [My customers](view-manage-customers.md).
+> In order to see the delegated subscription in [My customers](view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access) when the subscription was onboarded for Azure delegated resource management.
 
 In the customer's tenant:
 
