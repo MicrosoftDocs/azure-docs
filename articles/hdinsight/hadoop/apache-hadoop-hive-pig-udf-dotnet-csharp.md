@@ -161,10 +161,7 @@ To create a C# project for an Apache Hive UDF:
 
 Next, upload the Hive and Pig UDF applications to storage on a HDInsight cluster.
 
-> [!NOTE] 
-> To upload to storage on your HDInsight cluster from Visual Studio, you need to have at least co-administrator access to your Azure subscription. To change administrators for a subscription, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md).
-
-1. In Visual Studio, open **Server Explorer**.
+1. In Visual Studio, choose **View** > **Server Explorer**.
 
 2. Expand **Azure**, and then expand **HDInsight**.
 
@@ -180,9 +177,11 @@ Next, upload the Hive and Pig UDF applications to storage on a HDInsight cluster
 
 5. To upload the .exe files, use one of the following methods:
 
-    * If you're using an **Azure Storage Account**, select the upload icon, and then browse to the *bin\debug* folder for the *HiveCSharp* project. Finally, choose the *HiveCSharp.exe* file and select **Ok**.
+    * If you're using an **Azure Storage Account**, select the **Upload Blob** icon.
 
         ![HDInsight upload icon for new project](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+
+        In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the *bin\debug* folder for the *HiveCSharp* project, and then choose the *HiveCSharp.exe* file. Finally, select **Open** and then **OK** to complete the upload.
     
     * If you're using **Azure Data Lake Storage**, right-click an empty area in the file listing, and then select **Upload**. Finally, choose the *HiveCSharp.exe* file and select **Open**.
 
@@ -192,7 +191,7 @@ Next, upload the Hive and Pig UDF applications to storage on a HDInsight cluster
 
 Now you can run a Hive query that uses your Hive UDF application.
 
-1. In Visual Studio, open **Server Explorer**.
+1. In Visual Studio, choose **View** > **Server Explorer**.
 
 2. Expand **Azure**, and then expand **HDInsight**.
 
