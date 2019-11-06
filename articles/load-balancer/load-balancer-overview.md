@@ -12,7 +12,7 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 11/08/2019
 ms.author: allensu
 
 ---
@@ -41,9 +41,9 @@ You can use Azure Load Balancer to:
 
 ## What are Load Balancer resources?
 
-A Load Balancer resource can exist as either a public Load Balancer or an internal Load Balancer. The Load Balancer resource's functions are expressed as a front end, a rule, a health probe, and a back-end pool definition. You place VMs in the back-end pool by specifying the back-end pool from the VM.
-
 Load Balancer resources are objects within which you can express how Azure should program its multi-tenant infrastructure to achieve the scenario that you want to create. There's no direct relationship between Load Balancer resources and actual infrastructure. Creating a Load Balancer doesn't create an instance, and capacity is always available.
+
+A Load Balancer resource can exist as either a public Load Balancer or an internal Load Balancer. The Load Balancer resource's functions are expressed as a front end, a rule, a health probe, and a back-end pool definition. You place VMs in the back-end pool by specifying the back-end pool from the VM.
 
 ## Fundamental Load Balancer features
 
