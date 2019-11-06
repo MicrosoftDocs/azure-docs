@@ -1,5 +1,5 @@
 ---
-title: Automate management tasks using the SQL Server IaaS Agent Extension
+title: Automate management tasks with the IaaS Agent Extension
 description: This article describes how to manage the SQL Server IaaS Agent Extension, which automates specific SQL Server administration tasks. These include automated backup, automated patching, and Azure Key Vault integration.
 services: virtual-machines-windows
 documentationcenter: ''

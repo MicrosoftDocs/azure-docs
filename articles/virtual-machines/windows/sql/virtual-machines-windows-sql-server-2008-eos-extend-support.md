@@ -1,5 +1,5 @@
 ---
-title: Extend support for SQL Server 2008 & R2
+title: Extend support for SQL Server 2008 & 2008 R2
 description: Extend support for SQL Server 2008 and SQL Server 2008 R2 by migrating your SQL Server instance to Azure, or purchasing extended support to keep instances on-premises.
 services: virtual-machines-windows
 documentationcenter: ''
