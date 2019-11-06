@@ -51,6 +51,6 @@ A. Azure ExpressRoute is a private, dedicated connection from the given one or m
 
 - To learn about Peering Service, see [Peering Service overview](about.md).
 - To find a service provider, see [Peering Service partners and locations](location-partners.md).
-- To onboard a Peering Service connection, see [Onboard a Peering Service model](onboarding-model.md).
+- To onboard a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
 - To register a Peering Service connection, see [Register a Peering Service connection - Azure portal](azure-portal.md).
 - To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
