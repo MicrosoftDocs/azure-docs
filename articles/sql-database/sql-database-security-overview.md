@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Security Overview | Microsoft Docs
+title: Azure SQL Database Security Overview 
 description: Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises.
 services: sql-database
 ms.service: sql-database

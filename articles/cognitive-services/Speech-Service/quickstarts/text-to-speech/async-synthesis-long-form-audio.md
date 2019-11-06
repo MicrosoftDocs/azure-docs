@@ -42,7 +42,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-> If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests`.
+> If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests urllib3`.
 
 These modules are used to parse arguments, construct the HTTP request, and call the text-to-speech long audio REST API.
 

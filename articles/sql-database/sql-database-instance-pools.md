@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database instance pools (preview) | Microsoft Docs
+title: Azure SQL Database instance pools (preview) 
 description: This article describes Azure SQL Database instance pools (preview).
 services: sql-database
 ms.service: sql-database

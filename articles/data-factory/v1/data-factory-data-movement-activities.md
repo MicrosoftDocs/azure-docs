@@ -1,5 +1,5 @@
 ---
-title: Move data by using Copy Activity | Microsoft Docs
+title: Move data by using Copy Activity 
 description: 'Learn about data movement in Data Factory pipelines: data migration between cloud stores, and between an on-premises store and a cloud store. Use Copy Activity.'
 services: data-factory
 documentationcenter: ''
