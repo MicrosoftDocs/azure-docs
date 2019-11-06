@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 10/31/2019
+ms.date: 11/06/2019
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create a Time Series Insights Preview environment so that I can use Time Series Insights queries to understand device behavior. 
 ---
@@ -20,6 +20,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create an Azure Time Series Insights Preview environment.
 > * Connect the Azure Time Series Insights Preview environment to an IoT Hub.
 > * Run a solution accelerator sample to stream data into the Azure Time Series Insights Preview environment.
@@ -90,7 +91,8 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
     Select **Next: Event Source**.
 
-   [![Pane for creating a Time Series Insights environment](media/v2-update-provision/payg-two-create.png)](media/v2-update-provision/payg-two-create.png#lightbox)
+   [![Pane for creating a Time Series Insights environment](media/v2-update-provision/payg-two-1-create.png)](media/v2-update-provision/payg-two-1-create.png#lightbox)
+   [![Pane for creating a Time Series Insights environment](media/v2-update-provision/payg-two-2-create.png)](media/v2-update-provision/payg-two-2-create.png#lightbox)
 
 1. On the **Event Source** tab, set the following parameters:
 
