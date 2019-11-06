@@ -43,7 +43,7 @@ To increase the number of cases, you can set the value of **SMOTE percentage**, 
 |**SMOTE percentage** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1,282|  
   
 > [!WARNING]
-> Increasing the number of cases by using SMOTE is not guaranteed to produce more accurate models. Try pipelineing with different percentages, different feature sets, and different numbers of nearest neighbors to see how adding cases influences your model.  
+> Increasing the number of cases by using SMOTE is not guaranteed to produce more accurate models. Try pipelining with different percentages, different feature sets, and different numbers of nearest neighbors to see how adding cases influences your model.  
   
 ## How to configure SMOTE
   
