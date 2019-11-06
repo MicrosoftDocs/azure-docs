@@ -59,7 +59,7 @@ Azure Migrate: Server Assessment | Assess servers
 Azure Migrate: Server Migration | Migrate servers
 Database Migration Assistant (DMA) | Assess databases
 Database Migration Service (DMS) | Migrate databases
-Movere | Assess דervers
+Movere | Assess servers
 Web App Migration Assistant | Assess and migrate web apps
 
 
