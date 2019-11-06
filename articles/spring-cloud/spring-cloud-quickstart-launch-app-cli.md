@@ -142,6 +142,15 @@ az spring-cloud app show --name gateway | grep url
 ```
 
 Navigate to the URL provided by the previous command to see the PiggyMetrics application running.
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launchApp.PNG)
+
+You can also navigate the Azure portal to find the URL. 
+* Navigate to the service
+* Select **Apps**
+* Select **gateway**
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+* Find the URL on the **gateway Overview** page
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 ## Next Steps
 
