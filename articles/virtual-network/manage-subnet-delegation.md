@@ -74,7 +74,7 @@ If you decide to install and use Azure CLI locally instead, this article require
 ### Create a resource group
 Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+The following example creates a resource group named **myResourceGroup** in the **eastus** location:
 
 ```azurecli-interactive
 
@@ -85,7 +85,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 ```
 
 ### Create a virtual network
-Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *myResourceGroup* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Create a virtual network named **myVnet** with a subnet named **mySubnet** in the **myResourceGroup** using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
