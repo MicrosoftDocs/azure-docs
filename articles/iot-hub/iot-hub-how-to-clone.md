@@ -388,7 +388,7 @@ Now that you have your clone up and running, you need to copy all of the devices
 
 There are multiple ways to accomplish this. You either originally used [Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps.md)to provision the devices, or you didn't. If you did, this is not difficult. If you did not, this can be very complicated. 
 
-If you did not use DPS to provision your devices, you can skip the next section and start with [Using Import/Export to move the devices](#using-import/export-to-move-the-devices).
+If you did not use DPS to provision your devices, you can skip the next section and start with [Using Import/Export to move the devices](#using-import-export-to-move-the-devices).
 
 ## Using DPS to re-provision the devices in the new hub
 
@@ -408,7 +408,7 @@ If you want to roll back the changes, re-provision the devices from the new hub 
 
 You are now finished migrating your hub and its devices. You can skip to [Clean-up](#clean-up).
 
-## Using Import/Export to move the devices to the new hub
+## Using Import-Export to move the devices to the new hub
 
 The application targets .NET Core, so you can run it on either Windows or Linux. You can download the sample, retrieve your connection strings, set the flags for which bits you want to run, and run it. You can do this without ever opening the code.
 
