@@ -13,7 +13,7 @@ ms.date: 10/16/2019
 ---
 # SMOTE
 
-This article describes how to use the SMOTE module in the Azure Machine Learning designer (preview) to increase the number of underrepresented cases in a dataset that's used for machine learning. SMOTE is a better way of increasing the number of rare cases than simply duplicating existing cases.  
+This article describes how to use the SMOTE module in Azure Machine Learning designer (preview) to increase the number of underrepresented cases in a dataset that's used for machine learning. SMOTE is a better way of increasing the number of rare cases than simply duplicating existing cases.  
 
 You connect the SMOTE module to a dataset that's *imbalanced*. There are many reasons why a dataset might be imbalanced. For example, the category you're targeting might be rare in the population, or the data might be difficult to collect. Typically, you use SMOTE when the *class* that you want to analyze is underrepresented. 
   
@@ -29,7 +29,7 @@ SMOTE takes the entire dataset as an input, but it increases the percentage of o
   
 ## Examples  
 
-We recommend that you try using SMOTE with a small dataset to see how it works. The following example uses the Blood Donation dataset available in the Azure Machine Learning designer.
+We recommend that you try using SMOTE with a small dataset to see how it works. The following example uses the Blood Donation dataset available in Azure Machine Learning designer.
   
 If you add the dataset to a pipeline and select **Visualize** on the dataset's output, you can see that of the 748 rows or cases in the dataset, 570 cases (76 percent) are of Class 0, and 178 cases (24 percent) are of Class 1. Although this result isn't terribly imbalanced, Class 1 represents the people who donated blood, so these rows contain the *feature space* that you want to model.
  
