@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database server resource limits | Microsoft Docs
+title: Azure SQL Database server resource limits 
 description: This article provides an overview of the Azure SQL Database server resource limits for single databases and elastic pools. It also provides information regarding what happens when those resource limits are hit or exceeded.
 services: sql-database
 ms.service: sql-database

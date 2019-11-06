@@ -1,6 +1,6 @@
 ---
-title: Register a public client application in Azure Active Directory - Azure API for FHIR
-description: This article explains how to register a public client application in Azure Active Directory.
+title: Register a public client app in Azure AD - Azure API for FHIR
+description: This article explains how to register a public client application in Azure Active Directory, in preparation for deploying FHIR API in Azure.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -12,7 +12,9 @@ ms.author: mihansen
 
 # Register a public client application in Azure Active Directory
 
-In this article, you'll learn how to register a public application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page javascript applications that can't keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-azure-ad-client-app.md), but since public clients can't be trusted to hold an application secret, there's no need to add one.
+In this article, you'll learn how to register a public application in Azure Active Directory. This is preparation for deploying FHIR API in Azure.  
+
+Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page javascript applications that can't keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-azure-ad-client-app.md), but since public clients can't be trusted to hold an application secret, there's no need to add one.
 
 ## App registrations in Azure portal
 

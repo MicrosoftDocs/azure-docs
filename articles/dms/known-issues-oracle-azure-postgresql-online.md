@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 11/05/2019
 ---
 
 # Known issues/migration limitations with online migrations from Oracle to Azure DB for PostgreSQL-Single server
@@ -21,7 +21,7 @@ Known issues and limitations associated with online migrations from Oracle to Az
 
 Azure Database Migration Service supports connecting to:
 
-- Oracle version 10g, 11c, and 12c.
+- Oracle version 10g, 11g, and 12c.
 - Oracle Enterprise, Standard, Express, and Personal Edition.
 
 Azure Database Migration Service doesn't support connecting to multi-tenant container databases (CDBs).

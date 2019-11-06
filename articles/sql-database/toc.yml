@@ -528,6 +528,8 @@
       href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Configure security
       href: sql-database-security-tutorial.md
+    - name: Stream data with Stream Analytics
+      href: sql-database-stream-analytics.md
 
   - name: Concepts
     items:

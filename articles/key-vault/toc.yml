@@ -7,17 +7,21 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set and retrieve a secret - CLI
+  - name: CLI
     href: quick-create-cli.md
-  - name: Set and retrieve a secret - PowerShell
+  - name: PowerShell
     href: quick-create-powershell.md
-  - name: Set and retrieve a secret - Portal
+  - name: Portal
     href: quick-create-portal.md
-  - name: Set and retrieve a secret - .NET
+  - name: Python
+    href: quick-create-python.md
+  - name: .NET (SDK v4)
     href: quick-create-net.md
-  - name: Set and retrieve a secret - Node.js
+  - name: .NET (SDK v3)
+    href: quick-create-net-v3.md
+  - name: Node.js
     href: quick-create-node.md
-  - name: Set and retrieve a secret - template
+  - name: Azure Resource Manager template
     displayName: resource manager, resource manager template, arm
     href: quick-create-template.md
 - name: Tutorials
