@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -48,7 +48,7 @@ General-purpose v1 storage accounts provide access to all Azure Storage services
 - Queues
 - Tables
 
-While general-purpose v2 accounts are recommended in most cases, general-purpose v1 accounts are best suited to these scenarios:
+While you can use general-purpose v2 accounts in most cases, you should use general-purpose v1 accounts for these scenarios:
 
 * Your applications require the Azure classic deployment model. General-purpose v2 accounts and Blob storage accounts support only the Azure Resource Manager deployment model.
 
@@ -58,7 +58,7 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 ### BlockBlobStorage accounts
 
-A BlockBlobStorage account is a specialized storage account used to store unstructured object data as block blobs and create premium block blobs. This storage account kind supports block blobs and append blobs, but not page blobs, tables, or queues.
+A BlockBlobStorage account is a specialized storage account that you use to store unstructured object data as block blobs. You can also use a BlockBlobStorage account to create premium block blobs. This storage account kind supports block blobs and append blobs, but not page blobs, tables, or queues.
 
 Compared with general-purpose v2 and BlobStorage accounts, BlockBlobStorage accounts provide low and consistent latency, and higher transaction rates.
 
@@ -96,7 +96,7 @@ The available access tiers are:
 
 * The **Hot** access tier. This tier is optimized for frequent access of objects in the storage account. Accessing data in the hot tier is most cost-effective, while storage costs are higher. New storage accounts are created in the hot tier by default.
 * The **Cool** access tier. This tier is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be more expensive than accessing data in the hot tier.
-* The **Archive** tier. This tier is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency. That data will also remain in the Archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. Although, accessing that data is more expensive than accessing data in the hot or cool tiers.
+* The **Archive** tier. This tier is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency. That data also remains in the Archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. Accessing that data, though, is more expensive than accessing data in the hot or cool tiers.
 
 If there's a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 
@@ -135,7 +135,7 @@ You can also configure your storage account to use a custom domain for blobs. Fo
 
 By default, the data in your account is available only to you, the account owner. You have control over who may access your data and what permissions they have.
 
-Every request made against your storage account must be authorized. At the level of the service, the request must include a valid *Authorization* header, which includes all of the information necessary for the service to validate the request before executing it.
+Every request made against your storage account must be authorized. At the level of the service, the request must include a valid *Authorization* header. Specifically, this request includes all of the information necessary for the service to validate the request before executing it.
 
 You can grant access to the data in your storage account using any of the following approaches:
 
