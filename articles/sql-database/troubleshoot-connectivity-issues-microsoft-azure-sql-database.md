@@ -1,9 +1,10 @@
 ---
-title: "Troubleshooting connectivity issues with Microsoft Azure SQL Database| Microsoft Docs"
+title: Troubleshoot connectivity issues
 description: Describes how to troubleshoot connectivity issues in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
+ms.custom: seo-lt-2019
 author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ""
