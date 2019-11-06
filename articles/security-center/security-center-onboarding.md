@@ -1,5 +1,5 @@
 ---
-title: Onboarding to Azure Security Center Standard for enhanced security | Microsoft Docs
+title: Standard tier's enhanced security - Azure Security Center | Microsoft Docs
 description: " Learn how to onboard to Azure Security Center Standard for enhanced security. "
 services: security-center
 documentationcenter: na

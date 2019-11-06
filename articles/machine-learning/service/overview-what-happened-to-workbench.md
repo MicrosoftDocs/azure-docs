@@ -1,7 +1,7 @@
 ---
-title: What happened to Machine Learning Workbench?
+title: What happened to Workbench?
 titleSuffix: Azure Machine Learning
-description: Learn about what happened to the Machine Learning Workbench application, what changed in Azure Machine Learning, and what the support timeline is.
+description: Learn about what's possible without Workbench application and what the support timeline is.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.custom: seodec18
 ---
 # What happened to Azure Machine Learning Workbench?
@@ -58,12 +58,6 @@ The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Fir
 
 Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-## Can I still prep data?
-
-Your pre-existing data preparation files aren't portable to the latest release because we don't have Machine Learning Workbench anymore. But you can still prepare any size data set for modeling.
-
-With data sets of any size, you can use the [data prep package for Azure Machine Learning](https://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code.
-
 ## Will projects persist?
 
 You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning workspace by using a local config file. See a [diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
@@ -91,22 +85,6 @@ In the latest version, models are deployed as web services to Azure Container In
 Learn more in these articles:
 + [Where and how to deploy models](how-to-deploy-and-where.md)
 + [Tutorial: Deploy models with Azure Machine Learning](tutorial-deploy-models-with-aml.md)
-
-## What about the old SDK and CLI?
-
-See the preceding [timeline](#timeline). We recommend that you start creating your new experiments and models with the latest SDK or CLI.
-
-By using the new Python SDK in the latest release, you can interact with Azure Machine Learning in any Python environment. Learn how to install the latest <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>. You can also use the updated [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact with the service in any command-line environment, including Azure Cloud Shell.
-
-## What about Visual Studio Code Tools for AI?
-
-In this latest release, the extension was renamed to Azure Machine Learning for Visual Studio Code and has been expanded and improved to work with the preceding new features.
-
-[![Azure Machine Learning for Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
-
-## What about domain packages?
-
-The domain packages for computer vision, text analytics, and forecasting can't be used with the latest version of Azure Machine Learning. However, you can still build and train computer vision, text, and forecasting models with the latest Azure Machine Learning Python <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>.
 
 ## Next steps
 

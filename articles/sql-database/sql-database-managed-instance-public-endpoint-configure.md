@@ -1,5 +1,5 @@
 ---
-title: Configure public endpoint - Azure SQL Database managed instance | Microsoft Docs
+title: Configure public endpoint - Azure SQL Database managed instance 
 description: "Learn how to configure a public endpoint for managed instance"
 services: sql-database
 ms.service: sql-database

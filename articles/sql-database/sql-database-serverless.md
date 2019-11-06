@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database serverless | Microsoft Docs
+title: Azure SQL Database serverless 
 description: This article describes the new serverless compute tier and compares it with the existing provisioned compute tier
 services: sql-database
 ms.service: sql-database
@@ -337,6 +337,10 @@ More precisely, the compute bill in this example is calculated as follows:
 |Total vCore seconds billed over 24 hours||||50400 vCore seconds|
 
 Suppose the compute unit price is $0.000073/vCore/second.  Then the compute billed for this 24-hour period is the product of the compute unit price and vCore seconds billed: $0.000073/vCore/second * 50400 vCore seconds = $3.68
+
+### Azure Hybrid Benefit and reserved capacity
+
+Azure Hybrid Benefit (AHB) and reserved capacity discounts do not apply to the serverless compute tier.
 
 ## Available regions
 

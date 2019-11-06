@@ -1,5 +1,5 @@
 ---
-title: Filter transformation in Azure Data Factory mapping data flow | Microsoft Docs
+title: Filter transformation in Azure Data Factory mapping data flow 
 description: Filter out rows using the filter transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
