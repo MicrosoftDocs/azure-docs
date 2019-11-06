@@ -75,7 +75,7 @@ Identify the tool you need, and add it to an Azure Migrate project.
 
 
 
-## Azure Migrate Server Assessment
+## Azure Migrate Server Assessment tool
 
 Azure Migrate: Server Assessment tool discovers and assesses on-premises VMware VMs, Hyper-V VMs,and physical servers, for migration to Azure. It helps you identify the following:
 
@@ -92,16 +92,16 @@ Server Assessment uses a lightweight appliance that you deploy on-premises, and 
 - After discovery, you gather discovered machines into groups. You typically gather together machines that you'd like to migrate together.
 - You create an assessment for a group. You then analyze the assessment, to figure out your migration strategy.
 
-## Azure Migrate Server Migration
+## Azure Migrate Server Migration tool
 
 Azure Migrate: Server Migration tool helps you to migrate on-premises VMware VMs, Hyper-V VMs, physical servers, other virtualized machines, and public cloud VMs to Azure. You can migrate machines after assessing them, or without an assessment.
 
 
-## DMA
+## Database Migration Assistant
 
 Azure Migrate integrates with Microsoft Data Migration Assistant (DMA) to assess on-premises SQL Server databases for migration to Azure SQL DB, Azure SQL Managed Instance, or Azure VMs running SQL Server. DMA provides information about potential blocking issues for migration. It identifies unsupported features, as well as new features that you can benefit from after migration, and helps you to identify the right path for database migration. [Learn more](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
 
-## DMS
+## Database Migration Service
 
 Azure Migrate integrates with the Azure Database Migration Service (DMS), to migrate on-premises databases to Azure. Use DMS to migrate on-premises databases to Azure VMs running SQL, Azure SQL DB, and Azure SQL Managed Instances. [Learn more](https://docs.microsoft.com/azure/dms/dms-overview).
 
@@ -111,7 +111,7 @@ Azure Migrate integrates with the Azure Database Migration Service (DMS), to mig
 Movere is a SaaS platform that increases business intelligence by accurately presenting entire IT environments within a single day. As organizations grow, change, and digitally optimize, the solution provides enterprises with the confidence they need to have visibility and control of their environments regardless of platform, application or geography. Movere was [acquired](https:/azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools) by Microsoft and is no longer sold as a standalone offer.  Movere is available through the Microsoft Solution Assessment and Cloud Economics Programs. [Learn more](https://www.movere.io) about Movere. If you have questions, submit them to: movereq@microsoft.com or contact your Microsoft representative.
  
 
-## Web app migration assistant
+## Web App Migration Assistant
 
 Azure Migrate integrates with the Azure App Service Migration Assistant. From the Azure Migrate hub, you can assess and migrate on-premises web apps to Azure, using the Assistant, as follows:
 
