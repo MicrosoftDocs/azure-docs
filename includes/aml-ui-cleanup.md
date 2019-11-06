@@ -27,21 +27,11 @@ If you don't plan to use anything that you created, delete the entire resource g
 
 Deleting the resource group also deletes all resources that you created in the designer.  
 
-### Delete only the compute target
-
-The compute target that you created here *automatically autoscales* to zero nodes when it's not being used. This is to minimize charges. If you want to delete the compute target, take these steps:
-
-1. In the [Azure portal](https://portal.azure.com), open your workspace.
-
-    ![Delete the compute target](./media/aml-ui-cleanup/delete-compute-target.png)
-
-1. In the **Compute** section of your workspace, select the resource.
-
-1. Select **Delete**.
-
 ### Delete individual assets
 
 In the designer where you created your experiment, delete individual assets by selecting them and then selecting the **Delete** button.
+
+The compute target that you created here *automatically autoscales* to zero nodes when it's not being used. This is to minimize charges. If you want to delete the compute target, take these steps:
 
 ![Delete assets](./media/aml-ui-cleanup/delete-asset.png)
 
