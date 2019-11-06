@@ -42,7 +42,7 @@ This article also provides detailed information about *advanced security setting
 
 To use an Azure storage account for the workspace in a virtual network, do the following:
 
-1. Create a compute resource (for example, a Machine Learning compute instance or cluster) behind a virtual network, or attach a compute resource to the workspace (for example, an HDInsight cluster, virtual machine, or Azure Kubernetes Service cluster). The compute resource can be for experimentation or model deployment.
+1. Create a compute resource (for example, a Machine Learning cluster) behind a virtual network, or attach a compute resource to the workspace (for example, an HDInsight cluster, virtual machine, or Azure Kubernetes Service cluster). The compute resource can be for experimentation or model deployment.
 
    For more information, see the [Use a Machine Learning compute](#amlcompute), [Use a virtual machine or HDInsight cluster](#vmorhdi), and [Use Azure Kubernetes Service](#aksvnet) sections in this article.
 
@@ -59,7 +59,7 @@ To use an Azure storage account for the workspace in a virtual network, do the f
     - Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your compute  resides (see step 1).
 
         > [!IMPORTANT]
-        > The storage account must be in the same virtual network as the compute instances or clusters used for training or inference.
+        > The storage account must be in the same virtual network as the Notebook VMs or clusters used for training or inference.
 
     - Select the __Allow trusted Microsoft services to access this storage account__ check box.
 
@@ -69,12 +69,6 @@ To use an Azure storage account for the workspace in a virtual network, do the f
     > To enable access to the storage account, visit the __Firewalls and virtual networks__ for the storage account *from a web browser on the development client*. Then use the __Add your client IP address__ check box to add the client's IP address to the __ADDRESS RANGE__. You can also use the __ADDRESS RANGE__ field to manually enter the IP address of the development environment. Once the IP address for the client has been added, it can access the storage account using the SDK.
 
    [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
-1. When __running experiments__, in your experimentation code change the run config to use Azure Blob storage:
-
-    ```python
-    run_config.source_directory_data_store = "workspaceblobstore"
-    ```
 
 > [!IMPORTANT]
 > You can place the both the _default storage account_ for Azure Machine Learning, or _non-default storage accounts_ in a virtual network.
@@ -111,20 +105,16 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 ## Use a Machine Learning Compute
 
-> [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
-> Use one of these regions to create a compute instance that can be added to virtual network.
-
-To use an Azure Machine Learning compute instance or compute cluster in a virtual network, the following network requirements must be met:
+To use an Azure Machine Learning Notebook VM or compute cluster in a virtual network, the following network requirements must be met:
 
 > [!div class="checklist"]
 > * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
-> * The subnet that's specified for the compute  instance or cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
+> * The subnet that's specified for the compute cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
 > * Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. If you plan to secure the virtual network by restricting traffic, leave some ports open for the compute service. For more information, see the [Required ports](#mlcports) section.
-> * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
-> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster.
+> * If you're going to put multiple compute clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
+> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute cluster.
 
-The Machine Learning compute instance or cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute instance or cluster, the service allocates the following resources:
+The Machine Learning compute cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute cluster, the service allocates the following resources:
 
 * One network security group
 * One public IP address

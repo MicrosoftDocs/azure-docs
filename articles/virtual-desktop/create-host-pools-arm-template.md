@@ -1,5 +1,5 @@
 ---
-title: Create a Windows Virtual Desktop host pool with an Azure Resource Manager template  - Azure
+title: Windows Virtual Desktop host pool Azure Resource Manager - Azure
 description: How to create a host pool in Windows Virtual Desktop with an Azure Resource Manager template.
 services: virtual-desktop
 author: Heidilohr

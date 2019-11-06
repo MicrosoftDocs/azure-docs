@@ -22,7 +22,7 @@ With “*Peering Service*”, customer can select a well connected partner Servi
 
 Customers can also opt for Peering Service telemetry such as user latency measures to Microsoft network, BGP route monitoring, and alerts against leaks, and hijacks by registering the Peering Service connection into the Azure portal.  
 
-To use Peering Service, customer isn't required to register with Microsoft. The only requirement is to reach out to a [Peering Service Partner](location-partners.md) to procure the service. However, to opt for Peering Service telemetry, customer must register for the same in the Azure portal.  
+To use Peering Service, customer isn't required to register with Microsoft. The only requirement is to reach out to a [Peering Service partner](location-partners.md) to procure the service. However, to opt for Peering Service telemetry, customer must register for the same in the Azure portal.  
 
 For instructions on how to register the Peering Service, refer [here](azure-portal.md).  
 
