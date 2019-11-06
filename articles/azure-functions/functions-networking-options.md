@@ -74,7 +74,7 @@ An app can use only one type of the virtual network integration feature at a tim
 
 Neither feature lets you reach non-RFC 1918 addresses across ExpressRoute. To do that, you currently have to use an App Service Environment.
 
-Using the regional virtual network integration doesn't connect your virtual network to on-premises endpoints or configure service endpoints. That's a separate networking configuration. The regional virtual network integration just enables your app to make calls across those connection types.
+Using regional virtual network integration doesn't connect your virtual network to on-premises endpoints or configure service endpoints. That's a separate networking configuration. Regional virtual network integration just enables your app to make calls across those connection types.
 
 Regardless of the version used, virtual network integration gives your function app access to resources in your virtual network but doesn't grant private site access to your function app from the virtual network. Private site access means making your app accessible only from a private network like an Azure virtual network. virtual network integration is only for making outbound calls from your app into your virtual network.
 
