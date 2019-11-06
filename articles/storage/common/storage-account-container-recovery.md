@@ -43,9 +43,9 @@ Azure Storage provides data resiliency through automated replicas. However, this
 * Please do not recreate the container (with the same name).  
 * If you have already recreated the container, you need to delete the container before filing a support request for recovery.
 
-## Steps to prevent this in future:
+## Steps to prevent this in the future
 
-1. To avoid this to happen in the future the most recommended feature to use is [Soft Delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).
+1. To avoid this in the future, the most recommended feature to use is [Soft Delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).
 
 2. We also recommend the [Snapshot](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob) feature.
  
