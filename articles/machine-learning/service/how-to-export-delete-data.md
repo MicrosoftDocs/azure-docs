@@ -240,7 +240,7 @@ In the designer where you created your experiment, delete individual assets:
 
 1. Select **Delete**.
 
-### Delete datsets in the designer
+### Delete datasets in the designer
 
 To delete datasets in the designer, use the Azure portal or Storage Explorer to navigate to connected storage accounts and delete datasets there. Unregistering datasets in the designer only removes the reference point in storage. 
 
