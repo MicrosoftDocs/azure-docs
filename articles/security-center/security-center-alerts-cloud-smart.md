@@ -1,5 +1,5 @@
 ---
-title: Cloud smart alert correlation in Azure Security Center (incidents) | Microsoft Docs
+title: Azure Security Center incidents - correlated alerts | Microsoft Docs
 description: This topic explains how fusion uses cloud smart alert correlation to generate security incidents in Azure Security Center.
 services: security-center
 documentationcenter: na

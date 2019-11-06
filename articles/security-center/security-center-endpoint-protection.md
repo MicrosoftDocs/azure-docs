@@ -31,23 +31,23 @@ Azure Security Center provides health assessments of [supported](https://docs.mi
 
   * Any of the following properties are false:
 
-     **AMServiceEnabled**
+    **AMServiceEnabled**
 
-     **AntispywareEnabled**
+    **AntispywareEnabled**
 
-     **RealTimeProtectionEnabled**
+    **RealTimeProtectionEnabled**
 
-     **BehaviorMonitorEnabled**
+    **BehaviorMonitorEnabled**
 
-     **IoavProtectionEnabled**
+    **IoavProtectionEnabled**
 
-     **OnAccessProtectionEnabled**
+    **OnAccessProtectionEnabled**
 
   * If one or both of the following properties are 7 or more.
 
-     **AntispywareSignatureAge**
+    **AntispywareSignatureAge**
 
-     **AntivirusSignatureAge**
+    **AntivirusSignatureAge**
 
 ## Microsoft System Center endpoint protection
 
@@ -57,23 +57,23 @@ Azure Security Center provides health assessments of [supported](https://docs.mi
 
     * At least one of the following properties is false:
 
-       **AMServiceEnabled**
+            **AMServiceEnabled**
+
+            **AntispywareEnabled**
     
-       **AntispywareEnabled**
+            **RealTimeProtectionEnabled**
     
-       **RealTimeProtectionEnabled**
+            **BehaviorMonitorEnabled**
     
-       **BehaviorMonitorEnabled**
+            **IoavProtectionEnabled**
     
-       **IoavProtectionEnabled**
-    
-       **OnAccessProtectionEnabled**
+            **OnAccessProtectionEnabled**
           
     * If one or both of the following Signature Updates is greater or equal to 7. 
 
-       **AntispywareSignatureAge**
+            **AntispywareSignatureAge**
     
-       **AntivirusSignatureAge**
+            **AntivirusSignatureAge**
 
 ## Trend Micro
 

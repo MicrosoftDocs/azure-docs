@@ -16,7 +16,7 @@ ms.author: memildin
 ---
 # Threat detection for cloud native computing in Azure Security Center
 
-As a native solution, Azure Security Center has unique visibility into  internal logs for attack methodology identification across multiple targets. This article presents the alerts available for the following Azure services:
+As a native solution, Azure Security Center has unique visibility into internal logs for attack methodology identification across multiple targets. This article presents the alerts available for the following Azure services:
 
 * [Azure App Service](#app-services)
 * [Azure Containers](#azure-containers) 
@@ -74,9 +74,9 @@ Also, our global team of security researchers constantly monitor the threat land
 
 |Alert|Description|
 |---|---|
-|**PREVIEW - Role binding to the cluster-admin role detected**|Kubernetes audit log analysis detected a new binding to the cluster-admin role resulting in administrator privileges. Unnecessarily providing administrator privileges might result in  privilege escalation issues in the cluster.|
+|**PREVIEW - Role binding to the cluster-admin role detected**|Kubernetes audit log analysis detected a new binding to the cluster-admin role resulting in administrator privileges. Unnecessarily providing administrator privileges might result in privilege escalation issues in the cluster.|
 |**PREVIEW - Exposed Kubernetes dashboard detected**|Kubernetes audit log analysis detected exposure of the Kubernetes Dashboard by a LoadBalancer service. Exposed dashboards allow unauthenticated access to the cluster management and pose a security threat.|
-|**PREVIEW - New high privileges role detected**|Kubernetes audit log analysis detected a new role with high privileges. A binding to a role with high privileges gives the user/group elevated privileges in the cluster. Unnecessarily providing elevated privileges might result in  privilege escalation issues in the cluster.|
+|**PREVIEW - New high privileges role detected**|Kubernetes audit log analysis detected a new role with high privileges. A binding to a role with high privileges gives the user/group elevated privileges in the cluster. Unnecessarily providing elevated privileges might result in privilege escalation issues in the cluster.|
 |**PREVIEW - New container in the kube-system namespace detected**|Kubernetes audit log analysis detected a new container in the kube-system namespace that isn’t among the containers that normally run in this namespace. The kube-system namespaces shouldn't contain user resources. Attackers can use this namespace to hide malicious components.|
 |**PREVIEW - Digital currency mining container detected**|Kubernetes audit log analysis detected a container that has an image associated with a digital currency mining tool.|
 |**PREVIEW - Privileged container detected**|Kubernetes audit log analysis detected a new privileged container. A privileged container has access to the node’s resources and breaks the isolation between containers. If compromised, an attacker can use the privileged container to gain access to the node.|

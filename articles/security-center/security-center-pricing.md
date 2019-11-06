@@ -1,5 +1,5 @@
 ---
-title: Upgrade to Security Center's Standard tier for enhanced security | Microsoft Docs
+title: Pricing of Azure Security Center tiers | Microsoft Docs
 description: This article provides information on pricing for Azure Security Center.
 services: security-center
 documentationcenter: na
