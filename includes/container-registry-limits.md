@@ -24,8 +24,8 @@ ms.custom: include file
 | Content trust | N/A | N/A | [Supported][content-trust] |
 | Virtual network access | N/A | N/A | [Preview][vnet] |
 | Repository-scoped permissions | N/A | N/A | [Preview][token]|
-| &bull; Tokens | N/A | N/A | 200 |
-| &bull; Scope maps | N/A | N/A | 200 |
+| &bull; Tokens | N/A | N/A | 20,000 |
+| &bull; Scope maps | N/A | N/A | 20,000 |
 | &bull; Repositories per scope map | N/A | N/A | 500 |
 
 
