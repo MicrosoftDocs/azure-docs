@@ -453,7 +453,7 @@
     - name: JavaScript (version 12.x)
       href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
     - name: Python (version 12.x)
-      href: /python/api/overview/azure/storage/python/api/azure-storage-blob/
+      href: /python/api/azure-storage-blob/
     - name: REST
       items:
       - name: Blobs, Queues, Tables, and Files
@@ -758,7 +758,7 @@
     - name: JavaScript (version 12.x)
       href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
     - name: Python (version 12.x)
-      href: /python/api/overview/azure/storage/python/api/azure-storage-blob/
+      href: /python/api/azure-storage-blob/
     - name: REST
       items:
       - name: Blobs, Queues, Tables, and Files
