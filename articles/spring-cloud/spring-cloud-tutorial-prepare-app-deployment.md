@@ -90,7 +90,7 @@ Spring Boot version | Spring Cloud version | Azure Spring Cloud version
 
 Include one of the snippets below in  your `pom.xml`.  Select the snippet whose version matches your own.
 
-2.0.x:
+### Version 2.0.x:
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -99,7 +99,7 @@ Include one of the snippets below in  your `pom.xml`.  Select the snippet whose 
 </dependency>
 ```
 
-2.1.x:
+### Version 2.1.x:
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
