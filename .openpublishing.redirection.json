@@ -5287,6 +5287,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-cli.md",
+      "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/configure-waf-custom-rules.md",
       "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
       "redirect_document_id": false
