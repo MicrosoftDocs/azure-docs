@@ -133,7 +133,7 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
 
 1. If you haven't already, follow the steps in [Register a new Azure IoT Edge device](how-to-register-device.md) to register your device and retrieve the device connection string.
 
-1. In the virtual machine, run PowerShell as an administrator.
+2. In the virtual machine, run PowerShell as an administrator.
 
    >[!NOTE]
    >Use an AMD64 session of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which session type you're using, run the following command:
@@ -142,25 +142,24 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-[!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-invoke-webrequest.md)]
+3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the Moby runtime, and then downloads the IoT Edge runtime.
 
-1. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the Moby runtime, and then downloads the IoT Edge runtime.
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Deploy-IoTEdge -ContainerOs Windows
+   ```
 
-    ```powershell
-    Deploy-IoTEdge -ContainerOs Windows
-    ```
+4. Your machine may restart automatically. If you are prompted by the Deploy-IoTEdge command to reboot, do so now.
 
-1. Your machine may restart automatically. If you are prompted by the Deploy-IoTEdge command to reboot, do so now.
+5. Run PowerShell as an administrator again.
 
-1. Run PowerShell as an administrator again.
+6. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. 
 
-1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers.
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Initia
 
-    ```powershell
-    Initialize-IoTEdge -ContainerOs Windows
-    ```
-
-1. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
+7. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
 
 ### View the IoT Edge runtime status
 
