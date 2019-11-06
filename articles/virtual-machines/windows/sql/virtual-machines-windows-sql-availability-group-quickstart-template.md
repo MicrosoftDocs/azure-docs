@@ -1,5 +1,5 @@
 ---
-title: Use Azure quickstart templates to configure an Always On availability group for SQL Server on an Azure VM
+title: Use Azure quickstart templates to configure availability group 
 description: "Use Azure quickstart templates to create the Windows failover cluster, join SQL Server VMs to the cluster, create the listener, and configure the internal load balancer in Azure."
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,6 +15,7 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
+ms.custom: "seo-lt-2019"
 
 ---
 # Use Azure quickstart templates to configure an Always On availability group for SQL Server on an Azure VM

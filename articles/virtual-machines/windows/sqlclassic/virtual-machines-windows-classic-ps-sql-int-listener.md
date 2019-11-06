@@ -1,5 +1,5 @@
 ---
-title: Configure an ILB listener for Always On availability groups in Azure | Microsoft Docs
+title: Configure an ILB listener for availability groups (Classic)
 description: This tutorial uses resources created with the classic deployment model, and it creates an Always On availability group listener in Azure that uses an internal load balancer.
 services: virtual-machines-windows
 documentationcenter: na
@@ -8,7 +8,7 @@ manager: craigg
 editor: ''
 tags: azure-service-management
 
-ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
+ms.assetid: 291288a0-740b-4cfa-af62-053218beba77j
 ms.service: virtual-machines-sql
 
 ms.topic: article
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
 # Configure an ILB listener for Always On availability groups in Azure

@@ -1,5 +1,5 @@
 ---
-title: SQL Server Availability Groups - Azure Virtual Machines - Tutorial | Microsoft Docs  
+title: "Tutorial: Configure availability group"
 description: "This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
@@ -17,6 +17,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
 
