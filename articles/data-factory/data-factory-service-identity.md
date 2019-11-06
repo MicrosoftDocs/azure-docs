@@ -1,5 +1,5 @@
 ---
-title: Managed identity for Data Factory | Microsoft Docs
+title: Managed identity for Data Factory 
 description: Learn about managed identity for Azure Data Factory. 
 services: data-factory
 author: linda33wj
