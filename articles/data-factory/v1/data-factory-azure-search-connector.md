@@ -1,5 +1,5 @@
 ---
-title: Push data to Search index by using Data Factory | Microsoft Docs
+title: Push data to Search index by using Data Factory 
 description: 'Learn about how to push data to Azure Search Index by using Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
