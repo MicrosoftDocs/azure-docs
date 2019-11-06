@@ -7,8 +7,8 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: 
 ms.date: 10/01/2019
 ---
@@ -77,7 +77,7 @@ Unlike traditional database engines that have centralized all of the data manage
 
 The following diagram illustrates the different types of nodes in a Hyperscale database:
 
-![architecture](./media/sql-database-hyperscale/hyperscale-architecture.png)
+![architecture](./media/sql-database-hyperscale/hyperscale-architecture2.png)
 
 A Hyperscale database contains the following different types of components:
 
