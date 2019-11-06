@@ -32,22 +32,24 @@ The table summarizes supported discovery, assessment, and migration scenarios.
 **On-premises assessment** | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess using Azure Migrate Server Assessment and Microsoft Data Migration Assistant (DMA), as well as other tools and ISV offerings.
 **On-premises migration to Azure** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as other tools and ISV offerings.
 
-Specific tool support is summarized as follows.
+Specific tool support is summarized as follows. When you add a tool for assessment or migration, the exact workloads supported
 
-**Tool** | **Assessment/Migration** | **Details**
---- | --- | ---
-Azure Migrate Server Assessment | Assessment | Try out server assessment for [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md), and [physical servers](tutorial-prepare-physical.md).
-Azure Migrate Server Migration | Migration | Try out server migration for [Hyper-V](tutorial-migrate-hyper-v.md) and [VMware](tutorial-migrate-vmware.md).
-Cloudamize | Assessment | [Learn more](https://www.cloudamize.com/platform#tab-0).
-Device 42 | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2097158).
-UnifyCloud | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2097195).
-Turbonomic  | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2094295).
-Lakeside | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2104908).
-Corent Technology | Assessment and migration | [Learn more](https://go.microsoft.com/fwlink/?linkid=2084928).
-Carbonite | Migration | [Learn more](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure).
-RackWare | Migration | [Learn more](https://go.microsoft.com/fwlink/?linkid=2102735).
-Movere | Assessment | [Learn more](https://go.microsoft.com/fwlink/?linkid=2109528).
-
+**Tool** | **Assess** | **Migrate** | **Details**
+--- | --- | --- | ---
+Azure Migrate Server Assessment | Assess VMware VMs, Hyper-V VMs, physical servers | - | Try out assessment for [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md), and [physical servers](tutorial-prepare-physical.md).
+Azure Migrate Server Migration | - | Migrate VMware VMs, Hyper-V VMs, physical servers | Try out migration for [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [physical servers](tutorial-migrate-physical-virtual-machines.md).
+Carbonite | - | Migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads.  | [Learn more](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure).
+Cloudamize | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | [Learn more](https://www.cloudamize.com/platform#tab-0).
+Corent Technology | Assess and migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | [Learn more](https://go.microsoft.com/fwlink/?linkid=2084928).
+Device 42 | Assess and migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads.| [Learn more](https://go.microsoft.com/fwlink/?linkid=2097158).
+Lakeside | Assess virtual desktop infrastructure (VDI) | [Learn more](https://go.microsoft.com/fwlink/?linkid=2104908).
+Movere | Assess VMWare VMs, Hyper-V VMs, Xen VMs, physical machines, workstations (including VDI), public cloud workloads | [Learn more](https://go.microsoft.com/fwlink/?linkid=2109528).
+RackWare | Migrate VMWare VMs, Hyper-V VMs, Xen VMs, KVM VMs, physical machines, public cloud workloads | [Learn more](https://go.microsoft.com/fwlink/?linkid=2102735).
+Turbonomic  | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | [Learn more](https://go.microsoft.com/fwlink/?linkid=2094295).
+UnifyCloud | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads, and SQL Server databases. | [Learn more](https://go.microsoft.com/fwlink/?linkid=2097195).
+DMA | Assess on-premises SQL Server databases. | [Learn more](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
+DMS | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. | [Learn more](https://docs.microsoft.com/azure/dms/dms-overview).
+Webapp Migration Assistant | Assess and migrate web apps | [Learn more](https://appmigration.microsoft.com/).
 
 
 ## Azure Migrate projects
