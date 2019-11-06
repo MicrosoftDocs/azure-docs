@@ -5287,6 +5287,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/configure-waf-custom-rules.md",
+      "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/create-custom-waf-rules.md",
+      "redirect_url": "/azure/web-application-firewall/ag/create-custom-waf-rules",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-portal.md",
       "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal",
       "redirect_document_id": false
@@ -16254,11 +16264,6 @@
     {
       "source_path": "articles/stream-analytics/stream-analytics-common-troubleshooting-issues.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-input",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/stream-analytics/powerbi-output-managed-identity.md",
-      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#power-bi",
       "redirect_document_id": false
     },
     {

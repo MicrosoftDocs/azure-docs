@@ -1,5 +1,5 @@
 ---
-title: Cloud business continuity - database recovery - SQL Database | Microsoft Docs
+title: Cloud business continuity - database recovery - SQL Database 
 description: Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running.
 keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
 services: sql-database

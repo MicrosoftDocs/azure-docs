@@ -39,7 +39,7 @@ Use the links in this section for more information about managed cloud networkin
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|Yes|Yes||||
 |[IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/)|Yes|Yes||||
 |[KINX](https://www.kinx.net/service/cloud/?lang=en)|Yes|||||
-|[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/microsoft-azure.html)|Yes|Yes||||
+|[Liquid Telecom](https://liquidcloud.africa/azure-networking)|Yes|Yes||||
 |[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|Yes|Yes|Yes|||
 |[Megaport](https://www.megaport.com/services/microsoft-expressroute/)|Yes|Yes||||
 |[OmniClouds](https://omniclouds.com/services/)|Yes|Yes||||
