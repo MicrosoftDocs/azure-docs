@@ -25,7 +25,7 @@ This article explores ways to clone an IoT Hub and provides some questions you n
 To clone a hub, you need a subscription with administrative access to the original hub. You can put the new hub in a new resource group and region, in the same subscription as the original hub, or even in a new subscription. You just can't use the same name because the hub name has to be globally unique.
 
 > [!NOTE]
-> At this time, there's no first-class feature for cloning an IoT hub. It's primarily a manual process, and thus is fairly error-prone. The complexity of cloning a hub is directly proportional to the complexity of the hub. For example, cloning an IoT hub with no message routing is fairly simple. If you add message routing as just one complexity, cloning the hub becomes at least an order of magnitude more complicated, depending on whether or not you also move those resources used for the routing endpoints.
+> At this time, there's no first-class feature for cloning an IoT hub. It's primarily a manual process, and thus is fairly error-prone. The complexity of cloning a hub is directly proportional to the complexity of the hub. For example, cloning an IoT hub with no message routing is fairly simple. If you add message routing as just one complexity, cloning the hub becomes at least an order of magnitude more complicated. If you also move the resources used for routing endpoints, it's another order of magniture more complicated. 
 
 ## Things to consider
 
@@ -43,10 +43,14 @@ There are several things to consider before cloning an IoT hub.
 
 * Data for Event Hubs and for Service Bus Topics and Queues can't be migrated. This is point-in-time data and is not stored after the messages are processed.
 
-* You need to schedule downtime for the migration. Cloning the devices to the new hub takes time. Benchmark testing has revealed that it could take around two hours to move 500,000 devices, and four hours to move a million devices. 
+* You need to schedule downtime for the migration. Cloning the devices to the new hub takes time. If you are using the Import/Export method, benchmark testing has revealed that it could take around two hours to move 500,000 devices, and four hours to move a million devices. 
 
-* You can copy the devices to the new hub without shutting down or changing the devices. The devices have to be modified to use the new hub. For example, if using a connection string on the device to the hub, it has to be updated to point to the new hub instead of the old one.
+* You can copy the devices to the new hub without shutting down or changing the devices. 
 
+    * If the devices were originally provisioned using DPS, re-provisioning them updates the connection information stored in each device. 
+    
+    * Otherwise, you have to use the Import/Export method to move the devices, and then the devices have to be modified to use the new hub. For example, you can set up your device to consume the IoT Hub host name from the twin desired properties. The device will take that IoT Hub host name, disconnect the device from the old hub, and reconnect it to the new one.
+    
 * You need to update any certificates you are using so you can use them with the new resources. Also, you probably have the hub defined in a DNS table somewhere — you will need to update that DNS information.
 
 ## Methodology
@@ -100,7 +104,6 @@ If the hub uses message routing, you have two choices.
 
 ## Prepare to migrate the hub to another region
 
-<!-- action=prepare -->
 This section provides specific instructions for migrating the hub.
 
 ### Find the original hub and export it to a resource template.
@@ -379,12 +382,33 @@ Create the new hub in the new location using the template. If you have routing r
 
 The portal now validates your template and deploys your cloned hub. If you have routing configuration data, it will be included in the new hub, but will point at the resources in the prior location.
 
-<!--robin-->
-<!-- action=discard could you discard the hub here and still be where you were? --> 
-<!-- if you discard the hub, does it discard the devices? --> 
 ## Managing the devices registered to the IoT hub
 
-Now that you have your clone up and running, you need to copy all of the devices from the original hub to the clone. To do this, you can use the C# Import/Export sample app. 
+Now that you have your clone up and running, you need to copy all of the devices from the original hub to the clone. 
+
+There are multiple ways to accomplish this. You either originally used [Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps.md)to provision the devices, or you didn't. If you did, this is not difficult. If you did not, this can be very complicated. 
+
+If you did not use DPS to provision your devices, you can skip the next section and start with [Using Import/Export to move the devices](#using-import-export-to-move-the-devices).
+
+## Using DPS to re-provision the devices in the new hub
+
+To use DPS to move the devices to the new location, see [How to re-provision devices](../iot-dps/how-to-reprovision.md). When you're finished, you can view the devices in the [Azure portal](https://portal.azure.com) and verify they are in the new location.
+
+Go to the new hub using the [Azure portal](https://portal.azure.com). Select your hub, then select **IoT Devices**. You see the devices that were re-provisioned to the cloned hub. You can also view the properties for the cloned hub. 
+
+If you have implemented routing, test and make sure your messages are routed to the resources correctly.
+
+### Committing the changes after using DPS
+
+This change has been committed by the DPS service.
+
+### Rolling back the changes after using DPS. 
+
+If you want to roll back the changes, re-provision the devices from the new hub to the old one.
+
+You are now finished migrating your hub and its devices. You can skip to [Clean-up](#clean-up).
+
+## Using Import/Export to move the devices to the new hub
 
 The application targets .NET Core, so you can run it on either Windows or Linux. You can download the sample, retrieve your connection strings, set the flags for which bits you want to run, and run it. You can do this without ever opening the code.
 
@@ -518,47 +542,41 @@ Now you have the environment variables in a file with the SET commands, and you 
    private static bool deleteDestDevices = false;
    ```
 
-1. Select F5 to run the application. 
-<!--robin-->
-<!-- action = commit -- we don't have this, the changes are already committed at this point -->
-<!-- or is it good until they change their apps to point at the new hub and change whatever needs to be
-     changed to point at the new devices? -->
-<!-- action = cleanup -- honestly, this is pretty complicated and you can really do some damage, so I wouldn't delete the original resources until I was 110% sure they were working in the new location -->
+1. Select F5 to run the application. After it finishes running, you can view the results.
 
-<!-- rajani proposed putting 'commit' here -->
 ### View the results 
 
-After the application finishes running, you can view the resources in the [Azure portal](https://portal.azure.com) and verify they are in the new location.,
+You can view the devices in the [Azure portal](https://portal.azure.com) and verify they are in the new location.
 
-1. Go to the new hub using the [Azure portal](https://portal.azure.com). Select your hub, then select **IoT Devices**. You see the devices you just copied from the old hub to the cloned hub. You can also view the properties for the cloned hub.
+1. Go to the new hub using the [Azure portal](https://portal.azure.com). Select your hub, then select **IoT Devices**. You see the devices you just copied from the old hub to the cloned hub. You can also view the properties for the cloned hub. 
 
-1. To check for errors, go to the Azure storage account in the [Azure portal](https://portal.azure.com) and look in the `devicefiles` container for the `ImportErrors.log`. If this file is empty (the size is 0), there were no errors. If you try to import the same device more than once, it rejects the device the second time and adds an error message to the log file.
+1. Check for import/export errors by going to the Azure storage account in the [Azure portal](https://portal.azure.com) and looking in the `devicefiles` container for the `ImportErrors.log`. If this file is empty (the size is 0), there were no errors. If you try to import the same device more than once, it rejects the device the second time and adds an error message to the log file.
+
+### Committing the changes 
 
 At this point, you have copied your hub to the new location and migrated the devices to the new clone. Now you need to make changes so the devices work with the cloned hub.
 
-## Committing the changes
-
 To commit the changes, here are the steps you need to perform: 
 
-* Update the connection string in each device to point to the new hub.
+* Update each device to change the IoT Hub Hostname to point the IoT Hub Hostname to the new hub. You should do this using the same method you used when you first provisioned the device.
 
-* Change anything you have that refers to the old hub to point to the new hub.
+* Change any applications you have that refer to the old hub to point to the new hub.
 
 * After you're finished, the new hub should be up and running. The old hub should have no active devices and be in a disconnected state. 
 
-## Rolling back the changes
+### Rolling back the changes
 
 If you decide to roll back the changes, here are the steps to perform:
 
-* Update the connection string in each device to point to the old hub.
+* Update each device to change the IoT Hub Hostname to point the IoT Hub Hostname for the old hub. You should do this using the same method you used when you first provisioned the device.
 
-* Change anything you have that refers to the new hub to point to the old hub. 
-
-* Remove the devices from the new hub. You can use the Import/Export program to do this.
+* Change any applications you have that refer to the new hub to point to the old hub. 
 
 * Delete the new hub. 
 
-## Checking the results 
+* If you have routing resources, the configuration on the old hub should still point to the correct routing configuration, and should work with those resources after the hub is restarted.
+
+### Checking the results 
 
 To check the results, change your IoT solution to point to your hub in the new location and run it. In other words, perform the same actions with the new hub that you performed with the previous hub and make sure they work correctly. 
 
@@ -568,11 +586,7 @@ If you have implemented routing, test and make sure your messages are routed to 
 
 Don't clean up until you are really certain the new hub is up and running and the devices are working correctly. Also be sure to test the routing if you are using that feature. When you're ready, clean up the old resources by performing these steps:
 
-* Remove the devices from the old hub. You can use the Import/Export program to do this.
-
-* Delete the old hub. 
-
-* If you have routing resources, the configuration on the old hub should still point to the correct routing configuration, and should work with those resources after the hub is restarted.
+* If you haven't already, delete the old hub. This removes all of the active devices from the hub.
 
 ## Next steps
 
