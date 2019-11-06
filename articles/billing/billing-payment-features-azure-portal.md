@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: banders
 ---
-# Account Administrator tasks in the Azure Portal
+# Account Administrator tasks in the Azure portal
 
 This article explains how to perform the following tasks in the Azure portal:
 - Manage your subscription's payment methods
