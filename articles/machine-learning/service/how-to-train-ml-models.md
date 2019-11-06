@@ -15,6 +15,7 @@ ms.custom: seodec18
 ---
 
 # Train models with Azure Machine Learning using estimator
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 With Azure Machine Learning, you can easily submit your training script to [various compute targets](how-to-set-up-training-targets.md#compute-targets-for-training), using [RunConfiguration object](how-to-set-up-training-targets.md#whats-a-run-configuration) and [ScriptRunConfig object](how-to-set-up-training-targets.md#submit). That pattern gives you a lot of flexibility and maximum control.
 
@@ -111,7 +112,7 @@ Parameter | Description | Default
 `custom_docker_image`| Name of the image you want to use. Only provide images available in public docker repositories (in this case Docker Hub). To use an image from a private docker repository, use the constructor's `environment_definition` parameter instead. [See example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Number of nodes to use for your training job. | `1`
 `process_count_per_node`| Number of processes (or "workers") to run on each node. In this case, you use the `2` GPUs available on each node.| `1`
-`distributed_training`| [MPIConfiguration ]('https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py') object for launching distributed training using MPI backend.  | `None`
+`distributed_training`| [MPIConfiguration ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) object for launching distributed training using MPI backend.  | `None`
 
 
 Finally, submit the training job:
@@ -122,7 +123,7 @@ print(run.get_portal_url())
 
 ## GitHub tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## Examples
 For a notebook that shows the basics of an estimator pattern, see:

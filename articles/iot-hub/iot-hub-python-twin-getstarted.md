@@ -181,7 +181,7 @@ In this section, you create a Python console app that connects to your hub as yo
             print(patch)
 
     def iothub_client_init():
-        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+        client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
         return client
 
     def iothub_client_sample_run():

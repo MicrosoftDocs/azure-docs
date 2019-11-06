@@ -1,13 +1,13 @@
 ---
-title: 'Device connectivity and telemetry ingress with Azure Digital Twins | Microsoft Docs'
+title: 'Device connectivity and telemetry ingress - Azure Digital Twins | Microsoft Docs'
 description: Overview of how to bring a device onboard with Azure Digital Twins
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
 ---
 
 # Device connectivity and telemetry ingress

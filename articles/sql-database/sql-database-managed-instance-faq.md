@@ -1,5 +1,5 @@
 ---
-title: SQL Database managed instance FAQ | Microsoft Docs
+title: SQL Database managed instance FAQ 
 description: SQL Database managed instance frequently asked questions (FAQ)
 services: sql-database
 ms.service: sql-database
@@ -70,7 +70,7 @@ It is strongly advised to test the performance of actual workloads intended for 
 
 ## Can I switch my managed instance hardware generation between Gen 4 and Gen 5 online? 
 
-Automated online switching between hardware generations is possible if both hardware generations are available in the region where your managed instance is provisioned. In this case, you have an option in the pricing tier section of the Azure portal to switch between hardware generations.
+Automated online switching between hardware generations is possible if both hardware generations are available in the region where your managed instance is provisioned. In this case, you can use [script from blog post](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) explaining how to switch between hardware generations.
 
 This is a long-running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process. 
 
@@ -174,7 +174,7 @@ Data loading is often slower on managed instance than in SQL Server due to manda
 Yes, you don't need to decrypt your database to be able to restore it to managed instance. You do need to provide a certificate/key used as an encryption key protector in the source system to the managed instance to be able to read data from the encrypted backup file. There are two possible ways to do it:
 
 - *Upload certificate-protector to the managed instance*. It can be done using PowerShell only. The [sample script](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) describes the whole process.
-- *Upload asymmetric key-protector to Azure Key Vault (AKV) and point managed instance to it*. This approach resembles bring-your-own-key (BYOK) TDE use case that also uses AKV integration to store the encryption key. If you don't want to use the key as an encryption key protector, and just want to make the key available for managed instance to restore encrypted database(s), follow instructions for [setting up BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal), and don’t check the checkbox *Make the selected key the default TDE protector*.
+- *Upload asymmetric key-protector to Azure Key Vault (AKV) and point managed instance to it*. This approach resembles bring-your-own-key (BYOK) TDE use case that also uses AKV integration to store the encryption key. If you don't want to use the key as an encryption key protector, and just want to make the key available for managed instance to restore encrypted database(s), follow instructions for [setting up BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption), and don’t check the checkbox *Make the selected key the default TDE protector*.
 
 Once you make the encryption protector available to managed instance, you can proceed with the standard database restore procedure.
 

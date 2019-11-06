@@ -59,6 +59,10 @@ There are some things that VNet Integration doesn't support including:
 
 ## Regional VNet Integration 
 
+> [!NOTE]
+> Peering is not yet available for Linux based App Service.
+>
+
 When VNet Integration is used with VNets in the same region as your app, it requires the use of a delegated subnet with at least 32 addresses in it. The subnet cannot be used for anything else. Outbound calls made from your app will be made from the addresses in the delegated subnet. When you use this version of VNet Integration, the calls are made from addresses in your VNet. Using addresses in your VNet enables your app to:
 
 * Make calls to service endpoint secured services
@@ -274,13 +278,13 @@ If those items don't answer your problems, look first for things like:
 **regional VNet Integration**
 * is your destination an RFC 1918 address
 * is there an NSG blocking egress from your integration subnet
-* if going across ExpressRoute or a VPN, is your on-premise gateway configured to route traffic back up to Azure? If you can reach endpoints in your VNet but not on-premises, this is good to check.
+* if going across ExpressRoute or a VPN, is your on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your VNet but not on-premises, this is good to check.
 
 **gateway required VNet Integration**
 * is the point-to-site address range in the RFC 1918 ranges (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)?
 * Does the Gateway show as being up in the portal? If your gateway is down, then bring it back up.
 * Do certificates show as being in sync or do you suspect that the network configuration was changed?  If your certificates are out of sync or you suspect that there has been a change made to your VNet configuration that wasn't synced with your ASPs, then hit "Sync Network".
-* if going across ExpressRoute or a VPN, is your on-premise gateway configured to route traffic back up to Azure? If you can reach endpoints in your VNet but not on-premises, this is good to check.
+* if going across ExpressRoute or a VPN, is your on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your VNet but not on-premises, this is good to check.
 
 Debugging networking issues is a challenge because there you cannot see what is blocking access to a specific host:port combination. Some of the causes include:
 
@@ -340,6 +344,6 @@ You can integrate App Service with an Azure Virtual Network using PowerShell. Fo
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-[creategatewaysubnet]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategatewaysubnet]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

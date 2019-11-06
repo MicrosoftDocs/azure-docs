@@ -24,7 +24,7 @@ Just like any other resource, the Azure Serial Console can be enabled and disabl
 You can also disable serial console for an individual VM or virtual machine scale set instance by disabling boot diagnostics. You will require contributor level access or above on both the VM/virtual machine scale set and your boot diagnostics storage account.
 
 ## VM-level disable
-The serial console can be disabled for a specific VM or virtual machine scale set by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM or the virtual machine scale set. If you are using serial console on a virtual machine scale set, ensure you upgrade your virtual machine scale set instances to the latest model.
+The serial console can be disabled for a specific VM or virtual machine scale set by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure Portal to disable the serial console for the VM or the virtual machine scale set. If you are using serial console on a virtual machine scale set, ensure you upgrade your virtual machine scale set instances to the latest model.
 
 
 ## Subscription-level disable
@@ -35,23 +35,23 @@ Serial console can be disabled and re-enabled for an entire subscription by usin
 
 To disable serial console for a subscription, use the following commands:
 ```azurecli-interactive
-subscriptionId=$(az account show -o=json | jq -r .id)
+subscriptionId=$(az account show --output=json | jq -r .id)
 
-az resource invoke-action --action disableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default"
+az resource invoke-action --action disableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
 To enable serial console for a subscription, use the following commands:
 ```azurecli-interactive
-subscriptionId=$(az account show -o=json | jq -r .id)
+subscriptionId=$(az account show --output=json | jq -r .id)
 
-az resource invoke-action --action enableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default"
+az resource invoke-action --action enableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
 To get the current enabled/disabled status of serial console for a subscription, use the following commands:
 ```azurecli-interactive
-subscriptionId=$(az account show -o=json | jq -r .id)
+subscriptionId=$(az account show --output=json | jq -r .id)
 
-az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" -o=json | jq .properties
+az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --output=json --api-version="2018-05-01" | jq .properties
 ```
 
 ### PowerShell

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train your first ML model"
+title: "Tutorial: Train your first Azure ML model in Python"
 titleSuffix: Azure Machine Learning
 description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set.
 services: machine-learning
@@ -9,10 +9,12 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/03/2019
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Train your first ML model
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
 
@@ -30,21 +32,12 @@ The only prerequisite is to run part one of this tutorial, [Setup environment an
 
 In this part of the tutorial, you run the code in the sample Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` opened at the end of part one. This article walks through the same code that is in the notebook.
 
-## Launch Jupyter web interface
+## Open the notebook
 
-1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 
-1. Select **Jupyter** in the **URI** column for the VM you created in part one of this tutorial.
+1. Open the **tutorial-1st-experiment-sdk-train.ipynb** in your folder as shown in [part one](tutorial-1st-experiment-sdk-setup.md#open).
 
-    ![Start the Jupyter notebook server](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
-
-   The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
-
-1. On the Jupyter notebook webpage, select the top foldername, which has your username.  
-
-   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the notebook VM itself.  If you delete the notebook VM, you'll still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
-
-1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **not** the `.yml` file of the same name. 
 
 > [!Warning]
 > Do **not** create a *new* notebook in the Jupyter interface! The notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` is inclusive of **all code and data needed** 
@@ -56,7 +49,7 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 > The rest of this article contains the same content as you see in the notebook.  
 >
 > Switch to the Jupyter notebook now if you want to read along as you run the code. 
-> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Cell > Run All** from the top menu.
+> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
 Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. In a cloud notebook server, the file is automatically in the root directory.
 
@@ -67,7 +60,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-Now create an experiment in your workspace. An experiment is another foundational cloud resource that represents a collection of trials (individual model runs). In this tutorial you use the experiment to create runs and track your model training in the Azure portal. Parameters include your workspace reference, and a string name for the experiment.
+Now create an experiment in your workspace. An experiment is another foundational cloud resource that represents a collection of trials (individual model runs). In this tutorial you use the experiment to create runs and track your model training in the Azure Machine Learning studio. Parameters include your workspace reference, and a string name for the experiment.
 
 
 ```python
@@ -77,15 +70,17 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## Load data and prepare for training
 
-For this tutorial, you use the diabetes data set, which is a pre-normalized data set included in scikit-learn. This data set uses features like age, gender, and BMI to predict diabetes disease progression. Load the data from the `load_diabetes()` static function, and split it into training and test sets using `train_test_split()`. This function segregates the data so the model has unseen data to use for testing following training.
+For this tutorial, you use the diabetes data set, which uses features like age, gender, and BMI to predict diabetes disease progression. Load the data from the [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) class, and split it into training and test sets using `train_test_split()`. This function segregates the data so the model has unseen data to use for testing following training.
 
 
 ```python
-from sklearn.datasets import load_diabetes
+from azureml.opendatasets import Diabetes
 from sklearn.model_selection import train_test_split
 
-X, y = load_diabetes(return_X_y = True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=66)
+x_df = Diabetes.get_tabular_dataset().to_pandas_dataframe().dropna()
+y_df = x_df.pop("Y")
+
+X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=66)
 ```
 
 ## Train a model
@@ -134,11 +129,11 @@ After the training has completed, call the `experiment` variable to fetch a link
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Link to Azure Portal</td><td>Link to Documentation</td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Link to Azure portal</td><td>Link to Documentation</td></tr></table>
 
 ## View training results in portal
 
-Following the **Link to Azure Portal** takes you to the main experiment page. Here you see all the individual runs in the experiment. Any custom-logged values (`alpha_value` and `rmse`, in this case) become fields for each run, and also become available for the charts and tiles at the top of the experiment page. To add a logged metric to a chart or tile, hover over it, click the edit button, and find your custom-logged metric.
+Following the **Link to Azure portal** takes you to the main experiment page. Here you see all the individual runs in the experiment. Any custom-logged values (`alpha_value` and `rmse`, in this case) become fields for each run, and also become available for the charts and tiles at the top of the experiment page. To add a logged metric to a chart or tile, hover over it, click the edit button, and find your custom-logged metric.
 
 When training models at scale over hundreds and thousands of separate runs, this page makes it easy to see every model you trained, specifically how they were trained, and how your unique metrics have changed over time.
 
@@ -178,7 +173,7 @@ print("Best run_id rmse: " + str(minimum_rmse))
     Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
     Best run_id rmse: 57.234760283951765
 
-Use the best run id to fetch the individual run using the `Run` constructor along with the experiment object. Then call `get_file_names()` to see all the files available for download from this run. In this case, you only uploaded one file for each run during training.
+Use the best run ID to fetch the individual run using the `Run` constructor along with the experiment object. Then call `get_file_names()` to see all the files available for download from this run. In this case, you only uploaded one file for each run during training.
 
 ```python
 from azureml.core import Run
@@ -198,19 +193,9 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the notebook VM
+### Stop the Notebook VM
 
-If you used a cloud notebook server, stop the VM when you are not using it to reduce cost.
-
-1. In your workspace, select **Notebook VMs**.
-
-   ![Stop the VM server](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. From the list, select the VM.
-
-1. Select **Stop**.
-
-1. When you're ready to use the server again, select **Start**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### Delete everything
 

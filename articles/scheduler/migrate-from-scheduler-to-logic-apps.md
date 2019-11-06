@@ -16,7 +16,7 @@ ms.date: 09/23/2019
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, 
 > which is [being retired](#retire-date). To continue working with the jobs that you set 
-> up in Scheduler, please move to Azure Logic Apps as soon as possible by following this article.
+> up in Scheduler, please move to Azure Logic Apps as soon as possible by following this article. 
 
 This article shows how you can schedule one-time and recurring jobs by creating automated workflows with Azure Logic Apps, rather than with Azure Scheduler. When you create scheduled jobs with Logic Apps, you get these benefits:
 
@@ -37,6 +37,10 @@ To learn more, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview
 
 * To trigger your logic app by sending HTTP requests, 
 use a tool such as the [Postman desktop app](https://www.getpostman.com/apps).
+
+## Migrate by using a script
+
+Each Scheduler job is unique, so no one-size-fits-all tool exists for migrating Scheduler jobs to Azure Logic Apps. However, you can [edit this script](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration) to meet your needs.
 
 ## Schedule one-time jobs
 
@@ -251,7 +255,7 @@ To learn more about exception handling, see
 **A**: As a best practice, always back up your work. Check that the logic apps you created are running as expected before deleting or disabling your Scheduler jobs. 
 
 **Q**: Is there a tool that can help me migrate my jobs from Scheduler to Logic Apps? <br>
-**A**: Each Scheduler job is unique, so a one-size-fits-all tool doesn't exist. However, various scripts will be available for you to modify for your needs. For script availability, check back later.
+**A**: Each Scheduler job is unique, so a one-size-fits-all tool doesn't exist. However, based on your needs, you can [edit this script to migrate Azure Scheduler jobs to Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **Q**: Where can I get support for migrating my Scheduler jobs? <br>
 **A**: Here are some ways to get support: 
