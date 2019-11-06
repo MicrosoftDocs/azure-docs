@@ -37,7 +37,7 @@ November 4, 2019 - Ignite Conference
 
 + [Power BI templates](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) can jumpstart your visualizations and analysis of enriched content in a knowledge store in Power BI desktop. This template is designed for Azure table projections created through the [Import data wizard](knowledge-store-create-portal.md).
 
-+ [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API](search-howto-index-cosmosdb.md), and [Cosmos DB Cassandra API](search-howto-index-cosmosdb.md) can now be indexed using indexers that are now in preview. Users can sign up for the previews using [this form](https://aka.ms/azure-cognitive-search/indexer-preview). You will receive a confirmation email once you have been accepted into the preview program.
++ [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md), and [Cosmos DB Cassandra API (preview)](search-howto-index-cosmosdb.md) are now supported in indexers. You can sign up using [this form](https://aka.ms/azure-cognitive-search/indexer-preview). You will receive a confirmation email once you have been accepted into the preview program.
 
 ## Service updates
 
