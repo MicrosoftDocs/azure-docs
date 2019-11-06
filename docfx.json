@@ -408,7 +408,7 @@
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/governance/resource-graph/**/*.yml": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
-        "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture"
+        "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
         "articles/sql-data-warehouse/**/*.md": "Azure SQL Data Warehouse",
         "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse",
         "articles/data-factory/**/*.md": "Azure Data Factory",
