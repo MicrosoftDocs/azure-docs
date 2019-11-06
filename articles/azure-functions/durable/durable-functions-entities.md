@@ -145,7 +145,7 @@ module.exports = df.entity(function(context) {
 });
 ```
 
-## Accessing entities
+## Access entities
 
 Entities can be accessed using one-way or two-way communication. The following terminology distinguishes the two forms of communication: 
 
