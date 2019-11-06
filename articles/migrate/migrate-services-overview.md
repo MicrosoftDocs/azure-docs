@@ -59,18 +59,20 @@ Azure Migrate: Server Assessment | Assess servers
 Azure Migrate: Server Migration | Migrate servers
 Database Migration Assistant (DMA) | Assess databases
 Database Migration Service (DMS) | Migrate databases
-Movere | Assess Servers
+Movere | Assess דervers
 Web App Migration Assistant | Assess and migrate web apps
 
 
 
-### Selecting an ISV/tool
+### Selecting a tool
 
-Identify the ISV offering or tool you need, and add it to an Azure Migrate project.
+Identify the tool you need, and add it to an Azure Migrate project.
 
-- After adding a tool, you get started by obtaining a license, or signing up for a free trial, in accordance with the tool policy. Licensing for tools is in accordance with the ISV or tool licensing model.
-- In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation, to connect the tool with Azure Migrate.
+- If you’re adding an ISV tool or Movere:
+    - Get started by obtaining a license, or signing up for a free trial, in accordance with the tool policy. Licensing for tools is in accordance with the ISV or tool licensing model.
+    - In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation, to connect the tool with Azure Migrate.
 - You centrally track your migration journey from within the Azure Migrate project, across Azure and other tools.
+
 
 
 ## Azure Migrate Server Assessment
