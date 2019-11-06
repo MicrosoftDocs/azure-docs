@@ -1,15 +1,15 @@
 ---
-title: Build mobile applications with Xamarin and Azure Cosmos DB
-description: A tutorial that creates a Xamarin iOS, Android, or Forms application by using Azure Cosmos DB. Azure Cosmos DB is a fast, planet scale, cloud database for mobile apps.
+title: 'Tutorial: Build mobile applications with Xamarin and Azure Cosmos DB'
+description: 'Tutorial: A tutorial that creates a Xamarin iOS, Android, or Forms application by using Azure Cosmos DB. Azure Cosmos DB is a fast, planet scale, cloud database for mobile apps.'
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 11/05/2019
 ms.author: sngun
 
 ---
-# Build mobile applications with Xamarin and Azure Cosmos DB
+# Tutorial: Build mobile applications with Xamarin and Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
