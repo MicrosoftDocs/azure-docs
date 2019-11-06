@@ -1,6 +1,6 @@
 ---
 title: Azure Functions networking options
-description: Provides an overview of all networking options available in Azure Functions.
+description: An overview of all networking options available in Azure Functions.
 author: alexkarcher-msft
 manager: gwallace
 ms.service: azure-functions
@@ -63,37 +63,37 @@ There are two forms of virtual network integration:
 + **Regional virtual network integration (preview)**: Enables integration with virtual networks in the same region. This type of integration requires a subnet in a virtual network in the same region. This feature is still in preview, but it's supported for function apps running on Windows, with the caveats described after the following Problem/Solution table.
 + **Gateway required virtual network integration**: Enables integration with virtual networks in remote regions, or with classic virtual networks. This type of integration requires deployment of a virtual network gateway into your VNet. This is a point-to-site VPN-based feature, which is supported only for function apps running on Windows.
 
-An app can use only one type of the VNet Integration feature at a time. Although both are useful for many scenarios, the following table indicates where each should be used:
+An app can use only one type of the virtual network integration feature at a time. Although both are useful for many scenarios, the following table indicates where each should be used:
 
 | Problem  | Solution |
 |----------|----------|
-| Want to reach an RFC 1918 address (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) in the same region | Regional VNet integration |
-| Want to reach resources in a Classic VNet or a VNet in another region | Gateway required VNet integration |
-| Want to reach RFC 1918 endpoints across ExpressRoute | Regional VNet integration |
-| Want to reach resources across service endpoints | Regional VNet integration |
+| Want to reach an RFC 1918 address (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) in the same region | Regional virtual network integration |
+| Want to reach resources in a Classic virtual network or a virtual network in another region | Gateway required virtual network integration |
+| Want to reach RFC 1918 endpoints across Azure ExpressRoute | Regional virtual network integration |
+| Want to reach resources across service endpoints | Regional virtual network integration |
 
 Neither feature lets you reach non-RFC 1918 addresses across ExpressRoute. To do that, you currently have to use an App Service Environment.
 
-Using the regional VNet integration doesn't connect your VNet to on-premises endpoints or configure service endpoints. That's a separate networking configuration. The regional VNet integration just enables your app to make calls across those connection types.
+Using the regional virtual network integration doesn't connect your virtual network to on-premises endpoints or configure service endpoints. That's a separate networking configuration. The regional virtual network integration just enables your app to make calls across those connection types.
 
-Regardless of the version used, VNet integration gives your function app access to resources in your virtual network but doesn't grant private site access to your function app from the virtual network. Private site access means making your app accessible only from a private network like an Azure virtual network. VNet Integration is only for making outbound calls from your app into your VNet.
+Regardless of the version used, virtual network integration gives your function app access to resources in your virtual network but doesn't grant private site access to your function app from the virtual network. Private site access means making your app accessible only from a private network like an Azure virtual network. virtual network integration is only for making outbound calls from your app into your virtual network.
 
-The VNet Integration feature:
+The virtual network integration feature:
 
 * Requires a Standard, Premium, or PremiumV2 App Service plan
 * Supports TCP and UDP
 * Works with App Service apps and function apps
 
-There are some things that VNet Integration doesn't support, including:
+There are some things that virtual network integration doesn't support, including:
 
 * Mounting a drive
-* AD integration
-* NetBios
+* Active Directory integration
+* NetBIOS
 
-Virtual network integration in Azure Functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration see:
+Virtual network integration in Azure Functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration, see:
 
-* [Regional VNET Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
-* [Gateway required VNet Integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+* [Regional virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
+* [Gateway required virtual network integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 To learn more about using virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
 
@@ -116,7 +116,7 @@ When you create a function app, you must create or link to a general-purpose Azu
 
 Currently, to use function triggers other than HTTP from within a virtual network, you must run your function app in an App Service plan or in an App Service Environment.
 
-For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. You would need to deploy your function app in an app service plan that provides virtual network integration with that virtual network in order to configure Azure Cosmos DB triggers from that resource. During preview, configuring VNET integration doesn't allow the Premium plan to trigger off that Azure Cosmos DB resource.
+For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. You would need to deploy your function app in an app service plan that provides virtual network integration with that virtual network in order to configure Azure Cosmos DB triggers from that resource. During preview, configuring virtual network integration doesn't allow the Premium plan to trigger off that Azure Cosmos DB resource.
 
 See [this list for all non-HTTP triggers](./functions-triggers-bindings.md#supported-bindings) to double-check what's supported.
 
@@ -138,9 +138,9 @@ When you integrate a function app in a Premium plan or an App Service plan with 
 
 To learn more about networking and Azure Functions:
 
-* [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md).
-* [Read the Functions networking FAQ](./functions-networking-faq.md).
-* [Learn more about virtual network integration with App Service/Functions](../app-service/web-sites-integrate-with-vnet.md).
-* [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md).
-* [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md).
-* [Connect to individual on-premises resources without firewall changes by using Hybrid Connections](../app-service/app-service-hybrid-connections.md).
+* [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
+* [Read the Functions networking FAQ](./functions-networking-faq.md)
+* [Learn more about virtual network integration with App Service/Functions](../app-service/web-sites-integrate-with-vnet.md)
+* [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
+* [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
+* [Connect to individual on-premises resources without firewall changes by using Hybrid Connections](../app-service/app-service-hybrid-connections.md)
