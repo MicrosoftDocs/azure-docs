@@ -1,5 +1,5 @@
 ---
-title: "Designer example #5: Classification to predict churn + appetency + up-selling"
+title: 'Designer: Classify, predict churn'
 titleSuffix: Azure Machine Learning
 description: This designer (preview) sample pipeline shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
 services: machine-learning
