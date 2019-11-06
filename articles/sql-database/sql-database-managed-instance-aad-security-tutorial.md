@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database managed instance security using Azure AD server principals (logins) | Microsoft Docs
+title: Azure SQL Database managed instance security using Azure AD server principals (logins) 
 description: Learn about techniques and features to secure a managed instance in Azure SQL Database, and use Azure AD server principals (logins)
 services: sql-database
 ms.service: sql-database

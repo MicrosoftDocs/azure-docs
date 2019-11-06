@@ -1,5 +1,5 @@
 ---
-title: 'Azure portal: SQL Database geo-replication | Microsoft Docs'
+title: 'Azure portal: SQL Database geo-replication '
 description: Configure geo-replication for a single or pooled database in Azure SQL Database using the Azure portal and initiate failover
 services: sql-database
 ms.service: sql-database

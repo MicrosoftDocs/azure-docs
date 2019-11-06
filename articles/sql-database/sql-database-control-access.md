@@ -1,5 +1,5 @@
 ---
-title: Granting access to Azure SQL Database and SQL Data Warehouse | Microsoft Docs
+title: Granting access to Azure SQL Database and SQL Data Warehouse 
 description: Learn about granting access to Microsoft Azure SQL Database and SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database and SQL Data Warehouse data discovery & classification | Microsoft Docs
+title: Azure SQL Database and SQL Data Warehouse data discovery & classification 
 description: Azure SQL Database and  data discovery & classification
 services: sql-database
 ms.service: sql-database

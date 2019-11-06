@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: Enable BYOK TDE - Azure SQL Database Managed Instance | Microsoft Docs"
+title: "PowerShell: Enable BYOK TDE - Azure SQL Database Managed Instance "
 description: "Learn how to configure an Azure SQL Managed Instance to start using BYOK Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell."
 services: sql-database
 ms.service: sql-database
