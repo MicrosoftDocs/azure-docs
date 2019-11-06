@@ -32,7 +32,7 @@
   items:
   - name: 1. Set up Azure AD configuration
     href: tutorial-1-decision-flow.md
-  - name: 2. Setup Development Environment
+  - name: 2. Set up Development Environment
     href: tutorial-2-setup-environment.md
   - name: 3. Connect to endpoint
     href: tutorial-3-connect-to-endpoint.md
