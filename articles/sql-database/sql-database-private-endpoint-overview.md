@@ -1,5 +1,5 @@
 ---
-title: Private Link for Azure SQL Database and Data Warehouse  | Microsoft Docs
+title: Private Link for Azure SQL Database and Data Warehouse  
 description: Overview of Private endpoint feature
 author: rohitnayakmsft
 ms.author: rohitna

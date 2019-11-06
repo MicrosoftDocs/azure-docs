@@ -1,5 +1,6 @@
 ---
-title: Use Azure Service Bus topics and subscriptions with Python
+<<<<<<< HEAD
+title: 'Quickstart: Use Azure Service Bus topics and subscriptions with Python'
 description: Learn how to use Azure Service Bus topics and subscriptions from Python.
 services: service-bus-messaging
 documentationcenter: python
@@ -12,12 +13,12 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
-ms.date: 10/29/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 
 ---
-# Use Service Bus topics and subscriptions with Python
+# Quickstart: Use Service Bus topics and subscriptions with Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
