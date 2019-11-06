@@ -105,6 +105,8 @@ The following sample *host.json* file has all possible options specified (exclud
                 "thresholdForSnapshotting": 1,
                 "uploaderProxy": null
             }
+            "SamplingExcludedTypes": "",
+            "SamplingIncludedTypes": "Dependency, Event, Exception, PageView, Request, Trace"
         }
     },
     "managedDependency": {
@@ -143,7 +145,19 @@ Controls options for Application Insights, including [sampling options](./functi
         "samplingSettings": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 20
+          "EvaluationInterval": "00:00:15",
+          "InitialSamplingPercentage": 0,
+          "MaxSamplingPercentage": 100,
+          "MinSamplingPercentage": 0.1,
+          "MovingAverageRatio":0.25,
+          "SamplingPercentageDecreaseTimeout": "00:02:00",
+          "SamplingPercentageIncreaseTimeout": "00:15:00"
         }
+    "SamplingExcludedTypes": "",
+    "SamplingIncludedTypes": "Dependency, Event, Exception, PageView, Request, Trace",
+    "EnableLiveMetrics": true,
+    "EnableDependencyTracing":true,
+    "EnablePerformanceCountersCollection":true
     }
 }
 ```
