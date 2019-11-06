@@ -20,7 +20,7 @@ Traditional SMP data warehouses use an Extract, Transform, and Load (ETL) proces
 > [!NOTE]  
 > The COPY statement is currently in public preview. To provide feedback, send email to the following distribution list: sqldwcopypreview@service.microsoft.com.
 >
-</br>
+
  
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
