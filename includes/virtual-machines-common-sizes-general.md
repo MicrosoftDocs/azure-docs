@@ -96,7 +96,7 @@ Standard\_E48a\_v4**|48|192|384|32| | |
 Standard\_E64a\_v4**|64|256|512|32| | | 
 Standard\_E96a\_v4**|96|384|768|32| | | 
 
-** These sizes are in Preview.  If you are interested in trying out these larger sizes, [click here to sign up](https://aka.ms/AzureAMDLargeVMPreview).
+** These sizes are in Preview.  If you are interested in trying out these larger sizes, [go here to sign up](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## Dv3-series <sup>1</sup>
 
