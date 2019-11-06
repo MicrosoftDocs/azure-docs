@@ -39,7 +39,7 @@ Specific tool support is summarized as follows.
 Azure Migrate Server Assessment | Assessment | Try out server assessment for [Hyper-V](tutorial-prepare-hyper-v.md) and [VMware](tutorial-prepare-vmware.md).
 Cloudamize | Assessment | [Learn more](https://www.cloudamize.com/platform#tab-0).
 CorentTech | Assessment | [Learn more](https://www.corenttech.com/).
-Turbonomic | Assessment | [Learn more](https://turbonomic.com/solutions/technologies/azure-cloud/).
+Turbonomic | Assessment | [Learn more](https://turbonomic.com/).
 Azure Migrate Server Migration | Migration | Try out server migration for [Hyper-V](tutorial-migrate-hyper-v.md) and [VMware](tutorial-migrate-vmware.md).
 Carbonite | Migration | [Learn more](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure).
 CorentTech | Migration | [Learn more](https://www.corenttech.com/).
