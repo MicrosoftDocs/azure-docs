@@ -50,7 +50,7 @@ Azure AD also provides Azure Active Directory B2C so that organizations can  sig
 
 ### Security tokens
 
-Security tokens contain information about users and apps. Azure AD uses JSon based tokens (JWTs) that contain claims. A claim provides assertions about one entity to another. Applications can use claims for various tasks such as:
+Security tokens contain information about users and apps. Azure AD uses JSON based tokens (JWTs) that contain claims. A claim provides assertions about one entity to another. Applications can use claims for various tasks such as:
 
 * Validating the token
 * Identifying the subject's directory tenant
