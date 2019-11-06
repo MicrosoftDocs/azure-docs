@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure SQL Database | Microsoft Docs
+title: How to configure Azure SQL Database 
 description: Learn how to configure and manage Azure SQL Database.
 services: sql-database
 ms.service: sql-database

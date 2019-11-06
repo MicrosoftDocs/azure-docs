@@ -1,5 +1,5 @@
 ---
-title: Replication to Azure SQL Database | Microsoft Docs"
+title: Replication to Azure SQL Database "
 description: Learn about using SQL Server replication with Azure SQL Database single databases and databases in elastic pools
 services: sql-database
 ms.service: sql-database
