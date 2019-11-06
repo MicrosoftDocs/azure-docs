@@ -192,12 +192,12 @@ qsub -ac average_runtime=10 job_with_duration_of_10m.sh
 The following are the Grid Engine specific configuration options you can toggle to customize functionality:
 
 | SGE-Specific Configuration Options | Description |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| gridengine.slots                   | The number of slots for a given node to report to Grid Engine. The number of slots is the number of concurrent jobs a node can execute, this value defaults to the number of CPUs on a given machine. You can override this value in cases where you don't run jobs based on CPU but on memory, GPUs, etc.                                                     |
+| ---------------------------------- | ----------- |
+| gridengine.slots                   | The number of slots for a given node to report to Grid Engine. The number of slots is the number of concurrent jobs a node can execute, this value defaults to the number of CPUs on a given machine. You can override this value in cases where you don't run jobs based on CPU but on memory, GPUs, etc.   |
 | gridengine.slot_type               | The name of type of 'slot' a node provides. The default is 'execute'. When a job is tagged with the hard resource 'slot_type=', that job will *only* run on a machine of the same slot type. This allows you to create different software and hardware configurations per node and ensure an appropriate job is always scheduled on the correct type of node.  |
 | gridengine.ignore_fqdn             | Default: true. Set to false if all the nodes in your cluster are not part of a single DNS domain. |
-| gridengine.version                 | Default: '2011.11'. This is the Grid Engine version to install and run. This is currently the default and *only* option. In the future additional versions of the Grid Engine software may be supported.                                                                                                                                                       |
-| gridengine.root                    | Default: '/sched/sge/sge-2011.11' This is where the Grid Engine will be installed and mounted on every node in the system. It is recommended this value not be changed, but if it is it should be set to the same value on **every** node in the cluster.                                                                                                      |
+| gridengine.version                 | Default: '2011.11'. This is the Grid Engine version to install and run. This is currently the default and *only* option. In the future additional versions of the Grid Engine software may be supported. |
+| gridengine.root                    | Default: '/sched/sge/sge-2011.11' This is where the Grid Engine will be installed and mounted on every node in the system. It is recommended this value not be changed, but if it is it should be set to the same value on **every** node in the cluster.   |
 
 
 CycleCloud supports a `standard set <autostop-attributes>` of autostop attributes for Grid Engine.

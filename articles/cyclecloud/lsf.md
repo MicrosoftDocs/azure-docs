@@ -1,6 +1,7 @@
 ---
 title: Azure CycleCloud IBM Spectrum LSF Integration | Microsoft Docs
 description: LSF scheduler configuration in Azure CycleCloud.
+author: mvrequa
 ms.date: 11/01/2019
 ms.author: mirequa
 ---
@@ -8,41 +9,43 @@ ms.author: mirequa
 # IBM Spectrum LSF
 
 Starting in LSF 10.1 FixPack 9 (10.1.0.9) Azure CycleCloud is a native provider
-for Resource Connector. IBM provides [documentation](https://www.ibm.com/support/knowledgecenter/en/SSWRJV_10.1.0/lsf_resource_connector/lsf_rc_cycle_config.html). These resources
-provide instruction on configuring the LSF Master node to connect to CycleCloud.
-
+for Resource Connector. IBM provides [documentation](https://www.ibm.com/support/knowledgecenter/en/SSWRJV_10.1.0/lsf_resource_connector/lsf_rc_cycle_config.html). These resources provide instruction on configuring the LSF Master node to connect to CycleCloud.
 
 ## Supported Scenarios of the CycleCloud LSF Cluster type
 
 LSF can "borrow" hosts from Azure to run jobs in an on-demand way, adding and 
 removing hosts as needed. The LSF 
 cluster type is flexible to handle several scenarios in a single cluster:
+
 1. High throughput jobs (CPU & GPU)
 2. Tightly coupled (MPI, CPU & GPU)
 3. Low Priority
 
-These scenarios are handled by configuration of multiple nodearrays
-and LSF properties in concert. The nodearrays are pre-configured in 
-CycleCloud. Proper configuration of LSF enables the various job scenarios.
+These scenarios are handled by configuration of multiple nodearrays and LSF properties in concert. The nodearrays are pre-configured in  CycleCloud. Proper configuration of LSF enables the various job scenarios.
 
-When LSF is configured in accordance with these recommondations, `bsub` resource requirements `-R` can be used in the following manner:
+When LSF is configured in accordance with these recommendations, `bsub` resource requirements `-R` can be used in the following manner:
 
 Use the placementGroup resource to run a job with InfiniBand connected network.
+
 ```
 -R "span[ptile=2] select[nodearray=='ondemandmpi' && cyclecloudmpi] same[placementgroup]"
 ```
+
 Use the placementGroup along with `-ngpus` to run a tightly coupled job with GPU 
 acceleration.
+
 ```
 -R "span[ptile=1] select[nodearray=='gpumpi' && cyclecloudmpi] same[placementgroup] -ngpus 2
 ```
 
 Run GPU enabled jobs in a parallel manner.
+
 ```
 -R select[nodearray=='gpu' && !cyclecloudmpi && !cyclecloudlowprio] -ngpus 1
 ```
 
 Run a large burst job on lowpriority VMs.
+
 ```
 -J myArr[1000] -R select[nodearray=='lowprio' && cyclecloudlowprio]
 ```
@@ -52,7 +55,7 @@ Run a large burst job on lowpriority VMs.
 To enable these scenarios as described, add a number of shared
 resource types to _lsb.shared_.
 
-```
+``` 
    cyclecloudhost  Boolean  ()       ()       (instances from Azure CycleCloud)
    cyclecloudmpi  Boolean   ()       ()       (instances that support MPI placement)
    cyclecloudlowprio  Boolean ()     ()       (instances that low priority / interruptible from Azure CycleCloud)
@@ -61,8 +64,7 @@ resource types to _lsb.shared_.
    instanceid String     ()       ()       (unique host identifier)
 ```
 
-It's possible that `cyclecloudlowprio` can be left out, but it provides an
-additional check that jobs are running on their intended VM tenancy.
+It's possible that `cyclecloudlowprio` can be left out, but it provides an additional check that jobs are running on their intended VM tenancy.
 
 ### LSF Provider Template for CycleCloud
 
@@ -71,7 +73,7 @@ through the provider template. These configurations are a subset of the complete
 
 Here is an example LSF template for Cyclecloud from _cyclecloudprov_templates.json_:
 
-```json
+``` json
 {
     "templateId": "ondemand",
     "attributes": {
@@ -103,8 +105,7 @@ nodearray configuration. The only required LSF template are:
 * templateId
 * nodeArray
 
-Others are inferred from the CycleCloud configuration, can be omitted, or aren't
-necessary at all.
+Others are inferred from the CycleCloud configuration, can be omitted, or aren't necessary at all.
 
 * imageId - Azure VM Image eg. `"/subscriptions/xxxxxxxx-xxxx-xxxx-xxx-xxxxxxxxxxxx/resourceGroups/my-images-rg/providers/Microsoft.Compute/images/lsf-execute-201910230416-80a9a87f"` override for CycleCloud cluster configuration.
 * subnetId - Azure subnet eg. `"resource_group/vnet/subnet"` override for CycleCloud cluster configuration.
