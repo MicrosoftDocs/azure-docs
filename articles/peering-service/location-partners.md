@@ -25,7 +25,7 @@ This article provides information on the connectivity providers that are partner
 
 ## Peering Service partners list
 
-The table in this article provides information on the Peering Service connectivity partners [Preview] and their associated market.
+The table in this article provides information on the Peering Service connectivity partners (Preview) and their associated market.
 
 | **Partners** | **Market**|
 |-----------|---------|
