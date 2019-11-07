@@ -36,33 +36,12 @@ In this article we will cover:
 
 ## Differences between Kubernetes clusters
 
-### AKS with Virtual Machine Scale Sets vs. Availability Sets
+AKS clusters and non-AKS Kubernetes clusters provide different capabilities and options.  The following table provides details on the important technology differences.
 
-Azure virtual machine scale sets let you create and manage a group of load balanced VMs. An Azure Availability Set is a logical grouping capability for isolating VM resources from each other when they're deployed. Virtual Machine Scale Sets provide capabilites beyond what can be achieved with Availablity Sets.
-
-*TODO
-*TODO
-*TODO
-
-### ACS vs AKS
-
-ACS and AKS differ in some key areas that affect migration. Before any migration, you should review and plan to address the following differences:
-
-* AKS nodes use [managed disks](../virtual-machines/windows/managed-disks-overview.md).
-    * Unmanaged disks must be converted before you can attach them to AKS nodes.
-    * Custom `StorageClass` objects for Azure disks must be changed from `unmanaged` to `managed`.
-    * Any `PersistentVolumes` should use `kind: Managed`.
-* AKS supports [multiple node pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools).
-* Nodes based on Windows Server are currently in [preview in AKS](https://azure.microsoft.com/blog/kubernetes-on-azure/).
-* AKS supports a limited set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions).
-* AKS is a managed service with a hosted Kubernetes control plane. You might need to modify your applications if you've previously modified the configuration of your ACS masters.
-
-### AKS Engine vs AKS
-
-__TODO__ Add differences between two cluster types here
+TODO <BIG TABLE>
 
 
-## Azure attached Services
+## Existing Azure attached Services
 
 When migrating clusters, the following Azure resources should not need additional migration work. You will have to ensure they have the proper connectivtity with the new AKS cluster.
 
