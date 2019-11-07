@@ -59,7 +59,17 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### CLI
 
+To create a storage account with large file shares enabled, make sure to change the values below, then use the following command:
+
+```
 az storage account create –name youstorageacocunt -g yourresourcegroup -l eastuseuap –sku Standard_LRS –enable-large-file-share
+```
+
+### PowerShell
+
+```PowerShell
+New-AzStorageAccount -ResourceGroupName $rgname -Name $stoname -Location eastus2euap -SkuName Standard_LRS -EnableLargeFileShare;
+```
 
 ## Enable on existing account
 
@@ -80,6 +90,25 @@ If you receive the following error: "Large file shares are not available for the
 
 ### CLI
 
+You can enable large file shares on your existing accounts. If you do this, then the account will no longer be able to convert to GZRS, GRS, or RA-GRS. This choice is irreversible on this account.
+
+Use the following command to enable large file shares on your existing account:
+
+```bash
+az storage account update –name yourstorageacocunt -g yourresourcegroup –enable-large-file-share –sku Standard_LRS
+```
+
+### PowerShell
+
+You can enable large file shares on your existing accounts. If you do this, then the account will no longer be able to convert to GZRS, GRS, or RA-GRS. This choice is irreversible on this account.
+
+Use the following command to enable large file shares on your existing account:
+
+```PowerShell
+Set-AzStorageAccount -ResourceGroupName $rgname -Name $stoname -EnableLargeFileShare -SkuName $stotype -UpgradeToStorageV2;
+```
+
+
 ## Create a large file share
 
 ### Portal
@@ -93,6 +122,21 @@ Creating a large file share is almost identical to creating a standard file shar
 ![large-file-shares-create-share.png](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
 ### CLI
+
+```bash
+az storage share create \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare"
+```
+
+### PowerShell
+
+```PowerShell
+New-AzStorageShare `
+   -Name myshare `
+   -Context $storageAcct.Context
+```
 
 ## Expand existing file shares
 
