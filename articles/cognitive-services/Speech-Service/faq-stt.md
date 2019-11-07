@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/17/2019
 ms.author: panosper
 ---
 
@@ -67,6 +67,28 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 
 Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) if you require a higher scale.
 
+To increase concurrency for a custom model, we need the following information:
+
+- The region where the model is deployed.
+- The endpoint ID of the deployed model.
+
+To increase concurrency for a base models, we need the following information:
+
+- The region of your service,
+
+and either
+
+- an access token for you subrscription (see [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+
+or
+
+- the Resource ID for you subscription:
+  - Go to https://portal.azure.com,
+  - select `Cognitive Services` in the search box,
+  - from the displayed services pick the speech service you want the concurrency increased for,
+  - display the properties for this service,
+  - copy the complete `Resource ID`.
+
 **Q: Can I download my model and run it locally?**
 
 **A**: Models can't be downloaded and executed locally.
@@ -90,7 +112,7 @@ Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20fo
 
 **Q: What is the limit on the size of a dataset, and why is it the limit?**
 
-**A**: The current limit for a dataset is 2 GB. The limit is due to the restriction on the size of a file for HTTP upload. 
+**A**: The current limit for a dataset is 2 GB. The limit is due to the restriction on the size of a file for HTTP upload.
 
 **Q: Can I zip my text files so I can upload a larger text file?** 
 
@@ -150,6 +172,18 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 **Q: Can I just upload a list of words?**
 
 **A**: Uploading a list of words will add the words to the vocabulary, but it won't teach the system how the words are typically used. By providing full or partial utterances (sentences or phrases of things that users are likely to say), the language model can learn the new words and how they are used. The custom language model is good not only for adding new words to the system, but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn better. 
+
+## Tenant Model (Custom Speech with Office 365 data)
+
+**Q: What information is included in the Tenant Model, and how is it created?**
+
+**A:** A Tenant Model is built using [public group](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) emails and documents that can be seen by anyone in your organization. 
+ 
+**Q: What speech experiences are improved by the Tenant Model?**
+
+**A:** When the Tenant Model is enabled, created and published, it is used to improve recognition for any enterprise applications built using Speech Service; that also pass a user AAD token indicating membership to the enterprise. 
+ 
+The speech experiences built into Office 365, such as Dictation and PowerPoint Captioning, aren't changed when you create a Tenant Model for your Speech Service applications.
 
 ## Next steps
 

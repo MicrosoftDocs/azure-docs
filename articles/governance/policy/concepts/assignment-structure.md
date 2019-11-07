@@ -58,8 +58,11 @@ characters and **description** a maximum length of _512_ characters.
 ## Enforcement Mode
 
 The **enforcementMode** property provides customers the ability to test the outcome of a policy on
-existing resources without initiating the policy effect or triggering entries in the [Azure Activity log](../../../azure-monitor/platform/activity-logs-overview.md).
-This scenario is commonly referred to as "What If" and aligns to safe deployment practices.
+existing resources without initiating the policy effect or triggering entries in the
+[Azure Activity log](../../../azure-monitor/platform/activity-logs-overview.md). This scenario is
+commonly referred to as "What If" and aligns to safe deployment practices. **enforcementMode** is
+different from the [Disabled](./effects.md#disabled) effect, as that effect prevents resource
+evaluation from happening at all.
 
 This property has the following values:
 

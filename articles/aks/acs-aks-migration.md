@@ -19,8 +19,6 @@ If you're migrating to a newer version of Kubernetes, review [Kubernetes version
 
 Details for business continuity planning, disaster recovery, and maximizing uptime are beyond the scope of this document.  Read more about [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) to learn more.
 
-The scenarios where you want to utilize this document are:
-
 * Migrating AKS Cluster using Availability Sets to Virtual Machine Scale Sets
 * Migrating AKS cluster to use a [Standard SKU load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard)
 * Migrating from Azure Container Service (ACS) to AKS

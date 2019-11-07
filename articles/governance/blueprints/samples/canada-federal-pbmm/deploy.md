@@ -1,6 +1,6 @@
 ---
-title: Sample - Canada Federal PBMM blueprint - Deploy steps
-description: Deploy steps of theCanada Federal PBMM blueprint samples.
+title: Canada Federal PBMM blueprint sample - Deploy steps
+description: Deploy steps for the Canada Federal PBMM blueprint sample including blueprint artifact parameter details.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -147,7 +147,7 @@ articles to learn about the overview and control mapping:
 > [Canada Federal PBMM blueprints - Overview](./index.md)
 > [Canada Federal PBMM blueprints - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

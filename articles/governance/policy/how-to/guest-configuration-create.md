@@ -9,7 +9,8 @@ ms.service: azure-policy
 ---
 # How to create Guest Configuration policies
 
-Guest Configuration uses a [Desired State Configuration](/powershell/dsc) (DSC) resource module to
+Guest Configuration uses a
+[Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to
 create the configuration for auditing of the Azure machines. The DSC configuration defines the
 condition that the machine should be in. If the evaluation of the configuration fails, the Policy
 effect **auditIfNotExists** is triggered and the machine is considered **non-compliant**.
@@ -59,7 +60,8 @@ and publishing them to Azure Policy:
 ## Create custom Guest Configuration configuration and resources
 
 The first step to creating a custom policy for Guest Configuration is to create the DSC
-configuration. For an overview of DSC concepts and terminology, see [PowerShell DSC Overview](/powershell/dsc/overview/overview).
+configuration. For an overview of DSC concepts and terminology, see
+[PowerShell DSC Overview](/powershell/scripting/dsc/overview/overview).
 
 If your configuration only requires resources that are builtin with the Guest Configuration agent
 install, then you only need to author a configuration MOF file. If you need to run additional
@@ -112,11 +114,13 @@ return @{
 #### Scaffolding a Guest Configuration project
 
 For developers who would like to accelerate the process of getting started and working from sample
-code, a community project named **Guest Configuration Project** exists as a template for the [Plaster](https://github.com/powershell/plaster)
-PowerShell module. This tool can be used to scaffold a project including a working configuration and
-sample resource, and a set of [Pester](https://github.com/pester/pester) tests to validate the
-project. The template also includes task runners for Visual Studio Code to automate building and
-validating the Guest Configuration package. For more information, see the GitHub project [Guest Configuration Project](https://github.com/microsoft/guestconfigurationproject).
+code, a community project named **Guest Configuration Project** exists as a template for the
+[Plaster](https://github.com/powershell/plaster) PowerShell module. This tool can be used to
+scaffold a project including a working configuration and sample resource, and a set of
+[Pester](https://github.com/pester/pester) tests to validate the project. The template also includes
+task runners for Visual Studio Code to automate building and validating the Guest Configuration
+package. For more information, see the GitHub project
+[Guest Configuration Project](https://github.com/microsoft/guestconfigurationproject).
 
 ### Custom Guest Configuration configuration on Linux
 
@@ -145,7 +149,7 @@ baseline
 ```
 
 For more information, see
-[Write, Compile, and Apply a Configuration](/powershell/dsc/configurations/write-compile-apply-configuration).
+[Write, Compile, and Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
 ### Custom Guest Configuration configuration on Windows
 
@@ -175,7 +179,7 @@ AuditBitLocker
 ```
 
 For more information, see
-[Write, Compile, and Apply a Configuration](/powershell/dsc/configurations/write-compile-apply-configuration).
+[Write, Compile, and Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
 ## Create Guest Configuration custom policy package
 
@@ -242,8 +246,9 @@ them in Azure Key Vault. This design is implemented within custom DSC resources.
 1. Finally, within your custom resource use the client ID generated above to access Key Vault using
    the token available from the machine.
 
-   The `client_id` and url to the Key Vault instance can be passed to the resource as [properties](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema)
-   so the resource won't need to be updated for multiple environments or if the values need to be
+   The `client_id` and url to the Key Vault instance can be passed to the resource as
+   [properties](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) so
+   the resource won't need to be updated for multiple environments or if the values need to be
    changed.
 
 The following code sample can be used in a custom resource to retrieve secrets from Key Vault using
@@ -288,7 +293,7 @@ New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConf
 ```
 
 For more information about how to test with parameters, see the section below
-[Using parameters in custom Guest Configuration policies](/azure/governance/policy/how-to/guest-configuration-create#using-parameters-in-custom-guest-configuration-policies).
+[Using parameters in custom Guest Configuration policies](#using-parameters-in-custom-guest-configuration-policies).
 
 ## Create the Azure Policy definition and initiative deployment files
 
@@ -470,7 +475,8 @@ Guest Configuration, when auditing Windows machines, is an implementation of the
 State Configuration syntax. The DSC community has published tooling to convert exported Group Policy
 templates to DSC format. By using this tool together with the Guest Configuration cmdlets described
 above, you can convert Windows Group Policy content and package/publish it for Azure Policy to
-audit. For details about using the tool, see the article [Quickstart: Convert Group Policy into DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+audit. For details about using the tool, see the article
+[Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 Once the content has been converted, the steps above to create a package and publish it as Azure
 Policy will be the same as for any DSC content.
 

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop - Azure
+title: Windows 7 virtual machines Windows Virtual Desktop - Azure
 description: How to resolve issues for Windows 7 virtual machines (VMs) in a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
@@ -40,5 +40,5 @@ To fix this error, add the user to the Remote Desktop User group:
 4. Run the following command with `<username>` replaced by the name of the user you want to add:
    
    ```cmd
-   localgroup "Remote Desktop Users" <username> /add
+   net localgroup "Remote Desktop Users" <username> /add
    ```

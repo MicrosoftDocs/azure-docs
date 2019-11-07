@@ -1,5 +1,5 @@
 ---
-title: Copy data to Search index by using Azure Data Factory | Microsoft Docs
+title: Copy data to Search index by using Azure Data Factory 
 description: 'Learn about how to push or copy data to an Azure search index by using the Copy Activity in an Azure Data Factory pipeline.'
 services: data-factory
 documentationcenter: ''
@@ -176,7 +176,7 @@ The following table specifies whether an Azure Search data type is supported or 
 | String Array | N |
 | GeographyPoint | N |
 
-Currently other data types e.g. ComplexType are not supported. For a full list of Azure Serach supported data type, see [Supported data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
+Currently other data types e.g. ComplexType are not supported. For a full list of Azure Search supported data type, see [Supported data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

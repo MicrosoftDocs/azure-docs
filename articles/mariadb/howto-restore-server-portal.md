@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 10/25/2019
 ---
 
 # How to backup and restore a server in Azure Database for MariaDB using the Azure portal
@@ -68,10 +68,13 @@ The following steps restore the sample server to a point-in-time:
 
 5. Once the restore finishes, locate the new server that is created to verify the data was restored as expected.
 
->[!Note]
->Note the new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
+
+The new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
+
+The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
 
 ## Geo restore
+
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MariaDB is available.  
 
 1. Select **Databases** > **Azure Database for MariaDB**. You can also type **MariaDB** in the search box to find the service.
@@ -87,9 +90,12 @@ If you configured your server for geographically redundant backups, a new server
 
 3. Fill out the rest of the form with your preferences. You can select any **Location**. After selecting the location, you can select **Pricing Tier**. By default the parameters for the existing server you are restoring from are displayed. You can click **OK** without making any changes to inherit those settings. Or you can change **Compute Generation** (if available in the region you have chosen), number of **vCores**, **Backup Retention Period**, and **Backup Redundancy Option**. Changing **Pricing Tier** (Basic, General Purpose, or Memory Optimized) or **Storage** size during restore is not supported.
 
->[!Note]
->The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
+The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
+
+The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
+
 
 ## Next steps
-- Learn more about the service's [backups](concepts-backup.md).
-- Learn more about [business continuity](concepts-business-continuity.md) options.
+- Learn more about the service's [backups](concepts-backup.md)
+- Learn about [replicas](concepts-read-replicas.md)
+- Learn more about [business continuity](concepts-business-continuity.md) options
