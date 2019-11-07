@@ -58,7 +58,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
     node sample_device.js
     ```
 
-1. You see messages saying that the device has sent telemetry and its properties. The device is now ready to receive commands and property updates. Don't close this terminal, you need it later to confirm the service samples also worked.
+1. You see messages saying that the device has sent telemetry and its properties. The device is now ready to receive commands and property updates. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
 ## Build the solution
 
@@ -78,61 +78,69 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 
 ### Read a property
 
-1. When you connect the device in the terminal, you  see the following message:
+1. When you connected the device in the terminal, you saw the following message:
 
     ```cmd/sh
     reported state property as online
     ```
 
-1. Open the file **get_digital_twin.js**. Replace the `deviceID` with your device ID and save the file.
+1. Open the file **get_digital_twin.js**. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
 
-1. Go to the terminal you opened for running service sample, and run following command:
+1. Go to the terminal you opened for running the service sample, and run the following command:
 
     ```cmd/sh
     node get_digital_twin.js
     ```
 
-1. In the output, under the _environmentalSensor_ component, you see the same state has been reported:
+1. In the output, under the _environmentalSensor_ component, you see the state has been reported as online:
 
     ```JSON
-    reported state property as online
+    "state": {
+      "reported": {
+        "value": "online"
+      }
     ```
 
 ### Update a writable property
 
 1. Open the file **update_digital_twin_property.js**.
 
-1. At the beginning of the file, there's a set of constants defined with uppercase placeholders. Replace the **deviceID** with your actual device ID, update the constants with the following values, and save the file:
+1. At the beginning of the file, there's a set of constants defined with uppercase placeholders. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your actual device ID, update the remaining constants with the following values, and save the file:
 
     ```javascript
-    const componentName = 'environmentalSensor';
+    const interfaceInstanceName = 'environmentalSensor';
     const propertyName = 'brightness';
-    const propertyValue = 60;
+    const propertyValue = 42;
     ```
 
-1. Go to the terminal you opened for running service sample, and use the following command to run the sample:
+1. Go to the terminal you opened for running the service sample, and use the following command to run the sample:
 
     ```cmd/sh
     node update_digital_twin_property.js
     ```
 
-1. In the terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_, you see the new brightness value 60.
+1. In the terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_, you see the new brightness value is 42.
 
     ```json
-        "environmentalSensor": {
+    "environmentalSensor": {
         "name": "environmentalSensor",
         "properties": {
-          "brightness": {
+          "name": {
             "reported": {
-              "value": 60,
+              "value": "Name",
               "desiredState": {
                 "code": 200,
-                "version": 14,
+                "version": 12,
                 "description": "helpful descriptive text"
               }
             },
             "desired": {
-              "value": 60
+              "value": "Name"
+            }
+          },
+          "brightness": {
+            "desired": {
+              "value": 42
             }
           },
           "state": {
@@ -147,7 +155,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 1. Go to your _device_ terminal, you see the device has received the update:
 
     ```cmd/sh
-    Received an update for brightness: 60
+    Received an update for brightness: 42
     updated the property
     ```
 2. Go back to your _service_ terminal, run below command again to confirm the property has been updated.
@@ -160,7 +168,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     ```json
       "brightness": {
         "reported": {
-          "value": 60,
+          "value": 42,
           }
        }
     ```
@@ -169,14 +177,14 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 
 1. Open the file **invoke_command.js**.
 
-1. At the beginning of the file, replace the `deviceID` with your actual device ID. Update the constants with the following values, and then save the file:
+1. At the beginning of the file, replace the `<DEVICE_ID_GOES_HERE>` placeholder with your actual device ID. Update the remaining constants with the following values, and then save the file:
 
     ```javascript
     const interfaceInstanceName = 'environmentalSensor';
     const commandName = 'blink';
     ```
 
-1. Go to the terminal you opened for running service sample. Use the following command to run the sample:
+1. Go to the terminal you opened for running the service sample. Use the following command to run the sample:
 
     ```cmd/sh
     node invoke_command.js
@@ -185,11 +193,11 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 1. In the terminal, success looks like the following output:
 
     ```cmd/sh
-    invoking command blink on component environmentalSensor for device test...
+    invoking command blink on component environmentalSensor for device <device ID>...
     {
       "result": "helpful response text",
       "statusCode": 200,
-      "requestId": "33e536d3-14f7-4105-88f3-629b9933851c",
+      "requestId": "<some ID value>",
       "_response": "helpful response text"
     }
     ```
@@ -201,11 +209,11 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     acknowledgement succeeded.
     ```
 
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-clean-resources.md)]
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## Next steps
 
-In this quickstart, you've learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
+In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
 
 > [!div class="nextstepaction"]
 > [How-to: Connect to and interact with a device](howto-develop-solution.md)
