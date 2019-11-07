@@ -130,6 +130,21 @@ When no longer needed, delete the resource group. This deletes the Key Vault and
 2. Select **Delete resource group**.
 3. In the **TYPE THE RESOURCE GROUP NAME:** box, enter in the name of the resource group and select **Delete**.
 
+## Troubleshooting
+
+If your Key Vault is running on an different Microsoft account than the one you're logged in to Visual Studio (for example, The Key Vault is running on your Work Account, but Visual Studio is using your private Account) you get an error in your Program.cs file, that Visual Studio can't get access to the Key Vault. To fix this issue:
+
+1. Go to the [Azure portal](https://portal.azure.com) and open your Key Vault.
+
+1. Choose **Access policies**, then **Add Access Policy**, and choose the account you are logged in with as Principal.
+
+1. In Visual Studio, choose **File** > **Account Settings**.
+Select **Add an account** from the **All account** section. Sign in with the account you have chosen as Principal of your access policy.
+
+1. Choose **Tools** > **Options**, and look for **Azure Service Authentication**. Then select the account you just added to Visual Studio.
+
+Now, when you debug your application, Visual Studio connects to the account your Key Vault is located on.
+
 ## How your ASP.NET Core project is modified
 
 This section identifies the exact changes made to an ASP.NET project when adding the Key Vault connected service using Visual Studio.
