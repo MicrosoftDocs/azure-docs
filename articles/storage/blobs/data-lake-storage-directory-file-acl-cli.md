@@ -97,64 +97,6 @@ This example reveals whether a directory named `my-directory` exists in the `my-
 az storage blob directory exists -c my-file-system -d my-directory --account-name mystorageaccount 
 ```
 
-## Get directory permissions
-
-Get the ACL of a directory by using the `az storage blob directory access show` command.
-
-This example gets the ACL of a directory, and then prints the ACL to the console.
-
-```azurecli
-az storage blob directory access show -d my-directory -c my-file-system --account-name mystorageaccount
-```
-
-The output might look something like the following:
-
-![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
-
-In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-## Set directory permissions
-
-You can set the ACL and change the owning user or group of a directory.
-
-### Set the ACL
-
-Use the `az storage blob directory access set` command to set the ACL (permissions) of a directory. 
-
-This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
-
-```azurecli
-az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
-```
-
-The output would look like the following:
-
-![Set ACL output](./media/data-lake-storage-directory-file-acl-cli/set-acl.png)
-
-In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-Another way to set this permission is to use the `az storage blob directory access update` command and provide the short form of the ACL.
-
-```azurecli
-az storage blob directory access update --permissions "rwxrwxrwx" -d my-directory -c my-file-system --account-name mystorageaccount
-```
-
-### Set the owning user
-
-Set the `--owner` parameter to the entity id or User Principal Name (UPN) of a user. 
-
-```azurecli
-az storage blob directory access update --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -d my-directory -c my-file-system --account-name mystorageaccount
-```
-
-### Set the owning user
-
-Set the `--group` parameter to the entity id or User Principal Name (UPN) of a group.
-
-```azurecli
-az storage blob directory access update --group xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -d my-directory -c my-file-system --account-name mystorageaccount
-```
-
 ## Download from a directory
 
 Download a file from a directory by using the `az storage blob directory download` command.
@@ -225,9 +167,21 @@ This example deletes a file named `my-file.txt`
 az storage blob delete -c my-file-system -b my-file.txt --account-name mystorageaccount 
 ```
 
-## Get file permissions
+## Manage permissions
 
-Get the access permissions of a file by using the `az storage blob access show` command. 
+You can get, set, and update access permissions of directories and files.
+
+### Get directory and file permissions
+
+Get the ACL of a **directory** by using the `az storage blob directory access show` command.
+
+This example gets the ACL of a directory, and then prints the ACL to the console.
+
+```azurecli
+az storage blob directory access show -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
+Get the access permissions of a **file** by using the `az storage blob access show` command. 
 
 This example gets the ACL of a file and then prints the ACL to the console.
 
@@ -235,51 +189,65 @@ This example gets the ACL of a file and then prints the ACL to the console.
 az storage blob access show -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 
-The output might look something like the following:
+The following image shows the output after getting the ACL of a directory.
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/get-acl-file.png)
+![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
 
-In this example, the owning user has read, and write permissions. The owning group has only read permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-## Set file permissions
+### Set directory and file permissions
 
-You can set the ACL and change the owning user or group of a file.
+Use the `az storage blob directory access set` command to set the ACL of a **directory**. 
 
-## Set the ACL
+This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
-Use the `az storage blob access set` command to set the acl of a file. 
+```azurecli
+az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
+Use the `az storage blob access set` command to set the acl of a **file**. 
 
 This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
 az storage blob access set -a "user::rw-,group::rw-,other::-wx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
-The output would look like the following:
+The following image shows the output after setting the ACL of a file.
 
 ![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
 In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-Another way to set this permission is to use the `az storage blob access update` command and provide the short form of the ACL.
+### Update directory permissions
+
+Another way to set this permission is to use the `az storage blob directory access update` or `az storage blob access update` command. 
+
+Update the ACL of a directory or file by setting the `-permissions` parameter to the short form of an ACL.
+
+This example updates the ACL of a **directory**.
+
+```azurecli
+az storage blob directory access update --permissions "rwxrwxrwx" -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
+This example updates the ACL of a **file**.
 
 ```azurecli
 az storage blob access update --permissions "rwxrwxrwx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 
-### Set the owning user
+You can also update the owning user and group of a directory or file by setting the `--owner` or `group` parameters to the entity ID or User Principal Name (UPN) of a user. 
 
-Set the `--owner` parameter to the entity id or User Principal Name (UPN) of a user. 
+This example changes the owner of a directory. 
+
+```azurecli
+az storage blob directory access update --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
+This example changes the owner of a file. 
 
 ```azurecli
 az storage blob access update --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
-```
-
-### Set the owning user
-
-Set the `--group` parameter to the entity id or User Principal Name (UPN) of a group.
-
-```azurecli
-az storage blob access update --group xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 
 ## See also
