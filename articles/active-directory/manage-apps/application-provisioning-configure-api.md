@@ -111,7 +111,7 @@ Use the template ID retrieved for your application in the last step to create an
   "name": "applicationtemplate_instantiate"
 }-->
 
-```http
+```msgraph-interactive
 POST https://graph.microsoft.com/beta/applicationTemplates/{id}/instantiate
 Content-type: application/json
 
@@ -229,7 +229,7 @@ Enabling provisioning requires that a job be created. Use the request below to c
   "blockType": "request",
   "name": "create_synchronizationjob_from_synchronization"
 }-->
-```http
+```msgraph-interactive
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 Content-type: application/json
 
@@ -495,7 +495,7 @@ Content-length: 2577
 
 
 ## Step 9: Monitor provisioning events using the provisioning logs
-In addition to monitoring the status of the provisioning job, you can use the provisioning logs to query for all the events that are occurring (e.g. query for a particular user and determine if they were successfully provisionined).
+In addition to monitoring the status of the provisioning job, you can use the provisioning logs to query for all the events that are occurring (e.g. query for a particular user and determine if they were successfully provisioned).
 
 **Request**
 ```msgraph-interactive
