@@ -14,10 +14,10 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 10/07/2019
+ms.lastreviewed: 11/07/2019
 ---
 
 # Push notifications with Azure Notification Hubs: Frequently asked questions
