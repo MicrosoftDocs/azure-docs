@@ -47,7 +47,7 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 2. Create **datasets** to represent input and output data for the copy operation.
 3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data to search index, see [JSON example: Copy data from on-premises SQL Server to an Azure Cognitive Search index](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) section of this article.
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data to search index, see [JSON example: Copy data from on-premises SQL Server to an Azure Cognitive Search index](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to a search Index:
 
@@ -108,7 +108,7 @@ The following table specifies whether an Azure Cognitive Search data type is sup
 | String Array | N |
 | GeographyPoint | N |
 
-## JSON example: Copy data from on-premises SQL Server to an Azure Cognitive Search index
+## JSON example: Copy data from on-premises SQL Server to Azure Cognitive Search index
 
 The following sample shows:
 
