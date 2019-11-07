@@ -67,13 +67,13 @@ To create a HDInsight cluster with a Data Lake Storage Gen1 account as an additi
     ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
 
     * **Selection method**: use one of the following options:
+
             * To specify a storage account that is part of your Azure subscription,  select **My subscriptions**, and then select the storage account.
             * To specify a storage account that is outside your Azure subscription, select **Access key**, and then provide the information for the outside storage account.
 
     * **Default container**: use either the default value or specify your own name.
-
-    * Additional storage accounts: add more Azure storage accounts as the additional storage.
-    * Data Lake Store access: configure access between the Data Lake Storage Gen1 account and HDInsight cluster. For instructions see [Configure Data Lake Storage Gen1 access](#configure-data-lake-storage-gen1-access).
+    * **Additional storage accounts**: add more Azure storage accounts as the additional storage.
+    * **Data Lake Store access**: configure access between the Data Lake Storage Gen1 account and HDInsight cluster. For instructions see [Configure Data Lake Storage Gen1 access](#configure-data-lake-storage-gen1-access).
 
 ## Configure Data Lake Storage Gen1 access
 
@@ -145,7 +145,7 @@ If you are using Data Lake Storage Gen1 as additional storage, you must assign p
 
 ![Assign service principal permissions to the HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3-1.png "Assign service principal permissions to the HDInsight cluster")
 
-## Verify cluster setup
+## <a name="verify-cluster-set-up"></a>Verify cluster setup
 
 After the cluster setup is complete, on the cluster blade, verify your results by doing either or both of the following steps:
 
