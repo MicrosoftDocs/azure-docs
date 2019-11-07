@@ -46,11 +46,11 @@ Applications must be represented by an app object in Azure Active Directory so t
 > > ![Already configured](media/quickstart-v2-android/green-check.png) Your application is configured with these attributes
 >
 > ### Step 2: Download the project 
-> * [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java)
+> * [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
 > ### Step 3: Configure your project
 > 1. Extract and open the Project in Android Studio.
-> 2. Inside app > src > main > res > raw, open auth_config_multiple_account.json and replace it with the following code:
+> 2. Inside **app** > **src** > **main** > **res** > **raw**, open **auth_config_multiple_account.json** and replace it with the following code:
 > ```javascript 
 > {
 >   "client_id" : "Enter_the_Application_Id_Here",
@@ -71,7 +71,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 > ```
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 3. Inside app > src > main > res > raw, open auth_config_single_account.json and replace it with the following code:
+> 3. Inside **app** > **src** > **main** > **res** > **raw**, open **auth_config_single_account.json** and replace it with the following code:
 > ```javascript 
 > {
 >   "client_id" : "Enter_the_Application_Id_Here",
@@ -106,8 +106,8 @@ Applications must be represented by an app object in Azure Active Directory so t
 >             note that the leading "/" is required for android:path
 >         -->
 >         <data android:scheme="msauth"
->             android:host="Enter_the_Package_Name_here"
->             android:path="Enter_the_Signature_Hash_here"
+>             android:host="Enter_the_Package_Name_Here"
+>             android:path="Enter_the_Signature_Hash_Here"
 >             android:scheme = "msauth" />
 >     </intent-filter>
 > </activity>
@@ -133,7 +133,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 > [!div renderon="docs"]
 > ## Step 1: Get the sample app
 >
-> [Clone the code](https://github.com/Azure-Samples/ms-identity-android-java.git).
+> [Download the code](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 >
 > ## Step 2: Run the sample app
 >
