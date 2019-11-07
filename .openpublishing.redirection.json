@@ -1221,6 +1221,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/frontdoor/waf-front-door-rate-limit-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-rate-limit-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-configure-ip-restriction.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-configure-ip-restriction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-configure-custom-response-code.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-configure-custom-response-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-policy-configure-bot-protection.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-policy-configure-bot-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-custom-rules-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-create-portal.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-create-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/frontdoor/waf-front-door-monitor.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-monitor",
       "redirect_document_id": false
