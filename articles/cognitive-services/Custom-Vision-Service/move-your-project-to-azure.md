@@ -1,7 +1,7 @@
 ---
 title: Move a limited trial project to Azure
 titleSuffix: Azure Cognitive Services
-description: Learn how to move a Limited Trial project to Azure. 
+description: Did you have a Limited Trial project in Custom Vision? This article shows you how to move it to Azure with a migration script. 
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme

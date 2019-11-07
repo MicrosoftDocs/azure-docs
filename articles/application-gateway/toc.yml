@@ -17,8 +17,6 @@
     href: quick-create-cli.md
 - name: Tutorials
   items:
-  - name: Enable web application firewall
-    href: application-gateway-web-application-firewall-portal.md
   - name: Secure with SSL
     href: create-ssl-portal.md
   - name: Host multiple sites
@@ -127,12 +125,6 @@
       items:
       - name: Configure SSL policy
         href: application-gateway-configure-ssl-policy-powershell.md
-  - name: Configure Web Application Firewall
-    items:
-    - name: Azure PowerShell
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: Azure CLI
-      href: tutorial-restrict-web-traffic-cli.md
   - name: Ingress for AKS 
     items:
     - name: Set up with existing Application Gateway 
