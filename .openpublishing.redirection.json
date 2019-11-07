@@ -772,7 +772,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
       "redirect_document_id": false
     },       
     {
