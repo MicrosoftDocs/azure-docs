@@ -68,8 +68,6 @@
   items:
   - name: Front Door FAQ
     href: front-door-faq.md
-  - name: WAF FAQ
-    href: waf-faq.md
 - name: Reference
   items:
   - name: Azure CLI
