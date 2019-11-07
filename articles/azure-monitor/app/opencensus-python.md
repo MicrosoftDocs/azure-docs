@@ -20,8 +20,6 @@ Azure Monitor supports distributed tracing, metric collection, and logging of Py
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor changes.
 
-
-
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
@@ -51,6 +49,8 @@ Install the OpenCensus Azure Monitor exporters:
 ```console
 python -m pip install opencensus-ext-azure
 ```
+
+For a full list of packages and integrations, see [OpenCensus packages](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus).
 
 > [!NOTE]
 > The `python -m pip install opencensus-ext-azure` command assumes that you have a `PATH` environment variable set for your Python installation. If you haven't configured this variable, you need to give the full directory path to where your Python executable is located. The result is a command like this: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
@@ -123,6 +123,10 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
     ```
 
 4. Now when you run the Python script, you should still be prompted to enter values, but only the value is being printed in the shell. The created `SpanData` will be sent to Azure Monitor. You can find the emitted span data under `dependencies`.
+
+5. For information on sampling in OpenCensus, take a look at [sampling in OpenCensus](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python).
+
+6. For details on telemetry correlation in your trace data, take a look at OpenCensus [telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python).
 
 ### Metrics
 
@@ -287,6 +291,8 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
     ```
 
 4. The exporter will send log data to Azure Monitor. You can find the data under `traces`.
+
+5. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
 
 ## Start monitoring in the Azure portal
 

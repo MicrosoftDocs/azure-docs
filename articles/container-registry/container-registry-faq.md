@@ -445,6 +445,8 @@ Configure the Docker proxy to output of the previous command and the port 8888 (
 
 - [How do I batch cancel runs?](#how-do-i-batch-cancel-runs)
 - [How do I include the .git folder in az acr build command?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [Does Tasks support GitLab for Source triggers?](#does-tasks-support-gitlab-for-source-triggers)
+- [What git repository management service does Tasks support?](#what-git-repository-management-service-does-tasks-support)
 
 ### How do I batch cancel runs?
 
@@ -459,11 +461,30 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
 
-```
+```sh
 !.git/**
 ```
 
 This setting also applies to the `az acr run` command.
+
+### Does Tasks support GitLab for Source triggers?
+
+We currently do not support GitLab for Source triggers.
+
+### What git repository management service does Tasks support?
+
+| Git service | Source context | Manual build | Auto build through commit trigger |
+|---|---|---|---|
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Yes | Yes |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Yes | Yes |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Yes | No |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Yes | No |
+
+## Run Error Message Troubleshooting
+
+| Error message | Troubleshooting guide |
+|---|---|
+|No access was configured for the VM, hence no subscriptions were found|This could happen if you are using `az login --identity` in your ACR Task. This is a transient error and occurs when the role assignment of your Managed Identity hasn't propagated. Waiting a few seconds before retrying works.|
 
 ## CI/CD integration
 

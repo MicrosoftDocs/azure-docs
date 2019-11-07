@@ -11,6 +11,9 @@ ms.author: raynew
 
 # Assess servers using imported data
 
+> [!NOTE]
+> If you don't yet see this feature in the Azure Migrate portal, hang on. It will appear over the next week or so.
+
 This article explains how to assess on-premises servers with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), by importing server metadata using CSV. With this method of assessment, you don't need to set up the Azure Migrate appliance to create an assessment. This is useful if: 
 
 - You want to create a quick initial assessment before you deploy the appliance.

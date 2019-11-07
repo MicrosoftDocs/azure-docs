@@ -86,9 +86,19 @@ Binary classification charts (precision-recall, ROC, gain curve etc.) shown in a
 
 ## Datasets and Data Preparation
 
+These are known issues for Azure Machine Learning Datasets.
+
 ### Fail to read Parquet file from HTTP or ADLS Gen 2
 
-There is a known issue in AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. To fix this issue, please upgrade to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
+There is a known issue in AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. It will fail with `Cannot seek once reading started.`. To fix this issue, please upgrade `azureml-dataprep` to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
+
+### TypeError: mount() got an unexpected keyword argument 'invocation_id'
+
+This error occurs if you have an incompatible version between `azureml-core` and `azureml-dataprep`. If you see this error, upgrade `azureml-dataprep` package to a newer version (greater than or equal to 1.1.29).
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -144,16 +154,8 @@ If these steps don't solve the issue, try restarting the cluster.
 If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
 
 * Upgrade `azureml-sdk[automl]` package to the latest version.
-* Add `azure-dataprep` version 1.1.8 or above.
+* Add `azureml-dataprep` version 1.1.8 or above.
 * Add `pyarrow` version 0.11 or above.
-
-
-## Datasets
-
-These are known issues for Azure Machine Learning Datasets.
-
-+ **Failed to read parquet files on Azure Data Lake Storage Gen2**
-  Reading parquet files from Azure Data Lake Storage Gen2 datastores does not work if you have `azureml-dataprep==1.1.25` installed. It will fail with `Cannot seek once reading started.`. If you see this error, you can either install `azureml-dataprep<=1.1.24` or install `azureml-dataprep>=1.1.26`.
 
 ## Azure portal
 
@@ -262,3 +264,23 @@ This exception should come from your training scripts. You can look at the log f
 
 ### Horovod is shutdown
 In most cases, this exception means there was an underlying exception in one of the processes that caused horovod to shutdown. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easy to differentiate the logs. To find the exact error that caused horovod shutdown, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
+
+## Labeling projects issues
+
+Known issues with labeling projects.
+
+### Only datasets created on blob datastores can be used
+
+This is a known limitation of the current release. 
+
+### After creation, the project shows "Initializing" for a long time
+
+Manually refresh the page. Initialization should proceed at roughly 20 datapoints per second. The lack of autorefresh is a known issue. 
+
+### Bounding box cannot be drawn all the way to right edge of image 
+
+Try resizing the browser window. We are investigating to determine the cause of this behavior. 
+
+### When reviewing images, newly labeled images are not shown
+
+To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.

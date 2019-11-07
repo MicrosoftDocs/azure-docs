@@ -1,5 +1,5 @@
 ---
-title: Conditional split transformation in Azure Data Factory mapping data flow | Microsoft Docs
+title: Conditional split transformation in Azure Data Factory mapping data flow 
 description: Split data into different streams using the conditional split transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer

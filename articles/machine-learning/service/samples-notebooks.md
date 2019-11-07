@@ -21,7 +21,7 @@ The [example Azure Machine Learning Notebooks repository](https://github.com/azu
 
 This article shows you how to access the repository from the following environments:
 
-- [Azure Machine Learning compute instance](#notebookvm)
+- [Azure Machine Learning Notebook VM](#notebookvm)
 - [Bring your own notebook server](#byo)
 - [Data Science Virtual Machine](#dsvm)
 
@@ -29,7 +29,7 @@ This article shows you how to access the repository from the following environme
 > Once you've cloned the repository, you'll find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
 
 <a name="notebookvm"></a>
-## Get samples on Azure Machine Learning compute instance
+## Get samples on Azure Machine Learning Notebook VM
 
 The easiest way to get started with the samples is to complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the sample repository. No downloads or installation necessary.
 

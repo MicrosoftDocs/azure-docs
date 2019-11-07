@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 11/04/2019
 ms.author: dapine
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
 
 # Container support in Azure Cognitive Services
 
-Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of:
+Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available for a subset of Azure Cognitive Services, including parts of:
 
 > [!div class="checklist"]
 > * [Anomaly Detector][ad-containers]
@@ -128,13 +128,9 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-<<<<<<< HEAD
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
-=======
-[ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [tt-containers]: translator/how-to-install-containers.md
->>>>>>> refs/remotes/MicrosoftDocs/master

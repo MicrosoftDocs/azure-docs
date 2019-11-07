@@ -1,5 +1,5 @@
 ---
-title: Copy data to or from Azure SQL Database by using Data Factory | Microsoft Docs
+title: Copy data to or from Azure SQL Database by using Data Factory 
 description: Learn how to copy data from supported source data stores to Azure SQL Database or from SQL Database to supported sink data stores by using Data Factory.
 services: data-factory
 documentationcenter: ''
