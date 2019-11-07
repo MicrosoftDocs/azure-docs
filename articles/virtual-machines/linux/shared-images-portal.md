@@ -31,7 +31,7 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 
 | Resource | Description|
 |----------|------------|
-| **Managed image** | A basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from [generalized](#generalized-and-specialized-images) VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
+| **Managed image** | A basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from [generalized](shared-image-galleries.md#generalized-and-specialized-images) VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
 | **Snapshot** | A copy of a VHD that can be used to make an **image version**. Snapshots can be taken from a [specialized](shared-image-galleries.md#generalized-and-specialized-images) VM (one that hasn't been generalized) then used alone or with snapshots of data disks, to create a specialized image version.
 | **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
 | **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it within your organization. You can include information like whether the image is generalized of specialized, the operating system, minimum and maximum memory requirements, and release notes. It is a definition of a type of image. |
