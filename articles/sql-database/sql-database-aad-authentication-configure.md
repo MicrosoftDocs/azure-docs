@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Active Directory authentication - SQL 
+title: Configure Azure Active Directory authentication
 description: Learn how to connect to SQL Database, managed instance, and SQL Data Warehouse by using Azure Active Directory Authentication - after configuring Azure AD.
 services: sql-database
 ms.service: sql-database
