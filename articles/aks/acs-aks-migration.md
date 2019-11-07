@@ -15,12 +15,14 @@ ms.custom: mvc
 
 This article helps you plan and execute a successful migration to Azure Kubernetes Service (AKS). To help you make key decisions, this guide details the differences between non-AKS and AKS clusters and provides an overview of the migration process. This article doesn't cover every scenario, and where appropriate, the article contains links to more detailed information for planning a succesful migration.
 
-If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) and [AKS supported Kubernetes versions](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions) to understand the Kubernetes and AKS versioning strategies.
+This document focuses on the following scenarios:
 
 * Migrating an AKS Cluster using Availability Sets to Virtual Machine Scale Sets
 * Migrating an AKS cluster to use a [Standard SKU load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard)
 * Migrating from Azure Container Service (ACS) to AKS
 * Migrating from AKS Engine to AKS
+
+If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) and [AKS supported Kubernetes versions](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions) to understand the Kubernetes and AKS versioning strategies.
 
 In this article we will summarize:
 
