@@ -16,10 +16,10 @@ ms.author: martinco
 
 This operations reference guide describes the checks and actions you should take to secure the following areas:
 
-- **Identity and access management** - ability to manage the lifecycle of identities and their entitlements.
-- **Authentication management** - ability to manage credentials, define authentication experience, delegate assignment, measure usage, and define access policies based on enterprise security posture.
-- **Governance** - ability to assess and attest the access granted non-privileged and privileged identities, audit, and control changes to the environment.
-- **Operations** - optimize the operations Azure Active Directory (Azure AD).
+- **[Identity and access management](active-directory-ops-guide-iam.md)** - ability to manage the lifecycle of identities and their entitlements.
+- **[Authentication management](active-directory-ops-guide-auth.md)** - ability to manage credentials, define authentication experience, delegate assignment, measure usage, and define access policies based on enterprise security posture.
+- **[Governance](active-directory-ops-guide-govern.md)** - ability to assess and attest the access granted non-privileged and privileged identities, audit, and control changes to the environment.
+- **[Operations](active-directory-ops-guide-ops.md)** - optimize the operations Azure Active Directory (Azure AD).
 
 Some recommendations here might not be applicable to all customers’ environment, for example, AD FS best practices might not apply if your organization uses password hash sync.
 
@@ -38,4 +38,4 @@ Each section in this reference guide recommends assigning stakeholders to plan a
 
 ## Next steps
 
-Get started with the [identity and access management checks and actions](active-directory-ops-guide-iam.md).
+Get started with the [Identity and access management checks and actions](active-directory-ops-guide-iam.md).
