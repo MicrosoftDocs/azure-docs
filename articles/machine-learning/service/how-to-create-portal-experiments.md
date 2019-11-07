@@ -1,5 +1,5 @@
 ---
-title: Use Azure's automated ML interface to train & deploy models
+title: Build & deploy automated ML models
 titleSuffix: Azure Machine Learning
 description: Create, manage, and deploy automated machine learning experiments in Azure Machine Learning studio.
 services: machine-learning
