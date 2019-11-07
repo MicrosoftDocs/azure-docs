@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 11/06/2019
 ROBOTS: NOINDEX
 ---
 
@@ -126,7 +126,7 @@ To create a C# topology project in Visual Studio:
 
 1. In the **Create a new project** window, scroll to and pick **Storm Application**, then select **Next**.
 
-1. In the **Configure your new project** window, enter a **Project name** of **WordCount**, go to or create a **Location** directory path for the project, and then select **Create**.
+1. In the **Configure your new project** window, enter a **Project name** of *WordCount*, go to or create a **Location** directory path for the project, and then select **Create**.
 
     ![Storm application, Configure your new project dialog box, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
@@ -405,27 +405,26 @@ return topologyBuilder;
 
 You are now ready to submit the topology to your HDInsight cluster.
 
-> [!NOTE]
-> To submit and access Storm topologies in your HDInsight cluster from Visual Studio, you need to have at least co-administrator access to your subscription. To change administrators for a subscription, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md).
+1. In **Solution Explorer**, right-click the project, and choose **Submit to Storm on HDInsight**.
 
-1. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
+    > [!NOTE]  
+    > If prompted, enter the credentials for your Azure subscription. If you have more than one subscription, sign in to the one that contains your Storm on HDInsight cluster.
 
-   > [!NOTE]  
-   > If prompted, enter the credentials for your Azure subscription. If you have more than one subscription, sign in to the one that contains your Storm on HDInsight cluster.
+2. In the **Submit Topology** dialog box, under the **Storm Cluster** drop-down list, choose your Storm on HDInsight cluster, and then select **Submit**. You can check whether the submission is successful by viewing the **Output** pane.
 
-2. Select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor if the submission is successful by using the **Output** window.
+    When the topology has been successfully submitted, the **Storm Topologies View** window for the cluster should appear. Choose the **WordCount** topology from the list to view information about the running topology.
 
-   When the topology has been successfully submitted, the **Storm Topologies** for the cluster should appear. Select the **WordCount** topology from the list to view information about the running topology.
+    ![Storm topology view window, HDInsight cluster, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
 
-   > [!NOTE]  
-   > You can also view **Storm Topologies** from **Server Explorer**. Expand **Azure** > **HDInsight**, right-click a Storm on HDInsight cluster, and then select **View Storm Topologies**.
+    > [!NOTE]  
+    > You can also view **Storm Topologies** from **Server Explorer**. Expand **Azure** > **HDInsight**, right-click a Storm on HDInsight cluster, and then choose **View Storm Topologies**.
 
-   To view information about the components in the topology, double-click the component in the diagram.
+    To view information about the components in the topology, select a component in the diagram.
 
-3. From the **Topology Summary** view, select **Kill** to stop the topology.
+3. In the **Topology Summary** section, select **Kill** to stop the topology.
 
-   > [!NOTE]  
-   > Storm topologies continue to run until they are deactivated, or the cluster is deleted.
+    > [!NOTE]  
+    > Storm topologies continue to run until they are deactivated, or the cluster is deleted.
 
 ## Transactional topology
 
@@ -684,7 +683,7 @@ Although it's easy to deploy a topology to a cluster, in some cases, you may nee
     Console.ReadKey();
     ```
 
-1. Save the changes, and then select **F5** or choose **Debug** > **Start Debugging** to start the project. A console window should appear, and log status as the tests progress. When **Tests finished** appears, select any key to close the window.
+1. Save the changes, and then select **F5** or choose **Debug** > **Start Debugging** to start the project. A console window should appear, and log status as the tests progress. When `Tests finished` appears, select any key to close the window.
 
 1. Use **Windows Explorer** to locate the directory that contains your project. (For example: *C:\\Users\\\<your_user_name>\\source\\repos\\WordCount\\WordCount*.) Then in this directory, open *Bin*, and then select *Debug*. You should see the text files that were produced when the tests ran: *sentences.txt*, *counter.txt*, and *splitter.txt*. Open each text file and inspect the data.
 
@@ -709,7 +708,7 @@ Logged information can be viewed from the **Hadoop Service Log**, which is found
 
 To view errors that have occurred in a running topology, use the following steps:
 
-1. From **Server Explorer**, right-click the Storm on HDInsight cluster, and select **View Storm topologies**.
+1. From **Server Explorer**, right-click the Storm on HDInsight cluster, and select **View Storm Topologies**.
 
    For the **Spout** and **Bolts**, the **Last Error** column contains information on the last error.
 
@@ -751,18 +750,18 @@ For more ways to work with HDInsight and more Storm on HDInsight samples, see th
 
 **Microsoft SCP.NET**
 
-* [SCP programming guide](apache-storm-scp-programming-guide.md)
+* [SCP programming guide for Apache Storm in Azure HDInsight](apache-storm-scp-programming-guide.md)
 
 **Apache Storm on HDInsight**
 
 * [Deploy and manage Apache Storm topologies on Azure HDInsight](apache-storm-deploy-monitor-topology-linux.md)
-* [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md)
+* [Example Apache Storm topologies in Azure HDInsight](apache-storm-example-topology.md)
 
 **Apache Hadoop on HDInsight**
 
-* [Use Apache Hive with Apache Hadoop on HDInsight](../hadoop/hdinsight-use-hive.md)
-* [Use Apache Hadoop MapReduce with Apache Hadoop on HDInsight](../hadoop/hdinsight-use-mapreduce.md)
+* [What is Apache Hive and HiveQL on Azure HDInsight?](../hadoop/hdinsight-use-hive.md)
+* [Use MapReduce in Apache Hadoop on HDInsight](../hadoop/hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 
-* [Getting started with Apache HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Use Apache HBase in Azure HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
