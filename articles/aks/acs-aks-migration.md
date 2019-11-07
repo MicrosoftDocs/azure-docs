@@ -22,6 +22,7 @@ Details for business continuity planning, disaster recovery, and maximizing upti
 The scenarios where you want to utilize this document are:
 
 * Migrating AKS Cluster using Availability Sets to Virtual Machine Scale Sets
+* Migrating AKS cluster to use a [Standard SKU load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard)
 * Migrating from Azure Container Service (ACS) to AKS
 * Migrating from AKS Engine to AKS
 
