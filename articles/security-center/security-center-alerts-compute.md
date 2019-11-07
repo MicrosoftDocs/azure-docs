@@ -60,7 +60,7 @@ We detect threats at different levels:
     >[!NOTE]
     > If you choose not to install the agents on your hosts, you will only receive a subset of the threat detection benefits and alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
-* For **AKS cluster level**, there's threat detection monitoring based on Kubernetes audit logs analysis. To enable this **agentless** monitoring, add the Kubernetes option to your subscription from the **Pricing & settings** page (see [pricing](security-center-pricing.md)). To generate alerts at this level, Security Center monitors your AKS-managed services using the logs retrieved by AKS. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and creation of sensitive mounts. 
+* For **AKS cluster level**, there's threat detection monitoring based on Kubernetes audit logs analysis. To enable this **agentless** monitoring, add the Kubernetes option to your subscription from the **Pricing & settings** page (see [pricing](security-center-pricing.md)). To generate alerts at this level, Security Center monitors your AKS-managed services using the logs retrieved by AKS. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and creation of sensitive mounts.
 
     >[!NOTE]
     > Security Center generates detection alerts for Azure Kubernetes Service actions and deployments occurring after the Kubernetes option is enabled on the subscription settings. 
