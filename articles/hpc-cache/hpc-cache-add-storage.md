@@ -48,13 +48,16 @@ To define an Azure Blob container, enter this information.
 
 When finished, click **OK** to add the storage target.
 
+> [!NOTE]
+> If your storage account firewall is set to restrict access to selected networks only, use the temporary workaround documented in [Work around Blob storage account firewall settings](hpc-cache-blob-firewall-fix.md) to create Blob storage targets.
+
 ### Add the access control roles to your account
 
 Azure HPC Cache uses [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) to authorize the cache application to access your storage account for Azure Blob storage targets.
 
 The storage account owner must explicitly add the roles [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "HPC Cache Resource Provider".
 
-You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target.
+You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target. Keep in mind that it can take up to five minutes for the role settings to propagate through the Azure environment, so you should wait a few minutes after adding the roles before creating a storage target.
 
 Steps to add the RBAC roles:
 
@@ -98,7 +101,8 @@ Provide this information for an NFS-backed storage target:
 An NFS storage target can have multiple virtual paths, as long as each path represents a different export or subdirectory on the same storage system.
 
 Create all of the paths from one storage target.
-<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+You can [add and edit namespace paths](hpc-cache-edit-storage.md) on a storage target at any time.
 
 Fill in these values for each namespace path:
 
@@ -117,11 +121,29 @@ When finished, click **OK** to add the storage target.
 
 When you create a storage target that points to an NFS storage system, you need to choose the *usage model* for that target. This model determines how your data is cached.
 
-* Read heavy - If you mostly use the cache to speed up data read access, choose this option.
+There are three options:
 
-* Read/write - If clients use the cache to read and write, choose this option.
+* **Read heavy, infrequent writes** - Use this option if you want to speed up read access to files that are static or rarely changed.
 
-* Clients bypass the cache - Choose this option if your clients write data directly to the storage system without first writing to the cache.
+  This option caches files that clients read, but passes writes through to the back-end storage immediately. Files stored in the cache are never compared to the files on the NFS storage volume.
+
+  Do not use this option if there is a risk that a file might be modified directly on the storage system without first writing it to the cache. If that happens, the cached version of the file will never be updated with changes from the back end, and the data set will become inconsistent.
+
+* **Greater than 15% writes** - This option balances read and write performance. With this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly, because the cached files will have recent changes not stored on the back end.
+
+  Files in the cache are not checked against the files on back-end storage. Also, a file that a client has changed is stored in the cache only for up to an hour before it is written to the long-term storage system.
+
+* **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache. Files that clients request are cached, but any changes to those files from the client are passed back to the back-end storage system immediately.
+
+  With this usage model, the files in the cache are frequently checked against the back-end versions for updates. This verification allows files to be changed outside of the cache while maintaining data consistency.
+
+This table summarizes the differences between the usage models.
+
+| Usage model | Caching mode | Back-end verification | Maximum write-back delay |
+| ---- | ---- | ---- | ---- |
+| Read heavy, infrequent writes | Read | Never | None |
+| Greater than 15% writes | Read/write | Never | 1 hour |
+| Clients bypass the cache | Read | 30 seconds | None |
 
 ## Next steps
 
