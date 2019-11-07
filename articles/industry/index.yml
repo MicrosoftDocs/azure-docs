@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
-title: Industry for Azure documentation
+title: Azure for Industry documentation
 summary: Learn how to use Azure to build solutions for common industry use cases.
 brand: azure
 
 metadata:
-  title: Industry for Azure documentation
+  title: Azure for Industry documentation
   description: Learn how to use Azure to build solutions for common industry use cases.
   ms.service: azure-industry
   ms.topic: hub-page

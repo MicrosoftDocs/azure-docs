@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database service tiers - DTU-based purchase model '
+title: Service tiers - DTU-based purchase model
 description: Learn about service tiers in the  DTU-based purchase model for single and pooled databases to provide compute and storage sizes.  
 services: sql-database
 ms.service: sql-database
