@@ -26,6 +26,9 @@ Create Azure Cosmos DB resources using an Azure Resource Manager template. This 
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 
+> [!NOTE]
+> To create a container with large partition key, include the `"version":2` property within the `partitionKey` object in the previous template.
+
 ### Deploy via PowerShell
 
 To deploy the Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:

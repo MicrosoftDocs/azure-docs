@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database metrics and diagnostics logging 
+title: Metrics and diagnostics logging
 description: Learn how to enable diagnostics in Azure SQL Database to store information about resource utilization and query execution statistics.
 services: sql-database
 ms.service: sql-database

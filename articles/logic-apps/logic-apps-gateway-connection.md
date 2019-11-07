@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 11/06/2019
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
@@ -53,7 +53,7 @@ Azure Logic Apps supports read and write operations through the data gateway. Ho
 
 * You already [installed the on-premises data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md).
 
-* You have the [same Azure account and subscription](../logic-apps/logic-apps-gateway-install.md#requirements) that was used when installing that data gateway.
+* You're using the [same Azure account and subscription](../logic-apps/logic-apps-gateway-install.md#requirements) that was used when installing that data gateway. This Azure account must belong to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology).
 
 * Your gateway installation isn't already registered and claimed by another Azure gateway resource.
 
@@ -83,7 +83,7 @@ After you install the gateway on a local computer, create the Azure resource for
    | **Subscription** | Select the Azure subscription for the Azure account that was used for the gateway installation. The default subscription is based on the Azure account that you used to sign in. |
    | **Resource group** | The [Azure resource group](../azure-resource-manager/resource-group-overview.md) that you want to use |
    | **Location** | The same region or location that was selected for the gateway cloud service during [gateway installation](../logic-apps/logic-apps-gateway-install.md). Otherwise, your gateway installation won't appear in the **Installation Name** list. Your logic app location can differ from your gateway resource location. |
-   | **Installation Name** | Select a gateway installation, which appears in the list only when these conditions are met: <p><p>- Exists in the same region as the gateway resource that you want to create <br>- Unlinked to another Azure gateway resource <br>- Linked to the same Azure account that you're using to create the gateway resource <p><p>For more information, see the [Frequently asked questions](#faq) section. |
+   | **Installation Name** | Select a gateway installation, which appears in the list only when these conditions are met: <p><p>- The gateway installation uses the same region as the gateway resource that you want to create. <br>- The gateway installation isn't linked to another Azure gateway resource. <br>- The gateway installation is linked to the same Azure account that you're using to create the gateway resource. <br>- Your Azure account belongs to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology) and is the same account that was used for the gateway installation. <p><p>For more information, see the [Frequently asked questions](#faq) section. |
    |||
 
    Here is an example that shows a gateway installation that's in the same region as your gateway resource and is linked to the same Azure account:
@@ -162,7 +162,7 @@ To create a different gateway resource, link your gateway installation to a diff
 **Q**: Why doesn't my gateway installation appear when I create my gateway resource in Azure? <br/>
 **A**: This issue can happen for these reasons:
 
-* Your Azure account has to be the same account that's linked to the gateway installation on the local computer. Check that you're signed in to the Azure portal with the same identity that's linked to the gateway installation.
+* Your Azure account must be the same account that's linked to the gateway installation on the local computer. Check that you're signed in to the Azure portal with the same identity that's linked to the gateway installation. Also, make sure that your Azure account belongs to a single [Azure AD tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology) and is set to the same Azure AD tenant or directory that was used during gateway installation.
 
 * Your gateway resource and gateway installation have to use the same region. However, your logic app location can differ from your gateway resource location.
 
