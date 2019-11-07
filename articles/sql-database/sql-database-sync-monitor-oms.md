@@ -1,5 +1,5 @@
 ---
-title: "Monitor Azure SQL Data Sync with Azure Monitor logs | Microsoft Docs"
+title: "Monitor Azure SQL Data Sync with Azure Monitor logs "
 description: "Learn how to monitor Azure SQL Data Sync by using Azure Monitor logs"
 services: sql-database
 ms.service: sql-database
