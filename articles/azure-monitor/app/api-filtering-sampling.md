@@ -21,7 +21,7 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 
 Before you start:
 
-* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), [Java](java-get-started.../../azure-monitor/app/md) or [JavaScript](javascript)
+* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), [Java](../../azure-monitor/app/java-get-started.md) or [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
