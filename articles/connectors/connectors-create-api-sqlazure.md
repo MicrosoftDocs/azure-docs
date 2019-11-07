@@ -10,7 +10,7 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 11/06/2019
+ms.date: 11/08/2019
 ---
 
 # Automate workflows for SQL Server or Azure SQL Database by using Azure Logic Apps
@@ -19,10 +19,11 @@ This article shows how you can access data in your SQL database from inside a lo
 
 You can create logic apps that run when triggered by events in your SQL database or in other systems, such as Dynamics CRM Online. Your logic apps can also get, insert, and delete data along with running SQL queries and stored procedures. For example, you can build a logic app that automatically checks for new records in Dynamics CRM Online, adds items to your SQL database for any new records, and then sends email alerts about the added items.
 
-> [!IMPORTANT]
-> If you want to use this connector in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), you can use only SQL authentication. If you want to use Windows authentication with this connector, 
-> you must use the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). This connector doesn't support 
-> Windows authentication for logic apps that run in an ISE.
+> [!NOTE]
+> To use Windows authentication with the SQL Server connector in an 
+> [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> use the connector's non-ISE version and the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
+> The connector's ISE version doesn't support Windows authentication.
 
 If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, limitations, and known issues, see the [SQL Server connector reference page](https://docs.microsoft.com/connectors/sql/).
 
