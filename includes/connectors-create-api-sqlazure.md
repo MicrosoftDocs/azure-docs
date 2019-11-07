@@ -7,7 +7,7 @@ ms.service: logic-apps
 ms.topic: include
 ms.author: estfan
 ms.custom: include file
-ms.date: 05/15/2018
+ms.date: 11/08/2019
 ---
 
 * If you're using Azure SQL Database, follow the steps under [Connect to Azure SQL Database](#connect-azure-sql-db).
@@ -40,6 +40,11 @@ When the SQL trigger or action prompts you for connection information, follow th
 ### Connect to SQL Server
 
 When the SQL trigger or action prompts you for connection information, follow these steps, which work for both triggers and actions. However, before you start, make sure that you've already [set up your on-premises data gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Otherwise, your gateway won't appear in the gateways list when you create your connection.
+
+> [!IMPORTANT]
+> For logic apps that run in an [integration service environment (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), 
+> you can use only SQL authentication. To use Windows authentication with this connector, you must use the on-premises data gateway. 
+> This connector doesn't support Windows authentication for logic apps in an ISE.
 
 1. For **Connection Name**, create a name for your connection.
 
