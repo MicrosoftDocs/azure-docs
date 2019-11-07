@@ -116,7 +116,7 @@ var msalConfig = {
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
-> We have configured your peoject with values of your app's properties. 
+> We have configured your project with values of your app's properties. 
 
 > [!div renderon="docs"]
 > #### Step 4: Run the project
