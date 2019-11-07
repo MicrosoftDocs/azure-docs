@@ -22,7 +22,7 @@ If you're migrating to a newer version of Kubernetes, review [Kubernetes version
 * Migrating from Azure Container Service (ACS) to AKS
 * Migrating from AKS Engine to AKS
 
-In this article we will cover:
+In this article we will summarize:
 
 > [!div class="checklist"]
 > * Differences between Kubernetes cluster types
@@ -39,10 +39,10 @@ AKS is a managed service with a hosted Kubernetes control plane. You might need 
 
 The following table provides details on the important technology differences between AKS clusters with Virtual Machine Scale Sets, AKS clusters with Availablity Sets, ACS based Kubernetes clusters, and AKS engine based clusters.
 
-| Cluster type | Managed Disks | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | Standard SKU load balancer | Windows Server nodes|
+| Cluster type | [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) | Windows Server nodes|
 |-----------------------------------------|----------|
-| AKS - [VM Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets) | Yes | Yes | Yes | Yes (preview)
-| AKS - [VM Availability Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Yes | No | No | Yes (preview)
+| [AKS - VM Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets) | Yes | Yes | Yes | Yes (preview)
+| [AKS - VM Availability Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Yes | No | No | Yes (preview)
 | [ACS](https://docs.microsoft.com/azure/container-service/) | No | No | No |
 | [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) | ? | ? | ? | ? | Yes 
 
@@ -151,10 +151,11 @@ Several open-source tools can help, depending on your deployment needs:
 * [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli)
 * [ReShifter](https://github.com/mhausenblas/reshifter)
 
-In this article we covered:
+In this article we summarized:
 
 > [!div class="checklist"]
-> * Considerations for migrating from Availablity Sets and Virtual Machine Scale Sets
-> * Differences between AKS clusters and technologies such ACS
+> * Differences between Kubernetes cluster types
+> * Existing attached Azure Services
+> * Considerations for Azure storage types
 > * Considerations for stateful and stateless applications
-> * Considerations for different types of Azure storage
+> * Deployment of your cluster configuration
