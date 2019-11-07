@@ -146,7 +146,8 @@ The following are guidelines to define service plans to users:
 - Create groups by cluster and assign the license with service plan.
 - Optionally, an attribute can be defined to hold the packages for users.
 
-**Important**: Group-based licensing in Azure AD introduces the concept of users in a licensing error state. Should you observe any licensing errors, you should immediately [identify and resolve](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-resolve-problems) any license assignment problems.
+> [!IMPORTANT]
+> Group-based licensing in Azure AD introduces the concept of users in a licensing error state. If you notice any licensing errors, then you should immediately [identify and resolve](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-resolve-problems) any license assignment problems.
 
 ![A screenshot of a computer screen Description automatically generated](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
