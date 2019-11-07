@@ -23,12 +23,14 @@ highlightedContent:
       itemType: learn
       url: https://docs.microsoft.com/azure/cognitive-services/
     - title: Page through search results
-      itemType: concept
+      itemType: how-to-guide
       url: https://docs.microsoft.com/azure/cognitive-services/
     - title: Use decoration markers to highlight text
       itemType: concept
       url: https://docs.microsoft.com/azure/cognitive-services/
-
+    - title: Use and Display requirements
+      itemType: reference
+      url: https://docs.microsoft.com/azure/cognitive-services/
 productDirectory:
   title: Get started
   summary: Start getting search results from the web by choosing one of the available APIs below. 
