@@ -273,8 +273,3 @@ When you click the Akamai tile in the Access Panel, you should be automatically 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Akamai with Azure AD](https://aad.portal.azure.com/)
-
-- [Configure Akamai single sign-on for Kerberos application](kerb-akamai-tutorial.md)
-
-- [Configure Akamai single sign-on for Advanced Kerberos application](advance-kerb-akamai-tutorial.md)
-
