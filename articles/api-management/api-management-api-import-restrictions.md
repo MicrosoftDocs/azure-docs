@@ -36,6 +36,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 -   Source file URL (if available) is applied to relative server URLs.
 -   Security definitions are ignored.
 -   Inline schema definitions for API operations are not supported. Schema definitions are defined in the API scope and can be referenced in API operations request or response scopes.
+-   A defined URL parameter needs to be part of the URL template. 
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 
