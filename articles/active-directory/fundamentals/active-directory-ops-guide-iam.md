@@ -191,4 +191,4 @@ There are five aspects to a secure Identity infrastructure. This list will help 
 
 ## Next steps
 
-Get started with the [authentication management checks and actions](active-directory-ops-guide-auth.md).
+Get started with the [Authentication management checks and actions](active-directory-ops-guide-auth.md).
