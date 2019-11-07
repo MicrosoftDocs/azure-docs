@@ -15,7 +15,7 @@ The follower feature allows you to attach a database located in a different clus
 
 Attaching a database to a different cluster using the follower capability can be used to share data between organizations and teams. It is useful to segregate compute resources to protect a production environment from non-production use cases. It can also be used to associate the cost of Azure Data Explorer cluster to the party that runs queries on the data.
 
-Azure Data Explorer database(s) hosted in one cluster can be attached as read-only database(s) to a different cluster. By attaching a database to a cluster, you allow the users of the cluster to view the data and execute queries on the attached database. The original cluster and the attached database(s) cluster use the same storage account to fetch the data. The storage is owned by the original database cluster. The follower database views the data without needing to ingest it. Since the attached database is a read-only database, the data, tables and policies in the database can't be modified except for [caching policy](#configurable-policies), [principals](#manage-principals) and [permissions](#manage-permissions). Attached databases can't be deleted. They must be detached by both the leader and follower clusters and only then they can be deleted. 
+Azure Data Explorer database(s) hosted in one cluster can be attached as read-only database(s) to a different cluster. By attaching a database to a cluster, you allow the users of the cluster to view the data and execute queries on the attached database. The original cluster and the attached database(s) cluster use the same storage account to fetch the data. The storage is owned by the original database cluster. The follower database views the data without needing to ingest it. Since the attached database is a read-only database, the data, tables and policies in the database can't be modified except for [caching policy](#configure-caching-policy), [principals](#manage-principals) and [permissions](#manage-permissions). Attached databases can't be deleted. They must be detached by both the leader and follower clusters and only then they can be deleted. 
 
 ## Which databases are followed?
 
@@ -265,4 +265,4 @@ The follower database administrator can modify the [caching policy](/azure/kusto
 
 ## Next steps
 
-* For information about follower cluster configuration, see [Control commands for managing a follower cluster](../management/cluster-follower.md).
+* For information about follower cluster configuration, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower.md).
