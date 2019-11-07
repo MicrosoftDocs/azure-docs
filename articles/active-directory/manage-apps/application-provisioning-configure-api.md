@@ -26,23 +26,20 @@ Azure AD provides an interface for configuring provisioning. This can be easy to
 
 1.	Create gallery app
 	1. Retrieve the gallery application template<br>
-      GET https://graph.microsoft.com/beta/applicationTemplates
+        GET https://graph.microsoft.com/beta/applicationTemplates
 	2. Create gallery application <br>
-  POST https://graph.microsoft.com/beta/applicationTemplates/{id}/instantiate
+  	POST https://graph.microsoft.com/beta/applicationTemplates/{id}/instantiate
 2.	Create provisioning job based on template
 	1. Retrieve the template for the provisioning connector<br> 
-  GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/templates
+ 	 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/templates
 	2. Create the provisioning job<br>
-  POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
-Content-type: application/json
-{ 
-    "templateId": "BoxOutDelta"
+  	POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 	GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 3.	Authorize access
     1. Test connection to the application<br>
-    POST /servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
+    	POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
     1. Save credentials<br>	
-    PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets  
+    	PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets  
 
 4.	Configure
     1.	What’s an example of setting scope?
@@ -237,7 +234,7 @@ HTTP/1.1 200 OK
 ```
 
 ## Step 4: Create job
-Enabling provisioning requires that a job be created. Use the request below to create a provisioning job. 
+Enabling provisioning requires that a job be created. Use the request below to create a provisioning job. You should use the templateId from the previous step to specify the template to be used for the job. 
 
 ##### Request
 <!-- {
@@ -249,7 +246,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
 Content-type: application/json
 
 { 
-    "templateId": "BoxOutDelta"
+    "templateId": "Slack"
 }
 ```
 
@@ -265,7 +262,7 @@ Content-type: application/json
 
 {
     "id": "{jobId}",
-    "templateId": "BoxOutDelta",
+    "templateId": "Slack",
     "schedule": {
         "expiration": null,
         "interval": "P10675199DT2H48M5.4775807S",
@@ -286,7 +283,7 @@ Content-type: application/json
     }
 }
 ```
-## Step 3: Retrieve the Provisioning Job ID of the Provisioning App
+## Step 3: Retrieve the Provisioning Job ID of the application
 Now that the provisioning job is created, you will need to retrieve the job ID to complete your configuration. Use the command below to retrieve your job ID. 
 
 ##### Request
@@ -311,7 +308,7 @@ Content-length: 2577
 
 {
     "id": "{jobId}",
-    "templateId": "BoxOutDelta",
+    "templateId": "Slack",
     "schedule": {
         "expiration": null,
         "interval": "P10675199DT2H48M5.4775807S",
@@ -344,20 +341,31 @@ Content-length: 2577
 
 Test the connection with the third party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
+##### Request
 ```http
-POST /servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
-```
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
 { 
     credentials: [ 
         { key: "ClientSecret", value: "xxxxxxxxxxxxxxxxxxxxx" },
         { key: "SecretToken", value: "xxxxxxxxxxxxxxxxxxxxx" }
     ]
 }
+```
+##### Response
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.None"
+} -->
+```http
+HTTP/1.1 204 No Content
+```
 
 ## Step 5: Save your credentials
 
 Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third party application. The example below is for an application that requires clientSecret and secretToken. Each applicaiton has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
+##### Response
 ```json
 PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
  
@@ -369,7 +377,15 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 }
 ```
 
-You should get “Success – Status Code 204” as a result.
+##### Response
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.None"
+} -->
+```http
+HTTP/1.1 204 No Content
+```
 
 ## Step 6: Set scope
 
@@ -625,5 +641,5 @@ Content-type: application/json
 ```
 ## Related articles
 
-- [MS Graph documentation](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Review the synchronization Microsoft Graph documentation](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [Integrating a custom SCIM app with Azure AD](use-scim-to-provision-users-and-groups.md)
