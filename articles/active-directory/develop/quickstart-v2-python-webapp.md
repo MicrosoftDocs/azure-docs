@@ -90,7 +90,7 @@ To run this sample, you will need:
 > 1. Add Microsoft Graph API's User.ReadBasic.All delegated permission.
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Make this change for me]()
+> > [Make these changes for me]()
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with this attribute
 
