@@ -42,10 +42,10 @@ AKS is a managed service with a hosted Kubernetes control plane. You might need 
 
 The following table provides details on the important technology differences.
 
-| Cluster type | Managed Disks | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | Windows Server nodes|
+| Cluster type | Managed Disks | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | Standard SKU load balancer | Windows Server nodes|
 |-----------------------------------------|----------|
-| AKS  - Virtual Machine Scale Sets | Yes | Yes | Yes (preview)
-| AKS  - Virtual Machine Availability Sets | Yes | No | Yes (preview)
+| AKS - Virtual Machine Scale Sets | Yes | Yes | Yes | Yes (preview)
+| AKS - Virtual Machine Availability Sets | Yes | No | No | Yes (preview)
 | ACS | No | No | No |
 | AKS engine | ? | ? | ? | 
 
