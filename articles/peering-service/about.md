@@ -14,7 +14,7 @@ ms.author: v-meravi
 
 # Peering Service Preview Overview
 
-Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (Saa) services, Azure, or any Microsoft services accessible via the public internet. Microsoft has partnered with internet service providers (ISP), internet exchange providers (IXP) and, software-defined cloud interconnect (SDCI) providers worldwide to provide reliable, and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
+Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (Saa) services, Azure, or any Microsoft services accessible via the public internet. Microsoft has partnered with internet service providers (ISP), internet exchange partners (IXP) and, software-defined cloud interconnect (SDCI) providers worldwide to provide reliable, and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
 With “*Peering Service*”, customer can select a well connected partner Service Provider (SP) in a given region. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end-user location.
 
