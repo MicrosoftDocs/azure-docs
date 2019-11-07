@@ -34,3 +34,18 @@ TODO add
 This is a high level overview of how Conversation Translation works.
 
 ![Conversation Translation Overview Diagram](media/scenarios/conversation-translation-service.png)
+
+## Language support
+
+When creating or joining a converastion you can specify two different types of languages:
+
+|  | [Speech-to-text](language-support.md#speech-to-text) | [Text](language-support.md#text-languages) |
+|-----------------------------------|----------------|------|
+| Speech recognition & translation | ✔️ | ❌ |
+| Send an instant message | ✔️ | ✔️ |
+| Follow along in your own language | ✔️ | ✔️ |
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Translate conversations in real time](how-to-use-conversation-translation.md)
