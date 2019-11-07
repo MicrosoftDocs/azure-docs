@@ -37,7 +37,7 @@ In this article we will summarize migration considerations for:
 > [!div class="checklist"]
 > * Differences between Kubernetes cluster types
 > * Existing attached Azure Services
-> * Azure Subscription quotas
+> * Ensure valid quotas
 > * AKS with Standard Load Balancer and Virtual Machine Scale Sets
 > * Considerations for Azure storage types
 > * Considerations for stateful and stateless applications
@@ -72,9 +72,7 @@ When migrating clusters you may have attached external Azure services. These do 
 * Storage Account
 * External Databases
 
-## Azure Subscription quotas
-
-### Agent pools and quotas
+## Ensure valid quotas
 
 Because additional virtual machines will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. 
 
@@ -186,7 +184,7 @@ In this article we summarized migration considerations for:
 > [!div class="checklist"]
 > * Differences between Kubernetes cluster types
 > * Existing attached Azure Services
-> * Azure Subscription quotas
+> * Ensure valid quotas
 > * AKS with Standard Load Balancer and Virtual Machine Scale Sets
 > * Considerations for Azure storage types
 > * Considerations for stateful and stateless applications
