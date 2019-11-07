@@ -50,7 +50,7 @@ This article shows how to complete these tasks:
   
   * If you want to deploy the ISE through an Azure Resource Manager template, first make sure that you delegate one empty subnet to Microsoft.Logic/integrationServiceEnvironment. You don't need to do this delegation when you deploy through the Azure portal.
 
-  * Make sure that your virtual network [enables access for your ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-set-up-access.md) so that your ISE works correctly and stays accessible.
+  * Make sure that your virtual network [enables access for your ISE](../logic-apps/connect-virtual-network-vnet-set-up-access.md) so that your ISE works correctly and stays accessible.
 
   * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), which provides a private connection to Microsoft cloud services, you must [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table to each subnet that's used by your ISE:
 
