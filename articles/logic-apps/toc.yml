@@ -85,7 +85,7 @@
       href: logic-apps-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
-    - name: Secure
+      - name: Secure
       items:
       - name: Secure your logic apps
         href: logic-apps-securing-a-logic-app.md
@@ -103,6 +103,20 @@
         href: logic-apps-custom-api-host-deploy-call.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
+  - name: Access Azure virtual networks
+    items: 
+      - name: Connect to virtual networks with integration service environments
+        href: connect-virtual-network-vnet-isolated-environment.md
+      - name: Set up virtual network access for integration service environments
+        href: connect-virtual-network-vnet-set-up-access.md
+      - name: Add artifacts to integration service environments
+        href: add-artifacts-integration-service-environment-ise.md
+  - name: Access on-premises data
+    items: 
+      - name: Install data gateway
+        href: logic-apps-gateway-install.md
+      - name: Connect to on-premises data
+        href: logic-apps-gateway-connection.md
   - name: Develop for B2B scenarios
     items: 
       - name: Create integration account
@@ -159,18 +173,6 @@
         href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
       - name: Build a disaster recovery plan
         href: logic-apps-enterprise-integration-b2b-business-continuity.md
-  - name: Connect to virtual networks with integration service environments
-    href: connect-virtual-network-vnet-isolated-environment.md
-  - name: Set up virtual network access for integration service environments
-    href: connect-virtual-network-vnet-set-up-access.md
-  - name: Add artifacts to integration service environments
-    href: add-artifacts-integration-service-environment-ise.md
-  - name: Access on-premises data
-    items: 
-      - name: Install data gateway
-        href: logic-apps-gateway-install.md
-      - name: Connect to on-premises data
-        href: logic-apps-gateway-connection.md
   - name: Connectors - In-depth topics
     items: 
       - name: AS2
