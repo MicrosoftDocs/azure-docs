@@ -1,10 +1,10 @@
 ---
-title: "Create an Azure SQL Database Elastic Job agent using PowerShell "
+title: Create an Elastic Job agent using PowerShell
 description: Learn how to create an Elastic Job agent using PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: tutorial
 author: johnpaulkee

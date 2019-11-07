@@ -1,10 +1,11 @@
 ---
-title: Azure SQL Database and SQL Data Warehouse data discovery & classification 
+title: Data discovery & classification 
 description: Azure SQL Database and  data discovery & classification
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: 
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.devlang: 
 ms.topic: conceptual
 author: barmichal
