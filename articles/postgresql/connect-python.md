@@ -27,9 +27,7 @@ To use `pip` to install `psycopp2`:
 3. Run `pip install psycopg2` to install the `psycopg2` package.
 
 ## Get connection information
-You need the fully-qualified server name, database name, and login credentials to connect to your Azure Database for PostgreSQL database. A default database named *postgres* is automatically created when you create the Azure Database for PostgreSQL server. You can rename the database or create a new database by using SQL commands. 
-
-To get the rest of the connection information:
+You need the fully-qualified server name and login credentials to connect to your Azure Database for PostgreSQL database. You can get this information from the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select your Azure Database for PostgreSQL server name. 
 1. On the server's **Overview** page, copy the **Server name** and **Admin username**. The fully-qualified server name is always of the form *\<your server name>.postgres.database.azure.com*, and the admin username is always of the form *\<your username>@\<your server name>*. 
@@ -38,12 +36,16 @@ To get the rest of the connection information:
    
  ![Azure Database for PostgreSQL server name](./media/connect-python/1-connection-string.png)
 
+## How to run the Python examples
+
+For each of the following code examples:
+1. Create a new file in a text editor. 
+1. Add the code example to the file. Replace `<server name>` and `<admin username>` with the values you copied from the Azure portal, and replace `<admin password>` with your server password. For `<database name>`, use the name of your Azure Database for PostgreSQL database. A default database named *postgres* is automatically created when you create an Azure Database for PostgreSQL server. You can rename the database or create a new database by using SQL commands. 
+1. Save the file in your project folder with a *.py* extension, such as *postgres-insert.py*. For Windows, make sure UTF-8 encoding is selected when you save the file. 
+1. To run the file, change to your project folder in your command-line interface, and type `python` followed by the filename, such as `python postgres-insert.py`.
+
 ## Create a table and insert data
 The following code example connects to your Azure Database for PostgreSQL database using the [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function, and loads data with a SQL **INSERT** statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function executes the SQL query against the database. 
-
-To use the example, create a new file in a text editor. Add the code example to the file, replacing `<server name>`, `<database name>`, `<admin username>`, and `<admin password>` with the values for your server and database. Save the file in your project folder with a *.py* extension. In Windows, make sure to select UTF-8 encoding when you save the file. 
-
-To run the file, in your command-line interface, type `python` followed by the filename, such as `python postgres-insert.py`.
 
 ```Python
 import psycopg2
@@ -89,10 +91,6 @@ When the code runs successfully, the output appears as follows:
 ## Read data
 The following code example connects to your Azure Database for PostgreSQL database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **SELECT** statement to read data. This function accepts a query and returns a result set to iterate over by using [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 
 
-To use the example, create a new file in a text editor. Add the code example to the file, replacing `<server name>`, `<database name>`, `<admin username>`, and `<admin password>` with the values for your server and database. Save the file in your project folder with a *.py* extension. In Windows, make sure to select UTF-8 encoding when you save the file. 
-
-To run the file, in your command-line interface, type `python` followed by the filename, such as `python postgres-read.py`.
-
 ```Python
 import psycopg2
 
@@ -127,10 +125,6 @@ conn.close()
 ## Update data
 The following code example connects to your Azure Database for PostgreSQL database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **UPDATE** statement to update data. 
 
-To use the example, create a new file in a text editor. Add the code example to the file, replacing `<server name>`, `<database name>`, `<admin username>`, and `<admin password>` with the values for your server and database. Save the file in your project folder with a *.py* extension. In Windows, make sure to select UTF-8 encoding when you save the file. 
-
-To run the file, in your command-line interface, type `python` followed by the filename, such as `python postgres-update.py`.
-
 ```Python
 import psycopg2
 
@@ -160,10 +154,6 @@ conn.close()
 
 ## Delete data
 The following code example connects to your Azure Database for PostgreSQL database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **DELETE** statement to delete an inventory item that you previously inserted. 
-
-To use the example, create a new file in a text editor. Add the code example to the file, replacing `<server name>`, `<database name>`, `<admin username>`, and `<admin password>` with the values for your server and database. Save the file in your project folder with a *.py* extension. In Windows, make sure to select UTF-8 encoding when you save the file. 
-
-To run the file, in your command-line interface, type `python` followed by the filename, such as `python postgres-delete.py`.
 
 ```Python
 import psycopg2
