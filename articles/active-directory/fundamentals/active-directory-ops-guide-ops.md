@@ -8,6 +8,7 @@ tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
+ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ---
