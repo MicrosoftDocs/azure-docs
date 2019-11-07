@@ -16,39 +16,34 @@ ms.date: 11/04/2019
 
 Machine learning in Azure SQL Database Edge Preview supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format you can use to interchange models between various [machine learning frameworks and tools](https://onnx.ai/supported-tools).
 
-## Supported tool kits
-
-ONNXMLTools enables you to convert models from different machine learning tool kits to an ONNX model. Currently, for numeric data types and single column inputs, the following tool kits are supported:
-
-* [scikit-learn](https://github.com/onnx/sklearn-onnx)
-* [Tensorflow](https://github.com/onnx/tensorflow-onnx)
-* [Keras](https://github.com/onnx/keras-onnx)
-* [CoreML](https://github.com/onnx/onnxmltools)
-* [Spark ML (experimental)](https://github.com/onnx/onnxmltools/tree/master/onnxmltools/convert/sparkml)
-* [LightGBM](https://github.com/onnx/onnxmltools)
-* [libsvm](https://github.com/onnx/onnxmltools)
-* [XGBoost](https://github.com/onnx/onnxmltools)
+## Overview
+To infer models in Azure SQL Database Edge, you will first need to get an ML model. This can be a pre-trained model or a custom model trained with your framework of choice. Since Azure SQL Database Edge supports the ONNX format, you will need to convert the model to the ONNX format. Once you have the ONNX model, you can deploy the model in Azure SQL Database Edge and use [native scoring with the PREDICT T-SQL function](/sql/advanced-analytics/sql-native-scoring/).
 
 ## Get ONNX models
 
 There are several ways that you can obtain a model in the ONNX format:
 
-- [ONNX Model Zoo](https://github.com/onnx/models): Contains several pre-trained ONNX models for different types of tasks. You can download and use versions that are supported by Windows Machine Learning.
+- [ONNX Model Zoo](https://github.com/onnx/models): Contains many pre-trained ONNX models for different types of tasks that can be downloaded and are ready to use.
 
-- [Native export from machine learning training frameworks](https://onnx.ai/supported-tools): Several training frameworks support native export functionality to ONNX, which allows you to save your trained model to a specific version of the ONNX format. For example, Chainer, Caffee2, and PyTorch. In addition, services such as [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning-service/) and [Azure Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) also provide native ONNX export.
+- [Native export from ML training frameworks](https://onnx.ai/supported-tools): Several training frameworks support native export functionality to ONNX, which allows you to save your trained model to a specific version of the ONNX format, including [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer, and Caffe2. In addition, model building services such as Azure Machine Learning Service's [automated Machine Learning feature](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) and [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) provide ONNX export.
 
-  - To learn how to train and export an ONNX model in the cloud using Custom Vision, see [Tutorial: Use an ONNX model from Custom Vision with Windows ML (preview)](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml).
+- [Convert existing models](https://github.com/onnx/tutorials#converting-to-onnx-format): For frameworks that do not support native export, there are standalone packages for converting models to the ONNX format. Find examplesa and tutorials [here](https://github.com/onnx/tutorials#converting-to-onnx-format). 
 
-- [Convert existing models using WinMLTools](https://docs.microsoft.com/windows/ai/windows-ml/convert-model-winmltools): This Python package allows models to be converted from several training framework formats to ONNX. You can specify which version of ONNX you would like to convert your model to, depending on which builds of Windows your application targets. If you are not familiar with Python, you can use the [Windows Machine Learning UI-based Dashboard](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Tools/WinMLDashboard) to  convert your models.
+### Supported frameworks
 
-> [!IMPORTANT]
-> Not all ONNX versions are supported by Azure SQL database Edge. Only predicting numeric data types through the ONNX model is currently supported.
+ONNX Converters enable you to convert models trained from different machine learning frameworks to the ONNX format. Popular converters include: 
+* [PyTorch](http://pytorch.org/docs/master/onnx.html)
+* [Tensorflow](https://github.com/onnx/tensorflow-onnx)
+* [Keras](https://github.com/onnx/keras-onnx)
+* [Scikit-learn](https://github.com/onnx/sklearn-onnx)
+* [CoreML](https://github.com/onnx/onnxmltools)
 
-Once you have an ONNX model, you can deploy the model in Azure SQL Database Edge. You can then use [native scoring with the PREDICT T-SQL function](/sql/advanced-analytics/sql-native-scoring/).
+See the full list [here](https://github.com/onnx/tutorials#converting-to-onnx-format).
+
 
 ## Limitations
 
-Currently, this support is limited to models with **numeric data types**:
+Currently, not all ONNX models are supported by Azure SQL database Edge. This support is limited to models with **numeric data types**:
 
 - [int and bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
 - [real and float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
