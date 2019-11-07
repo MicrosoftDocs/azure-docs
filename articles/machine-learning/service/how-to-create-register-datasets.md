@@ -1,7 +1,7 @@
 ---
-title: Create datasets to access data with azureml-datasets
+title: Create Azure Machine Learning datasets to access data
 titleSuffix: Azure Machine Learning
-description: Learn how to create datasets from various sources and register datasets with your workspace.
+description: Learn how to create Azure Machine Learning datasets to access your data for machine learning experiment runs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,11 +14,11 @@ ms.date: 11/04/2019
 
 ---
 
-# Create and access datasets in Azure Machine Learning
+# Create Azure Machine Learning datasets
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to create Azure Machine Learning datasets, and how to access data from local or remote experiments.
+In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments.
 
 With Azure Machine Learning datasets, you can:
 
