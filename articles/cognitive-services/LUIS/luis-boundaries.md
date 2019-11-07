@@ -68,7 +68,7 @@ Do not use the following characters in the following names.
 
 |Object|Exclude characters|
 |--|--|
-|Intent, entity, and role names|`:`<br>`$`|
+|Intent, entity, and role names|`:`<br>`$` <br> `&`|
 |Version name|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## Key usage
