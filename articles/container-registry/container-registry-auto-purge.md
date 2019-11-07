@@ -55,7 +55,7 @@ For additional parameters, run `acr purge --help`.
 
 The following example uses the [az acr run][az-acr-run] command to run the `acr purge` command on-demand. This example deletes all image tags and manifests in the `hello-world` repository in *myregistry* that were modified more than 1 day ago. The container command is passed using an environment variable. The task runs without a source context.
 
-In this and the following examples, the registry where the `acr purge` command runs is specified using the `$Registry` alias.
+In this and the following examples, the registry where the `acr purge` command runs is specified using the `$Registry` alias, which indicates the registry that runs the task.
 
 ```azurecli
 # Environment variable for container command line
