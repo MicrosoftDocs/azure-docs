@@ -8,6 +8,7 @@ tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
+ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ---
@@ -370,4 +371,4 @@ There are 12 aspects to a secure Identity infrastructure. This list will help yo
 
 ## Next steps
 
-Get started with the [identity governance operational checks and actions](active-directory-ops-guide-govern.md).
+Get started with the [Identity governance operational checks and actions](active-directory-ops-guide-govern.md).
