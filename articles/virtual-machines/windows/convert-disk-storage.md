@@ -15,7 +15,7 @@ There are four disk types of Azure managed disks: Azure ultra SSDs (preview), pr
 
 This functionality is not supported for unmanaged disks. But you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Prerequisites
 

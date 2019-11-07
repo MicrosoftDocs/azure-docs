@@ -770,12 +770,11 @@
       "redirect_url": "/azure/machine-learning/service",
       "redirect_document_id": false
     },
-    
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-only.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-intents-only",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-roles.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-entity-types#entity-role-defines-context",
@@ -3121,21 +3120,21 @@
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-linux",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-portal.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-vscode.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-        {
-      "source_path": "articles/iot-edge/how-to-register-device-cli.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-portal.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-vscode.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-cli.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
       "redirect_url": "/azure/cognitive-services/recommendations/overview",
@@ -16379,6 +16378,31 @@
     {
       "source_path": "articles/cognitive-services/cognitive-services-text-analytics-quick-start.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/csharp.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
     {
@@ -43777,6 +43801,31 @@
     {
       "source_path": "articles/machine-learning/studio/linear-regression-in-azure.md",
       "redirect_url": "/azure/machine-learning/studio/use-case-excel-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-overview.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-get-started.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-ad.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-ad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-keyvault-eventhub.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-keyvault-eventhub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-faq.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-faq",
       "redirect_document_id": false
     }
   ]
