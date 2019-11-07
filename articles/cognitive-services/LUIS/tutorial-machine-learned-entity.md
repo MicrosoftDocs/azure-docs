@@ -167,7 +167,9 @@ Begin by adding the prebuilt number to the app.
 
 ## Create subcomponent entity with constraint to help extract data
 
-The `Order` entity should have a `Quantity` subcomponent to determine how many of an item are in the order. 
+The `Order` entity should have a `Quantity` subcomponent to determine how many of an item are in the order. The quantity should be constrained to a number so that the extracted data is immediately usable by the client application. 
+
+A constraint is applied as a text match, either with exact matching (such as a list entity) or through regular expressions (such as a regular expression entity or a prebuilt entity). 
 
 1. Select **Entities** then select the `Order` entity. 
 1. Select **+ Add Component** then enter the name `Quantity` then select Enter to add the new entity to the app.
