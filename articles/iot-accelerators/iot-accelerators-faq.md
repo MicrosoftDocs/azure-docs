@@ -1,6 +1,6 @@
 ---
 title: IoT solution accelerators FAQ - Azure | Microsoft Docs
-description: This article answers the frequently asked questions for IoT solution accelerators. It also provides the link to GitHub repositories.
+description: This article answers the frequently asked questions for IoT solution accelerators. It includes links to the GitHub repositories.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators

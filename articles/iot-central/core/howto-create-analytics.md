@@ -1,6 +1,6 @@
 ---
 title: Analyze your device data in your Azure IoT Central application | Microsoft Docs
-description: This article describes how to analyze your device data in your Azure IoT Central application by querying, visualizing, and through interaction.
+description: This article describes how to analyze your device data in your Azure IoT Central application using queries and visualizations.
 author: lmasieri
 ms.author: lmasieri
 ms.date: 06/09/2019
