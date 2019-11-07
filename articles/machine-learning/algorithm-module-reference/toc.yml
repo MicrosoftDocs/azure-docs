@@ -1,0 +1,24 @@
+- name: Azure Machine Learning Designer Module Reference
+  href: ../index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Machine Learning?
+    displayName: AML, services, overview, introduction
+    href: overview-what-is-azure-ml.md
+  - name: Azure Machine Learning vs Studio
+    displayName: AML, Studio, designer
+    href: ../compare-azure-ml-to-studio-classic.md
+  - name: Architecture & terms
+    displayName: architecture, concepts, definitions, glossary
+    href: concept-azure-machine-learning-architecture.md
+
+- name: Modules
+  items:
+  - name: Data format conversions
+    items:
+    - name: Convert to CSV
+      href: convert-to-csv.md
+    - name: Convert to Dataset
+      href: convert-to-dataset.md
+    
