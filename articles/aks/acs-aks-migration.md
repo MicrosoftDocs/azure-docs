@@ -52,7 +52,7 @@ The following table provides details on the important technology differences bet
 |-----------------------------------------|----------|
 | [AKS - VM Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets) | Yes | Yes | Yes | Yes (preview) | Yes | ? | Yes | Yes
 | [AKS - VM Availability Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Yes | No | No | Yes (preview) | No | ? | No | No
-| [ACS](https://docs.microsoft.com/azure/container-service/) | No | No | No | No | ? | No | No
+| [ACS](https://docs.microsoft.com/azure/container-service/) | No | No | No | No | ? | No | No | No
 | [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) | Yes | Yes | Yes | Yes | Yes | ? | Yes | Yes
 
 ## Existing attached Azure Services
