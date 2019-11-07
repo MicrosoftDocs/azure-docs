@@ -38,9 +38,9 @@ Automated user provisioning also includes this functionality:
 
 ## Why use automatic provisioning?
 
-As the number of applications used in modern organizations continues to grow, IT admins are tasked with access management at scale. Standards such as Security Assertions Markup Language (SAML) or Open ID Connect (OIDC) allow admins to quickly set up single sign-on (SSO), but access also requires users to be provisioned into the app. To many admins, provisioning means manually creating every user account or uploading CSV files each week, but these processes are time-consuming, expensive, and error-prone. 
+As the number of applications used in modern organizations continues to grow, IT admins are tasked with access management at scale. Standards such as Security Assertions Markup Language (SAML) or Open ID Connect (OIDC) allow admins to quickly set up single sign-on (SSO), but access also requires users to be provisioned into the app. To many admins, provisioning means manually creating every user account or uploading CSV files each week, but these processes are time-consuming, expensive, and error-prone. Solutions such as SAML just-in-time (JIT) have been adopted to automate provisioning, but enterprises also need a solution to deprovision users when they leave the organization or no longer require access to certain apps based on role change.
 
-Some common motivations for using this feature include:
+Some common motivations for using automatic provisioning include:
 
 - Avoiding the costs, inefficiencies, and human error associated with manual provisioning processes.
 - Avoiding the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts.
@@ -52,7 +52,7 @@ Some common motivations for using this feature include:
 
 Azure AD features pre-integrated support for many popular SaaS apps and human resources systems, and generic support for apps that implement specific parts of the [SCIM 2.0 standard](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
 
-### Pre-integrated applications
+### Pre-integrated applications (gallery SaaS apps)
 
 For a list of all applications for which Azure AD supports a pre-integrated provisioning connector, see the [list of application tutorials for user provisioning](../saas-apps/tutorial-list.md).
 
@@ -61,13 +61,11 @@ To contact the Azure AD engineering team to request provisioning support for add
 > [!NOTE]
 > In order for an application to support automated user provisioning, it must first provide the necessary user management APIs that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support user management APIs, the Azure AD engineering team can then build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers.
 
-### Connecting applications that support SCIM 2.0
+### Applications that support SCIM 2.0
 
 For information on how to generically connect applications that implement SCIM 2.0 -based user management APIs, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md).
 
-## Why use SCIM 2.0 for provisioning and deprovisioning?
-
-Solutions such as SAML just-in-time (JIT) have been adopted to automate provisioning, but enterprises also need a solution to deprovision users when they leave the organization or no longer require access to certain apps based on role change.
+## How do I use SCIM 2.0 for provisioning and deprovisioning?
 
 To help automate provisioning and deprovisioning, apps expose proprietary user and group APIs. However, anyone who’s tried to manage users in more than one app will tell you that every app tries to perform the same simple actions, such as creating or updating users, adding users to groups, or deprovisioning users. Yet, all these simple actions are implemented just a little bit differently, using different endpoint paths, different methods to specify user information, and a different schema to represent each element of information.
 
