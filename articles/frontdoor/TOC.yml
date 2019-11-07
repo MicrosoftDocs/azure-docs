@@ -48,16 +48,6 @@
     href: front-door-url-rewrite.md
   - name: URL redirect
     href: front-door-url-redirect.md
-  - name: WAF
-    items:
-    - name: Overview
-      href: waf-overview.md
-    - name: Custom rules
-      href: waf-front-door-custom-rules.md
-    - name: Policy settings
-      href: waf-front-door-policy-settings.md
-    - name: Monitoring and logging
-      href: waf-front-door-monitor.md  
 - name: How-to guides
   items:
   - name: Redirect Traffic

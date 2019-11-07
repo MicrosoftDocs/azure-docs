@@ -1,9 +1,10 @@
 ---
-title: "Troubleshooting connectivity issues with Microsoft Azure SQL Database| Microsoft Docs"
+title: Troubleshoot connectivity issues
 description: Describes how to troubleshoot connectivity issues in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
+ms.custom: seo-lt-2019
 author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ""
@@ -23,9 +24,9 @@ You receive error messages when the connection to Azure SQL Database fails. Thes
 To resolve this issue:
 
 1. Check the [Microsoft Azure Service Dashboard](https://status.azure.com/status) for any known outages. 
-2. If there are no known outages, go to the [Microsoft Azure Support website](http://azure.microsoft.com/support/options) to open a support case.
+2. If there are no known outages, go to the [Microsoft Azure Support website](https://azure.microsoft.com/support/options) to open a support case.
 
-For more information, see [Troubleshoot the "Database on server is not currently available" error](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-common-connection-issues#troubleshoot-transient-errors).
+For more information, see [Troubleshoot the "Database on server is not currently available" error](sql-database-troubleshoot-common-connection-issues.md#troubleshoot-transient-errors).
 
 ## A network-related or instance-specific error occurred while establishing a connection to SQL Server
 
@@ -192,7 +193,7 @@ To work around this issue, try one of the following methods:
   2. Determine the **input buffer** for the head blocker.
   3. Tune the head blocker query.
 
-    For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+    For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 * If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to one of the new Preview editions (such as the [Standard or Premium edition](https://azure.microsoft.com/pricing/details/sql-database/)).
 
@@ -270,7 +271,7 @@ If you repeatedly encounter this error, try to resolve the issue by following th
 
 Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 ### Error 40551: The session has been terminated because of excessive TEMPDB usage
 
@@ -307,7 +308,7 @@ Try to reduce the number of rows that are operated on immediately by implementin
 
 To work around this issue, try to optimize the query.
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 
 ### Cannot open database "master" requested by the login. The login failed.
@@ -332,7 +333,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-When the exception is triggered by query issues, you'll notice a call stack that's similar to the following (note the reference to the **SqlCommand** class). In this situation, [tune your queries](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+When the exception is triggered by query issues, you'll notice a call stack that's similar to the following (note the reference to the **SqlCommand** class). In this situation, [tune your queries](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
@@ -360,7 +361,7 @@ See [Get SQL Server connection information](https://docs.microsoft.com/azure/sql
 
 5. As a best practice, make sure that the retry logic is in place. For more information about retry logic, see [Troubleshoot transient faults and connection errors to SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
 
-If these steps don't resolve your problem, try to collect more data and then contact support. If your application is a cloud service, enable logging. This step returns a UTC time stamp of the failure. Additionally, SQL Azure returns the tracing ID. [Microsoft Customer Support Services](http://azure.microsoft.com/support/options/) can use this information. 
+If these steps don't resolve your problem, try to collect more data and then contact support. If your application is a cloud service, enable logging. This step returns a UTC time stamp of the failure. Additionally, SQL Azure returns the tracing ID. [Microsoft Customer Support Services](https://azure.microsoft.com/support/options/) can use this information. 
 
 For more information about how to enable logging, see [Enable diagnostics logging for apps in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
 

@@ -80,7 +80,7 @@ Azure Security Center provides health assessments of [supported](https://docs.mi
 * Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when any of the following checks aren't met:
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
-    * The **dsq_query.cmd** file is found in the Installation Folder
+    * The **dsa_query.cmd** file is found in the Installation Folder
     * Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected**
 
 ## Symantec endpoint protection
