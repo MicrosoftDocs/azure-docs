@@ -73,7 +73,8 @@ Examples of objects to exclude are:
 
 Ideally, you will want to reach a balance between reducing the number of objects to synchronize and the complexity in the rules. Generally, a combination between OU/container [filtering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) plus a simple attribute mapping to the cloudFiltered attribute is an effective filtering combination.
 
-**Important**: If you use group filtering in production, you should transition to another filtering approach.
+> [!IMPORTANT]
+> If you use group filtering in production, you should transition to another filtering approach.
 
 #### Sync Failover / Disaster Recovery
 
