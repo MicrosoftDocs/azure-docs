@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
 title: Bing Search API documentation
-summary: summary # < 160 chars
+summary: The Bing Search APIs let you build web-connected apps and services that find webpages, images, news, locations, and more without advertisements.
 brand: azure
 
 metadata:
-  title: Bing Search API documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: description # Required; article description that is displayed in search results. < 160 chars.
+  title: Bing Search API documentation
+  description: The Bing Search APIs let you build web-connected apps and services that find webpages, images, news, locations, and more without advertisements.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: bing-web-search
@@ -25,7 +25,7 @@ highlightedContent:
 
 productDirectory:
   title: Get started
-  summary: summary
+  summary: Start getting search results from the web by choosing one of the available APIs below. 
   items:
     - title: Bing Web Search API
       imageSrc: ./media/hub/web-search.svg
