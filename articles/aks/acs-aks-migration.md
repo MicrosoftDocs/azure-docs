@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Migrate to Azure Kubernetes Service (AKS)
 
-This article helps you plan and execute a successful migration to Azure Kubernetes Service (AKS). To help you make key decisions, this guide details the differences between non-AKS and AKS clusters and provides an overview of the migration process. This article doesn't cover every scenario, and where appropriate, the article contains links to more detailed information for planning a succesful migration.
+This article helps you plan and execute a successful migration to Azure Kubernetes Service (AKS). To help you make key decisions, this guide details the differences between non-AKS and AKS clusters and provides an overview of the migration process. This article doesn't cover every scenario, and where appropriate, the article contains links to more detailed information for planning a successful migration.
 
 This document focuses on the following scenarios:
 
@@ -52,7 +52,7 @@ Cluster Autoscaling (VMSS & engine only)
 
 AKS is a managed service offering unique capabilities with lower management overhead. As a result of being a managed service, you must select from a set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions) which AKS supports. The transition from your existing cluster to AKS may require modifying your existing applications so they remain healthy on the AKS managed control plane.
 
-The following table provides details on the important technology differences between AKS clusters with Virtual Machine Scale Sets, AKS clusters with Availablity Sets, ACS based Kubernetes clusters, and AKS engine based clusters.
+The following table provides details on the important technology differences between AKS clusters with Virtual Machine Scale Sets, AKS clusters with Availability Sets, ACS based Kubernetes clusters, and AKS engine based clusters.
 
 | Cluster type | [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) | Windows Server nodes| Authorized IP ranges | Azure Policy | Availability Zones |  Cluster Autoscaling
 |-----------------------------------------|----------|
@@ -104,7 +104,7 @@ az aks create \
 
 ## High Availability and Business Continuity
 
-If your application cannot handle downtime, you will need to follow best practices for high avaialabilty migration scenarios.  Best practices for complex business continuity planning, disaster recovery, and maximizing uptime are beyond the scope of this document.  Read more about [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) to learn more.
+If your application cannot handle downtime, you will need to follow best practices for high availability migration scenarios.  Best practices for complex business continuity planning, disaster recovery, and maximizing uptime are beyond the scope of this document.  Read more about [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) to learn more.
 
 For complex applications, you'll typically migrate over time rather than all at once. That means that the old and new environments might need to communicate over the network. Applications that previously used `ClusterIP` services to communicate might need to be exposed as type `LoadBalancer` and be secured appropriately.
 
