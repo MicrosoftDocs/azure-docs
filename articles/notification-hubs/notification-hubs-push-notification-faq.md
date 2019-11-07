@@ -48,7 +48,7 @@ Standard tier features:
 For Basic and Standard Notification Hubs tiers, properly configured applications can send push notifications or perform registration management operations at least 99.9 percent of the time. To learn more about the SLA, go to the [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) page.
 
 > [!NOTE]
-> Because push notifications depend on third-party Platform Notification Systems such as Apple's Push Notification Service (APNS) and Google's Firebase Cloud Messaging (FCM), there is no SLA guarantee for the delivery of these messages. After Notification Hubs sends the batches to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
+> Because push notifications depend on third-party Platform Notification Systems such as Apple's Push Notification Service (APNs) and Google's Firebase Cloud Messaging (FCM), there is no SLA guarantee for the delivery of these messages. After Notification Hubs sends the batches to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
 
 ### How do I upgrade or downgrade my hub or namespace to a different tier?
 
@@ -123,7 +123,7 @@ Namespaces can be used for deployment grouping. They can also be used to represe
 
 #### Geo-distribution
 
-Geo-distribution is not always critical in push notification scenarios. Various PNSes (for example, APNS or FCM) that deliver push notifications to devices aren't evenly distributed.
+Geo-distribution is not always critical in push notification scenarios. Various PNSes (for example, APNs or FCM) that deliver push notifications to devices aren't evenly distributed.
 
 If you have an application that is used globally, you can create hubs in different namespaces by using the Notification Hubs service in different Azure regions around the world.
 
@@ -145,7 +145,7 @@ All notifications are delivered to target devices by the platform's PNS. When a 
 All connections, from the sender to the Azure Notification Hubs to the PNS, use HTTPS.
 
 > [!NOTE]
-> Azure Notification Hubs does not log the payload of messages in any way.
+> Azure Notification Hubs does not log the payload of messages.
 
 To send sensitive payloads, we recommend using a Secure Push pattern. The sender delivers a ping notification with a message identifier to the device without the sensitive payload. When the app on the device receives the payload, the app calls a secure API directly to fetch the message details. For a guide on how to implement this pattern, go to the [Notification Hubs Secure Push tutorial] page.
 
@@ -192,7 +192,7 @@ You can also programmatically access metrics. For more information, see the foll
 - [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md)
 
 > [!NOTE]
-> Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNS for Apple or FCM for Google). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
+> Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNs for iOS and macOS or FCM for Android devices). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
 
 [Azure portal]: https://portal.azure.com
 [Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
