@@ -5,11 +5,7 @@
     items:
      - name: What is cloud app management and single sign-on?
        href: what-is-application-management.md
-<<<<<<< HEAD
-     - name: What is app provisioning?
-=======
      - name: What is application provisioning?
->>>>>>> 239b17f72a00baaf1e8900c4e99ffc0ac760a670
        href: user-provisioning.md
      - name: What is Application Proxy for on-premises apps?
        href: what-is-application-proxy.md
@@ -70,17 +66,9 @@
           href: howto-saml-token-encryption.md
         - name: End-user portals
           href: end-user-experiences.md
-<<<<<<< HEAD
-    - name: App provisioning
-      items:
-       - name: Plan an app provisioning deployment
-         href: plan-auto-user-provisioning.md
-       - name: SCIM app provisioning
-=======
     - name: Application provisioning (SCIM)
       items:
        - name: Automatic provisioning for SCIM-enabled apps
->>>>>>> 239b17f72a00baaf1e8900c4e99ffc0ac760a670
          href: use-scim-to-provision-users-and-groups.md
        - name: Plan an automatic user provisioning deployment
          href: plan-auto-user-provisioning.md
@@ -235,35 +223,19 @@
             href: access-panel-extension-problem-installing.md
           - name: Error using self-service app access
             href: access-panel-troubleshoot-self-service-access.md
-<<<<<<< HEAD
-    - name: App provisioning
-=======
     - name: Application provisioning (SCIM)
->>>>>>> 239b17f72a00baaf1e8900c4e99ffc0ac760a670
       items:
       - name: Configure app provisioning
         items:
-<<<<<<< HEAD
-        - name: Provisioning for gallery apps
-          href: application-provisioning-config-how-to.md
-        - name: App provisioning for multi-tenant apps
-          href: isv-automatic-provisioning-multi-tenant-apps.md
-        - name: Configure app provisioning
-=======
         - name: Manual vs. automatic provisioning 
           href: application-provisioning-config-how-to.md
         - name: Configure automatic user provisioning
->>>>>>> 239b17f72a00baaf1e8900c4e99ffc0ac760a670
           href: configure-automatic-user-provisioning-portal.md
         - name: Customize attribute mappings
           href: Customize-application-attributes.md
-<<<<<<< HEAD
         - name: Write expressions for attribute mappings
           href: functions-for-customizing-application-data.md
-        - name: Scoping filters
-=======
         - name: Scoping users or groups to be provisioned 
->>>>>>> 239b17f72a00baaf1e8900c4e99ffc0ac760a670
           href: define-conditional-rules-for-provisioning-user-accounts.md
         - name: Skip deletion for out-of-scope users
           href: skip-out-of-scope-deletions.md
@@ -277,7 +249,6 @@
         items:
         - name: Troubleshoot app provisioning
           href: application-provisioning-config-problem.md
-<<<<<<< HEAD
         - name: Quarantine status
           href: application-provisioning-quarantine-status.md
         - name: Provisioning logs
@@ -286,10 +257,7 @@
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: Taking hours - gallery app
           href: application-provisioning-when-will-provisioning-finish.md
-        - name: Problem saving administrator credentials while configuring provisioning for gallery app
-=======
         - name: Authorization issue (unable to save admin credentials)
->>>>>>> 239b17f72a00baaf1e8900c4e99ffc0ac760a670
           href: application-provisioning-config-problem-storage-limit.md
         - name: Users are not provisioned 
           href: application-provisioning-config-problem-no-users-provisioned.md
@@ -397,8 +365,6 @@
           href: application-proxy-understand-cors-issues.md
   - name: Reference
     items:
-<<<<<<< HEAD
-=======
     - name: Application provisioning (SCIM)
       items:
         - name: Write expressions for attribute mappings
@@ -406,7 +372,6 @@
         - name: Choosing a provisioning method
           href: isv-automatic-provisioning-multi-tenant-apps.md
 
->>>>>>> 239b17f72a00baaf1e8900c4e99ffc0ac760a670
     - name: Azure AD Connect Provisioning Agent
       items:
        - name: Provisioning Agent version history
