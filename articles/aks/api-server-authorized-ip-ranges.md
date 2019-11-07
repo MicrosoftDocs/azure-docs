@@ -23,8 +23,6 @@ This article shows you how to use API server authorized IP address ranges to lim
 
 ## Before you begin
 
-This article assumes you are working with clusters that use [kubenet][kubenet].  With [Azure Container Networking Interface (CNI)][cni-networking] based clusters, you will not have the required route table needed to secure access.  You will need to create the route table manually.  For more information about managing route tables, see [Create, change, or delete a route table][route-tables].
-
 API server authorized IP ranges only work for new AKS clusters that you create. This article shows you how to create an AKS cluster using the Azure CLI.
 
 You need the Azure CLI version 2.0.76 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
