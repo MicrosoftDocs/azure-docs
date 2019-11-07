@@ -1,6 +1,6 @@
 ---
 title: Service Fabric Azure Resource Manager deployment guardrails | Microsoft Docs
-description: This article provides an overview of common mistakes made when deploying a Service Fabric cluster through ARM and how to avoid them. 
+description: This article provides an overview of common mistakes made when deploying a Service Fabric cluster through Azure Resource Manager and how to avoid them. 
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
