@@ -34,15 +34,15 @@
   - name: Azure AD Operations reference
     items:
     - name: Introduction
-      href: active-directory-ops-guide-aintro.md
+      href: active-directory-ops-guide-intro.md
     - name: Identity and access management
-      href: active-directory-ops-guide-biam.md
+      href: active-directory-ops-guide-iam.md
     - name: Authentication management
-      href: active-directory-ops-guide-cauth.md
+      href: active-directory-ops-guide-auth.md
     - name: Identity governance
-      href: active-directory-ops-guide-dgovern.md
+      href: active-directory-ops-guide-govern.md
     - name: Operations
-      href: active-directory-ops-guide-eops.md
+      href: active-directory-ops-guide-ops.md
 - name: 'How-to guides'
   expanded: true
   items:
