@@ -59,6 +59,9 @@ Run the following commands on all **iSCSI target virtual machines**.
    <pre><code>sudo zypper update
    </code></pre>
 
+> [!NOTE]
+   > OS reboot may be needed after the OS upgrade has been completed successfully. 
+
 1. Remove packages
 
    To avoid a known issue with targetcli and SLES 12 SP3, uninstall the following packages. You can ignore errors about packages that cannot be found
