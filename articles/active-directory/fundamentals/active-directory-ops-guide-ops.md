@@ -14,7 +14,7 @@ ms.author: martinco
 
 # Azure Active Directory general operations guide reference
 
-This section of the [Azure AD operations reference guide](active-directory-ops-guide-aintro.md) describes the checks and actions you should take to optimize the general operations of Azure Active Directory (Azure AD).
+This section of the [Azure AD operations reference guide](active-directory-ops-guide-intro.md) describes the checks and actions you should take to optimize the general operations of Azure Active Directory (Azure AD).
 
 > [!NOTE]
 > These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their operational practices as Microsoft products and services evolve over time.
