@@ -81,6 +81,8 @@ In a multicluster deployment, customers should connect to a Traffic Manager DNS 
 
 ## Storage considerations
 
+There are sevearl considerations when migrating storage.  They can be simple or complex based on your specific scenario.
+
 ### Stateless applications
 
 Stateless application migration is the most straightforward case. Apply your resource definitions (YAML or Helm) to the new cluster, make sure everything works as expected, and redirect traffic to activate your new cluster.
@@ -90,29 +92,26 @@ Stateless application migration is the most straightforward case. Apply your res
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
 
 If you use Azure Files, you can mount the file share as a volume into the new cluster:
-* [Mount Static Azure Files as a Volume](https://docs.microsoft.com/en-us/azure/aks/azure-files-volume#mount-the-file-share-as-a-volume)
+* [Mount Static Azure Files as a Volume](https://docs.microsoft.com/azure/aks/azure-files-volume#mount-the-file-share-as-a-volume)
 
 If you use Azure Managed Disks, you can only mount the disk if unattached to any VM:
-* [Mount Static Azure Disk as a Volume](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume#mount-disk-as-volume)
+* [Mount Static Azure Disk as a Volume](https://docs.microsoft.com/azure/aks/azure-disk-volume#mount-disk-as-volume)
 
 If neither of those approaches work, you can use a backup and restore options:
 * [Velero on Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
-
-__TODO__ Could use better integration with the sections below it.
-
 
 #### Migrating persistent volumes
 
 If you're migrating existing persistent volumes to AKS, you'll generally follow these steps:
 
-1. Quiesce writes to the application. (This step is optional and requires downtime.)
-2. Take snapshots of the disks.
-3. Create new managed disks from the snapshots.
-4. Create persistent volumes in AKS.
-5. Update pod specifications to [use existing volumes](https://docs.microsoft.com/azure/aks/azure-disk-volume) rather than PersistentVolumeClaims (static provisioning).
-6. Deploy the application to AKS.
-7. Validate.
-8. Point traffic to the AKS cluster.
+* Quiesce writes to the application. (This step is optional and requires downtime.)
+* Take snapshots of the disks.
+* Create new managed disks from the snapshots.
+* Create persistent volumes in AKS.
+* Update pod specifications to [use existing volumes](https://docs.microsoft.com/azure/aks/azure-disk-volume) rather than PersistentVolumeClaims (static provisioning).
+* Deploy your application to AKS.
+* Validate your application is working correctly.
+* Point your live traffic to your new AKS cluster.
 
 > [!IMPORTANT]
 > If you choose not to quiesce writes, you'll need to replicate data to the new deployment. Otherwise you'll miss the data that was written after you took the disk snapshots.
@@ -128,11 +127,11 @@ Unlike disks, Azure Files can be mounted to multiple hosts concurrently. In your
 
 If your application can host multiple replicas that point to the same file share, follow the stateless migration steps and deploy your YAML definitions to your new cluster. If not, one possible migration approach involves the following steps:
 
-1. Deploy your application to AKS with a replica count of 0.
-2. Scale the application on ACS to 0. (This step requires downtime.)
-3. Scale the application on AKS up to 1.
-4. Validate.
-5. Point traffic to the AKS cluster.
+* Deploy your application to AKS with a replica count of 0.
+* Scale the application on ACS to 0. (This step requires downtime.)
+* Scale the application on AKS up to 1.
+* Validate your application is working correctly.
+* Point your live traffic to your new AKS cluster.
 
 If you want to start with an empty share and make a copy of the source data, you can use the [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) commands to migrate your data.
 
