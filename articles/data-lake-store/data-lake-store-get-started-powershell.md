@@ -121,30 +121,30 @@ To rename a file, use the following command:
 
 ```PowerShell
 Move-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name `
-   -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv `
-   -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
+    -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv `
+    -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
 ```
 
 To download a file, use the following command:
 
 ```PowerShell
 Export-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name `
-   -Path $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv `
-   -Destination "C:\sampledata\vehicle1_09142014_Copy.csv"
+    -Path $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv `
+    -Destination "C:\sampledata\vehicle1_09142014_Copy.csv"
 ```
 
 To delete a file, use the following command:
 
 ```PowerShell
 Remove-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name `
-   -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
+    -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
 ```
 
 When prompted, enter **Y** to delete the item. If you have more than one file to delete, you can provide all the paths separated by comma.
 
 ```PowerShell
 Remove-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name `
-   -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
+    -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 ```
 
 ## Delete your account
