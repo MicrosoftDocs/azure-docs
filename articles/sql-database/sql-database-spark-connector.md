@@ -1,5 +1,5 @@
 ---
-title: Spark Connector with Azure SQL Database and SQL Server| Microsoft Docs
+title: Spark Connector with Azure SQL Database and SQL Server
 description: Learn how to use the Spark Connector for Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database
@@ -59,7 +59,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"            -> "mysqlserver.database.windows.net",
   "databaseName"   -> "MyDatabase",
-  "dbTable"        -> "dbo.Clients"
+  "dbTable"        -> "dbo.Clients",
   "user"           -> "username",
   "password"       -> "*********",
   "connectTimeout" -> "5", //seconds
@@ -97,7 +97,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"          -> "mysqlserver.database.windows.net",
   "databaseName" -> "MyDatabase",
-  "dbTable"      -> "dbo.Clients"
+  "dbTable"      -> "dbo.Clients",
   "user"         -> "username",
   "password"     -> "*********"
 ))

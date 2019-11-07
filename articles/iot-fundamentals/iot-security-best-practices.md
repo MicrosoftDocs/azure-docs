@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
 ---
+# Security best practices for Internet of Things (IoT)
 
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 

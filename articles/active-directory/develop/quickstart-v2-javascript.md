@@ -1,5 +1,6 @@
 ---
-title: Microsoft identity platform JavaScript quickstart - Azure
+title: Sign in users and get an access token in a JavaScript SPA | Azure
+titleSuffix: Microsoft identity platform 
 description: Learn how JavaScript applications can call an API that requires access tokens by using Microsoft identity platform.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,13 +17,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Sign in users and acquire an access token from a JavaScript single-page application
+# Quickstart: Sign in users and get an access token in a JavaScript SPA
 
 In this quickstart, you use a code sample to learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API. (See [How the sample works](#how-the-sample-works) for an illustration.)
 
@@ -78,12 +79,11 @@ Select the option that's suitable to your development environment:
 
 * (Optional) To run the project with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extract the zip file to a local folder (for example, *C:\Azure-Samples*).
 
-#### Step 3: Configure your JavaScript app
-
 > [!div renderon="docs"]
+> #### Step 3: Configure your JavaScript app
 > In the *JavaScriptSPA* folder, edit *index.html*, and set the `clientID` and `authority` values under `msalConfig`.
 
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div renderon="docs"]
 > In the *JavaScriptSPA* folder, edit *index.html*, and replace `msalConfig` with the following code:
 
 ```javascript
@@ -100,10 +100,6 @@ var msalConfig = {
 };
 
 ```
-> [!div renderon="portal"]
-> > [!NOTE]
-> > This quickstart supports Enter_the_Supported_Account_Info_Here.
-
 
 > [!div renderon="docs"]
 >
@@ -118,7 +114,12 @@ var msalConfig = {
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 >
 
-#### Step 4: Run the project
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 3: Your app is configured and ready to run
+> We have configured your project with values of your app's properties. 
+
+> [!div renderon="docs"]
+> #### Step 4: Run the project
 
 * If you're using [Node.js](https://nodejs.org/en/download/):
 

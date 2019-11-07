@@ -1,5 +1,5 @@
 ---
-title: Perform an access review from the My Apps portal - Azure Active Directory| Microsoft Docs
+title: Perform an access review from the My Apps portal - Azure AD
 description: Learn how to view and manage security access for your organization's apps and groups.
 services: active-directory
 author: eross-msft

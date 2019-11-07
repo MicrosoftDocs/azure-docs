@@ -164,7 +164,7 @@ Once the RBAC roles have been assigned to the users, the tenant administrator sh
 
 
 
-## Adding subscriptions to a management groups
+## Adding subscriptions to a management group
 You can add subscriptions to the management group that you created. These steps aren't mandatory for gaining tenant-wide visibility and global policy and access management.
 
 1. Under **Management Groups**, select a management group to add your subscription to.

@@ -75,7 +75,7 @@ SAML 2.0 is a mature standard and most technology platforms support open-source 
 
 ### Trade-offs
 
-When using SAML 2.0 or WSFed protocols for mobile applications, certain conditional access policies including Multi-factor Authentication (MFA) will have a degraded experience. Additionally, if you want to access the Microsoft Graph, you will need to implement authorization through OAuth 2.0 to generate necessary tokens. 
+When using SAML 2.0 or WSFed protocols for mobile applications, certain Conditional Access policies including Multi-factor Authentication (MFA) will have a degraded experience. Additionally, if you want to access the Microsoft Graph, you will need to implement authorization through OAuth 2.0 to generate necessary tokens. 
 
 ### Implementation
 

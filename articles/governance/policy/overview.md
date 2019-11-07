@@ -63,12 +63,11 @@ effect that takes place if the conditions are met.
 
 In Azure Policy, we offer several built-in policies that are available by default. For example:
 
-- **Require SQL Server 12.0**: Validates that all SQL servers use version 12.0. Its effect is to deny all servers that don't meet these criteria.
 - **Allowed Storage Account SKUs**: Determines if a storage account being deployed is within a set of SKU sizes. Its effect is to deny all storage accounts that don't adhere to the set of defined SKU sizes.
 - **Allowed Resource Type**: Defines the resource types that you can deploy. Its effect is to deny all resources that aren't part of this defined list.
 - **Allowed Locations**: Restricts the available locations for new resources. Its effect is used to enforce your geo-compliance requirements.
 - **Allowed Virtual Machine SKUs**: Specifies a set of virtual machine SKUs that you can deploy.
-- **Apply tag and its default value**: Applies a required tag and its default value if it's not specified by the deploy request.
+- **Add a tag to resources**: Applies a required tag and its default value if it's not specified by the deploy request.
 - **Enforce tag and its value**: Enforces a required tag and its value to a resource.
 - **Not allowed resource types**: Prevents a list of resource types from being deployed.
 
