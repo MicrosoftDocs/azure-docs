@@ -4,7 +4,7 @@ title: Computer Vision documentation # < 60 chars
 summary: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
 
 metadata:
-  title: Computer Vision documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Computer Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # Required; article description that is displayed in search results. < 160 chars.
   services: cognitive-services
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -47,6 +47,8 @@ landingContent:
             url: quickstarts-sdk/java-sdk.md
           - text: Using the Node SDK
             url: quickstarts-sdk/node-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts-sdk/go-sdk.md
             
 
   - title: Detect objects in images
@@ -65,6 +67,8 @@ landingContent:
             url: quickstarts-sdk/java-sdk.md
           - text: Using the Node SDK
             url: quickstarts-sdk/node-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts-sdk/go-sdk.md
 
   # Card 
   - title: Apply content tags to images
@@ -83,6 +87,8 @@ landingContent:
             url: quickstarts-sdk/java-sdk.md
           - text: Using the Node SDK
             url: quickstarts-sdk/node-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts-sdk/go-sdk.md
 
   - title: Use containers
     linkLists:
@@ -117,6 +123,8 @@ landingContent:
             url: quickstarts-sdk/java-sdk.md
           - text: Using the Node SDK
             url: quickstarts-sdk/node-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts-sdk/go-sdk.md
   
 #  - title: Get image descriptions
 #    linkLists:
@@ -190,7 +198,7 @@ landingContent:
           - text: Java SDK
             url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
           - text: Node.js SDK
-            url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-computervision?view=azure-node-latest
+            url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
           - text: Go SDK
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
           - text: Azure PowerShell
@@ -198,3 +206,11 @@ landingContent:
           - text: Azure Command-Line Interface (CLI)
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
      
+  - title: Help and feedback
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: UserVoice
+            url: https://cognitive.uservoice.com/forums/430309-computer-vision-api
+          - text: Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

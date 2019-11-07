@@ -18,6 +18,9 @@
   - name: Cross-tenant management experiences
     displayName: scenarios
     href: ./concepts/cross-tenant-management-experience.md
+  - name: Tenants, roles, and users
+    displayName: Azure AD, Azure Active Directory
+    href: ./concepts/tenants-users-roles.md
   - name: Managed services offers in Azure Marketplace
     displayName: azure marketplace, marketplace, managed service, private, plan
     href: ./concepts/managed-services-offers.md

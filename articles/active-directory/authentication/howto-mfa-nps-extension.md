@@ -116,7 +116,7 @@ If you need to kick off a new round of synchronization, us the instructions in [
 There are two factors that affect which authentication methods are available with an NPS extension deployment:
 
 1. The password encryption algorithm used between the RADIUS client (VPN, Netscaler server, or other) and the NPS servers.
-   - **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, one-way text message, mobile app notification, and mobile app verification code.
+   - **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, one-way text message, mobile app notification, OATH hardware tokens, and mobile app verification code.
    - **CHAPV2** and **EAP** support phone call and mobile app notification.
 
       > [!NOTE]

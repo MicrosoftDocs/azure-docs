@@ -5,7 +5,7 @@ author: jpconnock
 
 ms.service: spring-cloud
 ms.topic: overview
-ms.date: 10/04/2019
+ms.date: 11/4/2019
 ms.author: jeconnoc
 ---
 # What is Azure Spring Cloud?
@@ -14,8 +14,7 @@ Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applic
 
 As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other Azure services including storage, databases, monitoring, and more.
 
-Azure Spring Cloud is currently in preview.  For access to this service while it is in preview, please [fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-).
+Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
 
 To get started, complete the Spring Cloud quickstart using the [Azure CLI](spring-cloud-quickstart-launch-app-cli.md), the [Azure portal](spring-cloud-quickstart-launch-app-portal.md), or [Maven](spring-cloud-quickstart-launch-app-maven.md).
 

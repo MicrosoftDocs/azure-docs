@@ -40,7 +40,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Create virtual networks
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Select **Networking**, and then select **Virtual network**.
 3. On the **Basics** page, enter or select the following information and accept the defaults for the remaining settings:
 
@@ -50,7 +50,7 @@ Log in to the Azure portal at https://portal.azure.com.
     |Resource group| Select **Create new** and enter *myResourceGroup*.|
     |Region| Select **East US**.|
     |Name|myVirtualNetwork1|
-    ![Configure basic virtual network settings] (
+
 4. On the **IP Addresses** page, enter 10.0.0.0/16 for the **Address Space** field. Click the **Add subnet** button below and enter Subnet1 for **Subnet Name** and 10.0.0.0/24 for **Subnet Address range**.
    
 5. Complete steps 1-3 again, with the following changes:
@@ -65,7 +65,7 @@ Log in to the Azure portal at https://portal.azure.com.
 ## Peer virtual networks
 
 1. In the Search box at the top of the Azure portal, begin typing *MyVirtualNetwork1*. When **myVirtualNetwork1** appears in the search results, select it.
-2. Select **Peerings**, under **SETTINGS**, and then select **+ Add**, as shown in the following picture:
+2. Select **Peerings**, under **Settings**, and then select **Add**, as shown in the following picture:
 
     ![Create peering](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
@@ -92,7 +92,7 @@ Create a VM in each virtual network so that you can communicate between them in 
 
 ### Create the first VM
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. You can select a different operating system, but the remaining steps assume you selected **Windows Server 2016 Datacenter**. 
 3. Enter, or select, the following information for **Basics**, accept the defaults for the remaining settings, and then select **Create**:
 
@@ -143,7 +143,7 @@ The VMs take a few minutes to create. Do not continue with the remaining steps u
 6. In a later step, ping is used to communicate with the *myVm2* VM from the *myVm1* VM. Ping uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall, by default. On the *myVm1* VM, enable ICMP through the Windows firewall, so that you can ping this VM from *myVm2* in a later step, using PowerShell:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
     
     Though ping is used to communicate between VMs in this tutorial, allowing ICMP through the Windows Firewall for production deployments is not recommended.
