@@ -30,7 +30,7 @@ This section discusses troubleshooting timeout issues that occur when connecting
 
 ## Redis server patching
 
-Azure Cache for Redis regularly updates its server software as part of the managed service functionality that it provides. This [patching](cache-failover.md) activity takes place largely behind the scene. During the failovers when Redis server nodes are being patched, Redis clients connected to these nodes may experience temporary timeouts as connections are switched between these nodes. See [How does a failover impact my client application](cache-failover.md#how-does-a-failover-impact-my-client-application) for more information on what side-effects patching can have on your application and how you can improve its handling of patching events.
+Azure Cache for Redis regularly updates its server software as part of the managed service functionality that it provides. This [patching](cache-failover.md) activity takes place largely behind the scene. During the failovers when Redis server nodes are being patched, Redis clients connected to these nodes may experience temporary timeouts as connections are switched between these nodes. See [How does a failover affect my client application](cache-failover.md#how-does-a-failover-affect-my-client-application) for more information on what side-effects patching can have on your application and how you can improve its handling of patching events.
 
 ## StackExchange.Redis timeout exceptions
 

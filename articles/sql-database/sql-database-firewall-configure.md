@@ -1,9 +1,10 @@
 ---
-title: Azure SQL Database and Azure SQL Data Warehouse IP firewall rules 
+title: IP firewall rules
 description: Configure server-level IP firewall rules for a SQL database or SQL Data Warehouse firewall. Manage access and configure database-level IP firewall rules for a single or pooled database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

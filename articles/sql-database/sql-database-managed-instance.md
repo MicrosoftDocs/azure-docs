@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database managed instance overview 
+title: SQL managed instance overview
 description: This article describes Azure SQL Database managed instance.
 services: sql-database
 ms.service: sql-database
