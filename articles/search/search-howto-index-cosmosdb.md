@@ -14,25 +14,25 @@ ms.date: 11/04/2019
 
 # How to index Cosmos DB data using an indexer in Azure Cognitive Search 
 
-> [!Note]
-> MongoDB API, Gremlin API, and Cassandra API support are in preview. You can request access to the previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). These indexers are not intended for production use while in preview. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides these features. There is no .NET SDK support at this time.
->
+> [!IMPORTANT] 
 > SQL API is generally available.
+> MongoDB API, Gremlin API, and Cassandra API support are currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> You can request access to the previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
+> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
 This article shows you how to configure an Azure Cosmos DB [indexer](search-indexer-overview.md) to extract content and make it searchable in Azure Cognitive Search. This workflow creates an Azure Cognitive Search index and loads it with existing text extracted from Azure Cosmos DB. 
 
 Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](https://docs.microsoft.com/azure/cosmos-db/index-overview) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Cognitive Search indexing, your Azure Cosmos DB database must already exist and contain data.
 
-The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessed through different protocols. You can use the [portal](#cosmos-indexer-portal), REST API, or .NET SDK to set up an indexer to index content available through the following Cosmos DB API:
+The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessed through different protocols.
 
-* [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
++ For [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), which is generally available, you can use the [portal](#cosmos-indexer-portal), [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet).
 
-You can use the [portal](#cosmos-indexer-portal) or the [REST API version 2019-05-06-Preview](search-api-preview.md) to set up an indexer to index content available through the following Cosmos DB APIs:
-* [MongoDB API (preview)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
-* [Gremlin API (preview)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)
++ For [MongoDB API (preview)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
+and [Gremlin API (preview)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction), you can use either the [portal](#cosmos-indexer-portal) or the [REST API version 2019-05-06-Preview](search-api-preview.md) on a  [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) call to create the indexer.
 
-For the below API, you can use the [REST API version 2019-05-06-Preview](search-api-preview.md) to set up an indexer to index content:
-* [Cassandra API (preview)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction)
++ For [Cassandra API (preview)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction), you can only use the [REST API version 2019-05-06-Preview](search-api-preview.md) on a [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) call.
+
 
 > [!Note]
 > You can cast a vote on User Voice for the [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab) if you'd like to see it supported in Azure Cognitive Search.
@@ -284,7 +284,7 @@ This indexer runs every two hours (schedule interval is set to "PT2H"). To run a
 
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+For more information about defining indexer schedules, see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 ## Use .NET
 
