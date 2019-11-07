@@ -12,7 +12,7 @@ ms.author: tomfitz
 
 Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the management group level. You use management group level deployments to take actions that make sense at that level, such as assigning [role-based access control](../role-based-access-control/overview.md) or applying [policies](../governance/policy/overview.md).
 
-To deploy templates at the management group level, use the REST API. Support for management group deployments in Azure CLI and PowerShell will be added in a future release. The Azure portal doesn't support deployment in the management group level.
+Currently, to deploy templates at the management group level, you must use the REST API.
 
 ## Supported resources
 
