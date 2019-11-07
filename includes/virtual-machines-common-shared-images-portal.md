@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/03/2019
+ ms.date: 11/06/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -44,7 +44,7 @@ Create the gallery image definition inside of your gallery. In this example, the
 1. For **Image definition name**, type *myImageDefinition*.
 1. For **Operating system**, select the correct option based on your source VM.
 1. For **VM generation**, select the option based on your source VM. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
-1. For **Operating system state**, select the option based on your source VM. For more information, see [Generalized and specialized](..articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
+1. For **Operating system state**, select the option based on your source VM. For more information, see [Generalized and specialized](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. For **Publisher**, type *myPublisher*. 
 1. For **Offer**, type *myOffer*.
 1. For **SKU**, type *mySKU*.

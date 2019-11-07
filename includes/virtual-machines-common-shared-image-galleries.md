@@ -79,7 +79,7 @@ Specialized VMs have not been through a process to remove machine specific infor
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > **Known preview limitations**
-> VMs can only be created from specialized images using the Azure CLI, portal or API. The is no PowerShell support for the preview.
+> VMs can only be created from specialized images using the portal or API. The is no CLI or PowerShell support for the preview.
 
 
 ## Regional Support
