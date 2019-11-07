@@ -24,8 +24,8 @@ In this how-to article, you:
 
 To complete the steps in this article, you need the following resources:
 
-1. A [DevKit device](https://aka.ms/iot-devkit-purchase).
-1. An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+- A [DevKit device](https://aka.ms/iot-devkit-purchase).
+- An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Get device connection details
 
@@ -77,7 +77,7 @@ In this step, you view the telemetry in your Azure IoT Central application.
 
 In your IoT Central application, select **Devices** tab, select the device you added. In the **Overview** tab, you can see the telemetry from the DevKit device:
 
-   ![IoT Central device overview](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
+![IoT Central device overview](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
 
 ## Review the code
 
