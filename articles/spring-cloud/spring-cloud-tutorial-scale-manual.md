@@ -44,7 +44,7 @@ You can modify the scaling attributes. Keep the following notes in mind.
 
 * **App instance count**: You can scale out up to 20 instances in the Standard tier. This value changes the number of separate running instances of the microservice application.
 
-Be sure to click the **Save** button apply your scaling settings.
+Be sure to click the **Save** button to apply your scaling settings.
 
 ![Scale service in Azure portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
