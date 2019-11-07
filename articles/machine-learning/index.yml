@@ -108,10 +108,10 @@ landingContent:
           - text: Batch prediction 
             url: service/how-to-run-batch-predictions.md
           - text: End-to-end examples (GitHub)
-            url: 
+            url: https://github.com/microsoft/MLOps
 
   # Reference
-  - title: Explore reference doc sites
+  - title: Go to reference docs
     linkLists:
       - linkListType: reference
         links:
@@ -126,4 +126,4 @@ landingContent:
           - text: REST API
             url: https://docs.microsoft.com/rest/api/azureml/
           - text: AI reference architectures (GitHub)
-            url: https://github.com/Microsoft/AI           
+            url: https://github.com/Microsoft/AI
