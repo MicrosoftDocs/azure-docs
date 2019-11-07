@@ -114,7 +114,7 @@ Developers who prefer a visual design surface can use the Azure Machine Learning
 
 When you visually design pipelines, the inputs and outputs of a step are displayed visibly. You can drag and drop data connections, allowing you to quickly understand and modify the dataflow of your pipeline.
  
-![Azure Machine Learning designer example](./media/concept-ml-pipelines/visual-design-surface.gif)
+![Azure Machine Learning designer example](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ### Understanding the execution graph
 

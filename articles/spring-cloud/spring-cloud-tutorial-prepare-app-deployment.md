@@ -1,15 +1,11 @@
 ---
 title: Prepare a Spring application for deployment in Azure Spring Cloud | Microsoft Docs
 description: In this quickstart, you prepare a Java Spring application for deployment.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
-
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 
 ---
 # Tutorial: Prepare a Java Spring application for deployment in Azure Spring Cloud
@@ -92,8 +88,18 @@ Spring Boot version | Spring Cloud version | Azure Spring Cloud version
 2.0.x | Finchley.RELEASE | 2.0.x
 2.1.x | Greenwich.RELEASE | 2.1.x
 
-Include this snippet in  your `pom.xml` with the correct Azure Spring Cloud version in the 'dependency':
+Include one of the snippets below in  your `pom.xml`.  Select the snippet whose version matches your own.
 
+### Version 2.0.x:
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.0.0</version>
+</dependency>
+```
+
+### Version 2.1.x:
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>

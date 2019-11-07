@@ -30,7 +30,7 @@ This quickstart uses version 4 of the [Python SDK](https://pypi.org/project/azur
 
 ## Prerequisites
 
-* [Python 3.6](https://www.python.org/downloads/), with the `python` executable available in your `PATH`.
+* [Python 3.6+](https://www.python.org/downloads/), with the `python` executable available in your `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -156,7 +156,7 @@ The following snippets are all taken from the `cosmos_get_started.py` file.
     python cosmos_get_started.py
     ```
 
-7. To confirm the new items were created and saved, in the Azure portal, select **Data Explorer** > **AzureSampleFamilyDatabase** > **Items**. View the items that were created. For example, here is a sample JSON document for the Wakefield family:
+7. To confirm the new items were created and saved, in the Azure portal, select **Data Explorer** > **AzureSampleFamilyDatabase** > **Items**. View the items that were created. For example, here is a sample JSON document for the Andersen family:
 
 ```json
 {

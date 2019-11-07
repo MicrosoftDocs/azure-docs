@@ -92,7 +92,7 @@ Administrator provisioning and de-provisioning of security keys is not available
 
 ### UPN changes
 
-We are working on supporting a feature that allows UPN change on hybrid Azure AD joined and Azure AD joined devices. If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register.
+If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register their FIDO2 security keys.
 
 ## Next steps
 
