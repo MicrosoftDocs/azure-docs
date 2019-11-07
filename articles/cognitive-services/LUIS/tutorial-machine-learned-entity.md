@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the machine-learned entity.  
 ---
@@ -177,6 +177,9 @@ The `Order` entity should have a `Quantity` subcomponent to determine how many o
     ![Create quantity entity with prebuilt number as constraint.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
     The entity with the constraint is created but not yet applied to the example utterances.
+
+    > [!NOTE]
+    > A subcomponent can be nested within a subcomponent. While this isn't shown in this article, it is available from the portal and the API. Refer to the limits to understand nesting depth. 
 
 ## Label example utterance with subcomponent for quantity to teach LUIS about the entity
 
