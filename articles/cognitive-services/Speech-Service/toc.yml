@@ -39,6 +39,10 @@
       href: how-to-automatic-language-detection.md
     - name: Use compressed audio input formats
       href: how-to-use-codec-compressed-audio-input-streams.md
+    - name: Use compressed audio input formats (iOS)
+      href: how-to-use-codec-compressed-audio-input-streams-ios.md
+    - name: Use compressed audio input formats (Android)
+      href: how-to-use-codec-compressed-audio-input-streams-android.md
     - name: Use speech recognition with Docker containers
       href: speech-container-howto.md?tabs=stt
   - name: Reference
@@ -200,11 +204,11 @@
   - name: Overview
     items:
     - name: What is conversation transcription?
-      href: conversation-transcription-service.md
+      href: conversation-transcription.md
   - name: How-to guides
     items:
     - name: Real time Conversation Transcription
-      href: how-to-use-conversation-transcription-service.md
+      href: how-to-use-conversation-transcription.md
     - name: Asynchronous Conversation Transcription
       href: how-to-async-conversation-transcription.md
   - name: Reference
@@ -330,6 +334,11 @@
 - name: Speech Service
   expanded: false
   items:
+  - name: Scenarios
+    items:
+    - name: Call centers
+      href: get-started.md
+      displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
   - name: How-to guides
     items:
     - name: Try Speech Service for free

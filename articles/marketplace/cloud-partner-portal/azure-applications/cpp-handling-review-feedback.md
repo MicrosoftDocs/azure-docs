@@ -4,6 +4,7 @@ description: Explains how to use Azure DevOps to handle review feedback for Azur
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pabutler

@@ -4,6 +4,7 @@ description: View the status of offers on the Azure and AppSource Marketplaces u
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pabutler

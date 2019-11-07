@@ -771,6 +771,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
+      "redirect_document_id": false
+    },       
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-only.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-intents-only",
       "redirect_document_id": false
@@ -1218,6 +1223,61 @@
     {
       "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-faq.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-rate-limit-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-rate-limit-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-configure-ip-restriction.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-configure-ip-restriction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-configure-custom-response-code.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-configure-custom-response-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-policy-configure-bot-protection.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-policy-configure-bot-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-custom-rules-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-create-portal.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-create-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-monitor.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-policy-settings.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-policy-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-custom-rules.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-overview.md",
+      "redirect_url": "/azure/web-application-firewall/afds/afds-overview",
       "redirect_document_id": false
     },
     {
@@ -34904,6 +34964,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/machine-learning-interpretability-explainability.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-machine-learning-interpretability",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/identity-protection/overview-v2.md",
       "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
       "redirect_document_id": true
@@ -43826,6 +43891,131 @@
     {
       "source_path": "articles/security/fundamentals/azure-log-integration-faq.md",
       "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/au-protected-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/au-protected-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/au-protected-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/au-protected-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/azure-health.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/azure-health",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-datawarehouse-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-dw-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-dw-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-datawarehouse-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-datawarehouse-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-dw-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-dw-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-datawarehouse-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-datawarehouse-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ukofficial-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ukofficial-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ukofficial-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ukofficial-paaswa-overview",
       "redirect_document_id": false
     }
   ]
