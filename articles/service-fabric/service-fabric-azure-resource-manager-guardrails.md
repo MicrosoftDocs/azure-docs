@@ -1,5 +1,5 @@
 ---
-title: Service Fabric ARM Deployment Guardrails | Microsoft Docs
+title: Service Fabric Azure Resource Manager deployment guardrails | Microsoft Docs
 description: This article provides an overview of common mistakes made when deploying a Service Fabric cluster through ARM and how to avoid them. 
 services: service-fabric
 documentationcenter: .net
@@ -17,16 +17,16 @@ ms.date: 10/30/2019
 ms.author: pepogors
 
 ---
-# Service Fabric Guardrails 
+# Service Fabric guardrails 
 When deploying a Service Fabric cluster, guardrails are put in place, which will fail an Azure Resource Manager deployment in the case of an invalid cluster configuration. The following sections provide an overview of common cluster configuration issues and the steps required to mitigate these issues. 
 
-## Durability Mismatch
+## Durability mismatch
 ### Overview
 The durability value for a Service Fabric node type is defined in two different sections of an Azure Resource Manager template. The Virtual Machine Scale Set extension section of the Virtual Machine Scale Set resource, and the Node Type section of the Service Fabric cluster resource. It is a requirement that the durability value in these sections match, otherwise the resource deployment will fail.
 
 The following section contains an example of a durability mismatch between the Virtual Machine Scale Set extension durability setting and the Service Fabric Node Type durability setting:  
 
-**Virtual Machine Scale Set Durability Setting**
+**Virtual Machine Scale Set durability setting**
 ```json 
 {
   "extensions": [
@@ -44,7 +44,7 @@ The following section contains an example of a durability mismatch between the V
 }
 ```
 
-**Service Fabric Node Type Durability Setting** 
+**Service Fabric node type durability setting** 
 ```json
 {
   "nodeTypes": [
@@ -58,7 +58,7 @@ The following section contains an example of a durability mismatch between the V
 }
 ```
 
-### Error Messages
+### Error messages
 * Virtual Machine Scale Set durability mismatch does not match the current Service Fabric Node Type durability level
 * Virtual Machine Scale Set durability does not match the target Service Fabric Node Type durability level
 * Virtual Machine Scale Set durability does match the current Service Fabric durability level or the target Service Fabric Node Type durability level 
@@ -66,7 +66,7 @@ The following section contains an example of a durability mismatch between the V
 
 ### Mitigation
 To fix a durability mismatch, which is indicated by any of the above error messages:
-1. Update the durability level in either the Virtual Machine Scale Set extension or Service Fabric Node Type section of the ARM template to ensure that the values match.
+1. Update the durability level in either the Virtual Machine Scale Set extension or Service Fabric Node Type section of the Azure Resource Manager template to ensure that the values match.
 2. Redeploy the Azure Resource Manager template with the updated values.
 
 ## Next steps
