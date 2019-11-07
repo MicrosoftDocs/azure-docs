@@ -80,7 +80,7 @@ The device application starts sending data to IoT Hub:
 
    ![Device confirmation messages](media/quickstart-connect-pnp-device/device-confirmation-node.png)
 
-[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer-1.md)]
+[!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
 4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
 
@@ -88,7 +88,7 @@ The device application starts sending data to IoT Hub:
 
 1. Expand the interface with ID **urn:contoso:com:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
 
-[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer-2.md)]
+[!INCLUDE [iot-pnp-iot-explorer-2.md](../../includes/iot-pnp-iot-explorer-2.md)]
 
 ## Next steps
 
