@@ -1,9 +1,10 @@
 ---
-title: Migrate SQL Server on-premises Windows users and groups to Azure SQL Database managed instance using T-SQL DDL syntax 
+title: Migrate SQL ServerWindows users and groups to managed instance using T-SQL
 description: Learn about how to migrate SQL Server on-premises Windows users and groups to managed instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
