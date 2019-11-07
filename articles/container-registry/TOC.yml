@@ -1,4 +1,4 @@
-- name: Azure Container Registry Documentation
+- name: Azure Container Registry documentation
   href: ./index.yml
 - name: Container registries
   expanded: true
@@ -138,22 +138,6 @@
     - name: Health check errors
       href: container-registry-health-error-reference.md
       maintainContext: true
-  - name: Resources
-    items:
-    - name: Build your skill with Microsoft Learn
-      href: /learn/browse/?products=azure-container-registry
-    - name: Region availability
-      href: https://azure.microsoft.com/regions/services/
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/container-registry/
-    - name: Roadmap
-      href: https://aka.ms/acr/roadmap
-    - name: Provide product feedback
-      href: https://feedback.azure.com/forums/903958-azure-container-registry
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-container-registry
-    - name: Videos
-      href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
 - name: ACR Tasks
   expanded: true
   items:
@@ -185,7 +169,7 @@
     items:
       - name: Multi-step tasks
         href: container-registry-tasks-multi-step.md
-  - name: How-to
+  - name: How-to guides
     items:
       - name: Schedule a task
         href: container-registry-tasks-scheduled.md
@@ -193,7 +177,7 @@
         items:
         - name: Enable managed identity on a task
           href: container-registry-tasks-authentication-managed-identity.md
-        - name: Cross-registry authentication from task
+        - name: Cross-registry authentication
           href: container-registry-tasks-cross-registry-authentication.md
         - name: External authentication using key vault
           href: container-registry-tasks-authentication-key-vault.md
@@ -207,4 +191,17 @@
       href: /rest/api/containerregistry/tasks
     - name: YAML
       href: container-registry-tasks-reference-yaml.md
-
+- name: Resources
+  items:
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-registry/
+  - name: Roadmap
+    href: https://aka.ms/acr/roadmap
+  - name: Provide product feedback
+    href: https://feedback.azure.com/forums/903958-azure-container-registry
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-container-registry
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
