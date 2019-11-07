@@ -26,7 +26,7 @@ Connection telemetry is composed of the following scopes:
 
 **Latency measurement**
 
- Latency is measured from the client to the Microsoft Edge POP for the registered prefixes.
+ Latency is measured from the client to the Microsoft edge PoP for the registered prefixes.
 
 **Route (prefix) monitoring and protection** 
 

@@ -49,9 +49,9 @@ Peering Service isn't a private connectivity product like Azure ExpressRoute or 
 
 ## Background
 
-Office 365, Dynamics 365, and other Microsoft SaaS services are hosted in multiple Microsoft datacenters and can be accessed from any geographic location. The Microsoft global network has Microsoft edge point-of-presence (POP) locations around the world where it can connect to customers via their service providers. 
+Office 365, Dynamics 365, and other Microsoft SaaS services are hosted in multiple Microsoft datacenters and can be accessed from any geographic location. The Microsoft global network has Microsoft edge point-of-presence (PoP) locations around the world where it can connect to customers via their service providers. 
 
-Microsoft and partner service providers ensure that the traffic for the prefixes registered with a Peering Service connection enters and exits the nearest Microsoft edge POP locations on the Microsoft global network. Microsoft ensures that the networking traffic that egresses from the prefixes registered with a Peering Service connection uses the nearest Microsoft edge POP locations on the Microsoft global network.
+Microsoft and partner service providers ensure that the traffic for the prefixes registered with a Peering Service connection enters and exits the nearest Microsoft edge PoP locations on the Microsoft global network. Microsoft ensures that the networking traffic that egresses from the prefixes registered with a Peering Service connection uses the nearest Microsoft edge PoP locations on the Microsoft global network.
 
 ![Microsoft network and public connectivity](./media/peering-service-about/peering-service-background-final.png)
 
@@ -74,7 +74,7 @@ Peering Service uses two types of redundancy:
 
 - **Local redundancy**
 
-   Microsoft and service providers interconnect across multiple Microsoft edge POP locations to deliver Peering Service. In each location, interconnection must support failover across two routers.
+   Microsoft and service providers interconnect across multiple Microsoft edge PoP locations to deliver Peering Service. In each location, interconnection must support failover across two routers.
 
    Each peering location is provisioned with redundant and diverse peering links.
 
@@ -82,7 +82,7 @@ Peering Service uses two types of redundancy:
 
    Microsoft has interconnected with service providers at multiple metro locations so that if one of the edge nodes has degraded performance, the traffic routes to and from Microsoft via alternate sites. Microsoft routes traffic in its global network by using SDN-based routing policies for optimal performance.
 
-   This type of redundancy uses the shortest routing path by always choosing the nearest Microsoft edge POP to the customer. Geo-redundancy ensures that the customer is one network hop (AS hops) away from Microsoft​. 
+   This type of redundancy uses the shortest routing path by always choosing the nearest Microsoft edge PoP to the customer. Geo-redundancy ensures that the customer is one network hop (AS hops) away from Microsoft​. 
 
    ![Geo-redundancy](./media/peering-service-about/peering-service-geo-shortest.png)
 
@@ -112,7 +112,7 @@ There are two routing techniques:
 
    This service monitors the routing performance between the customer's location and Microsoft. 
    
-   Routing performance is measured by validating the round-trip time taken from the client to reach the Microsoft edge POP. Customers can view the latency reports for different geographic locations.
+   Routing performance is measured by validating the round-trip time taken from the client to reach the Microsoft edge PoP. Customers can view the latency reports for different geographic locations.
 
    Monitoring captures the events in case of any service degradation.
 

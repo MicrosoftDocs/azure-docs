@@ -33,9 +33,9 @@ A. Yes, customers can sign up for Peering Service with multiple providers in the
 
 A. Yes, customers can do so. Select the partner ISP per region that suits your business and operational needs.
 
-**Q. What is Microsoft Edge POP?**
+**Q. What is Microsoft edge PoP?**
 
-A. It's a physical location where Microsoft interconnects with other networks. In the Microsoft Edge POP location, services such as Azure Front Door and Azure CDN are hosted. For more information, see [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-features).
+A. It's a physical location where Microsoft interconnects with other networks. In the Microsoft edge PoP location, services such as Azure Front Door and Azure CDN are hosted. For more information, see [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-features).
 
 ## Peering Service: Unique characteristics
 

@@ -70,12 +70,12 @@ From a browser, go to the Azure portal and sign in with your Azure account.
  
 2.	Enter the following details on the **Basics** tab on the **Create a peering service connection** page. 
  
-3.	Select the subscription and the resource group associated with the subscription.
+3.	Select the subscription and the resource group associated with the subscription from the **Subscription** and **Resource group** drop-down lists.
 
     > [!div class="mx-imgBorder"]
     > ![Register Peering Service basic tab](./media/peering-service-portal/peering-servicebasics.png)
 
-4.	Enter a name to which the Peering Service instance should be registered.
+4.	Enter a name to which the Peering Service instance should be registered in the **Name** box.
  
 5.	Now, select the **Next:Configuration** button at the bottom of the page. The **Configuration** page appears.
 
@@ -110,7 +110,7 @@ From a browser, go to the Azure portal and sign in with your Azure account.
 
 Select **Add prefixes** on the **Prefixes** page to add prefixes.
 
-Select the ellipsis (...) next to the listed prefix, and select the **Delete** option.
+Select the ellipsis (**...**) next to the listed prefix, and select the **Delete** option.
 
 ### Delete a Peering Service connection
 
