@@ -14,7 +14,7 @@ ms.author: martinco
 
 # Azure Active Directory Identity and access management operations reference guide
 
-This section of the [Azure AD operations reference guide](active-directory-ops-guide-aintro.md) describes the checks and actions you should consider to secure and manage the lifecycle of identities and their assignments.
+This section of the [Azure AD operations reference guide](active-directory-ops-guide-intro.md) describes the checks and actions you should consider to secure and manage the lifecycle of identities and their assignments.
 
 ## Key operational processes
 
@@ -192,4 +192,4 @@ There are five aspects to a secure Identity infrastructure. This list will help 
 
 ## Next steps
 
-Get started with the [authentication management checks and actions](active-directory-ops-guide-cauth.md).
+Get started with the [authentication management checks and actions](active-directory-ops-guide-auth.md).
