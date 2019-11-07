@@ -96,7 +96,7 @@ The four key components of ADR are:
   Logical revert is the asynchronous process responsible for performing row-level version-based Undo - providing instant transaction rollback and undo for all versioned operations. Logical revert is accomplished by:
 
   - Keeping track of all aborted transactions and marking them invisible to other transactions. 
-  - Performing rollback using PVS for all user transactions, rather than physically scanning the transaction log and undoing changes one at a time
+  - Performing rollback by using PVS for all user transactions, rather than physically scanning the transaction log and undoing changes one at a time.
   - Releasing all locks immediately after transaction abort. Since abort involves simply marking changes in memory, the process is very efficient and therefore locks do not have to be held for a long time.
 
 - **sLog**
