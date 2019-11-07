@@ -106,6 +106,21 @@ Now you've finished configuring Azure Data Explorer as a data source for Grafana
 
 1. On the top menu, select the save icon: ![Save icon](media/grafana/save-icon.png).
 
+## Create Alerts
+
+1. Create new alert channel. Then **Save**.
+
+On the **Dashboard** select **Edit** from **<Panel title>**.
+
+1. Select alert icon to open the alert property panel.
+
+1. Fill out the following properties:
+
+1. Alert notification.
+
+1. Select **Save dashboard** to save your changes
+
+
 ## Next steps
 
 * [Write queries for Azure Data Explorer](write-queries.md)
