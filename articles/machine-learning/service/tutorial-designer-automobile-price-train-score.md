@@ -28,7 +28,7 @@ In part one of the tutorial you learn how to:
 > * Train a machine learning model
 > * Evaluate a machine learning model
 
-In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you learn how to deploy your predictive model as an real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
+In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you learn how to deploy your predictive model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
 
 > [!Note]
 >A completed version of this tutorial is available as a sample pipeline.
@@ -55,11 +55,11 @@ If you have an Azure Machine Learning workspace with an **Enterprise edition**, 
 
 1. Select **Easy-to-use prebuilt modules**.
 
-1. Select the default pipeline name **"Pipeline-Created-on ..."** at the top of the canvas, and rename it to something meaningful. For example, **"Automobile price prediction"**. The name doesn't need to be unique.
+1. Select the default pipeline name, **"Pipeline-Created-on ..."** at the top of the canvas, and rename it to something meaningful. For example, **"Automobile price prediction"**. The name doesn't need to be unique.
 
 ## Import data
 
-There are several sample datasets included in the designer for you to experiment with. For this tutorial, use the sample dataset **Automobile price data (Raw)**. 
+There are several sample datasets included in the designer for you to experiment with. For this tutorial, use **Automobile price data (Raw)**. 
 
 1. To the left of the pipeline canvas is a palette of datasets and modules. Select **Datasets** then view the **Samples** section to view the available sample datasets.
 
@@ -85,17 +85,17 @@ You can visualize the data to understand the dataset you will be using.
 
 ## Prepare data
 
-Datasets typically require some preprocessing before analysis. You might have noticed some missing values when visualizing the dataset. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove columns with many missing values and remove any individual rows that have missing values.
+Datasets typically require some preprocessing before analysis. You might have noticed some missing values when inspect the dataset. These missing values need to be cleaned so that the model can analyze the data correctly.
 
 ### Remove a column
 
 When you train a model, you have to do something about the data that's missing. In this dataset, the **normalized-losses** column is missing many values, so you'll exclude that column from the model altogether.
 
-1. Select which columns of data to work with. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
+1. Enter **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
 
 1. Click and drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
 
-1. Connect the dataset you added earlier to the **Select Columns in Dataset** module by clicking and dragging. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
+1. Connect the **Automobile price data (Raw)** dataset to the **Select Columns in Dataset**. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
 
     > [!TIP]
     > You create a flow of data through your pipeline when you connect the output port of one module to an input port of another.
@@ -121,7 +121,7 @@ When you train a model, you have to do something about the data that's missing. 
 
 1. Select the **Select Columns in Dataset** module. 
 
-1. In the **Properties**, select **Parameters** > **Comment** and enter "Exclude normalized losses.".
+1. In the **Properties** pane, select **Parameters** > **Comment** and enter "Exclude normalized losses.".
 
 ### Clean missing data
 
@@ -130,13 +130,13 @@ Your dataset still has missing values after removing the **normalized-losses** c
 > [!TIP]
 > Cleaning the missing values from input data is a prerequisite for using most of the modules in the designer.
 
-1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
+1. Enter **Clean** in the Search box to find the **Clean Missing Data** module.
 
 1. Drag the **Clean Missing Data** module to the pipeline canvas and connect it to the **Select Columns in Dataset** module. 
 
 1. In the Properties pane, select **Remove entire row** under **Cleaning mode**.
 
-1. In the Properties pane, enter "Remove missing value rows." in the **Comment** box.  
+1. In the Properties pane **Comment** box, enter "Remove missing value rows."  
 
     Your pipeline should now look something like this:
     
@@ -144,43 +144,43 @@ Your dataset still has missing values after removing the **normalized-losses** c
 
 ## Train a machine learning model
 
-Now that the data is preprocessed, you can construct a predictive model. You'll use your data to train the model. Then you'll test the model to see how closely it's able to predict prices.
+Now that the data is processed, you can train a predictive model.
 
 ### Select an algorithm
 
 **Classification** and **regression** are two types of supervised machine learning algorithms. **Classification** predicts an answer from a defined set of categories, such as a color (red, blue, or green). **Regression** is used to predict a number.
 
-Because you want to predict price, which is a number, you can use a regression algorithm. For this example, you'll use a linear regression model.
+Since you want to predict price, which is a number, you can use a regression algorithm. For this example, you'll use a linear regression model.
 
 ### Split the data
 
-Use your data for both training the model and testing it by splitting the data into two separate datasets.
+Split your data into two separate datasets for training the model and testing it.
 
-1. Type **split data** in the search box to find the **Split Data** module and connect it to the left port of the **Clean Missing Data** module.
+1. Enter **split data** in the search box to find the **Split Data** module and connect it to the left port of the **Clean Missing Data** module.
 
 1. Select the **Split Data** module.
 
 1. In the Properties pane, set the **Fraction of rows in the first output dataset** to 0.7.
 
-    This splits 70 percent of the data to train the model, and holds back 30 percent for testing.
+    This splits 70 percent of the data to train the model and 30 percent for testing it.
 
-1. In the Properties pane, enter "Split the dataset into training set(0.7) and test set(0.3)." in the **Comment** box.
+1. In the Properties **Comment** box, enter "Split the dataset into training set (0.7) and test set (0.3)."
 
 ### Train the model
 
-Train the model by giving it a set of data that includes the price. The model scans the data and looks for correlations between a car's features and its price.
+Train the model by giving it a set of data that includes the price. The model scans through the data and looks for correlations between a car's features and its price to construct a model.
 
 1. To select the learning algorithm, clear your module palette search box.
 
 1. Expand **Machine Learning Algorithms**.
     
-    This displays several categories of modules that can be used to initialize machine learning algorithms.
+    This displays several categories of modules that you can use to initialize learning algorithms.
 
-1. For this pipeline, select **Regression** > **Linear Regression** and drag it to the pipeline canvas.
+1. Select **Regression** > **Linear Regression** and drag it to the pipeline canvas.
 
 1. Find and drag the **Train Model** module to the pipeline canvas. 
 
-1. Connect the output of the Linear Regression module to the left input of the Train Model module.
+1. Connect the output of the **Linear Regression** module to the left input of the **Train Model** module.
 
 1. Connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
 
@@ -190,7 +190,9 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 1. In the Properties pane, select **Edit column** selector.
 
-1. In the **Label column** dialog, expand the drop-down menu and select **Column names**. In the text box, enter **price**. Price is the value that your model is going to predict.
+1. In the **Label column** dialog, expand the drop-down menu and select **Column names**. 
+
+1. In the text box, enter **price**. Price is the value that your model is going to predict.
 
     Your pipeline should look like this:
 
@@ -198,13 +200,13 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 ## Evaluate a machine learning model
 
-Now that you've trained the model using 70 percent of your data, you can use it to score the other 30 percent of the data to see how well your model functions.
+After training your model using 70 percent of the data, you can use it to score the other 30 percent to see how well your model functions.
 
-1. Type **score model** in the search box to find the **Score Model** module and drag the module to the pipeline canvas. 
+1. Enter **score model** in the search box to find the **Score Model** module and drag the module to the pipeline canvas. 
 
 1. Connect the output of the **Train Model** module to the left input port of **Score Model**. Connect the test data output (right port) of the **Split Data** module to the right input port of **Score Model**.
 
-1. Type **evaluate** in the search box to find the **Evaluate Model** and drag the module to the pipeline canvas. 
+1. Enter **evaluate** in the search box to find the **Evaluate Model** and drag the module to the pipeline canvas. 
 
 1. Connect the output of the **Score Model** module to the left input of **Evaluate Model**. 
 
@@ -220,15 +222,17 @@ Now that you've trained the model using 70 percent of your data, you can use it 
 
 After the run completes, you can view the results of the pipeline run. 
 
-1. View the output from the **Score Model** module by selecting the **Score Model** module.
+1. Select the **Score Model** module to view its output.
 
-1. In the **Properties** pane, select **Outputs** > **Visualize**. The output shows the predicted values for price and the known values from the test data.
+1. In the **Properties** pane, select **Outputs** > **Visualize**.
+
+    Here you can see the predicted prices and the actual prices from the testing data.
 
     ![Screenshot of the output visualization highlighting the "Scored Label" column](./media/ui-tutorial-automobile-price-train-score/score-result.png)
 
-1. View the output from the **Evaluate Model** module by selecting the **Score Model** module.
+1. Select the **Evaluate Model** module to view its output.
 
-1. In the **Properties** pane, select **Output** > **Visualize**, and then select **Visualize**.
+1. In the **Properties** pane, select **Output** > **Visualize**.
 
 The following statistics are shown for your model:
 
@@ -238,7 +242,7 @@ The following statistics are shown for your model:
 * **Relative Squared Error**: The average of squared errors relative to the squared difference between the actual values and the average of all actual values.
 * **Coefficient of Determination**: Also known as the R squared value, this is a statistical metric indicating how well a model fits the data.
 
-For each of the error statistics, smaller is better. A smaller value indicates that the predictions more closely match the actual values. For Coefficient of Determination, the closer its value is to one (1.0), the better the predictions.
+For each of the error statistics, smaller is better. A smaller value indicates that the predictions are closer to the actual values. For the coefficient of determination, the closer its value is to one (1.0), the better the predictions.
 
 ## Clean up resources
 
@@ -246,12 +250,12 @@ For each of the error statistics, smaller is better. A smaller value indicates t
 
 ## Next steps
 
-In part one of this tutorial, you completed these steps:
+In part one of this tutorial, you completed the following tasks:
 
-* Created a pipeline
-* Prepared the data
-* Trained the model
-* Scored and evaluated the model
+* Create a pipeline
+* Prepare the data
+* Train the model
+* Score and evaluate the model
 
 In part two, you'll learn how to deploy your model as a real-time endpoint.
 
