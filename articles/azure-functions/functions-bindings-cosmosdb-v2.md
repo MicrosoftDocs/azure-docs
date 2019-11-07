@@ -368,7 +368,7 @@ namespace CosmosDBSamplesV2
                 PartitionKey = "{ToDoItemPartitionKeyValue}")]ToDoItem toDoItem,
             ILogger log)
         {
-            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId} Id={toDoItemLookup?.ToDoItemPartitionKeyValue}");
+            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId} Key={toDoItemLookup?.ToDoItemPartitionKeyValue}");
 
             if (toDoItem == null)
             {
@@ -1299,7 +1299,7 @@ Here's the *function.json* file:
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}",,
+      "Id": "{Query.id}",
       "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
