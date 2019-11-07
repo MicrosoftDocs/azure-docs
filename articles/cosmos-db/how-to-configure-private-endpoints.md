@@ -325,7 +325,7 @@ After the template is deployed, the private IP addresses are reserved within the
 
 ## Configure custom DNS
 
-During the preview of Private Link, you should use a private DNS within the subnet where the private endpoint has been created. And configure the endpoints so that each of the private IP address is mapped to a DNS entry (see the "fqdns" property in the response shown above).
+You should use a private DNS within the subnet where the private endpoint has been created. And configure the endpoints so that each of the private IP address is mapped to a DNS entry (see the "fqdns" property in the response shown above).
 
 When creating the private endpoint, you can integrate it with a private DNS zone in Azure. If u choose to not integrate your private endpoint with private DNS zone in Azure and instead use a custom DNS, you have to configure your DNS to add a new DNS record for the private IP corresponding to the new region.
 
