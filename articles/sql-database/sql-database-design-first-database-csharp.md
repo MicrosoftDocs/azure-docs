@@ -1,9 +1,10 @@
 ---
-title: Design your first relational database - C# - Azure SQL Database| Microsoft Docs
+title: Design your first relational database C#
 description: Learn to design your first relational database in a single database in Azure SQL Database with C# using ADO.NET.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
