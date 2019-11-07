@@ -40,14 +40,14 @@ In addition to native Azure tools, Azure Migrate integrates with a number of ISV
 
 **ISV**	| **Feature**
 --- | ---
-[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate
-[Cloudamize](https://www.cloudamize.com/platform) | Assess 
-[Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate
-[Device 42](https://docs.device42.com/) | Assess
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess
-[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate
-[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess
-[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess
+[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate servers
+[Cloudamize](https://www.cloudamize.com/platform) | Assess servers
+[Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers
+[Device 42](https://docs.device42.com/) | Assess servers
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess VDI
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate servers
+[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess servers
+[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases
 
 ## Azure tool integration
 
