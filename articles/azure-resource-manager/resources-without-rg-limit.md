@@ -99,6 +99,45 @@ For some resource types, you need to contact support to have the 800 instance li
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
 
+## Microsoft.Network
+
+* applicationGatewayWebApplicationFirewallPolicies
+* applicationSecurityGroups
+* bastionHosts
+* ddosProtectionPlans
+* dnszones
+* dnszones/A
+* dnszones/AAAA
+* dnszones/CAA
+* dnszones/CNAME
+* dnszones/MX
+* dnszones/NS
+* dnszones/PTR
+* dnszones/SOA
+* dnszones/SRV
+* dnszones/TXT
+* dnszones/all
+* dnszones/recordsets
+* networkIntentPolicies
+* networkInterfaces
+* privateDnsZones
+* privateDnsZones/A
+* privateDnsZones/AAAA
+* privateDnsZones/CNAME
+* privateDnsZones/MX
+* privateDnsZones/PTR
+* privateDnsZones/SOA
+* privateDnsZones/SRV
+* privateDnsZones/TXT
+* privateDnsZones/all
+* privateDnsZones/virtualNetworkLinks
+* privateEndpoints
+* privateLinkServices
+* publicIPAddresses - By default, limited to 800 instances. That limit can be increased by contacting support.
+* serviceEndpointPolicies
+* trafficmanagerprofiles
+* virtualNetworkTaps
+
 ## Microsoft.PortalSdk
 
 * rootResources
