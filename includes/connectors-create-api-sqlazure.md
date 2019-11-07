@@ -43,8 +43,8 @@ When the SQL trigger or action prompts you for connection information, follow th
 
 > [!NOTE]
 > To use Windows authentication with the SQL Server connector in an 
-> [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> use the connector's non-ISE version with the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
+> [integration service environment (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), 
+> use the connector's non-ISE version with the [on-premises data gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install). 
 > The ISE-labeled version doesn't support Windows authentication.
 
 1. For **Connection Name**, create a name for your connection.
