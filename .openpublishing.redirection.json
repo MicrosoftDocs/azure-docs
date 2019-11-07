@@ -34904,6 +34904,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/machine-learning-interpretability-explainability.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-machine-learning-interpretability",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/identity-protection/overview-v2.md",
       "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
       "redirect_document_id": true
