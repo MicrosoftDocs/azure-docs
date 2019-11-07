@@ -42,10 +42,10 @@ AKS is a managed service with a hosted Kubernetes control plane. You might need 
 
 The following table provides details on the important technology differences.
 
-| Cluster type | Managed Disks | Multiple Node Pools | Windows Server nodes|
+| Cluster type | Managed Disks | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | Windows Server nodes|
 |-----------------------------------------|----------|
 | AKS  - Virtual Machine Scale Sets | Yes | Yes | Yes (preview)
-| AKS  - Virtual Machine Availability Sets | Yes | Yes | Yes (preview)
+| AKS  - Virtual Machine Availability Sets | Yes | No | Yes (preview)
 | ACS | No | No | No |
 | AKS engine | ? | ? | ? | 
 
@@ -64,15 +64,6 @@ When migrating clusters, the following Azure resources should not need additiona
 ## Migration considerations
 
 ### Agent pools
-
-Although AKS manages the Kubernetes control plane, you still define the size and number of nodes to include in your new cluster. Assuming you want a 1:1 mapping to AKS, you'll want to capture your existing node pool sku. Use this data when you create your new AKS cluster.
-
-Example:
-
-| Name | Count | VM size | Operating system |
-| --- | --- | --- | --- |
-| agentpool0 | 3 | Standard_D8_v2 | Linux |
-| agentpool1 | 1 | Standard_D2_v2 | Windows |
 
 Because additional virtual machines will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. 
 
