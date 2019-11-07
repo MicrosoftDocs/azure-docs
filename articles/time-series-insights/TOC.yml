@@ -17,6 +17,10 @@
       href: time-series-insights-update-quickstart.md  
 - name: Tutorials
   items:
+  - name: Time Series Insights JavaScript client library
+    href: tutorial-explore-js-client-lib.md
+  - name: Create a single-page web app
+    href: tutorial-create-tsi-sample-spa.md
   - name: Azure Time Series Insights GA
     items:
     - name: Create a Time Series Insights environment
@@ -47,6 +51,8 @@
         href: time-series-insights-manage-reference-data-csharp.md
       - name: Share a custom view
         href: time-series-insights-parameterized-urls.md
+      - name: Power BI integration
+        href: concepts-power-bi.md
   - name: Azure Time Series Insights Preview
     items:
     - name: Plan your environment
@@ -67,6 +73,8 @@
         href: time-series-insights-authentication-and-authorization.md
       - name: Query data by using C#
         href: time-series-insights-update-query-data-csharp.md
+      - name: Power BI integration
+        href: concepts-power-bi.md
 - name: How-to guides
   items:
   - name: Grant data access
@@ -75,6 +83,8 @@
     href: time-series-insights-how-to-add-an-event-source-eventhub.md
   - name: Connect to IoT Hub
     href: time-series-insights-how-to-add-an-event-source-iothub.md
+  - name: Connect to Power BI
+    href: how-to-connect-power-bi.md
   - name: Manage resources by using templates
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
   - name: Azure Time Series Insights GA
