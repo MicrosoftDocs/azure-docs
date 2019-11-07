@@ -26,7 +26,7 @@ When migrating, ensure your target Kubernetes version is within the supported wi
 
 If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions).
 
-In this article we will summarize:
+In this article we will summarize migration considerations for:
 
 > [!div class="checklist"]
 > * Differences between Kubernetes cluster types
@@ -181,7 +181,7 @@ Several open-source tools can help, depending on your deployment needs:
 * [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli)
 * [ReShifter](https://github.com/mhausenblas/reshifter)
 
-In this article we summarized:
+In this article we summarized migration considerations for:
 
 > [!div class="checklist"]
 > * Differences between Kubernetes cluster types
