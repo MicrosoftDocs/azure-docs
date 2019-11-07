@@ -51,7 +51,7 @@ For more information on streaming, see [Hadoop Streaming](https://hadoop.apache.
 
 ## Create the mapper
 
-In Visual Studio, create a new .NET Framework console app named *mapper*. Use the following code for the application:
+In Visual Studio, create a new .NET Framework console application named *mapper*. Use the following code for the application:
 
 ```csharp
 using System;
@@ -88,7 +88,7 @@ After you create the application, build it to produce the */bin/Debug/mapper.exe
 
 ## Create the reducer
 
-In Visual Studio, create a new .NET Framework console app named *reducer*. Use the following code for the application:
+In Visual Studio, create a new .NET Framework console application named *reducer*. Use the following code for the application:
 
 ```csharp
 using System;
@@ -141,12 +141,9 @@ After you create the application, build it to produce the */bin/Debug/reducer.ex
 
 ## Upload to storage
 
-Next, you need to upload the *mapper* and *reducer* apps to HDInsight storage.
+Next, you need to upload the *mapper* and *reducer* applications to HDInsight storage.
 
-> [!NOTE]
-> To upload to storage on your HDInsight cluster from Visual Studio, you need to have at least co-administrator access to your Azure subscription. To change administrators for a subscription, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md).
-
-1. In Visual Studio, open **Server Explorer**.
+1. In Visual Studio, choose **View** > **Server Explorer**.
 
 2. Expand **Azure**, and then expand **HDInsight**.
 
@@ -162,59 +159,61 @@ Next, you need to upload the *mapper* and *reducer* apps to HDInsight storage.
 
 5. To upload the .exe files, use one of the following methods:
 
-   * For an **Azure Storage Account**, select the upload icon, and then browse to the *bin\debug* folder for the *mapper* project. Finally, select the *mapper.exe* file and then select **Ok**.
+    * If you're using an **Azure Storage Account**, select the **Upload Blob** icon. 
 
-     ![HDInsight upload icon for mapper](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
-    
-   * For **Azure Data Lake Storage**, right-click an empty area in the file listing, and then select **Upload**. Finally, select the *mapper.exe* file and then select **Open**.
+        ![HDInsight upload icon for mapper, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
 
-     Once the *mapper.exe* upload has finished, repeat the upload process for the *reducer.exe* file.
+        In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the *bin\debug* folder for the *mapper* project, and then choose the *mapper.exe* file. Finally, select **Open** and then **OK** to complete the upload. 
+
+    * For **Azure Data Lake Storage**, right-click an empty area in the file listing, and then select **Upload**. Finally, select the *mapper.exe* file and then select **Open**.
+
+    Once the *mapper.exe* upload has finished, repeat the upload process for the *reducer.exe* file.
 
 ## Run a job: Using an SSH session
 
 The following procedure describes how to run a MapReduce job using an SSH session:
 
-1. Use SSH to connect to the HDInsight cluster. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Use SSH to connect to the HDInsight cluster. (For example, run the command `ssh sshuser@<clustername>-ssh.azurehdinsight.net`.) For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use one of the following commands to start the MapReduce job:
 
-   * If default storage is **Data Lake Storage Gen2**:
+   * If the default storage is **Azure Storage**:
 
-     ```bash
-     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
-         -files abfs:///mapper.exe,abfs:///reducer.exe \
-         -mapper mapper.exe \
-         -reducer reducer.exe \
-         -input /example/data/gutenberg/davinci.txt \
-         -output /example/wordcountout
-     ```
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
+            -files wasb:///mapper.exe,wasb:///reducer.exe \
+            -mapper mapper.exe \
+            -reducer reducer.exe \
+            -input /example/data/gutenberg/davinci.txt \
+            -output /example/wordcountout
+        ```
 
-   * If default storage is **Data Lake Storage Gen1**:
+    * If the default storage is **Data Lake Storage Gen1**:
 
-     ```bash
-     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
-         -files adl:///mapper.exe,adl:///reducer.exe \
-         -mapper mapper.exe \
-         -reducer reducer.exe \
-         -input /example/data/gutenberg/davinci.txt \
-         -output /example/wordcountout
-     ```
-    
-   * If default storage is **Azure Storage**:
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
+            -files adl:///mapper.exe,adl:///reducer.exe \
+            -mapper mapper.exe \
+            -reducer reducer.exe \
+            -input /example/data/gutenberg/davinci.txt \
+            -output /example/wordcountout
+        ```
 
-     ```bash
-     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
-         -files wasb:///mapper.exe,wasb:///reducer.exe \
-         -mapper mapper.exe \
-         -reducer reducer.exe \
-         -input /example/data/gutenberg/davinci.txt \
-         -output /example/wordcountout
-     ```
+   * If the default storage is **Data Lake Storage Gen2**:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
+            -files abfs:///mapper.exe,abfs:///reducer.exe \
+            -mapper mapper.exe \
+            -reducer reducer.exe \
+            -input /example/data/gutenberg/davinci.txt \
+            -output /example/wordcountout
+        ```
 
    The following list describes what each parameter and option represents:
 
    * *hadoop-streaming.jar*: Specifies the jar file that contains the streaming MapReduce functionality.
-   * `-files`: Specifies the *mapper.exe* and *reducer.exe* files for this job. The `abfs:///`,`adl:///`, or `wasb:///` protocol declaration before each file is the path to the root of default storage for the cluster.
+   * `-files`: Specifies the *mapper.exe* and *reducer.exe* files for this job. The `wasb:///`, `adl:///`, or `abfs:///` protocol declaration before each file is the path to the root of default storage for the cluster.
    * `-mapper`: Specifies the file that implements the mapper.
    * `-reducer`: Specifies the file that implements the reducer.
    * `-input`: Specifies the input data.
