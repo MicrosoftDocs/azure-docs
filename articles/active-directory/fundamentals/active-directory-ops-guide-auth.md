@@ -14,7 +14,7 @@ ms.author: martinco
 
 # Azure Active Directory authentication management operations reference guide
 
-This section of the [Azure AD operations reference guide](active-directory-ops-guide-aintro.md) describes the checks and actions you should take to secure and manage credentials, define authentication experience, delegate assignment, measure usage, and define access policies based on enterprise security posture.
+This section of the [Azure AD operations reference guide](active-directory-ops-guide-intro.md) describes the checks and actions you should take to secure and manage credentials, define authentication experience, delegate assignment, measure usage, and define access policies based on enterprise security posture.
 
 > [!NOTE]
 > These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their IAM practices as Microsoft products and services evolve over time.
@@ -370,4 +370,4 @@ There are 12 aspects to a secure Identity infrastructure. This list will help yo
 
 ## Next steps
 
-Get started with the [identity governance operational checks and actions](active-directory-ops-guide-dgovern.md).
+Get started with the [identity governance operational checks and actions](active-directory-ops-guide-govern.md).
