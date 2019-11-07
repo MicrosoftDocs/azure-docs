@@ -63,7 +63,7 @@ __TODO__ Add differences between two cluster types here
 
 ## Azure attached Services
 
-When migrating clusters, the following Azure resources should not need any additional efforts beyond allowing connections from the new cluster.
+When migrating clusters, the following Azure resources should not need additional migration work. You will have to ensure they have the proper connectivtity with the new AKS cluster.
 
 * Azure Container Registry
 * Log Analytics
@@ -158,7 +158,7 @@ If you want to start with an empty share and make a copy of the source data, you
 
 ### Deployment strategy
 
-We recommend that you use your existing CI/CD pipeline to deploy a known-good configuration to AKS. Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
+We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
 
 If that's not possible, export resource definitions from your existing Kubernetes cluster and then apply them to AKS. You can use `kubectl` to export objects.
 
