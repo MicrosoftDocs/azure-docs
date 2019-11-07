@@ -5287,6 +5287,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-web-application-firewall-portal.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-cli.md",
+      "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/configure-waf-custom-rules.md",
+      "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/create-custom-waf-rules.md",
+      "redirect_url": "/azure/web-application-firewall/ag/create-custom-waf-rules",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-portal.md",
       "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal",
       "redirect_document_id": false
@@ -16354,6 +16379,31 @@
     {
       "source_path": "articles/cognitive-services/cognitive-services-text-analytics-quick-start.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/csharp.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
     {
@@ -43357,6 +43407,9 @@
     {
       "source_path": "articles/machine-learning/algorithm-module-reference/import-from-web-url-via-http.md",
       "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-overview.md",
       "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-overview",
       "redirect_document_id": false
@@ -43474,11 +43527,6 @@
     {
       "source_path": "articles/industry/retail/visual-search-use-case-overview.md",
       "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/industry/index.md",
-      "redirect_url": "/azure/industry-marketing/index",
       "redirect_document_id": false
     },
     {

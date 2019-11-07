@@ -1,5 +1,5 @@
 ---
-title: Using Multi-factor AAD authentication with Azure SQL Database and Azure SQL Data Warehouse | Microsoft Docs
+title: Using Multi-factor AAD authentication with Azure SQL Database and Azure SQL Data Warehouse 
 description: Azure SQL Database and Azure SQL Data Warehouse support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication. 
 services: sql-database
 ms.service: sql-database
