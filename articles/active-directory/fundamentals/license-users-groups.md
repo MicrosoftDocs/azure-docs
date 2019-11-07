@@ -83,6 +83,8 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 1. Select **Assign**.
 
     The user is added to the list of licensed users and has access to the included Azure AD services.
+    > [!NOTE]
+    > Licenses can also be assigned directly to a user from the user's **Licenses** page. If a user has a license assigned through a group membership and you want to assign the same license to the user directly, it can be done only from the **Products** page mentioned in step 1 only.
 
 ### To assign a license to a group
 
@@ -107,9 +109,6 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 1. Select **Assign**.
 
     The group is added to the list of licensed groups and all of the members have access to the included Azure AD services.
-
-    > [!NOTE]
-    > Licenses can also be assigned directly to a user from the user's **Licenses** page. In case a user has a license assigned through a group membership and you want to assign the same license to the user directly, it can be done only from the **Products** page mentioned in step 1.
 
 ## Remove a license
 
