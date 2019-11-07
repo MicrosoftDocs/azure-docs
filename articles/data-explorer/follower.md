@@ -1,6 +1,6 @@
 ---
 title: Use follower database feature to attach databases in Azure Data Explorer
-description: Learn about how to attach databases in Azure Data Explorer using follower.
+description: Learn about how to attach databases in Azure Data Explorer using a follower cluster.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabilehner
@@ -9,33 +9,29 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ---
 
-# Using Follower database to attach databases in Azure Data Explorer
+# Using follower to attach databases in Azure Data Explorer
 
-Azure Data Explorer database(s) hosted in one cluster can be attached as read-only database(s) to a different cluster. By attaching a database to a cluster, you allow the users of the cluster to view the data and execute queries on the attached database. The attached database is a read-only database. Therefore, the data, tables and policies in the database can't be modified except for [configurable policies](#configurable-policies) and [Managing permissions](#managing-permissions). Attached databases can't be deleted. They must be detached by both the leader and follower clusters and only then they can be deleted. 
+The follower feature allows you to attach a database located in a different cluster to your cluster. The **follower cluster** can attach a database in *read-only* mode, making it possible to use the follower cluster to run queries on that database without using additional resources of the cluster that writes to the database, known as a **leader cluster**. The follower cluster periodically synchronizes changes in the leader databases, so there is a data lag of a few seconds to a few minutes in data availability. The length of the time lag depends on the overall size of the leader database metadata.
 
-* The original cluster and the attached database(s) cluster use the same storage account to fetch the data. The storage is owned by the original database cluster. The follower database views the data without needing to ingest it. 
-* A cluster can hold both attached databases and databases attached to other clusters.
-* You can attach a single database, multiple databases, or all databases in a specific cluster.
-* Detaching databases can be performed on both leader and follower clusters.
+Attaching a database to a different cluster using the follower capability can be used to share data between organizations and teams. It is useful to segregate compute resources to protect a production environment from non-production use cases. It can also be used to associate the cost of Azure Data Explorer cluster to the party that runs queries on the data.
 
-## Use cases for Follower database
+Azure Data Explorer database(s) hosted in one cluster can be attached as read-only database(s) to a different cluster. By attaching a database to a cluster, you allow the users of the cluster to view the data and execute queries on the attached database. The original cluster and the attached database(s) cluster use the same storage account to fetch the data. The storage is owned by the original database cluster. The follower database views the data without needing to ingest it. Since the attached database is a read-only database, the data, tables and policies in the database can't be modified except for [caching policy](#configurable-policies), [principals](#manage-principals) and [permissions](#manage-permissions). Attached databases can't be deleted. They must be detached by both the leader and follower clusters and only then they can be deleted. 
 
-Attaching a database to a different cluster is useful for the following scenarios:
-* Share data between organizations and teams.
-* Segregate compute resource to protect a production environment from non-production use cases.
-* Associate cost of Azure Data Explorer cluster to the party that runs queries on the data.
+## Which databases are followed?
+
+* A follower cluster can follow one database, several databases, or all databases of a leader cluster. 
+* A single follower cluster can follow databases from multiple leader clusters. 
+* A follower cluster may have databases for which it is the leader.
 
 ## Prerequisites
 
 1. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-1. [Create cluster and DB and ingest data] for leader cluster.
-1. [Create cluster] for follower cluster.
+1. [Create cluster and DB](/azure/data-explorer/create-cluster-database-portal) for leader and follower clusters
+1. [Ingest data](/azure/data-explorer/ingest-sample-data) for leader cluster using one of various methods discussed in [ingestion overview](/azure/data-explorer/ingest-data-overview).
 
 ## Attach a database
 
-There are various methods you can use to attach a database. In this article, we discuss attaching a database using C# or an Azure Resource Manager template. 
-
-\\To attach a database, you must have permissions on the leader cluster and the follower cluster. For more information about permissions, see [permission model](#Permission-model).\\
+There are various methods you can use to attach a database. In this article, we discuss attaching a database using C# or an Azure Resource Manager template. To attach a database, you must have permissions on the leader cluster and the follower cluster. For more information about permissions, see [manage permissions](#manage-permissions).
 
 ### Attach a database using C#
 
@@ -159,7 +155,7 @@ In this section, you learn how to attach a database by using an [Azure Resource 
 
 ### Deploy the template 
 
-You can deploy the Azure Resource Manager template by [using the Azure portal](#use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment) or [using powershell](#use-powershell-to-deploy-the-template-and-verify-template-deployment).
+You can deploy the Azure Resource Manager template by [using the Azure portal](https://portal.azure.com) or using powershell.
 
    ![template deployment](media/follower/template-deployment.png)
 
@@ -189,9 +185,9 @@ Alternatively:
 
     ![Read and write attached databases](media/follower/read-write-databases-shared.png)
 
-### Detach the follower database using C# 
+## Detach the follower database using C# 
 
-#### Detach the attached follower database from the follower cluster
+### Detach the attached follower database from the follower cluster
 
 Follower cluster is able to detach any attached database as follows:
 
@@ -212,7 +208,7 @@ var attachedDatabaseConfigurationsName = "adc";
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
 
-#### Detach the attached follower database from the leader cluster
+### Detach the attached follower database from the leader cluster
 
 The leader cluster is able to detach any attached database as follows:
 
@@ -239,32 +235,34 @@ var followerDatabaseDefinition = new FollowerDatabaseDefinition()
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
-## Managing principals and permissions
+## Manage principals, permissions, and caching policy
 
-## Managing principals
+### Manage principals
 
-When attaching a database you specify the **default principals modification kind"**:
+When attaching a database you specify the **default principals modification kind"**. The default is keeping the leader database collection of [authorized principals](/azure/kusto/management/access-control/index.md#authorization)
 
 |**Kind** |**Description**  |
 |---------|---------|
-|Union     |   The attached database principals will always include the original database principals plus additional new principals.      |
-|Replace    |    No inheritance of principals from the original database. New principals must be created for the attached database. At least one principal needs to be added to block principal inheritance.     |
-|None    |   The attached database principals include only the principals of the original database with no additional principals.      |
+|**Union**     |   The attached database principals will always include the original database principals plus additional new principals.      |
+|**Replace**   |    No inheritance of principals from the original database. New principals must be created for the attached database. At least one principal needs to be added to block principal inheritance.     |
+|**None**   |   The attached database principals include only the principals of the original database with no additional principals.      |
 
-## Managing permissions
+### Manage permissions
 
 Managing read only database permission is the same as for all database types. See [manage permissions in the Azure portal](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 
-## Configurable policies
+### Configure caching policy
 
-The follower database administrator can modify the caching policy of the attached database or any of its tables on the hosting cluster. For example, it's possible to have a 30 day caching policy on the leader database for running monthly reporting and a three day caching policy on the follower cluster to query only the recent data for troubleshooting.
+The follower database administrator can modify the [caching policy](/azure/kusto/management/cache-policy) of the attached database or any of its tables on the hosting cluster. The default is keeping the leader database collection of database and table-level caching policies. If needed, it's possible, for example, to have a 30 day caching policy on the leader database for running monthly reporting and a three day caching policy on the follower cluster to query only the recent data for troubleshooting.
 
 ## Limitations
 
-* \\data plane level operations on databases that were attached using "Attach all DBs" are not supported at this point.\\
 * The follower and the leader must be in the same region.
-* A database that is being followed can't be deleted.
 * Streaming ingestion can't be used on a database that is being followed.
 * You can't delete a database that is attached to a different cluster before detaching it.
 * You can't delete a cluster that has a database attached to a different cluster before detaching it.
-* \\You can't stop a cluster that has database(s) that were detached to other clusters as well as stopping a cluster that has attached databases.\\
+* You can't stop a leader cluster that has database(s) that are attached to other clusters. 
+
+## Next steps
+
+* For information about follower cluster configuration, see [Control commands for managing a follower cluster](../management/cluster-follower.md).
