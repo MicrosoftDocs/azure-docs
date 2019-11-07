@@ -15,7 +15,7 @@ ms.reviewer: prishet
 
 This article shows you how to use PowerShell to create and manage directories, files, and POSIX [access control lists](data-lake-storage-access-control.md) (ACLs) in storage accounts that have a hierarchical namespace. 
 
-For more information about how to create a storage account that has a hierarchical namespace, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account).
+For more information about how to create a storage account that has a hierarchical namespace, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
 
 [Reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Sample](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
@@ -23,9 +23,9 @@ For more information about how to create a storage account that has a hierarchic
 
 1.	Install the latest **PowershellGet** module.
 
-   ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force 
-   ```
+    ```powershell
+    install-Module PowerShellGet –Repository PSGallery –Force 
+    ```
 
 2.	Close and then reopen the Powershell console.
  
