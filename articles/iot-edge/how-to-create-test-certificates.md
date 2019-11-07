@@ -4,7 +4,7 @@ description: Create test certificates and learn how to install them on an Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/29/2019
+ms.date: 11/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -49,7 +49,7 @@ There are several ways to install OpenSSL, including the following options:
 
    1. Navigate to a directory where you want to install vcpkg. Follow the instructions to download and install [vcpkg](https://github.com/Microsoft/vcpkg).
    
-   2. Once vcpkg is installed, run the following command from a powershell prompt to install the OpenSSL package for Windows x64. The installation typically takes about 5 mins to complete.
+   2. Once vcpkg is installed, run the following command from a powershell prompt to install the OpenSSL package for Windows x64. The installation typically takes about 5 minutes to complete.
 
       ```powershell
       .\vcpkg install openssl:x64-windows
@@ -280,7 +280,7 @@ Your IoT device also needs a copy of its device certificates so that it can auth
    * `<WRKDIR>/private/iot-device-<device name>-primary.key.pem`
    * `<WRKDIR>/private/iot-device-<device name>-secondary.key.pem`
 
-3. Retrieve the SHA1 fingerprint (called a thumbprint in IoT Hub contexts) from each certificate. The fingerprint is a 40 exadecimal character string. Use the following openssl command to view the certificate and find the fingerprint: 
+3. Retrieve the SHA1 fingerprint (called a thumbprint in IoT Hub contexts) from each certificate. The fingerprint is a 40 hexadecimal character string. Use the following openssl command to view the certificate and find the fingerprint: 
 
    ```bash
    openssl x509 -in <WRKDIR>/certs/iot-device-<device name>-primary.cert.pem -text -fingerprint | sed 's/[:]//g'

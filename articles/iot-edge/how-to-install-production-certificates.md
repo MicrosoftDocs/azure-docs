@@ -4,7 +4,7 @@ description: Create test certificates and learn how to install them on an Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/29/2019
+ms.date: 11/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -92,3 +92,4 @@ Now that you've made a certificate chain, you need to install it on the IoT Edge
 
 ## Next steps
 
+Installing certificates on an IoT Edge device is a necessary step before deploying your solution in production. Learn more about how to [Prepare to deploy your IoT Edge solution in production](production-checklist.md).

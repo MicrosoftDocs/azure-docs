@@ -58,7 +58,7 @@ az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {exis
 For more information about Azure CLI commands for device creation and parent/child management, see the reference content for [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) commands.
 
 
-Next, [Retrieve and modify the connection string](#Retrieve-and-modify-connection-string) so that your device knows to connect via its gateway. 
+Next, [Retrieve and modify the connection string](#retrieve-and-modify-connection-string) so that your device knows to connect via its gateway. 
 
 ## Register device (X.509 self-signed) 
 
@@ -108,7 +108,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 For more information about Azure CLI commands for device creation, certificate generation, and parent and child management, see the reference content for [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) commands.
 
 
-Next, [Retrieve and modify the connection string](#Retrieve-and-modify-connection-string) so that your device knows to connect via its gateway. 
+Next, [Retrieve and modify the connection string](#retrieve-and-modify-connection-string) so that your device knows to connect via its gateway. 
 
 
 ## Register device (X.509 CA signed)
@@ -153,7 +153,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 For more information about Azure CLI commands for device creation and parent/child management, see the reference content for [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) commands.
 
 
-Next, [Retrieve and modify the connection string](#Retrieve-and-modify-connection-string) so that your device knows to connect via its gateway. 
+Next, [Retrieve and modify the connection string](#retrieve-and-modify-connection-string) so that your device knows to connect via its gateway. 
 
 
 ## Retrieve and modify connection string
