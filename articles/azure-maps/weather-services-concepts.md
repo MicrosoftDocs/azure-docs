@@ -48,7 +48,7 @@ Detailed color palette for radar tiles with Hex color codes and Dbz values is sh
 |----------------------------------------|----------------------------------------|----------------------------------------|-----------------------------------------|
 | **dbz** &nbsp; &nbsp; &nbsp; **color** | **dbz** &nbsp; &nbsp; &nbsp; **color** | **dbz** &nbsp; &nbsp; &nbsp; **color** | **dbz** &nbsp; &nbsp; &nbsp;  **color** |
 | 1.25  &nbsp; &nbsp; &nbsp;   #93C701   | 1.25&nbsp; 	&nbsp; &nbsp;   #E6A5C8   | 1.25&nbsp; &nbsp; &nbsp;     #9EC8F2  | 1.25    	&nbsp; 	&nbsp;     #C196E6   |
-| 2.5  &emsp;  #92C201   | 2.5  &nbsp; &nbsp; &nbsp;    #E6A2C6   | 2.5   &nbsp; &nbsp; &nbsp;   #98C5F0   | 2.5  &nbsp; &nbsp; &nbsp;     #BF92E6   |
+| 2.5  &emsp; &nbsp; #92C201   | 2.5  &emsp; &nbsp;    #E6A2C6   | 2.5   &emsp; &nbsp;   #98C5F0   | 2.5  &emsp; &nbsp;     #BF92E6   |
 | 3.75&nbsp; &nbsp; &nbsp;     #92BE01   | 3.75&nbsp; &nbsp; &nbsp;     #E69FC5   | 3.75&nbsp; &nbsp; &nbsp;     #93C3EF   | 3.75 &nbsp; &nbsp; &nbsp;     #BD8EE6   |
 | 5&emsp;&nbsp;&nbsp;  #92BA02   | 5&nbsp; &nbsp; &nbsp;        #E69DC4   | 5 &nbsp; &nbsp; &nbsp;       #8DC1EE   | 5 &nbsp; &nbsp; &nbsp;        #BB8BE6   |
 | 6.25 &nbsp; &nbsp; &nbsp;    #92B502   | 6.25  &nbsp; &nbsp; &nbsp;   #E69AC2   | 6.25 &nbsp; &nbsp; &nbsp;    #88BFEC   | 6.25 &nbsp; &nbsp; &nbsp;     #BA87E6   |
