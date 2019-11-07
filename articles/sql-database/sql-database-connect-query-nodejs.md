@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use Node.js to query Azure SQL Database'
+title: "Quickstart: Use Node.js to query"
 description: How to use Node.js to create a program that connects to an Azure SQL database and query it using T-SQL statements.
 services: sql-database
 ms.service: sql-database
