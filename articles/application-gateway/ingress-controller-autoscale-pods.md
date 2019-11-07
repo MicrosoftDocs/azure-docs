@@ -1,5 +1,5 @@
 ---
-title: Autoscale AKS pods with Application Gateway metrics
+title: Autoscale AKS pods with Azure Application Gateway metrics
 description: This article provides instructions on how to scale your AKS backend pods using Application Gateway metrics and Azure Kubernetes Metric Adapter
 services: application-gateway
 author: caya
@@ -115,3 +115,6 @@ Test your setup by using a load test tool like apache bench:
 ```bash
 ab -n10000 http://<applicaiton-gateway-ip-address>/
 ```
+
+## Next steps
+- [**Troubleshoot Ingress Controller issues**](ingress-controller-troubleshooting.md): Troubleshoot any issues with the Ingress Controller.
