@@ -159,7 +159,7 @@
         href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
       - name: Build a disaster recovery plan
         href: logic-apps-enterprise-integration-b2b-business-continuity.md
-  - name: Connect to virtual networks with isolated environments
+  - name: Connect to virtual networks with integration service environments
     href: connect-virtual-network-vnet-isolated-environment.md
   - name: Set up virtual network access for integration service environments
     href: connect-virtual-network-vnet-set-up-access.md
