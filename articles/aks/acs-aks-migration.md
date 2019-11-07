@@ -73,6 +73,24 @@ For more information, see [Azure subscription and service limits](https://docs.m
 
 We recommend new AKS clusters use the [standard load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard) and e Virtual Machine Scale Sets.  This type of configuration ensures AKS operates TODO 
 
+The following example creates an AKS cluster with single node pool backed by a virtual machine scale set. It uses a standard load balancer. It also enables the cluster autoscaler on the node pool for the cluster and sets a minimum of *1* and maximum of *3* nodes:
+
+```azurecli-interactive
+# First create a resource group
+az group create --name myResourceGroup --location eastus
+
+# Now create the AKS cluster and enable the cluster autoscaler
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --node-count 1 \
+  --vm-set-type VirtualMachineScaleSets \
+  --load-balancer-sku standard \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
+
 ## High Availability and Business Continuity
 
 If your migration can incur little to no downtime, you'll want to follow best practices for high avaialabilty migration scenarios.  Best practices for complex business continuity planning, disaster recovery, and maximizing uptime are beyond the scope of this document.  Read more about [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) to learn more.
