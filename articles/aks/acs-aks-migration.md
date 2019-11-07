@@ -17,6 +17,8 @@ This article helps you plan and execute a successful migration to Azure Kubernet
 
 If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) and [AKS supported Kubernetes versions](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions) to understand the Kubernetes and AKS versioning strategies.
 
+Details for business continuity planning, disaster recovery, and maximizing uptime are beyond the scope of this document.  Read more about [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) to learn more.
+
 The scenarios where you want to utilize this document are:
 
 * Migrating AKS Cluster using Availability Sets to Virtual Machine Scale Sets
@@ -118,14 +120,6 @@ If neither of those approaches work, you can use a backup and restore options:
 
 __TODO__ Could use better integration with the sections below it.
 
-#### Highly available applications
-
-You can deploy some stateful applications in a high availability configuration. These applications can copy data across replicas. If you currently use this sort of deployment, you might be able to create a new member on the new AKS cluster and then migrate with minimal effect on downstream callers. Generally, the migration steps for this scenario are:
-
-1. Create a new secondary replica on AKS.
-2. Wait for data to replicate.
-3. Fail over to make a secondary replica the new primary.
-4. Point traffic to the AKS cluster.
 
 #### Migrating persistent volumes
 
