@@ -27,10 +27,10 @@ To use `pip` to install `psycopp2`:
 3. Run `pip install psycopg2` to install the `psycopg2` package.
 
 ## Get connection information
-You need the fully-qualified server name and login credentials to connect to your Azure Database for PostgreSQL database. You can get this information from the Azure portal.
+You need the fully qualified server name and login credentials to connect to your Azure Database for PostgreSQL database. You can get this information from the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select your Azure Database for PostgreSQL server name. 
-1. On the server's **Overview** page, copy the **Server name** and **Admin username**. The fully-qualified server name is always of the form *\<your server name>.postgres.database.azure.com*, and the admin username is always of the form *\<your username>@\<your server name>*. 
+1. On the server's **Overview** page, copy the **Server name** and **Admin username**. The fully qualified server name is always of the form *\<your server name>.postgres.database.azure.com*, and the admin username is always of the form *\<your username>@\<your server name>*. 
    
    You also need your admin password. If you forgot it, you can reset it from this page. 
    
