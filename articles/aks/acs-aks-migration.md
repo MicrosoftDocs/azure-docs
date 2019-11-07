@@ -76,7 +76,7 @@ For more information, see [Azure subscription and service limits](https://docs.m
 
 ## AKS with Standard Load Balancer and Virtual Machine Scale Sets
 
-We recommend new AKS clusters use the [standard load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard) and e Virtual Machine Scale Sets.  This type of configuration ensures AKS operates TODO 
+We recommend new AKS clusters use the [standard load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard) and [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets).  This type of configuration ensures AKS operates TODO 
 
 The following example creates an AKS cluster with single node pool backed by a virtual machine scale set. It uses a standard load balancer. It also enables the cluster autoscaler on the node pool for the cluster and sets a minimum of *1* and maximum of *3* nodes:
 
