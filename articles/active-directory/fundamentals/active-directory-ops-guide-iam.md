@@ -8,6 +8,7 @@ tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
+ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ---
@@ -41,23 +42,21 @@ As you review your list, you may find you need to either assign an owner for tas
 
 ### Identify and resolve synchronization issues
 
-Microsoft recommends you have a good baseline and understanding of the issues in your on-premises environment that can result in synchronization issues to the cloud. Since automated tools such as [IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) and [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect#why-use-azure-ad-connect-health) can generate a high volume of false positives, we recommend you identify synchronization errors that have been left unaddressed for more than 100 days by cleaning up those objects in error. Findings can generate support incidents. [Troubleshooting errors during synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sync-errors) provides an overview of different types of sync errors, some of the possible scenarios that cause those errors and potential ways to fix the errors.
+Microsoft recommends you have a good baseline and understanding of the issues in your on-premises environment that can result in synchronization issues to the cloud. Since automated tools such as [IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) and [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect#why-use-azure-ad-connect-health) can generate a high volume of false positives, we recommend you identify synchronization errors that have been left unaddressed for more than 100 days by cleaning up those objects in error. Long term unresolved synchronization errors can generate support incidents. [Troubleshooting errors during synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sync-errors) provides an overview of different types of sync errors, some of the possible scenarios that cause those errors and potential ways to fix the errors.
 
 ### Azure AD Connect Sync configuration
 
-It is required you synchronize user accounts that your employees use to login to their desktops, to enable all hybrid experiences, device-based security posture, and integration with Azure AD.
+To enable all hybrid experiences, device-based security posture, and integration with Azure AD, it is required that you synchronize user accounts that your employees use to login to their desktops.
 
 If you don’t synchronize the forest users log into, then you should immediately remediate the synchronization to come from the proper forest.
 
 #### Synchronization scope and object filtering
 
-Consider removing known buckets of objects that aren’t required to be synchronized. It has the following operational benefits:
+Removing know buckets of objects that aren't required to be synchronized has the following operational benefits:
 
-- Fewer objects mean fewer sources of sync errors.
-
-- Fewer objects mean faster sync cycles.
-
-- Fewer objects mean less "garbage" to carry forward from on-premises, for example, pollution of the global address list for on-premises service accounts that aren’t relevant in the cloud.
+- Fewer sources of sync errors
+- Faster sync cycles
+- Less "garbage" to carry forward from on-premises, for example, pollution of the global address list for on-premises service accounts that aren’t relevant in the cloud
 
 > [!NOTE]
 > If you find you are importing many objects that aren’t being exported to the cloud, you should filter by OU or specific attributes.
