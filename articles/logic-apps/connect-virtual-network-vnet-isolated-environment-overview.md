@@ -140,10 +140,11 @@ those systems by using any of these items:
 
 * ISE-labeled connector for that system
 
-  > [!IMPORTANT]
-  > To use Windows authentication with the SQL Server connector, you must use the 
+  > [!NOTE]
+  > If you want to use the SQL Server connector in an ISE, you can use only SQL authentication. 
+  > If you want to use Windows authentication with this connector, you must use the 
   > [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
-  > The SQL Server connector doesn't support Windows authentication for a logic app in an ISE.
+  > The SQL Server connector doesn't support Windows authentication for logic apps that run in an ISE.
 
 * Custom connector
 
