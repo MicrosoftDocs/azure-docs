@@ -68,7 +68,7 @@ Because additional virtual machines will be deployed into your subscription duri
 
 For more information, see [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits). To check your current quotas, in the Azure portal, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), select your subscription, and then select **Usage + quotas**.
 
-### High Availability and Business continuity
+## High Availability and Business Continuity
 
 If your migration can incur little to no downtime, you'll want to follow best practices for high avaialabilty migration scenarios.  Best practices for complex business continuity planning, disaster recovery, and maximizing uptime are beyond the scope of this document.  Read more about [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) to learn more.
 
