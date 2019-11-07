@@ -55,8 +55,8 @@ You can view your reserved instance purchase details via the _Reservations_ menu
 
 At any given time, only one subscription can receive reserved instance benefits. You can change the subscription that receives reserved instance benefits by:
 
-1. Logging into the [Azure portal](https://aka.ms/reservations).
-2. Updating the applied subscription scope by associating a different subscription under same account.
+- Logging into the [Azure portal](https://aka.ms/reservations).
+- Updating the applied subscription scope by associating a different subscription under same account.
 
 ### How to view reserved instance usage details
 

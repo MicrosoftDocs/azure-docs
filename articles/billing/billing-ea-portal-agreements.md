@@ -4,7 +4,7 @@ description: This article explains how Azure EA agreements and amendments affect
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -69,14 +69,14 @@ Microsoft won't access or utilize the provided markup and associated prices for 
 
 The LSP provides a single percentage number in the EA portal.  All commercial information on the portal will be uplifted by the percentage provided by the LSP. Example:
 
-1. Customer signs an EA with monetary commitment of USD 100,000.
-1. The meter rate for Service A is USD 10 / Hour.
-1. LSP sets markup percentage of 10% on the EA Portal.
-1. The example below is how the customer will see the commercial information:
-  - Monetary Balance: USD 110,000.
-  - Meter rate for Service A: USD 11 / Hour.
-  - Usage/hosting information for service A when used for 100 hours: USD 1,100.
-  - Monetary Balance available to the customer post deduction of Service A consumption: USD 108,900.
+- Customer signs an EA with monetary commitment of USD 100,000.
+- The meter rate for Service A is USD 10 / Hour.
+- LSP sets markup percentage of 10% on the EA Portal.
+- The example below is how the customer will see the commercial information:
+    - Monetary Balance: USD 110,000.
+    - Meter rate for Service A: USD 11 / Hour.
+    - Usage/hosting information for service A when used for 100 hours: USD 1,100.
+    - Monetary Balance available to the customer post deduction of Service A consumption: USD 108,900.
 
 ### When to use a markup
 
@@ -101,7 +101,8 @@ Please make sure to review the commercial information - monetary balance informa
 1. From the Enterprise Portal, click **Reports** on the left navigation.
 1. Under _Usage Summary_, click the blue **Markup** wording.
 1. Enter the markup percentage (between -100 to 100) and click **Preview**.
-   
+
+
 **Step Two: Review and validate**
 
 Review the markup price in the _Usage Summary_ for the commitment term in the customer view. The Microsoft price will still be available in the partner view. The views can be toggled using the partner markup “people” toggle at the top right.
@@ -140,8 +141,7 @@ Partners can use the markup feature (on Azure EA) after a Change of Channel Part
 | Microsoft Azure Hosted Services | 6 hosted services | This limit of hosted services cannot be increased beyond six for an individual subscription. If you require additional hosted services, please add additional subscriptions. |
 | Microsoft Azure Storage | 5 storage accounts, each of a maximum size of 100 TB each. | You can increase the number of storage accounts to up to 20 per subscription. If you require additional storage accounts, please add additional subscriptions. |
 | SQL Azure | 149 databases of either type (i.e., Web Edition or Business Edition). |   |
-| Access Control | 50 Namespaces per account.
-100 million Access Control transactions per month |   |
+| Access Control | 50 Namespaces per account. 100 million Access Control transactions per month |   |
 | Service Bus | 50 Namespaces per account. 40 Service Bus connections | Customers purchasing Service Bus connections through connection packs will have quotas equal to the midpoint between the connection pack they purchased and the next highest connection pack amount. Customers choosing a 500 Pack will have a quota of 750. |
 
 ## Resource commitment
@@ -157,7 +157,7 @@ You can request a quota increase at any time by submitting an [online request](h
 - The Microsoft account or work or school account associated with the account owner of your subscription. This is the email address utilized to sign in to the Microsoft Azure portal to manage your subscription(s). Please also identify that this account is associated with an EA enrollment.
 - The resource(s) and amount for which you desire a quota increase.
 - The Azure Developer Portal Subscription ID associated with your service.
-  - Click [here](https://g.microsoftonline.com/0WAEP00en/11) for information on how to obtain your subscription ID.
+  - For information on how to obtain your subscription ID, please [contact support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## Azure Compute Pre-Purchase Plan (CPP)
 

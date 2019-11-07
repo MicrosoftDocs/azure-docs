@@ -166,13 +166,13 @@ Enterprise Administrators can view a summary of their usage data, monetary commi
 
 **To view the usage summary reports and graphs**
 
-- From the Azure EA Portal click **Reports** on the left navigation, and view the **Usage Summary** tab.
-- Select the desired commitment term from the drop-down menu of date ranges on the top left.
-- Select the desired period or month on the graph to view additional detail.
-- View graph of month over month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
-- For the selected month, filter by departments, accounts, and subscriptions below the graph.
-- Toggle between Charge by Services breakdown and Charge by Hierarchy breakdown.
-- View Azure services, charges billed separately, and Azure marketplace charges in detail.
+1. From the Azure EA Portal click **Reports** on the left navigation, and view the **Usage Summary** tab.
+1. Select the desired commitment term from the drop-down menu of date ranges on the top left.
+1. Select the desired period or month on the graph to view additional detail.
+1. View graph of month over month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
+1. For the selected month, filter by departments, accounts, and subscriptions below the graph.
+1. Toggle between Charge by Services breakdown and Charge by Hierarchy breakdown.
+1. View Azure services, charges billed separately, and Azure marketplace charges in detail.
 
 ## Service usage report
 
@@ -196,9 +196,9 @@ The Monthly Report Download page allows enterprise administrators to download se
 
 ## To download reports:
 
-- From the Azure EA portal, click **Report**.
-- Select **Usage Download** from the top ribbon.
-- Select **Download** next to the appropriate month's report.
+1. From the Azure EA portal, click **Report**.
+1. Select **Usage Download** from the top ribbon.
+1. Select **Download** next to the appropriate month's report.
 
 
 
@@ -243,10 +243,10 @@ The Balance and Charge Report offers a monthly summary of information on balance
 
 ### Download the balance and charge report
 
-- Sign in to the Azure EA Portal as an enterprise administrator.
-- Click on **Reports** on the left navigation.
-- Click the **Report Download** tab.
-- Select the appropriate month under the _Balance and Charge_ column and click to download the report.
+1. Sign in to the Azure EA Portal as an enterprise administrator.
+1. Click on **Reports** on the left navigation.
+1. Click the **Report Download** tab.
+1. Select the appropriate month under the _Balance and Charge_ column and click to download the report.
 
 ## Usage detail report
 
@@ -254,10 +254,10 @@ The Usage Detail Report offers a monthly summary of the services and quantities 
 
 ### Download the usage detail report
 
-- Sign in to the Azure EA Portal as an enterprise administrator.
-- Click on **Reports** on the left navigation.
-- Click the **Download Usage** tab.
-- Select the appropriate month under the _Usage Detail_ column and click to download the report.
+1. Sign in to the Azure EA Portal as an enterprise administrator.
+1. Click on **Reports** on the left navigation.
+1. Click the **Download Usage** tab.
+1. Select the appropriate month under the _Usage Detail_ column and click to download the report.
 
 ## Marketplace charges in Azure EA Portal reports
 
@@ -265,8 +265,8 @@ Additional information on Marketplace charges can be found [here.](https://azure
 
 There are two types of marketplace charges:
 
-1. **Usage-based:** Products measured in transactional units.  For example, virtual machines are charged hourly, Bing API searches are charged by number of searches.
-1.  **Monthly Fee:** Billed monthly based on usage/access.
+- **Usage-based:** Products measured in transactional units.  For example, virtual machines are charged hourly, Bing API searches are charged by number of searches.
+- **Monthly Fee:** Billed monthly based on usage/access.
 
 To view the different charges in the Enterprise Portal:
 
@@ -590,21 +590,18 @@ For more information on how to generate the API key for your enrollment, please 
 
 ### To access the legacy Power BI EA content pack:
 
-1. Navigate to the [Power BI Website](https://app.powerbi.com/getdata/services/azure-enterprise).
-1. Sign in with a valid work or school account.
-  - The work or school account can be the same or different than what is used to access the enrollment through the Azure EA Portal.
-1. On the dashboard of services, select **Microsoft Azure Enterprise** and click **Connect**.
-1. On the "Connect to Azure Enterprise" screen, choose:
-  - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com/).
-  - Number of Months: choose between 1 and 36.
-  - Enrollment Number: enter the enrollment number.
-  - Click **Next**.
-
-4. On Authentication Key Box, enter the API Key. You can get the API key here in the Azure Enterprise portal, under "Download Usage" tab above, click "API Access Key"
-
-a. Copy and Paste the Key into the box for "Account Key"
-
-5. Data will take approximately 5 minutes -30 minutes to load in Power BI depending on the size of the datasets.
+ 1. Navigate to the [Power BI Website](https://app.powerbi.com/getdata/services/azure-enterprise).
+ 1. Sign in with a valid work or school account.
+    - The work or school account can be the same or different than what is used to access the enrollment through the Azure EA Portal.
+ 1. On the dashboard of services, select **Microsoft Azure Enterprise** and click **Connect**.
+ 1. On the "Connect to Azure Enterprise" screen, choose:
+    - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com/).
+    - Number of Months: choose between 1 and 36.
+    - Enrollment Number: enter the enrollment number.
+    - Click **Next**.
+ 1. On Authentication Key Box, enter the API Key. You can get the API key here in the Azure Enterprise portal, under "Download Usage" tab above, click "API Access Key"
+    - Copy and Paste the Key into the box for "Account Key"
+ 1. Data will take approximately 5 minutes -30 minutes to load in Power BI depending on the size of the datasets.
 
 Power BI reporting is available for EA direct, partner, and indirect customers who have access to view billing information.
 

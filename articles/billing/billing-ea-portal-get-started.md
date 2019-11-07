@@ -4,7 +4,7 @@ description: This article explains how Azure EA customers use the Azure EA porta
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -286,7 +286,7 @@ To transfer an EA subscription to an individual subscription with pay-as-you-go 
 
 ## Associate an existing account with your pay as you go subscription
 
-If you already have an existing Microsoft Azure account on the Microsoft Azure Portal, enter the associated Microsoft account or work or school account in order to associate it with your Enterprise Agreement enrollment.
+If you already have an existing Microsoft Azure account on the Microsoft Azure portal, enter the associated Microsoft account or work or school account in order to associate it with your Enterprise Agreement enrollment.
 
 ### Associate an existing account
 
@@ -346,10 +346,10 @@ The report doesn't include any applicable taxes. There may be a latency of up to
 To view the usage summary reports and graphs:
 
 1. In the Azure EA portal, in the left navigation area, click **Reports** and view the **Usage Summary** tab.  
-  ![](./media/billing-ea-portal-get-started/create-ea-view usage-summary-and-download-reports.png)
+  ![Create and view usage summary and download reports](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports.png)
 2. Select a commitment term.
 3. Toggle between **M** (Monthly) and **C** (Custom) on the top right of the page to view the **Usage Summary** with custom start and end dates.  
-  ![](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+  ![Create and view usage summary and download reports in custom view](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 4. Select a period or month on the graph to view additional details.
 5. The graph shows month over month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
 6. For the selected month, filter by departments, accounts, and subscriptions below the graph.
@@ -470,7 +470,7 @@ This option will only be visible for active accounts.
 Any subscription created will default to the offer type you choose. We recommend that you change the subscription name to something that makes it easy for you to track the subscription.
 
 **To change name:**
-1. Sign in to [https://account.windowsazure.com](https://account.windowsazure.com). 
+1. Sign in to [https://account.windowsazure.com](https://account.windowsazure.com).
 1. Click on Subscription list.
 1. Select Subscription.
 1. Click on **Manage Subscription** icon.
@@ -509,7 +509,7 @@ Information like “Resource Groups” and “Tag” if used is tracked at servi
 
 You can also access the usage via API, detailed information, and sample code is available at [https://ea.azure.com/helpdocs/reportingAPI](https://ea.azure.com/helpdocs/reportingAPI).
 
-Please that you can only apply tags to resources that support Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal or service management API), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.
+Please that you can only apply tags to resources that support Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.
 
 ### Can I perform analyses using Power BI?
 
@@ -517,19 +517,19 @@ Yes. With the Microsoft Azure Enterprise content pack for Power BI, you can quic
 
 **Navigate to the Power BI website:**
 
-1. Sign in with a valid work or school account.
-  - The work or school account can be the same or different than what is used to access the enrollment through the Azure EA Portal.
-1. On the Dashboard of services, choose:
-  - Microsoft Azure Enterprise tile.
-  - Click **Connect**.
-1. On the "Connect to Azure Enterprise" screen, choose:
-  - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com).
-  - Number of Months: choose between 1 and 36.
-  - Enrollment Number: enter the enrollment number.
-  - Click **Next**.
-1. Enter the API Key in the Authentication Key Box. You can get the API key in the Azure EA portal under “Download Usage” tab, click **API Access Key**.
-  - Copy and paste the key into "Account Key" box.
-  - The data will take approximately 5-30 minutes to load in Power BI, depending on the dataset size.
+ 1. Sign in with a valid work or school account.
+    - The work or school account can be the same or different than what is used to access the enrollment through the Azure EA Portal.
+ 1. On the Dashboard of services, choose:
+    - Microsoft Azure Enterprise tile.
+    - Click **Connect**.
+ 1. On the "Connect to Azure Enterprise" screen, choose:
+    - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com).
+    - Number of Months: choose between 1 and 36.
+    - Enrollment Number: enter the enrollment number.
+    - Click **Next**.
+ 1. Enter the API Key in the Authentication Key Box. You can get the API key in the Azure EA portal under “Download Usage” tab, click **API Access Key**.
+    - Copy and paste the key into "Account Key" box.
+    - The data will take approximately 5-30 minutes to load in Power BI, depending on the dataset size.
 
 Power BI Reporting is available for EA direct, partner, and indirect customers who are able to view billing information.
 

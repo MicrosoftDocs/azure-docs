@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -28,35 +28,35 @@ After an Azure EA admin creates a department, the Azure Enterprise administrator
 
 For more information about adding a department admin, see [Create an Azure EA department admin](billing-ea-portal-get-started.md#add-a-department-admin).
 
-## Associate an Account to a Department
+## Associate an account to a department
 
 Enterprise Administrators can associate existing accounts to Departments under the enrollment.
 
-### To Associate an Account to a Department
+### To associate an account to a department
 
-- Sign in to the Enterprise Portal as an Enterprise Administrator.
+- Sign in to the Azure EA Portal as an enterprise administrator.
 - Click **Manage** on the left navigation.
 - Click **Department**.
 - Hover over the row with the desired Account and click the pencil icon on the right.
 - Select the desired Department from the drop-down menu.
 - Click **Save**.
 
-## Department Spending Quotas
+## Department spending quotas
 
 EA customers are able to set or change spending quotas for each department under an enrollment. The spending quota amount is set for the current commitment term. At the end of the current commitment term, the system will extend the existing spending quota to the next commitment term unless the values are updated.
 
-The Department Administrator can view the spending quota but only the Enterprise Administrator can update the quota amount. The Enterprise Administrator and the Department Administrator and will receive notifications once quota has reached 50%, 75%, 90%, and 100%.
+The department administrator can view the spending quota but only the enterprise administrator can update the quota amount. The enterprise administrator and the department administrator and will receive notifications once quota has reached 50%, 75%, 90%, and 100%.
 
 ### Enterprise administrator to set the quota:
 
-- Open the Enterprise Portal
-- Click Manage on the left navigation
-- Click the Department Tab
-- Click the desired Department
-- Click the pencil icon on the Department Details section, or click the + Add Department button to add a spending quota along with a new department
-- Under Department Details, enter a spending quota amount in the enrollment’s currency in the Spending Quota $ box (must be greater than 0)
--   The Department Name and Cost Center can also be edited at this time
-- Hit save
+1. Open the Azure EA Portal.
+1. Click **Manage** on the left navigation.
+1. Click the **Department** Tab.
+1. Click the desired Department.
+1. Click the pencil icon on the Department Details section, or click the **+ Add Department** button to add a spending quota along with a new department.
+1. Under Department Details, enter a spending quota amount in the enrollment’s currency in the Spending Quota $ box (must be greater than 0).
+  - The Department Name and Cost Center can also be edited at this time.
+1. Hit **Save**.
 
 The department spending quota will now be visible in the Department List view under the Department tab. At the end of the current commitment, the Azure EA Portal will maintain the spending quotas for the next commitment term.
 
@@ -64,9 +64,9 @@ The department quota amount is independent of the current monetary commitment, a
 
 ### Department administrator to view the quota:
 
-- Open the Azure EA Portal.
-- Click **Manage** on the left navigation.
-- Click the Department tab and view the Department List view with spending quotas.
+1. Open the Azure EA Portal.
+1. Click **Manage** on the left navigation.
+1. Click the **Department** tab and view the Department List view with spending quotas.
 
 If you're an indirect customer, cost features must be enabled by your channel partner.
 
@@ -98,13 +98,13 @@ This offer enables active Visual Studio subscribers to run development and testi
 
 ### To set up the Enterprise Dev/Test offer:
 
-- Sign in as the enterprise administrator
-- Click **Manage** on the left navigation
-- Click the **Account** tab
-- Click the row for the account where you would like to enable Dev/Test access
-- Click the Pencil icon to the right of the row
-- Select the Dev/Test checkbox
-- Hit **Save**
+1. Sign in as the enterprise administrator.
+1. Click **Manage** on the left navigation.
+1. Click the **Account** tab.
+1. Click the row for the account where you would like to enable Dev/Test access.
+1. Click the Pencil icon to the right of the row.
+1. Select the Dev/Test checkbox.
+1. Hit **Save**.
 
 When a user is added as an account owner through the Azure EA Portal, any Azure subscriptions associated with the account owner that are based on either the PAYG Dev/Test offer or the monthly credit offers for Visual Studio subscribers will be converted to the EA Dev/Test offer. Subscriptions based on other offer types, such as PAYG, associated with the Account Owner will be converted to Microsoft Azure Enterprise offers.
 
@@ -335,16 +335,16 @@ Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to 
 
 ### To begin:
 
-- Add the work or school account to the Azure EA Portal in the role(s) needed.
-- If you get errors, the account may not be valid in the active directory.  Azure uses User Principal Name (UPN), which is not always identical to the email address.
-- Authenticate to the Azure EA portal using the work or school account.
+1. Add the work or school account to the Azure EA Portal in the role(s) needed.
+1. If you get errors, the account may not be valid in the active directory.  Azure uses User Principal Name (UPN), which is not always identical to the email address.
+1. Authenticate to the Azure EA portal using the work or school account.
 
 ### To convert subscriptions from Microsoft accounts to work or school accounts:
 
-- Sign in to the management portal using the Microsoft account that owns the subscriptions.
-- Use account ownership transfer to move to the new account.
-- Now the Microsoft account should be free from any active subscriptions and can be deleted.
-- Any deleted account will remain in view in the portal in an inactive status for historic billing reasons.  You can filter it out of the view by selecting a check box to show only active accounts.
+1. Sign in to the management portal using the Microsoft account that owns the subscriptions.
+1. Use account ownership transfer to move to the new account.
+1. Now the Microsoft account should be free from any active subscriptions and can be deleted.
+1. Any deleted account will remain in view in the portal in an inactive status for historic billing reasons.  You can filter it out of the view by selecting a check box to show only active accounts.
 
 ## Account subscription ownership FAQ
 

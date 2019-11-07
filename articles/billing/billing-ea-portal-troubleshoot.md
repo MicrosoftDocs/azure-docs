@@ -114,15 +114,15 @@ When new Account Owners (AO) are added to the enrollment for the first time, the
 
 There are a few possible reasons for an error message on Azure EA portal during signing in, please follow these troubleshooting steps:
 
-- Please ensure you are using the correct EA portal URL at [https://ea.azure.com](https://ea.azure.com).
-- Determine if your access to Azure EA portal is added as a work or school account or Microsoft Live ID. If you are using your work account, please enter your work email and work password. If you are using Microsoft Live ID, please enter your Live ID email and Microsoft Live ID password. If you have forgotten your Microsoft Live ID password, please have it reset at [https://account.live.com/password/reset](https://account.live.com/password/reset).
-- It is recommended that you use a private browser to sign in so that no cookies or cache from previous/existing sessions are retained. Clear cache, and use private browsing mode/incognito window to open [https://ea.azure.com](https://ea.azure.com).
-- If you are getting an Invalid User error when using a Microsoft account, it may be because you have multiple Microsoft accounts and the one that you are trying to sign in with is not the primary alias. To check the primary alias, go to account.live.com:
-    1. Go to “Your Info" > "Manage your sign-in email or phone number".
-    1. Follow the prompt on the screen to verify alternate email address and obtain a code to access sensitive information.
-    1. Enter the security code.
-    1. If you prefer to set up two-step authentication later, select “Set it up later”.
-    1. You will land on the "Manage your account aliases" page where you will see the account aliases that you have. Double check that the primary alias is the one that you are using to log into Azure EA portal. If it is not, you can either make it your primary alias, or you will use the primary alias for EA portal instead.
+ 1. Please ensure you are using the correct EA portal URL at [https://ea.azure.com](https://ea.azure.com).
+ 1. Determine if your access to Azure EA portal is added as a work or school account or Microsoft Live ID. If you are using your work account, please enter your work email and work password. If you are using Microsoft Live ID, please enter your Live ID email and Microsoft Live ID password. If you have forgotten your Microsoft Live ID password, please have it reset at [https://account.live.com/password/reset](https://account.live.com/password/reset).
+ 1. It is recommended that you use a private browser to sign in so that no cookies or cache from previous/existing sessions are retained. Clear cache, and use private browsing mode/incognito window to open [https://ea.azure.com](https://ea.azure.com).
+ 1. If you are getting an Invalid User error when using a Microsoft account, it may be because you have multiple Microsoft accounts and the one that you are trying to sign in with is not the primary alias. To check the primary alias, go to account.live.com:
+    - Go to “Your Info" > "Manage your sign-in email or phone number".
+    - Follow the prompt on the screen to verify alternate email address and obtain a code to access sensitive information.
+    - Enter the security code.
+    - If you prefer to set up two-step authentication later, select “Set it up later”.
+    - You will land on the "Manage your account aliases" page where you will see the account aliases that you have. Double check that the primary alias is the one that you are using to log into Azure EA portal. If it is not, you can either make it your primary alias, or you will use the primary alias for EA portal instead.
 
 If the above troubleshooting steps failed, please submit a request at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) with information such as:
 - The browsers and version used.
