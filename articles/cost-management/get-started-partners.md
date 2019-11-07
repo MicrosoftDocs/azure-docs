@@ -134,7 +134,7 @@ Under **Billing**, click **Azure subscriptions**, and then click a customer.
 ![Select an Azure subscription customer](./media/get-started-partners/subscriptions-select-customer.png)
 
 Click **Cost analysis** and start reviewing costs.
-Cost analysis, budgets, and alerts are now available for the subscription and resource group RBAC scopes at pay-as-you-go rate-based costs.
+Cost analysis, budgets, and alerts are available for the subscription and resource group RBAC scopes at pay-as-you-go rate-based costs.
 
 ![View cost analysis as a customer ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
 
@@ -144,75 +144,21 @@ Amortized views and actual costs for reserved instances in the RBAC scopes show 
 
 Partners can explore and analyze costs in cost analysis across customers for a specific customer or for an invoice.
 
-The following fields are found in usage detail files and Cost Management APIs. For the following bold fields, you can use filter and group by features in cost analysis to analyze costs by multiple fields.
+The following fields are found in usage detail files and Cost Management APIs. You can use filter and group by features in cost analysis to analyze costs by multiple fields. To view a complete list of fields, see [Cost Management data fields](understand-cost-mgt-data.md#cost-management-data-fields).
 
-| **Field name** | **Description** |
+| Field name | Description |
 | --- | --- |
-| invoiceId | Invoice ID shown on the invoice for the specific transaction. |
-| previousInvoiceID | Reference to an original invoice there is a refund (negative cost). Populated only when there is a refund. |
-| billingAccountName | Name of the billing account representing the partner. It accrues all costs across the customers who have onboarded to a Microsoft customer agreement and the CSP customers that have made entitlement purchases like SaaS, Azure Marketplace, and reservations. |
-| billingAccountID | Identifier for the billing account representing the partner. |
-| billingProfileID | Identifier for the billing profile that groups costs across invoices in a single billing currency across the customers who have onboarded to a Microsoft customer agreement and the CSP customers that have made entitlement purchases like SaaS, Azure Marketplace, and reservations. |
-| billingProfileName | Name of the billing profile that groups costs across invoices in a single billing currency across the customers who have onboarded to a Microsoft customer agreement and the CSP customers that have made entitlement purchases like SaaS, Azure Marketplace, and reservations. |
-| invoiceSectionName | Name of the project that is being charged in the invoice. Not applicable for Microsoft Customer Agreements onboarded by partners. |
-| invoiceSectionID | Identifier of the project that is being charged in the invoice. Not applicable for Microsoft Customer Agreements onboarded by partners. |
-| **CustomerTenantID** | Identifier of the Azure Active Directory tenant of the customer&#39;s subscription. |
-| **CustomerName** | Name of the Azure Active Directory tenant for the customer&#39;s subscription. |
-| **CustomerTenantDomainName** | Domain name for the Azure Active Directory tenant of the customer&#39;s subscription. |
-| **PartnerTenantID** | Identifier for the partner&#39;s Azure Active Directory tenant. |
-| **PartnerName** | Name of the partner Azure Active Directory tenant. |
-| **ResellerMPNID** | MPNID for the reseller associated with the subscription. |
-| costCenter | Cost center associated to the subscription. |
-| billingPeriodStartDate | Billing period start date, as shown on the invoice. |
-| billingPeriodEndDate | Billing period end date, as shown on the invoice. |
-| servicePeriodStartDate | Start date for the rating period when the service usage was rated for charges. The prices for Azure services are determined for the rating period. |
-| servicePeriodEndDate | End date for the period when the service usage was rated for charges. The prices for Azure services are determined based on the rating period. |
-| date | For Azure consumption data, it shows date of usage as rated. For reserved instance, it shows the purchased date. For recurring charges and one-time charges such as Marketplace and support, it shows the purchase date. |
-| productID | Identifier for the product that has accrued charges by consumption or purchase. It is the concatenated key of productID and SKuID, as shown in the Partner Center. |
-| product | Name of the product that has accrued charges by consumption or purchase, as shown on the invoice. |
-| serviceFamily | Shows the service family for the product purchased or charged. For example, Storage or Compute. |
-| productOrderID | The identifier of the asset or Azure plan name that the subscription belongs to. For example, Azure Plan. |
-| productOrderName | The name of the Azure plan that the subscription belongs to. For example, Azure Plan. |
-| consumedService | Consumed service (legacy taxonomy) as used in legacy EA usage details. |
-| meterID | Metered identifier for measured consumption. |
-| meterName | Identifies the name of the meter for measured consumption. |
-| meterCategory | Identifies the top-level service for usage. |
-| meterSubCategory | Defines the type or subcategory of Azure service that can affect the rate. |
-| meterRegion | Identifies the location of the datacenter for certain services that are priced based on datacenter location. |
-| subscription ID | Unique Microsoft generated identifier for the Azure subscription. |
-| subscriptionName | Name of the Azure subscription. |
-| Term | Displays the term for the validity of the offer. For example, reserved instances show 12 months of a yearly term of the reserved instance. For one-time purchases or recurring purchases, the term displays one month for SaaS, Azure Marketplace, and support. Not applicable for Azure consumption. |
-| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Type of publisher that identifies the publisher as first party, third-party reseller, or third-party agency. |
-| partNumber | Part number for the unused reserved instance and Azure Marketplace services. |
-| publisherName | Name of the publisher of the service including Microsoft or third-party publishers. |
-| reservationId | Identifier for the reserved instance purchase. |
-| reservationName | Name of the reserved instance. |
-| reservationOrderId | OrderID for the reserved instance. |
-| frequency | Payment frequency for a reserved instance. |
-| resourceGroup | Name of the Azure resource group used for lifecycle resource management. |
-| instanceID (or) ResourceID | Identifier of the resource instance. |
-| resourceLocation | Name of the resource location. |
-| Location | Normalized location of the resource. |
-| effectivePrice | The effective unit price of the service, in pricing currency. Unique for a product, service family, meter, and offer. Used with pricing in the price sheet for the billing account. When there is tiered pricing or an included quantity, it shows the blended price for consumption. |
-| Quantity | Measured quantity purchased or consumed. The amount of the meter used during the billing period. |
-| unitOfMeasure | Identifies the unit that the service is charged in. For example, GB and hours. |
-| pricingCurrency | The currency defining the unit price. |
-| billingCurrency | The currency defining the billed cost |
-| chargeType | Defines the type of charge that the cost represents in Azure Cost Management like purchase and refund. |
-| costinBillingCurrency | ExtendedCost or blended cost before tax in the billed currency. |
-| costinPricingCurrency | ExtendedCost or blended cost before tax in pricing currency to correlate with prices. |
-| **costinUSD** | Estimated ExtendedCost or blended cost before tax in USD. |
-| **paygCostInBillingCurrency** | Shows costs if pricing is in retail prices. Shows pay-as-you-go prices in the billing currency. Available only at RBAC scopes. |
-| **paygCostInUSD** | Shows costs if pricing is in retail prices. Shows pay-as-you-go prices in USD. Available only at RBAC scopes. |
-| exchangeRate | Exchange rate used to convert from the pricing currency to the billing currency. |
-| exchangeRateDate | The date for the exchange rate that&#39;s used to convert from the pricing currency to the billing currency. |
-| isAzureCreditEligible | Indicates whether the cost is eligible for payment by Azure credits. |
-| serviceInfo1 | Legacy field that captures optional service-specific metadata. |
-| serviceInfo2 | Legacy field that captures optional service-specific metadata. |
-| additionalInfo | Service-specific metadata. For example, an image type for a virtual machine. |
-| tags | Tag that you assign to the meter. Use tags to group billing records. For example, you can use tags to distribute costs by the department that uses the meter. |
-| **partnerEarnedCreditRate** | Rate of discount applied if there is a partner earned credit (PEC) based on partner admin link access. |
-| **partnerEarnedCreditApplied** | Indicates whether the partner earned credit has been applied. |
+| CustomerTenantID | Identifier of the Azure Active Directory tenant of the customer&#39;s subscription. |
+| CustomerName | Name of the Azure Active Directory tenant for the customer&#39;s subscription. |
+| CustomerTenantDomainName | Domain name for the Azure Active Directory tenant of the customer&#39;s subscription. |
+| PartnerTenantID | Identifier for the partner&#39;s Azure Active Directory tenant. |
+| PartnerName | Name of the partner Azure Active Directory tenant. |
+| ResellerMPNID | MPNID for the reseller associated with the subscription. |
+| costinUSD | Estimated ExtendedCost or blended cost before tax in USD. |
+| paygCostInBillingCurrency | Shows costs if pricing is in retail prices. Shows pay-as-you-go prices in the billing currency. Available only at RBAC scopes. |
+| paygCostInUSD | Shows costs if pricing is in retail prices. Shows pay-as-you-go prices in USD. Available only at RBAC scopes. |
+| partnerEarnedCreditRate | Rate of discount applied if there is a partner earned credit (PEC) based on partner admin link access. |
+| partnerEarnedCreditApplied | Indicates whether the partner earned credit has been applied. |
 
 In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) and export data to [CSV and PNG files](quick-acm-cost-analysis.md#automation-and-offline-analysis).
 
@@ -267,6 +213,36 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions?api-version=2019-10-01-preview
 ```
+
+#### To get a list of invoices for a period of time
+
+```
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/invoices?api-version=2019-10-01-preview&periodStartDate={periodStartDate}&periodEndDate={periodEndDate}
+```
+
+The API call returns an array of invoices that has elements similar to the following JSON code.
+
+```
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountID}/billingProfiles/{BillingProfileID}/invoices/{InvoiceID}",
+      "name": "{InvoiceID}",
+      "properties": {
+        "amountDue": {
+          "currency": "USD",
+          "value": x.xx
+        },
+        ...
+    }
+```
+
+Use the preceding returned ID field value and replace it in the following example as the scope to query for usage details.
+
+```
+GET https://management.azure.com/{id}/providers/Microsoft.Consumption/UsageDetails?api-version=2019-10-01
+```
+
+The example returns the usage records associated with the specific invoice.
+
 
 #### To get the policy for customers to view costs
 

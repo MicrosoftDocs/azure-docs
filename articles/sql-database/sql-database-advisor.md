@@ -1,5 +1,5 @@
 ---
-title: Performance recommendations - Azure SQL Database 
+title: Performance recommendations
 description: Azure SQL Database provides recommendations for your SQL databases that can improve current query performance.
 services: sql-database
 ms.service: sql-database

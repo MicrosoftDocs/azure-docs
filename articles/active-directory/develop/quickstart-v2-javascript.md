@@ -79,12 +79,11 @@ Select the option that's suitable to your development environment:
 
 * (Optional) To run the project with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extract the zip file to a local folder (for example, *C:\Azure-Samples*).
 
-#### Step 3: Configure your JavaScript app
-
 > [!div renderon="docs"]
+> #### Step 3: Configure your JavaScript app
 > In the *JavaScriptSPA* folder, edit *index.html*, and set the `clientID` and `authority` values under `msalConfig`.
 
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div renderon="docs"]
 > In the *JavaScriptSPA* folder, edit *index.html*, and replace `msalConfig` with the following code:
 
 ```javascript
@@ -101,10 +100,6 @@ var msalConfig = {
 };
 
 ```
-> [!div renderon="portal"]
-> > [!NOTE]
-> > This quickstart supports Enter_the_Supported_Account_Info_Here.
-
 
 > [!div renderon="docs"]
 >
@@ -119,7 +114,12 @@ var msalConfig = {
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 >
 
-#### Step 4: Run the project
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 3: Your app is configured and ready to run
+> We have configured your project with values of your app's properties. 
+
+> [!div renderon="docs"]
+> #### Step 4: Run the project
 
 * If you're using [Node.js](https://nodejs.org/en/download/):
 

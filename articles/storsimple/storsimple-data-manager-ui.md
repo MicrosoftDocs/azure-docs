@@ -19,7 +19,7 @@ ms.author: alkohli
 
 # Manage the StorSimple Data Manager service in Azure portal
 
-This article explains how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices. The transformed data can then be consumed by other Azure services such as Azure Media Services, Azure HDInsight, Azure Machine Learning, and Azure Search.
+This article explains how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices. The transformed data can then be consumed by other Azure services such as Azure Media Services, Azure HDInsight, Azure Machine Learning, and Azure Cognitive Search.
 
 
 ## Use StorSimple Data Transformation
