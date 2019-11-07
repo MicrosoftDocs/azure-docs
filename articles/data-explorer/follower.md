@@ -1,33 +1,33 @@
 ---
 title: Use follower database feature to attach databases in Azure Data Explorer
-description: Learn about how to attach databases in Azure Data Explorer using a follower cluster.
+description: Learn about how to attach databases in Azure Data Explorer using the follower database feature.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/06/2019
+ms.date: 11/07/2019
 ---
 
-# Using follower to attach databases in Azure Data Explorer
+# Use follower database to attach databases in Azure Data Explorer
 
-The follower feature allows you to attach a database located in a different cluster to your cluster. The **follower cluster** can attach a database in *read-only* mode, making it possible to use the follower cluster to run queries on that database without using additional resources of the cluster that writes to the database, known as a **leader cluster**. The follower cluster periodically synchronizes changes in the leader databases, so there is a data lag of a few seconds to a few minutes in data availability. The length of the time lag depends on the overall size of the leader database metadata.
+The **follower database** feature allows you to attach a database located in a different cluster to your cluster. The **follower database** is attached in *read-only* mode, making it possible to run queries on the data in the **leader database**. The follower database periodically synchronizes changes in the leader databases, so there is a data lag of a few seconds to a few minutes in data availability. The length of the time lag depends on the overall size of the leader database metadata.
 
-Attaching a database to a different cluster using the follower capability can be used to share data between organizations and teams. It is useful to segregate compute resources to protect a production environment from non-production use cases. It can also be used to associate the cost of Azure Data Explorer cluster to the party that runs queries on the data.
+Attaching a database to a different cluster using the follower capability is used as the infrastructure to share data between organizations and teams. It is useful to segregate compute resources to protect a production environment from non-production use cases. It can also be used to associate the cost of Azure Data Explorer cluster to the party that runs queries on the data.
 
-Azure Data Explorer database(s) hosted in one cluster can be attached as read-only database(s) to a different cluster. By attaching a database to a cluster, you allow the users of the cluster to view the data and execute queries on the attached database. The original cluster and the attached database(s) cluster use the same storage account to fetch the data. The storage is owned by the original database cluster. The follower database views the data without needing to ingest it. Since the attached database is a read-only database, the data, tables and policies in the database can't be modified except for [caching policy](#configure-caching-policy), [principals](#manage-principals) and [permissions](#manage-permissions). Attached databases can't be deleted. They must be detached by both the leader and follower clusters and only then they can be deleted. 
+Azure Data Explorer database(s) hosted in one cluster can be attached as read-only database(s) to a different cluster. By attaching a database to a cluster, you can view the data and execute queries on the attached database. The leader and follower databases use the same storage account to fetch the data. The storage is owned by the leader database. The follower database views the data without needing to ingest it. Since the attached database is a read-only database, the data, tables and policies in the database can't be modified except for [caching policy](#configure-caching-policy), [principals](#manage-principals) and [permissions](#manage-permissions). Attached databases can't be deleted. They must be detached by the leader or follower and only then they can be deleted. 
 
 ## Which databases are followed?
 
-* A follower cluster can follow one database, several databases, or all databases of a leader cluster. 
-* A single follower cluster can follow databases from multiple leader clusters. 
-* A follower cluster may have databases for which it is the leader.
+* A cluster can follow one database, several databases, or all databases of a leader cluster. 
+* A single cluster can follow databases from multiple leader clusters. 
+* A cluster can contain both follower databases and leader databases
 
 ## Prerequisites
 
 1. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-1. [Create cluster and DB](/azure/data-explorer/create-cluster-database-portal) for leader and follower clusters
-1. [Ingest data](/azure/data-explorer/ingest-sample-data) for leader cluster using one of various methods discussed in [ingestion overview](/azure/data-explorer/ingest-data-overview).
+1. [Create cluster and DB](/azure/data-explorer/create-cluster-database-portal) for the leader and follower.
+1. [Ingest data](/azure/data-explorer/ingest-sample-data) to leader database using one of various methods discussed in [ingestion overview](/azure/data-explorer/ingest-data-overview).
 
 ## Attach a database
 
@@ -166,7 +166,7 @@ You can deploy the Azure Resource Manager template by [using the Azure portal](h
 |Attached Database Configurations Name    |    The name of the attached database configurations object. The name must be unique at the cluster level.     |
 |Database Name     |      The name of the database to be followed. If you want to follow all the leader's databases use '*'.   |
 |Leader Cluster Resource Id    |   The resource ID of the leader cluster.      |
-|Default Principals Modification Kind    |   The default principal modification kind. Can be `Union`, `Replace` or `None`. For more information about default principal modification kind, [see link](need link).      |
+|Default Principals Modification Kind    |   The default principal modification kind. Can be `Union`, `Replace` or `None`. For more information about default principal modification kind, see [principal modification kind control command](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
 |Location   |   The location of all the resources. The leader and the follower must be in the same location.       |
  
 ### Verify that the database was successfully attached
@@ -243,7 +243,7 @@ When attaching a database you specify the **default principals modification kind
 
 |**Kind** |**Description**  |
 |---------|---------|
-|**Union**     |   The attached database principals will always include the original database principals plus additional new principals.      |
+|**Union**     |   The attached database principals will always include the original database principals plus additional new principals added to the follower database.      |
 |**Replace**   |    No inheritance of principals from the original database. New principals must be created for the attached database. At least one principal needs to be added to block principal inheritance.     |
 |**None**   |   The attached database principals include only the principals of the original database with no additional principals.      |
 
@@ -253,15 +253,15 @@ Managing read only database permission is the same as for all database types. Se
 
 ### Configure caching policy
 
-The follower database administrator can modify the [caching policy](/azure/kusto/management/cache-policy) of the attached database or any of its tables on the hosting cluster. The default is keeping the leader database collection of database and table-level caching policies. If needed, it's possible, for example, to have a 30 day caching policy on the leader database for running monthly reporting and a three day caching policy on the follower cluster to query only the recent data for troubleshooting.
+The follower database administrator can modify the [caching policy](/azure/kusto/management/cache-policy) of the attached database or any of its tables on the hosting cluster. The default is keeping the leader database collection of database and table-level caching policies. You can, for example, have a 30 day caching policy on the leader database for running monthly reporting and a three day caching policy on the follower database to query only the recent data for troubleshooting.
 
 ## Limitations
 
-* The follower and the leader must be in the same region.
-* Streaming ingestion can't be used on a database that is being followed.
+* The follower and the leader clusters must be in the same region.
+* [Streaming ingestion](/azure/data-explorer/ingest-data-streaming) can't be used on a database that is being followed.
 * You can't delete a database that is attached to a different cluster before detaching it.
 * You can't delete a cluster that has a database attached to a different cluster before detaching it.
-* You can't stop a leader cluster that has database(s) that are attached to other clusters. 
+* You can't stop a cluster that has attached follower or leader database(s). 
 
 ## Next steps
 
