@@ -43,7 +43,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
   * Your logic apps don't run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-  * Your logic apps *do* run in an integration service environment, but you have to use Windows authentication for your SQL Server connection. For this scenario, use the SQL Server connector's non-ISE version because the ISE version doesn't support Windows authentication.
+  * Your logic apps *do* run in an integration service environment, but you have to use Windows authentication for your SQL Server connection. For this scenario, use the SQL Server connector's non-ISE version along with the data gateway because the ISE version doesn't support Windows authentication.
 
 * The logic app where you need access to your SQL database. To start your logic app with a SQL trigger, you need a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
