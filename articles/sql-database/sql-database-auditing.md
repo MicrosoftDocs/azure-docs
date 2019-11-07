@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure SQL database auditing 
+title: Get started with auditing 
 description: Use Azure SQL database auditing to track database events into an audit log.
 services: sql-database
 ms.service: sql-database

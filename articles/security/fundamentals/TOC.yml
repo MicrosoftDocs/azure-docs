@@ -2,7 +2,6 @@
   href: index.yml
 - name: Architecture and design
   href: overview.md
-  expanded: false
   items:
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
@@ -23,6 +22,7 @@
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Security technical capabilities
     href: technical-capabilities.md
+  expanded: false
 - name: Data security and encryption
   href: encryption-overview.md
   items:
@@ -93,7 +93,7 @@
     - name: Security checklist
       displayName: identity, active directory, password
       href: steps-secure-identity.md
-    - name: Choose passwordless 
+    - name: Choose passwordless
       displayName: identity, active directory, passwordless
       href: ad-passwordless.md
     - name: Best practices
@@ -128,19 +128,6 @@
     - name: Remote management security
       href: management.md
     - name: Azure log integration
-      items:
-      - name: Introduction
-        href: azure-log-integration-overview.md
-      - name: Get started
-        href: azure-log-integration-get-started.md
-      - name: Integrate Azure AD audit logs
-        displayName: active directory
-        href: azure-log-integration-ad.md
-      - name: Integrate logs from Key Vault
-        displayName: keyvault
-        href: azure-log-integration-keyvault-eventhub.md
-      - name: FAQ
-        href: azure-log-integration-faq.md
   - name: Operational security
     href: operational-overview.md
     items:
@@ -188,14 +175,14 @@
   - name: NIST SP 800-171
     displayName: blueprint, privacy, certifications
     items:
-      - name: Data analytics
-        href: ../blueprints/nist171-analytics-overview.md
-      - name: Data warehouse
-        href: ../blueprints/nist171-datawarehouse-overview.md
-      - name: IaaS web application
-        href: ../blueprints/nist171-iaaswa-overview.md
-      - name: PaaS web application
-        href: ../blueprints/nist171-paaswa-overview.md
+    - name: Data analytics
+      href: ../blueprints/nist171-analytics-overview.md
+    - name: Data warehouse
+      href: ../blueprints/nist171-datawarehouse-overview.md
+    - name: IaaS web application
+      href: ../blueprints/nist171-iaaswa-overview.md
+    - name: PaaS web application
+      href: ../blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
     displayName: blueprint, privacy, certifications
     items:
@@ -210,14 +197,14 @@
   - name: UK NHS
     displayName: blueprint, privacy, certifications
     items:
-      - name: Data analytics
-        href: ../blueprints/uknhs-analytics-overview.md
-      - name: Data warehouse
-        href: ../blueprints/uknhs-datawarehouse-overview.md
-      - name: IaaS web application
-        href: ../blueprints/uknhs-iaaswa-overview.md
-      - name: PaaS web application
-        href: ../blueprints/uknhs-paaswa-overview.md
+    - name: Data analytics
+      href: ../blueprints/uknhs-analytics-overview.md
+    - name: Data warehouse
+      href: ../blueprints/uknhs-datawarehouse-overview.md
+    - name: IaaS web application
+      href: ../blueprints/uknhs-iaaswa-overview.md
+    - name: PaaS web application
+      href: ../blueprints/uknhs-paaswa-overview.md
   - name: UK OFFICIAL
     displayName: blueprint, privacy, certifications
     items:
