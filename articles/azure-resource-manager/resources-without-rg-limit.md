@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can have more than 800 instance
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
 ---
 
@@ -69,8 +69,18 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * services
 
+## Microsoft.EventHub
+
+* clusters
+* namespaces
+
+## Microsoft.Experimentation
+
+* experimentWorkspaces
+
 ## Microsoft.GuestConfiguration
 
+* configurationProfileAssignments
 * guestConfigurationAssignments
 * software
 * softwareUpdateProfile
@@ -89,45 +99,6 @@ For some resource types, you need to contact support to have the 800 instance li
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
 
-## Microsoft.Network
-
-* applicationGatewayWebApplicationFirewallPolicies
-* applicationSecurityGroups
-* bastionHosts
-* ddosProtectionPlans
-* dnszones
-* dnszones/A
-* dnszones/AAAA
-* dnszones/CAA
-* dnszones/CNAME
-* dnszones/MX
-* dnszones/NS
-* dnszones/PTR
-* dnszones/SOA
-* dnszones/SRV
-* dnszones/TXT
-* dnszones/all
-* dnszones/recordsets
-* networkIntentPolicies
-* networkInterfaces
-* privateDnsZones
-* privateDnsZones/A
-* privateDnsZones/AAAA
-* privateDnsZones/CNAME
-* privateDnsZones/MX
-* privateDnsZones/PTR
-* privateDnsZones/SOA
-* privateDnsZones/SRV
-* privateDnsZones/TXT
-* privateDnsZones/all
-* privateDnsZones/virtualNetworkLinks
-* privateEndpoints
-* privateLinkServices
-* publicIPAddresses - By default, limited to 800 instances. That limit can be increased by contacting support.
-* serviceEndpointPolicies
-* trafficmanagerprofiles
-* virtualNetworkTaps
-
 ## Microsoft.PortalSdk
 
 * rootResources
@@ -136,9 +107,17 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * workspaceCollections - By default, limited to 800 instances. That limit can be increased by contacting support.
 
+## Microsoft.Relay
+
+* namespaces
+
 ## Microsoft.Scheduler
 
 * jobcollections
+
+## Microsoft.ServiceBus
+
+* namespaces
 
 ## Microsoft.ServiceFabricMesh
 
