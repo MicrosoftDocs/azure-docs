@@ -5287,6 +5287,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-web-application-firewall-portal.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-powershell.md",
       "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
       "redirect_document_id": false
@@ -16374,6 +16379,31 @@
     {
       "source_path": "articles/cognitive-services/cognitive-services-text-analytics-quick-start.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/csharp.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
     {
