@@ -38,7 +38,11 @@ In this article we will cover:
 
 AKS clusters and non-AKS Kubernetes clusters provide different capabilities and options.  The following table provides details on the important technology differences.
 
-TODO <BIG TABLE>
+| FQDN                                    | Managed Disks      | Multiple Node Pools      |
+|-----------------------------------------|-----------|----------|
+| AKS | Yes | Yes |
+| ACS| No | No |
+| AKS Engine | ? | Azure policy add-on talks to Gatekeeper audit endpoint running in master server to get the audit results. |
 
 
 ## Existing Azure attached Services
