@@ -22,36 +22,24 @@ ms.collection: M365-identity-device-management
 
 Azure AD provides an interface for configuring provisioning. This can be easy to use for one or two applications, but in situations where you have to create 10, 20, 100+ instances of an application, it is often easier to automate application creation and configuration through APIs rather than the user interface. This document outlines how to automate configuring provisioning through APIs. This is most commonly used for applications such as [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on) and [Azure Databricks]()
 
-
-
 1.	Create gallery app
-	1. Retrieve the gallery application template<br>
-        GET https://graph.microsoft.com/beta/applicationTemplates
-	2. Create gallery application <br>
-  	POST https://graph.microsoft.com/beta/applicationTemplates/{id}/instantiate
+	* Retrieve the gallery application template<br>
+	* Create gallery application 
 2.	Create provisioning job based on template
-	1. Retrieve the template for the provisioning connector<br> 
- 	 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/templates
-	2. Create the provisioning job<br>
-  	POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
-	GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
+	* Retrieve the template for the provisioning connector
+	* Create the provisioning job
+	* Get Job Id
 3.	Authorize access
-    1. Test connection to the application<br>
-    	POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
-    1. Save credentials<br>	
-    	PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets  
-
+     	* Test connection to the application
+        * Save credentials
 4.	Configure
-    1.	What’s an example of setting scope?
-
+    	* What’s an example of setting scope?
 5.	Start provisioning job
-    1.	POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/start
+  	* Start job
 6.	Monitor provisioning
-    1.	Check the status of the provisioning job <br>
-    GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
-    2.	Retrieve the provisioing logs <br>
-    GET https://graph.microsoft.com/beta/auditLogs/provisioning
-
+    	* Check the status of the provisioning job 
+	* Retrieve the provisioing logs 
+    
 
 > [!NOTE]
 > The response objects shown here may be shortened for readability. All the properties will be returned from an actual call.
