@@ -1,5 +1,5 @@
 ---
-title: Monitor your workload using DMVs | Microsoft Docs
+title: Monitor your workload using DMVs 
 description: Learn how to monitor your workload using DMVs.
 services: sql-data-warehouse
 author: ronortloff

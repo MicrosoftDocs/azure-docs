@@ -29,7 +29,7 @@ To complete this tutorial, you will need:
 - An Azure Resource Manager VM (not Classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see
   [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 - Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
-- Familiarity with Desired State Configuration (DSC). For information about DSC, see [Windows PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview)
+- Familiarity with Desired State Configuration (DSC). For information about DSC, see [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
 
 ## Log in to Azure
 
@@ -43,7 +43,7 @@ Connect-AzureRmAccount
 
 For this tutorial, we will use a simple DSC configuration that ensures that IIS is installed on the VM.
 
-For information about DSC configurations, see [DSC configurations](/powershell/dsc/configurations).
+For information about DSC configurations, see [DSC configurations](/powershell/scripting/dsc/configurations/configurations).
 
 In a text editor, type the following and save it locally as `TestConfig.ps1`.
 
@@ -73,7 +73,7 @@ Call the `Import-AzureRmAutomationDscConfiguration` cmdlet to upload the configu
 
 A DSC configuration must be compiled into a node configuration before it can be assigned to a node.
 
-For information about compiling configurations, see [DSC configurations](/powershell/dsc/configurations).
+For information about compiling configurations, see [DSC configurations](/powershell/scripting/dsc/configurations/configurations).
 
 Call the `Start-AzureRmAutomationDscCompilationJob` cmdlet to compile the `TestConfig` configuration into a node configuration:
 
@@ -121,7 +121,7 @@ Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Automati
 For more information about setting configuration properties for a managed node, see
 [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode).
 
-For more information about DSC configuration settings, see [Configuring the Local Configuration Manager](/powershell/dsc/metaconfig).
+For more information about DSC configuration settings, see [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ## Assign a node configuration to a managed node
 
@@ -138,7 +138,7 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 This assigns the node configuration named `TestConfig.WebServer` to the registered DSC node named `DscVm`.
 By default, the DSC node is checked for compliance with the node configuration every 30 minutes.
 For information about how to change the compliance check interval, see
-[Configuring the Local Configuration Manager](/PowerShell/DSC/metaConfig).
+[Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ## Working with Partial Configurations
 

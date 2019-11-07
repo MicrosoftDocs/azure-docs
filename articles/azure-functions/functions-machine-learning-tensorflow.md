@@ -136,7 +136,7 @@ You'll use a pre-built TensorFlow model that was trained with and exported from 
 > [!NOTE]
 > If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the sample project repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
-The model consists of two files in the *<REPOSITORY_ROOT>/resources/model* folder: *model.db* and *labels.txt*. Copy them into the *classify* function's folder.
+The model consists of two files in the *<REPOSITORY_ROOT>/resources/model* folder: *model.pb* and *labels.txt*. Copy them into the *classify* function's folder.
 
 #### Linux and macOS:
 
@@ -175,7 +175,7 @@ Confirm that *classify* now contains a file named *predict.py*.
 The helper library has some dependencies that need to be installed. Open *start/requirements.txt* in your editor and add the following dependencies to the file.
 
 ```txt
-tensorflow
+tensorflow==1.14
 Pillow
 requests
 ```

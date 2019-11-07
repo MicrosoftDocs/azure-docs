@@ -249,7 +249,7 @@ For example:
 
 By default, Video Indexer player has auto-generated closed captions that are based on the transcript of the video. The transcript is extracted from the video with the source language that was selected when the video was uploaded.
 
-If you want to embed with a different language, you can add `&captions=< Language | ”all” | “false” >` to the embed player URL. If you want captions in all available languages' captions, use the value `all`. If you want the captions to be displayed by default, you can pass `&showCaptions=true`.
+If you want to embed with a different language, you can add `&captions=< Language | "all" | "false" >` to the embed player URL. If you want captions in all available languages' captions, use the value `all`. If you want the captions to be displayed by default, you can pass `&showCaptions=true`.
 
 The embed URL then will look like this: 
 

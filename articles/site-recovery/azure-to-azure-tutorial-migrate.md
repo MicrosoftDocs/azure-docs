@@ -7,7 +7,7 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
-ms.custom: MVC
+ms.custom: MVC 
 ---
 
 # Move Azure VMs to another region
