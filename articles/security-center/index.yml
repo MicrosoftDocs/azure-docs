@@ -8,7 +8,6 @@ metadata:
   description: Get started with Security Center, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: security-center
   ms.service: security-center #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: subservice
   ms.topic: landing-page # Required
   ms.collection: collection
   author: memildin #Required; your GitHub user alias, with correct capitalization.
