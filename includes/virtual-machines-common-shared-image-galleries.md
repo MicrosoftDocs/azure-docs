@@ -28,9 +28,10 @@ The Shared Image Gallery feature has multiple resource types:
 
 | Resource | Description|
 |----------|------------|
-| **Managed image** | A basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from generalized VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
+| **Managed image** | A basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from [generalized](#generalized-and-specialized-images) VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
+| **Snapshot** | A copy of a VHD that can be used to make an **image version**. Snapshots can be taken from a [specialized](#generalized-and-specialized-images) VM (one that hasn't been generalized) then used alone or with snapshots of data disks, to create a specialized image version.
 | **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it within your organization. You can include information like whether the image is Windows or Linux, minimum and maximum memory requirements, and release notes. It is a definition of a type of image. |
+| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it within your organization. You can include information like whether the image is generalized of specialized, the operating system, minimum and maximum memory requirements, and release notes. It is a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
 <br>
@@ -240,7 +241,7 @@ Yes. There are 3 scenarios based on the types of images you may have.
 
 ### Can I create an image version from a specialized disk?
 
-Yes, support for specialized disks as images is in preview. You can only create a VM from a specialized image using the [Azure CLI](shared-images.md), [portal](shared-images-portal.md) and API. There is no PowerShell support for the preview.
+Yes, support for specialized disks as images is in preview. You can only create a VM from a specialized image using the portal ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) or [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) and API.
 
 ### Can I move the Shared Image Gallery resource to a different subscription after it has been created?
 

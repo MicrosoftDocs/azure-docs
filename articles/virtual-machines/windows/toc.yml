@@ -408,7 +408,7 @@
         href: shared-images-portal.md
       - name: CLI
         href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      - name: Share images across tenants
+      - name: App registration for sharing
         href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
