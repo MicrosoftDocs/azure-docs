@@ -17,7 +17,7 @@ This article explores common troubleshooting methods for self-hosted integration
 
 ### Error message: Self-hosted integration runtime is unable to connect to cloud service.
 
-- **Symptoms**: 
+- **Symptom**: 
 
     ![Self-Hosted IR connection issue](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
@@ -70,8 +70,9 @@ This article explores common troubleshooting methods for self-hosted integration
             
             ![Powershell command response 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
 
-            > [!NOTE] Proxy considerations:
-            > *	Check if the proxy server requires whitelisting. If so, have [these domains](https://docs.microsoft.com/en-us/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) whitelisted.
+            > [!NOTE] 
+            > Proxy considerations:
+            > *	Check if the proxy server requires whitelisting. If so, have [these domains](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) whitelisted.
             > *	Check TLS/SSL cert for "wu2.frontend.clouddatahub.net/" is trusted on proxy server.
             > *	If you are using active directory authentication in proxy, then change the service account to the user account that can access the proxy as "Integration Runtime Service".
 
