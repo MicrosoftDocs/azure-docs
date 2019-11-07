@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Recover files and folders from Azure VM backup'
-description: Recover files from an Azure virtual machine recovery point
+description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -216,7 +216,7 @@ The script also requires Python and bash components to execute and connect secur
 
 This section explains how to perform file recovery from Azure Virtual machine backups whose number of disks are > 16 and each disk size is > 4 TB.
 
-Since file recovery process attaches all disks from the backup, in case of large number of disks (>16) or large disks (> 4 TB each), following action points are recommended.
+Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 4 TB each) are used, the following action points are recommended:
 
 - Keep a separate restore server (Azure VM D2v3 VMs) for file recovery. You can use that only file recovery and then shut down when not required. Restoring on the original machine is not recommended since it will have significant impact on the VM itself.
 - Then run the script once to check if the file recovery operation succeeds.
@@ -238,7 +238,7 @@ Since file recovery process attaches all disks from the backup, in case of large
   - In the file /etc/iscsi/iscsid.conf, change the setting from
     - node.conn[0].timeo.noop_out_timeout = 5  to node.conn[0].timeo.noop_out_timeout = 30
 - After performing the following, now run the script again. With these changes, it is highly probable that the file recovery succeeds.
-- Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. In case of large disks, this will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Hence it is recommended to download a script from Portal/Powershell/CLI, wait for 20-30 mins (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
+- Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. With large disks, this will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Hence it is recommended to download a script from Portal/Powershell/CLI, wait for 20-30 mins (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
 - After file recovery, make sure you go back to Portal to click “Unmount disks” for recovery points where you were not able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
 
 ## Troubleshooting
