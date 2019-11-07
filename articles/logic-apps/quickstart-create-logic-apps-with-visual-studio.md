@@ -117,7 +117,7 @@ When you have your Azure Resource Group project, create your logic app with the 
 
    | Setting | Example value | Description |
    | ------- | ------------- | ----------- |
-   | User profile list | Fabrikam <br> sophia-owen@fabrikam.com | By default, the account that you used to sign in |
+   | **User profile list** | Fabrikam <br> sophia-owen@fabrikam.com | By default, the account that you used to sign in |
    | **Subscription** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | The name for your Azure subscription and associated account |
    | **Resource Group** | MyLogicApp-RG <br> (West US) | The Azure resource group and location for storing and deploying your logic app's resources |
    | **Location** | **Same as Resource Group** | The location type and specific location for deploying your logic app. The location type is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>For this quickstart, keep the location type set to **Region** and the location set to **Same as Resource Group**. <p>**Note**: After you create your resource group project, you can [change the location type and the location](manage-logic-apps-with-visual-studio.md#change-location), but different location type affects your logic app in various ways. |
