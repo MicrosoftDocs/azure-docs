@@ -256,7 +256,7 @@ No. The service-level agreement (SLA) for archive storage is not compatible with
 
 Cool tier blob storage is not usually recommended for an Avere vFXT for Azure core filer. Cool tier offers lower storage costs but higher operations costs. (See [Block blob pricing](<https://azure.microsoft.com/pricing/details/storage/blobs/>) for more details.) If data will be accessed and modified or deleted frequently, please consider using the Hot tier.
 
-[Access tiers](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) gives more information about when it might make sense to use cool tier storage as a vFXT core filer.
+[Access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) gives more information about when it might make sense to use cool tier storage as a vFXT core filer.
 
 ### How do I encrypt the blob container?
 
