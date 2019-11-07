@@ -39,6 +39,10 @@
       href: how-to-automatic-language-detection.md
     - name: Use compressed audio input formats
       href: how-to-use-codec-compressed-audio-input-streams.md
+    - name: Use compressed audio input formats (iOS)
+      href: how-to-use-codec-compressed-audio-input-streams-ios.md
+    - name: Use compressed audio input formats (Android)
+      href: how-to-use-codec-compressed-audio-input-streams-android.md
     - name: Use speech recognition with Docker containers
       href: speech-container-howto.md?tabs=stt
   - name: Reference
