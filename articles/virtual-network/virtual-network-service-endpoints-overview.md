@@ -20,26 +20,26 @@ ms.custom:
 
 Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
 
-This feature is available for the following Azure services and regions, and you'll also find the Microsoft.* resource in parenthesis that needs to be enabled from the Subnet side while configuring service endpoints for your service:
+This feature is available for the following Azure services and regions, and you'll also find the *Microsoft.\** resource in parenthesis that needs to be enabled from the Subnet side while configuring service endpoints for your service:
 
 **Generally available**
 
-- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (Microsoft.Storage): Generally available in all Azure regions.
-- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft.Sql): Generally available in all Azure regions.
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft.Sql): Generally available in all Azure regions.
-- **[Azure Database for PostgreSQL server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft.Sql): Generally available in Azure regions where database service is available.
-- **[Azure Database for MySQL server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft.Sql): Generally available in Azure regions where database service is available.
-- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (Microsoft.Sql): Generally available in Azure regions where database service is available.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft.AzureCosmosDB): Generally available in all Azure regions.
-- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** (Microsoft.KeyVault): Generally available in all Azure regions.
-- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft.ServiceBus): Generally available in all Azure regions.
-- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft.EventHub): Generally available in all Azure regions.
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft.AzureActiveDirectory): Generally available in all Azure regions where ADLS Gen1 is available.
+- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft.Storage*): Generally available in all Azure regions.
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in all Azure regions.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in all Azure regions.
+- **[Azure Database for PostgreSQL server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in Azure regions where database service is available.
+- **[Azure Database for MySQL server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in Azure regions where database service is available.
+- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft.Sql*): Generally available in Azure regions where database service is available.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*): Generally available in all Azure regions.
+- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** (*Microsoft.KeyVault*): Generally available in all Azure regions.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.ServiceBus*): Generally available in all Azure regions.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.EventHub*): Generally available in all Azure regions.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Generally available in all Azure regions where ADLS Gen1 is available.
 - **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)**: Generally available in all Azure regions where App service is available
 
 **Public Preview**
 
-- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** (Microsoft.ContainerRegistry): Preview available in all Azure regions where Azure Container Registry is available.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** (*Microsoft.ContainerRegistry*): Preview available in all Azure regions where Azure Container Registry is available.
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -47,16 +47,16 @@ For the most up-to-date notifications, check the [Azure Virtual Network updates]
 
 Service endpoints provide the following benefits:
 
-- **Improved security for your Azure service resources**: VNet private address space can be overlapping and so, can't be used to uniquely identify traffic that originates from your VNet. Service endpoints provide the ability to secure Azure service resources to your virtual network, by extending VNet identity to the service. Once service endpoints are enabled in your virtual network, you can secure Azure service resources to your virtual network by adding a virtual network rule to the resources. This provides improved security by fully removing public Internet access to resources, and allowing traffic only from your virtual network.
+- **Improved security for your Azure service resources**: VNet private address spaces can overlap so they can't be used to uniquely identify traffic that originates from your VNet. Service endpoints provide the ability to secure Azure service resources to your virtual network by extending VNet identity to the service. Once you enable service endpoints in your virtual network, you can secure Azure service resources to your virtual network by adding a virtual network rule to the resources. The rule addition provides improved security by fully removing public Internet access to resources, and allowing traffic only from your virtual network.
 - **Optimal routing for Azure service traffic from your virtual network**: Today, any routes in your virtual network that force Internet traffic to your premises and/or virtual appliances, known as forced-tunneling, also force Azure service traffic to take the same route as the Internet traffic. Service endpoints provide optimal routing for Azure traffic. 
 
-  Endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. Keeping traffic on the Azure backbone network allows you to continue auditing and monitoring outbound Internet traffic from your virtual networks, through forced-tunneling, without impacting service traffic. Learn more about [user-defined routes and forced-tunneling](virtual-networks-udr-overview.md).
-- **Simple to set up with less management overhead**: You no longer need reserved, public IP addresses in your virtual networks to secure Azure resources through IP firewall. There are no NAT or gateway devices required to set up the service endpoints. Service endpoints are configured through a simple click on a subnet. There is no additional overhead to maintaining the endpoints.
+  Endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. Keeping traffic on the Azure backbone network allows you to continue auditing and monitoring outbound Internet traffic from your virtual networks, through forced-tunneling, without impacting service traffic. For more information about user-defined routes and forced-tunneling, see [Azure virtual network traffic routing](virtual-networks-udr-overview.md).
+- **Simple to set up with less management overhead**: You no longer need reserved, public IP addresses in your virtual networks to secure Azure resources through IP firewall. There are no NAT or gateway devices required to set up the service endpoints. You can configure service endpoints through a simple click on a subnet. There is no additional overhead to maintaining the endpoints.
 
 ## Limitations
 
 - The feature is available only to virtual networks deployed through the Azure Resource Manager deployment model.
-- Endpoints are enabled on subnets configured in Azure virtual networks. Endpoints cannot be used for traffic from your premises to Azure services. For more information, see [Securing Azure service access from on-premises](#securing-azure-services-to-virtual-networks)
+- Endpoints are enabled on subnets configured in Azure virtual networks. Endpoints can't be used for traffic from your premises to Azure services. For more information, see [Securing Azure service access from on-premises](#securing-azure-services-to-virtual-networks)
 - For Azure SQL, a service endpoint applies only to Azure service traffic within a virtual network's region. For Azure Storage, to support RA-GRS and GRS traffic, endpoints also extend to include paired regions where the virtual network is deployed. Learn more about [Azure paired regions.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 - For ADLS Gen 1, the VNet Integration capability is only available for virtual networks within the same region. Also note that virtual network integration for Azure Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. "Microsoft.AzureActiveDirectory" tag listed under services supporting service endpoints is used only for supporting service endpoints to ADLS Gen 1. Azure Active Directory (Azure AD) doesn't support service endpoints natively. Learn more about [Azure Data Lake Store Gen 1 VNet Integration](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
