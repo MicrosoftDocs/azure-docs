@@ -17,8 +17,6 @@ This article helps you plan and execute a successful migration to Azure Kubernet
 
 If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) and [AKS supported Kubernetes versions](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions) to understand the Kubernetes and AKS versioning strategies.
 
-Details for business continuity planning, disaster recovery, and maximizing uptime are beyond the scope of this document.  Read more about [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) to learn more.
-
 * Migrating AKS Cluster using Availability Sets to Virtual Machine Scale Sets
 * Migrating AKS cluster to use a [Standard SKU load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard)
 * Migrating from Azure Container Service (ACS) to AKS
@@ -67,7 +65,9 @@ Because additional virtual machines will be deployed into your subscription duri
 
 For more information, see [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits). To check your current quotas, in the Azure portal, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), select your subscription, and then select **Usage + quotas**.
 
-### Networking
+### High Availability and Business continuity
+
+Best practices for complex business continuity planning, disaster recovery, and maximizing uptime are beyond the scope of this document.  Read more about [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) to learn more.
 
 For complex applications, you'll typically migrate over time rather than all at once. That means that the old and new environments might need to communicate over the network. Applications that previously used `ClusterIP` services to communicate might need to be exposed as type `LoadBalancer` and be secured appropriately.
 
@@ -78,6 +78,8 @@ To complete the migration, you'll want to point clients to the new services that
 ![AKS with Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
 In a multicluster deployment, customers should connect to a Traffic Manager DNS name that points to the services on each AKS cluster. Define these services by using Traffic Manager endpoints. Each endpoint is the *service load balancer IP*. Use this configuration to direct network traffic from the Traffic Manager endpoint in one region to the endpoint in a different region.
+
+## Storage considerations
 
 ### Stateless applications
 
