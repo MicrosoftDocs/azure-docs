@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 
 Azure Cognitive Search is a standalone resource used to plug in a search experience in custom apps. Although Azure Cognitive Search integrates easily with other Azure services, you can also use it as a standalone component, or integrate it with apps on network servers, or with software running on other cloud platforms.
 
-In this article, learn how to create an Azure Cognitive Search resource in the [Azure portal](https://portal.azure.com/).
+In this article, learn how to create a resource in the [Azure portal](https://portal.azure.com/).
 
 [![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -33,24 +33,26 @@ Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/p
 2. Click the plus sign ("+ Create Resource") in the top-left corner.
 3. Use the search bar to find "Azure Cognitive Search" or navigate to the resource through **Web** > **Azure Cognitive Search**.
 
-![Navigate to an Azure Cognitive Search resource](./media/search-create-service-portal/find-search3.png "Navigation path to Azure Cognitive Search")
+![Create a resource in the portal](./media/search-create-service-portal/find-search3.png "Create a resource in the portal")
 
-## Select a subscription
+## Choose a subscription
 
-If you have more than one subscription, choose one that also has data or file storage services. Azure Cognitive Search can autodetect Azure Table and Blob storage, SQL Database, and Azure Cosmos DB for indexing via [*indexers*](search-indexer-overview.md), but only for services under the same subscription.
+Setting the subscription ID and resource group is your first step. If you have more than one subscription, choose one that also has data or file storage services. Azure Cognitive Search can autodetect Azure Table and Blob storage, SQL Database, and Azure Cosmos DB for indexing via [*indexers*](search-indexer-overview.md), but only for services under the same subscription.
 
 ## Set a resource group
 
-A resource group is required and is useful for managing resources all-up, including cost management. A resource group can consist of one service, or multiple services used together. For example, if you are using Azure Cognitive Search to index an Azure Cosmos DB database, you could make both services part of the same resource group for management purposes. 
+A resource group is required and is useful for managing resources all-up, including costs. A resource group can consist of one service, or multiple services used together. For example, if you are using Azure Cognitive Search to index an Azure Cosmos DB database, you could make both services part of the same resource group for management purposes. 
 
 If you aren't combining resources into a single group, or if existing resource groups are filled with resources used in unrelated solutions, create a new resource group just for your Azure Cognitive Search resource. 
 
-As you use the service, you can track current and projected costs all-up (as shown in the screenshot) or scroll down to view charges for individual resources.
+![Create a new resource group](./media/search-create-service-portal/new-resource-group.png "Create a new resource group")
+
+As you use the service, you can track current and projected costs all-up (as shown in the screenshot) or scroll down to view charges for individual resources. The following screenshot shows the kind of cost information you can expect to see over time when you combine multiple resources into one resource group.
 
 ![Manage costs at the resource group level](./media/search-create-service-portal/resource-group-cost-management.png "Manage costs at the resource group level")
 
 > [!TIP]
-> Deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
+> Resource groups simplify cleanup because deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
 
 ## Name the service
 
