@@ -133,15 +133,15 @@ Then Add the following code to `ViewController.swift` prior to `viewDidLoad()`:
 let kClientID = "Your_Application_Id_Here"
 
 // Additional variables for Auth and Graph API
-let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
-let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
-let kAuthority = "https://login.microsoftonline.com/common"
+let kGraphURI = "https://graph.microsoft.com/v1.0/me/" // the graph endpoint
+let kScopes: [String] = ["https://graph.microsoft.com/user.read"] // requesting user.read scope
+let kAuthority = "https://login.microsoftonline.com/common" // the default authority for all tenants
 var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
 var webViewParamaters : MSALWebviewParameters?
 ```
 
-Modify the value assigned to `kClientID`to be your Application ID. This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
+The only value you need to modify above is the value assigned to `kClientID`to be your [Application ID](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
 
 ## For iOS only, configure URL schemes
 
