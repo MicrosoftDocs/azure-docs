@@ -1,7 +1,11 @@
 ---
 title: "Quickstart: Publish knowledge base, REST, Java - QnA Maker"
 titleSuffix: Azure Cognitive Services 
+<<<<<<< HEAD
 description: This Java REST-based quickstart walks you through publishing your knowledge base which pushes the latest version of the tested knowledge base to a dedicated Azure Cognitive Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
+=======
+description: This Java REST-based quickstart publishes your knowledge base and creates an endpoint that can be called in your application or chat bot.
+>>>>>>> a795e098ceaf5a0eb6e1131e64d051722eebacdb
 services: cognitive-services
 author: diberry
 manager: nitinme
