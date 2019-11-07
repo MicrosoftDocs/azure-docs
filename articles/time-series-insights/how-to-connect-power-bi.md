@@ -150,7 +150,7 @@ This workflow is best if you want to access your data only from the Power BI Des
 
     B. Imported queries are displayed in the **Model** view.
 
-        [![Imported queries displayed in the Model view](media/how-to-connect-power-bi/3-power-bi-01-c.png)](media/how-to-connect-power-bi/3-power-bi-01-c.png#lightbox)
+      [![Imported queries displayed in the Model view](media/how-to-connect-power-bi/3-power-bi-01-c.png)](media/how-to-connect-power-bi/3-power-bi-01-c.png#lightbox)
 
     C. Recently imported queries can be accessed through the **Recent Sources** drop-down.
 
