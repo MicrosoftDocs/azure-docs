@@ -25,10 +25,11 @@ If you're migrating to a newer version of Kubernetes, review [Kubernetes version
 In this article we will cover:
 
 > [!div class="checklist"]
-> * Considerations for migrating AKS clusters from using Availablity Sets to Virtual Machine Scale Sets
 > * Differences between Kubernetes cluster types
+> * Existing attached Azure Services
+> * Considerations for Azure storage types
 > * Considerations for stateful and stateless applications
-> * Considerations for different types of Azure storage
+> * Deployment of your cluster configuration
 
 ## Differences between Kubernetes cluster types
 
@@ -46,7 +47,7 @@ The following table provides details on the important technology differences bet
 | [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) | ? | ? | ? | ? | Yes 
 
 
-## Existing Azure attached Services
+## Existing attached Azure Services
 
 When migrating clusters, the following Azure resources should not need additional migration work. You will have to ensure they have the proper connectivtity with the new AKS cluster.
 
@@ -57,9 +58,9 @@ When migrating clusters, the following Azure resources should not need additiona
 * Storage Account
 * External Databases
 
-## Migration considerations
+## Azure Subscription quotas
 
-### Agent pools
+### Agent pools and quotas
 
 Because additional virtual machines will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. 
 
@@ -81,24 +82,7 @@ In a multicluster deployment, customers should connect to a Traffic Manager DNS 
 
 ## Storage considerations
 
-There are sevearl considerations when migrating storage.  They can be simple or complex based on your specific scenario.
-
-### Stateless applications
-
-Stateless application migration is the most straightforward case. Apply your resource definitions (YAML or Helm) to the new cluster, make sure everything works as expected, and redirect traffic to activate your new cluster.
-
-### Stateful applications
-
-Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
-
-If you use Azure Files, you can mount the file share as a volume into the new cluster:
-* [Mount Static Azure Files as a Volume](https://docs.microsoft.com/azure/aks/azure-files-volume#mount-the-file-share-as-a-volume)
-
-If you use Azure Managed Disks, you can only mount the disk if unattached to any VM:
-* [Mount Static Azure Disk as a Volume](https://docs.microsoft.com/azure/aks/azure-disk-volume#mount-disk-as-volume)
-
-If neither of those approaches work, you can use a backup and restore options:
-* [Velero on Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
+There are several considerations when migrating storage.  They can be simple or complex based on your specific scenario.
 
 #### Migrating persistent volumes
 
@@ -127,15 +111,29 @@ Unlike disks, Azure Files can be mounted to multiple hosts concurrently. In your
 
 If your application can host multiple replicas that point to the same file share, follow the stateless migration steps and deploy your YAML definitions to your new cluster. If not, one possible migration approach involves the following steps:
 
-* Deploy your application to AKS with a replica count of 0.
-* Scale the application on ACS to 0. (This step requires downtime.)
-* Scale the application on AKS up to 1.
 * Validate your application is working correctly.
 * Point your live traffic to your new AKS cluster.
+* Disconnect the old cluster.
 
 If you want to start with an empty share and make a copy of the source data, you can use the [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) commands to migrate your data.
 
-### Deployment strategy for your cluster configuration
+### Stateless applications vs. Stateful applications
+
+Stateless application migration is the most straightforward case. Apply your resource definitions (YAML or Helm) to the new cluster, make sure everything works as expected, and redirect traffic to activate your new cluster.
+
+Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
+
+If you use Azure Files, you can mount the file share as a volume into the new cluster:
+* [Mount Static Azure Files as a Volume](https://docs.microsoft.com/azure/aks/azure-files-volume#mount-the-file-share-as-a-volume)
+
+If you use Azure Managed Disks, you can only mount the disk if unattached to any VM:
+* [Mount Static Azure Disk as a Volume](https://docs.microsoft.com/azure/aks/azure-disk-volume#mount-disk-as-volume)
+
+If neither of those approaches work, you can use a backup and restore options:
+* [Velero on Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
+
+
+### Deployment of for your cluster configuration
 
 We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. You can use Azure Pipelines to [build and deploy your applications to AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops) Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
 
