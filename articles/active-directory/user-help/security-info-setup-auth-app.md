@@ -1,5 +1,5 @@
 ---
-title: Set up security info (preview) to use an authenticator app - Azure Active Directory | Microsoft Docs
+title: Set up security info (preview) for an auth app - Azure AD
 description: How to set up your security info to verify your identity using the Microsoft Authenticator app.
 services: active-directory
 author: eross-msft

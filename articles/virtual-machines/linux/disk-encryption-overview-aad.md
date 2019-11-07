@@ -22,7 +22,7 @@ The information in these sections remains the same:
 - [Additional VM requirements](disk-encryption-overview.md#additional-vm-requirements)
 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## Networking and Group Policy
 
