@@ -89,7 +89,7 @@ logic apps are deployed.
 
 You can also nominate registered connectors for Microsoft certification. 
 This process verifies that registered connectors meet the criteria for public use 
-and makes those connectors available for users in Microsoft Flow and Microsoft PowerApps.
+and makes those connectors available for users in Power Automate and Microsoft Power Apps.
 
 For more information about custom connectors, see 
 
@@ -394,7 +394,7 @@ you must add security and register them as Logic App connectors.
 For more information, see [Custom connectors overview](../logic-apps/custom-connector-overview.md). 
 
 To make your custom APIs available to all users in Logic Apps, 
-Microsoft Flow, and Microsoft PowerApps, you must add security, 
+Power Automate, and Microsoft Power Apps, you must add security, 
 register your APIs as Logic App connectors, and nominate your connectors for the 
 [Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 

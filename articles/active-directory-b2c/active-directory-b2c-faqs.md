@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -23,7 +23,7 @@ There are two common reasons for why the Azure AD extension is not working for y
 
 ### Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
 
-Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. With custom policies (in public preview), Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
+Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. With custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
 
 ### Can I use Azure AD B2C to provide social login (Facebook and Google+) into Office 365?
 
@@ -118,7 +118,7 @@ No, Azure AD B2C does not support the same set of reports as Azure AD Premium. H
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 
-Yes!  Read about [language customization](active-directory-b2c-reference-language-customization.md), which is in public preview. We provide translations for 36 languages, and you can override any string to suit your needs.
+Yes, see [language customization](active-directory-b2c-reference-language-customization.md). We provide translations for 36 languages, and you can override any string to suit your needs.
 
 ### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
 
@@ -126,15 +126,20 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 
 ### How do I delete my Azure AD B2C tenant?
 
-Follow these steps to delete your Azure AD B2C tenant:
+Follow these steps to delete your Azure AD B2C tenant.
 
+You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
+
+#### [Applications](#tab/applications/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Delete all the **User flows (policies)** in your Azure AD B2C tenant.
 1. Delete all the **Applications** you registered in your Azure AD B2C tenant.
-1. Next, sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
-1. Switch to the Azure AD B2C tenant you want to delete.
 1. Select **Azure Active Directory** on the left-hand menu.
 1. Under **Manage**, select **Users**.
-1. Select each user in turn (exclude the Subscription Administrator user you are currently signed in as). Select **Delete** at the bottom of the page and select **YES** when prompted.
+1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **YES** when prompted.
 1. Under **Manage**, select **App registrations** (or **App registrations (Legacy)**).
 1. Select **View all applications**
 1. Select the application named **b2c-extensions-app**, select **Delete**, and then select **Yes** when prompted.
@@ -145,6 +150,28 @@ Follow these steps to delete your Azure AD B2C tenant:
 1. Sign out of the Azure portal and then sign back in to refresh your access.
 1. Select **Azure Active Directory** on the left-hand menu.
 1. On the **Overview** page, select **Delete directory**. Follow the on-screen instructions to complete the process.
+
+#### [App registrations (Preview)](#tab/app-reg-preview/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Delete all **User flows (policies)** in your Azure AD B2C tenant.
+1. Select **App registrations (Preview)**, then select the **All applications** tab.
+1. Delete all applications that you registered.
+1. Delete the **b2c-extensions-app**.
+1. Under **Manage**, select **Users**.
+1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **Yes** when prompted.
+1. Select **Azure Active Directory** on the left-hand menu.
+1. Under **Manage**, select **User settings**.
+1. If present, under **LinkedIn account connections**, select **No**, then select **Save**.
+1. Under **Manage**, select **Properties**
+1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
+1. Sign out of the Azure portal and then sign back in to refresh your access.
+1. Select **Azure Active Directory** on the left-hand menu.
+1. On the **Overview** page, select **Delete directory**. Follow the on-screen instructions to complete the process.
+
+* * *
 
 ### Can I get Azure AD B2C as part of Enterprise Mobility Suite?
 

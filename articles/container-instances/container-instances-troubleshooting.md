@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Troubleshoot common issues in Azure Container Instances
 
-This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances. See also [Frequently asked questions](container-instances-faq.md). 
+This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances. See also [Frequently asked questions](container-instances-faq.md).
 
 If you need additional support, see available **Help + support** options in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -202,9 +202,9 @@ Azure Container Instances does not expose direct access to the underlying infras
 
 Azure Container Instances doesn't yet support port mapping like with regular docker configuration. If you find a container group's IP address is not accessible when you believe it should be, ensure you have configured your container image to listen to the same ports you expose in your container group with the `ports` property.
 
-If you want to confirm that Azure Container Instances can listen on the port you configured in your container image, test a deployment of the `aci-helloworld` image that exposes the port. Also run the `aci-helloworld` app so that it listens on the port. `aci-helloworld` accepts an optional environment variable `PORT` to override the default port 80 it listens on. For example, to test port 9000:
+If you want to confirm that Azure Container Instances can listen on the port you configured in your container image, test a deployment of the `aci-helloworld` image that exposes the port. Also run the `aci-helloworld` app so that it listens on the port. `aci-helloworld` accepts an optional environment variable `PORT` to override the default port 80 it listens on. For example, to test port 9000, set the [environment variable](container-instances-environment-variables.md) when you create the container group:
 
-1. Set up the container group to expose port 9000, and pass the port number as the value of the environment variable:
+1. Set up the container group to expose port 9000, and pass the port number as the value of the environment variable. The example is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment accordingly.
     ```azurecli
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
@@ -226,7 +226,7 @@ If you want to confirm that Azure Container Instances can listen on the port you
 Learn how to [retrieve container logs and events](container-instances-get-logs.md) to help debug your containers.
 
 <!-- LINKS - External -->
-[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore

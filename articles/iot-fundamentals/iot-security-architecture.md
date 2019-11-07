@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
 ---
+# Internet of Things (IoT) security architecture
 
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 

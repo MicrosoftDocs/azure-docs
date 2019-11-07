@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 10/05/2019
+ms.date: 10/11/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---
@@ -121,7 +121,7 @@ You can use the ping command to test name resolution. So, configure the firewall
 2. Run the following command:
 
    ```powershell
-   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
 Repeat for myVM02.

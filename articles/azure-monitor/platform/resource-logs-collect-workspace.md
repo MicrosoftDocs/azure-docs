@@ -1,5 +1,5 @@
 ---
-title: Collect Azure resource logs in Log Analytics workspace in Azure Monitor
+title: Collect Azure resource logs in Log Analytics workspace
 description: Learn how to stream Azure resource logs to a Log Analytics workspace in Azure Monitor.
 author: bwren
 services: azure-monitor

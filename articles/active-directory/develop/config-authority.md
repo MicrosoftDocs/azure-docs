@@ -1,5 +1,6 @@
 ---
-title: Configure MSAL for iOS and macOS to use different identity providers | Microsoft identity platform
+title: Configure MSAL for iOS and macOS to use different identity providers 
+titleSuffix: Microsoft identity platform
 description: Learn how to use different authorities such as B2C, sovereign clouds, and guest users, with MSAL for iOS and macOS.
 services: active-directory
 documentationcenter: ''
@@ -29,7 +30,7 @@ This article will show you how to configure your Microsoft authentication librar
 `MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios like national clouds, or working with B2C, you won't need to change it.
 
 > [!NOTE]
-> Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers) for details). ADFS is supported through federation.
+> Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) for details). ADFS is supported through federation.
 
 ## Change the default authority
 

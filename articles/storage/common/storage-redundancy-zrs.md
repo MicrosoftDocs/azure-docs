@@ -38,6 +38,7 @@ For general-purpose v2 accounts, ZRS is generally available in the following reg
 For FileStorage accounts, ZRS is generally available in the following regions:
 
 - Europe West
+- US East
 
 Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about new regions.
 
