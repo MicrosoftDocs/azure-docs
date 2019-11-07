@@ -175,10 +175,6 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rule for NW2
-
-   > [!Note]
-   > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
-
    1. Alternatively, if your scenario requires basic load balancer, follow these instructions:
       1. Create the frontend IP addresses
          1. IP address 10.0.0.4 for NW1
