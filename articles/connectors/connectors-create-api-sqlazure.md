@@ -42,9 +42,8 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 * Before you can connect logic apps to on-premises systems such as SQL Server, you have to [set up an on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). That way, you can select the gateway when you create the SQL connection for your logic app.
 
   > [!IMPORTANT]
-  > To use Windows authentication with this connector, you must use the on-premises data gateway. 
-  > This connector doesn't support Windows authentication for a logic app in an 
-  > [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+  > If you want to use this connector in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), you can use only SQL authentication. If you want to use Windows authentication with this connector, 
+  > you must use the on-premises data gateway. This connector doesn't support Windows authentication logic apps that run in an ISE.
 
 * The logic app where you need access to your SQL database. To start your logic app with a SQL trigger, you need a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
