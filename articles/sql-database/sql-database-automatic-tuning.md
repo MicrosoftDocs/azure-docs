@@ -1,5 +1,5 @@
 ---
-title: automatic tuning overview
+title: Automatic tuning overview
 description: Azure SQL Database analyzes SQL query and automatically adapts to user workload.
 services: sql-database
 ms.service: sql-database
