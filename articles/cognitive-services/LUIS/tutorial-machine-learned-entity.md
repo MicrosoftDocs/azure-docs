@@ -30,6 +30,7 @@ In this tutorial, extract machine-learned data from an utterance using the machi
 > * Add subcomponent's descriptor
 > * Add subcomponent's constraint
 > * Train app
+> * Test app
 > * Publish app
 > * Get entity prediction from endpoint
 
@@ -38,11 +39,17 @@ In this tutorial, extract machine-learned data from an utterance using the machi
 
 ## Machine-learned entity
 
-This tutorial adds a machine-learned entity to extract data from an utterance. The purpose of the entity is to teach LUIS what the entity is and where it can be found in an utterance. The part of the utterance that is the machine-learned entity can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of the entity.  
+This tutorial adds a machine-learned entity to extract data from an utterance. The purpose of the entity is to define the boundaries and type of data within an utterance. In order to define the entity, you need to create the entity then marking the text representing the entity in the example utterance. These marked examples teach LUIS what the entity is and where it can be found in an utterance. 
 
-This machine-learned entity is the beginning and top-level for data extraction. The decomposability of the machine-learned entity allows LUIS to find and label the specific words inside the utterance's text for each part of the entity. 
+Start with a machine-learned entity, which is the beginning and top-level entity for data extraction. Then decompose the entity into parts needed by the client application. 
 
-While you may not know how detailed you want your entity when you begin your app, a best practice is to start with a machine-learned entity, then add subcomponents are your app matures.
+While you may not know how detailed you want your entity when you begin your app, a best practice is to start with a machine-learned entity, then decompose with subcomponents as your app matures.
+
+In practical terms, you will create a machine-learned entity to represent an order for a pizza app. The order should have all the parts that are necessary to fullfil the order. To begin, the entity will include all order-related text, and specifically pull out size, and quantity. 
+
+An utterance for `deliver one large cheese pizza` should extra the entire utterance as the order, then also extract `1` and `large`. 
+
+There is further decomposition you can do such as toppings or crust. After this tutorial, you should feel confident adding these subcomponents to your existing `Order` entity.
 
 ## Import example app
 
@@ -50,17 +57,20 @@ While you may not know how detailed you want your entity when you begin your app
 
 1. In the [preview LUIS portal](https://preview.luis.ai), on the **My apps** page, select **Import**, then **Import as JSON**. Find the saved JSON file from the previous step. You don't need to change the name of the app. Select **Done**
 
-1. From the **Manage** section, on the **Versions** tab, select the version, then select **Clone** to clone the version, and name it `mach-learn`. Then select **Done** to finish the clone process.
+1. From the **Manage** section, on the **Versions** tab, select the version, then select **Clone** to clone the version, and name it `mach-learn`. Then select **Done** to finish the clone process. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
-    Cloning is a best practice before you modify your app. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+    > [!TIP] 
+    > Cloning is a best practice before you modify your app. When you are finished with a version, export a version, as a .json or .lu file, and check that into your source control.
+
+1. Select **Build** then **Intents** to see the main building blocks of a LUIS app, the intents.
+
+    ![Change from the Versions page to the Intents page.](media/tutorial-machine-learned-entity/new-version-imported-app.png)
 
 ## Mark entities in example utterances
 
-To extract information about a Pizza order, mark the details in the example utterances. To extract details about a pizza order, create a top level, machine-learned `Order` entity. This should include all words that are important to get the order correct and only those words.
+To extract details about a pizza order, create a top level, machine-learned `Order` entity.
 
-1. [!INCLUDE [Start in Build section](includes/tutorial-start-in-build-section.md)]
-
-1. On the **Intents** page, select **OrderPizza** intent. 
+1. On the **Intents** page, select the **OrderPizza** intent. 
 
 1. In the example utterances list, select the following utterance. 
 
@@ -68,64 +78,51 @@ To extract information about a Pizza order, mark the details in the example utte
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Begin just before the left-most text of `pickup` (#1), select it (this begins the marking process), then go just beyond the right-most text, `anchovies` (#2 - this ends the marking process).
+    Begin selecting just before the left-most text of `pickup` (#1), then go just beyond the right-most text, `anchovies` (#2 - this ends the marking process). A pop-up menu appears. In the pop-up box, enter the name of the entity as `Order` (#3). Then select that name from the list (#4).
 
-    An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received so it should be part of the marked entity for the order.
-
-
-    FIX THIS IMAGE
-
+    > [!NOTE]
+    > An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received so it should be part of the marked entity for the order. 
 
     ![Mark beginning and ending of text for complete order](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
-1. In the pop-up box, enter the name of the entity as `Order` (#1). Then select that name from the list (#2).
-
-    FIX THIS IMAGE
-
-    ![Name the entity for the complete order](media/tutorial-machine-learned-entity/name-entity-for-complete-order.png)
-
-1. In the **Choose an entity type** box, select **Add Structure** (#1) then select **Next** (#2).
+1. In the **Choose an entity type** box, select **Add Structure** then select **Next**. Structure is  necessary to allow for subcomponents such as size and quantity.
 
     ![Add structure to entity](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
-1. In the **Create a machine learned entity** box, in the **Structure** box, add `Size`. For the **Size** component, add a **descriptor** named `SizeDescriptor`, then select **Create new phrase list**.
+1. In the **Create a machine learned entity** box, in the **Structure** box, add `Size`. For the **Size** component then select Enter. 
+1. Add a **descriptor** named `SizeDescriptor`, then select **Create new phrase list**.
 
-    ![Create size subcomponent with size descriptor](media/tutorial-machine-learned-entity/create-size-subcomponent-with-size-descriptor.png)
-
-1. In the **Create new phrase list descriptor** box, enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra-large`, and `x-large`. Select `xl` when it appears in the **Suggestions** box. Select **Done** to create the new phrase list as a descriptor to the Size subcomponent.  
+1. In the **Create new phrase list descriptor** box, enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Done** to create the new phrase list. Then select **Create** to finish creating the `Size` subcomponent.  
 
     ![Create a descriptor for the size subcomponent](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
 
-1. In the **Create a machine learned entity**, select **Create** to finish the machine-learned entity.
+1. On the **Intent details** page, the example utterance has a solid line under the marked text. This indicates the marked text agrees with the prediction. Because you explicitly marked it and labeled it, they will match. This visual indicator is valuable, not on the first utterance marked, but on the remaining utterances. 
 
-1. When the Intent details page appears, the example utterance has a solid line under the marked text. This indicates the marked text agrees with the prediction. Because you explicitly marked it and labeled it, they will match. This visual indicator is valuable, not on the first utterance marked, but on the remaining utterances. 
+    ![Entity marked and predicted](media/tutorial-machine-learned-entity/one-example-utterance-marked-with-entity.png)
 
-    FIX THIS IMAGE
+1. In the same example utterance, mark the **Size** subcomponent of `large` by selecting the word then selecting the **Size** entity from the drop-down list. 
 
-    ![Entity marked and predicted](media/tutorial-machine-learned-entity/machine-learned-entity-marked-and-predicted.png)
 
-1. In the example utterance, mark and select the **Size** subcomponent. Again the line is solid under the text because both the marking and prediction match because you explicitly marked the text.
+    ![Mark the size entity for text in the utterance.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
-1. Mark the `Order` entity in the remaining utterances. The square brackets in the text indicate the marked entity.
+    Again the line is solid under the text because both the marking and prediction match because you explicitly marked the text.
+
+1. Mark the `Order` entity in the remaining utterances along with the size entity. The square brackets in the text indicate the marked `Order` entity and the `Size` entity within.
 
     |Order example utterances|
     |--|
     |`can i get [a pepperoni pizza and a can of coke] please`|
-    |`can i get [a small pizza with onions peppers and olives]`|
-    |`[delivery for a small pepperoni pizza]`|
-    |`i need [2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza]`|
+    |`can i get [a [small] pizza with onions peppers and olives]`|
+    |`[delivery for a [small] pepperoni pizza]`|
+    |`i need [2 [large] cheese pizzas 6 [large] pepperoni pizzas and 1 [large] supreme pizza]`|
 
-    The `a` is part of the order because it implies a quantity of 1.
+    Make sure to include the `a` as part of the `Order` entity because it implies a quantity of 1.
 
-1. Mark the words indicating size such as `large` and `small` with the Size entity. 
+    ![Make entity and subcomponents in all remaining example utterances.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
 
-    FIX THIS IMAGE
+1. To train the app, select **Train**. 
 
-    ![The machine-learned entity and the subcomponent are marked in the utterances.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
-
-1. Train the app, select **Train**. 
-
-1. After training, add a new example utterance to understand how well LUIS understands the new machine-learned entity. 
+1. After training, add a new example utterance to understand how well LUIS understands the machine-learned entity. 
 
     |Order example utterance|
     |--|
@@ -141,19 +138,17 @@ To extract information about a Pizza order, mark the details in the example utte
 
     ![Accept prediction by selecting Confirm entity prediction.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
-    For now, the machine-learned entity is working. 
+    At this point, the machine-learned entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted, mark the entity and the subcomponents. 
 
 ## Add prebuilt number to app
 
-The order information should also include how many of an item in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added and that component needs a constraint of a prebuilt number. 
+The order information should also include how many of an item in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added to `Order` and that component needs a constraint of a prebuilt number. 
 
 Begin by adding the prebuilt number to the app. 
 
-1. Select **Entities** from the left menu, then select **+ Create**. 
+1. Select **Entities** from the left menu, then select **+ Add prebuilt entity**. 
 
-    ![Create new entity](media/tutorial-machine-learned-entity/add-prebuilt-entity-to-existing-app.png)
-
-1. In the **Add prebuilt entities** box, search for and select **Number** then select **Done**. 
+1. In the **Add prebuilt entities** box, search for and select **number** then select **Done**. 
 
     ![Add prebuilt entity](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
 
@@ -163,23 +158,25 @@ Begin by adding the prebuilt number to the app.
 
 The `Order` entity should have a `Quantity` subcomponent to determine how many of an item are in the order. 
 
-1. Select **Entities** then select the `OrderPizza` intent. 
+1. Select **Entities** then select the `Order` entity. 
 1. Select **+ Add Component** then enter the name `Quantity` then select Enter to add the new entity to the app.
 1. After the success notification, select the `Quantity` subcomponent then select the Constraint pencil.
 1. In the drop-down list, select the prebuilt number. 
 
     ![Create quantity entity with prebuilt number as constraint.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-    The entity with the constraint is create but not yet applied to the example utterances.
+    The entity with the constraint is created but not yet applied to the example utterances.
 
 ## Mark example utterance with subcomponent for quantity
 
 1. Select **Intents** from the left-hand navigation then select the **OrderPizza** intent. The three numbers in the following utterances are marked but are visually below the `Order` entity line. This lower level means the entities are found but are not considered apart of the `Order` entity.
-1. Mark the numbers with the `Quantity` entity by selecting the `2` in the example utterance then selecting `Quantity` from the list. 
+
+    ![Prebuilt number is found but not considered apart of the Order entity yet.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
+
+1. Mark the numbers with the `Quantity` entity by selecting the `2` in the example utterance then selecting `Quantity` from the list. Mark the `6` and the `1` in the same example utterance.
 
     ![Mark text with quantity entity.](media/tutorial-machine-learned-entity/mark-example-utterance-with-quantity-entity.png)
 
-1. Mark the `6` and the `1` in the same example utterance. 
 1. In the following example utterance, mark the `a` as a quantity, because it implies a quantity of 1: 
 
     `delivery for a small pepperoni pizza`
@@ -194,10 +191,10 @@ The `Order` entity should have a `Quantity` subcomponent to determine how many o
 
 ## Test the app
 
-Test the app using the interactive test panel. This process lets you enter a new utterance then view the prediction results to see how well the active model is working. The intent prediction should be fairly confident (above 70%) and the entity extraction should pick up at least the `Order`.
+Test the app using the interactive **Test** panel. This process lets you enter a new utterance then view the prediction results to see how well the active and trained app is working. The intent prediction should be fairly confident (above 70%) and the entity extraction should pick up at least the `Order` entity. The details of the order entity may be missing because 5 utterances aren't enough to handle every case.
 
 1. Select **Test** in the top navigation.
-1. Enter the utterance `deliver a medium veggie pizza` and select Enter. The active model predicted the correct intent with over 70% confidence.
+1. Enter the utterance `deliver a medium veggie pizza` and select Enter. The active model predicted the correct intent with over 70% confidence. 
 
     ![Enter a new utterance to test the intent.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance.png)
 
@@ -205,15 +202,17 @@ Test the app using the interactive test panel. This process lets you enter a new
 
     ![View the entity predictions in the interactive test panel.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
 
-    The size was correctly identified but the quantity was not. More utterances with the subcomponents marked will help with this issue.
+    The size was correctly identified. Remember that the example utterances in the `OrderPizza` intent don't have an example of `medium` as a size but do use a descriptor of a `SizeDescriptor` phrase list that includes medium.
 
-## Publish the app so the trained model is queryable from the endpoint
+    The quantity is not correctly predicted. To fix this, you can add more example utterances using that word to indicate quantity and mark that word as a `Quantity` entity. 
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+## Publish the app
 
-## Get intent and entity prediction from endpoint 
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+## Get intent and entity prediction 
+
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
 1. Go to the end of the URL in the address and enter the same query as you entered in the interactive test panel. 
 
@@ -286,9 +285,7 @@ Test the app using the interactive test panel. This process lets you enter a new
     ```
     
 
-## Clean up resources
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## Related information
 
