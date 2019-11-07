@@ -44,7 +44,7 @@ This tutorial adds a machine-learned entity to extract data from an utterance.
 
 The purpose of an entity is to define the data to extract. This includes giving the data a name, a type (if possible), any resolution of the data if there is ambiguity, and the exact text that makes up the data. 
 
-In order to define the entity, you need to create the entity then label the text representing the entity in the example utterance. These labelled examples teach LUIS what the entity is and where it can be found in an utterance. 
+In order to define the entity, you need to create the entity then label the text representing the entity in the example utterance. These labeled examples teach LUIS what the entity is and where it can be found in an utterance. 
 
 ## Entity decomposability is important
 
@@ -92,7 +92,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     ![Label beginning and ending of text for complete order](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
     > [!NOTE]
-    > An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received so it should be part of the labelled entity for the order. 
+    > An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received so it should be part of the labeled entity for the order. 
 
 1. In the **Choose an entity type** box, select **Add Structure** then select **Next**. Structure is  necessary to allow for subcomponents such as size and quantity.
 
@@ -115,9 +115,9 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
 
     ![Label the size entity for text in the utterance.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
-    The line is solid under the text because both the labeling and prediction match because you explicitly labelled the text.
+    The line is solid under the text because both the labeling and prediction match because you explicitly labeled the text.
 
-1. Label the `Order` entity in the remaining utterances along with the size entity. The square brackets in the text indicate the labelled `Order` entity and the `Size` entity within.
+1. Label the `Order` entity in the remaining utterances along with the size entity. The square brackets in the text indicate the labeled `Order` entity and the `Size` entity within.
 
     |Order example utterances|
     |--|
@@ -139,7 +139,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     |--|
     |`pickup XL meat lovers pizza`|
 
-    The overall top entity, `Order` is labelled and the `Size` subcomponent is also labelled with dotted lines. This is a successful prediction. 
+    The overall top entity, `Order` is labeled and the `Size` subcomponent is also labeled with dotted lines. This is a successful prediction. 
 
     ![New example utterance predicted with entity](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
@@ -180,7 +180,7 @@ The `Order` entity should have a `Quantity` subcomponent to determine how many o
 
 ## Label example utterance with subcomponent for quantity to teach LUIS about the entity
 
-1. Select **Intents** from the left-hand navigation then select the **OrderPizza** intent. The three numbers in the following utterances are labelled but are visually below the `Order` entity line. This lower level means the entities are found but are not considered apart of the `Order` entity.
+1. Select **Intents** from the left-hand navigation then select the **OrderPizza** intent. The three numbers in the following utterances are labeled but are visually below the `Order` entity line. This lower level means the entities are found but are not considered apart of the `Order` entity.
 
     ![Prebuilt number is found but not considered apart of the Order entity yet.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
