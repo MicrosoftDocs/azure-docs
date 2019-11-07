@@ -18,7 +18,7 @@ ms.author: atsenthi
 
 ---
 # Service Fabric cluster security scenarios
-An Azure Service Fabric cluster is a resource that you own. It is your responsibility to secure your clusters to help prevent unauthorized users from connecting to them. A secure cluster is especially important when you are running production workloads on the cluster. Although it's possible to create an unsecured cluster, if the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. 
+An Azure Service Fabric cluster is a resource that you own. It is your responsibility to secure your clusters to help prevent unauthorized users from connecting to them. A secure cluster is especially important when you are running production workloads on the cluster. It is possible to create an unsecured cluster, however if the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. 
 
 This article is an overview of security scenarios for Azure clusters and standalone clusters, and the various technologies you can use to implement them:
 
