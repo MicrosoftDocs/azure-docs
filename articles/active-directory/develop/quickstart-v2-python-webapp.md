@@ -71,6 +71,13 @@ To run this sample, you will need:
 >      - Select a key duration of **In 1 year**.
 >      - When you click on **Add**, the key value will be displayed.
 >      - Copy the value of the key. You will need it later.
+> 1. Select the **API permissions** section
+>
+>      - Click the **Add a permission** button and then,
+>      - Ensure that the **Microsoft APIs** tab is selected
+>      - In the *Commonly used Microsoft APIs* section, click on **Microsoft Graph**
+>      - In the **Delegated permissions** section, ensure that the right permissions are checked: **User.ReadBasic.All**. Use the search box if necessary.
+>      - Select the **Add permissions** button
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
@@ -124,7 +131,7 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
    python app.py
    ```
    > [!IMPORTANT]
-   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
+   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## More information
 
