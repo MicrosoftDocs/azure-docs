@@ -35,7 +35,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD entitlement management? (Preview)
+          - text: What is Azure AD entitlement management?
             url: entitlement-management-overview.md
       - linkListType: tutorial
         links:

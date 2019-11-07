@@ -5,6 +5,7 @@ author: ChJenk
 manager: evansma
 ms.author: parthp 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
 ---
@@ -33,7 +34,7 @@ In this article, we'll dive into how to manage your Partner Center account, incl
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/management) for your Partner Center account in order to:
 - check your company's account verification status
 - confirm your Seller ID, MPN ID, Publisher ID, and contact information, including the company approver and seller contact
-- set up your company’s financial details, including tax exemptions if appropriate
+- set up your company's financial details, including tax exemptions if appropriate
 - create user accounts for anyone who will use your business account in Partner Center
 
 ### Open developer settings
@@ -108,11 +109,11 @@ If you are outside the United States, you may be able to take advantage of tax t
 
 #### Payout hold status
 
-By default, Microsoft sends payments on a monthly basis. However, you have the option to put your payouts on hold, which will prevent sending payments to your account. If you choose to put your payouts on hold, we’ll continue to record any revenue that you earn and provide the details in your **Payout summary**. However, we won’t send any payments to your account until you remove the hold. 
+By default, Microsoft sends payments on a monthly basis. However, you have the option to put your payouts on hold, which will prevent sending payments to your account. If you choose to put your payouts on hold, we'll continue to record any revenue that you earn and provide the details in your **Payout summary**. However, we won't send any payments to your account until you remove the hold. 
 
-To place your payments on hold, go to **Account settings**. Under **Financial details**, in the **Payout hold status** section, toggle the slider to **On**. You can change your payout hold status at any time, but be aware that your decision will impact the next monthly payout. For example, if you want to hold April’s payout, make sure to set your payout hold status to **On** before the end of March.
+To place your payments on hold, go to **Account settings**. Under **Financial details**, in the **Payout hold status** section, toggle the slider to **On**. You can change your payout hold status at any time, but be aware that your decision will impact the next monthly payout. For example, if you want to hold April's payout, make sure to set your payout hold status to **On** before the end of March.
 
-Once you have set your payout hold status to **On**, all payouts will be on hold until you toggle the slider back to **Off**. When you do so, you’ll be included during the next monthly payout cycle (provided any applicable payment thresholds have been met). For example, if you’ve had your payouts on hold, but would like to have a payout generated in June, then make sure to toggle the payout hold status to **Off** before the end of May.
+Once you have set your payout hold status to **On**, all payouts will be on hold until you toggle the slider back to **Off**. When you do so, you'll be included during the next monthly payout cycle (provided any applicable payment thresholds have been met). For example, if you've had your payouts on hold, but would like to have a payout generated in June, then make sure to toggle the payout hold status to **Off** before the end of May.
 
 > [!NOTE]
 > Your **Payout hold status** selection applies to **all** revenue sources that are paid through Microsoft Partner Center, including Azure Marketplace, AppSource, Microsoft Store, advertising, etc.). You cannot select different hold statuses for each revenue source.
@@ -334,7 +335,7 @@ To create a brand new Azure AD tenant with your Partner Center account:
 
 1.	From the **Tenants** page (under **Account settings**), select **Create a new Azure AD tenant**.
 2. Enter the directory information for your new Azure AD:
-    - **Domain name**: The unique name that we’ll use for your Azure AD domain, along with “.onmicrosoft.com”. For example, if you entered “example”, your Azure AD domain would be “example.onmicrosoft.com”.
+    - **Domain name**: The unique name that we'll use for your Azure AD domain, along with ".onmicrosoft.com". For example, if you entered "example", your Azure AD domain would be "example.onmicrosoft.com".
     - **Contact email**: An email address where we can contact you about your account if necessary.
     - **Global administrator user account info**: The first name, last name, username, and password that you want to use for the new global administrator account.
 3. Select **Create** to confirm the new domain and account info.
@@ -344,12 +345,12 @@ For more information about creating new tenants inside your Azure portal, rather
 
 ### Remove a tenant
 
-To remove a tenant from your Partner Center account, find its name on the **Tenants** page (in **Account settings**), then select **Remove**. You’ll be prompted to confirm that you want to remove the tenant. Once you do so, no users in that tenant will be able to sign into the Partner Center account, and any permissions you have configured for those users will be removed.
+To remove a tenant from your Partner Center account, find its name on the **Tenants** page (in **Account settings**), then select **Remove**. You'll be prompted to confirm that you want to remove the tenant. Once you do so, no users in that tenant will be able to sign into the Partner Center account, and any permissions you have configured for those users will be removed.
 
 When you remove a tenant, all users that were added to the Partner Center account from that tenant will no longer be able to sign in to the account.
 
 > [!TIP]
-> You can’t remove a tenant if you are currently signed into Partner Center using an account in the same tenant. To remove a tenant, you must sign in to Partner Center as an **Manager** for another tenant that is associated with the account. If there is only one tenant associated with the account, that tenant can only be removed after signing in with the Microsoft account that opened the account.
+> You can't remove a tenant if you are currently signed into Partner Center using an account in the same tenant. To remove a tenant, you must sign in to Partner Center as an **Manager** for another tenant that is associated with the account. If there is only one tenant associated with the account, that tenant can only be removed after signing in with the Microsoft account that opened the account.
 
 
 ## Agreements

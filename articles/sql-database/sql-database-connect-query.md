@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Connect and Query quickstarts | Microsoft Docs
+title: Connect and Query quickstarts 
 description: Azure SQL Database quickstarts showing you how to connect to and query an Azure SQL database. 
 services: sql-database
 ms.service: sql-database
@@ -98,6 +98,6 @@ The following table lists examples of object-relational mapping (ORM) frameworks
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php

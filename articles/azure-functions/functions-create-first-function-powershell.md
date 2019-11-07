@@ -1,21 +1,16 @@
 ---
-title: Create your first PowerShell function with Azure Functions
+title: Create your first PowerShell function in Azure
 description: Learn how to create your first PowerShell function in Azure using Visual Studio Code.
-services: functions
-keywords:
 author: joeyaiello
-manager: jeconnoc
+manager: gwallace
 ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.devlang: powershell
 ---
 
-# Create your first PowerShell function in Azure (preview)
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
+# Create your first PowerShell function in Azure
 
 This quickstart article walks you through how to create your first [serverless](https://azure.com/serverless) PowerShell function using Visual Studio Code.
 
@@ -61,7 +56,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
     > [!NOTE]
     > This article was designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
 
-1. Select the **Powershell (preview)** as the language for your function app project and then **Azure Functions v2**.
+1. Select the **Powershell** as the language for your function app project and then **Azure Functions v2**.
 
 1. Choose **HTTP Trigger** as the template for your first function, use `HTTPTrigger` as the function name, and choose an authorization level of **Function**.
 
@@ -99,10 +94,9 @@ After you've verified that the function runs correctly on your local computer, i
 
 > [!NOTE]
 > Remember to remove any calls to `Wait-Debugger` before you publish your functions to Azure. 
-
-> [!NOTE]
-> Creating a Function App in Azure will only prompt for Function App name. 
-> Set azureFunctions.advancedCreation to true to be prompted for all other values.
+>
+> Creating a function app in Azure only prompts for your function app name. Other values are defined for you.
+> Set `azureFunctions.advancedCreation` to `true` to be prompted for all other values.
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

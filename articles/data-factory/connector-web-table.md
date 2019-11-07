@@ -1,5 +1,5 @@
 ---
-title: Copy data from Web Table using Azure Data Factory | Microsoft Docs
+title: Copy data from Web Table using Azure Data Factory 
 description: Learn about Web Table Connector of Azure Data Factory that lets you copy data from a web table to data stores supported by Data Factory as sinks. 
 services: data-factory
 documentationcenter: ''

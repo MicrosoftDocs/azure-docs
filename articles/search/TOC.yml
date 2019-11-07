@@ -1,20 +1,24 @@
-- name: Azure Search Documentation
+- name: Azure Cognitive Search Documentation
   href: index.yml
 - name: Overview
-  items:
-  - name: What is Azure Search?
-    href: search-what-is-azure-search.md
-- name: Quickstarts
   expanded: true
+  items:
+  - name: What is Azure Cognitive Search?
+    href: search-what-is-azure-search.md
+  - name: What's new
+    href: whats-new.md
+- name: Quickstarts
   items:
   - name: Create a service
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Create and use an index
+    - name: Create a search index
       href: search-get-started-portal.md
-    - name: Enrich with cognitive search (AI)
+    - name: Create a cognitive skillset
       href: cognitive-search-quickstart-blob.md
+    - name: Create a knowledge store
+      href: knowledge-store-create-portal.md
   - name: C#
     href: search-get-started-dotnet.md
   - name: Java
@@ -29,7 +33,7 @@
     href: search-get-started-python.md
 - name: Tutorials
   items:
-  - name: Create your first app
+  - name: Create your first C# app
     items:
     - name: 1 - Basic search page
       href: tutorial-csharp-create-first-app.md
@@ -79,7 +83,7 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
-  - name: Cognitive search
+  - name: AI enrichment
     href: cognitive-search-concept-intro.md
   - name: Skillsets
     href: cognitive-search-working-with-skillsets.md
@@ -87,6 +91,8 @@
     href: knowledge-store-concept-intro.md
   - name: Projections
     href: knowledge-store-projection-overview.md
+  - name: Incremental indexing
+    href: cognitive-search-incremental-indexing-conceptual.md
 - name: How-to guides
   items:
   - name: Planning
@@ -113,7 +119,7 @@
       href: search-security-trimming-for-azure-search.md
     - name: Filter on AAD identities
       href: search-security-trimming-for-azure-search-with-aad.md
-    - name: Manage encryption keys (preview)
+    - name: Manage encryption keys
       href: search-security-manage-encryption-keys.md
   - name: Development
     items:
@@ -189,6 +195,8 @@
       href: search-blob-storage-integration.md
     - name: Set up a blob indexer
       href: search-howto-indexing-azure-blob-storage.md
+    - name: Set up an Azure Data Lake Storage Gen2 indexer
+      href: search-howto-index-azure-data-lake-storage.md
     - name: Index one-to-many blobs
       href: search-howto-index-one-to-many-blobs.md
     - name: Index CSV blobs
@@ -231,6 +239,8 @@
         href: cognitive-search-output-field-mapping.md
       - name: Process and extract information from images
         href: cognitive-search-concept-image-scenarios.md
+      - name: Set up incremental indexing
+        href: search-howto-incremental-index.md
     - name: Custom skills
       items:
       - name: Integrate custom skills
@@ -243,10 +253,8 @@
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
-    - name: Knowledge store (preview)
+    - name: Knowledge store
       items:
-      - name: Create a knowledge store in Azure portal
-        href: knowledge-store-create-portal.md
       - name: Create using REST and Postman
         href: knowledge-store-create-rest.md
       - name: View with Storage Explorer
@@ -269,7 +277,7 @@
       href: query-simple-syntax.md
     - name: Full Lucene query syntax
       href: query-lucene-syntax.md
-    - name: moreLikeThis (preview)
+    - name: moreLikeThis query parameter
       href: search-more-like-this.md
   - name: Apply filters
     items:
@@ -370,6 +378,8 @@
       href: cognitive-search-skill-shaper.md
     - name: Conditional
       href: cognitive-search-skill-conditional.md
+    - name: Document Extraction
+      href: cognitive-search-skill-document-extraction.md
   - name: Custom skills
     items:
     - name: Custom Web API
