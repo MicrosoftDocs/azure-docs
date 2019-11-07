@@ -17,8 +17,6 @@ Apache Hadoop supports a notion of the default file system. The default file sys
 
 In this article, you learn how Azure Storage works with HDInsight clusters. To learn how Data Lake Storage Gen 1 works with HDInsight clusters, see [Use Azure Data Lake Storage with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md). For more information about creating an HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
-
 > [!IMPORTANT]  
 > Storage account kind **BlobStorage** can only be used as secondary storage for HDInsight clusters.
 
@@ -34,60 +32,6 @@ Sharing one blob container as the default file system for multiple clusters isn'
 
 > [!NOTE]  
 > The Archive access tier is an offline tier that has a several hour retrieval latency and isn't recommended for use with HDInsight. For more information, see [Archive access tier](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
-
-If you choose to secure your storage account with the **Firewalls and virtual networks** restrictions on **Selected networks**, be sure to enable the exception **Allow trusted Microsoft services...** so that HDInsight can access your storage account.
-
-## HDInsight storage architecture
-
-The following diagram provides an abstract view of the HDInsight storage architecture of using Azure Storage:
-
-![Hadoop clusters use HDFS API to access and store data in Blob storage](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "HDInsight Storage Architecture")
-
-HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example:
-
-    hdfs://<namenodehost>/<path>
-
-In addition, HDInsight allows you to access data that is stored in Azure Storage. The syntax is:
-
-    wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
-
-Here are some considerations when using Azure Storage account with HDInsight clusters.
-
-* **Containers in the storage accounts that are connected to a cluster:** Because the account name and key are associated with the cluster during creation, you have full access to the blobs in those containers.
-
-* **Public containers or public blobs in storage accounts that are NOT connected to a cluster:** You have read-only permission to the blobs in the containers.
-  
-> [!NOTE]  
-> Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see [Manage access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md).
-
-* **Private containers in storage accounts that are NOT connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit WebHCat jobs. This is explained later in this article.
-
-The storage accounts that are defined in the creation process and their keys are stored in `%HADOOP_HOME%/conf/core-site.xml` on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the core-site.xml file. You can modify this setting using [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
-
-Multiple WebHCat jobs, including Apache Hive, MapReduce, Apache Hadoop streaming, and Apache Pig, can carry a description of storage accounts and metadata with them. (This currently works for Pig with storage accounts, but not for metadata.) For more information, see [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
-
-Blobs can be used for structured and unstructured data. Blob containers store data as key/value pairs, and there's no directory hierarchy. However the slash character ( / ) can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob's key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the slash character in the key name, it has the appearance of a file path.
-
-## <a id="benefits"></a>Benefits of Azure Storage
-
-The implied performance cost of not colocating compute clusters and storage resources is mitigated by the way the compute clusters are created close to the storage account resources inside the Azure region, where the high-speed network makes it efficient for the compute nodes to access the data inside Azure storage.
-
-There are several benefits associated with storing the data in Azure storage instead of HDFS:
-
-* **Data reuse and sharing:** The data in HDFS is located inside the compute cluster. Only the applications that have access to the compute cluster can use the data by using HDFS APIs. The data in Azure storage can be accessed either through the HDFS APIs or through the [Blob Storage REST APIs](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API). Thus, a larger set of applications (including other HDInsight clusters) and tools can be used to produce and consume the data.
-
-* **Data archiving:** Storing data in Azure storage enables the HDInsight clusters used for computation to be safely deleted without losing user data.
-
-* **Data storage cost:** Storing data in DFS for the long term is more costly than storing the data in Azure storage because the cost of a compute cluster is higher than the cost of Azure storage. In addition, because the data doesn't have to be reloaded for every compute cluster generation, you're also saving data loading costs.
-
-* **Elastic scale-out:** Although HDFS provides you with a scaled-out file system, the scale is determined by the number of nodes that you create for your cluster. Changing the scale can become a more complicated process than relying on the elastic scaling capabilities that you get automatically in Azure storage.
-
-* **Geo-replication:** Your Azure storage can be geo-replicated. Although this gives you geographic recovery and data redundancy, a failover to the geo-replicated location severely impacts your performance, and it may incur additional costs. So our recommendation is to choose the geo-replication wisely and only if the value of the data is worth the additional cost.
-
-Certain MapReduce jobs and packages may create intermediate results that you don't really want to store in Azure storage. In that case, you can elect to store the data in the local HDFS. In fact, HDInsight uses DFS for several of these intermediate results in Hive jobs and other processes.
-
-> [!NOTE]  
-> Most HDFS commands (for example, `ls`, `copyFromLocal` and `mkdir`) still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as `fschk` and `dfsadmin`, show different behavior in Azure storage.
 
 ## Access files from the cluster
 
