@@ -79,11 +79,10 @@ Ideally, you will want to reach a balance between reducing the number of objects
 
 Azure AD Connect plays a key role in the provisioning process. If the Sync Server goes offline for any reason, changes to on-premises cannot be updated in the cloud and can result in access issues for users. Therefore, it is important to define a failover strategy that allows administrators to quickly resume synchronization after the sync server goes offline. Such strategies may fall into the following categories:
 
-- *Deploy Azure AD Connect Server(s) in Staging Mode*, which allows an administrator to "promote" the staging server to production by a simple configuration switch.
+- **Deploy Azure AD Connect Server(s) in Staging Mode** - allows an administrator to "promote" the staging server to production by a simple configuration switch.
+- **Use Virtualization** - If the Azure AD connect is deployed in a virtual machine (VM), admins can leverage their virtualization stack to live migrate or quickly redeploy the VM and therefore resume synchronization.
 
-- *Use Virtualization*. If the Azure AD connect is deployed in a virtual machine (VM), users can leverage their virtualization stack to live migrate or quickly redeploy the VM and therefore resume synchronization.
-
-If your organization is lacking a disaster recovery and failover strategy for Sync, you shouldn’t hesitate to deploy Azure AD Connect in Staging Mode. Likewise, if there is a mismatch between your production and staging configuration, you should re baseline Azure AD Connect staging mode to match the production configuration, including software versions and configurations.
+If your organization is lacking a disaster recovery and failover strategy for Sync, you shouldn’t hesitate to deploy Azure AD Connect in Staging Mode. Likewise, if there is a mismatch between your production and staging configuration, you should re-baseline Azure AD Connect staging mode to match the production configuration, including software versions and configurations.
 
 ![A screenshot of Azure AD Connect staging mode configuration](./media/active-directory-ops-guide/active-directory-ops-img1.png)
 
@@ -103,18 +102,18 @@ If you’re currently using **ObjectGuid** as the source anchor, we recommend yo
 
 Azure AD Connect custom rules provide the ability to control the flow of attributes between on-premises objects and cloud objects. However, overusing or misusing custom rules can introduce the following risks:
 
-- Troubleshooting complexity.
-- Degradation of performance when performing complex operations across objects.
-- Higher probability of divergence of configuration between the production server and staging server.
-- Additional overhead when upgrading Azure AD Connect if custom rules are created within the precedence greater than 100 (used by built-in rules).
+- Troubleshooting complexity
+- Degradation of performance when performing complex operations across objects
+- Higher probability of divergence of configuration between the production server and staging server
+- Additional overhead when upgrading Azure AD Connect if custom rules are created within the precedence greater than 100 (used by built-in rules)
 
 If you are using overly complex rules, you should investigate the reasons for the complexity and find opportunities for simplification. Likewise, if you have created custom rules with precedence value over 100, you should fix the rules so they aren’t at risk or conflict with the default set.
 
 Examples of misusing custom rules include:
 
-- **Compensate for dirty data in the directory**. In this case, it is recommended to work with the owners of the AD team and clean up the data in the directory as a remediation task, and adjust processes to avoid reintroduction of bad data.
-- **One-off remediation of individual users**. It is common to find rules that special case outliers, usually because of an issue with a specific user.
-- **Overcomplicated "CloudFiltering".** While reducing the number of objects is a good practice, there is a risk of creating and overcomplicated sync scope using many sync rules. If there is complex logic to include/exclude objects beyond the OU filtering, it is recommended to deal with this logic outside of sync and label the objects with a simple "cloudFiltered" attribute that can flow with a simple Sync Rule.
+- **Compensate for dirty data in the directory** - In this case, it is recommended to work with the owners of the AD team and clean up the data in the directory as a remediation task, and adjust processes to avoid reintroduction of bad data.
+- **One-off remediation of individual users** - It is common to find rules that special case outliers, usually because of an issue with a specific user.
+- **Overcomplicated "CloudFiltering"** - While reducing the number of objects is a good practice, there is a risk of creating and overcomplicated sync scope using many sync rules. If there is complex logic to include/exclude objects beyond the OU filtering, it is recommended to deal with this logic outside of sync and label the objects with a simple "cloudFiltered" attribute that can flow with a simple Sync Rule.
 
 #### Azure AD Connect Configuration Documenter
 
@@ -130,17 +129,17 @@ The [Azure AD Connect Configuration Documenter](https://github.com/Microsoft/AAD
 
 Azure Active Directory streamlines the management of licenses through [group-based licensing](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal). This way, IAM provides the group infrastructure and delegated management of those groups to the proper teams in the organizations. There are multiple ways to set up the membership of groups in Azure AD, including:
 
-- **Synchronized from on-premises**. Groups can come from on-premises directories, which could be a good fit for organizations that have established group management processes that can be extended to assign licenses in office 365.
+- **Synchronized from on-premises** - Groups can come from on-premises directories, which could be a good fit for organizations that have established group management processes that can be extended to assign licenses in office 365.
 
-- **Attribute-Based / Dynamic**. Groups can be created in the cloud based on an expression based on user attributes, for example, Department equals "sales". Azure AD maintains the members of the group, keeping it consistent with the expression defined. Using this kind of group for license assignment enables an attribute-based license assignment, which is a good fit for organizations that have high data quality in their directory.
+- **Attribute-Based / Dynamic** - Groups can be created in the cloud based on an expression based on user attributes, for example, Department equals "sales". Azure AD maintains the members of the group, keeping it consistent with the expression defined. Using this kind of group for license assignment enables an attribute-based license assignment, which is a good fit for organizations that have high data quality in their directory.
 
-- **Delegated Ownership**. Groups can be created in the cloud and can be designated owners. This way, you can empower business owners, for example, Collaboration team or BI team, to define who should have access.
+- **Delegated Ownership** - Groups can be created in the cloud and can be designated owners. This way, you can empower business owners, for example, Collaboration team or BI team, to define who should have access.
 
 If you are currently using a manual process to assign licenses and components to users, we recommend you implement group-based licensing. If your current process does not monitor licensing errors or what is Assigned versus Available, you should define improvements to the process to address licensing errors and monitor licensing assignment.
 
 Another aspect of license management is the definition of service plans (components of the license) that should be enabled based on job functions in the organization. Granting access to service plans that aren’t necessary, can result in users seeing tools in the Office portal that they have not been trained for or should not be using. It can drive additional help desk volume, unnecessary provisioning, and put your compliance and governance at risk, for example, when provisioning OneDrive for Business to individuals that might not be allowed to share content.
 
-The following are guidelines to define service plans to users:
+Use the following guidelines to define service plans to users:
 
 - Administrators should define "bundles" of service plans to be offered to users based on their role, for instance, white-collar worker versus floor worker.
 - Create groups by cluster and assign the license with service plan.
@@ -159,7 +158,8 @@ If you are currently using a tool, such as [Microsoft Identity Manager](https://
 
 Resource owners may believe that the **All users** group contains only **Enterprise Employees** when they may actually contain both **Enterprise Employees** and **Guests**. As a result, you should take special care when using the **All users** group for application assignment and granting access to resources such as SharePoint content or applications.
 
-**Important**: If the **All users** group is enabled and apps or resources assigned to it include guests you want to exclude, you should [secure the group](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups#hardening-the-all-users-dynamic-group) by using a rule to remove guest users. Furthermore, you should fix your licensing assignments by creating and assigning to groups that contain **Enterprise Employees** only. On the other hand, if you find that the **All users** group is enabled but not being used to grant access to resources, make sure your organization’s operational guidance is to intentionally use that group (which includes both **Enterprise Employees** and **Guests**).
+> [!IMPORTANT]
+> If the **All users** group is enabled and apps or resources assigned to it include guests you want to exclude, you should [secure the group](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups#hardening-the-all-users-dynamic-group) by using a rule to remove guest users. Furthermore, you should fix your licensing assignments by creating and assigning to groups that contain **Enterprise Employees** only. On the other hand, if you find that the **All users** group is enabled but not being used to grant access to resources, make sure your organization’s operational guidance is to intentionally use that group (which includes both **Enterprise Employees** and **Guests**).
 
 ### Automated user provisioning to apps
 
