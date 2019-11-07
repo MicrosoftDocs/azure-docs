@@ -29,6 +29,9 @@ This article provides the steps for deploying self-hosted Azure API Management g
 - Create a Docker environment. [Docker for Desktop](https://www.docker.com/products/docker-desktop) is a good option for development and evaluation purposes. See [Docker documentation](https://docs.docker.com) for information on all Docker editions, their features, and comprehensive documentation on Docker itself.
 - [Provision a gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md)
 
+> [!NOTE]
+> Self-hosted gateway is packaged as a Linux-based Docker container.
+
 ## Deploy the self-hosted gateway to Docker
 
 1. Select **Gateways** from under **Settings**.
@@ -60,4 +63,5 @@ CONTAINER ID        IMAGE                                                 COMMAN
 
 ## Next steps
 
-* To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
+* To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md).
+* [Configure custom domain name for the self-hosted gateway](api-management-howto-configure-custom-domain-gateway.md).
