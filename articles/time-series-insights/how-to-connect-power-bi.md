@@ -112,13 +112,13 @@ If you have completed these steps, skip ahead to the next section: [Create a rep
 
 ### Export CSV data into cloud Power BI
 
-Azure Time Series Insights supports full data export capabilities through common data formats like CSV and JSON. You also have the ability to select specific time interval data to import into Power BI using Azure Cloud. 
+Azure Time Series Insights supports full data export capabilities through common data formats like CSV and JSON. You also have the ability to select specific time interval data to import into Power BI using Azure Cloud.
 
-1. In Time Series Explorer, select the **More Options** icon, then **Download as CSV**. 
+1. In Time Series Explorer, select the **More Options** icon, then **Download as CSV**.
 
     [![Select a CSV to download](media/how-to-connect-power-bi/2-power-bi-01.png)](media/how-to-connect-power-bi/2-power-bi-01.png#lightbox)
 
-1. **Alternatively**, select a time interval, then right-click to **Explore Events**. 
+1. **Alternatively**, select a time interval, then right-click to **Explore Events**.
 
     [![Export a specific time interval and its data](media/how-to-connect-power-bi/2-power-bi-02.png)](media/how-to-connect-power-bi/2-power-bi-02.png#lightbox)
 
@@ -140,25 +140,21 @@ Continue to [Create a report with visuals](#power-bi-cloud).
 
 ### Load previously saved queries in Power BI desktop
 
-This workflow is best if you want to access your data only from the Power BI Desktop tool without going into Time Series Insights Explorer. There must be a previously saved query in your environment. To save a query in Time Series Insights Explorer, curate your data and select **Save View**.  
+This workflow is best if you want to access your data only from the Power BI Desktop tool without going into Time Series Insights Explorer.
 
-1. In Power BI Desktop on the **Home** tab, select **Get Data** in the upper left corner, then **More**.
+1. There are three ways to refresh a query once it has already been imported into Power BI desktop from Time Series Insights.
 
-    [![Select Home dropdown](media/how-to-connect-power-bi/3-power-bi-01.png)](media/how-to-connect-power-bi/3-power-bi-01.png#lightbox) 
+    [![Import saved queries](media/how-to-connect-power-bi/3-power-bi-01.png)](media/how-to-connect-power-bi/3-power-bi-01.png#lightbox)
 
-1. Navigate to the **Azure** tab, click **Azure Time Series Insights (Beta)**, then **Connect**.
+    A. Imported queries are listed under the **Fields** pane. 
 
-    [![Connect to Azure](media/how-to-connect-power-bi/3-power-bi-02.png)](media/how-to-connect-power-bi/3-power-bi-02.png#lightbox)
+    B. Imported queries are displayed in the **Model** view.
 
-1. In the dropdown menu under **Data Source**, choose **Import saved query**, then press **OK**.
+        [![Imported queries displayed in the Model view](media/how-to-connect-power-bi/3-power-bi-01-c.png)](media/how-to-connect-power-bi/3-power-bi-01-c.png#lightbox)
 
-    [![Import saved queries](media/how-to-connect-power-bi/3-power-bi-03.png)](media/how-to-connect-power-bi/3-power-bi-03.png#lightbox)
+    C. Recently imported queries can be accessed through the **Recent Sources** drop-down.
 
-1. From the list of saved queries, click the box(es) for the query(s) you wish to select.
-
-    [![Select your queries](media/how-to-connect-power-bi/3-power-bi-04.png)](media/how-to-connect-power-bi/3-power-bi-04.png#lightbox)
-
-1. The data table will now load. Press **Load** to load into Power BI.
+1. After you have selected your query. Select or right-click to **Refresh data**.
 
 ## Create a report with visuals
 
@@ -168,16 +164,11 @@ Now that you have imported the data into Power BI, it’s time to build a report
 
 1. On the left side of the window, make sure you have selected the **Report** view.
 
-    [![Select the Report View](media/how-to-connect-power-bi/3-power-bi-01.png)](media/how-to-connect-power-bi/3-power-bi-01.png#lightbox)
+    [![Select the Report View](media/how-to-connect-power-bi/3-power-bi-02.png)](media/how-to-connect-power-bi/3-power-bi-02.png#lightbox)
 
-1. In the **Visualizations** column, select your visual of choice. For example, select **Clustered column chart**. This will add a blank line chart to your canvas.  
+1. In the **Visualizations** pane, select your visual of choice. Verify your axis and value parameters.
 
-    [![Select your chart](media/how-to-connect-power-bi/3-power-bi-02.png)](media/how-to-connect-power-bi/3-power-bi-02.png#lightbox)
-
-
-1. In the **Fields** list, select **Timestamp** and drag it to the **Axis** field to display items along the X-axis.  
-1. Again, in the **Fields** list, select **TimeSeriesId** and drag it to the **Values** field to display items along the Y-axis.
-1. To add another chart to your canvas, click anywhere on the canvas outside the line chart and repeat this process.
+    [![Select the Report View](media/how-to-connect-power-bi/3-power-bi-03.png)](media/how-to-connect-power-bi/3-power-bi-03.png#lightbox)
 
 Once you have created your report, you can publish it to Power BI Reporting Services.
 
@@ -185,11 +176,11 @@ Once you have created your report, you can publish it to Power BI Reporting Serv
 
 You can now create charts and graphs after importing your CSV data into Power BI cloud.
 
-1. Your file data will then appear under **Datasets**. Click the dataset to load your data into a chart.
+1. Your file data will then appear under **Datasets**. Select the dataset to load your data into a chart.
 
-1.  Select the chart type, any values to display, and sort the axis.
+1.  Select the chart type, **Fields**, and sort by timestamp.
 
-    [![Export a specific time interval and its data](media/how-to-connect-power-bi/3-power-bi-06.png)](media/how-to-connect-power-bi/3-power-bi-06.png#lightbox)
+    [![Export a specific time interval and its data](media/how-to-connect-power-bi/3-power-bi-04.png)](media/how-to-connect-power-bi/3-power-bi-04.png#lightbox)
 
 ## Advanced editing
 
