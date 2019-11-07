@@ -305,7 +305,7 @@ In this example, the owning user and owning group have only read and write permi
 
 Use the `Get-AzDataLakeGen2Item` cmdlet to get the ACL of a directory or file. Then, use the `New-AzDataLakeGen2ItemAclObject` cmdlet to create a new ACL entry. Use the `Update-AzDataLakeGen2Item` cmdlet to apply the new ACL.
 
-This example gives write and execute permission to a user.
+This example gives a user write and execute permission on a directory.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -315,7 +315,7 @@ $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $
 $acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
 ```
-This example gives write and execute permission to a user.
+This example gives a user write and execute permission on a file.
 
 ```powershell
 $filesystemName = "my-file-system"

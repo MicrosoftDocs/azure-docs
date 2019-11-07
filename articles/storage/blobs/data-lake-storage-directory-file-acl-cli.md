@@ -144,7 +144,7 @@ az storage blob directory upload -c my-file-system --account-name mystorageaccou
 You can print the properties of a file to the console by using the `az storage blob show` command.
 
 ```azurecli
-az storage blob show -c my-file-system -d my-directory --account-name mystorageaccount
+az storage blob show -c my-file-system -b my-file.txt --account-name mystorageaccount
 ```
 
 ## Rename or move a file
