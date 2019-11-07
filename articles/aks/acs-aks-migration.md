@@ -38,11 +38,11 @@ In this article we will cover:
 
 AKS clusters and non-AKS Kubernetes clusters provide different capabilities and options.  The following table provides details on the important technology differences.
 
-| Cluster type | Managed Disks | Multiple Node Pools |
+| Cluster type | Managed Disks | Multiple Node Pools | Windows Server|
 |-----------------------------------------|----------|
-| AKS | Yes | Yes |
-| ACS| No | No |
-| AKS Engine | ? | |
+| AKS | Yes | Yes | Yes (preview)
+| ACS| No | No | No |
+| AKS Engine | ? | ? | ? | 
 
 
 ## Existing Azure attached Services
