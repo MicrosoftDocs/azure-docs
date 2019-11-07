@@ -67,7 +67,7 @@ Once the image version is complete, you can create one or more new VMs.
 
 This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
 
-1. Go to your image definition. You can use the filter to show all image definitions available.
+1. Go to your image definition. You can use the resource filter to show all image definitions available.
 1. On the page for your image definition, select **Create VM** from the menu at the top of the page.
 1. For **Resource group**, select **Create new** and type *myResourceGroup* for the name.
 1. In **Virtual machine name**, type *myVM*.
