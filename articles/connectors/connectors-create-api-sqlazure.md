@@ -39,7 +39,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-* The [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) installed on a local computer and an [Azure data gateway resource created in the Azure portal](../logic-apps-gateway-connecion.md) for these scenarios:
+* The [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) installed on a local computer and an [Azure data gateway resource created in the Azure portal](../logic-apps-gateway-connection.md) for these scenarios:
 
   * Your logic apps don't run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
