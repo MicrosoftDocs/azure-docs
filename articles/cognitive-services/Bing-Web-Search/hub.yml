@@ -22,6 +22,12 @@ highlightedContent:
     - title: Compare the Bing Search APIs 
       itemType: learn
       url: https://docs.microsoft.com/azure/cognitive-services/
+    - title: Page through search results
+      itemType: concept
+      url: https://docs.microsoft.com/azure/cognitive-services/
+    - title: Use decoration markers to highlight text
+      itemType: concept
+      url: https://docs.microsoft.com/azure/cognitive-services/
 
 productDirectory:
   title: Get started
@@ -185,24 +191,8 @@ additionalContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   sections:
 
-  - title: Additional content
-    items:
-      - title: Using the Bing Search APIs
-        links: 
-          - text: Page through search results
-            url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Use decoration markers to highlight text
-            url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Resize and crop thumbnails
-            url: https://docs.microsoft.com/azure/cognitive-services/
-      - title: Bing Web Search
-        links: 
-          - text: Bing Web Search REST API v7
-            url: https://docs.microsoft.com/azure/cognitive-services/
-
   - title: Reference
-    items:
-      
+    items:      
       - title: REST API v7
         links:
           - text: Bing Web Search 
