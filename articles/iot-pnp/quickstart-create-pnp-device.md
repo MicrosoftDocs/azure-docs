@@ -35,7 +35,7 @@ Use the following steps to install the [Azure IoT Tools for VS Code](https://mar
 
 ### Install the Azure IoT explorer
 
-Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page.
+Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
 
 ### Get the connection string for your company model repository
 
@@ -135,7 +135,7 @@ Now you have a DCM and its associated interfaces, you can generate the device co
     > [!NOTE]
     > The first time you use the IoT Plug and Play CodeGen CLI, it takes a few seconds to download and install automatically.
 
-1. In the pop-up input dialog, choose the DCM file you want to use to generate the device code stub.
+1. Choose the DCM file you want to use to generate the device code stub.
 
 1. Enter the project name **sample_device**, it will be the name of your device application.
 
@@ -181,7 +181,7 @@ You build the generated device code stub together with the device SDK. The appli
     > [!NOTE]
     > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-1. After the build completes successfully, run your application, passing the IoT hub device connection string as parameter.
+1. After the build completes successfully, run your application, passing the IoT hub device connection string as a parameter.
 
     ```cmd\sh
     .\Debug\sample_device.exe "[IoT Hub device connection string]"
@@ -197,7 +197,7 @@ You build the generated device code stub together with the device SDK. The appli
 
 To validate the device code with **Azure IoT Explorer**, you need to publish the files to the model repository.
 
-1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
+1. With the folder with DCM files open in VS Code, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
 
 1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
 
@@ -219,27 +219,25 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
 
 1. After you connect, you see the device overview page.
 
-1. To add your company repository, select **Settings**, then **+ New**, and then **Company repository**.
-
-1. Add your company model repository connection string. Select **Connect**.
+1. To add your company repository, select **Settings**, then **+ Add module definition source**, then **Company repository**. Add your company model repository connection string, and select **Save and Connect**.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry.
+1. Expand the interface with ID **urn:<YOUR_INTERFACE_NAME>:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry. The interface name that will appear is the name you put in when authoring your model.
 
-1. Select the **Telemetry** page to view the telemetry data the device is sending.
+1. Select the **Telemetry** page and hit _Start_ to view the telemetry data the device is sending.
 
 1. Select the **Properties(non-writable)** page to view the non-writable properties reported by the device.
 
 1. Select the **Properties(writable)** page to view the writable properties you can update.
 
-1. Expand property **name**, update with a new name and select **update writable property**.
+1. Expand property **name**, update with a new name and select **Update writable property**.
 
 1. To see the new name shows up in the **Reported Property** column, click the **Refresh** button on top of the page.
 
 1. Select the **Command** page to view all the commands the device supports.
 
-1. Expand the **blink** command and set a new blink time interval. Select **Send Command** to call the command on the device.
+1. Expand the **blink** command and set a new blink time interval. Select **Send command** to call the command on the device.
 
 1. Go to the simulated device to verify that the command executed as expected.
 
