@@ -29,12 +29,6 @@ API server authorized IP ranges only work for new AKS clusters that you create. 
 
 You need the Azure CLI version 2.0.76 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Limitations
-
-The following limitations apply when you configure API server authorized IP ranges:
-
-* You cannot currently use Azure Dev Spaces as the communication with the API server is also blocked.
-
 ## Overview of API server authorized IP ranges
 
 The Kubernetes API server is how the underlying Kubernetes APIs are exposed. This component provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. AKS provides a single-tenant cluster master, with a dedicated API server. By default, the API server is assigned a public IP address, and you should control access using role-based access controls (RBAC).
@@ -67,6 +61,7 @@ az aks create \
 > You should add these ranges to an allow list:
 > - The firewall public IP address
 > - Any range that represents networks that you'll administer the cluster from
+> - If you are using Azure Dev Spaces on your AKS cluster, you have to allow [additional ranges based on your region][dev-spaces-ranges].
 
 ### Specify the outbound IPs for the Standard SKU load balancer
 
@@ -139,6 +134,7 @@ For more information, see [Security concepts for applications and clusters in AK
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[dev-spaces-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->
