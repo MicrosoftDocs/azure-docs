@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 11/05/2019
 ms.author: victorh
 ---
 
@@ -15,7 +15,7 @@ ms.author: victorh
 
 Azure Firewall Manager Preview is a security management service that provides central security policy and route management for cloud-based security perimeters. It works with [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources), a  Microsoft-managed resource that lets you easily create hub and spoke architectures. When security and routing policies are associated with such a hub, it is referred to as a *[secured virtual hub](secured-virtual-hub.md)*. 
 
-![firewall-manager](media/overview/firewall-manager-conceptual.png)
+![firewall-manager](media/overview/firewallmanagerv3.png)
 
 ## Azure Firewall Manager Preview features
 
@@ -65,7 +65,7 @@ Azure Firewall Manager Preview has the following known issues:
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
-|Manually created central VNets not supported|Currently, Azure Firewall Manager supports networks created with Virtual Hubs. Using your own manually created hub VNet is not yet supported.|For now, use Azure Firewall Manager with hub and spoke networks created with Virtual Hubs<br>Currently investigating.
+|Manually created central VNets not supported|Currently, Azure Firewall Manager supports networks created with Virtual Hubs. Using your own manually created hub VNet is not yet supported.|For now, use Azure Firewall Manager with hub and spoke networks created with Virtual Hubs.<br>Currently investigating.
 |Third-party filtering limitations|V2I traffic filtering with third-party providers is not supported with Azure Firewall B2V and V2V.|Currently investigating.|
 |Traffic splitting not currently supported|Office 365 and Azure Public PaaS traffic splitting is not currently supported. As such, selecting a third-party provider for V2I or B2I also sends all Azure Public PaaS and Office 365 traffic via the partner service.|Currently investigating traffic splitting at the hub.
 |One hub per region|You can't have more than one hub per region|Create multiple virtual WANs in a region.|

@@ -1,5 +1,5 @@
 ---
-title: Cheat sheet for Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+title: Cheat sheet for Azure Synapse Analytics (formerly SQL DW) 
 description: Find links and best practices to quickly build your Azure Synapse Analytics (formerly SQL DW) solutions.
 services: sql-data-warehouse
 author: mlee3gsd

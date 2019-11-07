@@ -1,6 +1,6 @@
 ---
 title: App registrations in the Azure portal training guide - Azure
-description: Build embedded and browser-less authentication flows using the device code grant.
+description: An introduction to the new application registration experience in the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
 author: archieag
@@ -20,9 +20,11 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Training guide: App registrations in the Azure portal  
+# Training guide: App registrations in the Azure portal
 
 You can find many improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're familiar with the App registrations (legacy) experience in the Azure portal, use this training guide to get started using the new experience.
+
+In Azure Active Directory, the new application registration experience described here is generally available (GA). In Azure Active Directory B2C (Azure AD B2C), this experience is in preview.
 
 ## Key changes
 
@@ -125,6 +127,5 @@ The new experience adds UI controls for the following properties:
 
 The new experience has the following limitations:
 
-- The new experience is currently not available in Azure Active Directory B2C tenants.
-- The format of client secrets (app passwords) is different than the format in the legacy experience and breaks CLI.
-- Changing the value for supported accounts isn't supported in the UI. Use the app manifest unless you're switching between Azure AD single-tenant and multi-tenant.
+- The format of client secrets (app passwords) is different than that of the legacy experience and may break CLI.
+- Changing the value for supported accounts is not supported in the UI. You need to use the app manifest unless you're switching between Azure AD single-tenant and multi-tenant.

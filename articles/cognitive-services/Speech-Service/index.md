@@ -556,32 +556,13 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="https://aka.ms/speech/va-no-code">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_conversational_agent.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Build an assistant, no code required</h3>
-                                                    <p>Create a voice-enabled assistant without writing a line of code.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>          
-                            <li>
                                 <a href="https://aka.ms/speech/va-bot-framework">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech_conversational_agent.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -592,7 +573,26 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/va-no-code">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Use Custom Commands</h3>
+                                                    <p>Learn to build simple and robust command and control interactions with language understanding and error correction.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -744,7 +744,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="https://aka.ms/speech/custom-tts-overview">
+                                <a href="https://aka.ms/speech/custom-tts-audio-content-creation">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
