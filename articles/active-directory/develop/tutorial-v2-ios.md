@@ -133,8 +133,8 @@ Then Add the following code to `ViewController.swift` prior to `viewDidLoad()`:
 let kClientID = "Your_Application_Id_Here"
 
 // Additional variables for Auth and Graph API
-let kGraphURI = "https://graph.microsoft.com/v1.0/me/" // the graph endpoint
-let kScopes: [String] = ["https://graph.microsoft.com/user.read"] // requesting user.read scope
+let kGraphURI = "https://graph.microsoft.com/v1.0/me/" // the Microsoft Graph endpoint
+let kScopes: [String] = ["https://graph.microsoft.com/user.read"] // request permission to read the profile of the signed-in user
 let kAuthority = "https://login.microsoftonline.com/common" // the default authority for all tenants
 var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
