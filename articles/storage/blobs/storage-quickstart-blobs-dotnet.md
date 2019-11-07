@@ -266,7 +266,7 @@ string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOAD.txt");
 Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
 
 // Download the blob's contents and save it to a file
-BlobDownloadInfo download = await blob.DownloadAsync();
+BlobDownloadInfo download = await blobClient.DownloadAsync();
 
 using FileStream downloadFileStream = File.OpenWrite(downloadFilePath);
 await download.Content.CopyToAsync(downloadFileStream);
