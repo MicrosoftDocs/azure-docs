@@ -203,7 +203,7 @@ public void Process(ITelemetry item)
 
 ```JS
 var filteringFunction = (envelope) => {
-  if (envelope.data.someField == 'tobefilteredout') {
+  if (envelope.data.someField === 'tobefilteredout') {
   	return false;
   }
   
