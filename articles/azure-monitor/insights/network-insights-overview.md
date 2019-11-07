@@ -66,3 +66,5 @@ Different filters provide help to narrow down on to a specific path and state. F
 Click on **Detailed Metric View** to launch a pre-configured workbook with detailed metrics for the application gateway, all backend pool resources and front end IPs. 
 
 ## Next steps 
+
+- Learn more about network monitoring at What is [Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
