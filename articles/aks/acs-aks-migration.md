@@ -36,7 +36,11 @@ In this article we will cover:
 
 ## Differences between Kubernetes clusters
 
-AKS clusters and non-AKS Kubernetes clusters provide different capabilities and options.  The following table provides details on the important technology differences.
+AKS clusters and non-AKS Kubernetes clusters provide different capabilities and options.  For example, AKS supports a limited set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions). 
+
+AKS is a managed service with a hosted Kubernetes control plane. You might need to modify your applications if you've previously modified the configuration of your ACS masters.
+
+The following table provides details on the important technology differences.
 
 | Cluster type | Managed Disks | Multiple Node Pools | Windows Server|
 |-----------------------------------------|----------|
