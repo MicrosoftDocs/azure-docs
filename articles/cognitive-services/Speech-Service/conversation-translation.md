@@ -37,7 +37,7 @@ This is a high level overview of how Conversation Translation works.
 
 ## Language support
 
-When creating or joining a converastion you can specify two different types of languages:
+When creating or joining a conversation you can specify two different types of languages:
 
 |  | [Speech-to-text](language-support.md#speech-to-text) | [Text](language-support.md#text-languages) |
 |-----------------------------------|----------------|------|
