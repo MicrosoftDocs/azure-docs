@@ -7,6 +7,7 @@ author: qianw211
 
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: v-qiwe
@@ -14,7 +15,7 @@ ms.author: v-qiwe
 ---
 # Cloud Solution Providers
 
-Software offers can reach millions of qualified Microsoft customers served by partners in the Cloud Solution Provider (CSP) program, in addition to public availability of offers through [Microsoft’s web storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+Software offers can reach millions of qualified Microsoft customers served by partners in the Cloud Solution Provider (CSP) program, in addition to public availability of offers through [Microsoft's web storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
 Publishers configure offers for availability in the CSP program on an opt-in basis (default is excluded), for a new offer or an existing one, enabling partners to sell your products and create bundled solutions for customers.
 
