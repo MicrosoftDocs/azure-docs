@@ -133,14 +133,14 @@ The deployment can take up to 90 minutes. You can use the Azure portal to monito
 Once the deployment of the Blockchain Workbench has completed, a new resource group contains your Blockchain Workbench resources. Blockchain Workbench services are accessed through a web URL. The following steps show you how to retrieve the web URL of the deployed framework.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the left-hand navigation pane, select **Resource groups**
+2. In the left-hand navigation pane, select **Resource groups**.
 3. Choose the resource group name you specified when deploying Blockchain Workbench.
 4. Select the **TYPE** column heading to sort the list alphabetically by type.
 5. There are two resources with type **App Service**. Select the resource of type **App Service** *without* the "-api" suffix.
 
     ![App service list](media/deploy/resource-group-list.png)
 
-6. In the App Service **Essentials** section, copy the **URL** value, which represents the web URL to your deployed Blockchain Workbench.
+6. In the App Service **Overview**, copy the **URL** value, which represents the web URL to your deployed Blockchain Workbench.
 
     ![App service essentials](media/deploy/app-service.png)
 
