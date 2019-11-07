@@ -74,9 +74,11 @@ For complex applications, you'll typically migrate over time rather than all at 
 
 To complete the migration, you'll want to point clients to the new services that are running on AKS. We recommend that you redirect traffic by updating DNS to point to the Load Balancer that sits in front of your AKS cluster.
 
-[Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) can direct customers to the desired Kubernetes cluster and application instance.  Traffic Manager is a DNS-based traffic load balancer that can distribute network traffic across regions.  For the best performance and redundancy, direct all application traffic through Traffic Manager before it goes to your AKS cluster.
+[Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) can direct customers to the desired Kubernetes cluster and application instance.  Traffic Manager is a DNS-based traffic load balancer that can distribute network traffic across regions.  For the best performance and redundancy, direct all application traffic through Traffic Manager before it goes to your AKS cluster.  
 
 ![AKS with Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
+
+[Azure Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview) TODO
 
 In a multicluster deployment, customers should connect to a Traffic Manager DNS name that points to the services on each AKS cluster. Define these services by using Traffic Manager endpoints. Each endpoint is the *service load balancer IP*. Use this configuration to direct network traffic from the Traffic Manager endpoint in one region to the endpoint in a different region.
 
