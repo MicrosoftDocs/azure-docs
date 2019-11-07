@@ -382,7 +382,7 @@ In the Direct Line Speech Client source code, take a look at these files to revi
 
 The bot that you've created will listen for and respond in English. However, you're not limited to using English. In this section, you'll learn how to change the language that your bot will listen for and respond in, and redeploy the bot.
 
-### Change the languagev
+### Change the language
 
 1. Let's start by opening `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`.
 2. Next, locate the SSML. It's easy to find, as it's enclosed in `<speak></speak>` tags.
