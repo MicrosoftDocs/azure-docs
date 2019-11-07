@@ -1,5 +1,5 @@
 ---
-title: Monitor database performance with Intelligent Insights - Azure SQL Database | Microsoft Docs
+title: Monitor database performance with Intelligent Insights - Azure SQL Database 
 description: Azure SQL Database Intelligent Insights uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance.
 services: sql-database
 ms.service: sql-database
