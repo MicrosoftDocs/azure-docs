@@ -22,8 +22,8 @@ You can create logic apps that run when triggered by events in your SQL database
 > [!NOTE]
 > To use Windows authentication with the SQL Server connector in an 
 > [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> use the connector's non-ISE version and the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
-> The connector's ISE version doesn't support Windows authentication.
+> use the connector's non-ISE version with the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
+> The ISE-labeled version doesn't support Windows authentication.
 
 If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, limitations, and known issues, see the [SQL Server connector reference page](https://docs.microsoft.com/connectors/sql/).
 
