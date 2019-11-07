@@ -45,7 +45,8 @@
     - name: Determine user intentions
       href: tutorial-intents-only.md
     - name: Identify common user data with prebuilt models
-      href: luis-tutorial-prebuilt-intents-entities.md
+      href: tutorial-machine-learned-entity.md
+      displayName: n-depth, constraint, descriptor, phrase list, entity
     - name: Get sentiment from user utterances
       href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: Get well-formatted data with regular expressions
