@@ -1,6 +1,6 @@
 ---
 title: Set up access for integration service environments - Azure Logic Apps
-description: Make sure that your integration service environment (ISE) access Azure virtual networks (VNETs) from Azure Logic Apps
+description: Make sure your integration service environment (ISE) can access Azure virtual networks (VNETs) from Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -29,7 +29,7 @@ To make sure that the logic apps in your ISE can communicate across the subnets 
 
 <a name="predictable-outbound-ip"></a>
 
-### Set up public outbound IP address for an ISE
+## Set up public outbound IP address
 
 When your Azure virtual network uses [Azure Firewall](../firewall/overview.md) or a [network virtual appliance](../virtual-network/virtual-networks-overview.md#filter-network-traffic), you can route outbound access through that firewall by setting up a single, outbound, public, and predictable IP address to communicate with destination systems. That way, all the ISEs in the virtual network can use this single IP address to communicate with destination systems, and you don't have to set up additional firewall openings at the destination.
 
@@ -41,11 +41,11 @@ Before you start, you need these items:
 
 1. In the [Azure portal](https://portal.azure.com), select the route table, for example:
 
-   ![Select route table with rule for directing outbound traffic](./media/connect-virtual-network-vnet-isolated-environment/select-route-table-for-virtual-network.png)
+   ![Select route table with rule for directing outbound traffic](./media/connect-virtual-network-vnet-set-up-access/select-route-table-for-virtual-network.png)
 
 1. To [add a new route](../virtual-network/manage-route-table.md#create-a-route), on the route table menu, select **Routes** > **Add**.
 
-   ![Add route for directing outbound traffic](./media/connect-virtual-network-vnet-isolated-environment/add-route-to-route-table.png)
+   ![Add route for directing outbound traffic](./media/connect-virtual-network-vnet-set-up-access/add-route-to-route-table.png)
 
 1. On the **Add route** pane, [set up the new route](../virtual-network/manage-route-table.md#create-a-route) with a rule that specifies that all the outgoing traffic to the destination system follows this behavior:
 
@@ -55,11 +55,11 @@ Before you start, you need these items:
 
      To find this IP address, on your firewall menu, select **Overview**, find the address under **Private IP address**, for example:
 
-     ![Find firewall private IP address](./media/connect-virtual-network-vnet-isolated-environment/find-firewall-private-ip-address.png)
+     ![Find firewall private IP address](./media/connect-virtual-network-vnet-set-up-access/find-firewall-private-ip-address.png)
 
    Here's an example that shows how such a rule might look:
 
-   ![Set up rule for directing outbound traffic](./media/connect-virtual-network-vnet-isolated-environment/add-rule-to-route-table.png)
+   ![Set up rule for directing outbound traffic](./media/connect-virtual-network-vnet-set-up-access/add-rule-to-route-table.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
@@ -71,13 +71,13 @@ Before you start, you need these items:
 
 1. In the Azure portal, find and select your firewall. On the firewall menu, under **Settings**, select **Rules**. On the rules pane, select **Network rule collection** > **Add network rule collection**.
 
-   ![Add network rule collection to firewall](./media/connect-virtual-network-vnet-isolated-environment/add-network-rule-collection.png)
+   ![Add network rule collection to firewall](./media/connect-virtual-network-vnet-set-up-access/add-network-rule-collection.png)
 
 1. In the collection, add a rule that permits traffic to the destination system.
 
    For example, suppose that you have a logic app that runs in an ISE and needs to communicate with an SFTP system. You create a network rule collection that's named `LogicApp_ISE_SFTP_Outbound`, which contains a network rule named `ISE_SFTP_Outbound`. This rule permits traffic from the IP address of any subnet where your ISE runs in your virtual network to the destination SFTP system by using your firewall's private IP address.
 
-   ![Set up network rule for firewall](./media/connect-virtual-network-vnet-isolated-environment/set-up-network-rule-for-firewall.png)
+   ![Set up network rule for firewall](./media/connect-virtual-network-vnet-set-up-access/set-up-network-rule-for-firewall.png)
 
    **Network rule collection properties**
 
@@ -109,7 +109,7 @@ Before you start, you need these items:
 
 <a name="network-ports-for-ise"></a>
 
-### Network ports used by an ISE
+## Network ports used by your ISE
 
 This table describes the ports in your Azure virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
 
