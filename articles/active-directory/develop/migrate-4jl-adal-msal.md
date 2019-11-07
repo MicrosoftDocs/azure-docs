@@ -2,7 +2,7 @@
 title: ADAL to MSAL migration guide for Java | Azure
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Java app to the Microsoft Authentication Library (MSAL).
 services: active-directory
-author: sangonzal
+author: sangonzalez
 manager: henrikm
 editor: twhitney
 
@@ -97,7 +97,7 @@ The following code snippet shows some migration code in a confidential client ap
 
 ```java
 String rt = GetCachedRefreshTokenForSIgnedInUser(); // Get refresh token from where you have them stored
-String scope = "SCOPE_FOR_REFRESH_TOKEN";
+Set<String> scopes = Collections.singleton("SCOPE_FOR_REFRESH_TOKEN");
 
 RefreshTokenParameters parameters = RefreshTokenParameters.builder(scopes, rt).build();
 
