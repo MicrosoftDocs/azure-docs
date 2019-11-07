@@ -17,8 +17,8 @@ ms.date: 07/01/2019
 
 HDInsight provides support for you to perform common tasks on your cluster such as installing OS patches, security updates, and rebooting nodes. These tasks are accomplished using the following two scripts that can be run as [script actions](hdinsight-hadoop-customize-cluster-linux.md), and configured with parameters:
 
-1. `schedule-reboots.sh` - Do an immediate restart, or schedule a restart on the cluster nodes.
-1. `install-updates-schedule-reboots.sh` - Install all updates, only kernel + security updates, or only kernel updates.
+- `schedule-reboots.sh` - Do an immediate restart, or schedule a restart on the cluster nodes.
+- `install-updates-schedule-reboots.sh` - Install all updates, only kernel + security updates, or only kernel updates.
 
 > [!NOTE]  
 > Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
@@ -29,7 +29,7 @@ The script [schedule-reboots](https://hdiconfigactions.blob.core.windows.net/lin
 
 The `schedule-reboots script` accepts one numeric parameter:
 
-| Parameter | Accepted Values | Definition |
+| Parameter | Accepted values | Definition |
 | --- | --- | --- |
 | Type of restart to perform | 1 or 2 | A value of 1 enables schedule restart (scheduled in 12-24 hours). A value of 2 enables immediate restart (in 5 minutes). If no parameter is given, the default is 1. |  
 
@@ -39,7 +39,7 @@ The script [install-updates-schedule-reboots.sh](https://hdiconfigactions.blob.c
 
 The `install-updates-schedule-reboots` script accepts two numeric parameters, as described in the following table:
 
-| Parameter | Accepted Values | Definition |
+| Parameter | Accepted values | Definition |
 | --- | --- | --- |
 | Type of updates to install | 0,  1, or 2 | A value of 0 installs only kernel updates. A value of 1 installs all updates, and 2 installs only kernel + security updates. If no parameter is provided, the default is 0. |
 | Type of restart to perform | 0, 1, or 2 | A value of 0 disables restart. A value of 1 enables schedule restart, and 2 enables immediate restart. If no parameter is provided, the default is 0. The user must change input parameter 1 to input parameter 2. |
