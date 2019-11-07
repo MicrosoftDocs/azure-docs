@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/23/2019
+ms.date: 11/07/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -241,7 +241,7 @@ If your application uses managed instance as the data tier, follow these general
 
 - **Acknowledge known limitations of failover groups**
 
-  Database rename and instance resize are not supported for instances in failover group. You will need to temporarily delete failover group to be able to preform these actions.
+  Database rename is not supported for instances in failover group. You will need to temporarily delete failover group to be able to rename a database.
 
 ## Failover groups and network security
 
