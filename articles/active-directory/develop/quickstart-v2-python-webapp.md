@@ -80,6 +80,7 @@ To run this sample, you will need:
 >
 > 1. Add a reply URL as `http://localhost:5000/getAToken`.
 > 1. Create a Client Secret.
+> 1. Add Microsoft Graph API's User.ReadBasic.All delegated permission.
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
@@ -125,22 +126,22 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
    > [!IMPORTANT]
    > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
 
-   ## More information
+## More information
 
-   ### Getting MSAL
-   MSAL is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
-   You can add MSAL Python to your application using Pip.
+### Getting MSAL
+MSAL is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
+You can add MSAL Python to your application using Pip.
 
-   ```Shell
-   pip install msal
-   ```
+```Shell
+pip install msal
+```
 
-   ### MSAL initialization
-   You can add the reference to MSAL Python by adding the following code to the top of the file where you will be using MSAL:
+### MSAL initialization
+You can add the reference to MSAL Python by adding the following code to the top of the file where you will be using MSAL:
 
-   ```Python
-   import msal
-   ```
+```Python
+import msal
+```
 
 ## Next steps
 
