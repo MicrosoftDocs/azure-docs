@@ -33,7 +33,7 @@ In this section, you use the Azure CLI to deploy the image built in the [first t
 
 ### Get registry credentials
 
-When you deploy an image that's hosted in a private container registry like the one created in the [second tutorial](container-instances-tutorial-prepare-acr.md), you must supply credentials to access the registry. 
+When you deploy an image that's hosted in a private Azure container registry like the one created in the [second tutorial](container-instances-tutorial-prepare-acr.md), you must supply credentials to access the registry. 
 
 A best practice for many scenarios is to create and configure an Azure Active Directory service principal with *pull* permissions to your registry. See [Authenticate with Azure Container Registry from Azure Container Instances](../container-registry/container-registry-auth-aci.md) for sample scripts to create a service principal with the necessary permissions. Take note of the *service principal ID* and *service principal password*. You use these credentials to access the registry when you deploy the container.
 
