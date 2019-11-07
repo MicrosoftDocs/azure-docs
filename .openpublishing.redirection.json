@@ -1221,6 +1221,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/frontdoor/waf-front-door-monitor.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-policy-settings.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-policy-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-custom-rules.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-overview.md",
+      "redirect_url": "/azure/web-application-firewall/afds/afds-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/frontdoor/front-door-powershell-reference.md",
       "redirect_url": "/powershell/module/azurerm.frontdoor",
       "redirect_document_id": false
