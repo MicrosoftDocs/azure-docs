@@ -59,11 +59,13 @@
     href: tutorial-train-deploy-model-cli.md
 - name: Samples
   items:
-  - name: Notebooks
+  - name: Jupyter Notebooks
     displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
     href: samples-notebooks.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+  - name: End-to-end MLOps examples
+    href: https://github.com/microsoft/MLOps
 - name: Concepts
   items:
   - name: Workspace
@@ -110,14 +112,11 @@
           href: how-to-change-storage-access-key.md
       - name: Monitor Azure Machine Learning
         href: monitor-azure-machine-learning.md
+      - name: Event grid integration
+        href: concept-event-grid-integration.md
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
-  - name: Event grid integration
-    href: concept-event-grid-integration.md
-  - name: Git integration
-    displayName: git github gitlab
-    href: concept-train-model-git-integration.md
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -146,6 +145,9 @@
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
+    - name: Git integration
+      displayName: github gitlab
+      href: concept-train-model-git-integration.md 
   - name: Work with data
     items:
     - name: Get data from a datastore
@@ -331,21 +333,17 @@
     href: how-to-use-event-grid.md
 - name: Reference
   items:
-  - name: ML SDK (Python)
+  - name: Python SDK
     displayName: api, core, package, python, class
     href: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
-  - name: ML SDK (R)
+  - name: R SDK
     displayName: api, core, package, R, class
     href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
-  - name: Machine Learning CLI
+  - name: CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
   - name: REST API
     href: https://docs.microsoft.com/rest/api/azureml/
-  - name: Monitor data reference
-    href: monitor-resource-reference.md
-  - name: Machine learning pipeline YAML reference
-    href: reference-pipeline-yaml.md
   - name: Designer modules
     displayName: module, reference, algorithm, studio
     items:
@@ -479,6 +477,12 @@
         href: ../algorithm-module-reference/summarize-data.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
+  - name: ML at scale
+    href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
+  - name: Monitor data reference
+    href: monitor-resource-reference.md
+  - name: Machine learning pipeline YAML reference
+    href: reference-pipeline-yaml.md
 - name: Resources
   items:
   - name: Release notes
