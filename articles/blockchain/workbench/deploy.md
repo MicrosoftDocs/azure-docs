@@ -281,15 +281,19 @@ If you have guest users in your Azure AD tenant, follow the additional steps to 
 Once the Azure Blockchain Workbench has been deployed, you have to configure the Azure Active Directory (Azure AD) client application **Reply URL** of the deployed Blockchain Workbench web URL.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Verify you are in the tenant where you registered the Azure AD client application.
-3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations**.
-4. Select the Azure AD client application you registered in the prerequisite section.
-5. Select **Authentication**.
-6. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the [Blockchain Workbench web URL](#blockchain-workbench-web-url) section. The Reply URL is prefixed with `https://`. For example, `https://myblockchain2-7v75.azurewebsites.net`
+1. Verify you are in the tenant where you registered the Azure AD client application.
+1. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations**.
+1. Select the Azure AD client application you registered in the prerequisite section.
+1. Select **Authentication**.
+1. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the [Blockchain Workbench web URL](#blockchain-workbench-web-url) section. The Reply URL is prefixed with `https://`. For example, `https://myblockchain2-7v75.azurewebsites.net`
 
-    ![Reply URLs](media/deploy/configure-reply-url.png)
+    ![Authentication reply URLs](media/deploy/configure-reply-url.png)
 
-7. Select **Save** to update the client registration.
+1. In the **Advanced setting** section, check **Access tokens** and **ID tokens**.
+
+    ![Authentication advanced settings](media/deploy/authentication-advanced-settings.png)
+
+1. Select **Save** to update the client registration.
 
 ## Remove a deployment
 
