@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    ![Add new logic app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. On the Logic App pane, provide details about your logic app as shown below. After you're done, select **Create**.
+1. On the **Logic App** pane, provide details about your logic app as shown below. After you're done, select **Create**.
 
    ![Provide details for new logic app](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -64,11 +64,11 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 <a name="add-rss-trigger"></a>
 
-## Add a trigger to check RSS feed
+## Add the RSS trigger
 
 1. In the **Logic App Designer**, under the search box, select **All**.
 
-1. In the search box, enter `rss` to find the RSS connector. From the triggers list, select this trigger: **When a feed item is published**.
+1. In the search box, enter `rss` to find the RSS connector. From the triggers list, select the **When a feed item is published** trigger.
 
    ![Select "When a feed item is published" trigger](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -85,7 +85,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
    Together, the interval and frequency define the schedule for your logic app's trigger. This logic app checks the feed every minute.
 
-1. To hide the trigger details for now, click inside the trigger's title bar.
+1. To collapse the trigger details for now, click inside the trigger's title bar.
 
    ![Collapse logic app shape to hide details](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
@@ -93,7 +93,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 Your logic app is now live but doesn't do anything other than check the RSS feed. So, add an action that responds when the trigger fires.
 
-## Add an action to send email
+## Add the "send email" action
 
 Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) that sends an email when a new item appears in the RSS feed.
 
@@ -112,11 +112,11 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
    * For Azure work or school accounts, select Office 365 Outlook.
    * For personal Microsoft accounts, select Outlook.com.
 
-1. If your selected connector prompts you for credentials, provide those credentials now to create a connection between your logic app and the email service.
+1. If your selected email connector prompts you to authenticate your identity, complete that step now to create a connection between your logic app and your email service.
 
    > [!NOTE]
-   > In this specific example, you manually provide your credentials. However, connectors that require authentication differ in 
-   > the authentication types that they support. You also have ways to set up how you want to handle authentication. 
+   > In this specific example, you manually authenticate your identity. However, connectors that require authentication differ in 
+   > the authentication types that they support. You also have options to set up the way that you want to handle authentication. 
    > For example, when you use Azure Resource Manager templates for deployment, you can parameterize and secure inputs that 
    > you want to change often or easily, such as connection information. For more information, see these topics:
    >
