@@ -2,7 +2,7 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Assets in Azure Media Services
 titleSuffix: Azure Media Services
-description: Lewarn about what assets are and how they're used by Azure Media Services.
+description: Learn about what assets are and how they're used by Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -39,7 +39,7 @@ After the digital files are uploaded into storage and associated with an Asset, 
 
 1. Use the Media Services v3 API to create a new "input" Asset. This operation creates a container in the storage account associated with your Media Services account. The API returns the container name (for example, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
 
-    If you already have a blob container that you want to associate with an Asset, you can specify the container name when creating the Asset. Media Services currently only supports blobs in the container root and not with paths in the file name. Thus, a container with the "input.mp4" file name will work. However, a container with the "videos/inputs/input.mp4" file name won't work.
+    If you already have a blob container that you want to associate with an Asset, you can specify the container name when you create the Asset. Media Services currently only supports blobs in the container root and not with paths in the file name. Thus, a container with the "input.mp4" file name will work. However, a container with the "videos/inputs/input.mp4" file name won't work.
 
     You can use the Azure CLI to upload directly to any storage account and container that you have rights to in your subscription.
 
@@ -68,7 +68,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 For a REST example, see the [Create an Asset with REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) example.
 
-The example shows how to create the **Request Body** where you can specify useful information like description, container name, storage account, and other information.
+The example shows how to create the **Request Body** where you can specify description, container name, storage account, and other useful info.
 
 #### cURL
 
