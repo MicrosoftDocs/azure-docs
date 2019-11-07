@@ -90,7 +90,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     > [!NOTE]
     > An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received so it should be part of the labelled entity for the order. 
 
-    ![Label beginning and ending of text for complete order](media/tutorial-machine-learned-entity/label-complete-order.png)
+    ![Label beginning and ending of text for complete order](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
 1. In the **Choose an entity type** box, select **Add Structure** then select **Next**. Structure is  necessary to allow for subcomponents such as size and quantity.
 
@@ -109,11 +109,11 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
 
 1. In the same example utterance, label the **Size** subcomponent of `large` by selecting the word then selecting the **Size** entity from the drop-down list. 
 
-    ![label the size entity for text in the utterance.](media/tutorial-machine-learned-entity/label-and-create-size-entity.png)
+    ![Label the size entity for text in the utterance.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
     Again the line is solid under the text because both the labelling and prediction match because you explicitly labelled the text.
 
-1. label the `Order` entity in the remaining utterances along with the size entity. The square brackets in the text indicate the labelled `Order` entity and the `Size` entity within.
+1. Label the `Order` entity in the remaining utterances along with the size entity. The square brackets in the text indicate the labelled `Order` entity and the `Size` entity within.
 
     |Order example utterances|
     |--|
@@ -177,9 +177,9 @@ The `Order` entity should have a `Quantity` subcomponent to determine how many o
 
     ![Prebuilt number is found but not considered apart of the Order entity yet.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
-1. label the numbers with the `Quantity` entity by selecting the `2` in the example utterance then selecting `Quantity` from the list. label the `6` and the `1` in the same example utterance.
+1. Label the numbers with the `Quantity` entity by selecting the `2` in the example utterance then selecting `Quantity` from the list. Label the `6` and the `1` in the same example utterance.
 
-    ![label text with quantity entity.](media/tutorial-machine-learned-entity/label-example-utterance-with-quantity-entity.png)  
+    ![Label text with quantity entity.](media/tutorial-machine-learned-entity/mark-example-utterance-with-quantity-entity.png)  
 
 ## Train the app
 
