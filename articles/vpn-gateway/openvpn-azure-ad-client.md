@@ -10,7 +10,7 @@ ms.date: 11/07/2019
 ms.author: alzam
 
 ---
-# Configure a VPN client for OpenVPN protocol P2S connections: Azure AD authentication (Preview)
+# Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication (Preview)
 
 This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
 
