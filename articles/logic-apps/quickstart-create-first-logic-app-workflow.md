@@ -121,7 +121,7 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
    > you want to change often or easily, such as connection information. For more information, see these topics:
    >
    > * [Template parameters for deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
-   > * [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates#authorize-oauth-connections)
+   > * [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)
    > * [Authenticate access with managed identities](../logic-apps/create-managed-service-identity.md)
    > * [Authenticate connections for logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)
 
