@@ -143,7 +143,11 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $dirn
 
 You can use the `-Force` parameter to remove the file without a prompt.
 
-## Get directory permissions
+## Manage directory permissions
+
+You can get, set, and update directory permissions.
+
+### Get directory permissions
 
 Get the ACL of a directory by using the `Get-AzStorageBlob`cmdlet with the `-FetchPermission` parameter.
 
@@ -162,7 +166,7 @@ The output might look something like the following:
 
 In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-## Set directory permissions
+### Set directory permissions
 
 Use the `New-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Update-AzDataLakeGen2Item` cmdlet to commit the ACL.
 
@@ -184,6 +188,22 @@ The output would look like the following:
 ![Get ACL output](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
 
 In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+
+### Update directory permissions
+
+Use the `Get-AzDataLakeGen2Item` to get the ACL of a directory. Then, use the `New-AzDataLakeGen2ItemAclObject` to create a new ACL entry. Use the `Update-AzDataLakeGen2Item` to apply the new ACL.
+
+This example gives write and execute permission to a user.
+
+```powershell
+$filesystemName = "my-file-system"
+$dirname = "my-directory/"
+$Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
+$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+```
+
 
 ## Download from a directory
 
@@ -277,6 +297,10 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $file
 
 You can use the `-Force` parameter to remove the file without a prompt.
 
+## Manage file permissions
+
+You can get, set, and update file permissions.
+
 ## Get file permissions
 
 Get the access permissions of a file by using the `Get-AzDataLakeGen2Item` cmdlet. 
@@ -316,6 +340,21 @@ The output would look like the following:
 ![Get ACL output](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
 
 In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+
+### Update file permissions
+
+Use the `Get-AzDataLakeGen2Item` to get the ACL of a file. Then, use the `New-AzDataLakeGen2ItemAclObject` to create a new ACL entry. Use the `Update-AzDataLakeGen2Item` to apply the new ACL.
+
+This example gives write and execute permission to a user.
+
+```powershell
+$filesystemName = "my-file-system"
+$fileName = "my-directory/upload.txt"
+$Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName).ACL
+$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $acl
+```
 
 ## See also
 
