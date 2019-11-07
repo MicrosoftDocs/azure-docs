@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: machine-learned entity - LUIS"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, extract machine-learned data from an utterance using the machine-learned entity. To increase the extraction accuracy, add descriptors and constraints.
+description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subcomponents with descriptors and constraints.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -16,13 +16,14 @@ ms.author: diberry
 
 # Tutorial: Extract names with machine-learned entities
 
-In this tutorial, extract machine-learned data from an utterance using the machine-learned entity. The machine-learned entity supports the [model decomposition concept](luis-concept-model.md#v3-authoring-model-decomposition) by providing subcomponent entities with their descriptors and constraints. 
+In this tutorial, extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subcomponents with descriptors and constraints. 
+
+The machine-learned entity supports the [model decomposition concept](luis-concept-model.md#v3-authoring-model-decomposition) by providing subcomponent entities with their descriptors and constraints. 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **In this tutorial, you learn how to:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Import example app
 > * Add machine-learned entity 
@@ -39,15 +40,21 @@ In this tutorial, extract machine-learned data from an utterance using the machi
 
 ## Machine-learned entity
 
-This tutorial adds a machine-learned entity to extract data from an utterance. The purpose of the entity is to define the boundaries and type of data within an utterance. In order to define the entity, you need to create the entity then marking the text representing the entity in the example utterance. These marked examples teach LUIS what the entity is and where it can be found in an utterance. 
+This tutorial adds a machine-learned entity to extract data from an utterance. 
 
-Start with a machine-learned entity, which is the beginning and top-level entity for data extraction. Then decompose the entity into parts needed by the client application. 
+The purpose of an entity is to define the data to extract. This includes giving the data a name, a type (if possible), any resolution of the data if there is ambiguity, and the exact text that makes up the data. 
+
+In order to define the entity, you need to create the entity then label the text representing the entity in the example utterance. These labelled examples teach LUIS what the entity is and where it can be found in an utterance. 
+
+## Decomposability is important
+
+Start with a machine-learned entity, which is the beginning and top-level entity for data extraction. Then decompose the entity into the parts needed by the client application. 
 
 While you may not know how detailed you want your entity when you begin your app, a best practice is to start with a machine-learned entity, then decompose with subcomponents as your app matures.
 
 In practical terms, you will create a machine-learned entity to represent an order for a pizza app. The order should have all the parts that are necessary to fullfil the order. To begin, the entity will include all order-related text, and specifically pull out size, and quantity. 
 
-An utterance for `deliver one large cheese pizza` should extra the entire utterance as the order, then also extract `1` and `large`. 
+An utterance for `deliver one large cheese pizza` should extract the entire utterance as the order, then also extract `1` and `large`. 
 
 There is further decomposition you can do such as toppings or crust. After this tutorial, you should feel confident adding these subcomponents to your existing `Order` entity.
 
@@ -66,7 +73,7 @@ There is further decomposition you can do such as toppings or crust. After this 
 
     ![Change from the Versions page to the Intents page.](media/tutorial-machine-learned-entity/new-version-imported-app.png)
 
-## Mark entities in example utterances
+## Label entities in example utterances
 
 To extract details about a pizza order, create a top level, machine-learned `Order` entity.
 
@@ -78,12 +85,12 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Begin selecting just before the left-most text of `pickup` (#1), then go just beyond the right-most text, `anchovies` (#2 - this ends the marking process). A pop-up menu appears. In the pop-up box, enter the name of the entity as `Order` (#3). Then select that name from the list (#4).
+    Begin selecting just before the left-most text of `pickup` (#1), then go just beyond the right-most text, `anchovies` (#2 - this ends the labelling process). A pop-up menu appears. In the pop-up box, enter the name of the entity as `Order` (#3). Then select that name from the list (#4).
 
     > [!NOTE]
-    > An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received so it should be part of the marked entity for the order. 
+    > An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received so it should be part of the labelled entity for the order. 
 
-    ![Mark beginning and ending of text for complete order](media/tutorial-machine-learned-entity/mark-complete-order.png)
+    ![Label beginning and ending of text for complete order](media/tutorial-machine-learned-entity/label-complete-order.png)
 
 1. In the **Choose an entity type** box, select **Add Structure** then select **Next**. Structure is  necessary to allow for subcomponents such as size and quantity.
 
@@ -92,22 +99,21 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
 1. In the **Create a machine learned entity** box, in the **Structure** box, add `Size`. For the **Size** component then select Enter. 
 1. Add a **descriptor** named `SizeDescriptor`, then select **Create new phrase list**.
 
-1. In the **Create new phrase list descriptor** box, enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Done** to create the new phrase list. Then select **Create** to finish creating the `Size` subcomponent.  
+1. In the **Create new phrase list descriptor** box, enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Done** to create the new phrase list. 
+
+    This phrase list descriptor helps the `Size` subcomponent find words related to size by providing it with example word. This list doesn't need to include every size word but should include words that are expected to indicate size. 
+
+1. Select **Create** to finish creating the `Size` subcomponent.  
 
     ![Create a descriptor for the size subcomponent](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
 
-1. On the **Intent details** page, the example utterance has a solid line under the marked text. This indicates the marked text agrees with the prediction. Because you explicitly marked it and labeled it, they will match. This visual indicator is valuable, not on the first utterance marked, but on the remaining utterances. 
+1. In the same example utterance, label the **Size** subcomponent of `large` by selecting the word then selecting the **Size** entity from the drop-down list. 
 
-    ![Entity marked and predicted](media/tutorial-machine-learned-entity/one-example-utterance-marked-with-entity.png)
+    ![label the size entity for text in the utterance.](media/tutorial-machine-learned-entity/label-and-create-size-entity.png)
 
-1. In the same example utterance, mark the **Size** subcomponent of `large` by selecting the word then selecting the **Size** entity from the drop-down list. 
+    Again the line is solid under the text because both the labelling and prediction match because you explicitly labelled the text.
 
-
-    ![Mark the size entity for text in the utterance.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
-
-    Again the line is solid under the text because both the marking and prediction match because you explicitly marked the text.
-
-1. Mark the `Order` entity in the remaining utterances along with the size entity. The square brackets in the text indicate the marked `Order` entity and the `Size` entity within.
+1. label the `Order` entity in the remaining utterances along with the size entity. The square brackets in the text indicate the labelled `Order` entity and the `Size` entity within.
 
     |Order example utterances|
     |--|
@@ -115,8 +121,6 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     |`can i get [a [small] pizza with onions peppers and olives]`|
     |`[delivery for a [small] pepperoni pizza]`|
     |`i need [2 [large] cheese pizzas 6 [large] pepperoni pizzas and 1 [large] supreme pizza]`|
-
-    Make sure to include the `a` as part of the `Order` entity because it implies a quantity of 1.
 
     ![Make entity and subcomponents in all remaining example utterances.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
 
@@ -128,7 +132,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     |--|
     |`pickup XL meat lovers pizza`|
 
-    The overall top entity, `Order` is marked and the `Size` subcomponent is also marked with dotted lines.  
+    The overall top entity, `Order` is labelled and the `Size` subcomponent is also labelled with dotted lines.  
 
     ![New example utterance predicted with entity](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
@@ -138,7 +142,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
 
     ![Accept prediction by selecting Confirm entity prediction.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
-    At this point, the machine-learned entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted, mark the entity and the subcomponents. 
+    At this point, the machine-learned entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted, label the entity and the subcomponents. 
 
 ## Add prebuilt number to app
 
@@ -167,27 +171,23 @@ The `Order` entity should have a `Quantity` subcomponent to determine how many o
 
     The entity with the constraint is created but not yet applied to the example utterances.
 
-## Mark example utterance with subcomponent for quantity
+## Label example utterance with subcomponent for quantity
 
-1. Select **Intents** from the left-hand navigation then select the **OrderPizza** intent. The three numbers in the following utterances are marked but are visually below the `Order` entity line. This lower level means the entities are found but are not considered apart of the `Order` entity.
+1. Select **Intents** from the left-hand navigation then select the **OrderPizza** intent. The three numbers in the following utterances are labelled but are visually below the `Order` entity line. This lower level means the entities are found but are not considered apart of the `Order` entity.
 
     ![Prebuilt number is found but not considered apart of the Order entity yet.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
-1. Mark the numbers with the `Quantity` entity by selecting the `2` in the example utterance then selecting `Quantity` from the list. Mark the `6` and the `1` in the same example utterance.
+1. label the numbers with the `Quantity` entity by selecting the `2` in the example utterance then selecting `Quantity` from the list. label the `6` and the `1` in the same example utterance.
 
-    ![Mark text with quantity entity.](media/tutorial-machine-learned-entity/mark-example-utterance-with-quantity-entity.png)
+    ![label text with quantity entity.](media/tutorial-machine-learned-entity/label-example-utterance-with-quantity-entity.png)  
 
-1. In the following example utterance, mark the `a` as a quantity, because it implies a quantity of 1: 
+## Train the app
 
-    `delivery for a small pepperoni pizza`
+Select **Train** to train the app with these new utterances.
 
-    Label the `a` when it implies quantity in the remaining example utterances. 
+![Train the app then review the example utterances.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
 
-1. Select **Train** to train the app with these new utterances.
-
-    ![Train the app then review the example utterances.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
-
-    At this point, the order has some details that can be extracted (size, quantity, and total order). There is further refining of the `Order` entity such as pizza toppings, type of crust, and side orders. Each of those should be created as subcomponents of the `Order` entity. 
+At this point, the order has some details that can be extracted (size, quantity, and total order). There is further refining of the `Order` entity such as pizza toppings, type of crust, and side orders. Each of those should be created as subcomponents of the `Order` entity. 
 
 ## Test the app
 
@@ -204,7 +204,7 @@ Test the app using the interactive **Test** panel. This process lets you enter a
 
     The size was correctly identified. Remember that the example utterances in the `OrderPizza` intent don't have an example of `medium` as a size but do use a descriptor of a `SizeDescriptor` phrase list that includes medium.
 
-    The quantity is not correctly predicted. To fix this, you can add more example utterances using that word to indicate quantity and mark that word as a `Quantity` entity. 
+    The quantity is not correctly predicted. To fix this, you can add more example utterances using that word to indicate quantity and label that word as a `Quantity` entity. 
 
 ## Publish the app
 
