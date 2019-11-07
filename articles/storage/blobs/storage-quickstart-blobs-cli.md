@@ -47,7 +47,7 @@ First, create a file to upload to a block blob. If you're using Azure Cloud Shel
 vi helloworld
 ```
 
-When the file opens, press **insert**. Type *Hello world*, then press **Esc**. Enter *:x*, then press **Enter**.
+When the file opens, press **insert**. Type *Hello world*, then press **Esc**. Next, type *:x*, then press **Enter**.
 
 In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob) command. It's not necessary to specify a file path since the file was created at the root directory:
 
