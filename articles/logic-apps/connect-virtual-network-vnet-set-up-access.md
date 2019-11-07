@@ -1,6 +1,6 @@
 ---
-title: Set up access for integration service environments - Azure Logic Apps
-description: Make sure your integration service environment (ISE) can access Azure virtual networks (VNETs) from Azure Logic Apps
+title: Set up access to Azure virtual networks - Azure Logic Apps
+description: Make sure that your integration service environment (ISE) can access your Azure virtual network from Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ---
 
-# Set up access to Azure virtual networks for integration service environments in Azure Logic Apps
+# Set up Azure virtual network access for integration service environments in Azure Logic Apps
 
 When you work with Azure Logic Apps, you can set up an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting logic apps that need to access resources in an [Azure virtual network](../virtual-network/virtual-networks-overview.md). However, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and destination systems might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, the port that you use on your FTP system needs to be available, for example, port 21 for sending commands.
 

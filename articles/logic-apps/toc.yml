@@ -161,8 +161,10 @@
         href: logic-apps-enterprise-integration-b2b-business-continuity.md
   - name: Connect to virtual networks with isolated environments
     href: connect-virtual-network-vnet-isolated-environment.md
+  - name: Set up virtual network access for integration service environments
+    href: connect-virtual-network-vnet-set-up-access.md
   - name: Add artifacts to integration service environments
-    href: add-artifacts-integration-service-environment-ise.md  
+    href: add-artifacts-integration-service-environment-ise.md
   - name: Access on-premises data
     items: 
       - name: Install data gateway
