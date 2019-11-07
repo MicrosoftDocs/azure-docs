@@ -43,7 +43,7 @@ Follow these steps to create a new Device Provisioning Service instance.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Name** | Any unique name | -- | 
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |   
 
    ![Enter basic information about your Device Provisioning service in the portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)

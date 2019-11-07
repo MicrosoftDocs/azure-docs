@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database feature comparison 
+title: Feature comparison 
 description: This article compares the features of SQL Server that are available in different flavors of Azure SQL Database.
 services: sql-database
 ms.service: sql-database

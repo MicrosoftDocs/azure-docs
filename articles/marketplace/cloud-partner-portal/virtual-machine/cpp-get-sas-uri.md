@@ -4,6 +4,7 @@ description: Explains how to get the shared access signature (SAS) URI for your 
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler

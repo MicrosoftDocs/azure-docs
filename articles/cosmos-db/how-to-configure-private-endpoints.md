@@ -325,9 +325,9 @@ After the template is deployed, the private IP addresses are reserved within the
 
 ## Configure custom DNS
 
-During the preview of Private Link, you should use a private DNS within the subnet where the private endpoint has been created. And configure the endpoints so that each of the private IP address is mapped to a DNS entry (see the "fqdns" property in the response shown above).
+You should use a private DNS within the subnet where the private endpoint has been created. And configure the endpoints so that each of the private IP address is mapped to a DNS entry (see the "fqdns" property in the response shown above).
 
-When creating the private endpoint, you can integrate it with a private DNS zone in Azure. If u choose to not integrate your private endpoint with private DNS zone in Azure and instead use a custom DNS, you have to configure your DNS to add a new DNS record for the private IP corresponding to the new region.
+When creating the private endpoint, you can integrate it with a private DNS zone in Azure. If u choose to not integrate your private endpoint with private DNS zone in Azure and instead use a custom DNS, you have to configure your DNS to add DNS records for all private IP addresses reserved for the private endpoint.
 
 ## Firewall configuration with Private Link
 
@@ -369,19 +369,19 @@ DNS records in the private DNS zone are not removed automatically when a private
 
 The following limitations apply when using the Private Link with an Azure Cosmos account:
 
+* Private Link support for Azure Cosmos accounts and VNETs is available in specific regions only. For a list of supported regions, see the [Available regions](../private-link/private-link-overview.md#availability) section of the Private Link article. **Both the VNET and the Azure Cosmos account should be in the supported regions to be able to create a private endpoint**.
+
 * When using Private Links with Azure Cosmos account using Direct mode connection, you can only use TCP protocol. HTTP protocol is not yet supported
 
 * When using Azure Cosmos DB’s API for MongoDB accounts, private endpoint is supported for accounts on server version 3.6 only (that is accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to new version.
 
 * When using Azure Cosmos DB’s API for MongoDB accounts that have Private Link, you can’t use tools such as Robo 3T, Studio 3T, Mongoose etc. The endpoint can have Private Link support only if the appName=<account name> parameter is specified. For example: replicaSet=globaldb&appName=mydbaccountname. Because these tools don’t pass the app name in the connection string to the service so you can’t use Private Link. However you can still access these accounts with SDK drivers with 3.6 version.
 
-* Private Link support for Azure Cosmos accounts and VNETs is available in specific regions only. For a list of supported regions, see the [Available regions](../private-link/private-link-overview.md#availability) section of the Private Link article. **Both the VNET and the Azure Cosmos account should be in the supported regions to be able to create a private endpoint**.
-
 * A virtual network can't be moved or deleted if it contains Private Link.
 
 * An Azure Cosmos account can't be deleted if it is attached to a private endpoint.
 
-* An Azure Cosmos account can't be failed over to a region that's not mapped to all private endpoints attached to it. For more information, see Adding or removing regions in the previous section.
+* An Azure Cosmos account can't be failed over to a region that's not mapped to all private endpoints attached to the account. For more information, see Adding or removing regions in the previous section.
 
 * A network administrator should be granted at least the "*/PrivateEndpointConnectionsApproval" permission at the Azure Cosmos account scope by an administrator to create automatically-approved private endpoints.
 
