@@ -989,7 +989,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The provided additional storage was not Azure Blob storage.
 
-- **Recommendation**:  Provide Azure Blob strorage account as an additional storage for HDInsight on demand linked service.
+- **Recommendation**:  Provide Azure Blob storage account as an additional storage for HDInsight on demand linked service.
 
 
 
