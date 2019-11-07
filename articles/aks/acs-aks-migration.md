@@ -6,25 +6,32 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
 ---
 
-# Migrate from Non-Azure Kubernetes Service (AKS) cluster to AKS
+# Migrate to Azure Kubernetes Service (AKS)
 
-This article helps you plan and execute a successful migration from a cluster not hosted in Azure Kubernetes Service (AKS) to one hosted in AKS. To help you make key decisions, this guide details the differences between non-AKS and AKS clusters and provides an overview of the migration process.
+This article helps you plan and execute a successful migration to Azure Kubernetes Service (AKS). To help you make key decisions, this guide details the differences between non-AKS and AKS clusters and provides an overview of the migration process. This article doesn't cover every scenario, and where appropriate, the article contains links to more detailed information for planning a succesful migration.
+
+If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) and [AKS supported Kubernetes versions](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions) to understand the Kubernetes and AKS versioning strategies.
 
 The scenarios where you want to utilize this document are:
 
+* Migrating AKS Cluster using Availability Sets to Virtual Machine Scale Sets
 * Migrating from Azure Container Service (ACS) to AKS
 * Migrating from AKS Engine to AKS
-* Migrating AKS Cluster using Availability Sets to Virtual Machine Scale Sets
-
-__TODO__ Do we want to add a scenario where the user doesn't want to upgrade and instead wants to re-build the cluster?
-__TODO__ Do we want to add a note this assume within the same region?  If not, need to consider ACR + Storage migration too.  Documenting all cases becomes more complicated
 
 ## Differences between Kubernetes clusters
+
+### AKS with Virtual Machine Scale Sets vs. Availability Sets
+
+Azure virtual machine scale sets let you create and manage a group of load balanced VMs. An Azure Availability Set is a logical grouping capability for isolating VM resources from each other when they're deployed. Virtual Machine Scale Sets provide capabilites beyond what can be achieved with Availablity Sets.
+
+*TODO
+*TODO
+*TODO
 
 ### ACS vs AKS
 
@@ -43,18 +50,8 @@ ACS and AKS differ in some key areas that affect migration. Before any migration
 
 __TODO__ Add differences between two cluster types here
 
-### AKS with Availability Sets vs Virtual Machine Scale Sets
 
-__TODO__ Add differences between two cluster types here
-
-## Differences between Kubernetes versions
-
-If you're migrating to a newer version of Kubernetes, review the following resources to understand the Kubernetes versioning strategies:
-
-* [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions)
-* [AKS supported Kubernetes versions](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions)
-
-## Reusable Resources
+## Azure attached Services
 
 When migrating clusters, the following Azure resources should not need any additional efforts beyond allowing connections from the new cluster.
 
