@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/06/2019
 ---
 # High availability services supported by Azure HDInsight
 
