@@ -17,7 +17,7 @@ ms.date: 11/04/2019
 Machine learning in Azure SQL Database Edge Preview supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format you can use to interchange models between various [machine learning frameworks and tools](https://onnx.ai/supported-tools).
 
 ## Overview
-To infer models in Azure SQL Database Edge, you will first need to get an ML model. This can be a pre-trained model or a custom model trained with your framework of choice. Since Azure SQL Database Edge supports the ONNX format, you will need to convert the model to the ONNX format. Once you have the ONNX model, you can deploy the model in Azure SQL Database Edge and use [native scoring with the PREDICT T-SQL function](/sql/advanced-analytics/sql-native-scoring/).
+To infer models in Azure SQL Database Edge, you will first need to get an ML model. This can be a pre-trained model or a custom model trained with your framework of choice. Since Azure SQL Database Edge supports the ONNX format, you will need to convert the model to this format. There should be no impact on model accuracy and once you have the ONNX model, you can deploy the model in Azure SQL Database Edge and use [native scoring with the PREDICT T-SQL function](/sql/advanced-analytics/sql-native-scoring/).
 
 ## Get ONNX models
 
@@ -27,7 +27,7 @@ There are several ways that you can obtain a model in the ONNX format:
 
 - [Native export from ML training frameworks](https://onnx.ai/supported-tools): Several training frameworks support native export functionality to ONNX, which allows you to save your trained model to a specific version of the ONNX format, including [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer, and Caffe2. In addition, model building services such as Azure Machine Learning Service's [automated Machine Learning feature](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) and [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) provide ONNX export.
 
-- [Convert existing models](https://github.com/onnx/tutorials#converting-to-onnx-format): For frameworks that do not support native export, there are standalone packages for converting models to the ONNX format. Find examplesa and tutorials [here](https://github.com/onnx/tutorials#converting-to-onnx-format). 
+- [Convert existing models](https://github.com/onnx/tutorials#converting-to-onnx-format): For frameworks that do not support native export, there are standalone packages for converting models to the ONNX format. Find examples and tutorials [here](https://github.com/onnx/tutorials#converting-to-onnx-format). 
 
 ### Supported frameworks
 
