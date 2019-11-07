@@ -1,5 +1,5 @@
 ---
-title: Set up Azure SQL Data Sync | Microsoft Docs
+title: Set up Azure SQL Data Sync 
 description: This tutorial shows you how to set up Azure SQL Data Sync
 services: sql-database
 ms.service: sql-database

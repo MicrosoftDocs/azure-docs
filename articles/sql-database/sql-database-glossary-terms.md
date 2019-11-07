@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database glossary of terms | Microsoft Docs
+title: Azure SQL Database glossary of terms 
 description: Azure SQL Database glossary of terms
 services: sql-database
 ms.service: sql-database

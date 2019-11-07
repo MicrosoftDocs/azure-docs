@@ -1,5 +1,5 @@
 ---
-title: "Migrate to the new Elastic Database Jobs | Microsoft Docs"
+title: "Migrate to the new Elastic Database Jobs "
 description: Migrate to the new Elastic Database Jobs.
 services: sql-database
 ms.service: sql-database

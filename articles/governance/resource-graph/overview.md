@@ -129,7 +129,7 @@ structured the same for each language. Learn how to enable Resource Graph with:
 
 ## Next steps
 
-- Run your first query in [Azure portal](first-query-portal.md).
+- Run your first query by using the [Azure portal](first-query-portal.md).
 - Run your first query with [Azure CLI](first-query-azurecli.md).
 - Run your first query with [Azure PowerShell](first-query-powershell.md).
 - Get more information about the [query language](./concepts/query-language.md).
