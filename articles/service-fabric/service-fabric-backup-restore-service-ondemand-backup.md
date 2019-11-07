@@ -191,5 +191,5 @@ On-demand backup requests can be in the following states:
 - [Understand periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [BackupRestore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/TriggerPartitionBackup.png
-[1]: ./media/service-fabric-backuprestoreservice/TriggerBackupFileShare.png
+[0]: ./media/service-fabric-backuprestoreservice/trigger-partition-backup.png
+[1]: ./media/service-fabric-backuprestoreservice/trigger-backup-fileshare.png

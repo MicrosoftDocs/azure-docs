@@ -306,9 +306,9 @@ To view backups in Service Fabric Explorer, navigate to a partition and select t
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
+[0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event-azure.png
 [1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
-[2]: ./media/service-fabric-backuprestoreservice/AdvancedMode.png
-[3]: ./media/service-fabric-backuprestoreservice/EnableAppBackup.png
-[4]: ./media/service-fabric-backuprestoreservice/EnableApplicationBackup.png
-[5]: ./media/service-fabric-backuprestoreservice/BackupEnumeration.png
+[2]: ./media/service-fabric-backuprestoreservice/advanced-mode.png
+[3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
+[4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
+[5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png

@@ -333,5 +333,5 @@ You can configure Reliable Stateful service and Reliable Actors partitions in th
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[2]: ./media/service-fabric-backuprestoreservice/RestorePartitionBackup.png
-[3]: ./media/service-fabric-backuprestoreservice/RestorePartitionFileShare.png
+[2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
+[3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png
