@@ -95,7 +95,7 @@ If you do want to set up an explicit field mapping, make sure that the _sourceFi
 
 ## Next steps
 
-If you aren't already familiar with the basic structure and workflow of blob indexing, you should review [Indexing Azure Blob Storage with Azure Search](search-howto-index-json-blobs.md) first. For more information about parsing modes for different blob content types, review the following articles.
+If you aren't already familiar with the basic structure and workflow of blob indexing, you should review [Indexing Azure Blob Storage with Azure Cognitive Search](search-howto-index-json-blobs.md) first. For more information about parsing modes for different blob content types, review the following articles.
 
 > [!div class="nextstepaction"]
 > [Indexing  CSV blobs](search-howto-index-csv-blobs.md)

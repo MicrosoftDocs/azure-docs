@@ -1,5 +1,5 @@
 ---
-title: Manage two-factor verification settings - Azure Active Directory | Microsoft Docs
+title: Manage your two-factor verification settings - Azure AD
 description: Learn how to change your security verification method details as it relates to two-factor verification.
 services: active-directory
 author: eross-msft
