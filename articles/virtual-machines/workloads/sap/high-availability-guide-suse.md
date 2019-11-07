@@ -212,7 +212,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
       1. Load-balancing rules for ASCS
          1. Open the load balancer, select load-balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **nw1-lb-ascs**)
-         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**, **nw1-ascs-backend* and **nw1-ascs-hp**)
+         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**, **nw1-ascs-backend** and **nw1-ascs-hp**)
          1. Select **HA ports**
          1. Increase idle timeout to 30 minutes
          1. **Make sure to enable Floating IP**
