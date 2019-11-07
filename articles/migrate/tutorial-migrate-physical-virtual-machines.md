@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -130,7 +130,7 @@ Azure Migrate Server Migration uses a replication appliance to replicate machine
 - **Configuration server**: The configuration server coordinates communications between on-premises and Azure, and manages data replication.
 - **Process server**: The process server acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption, and sends it to a cache storage account in Azure. 
 
-Before you start, you need to prepare a Windows Server 2016 machine to host the replication appliance. The machine should comply with [these requirements](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements).
+Before you start, you need to prepare a Windows Server 2016 machine to host the replication appliance. The machine should comply with [these requirements](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements). The appliance shouldn't be installed on a source machine you want to protect.
 
 
 ## Add the Azure Migrate Server Migration tool
