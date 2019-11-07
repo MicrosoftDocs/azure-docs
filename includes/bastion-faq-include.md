@@ -49,5 +49,5 @@ A session should be initiated only from the Azure portal. Sign in to the Azure p
 
 ### <a name="keyboard"></a>What keyboard layouts are supported during the Bastion remote session?
 
-Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Support for other locales for keyboard layout is work in progress and will become available soon.
+Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Support for other locales for keyboard layout is work in progress.
 
