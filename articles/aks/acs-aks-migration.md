@@ -44,10 +44,10 @@ The following table provides details on the important technology differences.
 
 | Cluster type | Managed Disks | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | Standard SKU load balancer | Windows Server nodes|
 |-----------------------------------------|----------|
-| AKS - Virtual Machine Scale Sets | Yes | Yes | Yes | Yes (preview)
-| AKS - Virtual Machine Availability Sets | Yes | No | No | Yes (preview)
-| ACS | No | No | No |
-| AKS engine | ? | ? | ? | 
+| AKS - [VM Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets) | Yes | Yes | Yes | Yes (preview)
+| AKS - [VM Availability Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Yes | No | No | Yes (preview)
+| [ACS](https://docs.microsoft.com/azure/container-service/) | No | No | No |
+| [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) | ? | ? | ? | ? | Yes 
 
 
 ## Existing Azure attached Services
