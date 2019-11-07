@@ -136,9 +136,9 @@
         href: vpn-gateway-radiuis-mfa-nsp.md
     - name: Azure AD authentication
       items:
-      - name: Configure an Azure AD tenant
+      - name: Configure a tenant
         href: openvpn-azure-ad-tenant.md
-      - name: Configure a VPN client - Azure AD
+      - name: Configure a VPN client
         href: openvpn-azure-ad-client.md
     - name: OpenVPN
       items:
