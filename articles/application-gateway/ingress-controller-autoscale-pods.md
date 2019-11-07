@@ -117,4 +117,4 @@ ab -n10000 http://<applicaiton-gateway-ip-address>/
 ```
 
 ## Next steps
-- [**Troubleshoot Ingress Controller issues**](ingress-controller-troubleshooting.md): Troubleshoot any issues with the Ingress Controller.
+- [**Troubleshoot Ingress Controller issues**](ingress-controller-troubleshoot.md): Troubleshoot any issues with the Ingress Controller.
