@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 11/06/2019
 ms.author: aahi
 ---
 # Quickstart: Send a query to the Bing Local Business Search API in Python
@@ -42,8 +42,8 @@ import json
 # Replace the subscriptionKey string value with your valid subscription key.
 subscriptionKey = 'YOUR-SUBSCRIPTION-KEY'
 
-host = 'api.cognitive.microsoft.com/bing'
-path = '/v7.0/localbusinesses/search'
+host = 'api.cognitive.microsoft.com'
+path = '/bing/v7.0/localbusinesses/search'
 
 query = 'restaurant in Bellevue'
 

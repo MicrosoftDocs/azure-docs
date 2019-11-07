@@ -389,7 +389,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Azure Search</p>
+                                                <p>Azure Cognitive Search</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1131,6 +1131,15 @@ featureFlags:
                                             <a href="/azure/event-grid/">
                                                 <img src="media/index/azure_event_grid.svg" alt="" />
                                                 <p>Event Grid</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Industry</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/industry/agriculture/overview">
+                                                <img src="media/index/industry-agriculture-farmbeats.svg" alt="" />
+                                                <p>Azure FarmBeats</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1927,7 +1936,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Azure Search</p>
+                                                <p>Azure Cognitive Search</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2030,7 +2039,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Search</h3>
+                                                    <h3>Azure Cognitive Search</h3>
                                                     <p>Fully-managed search-as-a-service</p>
                                                 </div>
                                             </div>
@@ -3981,6 +3990,109 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Event Grid</h3>
                                                     <p>Get reliable event delivery at massive scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+<li>
+                        <a href="#industry">Industry</a>
+                        <ul id="industry" class="cardsA">
+                            <li class="fullSpan">
+                                <h2>Industry</h2>
+                            </li>
+                            <li>
+                                <a href="/azure/industry/agriculture/overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/industry-agriculture-farmbeats.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure FarmBeats</h3>
+                                                    <p>Rapidly builds digital agriculture solutions in the cloud.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/industry-marketing/financial/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/industry-financial.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Financial services</h3>
+                                                    <p>Solutions and use cases for the Financial Services industry.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/industry-marketing/health/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/industry-health.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Health and Life Sciences</h3>
+                                                    <p>Solutions and use cases for the Health and Life Sciences industry.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/industry-marketing/manufacturing/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/industry-manufacturing.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Manufacturing</h3>
+                                                    <p>Solutions and use cases for the Manufacturing industry.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/industry-marketing/retail/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/industry-retail.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Retail</h3>
+                                                    <p>Solutions and use cases for the Retail industry.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6429,7 +6541,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Search</h3>
+                                                    <h3>Azure Cognitive Search</h3>
                                                     <p>Fully-managed search-as-a-service</p>
                                                 </div>
                                             </div>
