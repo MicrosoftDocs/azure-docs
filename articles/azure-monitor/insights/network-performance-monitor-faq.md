@@ -94,6 +94,42 @@ NPM uses a probabilistic mechanism to assign fault-probabilities to each network
 ### How can I create alerts in NPM?
 Refer to [alerts section in the documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) for step-by-step instructions.
 
+### What are the default Log Analytics queries for alerts
+Performance monitor query
+
+NetworkMonitoring 
+ | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+	
+Service connectivity monitor query
+
+NetworkMonitoring                 
+ | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+	
+ExpressRoute monitor queries:
+Circuits query
+
+NetworkMonitoring
+ | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+
+Private peering
+
+NetworkMonitoring 
+ | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+
+Microsoft peering
+
+NetworkMonitoring 
+ | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+
+Common query             
+NetworkMonitoring
+ | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+
 ### Can NPM monitor routers and servers as individual devices?
 NPM only identifies the IP and host name of underlying network hops (switches, routers, servers, etc.) between the source and destination IPs. It also identifies the latency between these identified hops. It does not individually monitor these underlying hops.
 
@@ -106,16 +142,22 @@ Bandwidth usage is the total of incoming and outgoing bandwidth. It is expressed
 ### Can we get incoming and outgoing bandwidth information for the ExpressRoute?
 Incoming and outgoing values for both Primary and Secondary bandwidth can be captured.
 
-For peering level information, use the below mentioned query in Log Search
+For MS peering level information, use the below mentioned query in Log Search
 
-	NetworkMonitoring 
-    | where SubType == "ExpressRoutePeeringUtilization"
+NetworkMonitoring 
+    | where SubType == "ERMSPeeringUtilization"
+    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    
+For private peering level information, use the below mentioned query in Log Search
+
+NetworkMonitoring 
+    | where SubType == "ERVNetConnectionUtilization"
     | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-For circuit level information, use the below mentioned query 
+For circuit level information, use the below mentioned query in Log Search
 
-	NetworkMonitoring 
-    | where SubType == "ExpressRouteCircuitUtilization"
+NetworkMonitoring 
+    | where SubType == "ERCircuitTotalUtilization"
     | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### Which regions are supported for NPM's Performance Monitor?
