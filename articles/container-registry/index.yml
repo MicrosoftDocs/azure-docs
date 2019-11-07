@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Container Registry documentation # < 60 chars
-summary: Azure Container Registry allows you to build, store, and manage images for all types of container deployments. Learn how to use Azure Container Registry with these quickstarts, tutorials, and samples. # < 160 chars
+summary: Azure Container Registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers.
 
 metadata:
   title: Azure Container Registry documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: dlepow #Required; your GitHub user alias, with correct capitalization.
   ms.author: danlep #Required; microsoft alias of author; optional team alias.
-  ms.date: 11/07/2019 #Required; mm/dd/yyyy format.
+  ms.date: 11/08/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -21,36 +21,31 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: Container registries
+  - title: About Azure Container Registry
     linkLists:
       - linkListType: overview
         links:
-          - text: About Azure container registries
+          - text: What is Azure Container Registry?
             url: container-registry-intro.md
-      - linkListType: concept
-        links:
-          - text: Registries, repoitories, and images
+          - text: Registries, repositories, and images
             url: container-registry-concepts.md
-          - text: Geo-replication
-            url: container-registry-best-practices.md
-          - text: Authentication
-            url: container-registry-authentication.md
-      - linkListType: get-started
-        links:
+          - text: FAQ
+            url: container-registry-faq.md
+  # Card (optional)
+  - title: Get started
+    linkLists:
+    - linkListType: quickstart
+      links:
           - text: Deploy container registry - CLI
             url: container-registry-get-started-azure-cli.md
           - text: Deploy container registry - Portal
             url: container-registry-get-started-portal.md
-          - text: Push and pull an image
+          - text: Push and pull image with Docker
             url: container-registry-get-started-docker-cli.md
-      - linkListType: tutorial
-        links:
-          - text: Geo-replicate a registry
-            url: container-registry-tutorial-prepare-registry.md
-      - linkListType: learn 
-        links:
+    - linkListType: learn 
+      links:
           - text: Build and store container images with Azure Container Registry
-            url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/       
+            url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/         
   # Card (optional)
   - title: ACR Tasks
     linkLists:
@@ -60,22 +55,30 @@ landingContent:
             url: container-registry-tasks-overview.md
           - text: Multi-step tasks
             url: container-registry-tasks-multi-step.md
-      - linkListType: get-started
+      - linkListType: quickstart
         links:
-          - text: Build, push, and run image - CLI
+          - text: Build image in the cloud - CLI
             url: container-registry-quickstart-task-cli.md
       - linkListType: tutorial
         links:
           - text: Automate image builds     
             url: container-registry-tutorial-quick-task.md
   # Card
-  - title: Maintain registries
+  - title: Manage registries
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: View repositories and tags
             url: container-registry-repositories.md
+          - text: Import images
+            url: container-registry-import-images.md
+          - text: Lock images
+            url: container-registry-image-lock.md
           - text: Set retention policy
             url: container-registry-retention-policy.md
-          - text: FAQ
-            url: container-registry-faq.md
+      - linkListType: concept
+        links:
+          - text: Geo-replication
+            url: container-registry-best-practices.md
+          - text: Authentication
+            url: container-registry-authentication.md
