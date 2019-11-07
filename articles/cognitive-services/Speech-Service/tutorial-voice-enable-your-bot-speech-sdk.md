@@ -262,7 +262,7 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
 1. From the left navigation, select **Channels**.
    * Look for **More channels**, locate and click **Direct Line Speech**.
    * Review the text on the page titled **Configure Direct line Speech**, then expand the drop-down menu labeled "Cognitive service account."
-   * Select the speech resource you created earlier (e.g. **SpeechEchoBotTutorial-Speech**) from the menu to associate your bot to your speech subscription key.
+   * Select the speech resource you created earlier (e.g., **SpeechEchoBotTutorial-Speech**) from the menu to associate your bot to your speech subscription key.
    * Click **Save**.
 
 1. From the left navigation, click **Settings**.
@@ -343,7 +343,7 @@ To learn more about what's returned in the JSON output, see [fields in the Activ
 ### View client source code for calls to the Speech SDK
 
 The Direct Line Speech Client uses the NuGet package [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/), which contains the Speech SDK. A good place to start reviewing the sample code is the method InitSpeechConnector() in file [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs), which creates these two Speech SDK objects:
-- [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig) - For configuration settings (e.g. speech subscription key, key region)
+- [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig) - For configuration settings (e.g., speech subscription key, key region)
 - [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor) - To manage the channel connection and client subscription events for handling recognized speech and bot responses.
 
 ## Add custom keyword activation
