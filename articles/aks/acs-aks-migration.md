@@ -17,26 +17,26 @@ This article helps you plan and execute a successful migration to Azure Kubernet
 
 If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) and [AKS supported Kubernetes versions](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions) to understand the Kubernetes and AKS versioning strategies.
 
-* Migrating AKS Cluster using Availability Sets to Virtual Machine Scale Sets
-* Migrating AKS cluster to use a [Standard SKU load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard)
+* Migrating an AKS Cluster using Availability Sets to Virtual Machine Scale Sets
+* Migrating an AKS cluster to use a [Standard SKU load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard)
 * Migrating from Azure Container Service (ACS) to AKS
 * Migrating from AKS Engine to AKS
 
 In this article we will cover:
 
 > [!div class="checklist"]
-> * Considerations for migrating from Availablity Sets and Virtual Machine Scale Sets
-> * Differences between AKS clusters and technologies such as ACS
+> * Considerations for migrating AKS clusters from using Availablity Sets to Virtual Machine Scale Sets
+> * Differences between Kubernetes cluster types
 > * Considerations for stateful and stateless applications
 > * Considerations for different types of Azure storage
 
-## Differences between Kubernetes clusters
+## Differences between Kubernetes cluster types
 
 AKS clusters and non-AKS Kubernetes clusters provide different capabilities and options.  For example, AKS supports a limited set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions). 
 
 AKS is a managed service with a hosted Kubernetes control plane. You might need to modify your applications if you've previously modified the configuration of your ACS masters.
 
-The following table provides details on the important technology differences.
+The following table provides details on the important technology differences between AKS clusters with Virtual Machine Scale Sets, AKS clusters with Availablity Sets, ACS based Kubernetes clusters, and AKS engine based clusters.
 
 | Cluster type | Managed Disks | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | Standard SKU load balancer | Windows Server nodes|
 |-----------------------------------------|----------|
@@ -67,7 +67,7 @@ For more information, see [Azure subscription and service limits](https://docs.m
 
 ### High Availability and Business continuity
 
-Best practices for complex business continuity planning, disaster recovery, and maximizing uptime are beyond the scope of this document.  Read more about [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) to learn more.
+If your migration can incur little to no downtime, you'll want to follow best practices for high avaialabilty migration scenarios.  Best practices for complex business continuity planning, disaster recovery, and maximizing uptime are beyond the scope of this document.  Read more about [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) to learn more.
 
 For complex applications, you'll typically migrate over time rather than all at once. That means that the old and new environments might need to communicate over the network. Applications that previously used `ClusterIP` services to communicate might need to be exposed as type `LoadBalancer` and be secured appropriately.
 
@@ -135,9 +135,9 @@ If your application can host multiple replicas that point to the same file share
 
 If you want to start with an empty share and make a copy of the source data, you can use the [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) commands to migrate your data.
 
-### Deployment strategy
+### Deployment strategy for your cluster configuration
 
-We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
+We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. You can use Azure Pipelines to [build and deploy your applications to AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops) Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
 
 If that's not possible, export resource definitions from your existing Kubernetes cluster and then apply them to AKS. You can use `kubectl` to export objects.
 
