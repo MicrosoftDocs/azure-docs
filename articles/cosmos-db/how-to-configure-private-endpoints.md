@@ -124,6 +124,41 @@ $subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.N
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
 ```
 
+### Integrate the private endpoint with private DNS zone
+
+After you create the private endpoint, you can integrate it with a private DNS zone by using the following PowerSehll script:
+
+```azurepowershell-interactive
+Import-Module Az.PrivateDns
+$zoneName = "privatelink.documents.azure.com"
+$zone = New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName `
+  -Name $zoneName
+
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName `
+  -ZoneName $zoneName `
+  -Name "myzonelink" `
+  -VirtualNetworkId $virtualNetwork.Id  
+ 
+$pe = Get-AzPrivateEndpoint -Name $PrivateEndpointName `
+  -ResourceGroupName $ResourceGroupName
+
+$networkInterface = Get-AzResource -ResourceId $pe.NetworkInterfaces[0].Id `
+  -ApiVersion "2019-04-01"
+ 
+foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
+foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
+Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
+$recordName = $fqdn.split('.',2)[0] 
+$dnsZone = $fqdn.split('.',2)[1] 
+New-AzPrivateDnsRecordSet -Name $recordName `
+  -RecordType A -ZoneName $zoneName  `
+  -ResourceGroupName $ResourceGroupName -Ttl 600 `
+  -PrivateDnsRecords (New-AzPrivateDnsRecordConfig `
+  -IPv4Address $ipconfig.properties.privateIPAddress)  
+}
+}
+```
+
 ### Fetch the private IP addresses
 
 After the private endpoint is provisioned, you can query the IP addresses and the FQDNS mapping by using the following PowerShell script:
