@@ -122,7 +122,9 @@ Now that you have your configuration files saved in a repository, you need to co
 
 1. Navigate to your Azure Spring Cloud **Overview** page.
 
-1. Go to the **Config Server** tab under the **Settings** heading in the menu on the left side.
+1. Select the service to configure.
+
+1. On the service page select **Config Server** tab under the **Settings** heading in the menu on the left side.
 
 ![window screenshot](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 
