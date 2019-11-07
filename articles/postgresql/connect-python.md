@@ -15,7 +15,7 @@ This quickstart demonstrates how to use [Python](https://python.org) with an Azu
 
 ## Prerequisites
 - An Azure Database for PostgresQL - Single Server, created by using the [Azure portal](quickstart-create-server-database-portal.md) or [Azure CLI](quickstart-create-server-database-azure-cli.md). 
-- [Python](https://www.python.org/downloads/) with [pip](https://pip.pypa.io/en/stable/installing/) package installer installed. The `pip` package installer is automatically installed with Python 2.7.9 or above, or Python 3.4 or above.
+- [Python](https://www.python.org/downloads/) with [pip](https://pip.pypa.io/en/stable/installing/) installed. The `pip` package installer is automatically installed with Python 2.7.9 or above, or Python 3.4 or above.
 
 ## Install the Python libraries for PostgreSQL
 Install the [psycopg2](https://pypi.python.org/pypi/psycopg2/) package, which lets you connect to and query the database. The `psycopg2` package is available as a [wheel](https://pythonwheels.com/) package for Linux, macOS, or Windows. [Install](http://initd.org/psycopg/docs/install.html) the binary version of the module, including all the dependencies.
@@ -32,16 +32,20 @@ You need the fully qualified server name and login credentials to connect to you
 1. In the [Azure portal](https://portal.azure.com/), search for and select your Azure Database for PostgreSQL server name. 
 1. On the server's **Overview** page, copy the **Server name** and **Admin username**. The fully qualified server name is always of the form *\<your server name>.postgres.database.azure.com*, and the admin username is always of the form *\<your username>@\<your server name>*. 
    
-   You also need your admin password. If you forgot it, you can reset it from this page. 
+   You also need your admin password. If you forget it, you can reset it from this page. 
    
- ![Azure Database for PostgreSQL server name](./media/connect-python/1-connection-string.png)
+   ![Azure Database for PostgreSQL server name](./media/connect-python/1-connection-string.png)
 
 ## How to run the Python examples
 
 For each of the following code examples:
 1. Create a new file in a text editor. 
-1. Add the code example to the file. Replace `<server name>` and `<admin username>` with the values you copied from the Azure portal, and replace `<admin password>` with your server password. For `<database name>`, use the name of your Azure Database for PostgreSQL database. A default database named *postgres* is automatically created when you create an Azure Database for PostgreSQL server. You can rename the database or create a new database by using SQL commands. 
+1. Add the code example to the file. In the code, replace `<server name>` and `<admin username>` with the values you copied from the Azure portal, and replace `<admin password>` with your server password. 
+   
+   For `<database name>`, use the name of your Azure Database for PostgreSQL database. A default database named *postgres* is automatically created when you create an Azure Database for PostgreSQL server. You can rename the database or create a new database by using SQL commands. 
+   
 1. Save the file in your project folder with a *.py* extension, such as *postgres-insert.py*. For Windows, make sure UTF-8 encoding is selected when you save the file. 
+   
 1. To run the file, change to your project folder in your command-line interface, and type `python` followed by the filename, such as `python postgres-insert.py`.
 
 ## Create a table and insert data
