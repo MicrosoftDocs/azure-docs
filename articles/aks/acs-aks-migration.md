@@ -17,12 +17,14 @@ This article helps you plan and execute a successful migration to Azure Kubernet
 
 This document focuses on the following scenarios:
 
-* Migrating an AKS Cluster using Availability Sets to Virtual Machine Scale Sets
+* Migrating an AKS Cluster backed by [Availability Sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) to [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)
 * Migrating an AKS cluster to use a [Standard SKU load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard)
-* Migrating from Azure Container Service (ACS) to AKS
-* Migrating from AKS Engine to AKS
+* Migrating from [Azure Container Service (ACS) - retiring January 31, 2020](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) to AKS
+* Migrating from [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) to AKS
 
-If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) and [AKS supported Kubernetes versions](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions) to understand the Kubernetes and AKS versioning strategies.
+When migrating, ensure your target Kubernetes version is within the supported window for AKS. If using an older version it may not be within the supported range and require upgrading versions to be supported by AKS. See [AKS supported Kubernetes versions](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions) for more information.
+
+If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions).
 
 In this article we will summarize:
 
@@ -37,18 +39,21 @@ In this article we will summarize:
 
 ## Differences between Kubernetes cluster types
 
-AKS clusters and non-AKS Kubernetes clusters provide different capabilities and options.  For example, AKS supports a limited set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions). 
+Authorized IP ranges (VMSS & engine only)
+Azure Policy
+Availability Zones (VMSS & engine only)
+Cluster Autoscaling (VMSS & engine only)
 
-AKS is a managed service with a hosted Kubernetes control plane. You might need to modify your applications if you've previously modified the configuration of your ACS masters.
+AKS is a managed service offering unique capabilities with lower management overhead. As a result of being a managed service, you must select from a set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions) which AKS supports. The transition from your existing cluster to AKS may require modifying your existing applications so they remain healthy on the AKS managed control plane.
 
 The following table provides details on the important technology differences between AKS clusters with Virtual Machine Scale Sets, AKS clusters with Availablity Sets, ACS based Kubernetes clusters, and AKS engine based clusters.
 
-| Cluster type | [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) | Windows Server nodes|
+| Cluster type | [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) | Windows Server nodes| Authorized IP ranges | Azure Policy | Availability Zones |  Cluster Autoscaling
 |-----------------------------------------|----------|
-| [AKS - VM Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets) | Yes | Yes | Yes | Yes (preview)
-| [AKS - VM Availability Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Yes | No | No | Yes (preview)
-| [ACS](https://docs.microsoft.com/azure/container-service/) | No | No | No |
-| [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) | ? | ? | ? | Yes 
+| [AKS - VM Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets) | Yes | Yes | Yes | Yes (preview) | Yes | ? | Yes | Yes
+| [AKS - VM Availability Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Yes | No | No | Yes (preview) | No | ? | No | No
+| [ACS](https://docs.microsoft.com/azure/container-service/) | No | No | No | No | ? | No | No
+| [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) | Yes | Yes | Yes | Yes | Yes | ? | Yes | Yes
 
 ## Existing attached Azure Services
 
