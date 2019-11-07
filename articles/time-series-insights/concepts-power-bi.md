@@ -32,8 +32,6 @@ Connecting your data takes less than a minute. By loading previously **Saved Que
 
 Configuration options include choosing between **Raw** and **Aggregate-level** data and selecting a desired time range. Once data has been connected, all of Power BI's rich visualization and charting tools are available to further enhance your information sharing capabilities. 
 
-Read [the tutorial](./tutorial-power-bi.md) to get started.
-
 ## Flexible Workflow
  
 Use the connector from anywhere in your workflow:
@@ -45,4 +43,4 @@ For advanced querying and editing functionality within Power BI, use Power BI’
 
 ## Next Steps
 
-* Read the [Tutorial](./tutorial-power-bi.md) and connect your Time Series Insights instance to Power BI.
+* Read the [Tutorial](./how-to-connect-power-bi.md) and connect your Time Series Insights instance to Power BI.
