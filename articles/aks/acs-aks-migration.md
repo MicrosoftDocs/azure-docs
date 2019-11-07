@@ -29,6 +29,8 @@ In this article we will summarize:
 > [!div class="checklist"]
 > * Differences between Kubernetes cluster types
 > * Existing attached Azure Services
+> * Azure Subscription quotas
+> * AKS with Standard Load Balancer and Virtual Machine Scale Sets
 > * Considerations for Azure storage types
 > * Considerations for stateful and stateless applications
 > * Deployment of your cluster configuration
@@ -48,7 +50,6 @@ The following table provides details on the important technology differences bet
 | [ACS](https://docs.microsoft.com/azure/container-service/) | No | No | No |
 | [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) | ? | ? | ? | Yes 
 
-
 ## Existing attached Azure Services
 
 When migrating clusters, the following Azure resources should not need additional migration work. You will have to ensure they have the proper connectivtity with the new AKS cluster.
@@ -67,6 +68,10 @@ When migrating clusters, the following Azure resources should not need additiona
 Because additional virtual machines will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. 
 
 For more information, see [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits). To check your current quotas, in the Azure portal, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), select your subscription, and then select **Usage + quotas**.
+
+## AKS with Standard Load Balancer and Virtual Machine Scale Sets
+
+We recommend new AKS clusters use the [standard load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard) and e Virtual Machine Scale Sets.  This type of configuration ensures AKS operates TODO 
 
 ## High Availability and Business Continuity
 
@@ -158,6 +163,8 @@ In this article we summarized:
 > [!div class="checklist"]
 > * Differences between Kubernetes cluster types
 > * Existing attached Azure Services
+> * Azure Subscription quotas
+> * AKS with Standard Load Balancer and Virtual Machine Scale Sets
 > * Considerations for Azure storage types
 > * Considerations for stateful and stateless applications
 > * Deployment of your cluster configuration
