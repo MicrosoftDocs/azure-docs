@@ -23,6 +23,14 @@ The scenarios where you want to utilize this document are:
 * Migrating from Azure Container Service (ACS) to AKS
 * Migrating from AKS Engine to AKS
 
+In this article we will cover:
+
+> [!div class="checklist"]
+> * Considerations for migrating from Availablity Sets and Virtual Machine Scale Sets
+> * Differences between AKS clusters and technologies such as ACS
+> * Considerations for stateful and stateless applications
+> * Considerations for different types of Azure storage
+
 ## Differences between Kubernetes clusters
 
 ### AKS with Virtual Machine Scale Sets vs. Availability Sets
@@ -170,21 +178,10 @@ Several open-source tools can help, depending on your deployment needs:
 * [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli)
 * [ReShifter](https://github.com/mhausenblas/reshifter)
 
-## Migration steps
+In this article we covered:
 
-1. [Create an AKS cluster](https://docs.microsoft.com/azure/aks/create-cluster) through the Azure portal, Azure CLI, or Azure Resource Manager template.
-
-   > [!NOTE]
-   > Find sample Azure Resource Manager templates for AKS at the [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) repository on GitHub.
-
-2. Make any necessary changes to your YAML definitions. For example, replace `apps/v1beta1` with `apps/v1` for `Deployments`.
-
-3. [Migrate volumes](#migrating-persistent-volumes) (optional) from your ACS cluster to your AKS cluster.
-
-4. Use your CI/CD system to deploy applications to AKS. Or use kubectl to apply the YAML definitions.
-
-5. Validate. Make sure that your applications work as expected and that any migrated data has been copied over.
-
-6. Redirect traffic. Update DNS to point clients to your AKS deployment.
-
-7. Finish post-migration tasks. If you migrated volumes and chose not to quiesce writes, copy that data to the new cluster.
+> [!div class="checklist"]
+> * Considerations for migrating from Availablity Sets and Virtual Machine Scale Sets
+> * Differences between AKS clusters and technologies such ACS
+> * Considerations for stateful and stateless applications
+> * Considerations for different types of Azure storage
