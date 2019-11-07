@@ -25,7 +25,7 @@ This script creates an Azure Virtual Machine, installs the Log Analytics agent, 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample script
 

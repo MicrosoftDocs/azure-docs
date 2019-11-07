@@ -389,7 +389,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Azure Search</p>
+                                                <p>Azure Cognitive Search</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1927,7 +1927,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Azure Search</p>
+                                                <p>Azure Cognitive Search</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2030,7 +2030,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Search</h3>
+                                                    <h3>Azure Cognitive Search</h3>
                                                     <p>Fully-managed search-as-a-service</p>
                                                 </div>
                                             </div>
@@ -6429,7 +6429,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Search</h3>
+                                                    <h3>Azure Cognitive Search</h3>
                                                     <p>Fully-managed search-as-a-service</p>
                                                 </div>
                                             </div>
