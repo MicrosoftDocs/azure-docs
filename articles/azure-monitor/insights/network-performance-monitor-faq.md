@@ -27,7 +27,7 @@ More information on the various capabilities supported by [Network Performance M
 ### What are the platform requirements for the nodes to be used for monitoring by NPM?
 Listed below are the platform requirements for NPM's various capabilities:
 
-- NPM's Performance Monitor and Service Connectivity Monitor capabilities support both Windows server and Windows desktops/client operating systems. Windows server OS versions supported are 2008 SP1 or later. Windows desktops/client versions supported are Windows 10, Windows 8.1, Windows 8 and Windows 7. 
+- NPM's Performance Monitor and Service Connectivity Monitor capabilities support both Windows server and Windows desktops/client operating systems. Windows server OS versions supported are 2008 SP1 or later. Windows desktops/client versions supported are Windows 10, Windows 8.1, Windows 8, and Windows 7. 
 - NPM's ExpressRoute Monitor capability supports only Windows server (2008 SP1 or later) operating system.
 
 ### Can I use Linux machines as monitoring nodes in NPM?
@@ -97,38 +97,39 @@ Refer to [alerts section in the documentation](https://docs.microsoft.com/azure/
 ### What are the default Log Analytics queries for alerts
 Performance monitor query
 
-NetworkMonitoring 
- | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
- | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+	NetworkMonitoring 
+	 | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+	 | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
 	
 Service connectivity monitor query
 
-NetworkMonitoring                 
- | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
- | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+	NetworkMonitoring                 
+	 | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+	 | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
 	
 ExpressRoute monitor queries:
 Circuits query
 
-NetworkMonitoring
- | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+	NetworkMonitoring
+ 	| where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
 
 Private peering
 
-NetworkMonitoring 
- | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
- | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+	NetworkMonitoring 
+	 | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+ 	| where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
 
 Microsoft peering
 
-NetworkMonitoring 
- | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
- | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+	NetworkMonitoring 
+	 | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+ 	| where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
 
-Common query             
-NetworkMonitoring
- | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
- | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+Common query   
+
+	NetworkMonitoring
+ 	| where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+ 	| where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
 
 ### Can NPM monitor routers and servers as individual devices?
 NPM only identifies the IP and host name of underlying network hops (switches, routers, servers, etc.) between the source and destination IPs. It also identifies the latency between these identified hops. It does not individually monitor these underlying hops.
@@ -144,21 +145,21 @@ Incoming and outgoing values for both Primary and Secondary bandwidth can be cap
 
 For MS peering level information, use the below mentioned query in Log Search
 
-NetworkMonitoring 
-    | where SubType == "ERMSPeeringUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+	NetworkMonitoring 
+   	 | where SubType == "ERMSPeeringUtilization"
+   	 | project 	CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
     
 For private peering level information, use the below mentioned query in Log Search
 
-NetworkMonitoring 
-    | where SubType == "ERVNetConnectionUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+	NetworkMonitoring 
+   	 | where SubType == "ERVNetConnectionUtilization"
+   	 | project 	CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
 For circuit level information, use the below mentioned query in Log Search
 
-NetworkMonitoring 
-    | where SubType == "ERCircuitTotalUtilization"
-    | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+	NetworkMonitoring 
+    	| where SubType == "ERCircuitTotalUtilization"
+    	| project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### Which regions are supported for NPM's Performance Monitor?
 NPM can monitor connectivity between networks in any part of the world, from a workspace that is hosted in one of the [supported regions](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
@@ -182,8 +183,8 @@ A hop may not respond to a traceroute in one or more of the below scenarios:
 * The network devices are not allowing ICMP_TTL_EXCEEDED traffic.
 * A firewall is blocking the ICMP_TTL_EXCEEDED response from the network device.
 
-### I get alerts for unhealthy tests but I do not see the high values in NPM's loss and latency graph. How do I check what is unhealthy ?
-NPM raises an alert if end to end latency between source and destination crosses the threshhold for any path between them. Some networks have more than one paths connecting the same source and destination. NPM raises an alert is any path is unhealthy. The loss and latency seen in the graphs is the average value for all the paths, hence it may not show the exact value of a single path. To understand where the threshold has been breached, look for the "SubType" column in the alert. If the issue is caused by a path the SubType value will be NetworkPath ( for Performance Monitor tests), EndpointPath (for Service Connectivity Monitor tests) and ExpressRoutePath (for ExpressRotue Monitor tests). 
+### I get alerts for unhealthy tests but I do not see the high values in NPM's loss and latency graph. How do I check what is unhealthy?
+NPM raises an alert if end to end latency between source and destination crosses the threshold for any path between them. Some networks have multiple paths connecting the same source and destination. NPM raises an alert is any path is unhealthy. The loss and latency seen in the graphs is the average value for all the paths, hence it may not show the exact value of a single path. To understand where the threshold has been breached, look for the "SubType" column in the alert. If the issue is caused by a path the SubType value will be NetworkPath (for Performance Monitor tests), EndpointPath (for Service Connectivity Monitor tests) and ExpressRoutePath (for ExpressRotue Monitor tests). 
 
 Sample Query to find is path is unhealthy:
 
@@ -193,7 +194,7 @@ Sample Query to find is path is unhealthy:
 	| project SubType, LossHealthState, LatencyHealthState, MedianLatency 
 
 ### Why does my test show unhealthy but the topology does not 
-NPM monitors end-to-end loss, latency, and topology at different intervals. Loss and latency are measured once every 5 seconds and aggregated every three minutes (for Performance Monitor and Express Route Monitor) while topology is calculated using traceroute once every 10 minutes. For example, between 3:44 and 4:04, topology may be updated three times (3:44, 3:54, 4:04) , but loss and latency are updated about seven times (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02). The topology generated at 3:54 will be rendered for the loss and latency that gets calculated at 3:56, 3:59 and 4:02. Suppose you get an alert that your ER circuit was unhealthy at 3:59. You log on to NPM and try to set the topology time to 3:59. NPM will render the topology generated at 3:54. To understand the last known topology of your network, compare the fields TimeProcessed (time at which loss and latency was calculated) and TracerouteCompletedTime(time at which topology was calculated). 
+NPM monitors end-to-end loss, latency, and topology at different intervals. Loss and latency are measured once every 5 seconds and aggregated every three minutes (for Performance Monitor and Express Route Monitor) while topology is calculated using traceroute once every 10 minutes. For example, between 3:44 and 4:04, topology may be updated three times (3:44, 3:54, 4:04), but loss and latency are updated about seven times (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02). The topology generated at 3:54 will be rendered for the loss and latency that gets calculated at 3:56, 3:59 and 4:02. Suppose you get an alert that your ER circuit was unhealthy at 3:59. You log on to NPM and try to set the topology time to 3:59. NPM will render the topology generated at 3:54. To understand the last known topology of your network, compare the fields TimeProcessed (time at which loss and latency was calculated) and TracerouteCompletedTime(time at which topology was calculated). 
 
 ### What is the difference between the fields E2EMedianLatency and AvgHopLatencyList in the NetworkMonitoring table
 E2EMedianLatency is the latency updated every three minutes after aggregating the results of tcp ping tests, whereas AvgHopLatencyList is updated every 10 mins based on traceroute. To understand the exact time at which E2EMedianLatency was calculated, use the field TimeProcessed. To understand the exact time at which traceroute completed and updated AvgHopLatencyList, use the field TracerouteCompletedTime
