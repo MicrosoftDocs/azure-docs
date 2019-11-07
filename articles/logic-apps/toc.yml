@@ -85,7 +85,7 @@
       href: logic-apps-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
-      - name: Secure
+    - name: Secure
       items:
       - name: Secure your logic apps
         href: logic-apps-securing-a-logic-app.md
