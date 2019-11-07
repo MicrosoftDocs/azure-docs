@@ -453,7 +453,7 @@
             - name: Token cache serialization
               href: msal-java-token-cache-serialization.md
             - name: Add and remove accounts from the token cache
-              href: msal-java-add-remove-accounts-token-cache.md
+              href: msal-java-get-remove-accounts-token-cache.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service

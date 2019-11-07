@@ -3,8 +3,8 @@ title: ADAL to MSAL migration guide for Java | Azure
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Java app to the Microsoft Authentication Library (MSAL).
 services: active-directory
 author: sangonzal
-manager:
-editor: 
+manager: henrikm
+editor: twhitney
 
 ms.service: active-directory
 ms.subservice: develop
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: Java
 ms.workload: identity
 ms.date: 11/4/2019
 ms.author: santiago.gonzales
-ms.reviewer: 
+ms.reviewer: navyari.canumalla
 ms.custom: aaddev
 #Customer intent: As an Java application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ms.collection: M365-identity-device-management
@@ -40,7 +40,7 @@ If you have been working with the Azure AD for developers (v1.0) endpoint (and A
 
 ## Scopes not resources
 
-ADAL4J acquires tokens for resources whereas MSAL4J acquires tokens for scopes. A number of MSAL4J classes require a scopes parameter. This parameter is a list of strings that declare the desired permissions and resources that are requested. Well-known scopes are the [Microsoft Graph's scopes](https://docs.microsoft.com/en-us/graph/permissions-reference).
+ADAL4J acquires tokens for resources whereas MSAL4J acquires tokens for scopes. A number of MSAL4J classes require a scopes parameter. This parameter is a list of strings that declare the desired permissions and resources that are requested. See [Microsoft Graph's scopes](https://docs.microsoft.com/en-us/graph/permissions-reference) to see example scopes.
 
 ## Core classes
 
@@ -69,7 +69,7 @@ MSAL4J defines the concept of Account via the `IAccount` interface. This is a br
 ## Cache persistence
 
 ADAL4J did not have support for token cache.
-MSAL4J adds a [token cache](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki/Token-Cache) to simplify managing token lifetimes by automatically refreshing expired tokens when possible and preventing unnecessary prompts for the user to provide credentials when possible.
+MSAL4J adds a [token cache](msal-acquire-cache-tokens.md) to simplify managing token lifetimes by automatically refreshing expired tokens when possible and preventing unnecessary prompts for the user to provide credentials when possible.
 
 ## Common Authority
 

@@ -1,11 +1,11 @@
 ---
-title: Acquire and cache tokens using MSAL
+title: Custom token cache serialization in MSAL for Java
 titleSuffix: Microsoft identity platform
-description: Learn about acquiring and caching tokens using the Microsoft Authentication Library (MSAL).
+description: Learn how to serializing the token cache for MSAL for Java
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
-manager: CelesteDG
+author: sangonzal
+manager: henrikm
 editor: ''
 
 ms.service: active-directory
@@ -14,40 +14,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/30/2019
-ms.author: twhitney
-ms.reviewer: saeeda
+ms.date: 11/07/2019
+ms.author: santiago.gonzales
+ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about acquiring and caching tokens so I can decide if this platform meets my application development needs and requirements.
+#Customer intent: As an application developer using the Microsoft Authentication Library for Java (MSAL4J), I want to learn how to persist the token cache.
 ms.collection: M365-identity-device-management
 ---
 
-# Acquire and cache tokens using the Microsoft authentication library (MSAL)
+# Custom token cache serialization in MSAL for Java (MSAL4J)
 
-In MSAL4J, an in-memory token cache is provided by default. The in-memory token cache lasts for the duration of the application. 
+To have a persistent token cache application, you will need to customize the serialization. The Java classes and interfaces involved in token cache serialization are the following:
 
-### Checking what accounts are in the cache
+- [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html):  Interface representing security token cache.
+- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html): Interface representing operation of executing code before and after access. You would @Override *beforeCacheAccess* and *afterCacheAccess* with the logic responsible for serializing and deserializing the cache.
+- [ITokenCacheContext](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessContext.html): Interface representing context in which the token cache is accessed. 
 
-You can check what accounts are in the cache by calling *PublicClientApplication.getAccounts()*
+Below is a naive implementation of custom serialization of token cache serialization/deserialization. Do not copy and paste this into a production environment.
 
 ```Java
-PublicClientApplication pca = new PublicClientApplication.Builder(
-                labResponse.getAppId()).
-                authority(TestConstants.ORGANIZATIONS_AUTHORITY).
-                build();
+static class TokenPersistence implements ITokenCacheAccessAspect {
+String data;
 
-Set<IAccount> accounts = pca.getAccounts().join();
+TokenPersistence(String data) {
+        this.data = data;
+}
+
+@Override
+public void beforeCacheAccess(ITokenCacheAccessContext iTokenCacheAccessContext) {
+        iTokenCacheAccessContext.tokenCache().deserialize(data);
+}
+
+@Override
+public void afterCacheAccess(ITokenCacheAccessContext iTokenCacheAccessContext) {
+        data = iTokenCacheAccessContext.tokenCache().serialize();
+}
 ```
 
-### Removing accounts from the cache
-
-For removing accounts from the cache, first find the account that needs to be removed, and then call *PublicClientApplicatoin.removeAccount()*
-
 ```Java
-Set<IAccount> accounts = pca.getAccounts().join();
+// Loads cache from file
+String dataToInitCache = readResource(this.getClass(), "/cache_data/serialized_cache.json");
 
-IAccount accountToBeRemoved = accounts.stream().filter(
-                x -> x.username().equalsIgnoreCase(
-                        UPN_OF_USER_TO_BE_REMOVED)).findFirst().orElse(null);
+ITokenCacheAccessAspect persistenceAspect = new TokenPersistence(dataToInitCache);
 
-pca.removeAccount(accountToBeRemoved).join();
+// By setting *TokenPersistence* on the PublicClientApplication, MSAL will call *beforeCacheAccess()* before accessing the cache and *afterCacheAccess()* after accessing the cache. 
+PublicClientApplication app = 
+PublicClientApplication.builder("my_client_id").setTokenCacheAccessAspect(persistenceAspect).build();
+```
+
+## Learn more
+
+Learn about [Get and remove accounts from the token cache using MSAL for Java](msal-java-get-remove-accounts-token-cache.md).
