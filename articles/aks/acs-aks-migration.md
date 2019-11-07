@@ -80,7 +80,7 @@ To complete the migration, you'll want to point clients to the new services that
 
 ![AKS with Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
-[Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview) TODO
+[Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) is another option for routing traffic for AKS clusters.  Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. 
 
 In a multicluster deployment, customers should connect to a Traffic Manager DNS name that points to the services on each AKS cluster. Define these services by using Traffic Manager endpoints. Each endpoint is the *service load balancer IP*. Use this configuration to direct network traffic from the Traffic Manager endpoint in one region to the endpoint in a different region.
 
