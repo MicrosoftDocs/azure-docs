@@ -116,7 +116,7 @@ When you create a function app, you must create or link to a general-purpose Azu
 
 Key Vault references allow you to use secrets from Azure Key Vault in your Azure Functions application without requiring any code changes. Azure Key Vault is a service that provides centralized secrets management, with full control over access policies and audit history.
 
-Currently [Key Vault references](../app-service/app-service-key-vault-references.md) will not work if your key vault is secured with service endpoints. To connect to a key vault using virtual network integration you will need to call keyvault in your application code.
+Currently [Key Vault references](../app-service/app-service-key-vault-references.md) will not work if your Key Vault is secured with service endpoints. To connect to a Key Vault using virtual network integration you will need to call key vault in your application code.
 
 ## Virtual network triggers (non-HTTP)
 
