@@ -203,85 +203,124 @@ additionalContent:
 
   - title: Reference
     items:
-      - title: Bing Web Search
-        links: 
-          - text: Bing Web Search REST API v7
+      
+      - title: REST API v7
+        links:
+          - text: Bing Web Search 
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: .NET SDK
+          - text: Bing Custom Search 
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Node.js SDK
+          - text: Bing Image Search 
             url: https://docs.microsoft.com/azure/cognitive-services/
-      - title: Bing Custom Search
-        links: 
-          - text: Bing Custom Search REST API v7
+          - text: Bing Entity Search 
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: .NET SDK
+          - text: Bing News Search 
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Node.js SDK
+          - text: Bing Video Search 
             url: https://docs.microsoft.com/azure/cognitive-services/
-      - title: Bing Image Search
-        links: 
-          - text: Bing Image Search REST API v7
+          - text: Bing Visual Search 
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: .NET SDK
+          - text: Bing Autosuggest 
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Node.js SDK
+          - text: Bing Spell Check
             url: https://docs.microsoft.com/azure/cognitive-services/
-      - title: Bing Entity Search
-        links: 
-          - text: Bing Entity Search REST API v7
+          - text: Bing Local Business Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: .NET SDK
+      - title: .NET SDK
+        links:
+          - text: Bing Web Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Node.js SDK
+          - text: Bing Custom Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-      - title: Bing News Search
-        links: 
-          - text: Bing News Search REST API v7
+          - text: Bing Entity Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: .NET SDK
+          - text: Bing Image Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Node.js SDK
+          - text: Bing News Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-      - title: Bing Video Search
-        links: 
-          - text: Bing Video Search REST API v7
+          - text: Bing Video Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: .NET SDK
+          - text: Bing Visual Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Node.js SDK
+          - text: Bing Spell Check
             url: https://docs.microsoft.com/azure/cognitive-services/
-      - title: Bing Visual Search
-        links: 
-          - text: Bing Visual Search REST API v7
+          - text: Bing Autosuggest
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: .NET SDK
+      - title: Java SDK
+        links:
+          - text: Bing Web Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Node.js SDK
+          - text: Bing Custom Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-      - title: Bing Autosuggest
-        links: 
-          - text: Bing Autosuggest REST API v7
+          - text: Bing Entity Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: .NET SDK
+          - text: Bing Image Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Node.js SDK
+          - text: Bing News Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-      - title: Bing Spell Check
-        links: 
-          - text: Bing Spell Check REST API v7
+          - text: Bing Video Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: .NET SDK
+          - text: Bing Visual Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Node.js SDK
+          - text: Bing Spell Check
             url: https://docs.microsoft.com/azure/cognitive-services/
-      - title: Bing Local Business Search
-        links: 
-          - text: Bing Local Business REST API v7
+          - text: Bing Autosuggest
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: .NET SDK
+      - title: Python SDK
+        links:
+          - text: Bing Web Search
             url: https://docs.microsoft.com/azure/cognitive-services/
-          - text: Node.js SDK
+          - text: Bing Custom Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Entity Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Image Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing News Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Video Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Visual Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Spell Check
+            url: https://docs.microsoft.com/azure/cognitive-services/
+      - title: Node.js SDK
+        links:
+          - text: Bing Web Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Custom Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Entity Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Image Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing News Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Video Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Visual Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Spell Check
+            url: https://docs.microsoft.com/azure/cognitive-services/ 
+          - text: Bing Autosuggest
+            url: https://docs.microsoft.com/azure/cognitive-services/
+      - title: Go SDK
+        links:
+          - text: Bing Web Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Custom Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Entity Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Image Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing News Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Video Search
+            url: https://docs.microsoft.com/azure/cognitive-services/
+          - text: Bing Spell Check
+            url: https://docs.microsoft.com/azure/cognitive-services/ 
+          - text: Bing Autosuggest
             url: https://docs.microsoft.com/azure/cognitive-services/
       - title: Other
         links:
