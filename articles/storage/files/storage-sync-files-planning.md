@@ -163,8 +163,8 @@ Note the volume savings only apply to the server; your data in the Azure file sh
 > [!Note]  
 > Data Deduplication and Cloud Tiering are not currently supported on the same volume on Server 2019 due to a bug that will be fixed in a future update.
 
-**Windows Server 2012 R2 or older agent versions**  
-For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume.
+**Windows Server 2012 R2**  
+On Windows Server 2012 R2, Azure File Sync does not support Data Deduplication and cloud tiering on the same volume. If Data Deduplication is enabled on a volume, cloud tiering must be disabled. 
 
 **Notes**
 - If Data Deduplication is installed prior to installing the Azure File Sync agent, a restart is required to support Data Deduplication and cloud tiering on the same volume.
