@@ -132,7 +132,7 @@ When no longer needed, delete the resource group. This deletes the Key Vault and
 
 ## Troubleshooting
 
-If your Key Vault is running on an different Microsoft account than the one you're logged in to Visual Studio (for example, The Key Vault is running on your Work Account, but Visual Studio is using your private Account) you get an error in your Program.cs file, that Visual Studio can't get access to the Key Vault. To fix this issue:
+If your key vault is running on an different Microsoft account than the one you're logged in to Visual Studio (for example, the key vault is running on your work account, but Visual Studio is using your private account) you get an error in your Program.cs file, that Visual Studio can't get access to the Key Vault. To fix this issue:
 
 1. Go to the [Azure portal](https://portal.azure.com) and open your Key Vault.
 
