@@ -27,12 +27,12 @@ After you have run Azure AD Connect to configure your organization for Hybrid Az
 All domain-joined devices running Windows 10 and Windows Server 2016 automatically register with Azure AD once all configuration steps are complete. If you prefer a controlled rollout rather than this auto-registration, you can use group policy to selectively enable or disable automatic rollout.  This group policy should be set before starting the other configuration steps:
 * Create a group policy object in your Active Directory.
 * Name it (ex- Hybrid Azure AD join).
-* Edit & go to:  Computer Configuration > Policies > Administrative Templates > Windows Components > Device Registration.
+* Edit and go to:  Computer Configuration > Policies > Administrative Templates > Windows Components > Device Registration.
 
 >[!NOTE]
 >For 2012R2 the policy settings are at **Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers**
 
-* Disable this setting:  Register domain-joined computers as devices.
+* Enable this setting:  Register domain-joined computers as devices.
 * Apply and click OK.
 * Link the GPO to the location of your choice (organizational unit, security group, or to the domain for all devices).
 

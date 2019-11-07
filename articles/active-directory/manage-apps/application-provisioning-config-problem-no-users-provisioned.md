@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 09/03/2019
 ms.author: mimart
-ms.reviewer: asteen
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ---
 
@@ -25,29 +25,29 @@ After automatic provisioning has been configured for an application (including v
 -   Whether or not **attribute mappings** are enabled, and configured to sync valid attributes from Azure AD to the app. For more information on attribute mappings, see [Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory](customize-application-attributes.md).
 -   Whether or not there is a **scoping filter** present that is filtering users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
   
-If you observe that users are not being provisioned, consult the Audit logs in Azure AD. Search for log entries for a specific user.
+If you observe that users are not being provisioned, consult the [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) in Azure AD. Search for log entries for a specific user.
 
-The provisioning audit logs can be accessed in the Azure portal, in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt; Audit Logs** tab. Filter the logs on the **Account Provisioning** category to only see the provisioning events for that app. You can search for users based on the “matching ID” that was configured for them in the attribute mappings. For example, if you configured the “user principal name” or “email address” as the matching attribute on the Azure AD side, and the user not being provisioning has a value of “audrey@contoso.com”, then search the audit logs for “audrey@contoso.com” and review the entries returned.
+You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. You can search the provisioning data based on the name of the user or the identifier in either the source system or the target system. For details, see [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
-The provisioning audit logs record all the operations performed by the provisioning service, including querying Azure AD for assigned users that are in scope for provisioning, querying the target app for the existence of those users, comparing the user objects between the system. Then add, update, or disable the user account in the target system based on the comparison.
+The provisioning logs record all the operations performed by the provisioning service, including querying Azure AD for assigned users that are in scope for provisioning, querying the target app for the existence of those users, comparing the user objects between the system. Then add, update, or disable the user account in the target system based on the comparison.
 
 ## General Problem Areas with Provisioning to consider
 Below is a list of the general problem areas that you can drill into if you have an idea of where to start.
 
 - [Provisioning service does not appear to start](#provisioning-service-does-not-appear-to-start)
-- [Audit logs say users are skipped and not provisioned, even though they are assigned](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+- [Provisioning logs say users are skipped and not provisioned, even though they are assigned](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## Provisioning service does not appear to start
-If you set the **Provisioning Status** to be **On** in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt;Provisioning** section of the Azure portal. However no other status details are shown on that page after subsequent reloads, it is likely that the service is running but has not completed an initial synchronization yet. Check the **Audit logs** described above to determine what operations the service is performing, and if there are any errors.
+If you set the **Provisioning Status** to be **On** in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt;Provisioning** section of the Azure portal. However no other status details are shown on that page after subsequent reloads, it is likely that the service is running but has not completed an initial cycle yet. Check the **Provisioning logs (preview)** described above to determine what operations the service is performing, and if there are any errors.
 
 >[!NOTE]
->An initial sync can take anywhere from 20 minutes to several hours, depending on the size of the Azure AD directory and the number of users in scope for provisioning. Subsequent syncs after the initial sync are faster, as the provisioning service stores watermarks that represent the state of both systems after the initial sync. The initial sync improves performance of subsequent syncs.
+>An initial cycle can take anywhere from 20 minutes to several hours, depending on the size of the Azure AD directory and the number of users in scope for provisioning. Subsequent syncs after the initial cycle are faster, as the provisioning service stores watermarks that represent the state of both systems after the initial cycle. The initial cycle improves performance of subsequent syncs.
 >
 
 
-## Audit logs say users are skipped and not provisioned even though they are assigned
+## Provisioning logs say users are skipped and not provisioned even though they are assigned
 
-When a user shows up as “skipped” in the audit logs, it is important to read the extended details in the log message to determine the reason. Below are common reasons and resolutions:
+When a user shows up as “skipped” in the provisioning logs, it is important to review the **Steps** tab of the log to determine the reason. Below are common reasons and resolutions:
 
 - **A scoping filter has been configured** **that is filtering the user out based on an attribute value**. For more information on scoping filters, see [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 - **The user is “not effectively entitled”.** If you see this specific error message, it is because there is a problem with the user assignment record stored in Azure AD. To fix this issue, unassign the user (or group) from the app, and reassign it again. For more information on assignment, see [Assign user or group access](assign-user-or-group-access-portal.md).

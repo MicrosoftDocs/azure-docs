@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
 ---
 # Configure Form Recognizer containers
@@ -84,16 +84,17 @@ Replace {_argument_name_} in the following table with your own values:
 
 | Placeholder | Value |
 |-------------|-------|
-|{FORM_RECOGNIZER_API_KEY} | The key that's used to start the container. It's available on the Azure portal Form Recognizer Keys page.  |
-|{FORM_RECOGNIZER_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal Form Recognizer Overview page.|
-|{COMPUTER_VISION_API_KEY}| The key is available on the Azure portal Computer Vision API Keys page.|
-|{COMPUTER_VISION_ENDPOINT_URI}|The billing endpoint. If you're using a cloud-based Computer Vision resource, the URI value is available on the Azure portal Computer Vision API Overview page. If you're using a  *cognitive-services-recognize-text* container, use the billing endpoint URL that's passed to the container in the `docker run` command.|
+| **{FORM_RECOGNIZER_API_KEY}** | The key that's used to start the container. It's available on the Azure portal Form Recognizer Keys page. |
+| **{FORM_RECOGNIZER_ENDPOINT_URI}** | The billing endpoint URI value is available on the Azure portal Form Recognizer Overview page.|
+| **{COMPUTER_VISION_API_KEY}** | The key is available on the Azure portal Computer Vision API Keys page.|
+| **{COMPUTER_VISION_ENDPOINT_URI}** | The billing endpoint. If you're using a cloud-based Computer Vision resource, the URI value is available on the Azure portal Computer Vision API Overview page. If you're using a *cognitive-services-recognize-text* container, use the billing endpoint URL that's passed to the container in the `docker run` command. |
+
+See [gathering required parameters](form-recognizer-container-howto.md#gathering-required-parameters) for details on how to obtain these values.
+
+[!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > To run the container, specify the `Eula`, `Billing`, and `ApiKey` options; otherwise, the container won't start. For more information, see [Billing](#billing-configuration-setting).
-
-> [!NOTE] 
-> The ApiKey value is the **Key** from the Azure Form Recognizer Resource keys page.
 
 ## Form Recognizer container Docker examples
 

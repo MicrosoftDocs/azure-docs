@@ -1,5 +1,5 @@
 ---
-title: Exact text match - LUIS
+title: "Tutorial: Exact text match - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
 services: cognitive-services
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 10/14/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 ---
@@ -17,6 +17,8 @@ ms.author: diberry
 # Tutorial: Get exact text-matched data from an utterance
 
 In this tutorial, understand how to get entity data that matches a predefined list of items. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In this tutorial, you learn how to:**
 

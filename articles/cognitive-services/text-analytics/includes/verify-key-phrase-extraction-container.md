@@ -6,12 +6,12 @@ services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 08/21/2019
+ms.topic: include
+ms.date: 09/12/2019
 ms.author: dapine
 ---
 
-## Verify the Key Phrase Extraction container instance
+### Verify the Key Phrase Extraction container instance
 
 1. Select the **Overview** tab, and copy the IP address.
 1. Open a new browser tab, and enter the IP address. For example, enter `http://<IP-address>:5000 (http://55.55.55.55:5000`). The container's home page is displayed, which lets you know the container is running.

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/13/2019
+ms.date: 10/28/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 
@@ -26,22 +26,24 @@ The reporting architecture in Azure Active Directory (Azure AD) consists of the 
 
 - **Activity** 
     - **Sign-ins** – Information about the usage of managed applications and user sign-in activities.
-    - **Audit logs** - [Audit logs](concept-audit-logs.md) provide system activity information about users and group management, managed applications and directory activities.
+    - **Audit logs** - [Audit logs](concept-audit-logs.md) provide system activity information about users and group management, managed applications, and directory activities.
 - **Security** 
-    - **Risky sign-ins** - A [risky sign-in](concept-risky-sign-ins.md) is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+    - **Risky sign-ins** - A [risky sign-in](concept-risky-sign-ins.md) is an indicator for a sign-in attempt by someone who isn't the legitimate owner of a user account.
     - **Users flagged for risk** - A [risky user](concept-user-at-risk.md) is an indicator for a user account that might have been compromised.
 
-This topic gives you an overview of the sign-ins report.
+This article gives you an overview of the sign-ins report.
 
 ## Prerequisites
 
 ### Who can access the data?
-* Users in the Security Administrator, Security Reader and Report Reader roles
+
+* Users in the Security Administrator, Security Reader, and Report Reader roles
 * Global Administrators
-* In addition, any user (non-admins) can access their own sign-ins 
+* Any user (non-admins) can access their own sign-ins 
 
 ### What Azure AD license do you need to access sign-in activity?
-* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license.
+
+* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in the reports after you upgrade to a premium license with no data activities before the upgrade.
 
 ## Sign-ins report
 
@@ -51,7 +53,7 @@ The user sign-ins report provides answers to the following questions:
 * How many users have signed in over a week?
 * What’s the status of these sign-ins?
 
-You can access the sign-ins report by selecting **Sign-ins** in the **Monitoring** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Note that it may take upto two hours for some sign-in records to show up in the portal.
+Start with [Azure portal](https://portal.azure.com). To access the sign-ins report select **Sign-ins**, continue to the **Monitoring.** It may take up to two hours for some sign-in records to show up in the portal.
 
 ![Sign-in activity](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Sign-in activity")
 
@@ -67,19 +69,19 @@ A sign-ins log has a default list view that shows:
 - The status of the risk detection
 - The status of the multi-factor authentication (MFA) requirement
 
-![Sign-in activity](./media/concept-sign-ins/01.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/sign-in-activity.png "Sign-in activity")
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
 ![Sign-in activity](./media/concept-sign-ins/19.png "Sign-in activity")
 
-This enables you to display additional fields or remove fields that are already displayed.
+Displays additional fields or remove fields that are already displayed.
 
 ![Sign-in activity](./media/concept-sign-ins/02.png "Sign-in activity")
 
 Select an item in the list view to get more detailed information.
 
-![Sign-in activity](./media/concept-sign-ins/03.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/basic-sign-in.png "Sign-in activity")
 
 > [!NOTE]
 > Customers can now troubleshoot Conditional Access policies through all sign-in reports. By clicking on the **Conditional Access** tab for a sign-in record, customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
@@ -89,7 +91,7 @@ Select an item in the list view to get more detailed information.
 
 ## Filter sign-in activities
 
-To narrow down the reported data to a level that works for you, you can filter the sign-ins data using date field as default filter. Additionally, Azure AD provides you with a broad range of additional filters you can set.
+First, narrowing down the reported data to a level that works for you. Second, filter sign-ins data using date field as default filter. Azure AD provides you with a broad range of additional filters you can set.
 
 ![Sign-in activity](./media/concept-sign-ins/04.png "Sign-in activity")
 
@@ -113,7 +115,7 @@ The **Conditional Access** filter enables you to select the CA policy status for
 The **Date** filter enables to you to define a timeframe for the returned data.  
 Possible values are:
 
-- 1 month
+- One month
 - 7 days
 - 24 hours
 - Custom time interval
@@ -124,20 +126,20 @@ If you add additional fields to your sign-ins view, these fields are automatical
 ![Sign-in activity](./media/concept-sign-ins/12.png "Sign-in activity")
 
 - **Browser**  
-    This filter shows all events where sign-in attempts were performed using browser flows.
+    This filter shows all events where sign-in attempts were attempted using browser flows.
 - **Exchange ActiveSync (supported)**  
-    This filter shows all sign-in attempts where the Exchange ActiveSync (EAS) protocol has been attempted from supported platforms like iOS, Android and Windows Phone.
-- **Exchange ActiveSync (unSupported)**  
+    This filter shows all sign-in attempts where the Exchange ActiveSync (EAS) protocol has been attempted from supported platforms like iOS, Android, and Windows Phone.
+- **Exchange ActiveSync (unsupported)**  
     This filter shows all sign-in attempts where the EAS protocol has been attempted from unsupported platforms like, Linux distros.
 - **Mobile Apps and Desktop clients**
-        This filter shows all sign-in attempts that were not using browser flows. This can be mobile apps from any platform using any protocol or from Desktop client apps like Office on Windows or MacOS.
+        The filter shows all sign-in attempts that were not using browser flows. For example, mobile apps from any platform using any protocol or from Desktop client apps like Office on Windows or MacOS.
   
 - **Other clients**
     - **IMAP**  
         A legacy mail client using IMAP to retrieve email.
     - **MAPI**  
         Office 2013, where ADAL is enabled and it is using MAPI.
-    - **Older Office clients**  
+    - **Old Office clients**  
         Office 2013 in its default configuration where ADAL is not enabled and it is using MAPI, or Office 2016 where ADAL has been disabled.
     - **POP**  
         A legacy mail client using POP3 to retrieve email.
@@ -146,7 +148,7 @@ If you add additional fields to your sign-ins view, these fields are automatical
 
 ## Download sign-in activities
 
-You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** gives you the option to create a CSV or JSON file of the most recent 250,000 records.  
+Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 
@@ -156,7 +158,7 @@ You can [download the sign-ins data](quickstart-download-sign-in-report.md) if y
 
 ## Sign-ins data shortcuts
 
-In addition to Azure AD, the Azure portal provides you with additional entry points to sign-ins data:
+Azure AD and the Azure portal both provide you with additional entry points to sign-ins data:
 
 - The Identity security protection overview
 - Users
@@ -165,7 +167,7 @@ In addition to Azure AD, the Azure portal provides you with additional entry poi
 
 ### Users sign-ins data in Identity security protection
 
-The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign-ins for all users in a given time period. The default for the time period is 30 days.
+The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign-ins. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/06.png "Sign-in activity")
 
@@ -205,30 +207,28 @@ On the **Users** page, you get a complete overview of all user sign-ins by click
 With an application-centric view of your sign-in data, you can answer questions such as:
 
 * Who is using my applications?
-* What are the top 3 applications in your organization?
-* I have recently rolled out an application. How is it doing?
+* What are the top three applications in your organization?
+* How is my newest application doing?
 
-Your entry point to this data is the top 3 applications in your organization within the last 30 days report in the **Overview** section under **Enterprise applications**.
+The entry point to this data is the top three applications in your organization. The data is contained within the last 30 days report in the **Overview** section under **Enterprise applications**.
 
 ![Sign-in activity](./media/concept-sign-ins/10.png "Sign-in activity")
 
-The app-usage graph weekly aggregations of sign-ins for your top 3 applications in a given time period. The default for the time period is 30 days.
+The app-usage graphs weekly aggregations of sign-ins for your top three applications in a given time period. The default for the time period is 30 days.
 
-![Sign-in activity](./media/concept-sign-ins/47.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/graph-chart.png "Sign-in activity")
 
 If you want to, you can set the focus on a specific application.
 
-![Reporting](./media/concept-sign-ins/single_spp_usage_graph.png "Reporting")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
 
 When you click on a day in the app usage graph, you get a detailed list of the sign-in activities.
 
 The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
 
-![Sign-in activity](./media/concept-sign-ins/11.png "Sign-in activity")
-
 ## Office 365 activity logs
 
-You can view Office 365 activity logs from the [Microsoft 365 admin center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Microsoft 365 admin center provides a full view of the Office 365 activity logs. 
+You can view Office 365 activity logs from the [Microsoft 365 admin center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Consider the point  that, Office 365 activity and Azure AD activity logs share a significant number of the directory resources. Only the Microsoft 365 admin center provides a full view of the Office 365 activity logs. 
 
 You can also access the Office 365 activity logs programmatically by using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

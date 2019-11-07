@@ -1,23 +1,15 @@
 ---
-title: Data exploration and modeling with the Data Science Virtual Machine
-titleSuffix: Azure
-description: Perform data exploration and modeling tasks on the Data Science Virtual Machine.
+title: Explore data and model on Windows
+titleSuffix: Azure Data Science Virtual Machine 
+description: Perform data exploration and modeling tasks on the Windows Data Science Virtual Machine.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-editor: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: vijetaj
 
 ---
 
@@ -90,12 +82,7 @@ When you're in the notebook, you can explore your data, build the model, and tes
 ## Train and deploy models by using Azure Machine Learning
 After you've built and validated your model, the next step is usually to deploy it into production. This step allows your client applications to invoke the model predictions on a real-time basis or a batch mode basis. Azure Machine Learning provides a mechanism to operationalize a model built in either R or Python.
 
-When you operationalize your model in Azure Machine Learning, a web service is exposed. It allows clients to make REST calls that pass in input parameters and receive predictions from the model as outputs.   
-
-> [!NOTE]
-> If you haven't yet signed up for Azure Machine Learning, you can get a free workspace or a standard workspace by visiting the [Azure Machine Learning Studio](https://studio.azureml.net/) home page and selecting **Get Started**.   
-> 
-> 
+When you operationalize your model in Azure Machine Learning, a web service is exposed. It allows clients to make REST calls that pass in input parameters and receive predictions from the model as outputs.
 
 ### Build and operationalize Python models
 Here's a snippet of code developed in a Python Jupyter notebook that builds a simple model by using the Scikit-learn library:
@@ -815,9 +802,9 @@ pd.read_sql(queryString, connection)
 
 ![Top rows of data from the table](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-#### Read data from HDI by using Machine Learning: reader module
+#### Read data from HDI by using Azure Machine Learning Studio (classic): reader module
 
-You can also use the reader module in Machine Learning Studio to access the database in a Hadoop cluster. Plug in the credentials of your HDI clusters and Azure storage account to enable building machine learning models by using a database in HDI clusters.
+You can also use the reader module in Azure Machine Learning Studio (classic) to access the database in a Hadoop cluster. Plug in the credentials of your HDI clusters and Azure storage account to enable building machine learning models by using a database in HDI clusters.
 
 ![Reader module properties](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
 

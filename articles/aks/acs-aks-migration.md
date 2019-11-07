@@ -24,17 +24,16 @@ ACS and AKS differ in some key areas that affect migration. Before any migration
     * Unmanaged disks must be converted before you can attach them to AKS nodes.
     * Custom `StorageClass` objects for Azure disks must be changed from `unmanaged` to `managed`.
     * Any `PersistentVolumes` should use `kind: Managed`.
-* AKS supports [multiple node pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) (currently in preview).
+* AKS supports [multiple node pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools).
 * Nodes based on Windows Server are currently in [preview in AKS](https://azure.microsoft.com/blog/kubernetes-on-azure/).
 * AKS supports a limited set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions).
 * AKS is a managed service with a hosted Kubernetes control plane. You might need to modify your applications if you've previously modified the configuration of your ACS masters.
 
 ## Differences between Kubernetes versions
 
-If you're migrating to a newer version of Kubernetes (for example, from 1.7.x to 1.9.x), review the following resources to understand a few changes to the Kubernetes API:
+If you're migrating to a newer version of Kubernetes, review the following resources to understand the Kubernetes versioning strategies:
 
-* [Migrating a ThirdPartyResource to CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
-* [Workloads API changes in versions 1.8 and 1.9](https://kubernetes.io/docs/reference/workloads-18-19/)
+* [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions)
 
 ## Migration considerations
 

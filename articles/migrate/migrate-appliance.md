@@ -68,6 +68,9 @@ NIC write throughput (MB per second) | net.transmitted.average  |Calculation for
 
 ## Collected metadata-VMware
 
+> [!NOTE]
+> Metadata discovered by the Azure Migrate appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
+
 Here's the full list of VMware VM metadata that the appliance collects and sends to Azure.
 
 **Data** | **Counter**
@@ -119,7 +122,10 @@ Host details per VM | ((HostSystem)container).VM
 
 ## Collected performance data-Hyper-V
 
-Here's the VMware VM performance data that the appliance collects and sends to Azure.
+> [!NOTE]
+> Metadata discovered by the Azure Migrate appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
+
+Here's the Hyper VM performance data that the appliance collects and sends to Azure.
 
 **Performance counter class** | **Counter** | **Assessment impact**
 --- | --- | ---

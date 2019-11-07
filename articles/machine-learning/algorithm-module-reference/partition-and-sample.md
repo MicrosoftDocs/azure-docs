@@ -1,7 +1,7 @@
 ---
 title:  "Partition and Sample: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Partition and Sample module in Azure Machine Learning service to perform sampling on a dataset or to create partitions from your dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Partition and Sample module in Azure Machine Learning to perform sampling on a dataset or to create partitions from your dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Partition and Sample module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to perform sampling on a dataset or to create partitions from your dataset.
 
@@ -33,7 +33,7 @@ Sampling is an important tool in machine learning because it lets you reduce the
 
 - Creating a smaller dataset for testing. 
 
-    If you have a lot of data, you might want to use only the first *n* rows while setting up the experiment, and then switch to using the full dataset when you build your model. You can also use sampling to create s smaller dataset for use in development.
+    If you have a lot of data, you might want to use only the first *n* rows while setting up the pipeline, and then switch to using the full dataset when you build your model. You can also use sampling to create s smaller dataset for use in development.
 
 ## Configure Partition and Sample
 
@@ -46,9 +46,9 @@ This module supports multiple methods for dividing your data into partitions or 
 
 ### Get TOP N rows from a dataset
 
-Use this mode to get only the first *n* rows. This option is useful if you want to test an experiment on a small number of rows, and don't need the data to be balanced or sampled in any way.
+Use this mode to get only the first *n* rows. This option is useful if you want to test a pipeline on a small number of rows, and don't need the data to be balanced or sampled in any way.
 
-1. Add the **Partition and Sample** module to your experiment in the interface, and connect the dataset.  
+1. Add the **Partition and Sample** module to your pipeline in the interface, and connect the dataset.  
 
 2. **Partition or sample mode**: Set this option to **Head**.
 
@@ -56,7 +56,7 @@ Use this mode to get only the first *n* rows. This option is useful if you want 
 
     The number of rows you specify must be a non-negative integer. If the number of selected rows is larger than the number of rows in the dataset, the entire dataset is returned.
 
-4. Run the experiment.
+4. Run the pipeline.
 
 The module outputs a single dataset containing only the specified number of rows. The rows are always read from the top of the dataset.
 
@@ -64,7 +64,7 @@ The module outputs a single dataset containing only the specified number of rows
 
 This option supports simple random sampling or stratified random sampling. This is useful if you want to create a smaller representative sample dataset for testing.
 
-1. Add the **Partition and Sample** module to your experiment, and connect the dataset.
+1. Add the **Partition and Sample** module to your pipeline, and connect the dataset.
 
 2. **Partition or sample mode**: Set this to  **Sampling**.
 
@@ -76,7 +76,7 @@ This option supports simple random sampling or stratified random sampling. This 
 
 4. **Random seed for sampling**: Optionally, type an integer to use as a seed value.
 
-    This option is important if you want the rows to be divided the same way every time. The default value is 0, meaning that a starting seed is generated based on the system clock. This can lead to slightly different results each time you run the experiment.
+    This option is important if you want the rows to be divided the same way every time. The default value is 0, meaning that a starting seed is generated based on the system clock. This can lead to slightly different results each time you run the pipeline.
 
 5. **Stratified split for sampling**: Select this option if it is important that the rows in the dataset should be divided evenly by some key column before sampling.
 
@@ -89,7 +89,7 @@ This option supports simple random sampling or stratified random sampling. This 
     3. Each group is selectively added to the output dataset to meet the specified ratio.
 
 
-6. Run the experiment.
+6. Run the pipeline.
 
     With this option, the module outputs a single dataset that contains a representative sampling of the data. The remaining, unsampled portion of the dataset is not output. 
 
@@ -97,7 +97,7 @@ This option supports simple random sampling or stratified random sampling. This 
 
 Use this option when you want to divide the dataset into subsets of the data. This option is also useful when you want to create a custom number of folds for cross-validation, or to split rows into several groups.
 
-1. Add the **Partition and Sample** module to your experiment, and connect the dataset.
+1. Add the **Partition and Sample** module to your pipeline, and connect the dataset.
 
 2. For **Partition or sample mode**, select **Assign to Folds**.
 
@@ -123,11 +123,11 @@ Use this option when you want to divide the dataset into subsets of the data. Th
 
         - If you enter numbers that add up to **less than 1**, an extra partition is created to hold the remaining rows. For example, if you type the values .2 and .3, a third partition is created that holds the remaining 50 percent of all rows.
 
-        - If you enter numbers that add up to **more than 1**, an error is raised when you run the experiment.
+        - If you enter numbers that add up to **more than 1**, an error is raised when you run the pipeline.
 
 7. **Stratified split**: Select this option if you want the rows to be stratified when split, and then choose the _strata column_.
 
-8. Run the experiment.
+8. Run the pipeline.
 
     With this option, the module outputs multiple datasets, partitioned using the rules you specified.
 
@@ -135,7 +135,7 @@ Use this option when you want to divide the dataset into subsets of the data. Th
 
 This option is used when you have divided a dataset into multiple partitions and now want to load each partition in turn for further analysis or processing.
 
-1. Add the **Partition and Sample** module to the experiment.
+1. Add the **Partition and Sample** module to the pipeline.
 
 2. Connect it to the output of a previous instance of **Partition and Sample**. That instance must have used the **Assign to Folds** option to generate some number of partitions.
 
@@ -153,7 +153,7 @@ This option is used when you have divided a dataset into multiple partitions and
 
     [![Partition and sample](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
 
-5. Run the experiment.
+5. Run the pipeline.
 
     With this option, the module outputs a single dataset containing only the rows assigned to that fold.
 
@@ -162,4 +162,4 @@ This option is used when you have divided a dataset into multiple partitions and
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
