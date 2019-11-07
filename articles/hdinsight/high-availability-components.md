@@ -14,21 +14,21 @@ ms.date: 11/06/2019
 
 ## High availability infrastructure
 
-HDInsight provides customized infrastructure to ensure that four primary services are high availability:
+HDInsight provides customized infrastructure to ensure that four primary services are high availability with automatic failover capabilities:
 
 - Apache Ambari server
 - Application Timeline Server for Apache YARN
 - Job History Server for Hadoop MapReduce
 - Apache Livy
 
-To achieve this level of dependability, HDInsight has developed a unique reliability infrastructure to support these services and provide automatic failover capabilities. This infrastructure consists of a number of services and software components, some of which are designed by HDInsight. The following components are unique to the HDInsight platform:
+This infrastructure consists of a number of services and software components, some of which are designed by HDInsight. The following components are unique to the HDInsight platform:
 
 - Slave failover controller
 - Master failover controller
 - Slave high availability service
 - Master high availability service
 
-There are also other high availability services, which are supported by open source Apache reliability services. These components are also present on HDInsight clusters, but are not developed by HDInsight:
+There are also other high availability services, which are supported by open source Apache reliability components. These components are also present on HDInsight clusters, but are not developed by HDInsight:
 
 - Hadoop File System (HDFS) NameNode
 - YARN Resource Manager
@@ -38,7 +38,7 @@ The following sections will provide more detail about how these services work to
 
 ## HDInsight High Availability Services
 
-Microsoft provides support for the four Apache services in the following table in HDInsight clusters. To distinguish them from availability services provided by Apache, they are called HDInsight HA services.
+Microsoft provides support for the four Apache services in the following table in HDInsight clusters. To distinguish them from availability services supported by components from Apache, they are called *HDInsight HA services*.
 
 | Service | Cluster nodes | Cluster types | Purpose |
 |---|---|---|---|
@@ -52,9 +52,9 @@ Microsoft provides support for the four Apache services in the following table i
 
 ### Architecture
 
-Each HDInsight cluster has two headnodes in active/standby modes, respectively. The HDInsight HA services run on headnodes only. These services should always be running on the active headnode, and stopped and put in maintenance mode on the standby headnode.
+Each HDInsight cluster has two headnodes in active and standby modes, respectively. The HDInsight HA services run on headnodes only. These services should always be running on the active headnode, and stopped and put in maintenance mode on the standby headnode.
 
-To maintain the correct states of HA services and provide a fast failover, HDInsight utilizes Apache ZooKeeper, which is a coordination service for distributed applications, to conduct active headnode election. HDInsight also provisions master failover controller, slave failover controller, master-ha-service, and slave-ha-service, which are Java processes running in background to coordinate the failover procedure for HDInsight HA services.
+To maintain the correct states of HA services and provide a fast failover, HDInsight utilizes Apache ZooKeeper, which is a coordination service for distributed applications, to conduct active headnode election. HDInsight also provisions a few background Java processes, which coordinate the failover procedure for HDInsight HA services. These services are the following: the master failover controller, the slave failover controller, the *master-ha-service*, and the *slave-ha-service*.
 
 ### Apache ZooKeeper
 
@@ -62,12 +62,12 @@ Apache ZooKeeper is a high-performance coordination service for distributed appl
 
 ### Slave failover controller
 
-The slave failover controller runs on every node in an HDInsight cluster. This controller is responsible for starting the Ambari agent and `slave-ha-service` on each node. It periodically queries the first ZooKeeper quorum about the active headnode. When the active and standby headnodes change, the slave failover controller performs the following:
+The slave failover controller runs on every node in an HDInsight cluster. This controller is responsible for starting the Ambari agent and *slave-ha-service* on each node. It periodically queries the first ZooKeeper quorum about the active headnode. When the active and standby headnodes change, the slave failover controller performs the following:
 
 1. Updates the host configuration file.
 1. Restarts Ambari agent.
 
-The `slave-ha-service` is responsible for stopping the HDInsight HA services (except Ambari server) on the standby headnode.
+The *slave-ha-service* is responsible for stopping the HDInsight HA services (except Ambari server) on the standby headnode.
 
 ### Master failover controller
 
@@ -83,15 +83,15 @@ The master-ha-service only runs on the active headnode, it stops the HDInsight H
 
 ### The failover process
 
-A health monitor runs along with each master failover controller to perform heartbeats for the headnodes. The headnode is regarded as an HA service in this scenario. The health monitor checks if each high availability service is healthy and if it's ready to join in the leadership election. If yes, this HA service will compete in the election. If not, it will quit the election until it becomes ready again.
+A health monitor runs on each headnode along with the master failover controller to send hearbeat notifications to the Zookeeper quorum. The headnode is regarded as an HA service in this scenario. The health monitor checks to see if each high availability service is healthy and if it's ready to join in the leadership election. If yes, this headnode will compete in the election. If not, it will quit the election until it becomes ready again.
 
-For active headnode failures, such as a headnode crash or reboot, if the standby headnode achieves the leadership and becomes active, its master failover controller will start all HDInsight HA services on it. The master failover controller will also stop these services on the other headnode.
+If the standby headnode ever achieves leadership and becomes active (such as in the case of a failure with the previous active node), its master failover controller will start all HDInsight HA services on it. The master failover controller will also stop these services on the other headnode.
 
 For HDInsight HA service failures, such as a service being down or unhealthy, the master failover controller should automatically restart or stop the services according to the headnode status. Users shouldn't manually start HDInsight HA services on both head nodes. Instead, allow automatic or manual failover to help the service recover.
 
 ### Inadvertent manual intervention
 
-It's expected that HDInsight HA services should only be running on the active headnode, and automatically restarted when necessary. Since individual HA services don't have their own health monitor, failover can't be triggered at the level of the individual service. Failover is ensured at the node level and not at the service level.
+HDInsight HA services should only run on the active headnode, and will be automatically restarted when necessary. Since individual HA services don't have their own health monitor, failover can't be triggered at the level of the individual service. Failover is ensured at the node level and not at the service level.
 
 ### Some known issues
 
@@ -101,21 +101,21 @@ It's expected that HDInsight HA services should only be running on the active he
 
 ## Apache High Availability Services
 
-Apache provides high availability for HDFS NameNode, YARN Resource Manager, and HBase Master, which are also available in HDInsight clusters. Unlike HDInsight HA services, they are supported in ESP clusters. Apache HA services communicate with the second ZooKeeper quorum (described in the above section) to elect active/standby states and conduct automatic failover. Following sections detail how these services work.
+Apache provides high availability for HDFS NameNode, YARN Resource Manager, and HBase Master, which are also available in HDInsight clusters. Unlike HDInsight HA services, they are supported in ESP clusters. Apache HA services communicate with the second ZooKeeper quorum (described in the above section) to elect active/standby states and conduct automatic failover. The following sections detail how these services work.
 
 ### Hadoop Distributed File System (HDFS) NameNode
 
-HDInsight clusters based on Apache Hadoop 2.0 or higher provide NameNode high availability. There are two NameNodes running on two headnodes, respectively, which are configured for automatic failover. The NameNodes use ZKFailoverController to communicate with Zookeeper to elect for active/standby status. ZKFailoverController runs on both headnodes, and works in the same way as the master failover controller above.
+HDInsight clusters based on Apache Hadoop 2.0 or higher provide NameNode high availability. There are two NameNodes running on the headnodes, which are configured for automatic failover. The NameNodes use the *ZKFailoverController* to communicate with Zookeeper to elect for active/standby status. The *ZKFailoverController* runs on both headnodes, and works in the same way as the master failover controller above.
 
 The second Zookeeper quorum is independent of the first quorum, so the active NameNode may not run on the active headnode. When the active NameNode is dead or unhealthy, the standby NameNode wins the election and becomes active.
 
 ### YARN Resource Manager
 
-HDInsight clusters based on Apache Hadoop 2.4 or higher support YARN Resource Manager high availability. There are two resource managers, rm1 and rm2, running on headnode-0 and headnode-1, respectively. Like NameNode, YARN Resource Manager is also configured for automatic failover. Another Resource Manager is automatically elected to be active when the current active resource manager goes down or unresponsive.
+HDInsight clusters based on Apache Hadoop 2.4 or higher, support YARN Resource Manager high availability. There are two resource managers, rm1 and rm2, running on headnode 0 and headnode 1, respectively. Like NameNode, YARN Resource Manager is also configured for automatic failover. Another Resource Manager is automatically elected to be active when the current active resource manager goes down or unresponsive.
 
-YARN Resource Manager uses its embedded ActiveStandbyElector as a failure detector and leader elector. Unlike HDFS NodeManager, YARN Resource Manager doesn't need a separate ZKFC daemon. The active resource manager writes its states into Apache Zookeeper.
+YARN Resource Manager uses its embedded *ActiveStandbyElector* as a failure detector and leader elector. Unlike HDFS NodeManager, YARN Resource Manager doesn't need a separate ZKFC daemon. The active resource manager writes its states into Apache Zookeeper.
 
-YARN Resource Manager high availability is independent from NameNode and HDInsight HA services, the active resource manager may not run on active headnode or headnode that the active NameNode is running. For more information about YARN Resource Manager high availability, see [Resource Manager High Availability](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
+The high availability of the YARN Resource Manager is independent from NameNode and other HDInsight HA services. The active resource manager may not run on the active headnode or the headnode where the active NameNode is running. For more information about YARN Resource Manager high availability, see [Resource Manager High Availability](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
 
 ### HBase Master
 
