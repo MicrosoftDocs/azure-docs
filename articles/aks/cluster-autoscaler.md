@@ -119,6 +119,26 @@ You can manually scale your cluster after disabling the cluster autoscaler by us
 
 If you wish to re-enable the cluster autoscaler on an existing cluster, you can re-enable it using the [az aks update][az-aks-update] command, specifying the *--enable-cluster-autoscaler*, *--min-count*, and *--max-count* parameters.
 
+## Retrieve cluster autoscaler logs
+
+AKS manages the cluster autoscaler on your behalf and runs it in the managed control plane. Master node logs must be configured to be viewed as a result.
+
+To configure logs to be pushed from the cluster autoscaler into Log Analytics follow these steps.
+1. Setup a rule for diagnostic logs to push cluster-autoscaler logs to Log Analytics. [Instructions are detailed here](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs), ensure you check the box for `cluster-autoscaler` when selecting options for "Logs".
+1. Click on the "Logs" section on your cluster via the Azure portal.
+1. Input the following example query into Log Analytics:
+
+```
+AzureDiagnostics
+| where Category == "cluster-autoscaler"
+```
+
+You should see logs similar to the following returned as long as there are logs to retrieve.
+
+![Log Analytics logs](media/autoscaler/autoscaler-logs.png)
+
+To learn more about what is logged from the autoscaler, read the FAQ on the [Kubernetes/autoscaler github project](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
+
 ## Use the cluster autoscaler with multiple node pools enabled
 
 The cluster autoscaler can be used together with the [multiple node pools](use-multiple-node-pools.md) enabled. Follow that document to learn how to enable multiple node pools and add additional node pools to an existing cluster. When using both features together, you enable the cluster autoscaler on each individual node pool in the cluster and can pass unique autoscaling rules to each.
