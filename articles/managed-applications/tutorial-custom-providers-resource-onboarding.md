@@ -244,7 +244,7 @@ Let's deploy the custom provider infrastructure. Either copy, save, and deploy t
 
    ![Enter template parameters](media/custom-providers-resource-onboarding/templatescustomprovider.png)
 
-9. Navigate to the deployment and wait for it to finish. You should see something like the following screenshot. You should see the new association resource as an output:
+9. Go to the deployment and wait for it to finish. You should see something like the following screenshot. You should see the new association resource as an output:
 
    ![Successful deployment](media/custom-providers-resource-onboarding/customproviderdeployment.png)
 
@@ -260,9 +260,9 @@ Let's deploy the custom provider infrastructure. Either copy, save, and deploy t
 
 After you have the custom provider infrastructure set up, you can easily deploy more associations. The resource group for additional associations doesn't have to be the same as the resource group where you deployed the custom provider infrastructure. To create an association, you need to have Microsoft.CustomProviders/resourceproviders/write permissions on the specified Custom Resource Provider ID.
 
-1. Navigate to the custom provider **Microsoft.CustomProviders/resourceProviders** resource in the resource group of the previous deployment. You'll need to select the **Show hidden types** check box:
+1. Go to the custom provider **Microsoft.CustomProviders/resourceProviders** resource in the resource group of the previous deployment. You'll need to select the **Show hidden types** check box:
 
-   ![Navigate to the resource](media/custom-providers-resource-onboarding/showhidden.png)
+   ![Go to the resource](media/custom-providers-resource-onboarding/showhidden.png)
 
 2. Copy the Resource ID property of the custom provider.
 
@@ -276,11 +276,11 @@ After you have the custom provider infrastructure set up, you can easily deploy 
 
 5. Enter the settings for the required fields and then select the subscription and a different resource group. For the **Custom Resource Provider Id** setting, enter the Resource ID that you copied from the custom provider that you deployed earlier.
 
-6. Navigate to the deployment and wait for it to finish. It should now deploy only the new associations resource:
+6. Go to the deployment and wait for it to finish. It should now deploy only the new associations resource:
 
    ![New associations resource](media/custom-providers-resource-onboarding/createdassociationresource.png)
 
-If you want, you can navigate back to the logic app **Run history** and see that another call was made to the logic app. You can update the logic app to augment additional functionality for each created association.
+If you want, you can go back to the logic app **Run history** and see that another call was made to the logic app. You can update the logic app to augment additional functionality for each created association.
 
 ## Getting help
 
