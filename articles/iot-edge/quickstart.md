@@ -156,7 +156,7 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
 6. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression;
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
@@ -174,9 +174,9 @@ Verify that the runtime was successfully installed and configured.
 
 2. If you need to troubleshoot the service, retrieve the service logs.
 
-    ```powershell
-    Get-IoTEdgeLog
-    ```
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+   ```
 
 3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
 
