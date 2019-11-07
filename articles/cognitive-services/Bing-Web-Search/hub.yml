@@ -23,219 +23,164 @@ highlightedContent:
       itemType: learn
       url: https://docs.microsoft.com/azure/cognitive-services/
 
-conceptualContent:
+productDirectory:
   title: Get started
-  summary: Find the Bing Search API that's right for you.
+  summary: summary
   items:
     - title: Bing Web Search API
+      imageSrc: ./media/hub/search.svg
       links:
         - text: overview
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: overview
+
         - text: Using C#
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+
         - text: Using Java
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+
         - text: Create a single-page web-app
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: tutorial
+
         - text: Send search requests
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: how-to-guide
-      footerLink:
-        url: https://docs.microsoft.com/azure/cognitive-services/
-        text: Learn more
 
     - title: Bing Custom Search API
+      imageSrc: ./media/hub/search.svg
       links:
         - text: overview
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: overview
         - text: Using C#
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Using Java
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Create a single-page web-app
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Send search requests
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: how-to-guide
-      footerLink:
-        url: https://docs.microsoft.com/azure/cognitive-services/
-        text: Learn more
 
     - title: Bing Image Search API
+      imageSrc: ./media/hub/search.svg
       links:
         - text: overview
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: overview
         - text: Using C#
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Using Java
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Create a single-page web-app
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Send search requests
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: how-to-guide
-      footerLink:
-        url: https://docs.microsoft.com/azure/cognitive-services/
-        text: Learn more 
         
     - title: Bing Entity Search API
+      imageSrc: ./media/hub/search.svg
       links:
         - text: overview
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: overview
         - text: Using C#
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Using Java
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Create a single-page web-app
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Send search requests
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: how-to-guide
-      footerLink:
-        url: https://docs.microsoft.com/azure/cognitive-services/
-        text: Learn more 
 
     - title: Bing News Search API
+      imageSrc: ./media/hub/search.svg
       links:
         - text: overview
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: overview
         - text: Using C#
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Using Java
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Create a single-page web-app
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Send search requests
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: how-to-guide
-      footerLink:
-        url: https://docs.microsoft.com/azure/cognitive-services/
-        text: Learn more 
         
     - title: Bing Video Search API
+      imageSrc: ./media/hub/search.svg
       links:
         - text: overview
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: overview
         - text: Using C#
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Using Java
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Create a single-page web-app
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Send search requests
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: how-to-guide
-      footerLink:
-        url: https://docs.microsoft.com/azure/cognitive-services/
-        text: Learn more 
 
     - title: Bing Visual Search API
+      imageSrc: ./media/hub/search.svg
       links:
         - text: overview
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: overview
         - text: Using C#
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+          
         - text: Using Java
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+          
         - text: Create a single-page web-app
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+          
         - text: Send search requests
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: how-to-guide
-      footerLink:
-        url: https://docs.microsoft.com/azure/cognitive-services/
-        text: Learn more 
 
     - title: Bing Autosuggest API
+      imageSrc: ./media/hub/search.svg
       links:
         - text: overview
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: overview
         - text: Using C#
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Using Java
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Create a single-page web-app
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
         - text: Send search requests
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: how-to-guide
-      footerLink:
-        url: https://docs.microsoft.com/azure/cognitive-services/
-        text: Learn more 
 
     - title: Bing Spell Check API
+      imageSrc: ./media/hub/search.svg
       links:
         - text: overview
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: overview
+          
         - text: Using C#
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+          
         - text: Using Java
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+          
         - text: Create a single-page web-app
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+          
         - text: Send search requests
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: how-to-guide
-      footerLink:
-        url: https://docs.microsoft.com/azure/cognitive-services/
-        text: Learn more 
 
     - title: Local Business Search API
+      imageSrc: ./media/hub/search.svg
       links:
         - text: overview
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: overview
+          
         - text: Using C#
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+          
         - text: Using Java
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+          
         - text: Create a single-page web-app
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: quickstart
+          
         - text: Send search requests
           url: https://docs.microsoft.com/azure/cognitive-services/
-          itemType: how-to-guide
-      footerLink:
-        url: https://docs.microsoft.com/azure/cognitive-services/
-        text: Learn more 
         
 additionalContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -344,4 +289,3 @@ additionalContent:
             url: https://docs.microsoft.com/azure/cognitive-services/
           - text: Azure CLI
             url: https://docs.microsoft.com/azure/cognitive-services/
-            
