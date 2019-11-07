@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Training guide: App registrations in the Azure portal  
 
-You can find many improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're familiar with the legacy experience, use this training guide to get started using the new experience.
+You can find many improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're familiar with the App registrations (legacy) experience in the Azure portal, use this training guide to get started using the new experience.
 
 ## Key changes
 
