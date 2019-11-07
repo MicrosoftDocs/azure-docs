@@ -41,10 +41,11 @@ When the SQL trigger or action prompts you for connection information, follow th
 
 When the SQL trigger or action prompts you for connection information, follow these steps, which work for both triggers and actions. However, before you start, make sure that you've already [set up your on-premises data gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Otherwise, your gateway won't appear in the gateways list when you create your connection.
 
-> [!IMPORTANT]
-> For logic apps that run in an [integration service environment (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), 
-> you can use only SQL authentication. To use Windows authentication with this connector, you must use the on-premises data gateway. 
-> This connector doesn't support Windows authentication for logic apps in an ISE.
+> [!NOTE]
+> To use Windows authentication with the SQL Server connector in an 
+> [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> use the connector's non-ISE version with the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
+> The ISE-labeled version doesn't support Windows authentication.
 
 1. For **Connection Name**, create a name for your connection.
 
