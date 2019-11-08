@@ -186,11 +186,6 @@ Once you've trained the model, you can register it to your workspace. Model regi
 model = run.register_model(model_name='tf-dnn-mnist', model_path='outputs/model')
 ```
 
-> [!TIP]
-> The model you just registered is deployed the exact same way as any other registered model in Azure 
-Machine Learning, regardless of which estimator you used for training. The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
-
 You can also download a local copy of the model by using the Run object. In the training script `mnist-tf.py`, a TensorFlow saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
 
 ```Python
@@ -294,13 +289,33 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
+## Deployment
+
+The model you just registered using `run.register_model()` is deployed the exact same way as any other registered model in Azure Machine Learning, regardless of which estimator you used for training. The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+
+### (Preview) No-code model deployment
+
+Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for Tensorflow. If you are following this how-to and have already registered the model named **tf-dnn-mnist**, use this name in the `model_name` parameter of the `Model.register()` function below.
+
+```python
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='tf-dnn-mnist',                        # Name of the registered model in your workspace.
+                       model_framework=Model.Framework.TENSORFLOW,  # Framework used to create the model.
+                       model_framework_version='1.14.0',            # Version of Tensorflow used to create the model.
+                       description='mnist model')
+
+service_name = 'tensorflow-mnist-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
+
 ## Next steps
 
-In this article, you trained and registered a TensorFlow model. To learn how to deploy a model to a GPU-enabled cluster, continue on to our GPU model deployment article.
+In this article, you trained and registered a TensorFlow model, and learned about options for deployment. See these other articles to learn more about Azure Machine Learning.
 
-> [!div class="nextstepaction"]
-> [How and where to deploy models](how-to-deploy-and-where.md)
 * [Track run metrics during training](how-to-track-experiments.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
-* [Deploy a trained model](how-to-deploy-and-where.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

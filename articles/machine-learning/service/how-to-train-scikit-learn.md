@@ -180,19 +180,50 @@ Register the model to your workspace with the following code.
 model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 ```
 
-> [!TIP]
-> The model you just registered is deployed the exact same way as any other registered model in Azure 
+## Deployment
+
+The model you just registered is deployed the exact same way as any other registered model in Azure 
 Machine Learning, regardless of which estimator you used for training. The deployment how-to
 contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+
+### (Preview) No-code model deployment
+
+Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for scikit-learn. No-code model deployment is supported for all built-in scikit-learn model types.
+
+If you are following this how-to and have already registered the model named **sklearn-iris**, use this name in the `model_name` parameter of the `Model.register()` function below.
+
+
+```python
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = Model.register(workspace=ws,
+                       model_name='sklearn-iris',                # Name of the registered model in your workspace.
+                       model_framework=Model.Framework.SCIKITLEARN,  # Framework used to create the model.
+                       model_framework_version='0.19.1',             # Version of scikit-learn used to create the model.
+                       resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5)
+                       )
+                       
+service_name = 'my-sklearn-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+NOTE: These dependencies are included in the prebuilt sklearn inference container:
+
+```yaml
+    - azureml-defaults
+    - inference-schema[numpy-support]
+    - scikit-learn
+    - numpy
+```
+
+The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
 
 ## Next steps
 
 
-In this article, you trained and registered a scikit-learn model on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a scikit-learn model, and learned about deployment options. See these other articles to learn more about Azure Machine Learning.
 
-> [!div class="nextstepaction"]
-> [How and where to deploy models](how-to-deploy-and-where.md)
 * [Track run metrics during training](how-to-track-experiments.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
-* [Deploy a trained model](how-to-deploy-and-where.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

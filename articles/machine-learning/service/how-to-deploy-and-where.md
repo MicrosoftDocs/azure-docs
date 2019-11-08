@@ -987,13 +987,6 @@ To stop the container, use the following command from a different shell or comma
 docker kill mycontainer
 ```
 
-## Clean up resources
-
-To delete a deployed web service, use `service.delete()`.
-To delete a registered model, use `model.delete()`.
-
-For more information, see the documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
-
 ## (Preview) No-code model deployment
 
 No-code model deployment is currently in preview and supports the following machine learning frameworks:
@@ -1065,6 +1058,13 @@ NOTE: These dependencies are included in the prebuilt sklearn inference containe
     - scikit-learn
     - numpy
 ```
+
+## Clean up resources
+
+To delete a deployed web service, use `service.delete()`.
+To delete a registered model, use `model.delete()`.
+
+For more information, see the documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## Next steps
 
