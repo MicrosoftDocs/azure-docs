@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/07/2019
 ms.author: helohr
 ---
 # Windows Virtual Desktop partner integrations
@@ -147,6 +147,26 @@ PrinterLogic is a Windows Virtual Desktop value-added service provider platform 
 Available as SaaS or as a web stack in your own private cloud, the PrinterLogic platform ensures users always have the right printers they need in their virtual sessions based on user ID, device name, or location. This functionality is complemented by a full suite of enterprise print management features such as print tracking and reporting, mobile printing, and secure badge release printing. 
 
 - [Go to partner website](https://www.printerlogic.com).
+
+## Printix
+
+![Printix Logo](./media/partners/printix.png)
+
+Printix is a Windows Virtual Desktop value added service provider that equips your IT teams, 
+to automate the connection of users to office printing resources. As the missing piece in your 
+customer Azure migration, Printix is the most cost-effective service available to remove 
+infrastructure and IT tasks associated with supporting and optimizing print workflow to every 
+user regardless of location
+
+Printing is a fundamental task in just about every office and small business environment. In 
+order to take full advantage of Windows Virtual Desktop, and provide a great end-user 
+experience, a core component is solving how to conveniently connect users to printers with 
+minimum effort and maximum reliability. With Printix, you can ensure that you get the most 
+out of Windows Virtual Desktop through SSO, silent configuration, updates and continuous 
+monitoring of your print environment.
+
+- See joint solution brief
+- Go to the partner website
 
 ## Numecent
 
