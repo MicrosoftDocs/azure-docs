@@ -16,7 +16,7 @@ ms.author: dacurwin
 > This data
 > model is in reference to the Resource Specific Mode of sending diagnostic
 > events to Log Analytics (LA). For the Azure Diagnostics – based data model, click
-> [here](backup-azure-log-analytics-data-model.md).
+> [here](https://docs.microsoft.com/en-us/azure/backup/backup-azure-log-analytics-data-model).
 
 ## CoreAzureBackup
 
@@ -226,4 +226,4 @@ This table provides details about storage-related fields.
 
 ## Next steps
 
-- [Learn how to send diagnostics data to Log Analytics](backup-azure-diagnostics-events.md)
+- [Learn how to send diagnostics data to Log Analytics](https://aka.ms/AA6il6r)

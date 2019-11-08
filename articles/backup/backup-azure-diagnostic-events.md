@@ -23,7 +23,7 @@ You can configure diagnostics settings for a Recovery Services Vault via the Azu
 
 Data for this event can be sent to a storage account, which you can use in conjunction with Power BI Reports ([click here](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) to learn the Power BI data model for AzureBackupReport) or any custom solution which uses data from the storage account. It can also be sent to an LA Workspace ([click here](https://docs.microsoft.com/azure/backup/backup-azure-log-analytics-data-model) to learn the Log Analytics data model for AzureBackupReport). Alternatively, it can be sent to an Event Hub.
 
-2)	**New Events** – Today, Azure Backup supports six new events, which are, in essence, a decomposition of all the data contained in AzureBackupReport.  These new events are - CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy, and AddonAzureBackupStorage (click here to learn the data model for the new events). Data for these new events can also be sent to either a storage account, LA workspace, or an Event Hub. If you are sending this data to an LA Workspace, you need to select the ‘Resource Specific’ toggle in the Diagnostics Setting screen (see more information in the below sections).
+2)	**New Events** – Today, Azure Backup supports six new events, which are, in essence, a decomposition of all the data contained in AzureBackupReport.  These new events are - CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy, and AddonAzureBackupStorage ([click here](https://aka.ms/AA6idnf) to learn the data model for the new events). Data for these new events can also be sent to either a storage account, LA workspace, or an Event Hub. If you are sending this data to an LA Workspace, you need to select the ‘Resource Specific’ toggle in the Diagnostics Setting screen (see more information in the below sections).
 
 We **recommend choosing the new events** for all new diagnostics settings on the vault since this makes the data much easier to work with in log queries, provides better discoverability of schemas and their structure, improves performance across both ingestion latency and query times. Support for using the Azure Diagnostics mode will eventually be phased out and hence choosing the new events may help you to avoid complex migrations at a later date.
 
@@ -89,7 +89,7 @@ To summarize the above nuances:
 
 ## Next steps
 
-[Learn the Log Analytics Data Model for Resource Specific Events](backup-azure-log-analytics-new-data-model)
+[Learn the Log Analytics Data Model for Resource Specific Events](https://aka.ms/AA6idnf)
 
 
 
