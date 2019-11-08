@@ -56,7 +56,7 @@ The following sections list changes in the most recent releases.
   - RecognizingKeyword, indicates the speech result contains (unverified) keyword text.
   - RecognizedKeyword, indicates that keyword recognition completed recognizing the given keyword.
 
-## Cognitive Services Speech Devices SDK 1.1.0: 2018-Nov release
+## Speech Devices SDK 1.1.0: 2018-Nov release
 
 - Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.1.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
 - Far Field Speech recognition accuracy has been improved with our enhanced audio processing algorithm.
