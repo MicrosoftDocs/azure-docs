@@ -1599,6 +1599,8 @@
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle
         href: mindtickle-provisioning-tutorial.md
+      - name: Miro
+        href: miro-provisioning-tutorial.md
     - name: N - Z
       items:
       - name: Netsuite
