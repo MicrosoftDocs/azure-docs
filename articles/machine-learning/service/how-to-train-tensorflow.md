@@ -189,7 +189,7 @@ model = run.register_model(model_name='tf-dnn-mnist', model_path='outputs/model'
 > [!TIP]
 > The model you just registered is deployed the exact same way as any other registered model in Azure 
 Machine Learning, regardless of which estimator you used for training. The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where#choose-a-compute-target) for deployment, since you already have a registered model.
+contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model by using the Run object. In the training script `mnist-tf.py`, a TensorFlow saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
 
