@@ -46,6 +46,7 @@ The application is built with the Speech SDK package, and the Eclipse Java IDE (
 
 ## Next steps
 
-> [!div class="nextstepaction"][choose your speech device](get-speech-devices-sdk.md)
->
-> [!div class="nextstepaction"][get a speech services subscription key for free](get-started.md)
+> [!div class="nextstepaction"]
+> [choose your speech device](get-speech-devices-sdk.md)
+> [!div class="nextstepaction"]
+> [get a speech services subscription key for free](get-started.md)
