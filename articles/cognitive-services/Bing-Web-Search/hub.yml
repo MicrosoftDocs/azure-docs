@@ -25,18 +25,17 @@ highlightedContent:
     - title: Page through search results
       itemType: how-to-guide
       url: https://docs.microsoft.com/azure/cognitive-services/
-    - title: Use decoration markers to highlight text
-      itemType: concept
-      url: https://docs.microsoft.com/azure/cognitive-services/
-    - title: Use and Display requirements
+    - title: Use and display requirements
       itemType: reference
       url: https://docs.microsoft.com/azure/cognitive-services/
+    - title: API pricing details
+      itemType: reference
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/
 productDirectory:
   title: Get started
   summary: Start getting search results from the web by choosing one of the available APIs below. 
   items:
     - title: Bing Web Search API
-      imageSrc: ./media/hub/web-search.svg
       url: https://docs.microsoft.com/azure/cognitive-services/
       links: 
         - text: Overview
@@ -53,7 +52,6 @@ productDirectory:
           url: https://docs.microsoft.com/azure/cognitive-services/
 
     - title: Bing Custom Search API
-      imageSrc: ./media/hub/custom-search.svg
       url: https://docs.microsoft.com/azure/cognitive-services/
       links:
         - text: Overview
@@ -70,7 +68,6 @@ productDirectory:
           url: https://docs.microsoft.com/azure/cognitive-services/
 
     - title: Bing Image Search API
-      imageSrc: ./media/hub/image-search.svg
       url: https://docs.microsoft.com/azure/cognitive-services/
       links:
         - text: Overview
