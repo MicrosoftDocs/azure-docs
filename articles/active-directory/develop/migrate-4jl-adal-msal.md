@@ -2,7 +2,7 @@
 title: ADAL to MSAL migration guide for Java | Azure
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Java app to the Microsoft Authentication Library (MSAL).
 services: active-directory
-author: sangonzalez
+author: sangonzal
 manager: henrikm
 editor: twhitney
 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: Java
 ms.workload: identity
 ms.date: 11/4/2019
-ms.author: santiago.gonzales
+ms.author: santiago.gonzalez
 ms.reviewer: navyari.canumalla
 ms.custom: aaddev
 #Customer intent: As an Java application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
