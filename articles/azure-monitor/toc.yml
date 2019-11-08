@@ -848,6 +848,8 @@
         href: insights/cosmosdb-insights-overview.md
     - name: Networks
       items:
+      - name: Azure Monitor for Networks
+        href: insights/network-insights-overview.md
       - name: Networking Analytics
         href: insights/azure-networking-analytics.md
       - name: DNS
