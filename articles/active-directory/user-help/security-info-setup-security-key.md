@@ -1,5 +1,5 @@
 ---
-title: Set up security info to use a security key (preview) - Azure Active Directory | Microsoft Docs
+title: Set up security info (preview) for a security key - Azure AD
 description: How to set up your security info to verify your identity using a Fast Identity Online (FIDO2) security key.
 services: active-directory
 author: eross-msft
@@ -15,7 +15,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Set up security info to use a security key (Preview)
+# Set up security info (preview) for a security key
 
 You can use security keys as a passwordless sign-in method within your organization. A security key is a physical device that's used with a unique PIN to sign-in to your work or school account. Because security keys require you to have the physical device and something only you know, it's considered a stronger authentication method than a username and password.
 
