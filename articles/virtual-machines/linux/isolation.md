@@ -29,12 +29,15 @@ We recently announced the Preview of Azure Dedicated Host, which allows you to r
 After February 15, 2020, we will no longer provide an isolation guarantee for your D15_v2/DS15_v2 Azure virtual machines. 
 
 ## Next Steps
-If hardware isolation is not important to you, there is no action you need to take. 
+If hardware isolation is not required for you, there is no action you need to take. 
 
-If isolation is important to you, before February 15, 2020, you would need to either:
-•	Migrate your workload to Azure Dedicated Host Preview
-•	Migrate to a D15i_v2 and DS15i_v2 Azure VM, to get the same price performance. This option is only available for pay-as-you-go and one-year reserved instance scenarios. 
-•	Migrate your workload to another Azure isolated virtual machine. 
+If isolation is required to you, before February 15, 2020, you would need to either:
+
+•	<a href="https://azure.microsoft.com/en-us/blog/introducing-azure-dedicated-host/">Migrate</a> your workload to Azure Dedicated Host Preview
+
+•	<a href="https://aka.ms/D15iRequestAccess">Request access</a> to a D15i_v2 and DS15i_v2 Azure VM, to get the same price performance. This option is only available for pay-as-you-go and one-year reserved instance scenarios.    
+
+•	<a href="https://azure.microsoft.com/en-us/blog/resize-virtual-machines/">Migrate</a> your workload to another Azure isolated virtual machine. 
 
 For details see below:
 
