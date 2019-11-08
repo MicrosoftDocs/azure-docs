@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure IoT Central application. Follow this quickstart to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+To complete this tutorial, you need an Azure IoT Central application. Follow this quickstart to [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
 
 ## Enable Azure IoT Edge Enrollment Group
 Enable SAS keys for Azure IoT Edge enrollment group from the Administration page.
