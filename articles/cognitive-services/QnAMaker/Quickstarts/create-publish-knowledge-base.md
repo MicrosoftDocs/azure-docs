@@ -41,7 +41,7 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. Add a sample word document as a URL: 
 
-    `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`
+    `https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`
 
 1. Select `+ Add URL`.
 
