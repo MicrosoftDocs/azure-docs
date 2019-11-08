@@ -23,29 +23,31 @@ Intents are managed from top navigation bar's **Build** section, then from the l
 
 ## Add intent
 
-1. On the **Intents** page, select **Create new intent**.
-
-1. In the **Create new intent** dialog box, enter the intent name, `GetEmployeeInformation`, and click **Done**.
+1. In the [LUIS preview portal](https://preview.luis.ai), select **Build** to view intents. 
+1. On the **Intents** page, select **+ Create**.
+1. In the **Create new intent** dialog box, enter the intent name, for example `ModifyOrder`, and select **Done**.
 
     ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
+    The intent needs example utterances.
+
 ## Add an example utterance
 
-Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add example utterances to an intent.
+Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS) when to predict this intent, you need to add example utterances to an intent. LUIS needs in the range of 15 to 30 example utterances to begin understanding the intent. Do not add example utterances in bulk. Each utterance should be carefully chosen for how it is different than examples already in the intent. 
 
-1. On the **GetEmployeeInformation** intent details page, enter a relevant utterance you expect from your users, such as `Does John Smith work in Seattle?` in the text box below the intent name, and then press Enter.
+1. On the intent details page, enter a relevant utterance you expect from your users, such as `Deliver a large cheese pizza` in the text box below the intent name, and then press Enter.
  
     ![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-    LUIS converts all utterances to lowercase and adds spaces around tokens such as hyphens.
+    LUIS converts all utterances to lowercase and adds spaces around [tokens](luis-language-support.md#tokenization) such as hyphens.
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
 ## Intent prediction errors 
 
-An example utterance in an intent might have an intent prediction error between the intent the example utterance is currently in and the prediction intent determined during training. 
+An example utterance in an intent might have an intent prediction error between the intent the example utterance is currently in and the intent determined during training. 
 
-To find utterance prediction errors and fix them, use the **Filter** option's **Evaluation** options of Incorrect and Unclear combined with the **View** option of **Detailed view**. 
+To find utterance prediction errors and fix them, use the **Filter** options of Incorrect and Unclear combined with the **View** option of **Detailed view**. 
 
 ![To find utterance prediction errors and fix them, use the Filter option.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
