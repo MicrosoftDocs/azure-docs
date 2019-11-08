@@ -141,7 +141,7 @@ You now have enough information to create a log management strategy for the key 
 
 After you determine which log files can be deleted, you can adjust logging parameters on many Hadoop services to automatically delete log files after a specified time period.
 
-For certain log files, you can use a lower-priced log file archiving approach. For Azure Resource Manager  activity logs, you can explore this approach using the Azure portal.  Set up archiving of the ARM logs by selecting the **Activity Log** link in the Azure portal for your HDInsight instance.  On the top of the Activity Log search page, select the **Export** menu item to open the **Export activity log** pane.  Fill in the subscription, region, whether to export to a storage account, and how many days to retain the logs. On this same pane, you can also indicate whether to export to an event hub.
+For certain log files, you can use a lower-priced log file archiving approach. For Azure Resource Manager activity logs, you can explore this approach using the Azure portal.  Set up archiving of the Resource Manager logs by selecting the **Activity Log** link in the Azure portal for your HDInsight instance.  On the top of the Activity Log search page, select the **Export** menu item to open the **Export activity log** pane.  Fill in the subscription, region, whether to export to a storage account, and how many days to retain the logs. On this same pane, you can also indicate whether to export to an event hub.
 
 ![Azure portal export activity log preview](./media/hdinsight-log-management/hdi-export-log-files.png)
 
