@@ -1,6 +1,6 @@
 ---
 title: FAQ - Backing up Azure VMs with Azure Backup
-description: Answers to common questions about backing up Azure VMs with Azure Backup.
+description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm

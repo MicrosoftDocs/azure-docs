@@ -26,13 +26,13 @@ The key questions to ask for capacity planning are:
 
 The Azure region determines where your cluster is physically provisioned. To minimize the latency of reads and writes, the cluster should be near your data.
 
-HDInsight is available in many Azure regions. To find the closest region, see [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/).
+HDInsight is available in many Azure regions. To find the closest region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hdinsight).
 
 ## Choose storage location and size
 
 ### Location of default storage
 
-The default storage, either an Azure Storage account or Azure Data Lake Storage, must be in the same location as your cluster. Azure Storage is available at all locations. Data Lake Storage Gen1 is available in some regions - see the current [Data Lake Storage availability](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage).
+The default storage, either an Azure Storage account or Azure Data Lake Storage, must be in the same location as your cluster. Azure Storage is available at all locations. Data Lake Storage Gen1 is available in some regions - see the current [Data Lake Storage availability](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
 ### Location of existing data
 

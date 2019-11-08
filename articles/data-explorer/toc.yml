@@ -150,6 +150,8 @@
         href: check-cluster-health.md
     - name: Database
       items:
+      - name: Follower databases
+        href: follower.md  
       - name: Manage database permissions
         href: manage-database-permissions.md
       - name: Policies
@@ -224,10 +226,14 @@
       href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
   - name: Product feedback
     href: https://aka.ms/adefeedback
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/data-explorer/
-  - name: Cost Estimator
-    href: https://aka.ms/adecostestimator
+  - name: Pricing & billing
+    items: 
+    - name: Pricing page
+      href: https://azure.microsoft.com/pricing/details/data-explorer/
+    - name: Cost estimator
+      href: https://aka.ms/adecostestimator
+    - name: Reserved capacity
+      href: pricing-reserved-capacity.md 
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-explorer
 

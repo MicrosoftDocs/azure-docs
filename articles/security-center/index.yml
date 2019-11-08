@@ -8,7 +8,6 @@ metadata:
   description: Get started with Security Center, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: security-center
   ms.service: security-center #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: subservice
   ms.topic: landing-page # Required
   ms.collection: collection
   author: memildin #Required; your GitHub user alias, with correct capitalization.
@@ -29,6 +28,24 @@ landingContent:
             url: security-center-intro.md
           - text: Which versions of Windows server and Linux are supported?
             url: security-center-os-coverage.md
+ 
+  # Card
+  - title: Stay current
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Protect your containers
+            url: container-security.md
+          - text: Add dynamic compliance packages
+            url: update-regulatory-compliance-packages.md
+          - text: Integrate with Windows Admin Center
+            url: windows-admin-center-integration.md
+          - text: Automate responses to alerts and recommendations
+            url: workflow-automation.md
+          - text: Export security alerts and recommendations
+            url: continuous-export.md
+          - text: Set up advanced threat protection for Azure Key Vault 
+            url: advanced-threat-protection-key-vault.md
  
   # Card
   - title: Get started
