@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create registry in portal - Azure Container Registry
+title: Quickstart - Create registry in portal - Azure Container Registry
 description: Quickly learn to create a private Docker registry in Azure Container Registry with the Azure portal.
 services: container-registry
 author: dlepow
