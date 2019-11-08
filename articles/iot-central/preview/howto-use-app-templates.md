@@ -26,13 +26,13 @@ You have two options:
 
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application by copying an application.
 
-Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart.
+Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central.md) quickstart.
 
-![Application settings page](media/howto-use-app-templates-pnp/appcopy2.png)
+![Application settings page](media/howto-use-app-templates/appcopy2.png)
 
 After the app copy operation succeeds, you can navigate to the new application using the link.
 
-![Application settings page](media/howto-use-app-templates-pnp/appcopy3a.png)
+![Application settings page](media/howto-use-app-templates/appcopy3a.png)
 
 Copying an application also copies the definition of rules and email action. Some actions, such as Flow and  Logic Apps, are tied to specific rules via the Rule ID. When a rule is copied to a different application, it gets its own Rule ID. In this case, users will have to create a new action and then associate the new rule with it. In general, it's a good idea to check the rules and actions to make sure they're up-to-date in the new app.
 
@@ -69,13 +69,13 @@ To create an application template from an existing IoT Central application:
 1. On the **Application Template Export** page, enter a name and description for your template.
 1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
-![Create an application template](media/howto-use-app-templates-pnp/create-template.png)
+![Create an application template](media/howto-use-app-templates/create-template.png)
 
 ### Use an application template
 
 To use an application template to create a new IoT Central application, you need a previously created **Shareable Link**. Paste the **Shareable Link** into your browser's address bar. The **Create an application** page displays with your custom application template selected:
 
-![Create an application from a template](media/howto-use-app-templates-pnp/create-app.png)
+![Create an application from a template](media/howto-use-app-templates/create-app.png)
 
 Select your payment plan and fill out the other fields on the form. Then select **Create** to create a new IoT Central application from the application template.
 
@@ -89,4 +89,4 @@ To update your application template, change the template name or description on 
 
 ## Next steps
 
-Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)

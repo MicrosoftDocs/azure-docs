@@ -17,7 +17,7 @@ ms.author: metan
 
 The Immersive Reader SDK is a JavaScript library that allows you to integrate the Immersive Reader into your web application.
 
-# Functions
+## Functions
 
 The SDK exposes the functions:
 

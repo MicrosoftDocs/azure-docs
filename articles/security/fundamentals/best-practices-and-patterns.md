@@ -24,7 +24,7 @@ The articles below contain security best practices to use when you’re designin
 
 The best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
-* [Azure boundary security best practices](https://docs.microsoft.com/en-us/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
+* [Azure boundary security best practices](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Azure database security best practices](database-best-practices.md)
 * [Azure data security and encryption best practices](data-encryption-best-practices.md)
 * [Azure identity management and access control security best practices](identity-management-best-practices.md)
