@@ -47,7 +47,7 @@ The new app list doesn't have an **Application type** column because a single ap
 
 In the legacy experience, to register an app you were required to provide: **Name**, **Application type**, and **Sign-on URL/Redirect URI**. The apps that were created were Azure AD only single-tenant applications. They only supported organizational accounts from the directory the app was registered in.
 
-In the new experience, you must provide a **Name** for the app and choose the **Supported account types**. You can optionally provide a **Redirect URI**. If you provide a redirect URI, you'll need to specify whether it's web/public (mobile and desktop). For more information, see [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
+In the new experience, you must provide a **Name** for the app and choose the **Supported account types**. You can optionally provide a **Redirect URI**. If you provide a redirect URI, you'll need to specify whether it's web/public (mobile and desktop). For more information, see [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md). For Azure AD B2C, see [Register an application in Azure Active Directory B2C](../../active-directory-b2c/tutorial-register-applications.md).
 
 ## Differences between the Application Registration Portal and App registrations page
 
