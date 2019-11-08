@@ -4775,8 +4775,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Search/searchServices/delete | Deletes the search service. |
 > | Action | Microsoft.Search/searchServices/deleteQueryKey/delete | Deletes the query key. |
 > | Action | Microsoft.Search/searchServices/listAdminKeys/action | Reads the admin keys. |
-> | Action | Microsoft.Search/searchServices/listQueryKeys/action | Returns the list of query API keys for the given Azure Search service. |
-> | Action | Microsoft.Search/searchServices/listQueryKeys/read | Returns the list of query API keys for the given Azure Search service. |
+> | Action | Microsoft.Search/searchServices/listQueryKeys/action | Returns the list of query API keys for the given Azure Cognitive Search service. |
+> | Action | Microsoft.Search/searchServices/listQueryKeys/read | Returns the list of query API keys for the given Azure Cognitive Search service. |
 > | Action | Microsoft.Search/searchServices/read | Reads the search service. |
 > | Action | Microsoft.Search/searchServices/regenerateAdminKey/action | Regenerates the admin key. |
 > | Action | Microsoft.Search/searchServices/start/action | Starts the search service. |
@@ -5370,7 +5370,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/servers/syncAgents/read | Return the list of sync agents or gets the properties for the specified sync agent. |
 > | Action | Microsoft.Sql/servers/syncAgents/write | Creates a sync agent with the specified parameters or update the properties for the specified sync agent. |
 > | Action | Microsoft.Sql/servers/tdeCertificates/action | Create/Update TDE certificate |
-> | Action | Microsoft.Sql/servers/usages/read | Return server DTU quota and current DTU consuption by all databases within the server |
+> | Action | Microsoft.Sql/servers/usages/read | Return server DTU quota and current DTU consumption by all databases within the server |
 > | Action | Microsoft.Sql/servers/virtualNetworkRules/delete | Deletes an existing Virtual Network Rule |
 > | Action | Microsoft.Sql/servers/virtualNetworkRules/read | Return the list of virtual network rules or gets the properties for the specified virtual network rule. |
 > | Action | Microsoft.Sql/servers/virtualNetworkRules/write | Creates a virtual network rule with the specified parameters or update the properties or tags for the specified virtual network rule. |
