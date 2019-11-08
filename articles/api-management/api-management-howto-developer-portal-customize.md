@@ -121,7 +121,7 @@ To make your portal and its latest changes available to visitors, you need to pu
 
 ## Visit the published portal
 
-After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.portal.azure-api.net`. Open it in a new browser tab to view it as an external visitor.
+After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.developer.azure-api.net`. View it in a separate browser session (incognito / private browsing mode) as an external visitor.
 
 ## Next steps
 

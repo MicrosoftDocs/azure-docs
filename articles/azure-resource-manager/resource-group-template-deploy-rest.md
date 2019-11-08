@@ -29,13 +29,17 @@ To deploy to a **subscription**, use [Deployments - Create At Subscription Scope
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
+For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
+
 To deploy to a **management group**, use [Deployments - Create At Management Group Scope](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). The request is sent to:
 
 ```HTTP
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
-The examples in this article use resource group deployments. For more information about subscription deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
+For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
+
+The examples in this article use resource group deployments.
 
 ## Deploy with the REST API
 
