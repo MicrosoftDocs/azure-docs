@@ -59,13 +59,13 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
 
 Run the following commands in Azure PowerShell to acquire the location and service provider to which the Peering Service should be enabled. 
 
-- Get Peering Service locations
+Get Peering Service locations:
 
 ```
 Get-AzPeeringServiceLocation -Country "United States"
 ```
 
-- Get Peering Service providers
+Get Peering Service providers:
               
 ```
 Get-AzPeeringServiceProvider
