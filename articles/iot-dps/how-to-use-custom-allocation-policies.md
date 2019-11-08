@@ -15,7 +15,7 @@ manager: philmea
 
 A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an [Azure Function](../azure-functions/functions-overview.md) to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment. Your function code is executed and returns the IoT hub information used to provisioning the device.
 
-By using custom allocation policies, you define your own allocation policies when the policies provided by the Device Provisioning Service do not meet the requirements of your scenario.
+By using custom allocation policies, you define your own allocation policies when the policies provided by the Device Provisioning Service don't meet the requirements of your scenario.
 
 For example, maybe you want to examine the certificate a device is using during provisioning and assign the device to an IoT hub based on a certificate property. Or, maybe you have information stored in a database for your devices and need to query the database to determine which IoT hub a device should be assigned to.
 
@@ -48,9 +48,9 @@ You perform the following steps in this article:
 
 In this section, you use the Azure Cloud Shell to create two new IoT hubs representing the **Contoso Toasters Division** and the **Contoso Heat Pumps division**.
 
-1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-    The following example creates a resource group named *contoso-us-resource-group* in the *eastus* region. It is recommended that you use this group for all resources created in this article. This approach will make clean up easier after you are finished.
+    The following example creates a resource group named *contoso-us-resource-group* in the *eastus* region. It is recommended that you use this group for all resources created in this article. This approach will make clean up easier after you're finished.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
@@ -58,7 +58,7 @@ In this section, you use the Azure Cloud Shell to create two new IoT hubs repres
 
 2. Use the Azure Cloud Shell to create the **Contoso Toasters Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. The IoT hub will be added to *contoso-us-resource-group*.
 
-    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *eastus* location. Use your own unique hub name. Make up your own suffix in the hub name in place of **1098**. The example code for the custom allocation policy requires `-toasters-` in the hub name.
+    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *eastus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. The example code for the custom allocation policy requires `-toasters-` in the hub name.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
@@ -68,7 +68,7 @@ In this section, you use the Azure Cloud Shell to create two new IoT hubs repres
 
 3. Use the Azure Cloud Shell to create the **Contoso Heat Pumps Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This IoT hub will also be added to *contoso-us-resource-group*.
 
-    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *eastus* location. Use your own unique hub name. Make up your own suffix in the hub name in place of **1098**. The example code for the custom allocation policy requires `-heatpumps-` in the hub name.
+    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *eastus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. The example code for the custom allocation policy requires `-heatpumps-` in the hub name.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
@@ -78,7 +78,7 @@ In this section, you use the Azure Cloud Shell to create two new IoT hubs repres
 
 ## Create the enrollment
 
-In this section, you will create a new enrollment group that uses the custom allocation policy. For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-security.md#x509-certificates) with a chain of trust.
+In this section, you'll create a new enrollment group that uses the custom allocation policy. For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-security.md#x509-certificates) with a chain of trust.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and open your Device Provisioning Service instance.
 
@@ -493,7 +493,7 @@ If you plan to continue working with the resources created in this article, you 
 The steps here assume you created all resources in this article as instructed in the same resource group named **contoso-us-resource-group**.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
+> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
 >
 
 To delete the resource group by name:
@@ -504,7 +504,7 @@ To delete the resource group by name:
 
 3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
 
-4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
+4. You'll be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 
