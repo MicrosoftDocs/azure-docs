@@ -101,6 +101,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Protect your apps using F5 Big-IP APM
-            url: /azure/active-directory/saas-apps/headerf5-tutorial.md
+            url: https://aka.ms/f5-hybridaccessguide
           - text: Protect your apps using Zscaler ZPA
-            url: /azure/active-directory/saas-apps/zscaler-provisioning-tutorial.md
+            url: https://aka.ms/zscaler-hybridaccessguide

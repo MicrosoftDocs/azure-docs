@@ -24,8 +24,8 @@ By using your existing networking and delivery controller you can easily protect
 
 The following vendors offer pre-built solutions and detailed guidance for integrating with Azure AD.
 
-* [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/saas-apps/headerf5-tutorial)
-* [Zscaler Private Access (ZPA)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-provisioning-tutorial)
+* [F5 Big-IP APM](https://aka.ms/f5-hybridaccessguide)
+* [Zscaler Private Access (ZPA)](https://aka.ms/zscaler-hybridaccessguide)
 *  Akamai EAA - *Coming soon*
 * Citrix ADC - *Coming soon*
 
