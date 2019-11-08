@@ -47,12 +47,12 @@ If you aren't combining resources into a single group, or if existing resource g
 
 ![Create a new resource group](./media/search-create-service-portal/new-resource-group.png "Create a new resource group")
 
-As you use the service, you can track current and projected costs all-up (as shown in the screenshot) or scroll down to view charges for individual resources. The following screenshot shows the kind of cost information you can expect to see over time when you combine multiple resources into one resource group.
+Over time, you can track current and projected costs all-up (as shown in the screenshot) or scroll down to view charges for individual resources. The following screenshot shows the kind of cost information you can eventually expect to see when you combine multiple resources into one group.
 
 ![Manage costs at the resource group level](./media/search-create-service-portal/resource-group-cost-management.png "Manage costs at the resource group level")
 
 > [!TIP]
-> Resource groups simplify cleanup because deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
+> Resource groups simplify cleanup because deleting a group also deletes the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
 
 ## Name the service
 
@@ -75,7 +75,7 @@ As an Azure service, Azure Cognitive Search can be hosted in datacenters around 
 
 You can minimize or avoid bandwidth charges by choosing the same location for multiple services. For example, if you are indexing data provided by another Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), creating your Azure Cognitive Search service in the same region avoids bandwidth charges (there are no charges for outbound data when services are in the same region).
 
-Additionally, if you are using cognitive search AI enrichments, create your service in the same region as your Cognitive Services resource. *Co-location of Azure Cognitive Search and Cognitive Services in the same region is a requirement for AI enrichment*.
+Additionally, if you are using AI enrichment, create your service in the same region as Cognitive Services. *Co-location of Azure Cognitive Search and Cognitive Services in the same region is a requirement for AI enrichment*.
 
 > [!Note]
 > Central India is currently unavailable for new services. For services already in Central India, you can scale up with no restrictions, and your service is fully supported in that region. The restriction on this region is temporary and limited to new services only. We will remove this note when the restriction no longer applies.
@@ -102,9 +102,9 @@ Your service is deployed within minutes, which you can monitor through Azure not
 
 Unless you are using the portal, programmatic access to your new service requires that you provide the URL endpoint and an authentication api-key.
 
-1. In the service overview page, locate and copy the URL endpoint on the right side of the page.
+1. On the **Overview** page, locate and copy the URL endpoint on the right side of the page.
 
-2. In the left navigation pane, select **Keys** and then copy either one of the admin keys (they are equivalent). Admin api-keys are required for creating, updating, and deleting objects on your service.
+2. On the **Keys** page, copy either one of the admin keys (they are equivalent). Admin api-keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
 
    ![Service overview page with URL endpoint](./media/search-create-service-portal/get-url-key.png "URL endpoint and other service details")
 
@@ -149,7 +149,7 @@ A second service is not required for high availability. High availability for qu
 
 ## Next steps
 
-After provisioning an Azure Cognitive Search service, you can continue in the portal to create your first index.
+After provisioning a service, you can continue in the portal to create your first index.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create an Azure Cognitive Search index in the portal](search-get-started-portal.md)
