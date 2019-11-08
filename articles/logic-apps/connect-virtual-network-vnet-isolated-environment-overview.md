@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 11/08/2019
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
@@ -140,10 +140,11 @@ those systems by using any of these items:
 
 * ISE-labeled connector for that system
 
-  > [!IMPORTANT]
-  > To use Windows authentication with the SQL Server connector, you must use the 
-  > [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
-  > The SQL Server connector doesn't support Windows authentication for a logic app in an ISE.
+  > [!NOTE]
+  > To use Windows authentication with the SQL Server connector in an 
+  > [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+  > use the connector's non-ISE version with the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
+  > The ISE-labeled version doesn't support Windows authentication.
 
 * Custom connector
 

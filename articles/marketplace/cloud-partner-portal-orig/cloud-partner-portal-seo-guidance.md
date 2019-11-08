@@ -17,7 +17,7 @@ This article explains how to maximize your offer's discoverability through the s
 
 ## General explanation of algorithm
 
-Microsoft marketplaces utilize Azure Search for powering the site's search capabilities. The algorithm is based on term frequency-inverse document frequency ([TF-IDF](https://en.wikipedia.org/wiki/Tf-idf)). The standard [Lucene Analyzer](https://lucene.apache.org/core/) is used.
+Microsoft marketplaces utilize Azure Cognitive Search for powering the site's search capabilities. The algorithm is based on term frequency–inverse document frequency ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). The standard [Lucene Analyzer](https://lucene.apache.org/core/) is used.
 
 In general, all text fields, categories, and industries and included
 into the weightage of the relevance. Specialized terms that are used
