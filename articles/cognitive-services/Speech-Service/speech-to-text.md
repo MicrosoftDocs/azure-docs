@@ -1,7 +1,7 @@
 ---
 title: Speech-to-text - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Speech-to-text feature in Speech Service enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service works seamlessly with Microsoft Cortana and Office products.
+description: The speech-to-text feature enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service works seamlessly with the text-to-speech (speech synthesis), and speech translation features.
 services: cognitive-services
 author: erhopf
 manager: nitinme
