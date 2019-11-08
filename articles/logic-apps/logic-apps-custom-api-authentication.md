@@ -196,7 +196,7 @@ You can also use this GUID in your web app or API app's deployment template, if 
 
 **Turn on authentication when you deploy with an Azure Resource Manager template**
 
-You must still create an Azure AD application identity for your web app or API app 
+You still need to create an Azure AD application identity for your web app or API app 
 that differs from the app identity for your logic app. To create the application identity, 
 follow the previous steps in Part 2 for the Azure portal. 
 
