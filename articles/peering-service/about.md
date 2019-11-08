@@ -84,6 +84,8 @@ Peering Service uses two types of redundancy:
 
    Microsoft has interconnected with service providers at multiple metro locations so that if one of the edge nodes has degraded performance, the traffic routes to and from Microsoft via alternate sites. Microsoft routes traffic in its global network by using SDN-based routing policies for optimal performance.
 
+    This type of redundancy uses the shortest routing path by always choosing the nearest Microsoft edge PoP to the end user and ensures that the customer is one network hop (AS hops) away from Microsoft​.
+
    ![Geo-redundancy](./media/peering-service-about/peering-service-geo-shortest.png)
 
 ### Optimal routing
