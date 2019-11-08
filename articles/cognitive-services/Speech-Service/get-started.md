@@ -52,7 +52,7 @@ To add a Speech service resource (free or paid tier) to your Azure account:
 
    ![speech search results](media/index/speech-search.png)
 
-1. Select **Create** and enter:
+1. Select **Create**,  then:
 
    * A unique name for the new resource. The name helps you distinguish among multiple subscriptions to the same service.
    * Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
