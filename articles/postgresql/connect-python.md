@@ -39,21 +39,13 @@ Connecting to an Azure Database for PostgreSQL database requires the fully quali
 ## How to run the Python examples
 
 For each of the following code examples:
-1. Create a new file in a text editor. 
-1. Add the code example to the file. In the code, replace `<connection string>` with your connection string. 
-1. Save the file in your project folder with a *.py* extension, such as *postgres-insert.py*. For Windows, make sure UTF-8 encoding is selected when you save the file. 
-1. To run the file, change to your project folder in your command-line interface, and type `python` followed by the filename, for example `python postgres-insert.py`.
-
-
-
-For each of the following code examples:
 
 1. Create a new file in a text editor. 
    
 1. Add the code example to the file. In the code, replace:
-   - `<server name>` and `<admin username>` with the values you copied from the Azure portal
-   - `<admin password>` with your server password
-   - `<database name>` with the name of your Azure Database for PostgreSQL database. A default database named *postgres* was automatically created when you created your server. You can rename that database or create a new database by using SQL commands. 
+   - `<server-name>` and `<admin-username>` with the values you copied from the Azure portal.
+   - `<admin-password>` with your server password.
+   - `<database-name>` with the name of your Azure Database for PostgreSQL database. A default database named *postgres* was automatically created when you created your server. You can rename that database or create a new database by using SQL commands. 
    
 1. Save the file in your project folder with a *.py* extension, such as *postgres-insert.py*. For Windows, make sure UTF-8 encoding is selected when you save the file. 
    
@@ -66,10 +58,10 @@ The following code example connects to your Azure Database for PostgreSQL databa
 import psycopg2
 
 # Update connection string information 
-host = "<server name>"
-dbname = "<database name>"
-user = "<admin username>"
-password = "<admin password>"
+host = "<server-name>"
+dbname = "<database-name>"
+user = "<admin-username>"
+password = "<admin-password>"
 sslmode = "require"
 
 # Construct connection string
@@ -110,10 +102,10 @@ The following code example connects to your Azure Database for PostgreSQL databa
 import psycopg2
 
 # Update connection string information
-host = "<server name>"
-dbname = "<database name>"
-user = "<admin username>"
-password = "<admin password>"
+host = "<server-name>"
+dbname = "<database-name>"
+user = "<admin-username>"
+password = "<admin-password>"
 sslmode = "require"
 
 # Construct connection string
@@ -144,10 +136,10 @@ The following code example connects to your Azure Database for PostgreSQL databa
 import psycopg2
 
 # Update connection string information
-host = "<server name>"
-dbname = "<database name>"
-user = "<admin username>"
-password = "<admin password>"
+host = "<server-name>"
+dbname = "<database-name>"
+user = "<admin-username>"
+password = "<admin-password>"
 sslmode = "require"
 
 # Construct connection string
@@ -174,10 +166,10 @@ The following code example connects to your Azure Database for PostgreSQL databa
 import psycopg2
 
 # Update connection string information
-host = "<server name>"
-dbname = "<database name>"
-user = "<admin username>"
-password = "<admin password>"
+host = "<server-name>"
+dbname = "<database-name>"
+user = "<admin-username>"
+password = "<admin-password>"
 sslmode = "require"
 
 # Construct connection string
