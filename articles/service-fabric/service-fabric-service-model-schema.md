@@ -37,7 +37,7 @@ The following components are defined in ServiceFabricServiceModel.xsd:
 
 
 <!--  Python script BuildServiceModelSchemaArticle.py used to generate this article:
-
+```
 try:
     from lxml import etree
     from lxml import objectify
@@ -1019,5 +1019,5 @@ def getAttributeGroups(tree, NSMAP):
     return namedAttributeGroups
 
 
-
+```
 -->
