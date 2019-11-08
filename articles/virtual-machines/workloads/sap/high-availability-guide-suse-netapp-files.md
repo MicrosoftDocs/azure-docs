@@ -129,7 +129,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
 * Probe Port
   * Port 621<strong>&lt;nr&gt;</strong>
 * Load-balancing rules
-  * If using Standard Load Balancer, select ** HA ports**
+  * If using Standard Load Balancer, select **HA ports**
   * If using Basic Load Balancer, create Load balancing rules for the following ports
     * 32<strong>&lt;nr&gt;</strong> TCP
     * 33<strong>&lt;nr&gt;</strong> TCP
