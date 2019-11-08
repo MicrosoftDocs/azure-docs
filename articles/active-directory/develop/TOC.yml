@@ -392,7 +392,7 @@
       items:
       - name: App registrations training guide for App registrations (Legacy) users
         href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-      - name: App registrations training guide for application registration portal
+      - name: App registrations training guide for application registration portal users
         href: app-registrations-training-guide-for-application-registration-portal-users.md
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
