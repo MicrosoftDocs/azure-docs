@@ -1,6 +1,6 @@
 ---
 title: Create an Azure IoT hub using the resource provider REST API | Microsoft Docs
-description: Learn how to use the resource provider C# REST API to create an IoT Hub programmatically and manage it.
+description: Learn how to use the resource provider C# REST API to create and manage an IoT Hub programmatically.
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
