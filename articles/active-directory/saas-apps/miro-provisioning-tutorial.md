@@ -84,7 +84,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 > [!NOTE]
 > To learn more about Miro's SCIM endpoint, refer [this](https://help.miro.com/hc/en-us/articles/360036777814).
 
-### To configure automatic user provisioning for Miro in Azure AD:
+### To configure automatic user provisioning for Miro in Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
@@ -146,7 +146,7 @@ This operation starts the initial synchronization of all users and/or groups def
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
-## Connector Limitations
+## Connector limitations
 
 * Miro's SCIM endpoint does not allow **Create** and **Delete** operations on groups. It only supports group **Update** operation.
 
