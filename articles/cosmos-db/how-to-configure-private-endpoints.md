@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Private Link for an Azure Cosmos account
-description: Learn how to set up Azure Private Link to access an Azure Cosmos account using a private IP address in a virtual network. 
+title: Configure Azure Private Link for an Azure Cosmos DB account
+description: Learn how to set up Azure Private Link to access an Azure Cosmos DB account by using a private IP address in a virtual network. 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,25 +8,27 @@ ms.date: 11/04/2019
 ms.author: thweiss
 ---
 
-# Configure Azure Private Link for an Azure Cosmos account (preview)
+# Configure Azure Private Link for an Azure Cosmos DB account (preview)
 
-By using Azure Private Link, you can connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. By using Private Link, you can limit access to a given Azure Cosmos account over private IP addresses. When combined with restricted NSG policies, Private link helps reduce the risk of data exfiltration. To learn more about private endpoints, see [Azure Private Link](../private-link/private-link-overview.md) article.
+By using Azure Private Link, you can connect to an Azure Cosmos DB account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. You can then limit access to an Azure Cosmos DB account over private IP addresses. When Private Link is combined with restricted NSG policies, it helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](../private-link/private-link-overview.md) article.
 
-Additionally, Private Link allows an Azure Cosmos account to be accessible from within the virtual network or any peered virtual network. Resources mapped to Private Link are also accessible from on premises over private peering through VPN or ExpressRoute. 
+Additionally, Private Link allows an Azure Cosmos DB account to be accessible from within the virtual network or any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or ExpressRoute. 
 
-You can connect to an Azure Cosmos account configured with Private Link by using the "Automatic" or "Manual" approval methods. To learn more, see the [approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Link documentation. This article describes the steps to create a Private Link assuming that you are using Automatic approval method.
+You can connect to an Azure Cosmos DB account configured with Private Link by using the automatic" or manual approval method. To learn more, see the [Approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Link documentation. 
 
-## Create a Private Link using the Azure portal
+This article describes the steps to create a private enpoint. It assumes that you're using the automatic approval method.
 
-Use the following steps to create a Private Link for an existing Azure Cosmos account using Azure portal:
+## Create a private endpoint by using the Azure portal
 
-1. From the **All resources** pane, find the Azure Cosmos DB account that you want to secure.
+Use the following steps to create a private endpoint for an existing Azure Cosmos DB account by using the Azure portal:
 
-1. Select **Private Endpoint Connection**  from the settings menu and select **Private endpoint** option:
+1. From the **All resources** pane, choose an Azure Cosmos DB account.
 
-   ![Create a private endpoint using Azure portal](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
+1. Select **Private Endpoint Connection** from the list of settings, and then select **Private endpoint**:
 
-1. In **Create a private endpoint (Preview) – Basics**, pane enter or select the following details:
+   ![Selections for create a private endpoint in the Azure portal](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
+
+1. In the **Create a private endpoint (Preview) – Basics** pane, enter or select the following details:
 
     | Setting | Value |
     | ------- | ----- |
@@ -34,19 +36,19 @@ Use the following steps to create a Private Link for an existing Azure Cosmos ac
     | Subscription | Select your subscription. |
     | Resource group | Select a resource group.|
     | **Instance details** |  |
-    | Name | Enter any name for your private endpoint; if this name is taken, create a unique one. |
-    |Region| Select the region where you want to deploy the Private Link. The private endpoint should be created in the same location where your virtual network exists.|
+    | Name | Enter any name for your private endpoint. If this name is taken, create a unique one. |
+    |Region| Select the region where you want to deploy Private Link. Create the private endpoint in the same location where your virtual network exists.|
     |||
 1. Select **Next: Resource**.
 1. In **Create a private endpoint - Resource**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    |Connection method  | Select connect to an Azure resource in my directory. <br/><br/> This option allows you to choose one of your resources to set up a Private Link or connect to someone else's resource with a resource ID or alias that they've shared with you.|
+    |Connection method  | Select **Connect to an Azure resource in my directory**. <br/><br/> You can then choose one of your resources to set up Private Link. Or you can connect to someone else's resource with a resource ID or alias that they've shared with you.|
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.AzureCosmosDB/databaseAccounts**. |
-    | Resource |Select your Azure Cosmos account |
-    |Target sub-resource |Select the Cosmos DB API type you want to map. This defaults to only one choice for the SQL, MongoDB and Cassandra APIs. For the Gremlin and Table APIs, you can also choose *Sql* as these APIs are interoperable with the SQL API. |
+    | Resource |Select your Azure Cosmos DB account. |
+    |Target sub-resource |Select the Cosmos DB API type that you want to map. This defaults to only one choice for the SQL, MongoDB, and Cassandra APIs. For the Gremlin and Table APIs, you can also choose **Sql** because these APIs are interoperable with the SQL API. |
     |||
 
 1. Select **Next: Configuration**.
@@ -58,55 +60,58 @@ Use the following steps to create a Private Link for an existing Azure Cosmos ac
     | Virtual network| Select your virtual network. |
     | Subnet | Select your subnet. |
     |**Private DNS Integration**||
-    |Integrate with private DNS zone |Select **Yes**. <br><br/> To connect privately with your private endpoint, you need a DNS record. It’s recommended that you integrate your private endpoint with a private DNS zone. You can also utilize your own DNS servers or create DNS records using the host files on your virtual machines. |
-    |Private DNS Zone |Select *privatelink.documents.azure.com* <br><br/> The Private DNS zone is determined automatically and can’t be changed currently by using the Azure portal.|
+    |Integrate with private DNS zone |Select **Yes**. <br><br/> To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines. |
+    |Private DNS Zone |Select **privatelink.documents.azure.com**. <br><br/> The private DNS zone is determined automatically. You can't change it by using the Azure portal.|
     |||
 
-1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
+1. Select **Review + create**. On the **Review + create** page, Azure validates your configuration.
 1. When you see the **Validation passed** message, select **Create**.
 
-When you have approved Private Links for an Azure Cosmos account, in the Azure portal the **All networks** option in the **Firewall and virtual networks** pane is greyed out.
+When you have approved Private Links for an Azure Cosmos DB account, in the Azure portal, the **All networks** option in the **Firewall and virtual networks** pane is unavailable.
 
-The following table shows mapping between different Azure Cosmos account API types, supported sub resources and the corresponding private zone names. The Gremlin and Table API accounts are accessible through SQL API as well so there are 2 entries for these APIs:
+The following table shows mapping between different Azure Cosmos DB account API types, supported sub-resources, and the corresponding private zone names. The Gremlin and Table API accounts are also accessible through the SQL API, so there are two entries for these APIs.
 
-|Azure Cosmos account API type  |Supported sub-resources(or groupIds) |Private zone name  |
+|Azure Cosmos DB account API type  |Supported sub-resources (or group IDs) |Private zone name  |
 |---------|---------|---------|
-|Sql    |   Sql      | privatelink.documents.azure.com   |
+|SQL    |   SQL      | privatelink.documents.azure.com   |
 |Cassandra    | Cassandra        |  privatelink.cassandra.cosmos.azure.com    |
 |Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
 |Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |
 |Gremlin     |  Sql       |  privatelink.documents.azure.com    |
 |Table    |    Table     |   privatelink.table.cosmos.azure.com    |
-|Table     |   Sql      |  privatelink.documents.azure.com    |
+|Table     |   SQL      |  privatelink.documents.azure.com    |
 
 ### Fetch the private IP addresses
 
-After the private endpoint is provisioned, you can query the IP addresses. To view the IP addresses from Azure portal, select **All resources**, search for the private endpoint you created earlier in this case it's "dbPrivateEndpoint3" and select the Overview tab to see the DNS settings and IP addresses:
+After the private endpoint is provisioned, you can query the IP addresses. To view the IP addresses from the Azure portal:
 
-![Private IP addresses in Azure portal](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
+1. Select **All resources**
+1. Search for the private endpoint that you created earlier. In this case, it's **cdbPrivateEndpoint3**.
+1. Select the **Overview** tab to see the DNS settings and IP addresses.
+
+![Private IP addresses in the Azure portal](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
 
 Multiple IP addresses are created per private endpoint:
 
-* One for the global (region-agnostic) endpoint of the Azure Cosmos account.
-* One for each region where the Azure Cosmos account is deployed.
+* One for the global (region-agnostic) endpoint of the Azure Cosmos DB account
+* One for each region where the Azure Cosmos DB account is deployed
 
-## Create a Private Link using Azure PowerShell
+## Create a private endpoint by using Azure PowerShell
 
-Run the following PowerSehll script to create a Private Link named "MyPrivateEndpoint" for an existing Azure Cosmos account. Make sure to replace the variable values with the details specific to your environment.
+Run the following PowerShell script to create a private endpoint named "MyPrivateEndpoint" for an existing Azure Cosmos DB account. Replace the variable values with the details for your environment.
 
 ```azurepowershell-interactive
-Fill in these details, make sure to replace the variable values with the details specific to your environment.
 $SubscriptionId = "<your Azure subscription ID>"
-# Resource group where the Cosmos DB and VNet resources live
+# Resource group where Azure Cosmos DB and virtual network resources live
 $ResourceGroupName = "myResourceGroup"
 # Name of the Cosmos DB account
 $CosmosDbAccountName = "mycosmosaccount"
 
-# API type of the Cosmos DB account: Sql or MongoDB or Cassandra or Gremlin or Table
+# API type of the Azure Cosmos DB account: SQL, MongoDB, Cassandra, Gremlin, or Table
 $CosmosDbApiType = "Sql"
-# Name of the existing VNet
+# Name of the existing virtual network
 $VNetName = "myVnet"
-# Name of the target subnet in the VNet
+# Name of the target subnet in the virtual network
 $SubnetName = "mySubnet"
 # Name of the private endpoint to create
 $PrivateEndpointName = "MyPrivateEndpoint"
@@ -124,9 +129,9 @@ $subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.N
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
 ```
 
-### Integrate the private endpoint with private DNS zone
+### Integrate the private endpoint with a private DNS zone
 
-After you create the private endpoint, you can integrate it with a private DNS zone by using the following PowerSehll script:
+After you create the private endpoint, you can integrate it with a private DNS zone by using the following PowerShell script:
 
 ```azurepowershell-interactive
 Import-Module Az.PrivateDns
@@ -161,7 +166,7 @@ New-AzPrivateDnsRecordSet -Name $recordName `
 
 ### Fetch the private IP addresses
 
-After the private endpoint is provisioned, you can query the IP addresses and the FQDNS mapping by using the following PowerShell script:
+After the private endpoint is provisioned, you can query the IP addresses and the FQDN mapping by using the following PowerShell script:
 
 ```azurepowershell-interactive
 
@@ -173,9 +178,11 @@ foreach ($IPConfiguration in $networkInterface.IpConfigurations)
 }
 ```
 
-## Create a Private Link using a Resource Manager template
+## Create a private endpoint by using a Resource Manager template
 
-You can set up Private Link by creating a private endpoint in a virtual network subnet. This is achieved by using an Azure Resource Manager template. Create a Resource Manager template named "PrivateEndpoint_template.json" with the following code. This template creates a private endpoint for an existing Azure Cosmos SQL API account in an existing virtual network:
+You can set up Private Link by creating a private endpoint in a virtual network subnet. You achieve this by using an Azure Resource Manager template. 
+
+Use the following code to create a Resource Manager template named "PrivateEndpoint_template.json." This template creates a private endpoint for an existing Azure Cosmos DB SQL API account in an existing virtual network:
 
 ```json
 {
@@ -234,9 +241,9 @@ You can set up Private Link by creating a private endpoint in a virtual network 
 }
 ```
 
-### Define the template parameters file
+### Define the parameters file for the template
 
-Create a parameters file for the template, and name it "PrivateEndpoint_parameters.json". Add the following code to the parameters file:
+Create a parameters file for the template, and name it "PrivateEndpoint_parameters.json." Add the following code to the parameters file:
 
 ```json
 {
@@ -264,19 +271,19 @@ Create a parameters file for the template, and name it "PrivateEndpoint_paramete
 Next create a PowerShell script with the following code. Before you run the script, make sure to replace the subscription ID, resource group name, and other variable values with the details specific to your environment:
 
 ```azurepowershell-interactive
-### This script creates a private endpoint for an existing Cosmos DB account in an existing VNet
+### This script creates a private endpoint for an existing Cosmos DB account in an existing virtual network
 
 ## Step 1: Fill in these details, make sure to replace the variable values with the details specific to your environment.
 $SubscriptionId = "<your Azure subscription ID>"
-# Resource group where the Cosmos DB and VNet resources live
+# Resource group where the Cosmos DB and virtual network resources live
 $ResourceGroupName = "myResourceGroup"
 # Name of the Cosmos DB account
 $CosmosDbAccountName = "mycosmosaccount"
 # API type of the Cosmos DB account. It can be one of the following: "Sql", "MongoDB", "Cassandra", "Gremlin", "Table"
 $CosmosDbApiType = "Sql"
-# Name of the existing VNet
+# Name of the existing virtual network
 $VNetName = "myVnet"
-# Name of the target subnet in the VNet
+# Name of the target subnet in the virtual network
 $SubnetName = "mySubnet"
 # Name of the private endpoint to create
 $PrivateEndpointName = "myPrivateEndpoint"
@@ -310,7 +317,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-In the PowerShell script, the "GroupId" variable can only contain one value, which is the API type of the account. Allowed values are: SQL, MongoDB, Cassandra, Gremlin, and Table. Some Azure Cosmos account types are accessible through multiple APIs. For example:
+In the PowerShell script, the "GroupId" variable can only contain one value, which is the API type of the account. Allowed values are: SQL, MongoDB, Cassandra, Gremlin, and Table. Some Azure Cosmos DB account types are accessible through multiple APIs. For example:
 
 * A Gremlin API account can be accessed from both Gremlin and SQL API accounts.
 * A Table API account can be accessed from both Table and SQL API accounts.
@@ -321,7 +328,7 @@ After the template is deployed successfully, you can see an output similar to wh
 
 ![Resource Manager template deployment output](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
 
-After the template is deployed, the private IP addresses are reserved within the subnet. The firewall rule of the Azure Cosmos account is configured to accept connections from the private endpoint only.
+After the template is deployed, the private IP addresses are reserved within the subnet. The firewall rule of the Azure Cosmos DB account is configured to accept connections from the private endpoint only.
 
 ## Configure custom DNS
 
@@ -333,25 +340,25 @@ When creating the private endpoint, you can integrate it with a private DNS zone
 
 The following are different situations and outcomes when you use Private Link in combination with firewall rules:
 
-* If there are no firewall rules configured, then by default, an Azure Cosmos account is accessible to all traffic.
+* If there are no firewall rules configured, then by default, an Azure Cosmos DB account is accessible to all traffic.
 
 * If public traffic or service endpoint is configured and private endpoints are created, then different types of incoming traffic are authorized by the corresponding type of firewall rule.
 
-* If no public traffic or service endpoint is configured and private endpoints are created, then the Azure Cosmos account is only accessible through the private endpoints. If no public traffic or service endpoint is configured, after all approved private endpoints are rejected or deleted, the account is open to all the network.
+* If no public traffic or service endpoint is configured and private endpoints are created, then the Azure Cosmos DB account is only accessible through the private endpoints. If no public traffic or service endpoint is configured, after all approved private endpoints are rejected or deleted, the account is open to all the network.
 
 ## Update private endpoint when you add or remove a region
 
-Adding or removing regions to an Azure Cosmos account requires you to add or remove DNS entries for that account. These changes should be updated accordingly in the private endpoint. Currently you should manually make this change by using the following steps:
+Adding or removing regions to an Azure Cosmos DB account requires you to add or remove DNS entries for that account. These changes should be updated accordingly in the private endpoint. Currently you should manually make this change by using the following steps:
 
-1. The Azure Cosmos DB administrator adds or removes regions. Then the network administrators are notified about the pending changes. The private endpoint mapped to an Azure Cosmos account sees its "ActionsRequired" properties changed from "None" to "Recreate". Then the network administrator updates the private endpoint by issuing a PUT request with the same Resource Manager payload used to create it.
+1. The Azure Cosmos DB administrator adds or removes regions. Then the network administrators are notified about the pending changes. The private endpoint mapped to an Azure Cosmos DB account sees its "ActionsRequired" properties changed from "None" to "Recreate". Then the network administrator updates the private endpoint by issuing a PUT request with the same Resource Manager payload used to create it.
 
 1. After this operation, the subnet's private DNS also has to be updated to reflect the added or removed DNS entries and their corresponding private IP addresses.
 
-For example, if you deploy an Azure Cosmos account in 3 regions: "West US", "Central US", and "West Europe". When you create a private endpoint for your account, 4 private IPs are reserved in the subnet. One for each region, which counts to a total of 3, and one for the global/region-agnostic endpoint.
+For example, if you deploy an Azure Cosmos DB account in 3 regions: "West US", "Central US", and "West Europe". When you create a private endpoint for your account, 4 private IPs are reserved in the subnet. One for each region, which counts to a total of 3, and one for the global/region-agnostic endpoint.
 
-Later if you add a new region, for example "East US" to the Azure Cosmos account. By default, the new region is not accessible from the existing private endpoint. The Azure Cosmos account administrator should refresh the private endpoint connection before accessing it from the new region. 
+Later if you add a new region, for example "East US" to the Azure Cosmos DB account. By default, the new region is not accessible from the existing private endpoint. The Azure Cosmos DB account administrator should refresh the private endpoint connection before accessing it from the new region. 
 
-When you run the ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` command, the output of the command contains the `actionsRequired` parameter, which is set to "Recreate". This value indicates that the private endpoint should be refreshed. Next the Azure Cosmos account administrator runs the `Set-AzPrivateEndpoint` command to trigger the private endpoint refresh.
+When you run the ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` command, the output of the command contains the `actionsRequired` parameter, which is set to "Recreate". This value indicates that the private endpoint should be refreshed. Next the Azure Cosmos DB account administrator runs the `Set-AzPrivateEndpoint` command to trigger the private endpoint refresh.
 
 ```powershell
 $pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>
@@ -363,15 +370,15 @@ A new private IP is automatically reserved in the subnet under this private endp
 
 You can use the same steps when you remove a region. The private IP of the removed region is automatically reclaimed, and the `actionsRequired` flag becomes `None`. If you don’t have any private DNZ zone integration, you must configure your private DNS to remove the DNS record for the removed region.
 
-DNS records in the private DNS zone are not removed automatically when a private endpoint is deleted or a region from the Azure Cosmos account is removed. You must manually remove the DNS records.
+DNS records in the private DNS zone are not removed automatically when a private endpoint is deleted or a region from the Azure Cosmos DB account is removed. You must manually remove the DNS records.
 
 ## Current limitations
 
-The following limitations apply when using the Private Link with an Azure Cosmos account:
+The following limitations apply when using the Private Link with an Azure Cosmos DB account:
 
-* Private Link support for Azure Cosmos accounts and VNETs is available in specific regions only. For a list of supported regions, see the [Available regions](../private-link/private-link-overview.md#availability) section of the Private Link article. **Both the VNET and the Azure Cosmos account should be in the supported regions to be able to create a private endpoint**.
+* Private Link support for Azure Cosmos DB accounts and virtual networks is available in specific regions only. For a list of supported regions, see the [Available regions](../private-link/private-link-overview.md#availability) section of the Private Link article. **Both the virtual network and the Azure Cosmos DB account should be in the supported regions to be able to create a private endpoint**.
 
-* When using Private Links with Azure Cosmos account using Direct mode connection, you can only use TCP protocol. HTTP protocol is not yet supported
+* When using Private Links with Azure Cosmos DB account using Direct mode connection, you can only use TCP protocol. HTTP protocol is not yet supported
 
 * When using Azure Cosmos DB’s API for MongoDB accounts, private endpoint is supported for accounts on server version 3.6 only (that is accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to new version.
 
@@ -379,15 +386,15 @@ The following limitations apply when using the Private Link with an Azure Cosmos
 
 * A virtual network can't be moved or deleted if it contains Private Link.
 
-* An Azure Cosmos account can't be deleted if it is attached to a private endpoint.
+* An Azure Cosmos DB account can't be deleted if it is attached to a private endpoint.
 
-* An Azure Cosmos account can't be failed over to a region that's not mapped to all private endpoints attached to the account. For more information, see Adding or removing regions in the previous section.
+* An Azure Cosmos DB account can't be failed over to a region that's not mapped to all private endpoints attached to the account. For more information, see Adding or removing regions in the previous section.
 
-* A network administrator should be granted at least the "*/PrivateEndpointConnectionsApproval" permission at the Azure Cosmos account scope by an administrator to create automatically-approved private endpoints.
+* A network administrator should be granted at least the "*/PrivateEndpointConnectionsApproval" permission at the Azure Cosmos DB account scope by an administrator to create automatically-approved private endpoints.
 
 ### Private DNS zone integration limitations
 
-DNS records in the private DNS zone are not removed automatically when a private endpoint is deleted or a region from the Azure Cosmos account is removed. You must manually remove the DNS records before:
+DNS records in the private DNS zone are not removed automatically when a private endpoint is deleted or a region from the Azure Cosmos DB account is removed. You must manually remove the DNS records before:
 
 * Adding a new private endpoint linked to this private DNS zone.
 * Adding a new region to any database account that has private endpoints linked to this private DNS zone.
@@ -396,10 +403,10 @@ Without cleaning up the DNS records, unexpected data plane issues such as data o
 
 ## Next steps
 
-To learn more about the other Azure Cosmos DB security features, see the following article:
+To learn more about the other Azure Cosmos DB security features, see the following articles:
 
 * To configure a firewall for Azure Cosmos DB, see [Firewall support](firewall-support.md).
 
-* [How to configure virtual network service endpoint for your Azure Cosmos account.](how-to-configure-vnet-service-endpoint.md)
+* To learn hoow to configure a virtual network service endpoint for your Azure Cosmos DB account, see [Configure access from virtual networks](how-to-configure-vnet-service-endpoint.md).
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
