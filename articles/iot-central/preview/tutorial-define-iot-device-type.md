@@ -43,7 +43,7 @@ As a builder, you have several options for creating device templates:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure IoT Central application. Follow this quickstart to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+To complete this tutorial, you need an Azure IoT Central application. Follow this quickstart to [Create an Azure IoT Central application](quick-deploy-iot-central.md).
 
 ## Create a device template from the device catalog
 
@@ -245,7 +245,7 @@ To add a form to a device template:
 
 Before you can connect a device that implements your device capability model, you must publish your device template.
 
-After you publish a device template, you can only make limited changes to the device capability model. To modify an interface, you need to [create and publish a new version](./howto-version-device-template-pnp.md).
+After you publish a device template, you can only make limited changes to the device capability model. To modify an interface, you need to [create and publish a new version](./howto-version-device-template.md).
 
 To publish a device template, go to you your device template and select **Publish**.
 
@@ -270,29 +270,29 @@ You will create IoT device templates.
 
 Click on Device Templates in the left navigation, click **+ New**, select **IoT Device** tile and select occupancy sensor tile and click **Next: Customize**
 
-![IoT Device](./media/tutorial-define-iot-device-type-pnp/gateway-downstream-new.png)
+![IoT Device](./media/tutorial-define-iot-device-type/gateway-downstream-new.png)
 
 You will be presented the review page. Click **Create** button. 
 
-![IoT Device](./media/tutorial-define-iot-device-type-pnp/gateway-downstream-review.png)
+![IoT Device](./media/tutorial-define-iot-device-type/gateway-downstream-review.png)
 
 New device template is created. 
 
-![IoT Device](./media/tutorial-define-iot-device-type-pnp/occupancy-sensor.png)
+![IoT Device](./media/tutorial-define-iot-device-type/occupancy-sensor.png)
 
 You will create a device template for S1 Sensor. 
 
 Click on Device Templates in the left navigation, click **+ New**, select **IoT Device** tile and select occupancy sensor tile and click **Next: Customize**
 
-![IoT Device](./media/tutorial-define-iot-device-type-pnp/s1-sensor.png)
+![IoT Device](./media/tutorial-define-iot-device-type/s1-sensor.png)
 
 You will be presented the review page. Click **Create** button. 
 
-![Downstream Device](./media/tutorial-define-iot-device-type-pnp/s1-review.png)
+![Downstream Device](./media/tutorial-define-iot-device-type/s1-review.png)
 
 New device template is created. 
 
-![Downstream Device](./media/tutorial-define-iot-device-type-pnp/s1-template.png)
+![Downstream Device](./media/tutorial-define-iot-device-type/s1-template.png)
 
 ## Create an IoT Gateway Device template
 
@@ -302,7 +302,7 @@ You can choose to create an IoT gateway device template. Gateway device will hav
 
 IoT devices can connect to Azure IoT gateway device 
 
-![Central Application page](./media/tutorial-define-iot-device-type-pnp/gatewaypattern.png)
+![Central Application page](./media/tutorial-define-iot-device-type/gatewaypattern.png)
 
 As a builder, you can create and edit Azure IoT gateway device templates in your application. After you publish a device template, you can connect real devices that implement the device template.
 
@@ -310,23 +310,23 @@ As a builder, you can create and edit Azure IoT gateway device templates in your
 
 To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab on the left pane.
 
-![Central Application page](./media/tutorial-define-iot-device-type-pnp/devicetemplate.png)
+![Central Application page](./media/tutorial-define-iot-device-type/devicetemplate.png)
 
 Click **+ New** to start creating a new device template.
 
-![Device Templates - New](./media/tutorial-define-iot-device-type-pnp/devicetemplatenew.png)
+![Device Templates - New](./media/tutorial-define-iot-device-type/devicetemplatenew.png)
 
-![Device Templates Selection - Gateway](./media/tutorial-define-iot-device-type-pnp/gateway-review.png)
+![Device Templates Selection - Gateway](./media/tutorial-define-iot-device-type/gateway-review.png)
 
 You will land on device template type selection page. Select **Azure IoT** Tile and click **Next: Customize** button at the bottom
 
 Select Gateway checkbox and click **Create** 
 
-![Device Templates Selection - Gateway](./media/tutorial-define-iot-device-type-pnp/gateway-customize.png)
+![Device Templates Selection - Gateway](./media/tutorial-define-iot-device-type/gateway-customize.png)
 
 You will be presented with a review page, click **Create** 
 
-![Device Template - Gateway](./media/tutorial-define-iot-device-type-pnp/gateway-review.png)
+![Device Template - Gateway](./media/tutorial-define-iot-device-type/gateway-review.png)
 
 Enter the gateway template name **Smart Building Gateway Template**. Click **Custom** tile.
 
@@ -338,7 +338,7 @@ You can add downstream relationships to device capability models for devices you
 
 Create relationships to downstream device capability models. Click **Save**
 
-![Device Template - Gateway](./media/tutorial-define-iot-device-type-pnp/gateway-occupancy-s1-rel.png)
+![Device Template - Gateway](./media/tutorial-define-iot-device-type/gateway-occupancy-s1-rel.png)
 
 ### Add cloud properties
 
@@ -392,23 +392,23 @@ After a device template is published, it's visible on the **Devices** page and t
 
 From the device explorer create a simulated smart building gateway. 
 
-![Device Template - Gateway](./media/tutorial-define-iot-device-type-pnp/smartbuildingdevice.png)
+![Device Template - Gateway](./media/tutorial-define-iot-device-type/smartbuildingdevice.png)
 
 ## Create downstream simulated devices
 
 From the device explorer create a simulated occupancy sensor. 
 
-![Device Template - occupancy](./media/tutorial-define-iot-device-type-pnp/occupancydevice.png)
+![Device Template - occupancy](./media/tutorial-define-iot-device-type/occupancydevice.png)
 
 From the device explorer create a simulated s1 sensor. 
 
-![Device Template - s1](./media/tutorial-define-iot-device-type-pnp/s1device.png)
+![Device Template - s1](./media/tutorial-define-iot-device-type/s1device.png)
 
 ## Add downstream devices relationships to gateway device
 
 Select S1 Sensor and Occupancy Sensor and click **Connect to gateway**. 
 
-![Device Template - s1](./media/tutorial-define-iot-device-type-pnp/connecttogateway.png)
+![Device Template - s1](./media/tutorial-define-iot-device-type/connecttogateway.png)
 
 Select gateway device template, gateway device instance and click **Join**.
 
@@ -426,4 +426,4 @@ In this tutorial, you learned how to:
 Here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Connect a device](tutorial-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Connect a device](tutorial-connect-pnp-device.md)

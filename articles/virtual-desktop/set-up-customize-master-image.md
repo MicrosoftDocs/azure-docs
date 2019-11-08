@@ -65,7 +65,7 @@ If your users need to access certain LOB applications, we recommend you install 
 
 ### Set up user profile container (FSLogix)
 
-To include the FSLogix container as part of the image, follow the instructions in [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
+To include the FSLogix container as part of the image, follow the instructions in [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial).
 
 ### Configure Windows Defender
 

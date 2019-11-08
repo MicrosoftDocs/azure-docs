@@ -7,16 +7,16 @@ ms.author: viviali
 ms.date: 10/15/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
+manager: corywink
 ---
 
-# Export your Azure IoT Central data(preview features)
+# Export your Azure IoT Central data (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 *This topic applies to administrators.*
 
-This article describes how to use the continuous data export feature in Azure IoT Central to export your data to Azure Event Hubs, Azure Service Bus, or Azure Blob storage instances. Data is exported in JSON format and can include telemetry, device information, and device template information. Use the exported data for:
+This article describes how to use the continuous data export feature in Azure IoT Central to export your data to **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** instances. Data is exported in JSON format and can include telemetry, device information, and device template information. Use the exported data for:
 
 - Warm-path insights and analytics. This option includes triggering custom rules in Azure Stream Analytics, triggering custom workflows in Azure Logic Apps, or passing it through Azure Functions to be transformed.
 - Cold-path analytics such as training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
@@ -77,14 +77,14 @@ Now that you have a destination to export data to, follow these steps to set up 
 
 3. Select the **+ New** button in the top right. Choose one of **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** as the destination of your export. The maximum number of exports per application is five.
 
-    ![Create new continuous data export](media/howto-export-data-pnp/export-new2.png)
+    ![Create new continuous data export](media/howto-export-data/export-new2.png)
 
 4. In the drop-down list box, select your **Event Hubs namespace**, **Service Bus namespace**, **Storage Account namespace**, or **Enter a connection string**.
 
     - You only see Storage Accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see step 5.
     - For seven-day trial apps, the only way to configure continuous data export is through a connection string. Seven-day trial apps don't have an associated Azure subscription.
 
-    ![Create new Event Hub](media/howto-export-data-pnp/export-eh.png)
+    ![Create new Event Hub](media/howto-export-data/export-eh.png)
 
 5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
     - Event Hubs or Service Bus, go to the namespace in the Azure portal.
@@ -103,11 +103,13 @@ Now that you have a destination to export data to, follow these steps to set up 
 
 9. After a few minutes, your data appears in your chosen destination.
 
-## Data format
+## Export contents and format
 
-Data is exported to your event hub or Service Bus queue or topic in near-realtime.
+Exported telemetry data contains the entirety of the message your devices sent to IoT Central, not just the telemetry values themselves. Exported devices data contains changes to properties and metadata of all devices, and exported device templates contains changes to all device templates.
 
-Data is exported to your storage account once per minute, with each file containing the batch of changes since the last exported file. Exported data is placed in three folders in JSON format. The default paths in your storage account are:
+For Event Hubs and Service Bus, data is exported in near-realtime. The data sits in the body property and is in JSON format (see below for examples).
+
+For Blob Storage, data is exported once per minute, with each file containing the batch of changes since the last exported file. Exported data is placed in three folders in JSON format. The default paths in your storage account are:
 
 - Telemetry: _{container}/{app-id}/telemetry/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
 - Devices: _{container}/{app-id}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
@@ -115,18 +117,19 @@ Data is exported to your storage account once per minute, with each file contain
 
 You can browse the exported files in the Azure portal by navigating to the file and choosing the **Edit blob** tab.
 
-Exported telemetry data contains the entirety of the message your devices sent to IoT Central, not just the telemetry values themselves. Exported devices data contains changes to properties and metadata of all devices, and exported device templates contains changes to all device templates. The exported data is in the body property and is in JSON format.
 
-### Telemetry
+## Telemetry
 
-A new message is exported quickly after IoT Central receives the message from a device.
+For Event Hubs and Service Bus, a new message is exported quickly after IoT Central receives the message from a device, and each exported message contains the full message the device sent in the body property in JSON format.
 
-- Each exported message in Event Hubs and Service Bus contains the full message the device sent in the body property in JSON format.
-- The exported files in blob storage use the same format as the message files exported by [IoT Hub message routing](../../iot-hub/iot-hub-csharp-csharp-process-d2c.md) to blob storage. Ensure that your devices are sending messages that have `contentType: application/JSON` and `contentEncoding:utf-8` (or `utf-16`, `utf-32`). See the [IoT Hub documentation](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) for an example.
+For Blob Storage, messages are batched and exported once per minute. The exported files use the same format as the message files exported by [IoT Hub message routing](../../iot-hub/iot-hub-csharp-csharp-process-d2c.md) to blob storage. 
 
-The devices that send the telemetry are represented by device IDs (see the following sections). To get the names of the devices, export device data and correlate each message by using the **connectionDeviceId** that matches the **deviceId** of the device message.
+> [!NOTE]
+> For Blob Storage, ensure that your devices are sending messages that have `contentType: application/JSON` and `contentEncoding:utf-8` (or `utf-16`, `utf-32`). See the [IoT Hub documentation](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) for an example.
 
-The following example shows a message about telemetry data received in event hub or Service Bus queue or topic.
+The device that sent the telemetry is represented by the device ID (see the following sections). To get the names of the devices, export device data and correlate each message by using the **connectionDeviceId** that matches the **deviceId** of the device message.
+
+This is an example message received in an event hub or Service Bus queue or topic.
 
 ```json
 {
@@ -155,7 +158,7 @@ The following example shows a message about telemetry data received in event hub
 }
 ```
 
-The following example shows a record in JSON format in blob storage:
+This is an example record exported to blob storage:
 
 ```json
 {
@@ -179,26 +182,25 @@ The following example shows a record in JSON format in blob storage:
 }
 ```
 
-### Devices
+## Devices
 
-Messages containing device data are sent to your event hub or Service Bus queue or topic once every few minutes. A new snapshot is written to blob storage once per minute. Each message or snapshot includes data about:
-
-- New devices that were added
-- Devices with changed property values
-
-Each message or record in a snapshot represents one or more changes to a device since the last exported message. Information includes:
+Each message or record in a snapshot represents one or more changes to a device and its properties since the last exported message. This includes:
 
 - `@id` of the device in IoT Central
 - `name` of the device
-- `deviceId` from [Device Provisioning Service](/azure/iot-central/core/howto-connect-nodejs)
+- `deviceId` from [Device Provisioning Service](../core/howto-connect-nodejs.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
 - Device template information
 - Property values
 
-Devices deleted since the last batch aren't exported. Currently, there are no indicators in exported messages for deleted devices.
+The device template that each device belongs to is represented by the `instanceOf`. To get the name and additional information about the device template, be sure to export device template data too.
 
-The device template that each device belongs to is represented by a device template ID. To get the name of the device template, be sure to export device template data too.
+Deleted devices aren't exported. Currently, there are no indicators in exported messages for deleted devices.
 
-The following example shows a message about device data in event hub or Service Bus queue or topic:
+For Event Hubs and Service Bus, messages containing device data are sent to your event hub or Service Bus queue or topic in near real-time, as it appears in IoT Central. 
+
+For Blob Storage, a new snapshot containing all the changes since the last one written is exported once per minute.
+
+This is an example message about devices and properties data in event hub or Service Bus queue or topic:
 
 ```json
 {
@@ -257,7 +259,7 @@ The following example shows a message about device data in event hub or Service 
 }
 ```
 
-Exported files contain a single line per record. The following example shows a record in JSON format.
+This is an example snapshot containing devices and properties data in Blob Storage. Exported files contain a single line per record.
 
 ```json
 {
@@ -303,27 +305,24 @@ Exported files contain a single line per record. The following example shows a r
 }
 ```
 
-### Device templates
-
-Messages containing device templates data are sent to your event hub or Service Bus queue or topic once every few minutes. A new snapshot is written once per minute to blob storage. Therefore, every few minutes, a batch of messages arrives with data about:
-
-Messages containing device template data are sent to your event hub or Service Bus queue or topic once every few minutes. A new snapshot is written to blob storage once per minute. Each message or snapshot includes data about:
-
-- New device templates that were added or versioned
-- Device templates with changed capability models, cloud properties, overrides, and initial values
+## Device templates
 
 Each message or snapshot record represents one or more changes to a device template since the last exported message. Information sent in each message or record includes:
 
-- `@id` of the device template
+- `@id` of the device template which matches the `instanceOf` of the devices stream above
 - `name` of the device template
 - `version` of the device template
 - The device `capabilityModel` including its `interfaces`, and the telemetry, properties, and commands definitions
 - `cloudProperties` definitions
 - Overrides and initial values, inline with the `capabilityModel`
 
-Device templates deleted since the last batch aren't exported. Currently, there are no indicators in exported messages for deleted device templates.
+Deleted device templates aren't exported. Currently, there are no indicators in exported messages for deleted device templates.
 
-The following example shows a device template message in event hub or Service Bus queue or topic:
+For Event Hubs and Service Bus, messages containing device template data are sent to your event hub or Service Bus queue or topic in near real-time, as it appears in IoT Central. 
+
+For Blob Storage, a new snapshot containing all the changes since the last one written is exported once per minute.
+
+This is an example message about device templates data in event hub or Service Bus queue or topic:
 
 ```json
 {
@@ -470,7 +469,7 @@ The following example shows a device template message in event hub or Service Bu
 }
 ```
 
-Exported files contain a single line per record. The following example shows a record in JSON format.
+This is an example snapshot containing devices and properties data in Blob Storage. Exported files contain a single line per record.
 
 ```json
 {
@@ -606,7 +605,7 @@ Exported files contain a single line per record. The following example shows a r
 
 ## Next steps
 
-Now that you know how to export your data to Azure Event Hubs and Azure Service Bus, continue to the next step:
+Now that you know how to export your data to Azure Event Hubs, Azure Service Bus, and Azure Blob Storage, continue to the next step:
 
 > [!div class="nextstepaction"]
-> [How to trigger Azure Functions](howto-trigger-azure-functions.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [How to trigger Azure Functions](../core/howto-trigger-azure-functions.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)

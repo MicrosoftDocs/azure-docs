@@ -24,9 +24,9 @@ In this example, you connect to RequestBin to get notified when rules fire using
 
 1. Create a new RequestBin and copy the **Bin URL**.
 
-1. Create a [telemetry rule](tutorial-create-telemetry-rules-pnp.md). Save the rule and add a new action.
+1. Create a [telemetry rule](tutorial-create-telemetry-rules.md). Save the rule and add a new action.
 
-    ![Webhook creation screen](media/howto-create-webhooks-pnp/webhookcreate.png)
+    ![Webhook creation screen](media/howto-create-webhooks/webhookcreate.png)
 
 1. Choose the webhook action and provide a display name and paste the Bin URL as the Callback URL.
 
@@ -81,4 +81,4 @@ If you have ideas for how to improve this feature, post your suggestions to our 
 
 ## Next steps
 
-Now that you've learned how to set up and use webhooks, the suggested next step is to explore [configuring Azure Monitor Action Groups](howto-use-action-groups-pnp.md).
+Now that you've learned how to set up and use webhooks, the suggested next step is to explore [configuring Azure Monitor Action Groups](howto-use-action-groups.md).

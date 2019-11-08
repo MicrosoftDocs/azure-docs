@@ -3,19 +3,14 @@ title: Azure CLI script sample - Filter VM network traffic | Microsoft Docs
 description: Azure CLI script sample - Filter inbound and outbound VM network traffic.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: timlt
-editor: tysonn
-tags:
-
-ms.assetid:
+author: KumudD
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: timlt
+ms.author: kumud
 
 ---
 
