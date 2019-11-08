@@ -4,7 +4,7 @@ description: Describes how to create a resource group in an Azure Resource Manag
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
 ---
 
@@ -18,7 +18,7 @@ To deploy templates at the subscription level, use Azure CLI, PowerShell, or RES
 
 You can deploy the following resource types at the subscription level:
 
-* [deployments](/azure/templates/microsoft.resources/deployments) 
+* [deployments](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -31,10 +31,16 @@ You can deploy the following resource types at the subscription level:
 
 The schema you use for subscription-level deployments is different than the schema for resource group deployments.
 
-For the schema, use:
+For templates, use:
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+```
+
+For parameter files, use:
+
+```json
+https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
 ```
 
 ## Deployment commands
@@ -71,14 +77,14 @@ For subscription level deployments, you must provide a location for the deployme
 
 You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
 
-For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name but different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
+For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
 ## Use template functions
 
 For subscription-level deployments, there are some important considerations when using template functions:
 
 * The [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) function is **not** supported.
-* The [resourceId()](resource-group-template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
+* The [resourceId()](resource-group-template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Or, use the [subscriptionResourceId()](resource-group-template-functions-resource.md#subscriptionresourceid) function to get the resource ID for a subscription level resource.
 * The [reference()](resource-group-template-functions-resource.md#reference) and [list()](resource-group-template-functions-resource.md#list) functions are supported.
 
 ## Create resource groups

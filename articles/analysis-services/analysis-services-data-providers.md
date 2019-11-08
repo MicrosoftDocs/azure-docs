@@ -4,7 +4,7 @@ description: Describes client libraries required for client applications and too
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -18,10 +18,10 @@ Client libraries are necessary for client applications and tools to connect to A
 
 |Download  |Product version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.5.15    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.5.15       |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.9.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.9.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.10.25    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.10.25       |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.2.3.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.2.3.0     |
 
 ## AMO and ADOMD (NuGet packages)
 

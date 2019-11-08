@@ -46,7 +46,7 @@ Use the links in this section for more information about managed cloud networkin
 |[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)|Yes|Yes||||
 |[Orixcom]( https://www.orixcom.com/cloud-solutions/)|Yes|Yes||||
 |[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|Yes|Yes||||
-|[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|Yes|Yes||||
+|[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|Yes|Yes|Yes|Yes||
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|Yes|Yes|Yes|||
 |[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)|Yes||||Yes|
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)|Yes|Yes|Yes|||
