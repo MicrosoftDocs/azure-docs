@@ -118,7 +118,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 > [!NOTE]
 > To learn more about Storegate's SCIM endpoint, refer [this](https://en-support.storegate.com/article/step-by-step-instruction-how-to-enable-azure-provisioning-to-your-storegate-team-account/).
 
-### To configure automatic user provisioning for Storegate in Azure AD:
+### To configure automatic user provisioning for Storegate in Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
