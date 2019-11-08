@@ -133,14 +133,14 @@ The deployment can take up to 90 minutes. You can use the Azure portal to monito
 Once the deployment of the Blockchain Workbench has completed, a new resource group contains your Blockchain Workbench resources. Blockchain Workbench services are accessed through a web URL. The following steps show you how to retrieve the web URL of the deployed framework.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the left-hand navigation pane, select **Resource groups**
+2. In the left-hand navigation pane, select **Resource groups**.
 3. Choose the resource group name you specified when deploying Blockchain Workbench.
 4. Select the **TYPE** column heading to sort the list alphabetically by type.
 5. There are two resources with type **App Service**. Select the resource of type **App Service** *without* the "-api" suffix.
 
     ![App service list](media/deploy/resource-group-list.png)
 
-6. In the App Service **Essentials** section, copy the **URL** value, which represents the web URL to your deployed Blockchain Workbench.
+6. In the App Service **Overview**, copy the **URL** value, which represents the web URL to your deployed Blockchain Workbench.
 
     ![App service essentials](media/deploy/app-service.png)
 
@@ -281,15 +281,19 @@ If you have guest users in your Azure AD tenant, follow the additional steps to 
 Once the Azure Blockchain Workbench has been deployed, you have to configure the Azure Active Directory (Azure AD) client application **Reply URL** of the deployed Blockchain Workbench web URL.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Verify you are in the tenant where you registered the Azure AD client application.
-3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations**.
-4. Select the Azure AD client application you registered in the prerequisite section.
-5. Select **Authentication**.
-6. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the [Blockchain Workbench web URL](#blockchain-workbench-web-url) section. The Reply URL is prefixed with `https://`. For example, `https://myblockchain2-7v75.azurewebsites.net`
+1. Verify you are in the tenant where you registered the Azure AD client application.
+1. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations**.
+1. Select the Azure AD client application you registered in the prerequisite section.
+1. Select **Authentication**.
+1. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the [Blockchain Workbench web URL](#blockchain-workbench-web-url) section. The Reply URL is prefixed with `https://`. For example, `https://myblockchain2-7v75.azurewebsites.net`
 
-    ![Reply URLs](media/deploy/configure-reply-url.png)
+    ![Authentication reply URLs](media/deploy/configure-reply-url.png)
 
-7. Select **Save** to update the client registration.
+1. In the **Advanced setting** section, check **Access tokens** and **ID tokens**.
+
+    ![Authentication advanced settings](media/deploy/authentication-advanced-settings.png)
+
+1. Select **Save** to update the client registration.
 
 ## Remove a deployment
 
