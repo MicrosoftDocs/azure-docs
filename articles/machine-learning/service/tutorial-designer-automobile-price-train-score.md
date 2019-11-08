@@ -136,7 +136,7 @@ Your dataset still has missing values after you remove the **normalized-losses**
 
 1. In the properties pane, select **Remove entire row** under **Cleaning mode**.
 
-1. In the properties pane **Comment** box, enter *Remove missing value rows*.  
+1. In the properties pane **Comment** box, enter *Remove missing value rows*. 
 
     Your pipeline should now look something like this:
     
