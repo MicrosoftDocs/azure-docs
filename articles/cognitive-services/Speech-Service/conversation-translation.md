@@ -48,4 +48,4 @@ When creating or joining a conversation you can specify two different types of l
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Translate conversations in real time](how-to-use-conversation-translation.md)
+> [Translate conversations in real time](quickstarts/conversation-translator-multiple-languages.md)
