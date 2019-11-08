@@ -1,5 +1,5 @@
 ---
-title: Using SQL Database DAC Package and Stream Analytics jobs with Azure SQL Database Edge | Microsoft Docs
+title: Using SQL Database DAC package and Stream Analytics jobs with Azure SQL Database Edge | Microsoft Docs
 description: Learn about using Stream Analytics jobs in SQL Database Edge
 keywords: sql database edge, stream analytics, sqlpackage
 services: sql-database-edge
@@ -11,13 +11,13 @@ ms.reviewer: sstein
 ms.date: 11/04/2019
 ---
 
-# Using SQL Database DAC Package and Stream Analytics job with SQL Database Edge
+# Using SQL Database DAC package and Stream Analytics jobs with SQL Database Edge
 
-Azure SQL Database Edge Preview is an optimized relational database engine geared for IoT and edge deployments. It is built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Database Edge provides in-built streaming capability for real-time analytics and complex event-processing.
+Azure SQL Database Edge Preview is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Database Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
-Azure SQL Database Edge also provides a native implementation of SQLPackage.exe that enables users to deploy a [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Database Edge.
+Azure SQL Database Edge also provides a native implementation of SqlPackage.exe that enables you to deploy a [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Database Edge.
 
-Azure SQL Database Edge exposes two optional parameters through the *module twin's desired properties* option of the IoT Edge Module.
+Azure SQL Database Edge exposes two optional parameters through the *module twin's desired properties* option of the IoT Edge module:
 
 ```json
 {
@@ -31,22 +31,22 @@ Azure SQL Database Edge exposes two optional parameters through the *module twin
 
 |Field | Description |
 |------|-------------|
-| SQLPackage | Azure Blob Storage URI for the *.zip file containing the SQL Database DAC package.
-| ASAJobInfo | Azure Blob Storage URI for the ASA Edge job. For more information on publishing the ASA Edge job, refer [Publishing an ASA Edge job for SQL Database Edge]().
+| SqlPackage | Azure Blob storage URI for the *.zip file that contains the SQL Database DAC package.
+| ASAJobInfo | Azure Blob storage URI for the ASA Edge job. For more information on publishing the ASA Edge job, see [Publishing an ASA Edge job for SQL Database Edge]().
 
 ## Using SQL Database DAC packages with SQL Database Edge
 
-To use a SQL Database DAC package (*.dacpac) with SQL Database Edge, please follow the steps mentioned below.
+To use a SQL Database DAC package (*.dacpac) with SQL Database Edge, complete these steps:
 
-1. Create or extract a SQL Database DAC package. You can use the concepts mentioned in [Extracting DAC from an existing database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) to generate a DacPac for an existing SQL Database.
+1. Create or extract a SQL Database DAC package. See [Extracting DAC from an existing database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL database.
 
-2. Zip the **.dacpac* and upload to an Azure Blob storage account. For more information on uploading files to Azure Blob Storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
+2. Zip the *.dacpac and upload to an Azure Blob storage account. For more information on uploading files to Azure Blob storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-3. Generate a SAS signature for the zip file using Azure portal. For more information, see [Delegate access with Shared Access Signatures (SAS)](../storage/common/storage-sas-overview.md).
+3. Generate a shared access signature for the zip file by using the Azure portal. For more information, see [Delegate access with shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 
-4. Update the SQL Database Edge Module configuration to include the SAS URI for the DAC package. To update the SQL Database Edge module
+4. Update the SQL Database Edge module configuration to include the shared access URI for the DAC package. To update the SQL Database Edge module, complete these steps:
 
-    1. On the Azure portal, browse to your IoT Hub deployment.
+    1. In the Azure portal, browse to your IoT Hub deployment.
 
     2. On the left side pane, click on **IoT Edge**.
 
