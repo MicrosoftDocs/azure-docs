@@ -236,7 +236,7 @@ To inject these secrets in your Spring or Tomcat configuration file, use environ
 
 ## Using the Java Key Store
 
-By default, any public or private certificates uploaded [to App Service Linux](configure-ssl-certificate.md) will be loaded into the Java Key Store as the container starts. This means your uploaded certificates will be available in the connection context when making outbound TLS connections.
+By default, any public or private certificates [uploaded to App Service Linux](../configure-ssl-certificate.md) will be loaded into the Java Key Store as the container starts. This means your uploaded certificates will be available in the connection context when making outbound TLS connections.
 
 You can interact or debug the Java Key Tool by [opening an SSH connection](app-service-linux-ssh-support.md) to your App Service and running the command `keytool`. See the [Key Tool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) for a list of commands. The certificates are stored in Java's default keystore file location, `$JAVA_HOME/jre/lib/security/cacerts`.
 
