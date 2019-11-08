@@ -147,8 +147,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. **Identity Intercept** - Specify the name of the (SP base URL–will be used for Azure AD Configuration)
 
-> [!NOTE]
-> You can choose to have your own custom domain (will require a DNS entry and a Certificate). In this example we are going to use the Akamai Domain.
+    > [!NOTE]
+    > You can choose to have your own custom domain (will require a DNS entry and a Certificate). In this example we are going to use the Akamai Domain.
 
 1. **Akamai Cloud Zone** - Select the Appropriate cloud zone.
 1. **Certificate Validation** - Check Akamai Documentation (optional)
@@ -158,13 +158,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Authentication Configuration
 
 1. URL – Specify the URL same as your identity intercept ( this is where users are redirect after authentication).
-2. Logout URL :  ============== update ==============.
+2. Logout URL : Update the logout URL.
 3. Sign SAML Request: default unchecked.
 4. For the IDP Metadata File, add the Application in the Azure AD Console.
 
 	![Configuring Akamai](./media/header-akamai-tutorial/configure04.png)
 
 ### Header Based Authentication
+
+Akamai Header Based Authentication
 
 ![Configuring Akamai](./media/header-akamai-tutorial/configure05.png)
 
