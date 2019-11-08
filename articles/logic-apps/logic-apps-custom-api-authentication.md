@@ -214,19 +214,21 @@ After you get the client ID and tenant ID, include these IDs
 as a subresource of your web app or API app in your deployment template:
 
 ``` json
-"resources": [ {
-    "apiVersion": "2015-08-01",
-    "name": "web",
-    "type": "config",
-    "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
-    "properties": {
-        "siteAuthEnabled": true,
-        "siteAuthSettings": {
-            "clientId": "{client-ID}",
-            "issuer": "https://sts.windows.net/{tenant-ID}/",
-        }
-    }
-} ]
+"resources": [ 
+   {
+      "apiVersion": "2015-08-01",
+      "name": "web",
+      "type": "config",
+      "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
+      "properties": {
+         "siteAuthEnabled": true,
+         "siteAuthSettings": {
+            "clientId": "<client-ID>",
+            "issuer": "https://sts.windows.net/<tenant-ID>/"
+         }
+      }
+   } 
+]
 ```
 
 To automatically deploy a blank web app and a logic app together with 
@@ -240,7 +242,7 @@ or click **Deploy to Azure** here:
 The previous template already has this authorization section set up, 
 but if you are directly authoring the logic app, you must include the full authorization section.
 
-Open your logic app definition in code view, go to the **HTTP** action section, 
+Open your logic app definition in code view, go to the **HTTP** action definition, 
 find the **Authorization** section, and include these properties:
 
 ```json
@@ -254,7 +256,7 @@ find the **Authorization** section, and include these properties:
 ```
 
 | Property | Required | Description | 
-| ------- | -------- | ----------- | 
+| -------- | -------- | ----------- | 
 | tenant | Yes | The GUID for the Azure AD tenant | 
 | audience | Yes | The GUID for the target resource that you want to access, which is the client ID from the application identity for your web app or API app | 
 | clientId | Yes | The GUID for the client requesting access, which is the client ID from the application identity for your logic app | 
@@ -267,10 +269,9 @@ For example:
 ``` json
 {
    "actions": {
-      "some-action": {
-         "conditions": [],
+      "HTTP": {
          "inputs": {
-            "method": "post",
+            "method": "POST",
             "uri": "https://your-api-azurewebsites.net/api/your-method",
             "authentication": {
                "tenant": "tenant-ID",
@@ -279,7 +280,7 @@ For example:
                "secret": "key-from-azure-ad-app-for-logic-app",
                "type": "ActiveDirectoryOAuth"
             }
-         },
+         }
       }
    }
 }
@@ -334,7 +335,7 @@ In the **Authorization** section, include these properties:
 ```
 
 | Property | Required | Description | 
-| ------- | -------- | ----------- | 
+| -------- | -------- | ----------- | 
 | type | Yes | The authentication type that you want to use. For basic authentication, the value must be `Basic`. | 
 | username | Yes | The username that you want to use for authentication | 
 | password | Yes | The password that you want to use for authentication | 
