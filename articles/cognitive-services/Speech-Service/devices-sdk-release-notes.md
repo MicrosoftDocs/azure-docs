@@ -79,6 +79,6 @@ The following sections list changes in the most recent releases.
 - Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 0.5.0. For more information, see its
   [release notes](releasenotes.md#cognitive-services-speech-sdk-050-2018-july-release).
 
-## Cognitive Services Speech Devices SDK 0.2.12733: 2018-May release
+## Speech Devices SDK 0.2.12733: 2018-May release
 
 The first public preview release of the Cognitive Services Speech Devices SDK.
