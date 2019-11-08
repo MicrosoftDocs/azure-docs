@@ -26,9 +26,3 @@ The following vendors offer pre-built solutions and detailed guidance for integr
 
 * [F5 Big-IP APM](https://aka.ms/f5-hybridaccessguide)
 * [Zscaler Private Access (ZPA)](https://aka.ms/zscaler-hybridaccessguide)
-*  Akamai EAA - *Coming soon*
-* Citrix ADC - *Coming soon*
-
-## Next steps
-
-- [List of all tutorials for gallery apps integrated with Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)
