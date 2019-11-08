@@ -40,15 +40,15 @@ To use an action group in an IoT Central rule, the action group must be in the s
 
 To use an action group in your IoT Central application, first create a rule. When you add an action to the rule, select **Azure Monitor Action Groups**:
 
-![Choose action](media/howto-use-action-groups-pnp/chooseaction.png)
+![Choose action](media/howto-use-action-groups/chooseaction.png)
 
 Choose an action group from your Azure subscription:
 
-![Choose action group](media/howto-use-action-groups-pnp/chooseactiongroup.png)
+![Choose action group](media/howto-use-action-groups/chooseactiongroup.png)
 
 Select **Save**. The action group now appears in the list of actions to run when the rule is triggered:
 
-![Saved action group](media/howto-use-action-groups-pnp/savedactiongroup.png)
+![Saved action group](media/howto-use-action-groups/savedactiongroup.png)
 
 The following table summarizes the information sent to the supported action types:
 
@@ -57,7 +57,7 @@ The following table summarizes the information sent to the supported action type
 | Email       | Standard IoT Central email template |
 | SMS         | Azure IoT Central alert: ${applicationName} - "${ruleName}" triggered on "${deviceName}" at ${triggerDate} ${triggerTime} |
 | Voice       | Azure I.O.T Central alert: rule "${ruleName}" triggered on device "${deviceName}" at ${triggerDate} ${triggerTime}, in application ${applicationName} |
-| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[regular webhook payload](howto-create-webhooks-pnp.md#payload)}} |
+| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[regular webhook payload](howto-create-webhooks.md#payload)}} |
 
 The following text is an example SMS message from an action group:
 
@@ -65,4 +65,4 @@ The following text is an example SMS message from an action group:
 
 ## Next steps
 
-Now that you've learned how to use action groups with rules, the suggested next step is to learn how to [manage your devices](howto-manage-devices-pnp.md).
+Now that you've learned how to use action groups with rules, the suggested next step is to learn how to [manage your devices](howto-manage-devices.md).
