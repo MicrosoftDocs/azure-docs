@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Add an application certificate to a Service Fabric cluster
 
-This sample script walks through how to create a certificate in Key Vault and then deploy it to one of the VM scale sets your cluster runs on. This scenario does not use Service Fabric directly, but rather depends on Key Vault and on VMSS.
+This sample script walks through how to create a certificate in Key Vault and then deploy it to one of the virtual machine scale sets your cluster runs on. This scenario does not use Service Fabric directly, but rather depends on Key Vault and on virtual machine scale sets.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -36,7 +36,7 @@ $policy = New-AzKeyVaultCertificatePolicy -SubjectName $SubjectName -IssuerName 
 Add-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName -CertificatePolicy $policy
 ```
 
-## Update VMSS profile with certificate
+## Update virtual machine scale sets profile with certificate
 
 ```powershell
 $ResourceGroupName = ""
@@ -46,7 +46,7 @@ $CertStore = "My" # Update this with the store you want your certificate placed 
 $CertConfig = New-AzVmssVaultCertificateConfig -CertificateUrl (Get-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName).SecretId -CertificateStore $CertStore
 $VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMSSName
 
-# If this KeyVault is already known by the VMSS, for example if the cluster certificate is deployed from this keyvault, use
+# If this KeyVault is already known by the virtual machine scale set, for example if the cluster certificate is deployed from this keyvault, use
 $VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($certConfig)
 
 # Otherwise use
@@ -70,8 +70,8 @@ This script uses the following commands: Each command in the table links to comm
 | [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| Deploys the policy to Key Vault |
 | [New-AzVmssVaultCertificateConfig](/powershell/module/az.compute/New-AzVmssVaultCertificateConfig) | Creates an in-memory config representing the certificate in a VM |
 | [Get-AzVmss](/powershell/module/az.compute/Get-AzVmss) |  |
-| [Add-AzVmssSecret](/powershell/module/az.compute/Add-AzVmssSecret) | Adds the certificate to the in-memory definition of the VMSS |
-| [Update-AzVmss](/powershell/module/az.compute/Update-AzVmss) | Deploys the new definition of the VMSS |
+| [Add-AzVmssSecret](/powershell/module/az.compute/Add-AzVmssSecret) | Adds the certificate to the in-memory definition of the virtual machine scale set |
+| [Update-AzVmss](/powershell/module/az.compute/Update-AzVmss) | Deploys the new definition of the virtual machine scale set |
 
 ## Next steps
 
