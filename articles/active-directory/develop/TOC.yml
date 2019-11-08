@@ -390,6 +390,10 @@
         href: active-directory-configurable-token-lifetimes.md
     - name: Application configuration
       items:
+      - name: App registrations training guide for App registrations (Legacy) users
+        href: app-registrations-training-guide-for-app-registrations-legacy-users.md
+      - name: App registrations training guide for application registration portal
+        href: app-registrations-training-guide-for-application-registration-portal-users.md
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
       - name: Create service principal
@@ -594,8 +598,6 @@
         href: reference-saml-tokens.md
     - name: Application configuration
       items:
-      - name: App registrations training guide
-        href: app-registrations-training-guide.md
       - name: Applications and service principals
         href: app-objects-and-service-principals.md
       - name: How and why apps are added to Azure AD
