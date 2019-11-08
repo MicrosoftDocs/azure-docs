@@ -132,7 +132,7 @@ After you sign in, use the following steps to finish setting up your account:
 
 1. From Partner Center, select **Settings** > **Developer Settings** > **Programs** > **Get Started**, and enter your work e-mail address.
 2. Complete the details on the publisher profile page.
-3. Read the terms and conditions in the [Microsoft Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560), and then select **Accept and continue** to complete your enrollment.
+3. Read the terms and conditions in the [Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560), and then select **Accept and continue** to complete your enrollment.
 
     >[!Important]
     >*You must be authorized to act on your company's behalf in order to accept these terms.*
