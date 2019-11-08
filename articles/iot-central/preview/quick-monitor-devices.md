@@ -21,19 +21,19 @@ This quickstart shows you, as an operator, how to use your Microsoft Azure IoT C
 
 ## Prerequisites
 
-Before you begin, you should complete the three previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), [Add a simulated device to your IoT Central application](./quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) and [Configure rules and actions for your device](quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Before you begin, you should complete the three previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central.md), [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) and [Configure rules and actions for your device](quick-configure-rules.md).
 
 ## Receive a notification
 
 Azure IoT Central sends notifications about devices as email messages. The builder added a rule to send a notification when the temperature in a connected environmental sensor device exceeded a threshold. Check the emails sent to the account the builder chose to receive notifications.
 
-Open the email message you received at the end of the [Configure rules and actions for your device](quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart. In the email, select the link to the device:
+Open the email message you received at the end of the [Configure rules and actions for your device](quick-configure-rules.md) quickstart. In the email, select the link to the device:
 
-![Alert notification email](media/quick-monitor-devices-pnp/email.png)
+![Alert notification email](media/quick-monitor-devices/email.png)
 
 The **Dashboard** view for the environmental sensor simulated device you created in the previous quickstarts opens in your browser:
 
-![Device that triggered the notification email message](media/quick-monitor-devices-pnp/dashboard.png)
+![Device that triggered the notification email message](media/quick-monitor-devices/dashboard.png)
 
 ## Investigate an issue
 
@@ -49,7 +49,7 @@ To make a change to the device, use the **Environmental Sensor properties** page
 
 Choose **Environmental Sensor properties**. Change **Brightness Level** to 10. Choose **Save** to update the device. When the device confirms the settings change, the status of the property changes to **synced**:
 
-![Update settings](media/quick-monitor-devices-pnp/change-settings.png)
+![Update settings](media/quick-monitor-devices/change-settings.png)
 
 ## Next steps
 
@@ -62,4 +62,4 @@ In this quickstart, you learned how to:
 Now that you know now to monitor your device, the suggested next step is to:
 
 > [!div class="nextstepaction"]
-> [Build and manage a device template](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+> [Build and manage a device template](howto-set-up-template.md).
