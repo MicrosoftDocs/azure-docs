@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 04/19/2019
+ms.date: 11/08/2019
 ms.custom: seodec18
 
 ---
