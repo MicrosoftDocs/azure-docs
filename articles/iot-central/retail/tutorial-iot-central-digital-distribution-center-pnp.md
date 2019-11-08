@@ -109,4 +109,4 @@ If you're not going to continue to use this application, delete the application 
 ## Next steps
 * Learn more about digital distribution center solution architecture [digital distribution center concept](./architecture-digital-distribution-center-pnp.md)
 * Learn more about other [IoT Central retail templates](./overview-iot-central-retail-pnp.md)
-* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
+* Learn more about IoT Central refer to [IoT Central overview](../preview/overview-iot-central.md)
