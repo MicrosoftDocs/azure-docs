@@ -13,7 +13,7 @@ ms.date: 07/10/2019
 ms.author: wellsi
 ---
 
-# Release notes of Cognitive Services Speech Devices SDK
+# Release notes: Speech Devices SDK
 
 The following sections list changes in the most recent releases.
 
