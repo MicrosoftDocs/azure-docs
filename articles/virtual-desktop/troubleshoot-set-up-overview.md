@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 10/21/2019
+ms.date: 11/09/2019
 ms.author: helohr
 ---
 # Troubleshooting overview, feedback, and support

@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 11/06/2019
+ms.date: 11/09/2019
 ms.author: helohr
 ---
 # Tutorial: Deploy a management tool
