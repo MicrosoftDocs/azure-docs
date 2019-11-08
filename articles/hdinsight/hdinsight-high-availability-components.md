@@ -10,7 +10,7 @@ ms.date: 11/06/2019
 ---
 # High availability services supported by Azure HDInsight
 
- In order to provide you with optimal levels of availability for your analytics components, HDInsight has developed a unique architecture for ensuring high availability (HA) of critical services. Some components of this architecture were developed by HDInsight to provide automatic failover. Other components are standard Apache components that are deployed to support specific services. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to recover from other service interruptions.
+ In order to provide you with optimal levels of availability for your analytics components, HDInsight was developed with a unique architecture for ensuring high availability (HA) of critical services. Some components of this architecture were developed by Microsoft to provide automatic failover. Other components are standard Apache components that are deployed to support specific services. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to recover from other service interruptions.
 
 ## High availability infrastructure
 
@@ -21,22 +21,24 @@ HDInsight provides customized infrastructure to ensure that four primary service
 - Job History Server for Hadoop MapReduce
 - Apache Livy
 
-This infrastructure consists of a number of services and software components, some of which are designed by HDInsight. The following components are unique to the HDInsight platform:
+This infrastructure consists of a number of services and software components, some of which are designed by Microsoft. The following components are unique to the HDInsight platform:
 
 - Slave failover controller
 - Master failover controller
 - Slave high availability service
 - Master high availability service
 
-There are also other high availability services, which are supported by open source Apache reliability components. These components are also present on HDInsight clusters, but are not developed by HDInsight:
+![high availability infrastructure](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+
+There are also other high availability services, which are supported by open source Apache reliability components. These components are also present on HDInsight clusters:
 
 - Hadoop File System (HDFS) NameNode
-- YARN Resource Manager
+- YARN ResourceManager
 - HBase Master
 
 The following sections will provide more detail about how these services work together.
 
-## HDInsight High Availability Services
+## HDInsight high availability services
 
 Microsoft provides support for the four Apache services in the following table in HDInsight clusters. To distinguish them from availability services supported by components from Apache, they are called *HDInsight HA services*.
 
@@ -83,6 +85,8 @@ The master-ha-service only runs on the active headnode, it stops the HDInsight H
 
 ### The failover process
 
+![failover process](./media/hdinsight-high-availability-components/failover-steps.png)
+
 A health monitor runs on each headnode along with the master failover controller to send hearbeat notifications to the Zookeeper quorum. The headnode is regarded as an HA service in this scenario. The health monitor checks to see if each high availability service is healthy and if it's ready to join in the leadership election. If yes, this headnode will compete in the election. If not, it will quit the election until it becomes ready again.
 
 If the standby headnode ever achieves leadership and becomes active (such as in the case of a failure with the previous active node), its master failover controller will start all HDInsight HA services on it. The master failover controller will also stop these services on the other headnode.
@@ -95,13 +99,13 @@ HDInsight HA services should only run on the active headnode, and will be automa
 
 ### Some known issues
 
-- When manually starting an HA service on the standby headnode, it won't stop until next failover happens. When HA services are running on both headnodes, some potential problems include: Ambari UI is inaccessible, Ambari throws errors, YARN, Spark, and Oozie jobs may stuck.
+- When manually starting an HA service on the standby headnode, it won't stop until next failover happens. When HA services are running on both headnodes, some potential problems include: Ambari UI is inaccessible, Ambari throws errors, YARN, Spark, and Oozie jobs may get stuck.
 
 - When an HA service on the active headnode stops, it won't restart until next failover happens or the master failover controller/master-ha-service restarts. When one or more HA services stop on the active headnode, especially when Ambari server stops, Ambari UI is inaccessible, other potential problems include YARN, Spark, and Oozie jobs failures.
 
-## Apache High Availability Services
+## Apache high availability services
 
-Apache provides high availability for HDFS NameNode, YARN Resource Manager, and HBase Master, which are also available in HDInsight clusters. Unlike HDInsight HA services, they are supported in ESP clusters. Apache HA services communicate with the second ZooKeeper quorum (described in the above section) to elect active/standby states and conduct automatic failover. The following sections detail how these services work.
+Apache provides high availability for HDFS NameNode, YARN ResourceManager, and HBase Master, which are also available in HDInsight clusters. Unlike HDInsight HA services, they are supported in ESP clusters. Apache HA services communicate with the second ZooKeeper quorum (described in the above section) to elect active/standby states and conduct automatic failover. The following sections detail how these services work.
 
 ### Hadoop Distributed File System (HDFS) NameNode
 
@@ -109,19 +113,19 @@ HDInsight clusters based on Apache Hadoop 2.0 or higher provide NameNode high av
 
 The second Zookeeper quorum is independent of the first quorum, so the active NameNode may not run on the active headnode. When the active NameNode is dead or unhealthy, the standby NameNode wins the election and becomes active.
 
-### YARN Resource Manager
+### YARN ResourceManager
 
-HDInsight clusters based on Apache Hadoop 2.4 or higher, support YARN Resource Manager high availability. There are two resource managers, rm1 and rm2, running on headnode 0 and headnode 1, respectively. Like NameNode, YARN Resource Manager is also configured for automatic failover. Another Resource Manager is automatically elected to be active when the current active resource manager goes down or unresponsive.
+HDInsight clusters based on Apache Hadoop 2.4 or higher, support YARN ResourceManager high availability. There are two ResourceManagers, rm1 and rm2, running on headnode 0 and headnode 1, respectively. Like NameNode, YARN ResourceManager is also configured for automatic failover. Another ResourceManager is automatically elected to be active when the current active ResourceManager goes down or unresponsive.
 
-YARN Resource Manager uses its embedded *ActiveStandbyElector* as a failure detector and leader elector. Unlike HDFS NodeManager, YARN Resource Manager doesn't need a separate ZKFC daemon. The active resource manager writes its states into Apache Zookeeper.
+YARN ResourceManager uses its embedded *ActiveStandbyElector* as a failure detector and leader elector. Unlike HDFS NodeManager, YARN ResourceManager doesn't need a separate ZKFC daemon. The active ResourceManager writes its states into Apache Zookeeper.
 
-The high availability of the YARN Resource Manager is independent from NameNode and other HDInsight HA services. The active resource manager may not run on the active headnode or the headnode where the active NameNode is running. For more information about YARN Resource Manager high availability, see [Resource Manager High Availability](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
+The high availability of the YARN ResourceManager is independent from NameNode and other HDInsight HA services. The active ResourceManager may not run on the active headnode or the headnode where the active NameNode is running. For more information about YARN ResourceManager high availability, see [ResourceManager High Availability](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
 
 ### HBase Master
 
 HDInsight HBase clusters support HBase Master high availability. Unlike other HA services, which run on headnodes, HBase Masters run on the three Zookeeper nodes, where one of them is the active master and the other two are standby. Like NameNode, HBase Master coordinates with Apache Zookeeper for leader election and does automatic failover when the current active master has problems. There is only one active HBase Master at any time.
 
-## Next Steps
+## Next steps
 
 - [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md)
 - [Azure HDInsight virtual network architecture](hdinsight-virtual-network-architecture.md)
