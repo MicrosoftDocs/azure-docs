@@ -1,7 +1,7 @@
 ---
 title: "Example: Identify faces in images - Face API"
 titleSuffix: Azure Cognitive Services
-description: Use the Face API to identify faces in images.
+description: This guide demonstrates how to identify unknown faces by using PersonGroup objects, which are created from known people in advance.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme

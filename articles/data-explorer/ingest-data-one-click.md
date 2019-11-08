@@ -18,11 +18,12 @@ This article shows how to use one-click ingestion for quick ingestion of a new t
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * Sign in to [the application](https://dataexplorer.azure.com/).
 * Create [an Azure Data Explorer cluster and database](create-cluster-database-portal.md)
+* Sign in to the [Web UI](https://dataexplorer.azure.com/) and [add a connection to your cluster](/azure/data-explorer/web-query-data#add-clusters)
 * Source of data in Azure Storage.
 
 ## Ingest new data
 
-1. Right-click on the *database* or *table* row in left hand menu and select **Ingest new data (Preview)**
+1. Right-click on the *database* or *table* row in left hand menu of the Web UI and select **Ingest new data (Preview)**
 
     ![select one click ingestion in web UI](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
  
