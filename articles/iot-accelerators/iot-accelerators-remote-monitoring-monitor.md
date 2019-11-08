@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Monitor IoT devices from Azure Solution - Azure | Microsoft Docs
+title: Tutorial - Monitor IoT devices from Azure Solution - Azure | Microsoft Docs
 description: In this tutorial you learn how to monitor your IoT devices using the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt
