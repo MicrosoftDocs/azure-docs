@@ -43,23 +43,31 @@ In this article we will summarize migration considerations for:
 > * Considerations for stateful and stateless applications
 > * Deployment of your cluster configuration
 
-## Differences between Kubernetes cluster types
-
-Authorized IP ranges (VMSS & engine only)
-Azure Policy
-Availability Zones (VMSS & engine only)
-Cluster Autoscaling (VMSS & engine only)
+## AKS with Standard Load Balancer and Virtual Machine Scale Sets
 
 AKS is a managed service offering unique capabilities with lower management overhead. As a result of being a managed service, you must select from a set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions) which AKS supports. The transition from your existing cluster to AKS may require modifying your existing applications so they remain healthy on the AKS managed control plane.
 
-The following table provides details on the important technology differences between AKS clusters with Virtual Machine Scale Sets, AKS clusters with Availability Sets, ACS based Kubernetes clusters, and AKS engine based clusters.
+We recommend using AKS clusters backed by [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets) and [the Azure Standard Load Balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard) to ensure you get features such as [multiple node pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools), [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview), [Authorized IP ranges for securing the API server](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), [Cluster Autoscaling](https://docs.microsoft.com/azure/aks/cluster-autoscaler), [Azure Policy for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks), and other new features as they are released.   
 
-| Cluster type | [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) | [Multiple Node Pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) | [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) | Windows Server nodes| Authorized IP ranges | Azure Policy | Availability Zones |  Cluster Autoscaling
-|-----------------------------------------|----------|
-| [AKS - VM Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets) | Yes | Yes | Yes | Yes (preview) | Yes | ? | Yes | Yes
-| [AKS - VM Availability Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Yes | No | No | Yes (preview) | No | ? | No | No
-| [ACS](https://docs.microsoft.com/azure/container-service/) | No | No | No | No | ? | No | No | No
-| [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) | Yes | Yes | Yes | Yes | Yes | ? | Yes | Yes
+AKS clusters backed by [Virtual Machine Availability Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) lack support for many of these features.
+
+The following example creates an AKS cluster with single node pool backed by a virtual machine scale set. It uses a standard load balancer. It also enables the cluster autoscaler on the node pool for the cluster and sets a minimum of *1* and maximum of *3* nodes:
+
+```azurecli-interactive
+# First create a resource group
+az group create --name myResourceGroup --location eastus
+
+# Now create the AKS cluster and enable the cluster autoscaler
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --node-count 1 \
+  --vm-set-type VirtualMachineScaleSets \
+  --load-balancer-sku standard \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
 
 ## Existing attached Azure Services
 
@@ -79,28 +87,6 @@ Because additional virtual machines will be deployed into your subscription duri
 You may need to request an increase for [Network quotas](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) to ensure you don't exhaust IPs. See [networking and IP ranges for AKS](https://docs.microsoft.com/azure/aks/configure-kubenet) for additional information.
 
 For more information, see [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits). To check your current quotas, in the Azure portal, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), select your subscription, and then select **Usage + quotas**.
-
-## AKS with Standard Load Balancer and Virtual Machine Scale Sets
-
-We recommend new AKS clusters use the [standard load balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard) and [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets).  This type of configuration ensures AKS operates TODO 
-
-The following example creates an AKS cluster with single node pool backed by a virtual machine scale set. It uses a standard load balancer. It also enables the cluster autoscaler on the node pool for the cluster and sets a minimum of *1* and maximum of *3* nodes:
-
-```azurecli-interactive
-# First create a resource group
-az group create --name myResourceGroup --location eastus
-
-# Now create the AKS cluster and enable the cluster autoscaler
-az aks create \
-  --resource-group myResourceGroup \
-  --name myAKSCluster \
-  --node-count 1 \
-  --vm-set-type VirtualMachineScaleSets \
-  --load-balancer-sku standard \
-  --enable-cluster-autoscaler \
-  --min-count 1 \
-  --max-count 3
-```
 
 ## High Availability and Business Continuity
 
