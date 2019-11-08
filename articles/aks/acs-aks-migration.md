@@ -23,7 +23,7 @@ This document can be used to help support the following scenarios:
 * Migrating from [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) to AKS
 * Migrating from non-Azure based Kubernetes clusters to AKS
 
-When migrating, ensure your target Kubernetes version is within the supported window for AKS. If using an older version it may not be within the supported range and require upgrading versions to be supported by AKS. See [AKS supported Kubernetes versions](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions) for more information.
+When migrating, ensure your target Kubernetes version is within the supported window for AKS. If using an older version, it may not be within the supported range and require upgrading versions to be supported by AKS. See [AKS supported Kubernetes versions](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions) for more information.
 
 If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions).
 
