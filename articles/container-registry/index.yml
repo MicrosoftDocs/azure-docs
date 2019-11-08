@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Container Registry documentation # < 60 chars
+title: Azure Container Registry documentation # < 60 chars
 summary: Azure Container Registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers.
 
 metadata:
@@ -46,6 +46,27 @@ landingContent:
       links:
           - text: Build and store container images with Azure Container Registry
             url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/         
+  # Card
+  - title: Manage registries
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View repositories and tags
+            url: container-registry-repositories.md
+          - text: Import images
+            url: container-registry-import-images.md
+          - text: Lock images
+            url: container-registry-image-lock.md
+          - text: Set retention policy (preview)
+            url: container-registry-retention-policy.md
+      - linkListType: concept
+        links:
+          - text: Geo-replication
+            url: container-registry-geo-replication.md
+          - text: Authentication
+            url: container-registry-authentication.md
+            text: Best practices
+            url: container-registry-best-practices.md
   # Card (optional)
   - title: ACR Tasks
     linkLists:
@@ -63,22 +84,3 @@ landingContent:
         links:
           - text: Automate image builds     
             url: container-registry-tutorial-quick-task.md
-  # Card
-  - title: Manage registries
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: View repositories and tags
-            url: container-registry-repositories.md
-          - text: Import images
-            url: container-registry-import-images.md
-          - text: Lock images
-            url: container-registry-image-lock.md
-          - text: Set retention policy
-            url: container-registry-retention-policy.md
-      - linkListType: concept
-        links:
-          - text: Geo-replication
-            url: container-registry-best-practices.md
-          - text: Authentication
-            url: container-registry-authentication.md
