@@ -3,19 +3,15 @@ title: Azure CLI Script Sample - Route traffic for high availability of applicat
 description: Azure CLI Script Sample - Route traffic for high availability of applications
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: azure-infrastructure
-
-ms.assetid:
+author: asudbring
+manager: KumudD
 ms.service: traffic-manager
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Route traffic for high availability of applications
