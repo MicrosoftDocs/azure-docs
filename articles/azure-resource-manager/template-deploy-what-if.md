@@ -10,7 +10,7 @@ ms.author: jgao
 ---
 # Resource Manager template deployment what-if operation
 
-Before deploying a template, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will be changed if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed. Use this feature to make sure your template doesn't make any unexpected changes.
+Before deploying a template, you might want to preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
 
 The what-if operation is currently in preview. To use it, you must sign up for the preview.
 
@@ -44,7 +44,7 @@ To learn about subscription level deployments, see [Create resource groups and r
 
 ## Result format
 
-You can control the level of detail that is returned about the predicted changes. Use the `-ResultFormat` parameter to set whether you want only a list of resources that will change or whether that list of resources should also include details about the properties that will change. To see all properties, set the result format to `FullResourcePayloads`. To see only which resources will change, set the result format to `ResourceIdOnly`. The default value is `FullResourcePayloads`.  
+You can control the level of detail that is returned about the predicted changes. Set the `ResultFormat` parameter to `ResourceIdOnly` to get a list of resources that will change. Set the `ResultFormat` parameter to `FullResourcePayloads` to get a list of resources what will change and details about the properties that will change. The default value is `FullResourcePayloads`.  
 
 The following screenshots show the two different output formats:
 
@@ -58,9 +58,9 @@ The following screenshots show the two different output formats:
 
 ## Run what-if operation
 
-To see how what-if works, let's runs some tests. You'll deploy a template from [Azure Quickstart templates that creates a storage account](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json). The default storage account type is `Standard_LRS`.
+### Set up environment
 
-To set up your environment, deploy a storage account resource with the default **Standard_LRS** storage account type.
+To see how what-if works, let's runs some tests. First, deploy a template from [Azure Quickstart templates that creates a storage account](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json). The default storage account type is `Standard_LRS`. You'll use this storage account to test how changes are reported by what-if.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -71,7 +71,9 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-After the deployment completes, you're ready to test the what-if operation. Run the what-if command but set the storage account type to `Standard_GRS`.
+### Test modification
+
+After the deployment completes, you're ready to test the what-if operation. Run the what-if command but change the storage account type to `Standard_GRS`.
 
 ```azurepowershell-interactive
 New-AzDeploymentWhatIf `
@@ -89,7 +91,9 @@ Notice at the top of the output that colors are defined to indicate the type of 
 
 At the bottom of the output, it shows the sku name (storage account type) will be changed from **Standard_LRS** to **Standard_GRS**.
 
-The what-if operation supports using [deployment mode](deployment-modes.md). The following example tests deploying a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json).
+### Test deletion
+
+The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
 
 ```azurepowershell-interactive
 New-AzDeploymentWhatIf `
