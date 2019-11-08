@@ -25,13 +25,13 @@ In this how-to article, you:
 To complete the steps in this article, you need the following resources:
 
 - A [DevKit device](https://aka.ms/iot-devkit-purchase).
-- An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+- An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central.md).
 
 ## Get device connection details
 
 In your Azure IoT Central application, select the **Administration** tab and select **Device Connection**. Make a note of the **Scope ID** and **Primary key** (in **View Keys** link). And make sure **Auto Approve** is enabled.
 
-![Device group connection details](media/howto-connect-devkit-pnp/device-group-connection-details.png)
+![Device group connection details](media/howto-connect-devkit/device-group-connection-details.png)
 
 ## Prepare the device
 
@@ -50,7 +50,7 @@ In your Azure IoT Central application, select the **Administration** tab and sel
 
 1. Open your web browser and navigate to [http://192.168.0.1/](http://192.168.0.1/). The following web page displays:
 
-    ![Config UI](media/howto-connect-devkit-pnp/config-ui.png)
+    ![Config UI](media/howto-connect-devkit/config-ui.png)
 
     On the web page, enter:
 
@@ -63,11 +63,11 @@ In your Azure IoT Central application, select the **Administration** tab and sel
 
 1. Choose **Configure Device**, the DevKit device reboots and runs the application:
 
-    ![Reboot UI](media/howto-connect-devkit-pnp/reboot-ui.png)
+    ![Reboot UI](media/howto-connect-devkit/reboot-ui.png)
 
     The DevKit screen displays a confirmation that the application is running:
 
-    ![DevKit running](media/howto-connect-devkit-pnp/devkit-running.png)
+    ![DevKit running](media/howto-connect-devkit/devkit-running.png)
 
 The DevKit first registers a new device in IoT Central application and then starts sending data.
 
@@ -77,7 +77,7 @@ In this step, you view the telemetry in your Azure IoT Central application.
 
 In your IoT Central application, select **Devices** tab, select the device you added. In the **Overview** tab, you can see the telemetry from the DevKit device:
 
-![IoT Central device overview](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
+![IoT Central device overview](media/howto-connect-devkit/mxchip-overview-page.png)
 
 ## Review the code
 
@@ -85,4 +85,4 @@ To review the code or modify and compile it, go to the [MXChip IoT DevKit sample
 
 ## Next steps
 
-Now that you've learned how to connect a DevKit device to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](./howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) for your own IoT device.
+Now that you've learned how to connect a DevKit device to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](./howto-set-up-template.md) for your own IoT device.
