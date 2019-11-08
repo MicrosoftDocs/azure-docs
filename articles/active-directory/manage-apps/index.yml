@@ -104,7 +104,3 @@ landingContent:
             url: /azure/active-directory/saas-apps/headerf5-tutorial.md
           - text: Protect your apps using Zscaler ZPA
             url: /azure/active-directory/saas-apps/zscaler-provisioning-tutorial.md
-          - text: Protect your apps using Akamai EAA
-            url: application-proxy-deployment-plan.md
-          - text: Protect your apps using Citrix ADC
-            url: /azure/active-directory/saas-apps/citrix-netscaler-tutorial.md

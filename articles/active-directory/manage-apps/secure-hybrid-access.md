@@ -26,8 +26,8 @@ The following vendors offer pre-built solutions and detailed guidance for integr
 
 * [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/saas-apps/headerf5-tutorial)
 * [Zscaler Private Access (ZPA)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-provisioning-tutorial)
-*  Akamai EAA
-* [Citrix ADC](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)
+*  Akamai EAA - *Coming soon*
+* Citrix ADC - *Coming soon*
 
 ## Next steps
 
