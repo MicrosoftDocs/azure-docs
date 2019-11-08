@@ -1,5 +1,5 @@
 ---
-title: Secure a single or pooled database in Azure SQL Database | Microsoft Docs
+title: Secure a single or pooled database
 description: A tutorial that teaches you the about techniques and features to secure a single or pooled database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database

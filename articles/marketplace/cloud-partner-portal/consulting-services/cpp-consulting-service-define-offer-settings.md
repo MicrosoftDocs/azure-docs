@@ -4,6 +4,7 @@ description: Define offer settings in an Azure or Dynamics 365 consulting servic
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
@@ -54,7 +55,7 @@ The following list provides several well-named offer names:
 -   Essentials for Professional Services: 1-Hr Briefing
 -   Cloud Migration Platform: 1-Hr Briefing
 -   PowerApps and Microsoft Flow: 1-Day Workshop
--   Azure Machine Learning Services: 3-Wk PoC
+-   Azure Machine Learning: 3-Wk PoC
 -   Brick and Click Retail Solution: 1-Hr Briefing
 -   Bring Your Own Data: 1-Wk Workshop
 -   Cloud Analytics: 3-Day Workshop

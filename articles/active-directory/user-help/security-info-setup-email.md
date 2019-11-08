@@ -1,5 +1,5 @@
 ---
-title: Set up security info (preview) to use your email address - Azure Active Directory | Microsoft Docs
+title: Set up security info (preview) to use email - Azure AD
 description: How to set up your security info to verify your identity using your email address.
 services: active-directory
 author: eross-msft
@@ -91,6 +91,6 @@ You have additional options for how your organization contacts you to verify you
 
 ## Next steps
 
-- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
+- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](active-directory-passwords-update-your-own-password.md) article.
 
 - Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.

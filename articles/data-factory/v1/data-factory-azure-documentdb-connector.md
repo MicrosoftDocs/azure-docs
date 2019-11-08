@@ -1,5 +1,5 @@
 ---
-title: Move data to/from Azure Cosmos DB | Microsoft Docs
+title: Move data to/from Azure Cosmos DB 
 description: Learn how move data to/from Azure Cosmos DB collection using Azure Data Factory
 services: data-factory, cosmosdb
 documentationcenter: ''

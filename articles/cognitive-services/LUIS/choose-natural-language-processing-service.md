@@ -1,6 +1,6 @@
 ---
 title: Use NLP Cognitive Services to enrich conversations 
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Cognitive Services provides two natural language processing services, Language Understanding and QnA Maker, each with a different purpose. Understand when to use each service and how they compliment each other. 
 author: diberry
 ms.author: diberry

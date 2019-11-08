@@ -28,6 +28,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
   * Central US
   * Central US EUAP
+  * North Europe
+  * Southeast Asia
 
 * The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
   * Download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
