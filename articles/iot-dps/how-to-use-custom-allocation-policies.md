@@ -13,20 +13,18 @@ manager: philmea
 
 # How to use custom allocation policies
 
-
 A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an [Azure Function](../azure-functions/functions-overview.md) to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment. Your function code is executed and returns the IoT hub information used to provisioning the device.
 
 By using custom allocation policies you define your own allocation policies when the policies provided by the Device Provisioning Service do not meet the requirements of your scenario.
 
 For example, maybe you want to examine the certificate a device is using during provisioning, and assign the device to an IoT hub based on a certificate property. Maybe you may have information stored in a database for your devices and need to query the database to determine which IoT hub a device should be assigned to.
 
-
 This article demonstrates a custom allocation policy using an Azure Function written in C#. Two new IoT hubs are created representing a *Contoso Toasters Division* and a *Contoso Heat Pumps Division*. Devices requesting provisioning must have a registration ID with one of the following suffixes to be accepted for provisioning:
 
-- **-contoso-tstrsd-007**: Contoso Toasters Division
-- **-contoso-hpsd-088**: Contoso Heat Pumps Division
+* **-contoso-tstrsd-007**: Contoso Toasters Division
+* **-contoso-hpsd-088**: Contoso Heat Pumps Division
 
-The devices will be provisioned based on one of these required suffixes on the registration ID. These devices will be simulated using a provisioning sample included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
+The devices will be provisioned based on one of these required suffixes on the registration ID. These devices will be simulated using a provisioning sample included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
 You will perform the following steps in this article:
 
@@ -35,7 +33,6 @@ You will perform the following steps in this article:
 * Create device keys for two device simulations.
 * Set up the development environment for the Azure IoT C SDK
 * Simulate the devices to see that they are provisioned according to the example code of the custom allocation policy
-
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -66,7 +63,7 @@ In this section, you will use the Azure Cloud Shell to create two new IoT hubs r
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
-    
+
     This command may take a few minutes to complete.
 
 3. Use the Azure Cloud Shell to create the **Contoso Heat Pumps Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This IoT hub will also be added to *contoso-us-resource-group*.
@@ -76,11 +73,8 @@ In this section, you will use the Azure Cloud Shell to create two new IoT hubs r
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
-    
+
     This command may also take a few minutes to complete.
-
-
-
 
 ## Create the enrollment
 
@@ -102,7 +96,6 @@ In this section, you will create a new enrollment group that uses the custom all
 
     ![Add custom allocation enrollment group for symmetric key attestation](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-
 4. On **Add Enrollment Group**, click **Link a new IoT hub** to link both of your new divisional IoT hubs. 
 
     You must execute this step for both of your divisional IoT hubs.
@@ -115,11 +108,9 @@ In this section, you will create a new enrollment group that uses the custom all
 
     ![Link the divisional IoT hubs with the provisioning service](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
-
 5. On **Add Enrollment Group**, once both divisional IoT hubs have been linked, you must select them as the IoT Hub group for the enrollment group as shown below:
 
     ![Create the divisional hub group for the enrollment](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
-
 
 6. On **Add Enrollment Group**, scroll down to the **Select Azure Function** section and click **Create a new function app**.
 
@@ -133,7 +124,6 @@ In this section, you will create a new enrollment group that uses the custom all
 
     ![Create the function app](./media/how-to-use-custom-allocation-policies/function-app-create.png)
 
-
 8. Back on your **Add Enrollment Group** page, make sure your new function app is selected. You may have to re-select the subscription to refresh the function app list.
 
     Once your new function app is selected, click **Create a new function**.
@@ -142,7 +132,7 @@ In this section, you will create a new enrollment group that uses the custom all
 
     your new function app will be opened.
 
-9. On your function app, click to create a new function
+9. On your function app, click **+** to create a new function
 
     ![Create the function app](./media/how-to-use-custom-allocation-policies/new-function.png)
 
@@ -150,7 +140,7 @@ In this section, you will create a new enrollment group that uses the custom all
 
     This creates a new C# function named **HttpTriggerCSharp1**.
 
-10. Replace the code for the new C# function with the following code and click **Save**:    
+10. Replace the code for the new C# function with the following code and click **Save**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -162,7 +152,7 @@ In this section, you will create a new enrollment group that uses the custom all
     {
         // Just some diagnostic logging
         log.Info("C# HTTP trigger function processed a request.");
-        log.Info("Request.Content:...");    
+        log.Info("Request.Content:...");
         log.Info(req.Content.ReadAsStringAsync().Result);
 
         // Get request body
@@ -244,7 +234,7 @@ In this section, you will create a new enrollment group that uses the custom all
             {
                 Content = new StringContent(JsonConvert.SerializeObject(obj, Formatting.Indented), Encoding.UTF8, "application/json")
             };
-    }    
+    }
 
     public class DeviceTwinObj
     {
@@ -261,16 +251,13 @@ In this section, you will create a new enrollment group that uses the custom all
     }
     ```
 
-
 11. Return to your **Add Enrollment Group** page, and make sure the new function is selected. You may have to re-select the function app to refresh the functions list.
 
     Once your new function is selected, click **Save** to save the enrollment group.
 
     ![Finally save the enrollment group](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
 
-
 12. After saving the enrollment, reopen it and make a note of the **Primary Key**. You must save the enrollment first to have the keys generated. This key will be used to generate unique device keys for simulated devices later.
-
 
 ## Derive unique device keys
 
@@ -280,10 +267,10 @@ To generate the device key, you will use the **Primary Key** you noted earlier t
 
 For the example in this article, use the following two device registration IDs and compute a device key for both devices. Both registration IDs have a valid suffix to work with the example code for the custom allocation policy:
 
-- **breakroom499-contoso-tstrsd-007**
-- **mainbuilding167-contoso-hpsd-088**
+* **breakroom499-contoso-tstrsd-007**
+* **mainbuilding167-contoso-hpsd-088**
 
-#### Linux workstations
+### Linux workstations
 
 If you are using a Linux workstation, you can use openssl to generate your derived device keys as shown in the following example.
 
@@ -307,8 +294,7 @@ If you are using a Linux workstation, you can use openssl to generate your deriv
     mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     ```
 
-
-#### Windows-based workstations
+### Windows-based workstations
 
 If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
 
@@ -335,11 +321,7 @@ If you are using a Windows-based workstation, you can use PowerShell to generate
     mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     ```
 
-
 The simulated devices will use the derived device keys with each registration ID to perform symmetric key attestation.
-
-
-
 
 ## Prepare an Azure IoT C SDK development environment
 
@@ -352,12 +334,12 @@ This section is oriented toward a Windows-based workstation. For a Linux example
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
 2. Open a command prompt or Git Bash shell. Execute the following command to clone the Azure IoT C SDK GitHub repository:
-    
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    You should expect this operation to take several minutes to complete.
 
+    You should expect this operation to take several minutes to complete.
 
 3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
 
@@ -372,7 +354,7 @@ This section is oriented toward a Windows-based workstation. For a Linux example
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
-    
+
     If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Once the build succeeds, the last few output lines will look similar to the following output:
@@ -390,9 +372,6 @@ This section is oriented toward a Windows-based workstation. For a Linux example
     -- Generating done
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
-
-
-
 
 ## Simulate the devices
 
@@ -429,8 +408,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
 6. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
 
-
-#### Simulate the Contoso toaster device
+### Simulate the Contoso toaster device
 
 1. To simulate the toaster device, find the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** which is commented out.
 
@@ -445,7 +423,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     // Set the symmetric key if using they auth type
     prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
     ```
-   
+
     Save the file.
 
 2. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
@@ -466,8 +444,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     Press enter key to exit:
     ```
 
-
-#### Simulate the Contoso heat pump device
+### Simulate the Contoso heat pump device
 
 1. To simulate the heat pump device, update the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** again with the heat pump registration ID and derived device key you generated earlier. The key value **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** shown below is also only given as an example.
 
@@ -475,7 +452,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     // Set the symmetric key if using they auth type
     prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
-   
+
     Save the file.
 
 2. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
@@ -496,11 +473,9 @@ This sample code simulates a device boot sequence that sends the provisioning re
     Press enter key to exit:
     ```
 
-
 ## Troubleshooting custom allocation policies
 
 The following table shows expected scenarios and the results error codes you might encounter. Use this table to help troubleshoot custom allocation policy failures with your Azure Functions.
-
 
 | Scenario | Registration result from Provisioning Service | Provisioning SDK Results |
 | -------- | --------------------------------------------- | ------------------------ |
@@ -510,7 +485,6 @@ The following table shows expected scenarios and the results error codes you mig
 | An Individual Enrollment was created to disable the device | Result status: Disabled | SDK returns PROV_DEVICE_RESULT_DISABLED |
 | The webhook returns error code >= 429 | DPS’ orchestration will retry a number of times. The retry policy is currently:<br><br>&nbsp;&nbsp;- Retry count: 10<br>&nbsp;&nbsp;- Initial interval: 1s<br>&nbsp;&nbsp;- Increment: 9s | SDK will ignore error and submit another get status message in the specified time |
 | The webhook returns any other status code | Result status: Failed<br><br>Error code: CustomAllocationFailed (400207) | SDK returns PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
-
 
 ## Clean up resources
 
@@ -534,16 +508,5 @@ To delete the resource group by name:
 
 ## Next steps
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
-
-
-
-
-
-
-
-
-
-
-
+* To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
+* To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
