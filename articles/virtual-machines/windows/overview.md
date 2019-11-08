@@ -45,7 +45,7 @@ There are always a multitude of [design considerations](/azure/architecture/refe
 * The related resources that the VM needs
 
 ### Naming
-A virtual machine has a [name](/azure/architecture/best-practices/naming-conventions) assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
+A virtual machine has a [name](/azure/architecture/best-practices/resource-naming) assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
 
 If you use Azure to create the operating system disk, the computer name and the virtual machine name are the same. If you [upload and use your own image](upload-generalized-managed.md) that contains a previously configured operating system and use it to create a virtual machine, the names can be different. We recommend that when you upload your own image file, you make the computer name in the operating system and the virtual machine name the same.
 

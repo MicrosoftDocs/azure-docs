@@ -2,7 +2,6 @@
 title: Sample - Only allow a certain VM platform image
 description: This sample policy definition requires that virtual machines use a specific version of UbuntuServer.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019

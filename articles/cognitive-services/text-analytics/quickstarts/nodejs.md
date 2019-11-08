@@ -13,7 +13,7 @@ ms.date: 08/28/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
 ---
-# Quickstart: Using Node.js to call the Text Analytics Cognitive Service  
+# Quickstart: Use Node.js to call the Text Analytics Cognitive Service  
 <a name="HOLTop"></a>
 
 This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Node.JS.

@@ -21,7 +21,7 @@ This article from the end-to-end Azure Machine Learning on IoT Edge tutorial hel
 
 This step is typically performed by a cloud developer. Some of the software may also be helpful for a data scientist.
 
-Over the course of this article we perform various developer tasks including coding, compiling, configuring, and deploying IoT Edge modules and IoT devices. For ease of use, we created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), which is why we chose a DS8V3 machine size.
+Over the course of this article we perform various developer tasks including coding, compiling, configuring, and deploying IoT Edge modules and IoT devices. For ease of use, we created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), which is why we chose a [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1) machine size.
 
 The development VM will be set up with:
 

@@ -4,8 +4,8 @@ description: How to use a parallel copy script to move data to a Blob storage ta
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
-ms.author: v-erkell
+ms.date: 10/30/2019
+ms.author: rohogue
 ---
 
 # Azure HPC Cache data ingest - parallel copy script method

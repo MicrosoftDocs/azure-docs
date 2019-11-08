@@ -26,6 +26,8 @@
     href: cdn-custom-ssl.md
   - name: Set caching rules
     href: cdn-caching-rules-tutorial.md
+  - name: Enforce HTTPS using Standard Rules Engine
+    href: cdn-standard-rules-engine.md
 - name: Samples
   items:
   - name: Code samples
@@ -134,6 +136,13 @@
       href: cdn-troubleshoot-allowed-ca.md      
 - name: Reference
   items:
+  - name: Microsoft Standard rules engine reference
+    href: cdn-standard-rules-engine-reference.md
+    items:
+    - name: Standard Rules engine match conditions
+      href: cdn-standard-rules-engine-match-conditions.md
+    - name: Standard Rules engine actions
+      href: cdn-standard-rules-engine-actions.md
   - name: Verizon Premium rules engine reference
     href: cdn-verizon-premium-rules-engine-reference.md
     items:

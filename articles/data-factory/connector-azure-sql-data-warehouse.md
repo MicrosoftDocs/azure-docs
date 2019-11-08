@@ -1,5 +1,5 @@
 ---
-title: Copy data to and from Azure SQL Data Warehouse by using Azure Data Factory | Microsoft Docs
+title: Copy data to and from Azure SQL Data Warehouse by using Azure Data Factory 
 description: Learn how to copy data from supported source stores to Azure SQL Data Warehouse or from SQL Data Warehouse to supported sink stores by using Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -585,9 +585,9 @@ All columns of the table must be specified in the INSERT BULK statement.
 
 The NULL value is a special form of the default value. If the column is nullable, the input data in the blob for that column might be empty. But it can't be missing from the input dataset. PolyBase inserts NULL for missing values in Azure SQL Data Warehouse.
 
-## Mapping Data Flow properties
+## Mapping data flow properties
 
-Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in Mapping Data Flow.
+Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flow.
 
 ## Data type mapping for Azure SQL Data Warehouse
 

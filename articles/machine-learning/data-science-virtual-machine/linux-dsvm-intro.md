@@ -29,7 +29,7 @@ Here are the steps to create an instance of the CentOS Data Science Virtual Mach
 
 1. On the subsequent window, select **Create**.
 
-    ![Wizard for creating a virtual machine](./media/linux-dsvm-intro/create-centos.png)
+    [![](media/linux-dsvm-intro/create-centos.png "Button to create a CentOS machine")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
 
 1. You should be redirected to the "Create a virtual machine" blade.
    

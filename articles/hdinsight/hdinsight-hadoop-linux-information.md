@@ -1,10 +1,10 @@
 ---
 title: Tips for using Hadoop on Linux-based HDInsight - Azure 
 description: Get implementation tips for using Linux-based HDInsight (Hadoop) clusters on a familiar Linux environment running in the Azure cloud.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
@@ -83,7 +83,7 @@ For more information, see the [Ports used by Apache Hadoop services on HDInsight
 
 Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This directory contains the following subdirectories:
 
-* **2.6.5.3006-29**: The directory name is the version of the Hortonworks Data Platform used by HDInsight. The number on your cluster may be different than the one listed here.
+* **2.6.5.3006-29**: The directory name is the version of the Hadoop platform used by HDInsight. The number on your cluster may be different than the one listed here.
 * **current**: This directory contains links to subdirectories under the **2.6.5.3006-29** directory. This directory exists so that you don't have to remember the version number.
 
 Example data and JAR files can be found on Hadoop Distributed File System at `/example` and `/HdiSamples`.
@@ -106,12 +106,11 @@ When using either Azure Storage or Data Lake Storage, you don't have to do anyth
 
 In HDInsight, the data storage resources (Azure Blob Storage and Azure Data Lake Storage) are decoupled from compute resources. Therefore, you can create HDInsight clusters to do computation as you need, and later delete the cluster when the work is finished, meanwhile keeping your data files persisted safely in cloud storage as long as you need.
 
-
 ### <a name="URI-and-scheme"></a>URI and scheme
 
 Some commands may require you to specify the scheme as part of the URI when accessing a file. For example, the Storm-HDFS component requires you to specify the scheme. When using non-default storage (storage added as "additional" storage to the cluster), you must always use the scheme as part of the URI.
 
-When using __Azure Storage__, use one of the following URI schemes:
+When using [**Azure Storage**](./hdinsight-hadoop-use-blob-storage.md), use one of the following URI schemes:
 
 * `wasb:///`: Access default storage using unencrypted communication.
 
@@ -119,15 +118,13 @@ When using __Azure Storage__, use one of the following URI schemes:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
-When using __Azure Data Lake Storage Gen2__, use one of the following URI schemes:
+When using [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-storage-gen2.md), use the following URI scheme:
 
-* `abfs:///`: Access default storage using unencrypted communication.
-
-* `abfss:///`: Access default storage using encrypted communication.  The abfss scheme is supported only from HDInsight version 3.6 onwards.
+* `abfs://`: Access default storage using encrypted communication.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
-When using __Azure Data Lake Storage Gen1__, use one of the following URI schemes:
+When using [**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-lake-store.md), use one of the following URI schemes:
 
 * `adl:///`: Access the default Data Lake Storage for the cluster.
 

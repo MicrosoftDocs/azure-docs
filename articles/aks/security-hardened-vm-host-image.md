@@ -73,8 +73,6 @@ AKS-Engine does not promote or adhere to any specific security standard at this 
 |5.4.4 |Ensure default user umask is 027 or more restrictive |
 |5.6 |Ensure access to the su command is restricted|
 
-(*) Must be enabled. See the cluster definition [documentation](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md).
-
 ## Additional notes
  
 * To further reduce the attack surface area, some unnecessary kernel module drivers have been disabled in the OS. 

@@ -37,14 +37,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 
 ## Register an application
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Applications**, and then select **Add**.
-5. Enter a name for the application, such as *ROPC_Auth_app*.
-6. Select **No** for **Web App/Web API**, and then select **Yes** for **Native client**.
-7. Leave all other values as they are, and then select **Create**.
-8. Select the new application, and record the Application ID for later use.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ##  Create a resource owner policy
 

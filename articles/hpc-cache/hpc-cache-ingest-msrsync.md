@@ -4,8 +4,8 @@ description: How to use msrsync to move data to a Blob storage target in Azure H
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
-ms.author: v-erkell
+ms.date: 10/30/2019
+ms.author: rohogue
 ---
 
 # Azure HPC Cache data ingest - msrsync method

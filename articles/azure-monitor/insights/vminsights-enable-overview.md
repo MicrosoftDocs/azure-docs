@@ -1,18 +1,13 @@
 ---
 title: Enable Azure Monitor for VMs (preview) overview | Microsoft Docs
 description: Learn how to deploy and configure Azure Monitor for VMs. Find out the system requirements.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/17/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 10/29/2019
+
 ---
 
 # Enable Azure Monitor for VMs (preview) overview
@@ -38,14 +33,20 @@ Before you start, make sure that you understand the information in the following
 Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
 
 - West Central US
+- West US<sup>1</sup>
 - West US 2<sup>1</sup>
+- South Central US<sup>1</sup>
 - East US
 - East US2<sup>1</sup>
+- Central US<sup>1</sup>
+- North Central US<sup>1</sup>
 - Canada Central
 - UK South
 - North Europe<sup>1</sup>
 - West Europe
+- East Asia<sup>1</sup>
 - Southeast Asia
+- Central India<sup>1</sup>
 - Japan East<sup>1</sup>
 - Australia East<sup>1</sup>
 - Australia Southeast<sup>1</sup>
@@ -158,12 +159,12 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 
 The Map feature in Azure Monitor for VMs gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. So your system must have the Log Analytics agent installed and configured with the Dependency agent.
 
-Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, use the Azure VM Dependency agent extension to install the agent as part of the experience.
+Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, use the Azure VM Dependency agent extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) or [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) to install the agent as part of the experience.
 
 >[!NOTE]
 >The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
 
-In a hybrid environment, you can download and install the Dependency agent manually. If your VMs are hosted outside Azure, use an automated deployment method.
+In a hybrid environment, you can download and install the Dependency agent manually or using an automated method.
 
 The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
@@ -177,7 +178,7 @@ You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## Role-based access control
@@ -200,6 +201,9 @@ Enable Azure Monitor for VMs by using one of the methods described in this table
 ## Performance counters enabled 
 
 Azure Monitor for VMs configures a Log Analytics workspace to collect the performance counters that it uses. The following tables list the objects and counters that are collected every 60 seconds.
+
+>[!NOTE]
+>The following list of performance counters enabled by Azure Monitor for VMs does not limit you from enabling additional counters you need to collect from VMs reporting to the workspace. Also, if you disable these counters, it will prevent the set of performance charts included with the Performance feature from showing resource utilization from your VMs.
 
 ### Windows performance counters
 

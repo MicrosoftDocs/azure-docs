@@ -1,5 +1,5 @@
 ---
-title: Source control in Azure Data Factory | Microsoft Docs
+title: Source control in Azure Data Factory 
 description: Learn how to configure source control in Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -19,6 +19,9 @@ The Azure Data Factory user interface experience (UX) has two experiences availa
 
 - Author directly with the Data Factory service
 - Author with Azure Repos Git or GitHub integration
+
+> [!NOTE]
+> Only authoring directly with the Data Factory service is supported in the Azure Government Cloud.
 
 ## Author directly with the Data Factory service
 

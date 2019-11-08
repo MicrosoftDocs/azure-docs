@@ -1,7 +1,7 @@
 ---
 title: Language support - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by the Translator Text API.
+description: The Translator Text API supports the following languages for text to text translation using Neural Machine Translation (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
