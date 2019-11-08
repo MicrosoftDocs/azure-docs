@@ -349,7 +349,7 @@ Adding or removing regions to an Azure Cosmos account requires you to add or rem
 
 For example, if you deploy an Azure Cosmos account in 3 regions: "West US", "Central US", and "West Europe". When you create a private endpoint for your account, 4 private IPs are reserved in the subnet. One for each region, which counts to a total of 3, and one for the global/region-agnostic endpoint.
 
-Later if you add a new region, for example "East US" to the Azure Cosmos account. By default, the new region is not accessible from the existing private endpoint. The Azure Cosmos account administrator should refresh the private endpoint connection before accessing it form the new region. 
+Later if you add a new region, for example "East US" to the Azure Cosmos account. By default, the new region is not accessible from the existing private endpoint. The Azure Cosmos account administrator should refresh the private endpoint connection before accessing it from the new region. 
 
 When you run the ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` command, the output of the command contains the `actionsRequired` parameter, which is set to "Recreate". This value indicates that the private endpoint should be refreshed. Next the Azure Cosmos account administrator runs the `Set-AzPrivateEndpoint` command to trigger the private endpoint refresh.
 
