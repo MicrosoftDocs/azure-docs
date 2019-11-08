@@ -47,7 +47,7 @@
   - name: View and manage service providers 
     displayName: customer, update
     href: ./how-to/view-manage-service-providers.md
-  - name: Azure Policy
+  - name: Azure Policy integration
     items:
     - name: Deploy a policy at scale
       displayName: storage

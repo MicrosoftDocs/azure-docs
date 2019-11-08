@@ -13,7 +13,7 @@ manager: carmonm
 
 As a service provider, you may have onboarded multiple customer tenants for Azure delegated resource management. Azure Lighthouse allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 
-This topic shows you how to use Azure Policy to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
+This topic shows you how to use an [Azure Resource Management template](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) and PowerShell commands to deploy [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) across multiple tenants. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
 
 ## Use Azure Resource Graph to query across customer tenants
 
