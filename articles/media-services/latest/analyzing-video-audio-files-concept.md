@@ -33,7 +33,7 @@ Media Services currently supports the following built-in analyzer presets:
 |---|---|---|
 |[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. Supported languages are English (en-US and en-GB), Spanish (es-ES and es-MX), French (fr-FR), Italian (it-IT), Japanese (ja-JP), Portuguese (pt-BR), Chinese (zh-CN), German (de-DE), Arabic (ar-EG), Russian (ru-RU), Hindi (hi-IN), and Korean (ko-KR).<br/><br/> If the language isn't specified or set to null, automatic language detection chooses the first language detected and continues with the selected language for the duration of the file. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese. It doesn't support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription falls back to English.|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detecting faces present in video|Describes the settings to be used when analyzing a video in order to detect all the faces present.|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detecting faces present in video|Describes the settings to be used when analyzing a video to detect all the faces present.|
 
 ### AudioAnalyzerPreset
 
@@ -48,8 +48,8 @@ The preset enables you to extract multiple audio insights from an audio or video
 
 The preset enables you to extract multiple audio and video insights from a video file. The output includes a JSON file (with all the insights), a VTT file for the video transcript, and a collection of thumbnails. This preset also accepts a [BCP47](https://tools.ietf.org/html/bcp47) string (representing the language of the video) as a property. The video insights include all the audio insights mentioned above and the following additional items:
 
-* **Face tracking**: The time during which faces are present in the video. Each face has a face id and a corresponding collection of thumbnails.
-* **Visual text**: The text that''s detected via optical character recognition. The text is time stamped and also used to extract keywords (in addition to the audio transcript).
+* **Face tracking**: The time during which faces are present in the video. Each face has a face ID and a corresponding collection of thumbnails.
+* **Visual text**: The text that's detected via optical character recognition. The text is time stamped and also used to extract keywords (in addition to the audio transcript).
 * **Keyframes**: A collection of keyframes extracted from the video.
 * **Visual content moderation**: The portion of the videos flagged as adult or racy in nature.
 * **Annotation**: A result of annotating the videos based on a pre-defined object model
@@ -153,7 +153,7 @@ Example:
 |referenceType|Currently just Bing.|
 |title|If it's a celebrity, its title (for example "Microsoft's CEO").|
 |imageUrl|If it's a celebrity, its image URL.|
-|instances|These are instances of where the face appeared in the given time range. Each instance also has a thumbnailsId. |
+|instances|Instances where the face appeared in the given time range. Each instance also has a thumbnailsId. |
 
 ```json
 "faces": [{
@@ -398,7 +398,7 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 
 The visualContentModeration block contains time ranges which Video Indexer found to potentially have adult content. If visualContentModeration is empty, there's no adult content that was identified.
 
-Videos that are found to contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content, in which case the `IsAdult` attribute will contain the result of the human review.
+Videos that are found to contain adult or racy content might be available for private view only. Users can submit a request for a human review of the content, in which case the `IsAdult` attribute will contain the result of the human review.
 
 |Name|Description|
 |---|---|
