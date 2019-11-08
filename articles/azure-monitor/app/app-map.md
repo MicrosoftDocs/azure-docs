@@ -231,7 +231,7 @@ Alternatively, **cloud role instance** can be helpful for scenarios where **clou
 
 A scenario where you might want to override the value for cloud role instance could be if your app is running in a containerized environment where just knowing the individual server might not be enough information to locate a given issue.
 
-For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 ## Troubleshooting
 
