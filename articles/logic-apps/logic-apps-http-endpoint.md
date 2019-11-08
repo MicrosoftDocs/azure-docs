@@ -174,7 +174,7 @@ When you want your endpoint URL to accept parameters, specify the relative path 
     Your HTTP endpoint URL now includes the relative path, for example:
 
     ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/postalCode?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
+    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
     ```
 
 1. To test your HTTP endpoint, copy and paste the updated URL into another browser window, but replace `{postalCode}` with `123456`, and press Enter.
