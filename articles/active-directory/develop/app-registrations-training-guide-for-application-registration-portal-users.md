@@ -125,14 +125,14 @@ In the new experience, Reply URLs can be found on an app\'s
 Authentication section. In addition, they are referred to as redirect
 URIs and the format for redirect URIs has changed. They are required to
 be associated with an app type (web or public client - mobile and
-desktop). [Learn more](quickstart-configure-app-access-web-apis#add-redirect-uris-to-your-application)
+desktop). [Learn more](quickstart-configure-app-access-web-apis#add-redirect-uris-to-your-application.md)
 
 Web APIs are configured in Expose an API page.\
 
 > [!NOTE] 
 > Try out the new Authentication settings experience where you can
 configure settings for your application based on the platform or device
-that you want to target. [Learn more](quickstart-configure-app-access-web-apis\#configure-platform-settings-for-your-application)
+that you want to target. [Learn more](quickstart-configure-app-access-web-apis\#configure-platform-settings-for-your-application.md)
 
 ## Microsoft Graph Permissions/API permissions
 
