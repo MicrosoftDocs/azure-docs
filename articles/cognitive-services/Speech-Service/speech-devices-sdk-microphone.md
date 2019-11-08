@@ -109,4 +109,5 @@ High-speed USB Audio Class 2.0 should be supported within any audio MCUs in orde
 
 ## Next steps
 
-> [!div class="nextstepaction"][learn more about the speech devices sdk](speech-devices-sdk.md)
+> [!div class="nextstepaction"]
+> [learn more about the speech devices sdk](speech-devices-sdk.md)
