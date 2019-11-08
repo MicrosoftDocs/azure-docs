@@ -54,8 +54,6 @@ Follow the below steps to generate these:
 
 7. Follow the onscreen instructions to complete the procedure.
 
-    Contact the FarmBeats administrator in case you don’t have access to FarmBeats or your Azure subscription.
-
 ## Create device/sensor metadata
 
  Now that you have the required credentials, you can define the device and sensors by creating the metadata using FarmBeats APIs.
