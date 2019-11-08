@@ -39,6 +39,12 @@ To add an on-premises application to Azure AD, you need:
 
 To use Application Proxy, you need a Windows server running Windows Server 2012 R2 or later. You'll install the Application Proxy connector on the server. This connector server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you plan to publish.
 
+> [!IMPORTANT]
+> If you are installing the connector on Windows Server 2019 there is an HTTP2 limitation. To successfully use the connector on this version add the following registry key and restart the server:
+	```
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+	```
+
 For high availability in your production environment, we recommend having more than one Windows server. For this tutorial, one Windows server is sufficient.
 
 #### Recommendations for the connector server
