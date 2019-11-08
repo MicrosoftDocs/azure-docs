@@ -104,10 +104,6 @@ Choose the rule you want to enable or disable. Add a filter in the **Scopes** se
 
 ## Next steps
 
-Now that you have learned how to create rules in your Azure IoT Central application, the suggested next step is to learn [How to manage your devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-
-## Next steps
-
 In this tutorial, you learned how to:
 
 * Create a telemetry-based rule
@@ -116,4 +112,4 @@ In this tutorial, you learned how to:
 Now that you've defined a threshold-based rule the suggested next step is to learn how to:
 
 > [!div class="nextstepaction"]
-> [Configure continuous data export](./howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+> [Create a webhook action](./howto-create-webhooks-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).

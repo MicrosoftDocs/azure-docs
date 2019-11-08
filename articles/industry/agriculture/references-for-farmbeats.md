@@ -81,7 +81,7 @@ Optionally, you can include query parameters on GET calls to filter, limit the s
 
 The below sample request is to get the list of devices:
 
-```
+```azurepowershell-interactive
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -104,7 +104,6 @@ For example, when querying the list of devices (GET call on /Device), the follow
 
 Azure FarmBeats Data hub API's return the standard HTTP errors. The most common error codes are as follows:
 
-
  |Error Code             | Description |
  |---                    | --- |
  |200                    | Success |
@@ -117,29 +116,29 @@ Azure FarmBeats Data hub API's return the standard HTTP errors. The most common 
 
 In addition to the standard HTTP errors, Azure FarmBeats Data hub APIs also return internal errors in the below format:
 
-```
-{
-  "message": "<More information on the error>",
-  "status": "<error code>”,
-  "code": "<InternalErrorCode>",
-  "moreInfo": "<Details of the error>"
-}
-```
+    ```
+    {
+      "message": "<More information on the error>",
+      "status": "<error code>”,
+      "code": "<InternalErrorCode>",
+      "moreInfo": "<Details of the error>"
+    }
+    ```
 
 Example: When creating a Farm, a mandatory field “Name” was not specified in the input payload. The resulting error message would be:
 
-```
-{
-  "message": "Model validation failed",
-  "status": 400,
-  "code": "ModelValidationFailed",
-  "moreInfo": "[\"The Name field is required.\"]"
-}
-```
+    ```json
+    {
+      "message": "Model validation failed",
+      "status": 400,
+      "code": "ModelValidationFailed",
+      "moreInfo": "[\"The Name field is required.\"]"
+    }
+    ```
 
 ## Adding users or app registrations to Azure Active Directory
 
- Azure FarmBeats APIs can be accessed by a user or an app registration in the Azure Active Directory. To create an app registration on your Azure Active Directory, do the below steps:  
+Azure FarmBeats APIs can be accessed by a user or an app registration in the Azure Active Directory. To create an app registration on your Azure Active Directory, do the below steps:  
 
 1. Go to [Azure portal](https://portal.azure.com) **Azure Active Directory, App registrations**, > **New registration**. Alternatively, you can use an existing account.
 2. For a new account, ensure to complete the following:
