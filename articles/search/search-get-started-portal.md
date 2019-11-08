@@ -65,9 +65,7 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 3. Continue to the next page.
 
-   ![Next page button for cognitive search](media/search-get-started-portal/next-button-add-cog-search.png)
-
-### Step 2 - Skip Cognitive skills
+### Step 2 - Skip the "Enrich content" page
 
 The wizard supports the creation of an [AI enrichment pipeline](cognitive-search-concept-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
 
@@ -126,6 +124,8 @@ It can take a few minutes for the portal to update the page, but you should see 
 
 The main service page provides links to the resources created in your Azure Cognitive Search service.  To view the index you just created, click **Indexes** from the list of links. 
 
+Wait for the portal page to refresh. After a few minutes, you should see the index with a document count and storage size.
+
    ![Indexes list on the service dashboard](media/search-get-started-portal/indexes-list.png)
 
 From this list, you can click on the *hotels-sample* index that you just created, view the index schema. and optionally add new fields. 
@@ -152,7 +152,7 @@ Moving forward, you should now have a search index that's ready to query using t
 
    ![Search explorer command](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. From the **Index** dropdown, choose  *hotels-sample*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2019-05-06).
+2. From the **Index** dropdown, choose  *hotels-sample-index*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2019-05-06).
 
    ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex.png)
 
