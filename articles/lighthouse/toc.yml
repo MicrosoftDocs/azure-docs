@@ -49,9 +49,9 @@
     href: ./how-to/view-manage-service-providers.md
   - name: Azure Policy
     items:
-    - name: Deploy a policy to delegated subscriptions at scale
+    - name: Deploy a policy at scale
       displayName: storage
-      href: ./how-to/deploy-policy-remediation.md
+      href: ./how-to/policy-at-scale.md
     - name: Deploy a policy that can be remediated
       displayName: deployIfNotExists, modify, managed identities, managed identity
       href: ./how-to/deploy-policy-remediation.md
