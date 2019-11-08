@@ -76,10 +76,10 @@ Finally, add one or more **Authorization** entries to your plan. Authorizations 
 
 For each **Authorization**, you'll need to provide the following. You can then select **New authorization** as many times as needed to add more users and role definitions.
 
-  - **Azure AD Object ID**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers' resources.
-  - **Azure AD Object Display Name**: A friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
-  - **Role Definition**: Select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Azure AD Object ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) and [Role support for Azure delegated resource management](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
-  - **Assignable Roles**: This is required only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these **Assignable Roles** to [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). Note that no other permissions normally associated with the User Access Administrator role will apply to this user. If you do not select one or more roles here, your submission will not pass certification. (If you did not select User Access Administrator for this user’s Role Definition, this field has no effect.)
+- **Azure AD Object ID**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers' resources.
+- **Azure AD Object Display Name**: A friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
+- **Role Definition**: Select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Azure AD Object ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) and [Role support for Azure delegated resource management](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
+- **Assignable Roles**: This is required only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these **Assignable Roles** to [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). Note that no other permissions normally associated with the User Access Administrator role will apply to this user. If you do not select one or more roles here, your submission will not pass certification. (If you did not select User Access Administrator for this user’s Role Definition, this field has no effect.)
 
 > [!TIP]
 > In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
@@ -138,29 +138,12 @@ Once you've completed all of the sections, your next step is to publish the offe
 
 ## The customer onboarding process
 
-When a customer adds your offer, they will be able to [delegate one or more specific subscriptions or resource groups](view-manage-service-providers.md#delegate-resources) which will then be onboarded for Azure delegated resource management. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Provider offers** section of the [**Service providers**](view-manage-service-providers.md) page in the Azure portal. After the customer delegates a subscription (or one or more resource groups within a subscription), the **Microsoft.ManagedServices** resource provider will be registered for that subscription.
+When a customer adds your offer, they will be able to [delegate one or more specific subscriptions or resource groups](view-manage-service-providers.md#delegate-resources) which will then be onboarded for Azure delegated resource management. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Provider offers** section of the [**Service providers**](view-manage-service-providers.md) page in the Azure portal.
+
+After the customer delegates a subscription (or one or more resource groups within a subscription), the **Microsoft.ManagedServices** resource provider will be registered for that subscription. Note that currently, you can’t delegate a subscription (or resource group within a subscription) if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the Microsoft.ManagedServices resource provider, you won’t be able to create a Databricks workspace for that subscription at this time.
 
 > [!IMPORTANT]
 > Delegation must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
-
-
-
-### Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-This should return results similar to the following:
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
 
 ## Next steps
 
