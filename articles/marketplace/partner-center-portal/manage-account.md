@@ -140,6 +140,11 @@ Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. You
 For more information, see the [Tracking Azure customer usage with GUIDs FAQ](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
 
 
+## Establish a billing profile
+
+If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](./create-new-customer-engagement-offer.md) or [Dynamics 365 for Operations](./create-new-operations-offer.md) offer, you need to complete your **billing profile**.
+
+The billing address is pre-populated from your MPN ID, and you can update this address later. The TAX and VAT ID fields are optional.  The country name and company name cannot be edited.
 
 ## Multi-user account management
 
