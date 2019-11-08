@@ -38,35 +38,37 @@ landingContent:
           - text: Set up a device template
             url: howto-set-up-template.md
           - text: Connect an IoT Plug and Play device
-            url: tutorial-add-device.md
+            url: tutorial-connect-pnp-device.md
       - linkListType: how-to-guide
         links:
           - text: Prepare and connect an MX Chip IoT DevKit
             url: howto-connect-devkit.md
           - text: Connect other IoT clouds
-            url: howto-build-iotc-device-bridge.md
+            url: ../core/howto-build-iotc-device-bridge.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
   - title: Stay connected
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Use device sets
-            url: howto-use-device-sets.md
+          - text: Use device groups
+            url: tutorial-use-device-groups.md
       - linkListType: how-to-guide
         links:
           - text: Manage your devices
             url: howto-manage-devices.md
           - text: Run a job
-            url: howto-run-a-job.md
+            url: ../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
           - text: Analyze your device data
             url: howto-create-analytics.md
   - title: Transform
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Create a rule
+            url: quick-configure-rules.md
           - text: Create telemetry rules
-            url: howto-create-telemetry-rules.md
+            url: tutorial-create-telemetry-rules.md
           - text: Export to Blob Storage
-            url: howto-export-data-blob-storage.md                   
+            url: howto-export-data.md                   
       - linkListType: how-to-guide
         links:
           - text: Create custom rules
@@ -86,8 +88,8 @@ landingContent:
           - text: Customize application UI
             url: howto-customize-ui.md  
           - text: Configure personal dashboards
-            url: howto-create-personal-dashboards.md
+            url: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
           - text: Use dashboard tiles
-            url: howto-add-tiles-to-your-dashboard.md
+            url: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
           - text: Use application templates
             url: howto-use-app-templates.md
