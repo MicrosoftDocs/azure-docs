@@ -185,7 +185,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
 1. Make a note of the name of your Stream Analytics module because you'll need it in the next step, then select **Next: Routes** to continue.
 
-1. On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. Remove the default `route` and `upstream` name and values the following name/value pairs, replacing instances of _{moduleName}_ with the name of your Azure Stream Analytics module.
+1. On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. Replace the default `route` and `upstream` name and values with the pairs shown in following table, the following name/value pairs, replacing instances of _{moduleName}_ with the name of your Azure Stream Analytics module.
 
     | Name | Value |
     | --- | --- |
@@ -199,8 +199,8 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 1. Select **Next: Review + Create**.
 
 1. In the **Review + Create** tab, you can see how the information you provided in the wizard is converted into a JSON deployment manifest. When you're done reviewing the manifest, select **Create**.
-'
-1. Return to the device details page, and then select **Refresh**.  
+
+1. You're returned to the device details page. Select **Refresh**.  
 
     You should see the new Stream Analytics module running, along with the IoT Edge agent and IoT Edge hub modules. It may take a few minutes for the information to reach your IoT Edge device, and then for the new modules to start. If you don't see the modules running right away, continue refreshing the page.
 
