@@ -50,7 +50,7 @@ For information on supported operating systems and installation instructions, se
 
 #### Supported agent versions
 
-In order to provide the best possible experience, there are minimum versions of the agent. For more information, see [this article](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+In order to provide the best possible experience, there are minimum versions of the agent. For more information, see [this article](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### Supported OSes
 
