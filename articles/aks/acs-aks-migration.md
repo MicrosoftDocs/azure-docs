@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Migrate to Azure Kubernetes Service (AKS)
 
-This article helps you plan and execute a successful migration to Azure Kubernetes Service (AKS). To help you make key decisions, this guide details the differences between non-AKS and AKS clusters and provides an overview of the migration process. This article doesn't cover every scenario, and where appropriate, the article contains links to more detailed information for planning a successful migration.
+This article helps you plan and execute a successful migration to Azure Kubernetes Service (AKS). To help you make key decisions, this guide provides details for the current recommended configuration for AKS. This article doesn't cover every scenario, and where appropriate, the article contains links to more detailed information for planning a successful migration.
 
 This document can be used to help support the following scenarios:
 
