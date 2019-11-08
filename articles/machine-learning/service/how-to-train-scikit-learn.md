@@ -1,5 +1,5 @@
 ---
-title: Train machine learning models with scikit-learn
+title: Train scikit-learn machine learning models 
 titleSuffix: Azure Machine Learning
 description: Learn how to run your scikit-learn training scripts at enterprise scale using Azure Machine Learning's SKlearn estimator class. The example scripts classify iris flower images to build a machine learning model based on scikit-learn's iris dataset.
 services: machine-learning

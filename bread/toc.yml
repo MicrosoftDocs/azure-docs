@@ -522,7 +522,7 @@
   - name: Azure API for FHIR
     tocHref: /azure/healthcare-apis
     topicHref: /azure/healthcare-apis
-  - name: Industry for Azure
+  - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
     items:
