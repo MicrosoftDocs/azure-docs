@@ -8,13 +8,14 @@ ms.author: v-umha
 ---
 
 # Sensor partner integration
-This article provides information about the Azure FarmBeats **Translator** component.
+
+This article provides information about the Azure FarmBeats **Translator** component, which enables sensor partner integration.
 
 Using this component, partners can develop sensors that integrate with FarmBeats, by leveraging our API, and sending customer device data and telemetry to the FarmBeats Data hub. Data is visualized using the FarmBeats Accelerator. Data can be used for data fusion, and for building machine language/artificial intelligence models.
 
 ## Link FarmBeats account
 
-Once the customers have purchased and deployed devices/sensors, they can access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by customer/SI:
+Once the customers have purchased and deployed devices/sensors, they can access the device data and telemetry on device partners’ SaaS portal (Software as a Service). device partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by customer/system integrator:
 
    - Display name (An optional field for user to define a name for this integration)
    - API endpoint
@@ -36,14 +37,11 @@ Customers have the ability to unlink an existing FarmBeats Integration. Unlinkin
 
 ## Edit FarmBeats integration
 
-The customer can edit the FarmBeats integration. The primary scenario for edit is when the client secret or connection string changes due to expiry, in this case customer can only edit the following fields.
+The customer can edit the FarmBeats integration settings, if the client secret or connection string changes. In this case, customer can only edit the following fields:
 
    - Display name (if applicable)
    - Client secret (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
    - Connection string (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
-
-   > [!NOTE]
-   > Edit should not interrupt the creation of metadata objects.
 
 ## View last telemetry sent
 
@@ -161,7 +159,7 @@ HardwareId   |Unique ID for the device such as MAC address etc.,  |
 reportingInterval |Reporting interval in seconds |
 Location    |Device latitude (-90 to +90)/longitude (-180 to 180)/elevation (in meters) |
 ParentDeviceId | ID of the parent device to which this device is connected to. For example,. A node connected to a gateway; node will have parentDeviceID as the Gateway |
-  Name  | Name to identify resource.  Device partners will need to send a name that is consistent with the device name on device partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats  |
+  Name  | Name to identify resource.  Device partners will need to send a name that is consistent with the device name on device partner side. If the device name is user-defined on device partner side, the same user-defined name should be propagated to FarmBeats  |
   Description  | Provide a meaningful description  |
   Properties  |Additional properties from the manufacturer  |
   **Sensor Model** | SensorModel corresponds to the metadata of the sensor such as the manufacturer, type of the sensor either analog or digital, sensor measure such as ambient temperature, pressure etc. |
@@ -188,7 +186,7 @@ ParentDeviceId | ID of the parent device to which this device is connected to. F
   description  | Provide a meaningful description
   properties  | Additional properties from the manufacturer
 
- For information on each of the objects and their properties, see [swagger](httpa://aka.ms/FarmBeatsDatahubSwagger).
+ For information on each of the objects and their properties, see [swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
  > [!NOTE]
  > The APIs return unique IDs for each instance created. This ID needs to be retained by the translator for device management and metadata sync.

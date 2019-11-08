@@ -6,7 +6,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -236,7 +236,7 @@ Here is how you can track user sign-ins still happening on AD FS for selected st
 
 -   **Q: Can we use PowerShell to perform staged rollout?**
 
--   A: Yes, Please find the documentation to use PowerShell to perform staged rollout here.
+-   A: Yes, Please find the documentation to use PowerShell to perform staged rollout [here](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## Next Steps
 - [AzureAD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
