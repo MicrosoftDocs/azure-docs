@@ -1,7 +1,7 @@
 ---
 title: About the Speech Devices SDK - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Get started with the Speech Devices SDK. The Speech Service works with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. The Speech Devices SDK is a pre-tuned library that's paired with purpose-built, microphone array development kits.
+description: Get started with the Speech Devices SDK. The Speech Service works with a wide variety of devices and audio sources. The Speech Devices SDK is a pre-tuned library that's paired with purpose-built, microphone array development kits.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,15 +11,16 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ---
+
 # About the Speech Devices SDK
 
 The [Speech Services](overview.md) work with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. The Speech Devices SDK is a pretuned library that's paired with purpose-built, microphone array development kits.
 
 The Speech Devices SDK can help you:
 
-* Rapidly test new voice scenarios.
-* More easily integrate the cloud-based Speech Services into your device.
-* Create an exceptional user experience for your customers.
+- Rapidly test new voice scenarios.
+- More easily integrate the cloud-based Speech Services into your device.
+- Create an exceptional user experience for your customers.
 
 The Speech Devices SDK consumes the [Speech SDK](speech-sdk.md). It uses the Speech SDK to send the audio that's processed by our advanced audio processing algorithm from the device's microphone array to the [Speech Services](overview.md). It uses multichannel audio to provide more accurate far-field [speech recognition](speech-to-text.md) via noise suppression, echo cancellation, beamforming, and dereverberation.
 
@@ -45,8 +46,6 @@ The application is built with the Speech SDK package, and the Eclipse Java IDE (
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Choose your Speech Device](get-speech-devices-sdk.md)
+> [!div class="nextstepaction"][choose your speech device](get-speech-devices-sdk.md)
 >
-> [!div class="nextstepaction"]
-> [Get a Speech Services subscription key for free](get-started.md)
+> [!div class="nextstepaction"][get a speech services subscription key for free](get-started.md)
