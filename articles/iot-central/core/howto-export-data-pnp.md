@@ -118,7 +118,7 @@ For Blob Storage, data is exported once per minute, with each file containing th
 You can browse the exported files in the Azure portal by navigating to the file and choosing the **Edit blob** tab.
 
 
-### Telemetry
+## Telemetry
 
 For Event Hubs and Service Bus, a new message is exported quickly after IoT Central receives the message from a device, and each exported message contains the full message the device sent in the body property in JSON format.
 
@@ -181,7 +181,7 @@ This is an example record exported to blob storage:
 }
 ```
 
-### Devices
+## Devices
 
 Each message or record in a snapshot represents one or more changes to a device and its properties since the last exported message. This includes:
 
@@ -304,7 +304,7 @@ This is an example snapshot containing devices and properties data in Blob Stora
 }
 ```
 
-### Device templates
+## Device templates
 
 Each message or snapshot record represents one or more changes to a device template since the last exported message. Information sent in each message or record includes:
 
