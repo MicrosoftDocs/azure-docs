@@ -1,5 +1,5 @@
 ---
-title: Spark Connector with Azure SQL Database and SQL Server| Microsoft Docs
+title: Spark Connector with Azure SQL Database and SQL Server
 description: Learn how to use the Spark Connector for Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database

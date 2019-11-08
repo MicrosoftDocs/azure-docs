@@ -24,7 +24,7 @@ Customers can purchase MSP-managed services offers in the Azure Marketplace, or 
 
 Use the links in this section for more information about managed cloud networking services offered by Azure Networking MSP partners. If your cloud network services partner is not listed in the section below, have the provider contact us. They can contact us by sending an email to ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Cloud Network Transformation Services** | **Managed ExpressRoute** | **Managed Virtual WAN** | **Managed Firewall** |**Managed Network Edge Compute** |
+| **MSP** | **Cloud Network Transformation Services** | **Managed ExpressRoute** | **Managed Virtual WAN** | **Managed Network Security Services** |**Managed Network Edge Compute** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||Yes|
 |[ANS Group UK](https://www.ans.co.uk/)|Yes|Yes||||
@@ -46,7 +46,7 @@ Use the links in this section for more information about managed cloud networkin
 |[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)|Yes|Yes||||
 |[Orixcom]( https://www.orixcom.com/cloud-solutions/)|Yes|Yes||||
 |[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|Yes|Yes||||
-|[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|Yes|Yes||||
+|[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|Yes|Yes|Yes|Yes||
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|Yes|Yes|Yes|||
 |[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)|Yes||||Yes|
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)|Yes|Yes|Yes|||

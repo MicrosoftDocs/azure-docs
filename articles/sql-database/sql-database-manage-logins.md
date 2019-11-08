@@ -1,5 +1,5 @@
 ---
-title: Azure SQL logins and users 
+title: Logins and users
 description: Learn about SQL Database and SQL Data Warehouse security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
