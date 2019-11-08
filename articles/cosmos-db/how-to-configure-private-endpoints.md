@@ -81,7 +81,7 @@ The following table shows mapping between different Azure Cosmos account API typ
 
 ### Fetch the private IP addresses
 
-After the private endpoint is provisioned, you can query the IP addresses. To view the IP addresses from Azure portal. Select **All resources**, search for the private endpoint you created earlier in this case it's "dbPrivateEndpoint3" and select the Overview tab to see the DNS settings and IP addresses:
+After the private endpoint is provisioned, you can query the IP addresses. To view the IP addresses from Azure portal, select **All resources**, search for the private endpoint you created earlier in this case it's "dbPrivateEndpoint3" and select the Overview tab to see the DNS settings and IP addresses:
 
 ![Private IP addresses in Azure portal](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
 
