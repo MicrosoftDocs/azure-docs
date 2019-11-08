@@ -9,7 +9,10 @@ ms.author: v-umha
 
 # Get drone imagery from drone partners
 
-This article describes how you can bring in orthomosaic data from your drone imagery partners in to Azure FarmBeats Data hub. Currently the following imagery partners are supported:  
+This article describes how you can bring in orthomosaic data from your drone imagery partners in to Azure FarmBeats Data hub. An orthomosaic is an aerial illustration/image that is geometrically corrected and stitched from the data collected by drones.
+
+Currently the following imagery partners are supported.
+
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 
