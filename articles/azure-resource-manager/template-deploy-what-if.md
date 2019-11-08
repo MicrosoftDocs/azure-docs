@@ -1,5 +1,5 @@
 ---
-title: Template deployment what-if operation
+title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.service: azure-resource-manager
@@ -8,11 +8,11 @@ ms.date: 11/08/2019
 ms.author: jgao
 
 ---
-# Resource Manager template deployment what-if operation
+# Resource Manager template deployment what-if operation (Preview)
 
 Before deploying a template, you might want to preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
 
-The what-if operation is currently in preview. To use it, you must sign up for the preview.
+The what-if operation is currently in preview. To use it, you must sign up for the preview. As a preview release, the results may sometimes show that a resource will change when actually no change will happen. We're working to reduce these issues, but we need your help. Please report these issues at [https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues).
 
 You can use the what-if operation with the `New-AzDeploymentWhatIf` PowerShell command or the [Deployments - What If](/rest/api/resources/deployments/whatif) REST operation.
 
@@ -30,11 +30,11 @@ The what-if operation lists six different types of changes:
 
 - **Ignore**: The resource exists, but isn't defined in the template. The resource won't be deployed or modified.
 
-- **Deploy**: The resource exists, and is defined in the template. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
-
 - **NoChange**: The resource exists, and is defined in the template. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
 
 - **Modify**: The resource exists, and is defined in the template. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+
+- **Deploy**: The resource exists, and is defined in the template. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
 
 ## Deployment scope
 
@@ -44,17 +44,17 @@ To learn about subscription level deployments, see [Create resource groups and r
 
 ## Result format
 
-You can control the level of detail that is returned about the predicted changes. Set the `ResultFormat` parameter to `ResourceIdOnly` to get a list of resources that will change. Set the `ResultFormat` parameter to `FullResourcePayloads` to get a list of resources what will change and details about the properties that will change. The default value is `FullResourcePayloads`.  
+You can control the level of detail that is returned about the predicted changes. Set the `ResultFormat` parameter to `FullResourcePayloads` to get a list of resources what will change and details about the properties that will change. Set the `ResultFormat` parameter to `ResourceIdOnly` to get a list of resources that will change. The default value is `FullResourcePayloads`.  
 
 The following screenshots show the two different output formats:
-
-- Resource ID only
-
-    ![Resource Manager template deployment what-if operation resourceidonly output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
 
 - Full resource payloads
 
     ![Resource Manager template deployment what-if operation fullresourcepayloads output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
+
+- Resource ID only
+
+    ![Resource Manager template deployment what-if operation resourceidonly output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
 
 ## Run what-if operation
 
@@ -111,6 +111,7 @@ It's important to remember what-if makes no actual changes. The storage account 
 
 ## Next steps
 
+- If you notice incorrect results from the preview release of what-if, please report the issues at [https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues).
 - To deploy templates with Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
 - To deploy templates with REST, see [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
