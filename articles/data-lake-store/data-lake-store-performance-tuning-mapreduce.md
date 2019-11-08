@@ -23,16 +23,21 @@ ms.author: stewu
 
 When running MapReduce jobs, here are the most important parameters that you can configure to increase performance on Data Lake Storage Gen1:
 
-* **Mapreduce.map.memory.mb** – The amount of memory to allocate to each mapper
-* **Mapreduce.job.maps** – The number of map tasks per job
-* **Mapreduce.reduce.memory.mb** – The amount of memory to allocate to each reducer
-* **Mapreduce.job.reduces** – The number of reduce tasks per job
 
-**Mapreduce.map.memory / Mapreduce.reduce.memory**
-This number should be adjusted based on how much memory is needed for the map and/or reduce task. The default values of mapreduce.map.memory and mapreduce.reduce.memory can be viewed in Ambari via the Yarn configuration. In Ambari, navigate to YARN and view the **Configs** tab. The YARN memory will be displayed.
+|Parameter      | Description  |
+|---------|---------|
+|`Mapreduce.map.memory.mb`  |  The amount of memory to allocate to each mapper.  |
+|`Mapreduce.job.maps`     |  The number of map tasks per job.  |
+|`Mapreduce.reduce.memory.mb`     |  The amount of memory to allocate to each reducer.  |
+|`Mapreduce.job.reduces`    |   The number of reduce tasks per job.  |
 
-**Mapreduce.job.maps / Mapreduce.job.reduces**
-This will determine the maximum number of mappers or reducers to be created. The number of splits will determine how many mappers will be created for the MapReduce job. Therefore, you may get fewer mappers than you requested if there are fewer splits than the number of mappers requested.
+### Mapreduce.map.memory / Mapreduce.reduce.memory
+
+Adjust this number based on how much memory is needed for the map and/or reduce task. You can view the default values of `mapreduce.map.memory` and `mapreduce.reduce.memory` in Ambari via the Yarn configuration. In Ambari, navigate to YARN and view the **Configs** tab. The YARN memory will be displayed.
+
+### Mapreduce.job.maps / Mapreduce.job.reduces
+
+This determines the maximum number of mappers or reducers to create. The number of splits determines how many mappers are created for the MapReduce job. Therefore, you may get fewer mappers than you requested if there are fewer splits than the number of mappers requested.
 
 ## Guidance
 
