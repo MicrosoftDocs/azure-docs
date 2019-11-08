@@ -31,7 +31,7 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 ## Register a web application
 
-To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
 #### [Applications](#tab/applications/)
 
@@ -75,7 +75,7 @@ Once the application registration is complete, enable the implicit grant flow:
 
 1. Under **Manage**, select **Authentication**.
 1. Select **Try out the new experience** (if shown).
-1. Under **IMPLICIT GRANT**, select both the **Access tokens** and **ID tokens** check boxes.
+1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
 
 * * *
@@ -97,7 +97,7 @@ If your application exchanges a code for a token, you need to create an applicat
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
 1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.
-1. Record the secret's **VALUE**. You use this value as the application secret in your application's code.
+1. Record the secret's **Value**. You use this value as the application secret in your application's code.
 
 * * *
 

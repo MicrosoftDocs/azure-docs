@@ -25,8 +25,6 @@
   items:
   - name: Use smart contracts
     href: send-transaction.md
-  - name: Send data using Data Manager
-    href: data-manager-cosmosdb.md
 - name: Concepts
   items:
   - name: Consortium
@@ -59,6 +57,8 @@
     href: data-manager-portal.md
   - name: Configure Data Manager - CLI
     href: data-manager-cli.md
+  - name: Publish data to Cosmos DB
+    href: data-manager-cosmosdb.md
 - name: Resources
   items:
   - name: Blockchain REST API
