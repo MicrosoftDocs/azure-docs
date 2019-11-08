@@ -80,7 +80,7 @@ You can find many improvements in the new [App registrations](https://go.microso
 In the old experience, to register a converged app you were only
 required to provide a Name. The apps that were created were registered
 as converged apps supporting all organizational directory (multitenant)
-as well as personal Microsoft accounts.  This could not be modified through the old experience, making it difficult to create apps that supported only organizational accounts (either multitenant or single tenant). [Learn more about supported account types](v2-supported-account-types)
+as well as personal Microsoft accounts.  This could not be modified through the old experience, making it difficult to create apps that supported only organizational accounts (either multitenant or single tenant). [Learn more about supported account types](v2-supported-account-types.md)
 
 In the new experience, you must provide a Name for the app and choose
 the Supported account types. You can optionally provide a redirect URI.
@@ -125,14 +125,14 @@ In the new experience, Reply URLs can be found on an app\'s
 Authentication section. In addition, they are referred to as redirect
 URIs and the format for redirect URIs has changed. They are required to
 be associated with an app type (web or public client - mobile and
-desktop). [Learn more](quickstart-configure-app-access-web-apis#add-redirect-uris-to-your-application.md)
+desktop). [Learn more](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 Web APIs are configured in Expose an API page.\
 
 > [!NOTE] 
 > Try out the new Authentication settings experience where you can
 configure settings for your application based on the platform or device
-that you want to target. [Learn more](quickstart-configure-app-access-web-apis\#configure-platform-settings-for-your-application.md)
+that you want to target. [Learn more](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
 ## Microsoft Graph Permissions/API permissions
 
