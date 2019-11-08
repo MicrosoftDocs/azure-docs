@@ -3868,9 +3868,6 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/routeTables/routes/read | Gets a route definition |
 > | Action | Microsoft.Network/routeTables/routes/write | Creates a route or Updates an existing route |
 > | Action | Microsoft.Network/routeTables/write | Creates a route table or Updates an existing route table |
-> | Action | Microsoft.Network/securegateways/delete | Delete Secure Gateway |
-> | Action | Microsoft.Network/securegateways/read | Get Secure Gateway |
-> | Action | Microsoft.Network/securegateways/write | Creates or updates a Secure Gateway |
 > | Action | Microsoft.Network/serviceEndpointPolicies/delete | Deletes a Service Endpoint Policy |
 > | Action | Microsoft.Network/serviceEndpointPolicies/join/action | Joins a Service Endpoint Policy. Not alertable. |
 > | Action | Microsoft.Network/serviceEndpointPolicies/joinSubnet/action | Joins a Subnet To Service Endpoint Policies. Not alertable. |
