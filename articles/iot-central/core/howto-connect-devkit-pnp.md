@@ -24,12 +24,12 @@ In this how-to article, you:
 
 To complete the steps in this article, you need the following resources:
 
-1. A [DevKit device](https://aka.ms/iot-devkit-purchase).
-1. An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+- A [DevKit device](https://aka.ms/iot-devkit-purchase).
+- An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Get device connection details
 
-In your Azure IoT Central application, select the **Administration** tab and select **Device Connection**. Make a note of the **ID Scope** and **Primary key**.
+In your Azure IoT Central application, select the **Administration** tab and select **Device Connection**. Make a note of the **Scope ID** and **Primary key** (in **View Keys** link). And make sure **Auto Approve** is enabled.
 
 ![Device group connection details](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -56,7 +56,7 @@ In your Azure IoT Central application, select the **Administration** tab and sel
 
     - The name of your WiFi network (SSID).
     - Your WiFi network password.
-    - The connection details: the **Device ID** that you can choose yourself, and the **ID Scope** and **Group SAS Primary Key** you made a note of previously.
+    - The connection details: the **Device ID** that you can choose yourself, and the **Scope ID** and **Group SAS Primary Key** you made a note of previously.
 
     > [!NOTE]
     > Currently, the IoT DevKit only can connect to 2.4 GHz Wi-Fi, 5 GHz is not supported due to hardware restrictions.
@@ -77,11 +77,11 @@ In this step, you view the telemetry in your Azure IoT Central application.
 
 In your IoT Central application, select **Devices** tab, select the device you added. In the **Overview** tab, you can see the telemetry from the DevKit device:
 
-   ![IoT Central device overview](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
+![IoT Central device overview](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
 
 ## Review the code
 
-To review the code or modify and compile it, go to the [Code Samples](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
+To review the code or modify and compile it, go to the [MXChip IoT DevKit sample code GitHub repository](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
 
 ## Next steps
 
