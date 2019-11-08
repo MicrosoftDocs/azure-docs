@@ -913,7 +913,7 @@ The `trace` policy adds a custom trace into the API Inspector output, Applicatio
 
 * The policy adds a custom trace to the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to true and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing. 
 * The policy creates a [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) telemetry in Application Insights, when [Application Insights integration](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) is enabled and the `severity` level specified in the policy is at or higher than the `verbosity` level specified in the diagnostic setting. 
-* The policy adds a property in the log entry when [Diagnostic Logs](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.  
+* The policy adds a property in the log entry when [Diagnostic Logs](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.  
 
 
 ### Policy statement
@@ -942,7 +942,7 @@ The `trace` policy adds a custom trace into the API Inspector output, Applicatio
 | ------- | ------------- | -------- |
 | trace   | Root element. | Yes      |
 | message | A string or expression to be logged. | Yes |
-| metadata | Adds a custom property to the Application Insights [Trace](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry) telemetry. | No |
+| metadata | Adds a custom property to the Application Insights [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) telemetry. | No |
 
 ### Attributes
 
