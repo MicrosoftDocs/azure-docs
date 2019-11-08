@@ -29,10 +29,16 @@ For an alternative option using fully managed service for seamless migration of 
 
 ## Prerequisites
 
+# [PowerShell](#tab/azure-powershell)
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+
+# [Azure CLI](#tab/azure-cli)
+
+* * *
 
 To complete the steps in this article, you need the following prerequisites:
 
@@ -111,6 +117,8 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
 4. Follow the wizard to export certificate and private key to a Personal Information Exchange format
 
 ## Upload certificate to Azure SQL Database Managed Instance using Azure PowerShell cmdlet
+
+# [PowerShell](#tab/azure-powershell)
 
 1. Start with preparation steps in PowerShell:
 
