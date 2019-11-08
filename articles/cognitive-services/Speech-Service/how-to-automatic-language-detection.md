@@ -1,5 +1,5 @@
 ---
-title: 'How-to: Use automatic language detection for speech to text - Speech Service'
+title: How to use automatic language detection for speech to text
 titleSuffix: Azure Cognitive Services
 description: The Speech SDK supports automatic language detection for speech to text. When using this feature, the audio provided is compared against a provided list of languages, and the most likely match is determined. The returned value can then be used to select the language model used for speech to text.
 services: cognitive-services
@@ -25,7 +25,7 @@ In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to con
 
 Automatic language detection currently has a services-side limit of two languages per detection. Keep this limitation in mind when construction your `AudoDetectSourceLanguageConfig` object. In the samples below, you'll create an `AutoDetectSourceLanguageConfig`, then use it to construct a `SpeechRecognizer`.
 
->[!TIP]
+> [!TIP]
 > You can also specify a custom model to use when performing speech to text. For more information, see [Use a custom model for automatic language detection](#use-a-custom-model-for-automatic-language-detection).
 
 The following snippets illustrate how to use automatic language detection in your apps:
@@ -75,4 +75,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSource
 
 ## Next steps
 
-* [Speech SDK reference documentation](speech-sdk.md)
+- [Speech SDK reference documentation](speech-sdk.md)

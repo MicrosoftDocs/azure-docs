@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Speech SDK for C# (Xamarin) platform setup - Speech Service'
+title: 'Quickstart: Speech SDK for C# (Xamarin) platform setup'
 titleSuffix: Azure Cognitive Services
 description:  Use this guide to set up your platform for C# Xamarin with the Speech Services SDK.
 services: cognitive-services

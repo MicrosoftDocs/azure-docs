@@ -1,11 +1,10 @@
 ---
-title: "Quickstart: Run the Speech Devices SDK on Windows - Speech Service"
+title: "Quickstart: Run the Speech Devices SDK on Windows"
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with a Windows Speech Devices SDK.
 services: cognitive-services
 author: erhopf
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
@@ -27,15 +26,15 @@ The source code for the [sample application](https://aka.ms/sdsdk-download-JRE) 
 
 This quickstart requires:
 
-* Operating System: 64-bit Windows
-* [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
-* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
-* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) only.
-* [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
-* Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) for Java, and extract the .zip to your working directory.
-   > [!NOTE]
-   > The JRE-Sample-Release.zip file includes the JRE sample app and this quickstart assumes that the app is extracted to C:\SDSDK\JRE-Sample-Release
+- Operating System: 64-bit Windows
+- [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
+- [Eclipse Java IDE](https://www.eclipse.org/downloads/)
+- [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) only.
+- [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+- An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
+- Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) for Java, and extract the .zip to your working directory.
+  > [!NOTE]
+  > The JRE-Sample-Release.zip file includes the JRE sample app and this quickstart assumes that the app is extracted to C:\SDSDK\JRE-Sample-Release
 
 Conversation Transcription is currently only available for "en-US" and "zh-CN", in the “centralus” and “eastasia” regions. You must have a speech key in one of those regions to use Conversation Transcription.
 
@@ -78,23 +77,23 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    If you are using conversation transcription, your speech key and region information are also needed in `Cts.java`:
+   If you are using conversation transcription, your speech key and region information are also needed in `Cts.java`:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
-    ```
+   ```
 
 1. The default keyword (keyword) is "Computer". You can also try one of the other provided keywords, like "Machine" or "Assistant". The resource files for these alternate keywords are in the Speech Devices SDK, in the keyword folder. For example, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contains the files used for the keyword "Computer".
 
    > [!TIP]
    > You can also [create a custom keyword](speech-devices-sdk-create-kws.md).
 
-    To use a new keyword, update the following two lines in `FunctionsList.java`, and copy the keyword package to your app. For example, to use the keyword 'Machine' from the keyword package `kws-machine.zip`:
+   To use a new keyword, update the following two lines in `FunctionsList.java`, and copy the keyword package to your app. For example, to use the keyword 'Machine' from the keyword package `kws-machine.zip`:
 
-   * Copy the keyword package into the project folder **target/classes**.
+   - Copy the keyword package into the project folder **target/classes**.
 
-   * Update the `FunctionsList.java` with the keyword and the package name:
+   - Update the `FunctionsList.java` with the keyword and the package name:
 
      ```java
      private static final String Keyword = "Machine";
@@ -117,25 +116,25 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 ## Create and run a standalone application
 
-1. In the **Package explorer**, right-click your project. Choose **Export**. 
+1. In the **Package explorer**, right-click your project. Choose **Export**.
 
 1. The **Export** window appears. Expand **Java** and select **Runnable JAR file** and then select **Next**.
 
-   ![Screenshot of the Export window](media/speech-devices-sdk/eclipse-export-windows.png) 
+   ![Screenshot of the Export window](media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. The **Runnable JAR File Export** window appears. Choose an **Export destination** for the application, and then select **Finish**.
- 
+
    ![Screenshot of Runnable JAR File Export](media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
-1. Please put `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` and `Microsoft.CognitiveServices.Speech.extension.pma.dll`  in the destination folder chosen above as these files are needed by the application.
+1. Please put `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` and `Microsoft.CognitiveServices.Speech.extension.pma.dll` in the destination folder chosen above as these files are needed by the application.
 
 1. To run the standalone application
 
-     ```powershell
-     java -jar SpeechDemo.jar
-     ```
+   ```powershell
+   java -jar SpeechDemo.jar
+   ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Review the release notes](devices-sdk-release-notes.md)
+> [review the release notes](devices-sdk-release-notes.md)
