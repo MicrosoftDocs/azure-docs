@@ -15,7 +15,7 @@ ms.custom: seodec18, seo-javascript-october2019
 
 # Try Speech service for free
 
-Using Speech service is easy and affordable. There are several options available free of charge so you can discover what the service can do and decide whether it's right for your needs.
+Using the Speech service is easy and affordable. There are several options available free of charge so you can discover what the service can do and decide whether it's right for your needs.
 
 In this article, you'll use an Azure account to create a Speech resource. You can sign up for a free Microsoft Azure account—it comes with $200 in service credit that you can apply toward a paid Speech service subscription for up to 30 days. Speech service also offers a free, low-volume tier that's suitable for developing applications. You can keep this free subscription even after your free trial or service credit expires.
 
