@@ -117,8 +117,5 @@ In this tutorial, you learned how to:
 Now that you've defined a threshold-based rule the suggested next step is to learn how to:
 
 > [!div class="nextstepaction"]
-<<<<<<< HEAD:articles/iot-central/core/tutorial-create-telemetry-rules-pnp.md
-> [Create a webhook action](./howto-create-webhooks-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-=======
+
 > [Configure continuous data export](./howto-export-data.md).
->>>>>>> fa07415cf19e8cdb02d570edb3785780bfa97a7c:articles/iot-central/preview/tutorial-create-telemetry-rules.md
