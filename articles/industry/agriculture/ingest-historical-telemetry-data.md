@@ -125,7 +125,7 @@ FarmBeats Data hub uses bearer authentication, which needs the following credent
 
 Using the above credentials, the caller can request for an access token, which needs to be sent in the subsequent API requests in the header section as follows:
 
-```json
+```
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
@@ -271,7 +271,7 @@ Convert the historical sensor data format to a canonical format that Azure FarmB
 
 
 
- ```json
+ ```
   {   
       “deviceid”: “<id of the Device created>”,   
       "timestamp": "<timestamp in ISO 8601 format>",     

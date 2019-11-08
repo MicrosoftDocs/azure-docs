@@ -94,7 +94,7 @@ For authentication and authorization on Azure FarmBeats, you must have an Azure 
 - Case 1: Installer can create automatically (provided you have the required tenant, subscription, and resource group access permissions).
 - Case 2: You can create and configure before deploying Azure FarmBeats (requires manual steps).
 
-**Case 1**: : If you have access to create an AAD app registration, you may skip this step and let the installer create the app registration. Please continue to the next section: [Prepare input.json file](prepare-input-json-file)
+**Case 1**: : If you have access to create an AAD app registration, you may skip this step and let the installer create the app registration. Please continue to the next section: [Prepare input.json file](#prepare-input-json-file)
 
 If you already have a subscription, you can directly moved to the next procedure.
 

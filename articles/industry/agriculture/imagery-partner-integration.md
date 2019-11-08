@@ -49,7 +49,7 @@ FarmBeats Data hub uses bearer authentication, which needs the following credent
 
 Using the above credentials, the caller can request an access token, which needs to be sent in the subsequent API requests, in the header section as follows:
 
-```json
+```
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 

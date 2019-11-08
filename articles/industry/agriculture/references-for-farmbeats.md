@@ -57,7 +57,7 @@ To make an authenticated request to the REST APIs, client code requires authenti
 
 The access token needs to be sent in subsequent API requests in the header section as:
 
-```json
+```
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
@@ -116,7 +116,7 @@ Azure FarmBeats Data hub API's return the standard HTTP errors. The most common 
 
 In addition to the standard HTTP errors, Azure FarmBeats Data hub APIs also return internal errors in the below format:
 
-    ```json
+    ```
     {
       "message": "<More information on the error>",
       "status": "<error code>”,
@@ -166,6 +166,6 @@ After completing the above steps, your app registration (client) can call the Az
 
 Use the access token to send it in subsequent API requests in the header section as:
 
-```json
+```
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
 ```
