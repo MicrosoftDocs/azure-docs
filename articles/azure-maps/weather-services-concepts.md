@@ -17,7 +17,7 @@ This article introduces concepts that apply to the [Azure Maps Weather Services]
 
 ## Radar and satellite imagery color scale
 
-The latest radar and infrared satellite images can be requested via the [Get Map Tiles API](https://docs.microsoft.com/rest/api/maps/render/getmaptile). The table below helps interpret colors used for the radar and satellite tiles.
+The latest radar and infrared satellite images can be requested via the [Get Map Tile API](https://aka.ms/AzureMapsWeatherTiles). The table below helps interpret colors used for the radar and satellite tiles.
 
 ### Radar Images
 
@@ -42,7 +42,7 @@ The table below provides guidance to interpret the radar images and create a map
 | #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
 | #6500ba        | ![](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
 
-Detailed color palette for radar tiles with Hex color codes and Dbz values is showed below. Dbz represents precipitation intensity in weather radar. 
+Detailed color palette for radar tiles with Hex color codes and dBZ values is showed below. dBZ represents precipitation intensity in weather radar. 
 
 | **RAIN**             | **ICE**              | **SNOW**              | **MIXED**             |
 |----------------------|----------------------|-----------------------|-----------------------|
