@@ -21,7 +21,7 @@ In this quickstart, you create a rule that sends an email when the temperature i
 
 ## Prerequisites
 
-Before you begin, you should complete the two previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) to create the **Environment Sensor** device template to work with.
+Before you begin, you should complete the two previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) to create the **Environment Sensor** device template to work with.
 
 ## Create a telemetry-based rule
 
@@ -43,7 +43,7 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
 
     To add more conditions, select **+ Condition**.
 
-    ![Create rule condition](./media/quick-configure-rules-pnp/condition.png)
+    ![Create rule condition](./media/quick-configure-rules/condition.png)
 
 1. To add an email action to run when the rule triggers, select **+ Email**.
 
@@ -56,9 +56,9 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
     | Notes     | Environmental temperature exceeded the threshold. |
 
     > [!NOTE]
-    > To receive an email notification, the email address must be a [user ID in the application](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), and that user must have signed in to the application at least once.
+    > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and that user must have signed in to the application at least once.
 
-    ![Create rule action](./media/quick-configure-rules-pnp/action.png)
+    ![Create rule action](./media/quick-configure-rules/action.png)
 
 1. Select **Save**. Your rule is listed on the **Rules** page.
 
@@ -79,4 +79,4 @@ In this quickstart, you learned how to:
 To learn more about monitoring devices connected to your application, continue to the quickstart:
 
 > [!div class="nextstepaction"]
-> [Use Azure IoT Central to monitor your devices](quick-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+> [Use Azure IoT Central to monitor your devices](quick-monitor-devices.md).
