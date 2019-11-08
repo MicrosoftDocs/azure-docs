@@ -85,7 +85,7 @@ We don't yet have a way to set the Application Insights Profiler sink from the p
 
     ![Check if WAD extension is installed][wadextension]
 
-2. Find the VM Diagnostics extension for your VM. Go to [https://resources.azure.com](https://resources.azure.com) Expand your resource group, Microsoft.Compute virtualMachines, virtual machine name, and extensions.  
+2. Find the VM Diagnostics extension for your VM. Go to [https://resources.azure.com](https://resources.azure.com). Expand your resource group, Microsoft.Compute virtualMachines, virtual machine name, and extensions.  
 
     ![Navigate to WAD config in Azure Resource Explorer][azureresourceexplorer]
 
