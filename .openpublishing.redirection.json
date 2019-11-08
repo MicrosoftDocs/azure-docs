@@ -44017,6 +44017,11 @@
       "source_path": "articles/security/blueprints/ukofficial-paaswa-overview.md",
       "redirect_url": "/previous-versions/azure/security/blueprints/ukofficial-paaswa-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/app-registrations-training-guide.md",
+      "redirect_url": "articles/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users.md",
+      "redirect_document_id": false
     }
   ]
 }
