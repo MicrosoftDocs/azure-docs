@@ -146,7 +146,7 @@ The cluster autoscaler will also write out health status to a configmap named `c
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
 ```
 
-To learn more about what is logged from the autoscaler, read the FAQ on the [Kubernetes/autoscaler github project](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
+To learn more about what is logged from the autoscaler, read the FAQ on the [Kubernetes/autoscaler GitHub project](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
 
 ## Use the cluster autoscaler with multiple node pools enabled
 
