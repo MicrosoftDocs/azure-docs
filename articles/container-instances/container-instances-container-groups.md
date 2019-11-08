@@ -47,19 +47,17 @@ To preserve a container group's configuration, you can export the configuration 
 
 Azure Container Instances allocates resources such as CPUs, memory, and optionally [GPUs][gpus] (preview) to a container group by adding the [resource requests][resource-requests] of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
 
-The maximum resources you can configure for a container group depend on the [Azure region][region-availability] used for the deployment.
-
 ### Resource usage by instances
 
 Each container instance is allocated the resources specified in its resource request. However, the resource usage by a container instance in a group depends on how you configure its optional [resource limit][resource-limits] property.
+
+* If you don't specify a resource limit, the instance's maximum resource usage is the same as its resource request.
 
 * If you specify a resource limit for an instance, you can adjust the instance's resource usage for its workload, either reducing or increasing usage relative to the resource request. The maximum resource limit you can set is the total resources allocated to the group.
     
     For example, in a group with two instances requesting 1 CPU, one of your containers might run a workload that requires more CPUs to run than the other.
 
     In this scenario, you could set a resource limit of 0.5 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 0.5 CPU, allowing the second container to use up to the full 2 CPUs if available.
-
-* If you don't specify a resource limit, the instance's maximum resource usage is the same as its resource request.
 
 For more information, see the [ResourceRequirements][resource-requirements] property in the container groups REST API.
 
