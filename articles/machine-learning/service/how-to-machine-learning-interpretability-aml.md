@@ -1,7 +1,7 @@
 ---
 title: Model interpretability for local and remote runs
 titleSuffix: Azure Machine Learning
-description: Get explanations for how your ML model determines feature importance and makes predictions when using the Azure Machine Learning SDK..
+description: Get explanations for how your ML model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
 services: machine-learning
 ms.service: machine-learning
