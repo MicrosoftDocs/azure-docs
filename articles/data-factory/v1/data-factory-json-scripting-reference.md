@@ -373,7 +373,7 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure Search](#azure-search) |
+| &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Azure Table storage](#azure-table-storage) |
 | **Databases** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -1274,15 +1274,15 @@ If you are copying data to Azure SQL Data Warehouse, set the **sink type** of th
 
 For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article.
 
-## Azure Search
+## Azure Cognitive Search
 
 ### Linked service
-To define an Azure Search linked service, set the **type** of the linked service to **AzureSearch**, and specify following properties in the **typeProperties** section:
+To define an Azure Cognitive Search linked service, set the **type** of the linked service to **AzureSearch**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| url | URL for the Azure Search service. | Yes |
-| key | Admin key for the Azure Search service. | Yes |
+| url | URL for the search service. | Yes |
+| key | Admin key for the search service. | Yes |
 
 #### Example
 
@@ -1299,15 +1299,15 @@ To define an Azure Search linked service, set the **type** of the linked service
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#linked-service-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure Search dataset, set the **type** of the dataset to **AzureSearchIndex**, and specify the following properties in the **typeProperties** section:
+To define an Azure Cognitive Search dataset, set the **type** of the dataset to **AzureSearchIndex**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | type | The type property must be set to **AzureSearchIndex**.| Yes |
-| indexName | Name of the Azure Search index. Data Factory does not create the index. The index must exist in Azure Search. | Yes |
+| indexName | Name of the search index. Data Factory does not create the index. The index must exist in Azure Cognitive Search. | Yes |
 
 #### Example
 
@@ -1328,15 +1328,15 @@ To define an Azure Search dataset, set the **type** of the dataset to **AzureSea
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#dataset-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#dataset-properties) article.
 
-### Azure Search Index Sink in Copy Activity
-If you are copying data to an Azure Search index, set the **sink type** of the copy activity to **AzureSearchIndexSink**, and specify following properties in the **sink** section:
+### Azure Cognitive Search Index Sink in Copy Activity
+If you are copying data to a search index, set the **sink type** of the copy activity to **AzureSearchIndexSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Specifies whether to merge or replace when a document already exists in the index. | Merge (default)<br/>Upload| No |
-| WriteBatchSize | Uploads data into the Azure Search index when the buffer size reaches writeBatchSize. | 1 to 1,000. Default value is 1000. | No |
+| WriteBatchSize | Uploads data into the search index when the buffer size reaches writeBatchSize. | 1 to 1,000. Default value is 1000. | No |
 
 #### Example
 
@@ -1381,7 +1381,7 @@ If you are copying data to an Azure Search index, set the **sink type** of the c
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#copy-activity-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#copy-activity-properties) article.
 
 ## Azure Table Storage
 
