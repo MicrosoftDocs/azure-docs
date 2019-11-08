@@ -101,7 +101,15 @@ The folder structure for a Python Functions project looks like the following exa
  tests
 ```
 
-There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file and binding configuration file (function.json). 
+The main project folder can contain the following files:
+
+* *local.settings.json*: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-run-local.md#local-settings-file).
+* *requirements.txt*: Contains the list of packages the system installs when publishing to Azure.
+* *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
+* *funcignore*: (Optional) declares files that shouldn't get published to Azure.
+* *gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
+
+Each function has its own code file and binding configuration file (function.json). 
 
 Shared code should be kept in a separate folder. To reference modules in the SharedCode folder, you can use the following syntax:
 
@@ -115,7 +123,7 @@ To reference modules local to a function, you can use the relative import syntax
 from . import example
 ```
 
-When deploying a Function project to your function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself.
+When deploying your project to a function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself.
 
 ## Triggers and Inputs
 
@@ -377,7 +385,7 @@ For local development, application settings are [maintained in the local.setting
 
 ## Python version and package management
 
-Currently, Azure Functions only supports Python 3.6.x (official CPython distribution).
+Currently, Azure Functions supports both Python 3.6.x and 3.7.x (official CPython distributions). When running locally, the runtime uses the available Python version. To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command.  
 
 When developing locally using the Azure Functions Core Tools or Visual Studio Code, add the names and versions of the required packages to the `requirements.txt` file and install them using `pip`.
 
