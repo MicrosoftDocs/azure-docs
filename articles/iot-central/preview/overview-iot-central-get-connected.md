@@ -69,7 +69,7 @@ The following steps describe how to connect devices to IoT Central using X.509 c
 
     - Navigate to **Administration > Device Connection > Certificates (X.509)** and add X.509 root or intermediate certificate you're using to generate the leaf device certificates.
 
-      ![Connection settings](media/overview-iot-central-get-connected-pnp/connection-settings.png)
+      ![Connection settings](media/overview-iot-central-get-connected/connection-settings.png)
 
       If you have a security breach or your primary certificate is set to expire, use the secondary certificate to reduce downtime. You can continue to provision devices using the secondary certificate while you update the primary certificate.
 
@@ -78,7 +78,7 @@ The following steps describe how to connect devices to IoT Central using X.509 c
         - Create an X.509 verification certificate with the verification code you generated in the previous step. Save the certificate as a .cer file.
         - Upload the signed verification certificate and select **Verify**.
 
-          ![Connection settings](media/overview-iot-central-get-connected-pnp/verify-cert.png)
+          ![Connection settings](media/overview-iot-central-get-connected/verify-cert.png)
 
 1. Use a CSV file to _import and register devices_ in your IoT Central application.
 
@@ -108,7 +108,7 @@ A key scenario IoT Central enables is for OEMs to mass manufacture devices that 
 
 The following diagram outlines this flow:
 
-![Connection settings](media/overview-iot-central-get-connected-pnp/device-connection-flow1.png)
+![Connection settings](media/overview-iot-central-get-connected/device-connection-flow1.png)
 
 The following steps describe this process in more detail. The steps differ slightly depending on whether you're using SAS or X.509 certificates for device authentication:
 
@@ -116,7 +116,7 @@ The following steps describe this process in more detail. The steps differ sligh
 
     - **X.509 Certificates:** [Add and verify the root/intermediate certificate](#connect-devices-using-x509-certificates) and use it to generate the device certificates in the following step.
     - **SAS:** Copy the primary key. This key is the group SAS key for the IoT Central application. Use the key to generate the device SAS keys in the following step.
-    ![Connection settings SAS](media/overview-iot-central-get-connected-pnp/connection-settings-sas.png)
+    ![Connection settings SAS](media/overview-iot-central-get-connected/connection-settings-sas.png)
 
 1. Generate your device credentials
     - **Certificates X.509:** Generate the leaf-certificates for your devices using the root or intermediate certificate you added to your IoT Central application. Make sure you use the lower-case **Device ID** as the CNAME in the leaf certificates. For testing purposes only, use this [command-line tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate device certificates.
@@ -216,7 +216,7 @@ The following table summarizes how Azure IoT Central device features map on to I
 | Device properties | Device twin reported properties |
 | Settings | Device twin desired and reported properties |
 
-To learn more about using the Device SDKs, see [Connect a DevDiv kit device to your Azure IoT Central application](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) for example code.
+To learn more about using the Device SDKs, see [Connect a DevDiv kit device to your Azure IoT Central application](howto-connect-devkit.md) for example code.
 
 ### Protocols
 
@@ -238,5 +238,5 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 Now that you've learned about device connectivity in Azure IoT Central, here are the suggested next steps:
 
-- [Prepare and connect a DevKit device](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Prepare and connect a DevKit device](howto-connect-devkit.md)
 - [C SDK: Provisioning Device Client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
