@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Analyzing video and audio files
+title: Analyze video and audio files
 titleSuffix: Azure Media Services
 description: Learn how to analyze audio and video content using AudioAnalyzerPreset and VideoAnalyzerPreset in Azure Media Services.
 services: media-services
@@ -16,7 +16,7 @@ ms.date: 09/21/2019
 ms.author: juliako
 ---
 
-# Analyzing video and audio files with Azure Media Services
+# Analyze video and audio files with Azure Media Services
 
 Azure Media Services v3 lets you extract insights from your video and audio files with Video Indexer. This article describes the Media Services v3 analyzer presets used to extract those insights. If you want more detailed insights, use Video Indexer directly. To understand when to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
