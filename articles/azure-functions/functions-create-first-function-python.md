@@ -11,7 +11,7 @@ ms.devlang: python
 manager: gwallace
 ---
 
-# Create an HTTP triggered Python function in Azure
+# QuickStart: Create an HTTP triggered Python function in Azure
 
 This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. You also create a function that is triggered by an HTTP request. After running locally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure. 
 
@@ -113,7 +113,8 @@ Copy the URL of your `HttpTrigger` function from this output and paste it into y
 
 Use Ctrl+C to shut down your function app execution.
 
-Now that you have run your function locally, you can create the function app and other required resources in Azure.
+Now that you have run your function locally, you can deploy your function code to Azure.  
+Before you can deploy your app, you'll need to create some Azure resources.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
