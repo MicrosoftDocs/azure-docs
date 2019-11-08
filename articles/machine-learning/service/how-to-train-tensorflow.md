@@ -295,13 +295,14 @@ The model you just registered using `run.register_model()` is deployed the exact
 
 ### (Preview) No-code model deployment
 
-Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for Tensorflow. If you are following this how-to and have already registered the model named **tf-dnn-mnist**, use this name in the `model_name` parameter of the `Model.register()` function below.
+Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for Tensorflow. The code below is a different method of registering the model than is used above. A Tensorflow SavedModel formatted model must exist locally and specified with the `model_path` parameter.
 
 ```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
                        model_name='tf-dnn-mnist',                        # Name of the registered model in your workspace.
+                       model_path='./mnist_model',                # Local Tensorflow SavedModel folder to upload and register as a model.
                        model_framework=Model.Framework.TENSORFLOW,  # Framework used to create the model.
                        model_framework_version='1.14.0',            # Version of Tensorflow used to create the model.
                        description='mnist model')
