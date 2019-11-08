@@ -56,7 +56,7 @@ Follow these steps to create a blank SQL Data Warehouse.
    | ------- | --------------- | ----------- | 
    | **Database name** | SampleDW | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). | 
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | SampleRG | For valid resource group names, see [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
+   | **Resource group** | SampleRG | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
    | **Select source** | Blank database | Specifies to create a blank database. Note, a data warehouse is one type of database.|
 
     ![create data warehouse](media/load-data-wideworldimportersdw/create-data-warehouse.png)
@@ -65,7 +65,7 @@ Follow these steps to create a blank SQL Data Warehouse.
 
     | Setting | Suggested value | Description | 
     | ------- | --------------- | ----------- |
-    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). | 
+    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). | 
     | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
     | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |

@@ -22,7 +22,7 @@ As part of Microsoft's commitment to designing responsible AI, we have assembled
 ### Guidance for deploying Custom Neural Voice
 
 - [Guidelines for Responsible Deployment](concepts-guidelines-responsible-deployment-synthetic.md): our top recommendations based on our research
-- [Neural Text-to-Speech Transparency Note](https://aka.ms/neural-tts-transparency-note): what you need to know about the technology to use it responsibly
+- [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent): what you need to know and inform voice talent about the technology to use it responsibly
 - [Disclosure Design](concepts-disclosure-guidelines.md): how to design experiences so that users know when a synthetic voice is being used and trust your service
 
 ### Why Custom Neural Voice is a gated technology
@@ -35,12 +35,12 @@ To get access to Custom Neural Voice, you'll need to start by filling out our on
 
 Access to the Custom Neural Voice service is subject to Microsoft’s sole discretion based on our eligibility criteria, vetting process, and availability to support a limited number of customers during this gated preview.
 
-As part of the application process, you will need to commit to obtaining explicit written permission from voice talent prior to creating a voice font, which includes sharing the [Neural TTS Transparency Note](https://aka.ms/neural-tts-transparency-note). You must also agree that when deploying the voice font, your implementation will [disclose the synthetic nature](concepts-disclosure-guidelines.md) of the service to users, provide attribution to the Microsoft synthetic speech service in your terms of service, and support a feedback channel that allows users of the service to report issues and share details with Microsoft. Learn more about our Terms of Use [here](https://aka.ms/neural-tts-transparency-note).
+As part of the application process, you will need to commit to obtaining explicit written permission from voice talent prior to creating a voice font, which includes sharing the [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent). You must also agree that when deploying the voice font, your implementation will [disclose the synthetic nature](concepts-disclosure-guidelines.md) of the service to users, provide attribution to the Microsoft synthetic speech service in your terms of service, and support a feedback channel that allows users of the service to report issues and share details with Microsoft. Learn more about our Terms of Use [here](https://aka.ms/custom-neural-code-of-conduct).
 
 ## Reference docs
 
-* [Transparency note](https://aka.ms/neural-tts-transparency-note)
-* [Guidelines for Responsible Deployment of Synthetic Voice Technology](concepts-guidelines-responsible-deployment-synthetic.md)
+* [Disclosure for voice talent](https://aka.ms/disclosure-voice-talent)
+* [Guidelines for responsible deployment of synthetic voice technology](concepts-guidelines-responsible-deployment-synthetic.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 
 ## Next steps

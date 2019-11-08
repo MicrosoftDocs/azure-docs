@@ -53,7 +53,7 @@ The `imageInsightsToken` must be set to an insights token. To get an insights to
 
 The `cropArea` field is optional. The crop area specifies the top-left corner and bottom-right corner of a region of interest. Specify the values in the range 0.0 through 1.0. The values are a percentage of the overall width or height. For example, the above example marks the right half of the image as the region of interest. Include it if you want to limit the insights request to the region of interest.
 
-The `filters` object contains a site filter (see the `site` field) that you can use to restrict the similar images and similar products results to a specific domain. For example, if the image is of a Surface Book, you can set `site` to www.microsoft.com.
+The `filters` object contains a site filter (see the `site` field) that you can use to restrict the similar images and similar products results to a specific domain. For example, if the image is of a Surface Book, you can set `site` to `www.microsoft.com`.
 
 If you want to get insights about a local copy of an image, upload the image as binary data.
 
