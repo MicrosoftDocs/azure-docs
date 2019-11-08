@@ -40,10 +40,18 @@ landingContent:
             url: container-registry-get-started-portal.md
           - text: Push and pull image with Docker
             url: container-registry-get-started-docker-cli.md
+    - linkListType: 
+      links:
+          - text: Service tiers
+            url: container-registry-skus.md
     - linkListType: learn 
       links:
           - text: Build and store container images with Azure Container Registry
             url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/         
+    - linkListType: video
+      links:
+          - text: Azure Container Registry videos
+            url: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
   # Card
   - title: Manage registries
     linkLists:
@@ -55,8 +63,8 @@ landingContent:
             url: container-registry-import-images.md
           - text: Lock images
             url: container-registry-image-lock.md
-          - text: Set retention policy (preview)
-            url: container-registry-retention-policy.md
+          - text: Delete images
+            url: container-registry-delete.md
       - linkListType: concept
         links:
           - text: Geo-replication
