@@ -112,4 +112,5 @@ More about iOS File System is available [here](https://developer.apple.com/libra
 
 ## Next steps
 
-> [!div class="nextstepaction"][explore our samples on github](https://aka.ms/csspeech/samples)
+> [!div class="nextstepaction"]
+> [explore our samples on github](https://aka.ms/csspeech/samples)

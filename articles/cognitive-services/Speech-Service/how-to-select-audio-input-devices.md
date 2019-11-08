@@ -374,7 +374,8 @@ In JavaScript the [MediaDevices.enumerateDevices()](https://developer.mozilla.or
 
 ## Next steps
 
-> [!div class="nextstepaction"][explore our samples on github](https://aka.ms/csspeech/samples)
+> [!div class="nextstepaction"]
+> [explore our samples on github](https://aka.ms/csspeech/samples)
 
 ## See also
 
