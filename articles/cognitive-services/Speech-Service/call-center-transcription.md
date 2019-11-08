@@ -143,4 +143,5 @@ Sample code is available on GitHub for each of the Azure Speech Services. These 
 
 ## Next steps
 
-> [!div class="nextstepaction"][get a speech services subscription key for free](get-started.md)
+> [!div class="nextstepaction"]
+> [get a speech services subscription key for free](get-started.md)
