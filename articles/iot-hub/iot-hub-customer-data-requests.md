@@ -1,5 +1,5 @@
 ---
-title: Customer data request features​
+title: Customer data requests for Azure IoT Hub devices
 description: Most of the devices managed in Azure IoT Hub are not personal, but some are. This article talks about
 admins being able to export or delete personal data from a device.
 author: robinsh
