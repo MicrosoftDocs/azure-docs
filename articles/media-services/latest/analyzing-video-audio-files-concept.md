@@ -148,11 +148,11 @@ Example:
 |confidence|The face identification confidence.|
 |description|A description of the celebrity. |
 |thumbnailId|The ID of the thumbnail of that face.|
-|knownPersonId|If it's a known person, its internal ID.|
-|referenceId|If it's a Bing celebrity, its Bing ID.|
+|knownPersonId|The internal ID (if it's a known person).|
+|referenceId|The Bing ID (if it's a Bing celebrity).|
 |referenceType|Currently just Bing.|
-|title|If it's a celebrity, its title (for example "Microsoft's CEO").|
-|imageUrl|If it's a celebrity, its image URL.|
+|title|The title (if it's a celebrity—for example, "Microsoft's CEO").|
+|imageUrl|The image URL, if it's a celebrity.|
 |instances|Instances where the face appeared in the given time range. Each instance also has a thumbnailsId. |
 
 ```json
