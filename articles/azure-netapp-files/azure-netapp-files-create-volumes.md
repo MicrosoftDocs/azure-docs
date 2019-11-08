@@ -38,7 +38,7 @@ A subnet must be delegated to Azure NetApp Files.
   Support for UNIX mode bits (read, write, and execute) is available for NFSv3 and NFSv4.1. Root-level access is required on the NFS client to mount NFS volumes.
 
 * Local user/group and LDAP support for NFSv4.1  
-  Currently, NFSv4.1 supports root access to volumes only. See [Configure NFSv4.1 default domain for Azure NetApp File(azure-netapp-files-configure-nfsv41-domain.md). 
+  Currently, NFSv4.1 supports root access to volumes only. See [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
 
 ## Best practice
 

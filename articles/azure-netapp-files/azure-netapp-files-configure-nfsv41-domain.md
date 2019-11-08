@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: b-juche
 ---
-# Configure NFSv4.1 default domain for Azure NetApp File
+# Configure NFSv4.1 default domain for Azure NetApp Files
 
 NFSv4 introduces the concept of an authentication domain. Azure NetApp Files currently supports root-only user mapping from the service to the NFS client. To use the NFSv4.1 functionality with Azure NetApp Files, you need to update the NFS client.
 

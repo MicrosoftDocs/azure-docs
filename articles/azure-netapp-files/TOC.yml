@@ -49,7 +49,7 @@
     href: azure-netapp-files-delegate-subnet.md
   - name: Create an NFS volume for Azure NetApp Files
     href: azure-netapp-files-create-volumes.md
-  - name: Configure NFSv4.1 default domain for Azure NetApp File
+  - name: Configure NFSv4.1 default domain for Azure NetApp Files
     href: azure-netapp-files-configure-nfsv41-domain.md
   - name: Create an SMB volume for Azure NetApp Files
     href: azure-netapp-files-create-volumes-smb.md
