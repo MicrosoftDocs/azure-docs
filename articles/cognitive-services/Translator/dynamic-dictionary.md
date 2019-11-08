@@ -18,7 +18,7 @@ If you already know the translation you want to apply to a word or a phrase, you
 
 **Syntax:**
 
-<mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
+<mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 
 **Requirements:**
 

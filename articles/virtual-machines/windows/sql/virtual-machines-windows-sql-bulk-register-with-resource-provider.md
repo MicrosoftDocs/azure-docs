@@ -214,17 +214,12 @@ Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.l
 
 ## Remarks
 
-When registering SQL Server VMs with the resource provider using the provided script, consider the following:
+When you register SQL Server VMs with the resource provider using the provided script, consider the following:
 
 - Registration with the resource provider requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).
 - There is retry logic built-in to overcome transparent errors. If the virtual machine is successfully registered, then it is a rapid operation. However, if the registration fails, then each virtual machine will be retried.  As such, you should allow significant time to complete the registration process -  though actual time requirement is dependent on the type and number of errors. 
 
 ## Full script
-
-Copy the full script and save it as `RegisterSqLVMs.psm1`.
-
-[!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
-
 For the full script on GitHub, see [Bulk register SQL VMs with Az PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
 
 

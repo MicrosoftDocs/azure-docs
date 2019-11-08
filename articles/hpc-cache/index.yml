@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: ekpgh
   ms.author: rohogue
-  ms.date: 09/24/2019
+  ms.date: 10/21/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -39,6 +39,8 @@ landingContent:
             url: hpc-cache-add-storage.md
           - text: Mount clients
             url: hpc-cache-mount.md
+          - text: Manage and monitor the cache
+            url: hpc-cache-manage.md
       - linkListType: concept
         links:
           - text: Plan the aggregated namespace

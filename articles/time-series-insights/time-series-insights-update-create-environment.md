@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Set up an Azure Time Series Insights Preview environment | Microsoft Docs'
 description: Learn how to set up your environment in Azure Time Series Insights Preview.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
@@ -37,7 +37,7 @@ Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if yo
 
 ## Create a device simulation
 
-In this section, you create three simulated devices that send data to an Azure IoT Hub instance.
+In this section, you will create three simulated devices that send data to an Azure IoT Hub instance.
 
 1. Go to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). The page displays several prebuilt examples. Sign in by using your Azure account. Then, select **Device Simulation**.
 
@@ -50,7 +50,7 @@ In this section, you create three simulated devices that send data to an Azure I
     | Parameter | Action |
     | --- | --- |
     | **Deployment name** | Enter a unique value for a new resource group. The listed Azure resources are created and assigned to the resource group. |
-    | **Azure subscription** | Select the subscription that you used to create your Time Series Insights environment. |
+    | **Azure subscription** | Select the subscription where you will create your Time Series Insights environment. |
     | **Azure location** | Select the region that you used to create your Time Series Insights environment. |
     | **Deployment options** | Select **Provision new IoT Hub**. |
  
@@ -77,8 +77,11 @@ This section describes how to create an Azure Time Series Insights Preview envir
     | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Preview environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as the other IoT resources that are created by the device simulator. |
     | **Location** | Select a datacenter region for your Azure Time Series Insights Preview environment. To avoid additional latency, it's best to create your Azure Time Series Insights Preview environment in the same region as your other IoT resources. |
     | **Tier** |  Select **PAYG** (*pay-as-you-go*). This is the SKU for the Azure Time Series Insights Preview product. |
-    | **Property ID** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box is immutable. You can't change it later. For this tutorial, enter **iothub-connection-device-id**. To learn more about Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
-    | **Storage account name** | Enter a globally unique name for a new storage account to create. |
+    | **Property ID** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box is immutable and can't be changed later. For this tutorial, enter **iothub-connection-device-id**. To learn more about Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
+    | **Storage account name** | Enter a globally unique name for a new storage account for cold store.|
+    |**Storage account replication**|Pick the replication strategy that works for your business. To learn more about various replication strategies, see [Azure storage redundancy](../storage/common/storage-redundancy.md). |
+    |**Enable warm store**|Create an optional warm store. It can be deleted at any time.Warm store allows you faster, unlimited queries over your most recent data (up to the past 31 days)  |
+    |**Data retention (in days)**|Choose the data retention in warm store. Default value is 7 days and can be extended upto 31 days |
    
    Select **Next: Event Source**.
 
@@ -342,7 +345,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create and use a device simulation accelerator.
 > * Create an Azure Time Series Insights Preview PAYG environment.
-> * Connect the Azure Time Series Insights Preview environment to an event hub.
+> * Connect the Azure Time Series Insights Preview environment to an iot hub.
 > * Run a solution accelerator sample to stream data to the Azure Time Series Insights Preview environment.
 > * Perform a basic analysis of the data.
 > * Define a Time Series Model type and hierarchy, and associate them with your instances.

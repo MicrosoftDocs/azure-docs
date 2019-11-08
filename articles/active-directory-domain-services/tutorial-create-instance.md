@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/23/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services instance so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
@@ -85,7 +85,11 @@ The following DNS name restrictions also apply:
 Complete the fields in the *Basics* window of the Azure portal to create an Azure AD DS instance:
 
 1. Enter a **DNS domain name** for your managed domain, taking into consideration the previous points.
-1. Choose the Azure **Location** in which the managed domain should be created.
+1. Choose the Azure **Location** in which the managed domain should be created. If you choose a region that supports Availability Zones, the Azure AD DS resources are distributed across zones for additional redundancy.
+
+    Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions.
+
+    There's nothing for you to configure for Azure AD DS to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones]
 
     ![Configure basic settings for an Azure AD Domain Services instance](./media/tutorial-create-instance/basics-window.png)
 
@@ -115,7 +119,7 @@ On the **Summary** page of the wizard, review the configuration settings for the
 
     ![Domain Services status once successfully provisioned](./media/tutorial-create-instance/successfully-provisioned.png)
 
-We provision Azure AD Domain Services on the Azure Active Directory tenant and the Azure AD Domain Services resource for the service is created within the associated Azure subscription. During the provisioning process, Azure AD DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in your Azure Active directory instance where you have enabled the Azure AD domain services. These Enterprise Applications are needed to service your managed domain.  It's imperative that these applications are not deleted at any time.
+The managed domain is associated with your Azure AD tenant. During the provisioning process, Azure AD DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in the Azure AD tenant. These Enterprise Applications are needed to service your managed domain. Don't delete these applications.
 
 ## Update DNS settings for the Azure virtual network
 
@@ -186,6 +190,7 @@ Before you domain-join VMs and deploy applications that use the Azure AD DS mana
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

@@ -94,7 +94,7 @@ On an Azure AD-joined or registered device, user authentication happens using mo
 | Representation in the directory | Device objects in the Azure AD directory            | Computer objects in the Azure AD DS managed domain                        |
 | Authentication                  | OAuth / OpenID Connect based protocols              | Kerberos and NTLM protocols                                               |
 | Management                      | Mobile Device Management (MDM) software like Intune | Group Policy                                                              |
-| Networking                      | Works over the internet                             | Requires machines to be on the same virtual network as the managed domain |
+| Networking                      | Works over the internet                             | Must be connected to, or peered with, the virtual network where the managed domain is deployed |
 | Great for...                    | End-user mobile or desktop devices                  | Server VMs deployed in Azure                                              |
 
 ## Next steps

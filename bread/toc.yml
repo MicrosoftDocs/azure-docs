@@ -180,6 +180,22 @@
       - name: IoT Central
         tocHref: /azure/iot-central/
         topicHref: /azure/iot-central/
+        items: 
+        - name: IoT Central core
+          tocHref: /azure/iot-central/core/
+          topicHref: /azure/iot-central/core/
+        - name: IoT Central for Energy 
+          tocHref: /azure/iot-central/energy/
+          topicHref: /azure/iot-central/energy/
+        - name: IoT Central for Government 
+          tocHref: /azure/iot-central/government/
+          topicHref: /azure/iot-central/government/
+        - name: IoT Central for Healthcare 
+          tocHref: /azure/iot-central/healthcare/
+          topicHref: /azure/iot-central/healthcare/
+        - name: IoT Central for Retail 
+          tocHref: /azure/iot-central/retail/
+          topicHref: /azure/iot-central/retail/
       - name: IoT Edge
         tocHref: /azure/iot-edge/
         topicHref: /azure/iot-edge/

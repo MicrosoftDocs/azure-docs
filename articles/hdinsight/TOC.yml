@@ -136,7 +136,9 @@
       - name: Autoscale clusters
         href: ./hdinsight-autoscale-clusters.md
       - name: Use external metadata stores
-        href: ./hdinsight-use-external-metadata-stores.md     
+        href: ./hdinsight-use-external-metadata-stores.md
+      - name: Custom Ambari DB
+        href: ./hdinsight-custom-ambari-db.md          
       - name: Manage logs for an HDInsight cluster
         href: ./hdinsight-log-management.md
       - name: Add storage accounts

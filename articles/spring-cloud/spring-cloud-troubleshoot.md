@@ -167,7 +167,7 @@ Environment variables inform the Azure Spring Cloud framework, ensuring that Azu
             </dependency>
         ```
 
-1. With the Spring Boot Actuator endpoint enabled, go to the Azure portal and find the configuration page of your application.  Add an environment variable with the name `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value `*`. 
+1. With the Spring Boot Actuator endpoint enabled, go to the Azure portal and find the configuration page of your application.  Add an environment variable with the name `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` and the value `*` . 
 
 1. Restart your application.
 

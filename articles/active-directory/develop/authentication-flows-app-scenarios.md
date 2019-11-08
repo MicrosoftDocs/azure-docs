@@ -142,7 +142,7 @@ Applications running on a device without a browser can still call an API on beha
 
 Though we don't recommend you use it, the [Username/Password flow](https://aka.ms/msal-net-up) is available in public client applications. This flow is still needed in some scenarios like DevOps.
 
-But using this flow imposes constraints on your applications. For instance, applications using this flow can't sign in a user who needs to perform multi-factor authentication or conditional access. Your applications also don't benefit from single sign-on.
+But using this flow imposes constraints on your applications. For instance, applications using this flow can't sign in a user who needs to perform multi-factor authentication or Conditional Access. Your applications also don't benefit from single sign-on.
 
 Authentication with the Username/Password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
@@ -158,7 +158,7 @@ Similar to a desktop app, a mobile app calls the interactive token-acquisition m
 
 MSAL iOS and MSAL Android use the system web browser by default. However, you can direct them to use the embedded Web View instead. There are specificities that depend on the mobile platform: Universal Windows Platform (UWP), iOS, or Android.
 
-Some scenarios, like those that involve conditional access related to a device ID or a device enrollment, require a [broker](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) to be installed on the device. Examples of brokers are Microsoft Company Portal on Android and Microsoft Authenticator on Android and iOS. Also, MSAL can now interact with brokers.
+Some scenarios, like those that involve Conditional Access related to a device ID or a device enrollment, require a [broker](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) to be installed on the device. Examples of brokers are Microsoft Company Portal on Android and Microsoft Authenticator on Android and iOS. Also, MSAL can now interact with brokers.
 
 > [!NOTE]
 > Your mobile app that uses MSAL.iOS, MSAL.Android, or MSAL.NET on Xamarin can have app protection policies applied to it. For instance, the policies might prevent a user from copying protected text. The mobile app is [managed by Intune](https://docs.microsoft.com/intune/app-sdk) and recognized by Intune as a managed app. The [Intune App SDK](https://docs.microsoft.com/intune/app-sdk-get-started) is separate from MSAL libraries and interacts with Azure AD on its own.

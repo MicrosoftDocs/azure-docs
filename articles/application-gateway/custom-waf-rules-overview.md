@@ -28,6 +28,9 @@ If you want to use *or* for two different conditions, the two conditions must be
 
 Regular expressions are also supported in custom rules, just as they are in the core rule sets. For examples of these rules, see "Example 3" and "Example 5" in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
+> [!NOTE]
+> Custom rules are not available in the v1 SKU WAF.
+
 ## Allowing or blocking traffic
 
 Allowing or blocking traffic is simple with custom rules. For example, you can block all traffic that comes from a range of IP addresses. You can make another rule to allow traffic if the request comes from a certain browser.

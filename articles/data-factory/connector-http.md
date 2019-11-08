@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -168,12 +168,9 @@ If you use **certThumbprint** for authentication and the certificate is installe
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format dataset](#format-based-dataset) section.
-- For other formats like **ORC format**, refer to [Other format dataset](#other-format-dataset) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
-
-To copy data to and from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for HTTP under `location` settings in format-based dataset:
+The following properties are supported for HTTP under `location` settings in format-based dataset:
 
 | Property    | Description                                                  | Required |
 | ----------- | ------------------------------------------------------------ | -------- |
@@ -182,9 +179,6 @@ To copy data to and from **Parquet, delimited text, JSON, Avro and binary format
 
 > [!NOTE]
 > The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
-
-> [!NOTE]
-> **HttpFile** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup activity for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -212,9 +206,10 @@ To copy data to and from **Parquet, delimited text, JSON, Avro and binary format
 }
 ```
 
-### Other format dataset
+### Legacy dataset model
 
-To copy data from HTTP in **ORC format**, the following properties are supported:
+>[!NOTE]
+>The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above section going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -276,12 +271,9 @@ For a full list of sections and properties that are available for defining activ
 
 ### HTTP as source
 
-- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
-- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
-
-To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for HTTP under `storeSettings` settings in format-based copy source:
+The following properties are supported for HTTP under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -291,9 +283,6 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 | requestBody              | The body for the HTTP request.                               | No       |
 | requestTimeout           | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**. | No       |
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
-
-> [!NOTE]
-> For Parquet/delimited text format, **HttpSource** type copy activity source mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -336,9 +325,10 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 ]
 ```
 
-#### Other format source
+#### Legacy source model
 
-To copy data from HTTP in **ORC format**, the following properties are supported in the copy activity **source** section:
+>[!NOTE]
+>The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

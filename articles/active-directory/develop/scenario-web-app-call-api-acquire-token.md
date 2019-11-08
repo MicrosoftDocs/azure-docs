@@ -70,7 +70,7 @@ To understand more thoroughly the code required for this scenario, see the phase
 There are many additional complexities, such as:
 
 - Calling several APIs,
-- processing  incremental consent and conditional access.
+- processing  incremental consent and Conditional Access.
 
 These advanced steps are processed in chapter 3 of the tutorial [3-WebApp-multi-APIs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs)
 

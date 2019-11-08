@@ -48,7 +48,7 @@ This document describes a solution that can help protect your computing devices 
 
 * Intune for device management and a safe list of applications and URLs
 * Autopilot for device setup, deployment, and refresh
-* Azure AD for user management, conditional access, and multi-factor authentication
+* Azure AD for user management, Conditional Access, and multi-factor authentication
 * Windows 10 (current version) for device health attestation and user experience
 * Defender ATP for cloud-managed endpoint protection, detection, and response
 * Azure AD PIM for managing authorization and just-in-time (JIT) privileged access to resources

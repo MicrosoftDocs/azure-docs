@@ -30,7 +30,7 @@ You can add an empty edge node to an existing HDInsight cluster, to a new cluste
                         "name": "edgenode",
                         "targetInstanceCount": 1,
                         "hardwareProfile": {
-                            "vmSize": "Standard_D3"
+                            "vmSize": "{}"
                         }
                     }]
                 },

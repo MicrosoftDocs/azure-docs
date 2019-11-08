@@ -82,7 +82,7 @@ The following table lists the definitions for common parameters and entities use
 | `offerId`                | A unique string identifier for each offer (for example: "offer1").  |
 | `planId`                 | A unique string identifier for each plan/SKU (for example: "silver"). |
 | `operationId`            | The GUID identifier for a particular operation.  |
-|  `action`                | The action being performed on a resource, either `unsubscribe`, `suspend`,  `reinstate`, or `changePlan`, `changeQuantity`, `transfer`.  |
+|  `action`                | The action being performed on a resource, either `Unsubscribe`, `Suspend`, `Reinstate`, or `ChangePlan`, `ChangeQuantity`, `Transfer`. |
 |   |   |
 
 Globally unique identifiers ([GUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier)) are 128-bit (32-hexadecimal) numbers that are typically automatically generated. 
@@ -703,7 +703,7 @@ Internal server error.
 
 #### Get operation status
 
-Enables the publisher to track the status of the specified triggered async operation (such as `subscribe`, `unsubscribe`, `changePlan`, or `changeQuantity`).
+Enables the publisher to track the status of the specified triggered async operation (such as `Subscribe`, `Unsubscribe`, `ChangePlan`, or `ChangeQuantity`).
 
 ##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,11 +850,11 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 }
 ```
 Where the action can be one of the following: 
-- `unsubscribe` (when the resource has been deleted)
-- `changePlan` (when the change plan operation has completed)
-- `changeQuantity` (when the change quantity operation has completed)
-- `suspend` (when resource has been suspended)
-- `reinstate` (when resource has been reinstated after suspension)
+- `Unsubscribe` (when the resource has been deleted)
+- `ChangePlan` (when the change plan operation has completed)
+- `ChangeQuantity` (when the change quantity operation has completed)
+- `Suspend` (when resource has been suspended)
+- `Reinstate` (when resource has been reinstated after suspension)
 
 Where the status can be one of the following: 
 - **NotStarted** <br>

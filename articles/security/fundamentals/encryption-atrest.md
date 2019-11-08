@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/25/2019
 ms.author: barclayn
 
 ---
@@ -256,7 +256,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 
 |                                  |                    | **Encryption Model and Key Management** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed Key**             | **Client-Side Using Client-Managed**      |
+|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed Key**             | **Client-Side Using Client-Managed Key**      |
 | **AI and Machine Learning**      |                    |                    |                    |
 | Azure Search                     | Yes                | Preview            | -                  |
 | Azure Machine Learning Service   | Yes                | -                  | -                  |

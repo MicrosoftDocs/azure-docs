@@ -301,7 +301,7 @@ config = json.load(open(sys.argv[1]))
 app = msal.ConfidentialClientApplication(
     config["client_id"], authority=config["authority"],
     client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
-    client_claims = {“client_ip”: “x.x.x.x”}
+    client_claims = {"client_ip": "x.x.x.x"}
     # token_cache=...  # Default cache is in memory only.
                        # You can learn how to use SerializableTokenCache from
                        # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
