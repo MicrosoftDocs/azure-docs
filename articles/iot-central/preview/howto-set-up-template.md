@@ -240,7 +240,7 @@ To add a form to a device template:
 
 Before you can connect a device that implements your device capability model, you must publish your device template.
 
-After you publish a device template, you can only make limited changes to the device capability model. To modify an interface, you need to [create and publish a new version](./howto-version-device-template-pnp.md).
+After you publish a device template, you can only make limited changes to the device capability model. To modify an interface, you need to [create and publish a new version](./howto-version-device-template.md).
 
 To publish a device template, go to you your device template and select **Publish**.
 
@@ -251,5 +251,5 @@ After you publish a device template, an operator can go to the **Devices** page 
 Now that you've learned how to set up a device template in your Azure IoT Central application, you can:
 
 > [!div class="nextstepaction"]
-> [Create a new device template version](howto-version-device-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Create a new device template version](howto-version-device-template.md)
+> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md)

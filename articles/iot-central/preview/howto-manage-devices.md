@@ -31,7 +31,7 @@ To view an individual device:
 
 1. In the right-hand pane of the **Devices** page, you see a list of devices created from that device template. Choose an individual device to see the device details page for that device:
 
-    ![Device Details Page](./media/howto-manage-devices-pnp/devicelist.png)
+    ![Device Details Page](./media/howto-manage-devices/devicelist.png)
 
 
 ## Add a device
@@ -68,7 +68,7 @@ To bulk-register devices in your application:
 
 1. Select **Import**.
 
-    ![Import Action](./media/howto-manage-devices-pnp/bulkimport1a.png)
+    ![Import Action](./media/howto-manage-devices/bulkimport1a.png)
 
 
 1. Select the CSV file that has the list of Device IDs to be imported.
@@ -77,7 +77,7 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown in the Device Operations panel.
 
-    ![Import Success](./media/howto-manage-devices-pnp/bulkimport3a.png)
+    ![Import Success](./media/howto-manage-devices/bulkimport3a.png)
 
 
 If the device import operation fails, you see an error message on the Device Operations panel. A log file capturing all the errors is generated that you can download.
@@ -90,7 +90,7 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. On the left panel, choose **All devices**:
 
-    ![Unassociated Devices](./media/howto-manage-devices-pnp/unassociateddevices1a.png)
+    ![Unassociated Devices](./media/howto-manage-devices/unassociateddevices1a.png)
 
 
 1. Use the filter on the grid to determine if the value in the **Device Template** column is "Unassociated" for any of your devices.
@@ -99,7 +99,7 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. Select **Migrate**:
 
-    ![Associate Devices](./media/howto-manage-devices-pnp/unassociateddevices2a.png)
+    ![Associate Devices](./media/howto-manage-devices/unassociateddevices2a.png)
 
 
 1. Choose the template from the list of available templates and select **Migrate**.
@@ -119,7 +119,7 @@ To bulk export devices from your application:
 
 1. Select the devices that you want to export and then select the **Export** action.
 
-    ![Export](./media/howto-manage-devices-pnp/export1a.png)
+    ![Export](./media/howto-manage-devices/export1a.png)
 
 
 1. The export process starts. You can track the status using the Device Operations panel.
@@ -128,7 +128,7 @@ To bulk export devices from your application:
 
 1. Select the **Download File** link to download the file to a local folder on the disk.
 
-    ![Export Success](./media/howto-manage-devices-pnp/export2a.png)
+    ![Export Success](./media/howto-manage-devices/export2a.png)
 
 
 1. The exported CSV file contains the following columns: device ID, device name, device keys, and X509 certificate thumbprints:
@@ -140,7 +140,7 @@ To bulk export devices from your application:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-For more information about connection strings and connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+For more information about connection strings and connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](overview-iot-central-get-connected.md).
 
 ## Delete a device
 
@@ -174,6 +174,6 @@ Cloud properties are the device metadata associated with the device, such as cit
 Now that you've learned how to manage devices in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to use device groups](tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [How to use device groups](tutorial-use-device-groups.md)
 
 <!-- Next how-tos in the sequence -->

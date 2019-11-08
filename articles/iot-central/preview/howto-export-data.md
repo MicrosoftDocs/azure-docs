@@ -77,14 +77,14 @@ Now that you have a destination to export data to, follow these steps to set up 
 
 3. Select the **+ New** button in the top right. Choose one of **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** as the destination of your export. The maximum number of exports per application is five.
 
-    ![Create new continuous data export](media/howto-export-data-pnp/export-new2.png)
+    ![Create new continuous data export](media/howto-export-data/export-new2.png)
 
 4. In the drop-down list box, select your **Event Hubs namespace**, **Service Bus namespace**, **Storage Account namespace**, or **Enter a connection string**.
 
     - You only see Storage Accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see step 5.
     - For seven-day trial apps, the only way to configure continuous data export is through a connection string. Seven-day trial apps don't have an associated Azure subscription.
 
-    ![Create new Event Hub](media/howto-export-data-pnp/export-eh.png)
+    ![Create new Event Hub](media/howto-export-data/export-eh.png)
 
 5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
     - Event Hubs or Service Bus, go to the namespace in the Azure portal.
@@ -190,7 +190,7 @@ Each message or record in a snapshot represents one or more changes to a device 
 
 - `@id` of the device in IoT Central
 - `name` of the device
-- `deviceId` from [Device Provisioning Service](/azure/iot-central/core/howto-connect-nodejs)
+- `deviceId` from [Device Provisioning Service](../core/howto-connect-nodejs.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
 - Device template information
 - Property values
 
@@ -609,4 +609,4 @@ Exported files contain a single line per record. The following example shows a r
 Now that you know how to export your data to Azure Event Hubs and Azure Service Bus, continue to the next step:
 
 > [!div class="nextstepaction"]
-> [How to trigger Azure Functions](howto-trigger-azure-functions.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [How to trigger Azure Functions](../core/howto-trigger-azure-functions.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
