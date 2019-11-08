@@ -76,7 +76,7 @@ If you used keys from an Azure Key Vault to configure encryption on the Data Lak
 >
 >
 
-## <a name="createfolder"></a>Create folders in a Data Lake Storage Gen1 account
+## <a name="createfolder"></a>Create folders
 
 You can create folders under your Data Lake Storage Gen1 account to manage and store data.
 
@@ -92,7 +92,7 @@ You can create folders under your Data Lake Storage Gen1 account to manage and s
 
     ![Create folders in a Data Lake account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in a Data Lake account")
 
-## <a name="uploaddata"></a>Upload data to a Data Lake Storage Gen1 account
+## <a name="uploaddata"></a>Upload data
 
 You can upload your data to a Data Lake Storage Gen1 account directly at the root level or to a folder that you created within the account.
 
@@ -113,7 +113,7 @@ Click the ellipsis icon against a file, and from the pop-up menu, click the acti
 
 You can secure the data stored in your Data Lake Storage Gen1 account using Azure Active Directory and access control (ACLs). For instructions on how to do that, see [Securing data in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md).
 
-## Delete a Data Lake Storage Gen1 account
+## Delete your account
 
 To delete a Data Lake Storage Gen1 account, from your Data Lake Storage Gen1 blade, click **Delete**. To confirm the action, you'll be prompted to enter the name of the account you wish to delete. Enter the name of the account, and then click **Delete**.
 

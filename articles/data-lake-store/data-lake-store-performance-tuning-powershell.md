@@ -36,7 +36,7 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
 	-Recurse
 ```
 
-## How do I determine the value for these properties?
+## How to determine property values
 
 The next question you might have is how to determine what value to provide for the performance-related properties. Here's some guidance that you can use.
 
