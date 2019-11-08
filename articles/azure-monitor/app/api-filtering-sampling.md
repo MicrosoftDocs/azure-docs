@@ -199,23 +199,23 @@ public void Process(ITelemetry item)
 
 **Filtering using ITelemetryInitializer**
 
-1. Create a telemetry initializer callback function.  The callback function takes an ITelemetryItem as a parameter, which is the event that is being processed.  Returning false from this callback will result in the telemetry item to be filtered out.  
+1. Create a telemetry initializer callback function. The callback function takes `ITelemetryItem` as a parameter, which is the event that is being processed. Returning `false` from this callback results in the telemetry item to be filtered out.  
 
-```JS
-var filteringFunction = (envelope) => {
-  if (envelope.data.someField === 'tobefilteredout') {
-  	return false;
-  }
+   ```JS
+   var filteringFunction = (envelope) => {
+     if (envelope.data.someField === 'tobefilteredout') {
+     	return false;
+     }
   
-  return true;
-};
-```
+     return true;
+   };
+   ```
 
-2. Add your telemetry initializer callback 
+2. Add your telemetry initializer callback:
 
-```JS
-appInsights.addTelemetryInitializer(filteringFunction);
-```
+   ```JS
+   appInsights.addTelemetryInitializer(filteringFunction);
+   ```
 
 ## Add/modify properties: ITelemetryInitializer
 
