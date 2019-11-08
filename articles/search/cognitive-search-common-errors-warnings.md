@@ -59,6 +59,8 @@ Indexer was not able to run a skill in the skillset.
 
 | Reason | Example | Action |
 | --- | --- | --- |
+| A field contains a term that is too large | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
+| Document is too large to be indexed | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index.md)
 | Transient connectivity issues | A transient error occurred. Please try again later. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 | Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. Please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) to get help. |
 | A skill has encountered an error during execution | (From Merge Skill) One or more offset values were invalid and could not be parsed. Items were inserted at the end of the text | Use the information in the error message to fix the issue. This kind of failure will require action to resolve. |
@@ -110,6 +112,7 @@ The document was read and processed, but the indexer could not add it to the sea
 | --- | --- | --- |
 | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | A field contains a term that is too large | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
 | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | Document is too large to be indexed | [How to index large data sets](search-howto-large-index.md)
+| Document contains too many objects in collection | A collection in your document exceeds the [maximum elements across all complex collections limit](search-limits-quotas-capacity.md#index-limits) | We recommend reducing the size of the complex collection in the document to below the limit and avoid high storage utilization.
 | Trouble connecting to the target index (that persists after retries) because the service is under other load, such as querying or indexing. | Failed to establish connection to update index. Search service is under heavy load. | [Scale up your search service](search-capacity-planning.md)
 | Search service is being patched for service update, or is in the middle of a topology reconfiguration. | Failed to establish connection to update index. Search service is currently down/Search service is undergoing a transition. | Configure service with at least 3 replicas for 99.9% availability per [SLA documentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Failure in the underlying compute/networking resource (rare) | Failed to establish connection to update index. An unknown failure occurred. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state.
