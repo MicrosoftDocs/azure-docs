@@ -95,4 +95,5 @@ Azure Speech Services works well with built-in models, however, you may want to 
 
 ## Next steps
 
-> [!div class="nextstepaction"][get a speech services subscription key for free](get-started.md)
+> [!div class="nextstepaction"]
+> [get a speech services subscription key for free](get-started.md)
