@@ -124,7 +124,7 @@ As an operator, you use the Azure IoT Central application to manage the devices 
 
 As a builder, you can define custom rules and actions that operate over data streaming from connected devices. An operator can enable or disable these rules at the device level to control and automate tasks within the application.
 
-Administrators manage access to your application with [user roles and permissions](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Administrators manage access to your application with [user roles and permissions](howto-administer.md).
 
 
 ## What is Azure IoT Central with Azure IoT Edge (preview features)
@@ -147,7 +147,7 @@ Azure IoT Edge runtime performs following functions:
 - Report module health to the cloud for remote monitoring.
 - Manage communication between downstream leaf devices and an IoT Edge device, between modules on an IoT Edge device, and between an IoT Edge device and the cloud.
 
-![IoT Central with Azure IoT Edge Overview](./media/overview-iot-central-pnp-edge/iotedge.png)
+![IoT Central with Azure IoT Edge Overview](./media/overview-iot-central/iotedge.png)
 
 Azure IoT Central performs the following functions: 
 
@@ -161,7 +161,7 @@ Azure IoT Central performs the following functions:
   7. Cloud properties that are not stored on the Azure IoT Edge device
   8. Customizations, dashboards, and forms that are part of your IoT Central application
 
-  [Create Azure IoT Edge Device template](./tutorial-define-edge-device-type-pnp.md)
+  [Create Azure IoT Edge Device template](./tutorial-define-edge-device-type.md)
    
 - Provisioning Azure IoT Edge devices at scale using Azure IoT device provisioning service
 - Trigger rules and take actions on Azure IoT Edge devices
@@ -175,28 +175,28 @@ Azure IoT Central classifies Azure IoT Edge device types as follows:
 - Azure IoT Edge device as a leaf device. Azure IoT Edge device could have downstream devices, but downstream devices are not provisioned in IoT Central
 - Azure IoT Edge device as a gateway device with downstream devices. Both gateway device and downstream devices are provisioned in IoT Central
 
-![IoT Central with Azure IoT Edge Overview](./media/overview-iot-central-pnp-edge/gatewayedge.png)
+![IoT Central with Azure IoT Edge Overview](./media/overview-iot-central/gatewayedge.png)
 
 ### Azure IoT Edge patterns supported in IoT Central
 
 - Azure IoT Edge as leaf device
-  ![Azure IoT Edge as leaf device](./media/overview-iot-central-pnp-edge/edgeasleafdevice.png)
+  ![Azure IoT Edge as leaf device](./media/overview-iot-central/edgeasleafdevice.png)
   Azure IoT Edge device will be provisioned in IoT Central and any downstream devices and its telemetry will be represented as coming from Azure IoT Edge device. Downstream devices if any connected to the Azure IoT Edge device will not be provisioned in IoT Central. 
 
 - Azure IoT Edge Gateway Device connected to Downstream Devices with identity
-  ![Azure IoT Edge with downstream device identity](./media/overview-iot-central-pnp-edge/edgewithdownstreamdeviceidentity.png)
+  ![Azure IoT Edge with downstream device identity](./media/overview-iot-central/edgewithdownstreamdeviceidentity.png)
   Azure IoT Edge device will be provisioned in IoT Central along with the downstream devices connected to the Azure IoT Edge device. Runtime support provisioning of downstream devices through gateway is planned for the future. IoT Central will light up Cloud First Provisioning of the downstream devices and the credentials are managed manually on the downstream device. Device first provisioning of downstream devices planned for the future semesters. 
 
 - Azure IoT Edge Gateway Device connected to Downstream Devices with identity provided by Edge Gateway
-  ![Azure IoT Edge with downstream device without identity](./media/overview-iot-central-pnp-edge/edgewithoutdownstreamdeviceidentity.png)
+  ![Azure IoT Edge with downstream device without identity](./media/overview-iot-central/edgewithoutdownstreamdeviceidentity.png)
   Azure IoT Edge device will be provisioned in IoT Central along with the downstream devices connected to the Azure IoT Edge device. Runtime support of gateway providing identity to downstream devices and provisioning of downstream devices is planned for the future. You can bring your own identity translation module and IoT Central will support this pattern. 
 
 ## Next steps
 
 Now that you have an overview of Azure IoT Central, here are suggested next steps:
 
-- Understand the differences between [Azure IoT Central and Azure IoT solution accelerators](overview-iot-options.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-- Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-- Get started by [creating an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+- Understand the differences between [Azure IoT Central and Azure IoT solution accelerators](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+- Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
+- Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Learn more about [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md)
-- Learn how to [Create Azure IoT Edge Device template](./tutorial-define-edge-device-type-pnp.md)
+- Learn how to [Create Azure IoT Edge Device template](./tutorial-define-edge-device-type.md)
