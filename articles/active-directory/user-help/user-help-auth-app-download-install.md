@@ -1,5 +1,5 @@
 ---
-title: Download and install the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
+title: Download and install the Microsoft Authenticator app - Azure AD
 description: How to download, install, and use the Microsoft Authenticator app for two-factor verification.
 services: active-directory
 author: eross-msft

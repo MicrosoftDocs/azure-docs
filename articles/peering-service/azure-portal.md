@@ -40,7 +40,7 @@ Make sure the connectivity providers are partnered with Microsoft.
 
 ### Register your subscription with the resource provider and feature flag
 
-Before you proceed to the steps of registering the Peering Service, register your subscription with the resource provider and feature flag either via Azure PowerShell or the Azure CLI. 
+Before you proceed to the steps of registering the Peering Service, you need to register your subscription with the resource provider and feature flag either via Azure PowerShell or the Azure CLI. 
 
 **Azure PowerShell**
 
@@ -63,25 +63,25 @@ From a browser, go to the Azure portal and sign in with your Azure account.
 
 ## Register a Peering Service connection
 
-1. To register a Peering Service connection, select **Create a resource** > **Peering Service**.
+1. To register a Peering Service connection, select **Create a resource** > **Peering Service**.
 
     > [!div class="mx-imgBorder"]
     > ![Register Peering Service](./media/peering-service-portal/peering-servicecreate.png)
  
 2.	Enter the following details on the **Basics** tab on the **Create a peering service connection** page. 
  
-3.	Select the subscription and the resource group associated with the subscription from the **Subscription** and **Resource group** drop-down lists.
+3.	Select the subscription and the resource group associated with the subscription.
 
     > [!div class="mx-imgBorder"]
     > ![Register Peering Service basic tab](./media/peering-service-portal/peering-servicebasics.png)
 
-4.	Enter a name to which the Peering Service instance should be registered in the **Name** box.
+4.	Enter a **Name** to which the Peering Service instance should be registered.
  
 5.	Now, select the **Next:Configuration** button at the bottom of the page. The **Configuration** page appears.
 
 ## Configure the Peering Service connection
 
-1.	On the **Configuration** tab, select the location to which the Peering Service must be enabled by selecting the same from the **Peering service location** drop-down list.
+1.	On the **Configuration** page, select the location to which the Peering Service must be enabled by selecting the same from the **Peering service location** drop-down list.
 
 2.	Select the service provider from whom the Peering Service must be obtained by selecting a provider name from the **Peering service provider** drop-down list.
  
@@ -90,7 +90,7 @@ From a browser, go to the Azure portal and sign in with your Azure account.
     > [!div class="mx-imgBorder"]
     > ![Register Peering Service configuration tab](./media/peering-service-portal/peering-serviceconfiguration.png)
 
-5.	Select the **Review + create** button at the lower left of the page. The **Review + create** page appears, and Azure validates your configuration.
+5.	Select the **Review + create** button at the lower left of the page. The **Review + create** page appears,and Azure validates your configuration.
 
     > [!div class="mx-imgBorder"]
     > ![Register Peering Service validation](./media/peering-service-portal/peering-service-validate.png)
@@ -110,11 +110,11 @@ From a browser, go to the Azure portal and sign in with your Azure account.
 
 Select **Add prefixes** on the **Prefixes** page to add prefixes.
 
-Select the ellipsis (**...**) next to the listed prefix, and select the **Delete** option.
+Select the ellipsis (...) next to the listed prefix, and select the **Delete** option.
 
 ### Delete a Peering Service connection
 
-On the **All Resources** page, select the check box for the Peering Service connection and select the **Delete** option at the top of the page.
+On the **All Resources** page, select the check box on the Peering Service and select the **Delete** option at the top of the page.
 
 > [!NOTE]
 > You can't modify an existing prefix.
