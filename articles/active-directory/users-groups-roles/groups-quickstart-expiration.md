@@ -1,16 +1,15 @@
 ---
-title: Expiration policy quickstart for Office 365 groups - Azure Active Directory | Microsoft Docs
+title: Group expiration policy quickstart  - Azure AD | Microsoft Docs
 description: Expiration for Office 365 groups - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 10/24/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro

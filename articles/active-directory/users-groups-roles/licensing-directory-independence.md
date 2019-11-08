@@ -1,19 +1,16 @@
 ---
-title: Characteristics of multiple tenant interaction - Azure Active Directory | Microsoft Docs
+title: Characteristics of multiple tenant interaction - Azure AD | Microsoft Docs
 description: Manage your Azure Active tenant tenants by understanding your tenants as fully independent resources
 services: active-tenant
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
-
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
