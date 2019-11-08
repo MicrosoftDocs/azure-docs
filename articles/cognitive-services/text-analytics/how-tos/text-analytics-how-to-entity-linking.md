@@ -1,7 +1,7 @@
 ---
 title: Use entity recognition with the Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize entities using the Text Analytics REST API.
+description: Learn how to identify and disambiguate the identity of an entity found in text with the Text Analytics REST API.
 services: cognitive-services
 author: aahill
 

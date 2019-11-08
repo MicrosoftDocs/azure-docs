@@ -1,6 +1,6 @@
 ---
 title: Azure Batch service jobs
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) - Azure
 description: Overview of Azure Batch services for Machine Learning Studio (classic) jobs. Batch Pool processing allows you to create pools on which you can submit batch jobs.
 services: machine-learning
 ms.service: machine-learning
@@ -39,7 +39,7 @@ You create pools by calling the Create Pool operation on the pool service URL th
 
 You can use any New Resource Manager based web service, but be aware that the billing for the jobs are charged against the billing plan associated with that service. You may want to create a web service and new billing plan specifically for running Batch Pool jobs.
 
-For more information on creating web services, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
+For more information on creating web services, see [Deploy an Azure Machine Learning web service](deploy-a-machine-learning-web-service.md).
 
 Once you have created a pool, you submit the BES job using the Batch Requests URL for the web service. You can choose to submit it to a pool or to classic batch processing. To submit a job to Batch Pool processing, you add the following parameter to the job submission request body:
 

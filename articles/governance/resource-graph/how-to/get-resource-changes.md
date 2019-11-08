@@ -316,4 +316,4 @@ you compare the snapshots, the **timestamp** always shows as a difference despit
 
 - See the language in use in [Starter queries](../samples/starter.md).
 - See advanced uses in [Advanced queries](../samples/advanced.md).
-- Learn to [explore resources](../concepts/explore-resources.md).
+- Learn more about how to [explore resources](../concepts/explore-resources.md).

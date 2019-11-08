@@ -1,5 +1,5 @@
 ---
-title: Security considerations for data movement in Azure Data Factory  | Microsoft Docs
+title: Security considerations for data movement in Azure Data Factory  
 description: 'Learn about securing data movement in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
