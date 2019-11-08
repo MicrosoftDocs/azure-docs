@@ -128,11 +128,13 @@ In PowerShell, run these commands:
 
 1. `Add-AzAccount`
 
-2. `$SecurePassword = Read-Host -AsSecureString` (Enter a password and hit enter)
+1. `$SecurePassword = Read-Host -AsSecureString`
 
-3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+1. Enter a password and press Enter.
 
-4. Make sure to copy the **Tenant ID** (GUID for your Azure AD tenant), 
+1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+
+1. Make sure to copy the **Tenant ID** (GUID for your Azure AD tenant), 
 the **Application ID**, and the password that you used.
 
 For more information, learn how to 
@@ -239,11 +241,19 @@ The previous template already has this authorization section set up,
 but if you are directly authoring the logic app, you must include the full authorization section.
 
 Open your logic app definition in code view, go to the **HTTP** action section, 
-find the **Authorization** section, and include this line:
+find the **Authorization** section, and include these properties:
 
-`{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
+```json
+{
+   "tenant": "<tenant-ID>",
+   "audience": "<client-ID-from-Part-2-web-app-or-API app>", 
+   "clientId": "<client-ID-from-Part-1-logic-app>",
+   "secret": "<key-from-Part-1-logic-app>", 
+   "type": "ActiveDirectoryOAuth"
+}
+```
 
-| Element | Required | Description | 
+| Property | Required | Description | 
 | ------- | -------- | ----------- | 
 | tenant | Yes | The GUID for the Azure AD tenant | 
 | audience | Yes | The GUID for the target resource that you want to access, which is the client ID from the application identity for your web app or API app | 
@@ -287,12 +297,18 @@ To validate the incoming requests from your logic app to your web app or API app
 you can use client certificates. To set up your code, learn 
 [how to configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-In the **Authorization** section, include this line: 
+In the **Authorization** section, include these properties:
 
-`{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
+```json
+{
+   "type": "ClientCertificate",
+   "password": "<password>",
+   "pfx": "<long-pfx-key>"
+} 
+```
 
-| Element | Required | Description | 
-| ------- | -------- | ----------- | 
+| Property | Required | Description | 
+| -------- | -------- | ----------- | 
 | type | Yes | The authentication type. For SSL client certificates, the value must be `ClientCertificate`. | 
 | password | Yes | The password for accessing the client certificate (PFX file) | 
 | pfx | Yes | The base64-encoded contents of the client certificate (PFX file) | 
@@ -307,11 +323,17 @@ you can use basic authentication, such as a username and password.
 Basic authentication is a common pattern, and you can use this 
 authentication in any language used to build your web app or API app.
 
-In the **Authorization** section, include this line:
+In the **Authorization** section, include these properties:
 
-`{"type": "basic", "username": "username", "password": "password"}`.
+```json
+{
+   "type": "Basic",
+   "username": "<username>",
+   "password": "<password>"
+}
+```
 
-| Element | Required | Description | 
+| Property | Required | Description | 
 | ------- | -------- | ----------- | 
 | type | Yes | The authentication type that you want to use. For basic authentication, the value must be `Basic`. | 
 | username | Yes | The username that you want to use for authentication | 
