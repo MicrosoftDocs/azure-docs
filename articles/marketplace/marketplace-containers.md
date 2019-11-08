@@ -9,6 +9,7 @@ manager: nunoc
 
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 
 
 

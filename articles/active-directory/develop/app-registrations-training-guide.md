@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 You can find numerous improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the legacy experience, use this training guide to get you started using the new experience.
 
-In Azure Active Directory, the new application registration experience described here generally available (GA). In Azure Active Directory B2C (Azure AD B2C), this experience is in preview.
+In Azure Active Directory, the new application registration experience described here is generally available (GA). In Azure Active Directory B2C (Azure AD B2C), this experience is in preview.
 
 ## Key changes
 
@@ -54,7 +54,7 @@ Here's where you can find the equivalent functionality in the new experience:
 - The functionality controlled by the **Multi-tenant** toggle in the legacy experience has been replaced by **Supported account types** on the **Authentication** page. For more information about how multi-tenant maps to the supported account type options, see [this quickstart](quickstart-modify-supported-accounts.md).
 - **Logout URL** is now on the **Authentication** page.
 - **Application type** is no longer a valid field. Instead, redirect URIs (which you can find on the **Authentication** page) determine which app types are supported.
-- **App ID URI** is now called **Application ID URI** and you can find this on the **Expose an API** blade. In the legacy experience, this property was auto-registered using the following format: `https://{tenantdomain}/{appID}` (for example, `https://microsoft.onmicrosoft.com/aeb4be67-a634-4f20-9a46-e0d4d4f1f96d`). In the new format, it's auto-generated as `api://{appID}`, but it needs to be explicitly saved. In Azure AD B2C tenants, the `https://{tenantdomain}/{appID}` format is still used.
+- **App ID URI** is now called **Application ID URI** and you can find this on the **Expose an API** blade. In the legacy experience, this property was auto-registered using the following format: `https://{tenantdomain}/{appID}` (for example, `https://microsoft.onmicrosoft.com/aeb4be67-a634-4f20-9a46-e0d4d4f1f96d`). In the new experience, it's auto-generated as `api://{appID}`, but it needs to be explicitly saved. In Azure AD B2C tenants, the `https://{tenantdomain}/{appID}` format is still used.
 
 ## Reply URLs/redirect URls
 

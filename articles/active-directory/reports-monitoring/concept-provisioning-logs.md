@@ -204,7 +204,9 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 ## Error Codes
 
-|ErrorCode|Description|
+Use the table below to better understand how to resolve errors you may find in the provisioning logs. For any error codes that are missing, provide feedback using the link at the bottom of this page. 
+
+|Error Code|Description|
 |---|---|
 |Conflict, EntryConflict|Correct the conflicting attribute values in either Azure AD or the application, or review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the following [documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) for more information on configuring matching attributes.|
 |TooManyRequests|The target app rejected this attempt to update the user because it is overloaded and receiving too many requests. There is nothing to do. This attempt will automatically be retired. Microsoft has also been notified of this issue.|
@@ -219,6 +221,9 @@ The **summary** tab provides an overview of what happened and identifiers for th
 |InternalError |An internal service error occurred within the Azure AD provisioning service. There is nothing to do. This attempt will automatically be retried in 40 minutes.|
 |InvalidDomain |The operation could not be performed due to an attribute value containing an invalid domain name. Update the domain name on the user or add it to the permitted list in the target application. |
 |Timeout |The operation could not be completed because the target application took too long to respond. There is nothing to do. This attempt will automatically be retried in 40 minutes.|
+|LicenseLimitExceeded|The user could not be created in the target application because there are no available licenses for this user. Either procure additional licenses for the target application, or review your user assignments and attribute mapping configuration to ensure that the correct users are assigned with the correct attributes.|
+|DuplicateTargetEntries  |The operation could not be completed because more than one user in the target application was found with the configured matching attributes. Either remove the duplicate user from the target application, or reconfigure your attribute mappings as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateSourceEntries | The operation could not be completed because more than one user was found with the configured matching attributes. Either remove the duplicate user, or reconfigure your attribute mappings as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 
 ## Next steps
 
