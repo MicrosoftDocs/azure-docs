@@ -252,11 +252,11 @@ Existing Azure Active Directory app registration is used to deploy (Case 2 above
    "aadAppClientSecret": "Kxxxqxxxxu*kxcxxx3Yxxu5xx/db[xxx"
 
    }
-```
+   ```
 
 Follow the rest of the steps:
-2. Make a note of the path to your input.json file (on your local computer).
 
+2. Make a note of the path to your input.json file (on your local computer).
 3. Go to Azure Cloud Shell once again and you're successfully authenticated, select the upload button (see highlighted icon in below image) and upload the input.json file to Cloud Shell storage.
 
     ![Project Farm Beats](./media/prepare-for-deployment/bash-2-1.png)
