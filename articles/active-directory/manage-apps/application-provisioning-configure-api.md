@@ -374,7 +374,8 @@ Amazon Web Service only supports role imports. Skip this step for AWS.
 
 **schema? example?**
 
-https://main.iam.ad.ext.azure.com/api/UserProvisioning/35b92148-dbe0-4b8e-9836-60512ec4643d/Credentials
+```json
+https://graph.microsoft.com/beta/servicePrincipals/35b92148-dbe0-4b8e-9836-60512ec4643d/Credentials
 
 fieldValues.oauth2AccessTokenCreationTime
 {galleryApplicationId: "97e0a159-74ec-4db1-918a-c03a9c3b6b81", templateId: "DropboxSCIMOutDelta",…}
@@ -406,9 +407,11 @@ sendNotificationEmails: false
 syncAll: false
 synchronizationLearnMoreIbizaFwLink: ""
 templateId: "DropboxSCIMOutDelta"
+```
 
 ## Step 7: Start the provisioning job
 Now that the provisioning job is configured, use the following command to start the job. 
+
 
 ##### Request
 <!-- {
