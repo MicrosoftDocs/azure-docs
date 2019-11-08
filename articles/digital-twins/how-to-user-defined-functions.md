@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 11/07/2019
 ms.custom: seodec18
 ---
 
@@ -49,16 +49,18 @@ With JSON body:
 
 ```JSON
 {
-  "Name": "Temperature Matcher",
-  "Conditions": [
+  "id": "3626464-f39b-46c0-d9b0c-436aysj55",
+  "name": "Temperature Matcher",
+  "spaceId": "YOUR_SPACE_IDENTIFIER",
+  "conditions": [
     {
+      "id": "ag7gq35cfu3-e15a-4e9c-6437-sj6w68sy44s",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     }
-  ],
-  "SpaceId": "YOUR_SPACE_IDENTIFIER"
+  ]
 }
 ```
 

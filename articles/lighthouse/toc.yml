@@ -13,10 +13,10 @@
 - name: Concepts
   items:
   - name: Azure delegated resource management
-    displayName: delegation
+    displayName: delegation, projection
     href: ./concepts/azure-delegated-resource-management.md
   - name: Cross-tenant management experiences
-    displayName: scenarios
+    displayName: scenarios, supported, enhanced, services, limitations, current
     href: ./concepts/cross-tenant-management-experience.md
   - name: Tenants, roles, and users
     displayName: Azure AD, Azure Active Directory
@@ -39,16 +39,22 @@
     displayName: resource management
     href: ./how-to/onboard-customer.md
   - name: Publish Managed Services offers to Azure Marketplace 
-    displayName: managed services offer, azure marketplace, publish
+    displayName: managed services offer, azure marketplace, publish, marketplace
     href: ./how-to/publish-managed-services-offers.md
   - name: View and manage customers 
-    displayName: managed services offer, azure marketplace, publish
+    displayName: my customers
     href: ./how-to/view-manage-customers.md
   - name: View and manage service providers 
-    displayName: managed services offer, azure marketplace, publish
+    displayName: customer, update
     href: ./how-to/view-manage-service-providers.md
-  - name: Deploy a policy that can be remediated
-    href: ./how-to/deploy-policy-remediation.md
+  - name: Azure Policy integration
+    items:
+    - name: Deploy a policy at scale
+      displayName: storage
+      href: ./how-to/policy-at-scale.md
+    - name: Deploy a policy that can be remediated
+      displayName: deployIfNotExists, modify, managed identities, managed identity
+      href: ./how-to/deploy-policy-remediation.md
 - name: Reference
   items:
   - name: Azure CLI
