@@ -139,12 +139,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-You can also run the following cloud shell command to remove the resource group and its associated resources. This may take a few minutes to complete. 
-
-```azurecli-interactive
-az group delete --name example-anomaly-detector-resource-group
-```
-
 ## Next steps
 
 > [!div class="nextstepaction"]
