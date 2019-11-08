@@ -203,7 +203,7 @@ Event Grid provides two built-in roles for managing event subscriptions. They ar
 
 You can [assign these roles to a user or group](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription Contributor (Preview)**: manage Event Grid subscription operations
+**EventGrid EventSubscription Contributor**: manage Event Grid subscription operations
 
 ```json
 [
@@ -211,7 +211,7 @@ You can [assign these roles to a user or group](../role-based-access-control/qui
     "Description": "Lets you manage EventGrid event subscription operations.",
     "IsBuiltIn": true,
     "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "Name": "EventGrid EventSubscription Contributor",
     "IsServiceRole": false,
     "Permissions": [
       {
@@ -239,7 +239,7 @@ You can [assign these roles to a user or group](../role-based-access-control/qui
 ]
 ```
 
-**EventGrid EventSubscription Reader (Preview)**: read Event Grid subscriptions
+**EventGrid EventSubscription Reader**: read Event Grid subscriptions
 
 ```json
 [
@@ -247,7 +247,7 @@ You can [assign these roles to a user or group](../role-based-access-control/qui
     "Description": "Lets you read EventGrid event subscriptions.",
     "IsBuiltIn": true,
     "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "Name": "EventGrid EventSubscription Reader",
     "IsServiceRole": false,
     "Permissions": [
       {

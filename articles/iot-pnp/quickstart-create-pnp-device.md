@@ -35,7 +35,7 @@ Use the following steps to install the [Azure IoT Tools for VS Code](https://mar
 
 ### Install the Azure IoT explorer
 
-Download and install the Azure IoT explorer tool from the [latest release](https://github.com/Azure/azure-iot-explorer/releases) page.
+Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
 
 ### Get the connection string for your company model repository
 
@@ -97,7 +97,7 @@ In this quickstart, you prepare a development environment by installing the Azur
     .\bootstrap-vcpkg.bat
     ```
 
-    Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run (note: requires admin on first use):
+    Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run the following (note: requires admin on first use):
 
     ```cmd/sh
     .\vcpkg.exe integrate install
@@ -120,7 +120,7 @@ In this quickstart, you use an existing sample device capability model and assoc
     > [!TIP]
     > To download a file from GitHub, navigate to the file, right-click on **Raw**, and then select **Save link as**.
 
-1. Open `pnp_app` folder with VS Code. You can view the files with intellisense:
+1. Open `pnp_app` folder with VS Code. You can view the files with IntelliSense:
 
     ![Device capability model](media/quickstart-create-pnp-device/dcm.png)
 
@@ -128,7 +128,7 @@ In this quickstart, you use an existing sample device capability model and assoc
 
 ## Generate the C code stub
 
-Now you have a DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS code:
+Now that you have a DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS Code:
 
 1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
 
@@ -147,7 +147,7 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 
 1. Choose **Via Vcpkg** as way to include the device SDK.
 
-1. VS Code opens a new window with generated device code stub files.
+1. A new folder called **sample_device** is created in the same location as the DCM file, and in it are the generated device code stub files. VS Code opens a new window to display these.
     ![Device code](media/quickstart-create-pnp-device/device-code.png)
 
 ## Build the code
@@ -161,7 +161,7 @@ You build the generated device code stub together with the device SDK. The appli
     cd cmake
     ```
 
-1. Run the following commands to build generated code stub:
+1. Run the following commands to build the generated code stub (replacing the placeholder with the directory of your Vcpkg repo):
 
     ```cmd\sh
     cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
@@ -181,7 +181,7 @@ You build the generated device code stub together with the device SDK. The appli
     > [!NOTE]
     > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-1. After the build completes successfully, run your application passing the IoT hub device connection string as parameter.
+1. After the build completes successfully, run your application, passing the IoT hub device connection string as a parameter.
 
     ```cmd\sh
     .\Debug\sample_device.exe "[IoT Hub device connection string]"
@@ -197,7 +197,7 @@ You build the generated device code stub together with the device SDK. The appli
 
 To validate the device code with **Azure IoT Explorer**, you need to publish the files to the model repository.
 
-1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
+1. With the folder with DCM files open in VS Code, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
 
 1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
 
@@ -206,7 +206,7 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
     > [!NOTE]
     > The connection string is only required the first time you connect to the repository.
 
-1. In VS Code output window and notification, you can check the files have been published successfully.
+1. In VS Code output window and notification, you can check that the files have been published successfully.
 
     > [!NOTE]
     > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.
@@ -219,27 +219,25 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
 
 1. After you connect, you see the device overview page.
 
-1. To add your company repository, select **Settings**, then **+ New**, and then **Company repository**.
-
-1. Add your company model repository connection string. Select **Connect**.
+1. To add your company repository, select **Settings**, then **+ Add module definition source**, then **Company repository**. Add your company model repository connection string, and select **Save and Connect**.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry.
+1. Expand the interface with ID **urn:<YOUR_INTERFACE_NAME>:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry. The interface name that will appear is the name you put in when authoring your model.
 
-1. Select the **Telemetry** page to view the telemetry data the device is sending.
+1. Select the **Telemetry** page and hit _Start_ to view the telemetry data the device is sending.
 
 1. Select the **Properties(non-writable)** page to view the non-writable properties reported by the device.
 
 1. Select the **Properties(writable)** page to view the writable properties you can update.
 
-1. Expand property **name**, update with a new name and select **update writable property**.
+1. Expand property **name**, update with a new name and select **Update writable property**.
 
 1. To see the new name shows up in the **Reported Property** column, click the **Refresh** button on top of the page.
 
 1. Select the **Command** page to view all the commands the device supports.
 
-1. Expand the **blink** command and set a new blink time interval. Select **Send Command** to call the command on the device.
+1. Expand the **blink** command and set a new blink time interval. Select **Send command** to call the command on the device.
 
 1. Go to the simulated device to verify that the command executed as expected.
 
