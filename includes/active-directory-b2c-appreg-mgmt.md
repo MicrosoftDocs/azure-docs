@@ -8,7 +8,7 @@ ms.author: marsma
 # Used by user and audit log management articles. Application is used for
 # interacting with Graph API (AD Graph or MS Graph, depending on article).
 ---
-To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
 #### [Applications](#tab/applications/)
 

@@ -11,11 +11,11 @@ ms.service: azure-policy
 
 [Tags](../../../azure-resource-manager/resource-group-using-tags.md) are a crucial part of
 organizing your Azure resources into a taxonomy. When following
-[best practices for tag management](/azure/architecture/cloud-adoption/ready/considerations/name-and-tag#metadata-tags),
+[best practices for tag management](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources),
 tags can be the basis for applying your business policies with Azure Policy or
 [tracking costs with Cost Management](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
-No matter how or why you use tags, it's important that you can quickly add, change, and remove
-those tags on your Azure resources.
+No matter how or why you use tags, it's important that you can quickly add, change, and remove those
+tags on your Azure resources.
 
 Azure Policy's [Modify](../concepts/effects.md#modify) effect is designed to aid in the governance
 of tags no matter what stage of resource governance you are in. **Modify** helps when:
@@ -30,7 +30,7 @@ before you begin.
 ## Identify requirements
 
 Like any good implementation of governance controls, the requirements should come from your business
-needs and be well understand before creating technical controls. For this scenario tutorial, the
+needs and be well understood before creating technical controls. For this scenario tutorial, the
 following items are our business requirements:
 
 - Two required tags on all resources: _CostCenter_ and _Env_

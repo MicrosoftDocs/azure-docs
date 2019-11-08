@@ -46,11 +46,11 @@ Applications must be represented by an app object in Azure Active Directory so t
 > > ![Already configured](media/quickstart-v2-android/green-check.png) Your application is configured with these attributes
 >
 > ### Step 2: Download the project 
-> * [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java)
+> * [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
 > ### Step 3: Configure your project
 > 1. Extract and open the Project in Android Studio.
-> 2. Inside app > src > main > res > raw, open auth_config_multiple_account.json and replace it with the following code:
+> 2. Inside **app** > **src** > **main** > **res** > **raw**, open **auth_config_multiple_account.json** and replace it with the following code:
 > ```javascript 
 > {
 >   "client_id" : "Enter_the_Application_Id_Here",
@@ -71,7 +71,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 > ```
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 3. Inside app > src > main > res > raw, open auth_config_single_account.json and replace it with the following code:
+> 3. Inside **app** > **src** > **main** > **res** > **raw**, open **auth_config_single_account.json** and replace it with the following code:
 > ```javascript 
 > {
 >   "client_id" : "Enter_the_Application_Id_Here",
@@ -95,22 +95,22 @@ Applications must be represented by an app object in Azure Active Directory so t
 > 4. Inside **app** > **src** > **main**, open  **AndroidManifest.xml**.
 > 5. In the **manifest\application** node, replace the **<activity android:name="com.microsoft.identity.client.BrowserTabActivity">** node with the following:	
 > ```xml
-> <!--Intent filter to catch Microsoft's callback after Sign In-->
-> <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
->     <intent-filter>
->     <action android:name="android.intent.action.VIEW" />
->     <category android:name="android.intent.category.DEFAULT" />
->     <category android:name="android.intent.category.BROWSABLE" />
->         <!--
+> &lt;!--Intent filter to catch Microsoft's callback after Sign In--&gt;
+> &lt;activity android:name=&quot;com.microsoft.identity.client.BrowserTabActivity&quot;&gt;
+>     &lt;intent-filter&gt;
+>     &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
+>     &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
+>     &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
+>         &lt;!--
 >             Add in your scheme/host from registered redirect URI 
->             note that the leading "/" is required for android:path
->         -->
->         <data android:scheme="msauth"
->             android:host="Enter_the_Package_Name_here"
->             android:path="Enter_the_Signature_Hash_here"
->             android:scheme = "msauth" />
->     </intent-filter>
-> </activity>
+>             note that the leading &quot;/&quot; is required for android:path
+>         --&gt;
+>         &lt;data android:scheme=&quot;msauth&quot;
+>             android:host=&quot;Enter_the_Package_Name_Here&quot;
+>             android:path=&quot;Enter_the_Signature_Hash_Here&quot;
+>             android:scheme = &quot;msauth&quot; /&gt;
+>     &lt;/intent-filter&gt;
+> &lt;/activity&gt;
 > ```
 > 6. Run the app!
 > The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
@@ -133,7 +133,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 > [!div renderon="docs"]
 > ## Step 1: Get the sample app
 >
-> [Clone the code](https://github.com/Azure-Samples/ms-identity-android-java.git).
+> [Download the code](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 >
 > ## Step 2: Run the sample app
 >
