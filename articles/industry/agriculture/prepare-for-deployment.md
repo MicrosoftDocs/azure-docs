@@ -113,8 +113,10 @@ Use the following steps to run the Azure AD application registration script:
 5. First time users will be prompted with a choice of preferred shell experience- Bash or PowerShell. Choose PowerShell.
 6. Upload the script (from step 1) to the Cloud Shell and note the location of the uploaded file.
 
-> [!NOTE]
-> By default, it is uploaded to your home directory.
+    > [!NOTE]
+    > By default, it is uploaded to your home directory.
+
+    Use the following script:
 
     ```azurepowershell-interactive
     ./create_aad_script.ps1
@@ -211,23 +213,23 @@ Sample JSON input:
       ```azurepowershell-interactive
       wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
      ```
-The installer automatically downloads all dependencies and builds the deployer. You will be prompted to agree to the Azure FarmBeats End-user license agreement (EULA).
+     The installer automatically downloads all dependencies and builds the deployer. You will be prompted to agree to the Azure FarmBeats End-user license agreement (EULA).
 
- - Enter ‘Y’ if you agree and you will proceed to the next step.
- - Enter ‘N’ if you do not agree to the terms and the deployment will terminate.
+     - Enter ‘Y’ if you agree and you will proceed to the next step.
+     - Enter ‘N’ if you do not agree to the terms and the deployment will terminate.
 
 6. Then you will be prompted to enter an access token for the deployment. Copy the code generated and login to https://microsoft.com/devicelogin with your Azure credentials.
 
-> [!NOTE]
-> The token expires after 60 minutes. When it expires you can restart by typing the deployment command again.
+    > [!NOTE]
+    > The token expires after 60 minutes. When it expires you can restart by typing the deployment command again.
 
 7. When prompted, enter your Sentinel account password.
 8. The installer now validates and starts deploying, which can take about 20 minutes.
 9. Once the deployment is successful, you will receive the below output links:
 
- - Data hub URL: Swagger link to try Azure FarmBeats APIs.
- - Accelerator URL: User Interface to explore Azure FarmBeats Smart Farm Accelerator.
- - Deployer log file- Log file created during deployment. It can be used for troubleshooting if required.
+ - **Data hub URL**: Swagger link to try Azure FarmBeats APIs.
+ - **Accelerator URL**: User Interface to explore Azure FarmBeats Smart Farm Accelerator.
+ - **Deployer log file**- Log file created during deployment. It can be used for troubleshooting if required.
 
 ## Deployment scenario 2
 
@@ -337,9 +339,9 @@ Follow the onscreen instructions:
 9. Sentinel password
 10. The installer now validates and starts creating the resources, which can take about 20 minutes.
 11. Once the deployment is successful, you will receive the below output links:
- - Data hub URL: Swagger link to try FarmBeats APIs.
- - Accelerator URL: User interface to explore FarmBeats Smart Farm Accelerator.
- - Deployer log file: saves logs during deployment. It can be used for troubleshooting.
+ - **Data hub URL**: Swagger link to try FarmBeats APIs.
+ - **Accelerator URL**: User interface to explore FarmBeats Smart Farm Accelerator.
+ - **Deployer log file**: saves logs during deployment. It can be used for troubleshooting.
 
 > [!NOTE]
 > Make note of the above values for future use.
