@@ -31,7 +31,7 @@ The Shared Image Gallery feature has multiple resource types:
 | **Managed image** | A basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from [generalized](#generalized-and-specialized-images) VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
 | **Snapshot** | A copy of a VHD that can be used to make an **image version**. Snapshots can be taken from a [specialized](#generalized-and-specialized-images) VM (one that hasn't been generalized) then used alone or with snapshots of data disks, to create a specialized image version.
 | **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it within your organization. You can include information like whether the image is generalized of specialized, the operating system, minimum and maximum memory requirements, and release notes. It is a definition of a type of image. |
+| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it within your organization. You can include information like whether the image is generalized or specialized, the operating system, minimum and maximum memory requirements, and release notes. It is a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
 <br>
@@ -87,17 +87,22 @@ Specialized VMs have not been through a process to remove machine specific infor
 
 Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-| Source regions |
-|---------------------|-----------------|------------------|-----------------|
-| Australia Central   | Central US EUAP | Korea Central    | West Central US |
-| Australia Central 2 | East Asia       | Korea South      | West Europe     |
-| Australia East      | East US         | North Central US | West India      |
-| Australia Southeast | East US 2       | North Europe     | West US         |
-| Brazil South        | East US 2 EUAP  | South Central US | West US 2       |
-| Canada Central      | France Central  | South India      | China East      |
-| Canada East         | France South    | Southeast Asia   | China East 2    |
-| Central India       | Japan East      | UK South         | China North     |
-| Central US          | Japan West      | UK West          | China North 2   |
+
+| Source regions        |                   |                    |                    |
+| --------------------- | ----------------- | ------------------ | ------------------ |
+| Australia Central     | China East        | South India        | West Europe        |
+| Australia Central 2   | China East 2      | Southeast Asia     | UK South           |
+| Australia East        | China North       | Japan East         | UK West            |
+| Australia Southeast   | China North 2     | Japan West         | US DoD Central     |
+| Brazil South          | East Asia         | Korea Central      | US DoD East        |
+| Canada Central        | East US           | Korea South        | US Gov Arizona     |
+| Canada East           | East US 2         | North Central US   | US Gov Texas       |
+| Central India         | East US 2 EUAP    | North Europe       | US Gov Virginia    |
+| Central US            | France Central    | South Central US   | West India         |
+| Central US EUAP       | France South      | West Central US    | West US            |
+|                       |                   |                    | West US 2          |
+
+
 
 ## Limits 
 
