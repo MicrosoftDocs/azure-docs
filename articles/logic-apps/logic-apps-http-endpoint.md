@@ -139,7 +139,7 @@ By default, the Request trigger expects an HTTP POST request. However, you can s
 
 ## Accept parameters in endpoint URL
 
-When you want your endpoint URL to accept parameters, specify the relative path in your trigger. You must also explicitly [set the method](#set-method) that your HTTP request expects.
+When you want your endpoint URL to accept parameters, specify the relative path in your trigger. You also need to explicitly [set the method](#set-method) that your HTTP request expects.
 
 1. In the Request trigger, open the **Add new parameter** list, and select **Relative path**, which adds this property to the trigger.
 
