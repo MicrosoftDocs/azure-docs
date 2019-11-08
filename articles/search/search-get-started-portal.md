@@ -99,7 +99,6 @@ By default, the wizard scans the data source for unique identifiers as the basis
 
 2. Continue to the next page.
 
-   ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### Step 4 - Configure indexer
 
