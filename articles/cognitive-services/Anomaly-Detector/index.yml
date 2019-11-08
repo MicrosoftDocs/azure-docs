@@ -36,7 +36,11 @@ landingContent:
           url: https://www.youtube.com/embed/ERTaAnwCarM
     - linkListType: reference
       links:
-        - text: Algorithms used in anomaly detection (whitepaper)
+        - text: Introducing Azure Anomaly Detector API
+          url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
+        - text: Overview of SR-CNN algorithm in Azure Anomaly Detector
+          url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798  
+        - text: SR-CNN algorithm used in anomaly detection (SIGKDD Paper)
           url: https://arxiv.org/abs/1906.03821
 
 - title: "Detect anomalies in your data"
