@@ -1,6 +1,6 @@
 ---
 title: Sign up for Video Indexer and upload your first video - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Learn how to sign up and upload your first video using the Video Indexer portal.
 services: media-services
 author: Juliako
