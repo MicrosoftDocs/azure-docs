@@ -113,16 +113,16 @@ Enable Seamless SSO on the AD forests using PowerShell. If you have more than 
 
 2. Navigate to the %programfiles%\\Microsoft Azure Active Directory Connect folder.
 
-3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\\AzureADSSO.psd1`.
+3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
 
 4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a dialog box where you can enter your tenant's Global Administrator credentials.
 
-5. Call `Get-AzureADSSOStatus|ConvertFrom-Json`. This command provides you the list of AD forests (look at the \"Domains\" list) on which this feature has been enabled. By default, it is set to false at the tenant level.
+5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the \"Domains\" list) on which this feature has been enabled. By default, it is set to false at the tenant level.
 
    > **Example:**
    > ![Example of the Windows PowerShell output](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Call `$creds=Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
+6. Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
 
 7. Call `Enable-AzureADSSOForest -OnPremCredentials $creds`. This command creates the AZUREADSSOACC computer account from the on-premises domain controller for this specific Active Directory forest that is required for Seamless SSO.
 
