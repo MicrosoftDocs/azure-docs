@@ -18,7 +18,7 @@ Today, Azure Backup provides a built-in policy (using Azure Policy) that can be 
 
 ## Supported Scenarios 
 
-* The built-in policy is currently supported only for Azure VMs (see all supported VM images in the below section). Users must take care to ensure that the retention policy specified during assignment is a VM retention policy. Refer to [this](https://aka.ms/AA6il6q) document to see all the VM SKUs supported by this policy.
+* The built-in policy is currently supported only for Azure VMs. Users must take care to ensure that the retention policy specified during assignment is a VM retention policy. Refer to [this](https://aka.ms/AA6il6q) document to see all the VM SKUs supported by this policy.
 
 * The policy can be assigned to a single location and subscription at a time. To enable backup for VMs across locations and subscriptions, multiple instances of the policy assignment need to be created, one for each combination of location and subscription.
 
@@ -43,6 +43,10 @@ To assign the policy to the required scope, please follow the below steps:
 ![Policy Assignment Parameters](./media/backup-azure-auto-enable-backup/policy_assignment_parameters.png)
 8. Ensure that **Effect** is set to deployIfNotExists.
 9. Navigate to **Review+create** and click **Create**.
+
+> [!NOTE]
+>
+> It is recommended that this policy is assigned to not more than 200 VMs. If the policy is assigned for more than 200 VMs, it can result in the backup getting triggered a few hours later than that specified by the schedule.
 
 ## Next Steps
 
