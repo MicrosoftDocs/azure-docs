@@ -1,7 +1,7 @@
 ---
 title: What's new in the Text Analytics API
-titlesuffix: Text Analytics - Azure Cognitive Services
-description: Learn about new developments with the Text Analytics service
+titleSuffix: Text Analytics - Azure Cognitive Services
+description: This article provides you with information about new releases and features for the Azure Cognitive Services Text Analytics.
 services: cognitive-services
 author: aahill
 manager: nitinme
