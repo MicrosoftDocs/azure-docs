@@ -62,6 +62,13 @@
           href: https://go.microsoft.com/fwlink/?linkid=2090370
         - name: Node.js
           href: https://go.microsoft.com/fwlink/?linkid=2090788
+    - name: Technical Blogs
+      items:
+        - name: Introducing Azure Anomaly Detector API
+          href: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
+        - name: Overview of SR-CNN algorithm 
+          href: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798
+          
     - name: Paper on SR-CNN in KDD 2019
       href: https://arxiv.org/abs/1906.03821
 - name: Resources
