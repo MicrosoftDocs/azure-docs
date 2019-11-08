@@ -90,7 +90,7 @@ From a browser, go to the Azure portal and sign in with your Azure account.
     > [!div class="mx-imgBorder"]
     > ![Register Peering Service configuration tab](./media/peering-service-portal/peering-serviceconfiguration.png)
 
-5.	Select the **Review + create** button at the lower left of the page. The **Review + create** page appears,and Azure validates your configuration.
+5.	Select the **Review + create** button at the lower left of the page. The **Review + create** page appears, and Azure validates your configuration.
 
     > [!div class="mx-imgBorder"]
     > ![Register Peering Service validation](./media/peering-service-portal/peering-service-validate.png)
