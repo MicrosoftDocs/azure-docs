@@ -53,12 +53,6 @@ For example, a complete reference with Version would look like the following:
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
-A complete reference without Version would look like the following:
-
-```
-@Microsoft.KeyVault(SecretUri=https://<MYKEYVAULT>.vault.azure.net/secrets/eShopStorageAccountCS/)
-```
-
 Alternatively:
 
 ```
