@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2019
+ms.date: 11/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -34,12 +34,12 @@ Enterprise Administrators can associate existing accounts to Departments under t
 
 ### To associate an account to a department
 
-- Sign in to the Azure EA Portal as an enterprise administrator.
-- Click **Manage** on the left navigation.
-- Click **Department**.
-- Hover over the row with the desired Account and click the pencil icon on the right.
-- Select the desired Department from the drop-down menu.
-- Click **Save**.
+1. Sign in to the Azure EA Portal as an enterprise administrator.
+1. Click **Manage** on the left navigation.
+1. Click **Department**.
+1. Hover over the row with the desired Account and click the pencil icon on the right.
+1. Select the desired Department from the drop-down menu.
+1. Click **Save**.
 
 ## Department spending quotas
 
@@ -49,14 +49,14 @@ The department administrator can view the spending quota but only the enterprise
 
 ### Enterprise administrator to set the quota:
 
-1. Open the Azure EA Portal.
-1. Click **Manage** on the left navigation.
-1. Click the **Department** Tab.
-1. Click the desired Department.
-1. Click the pencil icon on the Department Details section, or click the **+ Add Department** button to add a spending quota along with a new department.
-1. Under Department Details, enter a spending quota amount in the enrollment’s currency in the Spending Quota $ box (must be greater than 0).
-  - The Department Name and Cost Center can also be edited at this time.
-1. Hit **Save**.
+ 1. Open the Azure EA Portal.
+ 1. Click **Manage** on the left navigation.
+ 1. Click the **Department** Tab.
+ 1. Click the desired Department.
+ 1. Click the pencil icon on the Department Details section, or click the **+ Add Department** button to add a spending quota along with a new department.
+ 1. Under Department Details, enter a spending quota amount in the enrollment’s currency in the Spending Quota $ box (must be greater than 0).
+    - The Department Name and Cost Center can also be edited at this time.
+ 1. Hit **Save**.
 
 The department spending quota will now be visible in the Department List view under the Department tab. At the end of the current commitment, the Azure EA Portal will maintain the spending quotas for the next commitment term.
 
@@ -226,7 +226,7 @@ If the recipient needs to restrict access to their Azure resources, they should 
 
 ## Delete subscription
 
-**to delete a subscription where you are the account owner:**
+To delete a subscription where you are the account owner:
 
 1. Sign in to the Azure portal with the credentials associated to your account.
 1. On the Hub menu, select **Subscriptions**.
@@ -237,7 +237,7 @@ Please note that only account administrators can cancel subscriptions.
 
 ## Delete an account
 
-**IMPORTANT**: Account removal can only be completed for active accounts with no active subscriptions.
+Account removal can only be completed for active accounts with no active subscriptions.
 
 1. From the Enterprise Portal, select **Manage** on the left navigation.
 1. Click the **Account** tab.

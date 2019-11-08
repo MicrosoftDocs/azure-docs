@@ -4,7 +4,7 @@ description: This article explains how to manage and act on your Azure Enterpris
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -72,9 +72,6 @@ Overage invoicing is automated.  The timing of notifications and invoices depend
 
 Effective April 2019 billing cycle, customers will start to receive a single Azure invoice, as we’ve combined all Azure and Azure Marketplace charges into a single invoice instead of two separate invoices. (This change does not affect customers in Australia, Japan, or Singapore.)
 During the transition to a consolidated invoice, you’ll receive a partial Marketplace invoice. This final separate invoice will show Marketplace charges prior to the date of your billing update. Marketplace charges after that date will appear on your Azure invoice. After the transition period, you’ll see all Azure and Marketplace charges on the consolidated invoice.  
-This is an example timeline of the transition to a consolidated invoice with a mid-April billing update:
-
-![Example timeline of transition to consolidated invoice with mid-April billing update](./media/billing-ea-portal-enrollment-invoices/ea-timeline-transition-consolidated-invoice.png)
 
 ### Purchase Order Numbers
 
@@ -292,14 +289,14 @@ Enterprise Administrators can enable access to view costs for Department Adminis
 
 ### To enable access:
 
-1. Sign in as an enterprise administrator.
-1. Click **Manage** on the left navigation.
-1. Click the **Enrollment** tab.
-1. Under the Enrollment Detail section, select the pencil icon next to:
-  - DA View Charges
-  - AO View Charges
-1. Select **Enabled**.
-1. Click **Save**.
+ 1. Sign in as an enterprise administrator.
+ 1. Click **Manage** on the left navigation.
+ 1. Click the **Enrollment** tab.
+ 1. Under the Enrollment Detail section, select the pencil icon next to:
+    - DA View Charges
+    - AO View Charges
+ 1. Select **Enabled**.
+ 1. Click **Save**.
 
 ### To view reports:
 
@@ -434,7 +431,7 @@ We've combined all Azure and Marketplace charges into a single invoice that alig
 
 The consolidated invoice will first show Azure usage, followed by any Marketplace charges. Customers in Australia, Japan, or Singapore will continue to see Marketplace charges on a separate invoice.
 
-\*\*Note: If there's no overage usage at the end of the standard billing cycle, charges billed separately will be invoiced separately. (Applicable to customers in Australia, Japan, and Singapore)
+If there's no overage usage at the end of the standard billing cycle, charges billed separately will be invoiced separately. (Applicable to customers in Australia, Japan, and Singapore)
 
 **Services billed separately include:**
 
@@ -496,8 +493,8 @@ Additional information on marketplace charges can be found [here.](https://azure
 
 There are two types of marketplace charges:
 
-1. **Usage based:** Products are measured in transactional units.  For example, virtual machines are charged hourly and Bing API searches are charged by the number of searches.
-1. **Non-Usage based:** One-time charge or recurring monthly fee that is independent of usage.
+- **Usage based:** Products are measured in transactional units.  For example, virtual machines are charged hourly and Bing API searches are charged by the number of searches.
+- **Non-Usage based:** One-time charge or recurring monthly fee that is independent of usage.
 
 Both usage-based and non-usage-based charges will be captured in the marketplace charge report.
 
