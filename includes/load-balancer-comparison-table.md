@@ -13,10 +13,10 @@
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
 | Back-end pool size | Supports up to 1000 instances. | Supports up to 100 instances. |
-| Back-end pool endpoints | Any virtual machine in a single virtual network, including blend of virtual machines, availability sets, and virtual machine scale sets. | Virtual machines in a single availability set or virtual machine scale set. |
+| Back-end pool endpoints | Any virtual machine in a single virtual network, including blends of virtual machines, availability sets, and virtual machine scale sets. | Virtual machines in a single availability set or virtual machine scale set. |
 | [Health probes](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Health probe down behavior](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | TCP connections stay alive on instance probe down __and__ on all probes down. | TCP connections stay alive on instance probe down. All TCP connections terminate on all probes are down. |
-| Availability Zones | Zone-redundant and zonal front ends for inbound and outbound. Outbound flows mappings survive zone failure. Cross-zone load balancing. | Not available |
+| [Health probe down behavior](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections terminate when all probes are down. |
+| Availability Zones | Zone-redundant and zonal front ends for inbound and outbound traffic. Outbound flows mappings survive zone failure. Cross-zone load balancing. | Not available |
 | Diagnostics | Azure Monitor. Multi-dimensional metrics including byte and packet counters. Health probe status. Connection attempts (TCP SYN). Outbound connection health (SNAT successful and failed flows). Active data plane measurements. | Azure Log Analytics for public Load Balancer only. SNAT exhaustion alert. Back-end pool health count. |
 | HA Ports | Internal Load Balancer | Not available |
 | Secure by default | Public IP, public Load Balancer endpoints, and internal Load Balancer endpoints are closed to inbound flows unless allowed by a network security group. | Open by default. Network security group optional. |
