@@ -148,7 +148,7 @@ pipeline:
             type: "AdlaStep"
             name: "MyAdlaStep"
             script_name: "sample_script.usql"
-            source_directory: "helloworld"
+            source_directory: "D:\\scripts\\Adla"
             inputs:
                 employee_data:
                     source: employee_data
@@ -202,7 +202,7 @@ pipeline:
             pool_id: "MyPoolName"
             create_pool: true
             executable: "azurebatch.cmd"
-            source_directory: "D:\\AzureMlCli\\cli_testing"
+            source_directory: "D:\\scripts\\AureBatch"
             allow_reuse: false
             inputs:
                 input:
@@ -251,10 +251,10 @@ pipeline:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
             type: "DatabricksStep"
-            name: "MyDatabrickstep"
-            run_name: "DatabrickRun"
+            name: "MyDatabrickStep"
+            run_name: "DatabricksRun"
             python_script_name: "train-db-local.py"
-            source_directory: "D:\\AzureMlCli\\cli_testing\\databricks_train"
+            source_directory: "D:\\scripts\\Databricks"
             num_workers: 1
             allow_reuse: true
             inputs:
@@ -348,7 +348,7 @@ pipeline:
             name: "MyPythonScriptStep"
             script_name: "train.py"
             allow_reuse: True
-            source_directory: "helloworld"
+            source_directory: "D:\\scripts\\PythonScript"
             inputs:
                 InputData:
                     source: DataReference1
