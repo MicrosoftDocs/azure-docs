@@ -3,7 +3,7 @@ title: Manage directories, files, and permissions in Azure Data Lake Storage Gen
 description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 author: normesta
 ms.service: storage
-ms.date: 06/28/2019
+ms.date: 11/11/2019
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
@@ -14,7 +14,7 @@ ms.reviewer: prishet
 
 This article shows you how to use Java to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. To create an account, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
 
-[API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
+[Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
 
 ## Set up your project
 
@@ -47,9 +47,9 @@ import com.azure.storage.file.datalake.models.RolePermissions;
 
 ## Connect to the account 
 
-To use the snippets in this article, you'll need to create a [CloudBlobClient](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_client?view=azure-java-legacy) instance that represents the storage account. The easiest way to get one is to use a connection string. 
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. The easiest way to get one is to use an account key. 
 
-This example parses a connection string by calling the [CloudStorageAccount.parse](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.parse?view=azure-java-legacy) method, and then creates a [CloudBlobClient](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_client?view=azure-java-legacy) instance by calling the [createCloudBlobClient](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.createcloudblobclient?view=azure-java-legacy) method.
+This example creates an instance of the **DataLakeServiceClient** by using an account key.
 
 ```java
 
@@ -70,7 +70,9 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 ```
 ### Create a file system
 
-Put some text here.
+A file system acts as a container for your files. You can create one by calling the **DataLakeServiceClient.createFileSystem** method.
+
+This example creates a file system named `my-file-system`. 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -82,11 +84,9 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 ## Create a directory
 
-Create a directory reference by calling the **getDirectoryReference** method.
+Create a directory reference by calling the **DataLakeFileSystemClient.createDirectory** method.
 
-Create a directory by using the **CloudBlobDirectory.create** method.. 
-
-This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory` to the directory named `my-directory`. 
+This example adds a directory named `my-directory` to a file system, and then adds a sub-directory named `my-subdirectory`. 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -104,9 +104,9 @@ static public DataLakeDirectoryClient CreateDirectory
 
 ## Rename a directory
 
-Rename a directory by calling the **CloudBlobDirectory.move** method. Pass a reference to a new directory as a parameter.
+Rename a directory by calling the **DataLakeDirectoryClient.rename** method. Pass the path of the desired directory a parameter. 
 
-This example changes the name of a directory to the name `my-directory-renamed`.
+This example renames a sub-directory to the name `my-subdirectory-renamed`.
 
 ```java
 static public DataLakeDirectoryClient
@@ -121,9 +121,9 @@ static public DataLakeDirectoryClient
 
 ## Move a directory
 
-You can also use the **CloudBlobDirectory.move** method to move a directory. Pass a reference to a new directory as a parameter.
+You can also use the **DataLakeDirectoryClient.rename** method to move a directory. Pass the path of the desired directory location as a parameter to this method. 
 
-This example moves a directory named `my-directory` to a sub-directory of a directory named `my-directory-2`.
+This example moves a directory named `my-subdirectory-renamed` to a sub-directory of a directory named `my-directory-2`. 
 
 ```java
 static public DataLakeDirectoryClient MoveDirectory
@@ -138,9 +138,9 @@ static public DataLakeDirectoryClient MoveDirectory
 
 ## Delete a directory
 
-Delete a directory by calling the **CloudBlobDirectory.delete** method.
+Delete a directory by calling the **DataLakeDirectoryClient.deleteWithResponse** method.
 
-This example deletes a directory named `my-directory`. 
+This example deletes a directory named `my-directory`.   
 
 ```java
 static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -148,13 +148,13 @@ static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
     DataLakeDirectoryClient directoryClient =
         fileSystemClient.getDirectoryClient("my-directory");
 
-    directoryClient.delete();
+    directoryClient.deleteWithResponse(true, null, null, null);
 }
 ```
 
 ## Manage a directory ACL
 
-Put something here.
+This example gets and then sets the ACL of a directory named `my-directory`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
 
 ```java
 static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient){
@@ -165,13 +165,21 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
     PathAccessControl directoryAccessControl =
         directoryClient.getAccessControl();
 
-    System.out.println(directoryAccessControl.getAcl());
+    List<PathAccessControlEntry> pathPermissions = directoryAccessControl.getAccessControlList();
+       
+    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
+             
+    PathPermissions permissions = new PathPermissions()
 
-    directoryAccessControl.setAcl("user::rwx,group::r-x,other::rw-");
-        
-    directoryClient.setAccessControl(directoryAccessControl);
+      .group(new RolePermissions().execute(true).read(true))
+      .owner(new RolePermissions().execute(true).read(true).write(true))
+      .other(new RolePermissions().read(true));
 
-    System.out.println(directoryAccessControl.getAcl());
+    directoryClient.setPermissions(permissions, null, null);
+
+    pathPermissions = directoryClient.getAccessControl().getAccessControlList();
+     
+    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
 
 }
 
@@ -179,9 +187,9 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 
 ## Upload a file to a directory
 
-First, create a blob reference in the target directory by calling the **CloudBlobDirectory.getBlockBlobReference** method. Upload a file by calling the **uploadFromFile** method of a **CloudBlockBlob** object.
+First, create a file reference in the target directory by creating an instance of the **DataLakeFileClient** class. Upload a file by calling the **DataLakeFileClient.append** method. Make sure to complete the upload by calling the **DataLakeFileClient.FlushAsync** method.
 
-This example uploads a file to a directory named `my-directory`
+This example uploads a text file to a directory named `my-directory`.`
 
 ```java
 static public void UploadFile(DataLakeFileSystemClient fileSystemClient) 
@@ -206,7 +214,7 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 
 ## Manage a file ACL
 
-Put something here.
+This example gets and then sets the ACL of a file named `upload-file.txt`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
 
 ```java
 static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
@@ -215,25 +223,35 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
         fileSystemClient.getDirectoryClient("my-directory");
 
     DataLakeFileClient fileClient = 
-        directoryClient.getFileClient("hello.txt");
+        directoryClient.getFileClient("uploaded-file.txt");
 
     PathAccessControl fileAccessControl =
         fileClient.getAccessControl();
 
-    System.out.println(fileAccessControl.getAcl());
+    List<PathAccessControlEntry> pathPermissions = fileAccessControl.getAccessControlList();
+     
+    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
+           
+    PathPermissions permissions = new PathPermissions()
 
-    fileAccessControl.setAcl("user::rwx,group::r-x,other::rw-");
-        
-    fileClient.setAccessControl(fileAccessControl);
+        .group(new RolePermissions().execute(true).read(true))
+        .owner(new RolePermissions().execute(true).read(true).write(true))
+        .other(new RolePermissions().read(false));
 
-    System.out.println(fileAccessControl.getAcl());
+    fileClient.setPermissions(permissions, null, null);
+
+    pathPermissions = fileClient.getAccessControl().getAccessControlList();
+   
+    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
 
 }
 ```
 
 ## Download from a directory
 
-First, create a blob reference in the source directory by calling the **CloudBlobDirectory.getBlockBlobReference** method. That method returns a **CloudBlockBlob** object. Download that blob by calling the **downloadToFileAsync** method of a **CloudBlockBlob** object.
+First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any .NET file processing API to save bytes from the stream to a file. 
+
+Make sure to complete the download by calling the **DataLakeFileClient.flush** method.
 
 ```java
 static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
@@ -261,11 +279,7 @@ static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
 
 ## List directory contents
 
-To list containers in your storage account, call the **CloudBlobDirectory.listBlobsSegmented**.
-
-This example asynchronously lists the contents of a directory by calling the **CloudBlobDirectory.ListBlobsSegmented** method.
-
-This example uses the continuation token to get the next segment of result.
+This example, prints the names of each file that is located in a directory named `my-directory`.
 
 ```java
 static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -277,7 +291,6 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
     fileSystemClient.listPaths(options, null);
 
     java.util.Iterator<PathItem> iterator = pagedIterable.iterator();
-
        
     PathItem item = iterator.next();
 
@@ -299,4 +312,6 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 
 ## See also
 
-Explore more APIs in the [com.microsoft.azure.storage.blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob?view=azure-java-preview) namespace of the [Azure Storage libraries for Java](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-preview) docs.
+* [API reference documentation](/dotnet/api/azure.storage.blobs)
+* [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
+* [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
