@@ -1,5 +1,5 @@
 ---
-title: Train deep learning neural network with Chainer 
+title: Train deep learning Chainer models 
 titleSuffix: Azure Machine Learning
 description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's Chainer estimator class.  The example script classifies handwritten digit images to build a deep learning neural network using the Chainer Python library running on top of numpy. 
 services: machine-learning
@@ -29,7 +29,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 Run this code on either of these environments:
 
-- Azure Machine Learning compute instance - no downloads or installation necessary
+- Azure Machine Learning Notebook VM - no downloads or installation necessary
 
     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples deep learning folder on the notebook server, find a completed notebook and files in the **how-to-use-azureml > ml-frameworks > chainer > deployment > train-hyperparameter-tune-deploy-with-chainer** folder.  The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.

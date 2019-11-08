@@ -16,7 +16,7 @@ ms.date: 07/19/2019
 
 This article describes the limits and configuration details for 
 creating and running automated workflows with Azure Logic Apps. 
-For Microsoft Flow, see [Limits and configuration in Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config).
+For Power Automate, see [Limits and configuration in Power Automate](https://docs.microsoft.com/flow/limits-and-config).
 
 <a name="definition-limits"></a>
 
@@ -80,11 +80,11 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Trigger concurrency | * Unlimited when the concurrency control is turned off <p><p>* 25 is the default limit when the concurrency control is turned on, which can't be undone after you turn on the control. You can change the default to a value between 1 and 50 inclusively. | This limit describes the highest number of logic app instances that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Trigger concurrency | * Unlimited when the concurrency control is turned off <p><p>* 25 is the default limit when the concurrency control is turned on, which can't be undone after you turn on the control. You can change the default to a value between 1 and 50 inclusively. | This limit describes the highest number of logic app instances that can run at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is signficantly reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Maximum waiting runs | When the concurrency control is turned on, the minimum number of waiting runs is 10 plus the number of concurrent runs (trigger concurrency). You can change the maximum number up to 100 inclusively. | This limit describes the highest number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Foreach array items | 100,000 | This limit describes the highest number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). |
 | Foreach concurrency | 20 is the default limit when the concurrency control is turned off. You can change the default to a value between 1 and 50 inclusively. | This limit is highest number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| SplitOn items | 100,000 | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. |
+| SplitOn items | * 100,000 without trigger concurrency <p><p>* 100 with trigger concurrency | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is significanly reduced. If the number of items exceed this limit, SplitOn is disabled. |
 | Until iterations | 5,000 | |
 ||||
 
@@ -281,10 +281,10 @@ take significant time to complete.
 The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depend on the region where your logic app exists. *All* logic apps that are in the same region use the same IP address ranges.
 
 > [!NOTE]
-> Some Microsoft Flow calls, such as **HTTP** and **HTTP + OpenAPI** requests, 
+> Some Power Automate calls, such as **HTTP** and **HTTP + OpenAPI** requests, 
 > go directly through the Azure Logic Apps service and come from the IP addresses 
-> that are listed here. For more information about IP addresses used by Microsoft Flow, see 
-> [Limits and configuration in Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
+> that are listed here. For more information about IP addresses used by Power Automate, see 
+> [Limits and configuration in Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
 * To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewall with *all* the [inbound](#inbound) *and* [outbound](#outbound) IP addresses that are used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region.
 

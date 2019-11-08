@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/04/2019
+ms.date: 11/06/2019
 ---
 
 # Azure machine learning monitoring data reference
@@ -50,7 +50,7 @@ The following table lists the properties for Azure Machine Learning resource log
 | JobErrorMessage | detailed message of Job error |
 | NodeId | ID of the node created where job is running |
 
-### AmlComputerClusterEvents table
+### AmlComputeClusterEvents table
 
 | Property | Description |
 |:--- |:--- |
@@ -154,11 +154,11 @@ Quota information is for Azure Machine Learning compute only.
 
 The following are dimensions that can be used to filter quota metrics:
 
-| Dimension | Description |
-| ---- | ---- |
-| Cluster Name | The name of the compute instance. |
-| Vm Family Name | The name of the VM family used by the cluster. This dimension is only available with the __Quota utilization percentage__ metric. |
-| Vm Priority | |
+| Dimension | Metric(s) available with | Description |
+| ---- | ---- | ---- |
+| Cluster Name | All quota metrics | The name of the compute instance. |
+| Vm Family Name | Quota utilization percentage | The name of the VM family used by the cluster. |
+| Vm Priority | Quota utilization percentage | The priority of the VM.
 
 **Run**
 

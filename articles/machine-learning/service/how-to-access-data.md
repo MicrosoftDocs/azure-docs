@@ -100,7 +100,7 @@ Create a new datastore in a few steps in Azure Machine Learning studio.
 1. Select **+ New datastore**.
 1. Complete the New datastore form. The form intelligently updates based on the Azure storage type and authentication type selections.
   
-The information you need to populate the form can be found via [Azure Machine Learning studio](https://ml.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left .
+The information you need to populate the form can be found via [Azure Machine Learning studio](https://ml.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left.
 
 The following example demonstrates what the form would look like for creating an Azure blob datastore. 
     
@@ -161,7 +161,7 @@ datastore.upload(src_dir='your source directory',
                  show_progress=True)
 ```
 
-The `target_path` parameter specifies the location in the file share (or blob container) to upload. It defaults to `None`, in which case the data gets uploaded to root. When `overwrite=True` any existing data at `target_path` is overwritten.
+The `target_path` parameter specifies the location in the file share (or blob container) to upload. It defaults to `None`, in which case the data gets uploaded to root. Otherwise, if `overwrite=True` any existing data at `target_path` is overwritten.
 
 Or upload a list of individual files to the datastore via the `upload_files()` method.
 
@@ -181,7 +181,7 @@ The `target_path` parameter is the location of the local directory to download t
 ## Access your data during training
 
 > [!IMPORTANT]
-> Using [Azure Machine Learning datasets (preview)](how-to-create-register-datasets.md) is the new recommended way to access your data in training. Datasets provide functions that load tabular data into pandas or spark DataFrame, and the ability to download or mount files of any format from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Learn more about [how to train with datasets](how-to-train-with-datasets.md).
+> Using [Azure Machine Learning datasets](how-to-create-register-datasets.md) is the new recommended way to access your data in training. Datasets provide functions that load tabular data into pandas or spark DataFrame, and the ability to download or mount files of any format from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Learn more about [how to train with datasets](how-to-train-with-datasets.md).
 
 The following table lists the methods that tell the compute target how to use the datastores during runs. 
 

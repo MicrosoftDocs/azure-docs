@@ -184,9 +184,6 @@ conceptualContent:
         - url: ./fundamentals/management-monitoring-overview.md
           itemType: overview
           text:  Management and monitoring overivew
-        - url: ./fundamentals/azure-log-integration-overview.md
-          itemType: overview
-          text:  Introduction to Azure Log Integration
       footerLink: 
         url: https://docs.microsoft.com/search/?search=security+audit+log&scope=azure&category=Documentation
         text: Search for more 
@@ -244,9 +241,6 @@ conceptualContent:
 
     - title: Governance and compliance
       links: 
-        - url: ./blueprints/au-protected-iaaswa-overview.md
-          itemType: tutorial
-          text:  Compliance solutions
         - url: ../governance/policy/overview.md
           itemType: overview
           text:  Azure Policy service
