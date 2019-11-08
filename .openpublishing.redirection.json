@@ -770,12 +770,16 @@
       "redirect_url": "/azure/machine-learning/service",
       "redirect_document_id": false
     },
-    
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
+      "redirect_document_id": false
+    },       
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-only.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-intents-only",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-roles.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-entity-types#entity-role-defines-context",
@@ -1219,6 +1223,61 @@
     {
       "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-faq.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-rate-limit-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-rate-limit-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-configure-ip-restriction.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-configure-ip-restriction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-configure-custom-response-code.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-configure-custom-response-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-policy-configure-bot-protection.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-policy-configure-bot-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-custom-rules-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-create-portal.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-create-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-monitor.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-policy-settings.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-policy-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-custom-rules.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-overview.md",
+      "redirect_url": "/azure/web-application-firewall/afds/afds-overview",
       "redirect_document_id": false
     },
     {
@@ -3121,21 +3180,21 @@
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-linux",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-portal.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-vscode.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-        {
-      "source_path": "articles/iot-edge/how-to-register-device-cli.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-portal.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-vscode.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-cli.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
       "redirect_url": "/azure/cognitive-services/recommendations/overview",
@@ -5284,6 +5343,11 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-web-application-firewall-portal.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal",
       "redirect_document_id": false
     },
     {
@@ -16374,6 +16438,31 @@
     {
       "source_path": "articles/cognitive-services/cognitive-services-text-analytics-quick-start.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/csharp.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
     {
@@ -34875,6 +34964,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/machine-learning-interpretability-explainability.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-machine-learning-interpretability",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/identity-protection/overview-v2.md",
       "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
       "redirect_document_id": true
@@ -36371,57 +36465,57 @@
     },
     {
       "source_path": "articles/iot-central/core/concepts-connectivity-pnp.md",
-      "redirect_url": "/azure/iot-central/core/overview-iot-central-get-connected-pnp",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central-get-connected",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/concepts-stay-connected.md",
-      "redirect_url": "/azure/iot-central/core/overview-iot-central-stay-connected-pnp",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central-stay-connected",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/overview-iot-central-transform.md",
-      "redirect_url": "/azure/iot-central/core/overview-iot-central-transform-pnp",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central-transform",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/howto-create-event-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/howto-create-telemetry-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/tutorial-configure-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/tutorial-monitor-devices-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-monitor-devices-pnp",
+      "redirect_url": "/azure/iot-central/preview/quick-monitor-devices",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/tutorial-add-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp",
+      "redirect_url": "/azure/iot-central/preview/quick-create-pnp-device",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/tutorial-define-device-type-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp",
+      "redirect_url": "/azure/iot-central/preview/quick-create-pnp-device",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-export-data-blob-storage-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-pnp",
+      "redirect_url": "/azure/iot-central/preview/howto-export-data",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-export-data-event-hubs-service-bus-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-pnp",
+      "redirect_url": "/azure/iot-central/preview/howto-export-data",
       "redirect_document_id": false
     },
     {
@@ -41891,7 +41985,7 @@
     },
     {
       "source_path": "articles/iot-central/concepts-architecture-pnp.md",
-      "redirect_url": "/azure/iot-central/core/concepts-architecture-pnp/",
+      "redirect_url": "/azure/iot-central/preview/concepts-architecture/",
       "redirect_document_id": true
     },
     {
@@ -41901,7 +41995,7 @@
     },
     {
       "source_path": "articles/iot-central/concepts-connectivity-pnp.md",
-      "redirect_url": "/azure/iot-central/core/concepts-connectivity-pnp/",
+      "redirect_url": "/azure/iot-central/preview/concepts-connectivity/",
       "redirect_document_id": true
     },
     {
@@ -41916,7 +42010,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-administer-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-administer-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-administer/",
       "redirect_document_id": true
     },
     {
@@ -41941,7 +42035,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-devkit-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devkit-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-connect-devkit/",
       "redirect_document_id": true
     },
     {
@@ -41951,7 +42045,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-pnp-device-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-connect-pnp-device/",
       "redirect_document_id": true
     },
     {
@@ -42006,7 +42100,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-create-event-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp/",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules/",
       "redirect_document_id": true
     },
     {
@@ -42016,7 +42110,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-create-telemetry-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules",
       "redirect_document_id": true
     },
     {
@@ -42031,7 +42125,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-customize-ui-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-customize-ui-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-customize-ui/",
       "redirect_document_id": true
     },
     {
@@ -42051,7 +42145,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-manage-devices-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-devices-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-manage-devices/",
       "redirect_document_id": true
     },
     {
@@ -42081,7 +42175,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-manage-users-roles-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-users-roles-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-manage-users-roles/",
       "redirect_document_id": true
     },
     {
@@ -42106,7 +42200,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-set-up-template-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-set-up-template-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-set-up-template/",
       "redirect_document_id": true
     },
     {
@@ -42131,12 +42225,12 @@
     },
     {
       "source_path": "articles/iot-central/howto-use-device-groups-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups-pnp/",
+      "redirect_url": "/azure/iot-central/preview/tutorial-use-device-groups/",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/iot-central/core/howto-use-device-groups-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups-pnp/",
+      "redirect_url": "/azure/iot-central/preview/tutorial-use-device-groups/",
       "redirect_document_id": true
     },
     {
@@ -42161,7 +42255,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-version-device-template-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-version-device-template/",
       "redirect_document_id": true
     },
     {
@@ -42171,7 +42265,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-view-bill-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-view-bill-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-view-bill/",
       "redirect_document_id": true
     },
     {
@@ -42191,7 +42285,7 @@
     },
     {
       "source_path": "articles/iot-central/overview-iot-central-pnp.md",
-      "redirect_url": "/azure/iot-central/core/overview-iot-central-pnp/",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central/",
       "redirect_document_id": true
     },
     {
@@ -42201,7 +42295,7 @@
     },
     {
       "source_path": "articles/iot-central/overview-iot-central-tour-pnp.md",
-      "redirect_url": "/azure/iot-central/core/overview-iot-central-tour-pnp/",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central-tour/",
       "redirect_document_id": true
     },
     {
@@ -42211,7 +42305,7 @@
     },
     {
       "source_path": "articles/iot-central/quick-create-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp/",
+      "redirect_url": "/azure/iot-central/preview/quick-create-pnp-device/",
       "redirect_document_id": true
     },
     {
@@ -42221,7 +42315,7 @@
     },
     {
       "source_path": "articles/iot-central/quick-deploy-iot-central-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central-pnp/",
+      "redirect_url": "/azure/iot-central/preview/quick-deploy-iot-central/",
       "redirect_document_id": true
     },
     {
@@ -42236,7 +42330,7 @@
     },
     {
       "source_path": "articles/iot-central/tutorial-configure-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp/",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules/",
       "redirect_document_id": true
     },
     {
@@ -42256,7 +42350,7 @@
     },
     {
       "source_path": "articles/iot-central/tutorial-monitor-devices-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-monitor-devices-pnp/",
+      "redirect_url": "/azure/iot-central/preview/quick-monitor-devices/",
       "redirect_document_id": true
     },
     {
@@ -43772,6 +43866,156 @@
     {
       "source_path": "articles/machine-learning/studio/linear-regression-in-azure.md",
       "redirect_url": "/azure/machine-learning/studio/use-case-excel-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-overview.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-get-started.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-ad.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-ad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-keyvault-eventhub.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-keyvault-eventhub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-faq.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/au-protected-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/au-protected-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/au-protected-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/au-protected-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/azure-health.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/azure-health",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-datawarehouse-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-dw-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-dw-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-datawarehouse-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-datawarehouse-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-dw-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-dw-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-datawarehouse-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-datawarehouse-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ukofficial-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ukofficial-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ukofficial-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ukofficial-paaswa-overview",
       "redirect_document_id": false
     }
   ]

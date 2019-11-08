@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
-ms.custom: aaddev, scenarios:getting-started, languages:Java 
+ms.custom: aaddev, scenarios:getting-started, languages:Java
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Java web app
@@ -38,22 +38,22 @@ To run this sample you will need:
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application: express (Option 1), or manual (Option 2)
-> 
+>
 > ### Option 1: Register and auto configure your app and then download your code sample
-> 
+>
 > 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application.
-> 
+>
 > ### Option 2: Register and manually configure your application and code sample
-> 
+>
 > #### Step 1: Register your application
-> 
+>
 > To register your application and manually add the app's registration information to your solution, follow these steps:
-> 
+>
 > 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 
+>
 > 1. Navigate to the Microsoft identity platform for developers [App registrations](/azure/active-directory/develop/) page.
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
@@ -62,10 +62,9 @@ To run this sample you will need:
 > 1. On the **Overview** page, find the **Application (client) ID** and the **Directory (tenant) ID** values of the application. Copy these values for later.
 > 1. Select the **Authentication** from the menu, and then add the following information:
 >    - In **Redirect URIs**, add `http://localhost:8080/msal4jsamples/secure/aad` and `http://localhost:8080/msal4jsamples/graph/me`.
->    - In **Advanced settings**, add `https://localhost:8080/msal4jsample/sign-out` to **Logout URL**.
 >    - Select **Save**.
 > 1. Select the **Certificates & secrets** from the menu and in the **Client secrets** section, click on **New client secret**:
-> 
+>
 >    - Type a key description (for instance app secret).
 >    - Select a key duration **In 1 year**.
 >    - The key value will display when you select **Add**.
@@ -73,9 +72,9 @@ To run this sample you will need:
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> 
+>
 > For the code sample for this quickstart to work, you need to:
-> 
+>
 > 1. Add reply URLs as `http://localhost:8080/msal4jsamples/secure/aad` and `http://localhost:8080/msal4jsamples/graph/me`.
 > 1. Create a Client Secret.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -141,12 +140,12 @@ Add MSAL4J to your application by using Maven or Gradle to manage your dependenc
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
-    <version>0.6.0-preview</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 ```$xslt
-compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.6.0-preview'
+compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 ```
 
 ### MSAL initialization

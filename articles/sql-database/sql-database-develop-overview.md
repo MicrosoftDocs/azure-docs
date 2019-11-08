@@ -1,5 +1,5 @@
 ---
-title: SQL Database Application Development Overview 
+title: Application Development Overview 
 description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
 services: sql-database
 ms.service: sql-database

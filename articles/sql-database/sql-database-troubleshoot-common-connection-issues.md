@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot common connection issues to Azure SQL Database
+title: Troubleshoot common connection issues
 description: Steps to identify and resolve common connection errors for Azure SQL Database.
 services: sql-database
 ms.service: sql-database
