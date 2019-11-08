@@ -49,7 +49,7 @@ FarmBeats Data hub uses bearer authentication, which needs the following credent
 
 Using the above credentials, the caller can request an access token, which needs to be sent in the subsequent API requests, in the header section as follows:
 
-```
+```json
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
@@ -93,7 +93,7 @@ Optionally, you can include query parameters on GET calls to filter, limit the s
 
 The below sample request is to get the list of devices:
 
-```
+```azurepowershell-interactive
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -104,7 +104,7 @@ Most GET, POST, and PUT calls require a JSON request body.
 The below sample request is to create a device (This has an input JSON with the request body).
 
 
-```json
+```azurepowershell-interactive
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
