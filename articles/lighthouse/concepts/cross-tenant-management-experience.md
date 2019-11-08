@@ -4,7 +4,7 @@ description: Azure delegated resource management enables a cross-tenant manageme
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/24/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -41,6 +41,11 @@ We also provide APIs to perform Azure delegated resource management tasks. For m
 ## Enhanced services and scenarios
 
 Most tasks and services can be performed on delegated resources across managed tenants. Below are some of the key scenarios where cross-tenant management can be effective.
+
+[Azure Arc for servers (preview)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
+
+- [Connect Windows Server or Linux machines outside Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) to delegated subscriptions and/or resource groups in Azure
+- Manage connected machines using Azure constructs, such as Azure Policy and tagging
 
 [Azure Automation](https://docs.microsoft.com/azure/automation/):
 

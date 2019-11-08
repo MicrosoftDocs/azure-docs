@@ -125,7 +125,7 @@ For information about Resource Manager API read and write limits, see [Throttlin
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### Virtual Machines limits - Azure Resource Manager
-The following limits apply when you use Azure Resource Manager and Azure resource groups. Limits that haven't changed with Azure Resource Manager aren't listed. See the previous table for those limits.
+The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
