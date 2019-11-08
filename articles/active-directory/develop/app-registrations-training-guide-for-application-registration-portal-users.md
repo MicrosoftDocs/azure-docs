@@ -1,5 +1,5 @@
 ---
-title: App registrations in the Azure portal training guide - Azure
+title: Application Registration Portal app registrations training guide - Azure
 description: App registrations in the Azure portal for users familiar with Application registration portal
 services: active-directory
 documentationcenter: ''
@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 11/8/2019
 ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Training guide: App registrations in the Azure portal for users familiar with Application registration portal
-You can find many improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the Application registration portal (apps.dev.microsoft.com) experience for registering or managing converged applications, referred to as the old expierence, use the training guide to get you started using the new experience.
+# Training guide: Using App registrations in the Azure portal instead of Application Registration Portal
+
+There are many improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the Application registration portal (apps.dev.microsoft.com) experience for registering or managing converged applications, referred to as the old experience, this training guide will get you started using the new experience.
 
 ## What's not changing?
 
@@ -45,7 +46,7 @@ You can find many improvements in the new [App registrations](https://go.microso
 ## Key changes
 
 -   In the old experience, apps were by default registered as converged
-    apps supporting all organizational accounts(multitenant) as well as
+    apps supporting all organizational accounts (multitenant) as well as
     personal Microsoft accounts. This could not be modified through the
     old experience, making it difficult to create apps that supported
     only organizational accounts (either multitenant or single tenant).
@@ -54,7 +55,7 @@ You can find many improvements in the new [App registrations](https://go.microso
     types](active-directory-v2-registration-portal.md).
 
 -   In the new experience, if your personal Microsoft account is also in
-    an Azure AD tenant, you will see three tabs -- all applications in
+    an Azure AD tenant, you will see three tabs--all applications in
     the tenant, owned applications in the tenant as well as applications
     from your personal account. So, if you believe that apps registered
     with your personal Microsoft account are missing, check the
@@ -77,6 +78,7 @@ You can find many improvements in the new [App registrations](https://go.microso
     on the app.
 
 ## New app registration
+
 In the old experience, to register a converged app you were only
 required to provide a Name. The apps that were created were registered
 as converged apps supporting all organizational directory (multitenant)
@@ -90,6 +92,7 @@ an app using the new app registrations experience, see [this
 quickstart](quickstart-register-app.md).
 
 ## App management page
+
 The old experience had a single app management page for converged apps
 with the following sections: Properties, Application secrets, Platforms,
 Owners, Microsoft Graph Permissions, Profile, and Advanced Options.
@@ -111,6 +114,7 @@ separate pages. Here's where you can find the equivalent functionality:
 -   Advanced option - Live SDK support is on the Authentication page.
 
 ## Application Secrets/Certificates & secrets
+
 In the new experience, **Application secrets** have been renamed to
 **Certificates & secrets**. In addition, **Public keys** are referred to as
 **Certificates** and **Passwords** are referred to as **Client secrets**. We
@@ -127,7 +131,7 @@ URIs and the format for redirect URIs has changed. They are required to
 be associated with an app type (web or public client - mobile and
 desktop). [Learn more](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
-Web APIs are configured in Expose an API page.\
+Web APIs are configured in Expose an API page.
 
 > [!NOTE] 
 > Try out the new Authentication settings experience where you can
@@ -142,7 +146,7 @@ that you want to target. [Learn more](quickstart-configure-app-access-web-apis.m
     organization and your APIs, this is presented in three tabs:
     Microsoft APIs, APIs my organization uses, or My APIs. The search
     bar on APIs my organization uses tab searches through service
-    principals in the tenant.\
+    principals in the tenant.
     
     > [!NOTE] 
     > You won't see this tab if your application isn't
@@ -160,8 +164,7 @@ these can be found in Branding page.
 
 ## Application manifest
 In the new experience, Manifest page allows you to edit and update app's
-attributes. For more info, see [Application
-manifest](reference-app-manifest.md).
+attributes. For more info, see [Application manifest](reference-app-manifest.md).
 
 ## New UI
 There's new UI for properties that could previously only be set using
