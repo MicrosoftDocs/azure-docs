@@ -52,18 +52,12 @@ Some common motivations for using automatic provisioning include:
 
 Azure AD features pre-integrated support for many popular SaaS apps and human resources systems, and generic support for apps that implement specific parts of the [SCIM 2.0 standard](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
 
-### Pre-integrated applications (gallery SaaS apps)
+* **Pre-integrated applications (gallery SaaS apps)**. You can find all applications for which Azure AD supports a pre-integrated provisioning connector in the [list of application tutorials for user provisioning](../saas-apps/tutorial-list.md). To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
 
-For a list of all applications for which Azure AD supports a pre-integrated provisioning connector, see the [list of application tutorials for user provisioning](../saas-apps/tutorial-list.md).
+  > [!NOTE]
+  > To support automated user provisioning, an application must provide the necessary user management APIs that external programs to automate the creation, maintenance, and removal of users. Not all SaaS apps are compatible with this feature. For apps that don't support user management APIs, the Azure AD engineering team can build a provisioning connector to those apps. This work is prioritized by the needs of current and prospective customers.
 
-To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
-
-> [!NOTE]
-> In order for an application to support automated user provisioning, it must first provide the necessary user management APIs that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support user management APIs, the Azure AD engineering team can then build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers.
-
-### Applications that support SCIM 2.0
-
-For information on how to generically connect applications that implement SCIM 2.0 -based user management APIs, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md).
+* **Applications that support SCIM 2.0**. For information on how to generically connect applications that implement SCIM 2.0-based user management APIs, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md).
 
 ## How do I use SCIM 2.0 for provisioning and deprovisioning?
 
