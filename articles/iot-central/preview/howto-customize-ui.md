@@ -21,17 +21,17 @@ This article describes how, as an administrator, you can customize the UI of you
 
 The following screenshot shows a page using the standard theme:
 
-![Standard IoT Central theme](./media/howto-customize-ui-pnp/standard-ui.png)
+![Standard IoT Central theme](./media/howto-customize-ui/standard-ui.png)
 
 The following screenshot shows a page using a custom screenshot with the customized UI elements highlighted:
 
-![Custom IoT Central theme](./media/howto-customize-ui-pnp/themed-ui.png)
+![Custom IoT Central theme](./media/howto-customize-ui/themed-ui.png)
 
 ## Create theme
 
 To create a custom theme, navigate to the **Customize your application** page in the **Administration** section:
 
-![IoT Central themes](./media/howto-customize-ui-pnp/themes.png)
+![IoT Central themes](./media/howto-customize-ui/themes.png)
 
 On this page, you can customize the following aspects of your application:
 
@@ -39,7 +39,7 @@ On this page, you can customize the following aspects of your application:
 
 A PNG image, no larger than 1 MB, with a transparent background. This logo displays to the left on the IoT Central application title bar.
 
-If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage your application](./howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#change-application-name-and-url).
+If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage your application](./howto-administer.md#change-application-name-and-url).
 
 ### Browser icon (favicon)
 
@@ -62,11 +62,11 @@ To provide custom help information to your operators and other users, you can mo
 
 To modify the help links, navigate to the **Customize help** page in the **Administration** section:
 
-![Customize IoT Central help links](./media/howto-customize-ui-pnp/help-links.png)
+![Customize IoT Central help links](./media/howto-customize-ui/help-links.png)
 
 You can also add new entries to the help menu and remove default entries:
 
-![Customized IoT Central help](./media/howto-customize-ui-pnp/custom-help.png)
+![Customized IoT Central help](./media/howto-customize-ui/custom-help.png)
 
 > [!NOTE]
 > You can always revert back to the default help links on the **Customize help** page.
@@ -75,5 +75,5 @@ You can also add new entries to the help menu and remove default entries:
 
 Now that you've learned how to customize the UI in your IoT Central application, here are some suggested next steps:
 
-- [Administer your application](./howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [Add tiles to your dashboard](./howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Administer your application](./howto-administer.md)
+- [Add tiles to your dashboard](../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)

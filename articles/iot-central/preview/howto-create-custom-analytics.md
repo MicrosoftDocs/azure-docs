@@ -17,7 +17,7 @@ manager: philmea
 
 This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom analytics and visualizations. The example uses an [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) workspace to analyze the IoT Central telemetry stream and to generate visualizations such as [box plots](https://wikipedia.org/wiki/Box_plot).
 
-This how-to guide shows you how to extend IoT Central beyond what it can already do with the [built-in analytics tools](./howto-create-custom-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+This how-to guide shows you how to extend IoT Central beyond what it can already do with the [built-in analytics tools](./howto-create-custom-analytics.md).
 
 In this how-to guide, you learn how to:
 
@@ -228,4 +228,4 @@ In this how-to guide, you learned how to:
 * Stream telemetry from an IoT Central application using *continuous data export*.
 * Create an Azure Databricks environment to analyze and plot telemetry data.
 
-Now that you know how to create custom analytics, the suggested next step is to learn how to [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](./howto-connect-powerbi.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Now that you know how to create custom analytics, the suggested next step is to learn how to [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](../core/howto-connect-powerbi.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).

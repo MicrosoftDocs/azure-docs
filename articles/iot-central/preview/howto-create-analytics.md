@@ -27,14 +27,14 @@ Analytics user interface is made of three main components:
 - **Chart control:** Chart control visualizes the data as a line chart. You can toggle the visibility of specific lines by interacting with the chart  legend. 
 
 
-  ![Analytics UI Overview](media/howto-create-analytics-pnp/analyticsui.png)
+  ![Analytics UI Overview](media/howto-create-analytics/analyticsui.png)
 
 
 ## Querying your data
 
 You'll need to start by choosing a **device group**, and the telemetry that you want to analyze. Once you're done, select **Analyze** to start visualizing your data.
 
-- **Device group:** A [device group](tutorial-use-device-groups-pnp.md) is a user-defined group of your devices. For example, all Refrigerators in Oakland, or All version 2.0 wind turbines.
+- **Device group:** A [device group](tutorial-use-device-groups.md) is a user-defined group of your devices. For example, all Refrigerators in Oakland, or All version 2.0 wind turbines.
 
 - **Telemetry:** Select the telemetry that you want to analyze and explore. You can select multiple telemetries to analyze together. Default aggregation method is set to Average for numerical and Count for string data-type respectively. Supported aggregation methods for Numeric data types are Average, Maximum, Minimum, Count and, Sum.  Supported aggregation methods for string data type are count.
 
@@ -49,7 +49,7 @@ Once you've queried your data, you can start visualizing it on the line chart. Y
 
 - **Time editor panel:** By default we'll retrieve data from the past one day. You can drag either end of the time slider to change the time duration. You can also use the calendar control to select one of the predefined time buckets or select a custom time range. Time control also has an **Interval size** slider that controls the bucket or the interval size used to aggregate the data.
 
-    ![Time Editor](media/howto-create-analytics-pnp/timeeditorpanel.png)
+    ![Time Editor](media/howto-create-analytics/timeeditorpanel.png)
 
     - **Inner date range slider tool**: Use the two endpoint controls by dragging them over the time span you want. This inner date range is constrained by the outer date range slider control.
     
@@ -75,11 +75,11 @@ Once you've queried your data, you can start visualizing it on the line chart. Y
     - **Shared:** A graph for every telemetry is plotted against the same y-axis.
     - **Overlap:** Use it to stack multiple lines on the same y-axis, with the y-axis data changing based on the selected line.
 
-  ![Arrange data across y-axis with different visualization modes](media/howto-create-analytics-pnp/yaxiscontrol.png)
+  ![Arrange data across y-axis with different visualization modes](media/howto-create-analytics/yaxiscontrol.png)
 
 - **Zoom control:** Zoom lets you drill further into your data. If you find a time period you'd like to focus on within your result set, use your mouse pointer to grab the area and then drag it to the endpoint of your choice. Then right click on the selected area and click Zoom.
 
-  ![Zoom into the data](media/howto-create-analytics-pnp/zoom.png)
+  ![Zoom into the data](media/howto-create-analytics/zoom.png)
 
 Under the ellipsis, there are more chart controls to interact with the data.
 
@@ -87,4 +87,4 @@ Under the ellipsis, there are more chart controls to interact with the data.
 
 - **Drop a Marker:** 'Drop Marker' control provides a way to anchor certain data points on the chart. It is useful when you are trying to compare data for multiple lines across different time periods.
 
-  ![Showing the grid view for your analytics](media/howto-create-analytics-pnp/additionalchartcontrols.png)
+  ![Showing the grid view for your analytics](media/howto-create-analytics/additionalchartcontrols.png)

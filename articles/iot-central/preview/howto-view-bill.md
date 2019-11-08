@@ -35,11 +35,11 @@ To complete this self-service process, follow these steps:
 
 1. Go to the **Billing** page in the **Administration** section.
 
-    ![Trial state](media/howto-view-bill-pnp/freetrialbilling.png)
+    ![Trial state](media/howto-view-bill/freetrialbilling.png)
 
 1. Select **Convert to Pay-As-You-Go**.
 
-    ![Convert trial](media/howto-view-bill-pnp/convert.png)
+    ![Convert trial](media/howto-view-bill/convert.png)
 
 1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your Pay-As-You-Go application.
 
@@ -47,4 +47,4 @@ To complete this self-service process, follow these steps:
 
 ## Next steps
 
-Now that you've learned about how to manage your bill in Azure IoT Central application, the suggested next step is to learn about [Customize application UI](howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
+Now that you've learned about how to manage your bill in Azure IoT Central application, the suggested next step is to learn about [Customize application UI](howto-customize-ui.md) in Azure IoT Central.
