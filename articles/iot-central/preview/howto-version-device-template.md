@@ -17,7 +17,7 @@ manager: peterpr
 Azure IoT Central allows rapid development of IoT Applications. You can quickly iterate over your device template designs by adding, editing, or deleting device capabilities, views, and customizations. Once you have published your device template, the device capability model shows as **Published** with lock icons next to the model. In order to make changes to the device capability model, you will need to create a new version of the device template. Meanwhile the cloud properties, customizations, and views can all be edited at any time without needing to version the device template. Once you have saved any of these changes, you can publish the device template to make the latest changes available for the operator to view in Device Explorer.
 
 > [!NOTE]
-> To learn more about how to create a device template see [Set up and manage a device template](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> To learn more about how to create a device template see [Set up and manage a device template](howto-set-up-template.md)
 
 ## Add customizations to the device template without versioning
 
@@ -72,11 +72,11 @@ You can create multiple versions of the device template. Over time, you will hav
 1. Choose **Migrate**.
 1. Select the device template with the version number you want to migrate the device to and choose **Migrate**.
 
-![How to migrate a device](media/howto-version-device-template-pnp/pick-version.png)
+![How to migrate a device](media/howto-version-device-template/pick-version.png)
 
 ## Next steps
 
 Now that you have learned how to use device template versions in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to create telemetry rules](tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [How to create telemetry rules](tutorial-create-telemetry-rules.md)
