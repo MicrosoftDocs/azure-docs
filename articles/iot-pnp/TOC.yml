@@ -7,12 +7,18 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Use a device capability model to create a device
-    href: quickstart-create-pnp-device.md
+  - name: Create a device
+    items:
+      - name: C Windows
+        href: quickstart-create-pnp-device.md
+      - name: C Linux
+        href: quickstart-create-pnp-device-linux.md
   - name: Connect a device to IoT Hub
     items:
-      - name: C
+      - name: C Windows
         href: quickstart-connect-pnp-device-c.md
+      - name: C Linux
+        href: quickstart-connect-pnp-device-linux.md
       - name: C#
         href: quickstart-connect-pnp-device-csharp.md
       - name: Node.js
