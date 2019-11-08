@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Add an Azure SQL Database single database to a failover group "
+title: "Tutorial: Add a single database to a failover group"
 description: Add an Azure SQL Database single database to a failover group using the Azure portal, PowerShell, or Azure CLI.  
 services: sql-database
 ms.service: sql-database

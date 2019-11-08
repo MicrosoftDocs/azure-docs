@@ -4,6 +4,7 @@ description: Define offer settings in an Azure or Dynamics 365 consulting servic
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler

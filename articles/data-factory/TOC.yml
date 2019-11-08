@@ -209,6 +209,8 @@
       href: format-avro.md
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
+    - name: Azure Cognitive Search
+      href: connector-azure-search.md
     - name: Azure Cosmos DB SQL API
       href: connector-azure-cosmos-db.md
     - name: Azure Cosmos DB's API for MongoDB
@@ -227,8 +229,6 @@
       href: connector-azure-database-for-postgresql.md
     - name: Azure File Storage
       href: connector-azure-file-storage.md
-    - name: Azure Search
-      href: connector-azure-search.md
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
     - name: Azure SQL Database Managed Instance

@@ -394,6 +394,12 @@
         "articles/stream-analytics/**/*.md": ["Azure","Stream Analytics"],
         "articles/stream-analytics/**/*.yml": ["Azure","Stream Analytics"]
       },
+      "ms.service": {
+        "articles/industry/**/*.md": "azure-industry"
+      },
+      "ms.subservice": {
+        "articles/industry/agriculture/**/*.md": "agriculture"
+      },
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/blueprints/**/*.yml": "Azure Blueprints",
@@ -404,10 +410,13 @@
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
         "articles/synapse-analytics/**/*.md": "Azure Synapse Analytics",
         "articles/synapse-analytics/**/*.yml": "Azure Synapse Analytics",
+        "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
         "articles/sql-data-warehouse/**/*.md": "Azure SQL Data Warehouse",
         "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse",
         "articles/data-factory/**/*.md": "Azure Data Factory",
-        "articles/data-factory/**/*.yml": "Azure Data Factory"
+        "articles/data-factory/**/*.yml": "Azure Data Factory",
+        "articles/sql-database/**/*.md" : "Azure SQL Database",
+        "articles/sql-database/**/*.yml" : "Azure SQL Database"
       },
       "manager": {
         "articles/sql-database/**/*.md": "jroth"

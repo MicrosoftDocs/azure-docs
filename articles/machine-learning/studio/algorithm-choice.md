@@ -1,6 +1,6 @@
 ---
 title: How to choose algorithms
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: How to choose Azure Machine Learning Studio (classic) algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
 ms.service: machine-learning
