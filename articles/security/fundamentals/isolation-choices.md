@@ -110,6 +110,9 @@ Microsoft Azure provides various cloud-based computing services that include a w
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
+### Dedicated Hosts
+In addtion to the isolated hosts described in the prior section, Azure also offers Dedicated Hosts. This is a service that provides physical servers - able to host one or more virtual machines - dedicated to a single Azure subscription. Dedicated hosts provide hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.  For more information, please see the detailed [Dedicated Host documentation.](/articles/virtual-machines/windows/dedicated-hosts.md)
+
 ### Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 Azure’s compute platform is based on machine virtualization—meaning that all customer code executes in a Hyper-V virtual machine. On each Azure node (or network endpoint), there is a Hypervisor that runs directly over the hardware and divides a node into a variable number of Guest Virtual Machines (VMs).
 
