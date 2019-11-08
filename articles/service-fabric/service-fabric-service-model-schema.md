@@ -24,7 +24,7 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
 
 |Prefix|Namespace URI|
 |---|---|
-|xs|https:\//www.w3.org/2001/XMLSchema|
+|xs|`https://www.w3.org/2001/XMLSchema`|
 
 ## Component summary 
 The following components are defined in ServiceFabricServiceModel.xsd:
