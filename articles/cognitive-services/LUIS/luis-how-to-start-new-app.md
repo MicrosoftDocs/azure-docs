@@ -14,7 +14,7 @@ ms.author: diberry
 ---
 
 # Create a new LUIS app in the LUIS portal
-There are a couple of ways to create a LUIS app. You can create a LUIS app in the [LUIS](https://www.luis.ai) portal, or through the LUIS authoring [APIs](developer-reference-resource.md).
+There are a couple of ways to create a LUIS app. You can create a LUIS app in the LUIS portal, or through the LUIS authoring [APIs](developer-reference-resource.md).
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -24,7 +24,7 @@ You can create a new app in the preview portal in several ways:
 
 * Start with an empty app and create intents, utterances, and entities.
 * Start with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).
-* Import a LUIS app from a JSON file that already contains intents, utterances, and entities.
+* Import a LUIS app from a `.lu` or `.json` file that already contains intents, utterances, and entities.
 
 ## Using the authoring APIs
 You can create a new app with the authoring APIs in a couple of ways:
