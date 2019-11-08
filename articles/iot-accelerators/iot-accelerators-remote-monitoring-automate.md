@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Device Issues in remote monitoring solution - Azure | Microsoft Docs
+title: Use the Remote Monitoring solution to detect device issues - Azure | Microsoft Docs
 description: This tutorial shows you how to use rules and actions to automatically detect threshold-based device issues in the Remote Monitoring solution.
 author: dominicbetts
 manager: timlt
