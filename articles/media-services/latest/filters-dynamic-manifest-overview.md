@@ -1,6 +1,6 @@
 ---
-title: Filters and Azure Media Services dynamic manifests | Microsoft Docs
-description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
+title: Pre-filtering manifests using Dynamic Packager | Microsoft Docs
+description: Learn how to create filters using Dynamic Packager to filter and selectively stream your manifests.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,23 +17,22 @@ ms.author: juliako
 #Customer intent: As a developer or a content provider, when delivering adaptive bitrate streaming content to devices, you often need to target specific device capabilities or available network bandwidth. Pre-filtering manifests with Dynamic Packager allows your clients to manipulate the streaming of your content without you needing to create multiple copies of the same media file. 
 ---
 
-# Pre-filtering manifests by using Dynamic Packager
+# Pre-filtering manifests using Dynamic Packager
 
-When you're delivering adaptive bitrate streaming content to devices, you often need to publish multiple versions of a manifest to target specific device capabilities or available network bandwidth. The [Dynamic Packager](dynamic-packaging-overview.md) allows you to  specify filters which can filter out specific codecs, resolutions, bitrates, and audio track combinations on-the-fly removing the need to create multiple copies. You simply need to publish a new URL with a specific set of filters configured to your target devices (iOS, Android, SmartTV, or browsers) and the network capabilities (high-bandwidth, mobile, or low-bandwidth scenarios). In this case, clients can manipulate the streaming of your content through the query string (by specifying available [Asset filters or Account filters](filters-concept.md)) and use filters to stream specific sections of a stream.
+When you're delivering adaptive bitrate streaming content to devices, you sometimes need to publish multiple versions of a manifest to target specific device capabilities or available network bandwidth. The [Dynamic Packager](dynamic-packaging-overview.md) lets you specify filters which can filter out specific codecs, resolutions, bitrates, and audio track combinations on-the-fly. This filtering removes the need to create multiple copies. You simply need to publish a new URL with a specific set of filters configured to your target devices (iOS, Android, SmartTV, or browsers) and the network capabilities (high-bandwidth, mobile, or low-bandwidth scenarios). In this case, clients can manipulate the streaming of your content through the query string (by specifying available [Asset filters or Account filters](filters-concept.md)) and use filters to stream specific sections of a stream.
 
-Some delivery scenarios require that you make sure a customer is unable to access specific tracks. For example, you may not want to publish a manifest that contains HD tracks to a specific subscriber tier. Or, you may want to remove specific adaptive bitrate (ABR) tracks to reduce cost of delivery to a specific device that would not benefit from the additional tracks. In this case you could associate a list of pre-created filters with your [Streaming Locator](streaming-locators-concept.md) on creation. In this case, clients cannot manipulate how the content is streamed, it is defined by the **Streaming Locator**.
+Some delivery scenarios require that you make sure a customer can't access specific tracks. For example, maybe you don't want to publish a manifest that contains HD tracks to a specific subscriber tier. Or, maybe you want to remove specific adaptive bitrate (ABR) tracks to reduce cost of delivery to a specific device that wouldn't benefit from the additional tracks. In this case, you could associate a list of pre-created filters with your [Streaming Locator](streaming-locators-concept.md) on creation. Clients then can't manipulate how the content is streamed because it's defined by the **Streaming Locator**.
 
-You can combine filtering through specifying [filters on Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator) + additional device specific filters that your client specifies in the URL. This can be useful to restrict additional tracks like metadata or event streams, audio languages, or descriptive audio tracks. 
+You can combine filtering through specifying [filters on Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator) + additional device specific filters that your client specifies in the URL. This is useful to restrict additional tracks like metadata or event streams, audio languages, or descriptive audio tracks.
 
-This ability to specify different filters on your stream, provides a powerful **Dynamic Manifest** manipulation solution to target multiple use-case scenarios for your target devices. This topic explains concepts related to **Dynamic Manifests** and gives examples of scenarios in which you might want to use this feature.
+This ability to specify different filters on your stream provides a powerful **Dynamic Manifest** manipulation solution to target multiple use-case scenarios for your target devices. This topic explains concepts related to **Dynamic Manifests** and gives examples of scenarios in which you can use this feature.
 
 > [!NOTE]
-> Dynamic Manifests do not change the asset and the default manifest for that asset. 
-> 
+> Dynamic Manifests don't change the asset and the default manifest for that asset.
 
 ##  Overview of manifests
 
-Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. See the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#delivery-protocols). 
+Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. See the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#delivery-protocols).
 
 ### Get and examine manifest files
 
