@@ -1,5 +1,5 @@
 ---
-title: Manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (Python)
+title: Manage directories, files, and permissions in Azure Data Lake Storage Gen2 (Python)
 description: Use Python manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 author: normesta
 ms.service: storage
@@ -10,7 +10,7 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (Python)
+# Manage directories, files, and permissions in Azure Data Lake Storage Gen2 (Python)
 
 This article shows you how to use Python to work with directories, files, and POSIX [access control lists](data-lake-storage-access-control.md) (ACLs) in storage accounts that have a hierarchical namespace.
 

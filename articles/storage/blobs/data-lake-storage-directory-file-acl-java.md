@@ -1,5 +1,5 @@
 ---
-title: Manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (Java)
+title: Manage directories, files, and permissions in Azure Data Lake Storage Gen2 (Java)
 description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 author: normesta
 ms.service: storage
@@ -10,9 +10,40 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (Java)
+# Manage directories, files, and permissions in Azure Data Lake Storage Gen2 (Java)
 
-This article shows you how to use Java to work with directories, files, and POSIX [access control lists](data-lake-storage-access-control.md) (ACLs) in storage accounts that have a hierarchical namespace. 
+This article shows you how to use Java to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. To create an account, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+
+[API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
+
+## Set up your project
+
+To get started, open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies.
+
+```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-datalake</artifactId>
+  <version>12.0.0-preview.6</version>
+</dependency>
+```
+
+Then, add these imports statements to your code file.
+
+```java
+import com.azure.storage.common.StorageSharedKeyCredential;
+import com.azure.storage.file.datalake.DataLakeDirectoryClient;
+import com.azure.storage.file.datalake.DataLakeFileClient;
+import com.azure.storage.file.datalake.DataLakeFileSystemClient;
+import com.azure.storage.file.datalake.DataLakeServiceClient;
+import com.azure.storage.file.datalake.DataLakeServiceClientBuilder;
+import com.azure.storage.file.datalake.models.ListPathsOptions;
+import com.azure.storage.file.datalake.models.PathAccessControl;
+import com.azure.storage.file.datalake.models.PathAccessControlEntry;
+import com.azure.storage.file.datalake.models.PathItem;
+import com.azure.storage.file.datalake.models.PathPermissions;
+import com.azure.storage.file.datalake.models.RolePermissions;
+```
 
 ## Connect to the account 
 
@@ -22,14 +53,32 @@ This example parses a connection string by calling the [CloudStorageAccount.pars
 
 ```java
 
-CloudStorageAccount storageAccount = CloudStorageAccount.parse("<connection-string>");
+static public DataLakeServiceClient GetDataLakeServiceClient
+(String accountName, String accountKey){
 
-cloudBlobClient = storageAccount.createCloudBlobClient();
+    StorageSharedKeyCredential sharedKeyCredential =
+        new StorageSharedKeyCredential(accountName, accountKey);
+
+    DataLakeServiceClientBuilder builder = new DataLakeServiceClientBuilder();
+
+    builder.credential(sharedKeyCredential);
+    builder.endpoint("https://" + accountName + ".dfs.core.windows.net");
+
+    return builder.buildClient();
+}      
 
 ```
+### Create a file system
 
-Replace the `<connection-string>` placeholder value with the connection string of your storage account. 
+Put some text here.
 
+```java
+static public DataLakeFileSystemClient CreateFileSystem
+(DataLakeServiceClient serviceClient){
+
+    return serviceClient.createFileSystem("my-file-system");
+}
+```
 
 ## Create a directory
 
@@ -40,21 +89,16 @@ Create a directory by using the **CloudBlobDirectory.create** method..
 This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory` to the directory named `my-directory`. 
 
 ```java
-static void CreateDirectory(CloudBlobClient cloudBlobClient, String containerName)
-throws URISyntaxException, StorageException{
+static public DataLakeDirectoryClient CreateDirectory
+(DataLakeServiceClient serviceClient, String fileSystemName){
+    
+    DataLakeFileSystemClient fileSystemClient =
+    serviceClient.getFileSystemClient(fileSystemName);
 
-    CloudBlobContainer cloudBlobContainer =
-    cloudBlobClient.getContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.createDirectory("my-directory");
 
-    if (cloudBlobContainer != null){
-
-        CloudBlobDirectory cloudBlobDirectory =
-        cloudBlobContainer.getDirectoryReference("my-directory");
-
-        cloudBlobDirectory.create();
-
-        cloudBlobDirectory.getDirectoryReference("my-subdirectory").create();
-    }
+    return directoryClient.createSubDirectory("my-subdirectory");
 }
 ```
 
@@ -65,30 +109,14 @@ Rename a directory by calling the **CloudBlobDirectory.move** method. Pass a ref
 This example changes the name of a directory to the name `my-directory-renamed`.
 
 ```java
-static void RenameDirectory(CloudBlobClient cloudBlobClient, String containerName)
-    throws URISyntaxException, StorageException {
+static public DataLakeDirectoryClient
+    RenameDirectory(DataLakeFileSystemClient fileSystemClient){
 
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.getContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.getDirectoryClient("my-directory/my-subdirectory");
 
-    if (cloudBlobContainer != null){
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null){
-            // Get destination directory
-            CloudBlobDirectory cloudBlobDestinationDirectory =
-                cloudBlobContainer.getDirectoryReference("my-directory-renamed");
-
-            if (cloudBlobDestinationDirectory != null){
-
-                cloudBlobDirectory.move(cloudBlobDestinationDirectory);
-            }  
-
-        }
-    }
-
-} 
+    return directoryClient.rename("my-directory/my-subdirectory-renamed");
+}
 ```
 
 ## Move a directory
@@ -98,42 +126,15 @@ You can also use the **CloudBlobDirectory.move** method to move a directory. Pas
 This example moves a directory named `my-directory` to a sub-directory of a directory named `my-directory-2`.
 
 ```java
-static void MoveDirectory(CloudBlobClient cloudBlobClient, String containerName)
-throws URISyntaxException, StorageException{
+static public DataLakeDirectoryClient MoveDirectory
+(DataLakeFileSystemClient fileSystemClient){
 
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.getContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.getDirectoryClient("my-directory/my-subdirectory-renamed");
 
-    if (cloudBlobContainer != null){
-
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null){
-
-            CloudBlobDirectory cloudBlobDestinationDirectory =
-                cloudBlobContainer.getDirectoryReference("my-directory-2");
-
-            if (cloudBlobDestinationDirectory != null){
-
-                // Get destination directory
-                CloudBlobDirectory cloudBlobDestinationDirectory =
-                    cloudBlobContainer.getDirectoryReference("my-directory-2/my-directory");
-
-                if (cloudBlobDestinationDirectory != null){
-
-                    cloudBlobDirectory.move(cloudBlobDestinationDirectory);
-                }
-
-            }
-
-        }
-   }
-
+    return directoryClient.rename("my-directory-2/my-subdirectory-renamed");                
 }
 ```
-
-
 
 ## Delete a directory
 
@@ -142,103 +143,38 @@ Delete a directory by calling the **CloudBlobDirectory.delete** method.
 This example deletes a directory named `my-directory`. 
 
 ```java
-static void DeleteDirectory(CloudBlobClient cloudBlobClient, String containerName) 
-throws URISyntaxException, StorageException{
+static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
+        
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.getDirectoryClient("my-directory");
 
-    CloudBlobContainer cloudBlobContainer =
-    cloudBlobClient.getContainerReference(containerName);
-
-    if (cloudBlobContainer != null){
-
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null){
-
-            cloudBlobDirectory.delete(true);    
-        }
-    }    
+    directoryClient.delete();
 }
 ```
 
-## Get the ACL of a directory
+## Manage a directory ACL
 
-Get the ACL of a directory by calling the **CloudBlobDirectory.downloadSecurityInfo** method.
-
-Call the **CloudBlobDirectory.getAccessControlList** method to return a collection of ACL entries.
-
-This example gets the ACL of a directory named `my-directory` directory, and then prints the short form of the ACL to the console.
+Put something here.
 
 ```java
-static void GetDirectoryACL(CloudBlobClient cloudBlobClient, String containerName)
-throws URISyntaxException, StorageException{
+static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient){
 
-    CloudBlobContainer cloudBlobContainer =
-    cloudBlobClient.getContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.getDirectoryClient("my-directory");
 
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory");
+    PathAccessControl directoryAccessControl =
+        directoryClient.getAccessControl();
 
-            cloudBlobDirectory.downloadSecurityInfo();
+    System.out.println(directoryAccessControl.getAcl());
 
-            if (cloudBlobDirectory != null){
+    directoryAccessControl.setAcl("user::rwx,group::r-x,other::rw-");
+        
+    directoryClient.setAccessControl(directoryAccessControl);
 
-                String ACL = "";
+    System.out.println(directoryAccessControl.getAcl());
 
-                for (PathAccessControlEntry entry :cloudBlobDirectory.getAccessControlList()) {
-                     ACL = ACL + entry.toString();
-                }
-
-                 System.out.println(ACL);
-            }
-    }
 }
 
-```
-
-The short form of an ACL might look something like the following:
-
-`user::rwx group::r-x other::--`
-
-This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. 
-
-## Set the ACL of a directory
-
-Set the ACL of a directory by setting the permission of an existing entry in the access control list or by adding a new entry to the access control list.
-
-This example gets the ACL of a directory named `my-directory` directory, and locates the entry for all users other than the owning group and owning user. Then, it modifies that entry to grant read access to those users.
-
-```java
-static void SetDirectoryACL(CloudBlobClient cloudBlobClient, String containerName)
-throws URISyntaxException, StorageException{
-
-    CloudBlobContainer cloudBlobContainer =
-    cloudBlobClient.getContainerReference(containerName);
-
-
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            cloudBlobDirectory.downloadSecurityInfo();
-
-            RolePermissions perms = new RolePermissions();
-            perms.setRead(true);
-
-            for (PathAccessControlEntry entry :cloudBlobDirectory.getAccessControlList()) {
-                if (entry.getAccessControlType() == AccessControlType.OTHER){
-                    entry.setPermissions(perms);
-                }
-           }
-            cloudBlobDirectory.uploadACL();
-        }
-     }
-}
 ```
 
 ## Upload a file to a directory
@@ -248,115 +184,50 @@ First, create a blob reference in the target directory by calling the **CloudBlo
 This example uploads a file to a directory named `my-directory`
 
 ```java
-static void UploadFilesToDirectory(CloudBlobClient cloudBlobClient, 
-String sourceFilePath, String containerName, String blobName)
-throws URISyntaxException, StorageException, IOException{
-    
-    CloudBlobContainer cloudBlobContainer = 
-    cloudBlobClient.getContainerReference(containerName);
+static public void UploadFile(DataLakeFileSystemClient fileSystemClient) 
+    throws FileNotFoundException{
+        
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.getDirectoryClient("my-directory");
 
-    if (cloudBlobContainer != null){
-       
-        CloudBlobDirectory cloudBlobDirectory =
-        cloudBlobContainer.getDirectoryReference("my-directory");
+    DataLakeFileClient fileClient = directoryClient.createFile("uploaded-file.txt");
 
-        if (cloudBlobDirectory != null){
-            
-            CloudBlockBlob cloudBlockBlob = 
-            cloudBlobDirectory.getBlockBlobReference(blobName);
+    File file = new File("C:\\Users\\normesta\\Norms-Test-Projects\\mytestfile.txt");
 
-            if (cloudBlockBlob != null){
-                
-                cloudBlockBlob.uploadFromFile(sourceFilePath);
-            }            
-         }  
-    }
+    InputStream targetStream = new FileInputStream(file);
+
+    long fileSize = file.length();
+
+    fileClient.append(targetStream, 0, fileSize);
+
+    fileClient.flush(fileSize);
 }
 ```
 
-## Get the ACL of a file
+## Manage a file ACL
 
-Get the ACL of a file by calling the **CloudBlockBlob.downloadSecurityInfo** method.
-
-Call the **CloudBlockBlob.getAccessControlList** method to return a collection of ACL entries.
-
-This example gets the ACL of a file and then prints the short form of the ACL to the console.
+Put something here.
 
 ```java
-static void GetFileACL(CloudBlobClient cloudBlobClient, String containerName,
-String blobName) throws URISyntaxException, StorageException{
+static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 
-    CloudBlobContainer cloudBlobContainer =
-    cloudBlobClient.getContainerReference(containerName);
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.getDirectoryClient("my-directory");
 
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory");
+    DataLakeFileClient fileClient = 
+        directoryClient.getFileClient("hello.txt");
 
-            if (cloudBlobDirectory != null){
+    PathAccessControl fileAccessControl =
+        fileClient.getAccessControl();
 
-                CloudBlockBlob cloudBlockBlob =
-                cloudBlobDirectory.getBlockBlobReference(blobName);
+    System.out.println(fileAccessControl.getAcl());
 
-                cloudBlockBlob.downloadSecurityInfo();
+    fileAccessControl.setAcl("user::rwx,group::r-x,other::rw-");
+        
+    fileClient.setAccessControl(fileAccessControl);
 
-                if (cloudBlockBlob != null){
+    System.out.println(fileAccessControl.getAcl());
 
-                    String ACL = "";
-
-                    for (PathAccessControlEntry entry :cloudBlockBlob.getAccessControlList()) {
-                        ACL = ACL + entry.toString();
-                     }
-
-                     System.out.println(ACL);
-                }
-
-            }
-    }
-}
-```
-
-## Set the ACL of a file
-
-Set the ACL of a file by setting the permission of an existing entry in the access control list or by adding a new entry to the access control list.
-
-This example gets the ACL of a file, and locates the entry for all users other than the owning group and owning user. Then, it modifies that entry to grant read access to those users.
-
-```java
-static void SetFileACL(CloudBlobClient cloudBlobClient, String containerName, String blobName)
-throws URISyntaxException, StorageException{
-
-    CloudBlobContainer cloudBlobContainer =
-    cloudBlobClient.getContainerReference(containerName);
-
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            CloudBlockBlob cloudBlockBlob =
-            cloudBlobDirectory.getBlockBlobReference(blobName);
-
-            if (cloudBlockBlob != null){
-
-                cloudBlockBlob.downloadSecurityInfo();
-
-                RolePermissions perms = new RolePermissions();
-                perms.setRead(true);
-
-                for (PathAccessControlEntry entry :cloudBlockBlob.getAccessControlList()) {
-                    if (entry.getAccessControlType() == AccessControlType.OTHER){
-                        entry.setPermissions(perms);
-                    }
-                }
-
-                cloudBlockBlob.uploadACL();
-            }
-        }
-     }
 }
 ```
 
@@ -365,29 +236,27 @@ throws URISyntaxException, StorageException{
 First, create a blob reference in the source directory by calling the **CloudBlobDirectory.getBlockBlobReference** method. That method returns a **CloudBlockBlob** object. Download that blob by calling the **downloadToFileAsync** method of a **CloudBlockBlob** object.
 
 ```java
-static void GetFileFromDirectory(CloudBlobClient cloudBlobClient, 
-String containerName, String blobName, String destinationFile)
-throws URISyntaxException, StorageException, IOException{
-    
-    CloudBlobContainer cloudBlobContainer = 
-         cloudBlobClient.getContainerReference(containerName);
+static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
+    throws FileNotFoundException, java.io.IOException{
 
-    if (cloudBlobContainer != null){
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.getDirectoryClient("my-directory");
+
+    DataLakeFileClient fileClient = 
+        directoryClient.getFileClient("uploaded-file.txt");
+
+    File file = new File("C:\\Users\\normesta\\Norms-Test-Projects\\downloadedFile.txt");
+
+    OutputStream targetStream = new FileOutputStream(file);
+
+    fileClient.read(targetStream);
+
+    targetStream.close();
+
+    fileClient.flush(file.length());
         
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null){
-            
-            CloudBlockBlob cloudBlockBlob = 
-            cloudBlobDirectory.getBlockBlobReference(blobName);
-
-            if (cloudBlobDirectory != null){
-                cloudBlockBlob.downloadToFile(destinationFile);
-            }
-        }
-    }
 }
+
 ```
 
 ## List directory contents
@@ -399,35 +268,32 @@ This example asynchronously lists the contents of a directory by calling the **C
 This example uses the continuation token to get the next segment of result.
 
 ```java
-static void ListDirectoryContents(CloudBlobClient cloudBlobClient, String containerName)
-throws URISyntaxException, StorageException{
-    
-    CloudBlobContainer cloudBlobContainer = 
-    cloudBlobClient.getContainerReference(containerName);
-
-    ResultContinuation blobContinuationToken = null;
-
-    if (cloudBlobContainer != null){
-
-        CloudBlobDirectory cloudBlobDirectory =
-        cloudBlobContainer.getDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null){
-
-            ResultSegment<ListBlobItem> resultSegment = null;
-
-            do
-            {
-                resultSegment = cloudBlobDirectory.listBlobsSegmented();
-    
-                blobContinuationToken = resultSegment.getContinuationToken();
+static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient){
         
-                for (ListBlobItem item :resultSegment.getResults()){
-                    System.out.println(item.getUri());
-                }
-            } while (blobContinuationToken != null); 
-        }     
-    } 
+    ListPathsOptions options = new ListPathsOptions();
+    options.setPath("my-directory");
+     
+    PagedIterable<PathItem> pagedIterable = 
+    fileSystemClient.listPaths(options, null);
+
+    java.util.Iterator<PathItem> iterator = pagedIterable.iterator();
+
+       
+    PathItem item = iterator.next();
+
+    while (item != null)
+    {
+        System.out.println(item.getName());
+
+
+        if (!iterator.hasNext())
+        {
+            break;
+        }
+            
+        item = iterator.next();
+    }
+
 }
 ```
 
