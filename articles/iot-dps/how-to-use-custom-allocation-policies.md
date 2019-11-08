@@ -15,9 +15,9 @@ manager: philmea
 
 A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an [Azure Function](../azure-functions/functions-overview.md) to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment. Your function code is executed and returns the IoT hub information used to provisioning the device.
 
-By using custom allocation policies you define your own allocation policies when the policies provided by the Device Provisioning Service do not meet the requirements of your scenario.
+By using custom allocation policies, you define your own allocation policies when the policies provided by the Device Provisioning Service do not meet the requirements of your scenario.
 
-For example, maybe you want to examine the certificate a device is using during provisioning, and assign the device to an IoT hub based on a certificate property. Maybe you may have information stored in a database for your devices and need to query the database to determine which IoT hub a device should be assigned to.
+For example, maybe you want to examine the certificate a device is using during provisioning and assign the device to an IoT hub based on a certificate property. Or, maybe you have information stored in a database for your devices and need to query the database to determine which IoT hub a device should be assigned to.
 
 This article demonstrates a custom allocation policy using an Azure Function written in C#. Two new IoT hubs are created representing a *Contoso Toasters Division* and a *Contoso Heat Pumps Division*. Devices requesting provisioning must have a registration ID with one of the following suffixes to be accepted for provisioning:
 
@@ -26,13 +26,13 @@ This article demonstrates a custom allocation policy using an Azure Function wri
 
 The devices will be provisioned based on one of these required suffixes on the registration ID. These devices will be simulated using a provisioning sample included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-You will perform the following steps in this article:
+You perform the following steps in this article:
 
 * Use the Azure CLI to create two Contoso division IoT hubs (**Contoso Toasters Division** and **Contoso Heat Pumps Division**)
 * Create a new group enrollment using an Azure Function for the custom allocation policy
 * Create device keys for two device simulations.
 * Set up the development environment for the Azure IoT C SDK
-* Simulate the devices to see that they are provisioned according to the example code of the custom allocation policy
+* Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,7 +46,7 @@ You will perform the following steps in this article:
 
 ## Create two divisional IoT hubs
 
-In this section, you will use the Azure Cloud Shell to create two new IoT hubs representing the **Contoso Toasters Division** and the **Contoso Heat Pumps division**.
+In this section, you use the Azure Cloud Shell to create two new IoT hubs representing the **Contoso Toasters Division** and the **Contoso Heat Pumps division**.
 
 1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
@@ -58,7 +58,7 @@ In this section, you will use the Azure Cloud Shell to create two new IoT hubs r
 
 2. Use the Azure Cloud Shell to create the **Contoso Toasters Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. The IoT hub will be added to *contoso-us-resource-group*.
 
-    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *eastus* location. You must use your own unique hub name. Make up your own suffix in the hub name in place of **1098**. The example code for the custom allocation policy requires `-toasters-` in the hub name.
+    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *eastus* location. Use your own unique hub name. Make up your own suffix in the hub name in place of **1098**. The example code for the custom allocation policy requires `-toasters-` in the hub name.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
@@ -68,7 +68,7 @@ In this section, you will use the Azure Cloud Shell to create two new IoT hubs r
 
 3. Use the Azure Cloud Shell to create the **Contoso Heat Pumps Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This IoT hub will also be added to *contoso-us-resource-group*.
 
-    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *eastus* location. You must use your own unique hub name. Make up your own suffix in the hub name in place of **1098**. The example code for the custom allocation policy requires `-heatpumps-` in the hub name.
+    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *eastus* location. Use your own unique hub name. Make up your own suffix in the hub name in place of **1098**. The example code for the custom allocation policy requires `-heatpumps-` in the hub name.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
@@ -98,7 +98,7 @@ In this section, you will create a new enrollment group that uses the custom all
 
 4. On **Add Enrollment Group**, click **Link a new IoT hub** to link both of your new divisional IoT hubs. 
 
-    You must execute this step for both of your divisional IoT hubs.
+    Execute this step for both of your divisional IoT hubs.
 
     **Subscription**: If you have multiple subscriptions, choose the subscription where you created the divisional IoT hubs.
 
@@ -120,11 +120,11 @@ In this section, you will create a new enrollment group that uses the custom all
 
     **Resource Group**: Select **Use existing** and the **contoso-us-resource-group** to keep all resources created in this article together.
 
-    **Application Insights**: For this exercise you can turn this off.
+    **Application Insights**: For this exercise, you can turn this off.
 
     ![Create the function app](./media/how-to-use-custom-allocation-policies/function-app-create.png)
 
-8. Back on your **Add Enrollment Group** page, make sure your new function app is selected. You may have to re-select the subscription to refresh the function app list.
+8. Back on your **Add Enrollment Group** page, make sure your new function app is selected. You may have to reselect the subscription to refresh the function app list.
 
     Once your new function app is selected, click **Create a new function**.
 
@@ -251,7 +251,7 @@ In this section, you will create a new enrollment group that uses the custom all
     }
     ```
 
-11. Return to your **Add Enrollment Group** page, and make sure the new function is selected. You may have to re-select the function app to refresh the functions list.
+11. Return to your **Add Enrollment Group** page, and make sure the new function is selected. You may have to reselect the function app to refresh the functions list.
 
     Once your new function is selected, click **Save** to save the enrollment group.
 
@@ -261,9 +261,9 @@ In this section, you will create a new enrollment group that uses the custom all
 
 ## Derive unique device keys
 
-In this section, you will create two unique device keys. One key will be used for a simulated toaster device. The other key will be used for a simulated heat pump device.
+In this section, you create two unique device keys. One key will be used for a simulated toaster device. The other key will be used for a simulated heat pump device.
 
-To generate the device key, you will use the **Primary Key** you noted earlier to compute the [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the device registration ID for each device and convert the result into Base64 format. For more information on creating derived device keys with enrollment groups, see the group enrollments section of [Symmetric key attestation](concepts-symmetric-key-attestation.md).
+To generate the device key, you use the **Primary Key** you noted earlier to compute the [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the device registration ID for each device and convert the result into Base64 format. For more information on creating derived device keys with enrollment groups, see the group enrollments section of [Symmetric key attestation](concepts-symmetric-key-attestation.md).
 
 For the example in this article, use the following two device registration IDs and compute a device key for both devices. Both registration IDs have a valid suffix to work with the example code for the custom allocation policy:
 
@@ -272,7 +272,7 @@ For the example in this article, use the following two device registration IDs a
 
 ### Linux workstations
 
-If you are using a Linux workstation, you can use openssl to generate your derived device keys as shown in the following example.
+If you're using a Linux workstation, you can use openssl to generate your derived device keys as shown in the following example.
 
 1. Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
@@ -296,7 +296,7 @@ If you are using a Linux workstation, you can use openssl to generate your deriv
 
 ### Windows-based workstations
 
-If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
+If you're using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
 
 1. Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
@@ -325,13 +325,13 @@ The simulated devices will use the derived device keys with each registration ID
 
 ## Prepare an Azure IoT C SDK development environment
 
-In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes the sample code for the simulated device. This simulated device will attempt provisioning during the device's boot sequence.
+In this section, you prepare the development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes the sample code for the simulated device. This simulated device will attempt provisioning during the device's boot sequence.
 
 This section is oriented toward a Windows-based workstation. For a Linux example, see the set-up of the VMs in [How to provision for multitenancy](how-to-provision-multitenant.md).
 
 1. Download the [CMake build system](https://cmake.org/download/).
 
-    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
+    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine **before** starting the `CMake` installation. Once the prerequisites are in place and the download is verified, install the CMake build system.
 
 2. Open a command prompt or Git Bash shell. Execute the following command to clone the Azure IoT C SDK GitHub repository:
 
@@ -355,7 +355,7 @@ This section is oriented toward a Windows-based workstation. For a Linux example
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    If `cmake` doesn't find your C++ compiler, you might get build errors while running the command. If that happens, try running the command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
     Once the build succeeds, the last few output lines will look similar to the following output:
 
@@ -375,7 +375,7 @@ This section is oriented toward a Windows-based workstation. For a Linux example
 
 ## Simulate the devices
 
-In this section, you will update a provisioning sample named **prov\_dev\_client\_sample** located in the Azure IoT C SDK you set up earlier. 
+In this section, you update a provisioning sample named **prov\_dev\_client\_sample** located in the Azure IoT C SDK you set up previously.
 
 This sample code simulates a device boot sequence that sends the provisioning request to your Device Provisioning Service instance. The boot sequence will cause the toaster device to be recognized and assigned to the IoT hub using the custom allocation policy.
 
@@ -417,7 +417,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Uncomment the function call, and replace the placeholder values (including the angle brackets) with the toaster registration ID and derived device key you generated earlier. The key value **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** shown below is only given as an example.
+    Uncomment the function call and replace the placeholder values (including the angle brackets) with the toaster registration ID and derived device key you generated previously. The key value **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** shown below is only given as an example.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -428,7 +428,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
 2. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
 
-    The following output is an example of the simulated toaster device successfully booting up, and connecting to the provisioning Service instance to be assigned to the toasters IoT hub by the custom allocation policy:
+    The following output is an example of the simulated toaster device successfully booting up and connecting to the provisioning service instance to be assigned to the toasters IoT hub by the custom allocation policy:
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -455,9 +455,9 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
     Save the file.
 
-2. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
+2. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes** to rebuild the project before running.
 
-    The following output is an example of the simulated heat pump device successfully booting up, and connecting to the provisioning Service instance to be assigned to the Contoso heat pumps IoT hub by the custom allocation policy:
+    The following output is an example of the simulated heat pump device successfully booting up and connecting to the provisioning service instance to be assigned to the Contoso heat pumps IoT hub by the custom allocation policy:
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -475,7 +475,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
 ## Troubleshooting custom allocation policies
 
-The following table shows expected scenarios and the results error codes you might encounter. Use this table to help troubleshoot custom allocation policy failures with your Azure Functions.
+The following table shows expected scenarios and the results error codes you might receive. Use this table to help troubleshoot custom allocation policy failures with your Azure Functions.
 
 | Scenario | Registration result from Provisioning Service | Provisioning SDK Results |
 | -------- | --------------------------------------------- | ------------------------ |
@@ -488,7 +488,7 @@ The following table shows expected scenarios and the results error codes you mig
 
 ## Clean up resources
 
-If you plan to continue working with resources created in this article, you can leave them. If you do not plan to continue using the resource, use the following steps to delete all resources created by this article to avoid unnecessary charges.
+If you plan to continue working with the resources created in this article, you can leave them. If you don't plan to continue using the resources, use the following steps to delete all of the resources created in this article to avoid unnecessary charges.
 
 The steps here assume you created all resources in this article as instructed in the same resource group named **contoso-us-resource-group**.
 
@@ -509,4 +509,4 @@ To delete the resource group by name:
 ## Next steps
 
 * To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-* To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
+* To learn more Deprovisioning, see [How to deprovision devices that were previously autoprovisioned](how-to-unprovision-devices.md) 
