@@ -1,7 +1,6 @@
 ---
 title: Overview of Azure IoT Hub message enrichments
-description: This article shows message enrichments, which give the IoT Hub the ability to stamp messages with 
-additional information before the messages are sent to the designated endpoint. 
+description: This article shows message enrichments, which give the IoT Hub the ability to stamp messages with additional information before the messages are sent to the designated endpoint. 
 author: robinsh
 manager: philmea
 ms.service: iot-hub
