@@ -78,7 +78,7 @@ An application can have one or more simulated and real devices based on each dev
 
 ## Data export
 
-In an Azure IoT Central application, you can [continuously export your data](howto-export-data-event-hubs-service-bus.md) to your own Azure Event Hubs, and Azure Service Bus instances. You can also periodically export your data to your Azure Blob storage account. IoT Central can export measurements, devices, and device templates.
+In an Azure IoT Central application, you can [continuously export your data](howto-export-data-event-hubs-service-bus.md) to your own Azure Event Hubs, Azure Service Bus, and Azure Blob Storage instances. IoT Central can export measurements, devices, and device templates.
 
 ## Batch device updates
 

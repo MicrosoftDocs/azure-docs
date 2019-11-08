@@ -45,11 +45,14 @@ Follow the below steps to generate these:
 
     ![Project Farm Beats](./media/for-tutorials/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory /home/username/.
+5. Go to the directory where the files were uploaded
+
+   >[!NOTE]
+   > By default, file gets uploaded to the home directory /home/username/.
 6. Run the script by using the command:  
 
     ```azurepowershell-interactive
-    PS> ./generateCredentials.ps1
+    ./generateCredentials.ps1
     ```
 
 7. Follow the onscreen instructions to complete the procedure.
@@ -122,7 +125,9 @@ FarmBeats Data hub uses bearer authentication, which needs the following credent
 
 Using the above credentials, the caller can request for an access token, which needs to be sent in the subsequent API requests in the header section as follows:
 
+```
 headers = *{"Authorization": "Bearer " + access_token, …}*
+```
 
 **HTTP Request Headers**:
 
@@ -156,8 +161,10 @@ Here are the most common request headers that need to be specified when making a
     "additionalProp3": {}
   }
 }
+```
 
 Device
+
 ```json
 {
   "deviceModelId": "string",
@@ -237,7 +244,7 @@ Sensor
 ```
 The below sample request is to create a device (This has an input json as payload with the request body).  
 
-```
+```azurepowershell-interactive
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>" -d "
@@ -261,6 +268,7 @@ You must send the Telemetry to Azure Event Hub for processing. Azure EventHub is
 
 Once you have a connection established as an EventHub client, you can send messages to the EventHub as a json.  
 Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. The canonical message format is as below:  
+
 
 
  ```
