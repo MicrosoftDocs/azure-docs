@@ -1,14 +1,14 @@
 ---
-title: Preview Azure administrator roles with customizable permissions - Azure Active Directory | Microsoft Docs
+title: Custom administrator roles in Azure Active Directory | Microsoft Docs
 description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
