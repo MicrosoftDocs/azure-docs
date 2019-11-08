@@ -1,6 +1,6 @@
 ---
 title: Manage IoT Central from Azure CLI | Microsoft Docs
-description: Manage IoT Central from Azure CLI.
+description: This article describes how to create and manage your IoT Central application using CLI. You can view, modify and remove the application using CLI.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
