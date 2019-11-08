@@ -13,7 +13,7 @@ manager: carmonm
 
 As a service provider, you may have onboarded multiple customer tenants for Azure delegated resource management. Azure Lighthouse allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 
-This topic shows you how to use an [Azure Resource Management template](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) and PowerShell commands to deploy [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) across multiple tenants. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
+This topic shows you how to use [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
 
 ## Use Azure Resource Graph to query across customer tenants
 
@@ -31,7 +31,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 ## Deploy a policy across multiple customer tenants
 
-The example below shows how to deploy a policy definition and policy assignment across delegated subscriptions in multiple customer tenants. This policy definition requires all storage accounts to use HTTPS traffic, preventing the creation of any new storage accounts that don’t comply and marking existing storage accounts without the setting as non-compliant.
+The example below shows how to use an [Azure Resource Management template](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json)deploy a policy definition and policy assignment across delegated subscriptions in multiple customer tenants. This policy definition requires all storage accounts to use HTTPS traffic, preventing the creation of any new storage accounts that don’t comply and marking existing storage accounts without the setting as non-compliant.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
