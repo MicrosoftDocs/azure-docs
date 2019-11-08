@@ -33,15 +33,15 @@ Several open-source tools can help with your migration, depending on your scenar
 * [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli)
 * [ReShifter](https://github.com/mhausenblas/reshifter)
 
-In this article we will summarize migration considerations for:
+In this article we will summarize migration details for:
 
 > [!div class="checklist"]
-> * Differences between Kubernetes cluster types
+> * AKS with Standard Load Balancer and Virtual Machine Scale Sets
 > * Existing attached Azure Services
 > * Ensure valid quotas
-> * AKS with Standard Load Balancer and Virtual Machine Scale Sets
-> * Considerations for Azure storage types
-> * Considerations for stateful and stateless applications
+> * High Availability and Business Continuity
+> * Considerations for stateless applications
+> * Considerations for statefull applications
 > * Deployment of your cluster configuration
 
 ## AKS with Standard Load Balancer and Virtual Machine Scale Sets
@@ -103,9 +103,22 @@ To complete the migration, you'll want to point clients to the new services that
 
 [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) is another option for routing traffic for AKS clusters.  Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. 
 
-## Storage considerations
+### Considerations for stateless applications 
 
-There are several considerations when migrating storage.  They can be simple or complex based on your specific scenario.
+Stateless application migration is the most straightforward case. Apply your resource definitions (YAML or Helm) to the new cluster, make sure everything works as expected, and redirect traffic to activate your new cluster.
+
+### Considers for stateful applications
+
+Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
+
+If you use Azure Files, you can mount the file share as a volume into the new cluster:
+* [Mount Static Azure Files as a Volume](https://docs.microsoft.com/azure/aks/azure-files-volume#mount-the-file-share-as-a-volume)
+
+If you use Azure Managed Disks, you can only mount the disk if unattached to any VM:
+* [Mount Static Azure Disk as a Volume](https://docs.microsoft.com/azure/aks/azure-disk-volume#mount-disk-as-volume)
+
+If neither of those approaches work, you can use a backup and restore options:
+* [Velero on Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
 
 #### Azure Files
 
@@ -119,22 +132,6 @@ If your application can host multiple replicas that point to the same file share
 
 If you want to start with an empty share and make a copy of the source data, you can use the [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) commands to migrate your data.
 
-### Stateless applications 
-
-Stateless application migration is the most straightforward case. Apply your resource definitions (YAML or Helm) to the new cluster, make sure everything works as expected, and redirect traffic to activate your new cluster.
-
-### Stateful applications
-
-Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
-
-If you use Azure Files, you can mount the file share as a volume into the new cluster:
-* [Mount Static Azure Files as a Volume](https://docs.microsoft.com/azure/aks/azure-files-volume#mount-the-file-share-as-a-volume)
-
-If you use Azure Managed Disks, you can only mount the disk if unattached to any VM:
-* [Mount Static Azure Disk as a Volume](https://docs.microsoft.com/azure/aks/azure-disk-volume#mount-disk-as-volume)
-
-If neither of those approaches work, you can use a backup and restore options:
-* [Velero on Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
 
 #### Migrating persistent volumes
 
@@ -168,13 +165,13 @@ If that's not possible, export resource definitions from your existing Kubernete
 kubectl get deployment -o=yaml --export > deployments.yaml
 ```
 
-In this article we summarized migration considerations for:
+In this article we summarized migration details for:
 
 > [!div class="checklist"]
-> * Differences between Kubernetes cluster types
+> * AKS with Standard Load Balancer and Virtual Machine Scale Sets
 > * Existing attached Azure Services
 > * Ensure valid quotas
-> * AKS with Standard Load Balancer and Virtual Machine Scale Sets
-> * Considerations for Azure storage types
-> * Considerations for stateful and stateless applications
+> * High Availability and Business Continuity
+> * Considerations for stateless applications
+> * Considerations for statefull applications
 > * Deployment of your cluster configuration
