@@ -1,6 +1,6 @@
 ---
 title: On-premises SQL Server
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Use data from an on-premises SQL Server database to perform advanced analytics with the classic version of Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
