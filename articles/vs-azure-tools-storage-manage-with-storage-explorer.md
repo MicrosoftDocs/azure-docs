@@ -207,7 +207,7 @@ After the connection is successfully added, the resource tree goes to the node t
 
 Instead of managing Azure Cosmos DB accounts through an Azure subscription, you can connect to Azure Cosmos DB by using a connection string. To connect, follow these steps:
 
-1. Under **EXPLORER**, expand **Local & Attached**, right-click **Azure Cosmos DB Accounts**, and select **Connect to Azure Cosmos DB**.
+1. Under **EXPLORER**, expand **Local & Attached**, right-click **Cosmos DB Accounts**, and select **Connect to Azure Cosmos DB**.
 
     ![Connect to Azure Cosmos DB by connection string][21]
 
