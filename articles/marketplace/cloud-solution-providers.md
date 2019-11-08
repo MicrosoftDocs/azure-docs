@@ -4,6 +4,7 @@ description: Publishers can now sell their offers through Microsoft Cloud Soluti
 services: Azure, Marketplace, Compute, Storage, Networking
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: v-chjen

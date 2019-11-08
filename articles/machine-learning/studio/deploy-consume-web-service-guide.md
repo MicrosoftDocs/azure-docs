@@ -26,8 +26,8 @@ The Studio (classic) portal and the Microsoft Azure Machine Learning Web Service
 
 The following links provide general Information about how to deploy a new web service:
 
-* For an overview about how to deploy a new web service that's based on Azure Resource Manager, see [Deploy a new web service](publish-a-machine-learning-web-service.md).
-* For a walkthrough about how to deploy a web service, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
+* For an overview about how to deploy a new web service that's based on Azure Resource Manager, see [Deploy a new web service](deploy-a-machine-learning-web-service.md).
+* For a walkthrough about how to deploy a web service, see [Deploy an Azure Machine Learning web service](deploy-a-machine-learning-web-service.md).
 * For a full walkthrough about how to create and deploy a web service, start with [Tutorial 1: Predict credit risk](tutorial-part1-credit-risk.md).
 * For specific examples that deploy a web service, see:
 
@@ -83,8 +83,8 @@ See the following articles and sample code for additional details:
 
 You can test your web service from the Azure Machine Learning Web Services portal. This includes testing the Request-Response service (RRS) and Batch Execution service (BES) interfaces.
 
-* [Deploy a new web service](publish-a-machine-learning-web-service.md)
-* [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md)
+* [Deploy a new web service](deploy-a-machine-learning-web-service.md)
+* [Deploy an Azure Machine Learning web service](deploy-a-machine-learning-web-service.md)
 * [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md)
 
 ### From Excel

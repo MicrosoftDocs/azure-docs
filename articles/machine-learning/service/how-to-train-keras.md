@@ -1,5 +1,5 @@
 ---
-title: Train deep learning neural network with Keras
+title: Train deep learning Keras models
 titleSuffix: Azure Machine Learning
 description: Learn how to train and register a Keras deep neural network classification model running on TensorFlow using Azure Machine Learning.
 services: machine-learning

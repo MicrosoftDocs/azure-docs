@@ -1,7 +1,7 @@
 ---
 title: Introduction to Incremental Indexing (preview)
 titleSuffix: Azure Cognitive Search
-description: Configure your AI enrichment pipeline to drive your data to eventual consistency to handle any updates to skills, skillsets, indexers, or data sources.
+description: Configure your AI enrichment pipeline to drive your data to eventual consistency to handle any updates to skills, skillsets, indexers, or data sources. This feature is currently in public preview
 
 manager: nitinme
 author: Vkurpad
@@ -13,9 +13,9 @@ ms.date: 11/04/2019
 
 # What is incremental indexing in Azure Cognitive Search?
 
-> [!Note]
-> Incremental indexing is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
->
+> [!IMPORTANT] 
+> Incremental indexing is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
 
 Incremental indexing is a new feature of Azure Cognitive Search that adds caching and state to enriched content in a cognitive skillset, giving you control over processing and re-processing of individual steps in an enrichment pipeline. Not only does this preserve your monetary investment in processing, but it also makes for a more efficient system. When structures and content are cached, an indexer can determine which skills have changed and run only those that have been modified, as well as any downstream dependent skills. 
 

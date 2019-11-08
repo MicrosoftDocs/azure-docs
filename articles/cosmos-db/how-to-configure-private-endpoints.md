@@ -124,6 +124,41 @@ $subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.N
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
 ```
 
+### Integrate the private endpoint with private DNS zone
+
+After you create the private endpoint, you can integrate it with a private DNS zone by using the following PowerSehll script:
+
+```azurepowershell-interactive
+Import-Module Az.PrivateDns
+$zoneName = "privatelink.documents.azure.com"
+$zone = New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName `
+  -Name $zoneName
+
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName `
+  -ZoneName $zoneName `
+  -Name "myzonelink" `
+  -VirtualNetworkId $virtualNetwork.Id  
+ 
+$pe = Get-AzPrivateEndpoint -Name $PrivateEndpointName `
+  -ResourceGroupName $ResourceGroupName
+
+$networkInterface = Get-AzResource -ResourceId $pe.NetworkInterfaces[0].Id `
+  -ApiVersion "2019-04-01"
+ 
+foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
+foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
+Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
+$recordName = $fqdn.split('.',2)[0] 
+$dnsZone = $fqdn.split('.',2)[1] 
+New-AzPrivateDnsRecordSet -Name $recordName `
+  -RecordType A -ZoneName $zoneName  `
+  -ResourceGroupName $ResourceGroupName -Ttl 600 `
+  -PrivateDnsRecords (New-AzPrivateDnsRecordConfig `
+  -IPv4Address $ipconfig.properties.privateIPAddress)  
+}
+}
+```
+
 ### Fetch the private IP addresses
 
 After the private endpoint is provisioned, you can query the IP addresses and the FQDNS mapping by using the following PowerShell script:
@@ -288,9 +323,11 @@ After the template is deployed successfully, you can see an output similar to wh
 
 After the template is deployed, the private IP addresses are reserved within the subnet. The firewall rule of the Azure Cosmos account is configured to accept connections from the private endpoint only.
 
-## Configure private DNS
+## Configure custom DNS
 
-During the preview of Private Link, you should use a private DNS within the subnet where the private endpoint has been created. And configure the endpoints so that each of the private IP address is mapped to a DNS entry (see the "fqdns" property in the response shown above).
+You should use a private DNS within the subnet where the private endpoint has been created. And configure the endpoints so that each of the private IP address is mapped to a DNS entry (see the "fqdns" property in the response shown above).
+
+When creating the private endpoint, you can integrate it with a private DNS zone in Azure. If u choose to not integrate your private endpoint with private DNS zone in Azure and instead use a custom DNS, you have to configure your DNS to add DNS records for all private IP addresses reserved for the private endpoint.
 
 ## Firewall configuration with Private Link
 
@@ -300,7 +337,7 @@ The following are different situations and outcomes when you use Private Link in
 
 * If public traffic or service endpoint is configured and private endpoints are created, then different types of incoming traffic are authorized by the corresponding type of firewall rule.
 
-* If no public traffic or service endpoint is configured and private endpoints are created, then the Azure Cosmos account is only accessible through the private endpoints.
+* If no public traffic or service endpoint is configured and private endpoints are created, then the Azure Cosmos account is only accessible through the private endpoints. If no public traffic or service endpoint is configured, after all approved private endpoints are rejected or deleted, the account is open to all the network.
 
 ## Update private endpoint when you add or remove a region
 
@@ -314,7 +351,7 @@ For example, if you deploy an Azure Cosmos account in 3 regions: "West US", "Cen
 
 Later if you add a new region, for example "East US" to the Azure Cosmos account. By default, the new region is not accessible from the existing private endpoint. The Azure Cosmos account administrator should refresh the private endpoint connection before accessing it form the new region. 
 
-When you run the ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` command, the output of the command contains the `ActionRequired` parameter, which is set to "Recreate". This value indicates that the private endpoint should be refreshed. Next the Azure Cosmos account administrator runs the `Set-AzPrivateEndpoint` command to trigger the private endpoint refresh.
+When you run the ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` command, the output of the command contains the `actionsRequired` parameter, which is set to "Recreate". This value indicates that the private endpoint should be refreshed. Next the Azure Cosmos account administrator runs the `Set-AzPrivateEndpoint` command to trigger the private endpoint refresh.
 
 ```powershell
 $pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>
@@ -322,9 +359,9 @@ $pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupNam
 Set-AzPrivateEndpoint -PrivateEndpoint $pe
 ```
 
-A new private IP is automatically reserved in the subnet under this private endpoint, and the value `ActionRequired` becomes `None`. If you don’t have any private DNZ zone integration (in other words, if you are using a custom private DNS), you have to configure your private DNS to add a new DNS record for the private IP corresponding to the new region.
+A new private IP is automatically reserved in the subnet under this private endpoint, and the value `actionsRequired` becomes `None`. If you don’t have any private DNZ zone integration (in other words, if you are using a custom private DNS), you have to configure your private DNS to add a new DNS record for the private IP corresponding to the new region.
 
-You can use the same steps when you remove a region. The private IP of the removed region is automatically reclaimed, and the `ActionRequired` flag becomes `None`. If you don’t have any private DNZ zone integration, you must configure your private DNS to remove the DNS record for the removed region.
+You can use the same steps when you remove a region. The private IP of the removed region is automatically reclaimed, and the `actionsRequired` flag becomes `None`. If you don’t have any private DNZ zone integration, you must configure your private DNS to remove the DNS record for the removed region.
 
 DNS records in the private DNS zone are not removed automatically when a private endpoint is deleted or a region from the Azure Cosmos account is removed. You must manually remove the DNS records.
 
@@ -332,19 +369,19 @@ DNS records in the private DNS zone are not removed automatically when a private
 
 The following limitations apply when using the Private Link with an Azure Cosmos account:
 
+* Private Link support for Azure Cosmos accounts and VNETs is available in specific regions only. For a list of supported regions, see the [Available regions](../private-link/private-link-overview.md#availability) section of the Private Link article. **Both the VNET and the Azure Cosmos account should be in the supported regions to be able to create a private endpoint**.
+
 * When using Private Links with Azure Cosmos account using Direct mode connection, you can only use TCP protocol. HTTP protocol is not yet supported
 
 * When using Azure Cosmos DB’s API for MongoDB accounts, private endpoint is supported for accounts on server version 3.6 only (that is accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to new version.
 
 * When using Azure Cosmos DB’s API for MongoDB accounts that have Private Link, you can’t use tools such as Robo 3T, Studio 3T, Mongoose etc. The endpoint can have Private Link support only if the appName=<account name> parameter is specified. For example: replicaSet=globaldb&appName=mydbaccountname. Because these tools don’t pass the app name in the connection string to the service so you can’t use Private Link. However you can still access these accounts with SDK drivers with 3.6 version.
 
-* Private Link support for Azure Cosmos accounts and VNETs is available in specific regions only. For a list of supported regions, see the [Available regions](../private-link/private-link-overview.md#availability) section of the Private Link article.
-
 * A virtual network can't be moved or deleted if it contains Private Link.
 
 * An Azure Cosmos account can't be deleted if it is attached to a private endpoint.
 
-* An Azure Cosmos account can't be failed over to a region that's not mapped to all private endpoints attached to it. For more information, see Adding or removing regions in the previous section.
+* An Azure Cosmos account can't be failed over to a region that's not mapped to all private endpoints attached to the account. For more information, see Adding or removing regions in the previous section.
 
 * A network administrator should be granted at least the "*/PrivateEndpointConnectionsApproval" permission at the Azure Cosmos account scope by an administrator to create automatically-approved private endpoints.
 
