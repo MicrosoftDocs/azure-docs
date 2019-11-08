@@ -1,5 +1,5 @@
 ---
-title: Provision Raspberry Pi to Remote Monitoring in Node.js - Azure | Microsoft Docs
+title: Raspberry Pi to Remote Monitoring in Node.js - Azure | Microsoft Docs
 description: Describes how to connect a Raspberry Pi device to the Remote Monitoring solution accelerator using an application written in Node.js.
 author: dominicbetts
 manager: timlt
