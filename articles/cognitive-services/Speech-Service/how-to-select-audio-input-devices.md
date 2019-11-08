@@ -1,7 +1,7 @@
 ---
 title: How to select an audio input device with the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Learn about selecting audio input devices in the Speech SDK.
+description: Learn about selecting audio input devices in the Speech SDK (C++, C#, Python, Objective-c, Java, Javascript) by obtaining the IDs of the audio devices connected to a system.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -41,7 +41,8 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```JavaScript
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
->[!Note]
+
+> [!Note]
 > Microphone usage is not available for JavaScript running in Node.js
 
 ## Audio device IDs on Windows for Desktop applications
@@ -373,8 +374,7 @@ In JavaScript the [MediaDevices.enumerateDevices()](https://developer.mozilla.or
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
+> [!div class="nextstepaction"][explore our samples on github](https://aka.ms/csspeech/samples)
 
 ## See also
 
