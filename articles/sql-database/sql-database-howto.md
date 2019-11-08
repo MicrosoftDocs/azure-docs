@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure SQL Database 
+title: Configure and manage
 description: Learn how to configure and manage Azure SQL Database.
 services: sql-database
 ms.service: sql-database

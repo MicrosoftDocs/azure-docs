@@ -1,5 +1,5 @@
 ---
-title: Transactional replication with Azure SQL Database "
+title: Transactional replication
 description: Learn about using SQL Server transactional replication with single, pooled, and instance databases in Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
