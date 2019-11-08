@@ -97,7 +97,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 > ```xml
 > &lt;!--Intent filter to catch Microsoft's callback after Sign In--&gt;
 > &lt;activity android:name=&quot;com.microsoft.identity.client.BrowserTabActivity&quot;&gt;
->     &lt;intent-filter>
+>     &lt;intent-filter&gt;
 >     &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
 >     &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
 >     &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
