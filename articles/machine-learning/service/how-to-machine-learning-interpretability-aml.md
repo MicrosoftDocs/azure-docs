@@ -1,7 +1,7 @@
 ---
 title: Model interpretability for local and remote runs
 titleSuffix: Azure Machine Learning
-description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model determines feature importance and makes predictions.
+description: Get explanations for how your ML model determines feature importance and makes predictions when using the Azure Machine Learning SDK..
 services: machine-learning
 services: machine-learning
 ms.service: machine-learning
@@ -17,7 +17,7 @@ ms.date: 10/25/2019
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to explain why your model made the predictions it did with the interpretability package of the Azure Machine Learning Python SDK. You learn the following tasks:
+In this article, you learn why your model made the predictions it did with the interpretability package of the Azure Machine Learning Python SDK. You learn the following tasks:
 
 * Interpret machine learning models trained both locally and on remote compute resources
 * Store local and global explanations on Azure Run History
@@ -87,13 +87,14 @@ The following example shows how to use the interpret package locally without con
                                features=breast_cancer_data.feature_names, 
                                classes=classes)
     ```
-   or
+
+    or
 
     ```python
-    from interpret.ext.blackbox import PFIExplainer 
-    
+    from interpret.ext.blackbox import PFIExplainer
+
     # "features" and "classes" fields are optional
-    explainer = PFIExplainer(model, 
+    explainer = PFIExplainer(model,
                              features=breast_cancer_data.feature_names, 
                              classes=classes)
     ```
@@ -101,7 +102,7 @@ The following example shows how to use the interpret package locally without con
 ### Overall (global) feature importance values
 
 Get the global feature importance values.
-    
+
 ```python
 
 # you can use the training data or the test data here
