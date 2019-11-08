@@ -42,7 +42,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
     New-AzDeployment -Name mgmt `
                      -Location eastus `
-                     -TemplateUri "https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json " `
+                     -TemplateUri "https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json" `
                      -AsJob
 }
 ```
