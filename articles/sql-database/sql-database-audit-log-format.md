@@ -1,5 +1,5 @@
 ---
-title: SQL Database Audit Log Format 
+title: Audit Log Format
 description: Understand how SQL Database audit logs are structured.
 services: sql-database
 ms.service: sql-database
