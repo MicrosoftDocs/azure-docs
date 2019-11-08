@@ -253,6 +253,7 @@ Existing Azure Active Directory app registration is used to deploy (Case 2 above
 
    }
 ```
+
 Follow the rest of the steps:
 2. Make a note of the path to your input.json file (on your local computer).
 
