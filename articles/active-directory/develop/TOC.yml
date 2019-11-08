@@ -390,7 +390,7 @@
         href: active-directory-configurable-token-lifetimes.md
     - name: Application configuration
       items:
-      - name: App registrations training guide for App registrations (Legacy) users
+      - name: App registrations in the Azure portal training guide (legacy)
         href: app-registrations-training-guide-for-app-registrations-legacy-users.md
       - name: App registrations training guide for Application Registration Portal users
         href: app-registrations-training-guide-for-application-registration-portal-users.md
