@@ -17,8 +17,9 @@ Azure Backup provides a built-in policy (using Azure Policy) that can be assigne
 **Policy Name:** Deploy prerequisites to backup VMs of a location to an existing central Vault in the same location
 
 **Supported VMs**
+
 Image Publisher | Image Offer | Image SKU
---- | --- | --- | ---
+--- | --- | ---
 MicrosoftWindowsServer | WindowsServer | Windows Server 2008 R2 SP1 (2008-R2-SP1)
 MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2008 R2 SP (2008-R2-SP1-smalldisk)
 MicrosoftWindowsServer | WindowsServer | Windows Server 2012 Datacenter (2012-Datacenter)
