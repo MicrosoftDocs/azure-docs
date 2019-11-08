@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 11/06/2019
+ms.date: 11/09/2019
 ms.author: helohr
 ---
 # Troubleshoot the Windows Virtual Desktop management tool
@@ -17,7 +17,7 @@ This article describes issues that can occur while deploying the Windows Virtual
 
 When you successfully set up services for the management tool but automated setup fails, you'll see this error message:
 
-```
+```console
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Conflict","message":"{\r\n "status": "Failed",\r\n "error": {\r\n "code": "ResourceDeploymentFailure",\r\n "message": "The resource operation completed with terminal provisioning state 'Failed'."\r\n }\r\n}"}]}
 ```
 
