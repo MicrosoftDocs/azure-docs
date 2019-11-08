@@ -14,7 +14,7 @@ ms.author: adbalaji
 
 Azure Backup provides a built-in policy (using Azure Policy) that can be assigned to **all Azure VMs in a specified location within a subscription or resource group**. When this policy is assigned to a given scope, all new VMs created in that scope are automatically configured for backup to an **existing vault in the same location and subscription**. The table below lists all the VM SKUs supported by this policy.
 
-# **Supported VMs**
+### **Supported VMs**
 
 **Policy Name:** Deploy prerequisites to backup VMs of a location to an existing central Vault in the same location
 
