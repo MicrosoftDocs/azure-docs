@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Add or delete users using Azure Active Directory
 
-Add new users or delete existing users from your Azure Active Directory (Azure AD) organization.
+Add new users or delete existing users from your Azure Active Directory (Azure AD) organization. To add or delete users you must be a User administrator or Global administrator. 
 
 ## Add a new user
 

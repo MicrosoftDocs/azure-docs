@@ -28,7 +28,7 @@ To make it easier to create Java functions, there are Maven-based tooling and ar
 
 ### Maven-based tooling
 
-The following developer environments have tooling that lets you create Java function projects: 
+The following developer environments have Azure Functions tooling that lets you create Java function projects: 
 
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)

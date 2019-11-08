@@ -245,7 +245,7 @@
       - name: Azure SQL Database using the Apache Spark connector
         href: /azure/databricks/data/data-sources/sql-databases-azure
         maintainContext: true 
-      - name: Azure blob storage
+      - name: Azure Blob storage
         href: /azure/databricks/data/data-sources/azure/azure-storage
         maintainContext: true
       - name: Azure Data Lake Storage Gen2
@@ -260,7 +260,7 @@
       - name: Cosmos DB
         href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
         maintainContext: true 
-      - name: SQL Data Warehouse
+      - name: Azure SQL Data Warehouse
         href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
         maintainContext: true
       - name: Binary files
@@ -272,7 +272,7 @@
       - name: Couchbase
         href: /azure/databricks/data/data-sources/couchbase
         maintainContext: true 
-      - name: Elastic search
+      - name: ElasticSearch
         href: /azure/databricks/data/data-sources/elasticsearch
         maintainContext: true 
       - name: Images
@@ -434,7 +434,7 @@
     - name: Introduction to Python DataFrames
       href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-python
       maintainContext: true 
-    - name: Introduction to Scala Dataframes
+    - name: Introduction to Scala DataFrames
       href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-scala
       maintainContext: true 
     - name: Introduction to Datasets
@@ -708,14 +708,17 @@
       - name: Decision trees example
         href: /azure/databricks/applications/machine-learning/mllib/decision-trees
         maintainContext: true 
-      - name: MLib pipelines and Structured Streaming
+      - name: MLlib pipelines and Structured Streaming
         href: /azure/databricks/applications/machine-learning/mllib/mllib-pipelines-and-stuctured-streaming
         maintainContext: true
-      - name: Advanced MLib example
+      - name: Advanced MLlib example
         href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
         maintainContext: true
     - name: Auto ML
       items:
+        - name: Auto ML overview
+          href: /azure/databricks/applications/machine-learning/automl/index
+          maintainContext: true
         - name: Hyperopt
           items:
           - name: Hyperopt overview
@@ -730,9 +733,17 @@
           - name: Model Search using Distributed Hyperopt
             href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-model-selection
             maintainContext: true
-        - name: MLib and automated MLflow tracking
+        - name: MLlib and automated MLflow tracking
           href: /azure/databricks/applications/machine-learning/automl/mllib-mlflow-integration
           maintainContext: true
+    - name: Export and import ML models
+      items:
+      - name: Export and import overview
+        href: /azure/databricks/applications/machine-learning/model-export-import/index
+        maintainContext: true
+      - name: MLeap ML model export
+        href: /azure/databricks/applications/machine-learning/model-export-import/mleap-model-export
+        maintainContext: true
     - name: Third-party machine learning integration
       href: /azure/databricks/applications/machine-learning/third-party/index
       maintainContext: true
@@ -826,33 +837,39 @@
     - name: MLflow overview
       href: /azure/databricks/applications/mlflow/index
       maintainContext: true
-    - name: Get started with MLflow
-      href: /azure/databricks/applications/mlflow/quick-start
-      maintainContext: true
-    - name: Get started with MLflow Java and Scala
-      href: /azure/databricks/applications/mlflow/quick-start-java-scala
-      maintainContext: true 
-    - name: Get started with MLflow Python
-      href: /azure/databricks/applications/mlflow/quick-start-python
-      maintainContext: true 
-    - name: Get started with MLflow R
-      href: /azure/databricks/applications/mlflow/quick-start-r
-      maintainContext: true
+    - name: Getting started
+      items:
+      - name: Get started with MLflow
+        href: /azure/databricks/applications/mlflow/quick-start
+        maintainContext: true
+      - name: Get started with MLflow Java and Scala
+        href: /azure/databricks/applications/mlflow/  quick-start-java-scala
+        maintainContext: true 
+      - name: Get started with MLflow Python
+        href: /azure/databricks/applications/mlflow/  quick-start-python
+        maintainContext: true 
+      - name: Get started with MLflow R
+        href: /azure/databricks/applications/mlflow/quick-start-r
+        maintainContext: true
     - name: Track machine learning training runs
-      href: /azure/databricks/applications/mlflow/tracking
-      maintainContext: true
-    - name: MLflow tracking examples
-      href: /azure/databricks/applications/mlflow/tracking-examples
-      maintainContext: true
-    - name: Access tracking externally
-      href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
-      maintainContext: true
+      items:
+      - name: Tracking overview
+        href: /azure/databricks/applications/mlflow/tracking
+        maintainContext: true
+      - name: MLflow tracking examples
+        href: /azure/databricks/applications/mlflow/  tracking-examples
+        maintainContext: true
+      - name: Access tracking externally
+        href: /azure/databricks/applications/mlflow/  access-hosted-tracking-server
+        maintainContext: true
     - name: Save, load, and deploy models
-      href: /azure/databricks/applications/mlflow/models
-      maintainContext: true
-    - name: MLflow model examples
-      href: /azure/databricks/applications/mlflow/model-examples
-      maintainContext: true
+      items:
+      - name: Save, load, and deploy overview
+        href: /azure/databricks/applications/mlflow/models
+        maintainContext: true
+      - name: MLflow model examples
+        href: /azure/databricks/applications/mlflow/  model-examples
+        maintainContext: true
     - name: Reproduce runs with MLflow projects
       href: /azure/databricks/applications/mlflow/projects
       maintainContext: true  
@@ -880,9 +897,6 @@
     - name: Genomics overview
       href: /azure/databricks/applications/genomics/index
       maintainContext: true
-    - name: Genomics ETL overview
-      href: /azure/databricks/applications/genomics/etl/index
-      maintainContext: true 
     - name: Secondary analysis
       items:
       - name: Secondary analysis overview
@@ -908,6 +922,9 @@
         maintainContext: true
     - name: ETL
       items:
+      - name: Genomics ETL overview
+        href: /azure/databricks/applications/genomics/etl/index
+        maintainContext: true 
       - name: Variant IO with Apache Spark SQL
         href: /azure/databricks/applications/genomics/etl/variant-data
         maintainContext: true 
@@ -1211,10 +1228,7 @@
         maintainContext: true
       - name: Failure to detect encoding in JSON
         href: /azure/databricks/kb/data-sources/json-unicode
-        maintainContext: true 
-      - name: JDBC query option doesn't work for Oracle   Database
-        href: /azure/databricks/kb/data-sources/query-option-not-work-oracle
-        maintainContext: true
+        maintainContext: true j
     - name: DBFS
       items:
       - name: Can't read objects stored in DBFS root
@@ -1293,6 +1307,9 @@
         maintainContext: true 
       - name: Job fails maxresultsize
         href: /azure/databricks/kb/jobs/job-fails-maxresultsize-exception
+        maintainContext: true
+      - name: Ensure idempotency
+        href: /azure/databricks/kb/jobs/jobs-idempotency
         maintainContext: true
     - name: Libraries
       items:
