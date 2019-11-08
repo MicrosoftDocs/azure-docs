@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample PowerShell scripts for Azure Disk Encryption 
 

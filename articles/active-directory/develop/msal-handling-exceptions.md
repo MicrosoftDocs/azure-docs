@@ -1,7 +1,7 @@
 ---
 title: Errors and exceptions (MSAL) 
 titleSuffix: Microsoft identity platform
-description: Learn how to handle errors and exceptions, conditional access, and claims challenges in MSAL applications.
+description: Learn how to handle errors and exceptions, Conditional Access, and claims challenges in MSAL applications.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -30,7 +30,7 @@ Exceptions in Microsoft Authentication Library (MSAL) are intended for app devel
 
 When processing exceptions and errors, you can use the exception type itself and the error code to distinguish between exceptions.  For a list of error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
 
-During silent or interactive token acquisition, apps may come across errors during the sign-in experience such as errors about consents, conditional access (MFA, Device Management, Location-based restrictions), token issuance and redemption, and user properties.
+During silent or interactive token acquisition, apps may come across errors during the sign-in experience such as errors about consents, Conditional Access (MFA, Device Management, Location-based restrictions), token issuance and redemption, and user properties.
 
 ## MSAL for iOS and macOS errors
 

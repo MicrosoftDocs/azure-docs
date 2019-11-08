@@ -130,6 +130,6 @@ Now that you have learned how to connect a DevKit device to your Azure IoT Remot
 
 * [Azure IoT solution accelerators overview](https://docs.microsoft.com/azure/iot-suite/)
 
-* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit)
 
 * [IoT developer kit](https://microsoft.github.io/azure-iot-developer-kit/) 

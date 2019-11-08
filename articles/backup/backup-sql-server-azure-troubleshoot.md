@@ -28,7 +28,6 @@ To configure protection for a SQL Server database on a virtual machine, you must
 |---|---|---|---|
 | Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Neither differential backup nor transaction log backup is possible. </li> <li>Any database in the simple recovery model does not allow for the backup of transaction logs.</li> | Modify the database settings such that all the backup types in the policy are supported. Or, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad hoc backup.
 
-
 ### UserErrorSQLPODoesNotSupportBackupType
 
 | Error message | Possible causes | Recommended action |
@@ -78,7 +77,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 |---|---|---|
 | Restore failed as the database could not be brought offline. | While you're doing a restore, the target database needs to be brought offline. Azure Backup can't bring this data offline. | Use the additional details on the Azure portal error menu to narrow down the root causes. For more information, see the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-###  UserErrorCannotFindServerCertificateWithThumbprint
+### UserErrorCannotFindServerCertificateWithThumbprint
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
@@ -89,7 +88,6 @@ To configure protection for a SQL Server database on a virtual machine, you must
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time as per the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
-
 
 ### FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -125,8 +123,7 @@ Operation is blocked as you have reached the limit on number of operations permi
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours. | When you have reached the maximum permissible limit for an operation in a span of 24 hours, this error comes. This error usually comes in case of at-scale operations such as modify policy or auto-protection. Unlike in the case of CloudDosAbsoluteLimitReached, there is not much you can do to resolve this state, in fact, Azure Backup service will retry the operations internally for all the items in question.<br> For example: If you have a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.| Azure Backup service will automatically retry this operation after 24 hours. 
-
+Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours. | When you have reached the maximum permissible limit for an operation in a span of 24 hours, this error comes. This error usually comes when there are at-scale operations such as modify policy or auto-protection. Unlike in the case of CloudDosAbsoluteLimitReached, there is not much you can do to resolve this state, in fact, Azure Backup service will retry the operations internally for all the items in question.<br> For example: If you have a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.| Azure Backup service will automatically retry this operation after 24 hours.
 
 ## Re-registration failures
 
@@ -145,14 +142,14 @@ Check for one or more of the following symptoms before you trigger the re-regist
 
 These symptoms may arise for one or more of the following reasons:
 
-* An extension was deleted or uninstalled from the portal. 
+* An extension was deleted or uninstalled from the portal.
 * An extension was uninstalled from **Control Panel** on the VM under **Uninstall or Change a Program**.
 * The VM was restored back in time through in-place disk restore.
 * The VM was shut down for an extended period, so the extension configuration on it expired.
 * The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
 * One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.
 
-In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. For now, this option is available only through PowerShell.
+In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. See [here](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) for instructions on how to perform this task in PowerShell.
 
 ## Size limit for files
 
@@ -183,6 +180,7 @@ If the string size of the content exceeds 20,000 bytes, the database files are s
 You can override the target restore file path during the restore operation by placing a JSON file that contains the mapping of the database file to the target restore path. Create a `database_name.json` file and place it in the location *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
 
 The content of the file should be in this format:
+
 ```json
 [
   {
@@ -222,7 +220,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
   ```
-
 
 This file should be placed before you trigger the restore operation.
 
