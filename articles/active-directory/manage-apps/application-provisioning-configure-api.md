@@ -116,7 +116,7 @@ POST https://graph.microsoft.com/beta/applicationTemplates/{id}/instantiate
 Content-type: application/json
 
 {
-  "displayName": "My custom name"
+  "displayName": "AWS Contoso"
 }
 ```
 
@@ -133,53 +133,37 @@ Content-type: application/json
 HTTP/1.1 201 OK
 Content-type: application/json
 
+
 {
-   "servicePrincipal": {
-	  "accountEnabled": true,
-	  "addIns": [
-	    {
-	      "id": "id-value",
-	      "type": "type-value",
-	      "properties": [
-		{
-		  "key": "key-value",
-		  "value": "value-value"
-		}
-	      ]
-	    }
-	  ],
-	  "appDisplayName": "appDisplayName-value",
-	  "appId": "appId-value",
-	  "appOwnerOrganizationId": "appOwnerOrganizationId-value",
-	  "appRoleAssignmentRequired": true
-   },
-   "application": {
-	  "api": {
-	    "acceptedAccessTokenVersion": 1,
-	    "publishedPermissionScopes": [
-	      {
-		"adminConsentDescription": "adminConsentDescription-value",
-		"adminConsentDisplayName": "adminConsentDisplayName-value",
-		"id": "id-value",
-		"isEnabled": true,
-		"type": "type-value",
-		"userConsentDescription": "userConsentDescription-value",
-		"userConsentDisplayName": "userConsentDisplayName-value",
-		"value": "value-value"
-	      }
-	    ]
-	  },
-	  "allowPublicClient": true,
-	  "applicationAliases": [
-	    "applicationAliases-value"
-	  ],
-	  "createdDateTime": "datetime-value",
-	  "installedClients": {
-	    "redirectUrls": [
-	      "redirectUrls-value"
-	    ]
-	  }
-   }
+    "application": {
+        "objectId": "cbc071a6-0fa5-4859-8g55-e983ef63df63",
+        "appId": "92653dd4-aa3a-3323-80cf-e8cfefcc8d5d",
+        "applicationTemplateId": "8b1025e4-1dd2-430b-a150-2ef79cd700f5",
+        "displayName": "AWS Contoso",
+        "homepage": "https://signin.aws.amazon.com/saml?metadata=aws|ISV9.1|primary|z",
+        "replyUrls": [
+            "https://signin.aws.amazon.com/saml"
+        ],
+        "logoutUrl": null,
+        "samlMetadataUrl": null,
+    },
+    "servicePrincipal": {
+        "objectId": "f47a6776-bca7-4f2e-bc6c-eec59d058e3e",
+        "appDisplayName": "AWS Contoso",
+        "applicationTemplateId": "8b1025e4-1dd2-430b-a150-2ef79cd700f5",
+        "appRoleAssignmentRequired": true,
+        "displayName": "My custom name",
+        "homepage": "https://signin.aws.amazon.com/saml?metadata=aws|ISV9.1|primary|z",
+        "replyUrls": [
+            "https://signin.aws.amazon.com/saml"
+        ],
+        "servicePrincipalNames": [
+            "93653dd4-aa3a-4323-80cf-e8cfefcc8d7d"
+        ],
+        "tags": [
+            "WindowsAzureActiveDirectoryIntegratedApp"
+        ],
+    }
 }
 ```
 
@@ -210,8 +194,8 @@ HTTP/1.1 200 OK
 {
     "value": [
         {
-            "id": "Slack",
-            "factoryTag": "CustomSCIM",
+            "id": "aws",
+            "factoryTag": "aws",
             "schema": {
                     "directories": [],
                     "synchronizationRules": []
@@ -234,7 +218,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
 Content-type: application/json
 
 { 
-    "templateId": "Slack"
+    "templateId": "aws"
 }
 ```
 
@@ -250,7 +234,7 @@ Content-type: application/json
 
 {
     "id": "{jobId}",
-    "templateId": "Slack",
+    "templateId": "aws",
     "schedule": {
         "expiration": null,
         "interval": "P10675199DT2H48M5.4775807S",
