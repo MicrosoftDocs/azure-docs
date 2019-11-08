@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 
 # Secure hybrid access: Secure legacy apps with app delivery controllers and networks
 
-You can now protect your on-premises and cloud legacy authentication applications by connecting them to Azure AD with your existing application delivery controller or network. This way, you can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities, like Azure AD Conditional Access and Azure AD Identity Protection.
+You can now protect your on-premises and cloud legacy authentication applications by connecting them to Azure AD with your existing application delivery controller or network. This way, you can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like Azure AD Conditional Access and Azure AD Identity Protection.
 
-By using your existing networking and delivery controller you can easily protect legacy applications that are still critical to your business processes, but that you couldn't protect before with Azure AD. It's likely you already have everything you need to start protecting these applications.
+Using your existing networking and delivery controller, you can easily protect legacy applications that are still critical to your business processes but that you couldn't protect before with Azure AD. It's likely you already have everything you need to start protecting these applications.
 
 ![Image showing secure hybrid access](media/secure-hybrid-access/secure-hybrid-access.png)
 
