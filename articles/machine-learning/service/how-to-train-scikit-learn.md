@@ -180,10 +180,15 @@ Register the model to your workspace with the following code.
 model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 ```
 
+> [!TIP]
+> The model you just registered is deployed the exact same way as any other registered model in Azure 
+Machine Learning, regardless of which estimator you used for training. The deployment how-to
+contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where#choose-a-compute-target) for deployment, since you already have a registered model.
+
 ## Next steps
 
 
-In this article, you trained and registered a Keras model on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a scikit-learn model on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
 > [!div class="nextstepaction"]
 > [How and where to deploy models](how-to-deploy-and-where.md)
