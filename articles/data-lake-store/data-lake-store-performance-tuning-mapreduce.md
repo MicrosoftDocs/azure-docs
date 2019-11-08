@@ -23,7 +23,6 @@ ms.author: stewu
 
 When running MapReduce jobs, here are the most important parameters that you can configure to increase performance on Data Lake Storage Gen1:
 
-
 |Parameter      | Description  |
 |---------|---------|
 |`Mapreduce.map.memory.mb`  |  The amount of memory to allocate to each mapper.  |
