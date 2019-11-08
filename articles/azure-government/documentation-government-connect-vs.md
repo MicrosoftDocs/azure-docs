@@ -53,8 +53,6 @@ Then you can click on the blue "Manage Accounts" link in the top-left corner and
 
 You are prompted to sign in, and once you have entered your credentials you will be able to see your account and subscriptions populate on the left-hand side. Now you are free to manage and interact with your Azure Government resources in Visual Studio!
 
-![VS-8](./media/connect-to-vs-8.png)
-
 ## Next steps
 
 This quickstart showed you how to use Visual Studio to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you check out the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
