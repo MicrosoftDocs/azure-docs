@@ -39,7 +39,7 @@ In this article we will summarize migration details for:
 > * AKS with Standard Load Balancer and Virtual Machine Scale Sets
 > * Existing attached Azure Services
 > * Ensure valid quotas
-> * High Availability and Business Continuity
+> * High Availability and business continuity
 > * Considerations for stateless applications
 > * Considerations for statefull applications
 > * Deployment of your cluster configuration
@@ -171,7 +171,7 @@ In this article we summarized migration details for:
 > * AKS with Standard Load Balancer and Virtual Machine Scale Sets
 > * Existing attached Azure Services
 > * Ensure valid quotas
-> * High Availability and Business Continuity
+> * High Availability and business continuity
 > * Considerations for stateless applications
 > * Considerations for statefull applications
 > * Deployment of your cluster configuration
