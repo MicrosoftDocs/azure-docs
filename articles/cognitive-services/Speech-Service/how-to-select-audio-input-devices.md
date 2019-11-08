@@ -1,7 +1,7 @@
 ---
 title: How to select an audio input device with the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Learn about selecting audio input devices in the Speech SDK (C++, C#, Python, Objective-c, Java, Javascript) by obtaining the IDs of the audio devices connected to a system.
+description: Learn about selecting audio input devices in the Speech SDK (C++, C#, Python, Objective-C, Java, JavaScript) by obtaining the IDs of the audio devices connected to a system.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
