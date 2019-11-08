@@ -86,17 +86,25 @@ Content-type: application/json
 
 {
   "value": [
-    {
-      "id" : "id-value",
-      "displayName" : "displayName-value",
-      "homePageUrl" : "homePageUrl-value",
-      "supportedSingleSignOnModes" : ["supportedSingleSignOnModes-value"],
-      "logoUrl" : "logoUrl-value",
-      "categories" : ["categories-value"],
-      "publisher" : "publisher-value",
-      "description" : "description-value"
-    }
-  ]
+  {
+  	"id": "8b1025e4-1dd2-430b-a150-2ef79cd700f5",
+        "displayName": "Amazon Web Services (AWS)",
+        "homePageUrl": "http://aws.amazon.com/",
+        "supportedSingleSignOnModes": [
+             "password",
+             "saml",
+             "external"
+         ],
+         "supportedProvisioningTypes": [
+             "sync"
+         ],
+         "logoUrl": "https://az495088.vo.msecnd.net/app-logo/aws_215.png",
+         "categories": [
+             "developerServices"
+         ],
+         "publisher": "Amazon",
+         "description": null    
+  
 }
 ```
 
