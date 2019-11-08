@@ -81,7 +81,7 @@ It can take a while to replicate the image to all of the target regions.
 1. In the page for your image definition, select **Add version** from the top of the page.
 1. In **Region**, select the region where your snapshot is stored. Image versions need to be created in the same region as the source they are created from.
 1. For **Name**, type *1.0.0*. The image version name should follow *major*.*minor*.*patch* format using integers. 
-1. In **OS disk snapshot**, select the snapshot from your source VM from the drop-down. If your source VM had a data disk that you would like to include, select the correct **Lun** number from the drop-down, and then select the snapshot of the data disk for **Data disk snapshot**. 
+1. In **OS disk snapshot**, select the snapshot from your source VM from the drop-down. If your source VM had a data disk that you would like to include, select the correct **LUN** number from the drop-down, and then select the snapshot of the data disk for **Data disk snapshot**. 
 1. In **Exclude from latest**, leave the default value of *No*.
 1. For **End of life date**, select a date from the calendar that is a couple of months in the future.
 1. In **Replication**, leave the **Default replica count** as 1. You need to replicate to the source region, so leave the first replica as the default and then pick a second replica region to be *East US*.
