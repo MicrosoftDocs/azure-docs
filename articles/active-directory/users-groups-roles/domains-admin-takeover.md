@@ -1,17 +1,15 @@
 ---
-title: Administrator takeover of an unmanaged directory - Azure Active Directory | Microsoft Docs
-description: How to take over a DNS domain name in an unmanaged directory (shadow tenant) in Azure Active Directory. 
+title: Admin takeover of an unmanaged directory - Azure AD | Microsoft Docs
+description: How to take over a DNS domain name in an unmanaged Azure AD organization (shadow tenant). 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -20,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
 
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service signup for Azure Active Directory?](directory-self-service-signup.md)
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Azure Active Directory?](directory-self-service-signup.md)
 
 ## Decide how you want to take over an unmanaged directory
 During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
