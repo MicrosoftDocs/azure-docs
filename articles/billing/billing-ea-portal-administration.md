@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/07/2019
+ms.date: 11/08/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -325,15 +325,13 @@ A view of all enrollments remains at the top of the page, with boxes for each en
 
 The Azure sponsorship offer is a limited sponsored Microsoft Azure account. It is available by e-mail invitation only to limited customers selected by Microsoft. If you're entitled to the Microsoft Azure sponsorship offer, you'll receive an e-mail invitation to your account ID.
 
-For more information, see:
-
-- Support request for Sponsorship Activation -  https://aka.ms/azrsponsorship
+For more information, create a [support request for sponsorship activation](https://aka.ms/azrsponsorship).
 
 ## Conversion to work or school account authentication
 
 Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account (which uses Active Directory in Azure) authentication type.
 
-### To begin:
+To begin:
 
 1. Add the work or school account to the Azure EA Portal in the role(s) needed.
 1. If you get errors, the account may not be valid in the active directory.  Azure uses User Principal Name (UPN), which is not always identical to the email address.

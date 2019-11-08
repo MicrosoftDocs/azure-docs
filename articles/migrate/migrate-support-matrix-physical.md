@@ -13,6 +13,9 @@ ms.author: raynew
 
 You can use the [Azure Migrate service](migrate-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This article summarizes support settings and limitations for assessing and migrating on-premises physical servers.
 
+> [!NOTE]
+> If features are mentioned here that you don't yet see in the Azure Migrate portal, hang on. They will appear over the next week or so.
+
 
 ## Physical server scenarios
 
