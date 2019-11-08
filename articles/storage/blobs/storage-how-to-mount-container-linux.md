@@ -5,7 +5,7 @@ author: rishabpoh
 ms.service: storage
 ms.topic: conceptual
 ms.date: 2/1/2019
-ms.author: rishabpoh
+ms.author: ripohane
 ms.reviewer: dineshm
 ---
 
