@@ -29,8 +29,6 @@ landingContent:
             url: container-registry-intro.md
           - text: Registries, repositories, and images
             url: container-registry-concepts.md
-          - text: FAQ
-            url: container-registry-faq.md
   # Card (optional)
   - title: Get started
     linkLists:
@@ -65,8 +63,10 @@ landingContent:
             url: container-registry-geo-replication.md
           - text: Authentication
             url: container-registry-authentication.md
-            text: Best practices
+          - text: Best practices
             url: container-registry-best-practices.md
+          - text: FAQ
+            url: container-registry-faq.md
   # Card (optional)
   - title: ACR Tasks
     linkLists:
