@@ -73,7 +73,7 @@ The following sections list changes in the most recent releases.
 - With this release a number of breaking changes are introduced. Please check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details relating to the APIs.
 - The KWS model files are not compatible with Speech Devices SDK 1.0.1. The existing keyword files will be deleted after the new keyword files are written to the device.
 
-## Cognitive Services Speech Devices SDK 0.5.0: 2018-Aug release
+## Speech Devices SDK 0.5.0: 2018-Aug release
 
 - Improved the accuracy of speech recognition by fixing a bug in the audio processing code.
 - Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 0.5.0. For more information, see its
