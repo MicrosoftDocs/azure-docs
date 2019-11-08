@@ -24,14 +24,14 @@ More information about how security is integrated into every aspect of Azure is 
 > [!NOTE] 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
 > 
-> On November 12, 2019, Intel published a technical advisory around Intel® Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort (TAA) vulnerability that is assigned [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135). Microsoft has released updates to help mitigate this vulnerability and the OS protections are enabled by default for Windows Client OS Editions.
-
+> On November 12, 2019, [Intel published](https://software.intel.com/security-software-guidance/insights/deep-dive-intel-transactional-synchronization-extensions-intel-tsx-asynchronous-abort) a technical advisory around Intel® Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort (TAA) vulnerability that is assigned [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135). Microsoft has released updates to help mitigate this vulnerability and the OS protections are enabled by default for Windows Client OS Editions.
 >
 > This vulnerability affects Intel® Core® processors and Intel® Xeon® processors.  Microsoft Azure has released operating system updates and is deploying new microcode, as it is made available by Intel, throughout our fleet to protect our customers against these new vulnerabilities.   Azure is closely working with Intel to test and validate the new microcode prior to its official release on the platform. 
 >
 > **Customers that are running untrusted code within their VM** need to take action to protect against these vulnerabilities by reading below for additional guidance on all speculative execution side-channel vulnerabilities (Microsoft Advisories ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), and [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
 >
 > Other customers should evaluate these vulnerabilities from a Defense in Depth perspective and consider the security and performance implications of their chosen configuration.
+> 
 
 
 
@@ -175,7 +175,8 @@ This article provides guidance to the below speculative execution side-channel a
 - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
 - CVE-2018-12130 - Microarchitectural Fill Buffer Data Sampling (MFBDS)
 
-- Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort:  [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX Transaction Asynchronous Abort (TAA)
+Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort:  
+- [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX Transaction Asynchronous Abort (TAA)
 
 
 
