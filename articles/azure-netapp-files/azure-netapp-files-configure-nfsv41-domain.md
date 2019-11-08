@@ -21,7 +21,7 @@ NFSv4 introduces the concept of an authentication domain. Azure NetApp Files cur
 
 ## Default behavior of user/group mapping
 
-Root mapping defaults to `nobody` user given the NFSv4 domain is set to `localdomain`. When you mount an ANF NFsv4.1 volume as root, you will see file permissions as shown in the following example:  
+Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain`. When you mount an Azure NetApp Files NFSv4.1 volume as root, you will see file permissions as follows:  
 
 ![Default behavior of user/group mapping for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
