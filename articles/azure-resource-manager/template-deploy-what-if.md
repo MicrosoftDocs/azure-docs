@@ -10,29 +10,50 @@ ms.author: jgao
 ---
 # Resource Manager template deployment what-if operation
 
-Before deploying a template, you might want to preview the changes that will happen in your resource group or subscription. Azure Resource Manager provides the what-if operation to let you review the changes and notice any unexpected changes. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
+Before deploying a template, you might want to preview the changes that will happen if you deploy the template. Azure Resource Manager provides the what-if operation to let you see the changes. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed. Use this feature to make sure your template doesn't make any unexpected changes.
 
-A full resource payload output looks like:
+The output looks like:
 
 ![Resource Manager template deployment what-if operation fullresourcepayload and change types](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-The output lists the types of changes that apply to the operation. There are six types:
+## Change types
 
-- **Create**: The resource doesn't currently exist but is defined in the template. The resource will be created when the deployment is executed.
+The what-if operation returns six categories of changes:
 
-- **Delete**: This change type only applies when using the [Complete mode](deployment-modes.md) for deployment. The resource exists, but isn't defined in the template. The resource will be deleted when the deployment is executed.
+- **Create**: The resource doesn't currently exist but is defined in the template. The resource will be created.
 
-- **Ignore**: The resource exists, but isn't defined in the template. The resource won't be deployed or modified when the deployment is executed. (Proxy resources don't show up with this change type because we can't discover them. Tracked resources in Complete mode that are outside of the RG that matches the what-if request will fall into this bucket as well.)
+- **Delete**: This change type only applies when using [complete mode](deployment-modes.md) for deployment. The resource exists, but isn't defined in the template. With complete mode, the resource will be deleted. Only resources that support complete mode deletion are included in this change type. For a list of those resources, see [Deletion of Azure resources for complete mode deployments](complete-mode-deletion.md).
 
-- **Deploy**: The resource exists, and is defined in the template. It will be redeployed when the deployment is executed. The properties of the resource may or may not change. (This will only show up if ResultFormat is ResourceIdOnly because we don't have sufficient information to perform the proper diff.)
+- **Ignore**: The resource exists, but isn't defined in the template. The resource won't be deployed or modified. (Proxy resources don't show up with this change type because we can't discover them. Tracked resources in Complete mode that are outside of the RG that matches the what-if request will fall into this bucket as well.)
 
-- **NoChange**: The resource exists, and is defined in the template. It will be redeployed when the deployment is executed. The properties of the resource will not change. (This change type is reported with default ResultFormat or when ResultFormat is set to FullResourcePayloads.)
+- **Deploy**: The resource exists, and is defined in the template. The resource will be redeployed. The properties of the resource may or may not change. This change type is returned because the operation doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
 
-- **Modify**: The resource exists, and is defined in the template. It will be redeployed when the deployment is executed. The properties of the resource will change. (This change type is reported with default ResultFormat or when ResultFormat is set to FullResourcePayloads.)
+- **NoChange**: The resource exists, and is defined in the template. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
 
-The what-if can be ran in either the subscription level or the resource group level. The switch for the parameter is called `-ScopeType`. The accepted values are `Subscription` and `Resource Group`. This article only demonstrates the resource group level deployment what-if operation. To learn more about the scopes, see [Deployment scopes](resource-group-template-deploy-rest.md#deployment-scope).
+- **Modify**: The resource exists, and is defined in the template. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+
+## Deployment scope
+
+The what-if operation can be used with deployments at either the subscription or resource group level. The switch for the parameter is called `-ScopeType`. The accepted values are `Subscription` and `Resource Group`. This article only demonstrates the resource group level deployment what-if operation.
+
+To learn about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md#).
 
 To learn more, see the [New-AzDeploymentWhatIf reference](/powershell/module/az.resources/new-azdeploymentwhatif).
+
+## Result format
+
+Use the `-ResultFormat` parameter to control the amount of information that is returned about the predicted changes. To see all properties that will change, set the result format to `FullResourcePayloads`. To see only which resources will change, set the result format to `ResourceIdOnly`. The default value is `FullResourcePayloads`.  
+
+The following screenshots show the two different output formats:
+
+- Resource ID only
+
+    ![Resource Manager template deployment what-if operation resourceidonly output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
+
+- Full resource payloads
+
+    ![Resource Manager template deployment what-if operation fullresourcepayloads output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
+
 
 ## Run what-if operation
 
@@ -64,17 +85,6 @@ There is a legend at the top of the output indicating what will be deleted and w
 
 At the bottom of the output, it shows the sku name (storage account type) will be changed from **Standard_LRS** to **Standard_GRS**.
 
-## Control the result formats
-
-You can use the `-ResultFormat` to control the outputs. The accepted values are `ResourceIdOnly` and `FullResourcePayloads`.  The following screenshots show the two different output formats:
-
-- Resource ID only
-
-    ![Resource Manager template deployment what-if operation resourceidonly output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
-
-- Full resource payloads
-
-    ![Resource Manager template deployment what-if operation fullresourcepayloads output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
 
 ## Use deployment mode
 
