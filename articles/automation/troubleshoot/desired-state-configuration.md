@@ -21,7 +21,7 @@ steps to help you diagnose the issue.
 
 1. **Ensure your configuration compiles successfully on your local machine:**  Azure State Configuration
    is built on PowerShell DSC. You can find the documentation for the DSC language and syntax in
-   the [PowerShell DSC Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+   the [PowerShell DSC Docs](https://docs.microsoft.com/powershell/scripting/overview).
 
    By compiling your DSC configuration on your local machine you can discover and resolve common errors, such as:
 
