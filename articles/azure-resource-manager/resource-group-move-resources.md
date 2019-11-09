@@ -257,9 +257,26 @@ The next image shows the error message when a user tries to create a new resourc
 
 **Question: What does the error code "MissingMoveDependentResources" mean?**
 
-Every resource move requires that the dependent resources for a resource being moved either already exists in the destination resource group or Subscription or are also moved as part of the resource move action.
+When moving a resource, its dependent resources must already exist in the destination resource group or subscription, or be included in the move request. You get the MissingMoveDependentResources error code when one or more of the dependent resources doesn't meet this requirement. The error message has details about the dependent resource that needs to be included in the move request.
 
-The MissingMoveDependentResources error code means the move request failed validation. One or more of the dependent resources required for the resource move action isn't available as part of the move request. Depending on the resource provider's implementation, resource move can either check that the source resource group has all the dependent resources, or check that the Destination Resource Group/Subscription has the dependent resource(s). The Error Message returned would have details on the resources that need to be included as part of the Resource Move operation to resolve the dependencies.
+For example, moving a virtual machine could require moving seven resource types in three different resource providers. Those resource providers and types are:
+
+* Microsoft.Compute
+   * virtualMachines
+   * disks
+* Microsoft.Network
+  * networkInterfaces
+  * publicIPAddresses
+  * networkSecurityGroups
+  * virtualNetworks
+* Microsoft.Storage
+  * storageAccounts
+
+When moving a virtual network, you may have to move all other resource associated with that virtual network. The move request may require also moving public IP addresses, route tables, virtual network gateways, network security groups, and others.
+
+**Question: Why can’t I move some resources in Azure?**
+
+Currently, not all resources in Azure support move. For a list of resources that support move, see [Move operation support for resources](move-support-resources.md).
 
 ## Next steps
 
