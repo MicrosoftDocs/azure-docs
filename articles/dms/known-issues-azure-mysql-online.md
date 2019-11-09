@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 11/08/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure DB for MySQL
@@ -78,7 +78,7 @@ Large Object (LOB) columns are columns that could grow large in size. For MySQL,
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
+    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## Limitations when migrating online from AWS RDS MySQL
 
@@ -107,7 +107,7 @@ When you try to perform an online migration from AWS RDS MySQL to Azure Database
 
 - **Error:** The target database {database} is empty. Please migrate the schema.
 
-  **Limitation**: This error occurs when the target Azure Database for MySQL database does not have the required schema. Schema migration is required to enable migrating data to your target.
+  **Limitation**: This error occurs when the target Azure Database for MySQL database doesn't have the required schema. Schema migration is required to enable migrating data to your target.
 
   **Workaround**: [Migrate the schema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) from your source database to the target database.
 
@@ -125,4 +125,10 @@ When you try to perform an online migration from AWS RDS MySQL to Azure Database
     CREATE INDEX partial_name ON customer (name(10));
     ```
 
-- In DMS, the limit of databases to migrate in one single migration activity is four.
+- In Azure Database Migration Service, the limit of databases to migrate in one single migration activity is four.
+
+- **Error:** Row size too large (> 8126). Changing some columns to TEXT or BLOB may help. In current row format, BLOB prefix of 0 bytes is stored inline.
+
+  **Limitation**: This error happens when you're migrating to Azure Database for MySQL using the InnoDB storage engine and any table row size is too large (>8126 bytes).
+
+  **Workaround**: Update the schema of the table that has a row size greater than 8126 bytes. We don't recommend changing the strict mode because the data will be truncated. Changing the page_size isn't supported.
