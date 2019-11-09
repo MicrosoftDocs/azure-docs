@@ -80,11 +80,13 @@ The device application starts sending data to IoT Hub:
 
    ![Device confirmation messages](media/quickstart-connect-pnp-device/device-confirmation-node.png)
 
+Keep the application running while you complete the next steps.
+
 [!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
 4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
 
-1. On the device overview page, find the device identity you created previously, and select it to view more details.
+1. On the device overview page, find the device identity you created previously. With the device application still running in the command prompt, check that the device's **Connection State** in Azure IoT explorer is reporting as _Connected_ (if not, hit **Refresh** until it is). Select the device to view more details.
 
 1. Expand the interface with ID **urn:contoso:com:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
 
