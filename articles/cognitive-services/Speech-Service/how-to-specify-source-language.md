@@ -19,7 +19,7 @@ In this article, you'll learn how to specify the source language for an audio in
 
 ::: zone pivot="programming-language-csharp"
 
-## How to specify source language in C
+## How to specify source language in C#
 
 The first step is to create a `SpeechConfig`:
 
@@ -43,6 +43,7 @@ speechConfig.EndpointId = "The Endpoint ID for your custom model.";
 
 ::: zone pivot="programming-language-cpp"
 
+
 ## How to specify source language in C++
 
 In this example, the source language is provided explicitly as a parameter using the `FromConfig` method.
@@ -65,7 +66,8 @@ auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE", "The End
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-> [!Note] > `SetSpeechRecognitionLanguage` and `SetEndpointId` are deprecated methods from the `SpeechConfig` class in C++ and Java. The use of these methods are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
+>[!Note]
+> `SetSpeechRecognitionLanguage` and `SetEndpointId` are deprecated methods from the `SpeechConfig` class in C++ and Java. The use of these methods are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
 
 ::: zone-end
 
@@ -93,7 +95,8 @@ SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("d
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-> [!Note] > `setSpeechRecognitionLanguage` and `setEndpointId` are deprecated methods from the `SpeechConfig` class in C++ and Java. The use of these methods are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
+>[!Note]
+> `setSpeechRecognitionLanguage` and `setEndpointId` are deprecated methods from the `SpeechConfig` class in C++ and Java. The use of these methods are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
 
 ::: zone-end
 
@@ -168,8 +171,8 @@ speechConfig.endpointId = @"The Endpoint ID for your custom model.";
 
 ## See also
 
-- For a list of supported languages and locales for speech to text, see [Language support](language-support.md).
+* For a list of supported languages and locales for speech to text, see [Language support](language-support.md).
 
 ## Next steps
 
-- [Speech SDK reference documentation](speech-sdk.md)
+* [Speech SDK reference documentation](speech-sdk.md)
