@@ -3,7 +3,7 @@ title: Manage directories, files, and permissions in Azure Data Lake Storage Gen
 description: Use Python manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 author: normesta
 ms.service: storage
-ms.date: 06/28/2019
+ms.date: 11/08/2019
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
@@ -12,250 +12,252 @@ ms.reviewer: prishet
 
 # Manage directories, files, and permissions in Azure Data Lake Storage Gen2 (Python)
 
-This article shows you how to use Python to work with directories, files, and POSIX [access control lists](data-lake-storage-access-control.md) (ACLs) in storage accounts that have a hierarchical namespace.
+This article shows you how to use Python to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. To create an account, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+
+[Library source code](https://github.com/Azure/azure-sdk-for-python) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
+
+## Set up your project
+
+Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
+
+```
+pip install azure-storage-file-datalake --pre
+```
+
+Add these import statements to the top of your code file.
+
+```python
+import os, uuid, sys
+from azure.storage.filedatalake import DataLakeServiceClient
+```
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) instance that represents the storage account. The easiest way to get one is to use an account key. 
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. The easiest way to get one is to use an account key. 
 
-This example uses an account key to create a [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) instance that represents Blob storage in your storage account. 
+This example uses an account key to create a **DataLakeServiceClient** instance that represents the storage account. 
 
 ```python
-def initialize_storage_account(storage_account_name, storage_account_key):
-    try:
-       global block_blob_service
-
-       block_blob_service = BlockBlobService(account_name=storage_account_name, account_key=storage_account_key)
-
-    except Exception as e:
-        print(e)
+try:  
+    global service_client
+        
+    service_client = DataLakeServiceClient(account_url="{}://{}.dfs.core.windows.net".format(
+        "https", storage_account_name), credential=storage_account_key)
+    
+except Exception as e:
+    print(e)
 ```
  
 - Replace the `storage_account_name` placeholder value with the name of your storage account.
 
 - Replace the `storage-account-key` placeholder value with your storage account access key.
 
-## Create a directory
+## Create a file system
 
-Add a directory by calling the **BlockBlobService.create_directory** method. Pass these items as parameters to the method:
+A file system acts as a container for your files. You can create one by calling the **FileSystemDataLakeServiceClient.create_file_system** method.
 
-- The name of the container.
-- The path of the new directory.
-
-This example adds a directory named `my-directory` to a container. 
+This example creates a file system named `my-file-system`.
 
 ```python
-def create_directory(container_name):
+def create_file_system():
     try:
+        global file_system_client
 
-        block_blob_service.create_directory(container_name, "my-directory")
-
+        file_system_client = service_client.create_file_system(file_system="my-file-system")
+    
     except Exception as e:
-        print(e)
+        print(e) 
+```
+
+
+## Create a directory
+
+Create a directory reference by calling the **FileSystemClient.create_directory** method.
+
+This example adds a directory named `my-directory` to a file system. 
+
+```python
+def create_directory():
+    try:
+        file_system_client.create_directory("my-directory")
+    
+    except Exception as e:
+     print(e) 
 ```
 
 ## Rename a directory
 
-Rename a directory by calling the **BlockBlobService.rename_path** method. Pass these items as parameters to the method:
+Rename a directory by calling the **DataLakeDirectoryClient.rename_directory** method. Pass the path of the desired directory a parameter. 
 
-- The name of the container.
-- The path that you want to give the directory.
-- The path of the existing directory.
-
-This example renames the directory `my-directory` to the name `my-new-directory`.
+This example renames a sub-directory to the name `my-subdirectory-renamed`.
 
 ```python
-def rename_directory(container_name):
-  
+def rename_directory():
     try:
-
-        block_blob_service.rename_path(container_name,"my-new-directory","my-directory")
+       
+       file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+       directory_client = file_system_client.get_directory_client("my-directory")
+       
+       new_dir_name = "my-directory-renamed"
+       directory_client.rename_directory(rename_destination=directory_client.file_system_name + '/' + new_dir_name)
 
     except Exception as e:
-        print(e)) 
-```
-
-## Move a directory
-
-Move a directory by calling the **BlockBlobService.rename_path** method. Pass these items as parameters to the method:
-
-- The name of the container.
-- The path that you want to give the directory.
-- The path of the existing directory.
-
-
-This example moves a directory named `my-directory` to a sub-directory of another directory named `my-directory-2`. 
-
-```python
-def rename_directory(container_name):
-  
-    try:
-
-        block_blob_service.rename_path(container_name, "my-directory", "my-directory-2/my-directory") )
-
-    except Exception as e:
-        print(e)) 
-
+     print(e) 
 ```
 
 ## Delete a directory
 
-Delete a directory by calling the **BlockBlobService.delete_directory** method. Pass these items as parameters to the method:
+Delete a directory by calling the **DataLakeDirectoryClient.delete_directory** method.
 
-- The name of the container.
-- The path of the directory that you want to delete.
-
-This method deletes a directory named `my-directory`.  
+This example deletes a directory named `my-directory`.  
 
 ```python
-def delete_directory(container_name):
-  
+def delete_directory():
     try:
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+        directory_client = file_system_client.get_directory_client("my-directory")
 
-        block_blob_service.delete_directory(container_name, "my-directory")
-
+        directory_client.delete_directory()
     except Exception as e:
-        print(e)
+     print(e) 
 ```
 
-## Get the ACL of a directory
+## Manage directory permissions
 
-Get the access permissions of a directory by calling the **BlockBlobService.get_path_access_control** method. Pass these items as parameters to the method:
+Get the access control list (ACL) of a directory by calling the **DataLakeDirectoryClient.get_access_control** method and set the ACL by calling the **DataLakeDirectoryClient.set_access_control** method.
 
-- The name of the container.
-- The path of the directory.
-
-This example gets the ACL of a directory named `my-directory`, and then prints the short form of ACL to the console.
+This example gets and sets the ACL of a directory named `my-directory`. The string `rwxr-xrw-` gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read and write permission.
 
 ```python
-def get_directory_permissions(container_name):
-  
+def manage_directory_permissions():
     try:
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
 
-        path_properties = PathProperties()
-        path_properties = block_blob_service.get_path_access_control(container_name, "my-directory")
+        directory_client = file_system_client.get_directory_client("my-directory")
         
-        print(path_properties.acl)
-
-        print("Acl: {}".format(path_properties.acl))
-
-    except Exception as e:
-        print(e)
-```
-
-The short form of an ACL might look something like the following:
-
-`user::rwx,group::r-x,other::---`
-
-This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. 
-
-## Set the ACL of a directory
-
-Set the access permissions of a directory by calling the **BlockBlobService.set_directory_permissions** method. Pass these items as parameters to the method:
-
-- The name of the container.
-- The path of the directory.
-- The short form of the desired ACL.
-
-This example gives read access to all users.
-
-```python
-def set_directory_permissions(container_name):
-  
-    try:
-
-        block_blob_service.set_path_access_control(container_name, "my-directory", acl='other::r--')
+        acl_props = directory_client.get_access_control()
         
+        print(acl_props['permissions'])
+        
+        new_dir_permissions = "rwxr-xrw-"
+        
+        directory_client.set_access_control(permissions=new_dir_permissions)
+        
+        acl_props = directory_client.get_access_control()
+        
+        print(acl_props['permissions'])
+    
     except Exception as e:
-        print(e)
+     print(e) 
 ```
 
 ## Upload a file to a directory 
 
-Upload a file to a directory by calling the **BlockBlobService.create_blob_from_path** method. Pass these items as parameters to the method:
+First, create a file reference in the target directory by creating an instance of the **DataLakeFileClient** class. Upload a file by calling the **DataLakeFileClient.append_data** method. Make sure to complete the upload by calling the **DataLakeFileClient.flush_data** method.
 
-- The name of the container.
-- The path to the location in your container where you want to place this file along with the name of the file.
-- The path to the local file that you want to upload.
-
-This example uploads a file named `my-file.txt` to a directory named `my-directory`.
+This example uploads a text file to a directory named `my-directory`.   
 
 ```python
-def upload_file_to_directory(container_name, file_name):
-
-        # Upload the created file, use local_file_name for the blob name
-        block_blob_service.create_blob_from_path(container_name, "my-directory/my-file.txt", file_name)
-```
-
-## Get the ACL of a file
-
-Get the access permissions of a file by calling the **BlockBlobService.get_path_access_control** method. Pass these items as parameters to the method:
-
-- The name of the container.
-- The path of the file.
-
-This example gets the ACL of a file named `my-file.txt`, and then prints the short form of ACL to the console.
-
-```python
-def get_file_ACL(container_name):
-  
+def upload_file_to_directory():
     try:
 
-        path_properties = PathProperties()
-        path_properties = block_blob_service.get_path_access_control(container_name, "my-directory/my-file.txt")
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
 
-        print("Acl: {}".format(path_properties.acl))
-
-    except Exception as e:
-        print(e)
-```
-
-## Set the ACL of a file
-
-Set the access permissions of a file by calling the **BlockBlobService.set_directory_permissions** method. Pass these items as parameters to the method:
-
-- The name of the container.
-- The path of the file.
-- The short form of the desired ACL.
-
-This example gives read access to all users.
-
-```python
-def set_file_ACL(container_name):
-  
-    try:
-
-        block_blob_service.set_path_access_control(container_name, "my-directory/my-file.txt", acl='other::r--')
+        directory_client = file_system_client.get_directory_client("my-directory")
         
+        file_client = directory_client.create_file("uploaded-file.txt")
+        local_file = open("C:\\file-to-upload.txt",'r')
+
+        file_contents = local_file.read()
+
+        file_client.append_data(data=file_contents, offset=0, length=len(file_contents))
+
+        file_client.flush_data(len(file_contents))
+
     except Exception as e:
-        print(e)
+      print(e) 
+```
+
+## Manage file permissions
+
+Get the access control list (ACL) of a file by calling the **DataLakeFileClient.get_access_control** method and set the ACL by calling the **DataLakeFileClient.set_access_control** method.
+
+This example gets and sets the ACL of a file named `my-file.txt`. The string `rwxr-xrw-` gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read and write permission.
+
+```python
+def manage_file_permissions():
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+
+        directory_client = file_system_client.get_directory_client("my-directory")
+        
+        file_client = directory_client.get_file_client("uploaded-file.txt")
+
+        acl_props = file_client.get_access_control()
+        
+        print(acl_props['permissions'])
+        
+        new_file_permissions = "rwxr-xrw-"
+        
+        file_client.set_access_control(permissions=new_file_permissions)
+        
+        acl_props = file_client.get_access_control()
+        
+        print(acl_props['permissions'])
+
+    except Exception as e:
+     print(e) 
 ```
 
 ## Download from a directory 
 
-Download a file from a directory by calling the **BlockBlobService.get_blob_to_path** method. Pass these items as parameters to the method:
-
-- The name of the container.
-- The path to the file in your storage account. 
-- The path to the local file system where you want to download this file along with the name that you want to give the downloaded file.
+Open a local file for writing. Then, create a **DataLakeFileClient** instance that represents the file that you want to download. Call the **DataLakeFileClient.read_file** to read bytes from the file and then write those bytes to the local file. Make sure to complete the download by calling the **DataLakeFileClient.flush_data** method.
 
 ```python
-def download_file_from_directory(container_name, file_destination_path):
+def download_file_from_directory():
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
 
-    block_blob_service.get_blob_to_path(container_name, "my-directory/my-file.txt", file_destination_path)
+        directory_client = file_system_client.get_directory_client("my-directory")
+        
+        local_file = open("C:\\file-to-download.txt",'wb')
+
+        file_client = directory_client.get_file_client("uploaded-file.txt")
+
+        downloaded_bytes = file_client.read_file()
+
+        local_file.write(downloaded_bytes)
+
+        local_file.close()
+
+        file_client.flush_data(len(downloaded_bytes))
+
+    except Exception as e:
+     print(e)
 ```
 ## List directory contents
 
-List the contents of a directory by calling the **BlockBlobService.list_blobs** method.
+List directory contents by calling the **FileSystemClient.get_paths** method, and then enumerating through the results.
+
+This example, prints the names of each file that is located in a directory named `my-directory`.
 
 ```python
 def list_directory_contents():
-    print("\nList blobs in the 'my-directory' directory")
-    generator = block_blob_service.list_blobs("mycontainer/my-directory")
-    for blob in generator:
-        print("\t Blob name: " + blob.name)
+    try:
+        
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+
+        paths = file_system_client.get_paths(path="my-directory")
+
+        for path in paths:
+            print(path.name + '\n')
+
+    except Exception as e:
+     print(e) 
 ```
 
 ## See also
 
-Explore more APIs in the [blob package](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob?view=azure-python) section of the [Azure Client SDK for Python](https://docs.microsoft.com/python/api/overview/azure/storage/client?view=azure-python) docs.
+* [Library source code](https://github.com/Azure/azure-sdk-for-python)
+* [Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/)
+* [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
