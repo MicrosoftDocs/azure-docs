@@ -6,7 +6,7 @@ author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
+author: tagore
 
 ---
 # Connecting Azure Cloud Services Roles to a custom AD Domain Controller hosted in Azure
@@ -144,4 +144,5 @@ Your cloud services should be joined to your custom domain controller. If you wo
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
+
 

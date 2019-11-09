@@ -11,8 +11,8 @@ ms.topic: "reference"
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
 author: tgore03
-ms.author: gwallace
-manager: gwallace
+author: tagore
+
 ---
 
 # Azure Cloud Services Definition WorkerRole Schema
@@ -413,3 +413,5 @@ The following table describes the attributes of the `SourceDirectory` element.
 
 ## See Also
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
+
+

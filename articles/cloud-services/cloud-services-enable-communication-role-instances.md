@@ -8,7 +8,7 @@ manager: carmonm
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/14/2016
-ms.author: gwallace
+author: tagore
 
 ---
 # Enable communication for role instances in azure
@@ -362,5 +362,6 @@ An XML schema reference for the elements used above can be found [here](/previou
 
 ## Next steps
 Read more about the Cloud Service [model](cloud-services-model-and-package.md).
+
 
 

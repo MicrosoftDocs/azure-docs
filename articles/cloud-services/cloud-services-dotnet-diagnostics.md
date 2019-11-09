@@ -9,7 +9,7 @@ ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: gwallace
+author: tagore
 
 ---
 # Enabling Azure Diagnostics in Azure Cloud Services
@@ -196,4 +196,5 @@ If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-diagnostic
 [Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
+
 

@@ -11,8 +11,8 @@ ms.topic: "reference"
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
 author: tgore03
-ms.author: gwallace
-manager: gwallace
+author: tagore
+
 ---
 
 # Azure Cloud Services Definition NetworkTrafficRules Schema
@@ -95,4 +95,6 @@ The `FromRole` element specifies the roles that can communicate with the endpoin
 
 ## See Also
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
+
+
 

@@ -7,7 +7,7 @@ author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
+author: tagore
 
 ---
 # Customize the Lifecycle of a Web or Worker role in .NET
@@ -71,5 +71,6 @@ You can use the ASP.NET lifecycle methods, in addition to those provided by the 
 
 ## Next steps
 Learn how to [create a cloud service package](cloud-services-model-and-package.md).
+
 
 

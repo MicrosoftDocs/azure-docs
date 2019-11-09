@@ -7,7 +7,7 @@ author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: gwallace
+author: tagore
 ---
 
 # Introduction to Cloud Service Monitoring
@@ -91,5 +91,6 @@ Note that while you can use Application Insights to display the performance coun
 
 - [Learn about Application Insights with Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Set up performance counters](diagnostics-performance-counters.md)
+
 
 

@@ -9,7 +9,7 @@ ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: gwallace
+author: tagore
 ---
 
 # Install .NET on Azure Cloud Services roles
@@ -229,4 +229,5 @@ When you deploy your cloud service, the startup tasks install the .NET Framework
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
+
 

@@ -6,7 +6,7 @@ author: tgore03
 ms.service: multiple
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
+author: tagore
 
 ---
 # Overview of Azure Cloud Services
@@ -43,6 +43,7 @@ The PaaS nature of Azure Cloud Services has other implications, too. One of the 
 * [Create a cloud service app in Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Create a cloud service app in PHP](../cloud-services-php-create-web-role.md) 
 * [Create a cloud service app in Python](cloud-services-python-ptvs.md)
+
 
 
 
