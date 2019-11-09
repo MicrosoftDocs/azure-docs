@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
+
 
 This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
 

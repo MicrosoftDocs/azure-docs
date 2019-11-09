@@ -10,7 +10,7 @@ ms.author: rogarana
 ms.custom: "include file"
 ---
 
-# Backup and disaster recovery for Azure IaaS disks
+
 
 This article explains how to plan for backup and disaster recovery (DR) of IaaS virtual machines (VMs) and disks in Azure. This document covers both managed and unmanaged disks.
 
