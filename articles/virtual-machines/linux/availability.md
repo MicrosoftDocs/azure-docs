@@ -17,5 +17,6 @@ ms.author: cynthn
 
 ---
 
+# Availability options for virtual machines in Azure
 [!INCLUDE [virtual-machines-common-availability](../../../includes/virtual-machines-common-availability.md)]
 

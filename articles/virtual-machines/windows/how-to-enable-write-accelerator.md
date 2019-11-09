@@ -21,4 +21,5 @@ ms.subservice: disks
 
 ---
 
+# Enable Write Accelerator
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]

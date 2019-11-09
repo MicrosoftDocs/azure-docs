@@ -16,5 +16,6 @@ ms.date: 05/10/2019
 ms.author: cynthn
 
 ---
+# Regions for virtual machines in Azure
 [!INCLUDE [virtual-machines-common-regions](../../../includes/virtual-machines-common-regions.md)]
 

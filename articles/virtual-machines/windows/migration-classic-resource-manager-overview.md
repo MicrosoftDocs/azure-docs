@@ -18,6 +18,7 @@ ms.date: 10/10/2017
 ms.author: kasing
 
 ---
+# Frequently asked questions about classic to Azure Resource Manager migration
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-overview.md)]
 
 ## Next steps
