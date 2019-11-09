@@ -1,5 +1,5 @@
 ---
-title: Application Registration Portal app registrations training guide - Azure
+title: Application Registration Portal app registrations training guide - Microsoft identity platform | Azure
 description: App registrations in the Azure portal for users familiar with Application registration portal
 services: active-directory
 documentationcenter: ''

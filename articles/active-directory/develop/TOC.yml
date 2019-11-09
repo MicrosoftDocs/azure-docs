@@ -392,8 +392,8 @@
       items:
       - name: Azure portal app registrations training guide (legacy)
         href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-      - name: Application Registration Portal app registrations training guide
-        href: app-registrations-training-guide-for-application-registration-portal-users.md
+      - name: Application Registration Portal app registration guide
+        href: app-registration-portal-training-guide.md
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
       - name: Create service principal
