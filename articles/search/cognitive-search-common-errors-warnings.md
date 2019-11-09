@@ -1,20 +1,19 @@
 ---
-title: Common Errors and Warnings - Azure Search
-description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Search.
-services: search
-manager: heidist
-author: amotley
+title: Common Errors and Warnings
+titleSuffix: Azure Cognitive Search
+description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
 
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
+manager: nitinme
+author: amotley
 ms.author: abmotley
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Common errors and warnings of the AI enrichment pipeline in Azure Search
+# Common errors and warnings of the AI enrichment pipeline in Azure Cognitive Search
 
-This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Search.
+This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
 
 ## Errors
 Indexing stops when the error count exceeds ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -60,6 +59,8 @@ Indexer was not able to run a skill in the skillset.
 
 | Reason | Example | Action |
 | --- | --- | --- |
+| A field contains a term that is too large | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
+| Document is too large to be indexed | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index.md)
 | Transient connectivity issues | A transient error occurred. Please try again later. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 | Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. Please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) to get help. |
 | A skill has encountered an error during execution | (From Merge Skill) One or more offset values were invalid and could not be parsed. Items were inserted at the end of the text | Use the information in the error message to fix the issue. This kind of failure will require action to resolve. |
@@ -111,9 +112,11 @@ The document was read and processed, but the indexer could not add it to the sea
 | --- | --- | --- |
 | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | A field contains a term that is too large | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
 | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | Document is too large to be indexed | [How to index large data sets](search-howto-large-index.md)
+| Document contains too many objects in collection | A collection in your document exceeds the [maximum elements across all complex collections limit](search-limits-quotas-capacity.md#index-limits) | We recommend reducing the size of the complex collection in the document to below the limit and avoid high storage utilization.
 | Trouble connecting to the target index (that persists after retries) because the service is under other load, such as querying or indexing. | Failed to establish connection to update index. Search service is under heavy load. | [Scale up your search service](search-capacity-planning.md)
 | Search service is being patched for service update, or is in the middle of a topology reconfiguration. | Failed to establish connection to update index. Search service is currently down/Search service is undergoing a transition. | Configure service with at least 3 replicas for 99.9% availability per [SLA documentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Failure in the underlying compute/networking resource (rare) | Failed to establish connection to update index. An unknown failure occurred. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state.
+| An indexing request made to the target index was not acknowledged within a timeout period due to network issues. | Could not establish connection to the search index in a timely manner. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state. Additionally, try lowering the indexer [batch size](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) if this error condition persists.
 
 ### Could not index document because the indexer data to index was invalid
 
@@ -127,7 +130,7 @@ The document was read and processed, but due to a mismatch in the configuration 
 | An unknown type was discovered in the source document. | Unknown type '_unknown_' cannot be indexed |
 | An incompatible notation for geography points was used in the source document. | WKT POINT string literals are not supported. Please use GeoJson point literals instead |
 
-In all these cases, refer to [Supported Data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers in Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
+In all these cases, refer to [Supported Data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
 
 ### Could not process document within indexer max run time
 
@@ -220,4 +223,14 @@ The ability to resume an unfinished indexing job is predicated on having documen
 
 It is possible to override this behavior, enabling incremental progress and suppressing this warning by using the `assumeOrderByHighWatermarkColumn` configuration property.
 
-[More information about Cosmos DB incremental progress and custom queries.](https://go.microsoft.com/fwlink/?linkid=2099593)
+For more information, see [Incremental progress and custom queries](search-howto-index-cosmosdb.md#IncrementalProgress).
+
+### Truncated extracted text to X characters
+Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, and 4 million for Standard, Standard S2 and Standard S3 tiers. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
+
+For more information, see [Indexer limits](search-limits-quotas-capacity.md#indexer-limits).
+
+### Could not map output field 'X' to search index
+Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To workaround this issue, double-check your output field mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+
+Indexer was able to run a skill in the skillset, but the response from the Web API request indicated there were warnings during execution. Review the warnings to understand how your data is impacted and whether or not action is required.
