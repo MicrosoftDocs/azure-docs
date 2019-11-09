@@ -11,26 +11,26 @@ ms.date: 11/07/2019
 ---
 
 # Use Python to connect and query data in Azure Database for PostgreSQL - Single Server
-This quickstart demonstrates how to use [Python](https://python.org) with an Azure Database for PostgreSQL. The quickstart shows how to connect to the database and use SQL statements to query, insert, update, and delete data on macOS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you're familiar with Python, but new to working with Azure Database for PostgreSQL.
+This quickstart demonstrates how to use [Python](https://python.org) with an Azure Database for PostgreSQL. The quickstart shows how to use macOS, Ubuntu Linux, or Windows to connect to the database and use SQL statements to query, insert, update, and delete data. The quickstart assumes that you're familiar with Python, but new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
-- An Azure Database for PostgresQL - Single Server, created by using the [Azure portal](quickstart-create-server-database-portal.md) or [Azure CLI](quickstart-create-server-database-azure-cli.md). 
-- [Python](https://www.python.org/downloads/) with [pip](https://pip.pypa.io/en/stable/installing/) installed. The `pip` package installer is automatically installed with Python 2.7.9 or above, or Python 3.4 or above.
+- An Azure Database for PostgresQL - Single Server, created by using the steps in [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](quickstart-create-server-database-portal.md) or [Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI](quickstart-create-server-database-azure-cli.md). 
+- [Python](https://www.python.org/downloads/) 2.7 or 3.4 or above, with [pip](https://pip.pypa.io/en/stable/installing/) package installer. `pip` is automatically installed with Python 2.7.9 or above, or Python 3.4 or above.
 
 ## Install the Python libraries for PostgreSQL
-The [psycopg2](https://pypi.python.org/pypi/psycopg2/) package enables connecting to and querying a PostgreSQL database. The `psycopg2` package is available as a [wheel](https://pythonwheels.com/) package for Linux, macOS, or Windows. [Install](http://initd.org/psycopg/docs/install.html) the binary version of the module, including all the dependencies.
+The [psycopg2](https://pypi.python.org/pypi/psycopg2/) package enables connecting to and querying a PostgreSQL database, and is available as a Linux, macOS, or Windows [wheel](https://pythonwheels.com/) package. Install the binary version of the module, including all the dependencies. For more information about `psycopg2` installation and requirements, see [Installation](http://initd.org/psycopg/docs/install.html). 
 
-To use `pip` to install `psycopp2`:
+To install `psycopg2`:
 
 1. Launch a command-line interface, such as Bash shell for Linux, Terminal for macOS, or Windows Command Prompt.
 1. Make sure you're using the current version of `pip`, by running a command like `pip install -U pip`.
-3. Run `pip install psycopg2` to install the `psycopg2` package.
+3. Run `pip install psycopg2`.
 
 ## Get database connection information
 Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can get this information from the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select your Azure Database for PostgreSQL server name. 
-1. On the server's **Overview** page, copy the **Server name** and **Admin username**. The fully qualified server name is always of the form *\<your server name>.postgres.database.azure.com*, and the admin username is always of the form *\<your username>@\<your server name>*. 
+1. On the server's **Overview** page, copy the fully qualified **Server name** and the **Admin username**. The fully qualified **Server name** is always of the form *\<my-server-name>.postgres.database.azure.com*, and the **Admin username** is always of the form *\<my-admin-username>@\<my-server-name>*. 
    
    You also need your admin password. If you forget it, you can reset it from this page. 
    
@@ -49,7 +49,7 @@ For each of the following code examples:
    
 1. Save the file in your project folder with a *.py* extension, such as *postgres-insert.py*. For Windows, make sure UTF-8 encoding is selected when you save the file. 
    
-1. To run the file, change to your project folder in your command-line interface, and type `python` followed by the filename, for example `python postgres-insert.py`.
+1. To run the file, change to your project folder in a command-line interface, and type `python` followed by the filename, for example `python postgres-insert.py`.
 
 ## Create a table and insert data
 The following code example connects to your Azure Database for PostgreSQL database using the [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function, and loads data with a SQL **INSERT** statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function executes the SQL query against the database. 
