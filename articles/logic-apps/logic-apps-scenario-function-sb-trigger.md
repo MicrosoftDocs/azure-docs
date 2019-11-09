@@ -45,9 +45,9 @@ For this scenario, you have a function running each logic app that you want to t
 
    If you don't have a schema, but you have a sample payload in JSON format, you can generate a schema from that payload.
 
-   1. In the Request trigger, choose **Use sample payload to generate schema**.
+   1. In the Request trigger, select **Use sample payload to generate schema**.
 
-   1. Under **Enter or paste a sample JSON payload**, enter your sample payload, and then choose **Done**.
+   1. Under **Enter or paste a sample JSON payload**, enter your sample payload, and then select **Done**.
 
       ![Enter sample payload](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
@@ -97,9 +97,9 @@ Next, create the function that acts as the trigger and listens to the queue.
 
 1. In the Azure portal, open and expand your function app, if not already open. 
 
-1. Under your function app name, expand **Functions**. On the **Functions** pane, choose **New function**.
+1. Under your function app name, expand **Functions**. On the **Functions** pane, select **New function**.
 
-   ![Expand "Functions" and choose "New function"](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   ![Expand "Functions" and select "New function"](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
 
 1. Select this template based on whether you created a new function app where you selected .NET as the runtime stack, or you're using an existing function app.
 
@@ -111,9 +111,17 @@ Next, create the function that acts as the trigger and listens to the queue.
 
      ![Select template for existing function app](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. On the **Azure Service Bus Queue trigger** pane, provide a name for your trigger, and set up the **Service Bus connection** for the queue, which uses the Azure Service Bus SDK `OnMessageReceive()` listener, and choose **Create**.
+1. On the **Azure Service Bus Queue trigger** pane, provide a name for your trigger, and set up the **Service Bus connection** for the queue, which uses the Azure Service Bus SDK `OnMessageReceive()` listener, and select **Create**.
 
-1. Write a basic function to call the previously created logic app endpoint by using the queue message as a trigger. This example uses the `application/json` message content type, but you can change this type as necessary. If possible, reuse the instance of HTTP clients. For more information, see [Manage connections in Azure Functions](../azure-functions/manage-connections.md).
+1. Write a basic function to call the previously created logic app endpoint by using the queue message as a trigger. Before you write your function, review these considerations:
+
+   * This example uses the `application/json` message content type, but you can change this type as necessary.
+   
+   * Due to possible concurrently running functions, high volumes, or heavy loads, avoid instantiating the [HTTPClient class](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) with the `using` statement and directly creating HTTPClient instances per request. For more information, see [Use HttpClientFactory to implement resilient HTTP requests](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   
+   * If possible, reuse the instance of HTTP clients. For more information, see [Manage connections in Azure Functions](../azure-functions/manage-connections.md).
+
+   This example uses the [`Task.Run` method](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) in [asynchronous](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) mode. For more information, see [Asynchronous programming with async and await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
    ```CSharp
    using System;
@@ -121,17 +129,16 @@ Next, create the function that acts as the trigger and listens to the queue.
    using System.Net.Http;
    using System.Text;
 
-   // Callback URL for previously created Request trigger
+   // Can also fetch from App Settings or environment variable
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/workflows/<remaining-callback-URL>";
 
-   // Reuse the instance of HTTP clients if possible
+   // Reuse the instance of HTTP clients if possible: https://docs.microsoft.com/azure/azure-functions/manage-connections
    private static HttpClient httpClient = new HttpClient();
 
-   public static void Run(string myQueueItem, ILogger log)
+   public static async Task Run(string myQueueItem, TraceWriter log) 
    {
-       log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-
-       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
+      log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+      var response = await httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")); 
    }
    ```
 
