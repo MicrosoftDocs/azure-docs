@@ -100,11 +100,11 @@ This trigger starts a logic app workflow when the trigger detects when a file is
 
    ![Create connection to FTP server](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)
 
-1. In to the **Folder** property box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+1. In the **Folder** box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
 
    ![Find and select folder to monitor](./media/connectors-create-api-ftp/select-folder-ftp-trigger.png)
 
-   Your selected folder appears in the **Folder** property.
+   Your selected folder appears in the **Folder** box.
 
    ![Selected folder appears in the "Folder" property](./media/connectors-create-api-ftp/selected-folder-ftp-trigger.png)
 
@@ -126,7 +126,7 @@ This action gets the content from a file on an FTP server when that file is adde
 
    ![Create connection to FTP server](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
-1. After the **Get file content** action opens, click inside the **File** box so that the dynamic content list appears. You can now select properties for the outputs from previous steps. From the dynamic content list, select the **List of Files Name** property, which contains the name of the added or updated file.
+1. After the **Get file content** action opens, click inside the **File** box so that the dynamic content list appears. You can now select properties for the outputs from previous steps. In the dynamic content list, under **Get file content**, select the **List of Files Name** property, which lets you reference the name of the added or updated file.
 
    ![Find and select "List of Files Name" property](./media/connectors-create-api-ftp/select-list-of-file-names-output.png)
 
@@ -136,9 +136,13 @@ This action gets the content from a file on an FTP server when that file is adde
 
 1. Under the **Get file content** action, add another **Get file content** action.
 
-1. In the second **Get file content** action, click inside the **File** box so that the dynamic content list appears. This time, select the **File content** property, which lets you reference the content in the added or updated file.
+1. In the second **Get file content** action, click inside the **File** box so that the dynamic content list appears. In the dynamic content list, under **Get file content 2**, select the **File content** property, which lets you reference the content in the added or updated file.
 
-   ![Find and select "File content" property](./media/connectors-create-api-ftp/selected-file-content-ftp-action.png)
+   ![Find and select "File content" property](./media/connectors-create-api-ftp/select-file-content-output.png)
+
+   The **File content** property now appears in the **File** box.
+
+   ![Selected "File content" property](./media/connectors-create-api-ftp/selected-file-content-ftp-action.png)
 
 1. Save your logic app. To test your workflow, add a file to the FTP folder that your logic app now monitors.
 
