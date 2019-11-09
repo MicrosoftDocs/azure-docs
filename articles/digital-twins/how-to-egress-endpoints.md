@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ---
 
-# Egress and endpoints
+# Egress and endpoints in Azure Digital Twins
 
 Azure Digital Twins *endpoints* represent a message or event broker within a user's Azure subscription. Events and messages can be sent to Azure Event Hubs, Azure Event Grid, and Azure Service Bus topics.
 

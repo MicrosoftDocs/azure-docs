@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/30/2019
 ---
 
-# Security best practices
+# Azure Digital Twins security best practices
 
 Azure Digital Twins security enables precise access to specific resources and actions in your IoT graph. It does so through granular role and permission management called [role-based access control](./security-role-based-access-control.md).
 
