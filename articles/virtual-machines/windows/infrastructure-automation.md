@@ -18,5 +18,5 @@ ms.date: 12/13/2017
 ms.author: cynthn
 ---
 
-# Platform-supported migration of IaaS resources from classic to Azure Resource Manager
+# Use infrastructure automation tools with virtual machines in Azure
 [!INCLUDE [virtual-machines-common-infrastructure-automation](../../../includes/virtual-machines-common-infrastructure-automation.md)]

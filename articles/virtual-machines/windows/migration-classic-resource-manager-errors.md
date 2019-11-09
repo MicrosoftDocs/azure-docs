@@ -19,7 +19,7 @@ ms.author: kasing
 
 ---
 
-# Use infrastructure automation tools with virtual machines in Azure
+# Common errors during Classic to Azure Resource Manager migration
 [!INCLUDE [virtual-machines-common-migration-errors](../../../includes/virtual-machines-common-classic-resource-manager-migration-common-errors.md)]
 
 ## Next steps
